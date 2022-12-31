@@ -70,16 +70,16 @@ public final class RecordStatementCreator implements IRecordStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToInsertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
+	public String createStatementToInsertRecordIntoTable(final String tableName, final INewEntityDTO newEntity) {
 		return
 		"INSERT INTO "
 		+ tableName
 		+ " (Id, "
-		+ pRecord.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
+		+ newEntity.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
 		+ ") VALUES ("
-		+ pRecord.getId()
+		+ newEntity.getId()
 		+ ", "
-		+ pRecord.getContentFields().to(this::getValueOrNullInSQLOf).toString(", ")
+		+ newEntity.getContentFields().to(this::getValueOrNullInSQLOf).toString(", ")
 		+ ")";
 	}
 	

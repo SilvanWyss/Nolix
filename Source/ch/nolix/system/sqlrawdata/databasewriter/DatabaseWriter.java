@@ -178,8 +178,8 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void insertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
-		internalDatabaseWriter.insertRecordIntoTable(tableName, pRecord);
+	public void insertNewEntityIntoTable(final String tableName, final INewEntityDTO newEntity) {
+		internalDatabaseWriter.insertRecordIntoTable(tableName, newEntity);
 	}
 	
 	//method

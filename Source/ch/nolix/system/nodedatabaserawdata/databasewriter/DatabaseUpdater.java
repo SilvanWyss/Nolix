@@ -225,20 +225,20 @@ final class DatabaseUpdater {
 	public void insertRecordIntoTable(
 		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
-		final INewEntityDTO pRecord
+		final INewEntityDTO newEntity
 	) {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		if (tableNodeSearcher.tableNodeContainsRecordNodeWithGivenId(tableNode, pRecord.getId())) {
+		if (tableNodeSearcher.tableNodeContainsRecordNodeWithGivenId(tableNode, newEntity.getId())) {
 			throw
 			ArgumentHasAttributeException.forArgumentAndAttributeName(
 				"table " + tableInfo.getTableNameInQuotes(),
-				"record with the id '" + pRecord.getId() + "'"
+				"record with the id '" + newEntity.getId() + "'"
 			);
 		}
 		
-		final var recordNode = entityNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, pRecord, 0);
+		final var recordNode = entityNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, newEntity, 0);
 		
 		tableNode.addChildNode(recordNode);
 	}

@@ -165,8 +165,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void insertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
-		databaseAdapter.insertRecordIntoTable(tableName, pRecord);
+	public final void insertNewEntityIntoTable(final String tableName, final INewEntityDTO newEntity) {
+		databaseAdapter.insertNewEntityIntoTable(tableName, newEntity);
 	}
 	
 	//method

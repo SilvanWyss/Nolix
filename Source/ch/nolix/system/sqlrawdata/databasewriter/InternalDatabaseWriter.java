@@ -156,9 +156,9 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
+	public void insertRecordIntoTable(final String tableName, final INewEntityDTO newEntity) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, pRecord)
+			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, newEntity)
 		);
 	}
 	

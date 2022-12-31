@@ -176,8 +176,8 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void insertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
-		internalDatabaseWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), pRecord);
+	public void insertNewEntityIntoTable(final String tableName, final INewEntityDTO newEntity) {
+		internalDatabaseWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), newEntity);
 	}
 	
 	//method

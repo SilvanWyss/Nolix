@@ -147,8 +147,8 @@ final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final ITableInfo tableInfo, final INewEntityDTO pRecord) {
-		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, pRecord));
+	public void insertRecordIntoTable(final ITableInfo tableInfo, final INewEntityDTO newEntity) {
+		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, newEntity));
 	}
 	
 	//methods

@@ -126,9 +126,9 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * Inserts the given pRecord into the table with the given tableName.
 	 * 
 	 * @param tableName
-	 * @param pRecord
+	 * @param newEntity
 	 */
-	void insertRecordIntoTable(String tableName, INewEntityDTO pRecord);
+	void insertNewEntityIntoTable(String tableName, INewEntityDTO newEntity);
 	
 	//method declaration
 	/**

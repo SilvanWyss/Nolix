@@ -147,8 +147,8 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void insertRecordIntoTable(final String tableName, final INewEntityDTO pRecord) {
-		databaseWriter.insertRecordIntoTable(tableName, pRecord);
+	public final void insertNewEntityIntoTable(final String tableName, final INewEntityDTO newEntity) {
+		databaseWriter.insertNewEntityIntoTable(tableName, newEntity);
 	}
 	
 	@Override

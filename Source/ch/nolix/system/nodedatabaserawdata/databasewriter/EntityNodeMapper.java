@@ -15,29 +15,29 @@ final class EntityNodeMapper {
 	//method
 	public Node createNodeFromRecordWithSaveStamp(
 		final ITableInfo tableInfo,
-		final INewEntityDTO pRecord,
+		final INewEntityDTO newEntity,
 		final long saveStamp
 	) {
 		return
 		Node.withHeaderAndChildNodes(
 			SubNodeHeaderCatalogue.RECORD,
-			createAttributesFromRecordWithSaveStamp(pRecord, saveStamp, tableInfo)
+			createAttributesFromRecordWithSaveStamp(newEntity, saveStamp, tableInfo)
 		);
 	}
 	
 	//method
 	private IContainer<Node> createAttributesFromRecordWithSaveStamp(
-		final INewEntityDTO pRecord,
+		final INewEntityDTO newEntity,
 		final long saveStamp,
 		final ITableInfo tableInfo
 	) {
 		
 		final var attributes = new Node[2 + tableInfo.getColumnInfos().getElementCount()];
 		
-		attributes[0] = createIdAttributeFrom(pRecord);
+		attributes[0] = createIdAttributeFrom(newEntity);
 		attributes[1] = createSaveStampAttribute(saveStamp);
 		
-		for (final var cf : pRecord.getContentFields()) {
+		for (final var cf : newEntity.getContentFields()) {
 			
 			final var columnInfo =  tableInfo.getColumnInfoByColumnName(cf.getColumnName());
 			final var index = columnInfo.getColumnIndexOnEntityNode() - 1;
@@ -54,8 +54,8 @@ final class EntityNodeMapper {
 	}
 	
 	//method
-	private Node createIdAttributeFrom(final INewEntityDTO pRecord) {
-		return Node.withHeader(pRecord.getId());
+	private Node createIdAttributeFrom(final INewEntityDTO newEntity) {
+		return Node.withHeader(newEntity.getId());
 	}
 	
 	//method

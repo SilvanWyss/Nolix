@@ -53,7 +53,7 @@ final class SaveProcessor {
 			switch (e.getState()) {
 				case NEW:
 					
-					database.internalGetRefDataAndSchemaAdapter().insertRecordIntoTable(
+					database.internalGetRefDataAndSchemaAdapter().insertNewEntityIntoTable(
 						e.getParentTableName(),
 						entityHelper.createNewEntityDTOForEntity(e)
 					);
