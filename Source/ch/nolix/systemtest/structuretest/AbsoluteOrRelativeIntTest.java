@@ -72,7 +72,7 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getValueRelativeToHundredPercentValue_whenAbsoluteRelativeIntIsAbsolute() {
+	public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsolute() {
 		
 		//setup
 		final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
@@ -87,7 +87,7 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 	//method
 	@TestCase
 	public void
-	testCase_getValueRelativeToHundredPercentValue_whenAbsoluteRelativeIntIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
+	testCase_getValueRelativeToHundredPercentValue_whenIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
 		
 		//setup
 		final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
@@ -101,7 +101,7 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getValueRelativeToHundredPercentValue_whenAbsoluteRelativeIntIsRelative() {
+	public void testCase_getValueRelativeToHundredPercentValue_whenIsRelative() {
 		
 		//setup
 		final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
@@ -116,7 +116,7 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 	//method
 	@TestCase
 	public void
-	testCase_getValueRelativeToHundredPercentValue_whenAbsoluteRelativeIntIsRelativeAndTheGivenHundredPercentValueIsZero() {
+	testCase_getValueRelativeToHundredPercentValue_whenIsRelativeAndTheGivenHundredPercentValueIsZero() {
 		
 		//setup
 		final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
