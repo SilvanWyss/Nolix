@@ -23,7 +23,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param entityId
 	 * @param multiReferenceColumnName
 	 */
-	void deleteEntriesFromMultiReference(String tableName, String entityId, String multiReferenceColumnName);
+	void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
 	
 	//method declaration
 	/**
@@ -33,7 +33,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param entityId
 	 * @param multiValueColumnName
 	 */
-	void deleteEntriesFromMultiValue(String tableName, String entityId, String multiValueColumnName);
+	void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
 	
 	//method declaration
 	/**
@@ -44,7 +44,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param multiRefereceColumnName
 	 * @param referencedEntityId
 	 */
-	void deleteEntryFromMultiReference(
+	void deleteMultiReferenceEntry(
 		String tableName,
 		String entityId,
 		String multiRefereceColumnName,
@@ -60,7 +60,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param multiValueColumnName
 	 * @param entry
 	 */
-	void deleteEntryFromMultiValue(
+	void deleteMultiValueEntry(
 		String tableName,
 		String entityId,
 		String multiValueColumnName,
@@ -74,7 +74,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param entity
 	 */
-	void deleteRecordFromTable(String tableName, IEntityHeadDTO entity);
+	void deleteEntity(String tableName, IEntityHeadDTO entity);
 	
 	//method declaration
 	/**
@@ -103,7 +103,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param multiReferenceColumnName
 	 * @param referencedEntityId
 	 */
-	void insertEntryIntoMultiReference(
+	void insertMultiReferenceEntry(
 		String tableName,
 		String entityId,
 		String multiReferenceColumnName,
@@ -119,7 +119,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param multiValueColumnName
 	 * @param entry
 	 */
-	void insertEntryIntoMultiValue(String tableName, String entityId, String multiValueColumnName, String entry);
+	void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 	
 	//method declaration
 	/**
@@ -128,7 +128,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param newEntity
 	 */
-	void insertNewEntityIntoTable(String tableName, INewEntityDTO newEntity);
+	void insertNewEntity(String tableName, INewEntityDTO newEntity);
 	
 	//method declaration
 	/**
@@ -147,5 +147,5 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param recordUpdate
 	 */
-	void updateEntityOnTable(String tableName, IEntityUpdateDTO recordUpdate);
+	void updateEntity(String tableName, IEntityUpdateDTO recordUpdate);
 }

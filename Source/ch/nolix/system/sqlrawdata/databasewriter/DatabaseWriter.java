@@ -56,7 +56,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void deleteEntriesFromMultiReference(
+	public void deleteMultiReferenceEntries(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
@@ -69,7 +69,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void deleteEntriesFromMultiValue(
+	public void deleteMultiValueEntries(
 		final String tableName,
 		final String entityId,
 		final String multiValueColumnName
@@ -82,7 +82,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void deleteEntryFromMultiReference(
+	public void deleteMultiReferenceEntry(
 		final String tableName,
 		final String entityId,
 		final String multiRefereceColumnName,
@@ -97,7 +97,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void deleteEntryFromMultiValue(
+	public void deleteMultiValueEntry(
 		final String tableName,
 		final String entityId,
 		final String multiValueColumnName,
@@ -112,7 +112,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
+	public void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
 		internalDatabaseWriter.deleteRecordFromTable(tableName, entity);
 	}
 	
@@ -148,7 +148,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void insertEntryIntoMultiReference(
+	public void insertMultiReferenceEntry(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName,
@@ -163,7 +163,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void insertEntryIntoMultiValue(
+	public void insertMultiValueEntry(
 		final String tableName,
 		final String entityId,
 		final String multiValueColumnName,
@@ -178,7 +178,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void insertNewEntityIntoTable(final String tableName, final INewEntityDTO newEntity) {
+	public void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
 		internalDatabaseWriter.insertRecordIntoTable(tableName, newEntity);
 	}
 	
@@ -208,7 +208,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void updateEntityOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
+	public void updateEntity(final String tableName, final IEntityUpdateDTO recordUpdate) {
 		internalDatabaseWriter.updateEntityOnTable(tableName, recordUpdate);
 	}
 	

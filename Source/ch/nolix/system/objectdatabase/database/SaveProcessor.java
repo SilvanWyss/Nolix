@@ -53,7 +53,7 @@ final class SaveProcessor {
 			switch (e.getState()) {
 				case NEW:
 					
-					database.internalGetRefDataAndSchemaAdapter().insertNewEntityIntoTable(
+					database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
 						e.getParentTableName(),
 						entityHelper.createNewEntityDTOForEntity(e)
 					);
@@ -63,7 +63,7 @@ final class SaveProcessor {
 					break;
 				case EDITED:
 					
-					database.internalGetRefDataAndSchemaAdapter().updateEntityOnTable(
+					database.internalGetRefDataAndSchemaAdapter().updateEntity(
 						e.getParentTableName(),
 						entityHelper.createEntityUpdateDTOForEntity(e)
 					);
@@ -73,7 +73,7 @@ final class SaveProcessor {
 					break;
 				case DELETED:
 					
-					database.internalGetRefDataAndSchemaAdapter().deleteRecordFromTable(
+					database.internalGetRefDataAndSchemaAdapter().deleteEntity(
 						e.getRefParentTable().getName(),
 						entityHelper.createEntityHeadDTOForEntity(e)
 					);
@@ -132,7 +132,7 @@ final class SaveProcessor {
 				
 				final var entity = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
 				
-				database.internalGetRefDataAndSchemaAdapter().insertEntryIntoMultiReference(
+				database.internalGetRefDataAndSchemaAdapter().insertMultiReferenceEntry(
 					entity.getParentTableName(),
 					entity.getId(),
 					multiReferenceEntry.getRefParentMultiReference().getName(),
@@ -144,7 +144,7 @@ final class SaveProcessor {
 				
 				final var entity2 = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
 				
-				database.internalGetRefDataAndSchemaAdapter().deleteEntryFromMultiReference(
+				database.internalGetRefDataAndSchemaAdapter().deleteMultiReferenceEntry(
 					entity2.getParentTableName(),
 					entity2.getId(),
 					multiReferenceEntry.getRefParentMultiReference().getName(),

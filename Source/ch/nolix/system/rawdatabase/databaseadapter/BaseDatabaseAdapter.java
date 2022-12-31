@@ -41,50 +41,50 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void deleteEntriesFromMultiReference(
+	public final void deleteMultiReferenceEntries(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		databaseWriter.deleteEntriesFromMultiReference(tableName, entityId, multiReferenceColumnName);
+		databaseWriter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
 	@Override
-	public final void deleteEntriesFromMultiValue(
+	public final void deleteMultiValueEntries(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumn
 	) {
-		databaseWriter.deleteEntriesFromMultiValue(tableName, entityId, multiFieldColumn);
+		databaseWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
 	}
 	
 	//method
 	@Override
-	public final void deleteEntryFromMultiReference(
+	public final void deleteMultiReferenceEntry(
 		final String tableName,
 		final String entityId,
 		final String multiRefereceColumnName,
 		final String referencedEntityId
 	) {
-		databaseWriter.deleteEntryFromMultiReference(tableName, entityId, multiRefereceColumnName, referencedEntityId);
+		databaseWriter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
 	}
 	
 	//method
 	@Override
-	public final void deleteEntryFromMultiValue(
+	public final void deleteMultiValueEntry(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		databaseWriter.deleteEntryFromMultiValue(tableName, entityId, multiFieldColumn, entry);
+		databaseWriter.deleteMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
 	}
 	
 	//method
 	@Override
-	public final void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
-		databaseWriter.deleteRecordFromTable(tableName, entity);
+	public final void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
+		databaseWriter.deleteEntity(tableName, entity);
 	}
 	
 	//method
@@ -125,30 +125,30 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void insertEntryIntoMultiReference(
+	public final void insertMultiReferenceEntry(
 		final String tableName,
 		final String entityId,
 		final String multiReferenceColumnName,
 		final String referencedEntityId
 	) {
-		databaseWriter.insertEntryIntoMultiReference(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+		databaseWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
 	}
 	
 	//method
 	@Override
-	public final void insertEntryIntoMultiValue(
+	public final void insertMultiValueEntry(
 		final String tableName,
 		final String entityId,
 		final String multiFieldColumn,
 		final String entry
 	) {
-		databaseWriter.insertEntryIntoMultiValue(tableName, entityId, multiFieldColumn, entry);
+		databaseWriter.insertMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
 	}
 	
 	//method
 	@Override
-	public final void insertNewEntityIntoTable(final String tableName, final INewEntityDTO newEntity) {
-		databaseWriter.insertNewEntityIntoTable(tableName, newEntity);
+	public final void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
+		databaseWriter.insertNewEntity(tableName, newEntity);
 	}
 	
 	@Override
@@ -216,7 +216,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void updateEntityOnTable(final String tableName, final IEntityUpdateDTO recordUpdate) {
-		databaseWriter.updateEntityOnTable(tableName, recordUpdate);
+	public final void updateEntity(final String tableName, final IEntityUpdateDTO recordUpdate) {
+		databaseWriter.updateEntity(tableName, recordUpdate);
 	}
 }
