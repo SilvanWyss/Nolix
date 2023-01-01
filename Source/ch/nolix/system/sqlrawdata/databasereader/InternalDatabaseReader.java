@@ -62,7 +62,7 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<String> loadAllMultiReferenceEntriesForRecord(
+	public IContainer<String> loadMultiReferenceEntries(
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
 	) {
@@ -78,7 +78,7 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<Object> loadMultiValueEntriesFromRecord(
+	public IContainer<Object> loadMultiValueEntries(
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
 	) {
@@ -94,7 +94,7 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
 		mSQLConnection
 		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
@@ -102,7 +102,7 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public ILoadedEntityDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
+	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		return
 		loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(
 			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),
