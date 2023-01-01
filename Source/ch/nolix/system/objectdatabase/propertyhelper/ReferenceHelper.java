@@ -25,7 +25,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createRecordUpdateDTOForSetEntity(
+	public IEntityUpdateDTO createEntityUpdateDTOForSetEntity(
 		final IReference<?, ?> reference,
 		final IEntity<?> entity
 	) {
