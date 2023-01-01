@@ -133,7 +133,7 @@ final class DatabaseUpdater {
 		final var recordNode =
 		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, entity.getId());
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(recordNode);
 		
 		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
@@ -254,7 +254,7 @@ final class DatabaseUpdater {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
 		
 		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entity.getSaveStamp())) {
@@ -280,7 +280,7 @@ final class DatabaseUpdater {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
 		
 		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entityUpdate.getSaveStamp())) {

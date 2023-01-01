@@ -20,19 +20,19 @@ public final class LoadedEntityDTOMapper {
 	
 	//method
 	public ILoadedEntityDTO createLoadedEntityDTOFromEntityNode(
-		final IMutableNode<?> recordNode,
+		final IMutableNode<?> entityNode,
 		final ITableInfo tableInfo
 	) {
 		return
 		new LoadedEntityDTO(
-			getIdFromRecordNode(recordNode),
-			getSaveStampFromRecordNode(recordNode),
-			createContentFieldsFromRecordNode(recordNode, tableInfo)
+			getIdFromEntityNode(entityNode),
+			getSaveStampFromEntityNode(entityNode),
+			createContentFieldsFromEntityNode(entityNode, tableInfo)
 		);
 	}
 	
 	//method
-	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromRecordNode(
+	private IContainer<ILoadedContentFieldDTO> createContentFieldsFromEntityNode(
 		final IMutableNode<?> entityNode,
 		final ITableInfo tableInfo
 	) {
@@ -49,17 +49,17 @@ public final class LoadedEntityDTOMapper {
 	}
 	
 	//method
-	private String getIdFromRecordNode(final IMutableNode<?> recordNode) {
+	private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
 		
-		final var idNode = entityNodeSearcher.getRefIdNodeFromRecordNode(recordNode);
+		final var idNode = entityNodeSearcher.getRefIdNodeFromEntityNode(entityNode);
 		
 		return idNode.getHeader();
 	}
 	
 	//method
-	private String getSaveStampFromRecordNode(IMutableNode<?> recordNode) {
+	private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromRecordNode(recordNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
 		
 		return saveStampNode.getHeader();
 	}
