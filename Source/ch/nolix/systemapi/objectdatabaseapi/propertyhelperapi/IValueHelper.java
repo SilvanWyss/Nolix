@@ -12,5 +12,5 @@ public interface IValueHelper extends IPropertyHelper {
 	boolean canSetGivenValue(IValue<?, ?> value, Object valueToSet);
 	
 	//method declaration
-	IEntityUpdateDTO createRecordUpdateDTOForSetValue(IValue<?, ?> value, Object valueToSet);
+	IEntityUpdateDTO createEntityUpdateDTOForSetValue(IValue<?, ?> value, Object valueToSet);
 }
