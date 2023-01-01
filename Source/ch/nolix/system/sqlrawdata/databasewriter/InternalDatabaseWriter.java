@@ -45,7 +45,7 @@ public final class InternalDatabaseWriter {
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		entityStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
+		entityStatementCreator = pSQLSyntaxProvider.getEntityStatementCreator();
 		multiValueStatementCreator = pSQLSyntaxProvider.getMultiValueStatemeentCreator();
 		multiReferenceStatementCreator = pSQLSyntaxProvider.getMultiReferenceStatemeentCreator();
 		

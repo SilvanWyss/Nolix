@@ -5,6 +5,12 @@ package ch.nolix.system.sqlrawdata.sqlapi;
 public interface ISQLSyntaxProvider {
 	
 	//method declaration
+	IEntityQueryCreator getEntityQueryCreator();
+	
+	//method declaration
+	IEntityStatementCreator getEntityStatementCreator();
+	
+	//method declaration
 	IMultiReferenceQueryCreator getMultiReferenceQueryCreator();
 	
 	//method declaration
@@ -15,10 +21,4 @@ public interface ISQLSyntaxProvider {
 	
 	//method declaration
 	IMultiValueStatementCreator getMultiValueStatemeentCreator();
-	
-	//method declaration
-	IEntityQueryCreator getRecordQueryCreator();
-	
-	//method declaration
-	IEntityStatementCreator getRecordStatementCreator();
 }

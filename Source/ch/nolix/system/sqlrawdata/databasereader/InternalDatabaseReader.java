@@ -46,7 +46,7 @@ final class InternalDatabaseReader {
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		entityQueryCreator = pSQLSyntaxProvider.getRecordQueryCreator();
+		entityQueryCreator = pSQLSyntaxProvider.getEntityQueryCreator();
 		multiValueQueryCreator = pSQLSyntaxProvider.getMultiValueQueryCreator();
 		multiReferenceQueryCreator = pSQLSyntaxProvider.getMultiReferenceQueryCreator();
 		

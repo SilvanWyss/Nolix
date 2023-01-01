@@ -58,13 +58,13 @@ public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	
 	//method
 	@Override
-	public IEntityQueryCreator getRecordQueryCreator() {
+	public IEntityQueryCreator getEntityQueryCreator() {
 		return entityQueryCreator;
 	}
 	
 	//method
 	@Override
-	public IEntityStatementCreator getRecordStatementCreator() {
+	public IEntityStatementCreator getEntityStatementCreator() {
 		return entityStatementCreator;
 	}
 }
