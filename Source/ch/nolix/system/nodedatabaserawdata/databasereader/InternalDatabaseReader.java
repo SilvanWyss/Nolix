@@ -28,7 +28,7 @@ public final class InternalDatabaseReader {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//static attribute
-	private static final LoadedRecordDTOMapper loadedRecordDTOMapper = new LoadedRecordDTOMapper();
+	private static final LoadedEntityDTOMapper loadedEntityDTOMapper = new LoadedEntityDTOMapper();
 	
 	//static attribute
 	private static final ValueMapper valueMapper = new ValueMapper();
@@ -62,7 +62,7 @@ public final class InternalDatabaseReader {
 		return
 		tableNodeSearcher
 		.getRefRecordNodesFromTableNode(tableNode)
-		.to(rn -> loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(rn, tableInfo));
+		.to(rn -> loadedEntityDTOMapper.createLoadedRecordDTOFromRecordNode(rn, tableInfo));
 	}
 	
 	//method
@@ -114,7 +114,7 @@ public final class InternalDatabaseReader {
 		
 		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, id);
 		
-		return loadedRecordDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableInfo);
+		return loadedEntityDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableInfo);
 	}
 	
 	//method

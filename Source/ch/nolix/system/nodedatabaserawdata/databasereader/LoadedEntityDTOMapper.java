@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class LoadedRecordDTOMapper {
+public final class LoadedEntityDTOMapper {
 	
 	//static attributes
 	private static final ContentFieldDTOMapper contentFieldDTOMapper = new ContentFieldDTOMapper();
