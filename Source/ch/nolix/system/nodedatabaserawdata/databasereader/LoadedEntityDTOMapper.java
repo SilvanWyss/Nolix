@@ -19,7 +19,7 @@ public final class LoadedEntityDTOMapper {
 	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 	
 	//method
-	public ILoadedEntityDTO createLoadedRecordDTOFromRecordNode(
+	public ILoadedEntityDTO createLoadedEntityDTOFromEntityNode(
 		final IMutableNode<?> recordNode,
 		final ITableInfo tableInfo
 	) {

@@ -10,7 +10,7 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 public final class TableNodeSearcher {
 	
 	//method
-	public IMutableNode<?> getRefRecordNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
+	public IMutableNode<?> getRefEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
 		return
 		tableNode.getRefFirstChildNodeThat(
 			a ->
@@ -30,7 +30,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public IContainer<? extends IMutableNode<?>> getRefRecordNodesFromTableNode(final IMutableNode<?> tableNode) {
+	public IContainer<? extends IMutableNode<?>> getRefEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD);
 	}
 	
@@ -51,7 +51,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
+	public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
 		final IMutableNode<?> tableNode,
 		final int valueIndex,
 		final String value

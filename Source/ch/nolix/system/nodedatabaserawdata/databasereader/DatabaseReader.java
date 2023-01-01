@@ -56,7 +56,7 @@ public final class DatabaseReader implements IDatabaseReader {
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
 		return
-		internalDatabaseReader.loadAllMultiReferenceEntriesForRecord(
+		internalDatabaseReader.loadMultiReferenceEntries(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiReferenceColumnName)
@@ -74,7 +74,7 @@ public final class DatabaseReader implements IDatabaseReader {
 		final var tableInfo = getTableInfoByTableName(tableName);
 		
 		return
-		internalDatabaseReader.loadMultiValueEntriesFromRecord(
+		internalDatabaseReader.loadMultiValueEntries(
 			tableInfo,
 			entityId,
 			tableInfo.getColumnInfoByColumnName(multiValueColumnName)
@@ -84,13 +84,13 @@ public final class DatabaseReader implements IDatabaseReader {
 	//method
 	@Override
 	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final String tableName) {
-		return internalDatabaseReader.loadAllRecordsFromTable(getTableInfoByTableName(tableName));
+		return internalDatabaseReader.loadEntitiesOfTable(getTableInfoByTableName(tableName));
 	}
 	
 	//method
 	@Override
 	public ILoadedEntityDTO loadEntity(final String tableName, final String id) {
-		return internalDatabaseReader.loadRecordFromTableById(getTableInfoByTableName(tableName), id);
+		return internalDatabaseReader.loadEntity(getTableInfoByTableName(tableName), id);
 	}
 	
 	//method

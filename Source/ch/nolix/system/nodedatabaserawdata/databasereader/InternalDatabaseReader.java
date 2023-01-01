@@ -54,19 +54,19 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<ILoadedEntityDTO> loadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
 		return
 		tableNodeSearcher
-		.getRefRecordNodesFromTableNode(tableNode)
-		.to(rn -> loadedEntityDTOMapper.createLoadedRecordDTOFromRecordNode(rn, tableInfo));
+		.getRefEntityNodesFromTableNode(tableNode)
+		.to(rn -> loadedEntityDTOMapper.createLoadedEntityDTOFromEntityNode(rn, tableInfo));
 	}
 	
 	//method
-	public IContainer<String> loadAllMultiReferenceEntriesForRecord(
+	public IContainer<String> loadMultiReferenceEntries(
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiReferenceColumnInfo
@@ -75,7 +75,7 @@ public final class InternalDatabaseReader {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -85,7 +85,7 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<Object> loadMultiValueEntriesFromRecord(
+	public IContainer<Object> loadMultiValueEntries(
 		final ITableInfo tableInfo,
 		final String entityId,
 		final IColumnInfo multiValueColumnInfo
@@ -94,7 +94,7 @@ public final class InternalDatabaseReader {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -107,14 +107,14 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public ILoadedEntityDTO loadRecordFromTableById(final ITableInfo tableInfo, final String id) {
+	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var recordNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, id);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, id);
 		
-		return loadedEntityDTOMapper.createLoadedRecordDTOFromRecordNode(recordNode, tableInfo);
+		return loadedEntityDTOMapper.createLoadedEntityDTOFromEntityNode(entityNode, tableInfo);
 	}
 	
 	//method
@@ -130,7 +130,7 @@ public final class InternalDatabaseReader {
 		final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 		
 		return
-		tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
+		tableNodeSearcher.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
 			tableNode,
 			columnIndex,
 			value

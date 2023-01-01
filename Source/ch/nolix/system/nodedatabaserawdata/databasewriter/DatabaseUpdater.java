@@ -50,7 +50,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -70,7 +70,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -91,7 +91,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferencedColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -112,7 +112,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -163,7 +163,7 @@ final class DatabaseUpdater {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
-		final var containsEntity = tableNodeSearcher.tableNodeContainsRecordNodeWhoseFieldAtGivenIndexContainsGivenValue(
+		final var containsEntity = tableNodeSearcher.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
 			tableNode,
 			FieldIndexCatalogue.ID_INDEX,
 			entityId
@@ -191,7 +191,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -212,7 +212,7 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefRecordNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
