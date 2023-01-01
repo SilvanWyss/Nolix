@@ -25,7 +25,7 @@ final class EntityMapper {
 		final var concreteEntity = (BaseEntity)loadedEntity;
 		concreteEntity.internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)table);
 		concreteEntity.internalSetLoaded();
-		addDataFromRecordToEntity(loadedEntityDTO, concreteEntity);
+		addDataToEntityFromLoadedEntityDTO(loadedEntityDTO, concreteEntity);
 		
 		return loadedEntity;
 	}
@@ -44,12 +44,12 @@ final class EntityMapper {
 	}
 	
 	//method
-	private void addDataFromRecordToEntity(final ILoadedEntityDTO pRecord, final BaseEntity entity) {
+	private void addDataToEntityFromLoadedEntityDTO(final ILoadedEntityDTO loadedEntityDTO, final BaseEntity entity) {
 		
-		entity.internalSetId(pRecord.getId());
-		entity.internalSetSaveStamp(pRecord.getSaveStamp());
+		entity.internalSetId(loadedEntityDTO.getId());
+		entity.internalSetSaveStamp(loadedEntityDTO.getSaveStamp());
 		
-		for (final var cf : pRecord.getContentFields()) {
+		for (final var cf : loadedEntityDTO.getContentFields()) {
 			addDataFromContentFieldToEntity(cf, entity);
 		}
 	}
