@@ -8,7 +8,7 @@ import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueQueryCreator;
-import ch.nolix.system.sqlrawdata.sqlapi.IRecordQueryCreator;
+import ch.nolix.system.sqlrawdata.sqlapi.IEntityQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
@@ -28,7 +28,7 @@ final class InternalDatabaseReader {
 	private final SQLConnection mSQLConnection;
 	
 	//attribute
-	private final IRecordQueryCreator recordQueryCreator;
+	private final IEntityQueryCreator entityQueryCreator;
 	
 	//attribute
 	private final IMultiValueQueryCreator multiValueQueryCreator;
@@ -46,7 +46,7 @@ final class InternalDatabaseReader {
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		recordQueryCreator = pSQLSyntaxProvider.getRecordQueryCreator();
+		entityQueryCreator = pSQLSyntaxProvider.getRecordQueryCreator();
 		multiValueQueryCreator = pSQLSyntaxProvider.getMultiValueQueryCreator();
 		multiReferenceQueryCreator = pSQLSyntaxProvider.getMultiReferenceQueryCreator();
 		
@@ -57,7 +57,7 @@ final class InternalDatabaseReader {
 	public Time getSchemaTimestamp() {
 		return
 		Time.fromString(
-			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadSchemaTimestamp()).get(0)
+			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0)
 		);
 	}
 	
@@ -97,7 +97,7 @@ final class InternalDatabaseReader {
 	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
 		mSQLConnection
-		.getRecords(recordQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
+		.getRecords(entityQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
 		.to(r -> loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
 	}
 	
@@ -105,7 +105,7 @@ final class InternalDatabaseReader {
 	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		return
 		loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(
-			mSQLConnection.getOneRecord(recordQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),
+			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),
 			tableInfo
 		);
 	}
@@ -172,7 +172,7 @@ final class InternalDatabaseReader {
 		return
 		Integer.valueOf(
 			mSQLConnection.getOneRecord(
-				recordQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(
+				entityQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(
 					tableName,
 					singleColumnName,
 					value

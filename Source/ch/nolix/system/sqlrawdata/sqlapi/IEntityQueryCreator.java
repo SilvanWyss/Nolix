@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlapi;
 
+//own imports
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //interface
-public interface IRecordQueryCreator {
+public interface IEntityQueryCreator {
 	
 	//method declaration
 	String createQueryToCountRecordsWithGivenValueAtGivenColumn(String tableName, String columnName, String value);

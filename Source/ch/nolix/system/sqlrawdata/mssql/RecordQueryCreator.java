@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawdata.mssql;
 
 //own imports
-import ch.nolix.system.sqlrawdata.sqlapi.IRecordQueryCreator;
+import ch.nolix.system.sqlrawdata.sqlapi.IEntityQueryCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class RecordQueryCreator implements IRecordQueryCreator {
+public final class RecordQueryCreator implements IEntityQueryCreator {
 	
 	//method
 	@Override

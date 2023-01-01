@@ -17,7 +17,7 @@ public interface ISQLSyntaxProvider {
 	IMultiValueStatementCreator getMultiValueStatemeentCreator();
 	
 	//method declaration
-	IRecordQueryCreator getRecordQueryCreator();
+	IEntityQueryCreator getRecordQueryCreator();
 	
 	//method declaration
 	IRecordStatementCreator getRecordStatementCreator();
