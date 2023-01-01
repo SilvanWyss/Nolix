@@ -14,12 +14,12 @@ public final class EntityNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getRefIdNodeFromEntityNode(final IMutableNode<?> recordNode) {
-		return recordNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
+	public IMutableNode<?> getRefIdNodeFromEntityNode(final IMutableNode<?> entityNode) {
+		return entityNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
 	}
 	
 	//method
-	public IMutableNode<?> getRefSaveStampNodeFromEntityNode(final IMutableNode<?> recordNode) {
-		return recordNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.SAVE_STAMP_INDEX);
+	public IMutableNode<?> getRefSaveStampNodeFromEntityNode(final IMutableNode<?> entityNode) {
+		return entityNode.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.SAVE_STAMP_INDEX);
 	}
 }
