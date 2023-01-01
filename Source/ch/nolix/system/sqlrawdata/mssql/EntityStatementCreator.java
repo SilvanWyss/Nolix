@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class RecordStatementCreator implements IEntityStatementCreator {
+public final class EntityStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override

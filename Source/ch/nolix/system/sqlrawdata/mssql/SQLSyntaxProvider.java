@@ -17,7 +17,7 @@ public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	private static final IEntityQueryCreator entityQueryCreator = new EntityQueryCreator();
 	
 	//static attribute
-	private static final IEntityStatementCreator entityStatementCreator = new RecordStatementCreator();
+	private static final IEntityStatementCreator entityStatementCreator = new EntityStatementCreator();
 	
 	//static attribute
 	private static final IMultiValueQueryCreator multiValueQueryCreator = new MultiValueQueryCreator();
