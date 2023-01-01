@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -33,7 +34,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		updateStateForAddValue(value);
 		
-		updateRecordForAddValue(value);
+		updateDatabaseForAddValue(value);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -102,7 +103,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		updateStateForClear();
 		
-		updateRecordForClear();
+		updateDatabaseForClear();
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -134,7 +135,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	private void updateRecordForAddValue(final V value) {
+	private void updateDatabaseForAddValue(final V value) {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().insertMultiValueEntry(
 				getRefParentEntity().getParentTableName(),
@@ -146,7 +147,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	private void updateRecordForClear() {
+	private void updateDatabaseForClear() {
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().deleteMultiValueEntries(
 				getRefParentEntity().getParentTableName(),
