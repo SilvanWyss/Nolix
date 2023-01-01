@@ -14,7 +14,7 @@ public final class TableNodeSearcher {
 		return
 		tableNode.getRefFirstChildNodeThat(
 			a ->
-			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
+			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
 			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
@@ -24,14 +24,14 @@ public final class TableNodeSearcher {
 		return
 		tableNode.getRefFirstChildNodeThatOrNull(
 			a ->
-			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
+			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
 			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
 	//method
 	public IContainer<? extends IMutableNode<?>> getRefEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.RECORD);
+		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.ENTITY);
 	}
 	
 	//method
@@ -39,7 +39,7 @@ public final class TableNodeSearcher {
 		return
 		tableNode.removeAndGetRefFirstChildNodeThat(
 			a ->
-			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
+			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
 			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
@@ -47,7 +47,7 @@ public final class TableNodeSearcher {
 	//method
 	public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
 		return
-		tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
+		tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
 	}
 	
 	//method
@@ -60,7 +60,7 @@ public final class TableNodeSearcher {
 		tableNode.containsChildNodeThat(
 			(final var a) -> {
 				
-				if (!a.hasHeader(SubNodeHeaderCatalogue.RECORD)) {
+				if (!a.hasHeader(SubNodeHeaderCatalogue.ENTITY)) {
 					return false;
 				}
 				
@@ -71,7 +71,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public boolean tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(
+	public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(
 		final IMutableNode<?> tableNode,
 		final int valueIndex,
 		final String header
@@ -79,7 +79,7 @@ public final class TableNodeSearcher {
 		return
 		tableNode.containsChildNodeThat(
 			a ->
-			a.hasHeader(SubNodeHeaderCatalogue.RECORD)
+			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
 			&& a.getRefChildNodeAt1BasedIndex(valueIndex).hasHeader(header)
 		);
 	}

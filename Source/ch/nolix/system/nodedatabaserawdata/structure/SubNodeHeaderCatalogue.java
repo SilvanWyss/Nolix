@@ -8,7 +8,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 public final class SubNodeHeaderCatalogue {
 	
 	//constant
-	public static final String RECORD = PascalCaseCatalogue.RECORD;
+	public static final String ENTITY = PascalCaseCatalogue.ENTITY;
 	
 	//constructor
 	private SubNodeHeaderCatalogue() {}
