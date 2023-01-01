@@ -14,7 +14,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	
 	//static attribute
-	private static final IEntityQueryCreator entityQueryCreator = new RecordQueryCreator();
+	private static final IEntityQueryCreator entityQueryCreator = new EntityQueryCreator();
 	
 	//static attribute
 	private static final IRecordStatementCreator recordStatementCreator = new RecordStatementCreator();

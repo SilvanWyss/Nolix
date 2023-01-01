@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class RecordQueryCreator implements IEntityQueryCreator {
+public final class EntityQueryCreator implements IEntityQueryCreator {
 	
 	//method
 	@Override
