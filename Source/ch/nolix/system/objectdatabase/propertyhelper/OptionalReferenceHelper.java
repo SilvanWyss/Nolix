@@ -60,7 +60,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IOptionalReference<?, ?> optionalReference) {
+	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IOptionalReference<?, ?> optionalReference) {
 		
 		final var parentEntity = optionalReference.getRefParentEntity();
 		
@@ -73,7 +73,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createRecordUpdateDTOForSetEntity(
+	public IEntityUpdateDTO createEntityUpdateDTOForSetEntity(
 		final IOptionalReference<?, ?> optionalReference,
 		final IEntity<?> entity
 	) {

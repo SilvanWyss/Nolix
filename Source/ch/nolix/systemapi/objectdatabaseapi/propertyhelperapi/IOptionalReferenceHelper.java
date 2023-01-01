@@ -26,10 +26,10 @@ public interface IOptionalReferenceHelper {
 	boolean canSetGivenEntity(final IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
 	
 	//method
-	IEntityUpdateDTO createRecordUpdateDTOForClear(IOptionalReference<?, ?> optionalReference);
+	IEntityUpdateDTO createEntityUpdateDTOForClear(IOptionalReference<?, ?> optionalReference);
 	
 	//method declaration
-	IEntityUpdateDTO createRecordUpdateDTOForSetEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
+	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
 	
 	//method declaration
 	<IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(IOptionalReference<IMPL, ?> optionalReference);
