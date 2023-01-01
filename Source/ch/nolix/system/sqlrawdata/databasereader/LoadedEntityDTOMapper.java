@@ -14,7 +14,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-final class LoadedRecordDTOMapper {
+final class LoadedEntityDTOMapper {
 	
 	//static attribute
 	private static final ContentFieldMapper contentFieldMapper = new ContentFieldMapper();

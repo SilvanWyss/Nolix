@@ -19,7 +19,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 final class InternalDatabaseReader {
 	
 	//static attribute
-	private static final LoadedRecordDTOMapper loadedRecordDTOMapper = new LoadedRecordDTOMapper();
+	private static final LoadedEntityDTOMapper loadedEntityDTOMapper = new LoadedEntityDTOMapper();
 	
 	//static attribute
 	private static final ValueMapper valueMapper = new ValueMapper();
@@ -98,13 +98,13 @@ final class InternalDatabaseReader {
 		return
 		mSQLConnection
 		.getRecords(entityQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
-		.to(r -> loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
+		.to(r -> loadedEntityDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
 	}
 	
 	//method
 	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		return
-		loadedRecordDTOMapper.createLoadedRecordDTOFromSQLRecord(
+		loadedEntityDTOMapper.createLoadedRecordDTOFromSQLRecord(
 			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),
 			tableInfo
 		);
