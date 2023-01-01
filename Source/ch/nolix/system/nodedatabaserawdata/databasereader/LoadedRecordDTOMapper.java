@@ -6,7 +6,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
-import ch.nolix.system.sqlrawdata.databasedto.LoadedRecordDTO;
+import ch.nolix.system.sqlrawdata.databasedto.LoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
@@ -24,7 +24,7 @@ public final class LoadedRecordDTOMapper {
 		final ITableInfo tableInfo
 	) {
 		return
-		new LoadedRecordDTO(
+		new LoadedEntityDTO(
 			getIdFromRecordNode(recordNode),
 			getSaveStampFromRecordNode(recordNode),
 			createContentFieldsFromRecordNode(recordNode, tableInfo)

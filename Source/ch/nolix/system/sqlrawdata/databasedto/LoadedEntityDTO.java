@@ -9,11 +9,11 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 
 //class
-public record LoadedRecordDTO(String id, String saveStamp, IContainer<ILoadedContentFieldDTO> contentFields)
+public record LoadedEntityDTO(String id, String saveStamp, IContainer<ILoadedContentFieldDTO> contentFields)
 implements ILoadedEntityDTO {
 	
 	//constructor
-	public LoadedRecordDTO( //NOSONAR: This implementations checks the given arguments.
+	public LoadedEntityDTO( //NOSONAR: This implementations checks the given arguments.
 		final String id,
 		final String saveStamp,
 		final IContainer<ILoadedContentFieldDTO> contentFields

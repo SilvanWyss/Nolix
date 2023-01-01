@@ -7,7 +7,7 @@ import java.util.List;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.sqlrawdata.databasedto.LoadedRecordDTO;
+import ch.nolix.system.sqlrawdata.databasedto.LoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
@@ -25,7 +25,7 @@ final class LoadedRecordDTOMapper {
 		final ITableInfo tableInfo
 	) {
 		return
-		new LoadedRecordDTO(
+		new LoadedEntityDTO(
 			pSQLRecordValues.get(0),
 			pSQLRecordValues.get(1),
 			getContentFieldsFromSQLRecord(pSQLRecordValues, tableInfo)
