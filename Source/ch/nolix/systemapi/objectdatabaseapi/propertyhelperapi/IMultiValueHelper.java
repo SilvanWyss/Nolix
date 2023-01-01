@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
+//own imports
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
@@ -20,8 +21,8 @@ public interface IMultiValueHelper extends IPropertyHelper {
 	boolean canClear(IMultiValue<?, ?> multiValue);
 	
 	//method declaration
-	<V> IEntityUpdateDTO createRecordUpdateDTOForAddedValue(IMultiValue<?, V> multiValue, V addedValue);
+	<V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(IMultiValue<?, V> multiValue, V addedValue);
 	
 	//method declaration
-	IEntityUpdateDTO createRecordUpdateDTOForClear(IMultiValue<?, ?> multiValue);
+	IEntityUpdateDTO createEntityUpdateDTOForClear(IMultiValue<?, ?> multiValue);
 }

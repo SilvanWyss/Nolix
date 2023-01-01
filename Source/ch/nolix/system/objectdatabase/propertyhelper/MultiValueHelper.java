@@ -47,7 +47,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public <V> IEntityUpdateDTO createRecordUpdateDTOForAddedValue(
+	public <V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(
 		final IMultiValue<?, V> multiValue,
 		final V addedValue
 	) {
@@ -64,7 +64,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createRecordUpdateDTOForClear(final IMultiValue<?, ?> multiValue) {
+	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiValue<?, ?> multiValue) {
 		
 		final var parentEntity = multiValue.getRefParentEntity();
 		
