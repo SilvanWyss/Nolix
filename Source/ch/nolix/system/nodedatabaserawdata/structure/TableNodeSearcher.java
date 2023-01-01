@@ -35,7 +35,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> removeAndGetRefRecordNodeFromTableNode(IMutableNode<?> tableNode, String id) {
+	public IMutableNode<?> removeAndGetRefEntityNodeFromTableNode(IMutableNode<?> tableNode, String id) {
 		return
 		tableNode.removeAndGetRefFirstChildNodeThat(
 			a ->
@@ -45,7 +45,7 @@ public final class TableNodeSearcher {
 	}
 	
 	//method
-	public boolean tableNodeContainsRecordNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
+	public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
 		return
 		tableNodeContainsRecordNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
 	}

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 final class EntityNodeMapper {
 	
 	//method
-	public Node createNodeFromRecordWithSaveStamp(
+	public Node createNodeFromEntityWithSaveStamp(
 		final ITableInfo tableInfo,
 		final INewEntityDTO newEntity,
 		final long saveStamp

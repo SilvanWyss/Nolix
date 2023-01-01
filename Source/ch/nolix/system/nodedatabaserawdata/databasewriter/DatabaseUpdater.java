@@ -122,7 +122,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void deleteRecordFromTable(
+	public void deleteEntityFromTable(
 		final IMutableNode<?> database,
 		final String tableName,
 		final IEntityHeadDTO entity
@@ -130,10 +130,10 @@ final class DatabaseUpdater {
 		
 		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
-		final var recordNode =
-		tableNodeSearcher.removeAndGetRefRecordNodeFromTableNode(tableNode, entity.getId());
+		final var entityNode =
+		tableNodeSearcher.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.getId());
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(recordNode);
+		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
 		
 		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
@@ -222,7 +222,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void insertRecordIntoTable(
+	public void insertEntityIntoTable(
 		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
 		final INewEntityDTO newEntity
@@ -230,17 +230,17 @@ final class DatabaseUpdater {
 		final var tableNode =
 		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		if (tableNodeSearcher.tableNodeContainsRecordNodeWithGivenId(tableNode, newEntity.getId())) {
+		if (tableNodeSearcher.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
 			throw
 			ArgumentHasAttributeException.forArgumentAndAttributeName(
 				"table " + tableInfo.getTableNameInQuotes(),
-				"record with the id '" + newEntity.getId() + "'"
+				"entity with the id '" + newEntity.getId() + "'"
 			);
 		}
 		
-		final var recordNode = entityNodeMapper.createNodeFromRecordWithSaveStamp(tableInfo, newEntity, 0);
+		final var entityNode = entityNodeMapper.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
 		
-		tableNode.addChildNode(recordNode);
+		tableNode.addChildNode(entityNode);
 	}
 	
 	//method
@@ -295,15 +295,15 @@ final class DatabaseUpdater {
 	
 	//method
 	private void updateEntityNode(
-		final IMutableNode<?> recordNode,
+		final IMutableNode<?> entityNode,
 		final ITableInfo tableInfo,
-		final IEntityUpdateDTO recordUdate
+		final IEntityUpdateDTO entityUpdate
 	) {
-		for (final var ucf : recordUdate.getUpdatedContentFields()) {
+		for (final var ucf : entityUpdate.getUpdatedContentFields()) {
 			
 			final var columnInfo = tableInfo.getColumnInfoByColumnName(ucf.getColumnName());
 			final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
-			final var contentFieldNode = recordNode.getRefChildNodeAt1BasedIndex(columnIndex);
+			final var contentFieldNode = entityNode.getRefChildNodeAt1BasedIndex(columnIndex);
 						
 			final var value = ucf.getValueAsStringOrNull();
 			if (value == null) {

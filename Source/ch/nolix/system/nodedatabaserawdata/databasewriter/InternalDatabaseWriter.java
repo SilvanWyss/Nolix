@@ -92,7 +92,7 @@ final class InternalDatabaseWriter {
 	
 	//method
 	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
-		addChangeAction(d -> databaseUpdater.deleteRecordFromTable(d, tableName, entity));
+		addChangeAction(d -> databaseUpdater.deleteEntityFromTable(d, tableName, entity));
 	}
 	
 	//method
@@ -148,7 +148,7 @@ final class InternalDatabaseWriter {
 	
 	//method
 	public void insertRecordIntoTable(final ITableInfo tableInfo, final INewEntityDTO newEntity) {
-		addChangeAction(d -> databaseUpdater.insertRecordIntoTable(d, tableInfo, newEntity));
+		addChangeAction(d -> databaseUpdater.insertEntityIntoTable(d, tableInfo, newEntity));
 	}
 	
 	//methods
