@@ -227,8 +227,8 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private E createEntityFrom(ILoadedEntityDTO pRecord) {
-		return (E)entityMapper.createLoadedEntityFromDTO(pRecord, (Table<BaseEntity>)this);
+	private E createLoadedEntityFromDTO(ILoadedEntityDTO loadedEntityDTO) {
+		return (E)entityMapper.createLoadedEntityFromDTO(loadedEntityDTO, (Table<BaseEntity>)this);
 	}
 	
 	//method
@@ -237,9 +237,9 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	private void insertEntityFromGivenRecordInLocalDataIfNotInserted(ILoadedEntityDTO pRecord) {
-		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, pRecord.getId())) {
-			entitiesInLocalData.addAtEnd(createEntityFrom(pRecord));
+	private void insertEntityFromGivenLoadedEntityDTOInLocalDataIfNotInserted(ILoadedEntityDTO loadedEntity) {
+		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
+			entitiesInLocalData.addAtEnd(createLoadedEntityFromDTO(loadedEntity));
 		}
 	}
 	
@@ -264,7 +264,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 		
 		for (final var r : internalGetRefDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
-			insertEntityFromGivenRecordInLocalDataIfNotInserted(r);
+			insertEntityFromGivenLoadedEntityDTOInLocalDataIfNotInserted(r);
 		}
 		
 		loadedAllEntitiesInLocalData = true;
@@ -277,11 +277,11 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	private E loadEntityById(final String id) {
-		return createEntityFrom(loadRecordOfEntityById(id));
+		return createLoadedEntityFromDTO(loadEntityDTOById(id));
 	}
 	
 	//method
-	private ILoadedEntityDTO loadRecordOfEntityById(final String id) {
+	private ILoadedEntityDTO loadEntityDTOById(final String id) {
 		return internalGetRefDataAndSchemaAdapter().loadEntity(getName(), id);
 	}
 }
