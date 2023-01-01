@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawdata.mssql;
 
 //own imports
-import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawdata.sqlapi.IEntityStatementCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class RecordStatementCreator implements IRecordStatementCreator {
+public final class RecordStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override

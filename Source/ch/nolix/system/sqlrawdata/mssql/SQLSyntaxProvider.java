@@ -7,7 +7,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IEntityQueryCreator;
-import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawdata.sqlapi.IEntityStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 
 //class
@@ -17,7 +17,7 @@ public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	private static final IEntityQueryCreator entityQueryCreator = new EntityQueryCreator();
 	
 	//static attribute
-	private static final IRecordStatementCreator recordStatementCreator = new RecordStatementCreator();
+	private static final IEntityStatementCreator entityStatementCreator = new RecordStatementCreator();
 	
 	//static attribute
 	private static final IMultiValueQueryCreator multiValueQueryCreator = new MultiValueQueryCreator();
@@ -64,7 +64,7 @@ public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
 	
 	//method
 	@Override
-	public IRecordStatementCreator getRecordStatementCreator() {
-		return recordStatementCreator;
+	public IEntityStatementCreator getRecordStatementCreator() {
+		return entityStatementCreator;
 	}
 }

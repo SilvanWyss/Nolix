@@ -20,5 +20,5 @@ public interface ISQLSyntaxProvider {
 	IEntityQueryCreator getRecordQueryCreator();
 	
 	//method declaration
-	IRecordStatementCreator getRecordStatementCreator();
+	IEntityStatementCreator getRecordStatementCreator();
 }

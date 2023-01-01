@@ -7,7 +7,7 @@ import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueStatementCreator;
-import ch.nolix.system.sqlrawdata.sqlapi.IRecordStatementCreator;
+import ch.nolix.system.sqlrawdata.sqlapi.IEntityStatementCreator;
 import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
@@ -27,7 +27,7 @@ public final class InternalDatabaseWriter {
 	private final SQLConnection mSQLConnection;
 	
 	//attribute
-	private final IRecordStatementCreator recordStatementCreator;
+	private final IEntityStatementCreator entityStatementCreator;
 	
 	//attribute
 	private final IMultiValueStatementCreator multiValueStatementCreator;
@@ -45,7 +45,7 @@ public final class InternalDatabaseWriter {
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;
-		recordStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
+		entityStatementCreator = pSQLSyntaxProvider.getRecordStatementCreator();
 		multiValueStatementCreator = pSQLSyntaxProvider.getMultiValueStatemeentCreator();
 		multiReferenceStatementCreator = pSQLSyntaxProvider.getMultiReferenceStatemeentCreator();
 		
@@ -101,21 +101,21 @@ public final class InternalDatabaseWriter {
 	//method
 	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToDeleteRecordFromTable(tableName, entity)
+			entityStatementCreator.createStatementToDeleteRecordFromTable(tableName, entity)
 		);
 	}
 	
 	//method
 	public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp)
+			entityStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp)
 		);
 	}
 	
 	//method
 	public void expectTableContainsEntity(final String tableName, final String entityId) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToExpectTableContainsEntity(tableName, entityId)
+			entityStatementCreator.createStatementToExpectTableContainsEntity(tableName, entityId)
 		);
 	}
 	
@@ -158,7 +158,7 @@ public final class InternalDatabaseWriter {
 	//method
 	public void insertRecordIntoTable(final String tableName, final INewEntityDTO newEntity) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToInsertRecordIntoTable(tableName, newEntity)
+			entityStatementCreator.createStatementToInsertRecordIntoTable(tableName, newEntity)
 		);
 	}
 	
@@ -179,13 +179,13 @@ public final class InternalDatabaseWriter {
 	
 	//method
 	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
-		mSQLCollector.addSQLStatement(recordStatementCreator.createStatementToSetEntityAsUpdated(tableName, entity));
+		mSQLCollector.addSQLStatement(entityStatementCreator.createStatementToSetEntityAsUpdated(tableName, entity));
 	}
 	
 	//method
 	public void updateEntityOnTable(final String tableName, final IEntityUpdateDTO entityUpdate) {
 		mSQLCollector.addSQLStatement(
-			recordStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate)
+			entityStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate)
 		);
 	}
 }

@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.sqlrawdata.sqlapi;
 
+//own imports
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
-public interface IRecordStatementCreator {
+public interface IEntityStatementCreator {
 	
 	//method declaration
 	String createStatementToDeleteRecordFromTable(String tableName, IEntityHeadDTO entity);
