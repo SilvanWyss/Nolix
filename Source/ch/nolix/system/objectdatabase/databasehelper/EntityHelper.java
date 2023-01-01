@@ -7,7 +7,7 @@ import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqlrawdata.databasedto.EntityHeadDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
-import ch.nolix.system.sqlrawdata.databasedto.RecordDTO;
+import ch.nolix.system.sqlrawdata.databasedto.NewEntityDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -76,7 +76,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	@Override
 	public INewEntityDTO createNewEntityDTOForEntity(final IEntity<?> entity) {
 		return
-		new RecordDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
+		new NewEntityDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
 	}
 	
 	//method

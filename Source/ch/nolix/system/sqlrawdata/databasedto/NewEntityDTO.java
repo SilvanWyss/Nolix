@@ -10,15 +10,15 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 
 //class
-public record RecordDTO(String id,  ImmutableList<IContentFieldDTO> contentFields) implements INewEntityDTO {
+public record NewEntityDTO(String id,  ImmutableList<IContentFieldDTO> contentFields) implements INewEntityDTO {
 	
 	//constructor
-	public RecordDTO(final String id, final IContainer<IContentFieldDTO> contentFields) {
+	public NewEntityDTO(final String id, final IContainer<IContentFieldDTO> contentFields) {
 		this(id, ImmutableList.forIterable(contentFields));
 	}
 	
 	//constructor
-	public RecordDTO(final String id, final ImmutableList<IContentFieldDTO> contentFields) { //NOSONAR
+	public NewEntityDTO(final String id, final ImmutableList<IContentFieldDTO> contentFields) { //NOSONAR
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
