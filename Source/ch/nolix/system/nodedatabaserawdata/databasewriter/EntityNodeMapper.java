@@ -21,12 +21,12 @@ final class EntityNodeMapper {
 		return
 		Node.withHeaderAndChildNodes(
 			SubNodeHeaderCatalogue.ENTITY,
-			createAttributesFromRecordWithSaveStamp(newEntity, saveStamp, tableInfo)
+			createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo)
 		);
 	}
 	
 	//method
-	private IContainer<Node> createAttributesFromRecordWithSaveStamp(
+	private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
 		final INewEntityDTO newEntity,
 		final long saveStamp,
 		final ITableInfo tableInfo
