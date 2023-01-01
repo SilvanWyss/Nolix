@@ -109,7 +109,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	//method
 	@Override
 	public void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
-		internalDatabaseWriter.deleteRecordFromTable(tableName, entity);
+		internalDatabaseWriter.deleteEntityFromTable(tableName, entity);
 	}
 	
 	//method
@@ -177,7 +177,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	//method
 	@Override
 	public void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
-		internalDatabaseWriter.insertRecordIntoTable(getTableInfoByTableName(tableName), newEntity);
+		internalDatabaseWriter.insertEntityIntoTable(getTableInfoByTableName(tableName), newEntity);
 	}
 	
 	//method
