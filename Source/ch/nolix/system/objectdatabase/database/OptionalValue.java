@@ -10,10 +10,15 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueValidator;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.OptionalValueValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<DataImplementation, V> {
+	
+	//constant
+	private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 	
 	//static attribute
 	private static final IOptionalValueHelper optionalValueHelper = new OptionalValueHelper();
@@ -61,7 +66,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	@Override
 	public void setValue(final V value) {
 		
-		optionalValueHelper.assertCanSetGivenValue(this, value);
+		OPTIONAL_VALUE_VALIDATOR.assertCanSetGivenValue(this, value);
 		
 		updateStateForSetValue(value);
 		

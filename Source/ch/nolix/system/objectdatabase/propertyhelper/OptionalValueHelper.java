@@ -3,7 +3,6 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
@@ -12,14 +11,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class OptionalValueHelper extends PropertyHelper implements IOptionalValueHelper {
-	
-	//method
-	@Override
-	public void assertCanSetGivenValue(final IOptionalValue<?, ?> optionalValue, final Object value) {
-		if (!canSetGivenValue(optionalValue, value)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
-		}
-	}
 	
 	//method
 	@Override
