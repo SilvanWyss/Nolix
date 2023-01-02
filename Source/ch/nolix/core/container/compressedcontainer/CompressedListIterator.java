@@ -64,7 +64,7 @@ final class CompressedListIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			new NoSuchElementException("The current CompressedListIterator does not have a next element.");
+			throw new NoSuchElementException("The current CompressedListIterator does not have a next element.");
 		}
 	}
 	
