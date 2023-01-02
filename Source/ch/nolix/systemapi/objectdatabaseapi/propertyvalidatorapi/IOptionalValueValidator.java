@@ -9,4 +9,7 @@ public interface IOptionalValueValidator {
 	
 	//method declaration
 	<V> void assertCanSetGivenValue(IOptionalValue<?, V> optionalValue, final V value);
+		
+	//method declaration
+	void assertHasValue(IOptionalValue<?, ?> optionalValue);
 }

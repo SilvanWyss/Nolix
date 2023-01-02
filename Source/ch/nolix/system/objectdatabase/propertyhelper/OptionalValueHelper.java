@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdatabase.propertyhelper;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
@@ -11,14 +10,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class OptionalValueHelper extends PropertyHelper implements IOptionalValueHelper {
-	
-	//method
-	@Override
-	public void assertHasValue(final IOptionalValue<?, ?> optionalValue) {
-		if (optionalValue.isEmpty()) {
-			throw EmptyArgumentException.forArgument(optionalValue);
-		}
-	}
 	
 	@Override
 	public boolean canSetGivenValue(final IOptionalValue<?, ?> optionalValue, final Object value) {

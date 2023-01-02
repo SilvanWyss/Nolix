@@ -45,7 +45,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	@Override
 	public V getRefValue() {
 		
-		optionalValueHelper.assertHasValue(this);
+		OPTIONAL_VALUE_VALIDATOR.assertHasValue(this);
 		
 		return internalValue;
 	}
