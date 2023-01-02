@@ -3,9 +3,9 @@ package ch.nolix.core.container.compressedcontainer;
 
 //Java imports
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 
 //class
@@ -58,17 +58,13 @@ final class CompressedListIterator<E> implements Iterator<E> {
 		
 		assertHasNext();
 		
-		final var element = currentNode.getRefElement();
-		
-		moveForward();
-		
-		return element;
+		return nextWhenHasNext();
 	}
-	
+
 	//method
-	private void assertHasNext() {
+	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
+			new NoSuchElementException("The current CompressedListIterator does not have a next element.");
 		}
 	}
 	
@@ -94,5 +90,15 @@ final class CompressedListIterator<E> implements Iterator<E> {
 			
 			currentNodeIndex = -1;
 		}
+	}
+	
+	//method
+	private E nextWhenHasNext() {
+		
+		final var element = currentNode.getRefElement();
+		
+		moveForward();
+		
+		return element;
 	}
 }
