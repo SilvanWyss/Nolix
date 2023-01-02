@@ -11,7 +11,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 	
 	//method
 	@Override
-	public String createStatementToDeleteEntriesFromMultiReference(
+	public String createStatementToDeleteMultiReferenceEntries(
 		final String entityId,
 		final String multiReferenceColumnId
 	) {
@@ -31,7 +31,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 	
 	//method
 	@Override
-	public String createStatementToDeleteEntryFromMultiReference(
+	public String createStatementToDeleteMultiReferenceEntry(
 		final String entityId,
 		final String multiReferenceColumnId,
 		final String referencedEntityId

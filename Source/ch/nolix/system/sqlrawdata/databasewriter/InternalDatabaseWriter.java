@@ -58,7 +58,7 @@ public final class InternalDatabaseWriter {
 		final String multiReferenceColumnId
 	) {
 		mSQLCollector.addSQLStatement(
-			multiReferenceStatementCreator.createStatementToDeleteEntriesFromMultiReference(entityId, multiReferenceColumnId)
+			multiReferenceStatementCreator.createStatementToDeleteMultiReferenceEntries(entityId, multiReferenceColumnId)
 		);
 	}
 	
@@ -68,7 +68,7 @@ public final class InternalDatabaseWriter {
 		final String multiValueColumnId
 	) {
 		mSQLCollector.addSQLStatement(
-			multiValueStatementCreator.createStatementToDeleteEntriesFromMultiValue(entityId, multiValueColumnId)
+			multiValueStatementCreator.createStatementToDeleteMultiValueEntries(entityId, multiValueColumnId)
 		);
 	}
 	
@@ -79,7 +79,7 @@ public final class InternalDatabaseWriter {
 		final String referencedEntityId
 	) {
 		mSQLCollector.addSQLStatement(
-			multiReferenceStatementCreator.createStatementToDeleteEntryFromMultiReference(
+			multiReferenceStatementCreator.createStatementToDeleteMultiReferenceEntry(
 				entityId,
 				multiReferenceColumnId,
 				referencedEntityId
@@ -94,14 +94,14 @@ public final class InternalDatabaseWriter {
 		final String entry
 	) {
 		mSQLCollector.addSQLStatement(
-			multiValueStatementCreator.createStatementToDeleteEntryFromMultiValue(entityId, multiValueColumnId, entry)
+			multiValueStatementCreator.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, entry)
 		);
 	}
 	
 	//method
 	public void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
 		mSQLCollector.addSQLStatement(
-			entityStatementCreator.createStatementToDeleteRecordFromTable(tableName, entity)
+			entityStatementCreator.createStatementToDeleteEntity(tableName, entity)
 		);
 	}
 	
@@ -158,7 +158,7 @@ public final class InternalDatabaseWriter {
 	//method
 	public void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
 		mSQLCollector.addSQLStatement(
-			entityStatementCreator.createStatementToInsertRecordIntoTable(tableName, newEntity)
+			entityStatementCreator.createStatementToInsertNewEntity(tableName, newEntity)
 		);
 	}
 	

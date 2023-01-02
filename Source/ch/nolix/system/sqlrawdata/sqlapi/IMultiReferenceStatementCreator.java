@@ -5,10 +5,10 @@ package ch.nolix.system.sqlrawdata.sqlapi;
 public interface IMultiReferenceStatementCreator {
 	
 	//method declaration
-	String createStatementToDeleteEntriesFromMultiReference(String entityId, String multiReferenceColumnId);
+	String createStatementToDeleteMultiReferenceEntries(String entityId, String multiReferenceColumnId);
 	
 	//method declaration
-	String createStatementToDeleteEntryFromMultiReference(
+	String createStatementToDeleteMultiReferenceEntry(
 		String entityId,
 		String multiReferenceColumnId,
 		String referencedEntityId

@@ -17,7 +17,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToDeleteRecordFromTable(
+	public String createStatementToDeleteEntity(
 		final String tableName,
 		final IEntityHeadDTO entity
 	) {
@@ -70,7 +70,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToInsertRecordIntoTable(final String tableName, final INewEntityDTO newEntity) {
+	public String createStatementToInsertNewEntity(final String tableName, final INewEntityDTO newEntity) {
 		return
 		"INSERT INTO "
 		+ tableName
