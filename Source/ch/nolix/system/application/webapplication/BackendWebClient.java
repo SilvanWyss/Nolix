@@ -105,7 +105,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	//method
 	private void updateCounterpartIfOpen() {
 		if (isOpen()) {
-			 ((BackendWebClientSession<AC>)getRefCurrentSession()).updateCounterpart();
+			((BackendWebClientSession<AC>)getRefCurrentSession()).updateCounterpart();
 		}
 	}
 }
