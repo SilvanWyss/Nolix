@@ -31,7 +31,7 @@ public final class WebSocketFrame {
 			);
 		}
 		
-		return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG,	false, pingFrame.getPayload());
+		return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
 	}
 	
 	//attributes
