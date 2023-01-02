@@ -3,38 +3,37 @@ package ch.nolix.core.container.main;
 
 //Java imports
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class ArrayIterator<E> implements Iterator<E> {
 	
-	//constructor
+	//static method
 	public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
 		return new ArrayIterator<>(array);
 	}
 	
-	//constructor
-	private ArrayIterator(final E[] array) {
-		
-		GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
-		
-		this.array = array;
-	}
-	
 	//attribute
-	private final E[] array;
+	private final E[] parentArray;
 	
 	//attribute
 	private int currentIndex;
 	
+	//constructor
+	private ArrayIterator(final E[] parrentArray) {
+		
+		GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+		
+		this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+	}
+	
 	//method
 	@Override
 	public boolean hasNext() {
-		return (currentIndex < array.length);
+		return (currentIndex < parentArray.length);
 	}
 	
 	//method
@@ -43,15 +42,23 @@ public final class ArrayIterator<E> implements Iterator<E> {
 		
 		assertHasNext();
 		
-		final var element = array[currentIndex];
-		currentIndex++;
-		return element;
+		return nextWhenHasNext();
 	}
 	
 	//method
-	private void assertHasNext() {
+	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
+			throw new NoSuchElementException("The current ArrayIterator does not have a next element.");
 		}
+	}
+	
+	//method
+	private E nextWhenHasNext() {
+		
+		final var element = parentArray[currentIndex];
+		
+		currentIndex++;
+		
+		return element;
 	}
 }
