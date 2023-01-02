@@ -1025,33 +1025,32 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 		}
 		
 		//Handles the case when the sub list contains more than 2 elements.
-			final var list = new LinkedList<E>();
-			final var middleIndex = startIndex + length / 2;
-			final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
-			final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);
-			for (var i = 1; i <= length; i++) {
+		final var list = new LinkedList<E>();
+		final var middleIndex = startIndex + length / 2;
+		final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
+		final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);
+		for (var i = 1; i <= length; i++) {
+			
+			if (subList1.isEmpty()) {
+				list.addAtEnd(subList2.getRefFirst());
+				subList2.removeFirst();
+			} else if (subList2.isEmpty()) {
+				list.addAtEnd(subList1.getRefFirst());
+				subList1.removeFirst();
 				
-				if (subList1.isEmpty()) {
+			} else {
+				final Comparable value1 = norm.getValue(subList1.getRefFirst());
+			 	final Comparable value2 = norm.getValue(subList2.getRefFirst());
+				if (value1.compareTo(value2) > 0) {
 					list.addAtEnd(subList2.getRefFirst());
 					subList2.removeFirst();
-				} else if (subList2.isEmpty()) {
+				} else {
 					list.addAtEnd(subList1.getRefFirst());
 					subList1.removeFirst();
-					
-				} else {
-					final Comparable value1 = norm.getValue(subList1.getRefFirst());
-				 	final Comparable value2 = norm.getValue(subList2.getRefFirst());
-					if (value1.compareTo(value2) > 0) {
-						list.addAtEnd(subList2.getRefFirst());
-						subList2.removeFirst();
-					} else {
-						list.addAtEnd(subList1.getRefFirst());
-						subList1.removeFirst();
-					}
 				}
 			}
-			
-			return list;
+		}
+		return list;
 	}
 	
 	//method
