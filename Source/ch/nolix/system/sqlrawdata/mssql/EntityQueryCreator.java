@@ -14,7 +14,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	
 	//method
 	@Override
-	public String createQueryToCountRecordsWithGivenValueAtGivenColumn(
+	public String createQueryToCountEntitiesWithGivenValueAtGivenColumn(
 		final String tableName,
 		final String columnName,
 		final String value
@@ -24,7 +24,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	
 	//method
 	@Override
-	public String createQueryToLoadAllRecordsFromTable(final ITableInfo tableInfo) {
+	public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
 		"SELECT Id, SaveStamp, "
 		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
@@ -34,7 +34,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	
 	//method
 	@Override
-	public String createQueryToLoadRecordFromTableById(String id, ITableInfo tableInfo) {
+	public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
 		return
 		"SELECT Id, SaveStamp, "
 		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")

@@ -8,13 +8,13 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 public interface IEntityQueryCreator {
 	
 	//method declaration
-	String createQueryToCountRecordsWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
+	String createQueryToCountEntitiesWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 	
 	//method declaration
-	String createQueryToLoadAllRecordsFromTable(ITableInfo tableInfo);
+	String createQueryToLoadEntitiesOfTable(ITableInfo tableInfo);
 	
 	//method declaration
-	String createQueryToLoadRecordFromTableById(String id, ITableInfo tableInfo);
+	String createQueryToLoadEntity(String id, ITableInfo tableInfo);
 	
 	//method
 	String createQueryToLoadSchemaTimestamp();

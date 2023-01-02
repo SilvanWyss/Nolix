@@ -97,7 +97,7 @@ final class InternalDatabaseReader {
 	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
 		mSQLConnection
-		.getRecords(entityQueryCreator.createQueryToLoadAllRecordsFromTable(tableInfo))
+		.getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
 		.to(r -> loadedEntityDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
 	}
 	
@@ -105,7 +105,7 @@ final class InternalDatabaseReader {
 	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		return
 		loadedEntityDTOMapper.createLoadedRecordDTOFromSQLRecord(
-			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadRecordFromTableById(id, tableInfo)),
+			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
 			tableInfo
 		);
 	}
@@ -172,7 +172,7 @@ final class InternalDatabaseReader {
 		return
 		Integer.valueOf(
 			mSQLConnection.getOneRecord(
-				entityQueryCreator.createQueryToCountRecordsWithGivenValueAtGivenColumn(
+				entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
 					tableName,
 					singleColumnName,
 					value
