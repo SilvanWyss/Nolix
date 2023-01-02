@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
+//Java imports
+import java.util.Locale;
+
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -291,7 +295,7 @@ public final class GlobalStringHelper {
 	 * @return true if the given string is in lower case for the case that the given string is not null.
 	 */
 	private static boolean isLowerCaseWhenNotNull(final String string) {
-		return !string.contains(StringCatalogue.UNDERSCORE) &&	string.equals(string.toLowerCase());
+		return !string.contains(StringCatalogue.UNDERSCORE) &&	string.equals(string.toLowerCase(Locale.ENGLISH));
 	}
 	
 	//static method

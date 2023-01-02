@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//Java imports
+import java.util.Locale;
+
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -180,7 +183,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_FAMILY,
-				style.getFontWhenHasState(state).getCode().toLowerCase()
+				style.getFontWhenHasState(state).getCode().toLowerCase(Locale.ENGLISH)
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
