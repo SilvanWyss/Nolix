@@ -117,23 +117,21 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_getSequences_1A() {
 		
 		//setup
-			final var testUnit = LinkedList.withElements("x", "a", "x", "b", "x", "c");
-			
-			final SequencePattern<String> sequencePattern =
-			new SequencePattern<String>()
-			.addConditionForNext(e -> e.equals("x"))
-			.addBlankForNext();
+		final var testUnit = LinkedList.withElements("x", "a", "x", "b", "x", "c");
+		final SequencePattern<String> sequencePattern =
+		new SequencePattern<String>()
+		.addConditionForNext(e -> e.equals("x"))
+		.addBlankForNext();
 		
 		//execution
 		final var result = testUnit.getSequences(sequencePattern);
 		
 		//verification
-			expect(result.getElementCount()).isEqualTo(3);
-			
-			for (final var e : result) {
-				expect(e.getElementCount()).isEqualTo(2);
-				expect(e.getRefAt1BasedIndex(1)).isEqualTo("x");
-			}
+		expect(result.getElementCount()).isEqualTo(3);
+		for (final var e : result) {
+			expect(e.getElementCount()).isEqualTo(2);
+			expect(e.getRefAt1BasedIndex(1)).isEqualTo("x");
+		}
 	}
 		
 	//method
@@ -141,29 +139,28 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_getSequences_1B() {
 		
 		//setup
-			final var testUnit = LinkedList.withElements(
-				"x",
-				"x",
-				"xxxx",
-				"x",
-				"x",
-				"xxxx",
-				"x",
-				"x",
-				"x",
-				"x",
-				"xxxx",
-				"x",
-				"x",
-				"x",
-				"x",
-				"xxxx"
-			);
-			
-			final SequencePattern<String> sequencePattern =
-			new SequencePattern<String>()
-			.addConditionForNext(e -> e.equals("x"))
-			.addConditionForNext(e -> e.equals("xxxx"));
+		final var testUnit = LinkedList.withElements(
+			"x",
+			"x",
+			"xxxx",
+			"x",
+			"x",
+			"xxxx",
+			"x",
+			"x",
+			"x",
+			"x",
+			"xxxx",
+			"x",
+			"x",
+			"x",
+			"x",
+			"xxxx"
+		);
+		final SequencePattern<String> sequencePattern =
+		new SequencePattern<String>()
+		.addConditionForNext(e -> e.equals("x"))
+		.addConditionForNext(e -> e.equals("xxxx"));
 		
 		//execution
 		final var result = testUnit.getSequences(sequencePattern);
@@ -182,14 +179,13 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_matches_1A() {
 		
 		//setup
-			final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
-			
-			final var sequencePattern =
-			new SequencePattern<String>()
-			.addConditionForNext(s -> s.length() == 1)
-			.addConditionForNext(s -> s.length() == 4)
-			.addConditionForNext(s -> s.length() == 1)
-			.addConditionForNext(s -> s.length() == 4);
+		final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
+		final var sequencePattern =
+		new SequencePattern<String>()
+		.addConditionForNext(s -> s.length() == 1)
+		.addConditionForNext(s -> s.length() == 4)
+		.addConditionForNext(s -> s.length() == 1)
+		.addConditionForNext(s -> s.length() == 4);
 		
 		//execution
 		final var result = testUnit.matches(sequencePattern);
@@ -203,14 +199,13 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_matches_1B() {
 		
 		//setup
-			final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
-			
-			final SequencePattern<String> sequencePattern
-			= new SequencePattern<String>()
-			.addConditionForNext(s -> s.length() == 1)
-			.addConditionForNext(s -> s.length() == 4)
-			.addBlankForNext()
-			.addBlankForNext();
+		final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
+		final SequencePattern<String> sequencePattern
+		= new SequencePattern<String>()
+		.addConditionForNext(s -> s.length() == 1)
+		.addConditionForNext(s -> s.length() == 4)
+		.addBlankForNext()
+		.addBlankForNext();
 		
 		//execution
 		final var result = testUnit.matches(sequencePattern);
