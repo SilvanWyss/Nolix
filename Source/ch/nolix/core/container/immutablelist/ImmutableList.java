@@ -5,7 +5,7 @@ package ch.nolix.core.container.immutablelist;
 import java.util.Iterator;
 
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.container.main.ArrayIterator;
+import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
