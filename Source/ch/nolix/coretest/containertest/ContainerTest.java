@@ -783,24 +783,25 @@ public abstract class ContainerTest extends Test {
 		//execution
 		final var result = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
-		//execution & verification
-			expect(
-				result.containsAny(s -> s.equals("x")),
-				result.containsAny(s -> s.equals("xx")),
-				result.containsAny(s -> s.equals("xxx")),
-				result.containsAny(s -> s.equals("xxxx")),
-				result.containsAny(s -> s.equals("xxxxx")),
-				result.containsAny(s -> s.equals("xxxxxx"))
-			);
-			
-			expectNot(
-				result.containsAny(s -> s.equals("xxxxxxx")),
-				result.containsAny(s -> s.equals("xxxxxxxx")),
-				result.containsAny(s -> s.equals("xxxxxxxxx")),
-				result.containsAny(s -> s.equals("xxxxxxxxxx")),
-				result.containsAny(s -> s.equals("xxxxxxxxxxx")),
-				result.containsAny(s -> s.equals("xxxxxxxxxxxx"))
-			);
+		//execution & verification part 1
+		expect(
+			result.containsAny(s -> s.equals("x")),
+			result.containsAny(s -> s.equals("xx")),
+			result.containsAny(s -> s.equals("xxx")),
+			result.containsAny(s -> s.equals("xxxx")),
+			result.containsAny(s -> s.equals("xxxxx")),
+			result.containsAny(s -> s.equals("xxxxxx"))
+		);
+		
+		//execution & verification part 2
+		expectNot(
+			result.containsAny(s -> s.equals("xxxxxxx")),
+			result.containsAny(s -> s.equals("xxxxxxxx")),
+			result.containsAny(s -> s.equals("xxxxxxxxx")),
+			result.containsAny(s -> s.equals("xxxxxxxxxx")),
+			result.containsAny(s -> s.equals("xxxxxxxxxxx")),
+			result.containsAny(s -> s.equals("xxxxxxxxxxxx"))
+		);
 	}
 	
 	//method
