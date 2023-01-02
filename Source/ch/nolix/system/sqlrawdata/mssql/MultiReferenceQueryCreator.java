@@ -11,7 +11,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 	
 	//method
 	@Override
-	public String createQueryToLoadAllMultiReferenceEntriesForRecord(
+	public String createQueryToLoadMultiReferenceEntries(
 		final String entityId,
 		final String multiReferenceColumnId
 	) {

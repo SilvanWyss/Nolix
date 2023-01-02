@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawdata.sqlapi;
 public interface IMultiReferenceQueryCreator {
 	
 	//method declaration
-	String createQueryToLoadAllMultiReferenceEntriesForRecord(String entityId, String multiReferenceColumnId);
+	String createQueryToLoadMultiReferenceEntries(String entityId, String multiReferenceColumnId);
 	
 	//method declaration
 	String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(

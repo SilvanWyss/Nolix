@@ -69,7 +69,7 @@ final class InternalDatabaseReader {
 		return
 		mSQLConnection
 		.getRecords(
-			multiReferenceQueryCreator.createQueryToLoadAllMultiReferenceEntriesForRecord(
+			multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
 				entityId,
 				multiReferenceColumnInfo.getColumnId()
 			)
