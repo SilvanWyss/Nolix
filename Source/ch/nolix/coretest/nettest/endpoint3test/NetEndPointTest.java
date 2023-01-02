@@ -44,29 +44,31 @@ public final class NetEndPointTest extends Test {
 		//method
 		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
-			endPoint.setReceiverController(new IDataProviderController() {
-				
-				//method
-				@Override
-				public Node getData(final ChainedNode request) {
-					EndPointTaker.this.setRequest(request);
-					return Node.withHeader("DATA");
-				}
-				
-				//method
-				@Override
-				public void run(final ChainedNode command) {
-					EndPointTaker.this.setCommand(command);
-				}
-				
-				//method
-				@Override
-				public final void run(final ChainedNode... commands) {
-					for (final var c : commands) {
-						run(c);
+			endPoint.setReceiverController(
+				new IDataProviderController() {
+					
+					//method
+					@Override
+					public Node getData(final ChainedNode request) {
+						EndPointTaker.this.setRequest(request);
+						return Node.withHeader("DATA");
+					}
+					
+					//method
+					@Override
+					public void run(final ChainedNode command) {
+						EndPointTaker.this.setCommand(command);
+					}
+					
+					//method
+					@Override
+					public final void run(final ChainedNode... commands) {
+						for (final var c : commands) {
+							run(c);
+						}
 					}
 				}
-			});
+			);
 		}
 		
 		//method
