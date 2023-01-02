@@ -36,21 +36,6 @@ public final class GlobalFieldHelper {
 	}
 	
 	//static method
-	public static boolean isPrivate(final Field field) {
-		return Modifier.isPrivate(field.getModifiers());
-	}
-	
-	//static method
-	public static boolean isProtected(final Field field) {
-		return Modifier.isProtected(field.getModifiers());
-	}
-	
-	//static method
-	public static boolean isPublic(final Field field) {
-		return Modifier.isPublic(field.getModifiers());
-	}
-	
-	//static method
 	public static boolean isStatic(final Field field) {
 		
 		if (field == null) {

@@ -26,7 +26,7 @@ public final class GlobalClassHelper {
 		for (final var f : pClass.getDeclaredFields()) {
 			
 			//Handles the case that the current field is static.
-			if (GlobalFieldHelper.isStatic(f) && GlobalFieldHelper.isPublic(f)) {
+			if (GlobalFieldHelper.isStatic(f) && GlobalMemberHelper.isPublic(f)) {
 				try {
 					publicStaticFields.addAtEnd(f.get(null));
 				} catch (final IllegalAccessException illegalAccessException) {
