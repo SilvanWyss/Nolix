@@ -85,7 +85,7 @@ final class InternalDatabaseReader {
 		return
 		mSQLConnection
 		.getRecords(
-			multiValueQueryCreator.createQueryToLoadMultiValueEntriesFromRecord(
+			multiValueQueryCreator.createQueryToLoadMultiValueEntries(
 				entityId,
 				multiValueColumnInfo.getColumnId()
 			)

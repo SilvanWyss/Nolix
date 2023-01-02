@@ -11,7 +11,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 	
 	//method
 	@Override
-	public String createQueryToLoadMultiValueEntriesFromRecord(String entityId, String multiValueColumnId) {
+	public String createQueryToLoadMultiValueEntries(String entityId, String multiValueColumnId) {
 		return
 		"SELECT "
 		+ MultiValueEntryTableColumn.VALUE.getName()
