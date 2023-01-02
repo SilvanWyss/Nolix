@@ -10,10 +10,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDT
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public final class ParametrizedPropertyTypeRecordMapper {
+public final class ParametrizedPropertyTypeSQLRecordMapper {
 	
 	//method
-	public ParametrizedPropertyTypeRecord createParametrizedPropertyTypeRecordFrom(
+	public ParametrizedPropertyTypeSQLRecord createParametrizedPropertyTypeRecordFrom(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType 
 	) {
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
@@ -33,11 +33,11 @@ public final class ParametrizedPropertyTypeRecordMapper {
 	}
 	
 	//method
-	private ParametrizedPropertyTypeRecord createBaseParametrizedBackReferenceRecord(
+	private ParametrizedPropertyTypeSQLRecord createBaseParametrizedBackReferenceRecord(
 		final IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType
 	) {
 		return
-		new ParametrizedPropertyTypeRecord(
+		new ParametrizedPropertyTypeSQLRecord(
 			"'" + baseParametrizedBackReferenceType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedBackReferenceType.getDataType().name() + "'",
 			SQLSyntaxCatalogue.NULL,
@@ -46,11 +46,11 @@ public final class ParametrizedPropertyTypeRecordMapper {
 	}
 	
 	//method
-	private ParametrizedPropertyTypeRecord createBaseParametrizedReferenceTypeRecord(
+	private ParametrizedPropertyTypeSQLRecord createBaseParametrizedReferenceTypeRecord(
 		final IBaseParametrizedReferenceTypeDTO baseParametrizedReferenceType
 	) {
 		return
-		new ParametrizedPropertyTypeRecord(
+		new ParametrizedPropertyTypeSQLRecord(
 			"'" + baseParametrizedReferenceType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedReferenceType.getDataType().name() + "'",
 			"'" + baseParametrizedReferenceType.getReferencedTableId() + "'",
@@ -59,11 +59,11 @@ public final class ParametrizedPropertyTypeRecordMapper {
 	}
 	
 	//method
-	private ParametrizedPropertyTypeRecord createBaseParametrizedValueTypeRecord(
+	private ParametrizedPropertyTypeSQLRecord createBaseParametrizedValueTypeRecord(
 		final IBaseParametrizedValueTypeDTO baseParametrizedPropertyType
 	) {
 		return
-		new ParametrizedPropertyTypeRecord(
+		new ParametrizedPropertyTypeSQLRecord(
 			"'" + baseParametrizedPropertyType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedPropertyType.getDataType().name() + "'",
 			SQLSyntaxCatalogue.NULL,
