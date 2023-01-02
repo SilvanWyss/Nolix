@@ -20,7 +20,7 @@ final class LoadedEntityDTOMapper {
 	private static final ContentFieldMapper contentFieldMapper = new ContentFieldMapper();
 	
 	//method
-	public ILoadedEntityDTO createLoadedRecordDTOFromSQLRecord(
+	public ILoadedEntityDTO createLoadedEntityDTOFromSQLRecord(
 		final List<String> pSQLRecordValues,
 		final ITableInfo tableInfo
 	) {
@@ -46,12 +46,12 @@ final class LoadedEntityDTOMapper {
 		final IContainer<IColumnInfo> contentColumnDefinitions
 	) {
 		
-		final var recordValues = new LinkedList<ILoadedContentFieldDTO>();
+		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
 		var lSQLRecordValueIterator = pSQLRecordValues.iterator();
 		for (final var ccd : contentColumnDefinitions) {
-			recordValues.addAtEnd(contentFieldMapper.createContentFieldFromString(lSQLRecordValueIterator.next(), ccd));
+			contentFields.addAtEnd(contentFieldMapper.createContentFieldFromString(lSQLRecordValueIterator.next(), ccd));
 		}
 		
-		return recordValues;
+		return contentFields;
 	}
 }

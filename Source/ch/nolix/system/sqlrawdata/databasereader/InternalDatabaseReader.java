@@ -98,13 +98,13 @@ final class InternalDatabaseReader {
 		return
 		mSQLConnection
 		.getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
-		.to(r -> loadedEntityDTOMapper.createLoadedRecordDTOFromSQLRecord(r, tableInfo));
+		.to(r -> loadedEntityDTOMapper.createLoadedEntityDTOFromSQLRecord(r, tableInfo));
 	}
 	
 	//method
 	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		return
-		loadedEntityDTOMapper.createLoadedRecordDTOFromSQLRecord(
+		loadedEntityDTOMapper.createLoadedEntityDTOFromSQLRecord(
 			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
 			tableInfo
 		);
