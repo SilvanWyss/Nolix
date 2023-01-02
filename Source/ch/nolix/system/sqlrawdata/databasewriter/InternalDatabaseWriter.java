@@ -99,7 +99,7 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void deleteRecordFromTable(final String tableName, final IEntityHeadDTO entity) {
+	public void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
 		mSQLCollector.addSQLStatement(
 			entityStatementCreator.createStatementToDeleteRecordFromTable(tableName, entity)
 		);
@@ -156,7 +156,7 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void insertRecordIntoTable(final String tableName, final INewEntityDTO newEntity) {
+	public void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
 		mSQLCollector.addSQLStatement(
 			entityStatementCreator.createStatementToInsertRecordIntoTable(tableName, newEntity)
 		);
