@@ -32,13 +32,14 @@ public enum RotationDirection {
 	public int toInt() {
 		
 		//Enumerates the current DirectionOfRotation.
+		return
 		switch (this) {
-			case FORWARD:
-				return 1;
-			case BACKWARD:
-				return -1;
-			default:
+			case FORWARD ->
+				1;
+			case BACKWARD ->
+				-1;
+			default ->
 				throw new IllegalArgumentException("The current RotationDirection is not valid.");
-		}
+		};
 	}
 }
