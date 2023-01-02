@@ -20,7 +20,7 @@ public interface IEntityStatementCreator {
 	String createStatementToExpectTableContainsEntity(String tableName, String entityId);
 	
 	//method declaration
-	String createStatementToInsertNewEntity(String tableName, INewEntityDTO pRecord);
+	String createStatementToInsertNewEntity(String tableName, INewEntityDTO newEntity);
 	
 	//method declaration
 	String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDTO entity);
