@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -14,31 +11,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class OptionalReferenceHelper extends PropertyHelper implements IOptionalReferenceHelper {
-	
-	//method
-	@Override
-	public void assertCanClear(final IOptionalReference<?, ?> optionalReference) {
-		if (!canClear(optionalReference)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "cannot clear");
-		}
-	}
-	
-	//method
-	@Override
-	public void assertCanSetGivenEntity(final IOptionalReference<?, ?> optionalReference, final IEntity<?> entity) {
-		if (!canSetGivenEntity(optionalReference, entity)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalReference, "does not reference an entity");
-		}
-	}
-	
-	//method
-	@Override
-	public void assertIsNotEmpty(final IOptionalReference<?, ?> optionalReference) {
-		if (optionalReference.isEmpty()) {
-			throw EmptyArgumentException.forArgument(optionalReference);
-		}
-	}
-	
+		
 	//method
 	@Override
 	public boolean canClear(final IOptionalReference<?, ?> optionalReference) {

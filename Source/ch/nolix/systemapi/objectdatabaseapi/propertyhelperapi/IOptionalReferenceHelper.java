@@ -9,16 +9,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //interface
 public interface IOptionalReferenceHelper {
-	
-	//method declaration
-	void assertCanClear(IOptionalReference<?, ?> optionalReference);
-	
-	//method declaration
-	void assertCanSetGivenEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
-	
-	//method declaration
-	void assertIsNotEmpty(IOptionalReference<?, ?> optionalReference);
-	
+			
 	//method declaration
 	boolean canClear(IOptionalReference<?, ?> optionalReference);
 	

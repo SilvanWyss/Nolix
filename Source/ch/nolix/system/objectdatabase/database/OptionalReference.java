@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.OptionalReferenceValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -15,11 +16,15 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class OptionalReference<E extends IEntity<DataImplementation>> extends BaseReference<E>
 implements IOptionalReference<DataImplementation, E> {
+	
+	//constant
+	private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
 	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
@@ -81,7 +86,7 @@ implements IOptionalReference<DataImplementation, E> {
 	@Override
 	public String getReferencedEntityId() {
 		
-		optionalReferenceHelper.assertIsNotEmpty(this);
+		OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 		
 		return referencedEntityId;
 	}
@@ -178,12 +183,12 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	private void assertCanClear() {
-		optionalReferenceHelper.assertCanClear(this);
+		OPTIONAL_REFERENCE_VALIDATOR.assertCanClear(this);
 	}
 	
 	//method
 	private void assertCanSetEntity(final E entity) {
-		optionalReferenceHelper.assertCanSetGivenEntity(this, entity);
+		OPTIONAL_REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
 	}
 	
 	//method
