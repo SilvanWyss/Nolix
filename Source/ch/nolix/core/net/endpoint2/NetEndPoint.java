@@ -313,14 +313,15 @@ public class NetEndPoint extends EndPoint {
 		}
 		
 		//Enumerates the response.
+		return
 		switch (response.getMessageRole()) {
-			case SUCCESS_RESPONSE:
-				return response.getRefContent();
-			case ERROR_RESPONSE:
+			case SUCCESS_RESPONSE ->
+				response.getRefContent();
+			case ERROR_RESPONSE ->
 				throw GeneralException.withErrorMessage(response.getRefContent());
-			default:
+			default ->
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY,	response);
-		}
+		};
 	}
 	
 	//method
