@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi;
+package ch.nolix.system.objectdatabase.propertyvalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalValueHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueValidator;
 
 //class
 public final class OptionalValueValidator implements IOptionalValueValidator {
