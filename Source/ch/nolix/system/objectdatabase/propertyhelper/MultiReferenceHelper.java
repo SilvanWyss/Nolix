@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdatabase.propertyhelper;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -12,22 +11,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class MultiReferenceHelper extends PropertyHelper implements IMultiReferenceHelper {
-	
-	//method
-	@Override
-	public void assertCanAddGivenEntity(final IMultiReference<?, ?> multiReference, final IEntity<?> entity) {
-		if (!canAddGivenEntity(multiReference, entity)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot add the given entity");
-		}
-	}
-	
-	//method
-	@Override
-	public void assertCanClear(final IMultiReference<?, ?> multiReference) {
-		if (!canClear(multiReference)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot clear");
-		}
-	}
 	
 	@Override
 	public boolean canAddGivenEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity) {

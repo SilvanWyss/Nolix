@@ -182,7 +182,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	private void assertCanAddEntity(final E entity) {
-		multiReferenceHelper.assertCanAddGivenEntity(this, entity);
+		multiReferenceValidator.assertCanAddGivenEntity(this, entity);
 	}
 	
 	//method

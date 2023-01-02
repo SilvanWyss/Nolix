@@ -12,8 +12,24 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReference
 //class
 public final class MultiReferenceValidator implements IMultiReferenceValidator {
 	
-	//static attribute
-	private static final IMultiReferenceHelper multiReferenceHelper = new MultiReferenceHelper();
+	//constant
+	private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();
+	
+	//method
+	@Override
+	public void assertCanAddGivenEntity(final IMultiReference<?, ?> multiReference, final IEntity<?> entity) {
+		if (!MULTI_REFERENCE_HELPER.canAddGivenEntity(multiReference, entity)) {
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot add the given entity");
+		}
+	}
+	
+	//method
+	@Override
+	public void assertCanClear(final IMultiReference<?, ?> multiReference) {
+		if (!MULTI_REFERENCE_HELPER.canClear(multiReference)) {
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot clear");
+		}
+	}
 	
 	//method
 	@Override
@@ -21,7 +37,7 @@ public final class MultiReferenceValidator implements IMultiReferenceValidator {
 		final IMultiReference<IMPL, E> multiReference,
 		final E entity
 	) {
-		if (!multiReferenceHelper.canRemoveEntity(multiReference, entity)) {
+		if (!MULTI_REFERENCE_HELPER.canRemoveEntity(multiReference, entity)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot remove the given " + entity);
 		}
