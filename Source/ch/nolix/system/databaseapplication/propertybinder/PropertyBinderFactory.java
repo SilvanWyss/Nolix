@@ -17,17 +17,18 @@ public final class PropertyBinderFactory {
 	//method
 	@SuppressWarnings("unchecked")
 	public <P extends IProperty<?>> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
+		return
 		switch (property.getType()) {
-			case VALUE:
-				return (PropertyBinder<P, ?>)valueBinder;
-			case OPTIONAL_VALUE:
-				return (PropertyBinder<P, ?>)optionalValueBinder;
-			case REFERENCE:
-				return (PropertyBinder<P, ?>)referenceBinder;
-			case OPTIONAL_BACK_REFERENCE:
-				return (PropertyBinder<P, ?>)optionalReferenceBinder;
-			default:
+			case VALUE ->
+				(PropertyBinder<P, ?>)valueBinder;
+			case OPTIONAL_VALUE ->
+				(PropertyBinder<P, ?>)optionalValueBinder;
+			case REFERENCE ->
+				(PropertyBinder<P, ?>)referenceBinder;
+			case OPTIONAL_BACK_REFERENCE ->
+				(PropertyBinder<P, ?>)optionalReferenceBinder;
+			default ->
 				throw InvalidArgumentException.forArgument(property);
-		}
+		};
 	}
 }
