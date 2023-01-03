@@ -121,18 +121,19 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		
 		return (Class<?>)typeArguments[typeArguments.length - 1];
 	}
-
+	
 	//method
 	private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IProperty<?> property) {
+		return
 		switch (property.getType()) {
-			case VALUE:
-				return getDataTypeWhenDoesNotBelongToEntity((IValue<?, ?>)property);
-			case OPTIONAL_VALUE:
-				return getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?, ?>)property);
-			case MULTI_VALUE:
-				return getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?, ?>)property);
-			default:
+			case VALUE ->
+				getDataTypeWhenDoesNotBelongToEntity((IValue<?, ?>)property);
+			case OPTIONAL_VALUE ->
+				getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?, ?>)property);
+			case MULTI_VALUE ->
+				getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?, ?>)property);
+			default ->
 				throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "is not a base value");
-		}
+		};
 	}
 }
