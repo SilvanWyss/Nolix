@@ -29,14 +29,15 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	//method
 	@Override
 	public final Class<?> getDataType(final IProperty<?> property) {
+		return
 		switch (property.getType().getBaseType()) {
-			case BASE_VALUE:
-				return getDataTypeWhenIsBaseValue(property);
-			case BASE_REFERENCE, BASE_BACK_REFERENCE:
-				return String.class;
-			default:
+			case BASE_VALUE ->
+				getDataTypeWhenIsBaseValue(property);
+			case BASE_REFERENCE, BASE_BACK_REFERENCE ->
+				String.class;
+			default ->
 				throw InvalidArgumentException.forArgument(property);
-		}
+		};
 	}
 	
 	//method
