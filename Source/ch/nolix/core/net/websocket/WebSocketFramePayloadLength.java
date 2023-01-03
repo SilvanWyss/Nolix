@@ -34,16 +34,17 @@ public record WebSocketFramePayloadLength(long value) {
 	
 	//method
 	public byte[] toBytes() {
+		return
 		switch (getType()) {
-			case BITS_7:
-				return toBytesWhen7Bits();
-			case BITS_16:
-				return toBytesWhen16Bits();
-			case BITS_64:
-				return toBytesWhen64Bits();
-			default:
+			case BITS_7 ->
+				toBytesWhen7Bits();
+			case BITS_16 ->
+				toBytesWhen16Bits();
+			case BITS_64 ->
+				toBytesWhen64Bits();
+			default ->
 				throw InvalidArgumentException.forArgument(this);
-		}
+		};
 	}
 	
 	//method
