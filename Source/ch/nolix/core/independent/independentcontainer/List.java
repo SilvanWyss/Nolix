@@ -105,7 +105,12 @@ public final class List<E> implements Iterable<E> {
 	//method
 	@Override
 	public Iterator<E> iterator() {
-		return new ListIterator<>(beginNode);
+		
+		if (isEmpty()) {
+			return ListIterator.forEmptyList();
+		}
+		
+		return ListIterator.forStartNode(beginNode);
 	}
 	
 	//method
