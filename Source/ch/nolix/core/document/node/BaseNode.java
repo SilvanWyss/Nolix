@@ -514,6 +514,48 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	}
 	
 	//method
+	private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
+		final int leadingTabulators,
+		final StringBuilder stringBuilder
+	) {
+		
+		//Handles the case that all attributes of the current specification do not contain any attributes.
+		if (getRefChildNodes().containsNone(INode::containsChildNodes)) {
+			stringBuilder
+			.append(CharacterCatalogue.OPEN_BRACKET)
+			.append(getRefChildNodes().toString())
+			.append(CharacterCatalogue.CLOSED_BRACKET);
+			
+		//Handles the case that the current specification contains attributes with attributes.
+		} else {
+			
+			stringBuilder
+			.append(CharacterCatalogue.OPEN_BRACKET)
+			.append(CharacterCatalogue.NEW_LINE);
+			
+			//Iterates the attributes of the current specification.
+			final var attributeCount = getChildNodeCount();
+			var index = 1;
+			for (final BaseNode<?> a : getRefChildNodes()) {
+				
+				stringBuilder.append(a.toFormattedString(leadingTabulators + 1));
+				
+				if (index < attributeCount) {
+					stringBuilder.append(CharacterCatalogue.COMMA);
+				}
+				
+				stringBuilder.append(CharacterCatalogue.NEW_LINE);
+				
+				index++;
+			}
+			
+			stringBuilder
+			.append(GlobalStringHelper.createTabulators(leadingTabulators))
+			.append(CharacterCatalogue.CLOSED_BRACKET);
+		}
+	}
+	
+	//method
 	/**
 	 * @return a reproducing {@link String} representation of the header of the current {@link BaseNode}.
 	 */
@@ -540,40 +582,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		
 		//Handles the case that the current specification contains attributes.
 		if (containsChildNodes()) {
-			
-			//Handles the case that all attributes of the current specification do not contain any attributes.
-			if (getRefChildNodes().containsNone(INode::containsChildNodes)) {
-				stringBuilder
-				.append(CharacterCatalogue.OPEN_BRACKET)
-				.append(getRefChildNodes().toString())
-				.append(CharacterCatalogue.CLOSED_BRACKET);
-				
-			//Handles the case that the current specification contains attributes with attributes.
-			} else {
-				stringBuilder
-				.append(CharacterCatalogue.OPEN_BRACKET)
-				.append(CharacterCatalogue.NEW_LINE);
-				
-				//Iterates the attributes of the current specification.
-				final var attributeCount = getChildNodeCount();
-				var index = 1;
-				for (final BaseNode<?> a : getRefChildNodes()) {
-					
-					stringBuilder.append(a.toFormattedString(leadingTabulators + 1));
-					
-					if (index < attributeCount) {
-						stringBuilder.append(CharacterCatalogue.COMMA);
-					}
-					
-					stringBuilder.append(CharacterCatalogue.NEW_LINE);
-					
-					index++;
-				}
-				
-				stringBuilder
-				.append(GlobalStringHelper.createTabulators(leadingTabulators))
-				.append(CharacterCatalogue.CLOSED_BRACKET);
-			}
+			appendFormattedStringRepresentationOfChildNodesToStringBuilder(leadingTabulators, stringBuilder);
 		}
 		
 		return stringBuilder.toString();
