@@ -16,25 +16,26 @@ public final class ValueMapper {
 	
 	//method
 	private Object createValueFromString(final String string, final DataType dataType) {
+		return
 		switch (dataType) {
-			case INTEGER_1BYTE:
-				return Byte.valueOf(string);
-			case INTEGER_2BYTE:
-				return Short.valueOf(string);
-			case INTEGER_4BYTE:
-				return Integer.valueOf(string);
-			case INTEGER_8BYTE:
-				return Long.valueOf(string);
-			case FLOATING_POINT_NUMBER_4BYTE:
-				return Float.valueOf(string);
-			case FLOATING_POINT_NUMBER_8BYTE:
-				return Double.valueOf(string);
-			case BOOLEAN:
-				return Boolean.valueOf(string);
-			case STRING:
-				return string;
-			default:
+			case INTEGER_1BYTE ->
+				Byte.valueOf(string);
+			case INTEGER_2BYTE ->
+				Short.valueOf(string);
+			case INTEGER_4BYTE ->
+				Integer.valueOf(string);
+			case INTEGER_8BYTE ->
+				Long.valueOf(string);
+			case FLOATING_POINT_NUMBER_4BYTE ->
+				Float.valueOf(string);
+			case FLOATING_POINT_NUMBER_8BYTE ->
+				Double.valueOf(string);
+			case BOOLEAN ->
+				Boolean.valueOf(string);
+			case STRING ->
+				string;
+			default ->
 				throw InvalidArgumentException.forArgument(dataType);
-		}
+		};
 	}
 }
