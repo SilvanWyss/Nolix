@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator;
 
 //class
-public final class ValueValidator implements IValueValidator {
+public final class ValueValidator extends PropertyValidator implements IValueValidator {
 	
 	//static attribute
 	private static final IValueHelper valueHelper = new ValueHelper();

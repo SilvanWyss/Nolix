@@ -4,21 +4,21 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.objectdatabase.propertyhelper.BackReferenceHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IBackReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class BackReference<E extends IEntity<DataImplementation>> extends BaseBackReference<E>
 implements IBackReference<DataImplementation, E>{
 	
-	//static attribute
-	private static final IBackReferenceHelper backReferenceHelper = new BackReferenceHelper();
+	//constant
+	private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 	
 	//static method
 	public static <E2 extends Entity> BackReference<E2> forEntityAndBackReferencedPropertyName(
@@ -74,7 +74,7 @@ implements IBackReference<DataImplementation, E>{
 	@Override
 	public String getBackReferencedEntityId() {
 		
-		backReferenceHelper.assertIsNotEmpty(this);
+		PROPERTY_VALIDATOR.assertIsNotEmpty(this);
 		
 		return backReferencedEntityId;
 	}

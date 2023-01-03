@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 
 //interface
-public interface IMultiReferenceValidator {
+public interface IMultiReferenceValidator extends IPropertyValidator {
 	
 	//method declaration
 	void assertCanAddGivenEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity);

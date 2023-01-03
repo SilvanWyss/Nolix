@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 
 //interface
-public interface IValueValidator {
+public interface IValueValidator extends IPropertyValidator {
 	
 	//method declaration
 	void assertCanSetGivenValue(IValue<?, ?> value, Object valueToSet);

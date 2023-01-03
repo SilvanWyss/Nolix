@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 
 //interface
-public interface IMultiValueValidator {
+public interface IMultiValueValidator extends IPropertyValidator {
 	
 	//method declaration
 	void assertCanAddGivenValue(IMultiValue<?, ?> multiValue, Object value);

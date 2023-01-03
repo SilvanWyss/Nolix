@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 
 //interface
-public interface IOptionalReferenceValidator {
+public interface IOptionalReferenceValidator extends IPropertyValidator {
 	
 	//method declaration
 	void assertCanClear(IOptionalReference<?, ?> optionalReference);

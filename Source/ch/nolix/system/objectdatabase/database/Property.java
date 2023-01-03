@@ -9,20 +9,20 @@ import ch.nolix.core.reflection.GlobalReflectionHelper;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyflyweight.VoidPropertyFlyWeight;
-import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWeight;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class Property implements IProperty<DataImplementation> {
 	
-	//static attribute
-	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	//constant
+	private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 	
 	//attribute
 	private IPropertyFlyWeight propertyFlyWeight = VoidPropertyFlyWeight.INSTANCE;
@@ -61,7 +61,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	@Override
 	public IColumn<DataImplementation> getRefParentColumn() {
 		
-		propertyHelper.assertKnowsParentColumn(this);
+		PROPERTY_VALIDATOR.assertKnowsParentColumn(this);
 		
 		return parentColumn;
 	}
@@ -70,7 +70,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	@Override
 	public final IEntity<DataImplementation> getRefParentEntity() {
 		
-		propertyHelper.assertBelongsToEntity(this);
+		PROPERTY_VALIDATOR.assertBelongsToEntity(this);
 		
 		return parentEntity;
 	}
@@ -167,7 +167,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	final void internalSetParentEntity(final BaseEntity parentEntity) {
 		
 		GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
-		propertyHelper.assertDoesNotBelongToEntity(this);
+		PROPERTY_VALIDATOR.assertDoesNotBelongToEntity(this);
 		
 		this.parentEntity = parentEntity;
 		setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);

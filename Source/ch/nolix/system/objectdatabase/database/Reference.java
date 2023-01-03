@@ -5,7 +5,6 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
-import ch.nolix.system.objectdatabase.propertyhelper.ReferenceHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
@@ -14,7 +13,6 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
@@ -27,9 +25,6 @@ implements IReference<DataImplementation, E> {
 	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
-	
-	//static attribute
-	private static final IReferenceHelper referenceHelper = new ReferenceHelper();
 	
 	//static method
 	public static <E2 extends Entity> Reference<E2> forEntity(final Class<E2> type) {
@@ -77,7 +72,7 @@ implements IReference<DataImplementation, E> {
 	@Override
 	public String getReferencedEntityId() {
 		
-		referenceHelper.assertIsNotEmpty(this);
+		REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 		
 		return referencedEntityId;
 	}

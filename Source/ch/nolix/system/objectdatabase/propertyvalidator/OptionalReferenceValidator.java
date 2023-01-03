@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReference
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalReferenceValidator;
 
 //class
-public final class OptionalReferenceValidator implements IOptionalReferenceValidator {
+public final class OptionalReferenceValidator extends PropertyValidator implements IOptionalReferenceValidator {
 	
 	//constant
 	private static final IOptionalReferenceHelper OPTIONAL_REFERENCE_HELPER = new OptionalReferenceHelper();

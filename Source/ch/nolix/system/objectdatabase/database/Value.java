@@ -38,7 +38,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<DataImplement
 	@Override
 	public V getRefValue() {
 		
-		valueHelper.assertIsNotEmpty(this);
+		valueValidator.assertIsNotEmpty(this);
 		
 		return internalValue;
 	}

@@ -4,21 +4,21 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.objectdatabase.propertyhelper.OptionalBackReferenceHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalBackReferenceHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class OptionalBackReference<E extends IEntity<DataImplementation>> extends BaseBackReference<E>
 implements IOptionalBackReference<DataImplementation, E>{
 	
-	//static attribute
-	private static final IOptionalBackReferenceHelper optionalBackReferenceHelper = new OptionalBackReferenceHelper();
+	//constant
+	private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 	
 	//static method
 	public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedPropertyName(
@@ -48,7 +48,7 @@ implements IOptionalBackReference<DataImplementation, E>{
 	@Override
 	public String getBackReferencedEntityId() {
 		
-		optionalBackReferenceHelper.assertIsNotEmpty(this);
+		PROPERTY_VALIDATOR.assertIsNotEmpty(this);
 		
 		return backReferencedEntityId;
 	}

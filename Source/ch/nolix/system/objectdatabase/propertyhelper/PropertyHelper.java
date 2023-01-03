@@ -5,14 +5,10 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 import java.lang.reflect.ParameterizedType;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalReflectionHelper;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.databaseapi.cardinalityapi.BaseCardinality;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -21,47 +17,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {
-	
-	//method
-	@Override
-	public final void assertBelongsToEntity(final IProperty<?> property) {
-		if (!property.belongsToEntity()) {
-			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(property, IEntity.class);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertDoesNotBelongToEntity(final IProperty<?> property) {
-		if (property.belongsToEntity()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getRefParentEntity());
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertIsNotEmpty(final IProperty<?> property) {
-		if (property.isEmpty()) {
-			throw EmptyArgumentException.forArgument(property);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertIsNotMandatoryAndEmptyBoth(final IProperty<?> property) {
-		if (isMandatoryAndEmptyBoth(property)) {
-			throw EmptyArgumentException.forArgument(property);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertKnowsParentColumn(final IProperty<?> property) {
-		if (!property.knowsParentColumn()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "does not know its parent column");
-		}
-	}
-	
+		
 	//method
 	@Override
 	public final boolean belongsToLoadedEntity(final IProperty<?> property) {

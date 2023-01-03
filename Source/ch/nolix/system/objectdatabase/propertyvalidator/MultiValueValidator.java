@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueValidator;
 
 //class
-public final class MultiValueValidator implements IMultiValueValidator {
+public final class MultiValueValidator extends PropertyValidator implements IMultiValueValidator {
 	
 	//constant
 	private static final IMultiValueHelper MULTI_VALUE_HELPER = new MultiValueHelper();

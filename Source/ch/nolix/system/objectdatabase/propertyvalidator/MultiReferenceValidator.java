@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHel
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReferenceValidator;
 
 //class
-public final class MultiReferenceValidator implements IMultiReferenceValidator {
+public final class MultiReferenceValidator extends PropertyValidator implements IMultiReferenceValidator {
 	
 	//constant
 	private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();

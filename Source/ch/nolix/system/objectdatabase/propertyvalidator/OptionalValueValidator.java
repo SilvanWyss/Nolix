@@ -10,7 +10,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelp
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueValidator;
 
 //class
-public final class OptionalValueValidator implements IOptionalValueValidator {
+public final class OptionalValueValidator extends PropertyValidator implements IOptionalValueValidator {
 	
 	//constant
 	private static final IOptionalValueHelper OPTIONAL_VALUE_HELPER = new OptionalValueHelper();
