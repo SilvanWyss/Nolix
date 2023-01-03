@@ -9,12 +9,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IMultiValueHelper extends IPropertyHelper {
 	
 	//method declaration
-	void assertCanAddGivenValue(IMultiValue<?, ?> multiValue, Object value);
-	
-	//method declaration
-	void assertCanClear(IMultiValue<?, ?> multiValue);
-	
-	//method declaration
 	boolean canAddGivenValue(IMultiValue<?, ?> multiValue, Object value);
 	
 	//method declaration

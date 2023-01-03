@@ -7,18 +7,18 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.objectdatabase.propertyhelper.MultiValueHelper;
+import ch.nolix.system.objectdatabase.propertyvalidator.MultiValueValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
+import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<DataImplementation, V> {
 	
-	//static attribute
-	private static final IMultiValueHelper multiValueHelper = new MultiValueHelper();
+	//constant
+	private static final IMultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 	
 	//attribute
 	private boolean loadedValues;
@@ -88,12 +88,12 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	private void assertCanAddGivenValue(final V value) {
-		multiValueHelper.assertCanAddGivenValue(this, value);
+		MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
 	}
 	
 	//method
 	private void assertCanClear() {
-		multiValueHelper.assertCanClear(this);
+		MULTI_VALUE_VALIDATOR.assertCanClear(this);
 	}
 	
 	//method

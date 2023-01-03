@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdatabase.propertyhelper;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.system.sqlrawdata.databasedto.EntityUpdateDTO;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
@@ -11,22 +10,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {
-	
-	//method
-	@Override
-	public void assertCanAddGivenValue(final IMultiValue<?, ?> multiValue, final Object value) {
-		if (!canAddGivenValue(multiValue, value)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot add the given value");
-		}
-	}
-	
-	//method
-	@Override
-	public void assertCanClear(final IMultiValue<?, ?> multiValue) {
-		if (!canClear(multiValue)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot clear");
-		}
-	}
 	
 	//method
 	@Override
