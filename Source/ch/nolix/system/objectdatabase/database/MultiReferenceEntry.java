@@ -39,7 +39,7 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	private final IMultiReference<DataImplementation, E> parentMultiReference;
 	
 	//attribute
-	private DatabaseObjectState state = DatabaseObjectState.NEW;
+	private DatabaseObjectState state;
 	
 	//attribute
 	private final String referencedEntityId;
@@ -56,6 +56,7 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 		GlobalValidator.assertThat(referencedEntityId).thatIsNamed("referenced entity id").isNotBlank();
 		
 		this.parentMultiReference = parentMultiReference;
+		state = initialState;
 		this.referencedEntityId = referencedEntityId;
 	}
 	
@@ -77,14 +78,15 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	//method
 	@Override
 	public DatabaseObjectState getState() {
+		return
 		switch (getRefParentMultiReference().getState()) {
-			case DELETED:
-				return DatabaseObjectState.DELETED;
-			case CLOSED:
-				return DatabaseObjectState.CLOSED;
-			default:
-				return state;
-		}
+			case DELETED ->
+				DatabaseObjectState.DELETED;
+			case CLOSED ->
+				DatabaseObjectState.CLOSED;
+			default ->
+				state;
+		};
 	}
 	
 	//method
@@ -102,19 +104,19 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	//method
 	@Override
 	public boolean isClosed() {
-		return parentMultiReference.isClosed();
+		return getRefParentMultiReference().isClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isDeleted() {
-		return parentMultiReference.isDeleted();
+		return getRefParentMultiReference().isDeleted();
 	}
 	
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return parentMultiReference.isLinkedWithRealDatabase();
+		return getRefParentMultiReference().isLinkedWithRealDatabase();
 	}
 	
 	//method
