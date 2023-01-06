@@ -5,6 +5,9 @@ package ch.nolix.core.container.main;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+
 //class
 /**
  * @author Silvan Wyss
@@ -63,8 +66,9 @@ final class LinkedListIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			//TODO: Add toNoSuchElementException method to ArgumentDoesNotHaveAttributeException.
-			throw new NoSuchElementException("The current LinkedListIterator does not have a next element.");
+			throw
+			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+			.toNoSuchElementException();
 		}
 	}
 	

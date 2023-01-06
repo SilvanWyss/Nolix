@@ -5,8 +5,10 @@ package ch.nolix.core.container.matrix;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 final class GapMatrixIterator<E> implements Iterator<E> {
@@ -53,7 +55,9 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNextElement() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw new NoSuchElementException("The current GapMatrixIterator does not have a next element.");
+			throw
+			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+			.toNoSuchElementException();
 		}
 	}
 	

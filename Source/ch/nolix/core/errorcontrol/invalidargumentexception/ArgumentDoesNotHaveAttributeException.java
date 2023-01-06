@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.errorcontrol.invalidargumentexception;
 
+//Java imports
+import java.util.NoSuchElementException;
+
 //class
 /**
  * A {@link ArgumentDoesNotHaveAttributeException} is a {@link InvalidArgumentException} that
@@ -190,5 +193,14 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
+	}
+	
+	//method
+	/**
+	 * @return a new {@link NoSuchElementException} representation of
+	 * the current {@link ArgumentDoesNotHaveAttributeException}.
+	 */
+	public NoSuchElementException toNoSuchElementException() {
+		return new NoSuchElementException(getMessage());
 	}
 }

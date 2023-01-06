@@ -5,6 +5,9 @@ package ch.nolix.core.independent.independentcontainer;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+
 //class
 public final class ListIterator<E> implements Iterator<E> {
 	
@@ -47,7 +50,9 @@ public final class ListIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw new NoSuchElementException("The current ListIterator does not have a next element.");
+			throw
+			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+			.toNoSuchElementException();
 		}
 	}
 	

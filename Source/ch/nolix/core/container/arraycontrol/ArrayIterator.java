@@ -5,8 +5,10 @@ package ch.nolix.core.container.arraycontrol;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class ArrayIterator<E> implements Iterator<E> {
@@ -48,7 +50,9 @@ public final class ArrayIterator<E> implements Iterator<E> {
 	//method
 	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw new NoSuchElementException("The current ArrayIterator does not have a next element.");
+			throw
+			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+			.toNoSuchElementException();
 		}
 	}
 	
