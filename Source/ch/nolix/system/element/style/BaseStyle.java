@@ -396,24 +396,11 @@ implements IStyle {
 	 * @return true if the current {@link BaseStyle} selects the given element.
 	 */
 	public final boolean selects(IStylableElement<?> element) {
-		
-		//Handles the case that the current BaseConfiguration has a selector id.
-		if (hasSelectorId() && !element.hasId(getSelectorId())) {
-			return false;
-		}
-		
-		//Handles the case that the current BaseConfiguration has a selector type.
-		if (hasSelectorType() && !element.isOfType(getSelectorType())) {
-			return false;
-		}
-		
-		//Handles the case that the current BaseConfiguration contains selector roles.
-		if (containsSelectorRoles() && getSelectorRoles().containsNone(element::hasRole)) {
-			return false;
-		}
-		
-		//Handles the case that the current BaseConfiguration contains selector tokens.
-		return !(containsSelectorTokens() && !getSelectorTokens().containsNone(element::hasToken));
+		return
+		selectorIdAllowsToSelectElement(element)
+		&& selectorTypeAllowsToSelectElement(element)
+		&& selectorRolesAllowToSelectElement(element)
+		&& selectorTokensAllowToSelectElement(element);
 	}
 	
 	//method
@@ -551,5 +538,25 @@ implements IStyle {
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
 		}
+	}
+	
+	//method
+	private boolean selectorIdAllowsToSelectElement(final IStylableElement<?> element) {
+		return !hasSelectorId() || element.hasId(getSelectorId());
+	}
+	
+	//method
+	private boolean selectorRolesAllowToSelectElement(IStylableElement<?> element) {
+		return !containsSelectorRoles() || getSelectorRoles().containsAny(element::hasRole);
+	}
+	
+	//method
+	private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {
+		return !containsSelectorTokens() || getSelectorTokens().containsAny(element::hasToken);
+	}
+	
+	//method
+	private boolean selectorTypeAllowsToSelectElement(final IStylableElement<?> element) {
+		return !hasSelectorType() || element.isOfType(getSelectorType());
 	}
 }
