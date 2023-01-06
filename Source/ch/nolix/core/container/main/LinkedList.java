@@ -622,7 +622,7 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 */
 	@Override
 	public LinkedListIterator<E> iterator() {
-		return new LinkedListIterator<>(firstNode);
+		return LinkedListIterator.withFirstNodeOrNull(firstNode);
 	}
 	
 	//method

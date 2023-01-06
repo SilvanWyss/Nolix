@@ -3,9 +3,7 @@ package ch.nolix.core.container.main;
 
 //Java imports
 import java.util.Iterator;
-
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import java.util.NoSuchElementException;
 
 //class
 /**
@@ -15,17 +13,21 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
  */
 final class LinkedListIterator<E> implements Iterator<E> {
 	
-	//attribute
+	//static method
+	public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
+		return new LinkedListIterator<>(firstNode);
+	}
+	
+	//optional attribute
 	private LinkedListNode<E> nextNode;
 	
 	//constructor
 	/**
-	 * Creates a new {@link LinkedListIterator} with the given first node.
-	 * The given first node can be null.
+	 * Creates a new {@link LinkedListIterator} with the given firstNode. The given firstNode be null.
 	 * 
 	 * @param firstNode
 	 */
-	public LinkedListIterator(final LinkedListNode<E> firstNode) {
+	private LinkedListIterator(final LinkedListNode<E> firstNode) {
 		nextNode = firstNode;
 	}
 	
@@ -34,30 +36,40 @@ final class LinkedListIterator<E> implements Iterator<E> {
 	 * @return a copy of the current {@link LinkedListIterator}.
 	 */
 	public LinkedListIterator<E> getCopy() {
-		return new LinkedListIterator<>(nextNode);
+		return withFirstNodeOrNull(nextNode);
 	}
-
+	
 	//method
 	/**
-	 * @return true if the current {@link LinkedListIterator} has a next element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasNext() {
 		return (nextNode != null);
 	}
-
+	
 	//method
 	/**
-	 * @return the next element of the current {@link LinkedListIterator}.
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link LinkedListIterator} does not have a next element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public E next() {
 		
-		//Asserts that the current list iterator has a next element.
+		assertHasNext();
+		
+		return nextWhenHasNext();
+	}
+	
+	//method
+	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next element");
+			//TODO: Add toNoSuchElementException method to ArgumentDoesNotHaveAttributeException.
+			throw new NoSuchElementException("The current LinkedListIterator does not have a next element.");
 		}
+	}
+	
+	//method
+	private E nextWhenHasNext() {
 		
 		final var element = nextNode.getElement();
 		
