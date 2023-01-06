@@ -27,7 +27,7 @@ final class MatrixColumnIterator<E> implements Iterator<E> {
 	//constructor
 	private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
 		
-		GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent matrix column").isNotNull();
+		GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
 		
 		this.parentMatrixColumn = parentMatrixColumn;
 	}
