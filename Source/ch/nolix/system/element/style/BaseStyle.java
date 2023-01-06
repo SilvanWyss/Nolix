@@ -529,15 +529,16 @@ implements IStyle {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	private BaseStyle<?> createConfigurationFromSpecification(final INode<?> specification) {
+		return
 		switch (specification.getHeader()) {
-			case Style.TYPE_NAME:
-				return Style.fromSpecification(specification);
-			case DeepStyle.TYPE_NAME:
-				return DeepStyle.fromSpecification(specification);
-			default:
+			case Style.TYPE_NAME ->
+				Style.fromSpecification(specification);
+			case DeepStyle.TYPE_NAME ->
+				DeepStyle.fromSpecification(specification);
+			default ->
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
-		}
+		};
 	}
 	
 	//method
