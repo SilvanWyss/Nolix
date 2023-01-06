@@ -13,7 +13,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 
 //class
 /**
@@ -44,26 +43,26 @@ public final class Polynom {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Polynom} with the given coefficients.
+	 * Creates a new {@link Polynom} with the given coefficientArray.
 	 * 
-	 * @param coefficients
+	 * @param coefficientArray
 	 * @throws ArgumentIsNullException if the given coefficients is null.
 	 * @throws ArgumentIsZeroException if the highest of the given coefficients is 0.0.
 	 */
-	private Polynom(final double[] coefficients) {
+	private Polynom(final double[] coefficientArray) {
 		
-		//Asserts that the given coefficients is not null.
-		GlobalValidator.assertThat(coefficients).thatIsNamed(PluralLowerCaseCatalogue.COEFFICIENTS).isNotNull();
+		//Asserts that the given coefficientArray is not null.
+		GlobalValidator.assertThat(coefficientArray).thatIsNamed("coefficient array").isNotNull();
 		
-		//Handles the case that the given coefficients is not empty.
-		if (coefficients.length > 0) {
+		//Handles the case that the given coefficient array is not empty.
+		if (coefficientArray.length > 0) {
 			
 			//Asserts that the given highest coefficient is not 0.0.
-			GlobalValidator.assertThat(coefficients[0]).thatIsNamed("highest coefficient").isNotZero();
+			GlobalValidator.assertThat(coefficientArray[0]).thatIsNamed("highest coefficient").isNotEqualTo(0.0);
 		}
 		
 		//Sets the coefficients of the current Polynom.
-		this.coefficients = coefficients;
+		coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
 	}
 	
 	//method
