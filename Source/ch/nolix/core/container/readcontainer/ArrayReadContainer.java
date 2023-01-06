@@ -4,7 +4,9 @@ package ch.nolix.core.container.readcontainer;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -91,7 +93,7 @@ final class ArrayReadContainer<E> extends Container<E> {
 	 */
 	@Override
 	public Iterator<E> iterator() {
-		return new ArrayReadContainerIterator<>(array);
+		return ArrayIterator.forArray(array);
 	}
 	
 	//method
