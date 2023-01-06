@@ -3,38 +3,42 @@ package ch.nolix.core.container.matrix;
 
 //Java imports
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 final class GapMatrixIterator<E> implements Iterator<E> {
 	
-	//attributes
+	//static method
+	public static <E2> GapMatrixIterator<E2> forGapMatrix(final GapMatrix<E2> gapMatrix) {
+		return new GapMatrixIterator<>(gapMatrix);
+	}
+	
+	//attribute
 	private final GapMatrix<E> parentGapMatrix;
-	private final int rowCount;
-	private final int columnCount;
-	private int nextElementRow = -1;
-	private int nextElementColumn = -1;
+	
+	//attribute
+	private int nextElementRowIndex = -1;
+	
+	//attribute
+	private int nextElementColumnIndex = -1;
 	
 	//constructor
-	public GapMatrixIterator(final GapMatrix<E> parentGapMatrix) {
+	private GapMatrixIterator(final GapMatrix<E> parentGapMatrix) {
 		
 		GlobalValidator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
 		
 		this.parentGapMatrix = parentGapMatrix;
-		rowCount = parentGapMatrix.getRowCount();
-		columnCount = parentGapMatrix.getColumnCount();
 		
-		updateNextElementPosition();
+		incrementNextElementRowAndColumnIndex();
 	}
 	
 	//method
 	@Override
 	public boolean hasNext() {
-		return (nextElementRow != -1);
+		return (nextElementRowIndex != -1);
 	}
 	
 	//method
@@ -43,41 +47,47 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 		
 		assertHasNextElement();
 				
-		final var element = parentGapMatrix.getRefAt(nextElementRow, nextElementColumn);
-		
-		updateNextElementPosition();
-		
-		return element;
+		return nextWhenHasNext();
 	}
 	
 	//method
-	private void assertHasNextElement() {
+	private void assertHasNextElement() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT);
+			throw new NoSuchElementException("The current GapMatrixIterator does not have a next element.");
 		}
 	}
 	
 	//method
-	private void updateNextElementPosition() {
+	private void incrementNextElementRowAndColumnIndex() {
 		
-		nextElementColumn++;
+		nextElementColumnIndex++;
 		
-		while (nextElementRow <= rowCount) {
+		while (nextElementRowIndex <= parentGapMatrix.getRowCount()) {
 			
-			while (nextElementColumn <= columnCount) {
+			while (nextElementColumnIndex <= parentGapMatrix.getColumnCount()) {
 				
-				if (parentGapMatrix.containsAt(nextElementRow, nextElementColumn)) {
+				if (parentGapMatrix.containsAt(nextElementRowIndex, nextElementColumnIndex)) {
 					return;
 				}
 				
-				nextElementColumn++;
+				nextElementColumnIndex++;
 			}
-						
-			nextElementRow++;
-			nextElementColumn = 1;
+					
+			nextElementRowIndex++;
+			nextElementColumnIndex = 1;
 		}
 		
-		nextElementRow = -1;
-		nextElementColumn = -1;
+		nextElementRowIndex = -1;
+		nextElementColumnIndex = -1;
+	}
+	
+	//method
+	private E nextWhenHasNext() {
+		
+		final var element = parentGapMatrix.getRefAt(nextElementRowIndex, nextElementColumnIndex);
+		
+		incrementNextElementRowAndColumnIndex();
+		
+		return element;
 	}
 }

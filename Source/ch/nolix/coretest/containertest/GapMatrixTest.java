@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.coretest.containertest;
 
+//Java imports
+import java.util.NoSuchElementException;
+
 //own imports
 import ch.nolix.core.container.matrix.GapMatrix;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
@@ -117,7 +119,7 @@ public final class GapMatrixTest extends Test {
 		expect(iterator.hasNext());
 		expect(iterator.next()).isEqualTo("VI");
 		expectNot(iterator.hasNext());
-		expectRunning(iterator::next).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+		expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
 	}
 	
 	//method
@@ -132,6 +134,6 @@ public final class GapMatrixTest extends Test {
 		
 		//verification
 		expectNot(iterator.hasNext());
-		expectRunning(iterator::next).throwsException().ofType(ArgumentDoesNotHaveAttributeException.class);
+		expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
 	}
 }
