@@ -59,7 +59,7 @@ public final class MatrixColumn<E> extends Container<E> {
 	//method
 	@Override
 	public MatrixColumnIterator<E> iterator() {
-		return new MatrixColumnIterator<>(this);
+		return MatrixColumnIterator.forMatrixColumn(this);
 	}
 	
 	//method

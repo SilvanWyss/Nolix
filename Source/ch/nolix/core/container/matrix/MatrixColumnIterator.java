@@ -3,6 +3,7 @@ package ch.nolix.core.container.matrix;
 
 //Java imports
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -11,46 +12,57 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 final class MatrixColumnIterator<E> implements Iterator<E> {
-
-	//attributes
+	
+	//static method
+	public static <E2> MatrixColumnIterator<E2> forMatrixColumn(final MatrixColumn<E2> matrixColumn) {
+		return new MatrixColumnIterator<>(matrixColumn);
+	}
+	
+	//attribute
 	private final MatrixColumn<E> parentMatrixColumn;
-	private int nextElementRowIndex = 1;
+	
+	//attribute
+	private int nextElement1BasedRowIndex = 1;
 	
 	//constructor
-	public MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
+	private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
 		
-		GlobalValidator
-		.assertThat(parentMatrixColumn)
-		.thatIsNamed("parent matrix column")
-		.isNotNull();
+		GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent matrix column").isNotNull();
 		
 		this.parentMatrixColumn = parentMatrixColumn;
 	}
-
+	
 	//method
 	@Override
 	public boolean hasNext() {
-		return (nextElementRowIndex <= parentMatrixColumn.getElementCount());
+		return (nextElement1BasedRowIndex <= parentMatrixColumn.getElementCount());
 	}
-
+	
 	//method
 	@Override
 	public E next() {
 		
-		supposeHasNextElement();
+		assertHasNext();
 		
-		final var element = parentMatrixColumn.getRefAt1BasedIndex(nextElementRowIndex);
-		nextElementRowIndex++;
-		return element;
+		return nextWhenHasNext();
 	}
-
+	
 	//method
-	private void supposeHasNextElement() {
+	private void assertHasNext() throws NoSuchElementException {
 		if (!hasNext()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
-				this,
-				LowerCaseCatalogue.NEXT_ELEMENT
-			);
+			throw
+			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+			.toNoSuchElementException();
 		}
+	}
+	
+	//method
+	private E nextWhenHasNext() {
+		
+		final var element = parentMatrixColumn.getRefAt1BasedIndex(nextElement1BasedRowIndex);
+		
+		nextElement1BasedRowIndex++;
+		
+		return element;
 	}
 }
