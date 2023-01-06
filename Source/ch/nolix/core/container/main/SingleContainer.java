@@ -110,9 +110,9 @@ public final class SingleContainer<E> extends Container<E> implements ISingleCon
 	 */
 	@Override
 	public SingleContainerIterator<E> iterator() {
-		return new SingleContainerIterator<>(element);
+		return SingleContainerIterator.forElementOrNull(element);
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
