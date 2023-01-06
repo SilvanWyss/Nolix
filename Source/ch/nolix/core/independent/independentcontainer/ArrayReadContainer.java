@@ -5,6 +5,7 @@ package ch.nolix.core.independent.independentcontainer;
 import java.util.Iterator;
 
 //own imports
+import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -23,7 +24,7 @@ public final class ArrayReadContainer<E> implements Iterable<E> {
 		}
 		
 		//Sets the array of the current array read container.
-		this.array = array;
+		this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.
 	}
 	
 	//method
@@ -34,6 +35,6 @@ public final class ArrayReadContainer<E> implements Iterable<E> {
 	//method
 	@Override
 	public Iterator<E> iterator() {
-		return new ArrayReadContainerIterator<>(array);
+		return ArrayIterator.forArray(array);
 	}
 }
