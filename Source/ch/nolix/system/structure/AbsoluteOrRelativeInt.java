@@ -5,7 +5,6 @@ package ch.nolix.system.structure;
 import java.text.DecimalFormat;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -51,7 +50,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 			return withPercentage(0.01 * Double.valueOf(attribute.substring(0, attribute.length() - 1)));
 		}
 		
-		return withIntValue(GlobalStringHelper.toInt(attribute));
+		return withIntValue(Integer.parseInt(attribute));
 	}
 	
 	//static method

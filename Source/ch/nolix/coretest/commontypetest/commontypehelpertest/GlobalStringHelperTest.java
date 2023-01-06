@@ -88,66 +88,6 @@ public final class GlobalStringHelperTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_toInt_whenGivenIntIsPositiveAndInDecimalFormat() {
-		
-		expect(GlobalStringHelper.toInt("1")).isEqualTo(1);
-		expect(GlobalStringHelper.toInt("10")).isEqualTo(10);
-		expect(GlobalStringHelper.toInt("100")).isEqualTo(100);
-		expect(GlobalStringHelper.toInt("1000")).isEqualTo(1000);
-		
-		expect(GlobalStringHelper.toInt("5")).isEqualTo(5);
-		expect(GlobalStringHelper.toInt("55")).isEqualTo(55);
-		expect(GlobalStringHelper.toInt("555")).isEqualTo(555);
-		expect(GlobalStringHelper.toInt("5555")).isEqualTo(5555);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_toInt_whenGivenIntIsNegativeAndInDecimalFormat() {
-		
-		expect(GlobalStringHelper.toInt("-1")).isEqualTo(-1);
-		expect(GlobalStringHelper.toInt("-10")).isEqualTo(-10);
-		expect(GlobalStringHelper.toInt("-100")).isEqualTo(-100);
-		expect(GlobalStringHelper.toInt("-1000")).isEqualTo(-1000);
-		
-		expect(GlobalStringHelper.toInt("-5")).isEqualTo(-5);
-		expect(GlobalStringHelper.toInt("-55")).isEqualTo(-55);
-		expect(GlobalStringHelper.toInt("-555")).isEqualTo(-555);
-		expect(GlobalStringHelper.toInt("-5555")).isEqualTo(-5555);
-	}
-		
-	//method
-	@TestCase
-	public void testCase_toInt_whenGivenIntIsPositiveAndInHexadecimalFormat() {
-		
-		expect(GlobalStringHelper.toInt("0x1")).isEqualTo(0x1);
-		expect(GlobalStringHelper.toInt("0x10")).isEqualTo(0x10);
-		expect(GlobalStringHelper.toInt("0x100")).isEqualTo(0x100);
-		expect(GlobalStringHelper.toInt("0x1000")).isEqualTo(0x1000);
-		
-		expect(GlobalStringHelper.toInt("0x5")).isEqualTo(0x5);
-		expect(GlobalStringHelper.toInt("0x55")).isEqualTo(0x55);
-		expect(GlobalStringHelper.toInt("0x555")).isEqualTo(0x555);
-		expect(GlobalStringHelper.toInt("0x5555")).isEqualTo(0x5555);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_toInt_whenGivenIntIsNegativeAndInHexadecimalFormat() {
-		
-		expect(GlobalStringHelper.toInt("-0x1")).isEqualTo(-0x1);
-		expect(GlobalStringHelper.toInt("-0x10")).isEqualTo(-0x10);
-		expect(GlobalStringHelper.toInt("-0x100")).isEqualTo(-0x100);
-		expect(GlobalStringHelper.toInt("-0x1000")).isEqualTo(-0x1000);
-		
-		expect(GlobalStringHelper.toInt("-0x5")).isEqualTo(-0x5);
-		expect(GlobalStringHelper.toInt("-0x55")).isEqualTo(-0x55);
-		expect(GlobalStringHelper.toInt("-0x555")).isEqualTo(-0x555);
-		expect(GlobalStringHelper.toInt("-0x5555")).isEqualTo(-0x5555);
-	}
-	
-	//method
-	@TestCase
 	public void testCase_toPascalCase_whenGivenStringContainsOneWordInLowerCase() {
 		
 		//execution

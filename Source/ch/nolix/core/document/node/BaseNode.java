@@ -395,12 +395,20 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	
 	//method
 	/**
-	 * @return the integer the current {@link BaseNode} represents.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a int.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int toInt() {
-		return GlobalStringHelper.toInt(toString());
+		
+		if (!hasHeader() || containsChildNodes()) {
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
+		}
+		
+		try {
+			return Integer.parseInt(getHeader());
+		} catch (final NumberFormatException numberFormatException) {
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
+		}
 	}
 	
 	//method

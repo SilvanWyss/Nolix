@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.document.chainednode;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -687,18 +686,21 @@ public final class ChainedNode implements IChainedNode {
 	
 	//method
 	/**
-	 * @return a {@link Integer} representation of the current {@link ChainedNode}.
-	 * @throws UnrepresentingArgumentException if the current {@link ChainedNode} does not represent a {@link Integer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int toInt() {
 		
-		//Asserts that the current ChainedNode can represent an Integer.
-		if (header == null || childNodes.containsAny()) {
+		//TODO: Create containsChildNodes method.
+		if (!hasHeader() || getChildNodes().containsAny() || hasNextNode()) {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
 		}
 		
-		return GlobalStringHelper.toInt(header);
+		try {
+			return Integer.parseInt(getHeader());
+		} catch (final NumberFormatException numberFormatException) {
+			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
+		}
 	}
 	
 	//method
