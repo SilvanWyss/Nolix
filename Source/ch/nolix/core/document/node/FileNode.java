@@ -22,7 +22,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  * @date 2017-07-14
  */
 public final class FileNode extends BaseMutableNode<FileNode> {
-
+	
 	//attribute
 	private final IMutableNode<?> internalSpecification;
 	

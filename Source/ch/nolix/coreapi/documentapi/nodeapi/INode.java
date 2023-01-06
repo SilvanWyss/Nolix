@@ -176,16 +176,6 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	
 	//method declaration
 	/**
-	 * @return the long the single child {@link INode} of the current {@link INode} represents.
-	 * @throws RuntimeException if
-	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
-	 * @throws RuntimeException if
-	 * the single child {@link INode} of the current {@link INode} does not represent a long.
-	 */
-	long getSingleChildNodeAsLong();
-	
-	//method declaration
-	/**
 	 * @return the header of the single child {@link INode} of the current {@link INode}.
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
@@ -226,13 +216,6 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	 * @throws RuntimeException if the current {@link INode} does not represent a {@link IIntPair}.
 	 */
 	IIntPair toIntPair();
-	
-	//method declaration
-	/**
-	 * @return the long the current {@link INode} represents.
-	 * @throws RuntimeException if the current {@link INode} does not represent a long.
-	 */
-	long toLong();
 	
 	//method
 	/**

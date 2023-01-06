@@ -283,20 +283,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	public final int getSingleChildNodeAsInt() {
 		return getRefSingleChildNode().toInt();
 	}
-
-	//method
-	/**
-	 * @return the long the one attribute of the current {@link BaseNode} represents.
-	 * @throws EmptyArgumentException if the current {@link BaseNode} does not contain attributes.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} contains several attributes.
-	 * @throws InvalidArgumentException
-	 * if the one attribute of the current {@link BaseNode} does not represent a long.
-	 */
-	@Override
-	public final long getSingleChildNodeAsLong() {
-		return getRefSingleChildNode().toLong();
-	}
-
+	
 	//method
 	/**
 	 * @return the header of the one attribute of the current {@link BaseNode}.
@@ -424,16 +411,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		}
 		
 		return new IntPair(getRefChildNodeAt1BasedIndex(1).toInt(), getRefChildNodeAt1BasedIndex(2).toInt());
-	}
-	
-	//method
-	/**
-	 * @return the long the current {@link BaseNode} represents.
-	 * @throws InvalidArgumentException if the current {@link BaseNode} does not represent a long.
-	 */
-	@Override
-	public final long toLong() {
-		return GlobalStringHelper.toLong(toString());
 	}
 	
 	//method
