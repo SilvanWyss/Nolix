@@ -51,7 +51,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expectNot(result.hasHeader());
-		expectNot(result.containsAttributes());
+		expectNot(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("");
 	}
@@ -65,7 +65,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
+		expectNot(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a");
 	}
@@ -79,7 +79,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b)");
 	}
@@ -93,7 +93,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
+		expectNot(result.containsChildNodes());
 		expect(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a.b");
 	}
@@ -107,7 +107,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expect(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b).c");
 	}
@@ -121,7 +121,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
+		expectNot(result.containsChildNodes());
 		expect(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a.b(c)");
 	}
@@ -135,7 +135,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expectNot(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expect(result.hasNextNode());
 		expect(result.toString()).isEqualTo("(a.b).c");
 	}
@@ -149,7 +149,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
+		expectNot(result.containsChildNodes());
 		expect(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a.(b.c)");
 	}
@@ -163,7 +163,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expectNot(result.containsAttributes());
+		expectNot(result.containsChildNodes());
 		expect(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a.b.c");
 	}
@@ -177,7 +177,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b,c,d)");
 	}
@@ -191,7 +191,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b(c),d(e),f(g))");
 	}
@@ -205,7 +205,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b.c,d.e,f.g)");
 	}
@@ -219,7 +219,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b(c).d,e(f).g,h(i).j)");
 	}
@@ -233,7 +233,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b.c(d),e.(f.g),h.(i,j))");
 	}
@@ -247,7 +247,7 @@ public final class ChainedNodeCreationTest extends Test {
 		
 		//verification
 		expect(result.hasHeader());
-		expect(result.containsAttributes());
+		expect(result.containsChildNodes());
 		expectNot(result.hasNextNode());
 		expect(result.toString()).isEqualTo("a(b.c.d,e.f.g,h.i.j)");
 	}

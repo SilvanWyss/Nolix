@@ -48,7 +48,7 @@ public final class ChainedNodeTest extends Test {
 		final var testUnit = ChainedNode.withHeader("a");
 		
 		//setup verification
-		expectNot(testUnit.containsAttributes());
+		expectNot(testUnit.containsChildNodes());
 		
 		//execution & verification
 		expectRunning(testUnit::getSingleChildNodeAsInt)

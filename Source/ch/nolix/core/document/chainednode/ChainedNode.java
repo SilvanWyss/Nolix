@@ -383,9 +383,10 @@ public final class ChainedNode implements IChainedNode {
 	
 	//method
 	/**
-	 * @return true if the current {@link ChainedNode} contains attributes.
+	 * {@inheritDoc}
 	 */
-	public boolean containsAttributes() {
+	@Override
+	public boolean containsChildNodes() {
 		return childNodes.containsAny();
 	}
 	
@@ -665,7 +666,7 @@ public final class ChainedNode implements IChainedNode {
 	public boolean isBlank() {
 		return
 		!hasHeader()
-		&& !containsAttributes();
+		&& !containsChildNodes();
 	}
 	
 	//method
@@ -691,8 +692,7 @@ public final class ChainedNode implements IChainedNode {
 	@Override
 	public int toInt() {
 		
-		//TODO: Create containsChildNodes method.
-		if (!hasHeader() || getChildNodes().containsAny() || hasNextNode()) {
+		if (!hasHeader() || containsChildNodes() || hasNextNode()) {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
 		}
 		

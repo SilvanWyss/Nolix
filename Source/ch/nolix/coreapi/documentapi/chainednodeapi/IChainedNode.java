@@ -26,6 +26,12 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @return true if the current {@link IChainedNode} contains child nodes.
+	 */
+	boolean containsChildNodes();
+	
+	//method declaration
+	/**
 	 * @param p1BasedIndex
 	 * @return the child node of the current {@link IChainedNode} at the given p1BasedIndex .
 	 * @throws RuntimeException if
