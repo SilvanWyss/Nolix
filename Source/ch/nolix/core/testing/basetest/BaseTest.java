@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public abstract class BaseTest {
+public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract methods.
 	
 	//attribute
 	private boolean isTestInstance;

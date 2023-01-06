@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * @author Silvan Wyss
  * @date 2016-12-01
  */
-abstract class Mediator {
+abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 	
 	//constant
 	public static final String DEFAULT_ARGUMENT_NAME = "argument";

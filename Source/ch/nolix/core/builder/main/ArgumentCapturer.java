@@ -8,7 +8,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
-public abstract class ArgumentCapturer<
+public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not have abstract methods.
 	A,
 	N
 > {

@@ -11,7 +11,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
  * @author Silvan Wyss
  * @date 2017-01-08
  */
-public abstract class Mediator {
+public abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 	
 	//attribute
 	private final IElementTaker<String> expectationErrorTaker;
