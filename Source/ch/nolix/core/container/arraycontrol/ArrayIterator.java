@@ -5,8 +5,8 @@ package ch.nolix.core.container.arraycontrol;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
