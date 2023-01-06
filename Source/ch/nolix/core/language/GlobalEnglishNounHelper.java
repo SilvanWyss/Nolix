@@ -13,25 +13,25 @@ public final class GlobalEnglishNounHelper {
 		
 		GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseCatalogue.NOUN).isNotBlank();
 		
+		return
 		switch (noun) {
-			case "child":
-				return "children";
-			case "foot":
-				return "feet";
-			case "goose":
-				return "geese";
-			case "mouse":
-				return "mice";
-			case "tooth":
-				return "teeth";
-			default:
-		}
-		
-		return getPluralOfNounWhenIsStandardCase(noun);
+			case "child" ->
+				"children";
+			case "foot" ->
+				"feet";
+			case "goose" ->
+				"geese";
+			case "mouse" ->
+				"mice";
+			case "tooth" ->
+				"teeth";
+			default ->
+				getPluralOfNounDependingOnEnding(noun);
+		};
 	}
 	
 	//static method
-	private static String getPluralOfNounWhenIsStandardCase(final String noun) {
+	private static String getPluralOfNounDependingOnEnding(final String noun) {
 		
 		if (noun.endsWith("man")) {
 			return (noun.substring(0, noun.length() - 3) + "men");
