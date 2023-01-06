@@ -59,7 +59,7 @@ public final class MatrixRow<E> extends Container<E> {
 	//method
 	@Override
 	public MatrixRowIterator<E> iterator() {
-		return new MatrixRowIterator<>(this);
+		return MatrixRowIterator.forMatrixRow(this);
 	}
 	
 	//method
