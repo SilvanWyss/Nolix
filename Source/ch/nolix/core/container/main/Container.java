@@ -477,7 +477,7 @@ public abstract class Container<E> implements IContainer<E> {
 			try {
 				action.run(e);
 			} catch (final Throwable error) {
-				GlobalLogger.logError(exception);
+				GlobalLogger.logError(error);
 			}
 		}
 	}
