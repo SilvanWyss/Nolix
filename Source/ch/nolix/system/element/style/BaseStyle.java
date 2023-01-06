@@ -491,7 +491,7 @@ implements IStyle {
 		for (final var aa : attachingAttributes.getRefValues()) {
 			try {
 				element.addOrChangeAttribute(aa);
-			} catch (final Exception exception) {
+			} catch (final Throwable error) {
 				throw
 				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					"attaching attribute",

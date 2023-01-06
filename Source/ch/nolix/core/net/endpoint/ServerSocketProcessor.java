@@ -59,11 +59,11 @@ final class ServerSocketProcessor extends Worker {
 			} else {
 				parentServer.takeEndPoint(netEndPoint.getRefElement());
 			}
-		} catch (final Exception exception) {
+		} catch (final Throwable error) {
 			
 			closeSocket();
 			
-			throw WrapperException.forError(exception);
+			throw WrapperException.forError(error);
 		}
 	}
 	

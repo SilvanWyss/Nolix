@@ -14,7 +14,7 @@ public final class Nolix2023Pro extends License {
 		try {
 			final var keyAsInt = Integer.valueOf(filteredKey);
 			return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
-		} catch (final Exception exception) {
+		} catch (final Throwable error) {
 			return false;
 		}
 	}

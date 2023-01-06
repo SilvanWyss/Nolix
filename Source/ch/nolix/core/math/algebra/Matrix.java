@@ -436,7 +436,7 @@ public final class Matrix {
 		
 		try {
 			inverseMatrix = matrix.getInverse();
-		} catch (final Exception exception) {
+		} catch (final Throwable error) {
 			inverseMatrix = matrix.getPseudoInverse();
 		}
 				

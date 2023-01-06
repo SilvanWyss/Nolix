@@ -476,7 +476,7 @@ public abstract class Container<E> implements IContainer<E> {
 		for (final var e : this) {
 			try {
 				action.run(e);
-			} catch (final Exception exception) {
+			} catch (final Throwable error) {
 				GlobalLogger.logError(exception);
 			}
 		}

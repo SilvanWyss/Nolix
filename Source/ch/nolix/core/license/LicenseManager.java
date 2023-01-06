@@ -194,7 +194,7 @@ public final class LicenseManager {
 			return
 			new FolderAccessor(LicenseEnvironment.LOCAL_LICENSE_FOLDER_NAME)
 			.readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
-		} catch (final Exception exception) {
+		} catch (final Throwable error) {
 			throw
 			GeneralException.withErrorMessage(
 				"There does not exist a license file with the key for the License '" + licenseName + "'"

@@ -270,14 +270,14 @@ public class NetEndPoint extends EndPoint {
 	private final String receiveAndGetReply(final String message) {
 		try {
 			return receiveAndGetReply(ChainedNode.fromString(message));
-		} catch (final Exception exception) {
+		} catch (final Throwable error) {
 			
-			GlobalLogger.logError(exception);
+			GlobalLogger.logError(error);
 			
-			if (exception.getMessage() == null) {
+			if (error.getMessage() == null) {
 				return Protocol.ERROR_HEADER;
 			}
-			return (Protocol.ERROR_HEADER + '(' + BaseNode.getEscapeStringFor(exception.getMessage()) + ')');
+			return (Protocol.ERROR_HEADER + '(' + BaseNode.getEscapeStringFor(error.getMessage()) + ')');
 		}
 	}
 	
