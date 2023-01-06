@@ -499,7 +499,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 */
 	@Override
 	public MatrixIterator<E> iterator() {
-		return new MatrixIterator<>(this);
+		return MatrixIterator.forMatrix(this);
 	}
 	
 	//method
