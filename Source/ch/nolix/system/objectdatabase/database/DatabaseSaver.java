@@ -10,13 +10,15 @@ import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 final class DatabaseSaver {
+	
+	//constant
+	private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -121,57 +123,8 @@ final class DatabaseSaver {
 	) {
 		for (final var p : entity.technicalGetRefProperties()) {
 			if (propertyHelper.isNewOrEdited(p) && p.getType() == PropertyType.MULTI_REFERENCE) {
-				saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
+				MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
 			}
-		}
-	}
-	
-	//method
-	private void saveChangesOfMultiReference(final IMultiReference<?, ?> multiReference, final Database database) {
-		for (final var e : multiReference.getRefLocalEntries()) {
-			saveChangeOfMultiReferenceEntry(e, database);
-		}
-	}
-	
-	//method
-	private void saveChangeOfMultiReferenceEntry(
-		final IMultiReferenceEntry<?, ?> multiReferenceEntry,
-		final Database database
-	) {
-		
-		final var multiReferenceEntryState = multiReferenceEntry.getState();
-		
-		switch (multiReferenceEntryState) {
-			case NEW:
-				
-				final var entity = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
-				
-				database.internalGetRefDataAndSchemaAdapter().insertMultiReferenceEntry(
-					entity.getParentTableName(),
-					entity.getId(),
-					multiReferenceEntry.getRefParentMultiReference().getName(),
-					multiReferenceEntry.getReferencedEntityId()
-				);
-				
-				break;
-			case DELETED:
-				
-				final var entity2 = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
-				
-				database.internalGetRefDataAndSchemaAdapter().deleteMultiReferenceEntry(
-					entity2.getParentTableName(),
-					entity2.getId(),
-					multiReferenceEntry.getRefParentMultiReference().getName(),
-					multiReferenceEntry.getReferencedEntityId()
-				);
-				
-				break;
-			default:
-				throw
-				InvalidArgumentException.forArgumentNameAndArgument(
-					"state of multi reference",
-					multiReferenceEntryState
-				);
 		}
 	}
 }
