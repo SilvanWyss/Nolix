@@ -52,39 +52,53 @@ final class SaveProcessor {
 		for (final var e : entitiesInLocalData) {
 			switch (e.getState()) {
 				case NEW:
-					
-					database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
-						e.getParentTableName(),
-						entityHelper.createNewEntityDTOForEntity(e)
-					);
-					
-					saveMultiReferenceChangesOfEntity(e, database);
-					
+					processNewEntity(e, database);
+					break;
+				case LOADED:
+					//Does nothing.
 					break;
 				case EDITED:
-					
-					database.internalGetRefDataAndSchemaAdapter().updateEntity(
-						e.getParentTableName(),
-						entityHelper.createEntityUpdateDTOForEntity(e)
-					);
-					
-					saveMultiReferenceChangesOfEntity(e, database);
-					
+					processEditedEntity(e, database);
 					break;
 				case DELETED:
-					
-					database.internalGetRefDataAndSchemaAdapter().deleteEntity(
-						e.getRefParentTable().getName(),
-						entityHelper.createEntityHeadDTOForEntity(e)
-					);
-					
+					processDeletedEntity(e, database);
 					break;
 				default:
-					//Does nothing.
+					throw InvalidArgumentException.forArgument(e);
 			}
 		}
 	}
 	
+	//method
+	private void processNewEntity(final IEntity<DataImplementation> newEntity, final Database database) {
+		
+		database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
+			newEntity.getParentTableName(),
+			entityHelper.createNewEntityDTOForEntity(newEntity)
+		);
+		
+		saveMultiPropertyChangesOfEntity(newEntity, database);
+	}
+	
+	//method
+	private void processEditedEntity(final IEntity<DataImplementation> editedEntity, final Database database) {
+		
+		database.internalGetRefDataAndSchemaAdapter().updateEntity(
+			editedEntity.getParentTableName(),
+			entityHelper.createEntityUpdateDTOForEntity(editedEntity)
+		);
+		
+		saveMultiPropertyChangesOfEntity(editedEntity, database);
+	}
+	
+	//method
+	private void processDeletedEntity(final IEntity<DataImplementation> deletedEntity, final Database database) {
+		database.internalGetRefDataAndSchemaAdapter().deleteEntity(
+			deletedEntity.getRefParentTable().getName(),
+			entityHelper.createEntityHeadDTOForEntity(deletedEntity)
+		);
+	}
+
 	//method
 	private void expectInitialSchemaTimestamp(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
@@ -101,7 +115,7 @@ final class SaveProcessor {
 	}
 	
 	//method
-	private void saveMultiReferenceChangesOfEntity(
+	private void saveMultiPropertyChangesOfEntity(
 		final IEntity<DataImplementation> entity,
 		final Database database
 	) {
