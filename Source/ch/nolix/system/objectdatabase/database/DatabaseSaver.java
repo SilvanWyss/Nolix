@@ -2,45 +2,28 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
-import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
-import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
-import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 final class DatabaseSaver {
 	
 	//constant
-	private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
+	private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 	
 	//constant
-	private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
+	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 	
-	//static attribute
-	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
-	
-	//static attribute
-	private static final IEntityHelper entityHelper = new EntityHelper();
-	
-	//static attribute
-	private static final IPropertyHelper propertyHelper = new PropertyHelper();
-	
-	//static attribute
-	private static final DatabaseSaveValidator databaseSaveValidator = new DatabaseSaveValidator();
+	//constant
+	private static final DatabaseSaveValidator DATABASE_SAVE_VALIDATOR = new DatabaseSaveValidator();
 	
 	//method
 	public void saveChanges(final Database database) {
 		
 		DatabaseValidator.INSTANCE.assertCanSaveChanges(database);
 		
-		processChangedEntitiesOfDatabase(database);
+		saveChangesOfEntitiesOfDatabase(database);
 				
 		assertNewlyReferencedEntitiesExists(database);
 		
@@ -50,60 +33,15 @@ final class DatabaseSaver {
 	}
 	
 	//method
-	private void processChangedEntitiesOfDatabase(final Database database) {
+	private void saveChangesOfEntitiesOfDatabase(final Database database) {
 		
-		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
+		final var entitiesInLocalData = DATABASE_HELPER.getRefEntitiesInLocalData(database);
 		
 		for (final var e : entitiesInLocalData) {
-			switch (e.getState()) {
-				case NEW:
-					processNewEntity(e, database);
-					break;
-				case LOADED:
-					//Does nothing.
-					break;
-				case EDITED:
-					processEditedEntity(e, database);
-					break;
-				case DELETED:
-					processDeletedEntity(e, database);
-					break;
-				default:
-					throw InvalidArgumentException.forArgument(e);
-			}
+			ENTITY_SAVER.saveChangesOfEntity(e, database);
 		}
 	}
 	
-	//method
-	private void processNewEntity(final IEntity<DataImplementation> newEntity, final Database database) {
-		
-		database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
-			newEntity.getParentTableName(),
-			entityHelper.createNewEntityDTOForEntity(newEntity)
-		);
-		
-		saveMultiPropertyChangesOfEntity(newEntity, database);
-	}
-	
-	//method
-	private void processEditedEntity(final IEntity<DataImplementation> editedEntity, final Database database) {
-		
-		database.internalGetRefDataAndSchemaAdapter().updateEntity(
-			editedEntity.getParentTableName(),
-			entityHelper.createEntityUpdateDTOForEntity(editedEntity)
-		);
-		
-		saveMultiPropertyChangesOfEntity(editedEntity, database);
-	}
-	
-	//method
-	private void processDeletedEntity(final IEntity<DataImplementation> deletedEntity, final Database database) {
-		database.internalGetRefDataAndSchemaAdapter().deleteEntity(
-			deletedEntity.getRefParentTable().getName(),
-			entityHelper.createEntityHeadDTOForEntity(deletedEntity)
-		);
-	}
-
 	//method
 	private void expectInitialSchemaTimestamp(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
@@ -111,32 +49,11 @@ final class DatabaseSaver {
 	
 	//method
 	private void assertNewlyReferencedEntitiesExists(final Database database) {
-		databaseSaveValidator.addExpectionsThatNewlyReferencedEntitiesExistToDatabase(database);
+		DATABASE_SAVE_VALIDATOR.addExpectionsThatNewlyReferencedEntitiesExistToDatabase(database);
 	}
 	
 	//method
 	private void actualSaveChanges(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().saveChangesAndReset();
-	}
-	
-	//method
-	private void saveMultiPropertyChangesOfEntity(
-		final IEntity<DataImplementation> entity,
-		final Database database
-	) {
-		for (final var p : entity.technicalGetRefProperties()) {
-			if (propertyHelper.isNewOrEdited(p)) {
-				switch (p.getType()) {
-					case MULTI_VALUE:
-						MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?, ?>)p, database);
-						break;
-					case MULTI_REFERENCE:
-						MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
-						break;
-					default:
-						//Does nothing.
-				}
-			}
-		}
 	}
 }
