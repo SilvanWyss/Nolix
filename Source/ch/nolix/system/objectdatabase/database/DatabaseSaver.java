@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
-final class SaveProcessor {
+final class DatabaseSaver {
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
