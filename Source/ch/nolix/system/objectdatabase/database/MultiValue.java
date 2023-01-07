@@ -30,11 +30,9 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	@Override
 	public void addValue(final V value) {
 		
-		assertCanAddGivenValue(value);
+		assertCanAddValue(value);
 		
 		updateStateForAddValue(value);
-		
-		updateDatabaseForAddValue(value);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -93,7 +91,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	private void assertCanAddGivenValue(final V value) {
+	private void assertCanAddValue(final V value) {
 		MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
 	}
 	
@@ -123,25 +121,19 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		extractedValues = true;
 		
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
-				getRefParentEntity().getParentTableName(),
-				getRefParentEntity().getId(),
-				getName()
-			);
-		}
+		localEntries.addAtEnd(loadEntries());
 	}
 	
 	//method
-	private void updateDatabaseForAddValue(final V value) {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().insertMultiValueEntry(
-				getRefParentEntity().getParentTableName(),
-				getRefParentEntity().getId(),
-				getName(),
-				value.toString()
-			);
-		}
+	@SuppressWarnings("unchecked")
+	private IContainer<MultiValueEntry<V>> loadEntries() {
+		return
+		internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
+			getRefParentEntity().getParentTableName(),
+			getRefParentEntity().getId(),
+			getName()
+		)
+		.to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V)mve));
 	}
 	
 	//method
