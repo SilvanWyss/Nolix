@@ -77,7 +77,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	@Override
 	public IContentFieldDTO technicalToContentField() {
-		return new ContentFieldDTO(getName(), StringCatalogue.EMPTY_STRING);
+		return new ContentFieldDTO(getName());
 	}
 	
 	//method
