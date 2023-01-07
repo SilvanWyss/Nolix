@@ -62,11 +62,11 @@ final class MultiReferenceSaver {
 		final Database database
 	) {
 		
-		final var entity2 = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
+		final var entity = multiReferenceEntry.getRefParentMultiReference().getRefParentEntity();
 		
 		database.internalGetRefDataAndSchemaAdapter().deleteMultiReferenceEntry(
-			entity2.getParentTableName(),
-			entity2.getId(),
+			entity.getParentTableName(),
+			entity.getId(),
 			multiReferenceEntry.getRefParentMultiReference().getName(),
 			multiReferenceEntry.getReferencedEntityId()
 		);
