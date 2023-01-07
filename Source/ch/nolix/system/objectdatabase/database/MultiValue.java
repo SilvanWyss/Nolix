@@ -80,6 +80,17 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	@Override
+	public void removeValue(final V value) {
+		
+		MULTI_VALUE_VALIDATOR.assertCanRemoveValue(this, value);
+		
+		extractValuesIfNeeded();
+		
+		localEntries.getRefFirst(le -> le.getRefValue().equals(value)).internalSetDeleted();
+	}
+	
+	//method
+	@Override
 	public IContentFieldDTO technicalToContentField() {
 		return new ContentFieldDTO(getName());
 	}
@@ -98,8 +109,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	//method
 	private void clearWhenContainsAny() {
 		
-		//TODO: Add removeValue method to IMultiValue.
-		//getRefValues().forEach(this::removeValue);
+		getRefValues().forEach(this::removeValue);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}

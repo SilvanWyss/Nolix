@@ -20,4 +20,7 @@ extends Clearable, IBaseValue<IMPL, V> {
 	
 	//method declaration
 	IContainer<V> getRefValues();
+	
+	//method declaration
+	void removeValue(V value);
 }
