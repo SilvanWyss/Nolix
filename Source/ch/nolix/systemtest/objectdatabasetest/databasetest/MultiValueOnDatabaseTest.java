@@ -27,7 +27,7 @@ public final class MultiValueOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_whenIsLoadedAndEmpty() {
+	public void testCase_isSaved_whenIsNewAndEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -43,12 +43,12 @@ public final class MultiValueOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getRefTableByEntityType(Round.class).getRefEntityById(round.getId());
 		
 		//verification
-		expect(loadedRound.amounts.isEmpty());
+		expect(loadedRound.amounts.getRefValues().isEmpty());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_whenIsLoadedAndContainsValue() {
+	public void testCase_isSaved_whenIsNewAndContainsValue() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -71,5 +71,35 @@ public final class MultiValueOnDatabaseTest extends Test {
 		final var loadedValues = loadedRound.amounts.getRefValues();
 		expect(loadedValues.getElementCount()).isEqualTo(4);
 		expect(loadedValues.containsAll(10, 20, 30, 40));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_removeValue_whenIsLoadedAndContainsValue() {
+		
+		//setup part 1
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Round.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var round = new Round();
+		round.amounts.addValue(10);
+		round.amounts.addValue(20);
+		round.amounts.addValue(30);
+		round.amounts.addValue(40);
+		nodeDatabaseAdapter.insert(round);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2
+		final var loadedRound =
+		nodeDatabaseAdapter.getRefTableByEntityType(Round.class).getRefEntityById(round.getId());
+		
+		//execution
+		loadedRound.amounts.removeValue(40);
+		
+		//verification
+		final var loadedValues = loadedRound.amounts.getRefValues();
+		expect(loadedValues.getElementCount()).isEqualTo(3);
+		expect(loadedValues.containsAll(10, 20, 30));
 	}
 }
