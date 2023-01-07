@@ -30,6 +30,14 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
+	public <V> boolean canRemoveValue(final IMultiValue<?, V> multiValue, final V value) {
+		return
+		canRemoveValue(multiValue)
+		&& value != null;
+	}
+	
+	//method
+	@Override
 	public <V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(
 		final IMultiValue<?, V> multiValue,
 		final V addedValue
@@ -65,5 +73,12 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		multiValue != null
 		&& multiValue.belongsToEntity()
 		&& multiValue.getRefParentEntity().isOpen();
+	}
+	
+	//method
+	private boolean canRemoveValue(final IMultiValue<?, ?> multiValue) {
+		return
+		multiValue != null
+		&& multiValue.isOpen();
 	}
 }

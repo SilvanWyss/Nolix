@@ -15,6 +15,9 @@ public interface IMultiValueHelper extends IPropertyHelper {
 	boolean canClear(IMultiValue<?, ?> multiValue);
 	
 	//method declaration
+	<V> boolean canRemoveValue(IMultiValue<?, V> multiValue, V value);
+	
+	//method declaration
 	<V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(IMultiValue<?, V> multiValue, V addedValue);
 	
 	//method declaration
