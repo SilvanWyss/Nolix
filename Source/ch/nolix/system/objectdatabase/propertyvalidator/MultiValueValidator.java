@@ -29,4 +29,10 @@ public final class MultiValueValidator extends PropertyValidator implements IMul
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot clear");
 		}
 	}
+	
+	//method
+	@Override
+	public <V> void assertCanRemoveValue(final IMultiValue<?, V> multiValue, final V value) {
+		//TODO: Implement.
+	}
 }

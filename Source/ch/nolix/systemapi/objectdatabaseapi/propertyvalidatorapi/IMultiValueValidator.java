@@ -12,4 +12,7 @@ public interface IMultiValueValidator extends IPropertyValidator {
 	
 	//method declaration
 	void assertCanClear(IMultiValue<?, ?> multiValue);
+	
+	//method declaration
+	<V> void assertCanRemoveValue(IMultiValue<?, V> multiValue, V value);
 }
