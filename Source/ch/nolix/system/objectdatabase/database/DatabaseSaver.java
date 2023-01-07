@@ -10,33 +10,38 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 final class DatabaseSaver {
 	
 	//constant
-	private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
-	
-	//constant
-	private static final EntitySaver ENTITY_SAVER = new EntitySaver();
-	
-	//constant
 	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+	
+	//constant
+	private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 	
 	//constant
 	private static final DatabaseSaveValidator DATABASE_SAVE_VALIDATOR = new DatabaseSaveValidator();
 	
+	//constant
+	private static final EntitySaver ENTITY_SAVER = new EntitySaver();
+	
 	//method
-	public void saveChanges(final Database database) {
+	public void saveChangesOfDatabase(final Database database) {
 		
-		DATABASE_VALIDATOR.assertCanSaveChanges(database);
+		assertCanSaveChangesOfDatabase(database);
 		
-		saveChangesOfEntitiesOfDatabase(database);
-				
+		addExpectionThatDatabaseHasInitialSchemaTimestamp(database);
+		
+		prepareChangesOfDatabase(database);
+		
 		assertNewlyReferencedEntitiesExists(database);
 		
-		expectInitialSchemaTimestamp(database);
-		
-		actualSaveChanges(database);
+		commitChangesToDatabase(database);
 	}
 	
 	//method
-	private void saveChangesOfEntitiesOfDatabase(final Database database) {
+	private void assertCanSaveChangesOfDatabase(final Database database) {
+		DATABASE_VALIDATOR.assertCanSaveChanges(database);
+	}
+	
+	//method
+	private void prepareChangesOfDatabase(final Database database) {
 		
 		final var entitiesInLocalData = DATABASE_HELPER.getRefEntitiesInLocalData(database);
 		
@@ -46,7 +51,7 @@ final class DatabaseSaver {
 	}
 	
 	//method
-	private void expectInitialSchemaTimestamp(final Database database) {
+	private void addExpectionThatDatabaseHasInitialSchemaTimestamp(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
 	}
 	
@@ -56,7 +61,7 @@ final class DatabaseSaver {
 	}
 	
 	//method
-	private void actualSaveChanges(final Database database) {
+	private void commitChangesToDatabase(final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().saveChangesAndReset();
 	}
 }
