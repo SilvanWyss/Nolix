@@ -86,7 +86,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 		
 		extractValuesIfNeeded();
 		
-		localEntries.getRefFirst(le -> le.getRefValue().equals(value)).internalSetDeleted();
+		localEntries.removeAndGetRefFirst(le -> le.getRefValue().equals(value)).internalSetDeleted();
 	}
 	
 	//method
