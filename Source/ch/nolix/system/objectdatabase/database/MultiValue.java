@@ -10,6 +10,7 @@ import ch.nolix.system.objectdatabase.propertyvalidator.MultiValueValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
@@ -20,10 +21,10 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	private static final IMultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 	
 	//attribute
-	private boolean loadedValues;
+	private boolean extractedValues;
 	
 	//multi-attribute
-	private final LinkedList<V> values = new LinkedList<>();
+	private final LinkedList<MultiValueEntry<V>> localEntries = new LinkedList<>();
 	
 	//method
 	@Override
@@ -48,11 +49,17 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	@Override
+	public IContainer<? extends IMultiValueEntry<DataImplementation, V>> getRefLocalEntries() {
+		return localEntries;
+	}
+	
+	//method
+	@Override
 	public IContainer<V> getRefValues() {
 		
-		loadValuesIfNotLoaded();
+		extractValuesIfNeeded();
 		
-		return values;
+		return localEntries.to(IMultiValueEntry::getRefValue);
 	}
 	
 	//method
@@ -91,38 +98,30 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	private void assertCanClear() {
-		MULTI_VALUE_VALIDATOR.assertCanClear(this);
-	}
-	
-	//method
 	private void clearWhenContainsAny() {
 		
-		assertCanClear();
-		
-		updateStateForClear();
-		
-		updateDatabaseForClear();
+		//TODO: Add removeValue method to IMultiValue.
+		//getRefValues().forEach(this::removeValue);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
-	private boolean loadedValues() {
-		return loadedValues;
+	private boolean extractedValues() {
+		return extractedValues;
 	}
 	
 	//method
-	private void loadValuesIfNotLoaded() {
-		if (!loadedValues()) {
-			loadValuesWhenNotLoaded();
+	private void extractValuesIfNeeded() {
+		if (!extractedValues()) {
+			extractValuesWhenNeeded();
 		}
 	}
 	
 	//method	
-	private void loadValuesWhenNotLoaded() {
+	private void extractValuesWhenNeeded() {
 		
-		loadedValues = true;
+		extractedValues = true;
 		
 		if (isLinkedWithRealDatabase()) {
 			internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
@@ -146,23 +145,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	}
 	
 	//method
-	private void updateDatabaseForClear() {
-		if (isLinkedWithRealDatabase()) {
-			internalGetRefDataAndSchemaAdapter().deleteMultiValueEntries(
-				getRefParentEntity().getParentTableName(),
-				getRefParentEntity().getId(),
-				getName()
-			);
-		}
-	}
-	
-	//method
 	private void updateStateForAddValue(final V value) {
-		values.addAtEnd(value);
-	}
-	
-	//method
-	private void updateStateForClear() {
-		values.clear();
+		localEntries.addAtEnd(MultiValueEntry.newEntryForMultiValueAndValue(this, value));
 	}
 }

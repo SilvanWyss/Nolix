@@ -16,5 +16,8 @@ extends Clearable, IBaseValue<IMPL, V> {
 	void addValue(V value);
 	
 	//method declaration
+	IContainer<? extends IMultiValueEntry<IMPL, V>> getRefLocalEntries();
+	
+	//method declaration
 	IContainer<V> getRefValues();
 }
