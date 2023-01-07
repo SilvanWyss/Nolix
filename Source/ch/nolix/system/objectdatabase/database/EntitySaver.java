@@ -2,12 +2,12 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
@@ -32,9 +32,6 @@ public final class EntitySaver {
 			case NEW:
 				saveNewEntity(entity, database);
 				break;
-			case LOADED:
-				//Does nothing.
-				break;
 			case EDITED:
 				saveChangesOfEditedEntity(entity, database);
 				break;
@@ -42,7 +39,7 @@ public final class EntitySaver {
 				saveEntityDeletion(entity, database);
 				break;
 			default:
-				throw InvalidArgumentException.forArgument(entity);
+				//Does nothing.
 		}
 	}
 	
@@ -82,18 +79,29 @@ public final class EntitySaver {
 		final Database database
 	) {
 		for (final var p : entity.technicalGetRefProperties()) {
-			if (PROPERTY_HELPER.isNewOrEdited(p)) {
-				switch (p.getType()) {
-					case MULTI_VALUE:
-						MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?, ?>)p, database);
-						break;
-					case MULTI_REFERENCE:
-						MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
-						break;
-					default:
-						//Does nothing.
-				}
-			}
+			saveChangesOfPotentialMultiProperty(database, p);
+		}
+	}
+	
+	//method
+	private void saveChangesOfPotentialMultiProperty(final Database database, final IProperty<DataImplementation> p) {
+		if (PROPERTY_HELPER.isNewOrEdited(p)) {
+			saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(database, p);
+		}
+	}
+	
+	//method
+	private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(final Database database,
+			final IProperty<DataImplementation> p) {
+		switch (p.getType()) {
+			case MULTI_VALUE:
+				MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?, ?>)p, database);
+				break;
+			case MULTI_REFERENCE:
+				MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
+				break;
+			default:
+				//Does nothing.
 		}
 	}
 }
