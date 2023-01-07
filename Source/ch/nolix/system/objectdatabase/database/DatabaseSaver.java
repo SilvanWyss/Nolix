@@ -10,6 +10,9 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 final class DatabaseSaver {
 	
 	//constant
+	private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
+	
+	//constant
 	private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 	
 	//constant
@@ -21,7 +24,7 @@ final class DatabaseSaver {
 	//method
 	public void saveChanges(final Database database) {
 		
-		DatabaseValidator.INSTANCE.assertCanSaveChanges(database);
+		DATABASE_VALIDATOR.assertCanSaveChanges(database);
 		
 		saveChangesOfEntitiesOfDatabase(database);
 				

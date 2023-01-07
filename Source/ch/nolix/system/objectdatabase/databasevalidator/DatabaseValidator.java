@@ -12,13 +12,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IDatabaseValida
 public final class DatabaseValidator implements IDatabaseValidator {
 	
 	//static attribute
-	public static final IDatabaseValidator INSTANCE = new DatabaseValidator();
-	
-	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
-	
-	//constructor
-	private DatabaseValidator() {}
 	
 	//method
 	@Override
