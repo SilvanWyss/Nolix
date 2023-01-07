@@ -7,15 +7,18 @@ import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.databasevalidator.DatabaseValidator;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
-import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 final class DatabaseSaver {
+	
+	//constant
+	private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
 	
 	//constant
 	private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
@@ -122,8 +125,17 @@ final class DatabaseSaver {
 		final Database database
 	) {
 		for (final var p : entity.technicalGetRefProperties()) {
-			if (propertyHelper.isNewOrEdited(p) && p.getType() == PropertyType.MULTI_REFERENCE) {
-				MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
+			if (propertyHelper.isNewOrEdited(p)) {
+				switch (p.getType()) {
+					case MULTI_VALUE:
+						MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?, ?>)p, database);
+						break;
+					case MULTI_REFERENCE:
+						MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
+						break;
+					default:
+						//Does nothing.
+				}
 			}
 		}
 	}
