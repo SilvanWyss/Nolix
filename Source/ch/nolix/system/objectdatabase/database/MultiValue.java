@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
