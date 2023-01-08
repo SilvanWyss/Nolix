@@ -6,6 +6,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.IEntityStatementCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
@@ -68,17 +69,18 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ ".', 0) END;";
 	}
 	
+	//TODO: Fix all statement creations (tableName parameter).
 	//method
 	@Override
 	public String createStatementToInsertNewEntity(final String tableName, final INewEntityDTO newEntity) {
 		return
 		"INSERT INTO "
-		+ tableName
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
 		+ " (Id, "
 		+ newEntity.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
-		+ ") VALUES ("
+		+ ") VALUES ('"
 		+ newEntity.getId()
-		+ ", "
+		+ "', "
 		+ newEntity.getContentFields().to(this::getValueOrNullInSQLOf).toString(", ")
 		+ ")";
 	}
