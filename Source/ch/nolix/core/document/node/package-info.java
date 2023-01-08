@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.core.document.node} package defines a node, that can have a header and other nodes as attributes.
+ * The {@link ch.nolix.core.document.node} package defines a document node.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01
