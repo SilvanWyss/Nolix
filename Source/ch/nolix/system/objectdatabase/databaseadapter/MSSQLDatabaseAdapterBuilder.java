@@ -11,7 +11,7 @@ import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
 
 //class
-final class MSSQLDatabaseAdapterBuilder
+public final class MSSQLDatabaseAdapterBuilder
 extends
 AndPortCapturer<
 	ToDatabaseNameCapturer<
