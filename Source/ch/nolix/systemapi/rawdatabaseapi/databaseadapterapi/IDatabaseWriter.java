@@ -82,7 +82,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * This method can be used to prevent from referencing an entity that was deleted in the meanwhile.
 	 * 
 	 * @param tableName
-	 * @param id
+	 * @param entityId
 	 */
 	void expectTableContainsEntity(String tableName, String entityId);
 	
