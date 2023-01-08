@@ -76,10 +76,12 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		return
 		"INSERT INTO "
 		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
-		+ " (Id, "
+		+ " (Id, SaveStamp, "
 		+ newEntity.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
 		+ ") VALUES ('"
 		+ newEntity.getId()
+		+ "', '"
+		+ 1
 		+ "', "
 		+ newEntity.getContentFields().to(this::getValueOrNullInSQLOf).toString(", ")
 		+ ")";
