@@ -24,7 +24,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	) {
 		return
 		"DELETE FROM "
-		+ tableName
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
 		+ " WHERE Id = '"
 		+ entity.getId()
 		+ "' AND SaveStamp = '"
@@ -55,7 +55,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
 		return
 		"SELECT Id FROM "
-		+ tableName
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
 		+ " WHERE Id = '"
 		+ entityId
 		+ "' "
@@ -66,7 +66,6 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ ".', 0) END;";
 	}
 	
-	//TODO: Fix all statement creations (tableName parameter).
 	//method
 	@Override
 	public String createStatementToInsertNewEntity(final String tableName, final INewEntityDTO newEntity) {
@@ -89,7 +88,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
 		return
 		"UPDATE" 
-		+ tableName
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
 		+ " SET SaveStamp = '"
 		+ (entity.getSaveStamp() + 1)
 		+ " WHERE Id = '"
@@ -114,7 +113,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		
 		return
 		"UPDATE "
-		+ tableName
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
 		+ " SET SaveStamp = '"
 		+ (entityUpdate.getSaveStamp() + 1)
 		+ "'"
