@@ -282,7 +282,7 @@ public final class Time extends Element implements ITime {
 			.withHour(hourOfDay)
 			.withMinute(minuteOfHour)
 			.withSecond(secondOfMinute)
-			.withNano(1000 * millisecondOfSecond)
+			.withNano(1_000_000 * millisecondOfSecond)
 		);
 	}
 	
