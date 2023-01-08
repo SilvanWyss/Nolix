@@ -48,6 +48,11 @@ final class LoadedEntityDTOMapper {
 		
 		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
 		var lSQLRecordValueIterator = pSQLRecordValues.iterator();
+		
+		//Skips id and save stamp.
+		lSQLRecordValueIterator.next();
+		lSQLRecordValueIterator.next();
+		
 		for (final var ccd : contentColumnDefinitions) {
 			contentFields.addAtEnd(contentFieldMapper.createContentFieldFromString(lSQLRecordValueIterator.next(), ccd));
 		}
