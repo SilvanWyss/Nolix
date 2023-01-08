@@ -5,9 +5,6 @@ package ch.nolix.core.document.node;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -167,9 +164,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
-	 * @return the header of the current {@link FileNode}.
-	 * @throws ArgumentDoesNotHaveAttributeException if this {@link FileNode}
-	 * does not have a header.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getHeader() {
@@ -178,7 +173,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
-	 * @return the attributes of the current {@link FileNode}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public ReadContainer<FileNode> getRefChildNodes() {
@@ -201,7 +196,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 
 	//method
 	/**
-	 * @return true if this {@link FileNode} has a header.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasHeader() {
@@ -210,12 +205,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from the current {@link FileNode}.
-	 * 
-	 * @param selector
-	 * @return the first attribute the given selector selects.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Node} does not contain an attribute the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public FileNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
@@ -228,11 +218,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
-	 * Removes the first attribute the given selector selects from this {@link FileNode}.
-	 * 
-	 * @param selector
-	 * @throws InvalidArgumentException
-	 * if this {@link FileNode} does not contain an attribute the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<? extends INode<?>> selector) {
@@ -249,6 +235,10 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 		internalSpecification.removeFirstChildNodeWithHeader(header);
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void removeChildNodes() {
 		internalSpecification.removeChildNodes();
@@ -289,12 +279,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	
 	//method
 	/**
-	 * Sets the given header to the current {@link FileNode}.
-	 * 
-	 * @return the current {@link FileNode}.
-	 * @throws ArgumentIsNullException if the given header is null.
-	 * @throws EmptyArgumentException if the given header is empty.
-	 * @throws RuntimeException if an error occurs.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public FileNode setHeader(final String header) {
