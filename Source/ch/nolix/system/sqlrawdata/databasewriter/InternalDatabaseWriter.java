@@ -107,9 +107,12 @@ public final class InternalDatabaseWriter {
 	
 	//method
 	public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
+		//TODO: Fix.
+		/*
 		mSQLCollector.addSQLStatement(
 			entityStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp)
 		);
+		*/
 	}
 	
 	//method

@@ -175,7 +175,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ " SET "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
-		+ schemaTimestamp.getMilliseconds()
+		+ schemaTimestamp.getSpecification().getSingleChildNodeHeader()
 		+ "' WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = "

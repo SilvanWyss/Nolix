@@ -38,7 +38,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		final ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
 	) {
 		
-		databaseInitializer.initializeDatabaseIfNotInitialized(pSQLSchemaAdapter);
+		databaseInitializer.initializeDatabaseIfNotInitialized(databaseName, pSQLSchemaAdapter, pSQLConnectionPool);
 		
 		rawSchemaReader =
 		SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(

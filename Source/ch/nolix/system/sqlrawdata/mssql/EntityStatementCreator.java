@@ -48,9 +48,9 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ "' AND "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
-		+ schemaTimestamp
+		+ schemaTimestamp.getSpecification().getSingleChildNodeHeader()
 		+ "' "
-		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The schema was changed in the meanwhile.', 0) END;";
+		+ "IF @@RowCount = 0 BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
 	}
 	
 	//method
