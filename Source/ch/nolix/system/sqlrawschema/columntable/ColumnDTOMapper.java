@@ -18,7 +18,7 @@ public final class ColumnDTOMapper {
 	
 	//method
 	public ColumnDTO createColumnDTO(final List<String> columnSystemTableSQLRecord) {
-		switch (PropertyType.valueOf(columnSystemTableSQLRecord.get(2)).getBaseType()) {
+		switch (PropertyType.valueOf(columnSystemTableSQLRecord.get(3)).getBaseType()) {
 			case BASE_VALUE:
 				return createColumnDTOForBaseValue(columnSystemTableSQLRecord);
 			case BASE_BACK_REFERENCE:
@@ -69,8 +69,8 @@ public final class ColumnDTOMapper {
 			columnSystemTableSQLRecord.get(0),
 			columnSystemTableSQLRecord.get(1),
 			new BaseParametrizedValueTypeDTO(
-				PropertyType.valueOf(columnSystemTableSQLRecord.get(2)),
-				DataType.valueOf(columnSystemTableSQLRecord.get(3))
+				PropertyType.valueOf(columnSystemTableSQLRecord.get(3)),
+				DataType.valueOf(columnSystemTableSQLRecord.get(4))
 			)
 		);
 	}
