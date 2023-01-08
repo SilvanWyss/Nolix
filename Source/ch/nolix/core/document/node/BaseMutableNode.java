@@ -90,10 +90,10 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final MN setChildNodes(final Iterable<? extends INode<?>> attributes) {
+	public final MN setChildNodes(final Iterable<? extends INode<?>> childNodes) {
 		
 		removeChildNodes();
-		addChildNodes(attributes);
+		addChildNodes(childNodes);
 		
 		return asConcrete();
 	}
