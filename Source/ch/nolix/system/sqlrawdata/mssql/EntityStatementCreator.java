@@ -37,9 +37,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	@Override
 	public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		return
-		"SELECT "
-		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
-		+ " FROM "
+		"IF NOT EXISTS (SELECT * FROM "
 		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
 		+ " WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
@@ -49,8 +47,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
 		+ schemaTimestamp.getSpecification().getSingleChildNodeHeader()
-		+ "' "
-		+ "IF @@RowCount = 0 BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
+		+ "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
 	}
 	
 	//method
