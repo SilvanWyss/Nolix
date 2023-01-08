@@ -6,6 +6,7 @@ import ch.nolix.system.sqlrawdata.sqlapi.IEntityQueryCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
@@ -39,8 +40,8 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		"SELECT Id, SaveStamp, "
 		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
 		+ " FROM "
-		+ tableInfo.getTableName()
-		+ "WHERE Id = '"
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableInfo.getTableName()
+		+ " WHERE Id = '"
 		+ id
 		+ "'";
 	}
