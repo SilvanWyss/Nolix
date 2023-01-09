@@ -54,19 +54,17 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		}
 		
 		//Handles the case that the given values is not null.
-		
-			//Iterates the given values.
-			var index = 1;
-			for (final boolean b: values) {
-				
-				//Handles the case that the current value is false.
-				if (!b) {
-					addExpectationError("True values were expected, but the " + index + "th value is false.");
-				}
-				
-				//Increments index.
-				index++;
+		var index = 1;
+		for (final boolean b: values) {
+			
+			//Handles the case that the current value is false.
+			if (!b) {
+				addExpectationError("True values were expected, but the " + index + "th value is false.");
 			}
+			
+			//Increments index.
+			index++;
+		}
 	}
 	
 	//method
@@ -189,19 +187,17 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 		}
 		
 		//Handles the case that the given values is not null.
-		
-			//Iterates the given values.
-			var index = 1;
-			for (final boolean v: values) {
-				
-				//Handles the case that the current value is false.
-				if (v) {
-					addExpectationError("False values were expected, but the " + index + "th value is true.");
-				}
-				
-				//Increments index.
-				index++;
+		var index = 1;
+		for (final boolean v: values) {
+			
+			//Handles the case that the current value is false.
+			if (v) {
+				addExpectationError("False values were expected, but the " + index + "th value is true.");
 			}
+			
+			//Increments index.
+			index++;
+		}
 	}
 	
 	//method
