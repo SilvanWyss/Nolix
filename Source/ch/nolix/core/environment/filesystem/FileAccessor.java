@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
@@ -80,7 +81,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	public void overwriteFile(final String content) {
-		try (final var printWriter = new PrintWriter(getInternalAccessor())) {
+		try (final var printWriter = new PrintWriter(getInternalAccessor(), StandardCharsets.UTF_8)) {
 			printWriter.print(content.replace("\n", "\r\n"));
 			printWriter.flush();
 		} catch (final IOException exception) {
@@ -96,9 +97,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
 	 * @throws RuntimeException if an error occurs.
 	 */
 	public String readFile() {
-		return
-		new String(readFileToBytes())
-		.replace("\r", StringCatalogue.EMPTY_STRING);
+		return new String(readFileToBytes(), StandardCharsets.UTF_8).replace("\r", StringCatalogue.EMPTY_STRING);
 	}
 	
 	//method
@@ -127,7 +126,10 @@ public final class FileAccessor extends FileSystemItemAccessor {
 		
 		final var lines = new LinkedList<String>();
 		
-		try (final var bufferedReader = new BufferedReader(new FileReader(getInternalAccessor()))) {
+		try (
+			final var bufferedReader =
+			new BufferedReader(new FileReader(getInternalAccessor(), StandardCharsets.UTF_8))
+		) {
 			String line;
 			while ((line = bufferedReader.readLine()) != null) {
 				lines.addAtEnd(line);
