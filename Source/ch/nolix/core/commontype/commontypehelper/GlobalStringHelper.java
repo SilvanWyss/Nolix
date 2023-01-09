@@ -6,6 +6,7 @@ import java.util.Locale;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypeconstant.RegularExpressionPatternCatalogue;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -207,7 +208,7 @@ public final class GlobalStringHelper {
 	 */
 	public static double toDouble(final String string) {
 		
-		if (!string.matches("\\d+.\\d+")) {
+		if (!string.matches(RegularExpressionPatternCatalogue.DOUBLE_PATTERN)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(string, "does not represent a double");
 		}
 		
