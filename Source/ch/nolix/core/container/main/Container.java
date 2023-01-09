@@ -945,120 +945,111 @@ public abstract class Container<E> implements IContainer<E> {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param doubleNorm
-	 * @return the range of the values the given double norm returns from the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final double getRangeByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Calculates the minimum and the maximum
-			//the given double norm returns from the elements of the current IContainer.
-				var min = doubleNorm.getOutput(getRefFirst());
-				var max = min;
-				
-				//Iterates the current IContainer.
-				for (final var e : this) {
-					
-					//Calculates the current value.
-					final var value = doubleNorm.getOutput(e);
-					
-					//Handles the case that the current value is smaller than the current minimum.
-					if (value < min) {
-						min = value;
-					}
-					
-					//Handles the case that the current value is bigger than the current maximum.
-					if (value > max) {
-						max = value;
-					}
-				}
+		/*
+		 * Calculates the minimum and the maximum the given doubleNorm
+		 * returns from the elements of the current IContainer.
+		 */
+		var min = doubleNorm.getOutput(getRefFirst());
+		var max = min;
+		for (final var e : this) {
 			
-			//Calculates and returns the range.
-			return (max - min);
+			//Calculates the current value.
+			final var value = doubleNorm.getOutput(e);
+			
+			//Handles the case that the current value is smaller than the current minimum.
+			if (value < min) {
+				min = value;
+			}
+			
+			//Handles the case that the current value is bigger than the current maximum.
+			if (value > max) {
+				max = value;
+			}
+		}
+		
+		//Calculates and returns the range.
+		return (max - min);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param intNorm
-	 * @return the range of the values the given int norm returns from the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getRangeByInt(final IElementTakerIntGetter<E> intNorm) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Calculates the minimum and the maximum
-			//the given double norm returns from the elements of the current IContainer.
-				var min = intNorm.getOutput(getRefFirst());
-				var max = min;
 				
-				//Iterates the current IContainer.
-				for (final var e : this) {
-					
-					//Calculates the current value.
-					final var value = intNorm.getOutput(e);
-					
-					//Handles the case that the current value is smaller than the current minimum.
-					if (value < min) {
-						min = value;
-					}
-					
-					//Handles the case that the current value is bigger than the current maximum.
-					if (value > max) {
-						max = value;
-					}
-				}
+		/*
+		 * Calculates the minimum and the maximum the given intNorm
+		 * returns from the elements of the current IContainer.
+		 */
+		var min = intNorm.getOutput(getRefFirst());
+		var max = min;
+		for (final var e : this) {
 			
-			//Calculates and returns the range.
-			return (max - min);
+			//Calculates the current value.
+			final var value = intNorm.getOutput(e);
+			
+			//Handles the case that the current value is smaller than the current minimum.
+			if (value < min) {
+				min = value;
+			}
+			
+			//Handles the case that the current value is bigger than the current maximum.
+			if (value > max) {
+				max = value;
+			}
+		}
+		
+		//Calculates and returns the range.
+		return (max - min);
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param longNorm
-	 * @return the range of the values the given long norm returns from the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final long getRangeByLong(final IElementTakerLongGetter<E> longNorm) {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			//Calculates the minimum and the maximum
-			//the given double norm returns from the elements of the current IContainer.
-				var min = longNorm.getOutput(getRefFirst());
-				var max = min;
 				
-				//Iterates the current IContainer.
-				for (final var e : this) {
-					
-					//Calculates the current value.
-					final var value = longNorm.getOutput(e);
-					
-					//Handles the case that the current value is smaller than the current minimum.
-					if (value < min) {
-						min = value;
-					}
-					
-					//Handles the case that the current value is bigger than the current maximum.
-					if (value > max) {
-						max = value;
-					}
-				}
+		/*
+		 * Calculates the minimum and the maximum the given double norm
+		 * returns from the elements of the current IContainer.
+		 */
+		var min = longNorm.getOutput(getRefFirst());
+		var max = min;
+		for (final var e : this) {
 			
-			//Calculates and returns the range.
-			return (max - min);
+			//Calculates the current value.
+			final var value = longNorm.getOutput(e);
+			
+			//Handles the case that the current value is smaller than the current minimum.
+			if (value < min) {
+				min = value;
+			}
+			
+			//Handles the case that the current value is bigger than the current maximum.
+			if (value > max) {
+				max = value;
+			}
+		}
+		
+		//Calculates and returns the range.
+		return (max - min);
 	}
 	
 	//method
