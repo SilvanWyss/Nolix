@@ -43,6 +43,6 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 		
 		getRefGUI().applyStyleIfHasStyle();
 		
-		getParentClient().internalUpdateCounterpartFromWebGUI(getRefGUI());
+		getRefParentClient().internalUpdateCounterpartFromWebGUI(getRefGUI());
 	}
 }

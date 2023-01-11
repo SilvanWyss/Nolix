@@ -36,7 +36,7 @@ public final class CookieTutorial {
 		@Override
 		protected void initialize() {
 			
-			final var input = getParentClient().getCookieValueByCookieNameOrNull("input");
+			final var input = getRefParentClient().getCookieValueByCookieNameOrNull("input");
 			if (input != null) {
 				textbox.setText(input);
 			}
@@ -54,7 +54,7 @@ public final class CookieTutorial {
 		
 		private void saveInputInCookie() {
 			
-			getParentClient().setOrAddCookieWithNameAndValue("input", textbox.getText());
+			getRefParentClient().setOrAddCookieWithNameAndValue("input", textbox.getText());
 			
 			ShellProvider.startFirefoxOpeningLoopBackAddress();
 		}
