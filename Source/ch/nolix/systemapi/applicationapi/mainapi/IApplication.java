@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.applicationapi.baseapi;
+package ch.nolix.systemapi.applicationapi.mainapi;
 
 //interface
 public interface IApplication<AC> {
