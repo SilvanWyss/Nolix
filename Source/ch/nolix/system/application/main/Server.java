@@ -117,7 +117,7 @@ public final class Server extends BaseServer {
 			
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefApplicationByName(endPoint.getTarget()).takeEndPoint(endPoint);
+			getRefApplicationByInstanceName(endPoint.getTarget()).takeEndPoint(endPoint);
 		}
 	}
 }

@@ -169,13 +169,13 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * @param name
-	 * @return the {@link Application} with the given name from the current {@link BaseServer}.
+	 * @param instanceName
+	 * @return the {@link Application} with the given instanceName from the current {@link BaseServer}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
-	 * a {@link Application} with the given name.
+	 * a {@link Application} with the given instanceName.
 	 */
-	public final Application<?, ?> getRefApplicationByName(final String name) {
-		return applications.getRefFirst(a -> a.getInstanceName().equals(name));
+	public final Application<?, ?> getRefApplicationByInstanceName(final String instanceName) {
+		return applications.getRefFirst(a -> a.getInstanceName().equals(instanceName));
 	}
 	
 	//method
@@ -243,7 +243,7 @@ public abstract class BaseServer implements GroupCloseable {
 			
 		//Handles the case that the given client has a target.
 		} else {
-			getRefApplicationByName(client.getTarget()).takeClient(client);
+			getRefApplicationByInstanceName(client.getTarget()).takeClient(client);
 		}
 	}
 	

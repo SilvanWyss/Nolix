@@ -113,7 +113,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 		
 		internalSetEndPoint(endPoint);
 		
-		baseServer.getRefApplicationByName(name).takeEndPoint(endPoint.getRefCounterpart());
+		baseServer.getRefApplicationByInstanceName(name).takeEndPoint(endPoint.getRefCounterpart());
 	}
 	
 	//method
