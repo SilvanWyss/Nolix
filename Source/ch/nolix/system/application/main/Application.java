@@ -32,7 +32,7 @@ public class Application<
 implements IApplication<AC> {
 	
 	//attribute
-	private final String name;
+	private final String instanceName;
 	
 	//attribute
 	private final Class<BC> clientClass;
@@ -48,30 +48,30 @@ implements IApplication<AC> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Application} with the given name, clientClass, initialSessionClass and applicationContext.
+	 * Creates a new {@link Application} with the given instanceName, clientClass, initialSessionClass and applicationContext.
 	 * 
-	 * @param name
+	 * @param instanceName
 	 * @param initialSessionClass
 	 * @param applicationContext
 	 * @param <S> is the type of the given initalSessionClass.
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blak.
+	 * @throws ArgumentIsNullException if the given instanceName is null.
+	 * @throws InvalidArgumentException if the given instanceName is blak.
 	 * @throws ArgumentIsNullException if the given clientClass is null.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 * @throws ArgumentIsNullException if the given applicationContext is null.
 	 */
 	@SuppressWarnings("unchecked")
 	public <S extends Session<BC, AC>> Application(
-		final String name,
+		final String instanceName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
-		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+		GlobalValidator.assertThat(instanceName).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
 		
-		this.name = name;
+		this.instanceName = instanceName;
 		this.initialSessionClass = (Class<Session<BC, AC>>)initialSessionClass;
 		clientClass = (Class<BC>)(createInitialSession().internalGetRefClientClass());
 		this.applicationContext = applicationContext;
@@ -98,7 +98,7 @@ implements IApplication<AC> {
 	 */
 	@Override
 	public final String getInstanceName() {
-		return name;
+		return instanceName;
 	}
 	
 	//method
