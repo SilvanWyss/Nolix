@@ -25,7 +25,7 @@ public final class GUIIconTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	public static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
+	public static final class MainSession extends BackendWebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {

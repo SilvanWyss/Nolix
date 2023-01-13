@@ -27,7 +27,7 @@ public final class ButtonTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendWebClientSession<Object> {
 		
 		private int count;
 		

@@ -27,7 +27,7 @@ public final class LayerTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<VoidApplicationContext> {
+	private static final class MainSession extends BackendWebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
