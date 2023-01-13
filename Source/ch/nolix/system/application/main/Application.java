@@ -15,8 +15,8 @@ import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflection.GlobalClassHelper;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IContextOwner;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class
 /**
@@ -29,7 +29,7 @@ public class Application<
 	BC extends BackendClient<BC, AC>,
 	AC
 >
-implements IContextOwner<AC> {
+implements IApplication<AC> {
 	
 	//attribute
 	private final String name;
@@ -78,6 +78,13 @@ implements IContextOwner<AC> {
 	}
 	
 	//method
+	@Override
+	public final String getApplicationName() {
+		//TODO: Implement.
+		return getInstanceName();
+	}
+	
+	//method
 	/**
 	 * @return the class of the {@link Client}s of the current {@link Application}.
 	 */
@@ -89,6 +96,7 @@ implements IContextOwner<AC> {
 	/**
 	 * @return the instance name of the current {@link Application}.
 	 */
+	@Override
 	public final String getInstanceName() {
 		return name;
 	}
