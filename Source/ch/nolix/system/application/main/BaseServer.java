@@ -86,7 +86,13 @@ public abstract class BaseServer implements GroupCloseable {
 	) {
 		
 		//Calls other method.
-		addApplication(new Application<>(name, initialSessionClass, applicationContext));
+		addApplication(
+			BasicApplication.withInstanceNameAndInitialSessionClassAndApplicationContext(
+				name,
+				initialSessionClass,
+				applicationContext
+			)
+		);
 	}
 	
 	//method
@@ -135,7 +141,13 @@ public abstract class BaseServer implements GroupCloseable {
 	) {
 		
 		//Calls other method
-		addDefaultApplication(new Application<>(name, initialSessionClass, applicationContext));
+		addDefaultApplication(
+			BasicApplication.withInstanceNameAndInitialSessionClassAndApplicationContext(
+				name,
+				initialSessionClass,
+				applicationContext
+			)
+		);
 	}
 	
 	//method
