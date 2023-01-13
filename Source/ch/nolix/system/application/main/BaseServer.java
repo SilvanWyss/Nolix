@@ -152,9 +152,9 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @return true if the current {@link BaseServer} contains a {@link Application} with the given name.
 	 */
 	public final boolean containsApplicationWithName(final String name) {
-		return applications.containsAny(a -> a.hasName(name));
+		return applications.containsAny(a -> a.getInstanceName().equals(name));
 	}
-		
+	
 	//method
 	/**
 	 * @param name
@@ -163,7 +163,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given name.
 	 */
 	public final Application<?, ?> getRefApplicationByName(final String name) {
-		return applications.getRefFirst(a -> a.hasName(name));
+		return applications.getRefFirst(a -> a.getInstanceName().equals(name));
 	}
 	
 	//method
@@ -263,7 +263,7 @@ public abstract class BaseServer implements GroupCloseable {
 		
 		//Asserts that the current Server does not contain already
 		//an Application with the same name as the given application..
-		assertDoesNotContainApplicationWithName(application.getName());
+		assertDoesNotContainApplicationWithName(application.getInstanceName());
 		
 		//Adds the given application to the list of Applications of the current BaseServer.
 		applications.addAtEnd(application);

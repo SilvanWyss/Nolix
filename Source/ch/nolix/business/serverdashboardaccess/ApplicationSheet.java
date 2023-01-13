@@ -27,13 +27,13 @@ public final class ApplicationSheet implements IApplicationSheet {
 		if (pGUIApplication.getRefApplicationContext() instanceof IWebApplicationContext) {
 			return
 			new ApplicationSheet(
-				pGUIApplication.getName(),
+				pGUIApplication.getInstanceName(),
 				(IWebApplicationContext)pGUIApplication.getRefApplicationContext(),
 				server.asTarget()
 			);
 		}
 		
-		return new ApplicationSheet(pGUIApplication.getName(), server.asTarget());
+		return new ApplicationSheet(pGUIApplication.getInstanceName(), server.asTarget());
 	}
 	
 	//attribute

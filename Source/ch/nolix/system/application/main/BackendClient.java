@@ -34,7 +34,7 @@ public abstract class BackendClient<
 	 * @return the name of the parent {@link Application} of the current {@link BackendClient}.
 	 */
 	public final String getApplicationName() {
-		return getParentApplication().getName();
+		return getParentApplication().getInstanceName();
 	}
 	
 	//method
