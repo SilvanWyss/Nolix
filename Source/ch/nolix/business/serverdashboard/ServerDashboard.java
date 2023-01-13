@@ -18,10 +18,16 @@ extends Application<BackendWebClient<IServerDashboardAccess>, IServerDashboardAc
 	}
 	
 	//constant
-	public static final String NAME = "Server Dashboard";
+	public static final String APPLICATION_NAME = "Server Dashboard";
 	
 	//constructor
 	private ServerDashboard(final IServerDashboardAccess serverDashboardAccess) {
-		super(NAME, ServerDashboardSession.class, serverDashboardAccess);
+		super(APPLICATION_NAME, ServerDashboardSession.class, serverDashboardAccess);
+	}
+	
+	//method
+	@Override
+	public String getApplicationName() {
+		return APPLICATION_NAME;
 	}
 }

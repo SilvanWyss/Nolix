@@ -25,7 +25,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @param <BC> is the type of the {@link BackendClient}s of a {@link Application}.
  * @param <AC> is the type of the application context of a {@link Application}.
  */
-public class Application<
+public abstract class Application<
 	BC extends BackendClient<BC, AC>,
 	AC
 >
@@ -61,7 +61,7 @@ implements IApplication<AC> {
 	 * @throws ArgumentIsNullException if the given applicationContext is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public <S extends Session<BC, AC>> Application(
+	protected <S extends Session<BC, AC>> Application(
 		final String instanceName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
@@ -75,13 +75,6 @@ implements IApplication<AC> {
 		this.initialSessionClass = (Class<Session<BC, AC>>)initialSessionClass;
 		clientClass = (Class<BC>)(createInitialSession().internalGetRefClientClass());
 		this.applicationContext = applicationContext;
-	}
-	
-	//method
-	@Override
-	public final String getApplicationName() {
-		//TODO: Implement.
-		return getInstanceName();
 	}
 	
 	//method

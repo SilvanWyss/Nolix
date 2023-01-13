@@ -26,4 +26,10 @@ extends Application<BC, AC> {
 	) {
 		super(instanceName, initialSessionClass, applicationContext);
 	}
+	
+	//method
+	@Override
+	public String getApplicationName() {
+		return getInstanceName();
+	}
 }
