@@ -9,6 +9,7 @@ import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataandschemaadapter.MSSQLDatabaseAndSchemaAdapter;
+import ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi.IDatabaseAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
 
 //class
@@ -23,6 +24,9 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 	public static MSSQLDatabaseAdapterBuilder toLocalHost() {
 		return new MSSQLDatabaseAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
+	
+	//attribute
+	private final SQLConnectionPool mSQLConnectionPool; 
 	
 	//constructor
 	MSSQLDatabaseAdapter(
@@ -52,7 +56,9 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 		final ISchema<DataImplementation> schema,
 		final SQLConnectionPool pSQLConnectionPool
 	) {
+		
 		super(
+			databaseName,
 			MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
 			schema,
 			() ->
@@ -61,5 +67,39 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 				pSQLConnectionPool
 			)
 		);
+		
+		mSQLConnectionPool = pSQLConnectionPool;
+	}
+	
+	//method
+	@Override
+	public IDatabaseAdapter<DataImplementation> getEmptyCopy() {
+		return
+		toIpOrAddress(getIpOrAddress())
+		.andPort(getPort())
+		.toDatabase(getDatabaseName())
+		.usingLoginName(getLoginName())
+		.andLoginPassword(getLoginPassword())
+		.andSchema(getSchema());
+	}
+	
+	//method
+	private String getLoginPassword() {
+		return mSQLConnectionPool.getLoginPassword();
+	}
+	
+	//method
+	private String getLoginName() {
+		return mSQLConnectionPool.getLoginName();
+	}
+	
+	//method
+	private int getPort() {
+		return mSQLConnectionPool.getPort();
+	}
+	
+	//method
+	private String getIpOrAddress() {
+		return mSQLConnectionPool.getIpOrAddressName();
 	}
 }

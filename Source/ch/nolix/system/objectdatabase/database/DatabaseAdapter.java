@@ -2,6 +2,7 @@
 package ch.nolix.system.objectdatabase.database;
 
 //own imports
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
@@ -27,6 +28,12 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	private static final DatabaseSaver databaseSaver = new DatabaseSaver();
 	
 	//attribute
+	private final String databaseName;
+	
+	//attribute
+	private final ISchema<DataImplementation> schema;
+	
+	//attribute
 	private final Database database;
 	
 	//attribute
@@ -37,17 +44,23 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	
 	//constructor
 	protected DatabaseAdapter(
+		final String databaseName,
 		final ISchemaAdapter<SchemaImplementation> schemaAdapter,
 		final ISchema<DataImplementation> schema,
 		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator
 	) {
 		
+		GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
+		GlobalValidator.assertThat(schema).thatIsNamed("schema").isNotNull();
+				
 		schemaInitializer.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
 			schema,
 			schemaAdapter
 		);
 		schemaAdapter.close();
 		
+		this.schema = schema;
+		this.databaseName = databaseName;
 		final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.getOutput();
 		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
 		getRefCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
@@ -108,6 +121,16 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 		} finally {
 			reset();
 		}
+	}
+	
+	//method
+	protected final String getDatabaseName() {
+		return databaseName;
+	}
+	
+	//method
+	protected final ISchema<DataImplementation> getSchema() {
+		return schema;
 	}
 	
 	//method
