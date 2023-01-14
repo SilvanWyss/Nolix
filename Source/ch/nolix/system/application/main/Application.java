@@ -8,11 +8,11 @@ import java.lang.reflect.InvocationTargetException;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -32,7 +32,7 @@ public abstract class Application<
 implements IApplication<AC> {
 	
 	//attribute
-	private final String instanceName;
+	private String instanceName;
 	
 	//attribute
 	private final AC applicationContext;
@@ -42,27 +42,15 @@ implements IApplication<AC> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Application} with the given instanceName, clientClass, initialSessionClass and applicationContext.
+	 * Creates a new {@link Application} with the given applicationContext.
 	 * 
-	 * @param instanceName
-	 * @param initialSessionClass
 	 * @param applicationContext
-	 * @param <S> is the type of the given initalSessionClass.
-	 * @throws ArgumentIsNullException if the given instanceName is null.
-	 * @throws InvalidArgumentException if the given instanceName is blak.
-	 * @throws ArgumentIsNullException if the given clientClass is null.
-	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 * @throws ArgumentIsNullException if the given applicationContext is null.
 	 */
-	protected <S extends Session<BC, AC>> Application(
-		final String instanceName,
-		final AC applicationContext
-	) {
+	protected <S extends Session<BC, AC>> Application(final AC applicationContext) {
 		
-		GlobalValidator.assertThat(instanceName).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
 		
-		this.instanceName = instanceName;
 		this.applicationContext = applicationContext;
 	}
 	
@@ -165,6 +153,34 @@ implements IApplication<AC> {
 	
 	//method
 	/**
+	 * Sets the given instanceName to the current {@link Application}.
+	 * 
+	 * @param instanceName
+	 * @throws ArgumentIsNullException if the given instanceName is null
+	 * @throws InvalidArgumentException if the given instanceName is blank.
+	 * @throws ArgumentHasAttributeException if the current {@link Application} has already an instance name.
+	 */
+	final void internalSetInstanceName(final String instanceName) {
+		
+		GlobalValidator.assertThat(instanceName).thatIsNamed("instance name").isNotBlank();
+		
+		assertDoesNotHaveInstanceName();
+		
+		this.instanceName = instanceName;
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentHasAttributeException if the current {@link Application} has already an instance name.
+	 */
+	private void assertDoesNotHaveInstanceName() {
+		if (hasInstanceName()) {
+			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "instance name");
+		}
+	}
+
+	//method
+	/**
 	 * @param endPoint
 	 * @return a new {@link BackendClient} with the given endPoint
 	 */
@@ -184,6 +200,14 @@ implements IApplication<AC> {
 		final var constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
 		return constructor;
+	}
+	
+	//method
+	/**
+	 * @return true if the current {@link Appication} has an instance name.
+	 */
+	private boolean hasInstanceName() {
+		return (instanceName != null);
 	}
 	
 	//method

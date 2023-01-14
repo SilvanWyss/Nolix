@@ -22,7 +22,7 @@ extends Application<BackendWebClient<IServerDashboardAccess>, IServerDashboardAc
 	
 	//constructor
 	private ServerDashboard(final IServerDashboardAccess serverDashboardAccess) {
-		super(APPLICATION_NAME, serverDashboardAccess);
+		super(serverDashboardAccess);
 	}
 	
 	//method

@@ -31,67 +31,71 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * Adds the given application to the current {@link BaseServer}.
+	 * Adds the given application with the given instanceName to the current {@link BaseServer}.
 	 * 
 	 * @param application
+	 * @param instanceName
 	 * @throws ArgumentIsNullException if the given application is null.
+	 * @throws ArgumentIsNullException if the given instanceName is null
+	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link Application} with the same name as the given application.
+	 * a {@link Application} with the given instanceName.
 	 */
-	public final void addApplication(final Application<?, ?> application) {
+	public final void addApplication(final Application<?, ?> application, final String instanceName) {
+		
+		application.internalSetInstanceName(instanceName);
 		
 		addApplicationToList(application);
 		
 		noteAddedApplication(application);
 	}
-
+	
 	//method
 	/**
-	 * Adds the given applications to the current {@link BaseServer}.
+	 * Adds the given application with the given instanceName to the current {@link BaseServer}.
 	 * 
-	 * @param applications
-	 * @throws ArgumentIsNullException if one of the given applications is null.
+	 * @param application
+	 * @param instanceName
+	 * @throws ArgumentIsNullException if the given application is null.
+	 * @throws ArgumentIsNullException if the given instanceName is null
+	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link Application} with the same name as one of the given applications.
+	 * a {@link Application} with the given instanceName.
 	 */
-	public final void addApplication(final Application<?, ?>... applications) {
-		
-		//Iterates the given applications.
-		for (final var a: applications) {
-			addApplication(a);
-		}
+	public final void addApplication(final Application<?, ?> application) {
+		addApplication(application, application.getApplicationName());
 	}
 	
 	//method
 	/**
-	 * Adds a new {@link Application} with the given name, initialSessionClass and applicationContext to
+	 * Adds a new {@link Application} with the given instanceName, initialSessionClass and applicationContext to
 	 * the current {@link BaseServer}.
 	 * 
-	 * @param name
+	 * @param instanceName
 	 * @param initialSessionClass
 	 * @param applicationContext
 	 * @param <S> is the type of the given initialSessionClass.
 	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
 	 * @param <AC> is the type of the given applicationContext.
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given instanceName is null.
+	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link Application} with the given name.
+	 * a {@link Application} with the given instanceName.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addApplication(
-		final String name,
+		final String instanceName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
 		//Calls other method.
 		addApplication(
-			BasicApplication.withInstanceNameAndInitialSessionClassAndApplicationContext(
-				name,
+			BasicApplication.withInitialSessionClassAndApplicationContext(
 				initialSessionClass,
 				applicationContext
-			)
+			),
+			instanceName
 		);
 	}
 	
@@ -104,11 +108,34 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param <BC> is the type of the {@link BackendClient} of the given defaultApplication.
 	 * @param <AC> is the type of the context of the given defaultApplication.
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
-	 * @throws InvalidArgumentException if the current {@link BaseServer}
-	 * contains already a {@link Application} with the same name as the given defaultApplication.
 	 */
-	public final <BC extends BackendClient<BC, AC>, AC>
-	void addDefaultApplication(final Application<BC, AC> defaultApplication) {
+	public final <BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
+		final Application<BC, AC> defaultApplication
+	) {
+		addDefaultApplication(defaultApplication, defaultApplication.getApplicationName());
+	}
+	
+	//method
+	/**
+	 * Adds the given defaultApplication to the current {@link BaseServer}.
+	 * A default {@link Application} takes all {@link Client}s that do not have a target.
+	 * 
+	 * @param defaultApplication
+	 * @param instanceName
+	 * @param <BC> is the type of the {@link BackendClient} of the given defaultApplication.
+	 * @param <AC> is the type of the context of the given defaultApplication.
+	 * @throws ArgumentIsNullException if the given defaultApplication is null.
+	 * @throws ArgumentIsNullException if the given instanceName is null.
+	 * @throws InvalidArgumentException if the given instanceName is blank.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the given instanceName.
+	 */
+	public final <BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
+		final Application<BC, AC> defaultApplication,
+		final String instanceName
+	) {
+		
+		defaultApplication.internalSetInstanceName(instanceName);
 		
 		addApplicationToList(defaultApplication);
 		this.defaultApplication = defaultApplication;
@@ -120,33 +147,33 @@ public abstract class BaseServer implements GroupCloseable {
 	 * Adds a new default {@link Application} with the given name, initialSessionClass and applicationContext to
 	 * the current {@link BaseServer}.
 	 * 
-	 * @param name
+	 * @param instanceName
 	 * @param initialSessionClass
 	 * @param applicationContext
 	 * @param <S> is the type of the given initialSessionClass.
 	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
 	 * @param <AC> is the type of the given applicationContext.
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws ArgumentIsNullException if the given instanceName is null.
+	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a default {@link Application}.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link Application} with the given name.
+	 * a {@link Application} with the given instanceName.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
-		final String name,
+		final String instanceName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
 		//Calls other method
 		addDefaultApplication(
-			BasicApplication.withInstanceNameAndInitialSessionClassAndApplicationContext(
-				name,
+			BasicApplication.withInitialSessionClassAndApplicationContext(
 				initialSessionClass,
 				applicationContext
-			)
+			),
+			instanceName
 		);
 	}
 	
