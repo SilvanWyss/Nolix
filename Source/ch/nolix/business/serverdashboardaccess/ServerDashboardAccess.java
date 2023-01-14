@@ -38,7 +38,7 @@ public final class ServerDashboardAccess implements IServerDashboardAccess {
 	
 	//method
 	private boolean applicationIsForBackendGUIClients(final Application<?, ?> application) {
-		return (application.getClientClass() == BackendWebClient.class);
+		return (application.getRefClientClass() == BackendWebClient.class);
 	}
 	
 	//method

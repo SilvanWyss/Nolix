@@ -35,12 +35,6 @@ implements IApplication<AC> {
 	private final String instanceName;
 	
 	//attribute
-	private final Class<BC> clientClass;
-	
-	//attribute
-	private final Class<Session<BC, AC>> initialSessionClass;
-	
-	//attribute
 	private final AC applicationContext;
 	
 	//multi-attribute
@@ -60,29 +54,16 @@ implements IApplication<AC> {
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 * @throws ArgumentIsNullException if the given applicationContext is null.
 	 */
-	@SuppressWarnings("unchecked")
 	protected <S extends Session<BC, AC>> Application(
 		final String instanceName,
-		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
 		GlobalValidator.assertThat(instanceName).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		GlobalValidator.assertThat(initialSessionClass).thatIsNamed("initial session class").isNotNull();
 		GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
 		
 		this.instanceName = instanceName;
-		this.initialSessionClass = (Class<Session<BC, AC>>)initialSessionClass;
-		clientClass = (Class<BC>)(createInitialSession().internalGetRefClientClass());
 		this.applicationContext = applicationContext;
-	}
-	
-	//method
-	/**
-	 * @return the class of the {@link Client}s of the current {@link Application}.
-	 */
-	public final Class<BC> getClientClass() {
-		return clientClass;
 	}
 	
 	//method
@@ -101,6 +82,16 @@ implements IApplication<AC> {
 	@Override
 	public final AC getRefApplicationContext() {
 		return applicationContext;
+	}
+	
+	//method
+	/**
+	 * @return the class of the {@link Client}s of the current {@link Application}.
+	 */
+	
+	@SuppressWarnings("unchecked")
+	public final Class<BC> getRefClientClass() {
+		return (Class<BC>)(createInitialSession().internalGetRefClientClass());
 	}
 	
 	//method
@@ -170,9 +161,7 @@ implements IApplication<AC> {
 	/**
 	 * @return the initial {@link Session} class of the current {@link Application}.
 	 */
-	protected final Class<?> getRefInitialSessionClass() {
-		return initialSessionClass;
-	}
+	protected abstract Class<?> getRefInitialSessionClass();
 	
 	//method
 	/**
@@ -181,7 +170,7 @@ implements IApplication<AC> {
 	 */
 	private BC createBackendClientWithEndPoint(final EndPoint endPoint) {
 		
-		final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(clientClass);
+		final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(getRefClientClass());
 		backendClient.internalSetEndPoint(endPoint);
 		
 		return backendClient;

@@ -22,12 +22,18 @@ extends Application<BackendWebClient<IServerDashboardAccess>, IServerDashboardAc
 	
 	//constructor
 	private ServerDashboard(final IServerDashboardAccess serverDashboardAccess) {
-		super(APPLICATION_NAME, ServerDashboardSession.class, serverDashboardAccess);
+		super(APPLICATION_NAME, serverDashboardAccess);
 	}
 	
 	//method
 	@Override
 	public String getApplicationName() {
 		return APPLICATION_NAME;
+	}
+	
+	//method
+	@Override
+	protected Class<?> getRefInitialSessionClass() {
+		return ServerDashboardSession.class;
 	}
 }
