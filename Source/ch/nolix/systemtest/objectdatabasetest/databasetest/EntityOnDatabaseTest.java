@@ -8,9 +8,9 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.database.Entity;
-import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
+import ch.nolix.system.objectdatabase.schema.Schema;
 
 //class
 public final class EntityOnDatabaseTest extends Test {

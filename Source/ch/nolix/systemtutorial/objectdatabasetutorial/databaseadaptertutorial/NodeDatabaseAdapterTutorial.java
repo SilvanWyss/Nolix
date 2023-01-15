@@ -2,9 +2,9 @@ package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.system.objectdatabase.database.Entity;
-import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
+import ch.nolix.system.objectdatabase.schema.Schema;
 
 public final class NodeDatabaseAdapterTutorial {
 	

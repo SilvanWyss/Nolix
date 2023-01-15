@@ -1,9 +1,9 @@
 package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
 import ch.nolix.system.objectdatabase.database.Entity;
-import ch.nolix.system.objectdatabase.database.Schema;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.databaseadapter.MSSQLDatabaseAdapter;
+import ch.nolix.system.objectdatabase.schema.Schema;
 
 public final class MSSQLDatabaseAdapterTutorial {
 	
