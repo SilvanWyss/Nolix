@@ -8,8 +8,8 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 

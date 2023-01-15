@@ -5,7 +5,7 @@ import ch.nolix.core.builder.usingargumentcapturer.UsingSchemaCapturer;
 import ch.nolix.core.builder.withargumentcapturer.WithNameCapturer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.objectdatabase.database.DataImplementation;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class NodeDatabaseAdapterBuilder

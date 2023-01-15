@@ -8,7 +8,7 @@ import ch.nolix.core.builder.toargumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.builder.usingargumentcapturer.UsingLoginNameCapturer;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.system.objectdatabase.database.DataImplementation;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class MSSQLDatabaseAdapterBuilder

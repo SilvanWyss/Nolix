@@ -8,7 +8,7 @@ import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi.IDatabaseAdapter;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class NodeDatabaseAdapter extends DatabaseAdapter {

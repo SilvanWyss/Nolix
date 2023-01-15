@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;

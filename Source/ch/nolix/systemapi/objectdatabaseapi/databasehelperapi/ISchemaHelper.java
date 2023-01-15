@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databasehelperapi;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //interface
 public interface ISchemaHelper {

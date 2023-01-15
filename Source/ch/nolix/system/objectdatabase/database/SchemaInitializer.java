@@ -8,7 +8,7 @@ import ch.nolix.system.objectdatabase.schemamapper.ColumnMapper;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ISchema;
+import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IColumnMapper;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
