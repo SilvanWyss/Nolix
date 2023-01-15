@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementation> {
+public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapter, DataImplementation> {
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -94,7 +94,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DataImplementa
 	
 	//method
 	@Override
-	public final <E extends IEntity<DataImplementation>> IDatabaseAdapter<DataImplementation> insert(final E entity) {
+	public final <E extends IEntity<DataImplementation>> DatabaseAdapter insert(final E entity) {
 		
 		database.insertEntity(entity);
 		

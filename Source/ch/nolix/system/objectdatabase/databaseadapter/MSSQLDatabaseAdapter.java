@@ -9,7 +9,6 @@ import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataandschemaadapter.MSSQLDatabaseAndSchemaAdapter;
-import ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi.IDatabaseAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
@@ -73,7 +72,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 	
 	//method
 	@Override
-	public IDatabaseAdapter<DataImplementation> getEmptyCopy() {
+	public DatabaseAdapter getEmptyCopy() {
 		return
 		toIpOrAddress(getIpOrAddress())
 		.andPort(getPort())
