@@ -3,22 +3,18 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.system.objectdatabase.databasehelper.SchemaHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ISchemaHelper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 
 //class
 final class TableMapper {
 	
 	//static attribute
-	private static final ISchemaHelper schemaHelper = new SchemaHelper();
-	
-	//static attribute
 	private static final ColumnMapper columnMapper = new ColumnMapper();
 	
 	//method
+	@SuppressWarnings("unchecked")
 	public Table<IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
 		final ITableDTO tableDTO,
 		final Database database
@@ -28,7 +24,7 @@ final class TableMapper {
 			database,
 			tableDTO.getName(),
 			tableDTO.getId(),
-			schemaHelper.getEntityTypeByName(database.internalGetSchema(), tableDTO.getName())
+			(Class<IEntity<DataImplementation>>)database.internalGetSchema().getEntityTypeByName(tableDTO.getName())
 		);
 	}
 	
