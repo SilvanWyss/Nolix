@@ -30,7 +30,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(verticalStack) + " ." + VerticalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForControlAndAllStates(verticalStack) + " > div",
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
