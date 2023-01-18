@@ -30,9 +30,7 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(horizontalStack)
-				+ " ."
-				+ HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.FLOAT,
@@ -52,9 +50,7 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(horizontalStack)
-				+ " ."
-				+ HorizontalStackHTMLBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
