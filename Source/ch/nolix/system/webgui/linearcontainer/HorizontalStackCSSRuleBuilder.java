@@ -68,7 +68,7 @@ extends ExtendedControlCSSRuleBuilder<HorizontalStack, HorizontalStackStyle> {
 		final HorizontalStack control,
 		final LinkedList<CSSProperty> list
 	) {
-		//Does nothing.
+		list.addAtEnd(CSSProperty.withNameAndValue("overflow", "auto"));
 	}
 	
 	//method
