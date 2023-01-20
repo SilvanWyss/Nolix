@@ -1,10 +1,14 @@
 //package declaration
 package ch.nolix.system.application.main;
 
+//Java imports
+import java.util.HashMap;
+
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -30,6 +34,18 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	//optional attribute
 	private EndPoint endPoint;
 	
+	//multi-attribute
+	private final HashMap<String, String> sessionVariables = new HashMap<>();
+	
+	//method
+	/**
+	 * @param key
+	 * @return true if the current {@link Client} contains a session variable with the given key, false otherwise.
+	 */
+	public final boolean containsSessionVariableWithKey(final String key) {
+		return sessionVariables.containsKey(key);
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
@@ -37,6 +53,28 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	@Override
 	public final CloseController getRefCloseController() {
 		return closeController;
+	}
+	
+	//method
+	/**
+	 * @param key
+	 * @return the value of the session variable with the given key from the current {@link Client}.
+	 * @throws ArgumentDoesNotContainElementException if
+	 * the current {@link Client} does not contain a session variable with the given key.
+	 */
+	public final String getSessionVariableValueByKey(final String key) {
+		
+		final var value = sessionVariables.get(key);
+		
+		if (value == null) {
+			throw
+			ArgumentDoesNotContainElementException.forArgumentAndElement(
+				this,
+				"session variable with the key + '" + key + "'"
+			);
+		}
+		
+		return value;
 	}
 	
 	//method
@@ -118,6 +156,20 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 */
 	@Override
 	public final void noteClose() {}
+	
+	//method
+	/**
+	 * Sets a session variable with the given key and value to the current {@link Client}.
+	 * 
+	 * Will overwrite a previous session variable if
+	 * the current {@link Client} contains already a session variable with the given key.
+	 * 
+	 * @param key
+	 * @param value
+	 */
+	public final void setSessionVariableWithKeyAndValue(final String key, final String value) {
+		sessionVariables.put(key, value);
+	}
 	
 	//method
 	/**
