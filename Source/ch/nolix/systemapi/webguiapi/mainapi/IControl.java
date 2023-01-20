@@ -11,8 +11,8 @@ import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.Dimensionable;
+import ch.nolix.systemapi.guiapi.presenceapi.PresenceSettable;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
-import ch.nolix.systemapi.guiapi.visibilityapi.VisibilitySettable;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
@@ -26,7 +26,7 @@ FixedIdentified,
 HTMLElementTransformable,
 IStylableElement<C>,
 IUserInputCell<C>,
-VisibilitySettable<C> {
+PresenceSettable<C> {
 	
 	//method declaration
 	boolean belongsToGUI();

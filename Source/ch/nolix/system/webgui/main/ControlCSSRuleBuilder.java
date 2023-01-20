@@ -92,8 +92,16 @@ implements IControlCSSRuleBuilder<C, CS> {
 		final LinkedList<CSSProperty> list
 	) {
 		
-		if (control.isInvisible()) {
-			list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));
+		//TODO: Out-source this implementation.
+		switch (control.getPresence()) {
+			case VISIBLE:
+				// Does nothing. Since presence is configured for all states, the Control will be visible per default.
+				break;
+			case INVISIBLE:
+				list.addAtEnd(CSSProperty.withNameAndValue("display", "hidden"));
+				break;
+			case COLLAPSED:
+				list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));;
 		}
 		
 		if (control.hasMinWidth()) {

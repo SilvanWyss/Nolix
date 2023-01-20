@@ -19,8 +19,8 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.guiapi.presenceapi.Presence;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
-import ch.nolix.systemapi.guiapi.structureproperty.Visibility;
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -38,13 +38,13 @@ extends StylableElement<C>
 implements IControl<C, CS> {
 	
 	//constant
-	public static final Visibility DEFAULT_VISIBILITY = Visibility.VISIBLE;
+	public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
 	
 	//constant
 	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//constant
-	private static final String VISIBILITY_HEADER = "Visibility";
+	private static final String PRESENCE_HEADER = "Presence";
 	
 	//constant
 	private static final String MIN_WIDTH_HEADER = "MinWidth";
@@ -66,12 +66,12 @@ implements IControl<C, CS> {
 	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
-	private final MutableValue<Visibility> visibility =
+	private final MutableValue<Presence> presence =
 	new MutableValue<>(
-		VISIBILITY_HEADER,
-		DEFAULT_VISIBILITY,
-		this::setVisibility,
-		Visibility::fromSpecification,
+		PRESENCE_HEADER,
+		DEFAULT_PRESENCE,
+		this::setPresence,
+		Presence::fromSpecification,
 		Node::fromEnum
 	);
 	
@@ -188,6 +188,12 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final Presence getPresence() {
+		return presence.getValue();
+	}
+		
+	//method
+	@Override
 	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
 		return getRefChildControls();
 	}
@@ -242,14 +248,20 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final boolean isCollapsed() {
+		return (getPresence() == Presence.COLLAPSED);
+	}
+	
+	//method
+	@Override
 	public final boolean isInvisible() {
-		return (getVisibility() == Visibility.INVISIBLE);
+		return (getPresence() == Presence.INVISIBLE);
 	}
 	
 	//method
 	@Override
 	public final boolean isVisible() {
-		return (getVisibility() == Visibility.VISIBLE);
+		return (getPresence() == Presence.VISIBLE);
 	}
 	
 	//method
@@ -278,6 +290,15 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public C setCollapsed() {
+		
+		setPresence(Presence.COLLAPSED);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
 	public final C setCursorIcon(final CursorIcon cursorIcon) {
 		
 		this.cursorIcon.setValue(cursorIcon);
@@ -289,7 +310,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setInvisible() {
 		
-		setVisibility(Visibility.INVISIBLE);
+		setPresence(Presence.INVISIBLE);
 		
 		return asConcrete();
 	}
@@ -370,7 +391,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C setVisible() {
 		
-		setVisibility(Visibility.VISIBLE);
+		setPresence(Presence.VISIBLE);
 		
 		return asConcrete();
 	}
@@ -457,12 +478,7 @@ implements IControl<C, CS> {
 		
 		return parent;
 	}
-	
-	//method
-	private Visibility getVisibility() {
-		return visibility.getValue();
-	}
-	
+			
 	//method
 	private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 		
@@ -509,7 +525,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private void setVisibility(final Visibility visibility) {
-		this.visibility.setValue(visibility);
+	private void setPresence(final Presence presence) {
+		this.presence.setValue(presence);
 	}
 }
