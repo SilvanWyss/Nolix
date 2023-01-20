@@ -98,7 +98,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 				// Does nothing. Since presence is configured for all states, the Control will be visible per default.
 				break;
 			case INVISIBLE:
-				list.addAtEnd(CSSProperty.withNameAndValue("display", "hidden"));
+				list.addAtEnd(CSSProperty.withNameAndValue("visibility", "hidden"));
 				break;
 			case COLLAPSED:
 				list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));;
