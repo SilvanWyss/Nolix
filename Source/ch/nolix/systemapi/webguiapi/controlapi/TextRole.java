@@ -12,7 +12,10 @@ public enum TextRole {
 	LEVEL2_HEADER,
 	LEVEL3_HEADER,
 	LEVEL4_HEADER,
-	LABEL;
+	LABEL,
+	INFO_LABEL,
+	WARNING_LABEL,
+	ERROR_LABEL;
 	
 	//static method
 	public static TextRole fromSpecification(final INode<?> specification) {
