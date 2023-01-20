@@ -2133,7 +2133,13 @@ define("System/FrontendWebGUI/UserInput", ["require", "exports", "System/Element
         getAttributes() {
             const attributes = new LinkedList_8.LinkedList();
             attributes.addAtEnd(Node_4.Node.withHeader(this.getHTMLElementId()));
-            attributes.addAtEnd(Node_4.Node.withHeader(this.getUserInput()));
+            const userInput = this.getUserInput();
+            if (userInput.length === 0) {
+                attributes.addAtEnd(new Node_4.Node());
+            }
+            else {
+                attributes.addAtEnd(Node_4.Node.withHeader(userInput));
+            }
             return attributes;
         }
         getHTMLElementId() {
