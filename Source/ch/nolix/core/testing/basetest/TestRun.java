@@ -141,9 +141,9 @@ public final class TestRun {
 			+ getPassedTestCaseCount()
 			+ " of "
 			+ getTestCaseCount()
-			+ " test cases passed of "
+			+ " test cases of "
 			+ parentTest.getSimpleName()
-			+ " "
+			+ " passed "
 			+ getRuntimeAndUnitAsStringInBrackets()
 		);
 		
