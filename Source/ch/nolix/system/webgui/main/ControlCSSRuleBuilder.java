@@ -27,6 +27,9 @@ public abstract class ControlCSSRuleBuilder<
 >
 implements IControlCSSRuleBuilder<C, CS> {
 	
+	//static attribute
+	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
+	
 	//method
 	@Override
 	public final IContainer<ICSSRule<?>> createCSSRulesForControl(final C control) {
@@ -93,7 +96,6 @@ implements IControlCSSRuleBuilder<C, CS> {
 		final LinkedList<CSSProperty> list
 	) {
 		
-		//TODO: Out-source this implementation.
 		switch (control.getPresence()) {
 			case VISIBLE:
 				// Does nothing. Since presence is configured for all states, the Control will be visible per default.
@@ -102,14 +104,14 @@ implements IControlCSSRuleBuilder<C, CS> {
 				list.addAtEnd(CSSProperty.withNameAndValue("visibility", "hidden"));
 				break;
 			case COLLAPSED:
-				list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));;
+				list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));
 		}
 		
 		if (control.hasMinWidth()) {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.MIN_WIDTH,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMinWidth(),
 						CSSUnitCatalogue.VW
 					)
@@ -121,7 +123,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.MIN_HEIGHT,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMinHeight(),
 						CSSUnitCatalogue.VH
 					)
@@ -133,7 +135,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.MAX_WIDTH,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMaxWidth(),
 						CSSUnitCatalogue.VW
 					)
@@ -145,7 +147,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.MAX_HEIGHT,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMaxHeight(),
 						CSSUnitCatalogue.VH
 					)
@@ -186,7 +188,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 			
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
-				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getTextColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getTextColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_FAMILY,

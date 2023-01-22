@@ -21,6 +21,9 @@ public abstract class ExtendedControlCSSRuleBuilder<
 >
 extends ControlCSSRuleBuilder<EC, ECS> {
 	
+	//static attribute
+	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
+		
 	//method
 	@Override
 	protected final void fillUpCSSPropertiesForControlAndStateIntoList(
@@ -63,7 +66,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_LEFT_COLOR,
-				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getLeftBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getLeftBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_LEFT,
@@ -75,7 +78,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_RIGHT_COLOR,
-				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getRightBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getRightBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_RIGHT,
@@ -87,7 +90,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_TOP_COLOR,
-				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getTopBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getTopBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_TOP,
@@ -99,7 +102,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
-				ControlCSSValueHelper.INSTANCE.getCSSValueFromColor(style.getBottomBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getBottomBorderColorWhenHasState(state))
 			),
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.PADDING_BOTTOM,
@@ -123,7 +126,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.WIDTH,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						style.getWidthForState(state),
 						CSSUnitCatalogue.VW
 					)
@@ -135,7 +138,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 			list.addAtEnd(
 				CSSProperty.withNameAndValue(
 					CSSPropertyNameCatalogue.HEIGHT,
-					ControlCSSValueHelper.INSTANCE.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						style.getHeightForState(state),
 						CSSUnitCatalogue.VH
 					)

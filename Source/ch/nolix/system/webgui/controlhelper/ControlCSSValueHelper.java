@@ -9,9 +9,6 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 //class
 public final class ControlCSSValueHelper {
 	
-	//static attribute
-	public static final ControlCSSValueHelper INSTANCE = new ControlCSSValueHelper();
-	
 	//method
 	public String getCSSValueFromColor(final IColor color) {
 		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
