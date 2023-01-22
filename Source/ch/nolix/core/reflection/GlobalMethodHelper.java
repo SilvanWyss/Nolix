@@ -18,24 +18,6 @@ public final class GlobalMethodHelper {
 	//static method
 	/**
 	 * @param method
-	 * @param type
-	 * @return true if all parameters of the given method are of the given type.
-	 */
-	public static boolean allParametersOfMethodAreOfType(final Method method, final Class<?> type) {
-		
-		//Iterates the parameters of the given method.
-		for (final var p : method.getParameters()) {
-			if (!p.getType().isAssignableFrom(type)) {
-				return false;
-			}
-		}
-		
-		return true;
-	}
-	
-	//static method
-	/**
-	 * @param method
 	 * @param annotationType
 	 * @param <A> is the given annotationType.
 	 * @return true if the given method has an annotation of the given annotationType.
