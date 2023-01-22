@@ -19,6 +19,7 @@ import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -52,6 +53,11 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	
 	//optional attribute
 	private IElementTaker<String> updateTextAction;
+	
+	//constructor
+	public Textbox() {
+		editStyle(s -> s.setBorderThicknessForState(ControlState.BASE, 1));
+	}
 	
 	//method
 	@Override
