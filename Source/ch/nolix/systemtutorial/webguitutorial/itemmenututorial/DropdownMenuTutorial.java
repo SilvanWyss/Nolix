@@ -25,7 +25,7 @@ public final class DropdownMenuTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<Object> {
+	public static final class MainSession extends BackendWebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
