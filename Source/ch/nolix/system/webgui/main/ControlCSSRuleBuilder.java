@@ -74,16 +74,17 @@ implements IControlCSSRuleBuilder<C, CS> {
 	
 	//method
 	protected final String getCSSSelectorForControlAndState(final C control, final ControlState state) {
+		return
 		switch (state) {
-			case BASE:
-				return ("#" + control.getFixedId());
-			case FOCUS:
-				return ("#" + control.getFixedId() + ":focus");
-			case HOVER:
-				return ("#" + control.getFixedId() + ":hover");
-			default:
+			case BASE ->
+				"#" + control.getFixedId();
+			case FOCUS ->
+				"#" + control.getFixedId() + ":focus";
+			case HOVER ->
+				"#" + control.getFixedId() + ":hover";
+			default ->
 				throw InvalidArgumentException.forArgument(state);
-		}
+		};
 	}
 	
 	//method
