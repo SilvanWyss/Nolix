@@ -550,6 +550,50 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_getRefGroups_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution
+		final var result = testUnit.getRefGroups(String::length);
+		
+		//verification
+		expect(result).isEmpty();
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getRefGroups_1A() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "y", "x", "y", "x", "y");
+		
+		//execution
+		final var result = testUnit.getRefGroups(String::length);
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(1);
+		//TODO: Do a verification more precisely.
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getRefGroups_1B() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
+		
+		//execution
+		final var result = testUnit.getRefGroups(String::length);
+		
+		//verification
+		expect(result.getElementCount()).isEqualTo(3);
+		//TODO: Do a verification more precisely.
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_getRefSelected_1A() {
 		
 		//setup

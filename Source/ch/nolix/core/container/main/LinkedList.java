@@ -434,39 +434,6 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param norm
-	 * @return a new list of groups of the elements of the current {@link LinkedList}
-	 * whereas the value of the given norm is equal for all elements of a group.
-	 */
-	@SuppressWarnings("unchecked")
-	public LinkedList<LinkedList<E>> getGroups(final IElementTakerElementGetter<E, ?> norm) {
-		
-		final LinkedList<LinkedList<E>> groups = new LinkedList<>();
-		
-		//Iterates the current list.
-		for (final E e : this) {
-			
-			final var categoryRepresentator = norm.getOutput(e);
-			
-			final LinkedList<E> group
-			= groups.getRefFirstOrNull(
-				l -> l.containsAny(e2 -> norm.getOutput(e).equals(categoryRepresentator))
-			);
-			
-			if (group == null) {
-				groups.addAtEnd(LinkedList.withElements(e));
-			} else {
-				group.addAtEnd(e);
-			}
-		}
-		
-		return groups;
-	}
-
-	//method
-	/**
 	 * The complexity of this implementation is O((n-m)*m) if:
 	 * -This list contains n elements.
 	 * -The sequences that matches the given sequence pattern contain m elements.

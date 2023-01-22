@@ -1462,6 +1462,33 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n^2) if the current {@link LinkedList} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<? extends IContainer<E>> getRefGroups(final IElementTakerElementGetter<E, ?> norm) {
+		
+		final var groups = new LinkedList<LinkedList<E>>();
+		
+		//Iterates the current list.
+		for (final var e : this) {
+			
+			final var groupKey = norm.getOutput(e);
+			final var group = groups.getRefFirstOrNull(g -> g.containsAny(e2 -> norm.getOutput(e2).equals(groupKey)));
+			
+			if (group == null) {
+				groups.addAtEnd(LinkedList.withElements(e));
+			} else {
+				group.addAtEnd(e);
+			}
+		}
+		
+		return groups;
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param type

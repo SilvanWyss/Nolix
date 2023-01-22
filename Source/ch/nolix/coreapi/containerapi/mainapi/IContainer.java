@@ -2,6 +2,7 @@
 package ch.nolix.coreapi.containerapi.mainapi;
 
 //own imports
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -559,6 +560,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
 	 */
 	E getRefFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
+	
+	//method
+	/**
+	 * @param norm
+	 * @return a new {@link IContainer} with groups with the elements of the current {@link LinkedList} grouped by
+	 * the given norm.
+	 */
+	IContainer<? extends IContainer<E>> getRefGroups(IElementTakerElementGetter<E, ?> norm);
 	
 	//method declaration
 	/**
