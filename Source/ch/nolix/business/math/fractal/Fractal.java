@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.business.math.bigdecimalmath;
+package ch.nolix.business.math.fractal;
 
 //Java imports
 import java.math.BigDecimal;

@@ -1,9 +1,10 @@
 //package declaration
-package ch.nolix.business.math.bigdecimalmath;
+package ch.nolix.business.math.fractal;
 
 //Java import
 import java.math.BigDecimal;
 
+import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.mathapi.fractalapi.IFractal;
 import ch.nolix.businessapi.mathapi.fractalapi.IFractalHelper;

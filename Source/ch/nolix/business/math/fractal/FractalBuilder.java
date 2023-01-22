@@ -1,9 +1,11 @@
 //package declaration
-package ch.nolix.business.math.bigdecimalmath;
+package ch.nolix.business.math.fractal;
 
 //Java imports
 import java.math.BigDecimal;
 
+import ch.nolix.business.math.bigdecimalmath.ClosedInterval;
+import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.ISequence;
