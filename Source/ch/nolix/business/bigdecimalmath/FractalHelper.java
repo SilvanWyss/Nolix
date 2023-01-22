@@ -5,10 +5,9 @@ package ch.nolix.business.bigdecimalmath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//own imports
-import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.bigdecimalmathapi.IFractal;
-import ch.nolix.businessapi.bigdecimalmathapi.IFractalHelper;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractal;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractalHelper;
 
 //class
 public final class FractalHelper implements IFractalHelper {

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.businessapi.bigdecimalmathapi;
+package ch.nolix.businessapi.mathapi.bigdecimalmathapi;
 
 //interface
 public interface ISequenceDefinedBy2Predecessor<V> extends ISequence<V> {

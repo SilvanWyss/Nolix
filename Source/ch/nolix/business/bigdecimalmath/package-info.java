@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.business.bigdecimalmath} package
- * provides an implementation of the {@link ch.nolix.businessapi.bigdecimalmathapi} package.
+ * provides an implementation of the {@link ch.nolix.businessapi.mathapi.bigdecimalmathapi} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

@@ -4,11 +4,10 @@ package ch.nolix.business.bigdecimalmath;
 //Java import
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.bigdecimalmathapi.IFractal;
-import ch.nolix.businessapi.bigdecimalmathapi.IFractalHelper;
-import ch.nolix.businessapi.bigdecimalmathapi.IImageGenerator;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractal;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractalHelper;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IImageGenerator;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

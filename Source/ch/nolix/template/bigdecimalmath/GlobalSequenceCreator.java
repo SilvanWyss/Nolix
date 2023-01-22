@@ -4,8 +4,8 @@ package ch.nolix.template.bigdecimalmath;
 //own imports
 import ch.nolix.business.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
 
 //class
 public final class GlobalSequenceCreator {

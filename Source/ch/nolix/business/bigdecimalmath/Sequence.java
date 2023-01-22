@@ -5,8 +5,7 @@ package ch.nolix.business.bigdecimalmath;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-//own imports
-import ch.nolix.businessapi.bigdecimalmathapi.ISequence;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.ISequence;
 import ch.nolix.core.container.pair.Pair;
 
 //class

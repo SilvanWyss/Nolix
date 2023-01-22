@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.businessapi.bigdecimalmathapi;
+package ch.nolix.businessapi.mathapi.bigdecimalmathapi;
 
 //own imports
 import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;

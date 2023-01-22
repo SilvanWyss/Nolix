@@ -4,8 +4,7 @@ package ch.nolix.business.bigdecimalmath;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.businessapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 

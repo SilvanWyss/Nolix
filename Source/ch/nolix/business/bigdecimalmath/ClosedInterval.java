@@ -5,8 +5,7 @@ package ch.nolix.business.bigdecimalmath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-//own imports
-import ch.nolix.businessapi.bigdecimalmathapi.IClosedInterval;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
