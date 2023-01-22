@@ -1,4 +1,4 @@
-package ch.nolix.businesstutorial.dynamicmathtutorial;
+package ch.nolix.businesstutorial.mathtutorial.bigdecimalmathtutorial;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;

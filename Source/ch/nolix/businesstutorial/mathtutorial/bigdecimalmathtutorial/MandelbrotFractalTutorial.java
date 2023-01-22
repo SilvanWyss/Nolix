@@ -1,4 +1,4 @@
-package ch.nolix.businesstutorial.dynamicmathtutorial;
+package ch.nolix.businesstutorial.mathtutorial.bigdecimalmathtutorial;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
@@ -11,7 +11,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.control.ImageControl;
 
-public final class BlackWhiteMandelbrotFractalTutorial {
+public final class MandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -20,7 +20,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication(
-			"Black-white Mandelbrot fractal tutorial",
+			"Mandelbrot fractal tutorial",
 			MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
@@ -37,7 +37,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		
 		@Override
 		protected void initialize() {
-		
+			
 			getRefGUI()
 			.pushLayerWithRootControl(
 				new ImageControl()
@@ -56,7 +56,9 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 					)
 					.setMinMagnitudeForDivergence(10.0)
 					.setMaxIterationCount(50)
-					.setColorFunction(i -> Color.WHITE)
+					.setColorFunction(
+						i -> Color.withRedValueAndGreenValueAndBlueValue((2 * i) % 256, (3 * i) % 256, (4 * i) % 256)
+					)
 					.setBigDecimalScale(10)
 					.build()
 					.startImageGeneration()
@@ -68,5 +70,5 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		}
 	}
 	
-	private BlackWhiteMandelbrotFractalTutorial() {}
+	private MandelbrotFractalTutorial() {}
 }
