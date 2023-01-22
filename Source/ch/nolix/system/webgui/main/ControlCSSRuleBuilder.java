@@ -15,7 +15,6 @@ import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
-import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -152,15 +151,13 @@ implements IControlCSSRuleBuilder<C, CS> {
 				)
 			);
 		}
-				
-		if (control.getCursorIcon() != CursorIcon.ARROW) {
-			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.CURSOR,
-					control.getCursorIcon().toCSSValue()
-				)
-			);
-		}
+		
+		list.addAtEnd(
+			CSSProperty.withNameAndValue(
+				CSSPropertyNameCatalogue.CURSOR,
+				control.getCursorIcon().toCSSValue()
+			)
+		);
 		
 		fillUpCSSPropertiesForControlAndAllStatesIntoList(control, list);
 	}
