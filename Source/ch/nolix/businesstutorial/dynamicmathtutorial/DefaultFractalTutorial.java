@@ -1,6 +1,6 @@
 package ch.nolix.businesstutorial.dynamicmathtutorial;
 
-import ch.nolix.business.bigdecimalmath.FractalBuilder;
+import ch.nolix.business.math.bigdecimalmath.FractalBuilder;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;

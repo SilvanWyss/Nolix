@@ -4,8 +4,7 @@ package ch.nolix.businesstest.bigdecimalmathtest;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.business.bigdecimalmath.ComplexNumber;
+import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
