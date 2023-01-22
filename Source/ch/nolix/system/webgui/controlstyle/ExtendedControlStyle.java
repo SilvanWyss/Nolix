@@ -33,6 +33,9 @@ implements IExtendedControlStyle<ECS> {
 	public static final IColor DEFAULT_BORDER_COLOR = Color.BLACK;
 	
 	//constant
+	public static final IBackground DEFAULT_BACKGROUND = Background.TRANSPARENT_BACKGROUND;
+	
+	//constant
 	public static final int DEFAULT_PADDING = 0;
 	
 	//constant
@@ -199,7 +202,8 @@ implements IExtendedControlStyle<ECS> {
 		BACKGROUND_HEADER,
 		ControlState.class,
 		Background::fromSpecification,
-		IBackground::getSpecification
+		IBackground::getSpecification,
+		DEFAULT_BACKGROUND
 	);
 	
 	//attribute

@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.container;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -51,7 +52,7 @@ extends ExtendedControlCSSRuleBuilder<SingleContainer, SingleContainerStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final SingleContainer control,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		//Does nothing.
 	}

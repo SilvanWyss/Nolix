@@ -7,6 +7,7 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.CSSBorderStyleCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.system.webgui.main.ControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
@@ -25,7 +26,7 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 	protected final void fillUpCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		
 		fillUpOptionalCSSPropertiesForControlAndStateIntoList(control, state, list);
@@ -39,14 +40,14 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 	protected abstract void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		EC control,
 		ControlState state,
-		LinkedList<CSSProperty> list
+		LinkedList<ICSSProperty> list
 	);
 	
 	//method
 	private void fillUpMandatoryCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		
 		var style = control.getRefStyle();
@@ -105,13 +106,15 @@ extends ControlCSSRuleBuilder<EC, ECS> {
 				String.valueOf(style.getBottomPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
 			)
 		);
+		
+		list.addAtEnd(style.getBackgroundWhenHasState(state).toCSSProperties());
 	}
 	
 	//method
 	private void fillUpOptionalCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		
 		var style = control.getRefStyle();

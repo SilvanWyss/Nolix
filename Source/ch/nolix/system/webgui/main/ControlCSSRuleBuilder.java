@@ -12,6 +12,7 @@ import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
@@ -64,7 +65,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	protected abstract void fillUpCSSPropertiesForControlAndStateIntoList(
 		C control,
 		ControlState state,
-		LinkedList<CSSProperty> list
+		LinkedList<ICSSProperty> list
 	);
 	
 	//method
@@ -168,7 +169,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	private void fillUpAllCSSPropertiesForControlAndStateIntoList(
 		final C control,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 				
 		final var style = control.getRefStyle();
@@ -229,9 +230,9 @@ implements IControlCSSRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForControlAndState(final C control, final ControlState state) {
+	private IContainer<ICSSProperty> getCSSPropertiesForControlAndState(final C control, final ControlState state) {
 		
-		final var lCSSProperties = new LinkedList<CSSProperty>();
+		final var lCSSProperties = new LinkedList<ICSSProperty>();
 		
 		fillUpAllCSSPropertiesForControlAndStateIntoList(control, state, lCSSProperties);
 		

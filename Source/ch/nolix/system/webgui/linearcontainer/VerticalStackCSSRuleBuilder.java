@@ -7,6 +7,7 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -65,7 +66,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final VerticalStack verticalStack,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		//Does nothing.
 	}

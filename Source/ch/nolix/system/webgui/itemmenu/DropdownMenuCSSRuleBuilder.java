@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.itemmenu;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
@@ -29,7 +30,7 @@ public final class DropdownMenuCSSRuleBuilder extends ItemMenuCSSRuleBuilder<Dro
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final DropdownMenu dropdownMenu,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		//Does nothing.
 	}

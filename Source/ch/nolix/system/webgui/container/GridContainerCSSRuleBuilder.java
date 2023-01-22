@@ -7,6 +7,7 @@ import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
@@ -36,7 +37,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
-		final LinkedList<CSSProperty> list
+		final LinkedList<ICSSProperty> list
 	) {
 		//Does nothing.
 	}
