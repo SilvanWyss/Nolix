@@ -190,6 +190,8 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 		
 		emptyText();
 		
+		setTextMode(DEFAULT_TEXT_MODE);
+		
 		removeUpdateTextAction();
 	}
 	
