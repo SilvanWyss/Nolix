@@ -1,9 +1,8 @@
 //package declaration
-package ch.nolix.business.serverdashboardaccess;
+package ch.nolix.business.serverdashboardcontext;
 
-//own imports
-import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
-import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
+import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -12,18 +11,18 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 
 //class
-public final class ServerDashboardAccess implements IServerDashboardAccess {
+public final class ApplicationContext implements IApplicationContext {
 	
 	//static method
-	public static ServerDashboardAccess toServer(final Server server) {
-		return new ServerDashboardAccess(server);
+	public static ApplicationContext toServer(final Server server) {
+		return new ApplicationContext(server);
 	}
 	
 	//attribute
 	private final Server server;
 	
 	//constructor
-	private ServerDashboardAccess(final Server server) {
+	private ApplicationContext(final Server server) {
 		
 		GlobalValidator.assertThat(server).thatIsNamed(Server.class).isNotNull();
 		

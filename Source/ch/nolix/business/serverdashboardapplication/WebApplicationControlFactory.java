@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.business.serverdashboardapplication;
 
-//own imports
-import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.control.ImageControl;

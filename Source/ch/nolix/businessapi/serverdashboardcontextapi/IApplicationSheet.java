@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.businessapi.serverdashboardaccessapi;
+package ch.nolix.businessapi.serverdashboardcontextapi;
 
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;

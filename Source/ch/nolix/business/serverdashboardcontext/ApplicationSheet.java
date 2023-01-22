@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.business.serverdashboardaccess;
+package ch.nolix.business.serverdashboardcontext;
 
-//own imports
-import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationTarget;

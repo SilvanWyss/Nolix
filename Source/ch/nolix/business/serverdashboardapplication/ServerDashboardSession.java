@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.business.serverdashboardapplication;
 
-//own imports
-import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;
-import ch.nolix.businessapi.serverdashboardaccessapi.IServerDashboardAccess;
+import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
@@ -11,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-final class ServerDashboardSession extends BackendWebClientSession<IServerDashboardAccess> {
+final class ServerDashboardSession extends BackendWebClientSession<IApplicationContext> {
 	
 	//method
 	@Override
