@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.businesstest.bigdecimalmathtest;
+package ch.nolix.businesstest.mathtest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new BigDecimalMathTestPool().run();
+		new MathTestPool().run();
 	}
 	
 	//constructor

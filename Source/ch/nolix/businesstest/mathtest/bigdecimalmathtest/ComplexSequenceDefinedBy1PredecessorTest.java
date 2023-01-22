@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.businesstest.bigdecimalmathtest;
+package ch.nolix.businesstest.mathtest.bigdecimalmathtest;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
