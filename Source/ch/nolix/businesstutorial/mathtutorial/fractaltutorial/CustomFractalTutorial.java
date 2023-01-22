@@ -1,4 +1,4 @@
-package ch.nolix.businesstutorial.mathtutorial.bigdecimalmathtutorial;
+package ch.nolix.businesstutorial.mathtutorial.fractaltutorial;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
@@ -11,7 +11,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.control.ImageControl;
 
-public final class MandelbrotFractalTutorial {
+public final class CustomFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -20,7 +20,7 @@ public final class MandelbrotFractalTutorial {
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication(
-			"Mandelbrot fractal tutorial",
+			"Custom fractal tutorial",
 			MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
@@ -43,7 +43,7 @@ public final class MandelbrotFractalTutorial {
 				new ImageControl()
 				.setImage(
 					new FractalBuilder()
-					.setRealComponentInterval(-2.0, 1.0)
+					.setRealComponentInterval(-1.5, 1.5)
 					.setImaginaryComponentInterval(-1.5, 1.5)
 					.setWidthInPixel(500)
 					.setHeightInPixel(500)
@@ -51,13 +51,13 @@ public final class MandelbrotFractalTutorial {
 						z ->
 						new ComplexSequenceDefinedBy1Predecessor(
 							new ComplexNumber(0.0, 0.0),
-							p -> p.getPower2().getSum(z)
+							p -> p.getPower4().getSum(z)
 						)
 					)
 					.setMinMagnitudeForDivergence(10.0)
 					.setMaxIterationCount(50)
 					.setColorFunction(
-						i -> Color.withRedValueAndGreenValueAndBlueValue((2 * i) % 256, (3 * i) % 256, (4 * i) % 256)
+						i -> Color.withRedValueAndGreenValueAndBlueValue((2 * i) % 256, (10 * i) % 256, (3 * i) % 256)
 					)
 					.setBigDecimalScale(10)
 					.build()
@@ -65,10 +65,10 @@ public final class MandelbrotFractalTutorial {
 					.getRefImage()
 				)
 			);
-			
+		
 			GlobalSequencer.asLongAs(this::isOpen).afterAllSeconds().runInBackground(this::updateCounterpart);
 		}
 	}
 	
-	private MandelbrotFractalTutorial() {}
+	private CustomFractalTutorial() {}
 }

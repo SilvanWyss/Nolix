@@ -1,4 +1,4 @@
-package ch.nolix.businesstutorial.mathtutorial.bigdecimalmathtutorial;
+package ch.nolix.businesstutorial.mathtutorial.fractaltutorial;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
@@ -11,7 +11,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.control.ImageControl;
 
-public final class CustomFractalTutorial2 {
+public final class MandelbrotFractalTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -20,7 +20,7 @@ public final class CustomFractalTutorial2 {
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication(
-			"Custom fractal tutorial",
+			"Mandelbrot fractal tutorial",
 			MainSession.class,
 			VoidApplicationContext.INSTANCE
 		);
@@ -43,15 +43,15 @@ public final class CustomFractalTutorial2 {
 				new ImageControl()
 				.setImage(
 					new FractalBuilder()
-					.setRealComponentInterval(-1.0, 1.0)
-					.setImaginaryComponentInterval(-1.0, 1.0)
+					.setRealComponentInterval(-2.0, 1.0)
+					.setImaginaryComponentInterval(-1.5, 1.5)
 					.setWidthInPixel(500)
 					.setHeightInPixel(500)
 					.setSequenceCreator(
 						z ->
 						new ComplexSequenceDefinedBy1Predecessor(
-							z,
-							p -> p.getPower(6).getSum(new ComplexNumber(-0.8, 0.15))
+							new ComplexNumber(0.0, 0.0),
+							p -> p.getPower2().getSum(z)
 						)
 					)
 					.setMinMagnitudeForDivergence(10.0)
@@ -70,5 +70,5 @@ public final class CustomFractalTutorial2 {
 		}
 	}
 	
-	private CustomFractalTutorial2() {}
+	private MandelbrotFractalTutorial() {}
 }
