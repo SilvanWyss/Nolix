@@ -31,6 +31,9 @@ import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 public final class Background extends Element implements IBackground {
 	
 	//constant
+	public static final Background TRANSPARENT_BACKGROUND = new Background();
+	
+	//constant
 	public static final ImageApplication DEFAULT_IMAGE_APPLICATION = ImageApplication.SCALE_TO_FRAME;
 	
 	//constant
@@ -41,6 +44,9 @@ public final class Background extends Element implements IBackground {
 	
 	//constant
 	private static final String IMAGE_HEADER = "Image";
+	
+	//constant
+	private static final String TRANSPARENCY_HEADER = "Transparency";
 	
 	//static method
 	public static Background fromSpecification(final INode<?> specification) {
@@ -58,6 +64,8 @@ public final class Background extends Element implements IBackground {
 					Image.fromSpecification(specification.getRefChildNodeAt1BasedIndex(1)),
 					ImageApplication.fromSpecification(specification.getRefChildNodeAt1BasedIndex(2))
 				);
+			case TRANSPARENCY_HEADER ->
+				TRANSPARENT_BACKGROUND;
 			default ->
 				throw createExceptionForSpecificationDoesNotSpecifyBackground(specification);
 		};
@@ -111,6 +119,14 @@ public final class Background extends Element implements IBackground {
 	private final ImageApplication imageApplication;
 	
 	//constructor
+	private Background() {
+		color = null;
+		colorGradient = null;
+		image = null;
+		imageApplication = null;
+	}
+	
+	//constructor
 	private Background(final IColor color) {
 		
 		GlobalValidator.assertThat(color).thatIsNamed(IColor.class).isNotNull();
@@ -155,6 +171,8 @@ public final class Background extends Element implements IBackground {
 				LinkedList.withElements(getColorGradient().getSpecification());
 			case IMAGE ->
 				LinkedList.withElements(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
+			case TRANSPARENCY ->
+				LinkedList.withElements(Node.withHeader(TRANSPARENCY_HEADER));
 			default ->
 				throw InvalidArgumentException.forArgument(this);
 		};
@@ -208,7 +226,11 @@ public final class Background extends Element implements IBackground {
 			return BackgroundType.COLOR_GRADIENT;
 		}
 		
-		return BackgroundType.IMAGE;
+		if (isImage()) {
+			return BackgroundType.IMAGE;
+		}
+		
+		return BackgroundType.TRANSPARENCY;
 	}
 	
 	//method
@@ -224,6 +246,11 @@ public final class Background extends Element implements IBackground {
 	//method
 	public boolean isImage() {
 		return (image != null);
+	}
+	
+	//method
+	public boolean isTransparent() {
+		return !isColor() && !isColorGradient() && !isImage();
 	}
 	
 	//method
@@ -259,6 +286,9 @@ public final class Background extends Element implements IBackground {
 					),
 					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
 				);
+			case TRANSPARENCY:
+				return
+				ImmutableList.withElement(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, "none"));
 			default:
 				throw InvalidArgumentException.forArgument(this);
 		}
