@@ -14,12 +14,6 @@ import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
 //class
 public final class ServerDashboardStyleCreator {
 	
-	//static attribute
-	public static final ServerDashboardStyleCreator INSTANCE = new ServerDashboardStyleCreator();
-	
-	//constructor
-	private ServerDashboardStyleCreator() {}
-	
 	//method
 	public Style createServerDashboardStyle() {
 		return

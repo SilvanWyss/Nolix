@@ -12,11 +12,14 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 final class ServerDashboardSession extends BackendWebClientSession<IApplicationContext> {
 	
+	//static attribute
+	private static final ServerDashboardStyleCreator SERVER_DASHBOARD_STYLE_CREATOR = new ServerDashboardStyleCreator();
+	
 	//method
 	@Override
 	protected void initialize() {
 		getRefGUI()
-		.setStyle(ServerDashboardStyleCreator.INSTANCE.createServerDashboardStyle())
+		.setStyle(SERVER_DASHBOARD_STYLE_CREATOR.createServerDashboardStyle())
 		.pushLayerWithRootControl(createApplicationSetControl());
 	}
 	
