@@ -21,6 +21,9 @@ public abstract class BaseBackendWebClient<
 extends BackendClient<BBWC, AC>
 implements ICookieManager {
 	
+	//static attribute
+	private static final BaseBackendWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = new BaseBackendWebClientCommandCreator();
+	
 	//attribute
 	private final BaseBackendWebClientFileReader fileReader = BaseBackendWebClientFileReader.forBackendWebClient(this);
 	
@@ -29,7 +32,7 @@ implements ICookieManager {
 	public final void deleteCookieByName(final String name) {
 		
 		final var deleteCookieCommand =
-		BaseBackendWebClientCommandCreator.INSTANCE.createDeleteCookieByNameCommand(name);
+		BACKEND_WEB_CLIENT_COMMAND_CREATOR.createDeleteCookieByNameCommand(name);
 		
 		runOnCounterpart(deleteCookieCommand);
 	}
@@ -49,7 +52,7 @@ implements ICookieManager {
 	public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
 		
 		final var setOrAddCookieCommand =
-		BaseBackendWebClientCommandCreator.INSTANCE.createSetOrAddCookieCommandForCookieWithNameAndValue(name, value);
+		BACKEND_WEB_CLIENT_COMMAND_CREATOR.createSetOrAddCookieCommandForCookieWithNameAndValue(name, value);
 		
 		runOnCounterpart(setOrAddCookieCommand);
 	}
@@ -95,7 +98,7 @@ implements ICookieManager {
 	//method
 	final void internalOpenNewTabOnCounterpartWithURL(final String pURL) {
 		
-		final var openNewTabCommand = BaseBackendWebClientCommandCreator.INSTANCE.createOpenNewTabCommand(pURL);
+		final var openNewTabCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createOpenNewTabCommand(pURL);
 		
 		runOnCounterpart(openNewTabCommand);
 	}
@@ -109,7 +112,7 @@ implements ICookieManager {
 	final void internalRedirectCounterpartTo(final IApplicationTarget applicationTarget) {
 		
 		final var redirectCommand =
-		BaseBackendWebClientCommandCreator.INSTANCE.createRedirectCommand(applicationTarget);
+		BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationTarget);
 		
 		runOnCounterpart(redirectCommand);
 	}
@@ -122,7 +125,7 @@ implements ICookieManager {
 	//method
 	final void internalSaveFileOnCounterpart(final byte[] bytes) {
 		
-		final var saveFileCommand = BaseBackendWebClientCommandCreator.INSTANCE.createSaveFileCommand(bytes);
+		final var saveFileCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createSaveFileCommand(bytes);
 		
 		runOnCounterpart(saveFileCommand);
 	}
