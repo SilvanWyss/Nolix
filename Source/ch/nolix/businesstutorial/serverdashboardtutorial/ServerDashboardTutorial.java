@@ -1,6 +1,6 @@
 package ch.nolix.businesstutorial.serverdashboardtutorial;
 
-import ch.nolix.business.serverdashboard.ServerDashboard;
+import ch.nolix.business.serverdashboardapplication.ServerDashboardApplication;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
@@ -18,7 +18,7 @@ public final class ServerDashboardTutorial {
 		//Creates a Server.
 		final var server = Server.forDefaultPort();
 		
-		server.addDefaultApplication(ServerDashboard.forServer(server));
+		server.addDefaultApplication(ServerDashboardApplication.forServer(server));
 		
 		server.addApplication(
 			"HelloWorld",

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.business.serverdashboard;
+package ch.nolix.business.serverdashboardapplication;
 
 //own imports
 import ch.nolix.businessapi.serverdashboardaccessapi.IApplicationSheet;

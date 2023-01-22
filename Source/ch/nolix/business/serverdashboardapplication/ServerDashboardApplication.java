@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.business.serverdashboard;
+package ch.nolix.business.serverdashboardapplication;
 
 //own imports
 import ch.nolix.business.serverdashboardaccess.ServerDashboardAccess;
@@ -9,19 +9,19 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 
 //class
-public final class ServerDashboard
+public final class ServerDashboardApplication
 extends Application<BackendWebClient<IServerDashboardAccess>, IServerDashboardAccess> {
 	
 	//static method
-	public static ServerDashboard forServer(final Server server) {
-		return new ServerDashboard(ServerDashboardAccess.toServer(server));
+	public static ServerDashboardApplication forServer(final Server server) {
+		return new ServerDashboardApplication(ServerDashboardAccess.toServer(server));
 	}
 	
 	//constant
 	public static final String APPLICATION_NAME = "Server Dashboard";
 	
 	//constructor
-	private ServerDashboard(final IServerDashboardAccess serverDashboardAccess) {
+	private ServerDashboardApplication(final IServerDashboardAccess serverDashboardAccess) {
 		super(serverDashboardAccess);
 	}
 	
