@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractalBuilder;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.ISequence;
+import ch.nolix.businessapi.mathapi.fractalapi.IFractalBuilder;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.graphic.color.Color;

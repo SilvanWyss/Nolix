@@ -1,9 +1,12 @@
 //package declaration
-package ch.nolix.businessapi.mathapi.bigdecimalmathapi;
+package ch.nolix.businessapi.mathapi.fractalapi;
 
 //Java imports
 import java.math.BigDecimal;
 
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IClosedInterval;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.businessapi.mathapi.bigdecimalmathapi.ISequence;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 

@@ -5,9 +5,9 @@ package ch.nolix.business.math.bigdecimalmath;
 import java.math.BigDecimal;
 
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractal;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractalHelper;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IImageGenerator;
+import ch.nolix.businessapi.mathapi.fractalapi.IFractal;
+import ch.nolix.businessapi.mathapi.fractalapi.IFractalHelper;
+import ch.nolix.businessapi.mathapi.fractalapi.IImageGenerator;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

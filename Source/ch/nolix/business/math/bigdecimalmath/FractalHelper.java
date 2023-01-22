@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractal;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IFractalHelper;
+import ch.nolix.businessapi.mathapi.fractalapi.IFractal;
+import ch.nolix.businessapi.mathapi.fractalapi.IFractalHelper;
 
 //class
 public final class FractalHelper implements IFractalHelper {
