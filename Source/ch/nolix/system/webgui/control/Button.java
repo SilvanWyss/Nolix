@@ -16,12 +16,14 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -54,6 +56,14 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//optional attribute
 	private IElementTaker<IButton<?, ?>> leftMouseButtonReleaseAction;
+	
+	//constructor
+	public Button() {
+		getRefStyle()
+		.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
+		.setBackgroundColorForState(ControlState.HOVER, Color.CHARTREUSE)
+		.setBackgroundColorForState(ControlState.FOCUS, Color.CHARTREUSE);
+	}
 	
 	//method
 	@Override

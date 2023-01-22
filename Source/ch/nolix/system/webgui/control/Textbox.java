@@ -15,8 +15,10 @@ import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.processproperty.TextMode;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -57,7 +59,14 @@ public final class Textbox extends Control<Textbox, TextboxStyle> implements ITe
 	
 	//constructor
 	public Textbox() {
-		editStyle(s -> s.setBorderThicknessForState(ControlState.BASE, 1));
+		
+		setCursorIcon(CursorIcon.EDIT);
+		
+		getRefStyle()
+		.setBorderThicknessForState(ControlState.BASE, 1)
+		.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
+		.setBackgroundColorForState(ControlState.HOVER, Color.CHARTREUSE)
+		.setBackgroundColorForState(ControlState.FOCUS, Color.CHARTREUSE);
 	}
 	
 	//method

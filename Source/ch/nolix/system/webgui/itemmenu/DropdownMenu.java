@@ -5,16 +5,26 @@ package ch.nolix.system.webgui.itemmenu;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class DropdownMenu
 extends ItemMenu<DropdownMenu, DropdownMenuStyle>
 implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
+	
+	//constructor
+	public DropdownMenu() {
+		getRefStyle()
+		.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
+		.setBackgroundColorForState(ControlState.HOVER, Color.CHARTREUSE)
+		.setBackgroundColorForState(ControlState.FOCUS, Color.CHARTREUSE);
+	}
 	
 	//method
 	@Override
