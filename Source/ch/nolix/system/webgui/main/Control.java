@@ -124,15 +124,23 @@ implements IControl<C, CS> {
 	private ControlParent parent;
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	@Override
+	public final boolean belongsToControl() {
+		return (parent != null && parent.isControl());
+	}
+	
+	//method
 	@Override
 	public final boolean belongsToGUI() {
 		return (belongsToLayer() && getRefParentLayer().belongsToGUI());
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
 	public final boolean belongsToLayer() {
-		return (belongsToParent() && parent.belongsToLayer());
+		return (parent != null && parent.belongsToLayer());
 	}
 	
 	//method

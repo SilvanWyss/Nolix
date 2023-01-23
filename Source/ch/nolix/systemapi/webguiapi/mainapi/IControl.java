@@ -29,6 +29,9 @@ IUserInputCell<C>,
 PresenceSettable<C> {
 	
 	//method declaration
+	boolean belongsToControl();
+	
+	//method declaration
 	boolean belongsToGUI();
 	
 	//method declaration
