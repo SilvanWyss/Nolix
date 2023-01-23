@@ -208,6 +208,12 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final IControl<?, ?> getRefParentControl() {
+		return getRefParent().getRefControl();
+	}
+	
+	//method
+	@Override
 	public final IWebGUI<?> getRefParentGUI() {
 		return getRefParentLayer().getRefParentGUI();
 	}

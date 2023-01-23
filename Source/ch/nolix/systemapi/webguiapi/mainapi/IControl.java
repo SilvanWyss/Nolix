@@ -53,6 +53,9 @@ PresenceSettable<C> {
 	IContainer<IControl<?, ?>> getRefChildControls();
 	
 	//method declaration
+	IControl<?, ?> getRefParentControl();
+	
+	//method declaration
 	IWebGUI<?> getRefParentGUI();
 	
 	//method declaration
