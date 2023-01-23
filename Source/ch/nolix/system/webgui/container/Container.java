@@ -89,7 +89,7 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	@Override
 	public final C setUserInput(final String userInput) {
 		
-		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
+		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isEmpty();
 		
 		return asConcrete();
 	}
