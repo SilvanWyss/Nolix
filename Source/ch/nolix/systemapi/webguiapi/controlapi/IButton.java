@@ -10,7 +10,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IButton<
 	B extends IButton<B, BS>,
 	BS extends IButtonStyle<BS>
-> extends IControl<B, BS> {
+>
+extends IControl<B, BS> {
 	
 	//method declaration
 	ButtonRole getRole();
@@ -20,6 +21,12 @@ public interface IButton<
 	
 	//method declaration
 	boolean hasRole();
+	
+	//method declaration
+	void pressLeftMouseButton();
+	
+	//method declaration
+	void releaseLeftMouseButton();
 	
 	//method declaration
 	void removeLeftMouseButtonPressAction();

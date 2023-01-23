@@ -109,11 +109,27 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
+	public void pressLeftMouseButton() {
+		if (hasLeftMouseButtonPressAction()) {
+			leftMouseButtonPressAction.run(this);
+		}
+	}
+
+	//method
+	@Override
 	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
 		list.addAtEnd(
 			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmousedown"),
 			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmouseup")
 		);
+	}
+	
+	//method
+	@Override
+	public void releaseLeftMouseButton() {
+		if (hasLeftMouseButtonReleaseAction()) {
+			leftMouseButtonReleaseAction.run(this);
+		}
 	}
 	
 	//method
@@ -138,21 +154,11 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	public void runHTMLEvent(final String pHTMLEvent) {
 		switch (pHTMLEvent) {
-			case "onmousedown":
-				
-				if (hasLeftMouseButtonPressAction()) {
-					leftMouseButtonPressAction.run(this);
-				}
-				
-				break;
-			case "onmouseup":
-				
-				if (hasLeftMouseButtonReleaseAction()) {
-					leftMouseButtonReleaseAction.run(this);
-				}
-				
-				break;
-			default:
+			case "onmousedown" ->
+				pressLeftMouseButton();
+			case "onmouseup" ->
+				releaseLeftMouseButton();
+			default ->
 				throw InvalidArgumentException.forArgumentNameAndArgument("HTML event", pHTMLEvent);
 		}
 	}
