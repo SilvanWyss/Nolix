@@ -64,6 +64,21 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	
 	//static method
 	/**
+	 * @param element
+	 * @param <E2> is the type of the given element.
+	 * @return a new {@link LinkedList} with the given element.
+	 * @throws ArgumentIsNullException if the given element is null.
+	 */
+	public static <E2> LinkedList<E2> withElement(final E2 element) {
+		
+		final var list = new LinkedList<E2>();
+		list.addAtEnd(element);
+		
+		return list;
+	}
+	
+	//static method
+	/**
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
 	 * @return a new {@link LinkedList} with the given elements.

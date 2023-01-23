@@ -1478,7 +1478,7 @@ public abstract class Container<E> implements IContainer<E> {
 			final var group = groups.getRefFirstOrNull(g -> g.containsAny(e2 -> norm.getOutput(e2).equals(groupKey)));
 			
 			if (group == null) {
-				groups.addAtEnd(LinkedList.withElements(e));
+				groups.addAtEnd(LinkedList.withElement(e));
 			} else {
 				group.addAtEnd(e);
 			}
