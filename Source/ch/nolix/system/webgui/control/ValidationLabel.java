@@ -110,8 +110,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected IControlCSSRuleBuilder<ValidationLabel, ValidationLabelStyle> getCSSRuleCreator() {
-		//TODO: Implement.
-		return null;
+		return new ValidationLabelCSSRuleBuilder();
 	}
 	
 	//method
