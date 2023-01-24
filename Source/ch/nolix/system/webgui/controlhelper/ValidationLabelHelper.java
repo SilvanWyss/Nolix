@@ -3,6 +3,7 @@ package ch.nolix.system.webgui.controlhelper;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -18,6 +19,19 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 	) {
 		try {
 			action.run();
+		} catch (final Throwable error) {
+			showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
+		}
+	}
+	
+	//method
+	@Override
+	public <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
+		C control,
+		IElementTaker<? super C> action
+	) {
+		try {
+			action.run(control);
 		} catch (final Throwable error) {
 			showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
 		}
