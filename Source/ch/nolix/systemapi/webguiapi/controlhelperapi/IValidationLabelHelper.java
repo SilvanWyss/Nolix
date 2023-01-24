@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IValidationLabelHelper {
 	
 	//method declaration
+	void clearNearestValidationLabelOfControl(IControl<?, ?> control);
+	
+	//method declaration
 	void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(IControl<?, ?> control, IAction action);
 	
 	//method declaration
