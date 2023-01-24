@@ -14,10 +14,12 @@ import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -37,6 +39,11 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 		s -> GeneralException.withErrorMessage(s.getHeader()),
 		e -> Node.withHeader(e.getMessage())
 	);
+	
+	//constructor
+	public ValidationLabel() {
+		getRefStyle().setTextColorForState(ControlState.BASE, Color.RED);
+	}
 	
 	//method
 	@Override
