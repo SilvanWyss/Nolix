@@ -13,5 +13,8 @@ public interface IValidationLabel<
 extends Clearable, IControl<VL, VLS> {
 	
 	//method declaration
+	Throwable getError();
+	
+	//method declaration
 	void showError(Throwable error);
 }

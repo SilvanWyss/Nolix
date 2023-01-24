@@ -46,6 +46,12 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
+	public Throwable getError() {
+		return error.getValue();
+	}
+	
+	//method
+	@Override
 	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
 		return new SingleContainer<>();
 	}
@@ -116,8 +122,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected IControlHTMLBuilder<ValidationLabel> getHTMLBuilder() {
-		//TODO: Implement.
-		return null;
+		return new ValidationHTMLBuilder();
 	}
 	
 	//method
