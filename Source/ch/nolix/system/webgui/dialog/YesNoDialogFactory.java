@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.dialog;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
@@ -39,7 +39,7 @@ public final class YesNoDialogFactory {
 			new VerticalStack()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addControl(
-				new Text()
+				new Label()
 				.setText(yesNoQuestion),
 				new HorizontalStack()
 				.addControl(

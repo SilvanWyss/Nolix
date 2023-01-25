@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //enum
-public enum TextRole {
+public enum LabelRole {
 	TITLE,
 	SUB_TITLE,
 	LEVEL1_HEADER,
@@ -18,7 +18,7 @@ public enum TextRole {
 	ERROR_LABEL;
 	
 	//static method
-	public static TextRole fromSpecification(final INode<?> specification) {
+	public static LabelRole fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
 	}
 }

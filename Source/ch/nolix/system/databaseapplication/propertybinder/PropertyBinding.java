@@ -4,9 +4,9 @@ package ch.nolix.system.databaseapplication.propertybinder;
 //own imports
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.webguiapi.controlapi.IText;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -15,7 +15,7 @@ public final class PropertyBinding {
 	//attributes
 	private final IProperty<?> property;
 	private final IControl<?, ?> control;
-	private final IText<?, ?> errorText = new Text().setInvisible();
+	private final ILabel<?, ?> errorText = new Label().setInvisible();
 	
 	//optional attribute
 	private Throwable currentError;
@@ -41,7 +41,7 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public IText<?, ?> getRefErrorLabel() {
+	public ILabel<?, ?> getRefErrorLabel() {
 		return errorText;
 	}
 	
@@ -67,7 +67,7 @@ public final class PropertyBinding {
 		
 		errorText
 		.setInvisible()
-		.setText(Text.DEFAULT_TEXT);
+		.setText(Label.DEFAULT_TEXT);
 	}
 	
 	//method

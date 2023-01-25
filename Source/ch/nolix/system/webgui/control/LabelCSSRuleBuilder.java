@@ -10,18 +10,18 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text, TextStyle> {
+public final class LabelCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Label, LabelStyle> {
 	
 	//static attribute
-	public static final TextCSSRuleBuilder INSTANCE = new TextCSSRuleBuilder();
+	public static final LabelCSSRuleBuilder INSTANCE = new LabelCSSRuleBuilder();
 	
 	//constructor
-	private TextCSSRuleBuilder() {}
+	private LabelCSSRuleBuilder() {}
 	
 	//method
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
-		final Text control,
+		final Label control,
 		final LinkedList<CSSProperty> list
 	) {
 		//Does nothing.
@@ -30,7 +30,7 @@ public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
-		final Text text,
+		final Label label,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -40,7 +40,7 @@ public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
-		final Text text,
+		final Label label,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		//Does nothing.
@@ -49,7 +49,7 @@ public final class TextCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Text
 	//method
 	@Override
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
-		final Text text,
+		final Label label,
 		final ControlState state,
 		final LinkedList<ICSSProperty> list
 	) {

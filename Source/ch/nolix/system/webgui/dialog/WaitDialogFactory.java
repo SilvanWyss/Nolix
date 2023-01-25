@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.dialog;
 //own imports
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
@@ -29,7 +29,7 @@ public final class WaitDialogFactory {
 			new VerticalStack()
 			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addControl(
-				new Text().setText("Please wait...")
+				new Label().setText("Please wait...")
 			)
 		);
 		

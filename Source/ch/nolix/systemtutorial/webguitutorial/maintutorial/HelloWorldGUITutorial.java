@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class HelloWorldGUITutorial {
@@ -32,7 +32,7 @@ public final class HelloWorldGUITutorial {
 		protected void initialize() {
 			
 			//Creates Label.
-			final var label = new Text().setText("Hello World");
+			final var label = new Label().setText("Hello World");
 			
 			//Configures the style of the Label.
 			label.getRefStyle().setTextSizeForState(ControlState.BASE, 50);

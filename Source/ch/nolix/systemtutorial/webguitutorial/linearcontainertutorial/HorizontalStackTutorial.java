@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -36,10 +36,10 @@ public final class HorizontalStackTutorial {
 			final var horizontalStack = new HorizontalStack();
 			
 			//Creates 4 Labels.
-			final var label1 = new Text().setText("A");
-			final var label2 = new Text().setText("B");
-			final var label3 = new Text().setText("C");
-			final var label4 = new Text().setText("D");
+			final var label1 = new Label().setText("A");
+			final var label2 = new Label().setText("B");
+			final var label3 = new Label().setText("C");
+			final var label4 = new Label().setText("D");
 			
 			//Adds the Labels to the HorizontalStack.
 			horizontalStack.addControl(label1, label2, label3, label4);

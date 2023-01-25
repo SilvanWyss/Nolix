@@ -5,13 +5,13 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IText<
-	T extends IText<T, TS>,
-	TS extends ITextStyle<TS>
-> extends IControl<T, TS> {
+public interface ILabel<
+	L extends ILabel<L, LS>,
+	LS extends ILabelStyle<LS>
+> extends IControl<L, LS> {
 	
 	//method declaration
-	TextRole getRole();
+	LabelRole getRole();
 	
 	//method declaration
 	String getText();
@@ -23,8 +23,8 @@ public interface IText<
 	void removeRole();
 	
 	//method declaration
-	T setRole(TextRole role);
+	L setRole(LabelRole role);
 	
 	//method declaration
-	T setText(String text);
+	L setText(String text);
 }

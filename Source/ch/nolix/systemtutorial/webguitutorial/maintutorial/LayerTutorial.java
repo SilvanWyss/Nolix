@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class LayerTutorial {
@@ -35,10 +35,10 @@ public final class LayerTutorial {
 			getRefGUI().setTitle("Layer tutorial");
 			
 			//Creates labelA.
-			final var labelA = new Text().setText("A");
+			final var labelA = new Label().setText("A");
 			
 			//Creates labelB.
-			final var labelB = new Text().setText("B");
+			final var labelB = new Label().setText("B");
 			
 			//Configures the style of labelA.
 			labelA.getRefStyle()

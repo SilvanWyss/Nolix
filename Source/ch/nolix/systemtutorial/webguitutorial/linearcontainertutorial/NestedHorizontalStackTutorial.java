@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -42,11 +42,11 @@ public final class NestedHorizontalStackTutorial {
 			
 			//Creates 3 HorizontalStacks with 2 Texts each.
 			final var horizontalStack1 =
-			new HorizontalStack().addControl(new Text().setText("A1"), new Text().setText("A2"));
+			new HorizontalStack().addControl(new Label().setText("A1"), new Label().setText("A2"));
 			final var horizontalStack2 =
-			new HorizontalStack().addControl(new Text().setText("B1"), new Text().setText("B2"));
+			new HorizontalStack().addControl(new Label().setText("B1"), new Label().setText("B2"));
 			final var horizontalStack3 =
-			new HorizontalStack().addControl(new Text().setText("C1"), new Text().setText("C2"));
+			new HorizontalStack().addControl(new Label().setText("C1"), new Label().setText("C2"));
 			
 			//Adds the HorizontalStacks to the VerticalStack.
 			verticalStack.addControl(horizontalStack1, horizontalStack2, horizontalStack3);

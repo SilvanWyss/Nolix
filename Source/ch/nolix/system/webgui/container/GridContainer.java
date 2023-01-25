@@ -10,7 +10,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -104,7 +104,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	@Override
 	public GridContainer insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
 		
-		final var textControl = new Text().setText(text);
+		final var textControl = new Label().setText(text);
 		
 		return insertControlAtRowAndColumn(rowIndex, columnIndex, textControl);
 	}

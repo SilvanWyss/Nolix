@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -54,35 +54,35 @@ public final class TextureCatalogueTutorial {
 				.addControl(
 					new VerticalStack()
 					.addControl(
-						new Text()
+						new Label()
 						.setText("Concrete"),
 						new ImageControl()
 						.setImage(concreteTexture)
 					),
 					new VerticalStack()
 					.addControl(
-						new Text()
+						new Label()
 						.setText("Fir Wood"),
 						new ImageControl()
 						.setImage(fireWoodTexture)
 					),
 					new VerticalStack()
 					.addControl(
-						new Text()
+						new Label()
 						.setText("Jute"),
 						new ImageControl()
 						.setImage(juteTexture)
 					),
 					new VerticalStack()
 					.addControl(
-						new Text()
+						new Label()
 						.setText("Parchment"),
 						new ImageControl()
 						.setImage(parchmentTexture)
 					),
 					new VerticalStack()
 					.addControl(
-						new Text()
+						new Label()
 						.setText("White Marble"),
 						new ImageControl()
 						.setImage(whiteMarbleTexture)

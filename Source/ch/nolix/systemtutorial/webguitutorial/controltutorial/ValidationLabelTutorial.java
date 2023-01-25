@@ -8,7 +8,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.system.webgui.control.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -40,7 +40,7 @@ public final class ValidationLabelTutorial {
 			getRefGUI().pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(
-					new Text().setText("Enter a positive number"),
+					new Label().setText("Enter a positive number"),
 					new ValidationLabel(), 
 					positiveNumberTextbox,
 					new Button().setText("Ok").setLeftMouseButtonPressAction(this::enterPositiveNumber)

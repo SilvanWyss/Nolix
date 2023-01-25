@@ -5,11 +5,11 @@ package ch.nolix.business.serverdashboardapplication;
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 
 //class
 public final class ServerDashboardStyleCreator {
@@ -55,8 +55,8 @@ public final class ServerDashboardStyleCreator {
 	private DeepStyle createLevel1HeaderTextStyle() {
 		return
 		new DeepStyle()
-		.setSelectorType(Text.class)
-		.addSelectorRole(TextRole.LEVEL1_HEADER)
+		.setSelectorType(Label.class)
+		.addSelectorRole(LabelRole.LEVEL1_HEADER)
 		.addAttachingAttribute("BaseTextSize(20)");
 	}
 }

@@ -5,4 +5,4 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface ITextStyle<TS extends ITextStyle<TS>> extends IExtendedControlStyle<TS> {}
+public interface ILabelStyle<LS extends ILabelStyle<LS>> extends IExtendedControlStyle<LS> {}

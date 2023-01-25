@@ -10,17 +10,17 @@ import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
 //class
-public final class TextHTMLBuilder implements IControlHTMLBuilder<Text> {
+public final class LabelHTMLBuilder implements IControlHTMLBuilder<Label> {
 	
 	//static attribute
-	public static final TextHTMLBuilder INSTANCE = new TextHTMLBuilder();
+	public static final LabelHTMLBuilder INSTANCE = new LabelHTMLBuilder();
 	
 	//constructor
-	private TextHTMLBuilder() {}
+	private LabelHTMLBuilder() {}
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> createHTMLElementForControl(final Text control) {
+	public IHTMLElement<?, ?> createHTMLElementForControl(final Label control) {
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.DIV,

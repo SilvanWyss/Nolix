@@ -16,15 +16,15 @@ import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.webguiapi.controlapi.IText;
-import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
-public final class Text extends Control<Text, TextStyle> implements IText<Text, TextStyle> {
+public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -36,11 +36,11 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
 	
 	//attribute
-	private final MutableOptionalValue<TextRole> role =
+	private final MutableOptionalValue<LabelRole> role =
 	new MutableOptionalValue<>(
 		ROLE_HEADER,
 		this::setRole,
-		TextRole::fromSpecification,
+		LabelRole::fromSpecification,
 		Node::fromEnum
 	);
 	
@@ -61,7 +61,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	public TextRole getRole() {
+	public LabelRole getRole() {
 		return role.getValue();
 	}
 	
@@ -109,7 +109,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	public Text setRole(final TextRole role) {
+	public Label setRole(final LabelRole role) {
 		
 		this.role.setValue(role);
 		
@@ -118,7 +118,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	public Text setText(final String text) {
+	public Label setText(final String text) {
 		
 		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
 		
@@ -129,7 +129,7 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	public Text setUserInput(final String userInput) {
+	public Label setUserInput(final String userInput) {
 		
 		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
 		
@@ -138,20 +138,20 @@ public final class Text extends Control<Text, TextStyle> implements IText<Text, 
 	
 	//method
 	@Override
-	protected TextStyle createStyle() {
-		return new TextStyle();
+	protected LabelStyle createStyle() {
+		return new LabelStyle();
 	}
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<Text, TextStyle> getCSSRuleCreator() {
-		return TextCSSRuleBuilder.INSTANCE;
+	protected IControlCSSRuleBuilder<Label, LabelStyle> getCSSRuleCreator() {
+		return LabelCSSRuleBuilder.INSTANCE;
 	}
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<Text> getHTMLBuilder() {
-		return TextHTMLBuilder.INSTANCE;
+	protected IControlHTMLBuilder<Label> getHTMLBuilder() {
+		return LabelHTMLBuilder.INSTANCE;
 	}
 	
 	//method

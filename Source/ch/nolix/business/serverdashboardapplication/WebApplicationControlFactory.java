@@ -5,10 +5,10 @@ import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.controlapi.TextRole;
+import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -49,7 +49,7 @@ final class WebApplicationControlFactory {
 	
 	//method
 	private IControl<?, ?> createApplicationNameLabel(final IApplicationSheet pGUIApplicationSheet) {
-		return new Text().setRole(TextRole.LEVEL1_HEADER).setText(pGUIApplicationSheet.getApplicationName());
+		return new Label().setRole(LabelRole.LEVEL1_HEADER).setText(pGUIApplicationSheet.getApplicationName());
 	}
 	
 	//method
@@ -78,6 +78,6 @@ final class WebApplicationControlFactory {
 	
 	//method
 	private IControl<?, ?> createApplicationDescriptionLabel(final IApplicationSheet pGUIApplicationSheet) {
-		return new Text().setText(pGUIApplicationSheet.getApplicationDescription());
+		return new Label().setText(pGUIApplicationSheet.getApplicationDescription());
 	}
 }

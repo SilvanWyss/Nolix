@@ -5,10 +5,10 @@ package ch.nolix.systemtest.webguitest.controltest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.system.webgui.control.Text;
+import ch.nolix.system.webgui.control.Label;
 
 //class
-public final class TextTest extends ControlTest<Text> {
+public final class TextTest extends ControlTest<Label> {
 	
 	//method
 	@TestCase
@@ -63,7 +63,7 @@ public final class TextTest extends ControlTest<Text> {
 	
 	//method
 	@Override
-	protected Text createTestUnit() {
-		return new Text();
+	protected Label createTestUnit() {
+		return new Label();
 	}
 }
