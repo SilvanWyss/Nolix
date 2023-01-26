@@ -10,9 +10,8 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * @author Silvan Wyss
  * @date 2020-07-05
  */
-//own imports
 @AllowDefaultMethodsAsDesignPattern
-public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
+public interface GroupCloseable extends Closeable, CloseStateRequestable {
 	
 	//method
 	/**
