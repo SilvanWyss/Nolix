@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.Headerable;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Headered;
-import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Headerable;
 import ch.nolix.systemapi.guiapi.processapi.Selectable;
 import ch.nolix.systemapi.webguiapi.mainapi.IRootControlOwner;
 

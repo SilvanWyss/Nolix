@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi;
+package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.SemanticVersioned;

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.Namable;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IdentifiedByString;
-import ch.nolix.coreapi.attributeapi.mutablemandatoryattributeuniversalapi.Namable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
