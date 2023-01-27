@@ -372,7 +372,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 */
 	@Override
 	public E getRefAt1BasedIndex(final int p1BasedIndex) {
-		return getRefAt1BasedRowAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
+		return getRefAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
 	}
 	
 	//method
@@ -392,7 +392,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public E getRefAt1BasedRowAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
+	public E getRefAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 		
 		//Asserts that the current matrix contains an element at the given row index and column index.
 		assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
@@ -545,7 +545,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * @throws ArgumentIsNullException if the given element is null.
 	 */
 	@Override
-	public void setAt1BasedRowAndColumnIndex(
+	public void setAt1BasedRowIndexAndColumnIndex(
 		final int p1BasedRowIndex,
 		final int p1BasedColumnIndex,
 		final E element
