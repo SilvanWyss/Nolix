@@ -33,7 +33,7 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	
 	//method
 	@Override
-	protected final Class<?> internalGetRefClientClass() {
+	protected final Class<?> getClientClass() {
 		return BackendWebClient.class;
 	}
 	

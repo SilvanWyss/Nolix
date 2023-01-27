@@ -153,7 +153,7 @@ public abstract class Session<
 	/**
 	 * @return the {@link Client} class of the current {@link Session}.
 	 */
-	protected abstract Class<?> internalGetRefClientClass();
+	protected abstract Class<?> getClientClass();
 	
 	//method declaration
 	/**

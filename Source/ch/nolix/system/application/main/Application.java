@@ -60,7 +60,7 @@ implements IApplication<AC> {
 	 */
 	@SuppressWarnings("unchecked")
 	public final Class<BC> getClientClass() {
-		return (Class<BC>)(createInitialSession().internalGetRefClientClass());
+		return (Class<BC>)(createInitialSession().getClientClass());
 	}
 	
 	//method
