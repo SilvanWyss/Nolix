@@ -17,11 +17,11 @@ public final class GlobalSequenceCreatorTest extends Test {
 		final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
 		
 		//verification
-		expect(result.getValueAtIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
-		expect(result.getValueAtIndex(2)).isEqualTo(new ComplexNumber(0.0, 0.0));
-		expect(result.getValueAtIndex(3)).isEqualTo(new ComplexNumber(0.0, 0.0));
-		expect(result.getValueAtIndex(4)).isEqualTo(new ComplexNumber(0.0, 0.0));
-		expect(result.getValueAtIndex(5)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(0.0, 0.0));
 	}
 	
 	//method
@@ -32,11 +32,11 @@ public final class GlobalSequenceCreatorTest extends Test {
 		final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
 		
 		//verification
-		expect(result.getValueAtIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
-		expect(result.getValueAtIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0));
-		expect(result.getValueAtIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0));
-		expect(result.getValueAtIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0));
-		expect(result.getValueAtIndex(5)).isEqualTo(new ComplexNumber(26.0, 0.0));
+		expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0));
+		expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0));
+		expect(result.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0));
+		expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(26.0, 0.0));
 	}
 	
 	//method
@@ -47,10 +47,10 @@ public final class GlobalSequenceCreatorTest extends Test {
 		final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));
 		
 		//verification
-		expect(result.getValueAtIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
-		expect(result.getValueAtIndex(2)).isEqualTo(new ComplexNumber(1.0, 1.0));
-		expect(result.getValueAtIndex(3)).isEqualTo(new ComplexNumber(1.0, 3.0));
-		expect(result.getValueAtIndex(4)).isEqualTo(new ComplexNumber(-7.0, 7.0));
-		expect(result.getValueAtIndex(5)).isEqualTo(new ComplexNumber(1.0, -97.0));
+		expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
+		expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 1.0));
+		expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(1.0, 3.0));
+		expect(result.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(-7.0, 7.0));
+		expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(1.0, -97.0));
 	}
 }

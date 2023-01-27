@@ -22,7 +22,7 @@ abstract class Sequence<V> implements ISequence<V> {
 	) {
 		
 		for (var i = 1; i <= maxIterationCount; i++) {
-			if (getSquaredMagnitudeOfValueAt(i).compareTo(limit) > 0) {
+			if (getSquaredMagnitudeOfValueAt1BasedIndex(i).compareTo(limit) > 0) {
 				return i;
 			}
 		}
@@ -32,20 +32,20 @@ abstract class Sequence<V> implements ISequence<V> {
 	
 	//method
 	@Override
-	public BigDecimal getSquaredMagnitudeOfValueAt(final int index) {
+	public BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(final int p1BasedIndex) {
 		
-		calculateValuesAndSquaredMagnitudesToIndex(index);
+		calculateValuesAndSquaredMagnitudesToIndex(p1BasedIndex);
 		
-		return valuesAndSquaredMagnitudes.get(index - 1).getRefElement2();
+		return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getRefElement2();
 	}
 	
 	//method
 	@Override
-	public V getValueAtIndex(final int index) {
+	public V getValueAt1BasedIndex(final int p1BasedIndex) {
 		
-		calculateValuesAndSquaredMagnitudesToIndex(index);
+		calculateValuesAndSquaredMagnitudesToIndex(p1BasedIndex);
 		
-		return valuesAndSquaredMagnitudes.get(index - 1).getRefElement1();
+		return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getRefElement1();
 	}
 	
 	//method declaration

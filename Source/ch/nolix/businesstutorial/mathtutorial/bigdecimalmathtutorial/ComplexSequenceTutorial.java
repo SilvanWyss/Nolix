@@ -15,7 +15,7 @@ public final class ComplexSequenceTutorial {
 		);
 		
 		final IIntTaker printFunction =
-		(int i) -> System.out.println("a(" + i + ") = " + complexSequence.getValueAtIndex(i));
+		(int i) -> System.out.println("a(" + i + ") = " + complexSequence.getValueAt1BasedIndex(i));
 		
 		printFunction.run(1);
 		printFunction.run(2);

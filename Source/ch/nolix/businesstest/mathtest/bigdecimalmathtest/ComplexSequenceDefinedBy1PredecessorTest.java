@@ -21,9 +21,9 @@ public final class ComplexSequenceDefinedBy1PredecessorTest extends Test {
 		);
 		
 		//execution & verification
-		expect(testUnit.getValueAtIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0, 20));
-		expect(testUnit.getValueAtIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0, 20));
-		expect(testUnit.getValueAtIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0, 20));
-		expect(testUnit.getValueAtIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0, 20));
+		expect(testUnit.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0, 20));
+		expect(testUnit.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0, 20));
+		expect(testUnit.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0, 20));
+		expect(testUnit.getValueAt1BasedIndex(4)).isEqualTo(new ComplexNumber(5.0, 0.0, 20));
 	}
 }
