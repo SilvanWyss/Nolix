@@ -94,11 +94,11 @@ public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridC
 		final int columnIndex
 	) {
 		
-		if (!gridContainer.containsControlAtRowAndColumn(rowIndex, columnIndex)) {
+		if (!gridContainer.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
 			return HTMLElement.withType(HTMLElementTypeCatalogue.TD);
 		}
 		
-		final var childControl = gridContainer.getRefChildControlAtRowAndColumn(rowIndex, columnIndex);
+		final var childControl = gridContainer.getRefChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
 		final var childControlHTMLElement = childControl.toHTMLElement();
 		return HTMLElement.withTypeAndChildElement(HTMLElementTypeCatalogue.TD, childControlHTMLElement);
 	}

@@ -47,8 +47,8 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public boolean containsControlAtRowAndColumn(final int rowIndex, final int columnIndex) {
-		return cells.getRefAt(rowIndex, columnIndex).containsAny();
+	public boolean containsControlAt1BasedRowAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
+		return cells.getRefAt(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
 	}
 	
 	//method
@@ -59,8 +59,11 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public IControl<?, ?> getRefChildControlAtRowAndColumn(final int rowIndex, final int columnIndex) {
-		return cells.getRefAt(rowIndex, columnIndex).getRefControl();
+	public IControl<?, ?> getRefChildControlAt1BasedRowAndColumnIndex(
+		final int p1BasedRowIndex,
+		final int p1BasedColumnIndex
+	) {
+		return cells.getRefAt(p1BasedRowIndex, p1BasedColumnIndex).getRefControl();
 	}
 	
 	//method

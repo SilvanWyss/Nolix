@@ -12,13 +12,13 @@ public interface IGridContainer<
 extends IContainer<GC, GCS> {
 	
 	//method declaration
-	boolean containsControlAtRowAndColumn(int rowIndex, int columnIndex);
+	boolean containsControlAt1BasedRowAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
 	
 	//method declaration
 	int getColumnCount();
 	
 	//method declaration
-	IControl<?, ?> getRefChildControlAtRowAndColumn(int rowIndex, int columnIndex);
+	IControl<?, ?> getRefChildControlAt1BasedRowAndColumnIndex(int rowIndex, int columnIndex);
 	
 	//method declaration
 	int getRowCount();
