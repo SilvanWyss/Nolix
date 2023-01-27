@@ -70,7 +70,7 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 			
 			while (nextElementColumnIndex <= parentGapMatrix.getColumnCount()) {
 				
-				if (parentGapMatrix.containsAt(nextElementRowIndex, nextElementColumnIndex)) {
+				if (parentGapMatrix.containsAt1BasedRowIndexAndColumnIndex(nextElementRowIndex, nextElementColumnIndex)) {
 					return;
 				}
 				
@@ -88,7 +88,7 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = parentGapMatrix.getRefAt(nextElementRowIndex, nextElementColumnIndex);
+		final var element = parentGapMatrix.getRefAt1BasedRowIndexAndColumnIndex(nextElementRowIndex, nextElementColumnIndex);
 		
 		incrementNextElementRowAndColumnIndex();
 		

@@ -69,19 +69,19 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	}
 	
 	//method
-	public boolean containsAt(final int rowIndex, final int columnIndex) {
+	public boolean containsAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 		return
-		containsCellWithRowIndexAndColumnIndex(rowIndex, columnIndex)
-		&& rows[rowIndex - 1][columnIndex - 1] != null;
+		containsCellAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex)
+		&& rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] != null;
 	}
 	
 	//method
-	public boolean containsCellWithRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
+	public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 		return
-		rowIndex > 0
-		&& rowIndex <= getRowCount()
-		&& columnIndex > 0
-		&& columnIndex <= getColumnCount();
+		p1BasedRowIndex > 0
+		&& p1BasedRowIndex <= getRowCount()
+		&& p1BasedColumnIndex > 0
+		&& p1BasedColumnIndex <= getColumnCount();
 	}
 	
 	//method
@@ -107,16 +107,16 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	//method
 	@Override
 	public E getRefAt1BasedIndex(final int p1BasedIndex) {
-		return getRefAt(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
+		return getRefAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public E getRefAt(final int rowIndex, final int columnIndex) {
+	public E getRefAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 		
-		assertContainsAt(rowIndex, columnIndex);
+		assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
 		
-		return (E)rows[rowIndex - 1][columnIndex - 1];
+		return (E)rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1];
 	}
 	
 	//method
@@ -160,17 +160,21 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	}
 		
 	//method
-	public void insert(final int rowIndex, final int columnIndex, final E element) {
+	public void setAt1BasedRowIndexAndColumnIndex(
+		final int p1BasedRowIndex,
+		final int p1BasedColumnIndex,
+		final E element
+	) {
 		
 		GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 		
-		assertCanContainElementAt(rowIndex, columnIndex);
+		assertCanContainElementAt(p1BasedRowIndex, p1BasedColumnIndex);
 		
-		if (!containsAt(rowIndex, columnIndex)) {
+		if (!containsAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex)) {
 			elementCount++;
 		}
 		
-		rows[rowIndex - 1][columnIndex - 1] = element;
+		rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] = element;
 	}
 	
 	//method

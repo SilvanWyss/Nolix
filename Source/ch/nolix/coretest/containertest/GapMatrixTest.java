@@ -95,12 +95,12 @@ public final class GapMatrixTest extends Test {
 		
 		//setup
 		final var testUnit = new GapMatrix<String>(100, 200);
-		testUnit.insert(10, 10, "I");
-		testUnit.insert(10, 11, "II");
-		testUnit.insert(10, 12, "III");
-		testUnit.insert(20, 10, "IV");
-		testUnit.insert(20, 11, "V");
-		testUnit.insert(20, 12, "VI");
+		testUnit.setAt1BasedRowIndexAndColumnIndex(10, 10, "I");
+		testUnit.setAt1BasedRowIndexAndColumnIndex(10, 11, "II");
+		testUnit.setAt1BasedRowIndexAndColumnIndex(10, 12, "III");
+		testUnit.setAt1BasedRowIndexAndColumnIndex(20, 10, "IV");
+		testUnit.setAt1BasedRowIndexAndColumnIndex(20, 11, "V");
+		testUnit.setAt1BasedRowIndexAndColumnIndex(20, 12, "VI");
 		
 		//execution
 		final var iterator = testUnit.iterator();
