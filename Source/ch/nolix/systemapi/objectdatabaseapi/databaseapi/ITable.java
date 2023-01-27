@@ -18,6 +18,9 @@ extends IDatabaseObject, IdentifiedByString, Named {
 	boolean containsEntityWithId(String id);
 	
 	//method declaration
+	int getEntityCount();
+	
+	//method declaration
 	Class<E> getEntityType();
 	
 	//method declaration

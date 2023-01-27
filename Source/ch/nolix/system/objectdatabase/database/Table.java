@@ -89,6 +89,12 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
+	public int getEntityCount() {
+		return getRefEntities().getElementCount();
+	}
+	
+	//method
+	@Override
 	public Class<E> getEntityType() {
 		return entityClass;
 	}
