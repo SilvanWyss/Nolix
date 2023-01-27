@@ -31,7 +31,7 @@ final class ControlFactory {
 	//method
 	public Control<?, ?> createControlOfType(final String type) {
 		
-		final var controlClass = getRefControlClassWithName(type);
+		final var controlClass = getControlClassByName(type);
 		
 		return GlobalClassHelper.createInstanceFromDefaultConstructorOf(controlClass);
 	}
@@ -63,7 +63,7 @@ final class ControlFactory {
 	}
 	
 	//method
-	private Class<Control<?, ?>> getRefControlClassWithName(final String name) {
+	private Class<Control<?, ?>> getControlClassByName(final String name) {
 		return controlClasses.getRefFirst(cc -> cc.getSimpleName().equals(name));
 	}
 }
