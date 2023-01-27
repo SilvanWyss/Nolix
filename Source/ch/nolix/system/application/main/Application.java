@@ -149,7 +149,7 @@ implements IApplication<AC> {
 	/**
 	 * @return the initial {@link Session} class of the current {@link Application}.
 	 */
-	protected abstract Class<?> getRefInitialSessionClass();
+	protected abstract Class<?> getInitialSessionClass();
 	
 	//method
 	/**
@@ -197,7 +197,7 @@ implements IApplication<AC> {
 	 * @return the constructor of the initial {@link Session} class of the current {@link Application}.
 	 */
 	private Constructor<?> getInitialSessionConstructor() {
-		final var constructor = getRefInitialSessionClass().getDeclaredConstructors()[0];
+		final var constructor = getInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
 		return constructor;
 	}

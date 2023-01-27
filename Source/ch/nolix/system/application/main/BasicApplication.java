@@ -43,7 +43,7 @@ extends Application<BC, AC> {
 	}
 	
 	@Override
-	protected Class<?> getRefInitialSessionClass() {
+	protected Class<?> getInitialSessionClass() {
 		return initialSessionClass;
 	}
 }

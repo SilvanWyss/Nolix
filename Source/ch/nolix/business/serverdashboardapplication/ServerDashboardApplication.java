@@ -32,7 +32,7 @@ extends Application<BackendWebClient<IApplicationContext>, IApplicationContext> 
 	
 	//method
 	@Override
-	protected Class<?> getRefInitialSessionClass() {
+	protected Class<?> getInitialSessionClass() {
 		return ServerDashboardSession.class;
 	}
 }
