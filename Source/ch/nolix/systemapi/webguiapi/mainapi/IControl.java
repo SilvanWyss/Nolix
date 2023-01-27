@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentifiedByString;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
@@ -22,7 +22,7 @@ public interface IControl<
 >
 extends
 Dimensionable<C>,
-FixedIdentified,
+FixedIdentifiedByString,
 HTMLElementTransformable,
 IStylableElement<C>,
 IUserInputCell<C>,
