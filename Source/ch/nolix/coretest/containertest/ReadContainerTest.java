@@ -38,7 +38,7 @@ public final class ReadContainerTest extends ContainerTest {
 	
 	//method
 	@TestCase
-	public void testCase_getRefAt() {
+	public void testCase_getRefAt1BasedIndex() {
 		
 		//setup
 		final String[] array1 = {"apple", "banana", "cerish"};
