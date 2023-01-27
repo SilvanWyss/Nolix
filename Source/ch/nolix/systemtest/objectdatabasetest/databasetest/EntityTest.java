@@ -29,4 +29,18 @@ public final class EntityTest extends Test {
 		expectNot(result.isLinkedWithRealDatabase());
 		expectNot(result.belongsToTable());
 	}
+	
+	//method
+	@TestCase
+	public void testCase_toString() {
+		
+		//setup
+		final var testUnit = new Thing();
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("Thing (id: " + testUnit.getId() + ")");
+	}
 }

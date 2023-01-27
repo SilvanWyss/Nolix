@@ -155,6 +155,12 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	}
 	
 	//method
+	@Override
+	public String toString() {
+		return (getClass().getSimpleName() + " (id: " + getId() + ")");
+	}
+	
+	//method
 	protected final void initialize() {
 		extractPropertiesIfNotExtracted();
 	}
