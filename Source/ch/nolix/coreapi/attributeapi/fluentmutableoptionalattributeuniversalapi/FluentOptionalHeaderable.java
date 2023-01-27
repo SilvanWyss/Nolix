@@ -6,26 +6,26 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeade
 
 //interface
 /**
- * A {@link OptionalHeaderable} is a {@link OptionalHeadered} whose header can be set and removed programmatically.
+ * A {@link FluentOptionalHeaderable} is a {@link OptionalHeadered} whose header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2019-02-24
- * @param <OH> is the type of a {@link OptionalHeaderable}.
+ * @param <OH> is the type of a {@link FluentOptionalHeaderable}.
  */
-public interface OptionalHeaderable<OH extends OptionalHeaderable<OH>> extends OptionalHeadered {
+public interface FluentOptionalHeaderable<OH extends FluentOptionalHeaderable<OH>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
-	 * Removes the header of current {@link OptionalHeaderable}.
+	 * Removes the header of current {@link FluentOptionalHeaderable}.
 	 */
 	void removeHeader();
 	
 	//method declaration
 	/**
-	 * Sets the header of the current {@link OptionalHeaderable}.
+	 * Sets the header of the current {@link FluentOptionalHeaderable}.
 	 * 
 	 * @param header
-	 * @return the current {@link OptionalHeaderable}.
+	 * @return the current {@link FluentOptionalHeaderable}.
 	 * @throws RuntimeException if the given header is null.
 	 * @throws RuntimeException if the given header is blank.
 	 */

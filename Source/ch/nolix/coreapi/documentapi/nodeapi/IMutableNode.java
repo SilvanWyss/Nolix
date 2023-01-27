@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.OptionalHeaderable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalHeaderable;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //interface
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  * @date 2022-06-25
  * @param <MN> is the type of a {@link IMutableNode}.
  */
-public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, OptionalHeaderable<MN> {
+public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, FluentOptionalHeaderable<MN> {
 	
 	//method declaration
 	/**
