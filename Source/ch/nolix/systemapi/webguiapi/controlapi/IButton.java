@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.webguiapi.controlapi;
 
 //own imports
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.IFluentMutableTextHolder;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -11,13 +12,10 @@ public interface IButton<
 	B extends IButton<B, BS>,
 	BS extends IButtonStyle<BS>
 >
-extends IControl<B, BS> {
+extends IControl<B, BS>, IFluentMutableTextHolder<B> {
 	
 	//method declaration
 	ButtonRole getRole();
-	
-	//method declaration
-	String getText();
 	
 	//method declaration
 	boolean hasRole();
@@ -51,7 +49,4 @@ extends IControl<B, BS> {
 	
 	//method declaration
 	B setRole(ButtonRole role);
-	
-	//method declaration
-	B setText(String text);
 }
