@@ -14,7 +14,7 @@ public enum SystemDataTable implements FullNamed {
 	COLUMN(PascalCaseCatalogue.COLUMN);
 	
 	//constant
-	private static final String NAME_PREFIX = TableType.SYSTEM_DATA.getNamePrefix();
+	private static final String NAME_PREFIX = TableType.SYSTEM_TABLE.getNamePrefix();
 	
 	//attribute
 	private final String name;

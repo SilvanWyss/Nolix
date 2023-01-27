@@ -24,7 +24,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	) {
 		return
 		"DELETE FROM "
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " WHERE Id = '"
 		+ entity.getId()
 		+ "' AND SaveStamp = '"
@@ -55,7 +55,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
 		return
 		"SELECT Id FROM "
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " WHERE Id = '"
 		+ entityId
 		+ "' "
@@ -71,7 +71,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToInsertNewEntity(final String tableName, final INewEntityDTO newEntity) {
 		return
 		"INSERT INTO "
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " (Id, SaveStamp, "
 		+ newEntity.getContentFields().to(IContentFieldDTO::getColumnName).toString(", ")
 		+ ") VALUES ('"
@@ -88,7 +88,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
 		return
 		"UPDATE" 
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " SET SaveStamp = '"
 		+ (entity.getSaveStamp() + 1)
 		+ " WHERE Id = '"
@@ -113,7 +113,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		
 		return
 		"UPDATE "
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableName
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " SET SaveStamp = '"
 		+ (entityUpdate.getSaveStamp() + 1)
 		+ "'"

@@ -6,9 +6,9 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //enum
 public enum TableType {
-	SYSTEM_DATA("S"),
-	BASE_CONTENT_DATA("B"),
-	MULTI_CONTENT_DATA("M");
+	SYSTEM_TABLE("S"),
+	ENTITY_TABLE("E"),
+	MULTI_FIELD_TABLE("M");
 	
 	//attribute
 	private final String namePrefix;

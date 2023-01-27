@@ -13,7 +13,7 @@ public enum MultiContentTable implements FullNamed {
 	MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
 	
 	//constant
-	private static final String NAME_PREFIX = TableType.MULTI_CONTENT_DATA.getNamePrefix();
+	private static final String NAME_PREFIX = TableType.MULTI_FIELD_TABLE.getNamePrefix();
 	
 	//attribute
 	private final String name;

@@ -18,7 +18,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
 		return
 		"SELECT COUNT(Id) FROM "
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix()
+		+ TableType.ENTITY_TABLE.getNamePrefix()
 		+ tableName
 		+ " WHERE Id = '"
 		+ id
@@ -52,7 +52,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		"SELECT Id, SaveStamp, "
 		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
 		+ " FROM "
-		+ TableType.BASE_CONTENT_DATA.getNamePrefix() + tableInfo.getTableName()
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableInfo.getTableName()
 		+ " WHERE Id = '"
 		+ id
 		+ "'";

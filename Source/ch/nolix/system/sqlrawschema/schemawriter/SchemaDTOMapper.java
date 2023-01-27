@@ -30,7 +30,7 @@ final class SchemaDTOMapper {
 	
 	//method
 	public ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ITableDTO createSQLTableDTOFrom(final ITableDTO table) {
-		return new TableDTO(TableType.BASE_CONTENT_DATA.getNamePrefix() + table.getName(), createSQLColumnDTOsFrom(table));
+		return new TableDTO(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createSQLColumnDTOsFrom(table));
 	}
 	
 	//method
