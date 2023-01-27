@@ -224,7 +224,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 	//method
 	@Override
 	public IColor getPixel(final int xPosition, final int yPosition) {
-		return pixels.getRefAt(yPosition, xPosition);
+		return pixels.getRefAt1BasedRowAndColumnIndex(yPosition, xPosition);
 	}
 	
 	//method
@@ -303,7 +303,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		
 		deletePixelArraySpecificationAndBufferedImage();
 		
-		pixels.setAt(yPosition, xPosition, color);
+		pixels.setAt1BasedRowAndColumnIndex(yPosition, xPosition, color);
 		
 		return this;
 	}
@@ -507,7 +507,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		for (var y = 0; y < getHeight(); y++) {
 			for (var x = 0; x < getWidth(); x++) {
 				
-				final var pixel = pixels.getRefAt(y + 1, x + 1);
+				final var pixel = pixels.getRefAt1BasedRowAndColumnIndex(y + 1, x + 1);
 				
 				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
 			}
@@ -523,7 +523,7 @@ public final class MutableImage extends MutableElement<MutableImage> implements 
 		for (var y = 0; y < getHeight(); y++) {
 			for (var x = 0; x < getWidth(); x++) {
 				
-				final var pixel = pixels.getRefAt(y + 1, x + 1);
+				final var pixel = pixels.getRefAt1BasedRowAndColumnIndex(y + 1, x + 1);
 				
 				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
 			}

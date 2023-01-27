@@ -47,13 +47,13 @@ public final class MatrixColumn<E> extends Container<E> {
 	//method
 	@Override
 	public E getRefAt1BasedIndex(final int rowIndex) {
-		return parentMatrix.getRefAt(rowIndex, getColumnIndex());
+		return parentMatrix.getRefAt1BasedRowAndColumnIndex(rowIndex, getColumnIndex());
 	}
 	
 	//method
 	@Override
 	public E getRefLast() {
-		return parentMatrix.getRefAt(parentMatrix.getRowCount(), getColumnIndex());
+		return parentMatrix.getRefAt1BasedRowAndColumnIndex(parentMatrix.getRowCount(), getColumnIndex());
 	}
 	
 	//method

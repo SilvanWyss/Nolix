@@ -14,7 +14,7 @@ public interface IMatrix<E> extends IContainer<E> {
 	IContainer<? extends IContainer<E>> getColumns();
 	
 	//method declaration
-	E getRefAt(int rowIndex, int columnIndex);
+	E getRefAt1BasedRowAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
 	
 	//method declaration
 	int getRowCount();
@@ -23,5 +23,5 @@ public interface IMatrix<E> extends IContainer<E> {
 	IContainer<? extends IContainer<E>> getRows();
 	
 	//method declaration
-	void setAt(int rowIndex, int columnIndex, E element);
+	void setAt1BasedRowAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex, E element);
 }

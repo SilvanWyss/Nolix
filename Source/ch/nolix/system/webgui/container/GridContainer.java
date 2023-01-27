@@ -48,7 +48,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	public boolean containsControlAt1BasedRowAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
-		return cells.getRefAt(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
+		return cells.getRefAt1BasedRowAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
 	}
 	
 	//method
@@ -63,7 +63,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		final int p1BasedRowIndex,
 		final int p1BasedColumnIndex
 	) {
-		return cells.getRefAt(p1BasedRowIndex, p1BasedColumnIndex).getRefControl();
+		return cells.getRefAt1BasedRowAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getRefControl();
 	}
 	
 	//method
@@ -153,7 +153,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		
 		expandTo(cell.getRowIndex(), cell.getColumnIndex());
 		
-		cells.setAt(cell.getRowIndex(), cell.getColumnIndex(), cell);
+		cells.setAt1BasedRowAndColumnIndex(cell.getRowIndex(), cell.getColumnIndex(), cell);
 	}
 	
 	//method
