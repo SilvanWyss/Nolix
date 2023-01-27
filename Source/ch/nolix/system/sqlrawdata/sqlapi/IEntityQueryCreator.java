@@ -8,6 +8,9 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 public interface IEntityQueryCreator {
 	
 	//method declaration
+	String createQueryToCountEntitiesWithGivenId(String tableName, String id);
+	
+	//method declaration
 	String createQueryToCountEntitiesWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 	
 	//method declaration
@@ -16,6 +19,6 @@ public interface IEntityQueryCreator {
 	//method declaration
 	String createQueryToLoadEntity(String id, ITableInfo tableInfo);
 	
-	//method
+	//method declaration
 	String createQueryToLoadSchemaTimestamp();
 }

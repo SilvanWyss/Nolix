@@ -135,6 +135,19 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
+	public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+		
+		final var entityCount =
+		Integer.valueOf(
+			mSQLConnection
+			.getOneRecord(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
+			.get(0)
+		);
+		
+		return entityCount > 0;
+	}
+	
+	//method
 	private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntity(
 		final String columnId,
 		final String referencedEntityId

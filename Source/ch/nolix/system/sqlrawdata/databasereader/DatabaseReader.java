@@ -124,6 +124,12 @@ public final class DatabaseReader implements IDatabaseReader {
 	}
 	
 	//method
+	@Override
+	public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+		return internalDatabaseReader.tableContainsEntityWithGivenId(tableName, id);
+	}
+	
+	//method
 	private IColumnInfo getColumnInfoByTableNameAndColumnName(
 		final String tableName,
 		final String columnName

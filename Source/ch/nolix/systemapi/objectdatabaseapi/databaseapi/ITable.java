@@ -15,6 +15,9 @@ public interface ITable<
 extends IDatabaseObject, IdentifiedByString, Named {
 	
 	//method declaration
+	boolean containsEntityWithId(String id);
+	
+	//method declaration
 	Class<E> getEntityType();
 	
 	//method declaration

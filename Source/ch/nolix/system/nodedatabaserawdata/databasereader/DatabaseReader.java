@@ -118,6 +118,12 @@ public final class DatabaseReader implements IDatabaseReader {
 	}
 	
 	//method
+	@Override
+	public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+		return internalDatabaseReader.tableContainsEntityWithGivenId(tableName, id);
+	}
+	
+	//method
 	private ITableInfo getTableInfoByTableName(final String tableName) {
 		return tableInfos.getRefFirst(td -> td.getTableName().equals(tableName));
 	}

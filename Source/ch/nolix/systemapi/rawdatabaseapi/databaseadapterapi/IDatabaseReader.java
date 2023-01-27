@@ -35,4 +35,7 @@ public interface IDatabaseReader extends GroupCloseable {
 	
 	//method declaration
 	boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
+	
+	//method declaration
+	boolean tableContainsEntityWithGivenId(String  tableName, String id);
 }

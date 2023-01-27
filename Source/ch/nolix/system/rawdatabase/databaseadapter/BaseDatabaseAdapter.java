@@ -216,6 +216,12 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
+	public final boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+		return databaseReader.tableContainsEntityWithGivenId(tableName, id);
+	}
+	
+	//method
+	@Override
 	public final void updateEntity(final String tableName, final IEntityUpdateDTO entityUpdate) {
 		databaseWriter.updateEntity(tableName, entityUpdate);
 	}

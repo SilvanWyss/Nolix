@@ -83,6 +83,12 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
+	public boolean containsEntityWithId(final String id) {
+		return internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id);
+	}
+	
+	//method
+	@Override
 	public Class<E> getEntityType() {
 		return entityClass;
 	}

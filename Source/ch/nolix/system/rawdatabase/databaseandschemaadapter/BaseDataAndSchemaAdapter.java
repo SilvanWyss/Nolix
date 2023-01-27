@@ -289,6 +289,12 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
+	public final boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+		return databaseAdapter.tableContainsEntityWithGivenId(tableName, id);
+	}
+	
+	//method
+	@Override
 	public final void updateEntity(final String tableName, final IEntityUpdateDTO entityUpdate) {
 		databaseAdapter.updateEntity(tableName, entityUpdate);
 	}

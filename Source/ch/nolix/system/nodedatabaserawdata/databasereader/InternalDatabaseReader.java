@@ -136,4 +136,12 @@ public final class InternalDatabaseReader {
 			value
 		);
 	}
+	
+	//method
+	public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
+		
+		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+		
+		return tableNodeSearcher.tableNodeContainsEntityNodeWithGivenId(tableNode, id);
+	}
 }

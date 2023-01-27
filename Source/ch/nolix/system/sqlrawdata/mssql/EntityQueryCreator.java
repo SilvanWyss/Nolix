@@ -15,6 +15,18 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	
 	//method
 	@Override
+	public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
+		return
+		"SELECT COUNT(Id) FROM "
+		+ TableType.BASE_CONTENT_DATA.getNamePrefix()
+		+ tableName
+		+ " WHERE Id = '"
+		+ id
+		+ "';";
+	}
+	
+	//method
+	@Override
 	public String createQueryToCountEntitiesWithGivenValueAtGivenColumn(
 		final String tableName,
 		final String columnName,
