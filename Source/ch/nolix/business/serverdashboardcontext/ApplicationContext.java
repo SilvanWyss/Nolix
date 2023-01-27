@@ -37,7 +37,7 @@ public final class ApplicationContext implements IApplicationContext {
 	
 	//method
 	private boolean applicationIsForBackendGUIClients(final Application<?, ?> application) {
-		return (application.getRefClientClass() == BackendWebClient.class);
+		return (application.getClientClass() == BackendWebClient.class);
 	}
 	
 	//method

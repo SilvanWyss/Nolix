@@ -56,6 +56,15 @@ implements IApplication<AC> {
 	
 	//method
 	/**
+	 * @return the class of the {@link Client}s of the current {@link Application}.
+	 */
+	@SuppressWarnings("unchecked")
+	public final Class<BC> getClientClass() {
+		return (Class<BC>)(createInitialSession().internalGetRefClientClass());
+	}
+	
+	//method
+	/**
 	 * @return the instance name of the current {@link Application}.
 	 */
 	@Override
@@ -70,16 +79,6 @@ implements IApplication<AC> {
 	@Override
 	public final AC getRefApplicationContext() {
 		return applicationContext;
-	}
-	
-	//method
-	/**
-	 * @return the class of the {@link Client}s of the current {@link Application}.
-	 */
-	
-	@SuppressWarnings("unchecked")
-	public final Class<BC> getRefClientClass() {
-		return (Class<BC>)(createInitialSession().internalGetRefClientClass());
 	}
 	
 	//method
@@ -186,7 +185,7 @@ implements IApplication<AC> {
 	 */
 	private BC createBackendClientWithEndPoint(final EndPoint endPoint) {
 		
-		final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(getRefClientClass());
+		final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(getClientClass());
 		backendClient.internalSetEndPoint(endPoint);
 		
 		return backendClient;
