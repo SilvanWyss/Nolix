@@ -6,20 +6,20 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Headered;
 
 //interface
 /**
- * A {@link Headerable} is a {@link Headered} whose header can be set programmatically.
+ * A {@link FluentHeaderable} is a {@link Headered} whose header can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2018-04-15
- * @param <H> is the type of a {@link Headerable}.
+ * @param <H> is the type of a {@link FluentHeaderable}.
  */
-public interface Headerable<H extends Headered> extends Headered {
+public interface FluentHeaderable<H extends Headered> extends Headered {
 	
 	//method declaration
 	/**
-	 * Sets the header of the current {@link Headerable}.
+	 * Sets the header of the current {@link FluentHeaderable}.
 	 * 
 	 * @param header
-	 * @return the current {@link Headerable}.
+	 * @return the current {@link FluentHeaderable}.
 	 */
 	H setHeader(String header);
 }

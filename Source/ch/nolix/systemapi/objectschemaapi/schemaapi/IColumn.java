@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.Namable;
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.FluentNamable;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IdentifiedByString;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
 public interface IColumn<IMPL>
-extends Deletable, EmptinessRequestable, IDatabaseObject, IdentifiedByString, Namable<IColumn<IMPL>> {
+extends Deletable, EmptinessRequestable, IDatabaseObject, IdentifiedByString, FluentNamable<IColumn<IMPL>> {
 	
 	//method declaration
 	boolean belongsToTable();

@@ -6,20 +6,20 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Tokened;
 
 //interface
 /**
- * A {@link Tokenable} is a {@link Tokened} whose token can be set programmatically.
+ * A {@link FluentTokenable} is a {@link Tokened} whose token can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <T> is the type of a {@link Tokenable}.
+ * @param <T> is the type of a {@link FluentTokenable}.
  */
-public interface Tokenable<T extends Tokenable<T>> extends Tokened {
+public interface FluentTokenable<T extends FluentTokenable<T>> extends Tokened {
 	
 	//method declaration
 	/**
-	 * Sets the token of the current {@link Tokenable}.
+	 * Sets the token of the current {@link FluentTokenable}.
 	 * 
 	 * @param token
-	 * @return the current {@link Tokenable}.
+	 * @return the current {@link FluentTokenable}.
 	 */
 	T setToken(String token);
 }
