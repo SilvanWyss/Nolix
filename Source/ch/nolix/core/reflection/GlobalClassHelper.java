@@ -14,7 +14,21 @@ public final class GlobalClassHelper {
 	
 	//static method
 	public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> pClass) {
-		return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getRefDefaultConstructorOf(pClass));
+		return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(pClass));
+	}
+	
+	//static method
+	public static <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> pClass) {
+		try {
+			
+			final var defaultConstructor = pClass.getDeclaredConstructor();
+			
+			defaultConstructor.setAccessible(true);
+			
+			return defaultConstructor;
+		} catch (final NoSuchMethodException noSuchMethodException) {
+			throw WrapperException.forError(noSuchMethodException);
+		}
 	}
 	
 	//static method
@@ -36,20 +50,6 @@ public final class GlobalClassHelper {
 		}
 		
 		return publicStaticFields;
-	}
-	
-	//static method
-	public static <T> Constructor<T> getRefDefaultConstructorOf(final Class<T> pClass) {
-		try {
-			
-			final var defaultConstructor = pClass.getDeclaredConstructor();
-			
-			defaultConstructor.setAccessible(true);
-			
-			return defaultConstructor;
-		} catch (final NoSuchMethodException noSuchMethodException) {
-			throw WrapperException.forError(noSuchMethodException);
-		}
 	}
 	
 	//constructor
