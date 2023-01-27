@@ -1,27 +1,27 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
- * A {@link FullNamed} is a {@link Named} that has
- * a name prefix the name of a {@link FullNamed} can be concatenated to a full name.
+ * A {@link QualifiedNamed} is a {@link Named} that has a name prefix that completes its name to a qualified name.
  * 
  * @author Silvan Wyss
  * @date 2022-01-28
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface FullNamed extends Named {
+public interface QualifiedNamed extends Named {
 	
 	//method
-	default String getFullName() {
+	default String getQualifiedName() {
 		return (getNamePrefix() + getName());
 	}
 	
 	//method
-	default String getFullNameInQuotes() {
-		return ("'" + getFullName() + "'");
+	default String getQualifiedNameInQuotes() {
+		return ("'" + getQualifiedName() + "'");
 	}
 	
 	//method declaration

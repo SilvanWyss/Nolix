@@ -14,7 +14,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
 		return
 		"DELETE FROM "
-		+  MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
+		+  MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
@@ -35,7 +35,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	) {
 		return
 		"DELETE FROM "
-		+  MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
+		+  MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
@@ -60,7 +60,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
 	) {
 		return
 		"INSERT INTO "
-		+ MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
+		+ MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
 		+ " ("
 		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ ", "

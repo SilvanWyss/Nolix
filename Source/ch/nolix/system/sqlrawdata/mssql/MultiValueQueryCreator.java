@@ -16,7 +16,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 		"SELECT "
 		+ MultiValueEntryTableColumn.VALUE.getName()
 		+ " FROM "
-		+ MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
+		+ MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
@@ -36,7 +36,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 	) {
 		return
 		"SELECT TOP 1 FROM "
-		+ MultiContentTable.MULTI_VALUE_ENTRY.getFullName()
+		+ MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiValueEntryTableColumn.MULTI_VALUE_COLUMN_ID.getName()
 		+ " = '"

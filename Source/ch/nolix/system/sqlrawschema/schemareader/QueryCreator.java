@@ -17,7 +17,7 @@ final class QueryCreator {
 		"SELECT COUNT("
 		+ TableTableColumn.ID.getName()
 		+ ") FROM "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ ";";
 	}
 	
@@ -39,7 +39,7 @@ final class QueryCreator {
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
 		+ " FROM "
-		+ SystemDataTable.COLUMN.getFullName()
+		+ SystemDataTable.COLUMN.getQualifiedName()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = '"
@@ -65,7 +65,7 @@ final class QueryCreator {
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
 		+ " FROM "
-		+ SystemDataTable.COLUMN.getFullName()
+		+ SystemDataTable.COLUMN.getQualifiedName()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = '"
@@ -81,7 +81,7 @@ final class QueryCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getName()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " WHERE "
 		+ TableTableColumn.ID.getName()
 		+ " = '"
@@ -97,7 +97,7 @@ final class QueryCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getName()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " WHERE "
 		+ TableTableColumn.NAME.getName()
 		+ " = '"
@@ -113,7 +113,7 @@ final class QueryCreator {
 		+ ", "
 		+ TableTableColumn.NAME.getName()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getFullName();
+		+ SystemDataTable.TABLE.getQualifiedName();
 	}
 	
 	//method
@@ -122,7 +122,7 @@ final class QueryCreator {
 		"SELECT "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " FROM "
-		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
+		+ SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
 		+ " WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = "

@@ -38,7 +38,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
 		return
 		"IF NOT EXISTS (SELECT * FROM "
-		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
+		+ SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
 		+ " WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = '"

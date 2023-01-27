@@ -36,7 +36,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.COLUMN.getFullName()
+		+ SystemDataTable.COLUMN.getQualifiedName()
 		+ " ("
 		+ ColumnTableColumn.ID.getName()
 		+ ", "
@@ -54,7 +54,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ") SELECT '"
 		+ column.getId()
 		+ "', "
-		+ TableTableColumn.ID.getFullName()
+		+ TableTableColumn.ID.getQualifiedName()
 		+ ", '"
 		+ column.getName()
 		+ "', "
@@ -66,9 +66,9 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ " FROM "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " WHERE "
-		+ TableTableColumn.NAME.getFullName()
+		+ TableTableColumn.NAME.getQualifiedName()
 		+ " = '"
 		+ parentTableName
 		+ "'" ;
@@ -92,7 +92,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteColumn(final String tableName, final String columnName) {
 		return
 		"DELETE FROM "
-		+ SystemDataTable.COLUMN.getFullName()
+		+ SystemDataTable.COLUMN.getQualifiedName()
 		+ " WHERE "
 		+ ColumnTableColumn.PARENT_TABLE_ID.getName()
 		+ " = "
@@ -108,7 +108,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToDeleteTable(final String tableName) {
 		return 
 		"DELETE FROM "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " WHERE "
 		+ TableTableColumn.NAME
 		+ " = '"
@@ -120,7 +120,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
 		return
 	    "UPDATE "
-		+ SystemDataTable.COLUMN.getFullName()
+		+ SystemDataTable.COLUMN.getQualifiedName()
 		+ " SET "
 		+ ColumnTableColumn.NAME
 		+ " = '"
@@ -147,7 +147,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 		"UPDATE "
-		+ SystemDataTable.COLUMN.getFullName()
+		+ SystemDataTable.COLUMN.getQualifiedName()
 		+ " SET "
 		+ ColumnTableColumn.DATA_TYPE
 		+ " = "
@@ -171,7 +171,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
 		return
 		"UPDATE "
-		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
+		+ SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
 		+ " SET "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " = '"
@@ -186,7 +186,7 @@ final class SystemDataWriterSQLStatementCreator {
 	public String createStatementToSetTableName(String tableName, String newTableName) {
 		return
 		"UPDATE "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " SET "
 		+ TableTableColumn.NAME.getName()
 		+ " = '"
@@ -205,7 +205,7 @@ final class SystemDataWriterSQLStatementCreator {
 		
 		return
 	    "INSERT INTO "
-		+ SystemDataTable.TABLE.getFullName()
+		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " ("
 		+ TableTableColumn.ID.getName()
 		+ ", "

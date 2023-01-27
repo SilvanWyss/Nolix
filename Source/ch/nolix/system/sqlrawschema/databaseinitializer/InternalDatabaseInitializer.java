@@ -46,7 +46,7 @@ final class InternalDatabaseInitializer {
 	private String createSQLStatementToCreateSchemaTimestampEntry() {
 		return
 		"INSERT INTO "
-		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
+		+ SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
 		+ " ("
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ ", "

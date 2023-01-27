@@ -5,11 +5,11 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 
 //enum
-public enum ColumnTableColumn implements FullNamed {
+public enum ColumnTableColumn implements QualifiedNamed {
 	ID(PascalCaseCatalogue.ID),
 	PARENT_TABLE_ID("ParentTableId"),
 	NAME(PascalCaseCatalogue.NAME),
@@ -19,7 +19,7 @@ public enum ColumnTableColumn implements FullNamed {
 	BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
 	
 	//constant
-	private static final String NAME_PREFIX = SystemDataTable.COLUMN.getFullName() + StringCatalogue.DOT;
+	private static final String NAME_PREFIX = SystemDataTable.COLUMN.getQualifiedName() + StringCatalogue.DOT;
 	
 	//attribute
 	private final String name;

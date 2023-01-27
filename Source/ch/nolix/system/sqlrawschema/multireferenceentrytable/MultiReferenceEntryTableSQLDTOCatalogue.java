@@ -33,7 +33,7 @@ public final class MultiReferenceEntryTableSQLDTOCatalogue {
 	//constant
 	public static final ITableDTO MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO =
 	new TableDTO(
-		MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName(),
+		MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName(),
 		MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
 		ENTITY_COLUMN_SQL_DTO,
 		REFERENCED_ENTITY_COLUMN_SQL_DTO

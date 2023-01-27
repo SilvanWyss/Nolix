@@ -19,7 +19,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 		"SELECT "
 		+ MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
 		+ " FROM "
-		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
+		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
@@ -39,7 +39,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
 	) {
 		return
 		"SELECT TOP 1 * FROM "
-		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
+		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
 		+ " = '"

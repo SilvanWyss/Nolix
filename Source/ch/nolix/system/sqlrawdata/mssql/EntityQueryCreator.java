@@ -65,7 +65,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		"SELECT "
 		+ DatabasePropertySystemTableColumn.VALUE.getLabel()
 		+ " FROM "
-		+ SystemDataTable.DATABASE_PROPERTY.getFullName()
+		+ SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
 		+ " WHERE "
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = '"

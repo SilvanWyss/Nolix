@@ -5,16 +5,16 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 
 //enum
-public enum TableTableColumn implements FullNamed {
+public enum TableTableColumn implements QualifiedNamed {
 	ID(PascalCaseCatalogue.ID),
 	NAME(PascalCaseCatalogue.NAME);
 	
 	//constant
-	private static final String NAME_PREFIX = SystemDataTable.TABLE.getFullName() + StringCatalogue.DOT;
+	private static final String NAME_PREFIX = SystemDataTable.TABLE.getQualifiedName() + StringCatalogue.DOT;
 	
 	//attribute
 	private final String name;

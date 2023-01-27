@@ -21,7 +21,7 @@ public final class DatabasePropertyTableSQLDTOCatalogue {
 	//constant
 	public static final TableDTO DATABASE_PROPERTY_TABLE_SQL_DTO =
 	new TableDTO(
-		SystemDataTable.DATABASE_PROPERTY.getFullName(),
+		SystemDataTable.DATABASE_PROPERTY.getQualifiedName(),
 		KEY_COLUMN_SQL_DTO,
 		VALUE_COLUMN_SQL_DTO
 	);

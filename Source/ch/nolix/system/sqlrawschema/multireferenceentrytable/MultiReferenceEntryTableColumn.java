@@ -4,18 +4,18 @@ package ch.nolix.system.sqlrawschema.multireferenceentrytable;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
 import ch.nolix.system.sqlrawschema.structure.MultiContentTable;
 
 //enum
-public enum MultiReferenceEntryTableColumn implements FullNamed {
+public enum MultiReferenceEntryTableColumn implements QualifiedNamed {
 	MULTI_REFERENCE_COLUMN_ID("MutliReferenceColumnId"),
 	ENTITY_ID("EntityId"),
 	REFERENCED_ENTITY_ID("ReferencedEntityId");
 	
 	//constant
 	private static final String NAME_PREFIX =
-	MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName() + StringCatalogue.DOT;
+	MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName() + StringCatalogue.DOT;
 	
 	//attribute
 	private final String name;

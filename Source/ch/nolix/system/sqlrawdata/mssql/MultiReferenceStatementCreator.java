@@ -17,7 +17,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 	) {
 		return
 		"DELETE FROM "
-		+  MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
+		+  MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
@@ -38,7 +38,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 	) {
 		return
 		"DELETE FROM "
-		+  MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
+		+  MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
 		+ " WHERE "
 		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ " = '"
@@ -63,7 +63,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
 	) {
 		return
 		"INSERT INTO "
-		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getFullName()
+		+ MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
 		+ " ("
 		+ MultiReferenceEntryTableColumn.ENTITY_ID.getName()
 		+ ", "

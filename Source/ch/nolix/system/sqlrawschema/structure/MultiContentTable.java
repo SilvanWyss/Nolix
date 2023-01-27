@@ -4,10 +4,10 @@ package ch.nolix.system.sqlrawschema.structure;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FullNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
 
 //enum
-public enum MultiContentTable implements FullNamed {
+public enum MultiContentTable implements QualifiedNamed {
 	MULTI_VALUE_ENTRY("MultiValueEntry"),
 	MULTI_REFERENCE_ENTRY("MultiReferenceEntry"),
 	MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
