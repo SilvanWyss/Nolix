@@ -157,7 +157,7 @@ public abstract class TestPool implements Runnable {
 	/**
 	 * @return the test {@link Class}s of the current {@link TestPool}.
 	 */
-	final List<Class<BaseTest>> getRefTestClasses() {
+	final List<Class<BaseTest>> internalGetTestClasses() {
 		return testClasses;
 	}
 	
@@ -165,7 +165,7 @@ public abstract class TestPool implements Runnable {
 	/**
 	 * @return the test {@link TestPool}s of the current {@link TestPool}.
 	 */
-	final List<TestPool> getRefTestPools() {
+	final List<TestPool> internalGetTestPools() {
 		return testPools;
 	}
 	

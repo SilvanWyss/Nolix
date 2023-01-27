@@ -71,7 +71,7 @@ public final class TestPoolRun {
 		
 		//main phase part 1
 		final var testPoolResults = new List<TestPoolResult>();
-		for (final var tp : parentTestPool.getRefTestPools()) {
+		for (final var tp : parentTestPool.internalGetTestPools()) {
 			
 			final var result = tp.runAndGetResult(linePrinter);
 			
@@ -80,7 +80,7 @@ public final class TestPoolRun {
 		
 		//main phase part 2
 		final var testResults = new List<TestResult>();
-		for (final var tc : parentTestPool.getRefTestClasses()) {
+		for (final var tc : parentTestPool.internalGetTestClasses()) {
 			
 			final var testResult = runTestAndGetResult(tc);
 			
