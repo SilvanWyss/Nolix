@@ -19,9 +19,6 @@ public final class TestRun {
 	private boolean started;
 	private int runtimeInMilliseconds = -1;
 	
-	//multi-attribute
-	private final List<TestCaseResult> testCaseResults = new List<>();
-	
 	//constructor
 	public TestRun(final BaseTest parentTest, final ILinePrinter linePrinter) {
 		
@@ -36,20 +33,7 @@ public final class TestRun {
 		this.parentTest = parentTest;
 		this.linePrinter = linePrinter;
 	}
-	
-	//method
-	public int getPassedTestCaseCount() {
 		
-		var passedTestCaseCount = 0;
-		for (final var tcr : testCaseResults) {
-			if (tcr.isPassed()) {
-				passedTestCaseCount++;
-			}
-		}
-		
-		return passedTestCaseCount;
-	}
-	
 	//method
 	public String getRuntimeAndUnitAsString() {
 		return (String.valueOf(getRuntimeInMilliseconds()) + " ms");
@@ -69,11 +53,6 @@ public final class TestRun {
 	}
 	
 	//method
-	public int getTestCaseCount() {
-		return testCaseResults.getElementCount();
-	}
-	
-	//method
 	public boolean hasStarted() {
 		return started;
 	}
@@ -81,20 +60,6 @@ public final class TestRun {
 	//method
 	public boolean isFinished() {
 		return (runtimeInMilliseconds > -1);
-	}
-	
-	//method
-	public boolean isPassed() {
-		
-		supposeIsFinished();
-		
-		for (var tcr : testCaseResults) {
-			if (tcr.isFailed()) {
-				return false;
-			}
-		}
-		
-		return true;
 	}
 	
 	//method
@@ -106,26 +71,20 @@ public final class TestRun {
 		linePrinter.printInfoLine("   STARTED: " + parentTest.getSimpleName());
 		
 		//main phase
+		final var testCaseResults = new List<TestCaseResult>();
 		for (final var tc : getRefTestCasesOrderedAlphabetically()) {
-			addAndPrintTestCaseResult(new TestCaseRun(parentTest, tc).runAndGetResult());
+			
+			final var testCaseResult = new TestCaseRun(parentTest, tc).runAndGetResult();
+			
+			testCaseResults.addAtEnd(testCaseResult);
+			
+			printTestCaseResult(testCaseResult);
 		}
 		
 		//result phase
+		final var testResult = TestResult.forTestCaseResults(testCaseResults);
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
-		printSummary();
-	}
-	
-	//method
-	private void addAndPrintTestCaseResult(final TestCaseResult testCaseResult) {
-		
-		if (testCaseResult == null) {
-			throw ArgumentIsNullException.forArgumentType(TestCaseResult.class);
-		}
-		
-		supposeIsNotFinished();
-		
-		testCaseResults.addAtEnd(testCaseResult);
-		printTestCaseResult(testCaseResult);
+		printSummaryOfTestResult(testResult);
 	}
 	
 	//method
@@ -134,13 +93,13 @@ public final class TestRun {
 	}
 	
 	//method
-	private void printSummary() {
+	private void printSummaryOfTestResult(final TestResult testResult) {
 		
 		linePrinter.printInfoLine(
 			"   FINISHED: "
-			+ getPassedTestCaseCount()
+			+ testResult.getPassedTestCaseCount()
 			+ " of "
-			+ getTestCaseCount()
+			+ testResult.getTestCaseCount()
 			+ " test cases of "
 			+ parentTest.getSimpleName()
 			+ " passed "
