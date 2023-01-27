@@ -13,13 +13,11 @@ public final class TestResult {
 	}
 	
 	//multi-attribute
-	private final List<TestCaseResult> testCaseResults = new List<>();
+	private final List<TestCaseResult> testCaseResults;
 	
 	//constructor
 	private TestResult(final Iterable<TestCaseResult> testCaseResults) {
-		for (final var tcr : testCaseResults) {
-			this.testCaseResults.addAtEnd(tcr);
-		}
+		this.testCaseResults = List.withElements(testCaseResults);
 	}
 	
 	//method

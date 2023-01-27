@@ -11,6 +11,18 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 public final class List<E> implements Iterable<E> {
 	
+	//static method
+	public static <E2> List<E2> withElements(final Iterable<E2> elements) {
+		
+		final var list = new List<E2>();
+		
+		for (final var e : elements) {
+			list.addAtEnd(e);
+		}
+		
+		return list;
+	}
+	
 	//attribute
 	private int elementCount;
 	
