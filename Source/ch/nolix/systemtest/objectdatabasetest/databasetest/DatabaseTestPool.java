@@ -21,6 +21,7 @@ public final class DatabaseTestPool extends TestPool {
 			OptionalValueTest.class,
 			OptionalValueOnDatabaseTest.class,
 			ReferenceOnDatabaseTest.class,
+			TableOnDatabaseTest.class,
 			TableTest.class,
 			ValueTest.class,
 			ValueOnDatabaseTest.class
