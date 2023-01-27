@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.xmlapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalNamable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.OptionalNamable;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //interface

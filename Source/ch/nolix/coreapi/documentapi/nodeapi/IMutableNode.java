@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalHeaderable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.OptionalHeaderable;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //interface

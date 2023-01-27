@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi;
+package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;

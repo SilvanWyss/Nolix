@@ -6,8 +6,8 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
-import ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi.OptionalTokenable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.OptionalIdentifiableByString;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.OptionalTokenable;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 
