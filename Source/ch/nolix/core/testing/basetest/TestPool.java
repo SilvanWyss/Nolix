@@ -135,7 +135,7 @@ public abstract class TestPool implements Runnable {
 	public final void run() {
 		
 		//Calls other method
-		run(new StandardConsoleLinePrinter());
+		runAndGetResult(new StandardConsoleLinePrinter());
 	}
 	
 	//method
@@ -143,10 +143,14 @@ public abstract class TestPool implements Runnable {
 	 * Runs the {@link BaseTest}s of the current {@link TestPool} recursively using the given linePrinter.
 	 * 
 	 * @param linePrinter
+	 * @return the result when the run is finished.
 	 * @throws ArgumentIsNullException if the given linePrinter is null.
 	 */
-	public final void run(final ILinePrinter linePrinter) {
-		new TestPoolRun(this, linePrinter).run();
+	public final TestPoolResult runAndGetResult(final ILinePrinter linePrinter) {
+		
+		final var testPoolRun = new TestPoolRun(this, linePrinter);
+		
+		return testPoolRun.runAndGetResult();
 	}
 	
 	//method

@@ -63,7 +63,7 @@ public final class TestRun {
 	}
 	
 	//method
-	public void run() {
+	public TestResult runAndGetResult() {
 		
 		//setup phase
 		setStarted();
@@ -85,6 +85,7 @@ public final class TestRun {
 		final var testResult = TestResult.forTestCaseResults(testCaseResults);
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
 		printSummaryOfTestResult(testResult);
+		return testResult;
 	}
 	
 	//method

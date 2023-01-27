@@ -46,7 +46,7 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	 * Runs the test cases of the current {@link BaseTest} and prints out the result to the console.
 	 */
 	public final void run() {	
-		run(new StandardConsoleLinePrinter());
+		runAndGetResult(new StandardConsoleLinePrinter());
 	}
 	
 	//method
@@ -54,10 +54,14 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	 * Runs the test cases of the current {@link BaseTest} and prints out the result using the given linePrinter.
 	 * 
 	 * @param linePrinter
+	 * @return the result when the run is finished.
 	 * @throws ArgumentIsNullException if the given linePrinter is null.
 	 */
-	public void run(final ILinePrinter linePrinter) {
-		new TestRun(this, linePrinter).run();
+	public TestResult runAndGetResult(final ILinePrinter linePrinter) {
+		
+		final var testRun = new TestRun(this, linePrinter);
+		
+		return testRun.runAndGetResult();
 	}
 	
 	//method

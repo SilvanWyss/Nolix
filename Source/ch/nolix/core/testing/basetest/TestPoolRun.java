@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.independent.independentcontainer.List;
 
 //class
 public final class TestPoolRun {
@@ -62,23 +63,36 @@ public final class TestPoolRun {
 	}
 	
 	//method
-	public void run() {
+	public TestPoolResult runAndGetResult() {
 		
 		//setup phase
 		setStarted();
 		final var startTimeInMilliseconds = System.currentTimeMillis();
 		
 		//main phase part 1
+		final var testPoolResults = new List<TestPoolResult>();
 		for (final var tp : parentTestPool.getRefTestPools()) {
-			tp.run(linePrinter);
+			
+			final var result = tp.runAndGetResult(linePrinter);
+			
+			testPoolResults.addAtEnd(result);
 		}
 		
 		//main phase part 2
-		parentTestPool.getRefTestClasses().forEach(this::runTest);
+		final var testResults = new List<TestResult>();
+		for (final var tc : parentTestPool.getRefTestClasses()) {
+			
+			final var testResult = runTestAndGetResult(tc);
+			
+			testResults.addAtEnd(testResult);
+		}
 		
 		//result phase
+		final var testPoolResult = TestPoolResult.forTestPoolResultsAndTestResults(testPoolResults, testResults);
 		setFinished((int)(System.currentTimeMillis() - startTimeInMilliseconds));
-		printSummary();
+		printSummaryOfTestPoolResult(testPoolResult);
+		
+		return testPoolResult;
 	}
 	
 	//method
@@ -98,23 +112,32 @@ public final class TestPoolRun {
 	}
 	
 	//method
-	private void printSummary() {
+	private void printSummaryOfTestPoolResult(final TestPoolResult testPoolResult) {
 		
 		linePrinter.printInfoLine(
-			"   FINISHED: " + parentTestPool.getSimpleName() + " " + getRuntimeAndUnitAsStringInBrackets()
+			"   FINISHED: "
+			+ testPoolResult.getPassedTestCaseCount()
+			+ " of "
+			+ testPoolResult.getTestCaseCount()
+			+ " test cases of "
+			+ parentTestPool.getSimpleName()
+			+ " passed "
+			+ getRuntimeAndUnitAsStringInBrackets()
 		);
 		
 		linePrinter.printEmptyLine();
 	}
 	
 	//method
-	private <BT extends BaseTest> void runTest(final Class<BT> testClass) {
+	private <BT extends BaseTest> TestResult runTestAndGetResult(final Class<BT> testClass) {
 		
 		final var test = createTestOrNull(testClass);
 		
 		if (test != null) {
-			test.run(linePrinter);
+			return test.runAndGetResult(linePrinter);
 		}
+		
+		return TestResult.forTestCaseResults(new List<>());
 	}
 	
 	//method
