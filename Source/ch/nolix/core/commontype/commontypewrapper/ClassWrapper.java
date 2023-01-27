@@ -27,7 +27,7 @@ public final class ClassWrapper<T> {
 	//method
 	public T createInstance(final Object... arguments) {
 		try {
-			return getRefConstructor(getParameterTypes(arguments)).newInstance(arguments);
+			return getConstructor(getParameterTypes(arguments)).newInstance(arguments);
 		} catch (
 			final
 			InstantiationException
@@ -41,7 +41,7 @@ public final class ClassWrapper<T> {
 	}
 	
 	//method
-	public Constructor<T> getRefConstructor(final Class<?>... parameterTypes) {
+	public Constructor<T> getConstructor(final Class<?>... parameterTypes) {
 		try {
 			return mClass.getConstructor(parameterTypes);
 		} catch (final NoSuchMethodException | SecurityException exception) {
