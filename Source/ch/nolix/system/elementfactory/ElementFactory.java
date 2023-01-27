@@ -71,7 +71,7 @@ public class ElementFactory<E> {
 	//method
 	private <E2 extends E> void registerOneTypeElementFactory(final OneTypeElementFactory<E2> oneTypeElementFactory) {
 		
-		assertCannotCreateElementOf(oneTypeElementFactory.getRefElementClass());
+		assertCannotCreateElementOf(oneTypeElementFactory.internalGetElementClass());
 		
 		oneTypeElementFactories.addAtEnd(oneTypeElementFactory);
 	}

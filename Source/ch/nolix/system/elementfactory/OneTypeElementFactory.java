@@ -82,7 +82,7 @@ final class OneTypeElementFactory<E> {
 	}
 	
 	//method
-	Class<E> getRefElementClass() {
+	Class<E> internalGetElementClass() {
 		return elementClass;
 	}
 }
