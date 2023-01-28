@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -181,6 +182,12 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	@Override
 	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
+	}
+	
+	//method
+	@Override
+	public String toString() {
+		return toString(CharacterCatalogue.COMMA);
 	}
 	
 	//method
