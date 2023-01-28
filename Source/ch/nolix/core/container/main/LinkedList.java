@@ -18,7 +18,6 @@ import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //class
 /**
@@ -29,7 +28,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> extends Container<E> implements Clearable, IMutableList<E> {
+public final class LinkedList<E> extends Container<E> implements IMutableList<E> {
 	
 	//static method
 	/**
