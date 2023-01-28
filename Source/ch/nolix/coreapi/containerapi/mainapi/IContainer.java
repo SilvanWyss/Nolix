@@ -701,11 +701,11 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the@link Comparable the given norm returns.
-	 * @return a new@link LinkedList with the elements of the current {@link IContainer}
-	 * ordered from the smallest to the biggest element according to the given norm.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return a new {@link IContainer} with the elements of the current {@link IContainer} ordered
+	 * from the smallest to the biggest element according to the given norm.
 	 */
-	<E2> IContainer<E> toOrderedList(IElementTakerComparableGetter<E, E2> norm);
+	<C extends Comparable<C>> IContainer<E> toOrderedList(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**

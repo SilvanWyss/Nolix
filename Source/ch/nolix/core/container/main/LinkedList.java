@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.container.main;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -12,10 +13,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
@@ -927,13 +928,10 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * This implementation uses the merge sort algorithm.
 	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
 	 * 
-	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return a new {@link LinkedList} with the elements of the current {@link Container} ordered
-	 * from the smallest to the biggest element according to the given norm.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public <E2> LinkedList<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return getOrderedSubList(1, getElementCount(), norm);
 	}
 	
@@ -963,15 +961,15 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	 * @param startIndex
 	 * @param endIndex
 	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return a new {@link LinkedList}
-	 * with the elements from the given start index to the given end index ordered according to the given norm.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return a new {@link LinkedList} with
+	 * the elements from the given start index to the given end index ordered according to the given norm.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private <E2> LinkedList<E> getOrderedSubList(
+	private <C extends Comparable<C>> LinkedList<E> getOrderedSubList(
 		final int startIndex,
 		final int endIndex,
-		final IElementTakerComparableGetter<E, E2> norm
+		final IElementTakerElementGetter<E, C> norm
 	) {
 		
 		//Searches for the start node.
@@ -993,8 +991,8 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 			
 			final var list = new LinkedList<E>();
 
-			final Comparable element1Value = norm.getValue(startNode.getElement());
-			final Comparable element2Value = norm.getValue(startNode.getNextNode().getElement());
+			final Comparable element1Value = norm.getOutput(startNode.getElement());
+			final Comparable element2Value = norm.getOutput(startNode.getNextNode().getElement());
 			if (element1Value.compareTo(element2Value) > 0) {
 				list.addAtEnd(startNode.getNextNode().getElement());
 				list.addAtEnd(startNode.getElement());
@@ -1021,8 +1019,8 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 				subList1.removeFirst();
 				
 			} else {
-				final Comparable value1 = norm.getValue(subList1.getRefFirst());
-			 	final Comparable value2 = norm.getValue(subList2.getRefFirst());
+				final Comparable value1 = norm.getOutput(subList1.getRefFirst());
+			 	final Comparable value2 = norm.getOutput(subList2.getRefFirst());
 				if (value1.compareTo(value2) > 0) {
 					list.addAtEnd(subList2.getRefFirst());
 					subList2.removeFirst();

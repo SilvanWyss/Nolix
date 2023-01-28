@@ -4,6 +4,7 @@ package ch.nolix.core.container.matrix;
 //Java imports
 import java.util.Arrays;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
@@ -17,7 +18,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
@@ -633,7 +633,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * {@inheritDoc}
 	 */
 	@Override
-	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 	

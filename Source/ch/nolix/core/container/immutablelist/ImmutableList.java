@@ -4,6 +4,7 @@ package ch.nolix.core.container.immutablelist;
 //Java imports
 import java.util.Iterator;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.main.Container;
@@ -12,7 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**
@@ -139,7 +140,7 @@ public final class ImmutableList<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return ReadContainer.forIterable(this).toOrderedList(norm);
 	}
 	

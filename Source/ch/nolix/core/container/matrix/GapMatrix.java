@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //class
@@ -180,7 +180,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
 	//method
 	@Override
-	public <E2> IContainer<E> toOrderedList(final IElementTakerComparableGetter<E, E2> norm) {
+	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}
 	
