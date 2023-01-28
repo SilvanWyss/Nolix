@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
@@ -188,6 +189,12 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
+	}
+	
+	//method
+	@Override
+	protected IMutableList<E> createEmptyMutableList() {
+		return new LinkedList<>();
 	}
 	
 	//method

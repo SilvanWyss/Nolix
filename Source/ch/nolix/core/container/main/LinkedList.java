@@ -958,6 +958,15 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected IMutableList<E> createEmptyMutableList() {
+		return new LinkedList<>();
+	}
+	
+	//method
+	/**
 	 * @param startIndex
 	 * @param endIndex
 	 * @param norm

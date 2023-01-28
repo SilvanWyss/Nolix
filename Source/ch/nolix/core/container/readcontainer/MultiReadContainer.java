@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -67,9 +68,6 @@ final class MultiReadContainer<E> extends Container<E> {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public E getRefLast() {
 		return containers.getRefLast().getRefLast();
@@ -79,5 +77,11 @@ final class MultiReadContainer<E> extends Container<E> {
 	@Override
 	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
+	}
+	
+	//method
+	@Override
+	protected IMutableList<E> createEmptyMutableList() {
+		return new LinkedList<>();
 	}
 }

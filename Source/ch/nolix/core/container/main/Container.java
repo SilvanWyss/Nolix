@@ -20,6 +20,7 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -1201,7 +1202,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public IContainer<? extends IContainer<E>> getRefGroups(final IElementTakerElementGetter<E, ?> norm) {
 		
-		final var groups = new LinkedList<LinkedList<E>>();
+		final var groups = new LinkedList<IMutableList<E>>();
 		
 		//Iterates the current list.
 		for (final var e : this) {
@@ -1210,7 +1211,11 @@ public abstract class Container<E> implements IContainer<E> {
 			final var group = groups.getRefFirstOrNull(g -> g.containsAny(e2 -> norm.getOutput(e2).equals(groupKey)));
 			
 			if (group == null) {
-				groups.addAtEnd(LinkedList.withElement(e));
+				
+				final var list = createEmptyMutableList();
+				list.addAtEnd(e);
+				
+				groups.addAtEnd(list);
 			} else {
 				group.addAtEnd(e);
 			}
@@ -1301,7 +1306,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
-		final var list = new LinkedList<E>();
+		final var list = createEmptyMutableList();
 		
 		//Fills up the list with the elements the given selector selects from the current IContainer.
 		for (final var e : this) {
@@ -1328,7 +1333,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
-		final var list = new LinkedList<E>();
+		final var list = createEmptyMutableList();
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1378,7 +1383,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
-		final var list = new LinkedList<E>();
+		final var list = createEmptyMutableList();
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -2041,6 +2046,12 @@ public abstract class Container<E> implements IContainer<E> {
 		//Handles the case that the current IContainer contains n elements.
 		return new ReadContainer<>();
 	}
+	
+	//method declaration
+	/**
+	 * @return a new empty {@link IMutableList}.
+	 */
+	protected abstract IMutableList<E> createEmptyMutableList();
 	
 	//method
 	private void assertIsNotEmpty() {

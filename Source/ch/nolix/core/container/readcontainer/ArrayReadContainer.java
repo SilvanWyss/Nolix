@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -115,5 +116,14 @@ final class ArrayReadContainer<E> extends Container<E> {
 	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected IMutableList<E> createEmptyMutableList() {
+		return new LinkedList<>();
 	}
 }

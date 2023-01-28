@@ -8,11 +8,13 @@ import java.util.Iterator;
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.main.Container;
+import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -151,5 +153,14 @@ public final class ImmutableList<E> extends Container<E> {
 	@Override
 	public String toString() {
 		return toString(CharacterCatalogue.COMMA);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected IMutableList<E> createEmptyMutableList() {
+		return new LinkedList<>();
 	}
 }
