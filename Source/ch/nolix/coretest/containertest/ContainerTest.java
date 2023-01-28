@@ -478,14 +478,29 @@ public abstract class ContainerTest extends Test {
 		expect(result).isEqualTo(1.0);
 	}
 	
+	//method
 	@TestCase
-	public final void testCase_getRefByMaxInt() {
+	public final void testCase_getRefByMax_whenGivenNormIsDouble() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.getRefByMaxInt(String::length);
+		final var result = testUnit.getRefByMax(e ->  1.0 / e.length());
+		
+		//verification
+		expect(result).isEqualTo("x");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getRefByMax_whenGivenNormIsInteger() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getRefByMax(String::length);
 		
 		//verification
 		expect(result).isEqualTo("xxxxxx");

@@ -449,43 +449,31 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	E getRefAt1BasedIndex(int p1BasedIndex);
 	
-	//method
+	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the element with the biggest value
-	 * the given norm returns from the elements of the current {@link IContainer}.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return the element with
+	 * the biggest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm);
+	default <C extends Comparable<C>> E getRefByMax(IElementTakerElementGetter<E, C> norm) {
 		
-	//method declaration
-	/**
-	 * @param doubleNorm
-	 * @return the element with the biggest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getRefByMaxDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the element with the biggest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getRefByMaxInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the element with the biggest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getRefByMaxLong(IElementTakerLongGetter<E> longNorm);
+		var max = getRefFirst();
+		var comparebleValueOfMax = norm.getOutput(max);
+		
+		for (var e : this) {
+			
+			final var comparableValueOfElement = norm.getOutput(e);
+			
+			if (comparebleValueOfMax.compareTo(comparableValueOfElement)> 0) {
+				max = e;
+				comparebleValueOfMax = norm.getOutput(max);
+			}
+		}
+		
+		return max;
+	}
 	
 	//method
 	/**

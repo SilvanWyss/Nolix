@@ -722,9 +722,9 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link Container} is empty.
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public final <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
-		return (E2)(norm.getValue(getRefByMax(norm)));
+		//TODO: return (E2)(norm.getValue(getRefByMax(norm)));
+		return null;
 	}
 	
 	//method
@@ -738,7 +738,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
+		//TODO: return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
+		return 0;
 	}
 	
 	//method
@@ -752,7 +753,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
-		return intNorm.getOutput(getRefByMaxInt(intNorm));
+		//TODO: return intNorm.getOutput(getRefByMaxInt(intNorm));
+		return 0;
 	}
 	
 	//method
@@ -773,7 +775,8 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		//Handles the case that the current IContainer contains elements.
-		return intNorm.getOutput(getRefByMaxInt(intNorm));
+		//TODO: return intNorm.getOutput(getRefByMaxInt(intNorm));
+		return 0;
 	}
 	
 	//method
@@ -800,7 +803,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final long getMaxLong(IElementTakerLongGetter<E> longNorm) {
-		return longNorm.getOutput(getRefByMaxLong(longNorm));
+		//TODO: return longNorm.getOutput(getRefByMaxLong(longNorm));
+		return 0;
 	}
 	
 	//method
@@ -1094,118 +1098,25 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the element with the biggest value
-	 * the given norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public final <E2> E getRefByMax(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <C extends Comparable<C>> E getRefByMax(final IElementTakerElementGetter<E, C> norm) {
 		
-		var element = getRefFirst();
-		var max = norm.getValue(element);
+		var max = getRefFirst();
+		var comparebleValueOfMax = norm.getOutput(max);
 		
-		//Iterates the current IContainer.
-		for (final var e : this) {
+		for (var e : this) {
 			
-			final Comparable value = norm.getValue(e);
+			final var comparableValueOfElement = norm.getOutput(e);
 			
-			if (value.compareTo(max) > 0) {
-				element = e;
-				max = value;
+			if (comparebleValueOfMax.compareTo(comparableValueOfElement) < 0) {
+				max = e;
+				comparebleValueOfMax = norm.getOutput(max);
 			}
 		}
 		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param doubleNorm
-	 * @return the element with the biggest value
-	 * the given double norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final E getRefByMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		
-		var element = getRefFirst();
-		var max = doubleNorm.getOutput(element);
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var value = doubleNorm.getOutput(e);
-			
-			if (value > max) {
-				element = e;
-				max = value;
-			}
-		}
-		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the element with the biggest value
-	 * the given int norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final E getRefByMaxInt(final IElementTakerIntGetter<E> intNorm) {
-		
-		var element = getRefFirst();
-		var max = intNorm.getOutput(element);
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var value = intNorm.getOutput(e);
-			
-			if (value > max) {
-				element = e;
-				max = value;
-			}
-		}
-		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param longNorm
-	 * @return the element with the biggest value
-	 * the given long norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final E getRefByMaxLong(final IElementTakerLongGetter<E> longNorm) {
-		
-		var element = getRefFirst();
-		var max = longNorm.getOutput(element);
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var value = longNorm.getOutput(e);
-			
-			if (value > max) {
-				element = e;
-				max = value;
-			}
-		}
-		
-		return element;
+		return max;
 	}
 	
 	//method
