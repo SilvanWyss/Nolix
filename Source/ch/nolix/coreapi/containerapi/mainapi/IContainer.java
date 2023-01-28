@@ -412,23 +412,7 @@ public interface IContainer<E> extends Iterable<E> {
 	 * the biggest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	default <C extends Comparable<C>> E getRefByMax(IElementTakerElementGetter<E, C> norm) {
-		
-		var max = getRefFirst();
-		var comparebleValueOfMax = norm.getOutput(max);
-		
-		for (var e : this) {
-			
-			final var comparableValueOfElement = norm.getOutput(e);
-			
-			if (comparebleValueOfMax.compareTo(comparableValueOfElement)> 0) {
-				max = e;
-				comparebleValueOfMax = norm.getOutput(max);
-			}
-		}
-		
-		return max;
-	}
+	<C extends Comparable<C>> E getRefByMax(IElementTakerElementGetter<E, C> norm);
 	
 	//method
 	/**
