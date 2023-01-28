@@ -92,9 +92,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	//method
 	public int getColumnIndexOf(final int index) {
 		
-		//Asserts that the current matrix contains an element at the given index.
-		assertContainsAt(index);
-		
 		return ((index - 1) % getColumnCount() + 1);
 	}
 	
@@ -147,9 +144,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	}
 	
 	public int getRowIndexOf(final int index) {
-		
-		//Asserts that the current matrix contains an element at the given index.
-		assertContainsAt(index);
 		
 		return ((index - 1) / getColumnCount() + 1);
 	}
@@ -211,11 +205,6 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 		.assertThat(columnIndex)
 		.thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
 		.isNotBiggerThan(getColumnCount());
-	}
-	
-	//method
-	private void assertContainsAt(final int index) {
-		assertContainsAt(getRowIndexOf(index), getColumnIndexOf(index));
 	}
 	
 	//method
