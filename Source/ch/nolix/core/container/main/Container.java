@@ -28,7 +28,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
@@ -1625,7 +1624,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final <E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <C extends Comparable<C>> boolean isOrdered(final IElementTakerElementGetter<E, C> norm) {
 		
 		//Iterates the current IContainer.
 		E previous = null;
@@ -1633,9 +1632,9 @@ public abstract class Container<E> implements IContainer<E> {
 			
 			if (previous != null) {
 				
-				Comparable value = norm.getValue(e);
+				Comparable value = norm.getOutput(e);
 				
-				if (value.compareTo(norm.getValue(previous)) < 0) {
+				if (value.compareTo(norm.getOutput(previous)) < 0) {
 					return false;
 				}
 			}

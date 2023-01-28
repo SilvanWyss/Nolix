@@ -8,7 +8,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerComparableGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
@@ -617,14 +616,14 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} does not contain an element.
 	 */
 	boolean isEmpty();
-		
+	
 	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return true if the current {@link IContainer} is ordered according to the given norm.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return true if the current {@link IContainer} is ordered according to the given norm, false otherwise.
 	 */
-	<E2> boolean isOrdered(final IElementTakerComparableGetter<E, E2> norm);
+	<C extends Comparable<C>> boolean isOrdered(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
