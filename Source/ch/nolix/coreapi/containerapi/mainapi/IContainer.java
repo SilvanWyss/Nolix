@@ -12,18 +12,19 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 
 //interface
 /**
- * A@link IContainer can store several elements of a certain type.
- * A@link IContainer stores its element in a linear order. There can exists additionally other orders.
- * A@link IContainer is iterable.
+ * A {@link IContainer} can store several elements of a certain type.
+ * A {@link IContainer} stores its element in a linear order. There can exists additionally other orders.
+ * A {@link IContainer} is iterable.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <E> is the type of the elements a@link IContainer.
+ * @param <E> is the type of the elements a {@link IContainer}.
  */
-public interface IContainer<E> extends Iterable<E> {
+public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
@@ -47,12 +48,6 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @return true if the current {@link IContainer} contains all the given elements.
 	 */
 	boolean containsAll(Object... elements);
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link IContainer} contains any element.
-	 */
-	boolean containsAny();
 	
 	//method declaration
 	/**
@@ -610,12 +605,6 @@ public interface IContainer<E> extends Iterable<E> {
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getVarianceByLong(IElementTakerLongGetter<E> longNorm);
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link IContainer} does not contain an element.
-	 */
-	boolean isEmpty();
 	
 	//method declaration
 	/**
