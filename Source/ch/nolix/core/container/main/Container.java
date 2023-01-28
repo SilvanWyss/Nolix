@@ -716,58 +716,33 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the biggest value the given norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final <E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm) {
-		//TODO: return (E2)(norm.getValue(getRefByMax(norm)));
-		return null;
+	public final <C extends Comparable<C>> C getMax(final IElementTakerElementGetter<E, C> norm) {
+		
+		var max = norm.getOutput(getRefFirst());
+		
+		for (final var e : this) {
+			
+			final var comparableValueOfElement = norm.getOutput(e);
+			
+			if (comparableValueOfElement.compareTo(max) > 0) {
+				max = comparableValueOfElement;
+			}
+		}
+		
+		return max;
 	}
 	
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param doubleNorm
-	 * @return the biggest value
-	 * the given double norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final double getMaxDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		//TODO: return doubleNorm.getOutput(getRefByMaxDouble(doubleNorm));
-		return 0;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the biggest value
-	 * the given int norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final int getMaxInt(final IElementTakerIntGetter<E> intNorm) {
-		//TODO: return intNorm.getOutput(getRefByMaxInt(intNorm));
-		return 0;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @param defaultValue
-	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
-	 * if the current {@link Container} contains elements, otherwise the given defaultValue.
-	 */
-	@Override
-	public final int getMaxIntOrDefaultValue(final IElementTakerIntGetter<E> intNorm, final int defaultValue) {
+	public final <C extends Comparable<C>> C getMaxOrDefaultValue(IElementTakerElementGetter<E, C> norm, C defaultValue) {
 		
 		//Handles the case that the current IContainer is empty.
 		if (isEmpty()) {
@@ -775,36 +750,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		//Handles the case that the current IContainer contains elements.
-		//TODO: return intNorm.getOutput(getRefByMaxInt(intNorm));
-		return 0;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the biggest value the given intNorm returns from the elements of the current {@link Container}
-	 * if the current {@link Container} contains elements, otherwise 0.
-	 */
-	@Override
-	public final int getMaxIntOrZero(final IElementTakerIntGetter<E> intNorm) {
-		return getMaxIntOrDefaultValue(intNorm, 0);
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param longNorm
-	 * @return the biggest value
-	 * the given long norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final long getMaxLong(IElementTakerLongGetter<E> longNorm) {
-		//TODO: return longNorm.getOutput(getRefByMaxLong(longNorm));
-		return 0;
+		return defaultValue;
 	}
 	
 	//method
@@ -1110,7 +1056,7 @@ public abstract class Container<E> implements IContainer<E> {
 			
 			final var comparableValueOfElement = norm.getOutput(e);
 			
-			if (comparebleValueOfMax.compareTo(comparableValueOfElement) < 0) {
+			if (comparableValueOfElement.compareTo(comparebleValueOfMax) > 0) {
 				max = e;
 				comparebleValueOfMax = norm.getOutput(max);
 			}

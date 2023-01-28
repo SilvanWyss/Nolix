@@ -291,55 +291,24 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer}.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return the biggest {@link Comparable} the
+	 * given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<E2> E2 getMax(final IElementTakerComparableGetter<E, E2> norm);
+	<C extends Comparable<C>> C getMax(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return the biggest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getMaxDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the biggest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	int getMaxInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
+	 * @param norm
 	 * @param defaultValue
-	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
-	 * if the current {@link IContainer} contains elements, otherwise the given defaultValue.
-	 */
-	int getMaxIntOrDefaultValue(IElementTakerIntGetter<E> intNorm, int defaultValue);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the biggest value the given intNorm returns from the elements of the current {@link IContainer}
-	 * if the current {@link IContainer} contains elements, otherwise 0.
-	 */
-	int getMaxIntOrZero(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the biggest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return the biggest {@link Comparable} the
+	 * given norm returns from the elements of the current {@link IContainer} if
+	 * the current {@link IContainer} contains elements, otherwise the given defaultValue.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	long getMaxLong(IElementTakerLongGetter<E> longNorm);
+	<C extends Comparable<C>> C getMaxOrDefaultValue(IElementTakerElementGetter<E, C> norm, C defaultValue);
 	
 	//method declaration
 	/**

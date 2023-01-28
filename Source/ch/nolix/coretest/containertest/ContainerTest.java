@@ -401,32 +401,46 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getMax() {
+	public final void testCase_getMax_whenIsEmptyAndGivenNormIsInteger() {
 		
 		//setup
-		final var testUnit = createContainerWithElements(10, 20, 30, 40, 50, 10, 20, 30);
+		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
-		final var result = testUnit.getMax(FunctionCatalogue::getSelf);
-		
-		//verification
-		expect(result).isEqualTo(50);
-	}
-	
-	//method
-	@TestCase
-	public final void testCase_getMax_whenContainerIsEmpty() {
-		
-		//setup
-		final var testUnit = createEmptyContainerForType(Integer.class);
-		
-		//execution
-		expectRunning(() -> testUnit.getMax(FunctionCatalogue::getSelf))
+		expectRunning(() -> testUnit.getMax(String::length))
 		.throwsException()
 		.ofType(EmptyArgumentException.class)
 		.withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
 	}
 	
+	//method
+	@TestCase
+	public final void testCase_getMax_whenContainsSomeAndGivenNormIsDouble() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getMax(e ->  1.0 / e.length());
+		
+		//verification
+		expect(result).isEqualTo(1.0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMax_whenContainsSomeAndGivenNormIsInteger() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getMax(String::length);
+		
+		//verification
+		expect(result).isEqualTo(6);
+	}
+		
 	@TestCase
 	public final void testCase_getMedianByDouble_whenIsEmpty() {
 		
@@ -480,7 +494,21 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getRefByMax_whenGivenNormIsDouble() {
+	public final void testCase_getRefByMax_whenIsEmptyAndGivenNormIsInteger() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution
+		expectRunning(() -> testUnit.getRefByMax(String::length))
+		.throwsException()
+		.ofType(EmptyArgumentException.class)
+		.withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getRefByMax_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
@@ -494,7 +522,7 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getRefByMax_whenGivenNormIsInteger() {
+	public final void testCase_getRefByMax_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
