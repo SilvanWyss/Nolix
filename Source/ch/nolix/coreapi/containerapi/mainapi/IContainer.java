@@ -2,7 +2,6 @@
 package ch.nolix.coreapi.containerapi.mainapi;
 
 //own imports
-import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -414,42 +413,15 @@ public interface IContainer<E> extends Iterable<E> {
 	 */
 	<C extends Comparable<C>> E getRefByMax(IElementTakerElementGetter<E, C> norm);
 	
-	//method
+	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the element with the smallest value
-	 * the given norm returns from the elements of the current {@link IContainer}.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return the element with
+	 * the smallest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm);
-	
-	//method declaration
-	/**
-	 * @param doubleNorm
-	 * @return the element with the biggest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getRefByMinDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the element with the biggest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getRefByMinInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the element with the smallest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getRefByMinLong(IElementTakerLongGetter<E> longNorm);
+	<C extends Comparable<C>> E getRefByMin(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**

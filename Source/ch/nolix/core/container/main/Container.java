@@ -1053,118 +1053,25 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the element with the smallest value
-	 * the given norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final <E2> E getRefByMin(final IElementTakerComparableGetter<E, E2> norm) {
+	public final <C extends Comparable<C>> E getRefByMin(final IElementTakerElementGetter<E, C> norm) {
 		
-		var element = getRefFirst();
-		var min = norm.getValue(element);
+		var min = getRefFirst();
+		var comparebleValueOfMin = norm.getOutput(min);
 		
-		//Iterates the current IContainer.
-		for (final var e : this) {
+		for (var e : this) {
 			
-			final Comparable value = norm.getValue(e);
+			final var comparableValueOfElement = norm.getOutput(e);
 			
-			if (value.compareTo(min) < 0) {
-				element = e;
-				min = value;
+			if (comparableValueOfElement.compareTo(comparebleValueOfMin) < 0) {
+				min = e;
+				comparebleValueOfMin = norm.getOutput(min);
 			}
 		}
 		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param doubleNorm
-	 * @return the element with the biggest value
-	 * the given double norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final E getRefByMinDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		
-		var element = getRefFirst();
-		var min = doubleNorm.getOutput(element);
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var value = doubleNorm.getOutput(e);
-			
-			if (value < min) {
-				element = e;
-				min = value;
-			}
-		}
-		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the element with the biggest value
-	 * the given int norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final E getRefByMinInt(final IElementTakerIntGetter<E> intNorm) {
-		
-		var element = getRefFirst();
-		var min = intNorm.getOutput(element);
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var value = intNorm.getOutput(e);
-			
-			if (value < min) {
-				element = e;
-				min = value;
-			}
-		}
-		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param longNorm
-	 * @return the element with the smallest value
-	 * the given long norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final E getRefByMinLong(IElementTakerLongGetter<E> longNorm) {
-		
-		var element = getRefFirst();
-		var min = longNorm.getOutput(element);
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var value = longNorm.getOutput(e);
-			
-			if (value < min) {
-				element = e;
-				min = value;
-			}
-		}
-		
-		return element;
+		return min;
 	}
 	
 	//method
