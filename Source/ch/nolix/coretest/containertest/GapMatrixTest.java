@@ -7,10 +7,10 @@ import java.util.NoSuchElementException;
 //own imports
 import ch.nolix.core.container.matrix.GapMatrix;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 
 //class
-public final class GapMatrixTest extends Test {
+public final class GapMatrixTest extends ContainerTest {
 	
 	//method
 	@TestCase
@@ -135,5 +135,23 @@ public final class GapMatrixTest extends Test {
 		//verification
 		expectNot(iterator.hasNext());
 		expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
+	}
+	
+	//method
+	@Override
+	protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
+		return new GapMatrix<>();
+	}
+	
+	@Override
+	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
+		
+		final var gapMatrix = new GapMatrix<E>(1, elements.length);
+		
+		for (var i = 0; i < elements.length; i++) {
+			gapMatrix.setAt1BasedRowIndexAndColumnIndex(1, i + 1, elements[i]);
+		}
+		
+		return gapMatrix;
 	}
 }
