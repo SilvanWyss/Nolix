@@ -494,6 +494,48 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_getMin_whenIsEmptyAndGivenNormIsInteger() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution
+		expectRunning(() -> testUnit.getMin(String::length))
+		.throwsException()
+		.ofType(EmptyArgumentException.class)
+		.withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMin_whenContainsSomeAndGivenNormIsDouble() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx");
+		
+		//execution
+		final var result = testUnit.getMin(e ->  1.0 / e.length());
+		
+		//verification
+		expect(result).isEqualTo(0.2);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMin_whenContainsSomeAndGivenNormIsInteger() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getMin(String::length);
+		
+		//verification
+		expect(result).isEqualTo(1);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_getRefByMax_whenIsEmptyAndGivenNormIsInteger() {
 		
 		//setup

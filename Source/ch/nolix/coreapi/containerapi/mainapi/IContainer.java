@@ -322,38 +322,24 @@ public interface IContainer<E> extends Iterable<E> {
 	//method declaration
 	/**
 	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer}.
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return the smallest {@link Comparable} the
+	 * given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<E2> E2 getMin(IElementTakerComparableGetter<E, E2> norm);
+	<C extends Comparable<C>> C getMin(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return the smallest value
-	 * the given double norm returns from the elements of the current {@link IContainer}.
+	 * @param norm
+	 * @param defaultValue
+	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
+	 * @return the smallest {@link Comparable} the
+	 * given norm returns from the elements of the current {@link IContainer} if
+	 * the current {@link IContainer} contains elements, otherwise the given defaultValue.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	double getMinDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the smallest value
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	int getMinInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the smallest value
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	long getMinLong(IElementTakerLongGetter<E> longNorm);
+	<C extends Comparable<C>> C getMinOrDefaultValue(IElementTakerElementGetter<E, C> norm, C defaultValue);
 	
 	//method declaration
 	/**
