@@ -1,13 +1,16 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.mainapi;
 
+//own imports
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+
 //interface
 /**
  * @author Silvan Wyss
  * @date 2022-07-04
  * @param <E> is the type of the elements of a {@link IMutableList}.
  */
-public interface IMutableList<E> extends IContainer<E> {
+public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
