@@ -442,9 +442,9 @@ public final class LinkedList<E> extends Container<E> implements Clearable, IMut
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return a new list with the elements of the current {@link LinkedList}.
+	 * @return a new {@link IContainer} with the elements of the current {@link LinkedList}.
 	 */
-	public Container<E> getCopy() {
+	public IContainer<E> getCopy() {
 		return to(e -> e);
 	}
 	

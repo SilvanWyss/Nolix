@@ -11,11 +11,9 @@ import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
@@ -485,14 +483,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param startIndex
-	 * @return a new sub container of the current {@link Container} from the given start index.
-	 * @throws NonPositiveArgumentException if the given start index is not positive.
-	 * @throws SmallerArgumentException
-	 * if the current {@link Container} contains less element than the value of the given start index.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> from(final int startIndex) {
+	public final IContainer<E> from(final int startIndex) {
 		return new SubContainer<>(this, startIndex, getElementCount());
 	}
 	
@@ -500,19 +494,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param startIndex
-	 * @param endIndex
-	 * @return a new sub container of the current {@link Container}
-	 * from the given start index to the given end index.
-	 * @throws NonPositiveArgumentException
-	 * if the given start index is not positive.
-	 * @throws SmallerArgumentException
-	 * if the given end index is smaller than the given start index.
-	 * @throws BiggerArgumentException
-	 * if the given end index is bigger than the number of elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> fromUntil(final int startIndex, final int endIndex) {
+	public final IContainer<E> fromUntil(final int startIndex, final int endIndex) {
 		return new SubContainer<>(this, startIndex, endIndex);
 	}
 	
@@ -1209,7 +1194,7 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
 	 * 
 	 * {@inheritDoc}
 	 */
@@ -1238,15 +1223,12 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param type
-	 * @param <E2> is the type of the elements of the returned {@link LinkedList}.
-	 * @return a new {@link LinkedList}
-	 * with the elements from the current {@link Container} that are of the given type.
+	 * {@inheritDoc}
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public final <E2 extends E> LinkedList<E2> getRefOfType(final Class<E2> type) {
-		return (LinkedList<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
+	public final <E2 extends E> IContainer<E2> getRefOfType(final Class<E2> type) {
+		return (IContainer<E2>)getRefSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
 	//method
@@ -1313,12 +1295,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return a new {@link LinkedList} with the elements
-	 * the given selector selects from the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
+	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1341,12 +1321,11 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -The current {@link Container} contains m elements.
 	 * -n selectors are given.
 	 * 
-	 * @param selectors
-	 * @return a new {@link LinkedList} with the elements the given selectors selects from the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public final Container<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
+	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1379,12 +1358,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return a new {@link LinkedList} with the elements
-	 * the given selector selects not (!) from the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
+	public final IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
 		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
@@ -1394,13 +1371,11 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -This contains contains m elements.
 	 * -n selectors are given.
 	 * 
-	 * @param selectors
-	 * @return a new {@link LinkedList} with the elements
-	 * the given selectors selects not (!) from the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public final Container<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
+	public final IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
 		final var list = new LinkedList<E>();
@@ -1663,15 +1638,17 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param extractor
-	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new {@link LinkedList} with the elements
-	 * the given extractor extracts from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final <E2> Container<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+	public final <E2> IContainer<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+		
 		final var list = new LinkedList<E2>();
-		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
+		
+		for (final var e : this) {
+			list.addAtEnd(extractor.getOutput(e));
+		}
+		
 		return list;
 	}
 	
@@ -1811,15 +1788,17 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param extractor
-	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new {@link LinkedList} with the elements of the {@link Container}
-	 * the given extractor extracts from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final <E2> LinkedList<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
+	public final <E2> IContainer<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
+		
 		final var list = new LinkedList<E2>();
-		forEach(e -> list.addAtEnd(extractor.getOutput(e)));
+		
+		for (final var e : this) {
+			list.addAtEnd(extractor.getOutput(e));
+		}
+		
 		return list;
 	}
 	
@@ -1845,16 +1824,6 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		return array;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @return a new {@link LinkedList} with the elements from the current {@link Container}.
-	 */
-	public final Container<E> toList() {
-		return to(FunctionCatalogue::getSelf);
 	}
 	
 	//method
@@ -1954,11 +1923,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @return a new {@link LinkedList}
-	 * with the Strings that represent the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<String> toStrings() {
+	public final IContainer<String> toStrings() {
 		return to(E::toString);
 	}
 	
@@ -1972,7 +1940,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
 	@Override
-	public final Container<E> until(final int endIndex) {
+	public final IContainer<E> until(final int endIndex) {
 		return new SubContainer<>(this, 1, endIndex);
 	}
 	
@@ -1980,11 +1948,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return a new sub container of the current {@link Container} without the first element.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> withoutFirst() {
+	public final IContainer<E> withoutFirst() {
 		
 		if (isEmpty()) {
 			throw EmptyArgumentException.forArgument(this);
@@ -1997,12 +1964,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return a new sub {@link Container} from the current {@link Container} without
-	 * the first occurrence of the given element.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> withoutFirst(final E element) {
+	public final IContainer<E> withoutFirst(final E element) {
 		
 		final var indexContainer = getOptionalIndexOfFirst(element);
 		
@@ -2018,12 +1983,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param n
-	 * @return a new sub container of the current {@link Container} without the first n elements.
-	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> withoutFirst(final int n) {
+	public final IContainer<E> withoutFirst(final int n) {
 		
 		final var elementCount = getElementCount();
 		
@@ -2043,11 +2006,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return a new sub container of the current {@link Container} without the last element.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> withoutLast() {
+	public final IContainer<E> withoutLast() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -2061,13 +2023,10 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param n
-	 * @return a new sub container of the current {@link Container}
-	 * without the last n elements of the current {@link Container}.
-	 * @throws NonPositiveArgumentException if the given n is not positive.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final Container<E> withoutLast(final int n) {
+	public final IContainer<E> withoutLast(final int n) {
 		
 		final var elementCount = getElementCount();
 		
