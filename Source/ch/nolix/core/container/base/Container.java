@@ -1996,18 +1996,18 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final IContainer<E> withoutFirst(final int n) {
 		
-		final var elementCount = getElementCount();
-		
 		//Asserts that the given n is positive.
 		GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 		
-		//Handles the case that the current IContainer contains less than n elements.
-		if (n < elementCount) {
+		final var elementCount = getElementCount();
+				
+		//Handles the case that the current IContainer contains more than n elements.
+		if (elementCount > n) {
 			return new SubContainer<>(this, n + 1, elementCount);
 		}
 		
-		//Handles the case that the current IContainer contains n elements.
-		return new ReadContainer<>();
+		//Handles the case that the current IContainer contains n or less elements.
+		return createEmptyMutableList(new Marker<E>());
 	}
 	
 	//method
