@@ -6,7 +6,8 @@ public record ParametrizedPropertyTypeSQLRecord(
 	String propertyTypeValue,
 	String dataTypeValue,
 	String referencedTableIdValue,
-	String backReferencedColumnIdValue) {
+	String backReferencedColumnIdValue
+) { //NOSONAR: The left curly brace is at the right place.
 	
 	//method
 	public String getBackReferencedColumnIdValue() {
