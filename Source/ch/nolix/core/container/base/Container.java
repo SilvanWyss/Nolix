@@ -23,6 +23,7 @@ import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -810,7 +811,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * in the current {@link Container} if the current {@link Container} contains the given element.
 	 * Otherwise a new empty {@link SingleContainer}.
 	 */
-	public final SingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
+	public final ISingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
 		
 		//Iterates the current IContainer.
 		var i = 1;
@@ -836,7 +837,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return either the first element the given selector selects from the current {@link Container}
 	 * or an empty {@link SingleContainer}.
 	 */
-	public final SingleContainer<E> getOptionalRefFirst(final IElementTakerBooleanGetter<E> selector) {
+	public final ISingleContainer<E> getOptionalRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {

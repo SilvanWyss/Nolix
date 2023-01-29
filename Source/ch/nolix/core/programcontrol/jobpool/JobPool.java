@@ -3,8 +3,8 @@ package ch.nolix.core.programcontrol.jobpool;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
 
@@ -59,7 +59,7 @@ public final class JobPool {
 	}
 	
 	//method
-	synchronized SingleContainer<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
+	synchronized ISingleContainer<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
 		
 		final var nextFreshJobWrapperContainer = jobWrappers.getOptionalRefFirst(JobWrapper::isFresh);
 		
