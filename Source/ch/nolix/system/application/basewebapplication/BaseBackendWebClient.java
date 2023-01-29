@@ -22,7 +22,8 @@ extends BackendClient<BBWC, AC>
 implements ICookieManager {
 	
 	//static attribute
-	private static final BaseBackendWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = new BaseBackendWebClientCommandCreator();
+	private static final BaseBackendWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR =
+	new BaseBackendWebClientCommandCreator();
 	
 	//attribute
 	private final BaseBackendWebClientFileReader fileReader = BaseBackendWebClientFileReader.forBackendWebClient(this);

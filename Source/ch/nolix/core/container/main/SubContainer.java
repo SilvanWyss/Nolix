@@ -145,7 +145,10 @@ public final class SubContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(final int p1BasedStartIndex, final int p1BasedEndIndex) {
+	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
+		final int p1BasedStartIndex,
+		final int p1BasedEndIndex
+	) {
 		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
 	}
 }
