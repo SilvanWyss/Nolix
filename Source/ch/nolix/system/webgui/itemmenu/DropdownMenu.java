@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
-//own imports
-import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;

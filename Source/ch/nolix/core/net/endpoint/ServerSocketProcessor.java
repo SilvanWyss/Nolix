@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalInputStreamHelper;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

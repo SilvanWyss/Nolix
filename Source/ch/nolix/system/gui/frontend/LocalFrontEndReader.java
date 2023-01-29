@@ -13,9 +13,8 @@ import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-//own imports
-import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;

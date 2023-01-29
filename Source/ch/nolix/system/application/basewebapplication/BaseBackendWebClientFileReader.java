@@ -4,8 +4,7 @@ package ch.nolix.system.application.basewebapplication;
 //Java imports
 import java.util.Base64;
 
-//own imports
-import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

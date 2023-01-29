@@ -3,7 +3,7 @@ package ch.nolix.system.element.multistateelement;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

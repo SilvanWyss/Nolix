@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.main;
+package ch.nolix.core.container.singlecontainer;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
