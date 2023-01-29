@@ -253,9 +253,33 @@ public abstract class Container<E> implements IContainer<E> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public final boolean containsAsManyAs(Iterable<?> container) {
 		return (getElementCount() == IterableHelper.getElementCount(container));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean containsExactlyInSameOrder(final Iterable<?> container) {
+		
+		if (container == null) {
+			return false;
+		}
+		
+		final var iterator = container.iterator();
+		for (final var e : this) {
+			if (!iterator.hasNext() || e != iterator.next()) {
+				return false;
+			}
+		}
+		
+		return !iterator.hasNext();
 	}
 	
 	//method

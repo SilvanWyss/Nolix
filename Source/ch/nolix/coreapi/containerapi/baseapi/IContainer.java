@@ -103,6 +103,15 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param container
+	 * @return true if
+	 * the current {@link IContainer} contains exactly the elements of the given container in the same order,
+	 * false otherwise.
+	 */
+	boolean containsExactlyInSameOrder(final Iterable<?> container);
+	
+	//method declaration
+	/**
+	 * @param container
 	 * @return true if the current {@link IContainer} contains less elements than the given container.
 	 */
 	boolean containsLessThan(IContainer<?> container);
