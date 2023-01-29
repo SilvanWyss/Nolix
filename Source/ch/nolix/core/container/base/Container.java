@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.main;
+package ch.nolix.core.container.base;
 
 //Java imports
 import java.lang.reflect.Array;
@@ -7,6 +7,8 @@ import java.util.Random;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
+import ch.nolix.core.container.main.SingleContainer;
+import ch.nolix.core.container.main.SubContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

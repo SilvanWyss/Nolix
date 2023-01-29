@@ -6,6 +6,8 @@ import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;

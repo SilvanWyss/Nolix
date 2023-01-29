@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.container.main.Container;
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.main.Marker;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;

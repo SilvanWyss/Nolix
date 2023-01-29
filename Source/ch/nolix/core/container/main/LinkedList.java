@@ -3,6 +3,8 @@ package ch.nolix.core.container.main;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;

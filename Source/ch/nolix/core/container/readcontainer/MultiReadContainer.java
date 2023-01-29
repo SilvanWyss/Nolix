@@ -4,10 +4,9 @@ package ch.nolix.core.container.readcontainer;
 //Java imports
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.core.container.main.Container;
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.main.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;

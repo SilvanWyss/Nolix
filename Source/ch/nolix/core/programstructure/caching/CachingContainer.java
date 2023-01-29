@@ -4,10 +4,9 @@ package ch.nolix.core.programstructure.caching;
 //Java imports
 import java.util.Iterator;
 
-//own imports
-import ch.nolix.core.container.main.Container;
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.main.Marker;
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

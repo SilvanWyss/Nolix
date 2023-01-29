@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.core.container.compressedcontainer} package defines
- * compressed {@link ch.nolix.core.container.main.Container}s.
+ * compressed {@link ch.nolix.core.container.base.Container}s.
  * 
  * @author Silvan Wyss
  * @date 2022-04-30

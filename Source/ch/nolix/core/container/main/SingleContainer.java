@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.container.main;
 
+import ch.nolix.core.container.base.Container;
+import ch.nolix.core.container.base.Marker;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
