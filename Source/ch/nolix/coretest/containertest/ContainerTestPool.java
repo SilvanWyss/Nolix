@@ -3,6 +3,7 @@ package ch.nolix.coretest.containertest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
+import ch.nolix.coretest.containertest.singlecontainertest.SingleContainerTest;
 
 //class
 /**

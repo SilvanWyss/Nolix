@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.containertest;
+package ch.nolix.coretest.containertest.singlecontainertest;
 
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.testing.basetest.TestCase;
