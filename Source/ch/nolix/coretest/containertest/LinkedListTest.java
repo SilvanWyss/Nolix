@@ -88,7 +88,7 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_addAtEnd_whenTheGivenElementIsNull() {
 		
 		//setup
-		final var testUnit = LinkedList.withElements();
+		final var testUnit = new LinkedList<>();
 		final Object nullElement = null;
 		
 		//execution & verification

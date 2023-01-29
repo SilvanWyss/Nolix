@@ -15,11 +15,15 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	
 	//constructor
 	@SafeVarargs
-	public ForwardingProperty(final String name, final MaterializedProperty<S, V>... materializedProperties) {
+	public ForwardingProperty(
+		final String name,
+		final MaterializedProperty<S, V> materializedProperty,
+		final MaterializedProperty<S, V>... materializedProperties
+	) {
 		
 		super(name);
 		
-		this.materializedProperties = LinkedList.withElements(materializedProperties);
+		this.materializedProperties = LinkedList.withElements(materializedProperty, materializedProperties);
 	}
 	
 	//constructor

@@ -77,17 +77,15 @@ public final class ReadContainer<E> extends Container<E> {
 	
 	//static method
 	/**
-	 * Creates a new {@link ReadContainer} with the given elements.
-	 * 
+	 * @param firstElement
 	 * @param elements
-	 * @param <E2> is the type of the elements of the given elements.
-	 * @return a new {@link ReadContainer} for the given elements.
-	 * @throws ArgumentIsNullException if the given elements is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 * @param <E2> is the type of the given elements.
+	 * @return a new {@link ReadContainer} with the given elements.
+	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E2> ReadContainer<E2> withElements(final E2... elements) {
-		return new ReadContainer<>(LinkedList.withElements(elements));
+	public static <E2> ReadContainer<E2> withElements(final E2 firstElement, final E2... elements) {
+		return new ReadContainer<>(LinkedList.withElements(firstElement, elements));
 	}
 	
 	//attribute

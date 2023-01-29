@@ -57,15 +57,18 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	/**
 	 * Appends the given commands to current {@link EndPoint}.
 	 * 
+	 * @param firstCommand
 	 * @param commands
-	 * @throws ArgumentIsNullException if one of the given commands is null.
+	 * @throws ArgumentIsNullException if the given firstCommand or one of the given commands is null.
 	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
-	public final void appendCommand(final ChainedNode... commands) {
+	public final void appendCommands(final ChainedNode firstCommand, ChainedNode... commands) {
 		
-		assertIsOpen();
+		appendCommand(firstCommand);
 		
-		appendedCommands.addAtEnd(commands);
+		for (final var c : commands) {
+			appendCommand(c);
+		}
 	}
 	
 	//method

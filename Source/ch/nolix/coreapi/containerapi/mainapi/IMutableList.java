@@ -14,13 +14,31 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
+	 * Adds the given element at the end of the current {@link IMutableList}.
+	 * 
+	 * @param element
+	 * @throws RuntimeException if the given elements is null.
+	 */
+	void addAtEnd(E element);
+	
+	//method declaration
+	/**
+	 * Adds the given firstElement and the given elements at the end of the current {@link IMutableList}.
+	 * 
+	 * @param firstElement
+	 * @param elements
+	 * @throws RuntimeException if the given firstElement or one of the given elements is null.
+	 */
+	void addAtEnd(E firstElement, @SuppressWarnings("unchecked")E... elements);
+	
+	//method declaration
+	/**
 	 * Adds the given elements at the end of the current {@link IMutableList}.
 	 * 
 	 * @param elements
 	 * @throws RuntimeException if one of the given elements is null.
 	 */
-	@SuppressWarnings("unchecked")
-	void addAtEnd(E... elements);
+	void addAtEnd(E[] elements);
 	
 	//method declaration
 	/**

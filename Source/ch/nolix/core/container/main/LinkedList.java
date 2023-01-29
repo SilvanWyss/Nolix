@@ -79,17 +79,17 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//static method
 	/**
+	 * @param firstElement
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
 	 * @return a new {@link LinkedList} with the given elements.
-	 * @throws ArgumentIsNullException if the given elements is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E2> LinkedList<E2> withElements(final E2... elements) {
+	public static <E2> LinkedList<E2> withElements(final E2 firstElement, final E2... elements) {
 		
 		final var list = new LinkedList<E2>();
-		list.addAtEnd(elements);
+		list.addAtEnd(firstElement, elements);
 		
 		return list;
 	}
@@ -255,12 +255,11 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Adds the given element at the end of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void addAtEnd(final E element) {
 		
 		//Creates new node.
@@ -278,19 +277,33 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Adds the given elements at the end of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if the given element container is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 * {@inheritDoc}
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
-	public void addAtEnd(final E... elements) {
+	@SafeVarargs
+	public final void addAtEnd( //NOSONAR: final keyword is required for SaveVarargs annotation.
+		final E firstElement,
+		final E... elements
+	) { 
 		
-		//Asserts that the given element container is not null.
-		GlobalValidator.assertThat(elements).thatIsNamed("element container").isNotNull();
+		addAtEnd(firstElement);
+		
+		//Iterates the given elements.
+		for (final E e: elements) {
+			addAtEnd(e);
+		}
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if n elements are given.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addAtEnd(E[] elements) {
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
