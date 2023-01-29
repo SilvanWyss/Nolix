@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.itemmenu;
 //own imports
 import ch.nolix.core.container.main.SingleContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
-import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;

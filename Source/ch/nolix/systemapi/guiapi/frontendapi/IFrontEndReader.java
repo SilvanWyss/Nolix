@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.guiapi.frontendapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 
 //interface
 public interface IFrontEndReader {

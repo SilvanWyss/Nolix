@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.webapi.sessionapi.ICookieManager;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.FixedIdentifiedByString;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
-import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;

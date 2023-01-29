@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.containerapi.mainapi;
+package ch.nolix.coreapi.containerapi.singlecontainerapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;

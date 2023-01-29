@@ -4,7 +4,7 @@ package ch.nolix.system.application.basewebapplication;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.ISingleContainer;
+import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 //class
