@@ -1180,7 +1180,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return the first 2 elements of the current {@link Container}
 	 * the given selector selects together or null.
 	 */
-	public final Pair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
+	public final IPair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
 
 		//Iterates the current IContainer.
 		for (final var e : this) {
