@@ -14,7 +14,7 @@ import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class GridContainerCell extends MutableElement<GridContainerCell>  implements Clearable {
+public final class GridContainerCell extends MutableElement implements Clearable {
 	
 	//constant
 	private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;

@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
 //class
-public final class ItemMenuItem extends MutableElement<ItemMenuItem> implements IItemMenuItem<ItemMenuItem> {
+public final class ItemMenuItem extends MutableElement implements IItemMenuItem<ItemMenuItem> {
 	
 	//constant
 	public static final boolean DEFAULT_SELECTION_FLAG = false;

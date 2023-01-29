@@ -34,7 +34,7 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
 //class
-public final class MutableImage extends MutableElement<MutableImage> implements IMutableImage<MutableImage> {
+public final class MutableImage extends MutableElement implements IMutableImage<MutableImage> {
 	
 	//constant
 	private static final String PIXEL_ARRAY_HEADER = "PixelArray";

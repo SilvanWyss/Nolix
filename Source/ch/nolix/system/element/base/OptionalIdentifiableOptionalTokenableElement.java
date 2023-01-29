@@ -12,10 +12,8 @@ import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 
 //class
-public abstract class OptionalIdentifiableOptionalTokenableElement<
-	E extends StylableElement<E>
->
-extends MutableElement<E>
+public abstract class OptionalIdentifiableOptionalTokenableElement<E extends StylableElement<E>>
+extends MutableElement
 implements FluentOptionalIdentifiableByString<E>, FluentOptionalTokenable<E> {
 	
 	//constant
@@ -114,6 +112,12 @@ implements FluentOptionalIdentifiableByString<E>, FluentOptionalTokenable<E> {
 		this.token.setValue(token);
 		
 		return asConcrete();
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	protected final E asConcrete() {
+		return (E)this;
 	}
 	
 	//method declaration

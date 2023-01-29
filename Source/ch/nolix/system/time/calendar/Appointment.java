@@ -3,7 +3,6 @@ package ch.nolix.system.time.calendar;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -15,7 +14,7 @@ import ch.nolix.systemapi.timeapi.calendarapi.IMutableAppointment;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class Appointment extends MutableElement<Appointment> implements IMutableAppointment<Appointment> {
+public final class Appointment extends MutableElement implements IMutableAppointment<Appointment> {
 	
 	//constant
 	public static final String DEFAULT_SUBJECT = PascalCaseCatalogue.APPOINTMENT;

@@ -18,9 +18,8 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 /**
  * @author Silvan Wyss
  * @date 2017-10-29
- * @param <ME> is the type of a {@link MutableElement}.
  */
-public abstract class MutableElement<ME extends MutableElement<ME>> extends Element implements IMutableElement {
+public abstract class MutableElement extends Element implements IMutableElement {
 	
 	//multi-attribute
 	private LinkedList<Property> properties;
@@ -89,15 +88,6 @@ public abstract class MutableElement<ME extends MutableElement<ME>> extends Elem
 	 */
 	public final void resetFromFileWithFilePath(final String filePath) {
 		resetFromSpecification(Node.fromFile(filePath));
-	}
-	
-	//method
-	/**
-	 * @return the current {@link MutableElement} as concrete {@link MutableElement}.
-	 */
-	@SuppressWarnings("unchecked")
-	protected final ME asConcrete() {
-		return (ME)this;
 	}
 	
 	//method

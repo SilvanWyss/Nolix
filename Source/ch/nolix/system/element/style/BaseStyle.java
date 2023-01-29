@@ -24,9 +24,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @date 2016-01-01
  * @param <C> is the type of a {@link BaseStyle}.
  */
-public abstract class BaseStyle<C extends BaseStyle<C>>
-extends MutableElement<C>
-implements IStyle {
+public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement implements IStyle {
 	
 	//constants
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -504,6 +502,12 @@ implements IStyle {
 		assertDoesNotContainerSelectorRole(selectorRole);
 		
 		selectorRoles.add(selectorRole);
+	}
+	
+	//method
+	@SuppressWarnings("unchecked")
+	private C asConcrete() {
+		return (C)this;
 	}
 	
 	//method
