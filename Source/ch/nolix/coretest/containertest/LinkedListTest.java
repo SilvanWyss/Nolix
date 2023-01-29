@@ -7,6 +7,7 @@ import ch.nolix.core.container.main.SequencePattern;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class LinkedListTest extends ContainerTest {

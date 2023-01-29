@@ -5,6 +5,7 @@ package ch.nolix.coretest.containertest;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class ReadContainerTest extends ContainerTest {

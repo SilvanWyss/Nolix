@@ -5,6 +5,7 @@ package ch.nolix.coretest.containertest;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class MatrixTest extends ContainerTest {
