@@ -139,4 +139,13 @@ public final class SubContainer<E> extends Container<E> {
 	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(final int p1BasedStartIndex, final int p1BasedEndIndex) {
+		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
+	}
 }

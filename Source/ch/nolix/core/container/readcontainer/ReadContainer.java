@@ -8,6 +8,7 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.SubContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -215,5 +216,17 @@ public final class ReadContainer<E> extends Container<E> {
 	@Override
 	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
+		final int p1BasedStartIndex,
+		final int p1BasedEndIndex
+	) {
+		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
 	}
 }

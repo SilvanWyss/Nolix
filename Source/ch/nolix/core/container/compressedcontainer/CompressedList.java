@@ -7,6 +7,7 @@ import java.util.Iterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.SubContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -116,5 +117,14 @@ public final class CompressedList<E> extends Container<E> {
 	@Override
 	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
+	}
+	
+	//method
+	@Override
+	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
+		final int p1BasedStartIndex,
+		final int p1BasedEndIndex
+	) {
+		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
 	}
 }

@@ -7,6 +7,7 @@ import java.util.Iterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.SubContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -142,6 +143,18 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	@Override
 	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
+		final int p1BasedStartIndex,
+		final int p1BasedEndIndex
+	) {
+		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
 	}
 	
 	//method

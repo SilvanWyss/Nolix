@@ -7,14 +7,15 @@ import java.util.Random;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
-import ch.nolix.core.container.main.SubContainer;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
@@ -490,7 +491,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final IContainer<E> from(final int startIndex) {
-		return new SubContainer<>(this, startIndex, getElementCount());
+		return getSubContainerFromStartIndexToEndIndex(startIndex, getElementCount());
 	}
 	
 	//method
@@ -501,7 +502,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final IContainer<E> fromUntil(final int startIndex, final int endIndex) {
-		return new SubContainer<>(this, startIndex, endIndex);
+		return getSubContainerFromStartIndexToEndIndex(startIndex, endIndex);
 	}
 	
 	//method
@@ -1948,7 +1949,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final IContainer<E> until(final int endIndex) {
-		return new SubContainer<>(this, 1, endIndex);
+		return getSubContainerFromStartIndexToEndIndex(1, endIndex);
 	}
 	
 	//method
@@ -1983,7 +1984,7 @@ public abstract class Container<E> implements IContainer<E> {
 				
 		//Handles the case that the current IContainer contains more than n elements.
 		if (elementCount > n) {
-			return new SubContainer<>(this, n + 1, elementCount);
+			return getSubContainerFromStartIndexToEndIndex(n + 1, elementCount);
 		}
 		
 		//Handles the case that the current IContainer contains n or less elements.
@@ -2023,7 +2024,7 @@ public abstract class Container<E> implements IContainer<E> {
 				
 		//Handles the case that the current IContainer contains more than n elements.
 		if (elementCount > 0) {
-			return new SubContainer<>(this, 0, elementCount - n);
+			return getSubContainerFromStartIndexToEndIndex(0, elementCount - n);
 		}
 		
 		//Handles the case that the current IContainer contains n or less elements.
@@ -2035,6 +2036,23 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return a new empty {@link IMutableList}.
 	 */
 	protected abstract <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker);
+	
+	//method declaration
+	/**
+	 * @param p1BasedStartIndex
+	 * @param p1BasedEndIndex
+	 * @return a {@link IContainer} that
+	 * views the current {@link Container} from the given p1BasedStartIndex to the given p1BasedEndIndex.
+	 * @throws NonPositiveArgumentException if the given p1BasedStartIndex is not positive.
+	 * @throws NonPositiveArgumentException if the given p1BasedEndIndex is not positive.
+	 * @throws SmallerArgumentException if the given p1BasedEndIndex is smaller than the given p1BasedStartIndex.
+	 * @throws BiggerArgumentException if
+	 * the given endIndex is bigger than the number of elements of the current {@link Container}.
+	 */
+	protected abstract IContainer<E> getSubContainerFromStartIndexToEndIndex(
+		int p1BasedStartIndex,
+		int p1BasedEndIndex
+	);
 	
 	//method
 	private void assertIsNotEmpty() {
