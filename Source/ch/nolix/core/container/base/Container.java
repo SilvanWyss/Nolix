@@ -9,7 +9,6 @@ import java.util.Random;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.main.SubContainer;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -1966,25 +1965,6 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		return withoutFirst(1);
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final IContainer<E> withoutFirst(final E element) {
-		
-		final var indexContainer = getOptionalIndexOfFirst(element);
-		
-		if (indexContainer.isEmpty()) {
-			return this;
-		}
-		
-		final var index = indexContainer.getRefElement();
-		return ReadContainer.forIterables(withoutLast(index + 1), withoutFirst(index - 1));
 	}
 	
 	//method

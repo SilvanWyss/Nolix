@@ -748,14 +748,6 @@ d	 *
 	
 	//method declaration
 	/**
-	 * @param element
-	 * @return a new sub@link IContainer from the current {@link IContainer} without
-	 * the first occurrence of the given element.
-	 */
-	IContainer<E> withoutFirst(E element);
-	
-	//method declaration
-	/**
 	 * @param n
 	 * @return a new sub container of the current {@link IContainer} without the first n elements.
 	 * @throws RuntimeException if the given n is not positive.
