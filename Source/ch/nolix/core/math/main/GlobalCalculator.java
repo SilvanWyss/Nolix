@@ -3,7 +3,7 @@ package ch.nolix.core.math.main;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.pair.FPNPair;
+import ch.nolix.core.container.pair.FloatingPointNumberPair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -34,10 +34,10 @@ public final class GlobalCalculator {
 	/**
 	 * @param xValues
 	 * @param yValues
-	 * @return a new {@link LinkedList} with {@link FPNPair}s created from the given xValues and yValues.
+	 * @return a new {@link LinkedList} with {@link FloatingPointNumberPair}s created from the given xValues and yValues.
 	 * @throws InvalidArgumentException if the count of the given yValues does not equal the count of the given xValues.
 	 */
-	public static LinkedList<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
+	public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		return GlobalBaseCalculator.createFPNPairs(xValues, yValues);
 	}
 	

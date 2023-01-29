@@ -3,7 +3,7 @@ package ch.nolix.core.math.base;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.pair.FPNPair;
+import ch.nolix.core.container.pair.FloatingPointNumberPair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -23,17 +23,17 @@ public final class GlobalBaseCalculator {
 	/**
 	 * @param xValues
 	 * @param yValues
-	 * @return a new {@link LinkedList} with {@link FPNPair}s created from the given xValues and yValues.
+	 * @return a new {@link LinkedList} with {@link FloatingPointNumberPair}s created from the given xValues and yValues.
 	 * @throws InvalidArgumentException if the count of the given yValues does not equal the count of the given xValues.
 	 */
-	public static LinkedList<FPNPair> createFPNPairs(final double[] xValues, final double[] yValues) {
+	public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 		
 		//Asserts that the count of the given yValues equals the count of the given xValues.
 		GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 		
-		final var lFPNPairs = new LinkedList<FPNPair>();
+		final var lFPNPairs = new LinkedList<FloatingPointNumberPair>();
 		for (var i = 0; i < xValues.length; i++) {
-			lFPNPairs.addAtEnd(new FPNPair(xValues[i], yValues[i]));
+			lFPNPairs.addAtEnd(new FloatingPointNumberPair(xValues[i], yValues[i]));
 		}
 		
 		return lFPNPairs;

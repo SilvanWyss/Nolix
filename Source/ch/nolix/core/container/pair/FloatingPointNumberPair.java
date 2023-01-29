@@ -3,14 +3,14 @@ package ch.nolix.core.container.pair;
 
 //class
 /**
- * A {@link FPNPair} contains two floating point numbers.
+ * A {@link FloatingPointNumberPair} contains two floating point numbers.
  * FPN = floating pointer number.
- * A {@link FPNPair} is not mutable.
+ * A {@link FloatingPointNumberPair} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2016-08-01
  */
-public final class FPNPair {
+public final class FloatingPointNumberPair {
 	
 	//constant
 	public static final double DEFAULT_VALUE = 0.0;
@@ -21,9 +21,9 @@ public final class FPNPair {
 	
 	//constructor
 	/**
-	 * Creates a new {@link FPNPair} with default values.
+	 * Creates a new {@link FloatingPointNumberPair} with default values.
 	 */
-	public FPNPair() {
+	public FloatingPointNumberPair() {
 		
 		//Calls other constructor.
 		this(DEFAULT_VALUE, DEFAULT_VALUE);
@@ -31,12 +31,12 @@ public final class FPNPair {
 	
 	//constructor
 	/**
-	 * Creates a new {@link FPNPair} with the given values.
+	 * Creates a new {@link FloatingPointNumberPair} with the given values.
 	 * 
 	 * @param value1
 	 * @param value2
 	 */
-	public FPNPair(final double value1, final double value2) {
+	public FloatingPointNumberPair(final double value1, final double value2) {
 		
 		//Sets the values of the current FPNPair.
 		this.value1 = value1;
@@ -51,18 +51,18 @@ public final class FPNPair {
 	public boolean equals(final Object object) {
 				
 		//Handles the case that the given object is not a FPNPair.
-		if (!(object instanceof FPNPair)) {
+		if (!(object instanceof FloatingPointNumberPair)) {
 			return false;
 		}
 		
 		//Handles the case that the given object is a FPNPair.
-		final var lFPNPair = (FPNPair)object;
+		final var lFPNPair = (FloatingPointNumberPair)object;
 		return (getValue1() == lFPNPair.getValue1() && getValue2() == lFPNPair.getValue2());
 	}
 	
 	//method
 	/**
-	 * @return value 1 of the current {@link FPNPair}.
+	 * @return value 1 of the current {@link FloatingPointNumberPair}.
 	 */
 	public double getValue1() {
 		return value1;
@@ -70,7 +70,7 @@ public final class FPNPair {
 	
 	//method
 	/**
-	 * @return value 2 of the current {@link FPNPair}.
+	 * @return value 2 of the current {@link FloatingPointNumberPair}.
 	 */
 	public double getValue2() {
 		return value2;
