@@ -5,7 +5,7 @@ import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.BackendWebClient;

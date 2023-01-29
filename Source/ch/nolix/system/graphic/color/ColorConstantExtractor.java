@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.reflection.GlobalFieldHelper;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 final class ColorConstantExtractor {

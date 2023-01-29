@@ -2,8 +2,8 @@
 package ch.nolix.business.serverdashboardapplication;
 
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;

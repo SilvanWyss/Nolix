@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;

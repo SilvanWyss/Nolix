@@ -3,7 +3,7 @@ package ch.nolix.system.nodedatabaserawdata.databasereader;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
 import ch.nolix.system.sqlrawdata.databasedto.LoadedEntityDTO;

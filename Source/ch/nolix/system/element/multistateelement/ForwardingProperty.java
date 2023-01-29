@@ -3,7 +3,7 @@ package ch.nolix.system.element.multistateelement;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 

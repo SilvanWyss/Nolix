@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedBackReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedMultiValueType;

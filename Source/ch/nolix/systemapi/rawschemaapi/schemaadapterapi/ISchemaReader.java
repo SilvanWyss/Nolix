@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;

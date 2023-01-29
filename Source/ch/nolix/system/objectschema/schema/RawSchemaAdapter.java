@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schema;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;

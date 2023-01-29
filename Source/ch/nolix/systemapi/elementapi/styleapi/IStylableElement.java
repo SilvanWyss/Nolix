@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.styleapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 

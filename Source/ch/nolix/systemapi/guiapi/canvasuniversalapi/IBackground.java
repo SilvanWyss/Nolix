@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.canvasuniversalapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;

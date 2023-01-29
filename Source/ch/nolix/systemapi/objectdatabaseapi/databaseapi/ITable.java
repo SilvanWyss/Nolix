@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IdentifiedByString;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface

@@ -3,7 +3,7 @@ package ch.nolix.coretest.containertest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 public final class ImmutableListTest extends ContainerTest {

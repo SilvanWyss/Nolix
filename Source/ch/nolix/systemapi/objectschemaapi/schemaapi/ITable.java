@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.FluentNamable;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IdentifiedByString;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;

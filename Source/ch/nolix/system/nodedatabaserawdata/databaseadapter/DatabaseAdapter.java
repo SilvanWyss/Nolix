@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.databaseadapter;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.databasereader.DatabaseReader;
 import ch.nolix.system.nodedatabaserawdata.databasereader.TableDefinitionLoader;

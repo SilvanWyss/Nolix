@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.MandatoryRequestable;

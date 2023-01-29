@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.databaseadapter;
 
 //own imports
 import ch.nolix.core.sql.SQLConnectionPool;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.rawdatabase.databaseadapter.BaseDatabaseAdapter;
 import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.databasereader.DatabaseReader;

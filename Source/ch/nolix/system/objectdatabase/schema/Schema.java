@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.schema;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;

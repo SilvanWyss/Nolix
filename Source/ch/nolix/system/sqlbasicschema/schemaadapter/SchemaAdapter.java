@@ -4,7 +4,7 @@ package ch.nolix.system.sqlbasicschema.schemaadapter;
 //own imports
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SQLConnectionPool;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.sqlbasicschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemaadapterapi.ISchemaReader;

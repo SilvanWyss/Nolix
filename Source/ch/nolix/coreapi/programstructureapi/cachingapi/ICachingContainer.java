@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programstructureapi.cachingapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
 public interface ICachingContainer<E> extends IContainer<E> {

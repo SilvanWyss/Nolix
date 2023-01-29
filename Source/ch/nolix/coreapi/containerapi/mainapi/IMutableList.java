@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.mainapi;
 
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 

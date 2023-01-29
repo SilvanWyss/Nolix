@@ -4,7 +4,7 @@ package ch.nolix.system.sqlbasicschema.schemadto;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.ConstraintType;
 import ch.nolix.systemapi.sqlbasicschemaapi.schemadtoapi.IConstraintDTO;
 

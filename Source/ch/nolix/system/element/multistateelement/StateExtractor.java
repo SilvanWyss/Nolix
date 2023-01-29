@@ -3,7 +3,7 @@ package ch.nolix.system.element.multistateelement;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 final class StateExtractor<S extends Enum<S>> {

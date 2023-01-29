@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 //own imports
 import ch.nolix.core.container.matrix.GapMatrix;
 import ch.nolix.core.testing.basetest.TestCase;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 public final class GapMatrixTest extends ContainerTest {

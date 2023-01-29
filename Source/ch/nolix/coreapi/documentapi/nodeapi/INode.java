@@ -3,7 +3,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;

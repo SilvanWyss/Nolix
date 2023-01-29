@@ -4,7 +4,7 @@ package ch.nolix.core.sql;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //class

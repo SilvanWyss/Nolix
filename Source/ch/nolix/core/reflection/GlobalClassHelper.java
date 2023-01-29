@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 //own imports
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 public final class GlobalClassHelper {

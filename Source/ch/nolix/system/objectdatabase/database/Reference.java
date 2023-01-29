@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.database;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceValidator;
 import ch.nolix.system.sqlrawdata.databasedto.ContentFieldDTO;

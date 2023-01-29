@@ -3,7 +3,7 @@ package ch.nolix.coreapi.documentapi.chainednodeapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
 

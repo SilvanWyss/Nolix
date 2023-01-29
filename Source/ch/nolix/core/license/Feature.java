@@ -3,7 +3,7 @@ package ch.nolix.core.license;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 /**

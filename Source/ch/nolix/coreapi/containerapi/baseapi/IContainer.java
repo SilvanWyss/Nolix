@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.containerapi.mainapi;
+package ch.nolix.coreapi.containerapi.baseapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.pairapi.IPair;

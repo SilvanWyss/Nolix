@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.schemamapperapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;

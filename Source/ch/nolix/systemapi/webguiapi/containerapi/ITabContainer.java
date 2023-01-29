@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
-//own imports
-import ch.nolix.coreapi.containerapi.mainapi.IContainer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabelStyle;
 
