@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.mainapi;
 
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+//own imports
+import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 
 //interface
-public interface ISingleContainer<E> extends IContainer<E> {
+public interface ISingleContainer<E> extends EmptinessRequestable {
 	
 	//method declaration
 	E getRefElement();
