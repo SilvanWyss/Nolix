@@ -416,25 +416,18 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	/**
 	 * An object equals a list if it is a list containing exactly the same elements.
 	 * 
-	 * @return true if the given object equals the current {@link LinkedList}.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean equals(Object object) {
+	public boolean equals(final Object object) {
 		
-		//Handles the case that the given object is not a list.
-		if (!(object instanceof LinkedList<?>)) {
-			return false;
+		//Handles the case that the given object is a LinkedList.
+		if (object instanceof LinkedList<?> linkedList) {
+			return containsExactlyInSameOrder(linkedList);
 		}
 		
-		//Handles the case that the given object is a list.
-		
-			final var list = (LinkedList<?>)object;
-			
-			if (getElementCount() != list.getElementCount()) {
-				return false;
-			}
-			
-			return containsAll(list);
+		//Handles the case that the given object is not a LinkedList.
+		return false;
 	}
 	
 	//method
