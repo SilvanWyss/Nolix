@@ -148,6 +148,53 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_containsExactlyInSameOrder_whenIsEmptyAndGivenContainerIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		final var container = createEmptyContainerForType(String.class);
+		
+		//execution
+		final var result = testUnit.containsExactlyInSameOrder(container);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public final void
+	testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var container = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.containsExactlyInSameOrder(container);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public final void
+	testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxxx", "xxxxx");
+		
+		//execution
+		final var result = testUnit.containsExactlyInSameOrder(container);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_containsOne_1A() {
 		
 		//setup
