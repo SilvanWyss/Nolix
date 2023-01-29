@@ -128,7 +128,7 @@ public final class SingleContainer<E> extends Container<E> implements ISingleCon
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected IMutableList<E> createEmptyMutableList() {
+	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 }

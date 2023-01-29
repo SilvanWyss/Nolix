@@ -1202,7 +1202,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public IContainer<? extends IContainer<E>> getRefGroups(final IElementTakerElementGetter<E, ?> norm) {
 		
-		final var groups = new LinkedList<IMutableList<E>>();
+		final var groups = createEmptyMutableList(new Marker<IMutableList<E>>());
 		
 		//Iterates the current list.
 		for (final var e : this) {
@@ -1212,7 +1212,7 @@ public abstract class Container<E> implements IContainer<E> {
 			
 			if (group == null) {
 				
-				final var list = createEmptyMutableList();
+				final var list = createEmptyMutableList(new Marker<E>());
 				list.addAtEnd(e);
 				
 				groups.addAtEnd(list);
@@ -1306,7 +1306,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
-		final var list = createEmptyMutableList();
+		final var list = createEmptyMutableList(new Marker<E>());
 		
 		//Fills up the list with the elements the given selector selects from the current IContainer.
 		for (final var e : this) {
@@ -1333,7 +1333,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
-		final var list = createEmptyMutableList();
+		final var list = createEmptyMutableList(new Marker<E>());
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1383,7 +1383,7 @@ public abstract class Container<E> implements IContainer<E> {
 	public final IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E>... selectors) {
 		
 		//Creates list.
-		final var list = createEmptyMutableList();
+		final var list = createEmptyMutableList(new Marker<E>());
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -1648,7 +1648,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final <E2> IContainer<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		
-		final var list = new LinkedList<E2>();
+		final var list = createEmptyMutableList(new Marker<E2>());
 		
 		for (final var e : this) {
 			list.addAtEnd(extractor.getOutput(e));
@@ -1798,7 +1798,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final <E2> IContainer<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
 		
-		final var list = new LinkedList<E2>();
+		final var list = createEmptyMutableList(new Marker<E2>());
 		
 		for (final var e : this) {
 			list.addAtEnd(extractor.getOutput(e));
@@ -2051,7 +2051,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * @return a new empty {@link IMutableList}.
 	 */
-	protected abstract IMutableList<E> createEmptyMutableList();
+	protected abstract <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker);
 	
 	//method
 	private void assertIsNotEmpty() {

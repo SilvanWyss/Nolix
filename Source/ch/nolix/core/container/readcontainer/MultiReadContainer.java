@@ -7,6 +7,7 @@ import java.util.Iterator;
 //own imports
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -81,7 +82,7 @@ final class MultiReadContainer<E> extends Container<E> {
 	
 	//method
 	@Override
-	protected IMutableList<E> createEmptyMutableList() {
+	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 }

@@ -134,7 +134,7 @@ public final class SubContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected IMutableList<E> createEmptyMutableList() {
+	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 }

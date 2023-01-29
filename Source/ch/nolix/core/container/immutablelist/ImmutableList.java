@@ -9,6 +9,7 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.Marker;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -160,7 +161,7 @@ public final class ImmutableList<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected IMutableList<E> createEmptyMutableList() {
+	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 }

@@ -5,6 +5,7 @@ package ch.nolix.core.container.matrix;
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.main.Container;
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.main.Marker;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.mainapi.IContainer;
@@ -78,7 +79,7 @@ public final class MatrixRow<E> extends Container<E> {
 	
 	//method
 	@Override
-	protected IMutableList<E> createEmptyMutableList() {
+	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 }
