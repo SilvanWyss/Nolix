@@ -137,6 +137,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
+	@Override
 	public boolean hasMixedContent() {
 		return (hasValue() && containsChildNodes());
 	}

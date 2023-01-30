@@ -19,4 +19,7 @@ public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNamable<N
 	
 	//method declaration
 	IContainer<N> getRefChildNodes();
+	
+	//method declaration
+	boolean hasMixedContent();
 }
