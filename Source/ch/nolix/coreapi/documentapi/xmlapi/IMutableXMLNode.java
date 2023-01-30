@@ -1,0 +1,12 @@
+//package declaration
+package ch.nolix.coreapi.documentapi.xmlapi;
+
+//interface
+public interface IMutableXMLNode extends IXMLNode<IMutableXMLNode> {
+	
+	//method declaration
+	IMutableXMLNode addChildNode(IMutableXMLNode childNode);
+	
+	//method declaration
+	IMutableXMLNode addChildNodes(IMutableXMLNode firstChildNode, IMutableXMLNode... childNodes);
+}
