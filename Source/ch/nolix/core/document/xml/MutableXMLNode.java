@@ -89,6 +89,11 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
+	public IContainer<XMLAttribute> getAttributes() {
+		return attributes;
+	}
+	
+	//method
 	public int getAttributeCount() {
 		return attributes.getElementCount();
 	}
@@ -96,19 +101,6 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	//method
 	public int getChildNodeCount() {
 		return childNodes.getElementCount();
-	}
-	
-	//method
-	public String getValue() {
-		
-		supposeHasValue();
-		
-		return value;
-	}
-	
-	//method
-	public IContainer<XMLAttribute> getAttributes() {
-		return attributes;
 	}
 	
 	//method
@@ -132,6 +124,14 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	@Override
 	public IContainer<MutableXMLNode> getRefChildNodes() {
 		return childNodes;
+	}
+	
+	//method
+	public String getValue() {
+		
+		supposeHasValue();
+		
+		return value;
 	}
 	
 	//method
