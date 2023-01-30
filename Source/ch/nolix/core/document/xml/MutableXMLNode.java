@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
-import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.main.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -17,10 +17,14 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	
 	//optional attribute
 	private String name;
+	
+	//optional attribute
 	private String value;
 	
-	//multi-attributes
+	//multi-attribute
 	private final LinkedList<XMLAttribute> attributes = new LinkedList<>();
+	
+	//multi-attribute
 	private final LinkedList<MutableXMLNode> childNodes = new LinkedList<>();
 	
 	//method
@@ -73,11 +77,13 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
+	@Override
 	public boolean containsAttributes() {
 		return attributes.containsAny();
 	}
 	
 	//method
+	@Override
 	public boolean containsChildNodes() {
 		return childNodes.containsAny();
 	}
