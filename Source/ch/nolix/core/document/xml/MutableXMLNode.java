@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.xmlapi.IXMLAttribute;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 
 //class
@@ -22,7 +23,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	private String value;
 	
 	//multi-attribute
-	private final LinkedList<XMLAttribute> attributes = new LinkedList<>();
+	private final LinkedList<IXMLAttribute> attributes = new LinkedList<>();
 	
 	//multi-attribute
 	private final LinkedList<MutableXMLNode> childNodes = new LinkedList<>();
@@ -89,7 +90,8 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
-	public IContainer<XMLAttribute> getAttributes() {
+	@Override
+	public IContainer<IXMLAttribute> getAttributes() {
 		return attributes;
 	}
 	

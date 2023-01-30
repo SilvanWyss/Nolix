@@ -9,6 +9,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNamable<N> {
 	
 	//method declaration
+	IContainer<IXMLAttribute> getAttributes();
+	
+	//method declaration
 	boolean containsAttributes();
 	
 	//method declaration
