@@ -10,12 +10,66 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.xmlapi.IMutableXMLNode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLAttribute;
-import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 
 //class
-public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
+public final class MutableXMLNode implements IMutableXMLNode {
 	
+	//method
+	private static String toFormatedString(final IMutableXMLNode mutableXMLNode, final int leadingTabulatorCount) {
+		
+		final var stringBuilder = new StringBuilder();
+		
+		stringBuilder
+		.append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
+		.append('<')
+		.append(mutableXMLNode.getName());
+		
+		if (mutableXMLNode.containsAttributes()) {
+			stringBuilder
+			.append(' ')
+			.append(mutableXMLNode.getAttributes().toString(' '));
+		}
+		
+		stringBuilder.append('>');
+		
+		if (mutableXMLNode.hasValue()) {
+			if (!mutableXMLNode.hasMixedContent()) {
+				stringBuilder.append(mutableXMLNode.getValue());
+			} else {
+				stringBuilder
+				.append(CharacterCatalogue.NEW_LINE)
+				.append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
+				.append(mutableXMLNode.getValue())
+				.append(CharacterCatalogue.NEW_LINE);
+				
+			}
+		}
+		
+		if (mutableXMLNode.containsChildNodes()) {
+			
+			for (final var cn : mutableXMLNode.getRefChildNodes()) {
+				stringBuilder
+				.append(CharacterCatalogue.NEW_LINE)
+				.append(toFormatedString(cn, leadingTabulatorCount + 1));
+			}
+			
+			stringBuilder.append(CharacterCatalogue.NEW_LINE);
+		}
+		
+		if (mutableXMLNode.containsChildNodes()) {
+			stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
+		}
+			
+		stringBuilder
+		.append("</")
+		.append(mutableXMLNode.getName())
+		.append('>');
+		
+		return stringBuilder.toString();
+	}
+
 	//optional attribute
 	private String name;
 	
@@ -26,7 +80,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	private final LinkedList<IXMLAttribute> attributes = new LinkedList<>();
 	
 	//multi-attribute
-	private final LinkedList<MutableXMLNode> childNodes = new LinkedList<>();
+	private final LinkedList<IMutableXMLNode> childNodes = new LinkedList<>();
 	
 	//method
 	public MutableXMLNode addAttribute(final String name, final String value) {
@@ -56,7 +110,8 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
-	public MutableXMLNode addChildNode(final MutableXMLNode childNode) {
+	@Override
+	public MutableXMLNode addChildNode(final IMutableXMLNode childNode) {
 		
 		childNodes.addAtEnd(childNode);
 		
@@ -64,12 +119,16 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
-	public MutableXMLNode addChildNode(final MutableXMLNode... childNodes) {
+	@Override
+	public MutableXMLNode addChildNodes(final IMutableXMLNode firstChildNode, final IMutableXMLNode... childNodes) {
+		
+		addChildNode(firstChildNode);
+		
 		return addChildNodes(ReadContainer.forArray(childNodes));
 	}
 	
 	//method
-	public MutableXMLNode addChildNodes(final Iterable<MutableXMLNode> childNodes) {
+	public MutableXMLNode addChildNodes(final Iterable<IMutableXMLNode> childNodes) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		this.childNodes.addAtEnd(childNodes);
@@ -124,7 +183,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	
 	//method
 	@Override
-	public IContainer<MutableXMLNode> getRefChildNodes() {
+	public IContainer<IMutableXMLNode> getRefChildNodes() {
 		return childNodes;
 	}
 	
@@ -161,6 +220,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
+	@Override
 	public boolean hasValue() {
 		return (value != null);
 	}
@@ -221,7 +281,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	
 	//method
 	public String toFormatedString() {
-		return toFormatedString(0);
+		return toFormatedString(this, 0);
 	}
 	
 	//method
@@ -267,59 +327,5 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 		if (!hasValue()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.VALUE);
 		}
-	}
-	
-	//method
-	private String toFormatedString(final int leadingTabulatorCount) {
-		
-		final var stringBuilder = new StringBuilder();
-		
-		stringBuilder
-		.append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
-		.append('<')
-		.append(getName());
-		
-		if (containsAttributes()) {
-			stringBuilder
-			.append(' ')
-			.append(getAttributes().toString(' '));
-		}
-		
-		stringBuilder.append('>');
-		
-		if (hasValue()) {
-			if (!hasMixedContent()) {
-				stringBuilder.append(getValue());
-			} else {
-				stringBuilder
-				.append(CharacterCatalogue.NEW_LINE)
-				.append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
-				.append(getValue())
-				.append(CharacterCatalogue.NEW_LINE);
-				
-			}
-		}
-		
-		if (containsChildNodes()) {
-			
-			for (final var cn : getRefChildNodes()) {
-				stringBuilder
-				.append(CharacterCatalogue.NEW_LINE)
-				.append(cn.toFormatedString(leadingTabulatorCount + 1));
-			}
-			
-			stringBuilder.append(CharacterCatalogue.NEW_LINE);
-		}
-		
-		if (containsChildNodes()) {
-			stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
-		}
-			
-		stringBuilder
-		.append("</")
-		.append(getName())
-		.append('>');
-		
-		return stringBuilder.toString();
 	}
 }

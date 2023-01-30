@@ -9,4 +9,7 @@ public interface IMutableXMLNode extends IXMLNode<IMutableXMLNode> {
 	
 	//method declaration
 	IMutableXMLNode addChildNodes(IMutableXMLNode firstChildNode, IMutableXMLNode... childNodes);
+	
+	//TODO: Create OptionalValuable.
+	boolean hasValue();
 }
