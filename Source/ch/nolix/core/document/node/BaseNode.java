@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.pair.IntPair;
-import ch.nolix.core.document.xml.XMLNode;
+import ch.nolix.core.document.xml.MutableXMLNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -408,11 +408,11 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final XMLNode toXML() {
+	public final MutableXMLNode toXML() {
 		
 		//Creates an XMLNode.
 		final var lXMLNode =
-		new XMLNode()
+		new MutableXMLNode()
 		.setName(getHeader());
 		
 		//Iterates the child nodes of the current BaseNode.

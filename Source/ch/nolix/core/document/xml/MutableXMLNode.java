@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 
 //class
-public final class XMLNode implements IXMLNode<XMLNode> {
+public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	
 	//optional attribute
 	private String name;
@@ -21,15 +21,15 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	
 	//multi-attributes
 	private final LinkedList<XMLAttribute> attributes = new LinkedList<>();
-	private final LinkedList<XMLNode> childNodes = new LinkedList<>();
+	private final LinkedList<MutableXMLNode> childNodes = new LinkedList<>();
 	
 	//method
-	public XMLNode addAttribute(final String name, final String value) {
+	public MutableXMLNode addAttribute(final String name, final String value) {
 		return addAttribute(new XMLAttribute(name, value));
 	}
 	
 	//method
-	public XMLNode addAttribute(final XMLAttribute attribute) {
+	public MutableXMLNode addAttribute(final XMLAttribute attribute) {
 		
 		attributes.addAtEnd(attribute);
 		
@@ -37,13 +37,13 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode addAttributes(final XMLAttribute... attributes) {
+	public MutableXMLNode addAttributes(final XMLAttribute... attributes) {
 		return addAttributes(ReadContainer.forArray(attributes));
 	}
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public XMLNode addAttributes(final Iterable<XMLAttribute> attributes) {
+	public MutableXMLNode addAttributes(final Iterable<XMLAttribute> attributes) {
 		
 		this.attributes.addAtEnd(attributes);
 		
@@ -51,7 +51,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode addChildNode(final XMLNode childNode) {
+	public MutableXMLNode addChildNode(final MutableXMLNode childNode) {
 		
 		childNodes.addAtEnd(childNode);
 		
@@ -59,12 +59,12 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode addChildNode(final XMLNode... childNodes) {
+	public MutableXMLNode addChildNode(final MutableXMLNode... childNodes) {
 		return addChildNodes(ReadContainer.forArray(childNodes));
 	}
 	
 	//method
-	public XMLNode addChildNodes(final Iterable<XMLNode> childNodes) {
+	public MutableXMLNode addChildNodes(final Iterable<MutableXMLNode> childNodes) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		this.childNodes.addAtEnd(childNodes);
@@ -124,7 +124,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	
 	//method
 	@Override
-	public IContainer<XMLNode> getRefChildNodes() {
+	public IContainer<MutableXMLNode> getRefChildNodes() {
 		return childNodes;
 	}
 	
@@ -156,7 +156,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode removeAttributes() {
+	public MutableXMLNode removeAttributes() {
 		
 		attributes.clear();
 		
@@ -164,7 +164,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode removeChildNodes() {
+	public MutableXMLNode removeChildNodes() {
 		
 		childNodes.clear();
 		
@@ -173,7 +173,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	
 	//method
 	@Override
-	public XMLNode removeName() {
+	public MutableXMLNode removeName() {
 		
 		name = null;
 		
@@ -181,7 +181,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode removeValue() {
+	public MutableXMLNode removeValue() {
 		
 		value = null;
 		
@@ -190,7 +190,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	
 	//method
 	@Override
-	public XMLNode setName(final String name) {
+	public MutableXMLNode setName(final String name) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
@@ -200,7 +200,7 @@ public final class XMLNode implements IXMLNode<XMLNode> {
 	}
 	
 	//method
-	public XMLNode setValue(final String value) {
+	public MutableXMLNode setValue(final String value) {
 		
 		GlobalValidator.assertThat(value).isNotEmpty();
 		

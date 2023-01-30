@@ -9,6 +9,6 @@ public final class XMLTestPool extends TestPool {
 	
 	//constructor
 	public XMLTestPool() {
-		super(XMLAttributeTest.class, XMLNodeTest.class);
+		super(XMLAttributeTest.class, MutableXMLNodeTest.class);
 	}
 }
