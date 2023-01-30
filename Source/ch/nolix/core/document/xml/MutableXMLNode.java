@@ -129,6 +129,7 @@ public final class MutableXMLNode implements IXMLNode<MutableXMLNode> {
 	}
 	
 	//method
+	@Override
 	public String getValue() {
 		
 		supposeHasValue();
