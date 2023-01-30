@@ -1,17 +1,19 @@
 //package declaration
 package ch.nolix.core.document.xml;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Valued;
+import ch.nolix.coreapi.documentapi.xmlapi.IXMLAttribute;
 
 //class
-public final class XMLAttribute implements Named, Valued<XMLAttribute, String> {
+public final class XMLAttribute implements IXMLAttribute {
 	
-	//optional attributes
+	//optional attribute
 	private final String name;
+	
+	//optional attribute
 	private final String value;
 	
 	//constructor
