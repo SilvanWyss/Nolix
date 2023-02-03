@@ -9,6 +9,7 @@ import java.util.Random;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
@@ -641,15 +642,12 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return the index of the first element in the current {@link Container} the given selector selects.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Container} does not contain an element the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Iterates the current IContainer.
+		//Iterates the current Container.
 		var index = 1;
 		for (final var e : this) {
 			
@@ -658,15 +656,11 @@ public abstract class Container<E> implements IContainer<E> {
 				return index;
 			}
 			
-			//Increments index.
+			//Increments the index.
 			index++;
 		}
 		
-		throw
-		InvalidArgumentException.forArgumentAndErrorPredicate(
-			this,
-			"does not contain an element the given selecto selects"
-		);
+		throw ArgumentDoesNotContainElementException.forArgument(this);
 	}
 	
 	//method
