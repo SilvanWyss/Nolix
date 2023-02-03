@@ -88,7 +88,8 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode addAttribute(final XMLAttribute attribute) {
+	@Override
+	public MutableXMLNode addAttribute(final IXMLAttribute attribute) {
 		
 		attributes.addAtEnd(attribute);
 		
@@ -96,13 +97,17 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode addAttributes(final XMLAttribute... attributes) {
+	@Override
+	public MutableXMLNode addAttributes(final IXMLAttribute firstAttribute, final IXMLAttribute... attributes) {
+		
+		addAttribute(firstAttribute);
+		
 		return addAttributes(ReadContainer.forArray(attributes));
 	}
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public MutableXMLNode addAttributes(final Iterable<XMLAttribute> attributes) {
+	public MutableXMLNode addAttributes(final Iterable<IXMLAttribute> attributes) {
 		
 		this.attributes.addAtEnd(attributes);
 		

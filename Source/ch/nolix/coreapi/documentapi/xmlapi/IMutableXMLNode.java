@@ -5,6 +5,12 @@ package ch.nolix.coreapi.documentapi.xmlapi;
 public interface IMutableXMLNode extends IXMLNode<IMutableXMLNode> {
 	
 	//method declaration
+	IMutableXMLNode addAttribute(IXMLAttribute attribute);
+	
+	//method declaration
+	IMutableXMLNode addAttributes(IXMLAttribute firstAttribute, IXMLAttribute... attributes);
+	
+	//method declaration
 	IMutableXMLNode addChildNode(IMutableXMLNode childNode);
 	
 	//method declaration
