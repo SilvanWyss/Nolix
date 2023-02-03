@@ -501,29 +501,29 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getIndexOfFirst_whenIsEmpty() {
+	public final void testCase_get1BasedIndexOfFirst_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution & verification
-		expectRunning(() -> testUnit.getIndexOfFirst(e -> e.startsWith("x")))
+		expectRunning(() -> testUnit.get1BasedIndexOfFirst(e -> e.startsWith("x")))
 		.throwsException()
 		.ofType(ArgumentDoesNotContainElementException.class);
 	}
 	
 	//method
 	@TestCase
-	public final void testCase_getIndexOfFirst_whenContainsAMatchingElement() {
+	public final void testCase_get1BasedIndexOfFirst_whenContainsAMatchingElement() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("wx", "xx", "yx", "zx");
 		
 		//execution
-		final var result = testUnit.getIndexOfFirst(e -> e.startsWith("y"));
+		final var result = testUnit.get1BasedIndexOfFirst(e -> e.startsWith("y"));
 		
 		//verification
-		expect(result).isEqualTo(3);;
+		expect(result).isEqualTo(3);
 	}
 	
 	//method

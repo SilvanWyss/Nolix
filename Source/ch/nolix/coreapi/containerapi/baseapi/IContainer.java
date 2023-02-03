@@ -268,10 +268,11 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param selector
-	 * @return the index of the first element in the current {@link IContainer} the given selector selects.
-	 * @throws RuntimeException if the current {@link IContainer} does not contain an element the given selector selects.
+	 * @return the 1 based index of the first element the given selector selects from the current {@link IContainer}.
+	 * @throws RuntimeException if
+	 * the current {@link IContainer} does not contain an element the given selector selects.
 	 */
-	int getIndexOfFirst(IElementTakerBooleanGetter<E> selector);
+	int get1BasedIndexOfFirst(IElementTakerBooleanGetter<E> selector);
 	
 	//method declaration
 	/**

@@ -645,19 +645,19 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
+	public final int get1BasedIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
 		
 		//Iterates the current Container.
-		var index = 1;
+		var l1BasedIndex = 1;
 		for (final var e : this) {
 			
 			//Handles the case that the given selector selects the current element.
 			if (selector.getOutput(e)) {
-				return index;
+				return l1BasedIndex;
 			}
 			
 			//Increments the index.
-			index++;
+			l1BasedIndex++;
 		}
 		
 		throw ArgumentDoesNotContainElementException.forArgument(this);
