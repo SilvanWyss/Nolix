@@ -52,10 +52,9 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * Adds the given application with the given instanceName to the current {@link BaseServer}.
+	 * Adds the given application to the current {@link BaseServer}.
 	 * 
 	 * @param application
-	 * @param instanceName
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws ArgumentIsNullException if the given instanceName is null
 	 * @throws InvalidArgumentException if the given instanceName is blank.

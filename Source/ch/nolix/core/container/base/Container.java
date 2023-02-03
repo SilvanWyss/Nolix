@@ -1625,9 +1625,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param norm
-	 * @param <E2> is the type of the elements of the {@link Comparable} the given norm returns.
-	 * @return true if the current {@link Container} is ordered according to the given norm.
+	 * {@inheritDoc}
 	 */
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })

@@ -466,7 +466,7 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method
 	/**
 	 * @param norm
-	 * @return a new {@link IContainer} with groups with the elements of the current {@link LinkedList} grouped by
+	 * @return a new {@link IContainer} with groups with the elements of the current {@link IContainer} grouped by
 	 * the given norm.
 	 */
 	IContainer<? extends IContainer<E>> getRefGroups(IElementTakerElementGetter<E, ?> norm);
