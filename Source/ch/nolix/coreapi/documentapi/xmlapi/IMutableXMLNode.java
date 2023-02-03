@@ -1,8 +1,11 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.xmlapi;
 
+//own imports
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalValuable;
+
 //interface
-public interface IMutableXMLNode extends IXMLNode<IMutableXMLNode> {
+public interface IMutableXMLNode extends FluentOptionalValuable<IMutableXMLNode, String>, IXMLNode<IMutableXMLNode> {
 	
 	//method declaration
 	IMutableXMLNode addAttribute(IXMLAttribute attribute);
@@ -11,11 +14,11 @@ public interface IMutableXMLNode extends IXMLNode<IMutableXMLNode> {
 	IMutableXMLNode addAttributes(IXMLAttribute firstAttribute, IXMLAttribute... attributes);
 	
 	//method declaration
+	IMutableXMLNode addAttributeWithNameAndValue(String name, String value);
+	
+	//method declaration
 	IMutableXMLNode addChildNode(IMutableXMLNode childNode);
 	
 	//method declaration
 	IMutableXMLNode addChildNodes(IMutableXMLNode firstChildNode, IMutableXMLNode... childNodes);
-	
-	//TODO: Create OptionalValuable.
-	boolean hasValue();
 }

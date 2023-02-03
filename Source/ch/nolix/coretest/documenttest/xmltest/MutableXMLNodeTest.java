@@ -28,7 +28,7 @@ public final class MutableXMLNodeTest extends Test {
 	public void test_toString_whenHas1Attribute() {
 		
 		//setup
-		final var testUnit = new MutableXMLNode().setName("Node").addAttribute("key", "value");
+		final var testUnit = new MutableXMLNode().setName("Node").addAttributeWithNameAndValue("key", "value");
 		
 		//execution
 		final var result = testUnit.toString();
@@ -59,8 +59,8 @@ public final class MutableXMLNodeTest extends Test {
 		final var testUnit =
 		new MutableXMLNode()
 		.setName("Node")
-		.addAttribute("key1", "value1")
-		.addAttribute("key2", "value2");
+		.addAttributeWithNameAndValue("key1", "value1")
+		.addAttributeWithNameAndValue("key2", "value2");
 		
 		//execution
 		final var result = testUnit.toString();

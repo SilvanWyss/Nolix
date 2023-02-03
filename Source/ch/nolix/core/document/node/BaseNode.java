@@ -13,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.documentapi.xmlapi.IMutableXMLNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
@@ -408,7 +409,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final MutableXMLNode toXML() {
+	public final IMutableXMLNode toXML() {
 		
 		//Creates an XMLNode.
 		final var lXMLNode =

@@ -83,11 +83,6 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	private final LinkedList<IMutableXMLNode> childNodes = new LinkedList<>();
 	
 	//method
-	public MutableXMLNode addAttribute(final String name, final String value) {
-		return addAttribute(new XMLAttribute(name, value));
-	}
-	
-	//method
 	@Override
 	public MutableXMLNode addAttribute(final IXMLAttribute attribute) {
 		
@@ -114,6 +109,12 @@ public final class MutableXMLNode implements IMutableXMLNode {
 		return this;
 	}
 	
+	//method
+	@Override
+	public IMutableXMLNode addAttributeWithNameAndValue(final String name, final String value) {
+		return addAttribute(new XMLAttribute(name, value));
+	}
+
 	//method
 	@Override
 	public MutableXMLNode addChildNode(final IMutableXMLNode childNode) {
@@ -231,7 +232,13 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode removeAttributes() {
+	@Override
+	public boolean hasValue(final String value) {
+		return (hasValue() && getValue().equals(value));
+	}
+	
+	//method
+	public IMutableXMLNode removeAttributes() {
 		
 		attributes.clear();
 		
@@ -239,7 +246,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode removeChildNodes() {
+	public IMutableXMLNode removeChildNodes() {
 		
 		childNodes.clear();
 		
@@ -248,7 +255,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public MutableXMLNode removeName() {
+	public IMutableXMLNode removeName() {
 		
 		name = null;
 		
@@ -256,7 +263,8 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode removeValue() {
+	@Override
+	public IMutableXMLNode removeValue() {
 		
 		value = null;
 		
@@ -265,7 +273,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public MutableXMLNode setName(final String name) {
+	public IMutableXMLNode setName(final String name) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
@@ -275,7 +283,8 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode setValue(final String value) {
+	@Override
+	public IMutableXMLNode setValue(final String value) {
 		
 		GlobalValidator.assertThat(value).isNotEmpty();
 		
