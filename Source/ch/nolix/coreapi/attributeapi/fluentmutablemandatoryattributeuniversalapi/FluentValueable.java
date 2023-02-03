@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Valued;
  * @param <VA> is the type of a {@link FluentValueable}.
  * @param <V> is the type of the value of a {@link FluentValueable}.
  */
-public interface FluentValueable<VA extends FluentValueable<VA, V>, V> extends Valued<VA, V> {
+public interface FluentValueable<VA extends FluentValueable<VA, V>, V> extends Valued<V> {
 	
 	//method declaration
 	/**

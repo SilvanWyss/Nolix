@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Valued;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNamable<N>, Valued<N, String> {
+public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNamable<N>, Valued<String> {
 	
 	//method declaration
 	IContainer<IXMLAttribute> getAttributes();

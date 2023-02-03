@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * @param <V> is the type of the value of a {@link Valued}.
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Valued<VA extends Valued<VA, V>, V> {
+public interface Valued<V> {
 	
 	//method declaration
 	/**
