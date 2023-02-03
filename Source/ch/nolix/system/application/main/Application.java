@@ -47,7 +47,7 @@ implements IApplication<AC> {
 	 * @param applicationContext
 	 * @throws ArgumentIsNullException if the given applicationContext is null.
 	 */
-	protected <S extends Session<BC, AC>> Application(final AC applicationContext) {
+	protected Application(final AC applicationContext) {
 		
 		GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
 		
