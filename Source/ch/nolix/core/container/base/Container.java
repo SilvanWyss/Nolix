@@ -2055,6 +2055,8 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method declaration
 	/**
+	 * @param marker
+	 * @param <E2> is the type of the elements the created {@link IMutableList} can contain.
 	 * @return a new empty {@link IMutableList}.
 	 */
 	protected abstract <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker);
