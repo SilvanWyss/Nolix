@@ -3,6 +3,7 @@ package ch.nolix.coretest.containertest.basetest;
 
 //own imports
 import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -141,6 +142,58 @@ public abstract class ContainerTest extends Test {
 		
 		//execution
 		final var result = testUnit.containsAny((e1, e2) -> e1.length() == e2.length() + 6);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_containsAny_whenIsEmpty() {
+		
+		//setup
+		final var element1 = "x";
+		final var element2 = "xx";
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution
+		final var result = testUnit.containsAny(element1, element2);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_containsAny_whenContainsGivenElementsAndMore() {
+		
+		//setup
+		final var element1 = "x";
+		final var element2 = "xx";
+		final var element3 = "xxx";
+		final var element4 = "xxxx";
+		final var testUnit = createContainerWithElements(element1, element2, element3, element4);
+		
+		//execution
+		final var result = testUnit.containsAny(element1, element2, element3, element4);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_containsAny_whenContainsOtherElementsOnly() {
+		
+		//setup
+		final var element1 = "x";
+		final var element2 = "xx";
+		final var element3 = "xxx";
+		final var element4 = "xxxx";
+		final var testUnit = createContainerWithElements(element1, element2);
+		
+		//execution
+		final var result = testUnit.containsAny(element3, element4);
 		
 		//verification
 		expectNot(result);
@@ -444,6 +497,33 @@ public abstract class ContainerTest extends Test {
 		
 		//execution & verification
 		expect(testUnit.getElementCount()).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getIndexOfFirst_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution & verification
+		expectRunning(() -> testUnit.getIndexOfFirst(e -> e.startsWith("x")))
+		.throwsException()
+		.ofType(ArgumentDoesNotContainElementException.class);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getIndexOfFirst_whenContainsAMatchingElement() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("wx", "xx", "yx", "zx");
+		
+		//execution
+		final var result = testUnit.getIndexOfFirst(e -> e.startsWith("y"));
+		
+		//verification
+		expect(result).isEqualTo(3);;
 	}
 	
 	//method
