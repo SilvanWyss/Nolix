@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
@@ -492,7 +493,7 @@ implements IControl<C, CS> {
 		
 		return parent;
 	}
-			
+	
 	//method
 	private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 		
