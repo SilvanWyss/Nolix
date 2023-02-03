@@ -3,11 +3,11 @@ package ch.nolix.coreapi.documentapi.xmlapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalNamable;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Valued;
+import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalValued;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNamable<N>, Valued<String> {
+public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNamable<N>, OptionalValued<String> {
 	
 	//method declaration
 	IContainer<IXMLAttribute> getAttributes();
