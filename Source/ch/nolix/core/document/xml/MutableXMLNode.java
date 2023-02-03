@@ -12,9 +12,32 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXMLNode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXMLAttribute;
+import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
 
 //class
 public final class MutableXMLNode implements IMutableXMLNode {
+	
+	//static method
+	public static MutableXMLNode fromXMLNode(final IXMLNode<?> pXMLNode) {
+		
+		final var mutableXMLNode = new MutableXMLNode();
+		
+		if (pXMLNode.hasName()) {
+			mutableXMLNode.setName(pXMLNode.getName());
+		}
+		
+		mutableXMLNode.addAttributes(pXMLNode.getAttributes());
+		
+		for (final var cn : pXMLNode.getRefChildNodes()) {
+			mutableXMLNode.addChildNode(fromXMLNode(cn));
+		}
+		
+		if (pXMLNode.hasValue()) {
+			mutableXMLNode.setValue(pXMLNode.getValue());
+		}
+		
+		return mutableXMLNode;
+	}
 	
 	//method
 	private static String toFormatedString(final IMutableXMLNode mutableXMLNode, final int leadingTabulatorCount) {
