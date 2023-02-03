@@ -438,30 +438,9 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * @return true if the current {@link BaseNode} equals the given node.
 	 */
 	protected final boolean equalsNode(final BaseNode<?> node) {
-		
-		if (!hasHeader()) {
-			if (node.hasHeader()) {
-				return false;
-			}
-			
-		} else {
-			if (!node.hasHeader(getHeader())) {
-				return false;
-			}
-		}
-		
-		if (getChildNodeCount() != node.getChildNodeCount()) {
-			return false;
-		}
-		
-		final var iterator = node.getRefChildNodes().iterator();
-		for (final BN a : getRefChildNodes()) {
-			if (!a.equals(iterator.next())) {
-				return false;
-			}
-		}
-		
-		return true;
+		return
+		hasEqualHeaderSettingLikeNode(node)
+		&& hasEqualChildNodeSettingLikeNode(node);
 	}
 	
 	//method
@@ -512,6 +491,33 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	private String getReproducingHeader() {
 		return getEscapeStringFor(getHeader());
+	}
+	
+	//method
+	private boolean hasEqualHeaderSettingLikeNode(final INode<?> node) {
+		
+		if (!hasHeader()) {
+			return !node.hasHeader();
+		}
+		
+		return node.hasHeader(getHeader());
+	}
+	
+	//method
+	private boolean hasEqualChildNodeSettingLikeNode(final INode<?> node) {
+		
+		if (getChildNodeCount() != node.getChildNodeCount()) {
+			return false;
+		}
+		
+		final var iterator = node.getRefChildNodes().iterator();
+		for (final var cn : getRefChildNodes()) {
+			if (!cn.equals(iterator.next())) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	//method
