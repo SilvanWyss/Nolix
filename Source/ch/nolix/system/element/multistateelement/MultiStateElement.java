@@ -135,11 +135,12 @@ implements IMultiStateElement<MSE, S> {
 	}
 	
 	//method
-	protected final <FE2 extends MultiStateElement<FE2, S>> void internalAddChild(final FE2 child) {
+	protected final <MSE2 extends IMultiStateElement<MSE2, S>> void internalAddChild(final MSE2 child) {
 		
 		GlobalValidator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
-		child.setParent(this);
+		//TODO: Fix.
+		((MultiStateElement<?, S>)child).setParent(this);
 	}
 	
 	//method

@@ -12,6 +12,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
+import ch.nolix.systemapi.elementapi.multistateelementapi.IMultiStateElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -22,7 +23,9 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ExtendedControlStyle<ECS extends ExtendedControlStyle<ECS>>
+public abstract class ExtendedControlStyle<
+	ECS extends IExtendedControlStyle<ECS> & IMultiStateElement<ECS, ControlState>
+>
 extends ControlStyle<ECS>
 implements IExtendedControlStyle<ECS> {
 	
