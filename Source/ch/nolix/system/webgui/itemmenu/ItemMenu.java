@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ItemMenu<
-	IM extends ItemMenu<IM, IMS>,
+	IM extends IItemMenu<IM, IMS>,
 	IMS extends IItemMenuStyle<IMS>
 >
 extends Control<IM, IMS> implements IItemMenu<IM, IMS> {

@@ -32,7 +32,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public abstract class Control<
-	C extends Control<C, CS>,
+	C extends IControl<C, CS>,
 	CS extends IControlStyle<CS>
 >
 extends StylableElement<C>

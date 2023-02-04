@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //class
 public abstract class Container<
-	C extends Container<C, ECS>,
+	C extends IContainer<C, ECS>,
 	ECS extends IExtendedControlStyle<ECS>
 >
 extends Control<C, ECS> implements IContainer<C, ECS> {

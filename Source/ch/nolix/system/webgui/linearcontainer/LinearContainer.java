@@ -7,13 +7,14 @@ import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
+import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public abstract class LinearContainer<
-	LC extends LinearContainer<LC, LCS>,
-	LCS extends LinearContainerStyle<LCS>
+	LC extends ILinearContainer<LC, LCS>,
+	LCS extends ILinearContainerStyle<LCS>
 >
 extends Container<LC, LCS>
 implements ILinearContainer<LC, LCS> {
