@@ -19,11 +19,11 @@ public interface IToggleButton extends IControl<IToggleButton, IToggleButtonStyl
 	IToggleButton setOff();
 	
 	//method declaration
-	IToggleButton setOffAction(IAction offAcction);
+	IToggleButton setOffAction(IAction offAction);
 	
 	//method declaration
 	IToggleButton setOn();
 	
 	//method declaration
-	IToggleButton setOnAction(IAction onAcction);
+	IToggleButton setOnAction(IAction onAction);
 }
