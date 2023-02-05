@@ -3,16 +3,11 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.OnOffRequestable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IToggleButton extends IControl<IToggleButton, IToggleButtonStyle> {
-	
-	//method declaration
-	boolean isOff();
-	
-	//method declaration
-	boolean isOn();
+public interface IToggleButton extends IControl<IToggleButton, IToggleButtonStyle>, OnOffRequestable {
 	
 	//method declaration
 	void removeOffAction();
