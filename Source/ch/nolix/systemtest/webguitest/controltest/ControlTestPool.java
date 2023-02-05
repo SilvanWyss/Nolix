@@ -11,7 +11,8 @@ public final class ControlTestPool extends TestPool {
 	public ControlTestPool() {
 		super(
 			ButtonTest.class,
-			TextTest.class
+			TextTest.class,
+			ToggleButtonTest.class
 		);
 	}
 }
