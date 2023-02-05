@@ -9,6 +9,12 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IToggleButton extends IControl<IToggleButton, IToggleButtonStyle> {
 	
 	//method declaration
+	boolean isOff();
+	
+	//method declaration
+	boolean isOn();
+	
+	//method declaration
 	void removeOffAction();
 	
 	//method declaration
