@@ -8,6 +8,7 @@ import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class CookieTutorial {
@@ -30,7 +31,7 @@ public final class CookieTutorial {
 	
 	public static final class MainSession extends BackendWebClientSession<Object> {
 		
-		private final Textbox textbox =
+		private final ITextbox textbox =
 		new Textbox().editStyle(ts -> ts.setBorderThicknessForState(ControlState.BASE, 1));
 		
 		@Override

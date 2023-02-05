@@ -9,11 +9,7 @@ import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ITextbox<
-	T extends ITextbox<T, TS>,
-	TS extends ITextboxStyle<TS>
->
-extends IControl<T, TS>, IFluentMutableTextHolder<T> {
+public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, IFluentMutableTextHolder<ITextbox> {
 	
 	//method declaration
 	void emptyText();
@@ -25,11 +21,11 @@ extends IControl<T, TS>, IFluentMutableTextHolder<T> {
 	void removeUpdateTextAction();
 	
 	//method declaration
-	T setTextMode(TextMode textMode);
+	ITextbox setTextMode(TextMode textMode);
 	
 	//method declaration
-	T setUpdateTextAction(IAction updateTextAction);
+	ITextbox setUpdateTextAction(IAction updateTextAction);
 	
 	//method declaration
-	T setUpdateTextAction(IElementTaker<String> updateTextAction);
+	ITextbox setUpdateTextAction(IElementTaker<String> updateTextAction);
 }

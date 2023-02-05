@@ -8,10 +8,11 @@ import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
 //class
-public final class TextboxHTMLBuilder implements IControlHTMLBuilder<Textbox> {
+public final class TextboxHTMLBuilder implements IControlHTMLBuilder<ITextbox> {
 	
 	//static attribute
 	public static final TextboxHTMLBuilder INSTANCE = new TextboxHTMLBuilder();
@@ -21,7 +22,7 @@ public final class TextboxHTMLBuilder implements IControlHTMLBuilder<Textbox> {
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final Textbox textbox) {
+	public HTMLElement createHTMLElementForControl(final ITextbox textbox) {
 		return
 		HTMLElement.withTypeAndAttributes(
 			HTMLElementTypeCatalogue.INPUT,

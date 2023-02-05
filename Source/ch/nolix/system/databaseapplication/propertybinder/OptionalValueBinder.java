@@ -8,12 +8,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 
 //class
-public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, ITextbox<?, ?>> {
+public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, ITextbox> {
 	
 	//method
 	@Override
 	protected void addSelectionOptionsToControlForProperty(
-		final ITextbox<?, ?> control,
+		final ITextbox control,
 		final IOptionalValue<?, ?> optionalValue
 	) {
 		//Does nothing.
@@ -21,19 +21,19 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 	
 	//method
 	@Override
-	protected ITextbox<?, ?> createControl() {
+	protected ITextbox createControl() {
 		return new Textbox();
 	}
 	
 	//method
 	@Override
-	protected void setNoteUpdateActionToControl(final ITextbox<?, ?> textBox, final IAction noteUpdateAction) {
+	protected void setNoteUpdateActionToControl(final ITextbox textBox, final IAction noteUpdateAction) {
 		textBox.setUpdateTextAction(noteUpdateAction);
 	}
 	
 	//method
 	@Override
-	protected void updatePropertyFromControl(final IOptionalValue<?, ?> optionalValue, final ITextbox<?, ?> textBox) {
+	protected void updatePropertyFromControl(final IOptionalValue<?, ?> optionalValue, final ITextbox textBox) {
 		if (textBox.getText().isEmpty()) {
 			optionalValue.clear();
 		} else {
@@ -43,7 +43,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?, ?>, IT
 	
 	//method
 	@Override
-	protected void updateControlFromProperty(final ITextbox<?, ?> textBox, final IOptionalValue<?, ?> optionalValue) {
+	protected void updateControlFromProperty(final ITextbox textBox, final IOptionalValue<?, ?> optionalValue) {
 		if (optionalValue.isEmpty()) {
 			textBox.emptyText();
 		} else {

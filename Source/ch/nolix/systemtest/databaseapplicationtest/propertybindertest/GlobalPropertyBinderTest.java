@@ -26,7 +26,7 @@ public final class GlobalPropertyBinderTest extends Test {
 		//verification part 1
 		expect(result.getRefProperty()).is(value);
 		expect(result.getRefControl()).isOfType(Textbox.class);
-		final var textBox = (ITextbox<?, ?>)result.getRefControl();
+		final var textBox = (ITextbox)result.getRefControl();
 		expect(value.getRefValue()).isEqualTo("");
 		expect(textBox.getText()).isEqualTo("");
 		
@@ -68,7 +68,7 @@ public final class GlobalPropertyBinderTest extends Test {
 		//verification
 		expect(result.getRefProperty()).is(value);
 		expect(result.getRefControl()).isOfType(Textbox.class);
-		final var textBox = (ITextbox<?, ?>)result.getRefControl();
+		final var textBox = (ITextbox)result.getRefControl();
 		expect(value.isEmpty());
 		expect(textBox.getText()).isEqualTo("");
 	}
@@ -87,7 +87,7 @@ public final class GlobalPropertyBinderTest extends Test {
 		//verification
 		expect(result.getRefProperty()).is(value);
 		expect(result.getRefControl()).isOfType(Textbox.class);
-		final var textBox = (ITextbox<?, ?>)result.getRefControl();
+		final var textBox = (ITextbox)result.getRefControl();
 		expect(value.getRefValue()).isEqualTo("zebra");
 		expect(textBox.getText()).isEqualTo("zebra");
 	}

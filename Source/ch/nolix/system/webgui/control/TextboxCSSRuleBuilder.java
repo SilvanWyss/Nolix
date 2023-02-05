@@ -7,10 +7,12 @@ import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
+import ch.nolix.systemapi.webguiapi.controlapi.ITextboxStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Textbox, TextboxStyle> {
+public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<ITextbox, ITextboxStyle> {
 	
 	//static attribute
 	public static final TextboxCSSRuleBuilder INSTANCE = new TextboxCSSRuleBuilder();
@@ -21,7 +23,7 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
-		final Textbox textbox,
+		final ITextbox textbox,
 		final ControlState state,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
@@ -31,7 +33,7 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
-		final Textbox textbox,	
+		final ITextbox textbox,	
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		//Does nothing.
@@ -40,7 +42,7 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	//method
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
-		final Textbox control,
+		final ITextbox control,
 		final LinkedList<CSSProperty> list
 	) {
 		//Does nothing.
@@ -49,7 +51,7 @@ public final class TextboxCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<T
 	//method
 	@Override
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
-		final Textbox textbox,
+		final ITextbox textbox,
 		final ControlState state,
 		final LinkedList<ICSSProperty> list
 	) {

@@ -6,7 +6,7 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextboxStyle;
 
 //class
-public final class TextboxStyle extends ExtendedControlStyle<TextboxStyle> implements ITextboxStyle<TextboxStyle> {
+public final class TextboxStyle extends ExtendedControlStyle<ITextboxStyle> implements ITextboxStyle {
 	
 	//constructor
 	public TextboxStyle() {
