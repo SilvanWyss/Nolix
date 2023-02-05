@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.multistateelement;
+package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
@@ -12,7 +12,7 @@ import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.systemapi.elementapi.multistateelementapi.ValueStoringState;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
 //class
 public abstract class MaterializedProperty<S extends Enum<S>, V> extends Property<S> {

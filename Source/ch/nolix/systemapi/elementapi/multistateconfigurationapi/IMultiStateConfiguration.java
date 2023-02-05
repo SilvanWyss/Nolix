@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.systemapi.elementapi.multistateelementapi;
+package ch.nolix.systemapi.elementapi.multistateconfigurationapi;
 
 //own imports
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 
 //interface
-public interface IMultiStateElement<
-	MSE extends IMultiStateElement<MSE, S>,
+public interface IMultiStateConfiguration<
+	MSC extends IMultiStateConfiguration<MSC, S>,
 	S extends Enum<S>
 >
-extends IRespondingMutableElement<MSE> {
+extends IRespondingMutableElement<MSC> {
 	
 	//method declaration
 	S getBaseState();

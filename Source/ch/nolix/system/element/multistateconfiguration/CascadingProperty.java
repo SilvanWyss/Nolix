@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.element.multistateelement;
+package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -10,26 +9,16 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
-public final class NonCascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
+public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 	
-	//optional attribute
+	//attribute
 	private final V defaultValue;
 	
-	//constructor
-	public NonCascadingProperty(
-		final String name,
-		final Class<S> stateClass,
-		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, INode<?>> specificationCreator
-	) {
-		
-		super(name, stateClass, valueCreator, specificationCreator);
-		
-		defaultValue = null;
-	}
+	//optional attribute
+	private CascadingProperty<S, V> parentProperty;
 	
 	//constructor
-	public NonCascadingProperty(
+	public CascadingProperty(
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
@@ -45,21 +34,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	}
 	
 	//constructor
-	public NonCascadingProperty(
-		final String name,
-		final Class<S> stateClass,
-		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, INode<?>> specificationCreator,
-		final I2ElementTaker<S, V> setterMethod
-	) {
-		
-		super(name, stateClass, valueCreator, specificationCreator, setterMethod);
-		
-		defaultValue = null;
-	}
-	
-	//constructor
-	public NonCascadingProperty(
+	public CascadingProperty(
 		final String name,
 		final Class<S> stateClass,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
@@ -76,16 +51,6 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 	}
 	
 	//method
-	public boolean hasDefaultValue() {
-		return (defaultValue != null);
-	}
-	
-	//method
-	public void setEmptyForState(final S state) {
-		stateProperties[(getStateOf(state).getIndex())].setEmpty();
-	}
-	
-	//method
 	@Override
 	protected V getValueWhenHasState(final State<S> state) {
 		
@@ -99,15 +64,11 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 			return baseStateProperty.getValue();
 		}
 		
-		if (hasDefaultValue()) {
-			return defaultValue;
+		if (hasParentProperty()) {
+			return parentProperty.getValueWhenHasState(state);
 		}
 		
-		throw
-		ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
-			this,
-			"value for the" + state.getPrefix() + " state"
-		);
+		return defaultValue;
 	}
 	
 	//method
@@ -124,6 +85,20 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 			return baseStateProperty.hasValue();
 		}
 		
-		return false;
+		return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
+	}
+		
+	//method
+	@SuppressWarnings("unchecked")
+	void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
+		
+		GlobalValidator.assertThat(parentProperty).thatIsNamed("parent property").isNotNull();
+		
+		this.parentProperty = (CascadingProperty<S, V>)parentProperty;
+	}
+	
+	//method
+	private boolean hasParentProperty() {
+		return (parentProperty != null);
 	}
 }

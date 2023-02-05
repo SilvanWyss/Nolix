@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.multistateelement;
+package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

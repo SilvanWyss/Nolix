@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.system.element.multistateelement;
+package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.systemapi.elementapi.multistateelementapi.ValueStoringState;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
 //class
 final class StateProperty<V> {

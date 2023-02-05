@@ -1,16 +1,16 @@
 //package declaration
-package ch.nolix.systemtest.elementtest.multistateelementtest;
+package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.element.multistateelement.MultiStateElement;
-import ch.nolix.system.element.multistateelement.NonCascadingProperty;
+import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
+import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
+public final class MultiStateConfigurationWithNonCascadingPropertyTest extends Test {
 	
 	//static enum
 	private enum CustomState {
@@ -21,7 +21,7 @@ public final class MultiStateElementWithNonCascadingPropertyTest extends Test {
 	}
 	
 	//static class
-	private static final class CustomFormatElement extends MultiStateElement<CustomFormatElement, CustomState> {
+	private static final class CustomFormatElement extends MultiStateConfiguration<CustomFormatElement, CustomState> {
 		
 		//attribute
 		public final NonCascadingProperty<CustomState, Color> color =

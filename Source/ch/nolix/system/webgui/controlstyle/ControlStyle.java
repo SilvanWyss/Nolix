@@ -7,19 +7,19 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.multistateelement.CascadingProperty;
-import ch.nolix.system.element.multistateelement.MultiStateElement;
-import ch.nolix.system.element.multistateelement.NonCascadingProperty;
+import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
+import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
+import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.systemapi.elementapi.multistateelementapi.IMultiStateElement;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ControlStyle<CS extends IControlStyle<CS> & IMultiStateElement<CS, ControlState>>
-extends MultiStateElement<CS, ControlState>
+public abstract class ControlStyle<CS extends IControlStyle<CS> & IMultiStateConfiguration<CS, ControlState>>
+extends MultiStateConfiguration<CS, ControlState>
 implements IControlStyle<CS> {
 	
 	//constant

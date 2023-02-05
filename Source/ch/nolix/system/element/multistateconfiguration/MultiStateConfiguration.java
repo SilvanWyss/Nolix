@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.multistateelement;
+package ch.nolix.system.element.multistateconfiguration;
 
 //Java imports
 import java.lang.reflect.Field;
@@ -14,15 +14,15 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
-import ch.nolix.systemapi.elementapi.multistateelementapi.IMultiStateElement;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 
 //class
-public abstract class MultiStateElement<
-	MSE extends IMultiStateElement<MSE, S>,
+public abstract class MultiStateConfiguration<
+	MSC extends IMultiStateConfiguration<MSC, S>,
 	S extends Enum<S>
 >
 extends Element
-implements IMultiStateElement<MSE, S> {
+implements IMultiStateConfiguration<MSC, S> {
 	
 	//static method
 	private static boolean fieldStoresProperty(final Field field) {
@@ -39,7 +39,7 @@ implements IMultiStateElement<MSE, S> {
 	private IContainer<Property<S>> properties;
 	
 	//constructor
-	protected MultiStateElement(final S baseState) {
+	protected MultiStateConfiguration(final S baseState) {
 		
 		GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 		
@@ -105,10 +105,10 @@ implements IMultiStateElement<MSE, S> {
 	}
 	
 	//method
-	public final void setFrom(final MSE element) {
+	public final void setFrom(final MSC element) {
 		
 		@SuppressWarnings("unchecked")
-		final var iterator = ((MultiStateElement<MSE, S>)element).getRefProperties().iterator();
+		final var iterator = ((MultiStateConfiguration<MSC, S>)element).getRefProperties().iterator();
 		
 		for (final var p : getRefProperties()) {
 			p.setFrom(iterator.next());
@@ -117,20 +117,20 @@ implements IMultiStateElement<MSE, S> {
 	
 	//method
 	/**
-	 * @return the current {@link MultiStateElement} as concrete {@link MultiStateElement}.
+	 * @return the current {@link MultiStateConfiguration} as concrete {@link MultiStateConfiguration}.
 	 */
 	@SuppressWarnings("unchecked")
-	protected final MSE asConcrete() {
-		return (MSE)this;
+	protected final MSC asConcrete() {
+		return (MSC)this;
 	}
 	
 	//method
-	protected final <MSE2 extends IMultiStateElement<MSE2, S>> void internalAddChild(final MSE2 child) {
+	protected final <MSE2 extends IMultiStateConfiguration<MSE2, S>> void internalAddChild(final MSE2 child) {
 		
 		GlobalValidator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
 		//TODO: Fix.
-		((MultiStateElement<?, S>)child).setParent(this);
+		((MultiStateConfiguration<?, S>)child).setParent(this);
 	}
 	
 	//method
@@ -169,7 +169,7 @@ implements IMultiStateElement<MSE, S> {
 	}
 	
 	//method
-	final void setParent(final MultiStateElement<?, S> parentElement) {
+	final void setParent(final MultiStateConfiguration<?, S> parentElement) {
 		
 		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getRefCascadingProperties());
 		

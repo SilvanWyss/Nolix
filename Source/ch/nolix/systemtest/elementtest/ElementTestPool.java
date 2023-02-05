@@ -3,13 +3,13 @@ package ch.nolix.systemtest.elementtest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
-import ch.nolix.systemtest.elementtest.multistateelementtest.MultiStateElementTestPool;
+import ch.nolix.systemtest.elementtest.multistateconfigurationtest.MultiStateConfigurationTestPool;
 
 //class
 public final class ElementTestPool extends TestPool {
 	
 	//constructor
 	public ElementTestPool() {
-		super(new MultiStateElementTestPool());
+		super(new MultiStateConfigurationTestPool());
 	}
 }

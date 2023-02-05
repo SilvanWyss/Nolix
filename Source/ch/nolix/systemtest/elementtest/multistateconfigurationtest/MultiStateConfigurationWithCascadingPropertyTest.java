@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.systemtest.elementtest.multistateelementtest;
+package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.element.multistateelement.CascadingProperty;
-import ch.nolix.system.element.multistateelement.MultiStateElement;
+import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
+import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.graphic.color.Color;
 
 //class
-public final class MultiStateElementWithCascadingPropertyTest extends Test {
+public final class MultiStateConfigurationWithCascadingPropertyTest extends Test {
 	
 	//static enum
 	private enum CustomState {
@@ -20,7 +20,7 @@ public final class MultiStateElementWithCascadingPropertyTest extends Test {
 	}
 	
 	//static class
-	private static final class CustomFormatElement extends MultiStateElement<CustomFormatElement, CustomState> {
+	private static final class CustomFormatElement extends MultiStateConfiguration<CustomFormatElement, CustomState> {
 		
 		//attribute
 		public final CascadingProperty<CustomState, Color> color =

@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.container;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.multistateelement.NonCascadingProperty;
+import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;

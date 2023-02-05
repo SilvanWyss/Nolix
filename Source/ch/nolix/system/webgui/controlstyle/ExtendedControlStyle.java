@@ -6,13 +6,13 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.multistateelement.ForwardingProperty;
-import ch.nolix.system.element.multistateelement.NonCascadingProperty;
+import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
+import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
-import ch.nolix.systemapi.elementapi.multistateelementapi.IMultiStateElement;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -24,7 +24,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public abstract class ExtendedControlStyle<
-	ECS extends IExtendedControlStyle<ECS> & IMultiStateElement<ECS, ControlState>
+	ECS extends IExtendedControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>
 >
 extends ControlStyle<ECS>
 implements IExtendedControlStyle<ECS> {

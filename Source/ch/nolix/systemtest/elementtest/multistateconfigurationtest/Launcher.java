@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemtest.elementtest.multistateelementtest;
+package ch.nolix.systemtest.elementtest.multistateconfigurationtest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new MultiStateElementTestPool().run();
+		new MultiStateConfigurationTestPool().run();
 	}
 	
 	//constructor
