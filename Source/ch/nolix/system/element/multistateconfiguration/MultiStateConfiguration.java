@@ -125,11 +125,11 @@ implements IMultiStateConfiguration<MSC, S> {
 	}
 	
 	//method
-	protected final <MSE2 extends IMultiStateConfiguration<MSE2, S>> void internalAddChild(final MSE2 child) {
+	@SuppressWarnings("unchecked")
+	protected final void internalAddChild(final MSC child) {
 		
 		GlobalValidator.assertThat(child).thatIsNamed(LowerCaseCatalogue.CHILD).isNotNull();
 		
-		//TODO: Fix.
 		((MultiStateConfiguration<?, S>)child).setParent(this);
 	}
 	
@@ -166,18 +166,6 @@ implements IMultiStateConfiguration<MSC, S> {
 		}
 		
 		throw InvalidArgumentException.forArgument(state);
-	}
-	
-	//method
-	final void setParent(final MultiStateConfiguration<?, S> parentElement) {
-		
-		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getRefCascadingProperties());
-		
-		for (final var cp: getRefCascadingProperties()) {
-			cp.setParentProperty(parentCascadingProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(cp)));
-		}
-		
-		GlobalValidator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties").isEmpty();
 	}
 	
 	//method
@@ -254,5 +242,17 @@ implements IMultiStateConfiguration<MSC, S> {
 		for (final var p : getRefProperties()) {
 			p.setParent(this);
 		}
+	}
+	
+	//method
+	private void setParent(final MultiStateConfiguration<?, S> parentElement) {
+		
+		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getRefCascadingProperties());
+		
+		for (final var cp: getRefCascadingProperties()) {
+			cp.setParentProperty(parentCascadingProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(cp)));
+		}
+		
+		GlobalValidator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties").isEmpty();
 	}
 }
