@@ -26,6 +26,9 @@ public final class HTMLElementTypeCatalogue {
 	public static final String SELECT = "select";
 	
 	//constant
+	public static final String SPAN = "span";
+	
+	//constant
 	public static final String TABLE = "table";
 	
 	//constant
