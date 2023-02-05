@@ -9,6 +9,9 @@ public final class MultiStateConfigurationTestPool extends TestPool {
 	
 	//constructor
 	public MultiStateConfigurationTestPool() {
-		super(MultiStateConfigurationWithCascadingPropertyTest.class, MultiStateConfigurationWithNonCascadingPropertyTest.class);
+		super(
+			MultiStateConfigurationWithCascadingPropertyTest.class,
+			MultiStateConfigurationWithNonCascadingPropertyTest.class
+		);
 	}
 }
