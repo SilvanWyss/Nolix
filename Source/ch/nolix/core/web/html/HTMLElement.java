@@ -34,6 +34,17 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	}
 	
 	//static method
+	public static HTMLElement withTypeAndAttribute(final String type, final IHTMLAttribute attribute) {
+		return
+		new HTMLElement(
+			type,
+			ImmutableList.withElement(attribute),
+			StringCatalogue.EMPTY_STRING,
+			new ImmutableList<>()
+		);
+	}
+	
+	//static method
 	public static HTMLElement withTypeAndAttributeAndChildElement(
 		final String type,
 		final IHTMLAttribute attribute,
@@ -42,9 +53,9 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		return
 		new HTMLElement(
 			type,
-			LinkedList.withElement(attribute),
+			ImmutableList.withElement(attribute),
 			StringCatalogue.EMPTY_STRING,
-			LinkedList.withElement(childElement)
+			ImmutableList.withElement(childElement)
 		);
 	}
 	
