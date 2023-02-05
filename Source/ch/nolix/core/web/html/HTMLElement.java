@@ -34,6 +34,21 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	}
 	
 	//static method
+	public static HTMLElement withTypeAndAttributeAndChildElement(
+		final String type,
+		final IHTMLAttribute attribute,
+		final IHTMLElement<?, ?> childElement
+	) {
+		return
+		new HTMLElement(
+			type,
+			LinkedList.withElement(attribute),
+			StringCatalogue.EMPTY_STRING,
+			LinkedList.withElement(childElement)
+		);
+	}
+	
+	//static method
 	public static HTMLElement withTypeAndAttributes(
 		final String type,
 		final IContainer<? extends IHTMLAttribute> attributes
