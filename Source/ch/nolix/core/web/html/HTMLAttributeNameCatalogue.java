@@ -17,6 +17,9 @@ public final class HTMLAttributeNameCatalogue {
 	public static final String STYLE = "style";
 	
 	//constant
+	public static final String TYPE = "type";
+	
+	//constant
 	public static final String VALUE = "value";
 	
 	//constructor
