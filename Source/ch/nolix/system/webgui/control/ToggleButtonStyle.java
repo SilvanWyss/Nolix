@@ -6,4 +6,10 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButtonStyle;
 
 //class
-public final class ToggleButtonStyle extends ExtendedControlStyle<IToggleButtonStyle> implements IToggleButtonStyle {}
+public final class ToggleButtonStyle extends ExtendedControlStyle<IToggleButtonStyle> implements IToggleButtonStyle {
+	
+	//constructor
+	public ToggleButtonStyle() {
+		initialize();
+	}
+}
