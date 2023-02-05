@@ -13,7 +13,4 @@ extends IRespondingMutableElement<MSE> {
 	
 	//method declaration
 	S getBaseState();
-	
-	//method declaration
-	S getCurrentState();
 }

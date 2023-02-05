@@ -32,9 +32,6 @@ implements IMultiStateElement<MSE, S> {
 	//attribute
 	private final State<S> baseState;
 	
-	//attribute
-	private State<S> currentState;
-	
 	//multi-attribute
 	private final IContainer<State<S>> availableStates;
 	
@@ -48,7 +45,6 @@ implements IMultiStateElement<MSE, S> {
 		
 		availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
 		this.baseState = availableStates.getRefFirst(s -> s.hasEnumValue(baseState));
-		internalSwitchToState(baseState);
 	}
 	
 	//method
@@ -104,12 +100,6 @@ implements IMultiStateElement<MSE, S> {
 	
 	//method
 	@Override
-	public final S getCurrentState() {
-		return currentState.getEnumValue();
-	}
-	
-	//method
-	@Override
 	public final void reset() {
 		getRefProperties().forEach(Property::setUndefined);
 	}
@@ -149,14 +139,6 @@ implements IMultiStateElement<MSE, S> {
 	}
 	
 	//method
-	protected final void internalSwitchToState(final S state) {
-		
-		GlobalValidator.assertThat(state).thatIsNamed(LowerCaseCatalogue.STATE).isNotNull();
-		
-		currentState = availableStates.getRefFirst(s -> s.hasEnumValue(state));
-	}
-	
-	//method
 	final IContainer<State<S>> getAvailableStates() {
 		return availableStates;
 	}
@@ -164,11 +146,6 @@ implements IMultiStateElement<MSE, S> {
 	//method
 	final State<S> getBaseStateObject() {
 		return baseState;
-	}
-	
-	//method
-	final State<S> getCurrentStateObject() {
-		return currentState;
 	}
 	
 	//method
