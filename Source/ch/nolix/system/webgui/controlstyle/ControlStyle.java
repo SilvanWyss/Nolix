@@ -11,14 +11,13 @@ import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ControlStyle<CS extends IControlStyle<CS> & IMultiStateConfiguration<CS, ControlState>>
+public abstract class ControlStyle<CS extends IControlStyle<CS>>
 extends MultiStateConfiguration<CS, ControlState>
 implements IControlStyle<CS> {
 	

@@ -2,13 +2,13 @@
 package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
 //own imports
-import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IControlStyle<CS extends IControlStyle<CS>> extends IRespondingMutableElement<CS> {
+public interface IControlStyle<CS extends IControlStyle<CS>> extends IMultiStateConfiguration<CS, ControlState> {
 	
 	//method declaration
 	<CS2 extends IControlStyle<CS2>> void addChild(final CS2 controlStyle);
