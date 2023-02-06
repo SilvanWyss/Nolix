@@ -227,8 +227,11 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void removeHeader() {
+	public MutableNode removeHeader() {
+		
 		header = null;
+		
+		return this;
 	}
 	
 	//method

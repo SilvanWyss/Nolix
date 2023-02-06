@@ -10,15 +10,17 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeade
  * 
  * @author Silvan Wyss
  * @date 2019-02-24
- * @param <OH> is the type of a {@link FluentOptionalHeaderable}.
+ * @param <FOH> is the type of a {@link FluentOptionalHeaderable}.
  */
-public interface FluentOptionalHeaderable<OH extends FluentOptionalHeaderable<OH>> extends OptionalHeadered {
+public interface FluentOptionalHeaderable<FOH extends FluentOptionalHeaderable<FOH>> extends OptionalHeadered {
 	
 	//method declaration
 	/**
 	 * Removes the header of current {@link FluentOptionalHeaderable}.
+	 * 
+	 * @return the  current {@link FluentOptionalHeaderable}.
 	 */
-	void removeHeader();
+	FOH removeHeader();
 	
 	//method declaration
 	/**
@@ -29,5 +31,5 @@ public interface FluentOptionalHeaderable<OH extends FluentOptionalHeaderable<OH
 	 * @throws RuntimeException if the given header is null.
 	 * @throws RuntimeException if the given header is blank.
 	 */
-	OH setHeader(String header);
+	FOH setHeader(String header);
 }
