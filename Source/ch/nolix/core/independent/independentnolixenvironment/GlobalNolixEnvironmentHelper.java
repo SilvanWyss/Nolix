@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.nolixenvironment;
+package ch.nolix.core.independent.independentnolixenvironment;
 
 //Java imports
 import java.io.IOException;
@@ -10,13 +10,15 @@ import java.nio.file.Path;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 
 //class
-public final class NolixEnvironment {
+public final class GlobalNolixEnvironmentHelper {
 	
-	//constants
+	//constant
 	public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
 	
-	//constants
+	//constant
 	private static final String APPDATA_HEADER = "APPDATA";
+	
+	//constant
 	private static final char FOLDER_DELIMITER = '/';
 	
 	//static method
@@ -48,5 +50,5 @@ public final class NolixEnvironment {
 	}
 	
 	//constructor
-	private NolixEnvironment() {}
+	private GlobalNolixEnvironmentHelper() {}
 }
