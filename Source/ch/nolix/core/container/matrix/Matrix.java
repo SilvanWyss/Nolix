@@ -584,17 +584,14 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 		final var matrix = new Matrix<O>();
 		
 		//Fills up the elements of the matrix.
+		matrix.elements = new Object[getRowCount()][getColumnCount()];
+		for (var i = 0; i < getRowCount(); i++) {
 			
-			matrix.elements = new Object[getRowCount()][getColumnCount()];
-			
-			//Iterates the rows of the current {@link Matrix}.
-			for (var i = 0; i < getRowCount(); i++) {
-				
-				//Iterates the columns of the current row.
-				for (var j = 0; j < getColumnCount(); j++) {
-					matrix.elements[i][j] = transformer.getOutput((E)elements[i][j]);
-				}
+			//Iterates the columns of the current row.
+			for (var j = 0; j < getColumnCount(); j++) {
+				matrix.elements[i][j] = transformer.getOutput((E)elements[i][j]);
 			}
+		}
 		
 		return matrix;
 	}
@@ -641,35 +638,34 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
-	 * The complexity of this implementation is O(n)
-	 * if the current {@link Matrix} contains n elements. 
+	 * The complexity of this implementation is O(n) if the current {@link Matrix} contains n elements. 
 	 * 
 	 * @return a new right rotated {@link Matrix} of the current {@link Matrix}.
 	 */
 	public Matrix<E> toRightRotatedMatrix() {
-		
-		//For a better performance, this implementation does not use all comfortable methods.
-			final var rightRotatedMatrix = new Matrix<E>();
-			final var rightRotatedMatrixRowCount = getColumnCount();
-			final var rightRotatedMatrixColumnCount = getRowCount();
-			
-			final var rightRotatedMatrixElements
-			= new Object[rightRotatedMatrixRowCount][rightRotatedMatrixColumnCount];
-			
-			rightRotatedMatrix.elements = rightRotatedMatrixElements;
-			
-			//Iterates the rows of the right rotated matrix.
-			for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
 				
-				//Iterates the columns of the current row.
-				for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
-					rightRotatedMatrixElements[i][j]
-					= elements[rightRotatedMatrixColumnCount - j - 1][i];
-				}
-			}
+		final var rightRotatedMatrix = new Matrix<E>();
+		final var rightRotatedMatrixRowCount = getColumnCount();
+		final var rightRotatedMatrixColumnCount = getRowCount();
+		
+		final var rightRotatedMatrixElements =
+		new Object[rightRotatedMatrixRowCount][rightRotatedMatrixColumnCount];
+		
+		rightRotatedMatrix.elements = rightRotatedMatrixElements;
+		
+		//Iterates the rows of the right rotated matrix.
+		for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
 			
-			return rightRotatedMatrix;
+			//Iterates the columns of the current row.
+			for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
+				rightRotatedMatrixElements[i][j]
+				= elements[rightRotatedMatrixColumnCount - j - 1][i];
+			}
+		}
+		
+		return rightRotatedMatrix;
 	}
 	
 	//method
