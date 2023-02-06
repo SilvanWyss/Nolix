@@ -83,8 +83,11 @@ implements FluentOptionalIdentifiableByString<E>, FluentOptionalTokenable<E> {
 	
 	//method
 	@Override
-	public final void removeToken() {
+	public final E removeToken() {
+		
 		token.clear();
+		
+		return asConcrete();
 	}
 	
 	//method

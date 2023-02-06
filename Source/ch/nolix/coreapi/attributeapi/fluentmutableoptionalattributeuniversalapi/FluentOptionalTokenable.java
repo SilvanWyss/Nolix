@@ -10,15 +10,17 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalToken
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <OT> is the type of a {@link FluentOptionalTokenable}.
+ * @param <FOT> is the type of a {@link FluentOptionalTokenable}.
  */
-public interface FluentOptionalTokenable<OT extends FluentOptionalTokenable<OT>> extends OptionalTokened {
-		
+public interface FluentOptionalTokenable<FOT extends FluentOptionalTokenable<FOT>> extends OptionalTokened {
+	
 	//method declaration
 	/**
 	 * Removes the token of the current {@link FluentOptionalTokenable}.
+	 * 
+	 * @return the current {@link FluentOptionalTokenable}.
 	 */
-	void removeToken();
+	FOT removeToken();
 	
 	//method declaration
 	/**
@@ -26,6 +28,8 @@ public interface FluentOptionalTokenable<OT extends FluentOptionalTokenable<OT>>
 	 * 
 	 * @param token
 	 * @return the current {@link FluentOptionalTokenable}.
+	 * @throws RuntimeException if the given token is null.
+	 * @throws RuntimeException if the given token is blank.
 	 */
-	OT setToken(String token);
+	FOT setToken(String token);
 }
