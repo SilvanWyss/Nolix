@@ -6,20 +6,20 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Titled;
 
 //interface
 /**
- * A {@link FluentTitleble} is a {@link Titled} whose title can be set programmatically.
+ * A {@link FluentTitleable} is a {@link Titled} whose title can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2019-07-26
- * @param <T> is the type of a {@link FluentTitleble}.
+ * @param <T> is the type of a {@link FluentTitleable}.
  */
-public interface FluentTitleble<T extends FluentTitleble<T>> extends Titled {
+public interface FluentTitleable<T extends FluentTitleable<T>> extends Titled {
 	
 	//method declaration
 	/**
-	 * Sets the title of the current {@link FluentTitleble}.
+	 * Sets the title of the current {@link FluentTitleable}.
 	 * 
 	 * @param title
-	 * @return the current {@link FluentTitleble}.
+	 * @return the current {@link FluentTitleable}.
 	 */
 	T setTitle(String title);
 }

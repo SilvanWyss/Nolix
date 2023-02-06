@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.FluentTitleble;
+//own imports
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.FluentTitleable;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
@@ -12,7 +13,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
  * @date 2022-07-31
  * @param <GUI> is the type of a {@link IGUI}.
  */
-public interface IGUI<GUI extends IGUI<GUI>> extends FluentTitleble<GUI> {
+public interface IGUI<GUI extends IGUI<GUI>> extends FluentTitleable<GUI> {
 	
 	//method declaration
 	/**
