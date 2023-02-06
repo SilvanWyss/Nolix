@@ -74,8 +74,11 @@ implements FluentOptionalIdentifiableByString<E>, FluentOptionalTokenable<E> {
 	
 	//method
 	@Override
-	public final void removeId() {
+	public E removeId() {
+		
 		id.clear();
+		
+		return asConcrete();
 	}
 	
 	//method
