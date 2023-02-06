@@ -98,6 +98,9 @@ public final class CSSPropertyNameCatalogue {
 	public static final String PADDING_TOP = "padding-top";
 	
 	//constant
+	public static final String POSITION = "position";
+	
+	//constant
 	public static final String WIDTH = "width";
 	
 	//constant
