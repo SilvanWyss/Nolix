@@ -4,6 +4,7 @@ package ch.nolix.core.environment.localcomputer;
 //Java imports
 import javax.swing.JOptionPane;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 
 //class
@@ -62,26 +63,25 @@ public final class PopupWindowProvider {
 			//Sets the title.
 			title = error.getClass().getSimpleName();
 			
-			//Sets the text.
-				//Handles the case that the given exception has a message.
-				if (error.getMessage() != null && !error.getMessage().isEmpty()) {
-					textStringBuilder.append(
-						error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE
-					);
+			//Handles the case that the given exception has a message.
+			if (error.getMessage() != null && !error.getMessage().isEmpty()) {
+				textStringBuilder.append(
+					error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE
+				);
+			}
+			
+			//Iterates the stack trace of the given exception.
+			for (final StackTraceElement ste : error.getStackTrace()) {
+				
+				final String[] classPath = ste.getClassName().split("\\.");
+				textStringBuilder.append(classPath[classPath.length - 1]);
+						
+				if (ste.getLineNumber() > 0) {
+					textStringBuilder.append(" (line " + ste.getLineNumber() + ")");
 				}
 				
-				//Iterates the stack trace of the given exception.
-				for (final StackTraceElement ste : error.getStackTrace()) {
-					
-					final String[] classPath = ste.getClassName().split("\\.");
-					textStringBuilder.append(classPath[classPath.length - 1]);
-							
-					if (ste.getLineNumber() > 0) {
-						textStringBuilder.append(" (line " + ste.getLineNumber() + ")");
-					}
-					
-					textStringBuilder.append(CharacterCatalogue.NEW_LINE);
-				}
+				textStringBuilder.append(CharacterCatalogue.NEW_LINE);
+			}
 		}
 		
 		JOptionPane.showMessageDialog(
