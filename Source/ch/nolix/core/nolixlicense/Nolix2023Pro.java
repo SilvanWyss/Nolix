@@ -1,19 +1,19 @@
 //package declaration
-package ch.nolix.nolixlicense;
+package ch.nolix.core.nolixlicense;
 
 //own imports
 import ch.nolix.core.license.License;
 
 //class
-public final class Nolix2023Ultimate extends License {
+public final class Nolix2023Pro extends License {
 	
 	//method
-	//filteredKey = '48956380'
+	//key = '45680060'
 	@Override
 	protected boolean acceptsFilteredKey(final String filteredKey) {
 		try {
 			final var keyAsInt = Integer.valueOf(filteredKey);
-			return (keyAsInt / 20 - keyAsInt % 260 - 9 * keyAsInt + 438_159_801 == 0);
+			return (-3 * keyAsInt + keyAsInt / 20 - keyAsInt % 250 + 134_756_237 == 0);
 		} catch (final Throwable error) {
 			return false;
 		}
