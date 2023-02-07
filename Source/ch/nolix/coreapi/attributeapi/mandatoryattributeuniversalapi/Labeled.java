@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -20,16 +21,10 @@ public interface Labeled {
 	String getLabel();
 	
 	//method
+	/**
+	 * @return the label of the current {@link Labeled} in quotes.
+	 */
 	default String getLabelInQuotes() {
 		return ("'" + getLabel()+  "'");
-	}
-	
-	//method
-	/**
-	 * @param label
-	 * @return true if the current {@link Labeled} has the given label.
-	 */
-	default boolean hasLabel(final String label) {
-		return getLabel().equals(label);
 	}
 }
