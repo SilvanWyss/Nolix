@@ -20,6 +20,8 @@ public interface FluentHeaderable<H extends Headered> extends Headered {
 	 * 
 	 * @param header
 	 * @return the current {@link FluentHeaderable}.
+	 * @throws RuntimeException if the given header is null.
+	 * @throws RuntimeException if the given header is blank.
 	 */
 	H setHeader(String header);
 }
