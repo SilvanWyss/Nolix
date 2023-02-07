@@ -5,25 +5,25 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link Valued} has a value.
+ * A {@link IValueHolder} has a value.
  * 
  * @author Silvan Wyss
  * @date 2018-09-09
- * @param <VA> is the type of a {@link Valued}.
- * @param <V> is the type of the value of a {@link Valued}.
+ * @param <VA> is the type of a {@link IValueHolder}.
+ * @param <V> is the type of the value of a {@link IValueHolder}.
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Valued<V> {
+public interface IValueHolder<V> {
 	
 	//method declaration
 	/**
-	 * @return the value of the current {@link Valued}.
+	 * @return the value of the current {@link IValueHolder}.
 	 */
 	V getValue();
 	
 	//method
 	/**
-	 * @return a {@link String} representation of the current {@link Valued}.
+	 * @return a {@link String} representation of the current {@link IValueHolder}.
 	 */
 	default String getValueAsString() {
 		return getValue().toString();
@@ -32,7 +32,7 @@ public interface Valued<V> {
 	//method
 	/**
 	 * @param value
-	 * @return true if the current {@link Valued} has a value that equals the given value.
+	 * @return true if the current {@link IValueHolder} has a value that equals the given value.
 	 */
 	default boolean hasEqualValue(final Object value) {
 		return getValue().equals(value);
@@ -41,7 +41,7 @@ public interface Valued<V> {
 	//method
 	/**
 	 * @param value
-	 * @return true if the current {@link Valued} has the given value.
+	 * @return true if the current {@link IValueHolder} has the given value.
 	 */
 	default boolean hasValue(final Object value) {
 		return (getValue() == value);
