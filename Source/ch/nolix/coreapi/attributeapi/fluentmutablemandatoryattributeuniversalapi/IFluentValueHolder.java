@@ -13,7 +13,11 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IValueHolder
  * @param <FVH> is the type of a {@link IFluentValueHolder}.
  * @param <V> is the type of the value of a {@link IFluentValueHolder}.
  */
-public interface IFluentValueHolder<FVH extends IFluentValueHolder<FVH, V>, V> extends IValueHolder<V> {
+public interface IFluentValueHolder<
+	FVH extends IFluentValueHolder<FVH, V>,
+	V
+>
+extends IValueHolder<V> {
 	
 	//method declaration
 	/**
