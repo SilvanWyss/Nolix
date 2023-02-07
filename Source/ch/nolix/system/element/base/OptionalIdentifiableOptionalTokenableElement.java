@@ -6,17 +6,17 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalIdentifiableByString;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalIdentifiable;
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalTokenable;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 
 //class
 public abstract class OptionalIdentifiableOptionalTokenableElement<
-	E extends FluentOptionalIdentifiableByString<E> & FluentOptionalTokenable<E>
+	E extends FluentOptionalIdentifiable<E> & FluentOptionalTokenable<E>
 >
 extends MutableElement
-implements FluentOptionalIdentifiableByString<E>, FluentOptionalTokenable<E> {
+implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 	
 	//constant
 	private static final String ID_HEADER = PascalCaseCatalogue.ID;
