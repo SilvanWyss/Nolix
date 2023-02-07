@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IdentifiedByString;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Identified;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
@@ -12,7 +12,7 @@ public interface ITable<
 	IMPL,
 	E extends IEntity<IMPL>
 >
-extends IDatabaseObject, IdentifiedByString, Named {
+extends IDatabaseObject, Identified, Named {
 	
 	//method declaration
 	boolean containsEntityWithId(String id);

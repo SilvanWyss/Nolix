@@ -5,23 +5,23 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link IdentifiedByString} has an id that is a {@link String}.
+ * A {@link Identified} has an id.
  * 
  * @author Silvan Wyss
  * @date 2019-06-10
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IdentifiedByString {
+public interface Identified {
 	
 	//method declaration
 	/**
-	 * @return the id of the current {@link IdentifiedByString}.
+	 * @return the id of the current {@link Identified}.
 	 */
 	String getId();
 	
 	//method
 	/**
-	 * @return the id of the current {@link IdentifiedByString} in quotes.
+	 * @return the id of the current {@link Identified} in quotes.
 	 */
 	default String getIdInQuotes() {
 		return ("'" + getId() + "'");
@@ -30,7 +30,7 @@ public interface IdentifiedByString {
 	//method
 	/**
 	 * @param id
-	 * @return true if the current {@link IdentifiedByString} has the given id. 
+	 * @return true if the current {@link Identified} has the given id. 
 	 */
 	default boolean hasId(final String id) {
 		return getId().equals(id);
