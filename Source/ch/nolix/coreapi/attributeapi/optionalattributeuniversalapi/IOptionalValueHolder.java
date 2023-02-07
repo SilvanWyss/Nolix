@@ -14,6 +14,7 @@ public interface IOptionalValueHolder<V> {
 	//method declaration
 	/**
 	 * @return the value of the current {@link IOptionalValueHolder}.
+	 * @throws RuntimeException if the current {@link IOptionalValueHolder} does not have a value.
 	 */
 	V getValue();
 	
@@ -22,11 +23,4 @@ public interface IOptionalValueHolder<V> {
 	 * @return true if the current {@link IOptionalValueHolder} has a value.
 	 */
 	boolean hasValue();
-	
-	//method declaration
-	/**
-	 * @param value
-	 * @return true if the current {@link IOptionalValueHolder} has the given value.
-	 */
-	boolean hasValue(String value);
 }
