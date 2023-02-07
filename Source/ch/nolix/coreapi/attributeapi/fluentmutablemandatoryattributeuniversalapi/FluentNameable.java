@@ -6,20 +6,20 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 
 //interface
 /**
- * A {@link FluentNamable} is a {@link Named} whose name can be set programmatically.
+ * A {@link FluentNameable} is a {@link Named} whose name can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <N> is the type of a {@link FluentNamable}.
+ * @param <N> is the type of a {@link FluentNameable}.
  */
-public interface FluentNamable<N extends FluentNamable<N>> extends Named {
+public interface FluentNameable<N extends FluentNameable<N>> extends Named {
 	
 	//method declaration
 	/**
-	 * Sets the name of the current {@link FluentNamable}.
+	 * Sets the name of the current {@link FluentNameable}.
 	 * 
 	 * @param name
-	 * @return the current {@link FluentNamable}.
+	 * @return the current {@link FluentNameable}.
 	 */
 	N setName(String name);
 }
