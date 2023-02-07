@@ -19,8 +19,9 @@ public interface FluentTokenable<FT extends FluentTokenable<FT>> extends Tokened
 	 * Sets the token of the current {@link FluentTokenable}.
 	 * 
 	 * @param token
-	 * @return the current {@link FluentNameable}.
-	 * @throws RuntimeException if the given token is null or blank.
+	 * @return the current {@link FluentTokenable}.
+	 * @throws RuntimeException if the given token is null.
+	 * @throws RuntimeException if the given token is blank.
 	 */
 	FT setToken(String token);
 }
