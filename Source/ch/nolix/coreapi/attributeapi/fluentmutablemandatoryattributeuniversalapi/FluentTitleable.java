@@ -10,9 +10,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Titled;
  * 
  * @author Silvan Wyss
  * @date 2019-07-26
- * @param <T> is the type of a {@link FluentTitleable}.
+ * @param <FT> is the type of a {@link FluentTitleable}.
  */
-public interface FluentTitleable<T extends FluentTitleable<T>> extends Titled {
+public interface FluentTitleable<FT extends FluentTitleable<FT>> extends Titled {
 	
 	//method declaration
 	/**
@@ -20,6 +20,8 @@ public interface FluentTitleable<T extends FluentTitleable<T>> extends Titled {
 	 * 
 	 * @param title
 	 * @return the current {@link FluentTitleable}.
+	 * @throws RuntimeException if the given title is null.
+	 * @throws RuntimeException if the given title is blank.
 	 */
-	T setTitle(String title);
+	FT setTitle(String title);
 }
