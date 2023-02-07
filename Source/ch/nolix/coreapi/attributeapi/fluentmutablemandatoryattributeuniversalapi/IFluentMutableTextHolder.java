@@ -10,9 +10,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.ITextHolder;
  * 
  * @author Silvan Wyss
  * @date 2021-06-19
- * @param <MTH> is the type of a {@link IFluentMutableTextHolder}.
+ * @param <FMTH> is the type of a {@link IFluentMutableTextHolder}.
  */
-public interface IFluentMutableTextHolder<MTH extends IFluentMutableTextHolder<MTH>> extends ITextHolder {
+public interface IFluentMutableTextHolder<FMTH extends IFluentMutableTextHolder<FMTH>> extends ITextHolder {
 	
 	//method declaration
 	/**
@@ -20,6 +20,7 @@ public interface IFluentMutableTextHolder<MTH extends IFluentMutableTextHolder<M
 	 * 
 	 * @param text
 	 * @return the current {@link IFluentMutableTextHolder}.
+	 * @throws RuntimeException if the given text is null.
 	 */
-	MTH setText(String text);
+	FMTH setText(String text);
 }
