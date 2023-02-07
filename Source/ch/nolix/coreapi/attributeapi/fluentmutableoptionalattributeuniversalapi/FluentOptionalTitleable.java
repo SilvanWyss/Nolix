@@ -28,7 +28,8 @@ public interface FluentOptionalTitleable<FOT extends FluentOptionalTitleable<FOT
 	 * 
 	 * @param title
 	 * @return the current {@link FluentOptionalTitleable}.
-	 * @throws RuntimeException if the given title is null or blank.
+	 * @throws RuntimeException if the given title is null.
+	 * @throws RuntimeException if the given title is blank.
 	 */
 	FOT setTitle(String title);
 }
