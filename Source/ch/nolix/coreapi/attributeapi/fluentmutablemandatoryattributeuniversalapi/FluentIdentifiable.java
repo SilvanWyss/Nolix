@@ -20,6 +20,8 @@ public interface FluentIdentifiable<FI> extends Identified {
 	 * 
 	 * @param id
 	 * @return the current {@link FluentIdentifiable}.
+	 * @throws RuntimeException if the given id is null.
+	 * @throws RuntimeException if the given id is blank.
 	 */
-	FI setId(long id);
+	FI setId(String id);
 }
