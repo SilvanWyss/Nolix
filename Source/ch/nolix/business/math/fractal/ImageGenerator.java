@@ -9,7 +9,7 @@ import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.mathapi.fractalapi.IFractal;
 import ch.nolix.businessapi.mathapi.fractalapi.IFractalHelper;
 import ch.nolix.businessapi.mathapi.fractalapi.IImageGenerator;
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

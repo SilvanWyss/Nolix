@@ -23,7 +23,7 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;

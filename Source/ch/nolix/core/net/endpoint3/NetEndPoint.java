@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.BaseNode;

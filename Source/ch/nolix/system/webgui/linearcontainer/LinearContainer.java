@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;

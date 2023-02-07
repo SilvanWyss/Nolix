@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.container;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;

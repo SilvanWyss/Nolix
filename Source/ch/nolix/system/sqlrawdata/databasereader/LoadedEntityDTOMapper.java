@@ -4,8 +4,7 @@ package ch.nolix.system.sqlrawdata.databasereader;
 //Java imports
 import java.util.List;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqlrawdata.databasedto.LoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;

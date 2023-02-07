@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;

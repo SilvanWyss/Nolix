@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CSS;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.core.web.css.CSSRule;

@@ -2,7 +2,7 @@
 package ch.nolix.system.objectschema.schema;
 
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

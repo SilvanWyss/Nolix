@@ -3,7 +3,7 @@ package ch.nolix.system.geometry;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

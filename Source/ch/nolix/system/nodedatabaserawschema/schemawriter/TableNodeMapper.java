@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemawriter;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;

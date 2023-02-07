@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 //own imports
 import ch.nolix.core.commontype.commontypewrapper.ClassWrapper;
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.environment.filesystem.FolderAccessor;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.exception.WrapperException;

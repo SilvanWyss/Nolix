@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class

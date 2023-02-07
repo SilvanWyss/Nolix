@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParametrizedPropertyTypeSQLRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;

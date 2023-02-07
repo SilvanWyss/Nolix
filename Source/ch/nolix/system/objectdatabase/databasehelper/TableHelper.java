@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.databasehelper;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;

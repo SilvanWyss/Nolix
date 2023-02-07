@@ -3,7 +3,7 @@ package ch.nolix.system.graphic.color;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;

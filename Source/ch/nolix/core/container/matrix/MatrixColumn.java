@@ -5,12 +5,12 @@ package ch.nolix.core.container.matrix;
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
-import ch.nolix.core.container.main.LinkedList;
-import ch.nolix.core.container.main.SubContainer;
+import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.linkedlist.SubContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.mainapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class

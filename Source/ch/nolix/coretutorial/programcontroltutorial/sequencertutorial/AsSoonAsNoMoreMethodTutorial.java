@@ -1,7 +1,6 @@
 package ch.nolix.coretutorial.programcontroltutorial.sequencertutorial;
 
-//own imports
-import ch.nolix.core.container.main.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 public final class AsSoonAsNoMoreMethodTutorial {
