@@ -10,9 +10,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.ISubjectHold
  * 
  * @author Silvan Wyss
  * @date 2021-06-15
- * @param <MSO> is the type of a {@link IFluentMutableSubjectHolder}.
+ * @param <FMSH> is the type of a {@link IFluentMutableSubjectHolder}.
  */
-public interface IFluentMutableSubjectHolder<MSO extends IFluentMutableSubjectHolder<MSO>> extends ISubjectHolder {
+public interface IFluentMutableSubjectHolder<FMSH extends IFluentMutableSubjectHolder<FMSH>> extends ISubjectHolder {
 	
 	//method declaration
 	/**
@@ -20,6 +20,8 @@ public interface IFluentMutableSubjectHolder<MSO extends IFluentMutableSubjectHo
 	 * 
 	 * @param subject
 	 * @return the current {@link IFluentMutableSubjectHolder}.
+	 * @throws RuntimeException if the given subject is null.
+	 * @throws RuntimeException if the given subject is blank.
 	 */
-	MSO setSubject(String subject);
+	FMSH setSubject(String subject);
 }
