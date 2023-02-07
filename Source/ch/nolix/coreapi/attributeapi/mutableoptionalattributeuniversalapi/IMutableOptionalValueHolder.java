@@ -2,10 +2,10 @@
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeuniversalapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalValued;
+import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.IOptionalValueHolder;
 
 //interface
-public interface OptionalValuable<V> extends OptionalValued<V> {
+public interface IMutableOptionalValueHolder<V> extends IOptionalValueHolder<V> {
 	
 	//method declaration
 	void removeValue();

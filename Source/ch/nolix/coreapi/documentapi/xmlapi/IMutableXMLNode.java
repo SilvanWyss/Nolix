@@ -2,10 +2,10 @@
 package ch.nolix.coreapi.documentapi.xmlapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalValuable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.IFluentOptionalValueHolder;
 
 //interface
-public interface IMutableXMLNode extends FluentOptionalValuable<IMutableXMLNode, String>, IXMLNode<IMutableXMLNode> {
+public interface IMutableXMLNode extends IFluentOptionalValueHolder<IMutableXMLNode, String>, IXMLNode<IMutableXMLNode> {
 	
 	//method declaration
 	IMutableXMLNode addAttribute(IXMLAttribute attribute);
