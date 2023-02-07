@@ -36,7 +36,7 @@ public enum MultiReferenceEntryTableColumn implements QualifiedNamed {
 	
 	//method
 	@Override
-	public String getNamePrefix() {
+	public String getQualifyingPrefix() {
 		return NAME_PREFIX;
 	}
 }

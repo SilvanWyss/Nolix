@@ -35,7 +35,7 @@ public enum TableTableColumn implements QualifiedNamed {
 	
 	//method
 	@Override
-	public String getNamePrefix() {
+	public String getQualifyingPrefix() {
 		return NAME_PREFIX;
 	}
 }

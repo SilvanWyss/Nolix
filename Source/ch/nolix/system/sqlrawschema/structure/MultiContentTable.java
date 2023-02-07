@@ -34,7 +34,7 @@ public enum MultiContentTable implements QualifiedNamed {
 	
 	//method
 	@Override
-	public final String getNamePrefix() {
+	public final String getQualifyingPrefix() {
 		return NAME_PREFIX;
 	}
 }

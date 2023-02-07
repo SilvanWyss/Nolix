@@ -6,7 +6,8 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link QualifiedNamed} is a {@link Named} that has a name prefix that completes its name to a qualified name.
+ * A {@link QualifiedNamed} is a {@link Named} that
+ * has a qualifying prefix that completes the name of the {@link QualifiedNamed} to a qualified name.
  * 
  * @author Silvan Wyss
  * @date 2022-01-28
@@ -19,7 +20,7 @@ public interface QualifiedNamed extends Named {
 	 * @return the qualified name of the current {@link QualifiedNamed}.
 	 */
 	default String getQualifiedName() {
-		return (getNamePrefix() + getName());
+		return (getQualifyingPrefix() + getName());
 	}
 	
 	//method
@@ -32,9 +33,9 @@ public interface QualifiedNamed extends Named {
 	
 	//method declaration
 	/**
-	 * @return the name prefix of the current {@link QualifiedNamed}.
-	 * The name prefix of a {@link QualifiedNamed} completes
+	 * @return the qualifying prefix of the current {@link QualifiedNamed}.
+	 * The qualifying prefix of a {@link QualifiedNamed} completes
 	 * the name of the {@link QualifiedNamed} to a qualified name.
 	 */
-	String getNamePrefix();
+	String getQualifyingPrefix();
 }
