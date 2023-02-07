@@ -10,9 +10,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalNamed
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <ON> is the type of a {@link FluentOptionalNameable}.
+ * @param <FON> is the type of a {@link FluentOptionalNameable}.
  */
-public interface FluentOptionalNameable<ON extends FluentOptionalNameable<ON>> extends OptionalNamed {
+public interface FluentOptionalNameable<FON extends FluentOptionalNameable<FON>> extends OptionalNamed {
 	
 	//method declaration
 	/**
@@ -20,7 +20,7 @@ public interface FluentOptionalNameable<ON extends FluentOptionalNameable<ON>> e
 	 * 
 	 * @return the current {@link FluentOptionalNameable}.
 	 */
-	ON removeName();
+	FON removeName();
 	
 	//method declaration
 	/**
@@ -28,6 +28,8 @@ public interface FluentOptionalNameable<ON extends FluentOptionalNameable<ON>> e
 	 * 
 	 * @param name
 	 * @return the current {@link FluentOptionalNameable}.
+	 * @throws RuntimeException if the given name is null.
+	 * @throws RuntimeException if the given name is blank.
 	 */
-	ON setName(String name);
+	FON setName(String name);
 }
