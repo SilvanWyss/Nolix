@@ -6,7 +6,8 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.IOptionalValu
 
 //interface
 /**
- * A {@link IFluentOptionalValueHolder} is a {@link IOptionalValueHolder} whose value can be set and removed programmatically.
+ * A {@link IFluentOptionalValueHolder} is a {@link IOptionalValueHolder} whose
+ * value can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-03
