@@ -148,7 +148,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 					
 					final var valueSpecification =
 					Node.withHeaderAndChildNode(
-						s.getPrefix() + getName(),
+						s.getQualifyingPrefix() + getName(),
 						specificationCreator.getOutput(stateProperty.getValue()).getRefSingleChildNode()
 					);
 					
@@ -157,7 +157,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 					break;
 				case DEFINING_EMPTY:
 					
-					list.addAtEnd(Node.withHeaderAndChildNode(s.getPrefix() + getName(), NONE_HEADER));
+					list.addAtEnd(Node.withHeaderAndChildNode(s.getQualifyingPrefix() + getName(), NONE_HEADER));
 						
 					break;
 				case FORWARDING:
@@ -194,7 +194,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	protected final void setValueFromSpecification(final INode<?> specification) {
 		
 		for (final var s : parent.getAvailableStates()) {
-			if (GlobalStringHelper.startsWithIgnoringCase(specification.getHeader(), s.getPrefix())) {
+			if (GlobalStringHelper.startsWithIgnoringCase(specification.getHeader(), s.getQualifyingPrefix())) {
 				setValueFromSpecificationToState(s, specification);
 				return;
 			}

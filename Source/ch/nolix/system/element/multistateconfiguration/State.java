@@ -4,24 +4,32 @@ package ch.nolix.system.element.multistateconfiguration;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Indexed;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Prefixed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
 
 //class
-final class State<S extends Enum<S>> implements Indexed, Prefixed {
+final class State<S extends Enum<S>> implements Indexed, QualifiedNamed {
+	
+	//constant
+	private static final String NAME = PascalCaseCatalogue.STATE;
 	
 	//static method
-	public static <S2 extends Enum<S2>> State<S2> withPrefixAndIndexAndEnumValue(
-		final String prefix,
+	public static <S2 extends Enum<S2>> State<S2> withQualifyingPrefixAndIndexAndEnumValue(
+		final String qualifyingPrefix,
 		final int index,
 		final S2 enumValue
 	) {
-		return new State<>(prefix, index, enumValue);
+		return new State<>(qualifyingPrefix, index, enumValue);
 	}
 	
-	//attributes
-	private final String prefix;
+	//attribute
+	private final String qualifyingPrefix;
+	
+	//attribute
 	private final int index;
+	
+	//attribute
 	private final S enumValue;
 	
 	//constructor
@@ -31,7 +39,7 @@ final class State<S extends Enum<S>> implements Indexed, Prefixed {
 		GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isNotNegative();
 		GlobalValidator.assertThat(enumValue).thatIsNamed("enum value").isNotNull();
 		
-		this.prefix = prefix;
+		this.qualifyingPrefix = prefix;
 		this.index = index;
 		this.enumValue = enumValue;
 	}
@@ -49,8 +57,14 @@ final class State<S extends Enum<S>> implements Indexed, Prefixed {
 	
 	//method
 	@Override
-	public String getPrefix() {
-		return prefix;
+	public String getName() {
+		return NAME;
+	}
+	
+	//method
+	@Override
+	public String getQualifyingPrefix() {
+		return qualifyingPrefix;
 	}
 	
 	//method

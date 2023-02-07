@@ -106,7 +106,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 		throw
 		ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
 			this,
-			"value for the" + state.getPrefix() + " state"
+			"value for the" + state.getQualifyingPrefix() + " state"
 		);
 	}
 	

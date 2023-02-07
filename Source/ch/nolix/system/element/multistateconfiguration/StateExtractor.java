@@ -27,7 +27,7 @@ final class StateExtractor<S extends Enum<S>> {
 		var i = 0;
 		for (final var sev : stateEnumValues) {
 			
-			states.addAtEnd(State.withPrefixAndIndexAndEnumValue(sev.name(), i, sev));
+			states.addAtEnd(State.withQualifyingPrefixAndIndexAndEnumValue(sev.name(), i, sev));
 			
 			i++;
 		}
