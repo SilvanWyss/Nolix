@@ -13,8 +13,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalIdent
  * @date 2020-02-01
  * @param <FOI> is the type of a {@link FluentOptionalIdentifiable}.
  */
-public interface FluentOptionalIdentifiable<FOI extends FluentOptionalIdentifiable<FOI>>
-extends OptionalIdentified {
+public interface FluentOptionalIdentifiable<FOI extends FluentOptionalIdentifiable<FOI>> extends OptionalIdentified {
 	
 	//method declaration
 	/**
