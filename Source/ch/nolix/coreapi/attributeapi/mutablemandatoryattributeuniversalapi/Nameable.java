@@ -6,16 +6,16 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 
 //interface
 /**
-* A {@link Namable} is a {@link Named} whose name can be set programmatically.
+* A {@link Nameable} is a {@link Named} whose name can be set programmatically.
 * 
 * @author Silvan Wyss
 * @date 2023-01-27
 */
-public interface Namable extends Named {
+public interface Nameable extends Named {
 	
 	//method declaration
 	/**
-	 * Sets the name of the current {@link Namable}.
+	 * Sets the name of the current {@link Nameable}.
 	 * 
 	 * @param name
 	 * @throws RuntimeException if the given name is null.
