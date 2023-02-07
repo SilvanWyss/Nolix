@@ -10,9 +10,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <N> is the type of a {@link FluentNameable}.
+ * @param <FN> is the type of a {@link FluentNameable}.
  */
-public interface FluentNameable<N extends FluentNameable<N>> extends Named {
+public interface FluentNameable<FN extends FluentNameable<FN>> extends Named {
 	
 	//method declaration
 	/**
@@ -20,6 +20,8 @@ public interface FluentNameable<N extends FluentNameable<N>> extends Named {
 	 * 
 	 * @param name
 	 * @return the current {@link FluentNameable}.
+	 * @throws RuntimeException if the given name is null.
+	 * @throws RuntimeException if the given name is blank.
 	 */
-	N setName(String name);
+	FN setName(String name);
 }
