@@ -10,10 +10,10 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Valued;
  * 
  * @author Silvan Wyss
  * @date 2018-09-06
- * @param <VA> is the type of a {@link FluentValueable}.
+ * @param <FV> is the type of a {@link FluentValueable}.
  * @param <V> is the type of the value of a {@link FluentValueable}.
  */
-public interface FluentValueable<VA extends FluentValueable<VA, V>, V> extends Valued<V> {
+public interface FluentValueable<FV extends FluentValueable<FV, V>, V> extends Valued<V> {
 	
 	//method declaration
 	/**
@@ -21,6 +21,7 @@ public interface FluentValueable<VA extends FluentValueable<VA, V>, V> extends V
 	 * 
 	 * @param value
 	 * @return the current {@link FluentValueable}.
+	 * @throws RuntimeException if the given value is null.
 	 */
-	VA setValue(V value);
+	FV setValue(V value);
 }
