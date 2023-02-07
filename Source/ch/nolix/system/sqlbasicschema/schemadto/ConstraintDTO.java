@@ -13,8 +13,7 @@ public record ConstraintDTO(ConstraintType type, ImmutableList<String> parameter
 	
 	//constructor
 	public ConstraintDTO(final ConstraintType type, final String... parameters) {
-		this(type, ImmutableList.withElements(parameters));
-		
+		this(type, ImmutableList.forArray(parameters));
 	}
 	
 	//constructor
