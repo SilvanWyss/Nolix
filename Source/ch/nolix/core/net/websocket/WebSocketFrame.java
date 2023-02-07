@@ -270,10 +270,10 @@ public final class WebSocketFrame {
 		}
 		
 		if (firstNibble.getMaskBit()) {
-			i = GlobalArrayHelper.on(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
+			i = GlobalArrayHelper.onArray(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
 		}
 		
-		GlobalArrayHelper.on(bytes).fromIndex(i).write(payload);
+		GlobalArrayHelper.onArray(bytes).fromIndex(i).write(payload);
 		
 		return bytes;
 	}

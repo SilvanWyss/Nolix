@@ -12,7 +12,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public final class GlobalArrayHelper {
 	
 	//static method
-	public static double[] createCopyOf(final double[] array) {
+	public static double[] createCopyOfArray(final double[] array) {
 		
 		GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
 		
@@ -20,7 +20,7 @@ public final class GlobalArrayHelper {
 	}
 	
 	//static method
-	public static <E> E[] createCopyOf(final E[] array) {
+	public static <E> E[] createCopyOfArray(final E[] array) {
 
 		GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
 		
@@ -28,7 +28,7 @@ public final class GlobalArrayHelper {
 	}
 	
 	//static method
-	public static ByteArrayMediator on(final byte[] byteArray) {
+	public static ByteArrayMediator onArray(final byte[] byteArray) {
 		return new ByteArrayMediator(byteArray);
 	}
 	
