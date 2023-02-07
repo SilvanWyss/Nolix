@@ -6,7 +6,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.ITextHolder;
 
 //interface
 /**
- * A {@link IFluentMutableOptionalTextHolder} is a {@link ITextHolder} whose text can be set programmatically.
+ * A {@link IFluentMutableOptionalTextHolder} is a {@link ITextHolder} whose
+ * text can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-06
@@ -32,5 +33,5 @@ extends ITextHolder {
 	 * @throws RuntimeException if the given text is null.
 	 * @throws RuntimeException if the given text is blank.
 	 */
-	FMOTH setName(String text);
+	FMOTH setText(String text);
 }
