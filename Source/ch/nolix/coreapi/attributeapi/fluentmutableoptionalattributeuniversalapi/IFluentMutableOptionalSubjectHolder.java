@@ -6,7 +6,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.ISubjectHold
 
 //interface
 /**
- * A {@link IFluentMutableOptionalSubjectHolder} is a {@link ISubjectHolder} whose subject can be set programmatically.
+ * A {@link IFluentMutableOptionalSubjectHolder} is a {@link ISubjectHolder} whose
+ * subject can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-06
@@ -32,5 +33,5 @@ extends ISubjectHolder {
 	 * @throws RuntimeException if the given subject is null.
 	 * @throws RuntimeException if the given subject is blank.
 	 */
-	FMOSH setName(String subject);
+	FMOSH setSubject(String subject);
 }
