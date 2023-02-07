@@ -255,12 +255,6 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	@Override
-	public boolean hasValue(final String value) {
-		return (hasValue() && getValue().equals(value));
-	}
-	
-	//method
 	public IMutableXMLNode removeAttributes() {
 		
 		attributes.clear();
