@@ -12,6 +12,18 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public final class GlobalArrayHelper {
 	
 	//static method
+	public static <E> E[] createArrayWithElements(
+		final E firstElement,
+		final @SuppressWarnings("unchecked")E... elements
+	) {
+		
+		final var array = Arrays.copyOfRange(elements, 1, elements.length);
+		array[0] = firstElement;
+		
+		return array;
+	}
+	
+	//static method
 	public static double[] createCopyOfArray(final double[] array) {
 		
 		GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
