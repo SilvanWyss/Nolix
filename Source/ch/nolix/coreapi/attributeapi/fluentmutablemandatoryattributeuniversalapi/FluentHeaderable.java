@@ -10,9 +10,9 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Headered;
  * 
  * @author Silvan Wyss
  * @date 2018-04-15
- * @param <H> is the type of a {@link FluentHeaderable}.
+ * @param <FH> is the type of a {@link FluentHeaderable}.
  */
-public interface FluentHeaderable<H extends Headered> extends Headered {
+public interface FluentHeaderable<FH extends Headered> extends Headered {
 	
 	//method declaration
 	/**
@@ -23,5 +23,5 @@ public interface FluentHeaderable<H extends Headered> extends Headered {
 	 * @throws RuntimeException if the given header is null.
 	 * @throws RuntimeException if the given header is blank.
 	 */
-	H setHeader(String header);
+	FH setHeader(String header);
 }
