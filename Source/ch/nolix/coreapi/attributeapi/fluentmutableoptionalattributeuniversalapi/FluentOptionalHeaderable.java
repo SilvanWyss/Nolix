@@ -6,7 +6,8 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeade
 
 //interface
 /**
- * A {@link FluentOptionalHeaderable} is a {@link OptionalHeadered} whose header can be set and removed programmatically.
+ * A {@link FluentOptionalHeaderable} is a {@link OptionalHeadered} whose
+ * header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2019-02-24
