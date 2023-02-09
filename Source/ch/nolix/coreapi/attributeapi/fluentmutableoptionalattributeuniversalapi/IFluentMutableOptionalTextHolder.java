@@ -31,7 +31,6 @@ extends ITextHolder {
 	 * @param text
 	 * @return the current {@link IFluentMutableOptionalTextHolder}.
 	 * @throws RuntimeException if the given text is null.
-	 * @throws RuntimeException if the given text is blank.
 	 */
 	FMOTH setText(String text);
 }
