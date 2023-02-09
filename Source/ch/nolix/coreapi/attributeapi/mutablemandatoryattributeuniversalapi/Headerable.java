@@ -19,6 +19,7 @@ public interface Headerable extends Headered {
 	 * 
 	 * @param header
 	 * @throws RuntimeException if the given header is null.
+	 * @throws RuntimeException if the given header is blank.
 	 */
 	void setHeader(String header);
 }
