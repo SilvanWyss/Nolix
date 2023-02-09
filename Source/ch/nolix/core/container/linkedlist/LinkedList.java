@@ -1038,7 +1038,6 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 		final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
 		final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);
 		for (var i = 1; i <= length; i++) {
-			
 			if (subList1.isEmpty()) {
 				list.addAtEnd(subList2.getRefFirst());
 				subList2.removeFirst();
@@ -1048,7 +1047,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 				
 			} else {
 				final Comparable value1 = norm.getOutput(subList1.getRefFirst());
-			 	final Comparable value2 = norm.getOutput(subList2.getRefFirst());
+				final Comparable value2 = norm.getOutput(subList2.getRefFirst());
 				if (value1.compareTo(value2) > 0) {
 					list.addAtEnd(subList2.getRefFirst());
 					subList2.removeFirst();
