@@ -32,8 +32,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link IContainer} contains n elements.
-	 * 
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element.
 	 */
@@ -48,10 +46,11 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @param firstElement
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains all the given elements.
+	 * @return true if the current {@link IContainer} contains the given firstElement and all of the given elements.
 	 */
-	boolean containsAll(Object... elements);
+	boolean containsAll(final Object firstElement, final Object... elements);
 	
 	//method declaration
 	/**

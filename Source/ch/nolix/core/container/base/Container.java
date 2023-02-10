@@ -104,16 +104,20 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
-	 * @param elements
-	 * @return true if the current {@link Container} contains all the given elements.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAll(final Object... elements) {
+	public final boolean containsAll(final Object firstElement, final Object... elements) {
+		
+		//Handles the case that the current Container does not contain the given firstElement.
+		if (!contains(firstElement)) {
+			return false;
+		}
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current IContainer does not contain the current element.
+			//Handles the case that the current Container does not contain the current element.
 			if (!contains(e)) {
 				return false;
 			}
