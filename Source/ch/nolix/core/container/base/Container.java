@@ -1464,48 +1464,6 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param doubleNorm
-	 * @return the standard deviation of the values
-	 * the given double norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getStandardDeviationByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		return Math.sqrt(getVarianceByDouble(doubleNorm));
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the standard deviation of the values
-	 * the given int norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getStandardDeviationByInt(final IElementTakerIntGetter<E> intNorm) {
-		return Math.sqrt(getVarianceByInt(intNorm));
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param longNorm
-	 * @return the standard deviation of the values
-	 * the given long norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
-		return Math.sqrt(getVarianceByLong(longNorm));
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
 	 * {@inheritDoc}
 	 */
 	@Override

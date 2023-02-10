@@ -560,33 +560,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return the standard deviation of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getStandardDeviationByDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the standard deviation of the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getStandardDeviationByInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the standard deviation of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getStandardDeviationByInt(IElementTakerLongGetter<E> longNorm);
-	
-	//method declaration
-	/**
 	 * @param norm
 	 * @return the sum of the values the given norm returns from the elements of the current {@link IContainer}.
 	 */
