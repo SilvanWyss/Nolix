@@ -148,16 +148,14 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param selector
-	 * @return true if the current {@link IContainer}
-	 * contains exactly 1 element the given selector selects.
+	 * @return true if the current {@link IContainer} contains exactly 1 element the given selector selects.
 	 */
 	boolean containsOne(IElementTakerBooleanGetter<E> selector);
 	
 	//method declaration
 	/**
 	 * @param element
-	 * @return true if the current {@link IContainer}
-	 * contains exactly 1 element that equals the given element.
+	 * @return true if the current {@link IContainer} contains exactly 1 element that equals the given element.
 	 */
 	boolean containsOneEqualing(E element);
 	
@@ -171,10 +169,9 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param startIndex
-	 * @return a new sub container of the current {@link IContainer} from the given start index.
-	 * @throws RuntimeException if the given start index is not positive.
-	 * @throws RuntimeException if
-	 * the current {@link IContainer} contains less element than the value of the given start index.
+	 * @return a new sub container of the current {@link IContainer} from the given startIndex.
+	 * @throws RuntimeException if the given startIndex is not positive.
+	 * @throws RuntimeException if the current {@link IContainer} contains less elements than the given startIndex.
 	 */
 	IContainer<E> from(int startIndex);
 	
@@ -182,11 +179,10 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	/**
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer}
-	 * from the given start index to the given end index.
-	 * @throws RuntimeException if the given start index is not positive.
-	 * @throws RuntimeException if the given end index is smaller than the given start index.
-	 * @throws RuntimeException if the given end index is bigger than the number of elements of the current {@link IContainer}.
+	 * @return a new sub container of the current {@link IContainer} from the given startIndex to the given endIndex.
+	 * @throws RuntimeException if the given startIndex is not positive.
+	 * @throws RuntimeException if the given endIndex is smaller than the given startIndex.
+	 * @throws RuntimeException if the given endIndex is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	IContainer<E> fromUntil(int startIndex, int endIndex);
 	
