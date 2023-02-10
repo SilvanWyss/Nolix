@@ -61,14 +61,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param selector
-	 * @return true if the current {@link IContainer}
-	 * contains at least 2 elements the given selector selects together.
-	 */
-	boolean containsAny(I2ElementTakerBooleanGetter<E> selector);
-	
-	//method declaration
-	/**
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains any of the given elements.
 	 */

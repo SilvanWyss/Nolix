@@ -161,33 +161,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
-	 *
-	 * @param selector
-	 * @return true if the current {@link Container}
-	 * contains at least 2 elements the given selector selects together.
-	 */
-	@Override
-	public final boolean containsAny(final I2ElementTakerBooleanGetter<E> selector) {
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			//Iterates the current IContainer for the current element.
-			for (final var e2 : this) {
-				
-				//Handles the case that the given selector selects the current elements.
-				if (selector.getOutput(e, e2)) {
-					return true;
-				}
-			}
-		}
-		
-		return false;
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
