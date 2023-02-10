@@ -1576,6 +1576,33 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getVariance(final IElementTakerElementGetter<E, Number> norm) {
+		
+		final var average = getAverage(norm);
+		
+		var sumOfSquaredDeviationsAsBigDecimal = BigDecimal.ZERO;
+		for (final var e : this) {
+			
+			final var deviation = norm.getOutput(e).doubleValue() - average;
+			final var squaredDevication = Math.pow(deviation, 2);
+			
+			sumOfSquaredDeviationsAsBigDecimal =
+			sumOfSquaredDeviationsAsBigDecimal.add(BigDecimal.valueOf(squaredDevication));
+		}
+		
+		final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
+		final var varianceAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal.divide(elementCountAsBigDecimal);
+		
+		return varianceAsBigDecimal.doubleValue();
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the variance of the values
 	 * the given double norm returns from the elements of the current {@link Container}.
