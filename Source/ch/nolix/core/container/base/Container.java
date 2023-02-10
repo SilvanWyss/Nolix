@@ -535,6 +535,24 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getAverage(final IElementTakerElementGetter<E, Number> norm) {
+		
+		assertIsNotEmpty();
+		
+		final var sumAsBigDecimal = getSum(norm);
+		final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
+		final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal);
+		
+		return averageAsBigDecimal.doubleValue();
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
 	 * @param doubleNorm
 	 * @return the average of the values
 	 * the given double norm returns from the elements of the current {@link Container}.
