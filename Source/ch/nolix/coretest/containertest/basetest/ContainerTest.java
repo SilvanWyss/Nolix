@@ -469,56 +469,32 @@ public abstract class ContainerTest extends Test {
 		//verification
 		expect(result).isEqualTo(6);
 	}
-		
+	
+	//method
 	@TestCase
-	public final void testCase_getMedianByDouble_whenIsEmpty() {
+	public final void testCase_getMedian_whenIsEmpty() {
 		
 		//setup
-		final var testUnit = createEmptyContainerForType(Double.class);
+		final var testUnit = createEmptyContainerForType(Integer.class);
 		
 		//execution & verification
-		expectRunning(() -> testUnit.getMedianByDouble(FunctionCatalogue::getSelf))
+		expectRunning(() -> testUnit.getMedian(FunctionCatalogue::getSelf))
 		.throwsException()
 		.ofType(EmptyArgumentException.class);
 	}
 	
+	//method
 	@TestCase
-	public final void testCase_getMedianByDouble_whenContainsAny_1A() {
+	public final void testCase_getMedian_whenContainsAny_1A() {
 		
 		//setup
-		final var testUnit = createContainerWithElements(1.0, 2.0, 3.0, 4.0, 5.0);
+		final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 		
 		//execution
-		final var result = testUnit.getMedianByDouble(FunctionCatalogue::getSelf);
+		final var result = testUnit.getMedian(FunctionCatalogue::getSelf);
 		
 		//verification
-		expect(result).isEqualTo(3.0);
-	}
-	
-	@TestCase
-	public final void testCase_getMedianByDouble_whenContainsAny_1B() {
-		
-		//setup
-		final var testUnit = createContainerWithElements(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
-		
-		//execution
-		final var result = testUnit.getMedianByDouble(FunctionCatalogue::getSelf);
-		
-		//verification
-		expect(result).isEqualTo(3.5);
-	}
-	
-	@TestCase
-	public final void testCase_getMedianByDouble_whenContainsAny_2() {
-		
-		//setup
-		final var testUnit = createContainerWithElements(1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
-		
-		//execution
-		final var result = testUnit.getMedianByDouble(FunctionCatalogue::getSelf);
-		
-		//verification
-		expect(result).isEqualTo(1.0);
+		expect(result).isEqualTo(4.0);
 	}
 	
 	//method

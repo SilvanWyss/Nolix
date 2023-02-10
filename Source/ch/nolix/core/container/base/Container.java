@@ -21,7 +21,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IMutableList;
@@ -699,26 +698,6 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Handles the case that the number of values is odd.
 		return orderedValues.getRefAt1BasedIndex((valueCount / 2) + 1).doubleValue();
-	}
-	
-	//method
-	@Override
-	public final double getMedianByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		
-		assertIsNotEmpty();
-		
-		final var values = to(doubleNorm::getOutput);
-		
-		values.toOrderedList(FunctionCatalogue::getSelf);
-		
-		final var valueCount = values.getElementCount();
-		
-		if (valueCount % 2 == 0) {
-			final var firstIndex = valueCount / 2;
-			return 0.5 * (values.getRefAt1BasedIndex(firstIndex) + values.getRefAt1BasedIndex(firstIndex + 1));
-		}
-		
-		return values.getRefAt1BasedIndex((valueCount / 2) + 1);
 	}
 	
 	//method
