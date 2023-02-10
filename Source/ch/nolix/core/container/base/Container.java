@@ -1168,22 +1168,23 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * @return the one element of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 * @throws InvalidArgumentException if the current {@link Container} contains several elements.
+	 * The complexity of this implementation is O(1).
+	 * 
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final E getRefOne() {
 		
-		//Asserts that the current IContainer contains exactly 1 element.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		if (getElementCount() > 1) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
-		}
-		
-		return iterator().next();
+		//Enumerates the element count of the current Container.
+		return 
+		switch (getElementCount()) {
+			case 0 ->
+				throw EmptyArgumentException.forArgument(this);
+			case 1 ->
+				iterator().next();
+			default ->
+				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains several elements");
+		};
 	}
 	
 	//method
