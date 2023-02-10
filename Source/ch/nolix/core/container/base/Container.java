@@ -1692,6 +1692,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	public final String toString(final char separator) {
+		
+		//Calls other method.
 		return toString(String.valueOf(separator));
 	}
 	
@@ -1699,36 +1701,21 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param separator
-	 * @return a {@link String} representation of the current {@link Container} using the given separator.
-	 * @throws ArgumentIsNullException if the given separator is null.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String toString(final String separator) {
 		
-		//Asserts that the given separator is not null.
-		GlobalValidator
-		.assertThat(separator)
-		.thatIsNamed(LowerCaseCatalogue.SEPARATOR)
-		.isNotNull();
-		
-		//Enumerates the element count of the current IContainer.
+		//Enumerates the element count of the current Container.
+		return
 		switch (getElementCount()) {
-			case 0:
-				return StringCatalogue.EMPTY_STRING;
-			case 1:
-				return getRefFirst().toString();
-			default:
-				
-				final var stringBuilder = new StringBuilder();
-				stringBuilder.append(getRefFirst());
-				
-				for (final var e : withoutFirst()) {
-					stringBuilder.append(separator + e);
-				}
-				
-				return stringBuilder.toString();
-		}
+			case 0 ->
+				StringCatalogue.EMPTY_STRING;
+			case 1 ->
+				getRefFirst().toString();
+			default ->
+				toStringWhenContainsSeveralElements(separator);
+		};
 	}
 	
 	//method
@@ -1886,5 +1873,35 @@ public abstract class Container<E> implements IContainer<E> {
 		if (isEmpty()) {
 			throw EmptyArgumentException.forArgument(this);
 		}
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * @param separator
+	 * @return a {@link String} representation of the current {@link Container} using the given separator
+	 * for the case that the current {@link Container} contains several elements.
+	 * @throws ArgumentIsNullException if the given separator is null.
+	 */
+	private String toStringWhenContainsSeveralElements(final String separator) {
+		
+		//Asserts that the given separator is not null.
+		GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseCatalogue.SEPARATOR).isNotNull();
+		
+		//Creates a StringBuilder.
+		final var stringBuilder = new StringBuilder();
+		
+		//Appends the String representation of the first element to the StringBuilder.
+		stringBuilder.append(getRefFirst());
+		
+		//Iterates the elements of the current Container without the first element.
+		for (final var e : withoutFirst()) {
+			
+			//Appends the separator and the String representation of the current element to the StringBuilder.
+			stringBuilder.append(separator + e);
+		}
+		
+		return stringBuilder.toString();
 	}
 }
