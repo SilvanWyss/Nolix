@@ -61,10 +61,11 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @param firstElement
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains any of the given elements.
+	 * @return true if the current {@link IContainer} contains the given firstElement or one of the given elements.
 	 */
-	boolean containsAny(Object... elements);
+	boolean containsAny(Object firstElement, Object... elements);
 	
 	//method declaration
 	/**
