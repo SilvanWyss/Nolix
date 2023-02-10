@@ -117,13 +117,14 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	 * @return true if the current {@link IContainer} does not contain an element the given selector selects.
 	 */
 	boolean containsNone(IElementTakerBooleanGetter<E> selector);
-		
+	
 	//method declaration
 	/**
+	 * @param firstElement
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains none of the given elements.
+	 * @return true if the current {@link IContainer} does not contain the given firstElement and none of the given elements.
 	 */
-	boolean containsNone(Object... elements);
+	boolean containsNone(Object firstElement, Object... elements);
 	
 	//method declaration
 	/**

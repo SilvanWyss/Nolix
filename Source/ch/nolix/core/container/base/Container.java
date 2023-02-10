@@ -309,8 +309,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return true if the current {@link Container} does not contain an element the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
@@ -323,22 +322,11 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
-	 * @param elements
-	 * @return true if the current {@link Container} contains none of the given elements.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsNone(final Object... elements) {
-		
-		//Iterates the given elements.
-		for (final var e : elements) {
-			
-			//Handles the case that the current IContainer contains the current element.
-			if (contains(e)) {
-				return false;
-			}
-		}
-		
-		return true;
+	public final boolean containsNone(final Object firstElement, final Object... elements) {
+		return !containsAny(firstElement, elements);
 	}
 	
 	//method
