@@ -189,19 +189,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param element
-	 * @return true if the current {@link Container}
-	 * contains an element that equals the given given element.
-	 */
-	@Override
-	public final boolean containsAnyEqualing(final Object element) {
-		return containsAny(e -> e.equals(element));
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(m*n) if:
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
@@ -243,6 +230,24 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final boolean containsAsManyAs(Iterable<?> container) {
 		return (getElementCount() == IterableHelper.getElementCount(container));
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean containsEqualing(final Object element) {
+		
+		for (final var e : this) {
+			if (e.equals(element)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	//method

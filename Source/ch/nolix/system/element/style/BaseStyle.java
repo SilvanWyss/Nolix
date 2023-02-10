@@ -234,7 +234,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return true if the current {@link BaseStyle} contains the given selectorRole.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
-		return selectorRoles.getRefValues().containsAnyEqualing(selectorRole);
+		return selectorRoles.getRefValues().containsEqualing(selectorRole);
 	}
 	
 	//method
@@ -251,7 +251,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return true if the current {@link BaseStyle} contains the given selectorToken.
 	 */
 	public final boolean containsSelectorToken(final String selectorToken) {
-		return selectorTokens.getRefValues().containsAnyEqualing(selectorToken);
+		return selectorTokens.getRefValues().containsEqualing(selectorToken);
 	}
 	
 	//method

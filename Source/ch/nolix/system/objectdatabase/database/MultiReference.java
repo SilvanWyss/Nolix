@@ -137,7 +137,7 @@ implements IMultiReference<DataImplementation, E> {
 			return false;
 		}
 		
-		return getReferencedEntityIds().containsAnyEqualing(entity.getId());
+		return getReferencedEntityIds().containsEqualing(entity.getId());
 	}
 	
 	//method

@@ -23,18 +23,18 @@ public final class ReadContainerTest extends ContainerTest {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//execution
-		expect(readContainer.containsAnyEqualing("apple"));
-		expect(readContainer.containsAnyEqualing("banana"));
-		expect(readContainer.containsAnyEqualing("cerish"));
-		expect(readContainer.containsAnyEqualing("elephant"));
-		expect(readContainer.containsAnyEqualing("lion"));
-		expect(readContainer.containsAnyEqualing("monkey"));
-		expect(readContainer.containsAnyEqualing("flower"));
-		expect(readContainer.containsAnyEqualing("tree"));
-		expect(readContainer.containsAnyEqualing("palm"));
-		expectNot(readContainer.containsAnyEqualing("jupiter"));
-		expectNot(readContainer.containsAnyEqualing("saturn"));
-		expectNot(readContainer.containsAnyEqualing("uranus"));
+		expect(readContainer.containsEqualing("apple"));
+		expect(readContainer.containsEqualing("banana"));
+		expect(readContainer.containsEqualing("cerish"));
+		expect(readContainer.containsEqualing("elephant"));
+		expect(readContainer.containsEqualing("lion"));
+		expect(readContainer.containsEqualing("monkey"));
+		expect(readContainer.containsEqualing("flower"));
+		expect(readContainer.containsEqualing("tree"));
+		expect(readContainer.containsEqualing("palm"));
+		expectNot(readContainer.containsEqualing("jupiter"));
+		expectNot(readContainer.containsEqualing("saturn"));
+		expectNot(readContainer.containsEqualing("uranus"));
 	}
 	
 	//method
