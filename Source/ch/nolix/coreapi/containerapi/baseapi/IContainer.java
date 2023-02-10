@@ -109,15 +109,8 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	 * @param container
 	 * @return true if the current {@link IContainer} contains more elements than the given container.
 	 */
-	boolean containsMoreThan(IContainer<?> container);
-	
-	//method declaration
-	/**
-	 * @param container
-	 * @return true if the current {@link IContainer} contains more elements than the given container.
-	 */
 	boolean containsMoreThan(Iterable<?> container);
-		
+	
 	//method declaration
 	/**
 	 * @param selector

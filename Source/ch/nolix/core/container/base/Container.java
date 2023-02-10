@@ -208,7 +208,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is
 	 * -O(1) if the given container is a {@link IContainer}.
-	 * -O(n) otherwise
+	 * -O(n) otherwise.
 	 * 
 	 * {@inheritDoc}
 	 */
@@ -247,10 +247,12 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean containsExactlyInSameOrder(final Iterable<?> container) {
+	public final boolean containsExactlyInSameOrder(final Iterable<?> container) {
 		
 		//Iterates the current Container.
 		final var iterator = container.iterator();
@@ -269,7 +271,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is
 	 * -O(1) if the given container is a {@link IContainer}.
-	 * -O(n) otherwise
+	 * -O(n) otherwise.
 	 * 
 	 * {@inheritDoc}
 	 */
@@ -289,23 +291,17 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param container
-	 * @return true if the current {@link Container} contains more elements than the given container.
-	 */
-	@Override
-	public final boolean containsMoreThan(final IContainer<?> container) {
-		return (getElementCount() > container.getElementCount());
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @param container
-	 * @return true if the current {@link Container} contains more elements than the given container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsMoreThan(final Iterable<?> container) {
+		
+		//Handles the case that the given container is a IContainer.
+		if (container instanceof IContainer<?> lContainer) {
+			return (getElementCount() > lContainer.getElementCount());
+		}
+		
+		//Handles the case that the given container is not a IContainer.
 		return (getElementCount() > IterableHelper.getElementCount(container));
 	}
 	
