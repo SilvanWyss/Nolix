@@ -541,30 +541,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return the sum of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 */
-	double getSumByDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the sum of the values
-	 * the given int norm returns from the element of the current {@link IContainer}.
-	 */
-	int getSumByInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the sum of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 */
-	long getSumByLong(IElementTakerLongGetter<E> longNorm);
-	
-	//method declaration
-	/**
 	 * @param norm
 	 * @return the sum of the integers the given norm returns from the elements of the current {@link IContainer}.
 	 */

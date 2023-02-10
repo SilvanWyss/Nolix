@@ -46,7 +46,7 @@ final class MultiReadContainer<E> extends Container<E> {
 	//method
 	@Override
 	public int getElementCount() {
-		return containers.getSumByInt(Container::getElementCount);
+		return containers.getSumOfIntegers(Container::getElementCount).intValue();
 	}
 	
 	//method

@@ -1423,69 +1423,6 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param doubleNorm
-	 * @return the sum of the values
-	 * the given double norm returns from the elements of the current {@link Container}.
-	 */
-	@Override
-	public final double getSumByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		
-		var sum = 0.0;
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			sum += doubleNorm.getOutput(e);
-		}
-		
-		return sum;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the sum of the values
-	 * the given int norm returns from the element of the current {@link Container}.
-	 */
-	@Override
-	public final int getSumByInt(final IElementTakerIntGetter<E> intNorm) {
-		
-		var sum = 0;
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			sum += intNorm.getOutput(e);
-		}
-		
-		return sum;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param longNorm
-	 * @return the sum of the values
-	 * the given long norm returns from the elements of the current {@link Container}.
-	 */
-	@Override
-	public final long getSumByLong(final IElementTakerLongGetter<E> longNorm) {
-		
-		var sum = 0;
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			sum += longNorm.getOutput(e);
-		}
-		
-		return sum;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
 	 * {@inheritDoc}
 	 */
 	@Override

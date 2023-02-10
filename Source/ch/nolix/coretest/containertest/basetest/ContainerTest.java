@@ -864,32 +864,32 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getSumByInt() {
-		
-		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getSumByInt(String::length);
-		
-		//verification
-		expect(result).isEqualTo(21);
-	}
-	
-	//method
-	@TestCase
-	public final void testCase_getSumByInt_whenContainerIsEmpty() {
+	public final void testCase_getSumByInt_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
-		final var result = testUnit.getSumByInt(String::length);
+		final var result = testUnit.getSum(String::length);
 		
 		//verification
-		expect(result).isEqualTo(0);
+		expect(result.intValue()).isEqualTo(0);
 	}
 	
+	//method
+	@TestCase
+	public final void testCase_getSum_whenContainsAny() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		
+		//execution
+		final var result = testUnit.getSum(String::length);
+		
+		//verification
+		expect(result.intValue()).isEqualTo(21);
+	}
+		
 	//method
 	@TestCase
 	public final void testCase_getVariance() {
