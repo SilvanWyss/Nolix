@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
+//Java imports
+import java.math.BigDecimal;
+
 //own imports
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
@@ -564,6 +567,13 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	double getStandardDeviationByInt(IElementTakerLongGetter<E> longNorm);
+	
+	//method declaration
+	/**
+	 * @param norm
+	 * @return the sum of the values the given norm returns from the elements of the current {@link IContainer}.
+	 */
+	BigDecimal getSum(IElementTakerElementGetter<E, Number> norm);
 	
 	//method declaration
 	/**

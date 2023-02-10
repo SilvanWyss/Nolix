@@ -3,6 +3,7 @@ package ch.nolix.core.container.base;
 
 //Java imports
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.Random;
 
 //own imports
@@ -1470,6 +1471,24 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final double getStandardDeviationByInt(final IElementTakerLongGetter<E> longNorm) {
 		return Math.sqrt(getVarianceByLong(longNorm));
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public BigDecimal getSum(final IElementTakerElementGetter<E, Number> norm) {
+		
+		var sum = BigDecimal.ZERO;
+		
+		for (final var e : this) {
+			sum = sum.add(BigDecimal.valueOf(norm.getOutput(e).doubleValue()));
+		}
+		
+		return sum;
 	}
 	
 	//method
