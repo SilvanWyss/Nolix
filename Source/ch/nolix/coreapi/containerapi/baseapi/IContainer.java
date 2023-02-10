@@ -128,6 +128,13 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @param elements
+	 * @return true if the current {@link IContainer} does not contain any element of the given elements.
+	 */
+	boolean containsNoneOf(Iterable<?> elements);
+	
+	//method declaration
+	/**
 	 * @param element
 	 * @return true if the current {@link IContainer} contains the given element exactly 1 time.
 	 */

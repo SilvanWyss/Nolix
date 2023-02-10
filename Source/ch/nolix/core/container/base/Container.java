@@ -331,6 +331,19 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(m*n) if:
+	 * -The current {@link Container} contains m elements.
+	 * -n elements are given.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean containsNoneOf(final Iterable<?> elements) {
+		return !containsAnyOf(elements);
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * @param element
