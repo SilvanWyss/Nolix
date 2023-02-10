@@ -84,7 +84,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container} contains all of the given elements.
 	 */
 	@Override
-	public final boolean containsAll(final Iterable<Object> elements) {
+	public final boolean containsAll(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
@@ -215,20 +215,17 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param container
-	 * @return true if the current {@link Container} contains as many elements as the given container.
-	 */
-	@Override
-	public final boolean containsAsManyAs(final IContainer<?> container) {
-		return (getElementCount() == container.getElementCount());
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsAsManyAs(Iterable<?> container) {
+		
+		//Handles the case that the given container is a IContainer.
+		if (container instanceof IContainer<?> lContainer) {
+			return (getElementCount() == lContainer.getElementCount());
+		}
+		
+		//Handles the case that the given container is not a IContainer.
 		return (getElementCount() == IterableHelper.getElementCount(container));
 	}
 	
