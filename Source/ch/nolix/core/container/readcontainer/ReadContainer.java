@@ -143,7 +143,7 @@ public final class ReadContainer<E> extends Container<E> {
 				return false;
 			}
 			
-			return containsAll(readContainer);
+			return containsAllOf(readContainer);
 	}
 
 	//method

@@ -39,18 +39,18 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param elements
-	 * @return true if the current {@link IContainer} contains all of the given elements.
-	 */
-	boolean containsAll(Iterable<?> elements);
-	
-	//method declaration
-	/**
 	 * @param firstElement
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains the given firstElement and all of the given elements.
 	 */
 	boolean containsAll(final Object firstElement, final Object... elements);
+	
+	//method declaration
+	/**
+	 * @param elements
+	 * @return true if the current {@link IContainer} contains all of the given elements.
+	 */
+	boolean containsAllOf(Iterable<?> elements);
 	
 	//method declaration
 	/**
@@ -72,7 +72,7 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains any of the given elements.
 	 */
-	boolean containsAnyFrom(Iterable<?> elements);
+	boolean containsAnyOf(Iterable<?> elements);
 	
 	//method declaration
 	/**

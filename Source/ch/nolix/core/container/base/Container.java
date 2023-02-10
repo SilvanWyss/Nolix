@@ -79,12 +79,17 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAll(final Iterable<?> elements) {
+	public final boolean containsAll(final Object firstElement, final Object... elements) {
+		
+		//Handles the case that the current Container does not contain the given firstElement.
+		if (!contains(firstElement)) {
+			return false;
+		}
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current IContainer does not contain the current element.
+			//Handles the case that the current Container does not contain the current element.
 			if (!contains(e)) {
 				return false;
 			}
@@ -102,17 +107,12 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAll(final Object firstElement, final Object... elements) {
-		
-		//Handles the case that the current Container does not contain the given firstElement.
-		if (!contains(firstElement)) {
-			return false;
-		}
+	public final boolean containsAllOf(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
 			
-			//Handles the case that the current Container does not contain the current element.
+			//Handles the case that the current IContainer does not contain the current element.
 			if (!contains(e)) {
 				return false;
 			}
@@ -190,7 +190,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAnyFrom(final Iterable<?> elements) {
+	public final boolean containsAnyOf(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {

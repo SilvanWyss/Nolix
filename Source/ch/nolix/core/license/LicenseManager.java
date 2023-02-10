@@ -93,7 +93,7 @@ public final class LicenseManager {
 	public <F extends Feature> boolean containsFeature(final Class<F> featureType) {
 		try {
 			final var feature = featureType.getConstructor().newInstance();
-			return feature.getAuthorizedLicenseTypes().containsAnyFrom(getLicenseTypes());
+			return feature.getAuthorizedLicenseTypes().containsAnyOf(getLicenseTypes());
 		} catch (
 			final 
 			InstantiationException
