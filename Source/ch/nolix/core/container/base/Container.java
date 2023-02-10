@@ -669,6 +669,39 @@ public abstract class Container<E> implements IContainer<E> {
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final double getMedian(final IElementTakerElementGetter<E, Number> norm) {
+		
+		//Asserts that the current Container is not empty.
+		assertIsNotEmpty();
+		
+		//Calculates the values the given norm returns from the elements of the current Container.
+		final var values = to(norm::getOutput);
+		
+		//Orders the values by an ascending order.
+		final var orderedValues = values.toOrderedList(Number::doubleValue);
+		
+		//Gets the number of values.
+		final var valueCount = values.getElementCount();
+		
+		//Handles the case that the number of values is even.
+		if (valueCount % 2 == 0) {
+			
+			final var firstIndex = valueCount / 2;
+			final var preMedian = orderedValues.getRefAt1BasedIndex(firstIndex).doubleValue();
+			final var postMedian = orderedValues.getRefAt1BasedIndex(firstIndex + 1).doubleValue();
+						
+			return 0.5 * (preMedian + postMedian);
+		}
+		
+		//Handles the case that the number of values is odd.
+		return orderedValues.getRefAt1BasedIndex((valueCount / 2) + 1).doubleValue();
+	}
+	
+	//method
 	@Override
 	public final double getMedianByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
 		

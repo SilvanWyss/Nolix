@@ -264,6 +264,14 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @param norm
+	 * @return the median of the values the given norm returns from the elements of the current {@link IContainer}.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
+	 */
+	double getMedian(IElementTakerElementGetter<E, Number> norm);
+	
+	//method declaration
+	/**
 	 * @param doubleNorm
 	 * @return the median of
 	 * the values the given doubleNorm returns from the elements of the current {@link IContainer}.
