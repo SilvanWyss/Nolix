@@ -19,7 +19,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
-import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
@@ -29,7 +28,6 @@ import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
@@ -459,28 +457,6 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		return true;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * Lets the elements of the current {@link Container} run the given action.
-	 * Continues always when an error occurs at an element.
-	 * 
-	 * @param action
-	 */
-	@Override
-	public final void forEachWithContinuing(final IElementTaker<E> action) {
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			try {
-				action.run(e);
-			} catch (final Throwable error) {
-				GlobalLogger.logError(error);
-			}
-		}
 	}
 	
 	//method

@@ -8,7 +8,6 @@ import java.math.BigInteger;
 //own imports
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
@@ -168,15 +167,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	 * @return true if the current {@link IContainer} contains only elements the given selector selects.
 	 */
 	boolean containsOnly(IElementTakerBooleanGetter<E> selector);
-	
-	//method declaration
-	/**
-	 * Lets the elements of the current {@link IContainer} run the given action.
-	 * Continues always when an error occurs at an element.
-	 * 
-	 * @param action
-	 */
-	void forEachWithContinuing(IElementTaker<E> action);
 	
 	//method declaration
 	/**
