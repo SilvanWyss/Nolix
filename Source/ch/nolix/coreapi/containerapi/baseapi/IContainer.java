@@ -599,33 +599,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return the variance of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getVarianceByDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the variance of the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getVarianceByInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the variance of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getVarianceByLong(IElementTakerLongGetter<E> longNorm);
-	
-	//method declaration
-	/**
 	 * @param norm
 	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
 	 * @return true if the current {@link IContainer} is ordered according to the given norm, false otherwise.

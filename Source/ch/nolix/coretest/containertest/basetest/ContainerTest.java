@@ -892,13 +892,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getVarianceByDouble() {
+	public final void testCase_getVariance() {
 		
 		//setup
 		final var testUnit = createContainerWithElements(0.0, 0.0, 0.5, 1.0, 1.0);
 		
 		//execution
-		final var result = testUnit.getVarianceByDouble(FunctionCatalogue::getSelf);
+		final var result = testUnit.getVariance(FunctionCatalogue::getSelf);
 		
 		//verification
 		expect(result).isEqualTo(0.2);
