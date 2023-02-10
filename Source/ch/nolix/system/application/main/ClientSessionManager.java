@@ -148,7 +148,7 @@ final class ClientSessionManager<
 	
 	//method
 	private int getCurrentSessionIndex() {
-		return sessionStack.getIndexOfFirstOccurrenceOf(getRefCurrentSession());
+		return sessionStack.get1BasedIndexOfFirstOccuranceOf(getRefCurrentSession());
 	}
 	
 	//method

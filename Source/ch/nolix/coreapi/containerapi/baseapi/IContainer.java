@@ -226,19 +226,19 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param element
-	 * @return the index of the first element in the current {@link IContainer} that equals the given element.
+	 * @return the 1-based index of the first element of the current {@link IContainer} that equals the given element.
 	 * @throws RuntimeException if
 	 * the current {@link IContainer} does not contain an element that equals the given element.
 	 */
-	int getIndexOfFirstEqualElement(E element);
+	int get1BasedIndexOfFirstEqualElement(E element);
 	
 	//method declaration
 	/**
 	 * @param element
-	 * @return the index of the given element in the current {@link IContainer}.
+	 * @return the 1-based index of the given element in the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} does not contain the given element.
 	 */
-	int getIndexOfFirstOccurrenceOf(E element);
+	int get1BasedIndexOfFirstOccuranceOf(E element);
 	
 	//method declaration
 	/**

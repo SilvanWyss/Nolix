@@ -582,7 +582,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * the current {@link Container} does not contain an element that equals the given element.
 	 */
 	@Override
-	public final int getIndexOfFirstEqualElement(final E element) {
+	public final int get1BasedIndexOfFirstEqualElement(final E element) {
 		
 		//Iterates the current IContainer.
 		var index = 1;
@@ -609,7 +609,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws InvalidArgumentException if the current {@link Container} does not contain the given element.
 	 */
 	@Override
-	public final int getIndexOfFirstOccurrenceOf(final E element) {
+	public final int get1BasedIndexOfFirstOccuranceOf(final E element) {
 		
 		//Iterates the current IContainer.
 		var index = 1;
