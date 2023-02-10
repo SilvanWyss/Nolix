@@ -553,66 +553,6 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param doubleNorm
-	 * @return the average of the values
-	 * the given double norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getAverageByDouble(final IElementTakerDoubleGetter<E> doubleNorm) {
-		
-		//Asserts that the current IContainer is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		return (getSumByDouble(doubleNorm) / getElementCount());
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param intNorm
-	 * @return the average of the values
-	 * the given int norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getAverageByInt(final IElementTakerIntGetter<E> intNorm) {
-		
-		//Asserts that the current IContainer is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		return (getSumByInt(intNorm) / getElementCount());
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param longNorm
-	 * @return the average of the values
-	 * the given long norm returns from the elements of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getAverageByLong(final IElementTakerLongGetter<E> longNorm) {
-		
-		//Asserts that the current IContainer is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		return (getSumByLong(longNorm) / getElementCount());
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link Container}.
 	 */

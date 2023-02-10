@@ -231,33 +231,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return the average of the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getAverageByDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * @param intNorm
-	 * @return the average of the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getAverageByInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * @param longNorm
-	 * @return the average of the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getAverageByLong(IElementTakerLongGetter<E> longNorm);
-	
-	//method declaration
-	/**
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link IContainer}.
 	 */
