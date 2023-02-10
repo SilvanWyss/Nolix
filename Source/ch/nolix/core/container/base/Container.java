@@ -213,7 +213,9 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this implementation is
+	 * -O(1) if the given container is a {@link IContainer}.
+	 * -O(n) otherwise
 	 * 
 	 * {@inheritDoc}
 	 */
@@ -270,25 +272,21 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this implementation is
+	 * -O(1) if the given container is a {@link IContainer}.
+	 * -O(n) otherwise
 	 * 
-	 * @param container
-	 * @return true if the current {@link Container} contains less elements than the given container.
-	 */
-	@Override
-	public final boolean containsLessThan(final IContainer<?> container) {
-		return (getElementCount() < container.getElementCount());
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @param container
-	 * @return true if the current {@link Container} contains less elements than the given container.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsLessThan(final Iterable<?> container) {
+		
+		//Handles the case that the given container is a IContainer.
+		if (container instanceof IContainer<?> lContainer) {
+			return (getElementCount() < lContainer.getElementCount());
+		}
+		
+		//Handles the case that the given container is not a IContainer.
 		return (getElementCount() < IterableHelper.getElementCount(container));
 	}
 	
