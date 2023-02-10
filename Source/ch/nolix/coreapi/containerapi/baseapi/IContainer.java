@@ -3,6 +3,7 @@ package ch.nolix.coreapi.containerapi.baseapi;
 
 //Java imports
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 //own imports
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
@@ -561,6 +562,13 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	 * the given long norm returns from the elements of the current {@link IContainer}.
 	 */
 	long getSumByLong(IElementTakerLongGetter<E> longNorm);
+	
+	//method declaration
+	/**
+	 * @param norm
+	 * @return the sum of the integers the given norm returns from the elements of the current {@link IContainer}.
+	 */
+	BigInteger getSumOfIntegers(IElementTakerIntGetter<E> norm);
 	
 	//method declaration
 	/**

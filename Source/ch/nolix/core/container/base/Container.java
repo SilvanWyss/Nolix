@@ -4,6 +4,7 @@ package ch.nolix.core.container.base;
 //Java imports
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Random;
 
 //own imports
@@ -1476,6 +1477,24 @@ public abstract class Container<E> implements IContainer<E> {
 		//Iterates the current IContainer.
 		for (final var e : this) {
 			sum += longNorm.getOutput(e);
+		}
+		
+		return sum;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public BigInteger getSumOfIntegers(final IElementTakerIntGetter<E> norm) {
+		
+		var sum = BigInteger.ZERO;
+		
+		for (final var e : this) {
+			sum = sum.add(BigInteger.valueOf(norm.getOutput(e)));
 		}
 		
 		return sum;
