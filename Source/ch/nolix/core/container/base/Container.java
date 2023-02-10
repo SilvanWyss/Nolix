@@ -40,9 +40,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 
 //interface
 /**
- * A {@link Container} can store several elements of a certain type.
- * A {@link Container} is iterable.
- * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <E> is the type of the elements a {@link Container} can store.
@@ -56,8 +53,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return true if the current {@link Container} contains the given element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean contains(final Object element) {
@@ -80,8 +76,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
-	 * @param elements
-	 * @return true if the current {@link Container} contains all of the given elements.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsAll(final Iterable<?> elements) {
@@ -130,7 +125,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return true if the current {@link Container} contains any element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsAny() {
@@ -141,8 +136,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return true if the current {@link Container} contains an element the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
@@ -193,8 +187,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
-	 * @param elements
-	 * @return true if the current {@link Container} contains any of the given elements.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsAnyFrom(final Iterable<?> elements) {
@@ -240,7 +233,10 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final boolean containsEqualing(final Object element) {
 		
+		//Iterates the current Container.
 		for (final var e : this) {
+			
+			//Handles the case that the current element equals the given element.
 			if (e.equals(element)) {
 				return true;
 			}
@@ -256,12 +252,11 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public boolean containsExactlyInSameOrder(final Iterable<?> container) {
 		
-		if (container == null) {
-			return false;
-		}
-		
+		//Iterates the current Container.
 		final var iterator = container.iterator();
 		for (final var e : this) {
+			
+			//Handles the case that the current element is not the next element in the given container.
 			if (!iterator.hasNext() || e != iterator.next()) {
 				return false;
 			}
