@@ -334,7 +334,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean containsNoneOf(final Iterable<?> elements) {
+	public final boolean containsNoneOf(final Iterable<?> elements) {
 		return !containsAnyOf(elements);
 	}
 	
@@ -486,7 +486,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public double getAverage(final IElementTakerElementGetter<E, Number> norm) {
+	public final double getAverage(final IElementTakerElementGetter<E, Number> norm) {
 		
 		assertIsNotEmpty();
 		
@@ -970,7 +970,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<? extends IContainer<E>> getRefGroups(final IElementTakerElementGetter<E, ?> norm) {
+	public final IContainer<? extends IContainer<E>> getRefGroups(final IElementTakerElementGetter<E, ?> norm) {
 		
 		final var groups = createEmptyMutableList(new Marker<IMutableList<E>>());
 		
@@ -1069,7 +1069,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public double getStandardDeviation(final IElementTakerElementGetter<E, Number> norm) {
+	public final double getStandardDeviation(final IElementTakerElementGetter<E, Number> norm) {
 		return Math.sqrt(getVariance(norm));
 	}
 	
@@ -1080,7 +1080,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BigDecimal getSum(final IElementTakerElementGetter<E, Number> norm) {
+	public final BigDecimal getSum(final IElementTakerElementGetter<E, Number> norm) {
 		
 		var sum = BigDecimal.ZERO;
 		
@@ -1098,7 +1098,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BigInteger getSumOfIntegers(final IElementTakerIntGetter<E> norm) {
+	public final BigInteger getSumOfIntegers(final IElementTakerIntGetter<E> norm) {
 		
 		var sum = BigInteger.ZERO;
 		
@@ -1116,7 +1116,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public double getVariance(final IElementTakerElementGetter<E, Number> norm) {
+	public final double getVariance(final IElementTakerElementGetter<E, Number> norm) {
 		
 		final var average = getAverage(norm);
 		
@@ -1143,7 +1143,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @return true if the current {@link Container} does not contain an element.
 	 */
 	@Override
-	public boolean isEmpty() {
+	public final boolean isEmpty() {
 		return !iterator().hasNext();
 	}
 	

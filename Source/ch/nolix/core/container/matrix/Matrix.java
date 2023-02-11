@@ -262,7 +262,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	public int getColumnCount() {
 		
 		//Handles the case that the current {@link Matrix} is empty.
-		if (isEmpty()) {
+		if (elements.length < 1) {
 			return 0;
 		}
 		
@@ -475,23 +475,12 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	public int getRowCount() {
 		
 		//Handles the case that the current {@link Matrix} is empty.
-		if (isEmpty()) {
+		if (elements.length < 1) {
 			return 0;
 		}
 		
 		//Handles the case that the current {@link Matrix} is not empty.
 		return elements.length;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @return true if the current {@link Matrix} is empty.
-	 */
-	@Override
-	public boolean isEmpty() {
-		return (elements.length == 0);
 	}
 	
 	//method
