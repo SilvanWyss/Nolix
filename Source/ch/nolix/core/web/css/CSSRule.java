@@ -63,6 +63,6 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	@Override
 	public String toString() {
 		return
-		getSelectors().toString(',') + GlobalStringHelper.getInBraces(getRefProperties().toConcatenatedString());
+		getSelectors().toStringWithSeparator(',') + GlobalStringHelper.getInBraces(getRefProperties().toConcatenatedString());
 	}
 }

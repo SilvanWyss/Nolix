@@ -52,7 +52,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 		if (mutableXMLNode.containsAttributes()) {
 			stringBuilder
 			.append(' ')
-			.append(mutableXMLNode.getAttributes().toString(' '));
+			.append(mutableXMLNode.getAttributes().toStringWithSeparator(' '));
 		}
 		
 		stringBuilder.append('>');
@@ -328,7 +328,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 		if (containsAttributes()) {
 			stringBuilder
 			.append(' ')
-			.append(getAttributes().toString(' '));
+			.append(getAttributes().toStringWithSeparator(' '));
 		}
 		
 		stringBuilder.append('>');

@@ -1252,6 +1252,11 @@ public abstract class Container<E> implements IContainer<E> {
 	}
 	
 	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
 	@Override
 	public final String toConcatenatedString() {
 		
@@ -1358,41 +1363,6 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param separator
-	 * @return a {@link String} representation the current {@link Container} using the given separator.
-	 */
-	@Override
-	public final String toString(final char separator) {
-		
-		//Calls other method.
-		return toString(String.valueOf(separator));
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final String toString(final String separator) {
-		
-		//Enumerates the element count of the current Container.
-		return
-		switch (getElementCount()) {
-			case 0 ->
-				StringCatalogue.EMPTY_STRING;
-			case 1 ->
-				getRefFirst().toString();
-			default ->
-				toStringWhenContainsSeveralElements(separator);
-		};
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link Container}.
 	 */
 	@Override
@@ -1423,6 +1393,40 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toStringWithSeparator(final char separator) {
+		
+		//Calls other method.
+		return toStringWithSeparator(String.valueOf(separator));
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String toStringWithSeparator(final String separator) {
+		
+		//Enumerates the element count of the current Container.
+		return
+		switch (getElementCount()) {
+			case 0 ->
+				StringCatalogue.EMPTY_STRING;
+			case 1 ->
+				getRefFirst().toString();
+			default ->
+				toStringWhenContainsSeveralElements(separator);
+		};
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param endIndex
@@ -1431,7 +1435,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * @throws NonPositiveArgumentException if the given end index is not positive.
 	 */
 	@Override
-	public final IContainer<E> until(final int endIndex) {
+	public final IContainer<E> until1BasedIndex(final int endIndex) {
 		return getSubContainerFromStartIndexToEndIndex(1, endIndex);
 	}
 	

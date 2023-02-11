@@ -468,6 +468,12 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @return a concatenated {@link String} representation of the current {@link IContainer}.
+	 */
+	String toConcatenatedString();
+	
+	//method declaration
+	/**
 	 * @param doubleGetter
 	 * @return a new array with
 	 * the doubles the given doubleGetter returns from the elements of the current {@link IContainer}.
@@ -510,27 +516,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @return a concatenated {@link String} representation of the current {@link IContainer}.
-	 */
-	String toConcatenatedString();
-	
-	//method declaration
-	/**
-	 * @param separator
-	 * @return a@link String representation the current {@link IContainer} using the given separator.
-	 */
-	String toString(char separator);
-	
-	//method declaration
-	/**
-	 * @param separator
-	 * @return a@link String representation of the current {@link IContainer} using the given separator.
-	 * @throws RuntimeException if the given separator is null.
-	 */
-	String toString(String separator);
-	
-	//method declaration
-	/**
 d	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link IContainer}.
 	 */
@@ -545,16 +530,33 @@ d	 *
 	
 	//method declaration
 	/**
-	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer}
-	 * with the elements to the given end index.
-	 * @throws RuntimeException if the given end index is not positive.
+	 * @param separator
+	 * @return a {@link String} representation the current {@link IContainer} with the given separator.
 	 */
-	IContainer<E> until(int endIndex);
+	String toStringWithSeparator(char separator);
 	
 	//method declaration
 	/**
-	 * @return a new sub container of the current {@link IContainer} without the first element.
+	 * @param separator
+	 * @return a {@link String} representation of the current {@link IContainer} with the given separator.
+	 * @throws RuntimeException if the given separator is null.
+	 */
+	String toStringWithSeparator(String separator);
+	
+	//method declaration
+	/**
+	 * @param p1BasedEndIndex
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} with
+	 * the elements to the given p1BasedEndIndex.
+	 * @throws RuntimeException if the given p1BasedEndIndex is not positive.
+	 * @throws RuntimeException if
+	 * the current {@link IContainer} contains more elements than the given p1BasedEndIndex.
+	 */
+	IContainer<E> until1BasedIndex(int p1BasedEndIndex);
+	
+	//method declaration
+	/**
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} without the first element.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	IContainer<E> withoutFirst();
@@ -562,14 +564,15 @@ d	 *
 	//method declaration
 	/**
 	 * @param n
-	 * @return a new sub container of the current {@link IContainer} without the first n elements.
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} without the first n elements.
 	 * @throws RuntimeException if the given n is not positive.
+	 * @throws RuntimeException if the current {@link IContainer} contains less than n elements.
 	 */
 	IContainer<E> withoutFirst(int n);
 	
 	//method declaration
 	/**
-	 * @return a new sub container of the current {@link IContainer} without the last element.
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} without the last element.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	IContainer<E> withoutLast();
@@ -577,9 +580,10 @@ d	 *
 	//method declaration
 	/**
 	 * @param n
-	 * @return a new sub container of the current {@link IContainer}
-	 * without the last n elements of the current {@link IContainer}.
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} without
+	 * the last n elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the given n is not positive.
+	 * @throws RuntimeException if the current {@link IContainer} contains less than n elements.
 	 */
 	IContainer<E> withoutLast(int n);
 }

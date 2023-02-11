@@ -21,7 +21,7 @@ public final class MSSQLSchemaStatementCreator implements ISchemaStatementCreato
 	@Override
 	public String createStatementToAddTable(ITableDTO table) {
 		return 
-		"CREATE TABLE " + table.getName() + " (" + table.getColumns().to(this::getColumnAsSQL).toString(",") + ")";
+		"CREATE TABLE " + table.getName() + " (" + table.getColumns().to(this::getColumnAsSQL).toStringWithSeparator(",") + ")";
 	}
 	
 	//method
@@ -78,12 +78,12 @@ public final class MSSQLSchemaStatementCreator implements ISchemaStatementCreato
 	
 	//method
 	private String getConstraintsAsSQL(final IColumnDTO column) {
-		return column.getConstraints().to(this::getConstraintAsSQL).toString(",");
+		return column.getConstraints().to(this::getConstraintAsSQL).toStringWithSeparator(",");
 	}
 	
 	//method
 	private String getConstraintParametersAsSQL(final IConstraintDTO constraint) {
-		return ("(" + constraint.getParameters().toString(",") + ")");
+		return ("(" + constraint.getParameters().toStringWithSeparator(",") + ")");
 	}
 	
 	//method

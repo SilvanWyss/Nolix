@@ -950,7 +950,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	 */
 	@Override
 	public String toString() {
-		return toString(CharacterCatalogue.COMMA);
+		return toStringWithSeparator(CharacterCatalogue.COMMA);
 	}
 	
 	//method

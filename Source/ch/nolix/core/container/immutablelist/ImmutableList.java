@@ -181,7 +181,7 @@ public final class ImmutableList<E> extends Container<E> {
 	 */
 	@Override
 	public String toString() {
-		return toString(CharacterCatalogue.COMMA);
+		return toStringWithSeparator(CharacterCatalogue.COMMA);
 	}
 	
 	//method

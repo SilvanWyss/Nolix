@@ -200,12 +200,12 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	
 	//method
 	private String getAttributesAsString() {
-		return getRefAttributes().toString(" ");
+		return getRefAttributes().toStringWithSeparator(" ");
 	}
 	
 	//method
 	private String getChildElementsAsString() {
-		return getRefChildElements().toString("");
+		return getRefChildElements().toStringWithSeparator("");
 	}
 	
 	//method

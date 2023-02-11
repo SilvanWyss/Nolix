@@ -190,7 +190,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	//method
 	@Override
 	public String toString() {
-		return toString(CharacterCatalogue.COMMA);
+		return toStringWithSeparator(CharacterCatalogue.COMMA);
 	}
 	
 	//method

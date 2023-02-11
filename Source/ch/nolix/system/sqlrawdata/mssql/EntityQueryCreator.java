@@ -40,7 +40,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
+		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
 		+ " FROM "
 		+ tableInfo.getTableName();
 	}
@@ -50,7 +50,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 	public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
 		return
 		"SELECT Id, SaveStamp, "
-		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toString(", ")
+		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
 		+ " FROM "
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableInfo.getTableName()
 		+ " WHERE Id = '"
