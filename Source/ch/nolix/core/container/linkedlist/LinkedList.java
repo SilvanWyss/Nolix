@@ -104,12 +104,9 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Adds the given element at the begin of the current {@link LinkedList}.
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void addAtBegin(E element) {
 		
 		//Creates new node.
@@ -127,35 +124,44 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Adds the given elements at the begin of the current {@link LinkedList}.
-	 * The complexity of this implementation is O(n) if n elements are given.
-	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if the given elements is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public void addAtBegin(final E... elements) {
+	@Override
+	@SafeVarargs
+	public final void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
+		final E firstElement,
+		final E... elements
+	) { 
 		
-		//Asserts that the given elements is not null.
-		GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
+		addAtBegin(firstElement);
 		
 		//Iterates the given elements.
-		for (final var e : elements) {
-			addAtEnd(e);
+		for (final E e: elements) {
+			addAtBegin(e);
 		}
 	}
 	
 	//method
 	/**
-	 * Adds the given elements at the begin of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if n elements are given.
 	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if the given elements is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
+	 * {@inheritDoc}
 	 */
-	public void addAtBegin(final Iterable<E> elements) {
+	@Override
+	public void addAtBegin(E[] elements) {
+		
+		//Iterates the given elements.
+		for (final E e: elements) {
+			addAtBegin(e);
+		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addAtBegin(final Iterable<? extends E> elements) {
 		
 		//Asserts that the given elements is not null.
 		GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
@@ -163,7 +169,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 		//Handles the case that the given elements is not empty.
 		if (!IterableHelper.isEmpty(elements)) {
 			
-			final var newFirstNode = new LinkedListNode<>(elements.iterator().next());
+			final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
 			
 			LinkedListNode<E> node = null;
 			

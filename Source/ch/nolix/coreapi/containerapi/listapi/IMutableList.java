@@ -17,6 +17,47 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
+	 * Adds the given element at the begin of the current {@link IMutableList}.
+	 * 
+	 * @param element
+	 * @throws RuntimeException if the given elements is null.
+	 */
+	void addAtBegin(E element);
+	
+	//method declaration
+	/**
+	 * Adds the given firstElement and the given elements at the begin of the current {@link IMutableList}.
+	 * The elements will be added in the given order.
+	 * 
+	 * @param firstElement
+	 * @param elements
+	 * @throws RuntimeException if the given firstElement is null.
+	 * @throws RuntimeException if one of the given elements is null.
+	 */
+	void addAtBegin(E firstElement, @SuppressWarnings("unchecked")E... elements);
+	
+	//method declaration
+	/**
+	 * Adds the given elements at the begin of the current {@link IMutableList}.
+	 * The elements will be added in the given order.
+	 * 
+	 * @param elements
+	 * @throws RuntimeException if one of the given elements is null.
+	 */
+	void addAtBegin(E[] elements);
+	
+	//method declaration
+	/**
+	 * Adds the given elements at the begin of the current {@link IMutableList}.
+	 * The elements will be added in the given order.
+	 * 
+	 * @param elements
+	 * @throws RuntimeException if one of the given elements is null.
+	 */
+	void addAtBegin(Iterable<? extends E> elements);
+	
+	//method declaration
+	/**
 	 * Adds the given element at the end of the current {@link IMutableList}.
 	 * 
 	 * @param element
