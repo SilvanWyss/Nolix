@@ -59,7 +59,7 @@ public final class GlobalLogger {
 					logWorker = new LogWorker();
 				}
 			}
-						
+			
 			if (error.getMessage() == null || error.getMessage().isBlank()) {
 				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured."));
 			} else {
@@ -208,7 +208,7 @@ public final class GlobalLogger {
 			);
 		}
 	}
-		
+	
 	//static method
 	public static void logWarning(final String warning) {
 		if (active) {
