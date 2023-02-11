@@ -249,7 +249,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 			columnHelper
 			.getParentDatabase(this)
 			.getRefTables()
-			.toFromMany(t -> t.getRefColumns().getRefSelected(c -> columnHelper.referencesBackGivenColumn(c, this)));
+			.toFromGroups(t -> t.getRefColumns().getRefSelected(c -> columnHelper.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {

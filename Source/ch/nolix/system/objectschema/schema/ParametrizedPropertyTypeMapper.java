@@ -80,7 +80,7 @@ public final class ParametrizedPropertyTypeMapper {
 		final var backReferencedColumnId = baseParametrizedBackReferenceType.getBackReferencedColumnId();
 		
 		return
-		(Column)tables.toFromMany(ITable::getRefColumns).getRefFirst(c -> c.hasId(backReferencedColumnId));
+		(Column)tables.toFromGroups(ITable::getRefColumns).getRefFirst(c -> c.hasId(backReferencedColumnId));
 	}
 	
 	//method

@@ -33,7 +33,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public <IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(final IDatabase<IMPL> database) {
-		return database.getRefTables().toFromMany(ITable::technicalGetRefEntitiesInLocalData);
+		return database.getRefTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
 	}
 	
 	//method

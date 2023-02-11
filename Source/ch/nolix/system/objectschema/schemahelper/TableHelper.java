@@ -165,7 +165,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		final ITable<IMPL> table
 	) {
 		
-		final var columns = table.getParentDatabase().getRefTables().toFromMany(ITable::getRefColumns);
+		final var columns = table.getParentDatabase().getRefTables().toFromGroups(ITable::getRefColumns);
 		
 		return
 		table
@@ -189,7 +189,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		table
 		.getParentDatabase()
 		.getRefTables()
-		.toFromMany(ITable::getRefColumns)
+		.toFromGroups(ITable::getRefColumns)
 		.getRefSelected(c -> columnHelper.referencesGivenTable(c, table));
 	}
 	

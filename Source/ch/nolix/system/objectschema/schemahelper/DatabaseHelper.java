@@ -203,7 +203,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public <IMPL> IContainer<IColumn<IMPL>> getRefAllBackReferenceColumns(final IDatabase<IMPL> database) {
-		return database.getRefTables().toFromMany(tableHelper::getRefBackReferenceColumns);
+		return database.getRefTables().toFromGroups(tableHelper::getRefBackReferenceColumns);
 	}
 	
 	//method

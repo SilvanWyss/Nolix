@@ -81,7 +81,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	//method
 	@Override
 	public <IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(final IEntity<IMPL> entity) {
-		return entity.technicalGetRefProperties().toFromMany(IProperty::getRefBackReferencingProperties);
+		return entity.technicalGetRefProperties().toFromGroups(IProperty::getRefBackReferencingProperties);
 	}
 	
 	//method
@@ -93,7 +93,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	//method
 	@Override
 	public <IMPL> IContainer<? extends IProperty<IMPL>> getRefReferencingProperties(final IEntity<IMPL> entity) {
-		return entity.technicalGetRefProperties().toFromMany(IProperty::getRefReferencingProperties);
+		return entity.technicalGetRefProperties().toFromGroups(IProperty::getRefReferencingProperties);
 	}
 	
 	//method

@@ -1295,7 +1295,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final <E2> IContainer<E2> toFromMany(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
+	public final <E2> IContainer<E2> toFromGroups(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
 		
 		final var list = createEmptyMutableList(new Marker<E2>());
 		

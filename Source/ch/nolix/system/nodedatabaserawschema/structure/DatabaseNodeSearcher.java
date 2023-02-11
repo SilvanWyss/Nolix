@@ -20,7 +20,7 @@ public final class DatabaseNodeSearcher {
 	) {
 		return
 		getRefTableNodesFromDatabaseNode(databaseNode)
-		.toFromMany(tableNodeSearcher::getRefColumnNodesFromTableNode)
+		.toFromGroups(tableNodeSearcher::getRefColumnNodesFromTableNode)
 		.getRefFirst(cn -> columnNodeSearcher.getRefIdNodeFromColumnNode(cn).getRefSingleChildNode().hasHeader(columnId));
 	}
 	
