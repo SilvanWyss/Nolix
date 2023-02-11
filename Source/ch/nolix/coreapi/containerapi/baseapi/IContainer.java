@@ -359,24 +359,24 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method
 	/**
 	 * @param norm
-	 * @return a new {@link IContainer} with groups with the elements of the current {@link IContainer} grouped by
-	 * the given norm.
+	 * @return a new {@link IContainer} with
+	 * groups with the elements of the current {@link IContainer} grouped by the given norm.
 	 */
 	IContainer<? extends IContainer<E>> getRefGroups(IElementTakerElementGetter<E, ?> norm);
 	
 	//method declaration
 	/**
 	 * @return the last element of the current {@link IContainer}.
-	 *  @throws RuntimeException if the current {@link IContainer} is empty.
+	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
 	E getRefLast();
 	
 	//method declaration
 	/**
 	 * @param type
-	 * @param <E2> is the type of the elements of the returned@link LinkedList.
-	 * @return a new@link LinkedList
-	 * with the elements from the current {@link IContainer} that are of the given type.
+	 * @param <E2> is the type of the elements of the returned {@link IContainer}.
+	 * @return a new {@link IContainer} with
+	 * the elements from the current {@link IContainer} that are of the given type.
 	 */
 	<E2 extends E> IContainer<E2> getRefOfType(Class<E2> type);
 	
