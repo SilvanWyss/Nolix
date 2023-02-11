@@ -262,7 +262,7 @@ public final class Background extends Element implements IBackground {
 				final var colorCode = getColorCodeOfColor(color);
 				
 				return
-				ImmutableList.withElements(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode));
+				ImmutableList.withElement(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode));
 			case COLOR_GRADIENT:
 				
 				final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);

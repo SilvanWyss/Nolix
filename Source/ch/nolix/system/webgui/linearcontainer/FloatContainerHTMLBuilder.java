@@ -30,7 +30,7 @@ public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<Floa
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(floatContainer)),
+			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(floatContainer)),
 			createHTMLElementsForChildControlsOfFloatContainer(floatContainer)
 		);
 	}
@@ -47,7 +47,7 @@ public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<Floa
 		return
 		HTMLElement.withTypeAndAttributesAndChildElement(
 			HTMLElementTypeCatalogue.DIV,
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				HTMLAttribute.withNameAndValue(
 					HTMLAttributeNameCatalogue.CLASS,
 					CHILD_CONTROL_CSS_CLASS_NAME

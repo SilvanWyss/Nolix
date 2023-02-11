@@ -23,7 +23,7 @@ public final class ButtonHTMLBuilder implements IControlHTMLBuilder<Button> {
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.BUTTON,
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(button)
 			),
 			button.getText()

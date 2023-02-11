@@ -32,7 +32,7 @@ public final class LayerHTMLCreator {
 	
 	//method
 	private IContainer<IHTMLAttribute> getHTMLAttributesForLayer(final ILayer<?> layer) {
-		return ImmutableList.withElements(LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer));
+		return ImmutableList.withElement(LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer));
 	}
 	
 	//method
@@ -42,7 +42,7 @@ public final class LayerHTMLCreator {
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(getContentHTMLElementForLayer(layer));
+		return ImmutableList.withElement(getContentHTMLElementForLayer(layer));
 	}
 	
 	//method

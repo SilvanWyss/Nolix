@@ -21,7 +21,7 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 		final String selector,
 		final IContainer<? extends ICSSProperty> properties
 	) {
-		return new CSSRule(ImmutableList.withElements(selector), properties);
+		return new CSSRule(ImmutableList.withElement(selector), properties);
 	}
 	
 	//static method

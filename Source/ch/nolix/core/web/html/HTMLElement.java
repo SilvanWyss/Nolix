@@ -105,7 +105,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 			type,
 			new ImmutableList<>(),
 			StringCatalogue.EMPTY_STRING,
-			ImmutableList.withElements(HTMLElement.fromHTMLElement(childElement))
+			ImmutableList.withElement(HTMLElement.fromHTMLElement(childElement))
 		);
 	}
 	

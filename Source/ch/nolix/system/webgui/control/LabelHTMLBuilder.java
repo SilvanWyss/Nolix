@@ -24,7 +24,7 @@ public final class LabelHTMLBuilder implements IControlHTMLBuilder<Label> {
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HTMLElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
+			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
 			control.getText()
 		);
 	}
