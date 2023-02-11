@@ -17,8 +17,8 @@ public final class GlobalArrayHelper {
 		final @SuppressWarnings("unchecked")E... elements
 	) {
 		
-		final var array = Arrays.copyOfRange(elements, 1, elements.length);
-		array[0] = firstElement;
+		final var array = Arrays.copyOfRange(elements, 0, 1 + elements.length);
+		array[elements.length] = firstElement;
 		
 		return array;
 	}
