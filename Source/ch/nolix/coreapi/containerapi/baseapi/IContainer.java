@@ -392,17 +392,17 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	/**
 	 * @param selector
 	 * @return a new {@link IContainer} with
-	 * the elements the given selector selects from the current {@link IContainer}.
+	 * the elements from the current {@link IContainer} the given selector skips (!).
 	 */
-	IContainer<E> getRefSelected(IElementTakerBooleanGetter<? super E> selector);
+	IContainer<E> getRefOther(IElementTakerBooleanGetter<E> selector);
 	
 	//method declaration
 	/**
 	 * @param selector
-	 * @return a new@link LinkedList with the elements
-	 * the given selector selects not (!) from the current {@link IContainer}.
+	 * @return a new {@link IContainer} with
+	 * the elements the given selector selects from the current {@link IContainer}.
 	 */
-	IContainer<E> getRefUnselected(IElementTakerBooleanGetter<E> selector);
+	IContainer<E> getRefSelected(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**

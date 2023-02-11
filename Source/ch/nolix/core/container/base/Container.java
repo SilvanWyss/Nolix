@@ -1035,6 +1035,17 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final IContainer<E> getRefOther(final IElementTakerBooleanGetter<E> selector) {
+		return getRefSelected(e -> !selector.getOutput(e));
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
@@ -1050,17 +1061,6 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		return list;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final IContainer<E> getRefUnselected(final IElementTakerBooleanGetter<E> selector) {
-		return getRefSelected(e -> !selector.getOutput(e));
 	}
 	
 	//method

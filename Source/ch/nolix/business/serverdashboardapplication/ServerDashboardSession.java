@@ -42,6 +42,6 @@ final class ServerDashboardSession extends BackendWebClientSession<IApplicationC
 		return
 		getRefApplicationContext()
 		.getGUIApplicationSheets()
-		.getRefUnselected(as -> as.getApplicationName().equals(getApplicationName()));
+		.getRefOther(as -> as.getApplicationName().equals(getApplicationName()));
 	}
 }
