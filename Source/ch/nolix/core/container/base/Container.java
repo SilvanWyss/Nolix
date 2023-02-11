@@ -464,7 +464,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<E> from(final int startIndex) {
+	public final IContainer<E> from1BasedStartIndex(final int startIndex) {
 		return getSubContainerFromStartIndexToEndIndex(startIndex, getElementCount());
 	}
 	
@@ -475,7 +475,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<E> fromUntil(final int startIndex, final int endIndex) {
+	public final IContainer<E> from1BasedStartIndexUntil1BasedEndIndex(final int startIndex, final int endIndex) {
 		return getSubContainerFromStartIndexToEndIndex(startIndex, endIndex);
 	}
 	

@@ -244,7 +244,7 @@ public abstract class ContainerTest extends Test {
 		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
-		final var result = testUnit.from(4);
+		final var result = testUnit.from1BasedStartIndex(4);
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);

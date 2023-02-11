@@ -166,25 +166,26 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param startIndex
-	 * @return a new sub {@link IContainer} of the current {@link IContainer} from the given startIndex.
-	 * @throws RuntimeException if the given startIndex is not positive.
-	 * @throws RuntimeException if the current {@link IContainer} contains less elements than the given startIndex.
+	 * @param p1BasedStartIndex
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} from the given p1BasedStartIndex.
+	 * @throws RuntimeException if the given p1BasedStartIndex is not positive.
+	 * @throws RuntimeException if
+	 * the current {@link IContainer} contains less elements than the given p1BasedStartIndex.
 	 */
-	IContainer<E> from(int startIndex);
+	IContainer<E> from1BasedStartIndex(int p1BasedStartIndex);
 	
 	//method declaration
 	/**
-	 * @param startIndex
-	 * @param endIndex
+	 * @param p1BasedStartIndex
+	 * @param p1BasedEndIndex
 	 * @return a new sub {@link IContainer} of
-	 * the current {@link IContainer} from the given startIndex to the given endIndex.
+	 * the current {@link IContainer} from the given p1BasedStartIndex to the given p1BasedEndIndex.
 	 * @throws RuntimeException if the given startIndex is not positive.
-	 * @throws RuntimeException if the given endIndex is smaller than the given startIndex.
+	 * @throws RuntimeException if the given p1BasedEndIndex is smaller than the given p1BasedStartIndex.
 	 * @throws RuntimeException if
-	 * the given endIndex is bigger than the number of elements of the current {@link IContainer}.
+	 * the given p1BasedEndIndex is bigger than the number of elements of the current {@link IContainer}.
 	 */
-	IContainer<E> fromUntil(int startIndex, int endIndex);
+	IContainer<E> from1BasedStartIndexUntil1BasedEndIndex(int p1BasedStartIndex, int p1BasedEndIndex);
 	
 	//method declaration
 	/**
@@ -523,8 +524,8 @@ d	 *
 	
 	//method declaration
 	/**
-	 * @return a new@link LinkedList
-	 * with the Strings that represent the elements of the current {@link IContainer}.
+	 * @return a new {@link IContainer} with
+	 * the {@link String} representations of the elements of the current {@link IContainer}.
 	 */
 	IContainer<String> toStrings();
 	
