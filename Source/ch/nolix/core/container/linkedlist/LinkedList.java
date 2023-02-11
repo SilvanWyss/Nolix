@@ -200,68 +200,6 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Adds the given element at the begin of the current {@link LinkedList}
-	 * if the current {@link LinkedList} does not contain it.
-	 * 
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
-	 */
-	public void addAtBeginIfNotContained(final E element) {
-		
-		//Handles the case that the current list does not contain the given element.
-		if (!contains(element)) {
-			addAtBegin(element);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds all of the given elements, the current {@link LinkedList} does not contain,
-	 * at the begin of the current {@link LinkedList}.
-	 * 
-	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link LinkedList} contains m elements.
-	 * -n elements are given.
-	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if one of the given elements is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public void addAtBeginIfNotContained(final E... elements) {
-		
-		//Iterates the given elements.
-		for (final var e : elements) {
-			addAtBeginIfNotContained(e);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds the given element at the begin of the current {@link LinkedList} with regarding singularity.
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
-	 * @throws InvalidArgumentException if the current {@link LinkedList} contains already the given element.
-	 */
-	public void addAtBeginRegardingSingularity(final E element) {
-		
-		//Asserts that the current {@link List} contains already the given element.
-		if (contains(element)) {
-			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(
-				element,
-				"is already contained in the current list"
-			);
-		}
-		
-		addAtBegin(element);
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * {@inheritDoc}
