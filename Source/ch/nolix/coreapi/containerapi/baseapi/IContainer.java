@@ -296,36 +296,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * 
-	 * @param doubleNorm
-	 * @return the range of the values the given double norm returns from the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getRangeByDouble(IElementTakerDoubleGetter<E> doubleNorm);
-	
-	//method declaration
-	/**
-	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * 
-	 * @param intNorm
-	 * @return the range of the values the given int norm returns from the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	int getRangeByInt(IElementTakerIntGetter<E> intNorm);
-	
-	//method declaration
-	/**
-	 * The range of some values is the difference between the maximum and the minimum of the values.
-	 * 
-	 * @param longNorm
-	 * @return the range of the values the given long norm returns from the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	long getRangeByLong(IElementTakerLongGetter<E> longNorm);
-	
-	//method declaration
-	/**
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
