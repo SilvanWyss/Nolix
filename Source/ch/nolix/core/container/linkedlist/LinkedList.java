@@ -17,7 +17,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IMutableList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
@@ -328,68 +327,6 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Adds the given element at the end of the current {@link LinkedList}
-	 * if the current {@link LinkedList} does not contain it.
-	 * 
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
-	 */
-	public void addAtEndIfNotContained(final E element) {
-		
-		//Handles the case that the current list does not contain the given element.
-		if (!contains(element)) {
-			addAtEnd(element);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds all of the given elements, the current {@link LinkedList} does not contain,
-	 * at the end of the current {@link LinkedList}.
-	 * 
-	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link LinkedList} contains m elements.
-	 * -n elements are given.
-	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if one of the given elements is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public void addAtEndIfNotContained(final E... elements) {
-		
-		//Iterates the given elements.
-		for (final var e : elements) {
-			addAtEndIfNotContained(e);
-		}
-	}
-	
-	//method
-	/**
-	 * Adds the given element at the begin of the current {@link LinkedList} with regarding singularity.
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
-	 * @throws InvalidArgumentException if the current {@link LinkedList} contains already the given element.
-	 */
-	public void addAtEndRegardingSingularity(final E element) {
-		
-		//Asserts that the current {@link List} contains already the given element.
-		if (contains(element)) {
-			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(
-				element,
-				"is already contained in the current list"
-			);
-		}
-		
-		addAtEnd(element);
-	}
-	
-	//method
-	/**
 	 * Removes all elements of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) when the current {@link LinkedList} contains n elements.
 	 */
@@ -429,22 +366,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 		//Handles the case that the given object is not a LinkedList.
 		return false;
 	}
-	
-	//method
-	/**
-	 * Runs the given runner on each element of the current {@link LinkedList}.
-	 * The complexity of this implementation is O(n) when the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param runner
-	 */
-	public void forEachAndGetList(final IElementTaker<E> runner) {
-		
-		//Iterates the current {@link List}.
-		for (final var e: this) {
-			runner.run(e);
-		}
-	}
-		
+			
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
@@ -454,27 +376,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	public IContainer<E> getCopy() {
 		return to(e -> e);
 	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O((n-m)*m) if:
-	 * -This list contains n elements.
-	 * -The sequences that matches the given sequence pattern contain m elements.
-	 * 
-	 * @param sequencePattern
-	 * @return the ratio of the sequences from the current {@link LinkedList} that match the given sequence pattern.
-	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
-	 */
-	public double getRatio(final SequencePattern<E> sequencePattern) {
 		
-		//Asserts that the current list is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		return ((double)getSequenceCount(sequencePattern) / getElementCount());
-	}
-	
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
@@ -525,40 +427,6 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 		}
 		
 		return lastNode.getElement();
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @return the last element of the current {@link LinkedList} or null.
-	 */
-	public E getRefLastOrNull() {
-		
-		//Handles the case that the current list is empty.
-		if (isEmpty()) {
-			return null;
-		}
-		
-		//Handles the case that the current list is not empty.
-		return getRefLast();
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @return the second last element of the current {@link LinkedList}.
-	 * @throws InvalidArgumentException if the current {@link LinkedList} contains less than 2 elements.
-	 */
-	public E getRefSecondLast() {
-		
-		//Asserts that the current List contains more than 1 element.
-		if (getElementCount() < 2) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains less than 2 elements");
-		}
-		
-		return getRefAt1BasedIndex(getElementCount() - 1);
 	}
 	
 	//method
@@ -625,25 +493,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	public boolean matches(final SequencePattern<E> sequencePattern) {
 		return sequencePattern.matches(this);
 	}
-	
-	//method
-	/**
-	 * Removes all elements from the current {@link LinkedList}
-	 * and adds the given elements at the end of the current {@link LinkedList}.
-	 * 
-	 * The complexity of this implementation is O(m + n) if:
-	 * -The current {@link LinkedList} contains m elements.
-	 * -There are given n elements.
-	 * 
-	 * @param elements
-	 * @throws ArgumentIsNullException if the given elements is null.
-	 * @throws ArgumentIsNullException if one of the given elements is null.
-	 */
-	public void refill(final Iterable<E> elements) {
-		clear();
-		addAtEnd(elements);
-	}
-	
+		
 	//method
 	/**
 	 * Removes all elements the given selector selects from the current {@link LinkedList}.
@@ -848,28 +698,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 			elementCount--;
 		}
 	}
-	
-	//method
-	/**
-	 * Removes the given element from the current {@link LinkedList}.
-	 * 
-	 * @param element
-	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain the given element once.
-	 */
-	public void removeRegardingSingularity(final E element) {
 		
-		//Enumerates the element count of the given element.
-		switch (getCount(element)) {
-			case 0:
-				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the given elemen");
-			case 1:
-				removeFirst(element);
-				break;
-			default:
-				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "contains the given element several times");
-		}
-	}
-	
 	//method
 	/**
 	 * Replaces the first element the given selector selects from the current {@link LinkedList} with the given element.
