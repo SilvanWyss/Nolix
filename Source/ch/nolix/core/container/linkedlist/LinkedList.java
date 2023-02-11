@@ -533,21 +533,6 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Removes the first appearance of all of the given elements from the current {@link LinkedList}.
-	 * 
-	 * The complexity of this implementation is O(m * n) if:
-	 * -There are given m elements.
-	 * -This list contains n elements.
-	 * 
-	 * @param elements
-	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain one of the given elements.
-	 */
-	public void removeFirst(final Iterable<E> elements) {
-		elements.forEach(this::removeFirst);
-	}
-	
-	//method
-	/**
 	 * Removes the first appearance of the given element from the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
@@ -691,7 +676,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return a {@link String} representation of the current {@link LinkedList}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String toString() {
