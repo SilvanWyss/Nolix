@@ -406,15 +406,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param selectors
-	 * @return a new@link LinkedList with the elements
-	 * the given selectors selects not (!) from the current {@link IContainer}.
-	 */
-	@SuppressWarnings("unchecked")
-	IContainer<E> getRefUnselected(IElementTakerBooleanGetter<E>... selectors);
-	
-	//method declaration
-	/**
 	 * @param norm
 	 * @return the standard deviation of
 	 * the values the given norm returns from the elements of the current {@link IContainer}.
