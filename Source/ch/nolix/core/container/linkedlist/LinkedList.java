@@ -493,70 +493,42 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 		removeLast();
 		return element;
 	}
-		
+	
 	//method
 	/**
-	 * Removes the first element of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeFirst() {
 		
-		//Asserts that the current list is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		//Handles the case that the current list contains 1 element.
-		if (containsOne()) {
-			clear();
-			
-		//Handles the case that the current list contains several elements.
-		} else {
-			firstNode = firstNode.getNextNode();
-			elementCount--;
+		//Enumerates the element count of the current LinkedList.
+		switch (getElementCount()) {
+			case 0:
+				break;
+			case 1:
+				clear();
+				break;
+			default:
+				firstNode = firstNode.getNextNode();
+				elementCount--;
 		}
 	}
 	
 	//method
 	/**
-	 * Removes the first element the given selector selects from {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @param selector
-	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Asserts that the current list is not empty.
-		if (isEmpty()) {
-			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(
-				this,
-				"does not contain such an element"
-			);
+		//Handles the case that the current LinkedList contains any.
+		if (containsAny()) {
+			removeFirstWhenContainsAny(selector);
 		}
-
-		if (selector.getOutput(getRefFirst())) {
-			removeFirst();
-			return;
-		}
-
-		var iterator = firstNode;
-		while (iterator.hasNextNode()) {
-			
-			final LinkedListNode<E> nextNode = iterator.getNextNode();
-			
-			if (selector.getOutput(nextNode.getElement())) {
-				removeNextNode(iterator);
-				return;
-			}
-			
-			iterator = nextNode;
-		}
-		
-		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain such an element");
 	}
 	
 	//method
@@ -831,6 +803,32 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 			}
 		}
 		return list;
+	}
+	
+	//method
+	/**
+	 * Removes the first element the given selector selects from the current {@link IMutableList} for the case that
+	 * the current {@link LinkedList} contains any.
+	 * 
+	 * @param selector
+	 */
+	private void removeFirstWhenContainsAny(final IElementTakerBooleanGetter<E> selector) {
+		if (selector.getOutput(getRefFirst())) {
+			removeFirst();
+		} else {
+			var iterator = firstNode;
+			while (iterator.hasNextNode()) {
+				
+				final LinkedListNode<E> nextNode = iterator.getNextNode();
+				
+				if (selector.getOutput(nextNode.getElement())) {
+					removeNextNode(iterator);
+					break;
+				}
+				
+				iterator = nextNode;
+			}
+		}
 	}
 	
 	//method

@@ -3,6 +3,7 @@ package ch.nolix.coreapi.containerapi.listapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
@@ -96,4 +97,18 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	 * @throws RuntimeException if one of the given elements is null.
 	 */
 	void addAtEnd(Iterable<? extends E> elements);
+	
+	//method declaration
+	/**
+	 * Removes the first element from the current {@link IMutableList}.
+	 */
+	void removeFirst();
+	
+	//method declaration
+	/**
+	 * Removes the first element the given selector selects from the current {@link IMutableList}
+	 * 
+	 * @param selector
+	 */
+	void removeFirst(IElementTakerBooleanGetter<E> selector);
 }
