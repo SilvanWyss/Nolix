@@ -9,7 +9,6 @@ import java.util.Random;
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -24,7 +23,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IMutableList;
 import ch.nolix.coreapi.containerapi.pairapi.IPair;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
@@ -738,29 +736,6 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Handles the case that the current IContainer contains elements.
 		return getMin(norm);
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n).
-	 * 
-	 * @param selector
-	 * @return either the first element the given selector selects from the current {@link Container}
-	 * or an empty {@link SingleContainer}.
-	 */
-	public final ISingleContainer<E> getOptionalRefFirst(final IElementTakerBooleanGetter<E> selector) {
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			//Handles the case that the given selector selects the current element.
-			if (selector.getOutput(e)) {
-				return new SingleContainer<>(e);
-			}
-		}
-		
-		//Handles the case that the given selector does not select an element from the current IContainer.
-		return new SingleContainer<>();
 	}
 	
 	//method

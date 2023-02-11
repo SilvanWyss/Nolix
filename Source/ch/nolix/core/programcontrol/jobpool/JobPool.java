@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.core.programcontrol.jobpool;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
@@ -60,15 +62,14 @@ public final class JobPool {
 	//method
 	synchronized ISingleContainer<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
 		
-		final var nextFreshJobWrapperContainer = jobWrappers.getOptionalRefFirst(JobWrapper::isFresh);
+		final var nextFreshJobWrapper = jobWrappers.getRefFirstOrNull(JobWrapper::isFresh);
 		
-		if (nextFreshJobWrapperContainer.isEmpty()) {
-			return nextFreshJobWrapperContainer;
+		if (nextFreshJobWrapper == null) {
+			return new SingleContainer<>();
 		}
 		
-		final var nextFreshJobWrapper = nextFreshJobWrapperContainer.getRefElement();
 		jobWrappers.removeFirst(nextFreshJobWrapper);
-		return nextFreshJobWrapperContainer;
+		return new SingleContainer<>(nextFreshJobWrapper);
 	}
 	
 	//method
