@@ -901,26 +901,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param selector
-	 * @return the ratio of the number of elements
-	 * the given selector selects from the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
-	 */
-	@Override
-	public final double getRatio(final IElementTakerBooleanGetter<E> selector) {
-		
-		//Asserts that the current IContainer is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		return ((double)getCount(selector) / getElementCount());
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a randomly selected element of the current {@link Container}.

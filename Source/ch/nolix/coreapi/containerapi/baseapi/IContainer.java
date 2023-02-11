@@ -326,16 +326,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param selector
-	 * @return the ratio of the number of elements
-	 * the given selector selects from the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getRatio(IElementTakerBooleanGetter<E> selector);
-	
-	
-	//method declaration
-	/**
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
