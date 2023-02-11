@@ -742,33 +742,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param element
-	 * @return a new {@link SingleContainer} with the index of the first occurrence of the given element
-	 * in the current {@link Container} if the current {@link Container} contains the given element.
-	 * Otherwise a new empty {@link SingleContainer}.
-	 */
-	public final ISingleContainer<Integer> getOptionalIndexOfFirst(final E element) {
-		
-		//Iterates the current IContainer.
-		var i = 1;
-		for (final var e : this) {
-			
-			//Handles the case that the current element is the given element.
-			if (e == element) {
-				return new SingleContainer<>(i);
-			}
-			
-			//Handles the case that the current element is not the given element.
-			i++;
-		}
-		
-		return new SingleContainer<>();
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(n).
 	 * 
 	 * @param selector
