@@ -653,21 +653,6 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getRefFirst_withI2ElementTakerBooleanGetter() {
-		
-		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		
-		//execution
-		final var result = testUnit.getRefFirst((e1, e2) -> e1.length() + 2 == e2.length());
-		
-		//verification
-		expect(result.getRefElement1()).isEqualTo("x");
-		expect(result.getRefElement2()).isEqualTo("xxx");
-	}
-	
-	//method
-	@TestCase
 	public final void testCase_getRefGroups_whenIsEmpty() {
 		
 		//setup

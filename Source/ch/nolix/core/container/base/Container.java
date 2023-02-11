@@ -903,35 +903,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
-	 * 
-	 * @param selector
-	 * @return the first 2 elements of the current {@link Container} the given selector selects together.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Container} does not contain a 2 elements the given selector selects together.
-	 */
-	@Override
-	public final IPair<E, E> getRefFirst(final I2ElementTakerBooleanGetter<E> selector) {
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
-			
-			if (element != null) {
-				return new Pair<>(e, element);
-			}
-		}
-		
-		throw
-		InvalidArgumentException.forArgumentAndErrorPredicate(
-			this,
-			"does not contain any elements the given selector selects together"
-		);
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the first element of the current {@link Container} or null.
