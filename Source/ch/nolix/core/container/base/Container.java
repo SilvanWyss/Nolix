@@ -337,8 +337,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return true if the current {@link Container} contains the given element exactly 1 time.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsOnce(final E element) {
@@ -367,7 +366,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return true if the current {@link Container} contains exactly 1 element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsOne() {
@@ -388,9 +387,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return true if the current {@link Container}
-	 * contains exactly 1 element the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
@@ -419,9 +416,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return true if the current {@link Container}
-	 * contains exactly 1 element that equals the given element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsOneEqualing(final E element) {
@@ -434,8 +429,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * -The current {@link Container} contains m elements.
 	 * -n elements are given.
 	 * 
-	 * @param selector
-	 * @return true if the current {@link Container} contains only elements the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
@@ -496,8 +490,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return the number of elements the given selector selects from the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getCount(final IElementTakerBooleanGetter<E> selector) {
@@ -520,8 +513,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return the number how many times the current {@link Container} contains the given element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int getCount(final Object element) {
@@ -569,10 +561,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return the index of the first element in the current {@link Container} that equals the given element.
-	 * @throws InvalidArgumentException if
-	 * the current {@link Container} does not contain an element that equals the given element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int get1BasedIndexOfFirstEqualElement(final E element) {
@@ -597,9 +586,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param element
-	 * @return the index of the given element in the current {@link Container}.
-	 * @throws InvalidArgumentException if the current {@link Container} does not contain the given element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int get1BasedIndexOfFirstOccuranceOf(final E element) {
@@ -663,6 +650,8 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
+	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -807,8 +796,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return the first element of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final E getRefFirst() {
@@ -825,10 +813,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return the first element the given selector selects from the current {@link Container}.
-	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link Container} does not contain an element the given selector selects.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final E getRefFirst(final IElementTakerBooleanGetter<? super E> selector) {
@@ -849,7 +834,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return the first element of the current {@link Container} or null.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final E getRefFirstOrNull() {
@@ -867,8 +852,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param selector
-	 * @return the first element the given selector selects from the current {@link Container} or null.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final E getRefFirstOrNull(final IElementTakerBooleanGetter<? super E> selector) {
@@ -1062,7 +1046,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return true if the current {@link Container} does not contain an element.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -1093,7 +1077,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @return a new array with the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final Object[] toArray() {
@@ -1115,9 +1099,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param byteNorm
-	 * @return a new array with the values
-	 * the given byte norm returns from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
@@ -1139,9 +1121,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param charNorm
-	 * @return a new array with the values
-	 * the given charNorm returns from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
@@ -1181,9 +1161,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param doubleNorm
-	 * @return a new array with the values
-	 * the given double norm returns from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
@@ -1223,9 +1201,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param intNorm
-	 * @return a new array with the values
-	 * the given int norm returns from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final int[] toIntArray(final IElementTakerIntGetter<E> intNorm) {
@@ -1247,9 +1223,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param longNorm
-	 * @return a new array with the values
-	 * the given long norm returns from the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
@@ -1271,7 +1245,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @return a new array with the Strings that represent the elements of the current {@link Container}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final String[] toStringArray() {
@@ -1337,10 +1311,7 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @param endIndex
-	 * @return a new sub container of the current {@link Container}
-	 * with the elements to the given end index.
-	 * @throws NonPositiveArgumentException if the given end index is not positive.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final IContainer<E> until1BasedIndex(final int endIndex) {
@@ -1452,6 +1423,11 @@ public abstract class Container<E> implements IContainer<E> {
 	);
 	
 	//method
+	/**
+	 * The complexity of this implementation is O(1).
+	 * 
+	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 */
 	private void assertIsNotEmpty() {
 		if (isEmpty()) {
 			throw EmptyArgumentException.forArgument(this);
