@@ -452,27 +452,27 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param byteNorm
-	 * @return a new array with the values
-	 * the given byte norm returns from the elements of the current {@link IContainer}.
+	 * @param byteGetter
+	 * @return a new array with
+	 * the bytes the given byteGetter returns from the elements of the current {@link IContainer}.
 	 */
-	byte[] toByteArray(IElementTakerByteGetter<E> byteNorm);
+	byte[] toByteArray(IElementTakerByteGetter<E> byteGetter);
 	
 	//method declaration
 	/**
-	 * @param charNorm
-	 * @return a new array with the values
-	 * the given charNorm returns from the elements of the current {@link IContainer}.
+	 * @param charGetter
+	 * @return a new array with
+	 * the chars the given charGetter returns from the elements of the current {@link IContainer}.
 	 */
-	char[] toCharArray(IElementTakerCharGetter<E> charNorm);
+	char[] toCharArray(IElementTakerCharGetter<E> charGetter);
 	
 	//method declaration
 	/**
-	 * @param doubleNorm
-	 * @return a new array with the values
-	 * the given double norm returns from the elements of the current {@link IContainer}.
+	 * @param doubleGetter
+	 * @return a new array with
+	 * the doubles the given doubleGetter returns from the elements of the current {@link IContainer}.
 	 */
-	double[] toDoubleArray(IElementTakerDoubleGetter<E> doubleNorm);
+	double[] toDoubleArray(IElementTakerDoubleGetter<E> doubleGetter);
 	
 	//method declaration
 	/**
@@ -485,19 +485,19 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param intNorm
-	 * @return a new array with the values
-	 * the given int norm returns from the elements of the current {@link IContainer}.
+	 * @param intGetter
+	 * @return a new array with
+	 * the ints the given intGetter returns from the elements of the current {@link IContainer}.
 	 */
-	int[] toIntArray(IElementTakerIntGetter<E> intNorm);
+	int[] toIntArray(IElementTakerIntGetter<E> intGetter);
 	
 	//method declaration
 	/**
-	 * @param longNorm
-	 * @return a new array with the values
-	 * the given long norm returns from the elements of the current {@link IContainer}.
+	 * @param longGetter
+	 * @return a new array with
+	 * the longs the given longGetter returns from the elements of the current {@link IContainer}.
 	 */
-	long[] toLongArray(IElementTakerLongGetter<E> longNorm);
+	long[] toLongArray(IElementTakerLongGetter<E> longGetter);
 	
 	//method declaration
 	/**
