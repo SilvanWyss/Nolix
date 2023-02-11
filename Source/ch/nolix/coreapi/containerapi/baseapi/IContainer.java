@@ -391,15 +391,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param selector
-	 * @return the one element the given selector selects from the current {@link IContainer}.
-	 * @throws RuntimeException
-	 * if the given selector does not select an element or selects several elements from the current {@link IContainer}.
-	 */
-	E getRefOne(IElementTakerBooleanGetter<E> selector);
-	
-	//method declaration
-	/**
-	 * @param selector
 	 * @return a new@link LinkedList with the elements
 	 * the given selector selects from the current {@link IContainer}.
 	 */

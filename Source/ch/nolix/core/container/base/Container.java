@@ -1032,46 +1032,6 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
-	 * @param selector
-	 * @return the one element the given selector selects from the current {@link Container}.
-	 * @throws InvalidArgumentException
-	 * if the given selector does not select an element or selects several elements from the current {@link Container}.
-	 */
-	@Override
-	public final E getRefOne(final IElementTakerBooleanGetter<E> selector) {
-		
-		E element = null;
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			if (selector.getOutput(e)) {
-				
-				if (element != null) {
-					throw
-					InvalidArgumentException.forArgumentAndErrorPredicate(
-						this,
-						"contains several elements the given selector selects"
-					);
-				}
-				
-				element = e;
-			}
-		}
-		
-		if (element == null) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(
-				this,
-				"does not contain any element the given selector selects"
-			);
-		}
-		
-		return element;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
