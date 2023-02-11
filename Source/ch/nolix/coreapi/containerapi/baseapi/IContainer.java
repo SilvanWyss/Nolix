@@ -437,14 +437,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param norm
-	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
-	 * @return true if the current {@link IContainer} is ordered according to the given norm, false otherwise.
-	 */
-	<C extends Comparable<C>> boolean isOrdered(IElementTakerElementGetter<E, C> norm);
-	
-	//method declaration
-	/**
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
 	 * @return a new@link LinkedList with the elements

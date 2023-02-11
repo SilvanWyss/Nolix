@@ -1150,35 +1150,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final <C extends Comparable<C>> boolean isOrdered(final IElementTakerElementGetter<E, C> norm) {
-		
-		//Iterates the current IContainer.
-		E previous = null;
-		for (final var e : this) {
-			
-			if (previous != null) {
-				
-				Comparable value = norm.getOutput(e);
-				
-				if (value.compareTo(norm.getOutput(previous)) < 0) {
-					return false;
-				}
-			}
-			
-			previous = e;
-		}
-		
-		return true;
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @param <E2> is the type of the elements of the created {@link ExtractorIterator}.
