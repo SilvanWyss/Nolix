@@ -1171,8 +1171,10 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final <E2> IContainer<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
 		
+		//Creates a list.
 		final var list = createEmptyMutableList(new Marker<E2>());
 		
+		//Iterates the current Container.
 		for (final var e : this) {
 			list.addAtEnd(extractor.getOutput(e));
 		}

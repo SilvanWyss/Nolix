@@ -439,8 +439,8 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	/**
 	 * @param extractor
 	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new@link LinkedList with the elements
-	 * the given extractor extracts from the elements of the current {@link IContainer}.
+	 * @return a new {@link IContainer} with
+	 * the elements the given extractor extracts from the elements of the current {@link IContainer}.
 	 */
 	<E2> IContainer<E2> to(IElementTakerElementGetter<E, E2> extractor);
 	
