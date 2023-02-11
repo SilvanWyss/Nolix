@@ -1097,20 +1097,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(1).
-	 * 
-	 * @param <E2> is the type of the elements of the created {@link ExtractorIterator}.
-	 * @param extractor
-	 * @return a new {@link ExtractorIterator} for the current {@link Container} that delivers
-	 * the elements the given extractor extracts from the elements from the current {@link Container}.
-	 * @throws ArgumentIsNullException if the given extractor is null.
-	 */
-	public final <E2> ExtractorIterator<E, E2> iterator(final IElementTakerElementGetter<E, E2> extractor) {
-		return ExtractorIterator.forContainerWithExtractor(this, extractor);
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * {@inheritDoc}
