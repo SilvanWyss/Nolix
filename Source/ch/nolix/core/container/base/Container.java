@@ -795,18 +795,18 @@ public abstract class Container<E> implements IContainer<E> {
 	/**
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return a randomly selected element of the current {@link Container}.
-	 * @throws EmptyArgumentException if the current {@link Container} is empty.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final E getRefAny() {
 		
 		//Asserts that the current IContainer is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
+		assertIsNotEmpty();
 		
-		return getRefAt1BasedIndex(random.nextInt(getElementCount()) + 1);
+		//Calculates a random element index.
+		final var randomElementIndex = random.nextInt(getElementCount()) + 1;
+		
+		return getRefAt1BasedIndex(randomElementIndex);
 	}
 	
 	//method
