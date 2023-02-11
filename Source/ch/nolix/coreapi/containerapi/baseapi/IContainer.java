@@ -169,7 +169,7 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	//method declaration
 	/**
 	 * @param startIndex
-	 * @return a new sub container of the current {@link IContainer} from the given startIndex.
+	 * @return a new sub {@link IContainer} of the current {@link IContainer} from the given startIndex.
 	 * @throws RuntimeException if the given startIndex is not positive.
 	 * @throws RuntimeException if the current {@link IContainer} contains less elements than the given startIndex.
 	 */
@@ -179,10 +179,12 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	/**
 	 * @param startIndex
 	 * @param endIndex
-	 * @return a new sub container of the current {@link IContainer} from the given startIndex to the given endIndex.
+	 * @return a new sub {@link IContainer} of
+	 * the current {@link IContainer} from the given startIndex to the given endIndex.
 	 * @throws RuntimeException if the given startIndex is not positive.
 	 * @throws RuntimeException if the given endIndex is smaller than the given startIndex.
-	 * @throws RuntimeException if the given endIndex is bigger than the number of elements of the current {@link IContainer}.
+	 * @throws RuntimeException if
+	 * the given endIndex is bigger than the number of elements of the current {@link IContainer}.
 	 */
 	IContainer<E> fromUntil(int startIndex, int endIndex);
 	
