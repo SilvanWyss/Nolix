@@ -1054,45 +1054,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(m*n) if:
-	 * -The current {@link Container} contains m elements.
-	 * -n selectors are given.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public final IContainer<E> getRefSelected(final IElementTakerBooleanGetter<E>... selectors) {
-		
-		//Creates list.
-		final var list = createEmptyMutableList(new Marker<E>());
-		
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			var selected = true;
-			
-			//Iterates the given selectors.
-			for (IElementTakerBooleanGetter<E> s : selectors) {
-				
-				//Asserts that the current selector selects the current element.
-				if (!s.getOutput(e)) {
-					selected = false;
-					break;
-				}
-			}
-			
-			//Handles the case that the current element is selected.
-			if (selected) {
-				list.addAtEnd(e);
-			}
-		}
-		
-		return list;
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * {@inheritDoc}
