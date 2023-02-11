@@ -452,14 +452,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param elementType is the type or a base type of the elements of the current {@link IContainer}.
-	 * The elementType is needed to be able to create an array of the required type.
-	 * @return a new array with the elements of the current {@link IContainer}.
-	 */
-	E[] toArrayOfType(Class<E> elementType);
-	
-	//method declaration
-	/**
 	 * @param byteNorm
 	 * @return a new array with the values
 	 * the given byte norm returns from the elements of the current {@link IContainer}.

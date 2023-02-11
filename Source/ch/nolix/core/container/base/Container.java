@@ -2,7 +2,6 @@
 package ch.nolix.core.container.base;
 
 //Java imports
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Random;
@@ -1199,31 +1198,6 @@ public abstract class Container<E> implements IContainer<E> {
 		for (final var e : this) {
 			array[i] = e;
 			i++;
-		}
-		
-		return array;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * @param elementType is the type of the elements of the current {@link IContainer}.
-	 * The elementType is needed to be able to create an array of the required type.
-	 * @return a new array with the elements of the current {@link IContainer}.
-	 */
-	@Override
-	public final E[] toArrayOfType(final Class<E> elementType) {
-		
-		@SuppressWarnings("unchecked")
-		final var array = (E[])Array.newInstance(elementType, getElementCount());
-		
-		var index = 0;
-		for (var e : this) {
-			
-			array[index] = e;
-			
-			index++;
 		}
 		
 		return array;

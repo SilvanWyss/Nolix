@@ -770,28 +770,6 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_toArrayOfType() {
-		
-		//setup
-		final var string1 = "x";
-		final var string2 = "xx";
-		final var string3 = "xxx";
-		final var string4 = "xxxx";
-		final var testUnit = createContainerWithElements(string1, string2, string3, string4);
-		
-		//execution
-		final var result = testUnit.toArrayOfType(String.class);
-		
-		//verification
-		expect(result.length).isEqualTo(4);
-		expect(result[0]).is(string1);
-		expect(result[1]).is(string2);
-		expect(result[2]).is(string3);
-		expect(result[3]).is(string4);
-	}
-	
-	//method
-	@TestCase
 	public final void testCase_toArray() {
 		
 		//setup
