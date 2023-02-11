@@ -296,14 +296,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
-	 * @param selector
-	 * @return the percentage of the number of elements
-	 * the given selector selects from the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	double getPercentage(IElementTakerBooleanGetter<E> selector);
-	//method declaration
-	/**
 	 * The range of some values is the difference between the maximum and the minimum of the values.
 	 * 
 	 * @param doubleNorm
