@@ -8,7 +8,6 @@ import java.util.Random;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
-import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -22,8 +21,6 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.IMutableList;
-import ch.nolix.coreapi.containerapi.pairapi.IPair;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
@@ -882,29 +879,6 @@ public abstract class Container<E> implements IContainer<E> {
 			//Handles the case that the given selector selects the current element.
 			if (selector.getOutput(e)) {
 				return e;
-			}
-		}
-		
-		return null;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n^2) if the current {@link Container} contains n elements.
-	 *
-	 * @param selector
-	 * @return the first 2 elements of the current {@link Container}
-	 * the given selector selects together or null.
-	 */
-	public final IPair<E, E> getRefFirstOrNull(final I2ElementTakerBooleanGetter<E> selector) {
-
-		//Iterates the current IContainer.
-		for (final var e : this) {
-			
-			final var element = getRefFirstOrNull(e2 -> selector.getOutput(e, e2));
-			
-			if (element != null) {
-				return new Pair<>(e, element);
 			}
 		}
 		
