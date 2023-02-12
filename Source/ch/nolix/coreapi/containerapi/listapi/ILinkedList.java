@@ -121,6 +121,15 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	 */
 	E removeAndGetRefFirst();
 	
+	//method
+	/**
+	 * Removes and returns the last element of the current {@link ILinkedList}.
+	 * 
+	 * @return the last element of the current {@link ILinkedList}.
+	 * @throws RuntimeException if the current {@link ILinkedList} is empty.
+	 */
+	E removeAndGetRefLast();
+	
 	//method declaration
 	/**
 	 * Removes the first element from the current {@link ILinkedList}.

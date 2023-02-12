@@ -497,15 +497,17 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * Removes and returns the last element of the current {@link LinkedList}.
 	 * The complexity of this implementation is O(1).
 	 * 
-	 * @return the last element of the current {@link LinkedList}.
-	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public E removeAndGetRefLast() {
+		
 		final var element = getRefLast();
+		
 		removeLast();
+		
 		return element;
 	}
 	
