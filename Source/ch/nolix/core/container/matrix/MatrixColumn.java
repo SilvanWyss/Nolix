@@ -62,6 +62,12 @@ public final class MatrixColumn<E> extends Container<E> {
 	
 	//method
 	@Override
+	public boolean isMaterialized() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public MatrixColumnIterator<E> iterator() {
 		return MatrixColumnIterator.forMatrixColumn(this);
 	}

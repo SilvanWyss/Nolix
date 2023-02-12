@@ -14,6 +14,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.MaterializationRequestable;
 
 //interface
 /**
@@ -25,7 +26,7 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
  * @date 2016-01-01
  * @param <E> is the type of the elements a {@link IContainer}.
  */
-public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
+public interface IContainer<E> extends EmptinessRequestable, Iterable<E>, MaterializationRequestable {
 	
 	//method declaration
 	/**

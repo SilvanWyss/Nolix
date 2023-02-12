@@ -485,6 +485,15 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isMaterialized() {
+		return true;
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return a new iterator for the current {@link Matrix}.

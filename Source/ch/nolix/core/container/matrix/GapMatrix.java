@@ -177,6 +177,12 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
 	//method
 	@Override
+	public boolean isMaterialized() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public Iterator<E> iterator() {
 		return GapMatrixIterator.forGapMatrix(this);
 	}

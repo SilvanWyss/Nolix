@@ -79,6 +79,15 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isMaterialized() {
+		return true;
+	}
+	
+	//method
 	@Override
 	public Iterator<E> iterator() {
 		return new CachingContainerIterator<>(elements.iterator());

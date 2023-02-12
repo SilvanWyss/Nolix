@@ -95,6 +95,15 @@ final class ArrayReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean isMaterialized() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public Iterator<E> iterator() {
 		return ArrayIterator.forArray(array);
 	}

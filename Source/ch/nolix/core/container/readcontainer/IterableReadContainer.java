@@ -130,6 +130,15 @@ final class IterableReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean isMaterialized() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
 	}

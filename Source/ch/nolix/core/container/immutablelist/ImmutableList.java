@@ -162,6 +162,15 @@ public final class ImmutableList<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean isMaterialized() {
+		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public Iterator<E> iterator() {
 		return ArrayIterator.forArray(elements);
 	}

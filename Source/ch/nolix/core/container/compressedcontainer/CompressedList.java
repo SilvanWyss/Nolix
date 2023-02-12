@@ -98,6 +98,12 @@ public final class CompressedList<E> extends Container<E> {
 	
 	//method
 	@Override
+	public boolean isMaterialized() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public Iterator<E> iterator() {
 		
 		if (isEmpty()) {

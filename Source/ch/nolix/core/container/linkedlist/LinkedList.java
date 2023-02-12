@@ -421,9 +421,21 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	}
 	
 	//method
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode() {
 		return toString().hashCode();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isMaterialized() {
+		return true;
 	}
 	
 	//method
