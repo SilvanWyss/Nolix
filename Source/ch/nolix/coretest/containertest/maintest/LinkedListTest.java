@@ -173,47 +173,7 @@ public final class LinkedListTest extends ContainerTest {
 			expect(e.getRefAt1BasedIndex(2)).isEqualTo("xxxx");
 		}
 	}
-	
-	//method
-	@TestCase
-	public void testCase_matches_1A() {
 		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
-		final var sequencePattern =
-		new SequencePattern<String>()
-		.addConditionForNext(s -> s.length() == 1)
-		.addConditionForNext(s -> s.length() == 4)
-		.addConditionForNext(s -> s.length() == 1)
-		.addConditionForNext(s -> s.length() == 4);
-		
-		//execution
-		final var result = testUnit.matches(sequencePattern);
-		
-		//verification
-		expect(result);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_matches_1B() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "xxxx", "x", "xxxx");
-		final SequencePattern<String> sequencePattern
-		= new SequencePattern<String>()
-		.addConditionForNext(s -> s.length() == 1)
-		.addConditionForNext(s -> s.length() == 4)
-		.addBlankForNext()
-		.addBlankForNext();
-		
-		//execution
-		final var result = testUnit.matches(sequencePattern);
-		
-		//verification
-		expect(result);
-	}
-	
 	//method
 	@TestCase
 	public void testCase_toString() {

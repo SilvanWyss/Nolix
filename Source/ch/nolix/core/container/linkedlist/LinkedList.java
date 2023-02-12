@@ -439,17 +439,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @param sequencePattern
-	 * @return true if the current {@link LinkedList} matches the given sequence pattern.
-	 */
-	public boolean matches(final SequencePattern<E> sequencePattern) {
-		return sequencePattern.matches(this);
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
