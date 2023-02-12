@@ -29,9 +29,11 @@ public interface MaterializationRequestable {
 	 */
 	boolean isMaterialized();
 	
-	//method declaration
+	//method
 	/**
 	 * @return true if the current {@link MaterializationRequestable} is a view, false otherwise.
 	 */
-	boolean isView();
+	default boolean isView() {
+		return !isMaterialized();
+	}
 }
