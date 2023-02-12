@@ -482,16 +482,17 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * Removes and returns the first element the given selector selects from the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @param selector
-	 * @return the first element the given selector selects from the current {@link LinkedList}.
-	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
+		
 		final var element = getRefFirst(selector);
+		
 		removeFirst(selector);
+		
 		return element;
 	}
 	
