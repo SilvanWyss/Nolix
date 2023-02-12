@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.itemmenu;
 
 import ch.nolix.core.container.singlecontainer.SingleContainer;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
@@ -35,7 +35,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final IMutableList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
 		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onchange"));
 	}
 	

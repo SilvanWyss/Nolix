@@ -16,7 +16,7 @@ import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
@@ -29,7 +29,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedList}.
  */
-public final class LinkedList<E> extends Container<E> implements IMutableList<E> {
+public final class LinkedList<E> extends Container<E> implements ILinkedList<E> {
 	
 	//static method
 	/**
@@ -380,7 +380,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IMutableList<E> getReversedList() {
+	public ILinkedList<E> getReversedList() {
 		
 		//Handles the case that the current LinkedList is empty.
 		if (isEmpty()) {
@@ -716,7 +716,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
+	protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 	
@@ -816,7 +816,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	 * the elements of the current {@link LinkedList} in the reversed order for the case that
 	 * the current {@link LinkedList} contains elements.
 	 */
-	private IMutableList<E> getReversedListWhenContainsElements() {
+	private ILinkedList<E> getReversedListWhenContainsElements() {
 		
 		//Iterates the current LinkedList.
 		LinkedListNode<E> lFirstNode = null;
@@ -843,7 +843,7 @@ public final class LinkedList<E> extends Container<E> implements IMutableList<E>
 	
 	//method
 	/**
-	 * Removes the first element the given selector selects from the current {@link IMutableList} for the case that
+	 * Removes the first element the given selector selects from the current {@link ILinkedList} for the case that
 	 * the current {@link LinkedList} contains any.
 	 * 
 	 * @param selector

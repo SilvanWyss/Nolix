@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.programstructureapi.cachingapi.ICachingContainer;
 
@@ -141,7 +141,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker) {
+	protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
 	}
 	

@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -106,7 +106,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final IMutableList<INode<?>> list) {
+	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
 	}
 }

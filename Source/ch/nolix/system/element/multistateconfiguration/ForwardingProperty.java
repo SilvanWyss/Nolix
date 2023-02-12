@@ -3,7 +3,7 @@ package ch.nolix.system.element.multistateconfiguration;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -48,7 +48,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	
 	//method
 	@Override
-	protected void fillUpValuesSpecificationInto(IMutableList<INode<?>> list) {
+	protected void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list) {
 		//Does nothing.
 	}
 	

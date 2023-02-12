@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -130,7 +130,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpAttributesInto(final IMutableList<INode<?>> list) {
+	protected final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		
 		//Handles the case that the current SingleValue has a value.
 		if (hasValue()) {

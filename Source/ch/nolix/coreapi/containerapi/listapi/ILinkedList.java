@@ -8,17 +8,17 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
 /**
- * A {@link IMutableList} is a {@link IContainer} where elements can be added or removed.
+ * A {@link ILinkedList} is a {@link IContainer} where elements can be added or removed.
  * 
  * @author Silvan Wyss
  * @date 2022-07-04
- * @param <E> is the type of the elements of a {@link IMutableList}.
+ * @param <E> is the type of the elements of a {@link ILinkedList}.
  */
-public interface IMutableList<E> extends Clearable, IContainer<E> {
+public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given element at the begin of the current {@link IMutableList}.
+	 * Adds the given element at the begin of the current {@link ILinkedList}.
 	 * 
 	 * @param element
 	 * @throws RuntimeException if the given elements is null.
@@ -27,7 +27,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given firstElement and the given elements at the begin of the current {@link IMutableList}.
+	 * Adds the given firstElement and the given elements at the begin of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
 	 * @param firstElement
@@ -39,7 +39,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given elements at the begin of the current {@link IMutableList}.
+	 * Adds the given elements at the begin of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
 	 * @param elements
@@ -49,7 +49,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given elements at the begin of the current {@link IMutableList}.
+	 * Adds the given elements at the begin of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
 	 * @param elements
@@ -59,7 +59,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given element at the end of the current {@link IMutableList}.
+	 * Adds the given element at the end of the current {@link ILinkedList}.
 	 * 
 	 * @param element
 	 * @throws RuntimeException if the given elements is null.
@@ -68,7 +68,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given firstElement and the given elements at the end of the current {@link IMutableList}.
+	 * Adds the given firstElement and the given elements at the end of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
 	 * @param firstElement
@@ -80,7 +80,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given elements at the end of the current {@link IMutableList}.
+	 * Adds the given elements at the end of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
 	 * @param elements
@@ -90,7 +90,7 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * Adds the given elements at the end of the current {@link IMutableList}.
+	 * Adds the given elements at the end of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
 	 * @param elements
@@ -100,19 +100,19 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * @return a new {@link IMutableList} with the elements of the current {@link IMutableList} in the reversed order.
+	 * @return a new {@link ILinkedList} with the elements of the current {@link ILinkedList} in the reversed order.
 	 */
-	IMutableList<E> getReversedList();
+	ILinkedList<E> getReversedList();
 	
 	//method declaration
 	/**
-	 * Removes the first element from the current {@link IMutableList}.
+	 * Removes the first element from the current {@link ILinkedList}.
 	 */
 	void removeFirst();
 	
 	//method declaration
 	/**
-	 * Removes the first element the given selector selects from the current {@link IMutableList}
+	 * Removes the first element the given selector selects from the current {@link ILinkedList}
 	 * 
 	 * @param selector
 	 */

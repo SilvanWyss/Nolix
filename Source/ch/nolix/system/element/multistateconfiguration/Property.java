@@ -5,7 +5,7 @@ package ch.nolix.system.element.multistateconfiguration;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
@@ -30,7 +30,7 @@ public abstract class Property<S extends Enum<S>> implements Named {
 	}
 	
 	//method declaration
-	protected abstract void fillUpValuesSpecificationInto(IMutableList<INode<?>> list);
+	protected abstract void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list);
 	
 	//method declaration
 	protected abstract void setFrom(Property<S> property);

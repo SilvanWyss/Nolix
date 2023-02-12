@@ -20,7 +20,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
@@ -878,7 +878,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final IContainer<? extends IContainer<E>> getRefGroups(final IElementTakerElementGetter<E, ?> norm) {
 		
-		final var groups = createEmptyMutableList(new Marker<IMutableList<E>>());
+		final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 		
 		//Iterates the current list.
 		for (final var e : this) {
@@ -1400,10 +1400,10 @@ public abstract class Container<E> implements IContainer<E> {
 	//method declaration
 	/**
 	 * @param marker
-	 * @param <E2> is the type of the elements the created {@link IMutableList} can contain.
-	 * @return a new empty {@link IMutableList}.
+	 * @param <E2> is the type of the elements the created {@link ILinkedList} can contain.
+	 * @return a new empty {@link ILinkedList}.
 	 */
-	protected abstract <E2> IMutableList<E2> createEmptyMutableList(final Marker<E2> marker);
+	protected abstract <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker);
 	
 	//method declaration
 	/**

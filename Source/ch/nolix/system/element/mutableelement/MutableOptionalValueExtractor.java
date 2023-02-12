@@ -4,7 +4,7 @@ package ch.nolix.system.element.mutableelement;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
@@ -66,7 +66,7 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final IMutableList<INode<?>> list) {
+	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		if (valuePresenceChecker.getOutput()) {
 			list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
 		}

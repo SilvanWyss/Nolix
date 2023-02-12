@@ -4,7 +4,7 @@ package ch.nolix.system.element.mutableelement;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.containerapi.listapi.IMutableList;
+import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
 
@@ -35,7 +35,7 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	
 	//method
 	@Override
-	protected final void fillUpAttributesInto(IMutableList<INode<?>> list) {
+	protected final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
 		list.addAtEnd(internalExtensionElement.getAttributes());
 	}
 	
