@@ -134,6 +134,14 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
+	 * Removes the first occurrence of the given element from the current {@link ILinkedList}.
+	 * 
+	 * @param element
+	 */
+	void removeFirstOccurrenceOf(Object element);
+	
+	//method declaration
+	/**
 	 * Removes the last element from the current {@link ILinkedList}.
 	 */
 	void removeLast();

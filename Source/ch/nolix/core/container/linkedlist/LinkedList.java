@@ -556,7 +556,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	public void removeFirst(final IElementTakerBooleanGetter<E> selector) {
 		
-		//Handles the case that the current LinkedList contains any.
+		//Handles the case that the current LinkedList contains elements.
 		if (containsAny()) {
 			removeFirstWhenContainsAny(selector);
 		}
@@ -564,40 +564,19 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * Removes the first appearance of the given element from the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @param element
-	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain the given element.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeFirstOccurrenceOf(final Object element) {
 		
-		//Asserts that the current list is not empty.
-		if (isEmpty()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
+		//Handles the case that the current LinkedList contains elements.
+		if (containsAny()) {
+			removeFirstOccurrenceOfWhenContainsAny(element);
 		}
-		
-		if (firstNode.contains(element)) {
-			removeFirst();
-			return;
-		}
-		
-		var iterator = firstNode;
-		while (iterator.hasNextNode()) {
-			
-			final LinkedListNode<E> nextNode = iterator.getNextNode();
-			
-			if (nextNode.contains(element)) {
-				removeNextNode(iterator);
-				return;
-			}
-			
-			iterator = nextNode;
-		}
-		
-		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 	}
-		
+	
 	//method
 	/**
 	 * The complexity of this implementation is O(n).
@@ -802,6 +781,35 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 		reversedList.lastNode = lLastNode;
 		
 		return reversedList;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
+	 * 
+	 * Removes the first occurrence of the given element from the current {@link ILinkedList} for the case that
+	 * the current {@link ILinkedList} contains elements.
+	 * 
+	 * @param element
+	 */
+	private void removeFirstOccurrenceOfWhenContainsAny(final Object element) {
+		if (firstNode.contains(element)) {
+			removeFirst();
+		} else {
+			
+			var iterator = firstNode;
+			while (iterator.hasNextNode()) {
+				
+				final var nextNode = iterator.getNextNode();
+				
+				if (nextNode.contains(element)) {
+					removeNextNode(iterator);
+					break;
+				}
+				
+				iterator = nextNode;
+			}
+		}
 	}
 	
 	//method
