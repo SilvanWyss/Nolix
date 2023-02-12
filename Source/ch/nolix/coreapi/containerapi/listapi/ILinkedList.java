@@ -168,4 +168,15 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	 * Removes the last element from the current {@link ILinkedList}.
 	 */
 	void removeLast();
+	
+	//method declaration
+	/**
+	 * Replaces the first element the given selector selects from the current {@link ILinkedList} with
+	 * the given element.
+	 * 
+	 * @param selector
+	 * @param element
+	 * @throws RuntimeException if the given element is null.
+	 */
+	void replaceFirst(IElementTakerBooleanGetter<E> selector, E element);
 }

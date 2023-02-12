@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
@@ -593,39 +592,25 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * Replaces the first element the given selector selects from the current {@link LinkedList} with the given element.
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @param selector
-	 * @param element
-	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain an element the given selector selects.
-	 * @throws ArgumentIsNullException if the given element is null.
+	 *
+	 * {@inheritDoc}
 	 */
-	public void replaceFirst(IElementTakerBooleanGetter<E> selector, E element) {
-		
-		//Asserts that the current list is not empty.
-		if (isEmpty()) {
-			throw
-			InvalidArgumentException.forArgumentAndErrorPredicate(
-				this,
-				"does not contain the element '" + element + "'"
-			);
-		}
-		
+	@Override
+	public void replaceFirst(final IElementTakerBooleanGetter<E> selector, final E element) {
 		var iterator = firstNode;
-		while (true) {
+		while (iterator != null) {
 			
 			if (selector.getOutput(iterator.getElement())) {
 				iterator.setElement(element);
-				return;
+				break;
 			}
 			
 			if (iterator.hasNextNode()) {
 				iterator = iterator.getNextNode();
-				continue;
+			} else {
+				iterator = null;
 			}
-			
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 		}
 	}
 	
