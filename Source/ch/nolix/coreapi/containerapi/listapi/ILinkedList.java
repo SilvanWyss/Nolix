@@ -5,6 +5,7 @@ package ch.nolix.coreapi.containerapi.listapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationuniversalapi.Copyable;
 
 //interface
 /**
@@ -14,7 +15,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
  * @date 2022-07-04
  * @param <E> is the type of the elements of a {@link ILinkedList}.
  */
-public interface ILinkedList<E> extends Clearable, IContainer<E> {
+public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IContainer<E> {
 	
 	//method declaration
 	/**
@@ -97,12 +98,6 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	 * @throws RuntimeException if one of the given elements is null.
 	 */
 	void addAtEnd(Iterable<? extends E> elements);
-	
-	//method declaration
-	/**
-	 * @return a new {@link ILinkedList} with the elements of the current {@link ILinkedList}.
-	 */
-	ILinkedList<E> getCopy();
 	
 	//method declaration
 	/**
