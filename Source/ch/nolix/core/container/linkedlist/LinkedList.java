@@ -658,28 +658,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * Reverses the elements of the current {@link LinkedList}.
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 */
-	public void reverse() {
-		
-		//Handles the case that the current list contains any elements.
-		if (containsAny()) {
-			lastNode = firstNode;
-			var iterator = firstNode;
-			while (iterator.hasNextNode()) {
-				final LinkedListNode<E> node = iterator.getNextNode();
-				iterator.setNextNode(firstNode);
-				firstNode = iterator;
-				iterator = node;
-			}
-			iterator.setNextNode(firstNode);
-			firstNode = iterator;
-		}
-	}
-	
-	//method
-	/**
 	 * This implementation uses the merge sort algorithm.
 	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
 	 * 
