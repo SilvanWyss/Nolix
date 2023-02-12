@@ -112,6 +112,15 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	 */
 	void removeAll(IElementTakerBooleanGetter<E> selector);
 	
+	//method
+	/**
+	 * Removes and returns the first element of the current {@link ILinkedList}.
+	 * 
+	 * @return the first element of the current {@link ILinkedList}.
+	 * @throws RuntimeException if the current {@link ILinkedList} is empty.
+	 */
+	E removeAndGetRefFirst();
+	
 	//method declaration
 	/**
 	 * Removes the first element from the current {@link ILinkedList}.
