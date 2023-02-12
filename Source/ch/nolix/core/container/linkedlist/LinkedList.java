@@ -694,16 +694,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * @param extractor
-	 * @return a new {@link ListUsingMediator} with the current {@link LinkedList} and the given extractor.
-	 * @throws ArgumentIsNullException if the given extractor is null.
-	 */
-	public ListUsingMediator<E> using(final IElementTakerElementGetter<Object, E> extractor) {
-		return new ListUsingMediator<>(this, extractor);
-	}
-	
-	//method
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
