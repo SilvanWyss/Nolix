@@ -465,18 +465,21 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	public boolean matches(final SequencePattern<E> sequencePattern) {
 		return sequencePattern.matches(this);
 	}
-		
+	
 	//method
 	/**
-	 * Removes all elements the given selector selects from the current {@link LinkedList}.
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @param selector
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeAll(final IElementTakerBooleanGetter<E> selector) {
-		final var list = getRefSelected(e -> !selector.getOutput(e));
+		
+		final var remainingElements = getRefOther(selector);
+		
 		clear();
-		addAtEnd(list);
+		
+		addAtEnd(remainingElements);
 	}
 	
 	//method

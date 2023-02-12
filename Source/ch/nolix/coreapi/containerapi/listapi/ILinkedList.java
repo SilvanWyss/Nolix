@@ -112,6 +112,14 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
+	 * Removes all elements from the current {@link ILinkedList} the given selector selects.
+	 * 
+	 * @param selector
+	 */
+	void removeAll(IElementTakerBooleanGetter<E> selector);
+	
+	//method declaration
+	/**
 	 * Removes the first element from the current {@link ILinkedList}.
 	 */
 	void removeFirst();
