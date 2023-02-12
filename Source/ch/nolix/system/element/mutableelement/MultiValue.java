@@ -139,7 +139,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	 * @throws InvalidArgumentException if the current {@link MultiValue} does not contain the given value.
 	 */
 	public void remove(final V value) {
-		values.removeFirst(value);
+		values.removeFirstOccurrenceOf(value);
 	}
 	
 	//method

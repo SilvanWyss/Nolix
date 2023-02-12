@@ -570,7 +570,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	 * @param element
 	 * @throws InvalidArgumentException if the current {@link LinkedList} does not contain the given element.
 	 */
-	public void removeFirst(final Object element) {
+	public void removeFirstOccurrenceOf(final Object element) {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {

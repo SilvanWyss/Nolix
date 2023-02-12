@@ -119,7 +119,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	
 	//method
 	void removeTableAttribute(final Table table) {
-		tables.removeFirst(table);
+		tables.removeFirstOccurrenceOf(table);
 	}
 	
 	//method

@@ -207,7 +207,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 */
 	private void removeEndPointTaker(final IEndPointTaker endPointTaker) {
 		
-		endPointTakers.removeFirst(endPointTaker);
+		endPointTakers.removeFirstOccurrenceOf(endPointTaker);
 		
 		if (endPointTaker == defaultEndPointTaker) {
 			defaultEndPointTaker = null;

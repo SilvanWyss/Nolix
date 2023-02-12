@@ -134,7 +134,7 @@ public final class LicenseManager {
 	 * @throws InvalidArgumentException if the current {@link LicenseManager} does not contain the given license.
 	 */
 	public void removeLicense(final License license) {
-		licenses.removeFirst(license);
+		licenses.removeFirstOccurrenceOf(license);
 	}
 	
 	//method

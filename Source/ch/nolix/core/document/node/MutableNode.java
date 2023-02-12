@@ -209,7 +209,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 */
 	@Override
 	public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<? extends INode<?>> selector) {
-		childNodes.removeFirst(selector);
+		childNodes.removeFirstOccurrenceOf(selector);
 	}
 	
 	//method

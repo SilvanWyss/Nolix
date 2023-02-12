@@ -180,7 +180,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	
 	//method
 	void removeColumnAttribute(final Column column) {
-		columns.removeFirst(column);
+		columns.removeFirstOccurrenceOf(column);
 	}
 	
 	//method

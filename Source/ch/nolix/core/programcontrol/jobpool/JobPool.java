@@ -68,13 +68,13 @@ public final class JobPool {
 			return new SingleContainer<>();
 		}
 		
-		jobWrappers.removeFirst(nextFreshJobWrapper);
+		jobWrappers.removeFirstOccurrenceOf(nextFreshJobWrapper);
 		return new SingleContainer<>(nextFreshJobWrapper);
 	}
 	
 	//method
 	synchronized void removeWorker(final Worker worker) {
-		workers.removeFirst(worker);
+		workers.removeFirstOccurrenceOf(worker);
 	}
 	
 	//method
