@@ -663,18 +663,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
-		final int p1BasedStartIndex,
-		final int p1BasedEndIndex
-	) {
-		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
-	}
-	
-	//method
-	/**
 	 * @param startIndex
 	 * @param endIndex
 	 * @param norm

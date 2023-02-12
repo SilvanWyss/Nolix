@@ -9,7 +9,6 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.linkedlist.SubContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -162,17 +161,5 @@ final class IterableReadContainer<E> extends Container<E> {
 	@Override
 	protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
 		return new LinkedList<>();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
-		final int p1BasedStartIndex,
-		final int p1BasedEndIndex
-	) {
-		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
 	}
 }

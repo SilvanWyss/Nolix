@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.base;
 
 //Java imports
 import java.util.Iterator;
@@ -15,9 +15,9 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 /**
  * @author Silvan Wyss
  * @date 2017-08-27
- * @param <E> is the type of the elements of a {@link SubContainerIterator}.
+ * @param <E> is the type of the elements of a {@link ContainerViewIterator}.
  */
-final class SubContainerIterator<E> implements Iterator<E> {
+final class ContainerViewIterator<E> implements Iterator<E> {
 	
 	//attributes
 	private final int endIndex;
@@ -26,7 +26,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//constructor
 	/**
-	 * Creates a new {@link SubContainerIterator} with the given container, startIndex and endIndex.
+	 * Creates a new {@link ContainerViewIterator} with the given container, startIndex and endIndex.
 	 * 
 	 * @param container
 	 * @param startIndex
@@ -35,7 +35,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 	 * @throws NonPositiveArgumentException if the given startIndex is not positive.
 	 * @throws NonPositiveArgumentException if the given endIndex is not positive.
 	 */
-	public SubContainerIterator(final Iterable<E> container, final int startIndex, final int endIndex) {
+	public ContainerViewIterator(final Iterable<E> container, final int startIndex, final int endIndex) {
 		
 		GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 		GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
@@ -54,7 +54,7 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return true if the current {@link SubContainerIterator} has a next element.
+	 * @return true if the current {@link ContainerViewIterator} has a next element.
 	 */
 	@Override
 	public boolean hasNext() {
@@ -63,9 +63,9 @@ final class SubContainerIterator<E> implements Iterator<E> {
 
 	//method
 	/**
-	 * @return the next element of the current {@link SubContainerIterator}.
+	 * @return the next element of the current {@link ContainerViewIterator}.
 	 * @throws ArgumentDoesNotHaveAttributeException
-	 * if the current {@link SubContainerIterator} does not have a next element.
+	 * if the current {@link ContainerViewIterator} does not have a next element.
 	 */
 	@Override
 	public E next() {

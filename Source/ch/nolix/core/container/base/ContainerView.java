@@ -1,13 +1,11 @@
 //package declaration
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.base;
 
 //Java imports
 import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.container.base.Container;
-import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -20,17 +18,17 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 
 //class
 /**
- * A {@link SubContainer} can iterate over a part of another container.
+ * A {@link ContainerView} can iterate over a part of another container.
  * 
- * A {@link SubContainer} must not use the methods of the accessed container except the iterator method.
+ * A {@link ContainerView} must not use the methods of the accessed container except the iterator method.
  * The reason is that the accessed container can be a specialized container
  * that does not use its iterator in any of its declared or overwritten method.
  * 
  * @author Silvan Wyss
  * @date 2017-08-27
- * @param <E> is the type of the elements of a {@link SubContainer}.
+ * @param <E> is the type of the elements of a {@link ContainerView}.
  */
-public final class SubContainer<E> extends Container<E> {
+final class ContainerView<E> extends Container<E> {
 
 	//attributes
 	private final Container<E> container;
@@ -39,7 +37,7 @@ public final class SubContainer<E> extends Container<E> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link SubContainer} with the given container, startIndex and endIndex.
+	 * Creates a new {@link ContainerView} with the given container, startIndex and endIndex.
 	 * 
 	 * @param container
 	 * @param startIndex
@@ -51,7 +49,7 @@ public final class SubContainer<E> extends Container<E> {
 	 * @throws BiggerArgumentException
 	 * if the given endIndex is bigger than the number of elements of the given container.
 	 */
-	public SubContainer(final Container<E> container, final int startIndex, final int endIndex) {
+	public ContainerView(final Container<E> container, final int startIndex, final int endIndex) {
 		
 		GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 		GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseCatalogue.START_INDEX).isPositive();
@@ -115,7 +113,7 @@ public final class SubContainer<E> extends Container<E> {
 	@Override
 	public Iterator<E> iterator() {
 		return
-		new SubContainerIterator<>(
+		new ContainerViewIterator<>(
 			container,
 			startIndex,
 			endIndex
@@ -128,7 +126,7 @@ public final class SubContainer<E> extends Container<E> {
 	 */
 	@Override
 	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
-		return LinkedList.fromIterable(this).toOrderedList(norm);
+		return container.createEmptyMutableList(new Marker<E>()).toOrderedList(norm);
 	}
 	
 	//method
@@ -146,18 +144,6 @@ public final class SubContainer<E> extends Container<E> {
 	 */
 	@Override
 	protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
-		return new LinkedList<>();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected IContainer<E> getSubContainerFromStartIndexToEndIndex(
-		final int p1BasedStartIndex,
-		final int p1BasedEndIndex
-	) {
-		return new SubContainer<>(this, p1BasedStartIndex, p1BasedEndIndex);
+		return container.createEmptyMutableList(marker);
 	}
 }

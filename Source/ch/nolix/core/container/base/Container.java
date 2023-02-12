@@ -1423,23 +1423,6 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	protected abstract <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker);
 	
-	//method declaration
-	/**
-	 * @param p1BasedStartIndex
-	 * @param p1BasedEndIndex
-	 * @return a {@link IContainer} that
-	 * views the current {@link Container} from the given p1BasedStartIndex to the given p1BasedEndIndex.
-	 * @throws NonPositiveArgumentException if the given p1BasedStartIndex is not positive.
-	 * @throws NonPositiveArgumentException if the given p1BasedEndIndex is not positive.
-	 * @throws SmallerArgumentException if the given p1BasedEndIndex is smaller than the given p1BasedStartIndex.
-	 * @throws BiggerArgumentException if
-	 * the given endIndex is bigger than the number of elements of the current {@link Container}.
-	 */
-	protected abstract IContainer<E> getSubContainerFromStartIndexToEndIndex(
-		int p1BasedStartIndex,
-		int p1BasedEndIndex
-	);
-	
 	//method
 	/**
 	 * The complexity of this implementation is O(1).
@@ -1471,6 +1454,26 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 				
 		return reversedList;
+	}
+	
+	//method declaration
+	/**
+	 * @param p1BasedStartIndex
+	 * @param p1BasedEndIndex
+	 * @return a {@link IContainer} that
+	 * views the current {@link Container} from the given p1BasedStartIndex to the given p1BasedEndIndex.
+	 * @throws NonPositiveArgumentException if the given p1BasedStartIndex is not positive.
+	 * @throws NonPositiveArgumentException if the given p1BasedEndIndex is not positive.
+	 * @throws SmallerArgumentException if the given p1BasedEndIndex is smaller than the given p1BasedStartIndex.
+	 * @throws BiggerArgumentException if
+	 * the given endIndex is bigger than the number of elements of the current {@link Container}.
+	 */
+	//method
+	private IContainer<E> getSubContainerFromStartIndexToEndIndex(
+		final int p1BasedStartIndex,
+		final int p1BasedEndIndex
+	) {
+		return new ContainerView<>(this, p1BasedStartIndex, p1BasedEndIndex);
 	}
 	
 	//method
