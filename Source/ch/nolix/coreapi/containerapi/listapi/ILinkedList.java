@@ -106,12 +106,6 @@ public interface ILinkedList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
-	 * @return a new {@link ILinkedList} with the elements of the current {@link ILinkedList} in the reversed order.
-	 */
-	ILinkedList<E> getReversedList();
-	
-	//method declaration
-	/**
 	 * Removes all elements from the current {@link ILinkedList} the given selector selects.
 	 * 
 	 * @param selector

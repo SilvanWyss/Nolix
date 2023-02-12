@@ -385,24 +385,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 *  
-	 * {@inheritDoc}
-	 */
-	@Override
-	public ILinkedList<E> getReversedList() {
-		
-		//Handles the case that the current LinkedList is empty.
-		if (isEmpty()) {
-			return new LinkedList<>();
-		}
-		
-		//Handles the case that the current LinkedList contains elements.
-		return getReversedListWhenContainsElements();
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O((n-m)*m) if:
 	 * -This list contains n elements.
 	 * -The sequences that matches the given sequence pattern contain m elements.
@@ -748,39 +730,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 			}
 		}
 		return list;
-	}
-	
-	//method
-	/**
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
-	 * 
-	 * @return a new {@link LinkedList} with
-	 * the elements of the current {@link LinkedList} in the reversed order for the case that
-	 * the current {@link LinkedList} contains elements.
-	 */
-	private ILinkedList<E> getReversedListWhenContainsElements() {
-		
-		//Iterates the current LinkedList.
-		LinkedListNode<E> lFirstNode = null;
-		LinkedListNode<E> lLastNode = null;
-		for (final var e : this) {
-			final var node = new LinkedListNode<>(e);
-			if (lFirstNode == null) {
-				lFirstNode = node;
-				lLastNode = node;
-			} else {
-				node.setNextNode(lFirstNode);
-				lFirstNode = node;
-			}
-		}
-		
-		//Creates a reversed IMutableList.
-		final var reversedList = new LinkedList<E>();
-		reversedList.elementCount = getElementCount();
-		reversedList.firstNode = lFirstNode;
-		reversedList.lastNode = lLastNode;
-		
-		return reversedList;
 	}
 	
 	//method

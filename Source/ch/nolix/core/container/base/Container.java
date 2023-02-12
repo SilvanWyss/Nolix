@@ -970,6 +970,24 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
+	 *  
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final IContainer<E> getReversedList() {
+		
+		//Handles the case that the current Container is empty.
+		if (isEmpty()) {
+			return createEmptyMutableList(new Marker<E>());
+		}
+		
+		//Handles the case that the current Container contains elements.
+		return getReversedListWhenContainsElements();
+	}
+		
+	//method
+	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 * 
 	 * {@inheritDoc}
@@ -1432,6 +1450,27 @@ public abstract class Container<E> implements IContainer<E> {
 		if (isEmpty()) {
 			throw EmptyArgumentException.forArgument(this);
 		}
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * @return a new {@link ILinkedList} with
+	 * the elements of the current {@link Container} in the reversed order for the case that
+	 * the current {@link Container} contains elements.
+	 */
+	private ILinkedList<E> getReversedListWhenContainsElements() {
+		
+		//Creates a ILinkedList.
+		final var reversedList = createEmptyMutableList(new Marker<E>());
+		
+		//Iterates the current Container.
+		for (final var e : this) {
+			reversedList.addAtBegin(e);
+		}
+				
+		return reversedList;
 	}
 	
 	//method

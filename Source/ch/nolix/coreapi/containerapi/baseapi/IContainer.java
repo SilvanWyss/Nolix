@@ -407,6 +407,12 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E> {
 	
 	//method declaration
 	/**
+	 * @return a new {@link IContainer} with the elements of the current {@link IContainer} in the reversed order.
+	 */
+	IContainer<E> getReversedList();
+	
+	//method declaration
+	/**
 	 * @param norm
 	 * @return the standard deviation of
 	 * the values the given norm returns from the elements of the current {@link IContainer}.
