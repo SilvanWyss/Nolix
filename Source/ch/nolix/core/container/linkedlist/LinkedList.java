@@ -600,37 +600,19 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 		
 	//method
 	/**
-	 * Removes the last element of the current {@link LinkedList}.
-	 * The complexity of this implementation is O(1).
+	 * The complexity of this implementation is O(n).
 	 * 
-	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeLast() {
 		
-		//Asserts that the current list is not empty.
-		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
-		}
-		
-		//Handles the case that the current list contains 1 element.
-		if (containsOne()) {
-			clear();
-			
-		//Handles the case that the current list contains several elements.
-		} else {
-			
-			var iterator = firstNode;
-			
-			while (iterator.getNextNode() != lastNode) {
-				iterator = iterator.getNextNode();
-			}
-			
-			iterator.removeNextNode();
-			lastNode = iterator;
-			elementCount--;
+		//Handles the case that the current LinkedList contains elements.
+		if (containsAny()) {
+			removeLastWhenContainsAny();
 		}
 	}
-		
+	
 	//method
 	/**
 	 * Replaces the first element the given selector selects from the current {@link LinkedList} with the given element.
@@ -845,6 +827,34 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 				
 				iterator = nextNode;
 			}
+		}
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n).
+	 * 
+	 * Removes the last element from the current {@link LinkedList} for the case that
+	 * the current {@link LinkedList} contains elements.
+	 */
+	private void removeLastWhenContainsAny() {
+		
+		//Handles the case that the current list contains 1 element.
+		if (containsOne()) {
+			clear();
+		
+		//Handles the case that the current list contains several elements.
+		} else {
+			
+			var iterator = firstNode;
+			
+			while (iterator.getNextNode() != lastNode) {
+				iterator = iterator.getNextNode();
+			}
+			
+			iterator.removeNextNode();
+			lastNode = iterator;
+			elementCount--;
 		}
 	}
 	
