@@ -100,6 +100,12 @@ public interface IMutableList<E> extends Clearable, IContainer<E> {
 	
 	//method declaration
 	/**
+	 * @return a new {@link IMutableList} with the elements of the current {@link IMutableList} in the reversed order.
+	 */
+	IMutableList<E> getReversedList();
+	
+	//method declaration
+	/**
 	 * Removes the first element from the current {@link IMutableList}.
 	 */
 	void removeFirst();
