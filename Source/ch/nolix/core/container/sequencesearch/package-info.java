@@ -1,0 +1,1 @@
+package ch.nolix.core.container.sequencesearch;

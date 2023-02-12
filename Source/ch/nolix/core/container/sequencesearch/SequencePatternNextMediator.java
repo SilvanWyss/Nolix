@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.sequencesearch;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

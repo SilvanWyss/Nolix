@@ -1,9 +1,11 @@
 //package declaration
-package ch.nolix.core.container.linkedlist;
+package ch.nolix.core.container.sequencesearch;
 
 //Java imports
 import java.util.Iterator;
 
+import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.linkedlist.LinkedListIterator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
