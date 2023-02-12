@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coretest.containertest.maintest;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.linkedlist.SequencePattern;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -112,68 +112,6 @@ public final class LinkedListTest extends ContainerTest {
 		expect(testUnit.isEmpty());
 	}
 	
-	//method
-	@TestCase
-	public void testCase_getSequences_1A() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements("x", "a", "x", "b", "x", "c");
-		final SequencePattern<String> sequencePattern =
-		new SequencePattern<String>()
-		.addConditionForNext(e -> e.equals("x"))
-		.addBlankForNext();
-		
-		//execution
-		final var result = testUnit.getSequences(sequencePattern);
-		
-		//verification
-		expect(result.getElementCount()).isEqualTo(3);
-		for (final var e : result) {
-			expect(e.getElementCount()).isEqualTo(2);
-			expect(e.getRefAt1BasedIndex(1)).isEqualTo("x");
-		}
-	}
-		
-	//method
-	@TestCase
-	public void testCase_getSequences_1B() {
-		
-		//setup
-		final var testUnit = LinkedList.withElements(
-			"x",
-			"x",
-			"xxxx",
-			"x",
-			"x",
-			"xxxx",
-			"x",
-			"x",
-			"x",
-			"x",
-			"xxxx",
-			"x",
-			"x",
-			"x",
-			"x",
-			"xxxx"
-		);
-		final SequencePattern<String> sequencePattern =
-		new SequencePattern<String>()
-		.addConditionForNext(e -> e.equals("x"))
-		.addConditionForNext(e -> e.equals("xxxx"));
-		
-		//execution
-		final var result = testUnit.getSequences(sequencePattern);
-		
-		//verification
-		expect(result.getElementCount()).isEqualTo(4);
-		for (final var e : result) {
-			expect(e.getElementCount()).isEqualTo(2);
-			expect(e.getRefAt1BasedIndex(1)).isEqualTo("x");
-			expect(e.getRefAt1BasedIndex(2)).isEqualTo("xxxx");
-		}
-	}
-		
 	//method
 	@TestCase
 	public void testCase_toString() {

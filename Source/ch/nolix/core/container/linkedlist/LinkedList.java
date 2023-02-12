@@ -384,19 +384,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//method
 	/**
-	 * The complexity of this implementation is O((n-m)*m) if:
-	 * -This list contains n elements.
-	 * -The sequences that matches the given sequence pattern contain m elements.
-	 * 
-	 * @param sequencePattern
-	 * @return the sequences from the current {@link LinkedList} that match the given sequence pattern.
-	 */
-	public LinkedList<LinkedList<E>> getSequences(final SequencePattern<E> sequencePattern) {
-		return sequencePattern.getSequences(this);
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * @return the number of elements of the current {@link LinkedList}.
