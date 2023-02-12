@@ -524,7 +524,7 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E>, Materi
 	
 	//method declaration
 	/**
-d	 * 
+	 * 
 	 * @return a new array with the Strings that represent the elements of the current {@link IContainer}.
 	 */
 	String[] toStringArray();
