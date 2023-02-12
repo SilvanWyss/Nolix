@@ -408,12 +408,6 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E>, Materi
 	
 	//method declaration
 	/**
-	 * @return a new {@link IContainer} with the elements of the current {@link IContainer} in the reversed order.
-	 */
-	IContainer<E> getReversedList();
-	
-	//method declaration
-	/**
 	 * @param norm
 	 * @return the standard deviation of
 	 * the values the given norm returns from the elements of the current {@link IContainer}.
@@ -521,6 +515,12 @@ public interface IContainer<E> extends EmptinessRequestable, Iterable<E>, Materi
 	 * from the smallest to the biggest element according to the given norm.
 	 */
 	<C extends Comparable<C>> IContainer<E> toOrderedList(IElementTakerElementGetter<E, C> norm);
+	
+	//method declaration
+	/**
+	 * @return a new {@link IContainer} with the elements of the current {@link IContainer} in the reversed order.
+	 */
+	IContainer<E> toReversedList();
 	
 	//method declaration
 	/**
