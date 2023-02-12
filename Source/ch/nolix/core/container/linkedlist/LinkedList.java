@@ -310,17 +310,27 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 		//Handles the case that the given object is not a LinkedList.
 		return false;
 	}
-			
+	
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
 	 * 
-	 * @return a new {@link IContainer} with the elements of the current {@link LinkedList}.
+	 * {@inheritDoc}
 	 */
-	public IContainer<E> getCopy() {
-		return to(e -> e);
-	}
+	@Override
+	public ILinkedList<E> getCopy() {
 		
+		//Creates a LinkedList.
+		final var copy = new LinkedList<E>();
+		
+		//Iterates the current LinkedList
+		for (final var e : this) {
+			copy.addAtEnd(e);
+		}
+		
+		return copy;
+	}
+	
 	//method
 	/**
 	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
