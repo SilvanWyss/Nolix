@@ -112,7 +112,7 @@ public final class SequencePattern<E> {
 		
 			//Asserts that the current sequence fulfills the element conditions of the current SequencePattern.
 			var sequenceFulfillsElementConditions = true;
-			final LinkedListIterator<E> iterator2 = iterator.getCopy();
+			final var iterator2 = iterator.getCopy();
 			for (final IElementTakerBooleanGetter<E> c : elementConditions) {
 				
 				final var element = iterator2.next();

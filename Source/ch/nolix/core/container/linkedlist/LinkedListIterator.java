@@ -2,11 +2,12 @@
 package ch.nolix.core.container.linkedlist;
 
 //Java imports
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //TODO: Make LinkedListIterator package-visible.
 //class
@@ -15,7 +16,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */
-public final class LinkedListIterator<E> implements Iterator<E> {
+public final class LinkedListIterator<E> implements CopyableIterator<E> {
 	
 	//static method
 	public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
@@ -37,9 +38,10 @@ public final class LinkedListIterator<E> implements Iterator<E> {
 	
 	//method
 	/**
-	 * @return a copy of the current {@link LinkedListIterator}.
+	 * {@inheritDoc}
 	 */
-	public LinkedListIterator<E> getCopy() {
+	@Override
+	public CopyableIterator<E> getCopy() {
 		return withFirstNodeOrNull(nextNode);
 	}
 	
