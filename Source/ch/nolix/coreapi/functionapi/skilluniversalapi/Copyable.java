@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.mutationuniversalapi;
+package ch.nolix.coreapi.functionapi.skilluniversalapi;
 
 //interface
 /**
