@@ -17,5 +17,5 @@ public interface ISequencePattern<E> {
 	 * @param container
 	 * @return all sequences from the given container that match the current {@link ISequencePattern}.
 	 */
-	IContainer<IContainer<E>> getMatchingSequencesFrom(IContainer<E> container);
+	IContainer<? extends IContainer<E>> getMatchingSequencesFrom(IContainer<E> container);
 }
