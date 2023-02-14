@@ -2,27 +2,32 @@
 package ch.nolix.core.container.arraycontrol;
 
 //Java imports
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
-public final class ArrayIterator<E> implements Iterator<E> {
+public final class ArrayIterator<E> implements CopyableIterator<E> {
 	
 	//static method
 	public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
 		return new ArrayIterator<>(array);
 	}
 	
+	//static method
+	public static <E2> ArrayIterator<E2> forArrayAndStartIndex(final E2[] array, final int startIndex) {
+		return new ArrayIterator<>(array, startIndex);
+	}
+	
 	//attribute
 	private final E[] parentArray;
 	
 	//attribute
-	private int currentIndex;
+	private int nextIndex;
 	
 	//constructor
 	private ArrayIterator(final E[] parrentArray) {
@@ -30,12 +35,29 @@ public final class ArrayIterator<E> implements Iterator<E> {
 		GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
 		
 		this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+		nextIndex = 0;
+	}
+	
+	//constructor
+	private ArrayIterator(final E[] parrentArray, final int startIndex) {
+		
+		GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
+		GlobalValidator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
+		
+		this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
+		nextIndex = startIndex;
+	}
+	
+	//methood
+	@Override
+	public CopyableIterator<E> getCopy() {
+		return forArrayAndStartIndex(parentArray, nextIndex);
 	}
 	
 	//method
 	@Override
 	public boolean hasNext() {
-		return (currentIndex < parentArray.length);
+		return (nextIndex < parentArray.length);
 	}
 	
 	//method
@@ -59,9 +81,9 @@ public final class ArrayIterator<E> implements Iterator<E> {
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = parentArray[currentIndex];
+		final var element = parentArray[nextIndex];
 		
-		currentIndex++;
+		nextIndex++;
 		
 		return element;
 	}
