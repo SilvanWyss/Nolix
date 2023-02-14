@@ -64,15 +64,6 @@ final class IterableReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterator<E> iterator() {
-		return container.iterator();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public int getElementCount() {
 		
 		var size = 0;
@@ -131,6 +122,15 @@ final class IterableReadContainer<E> extends Container<E> {
 	@Override
 	public boolean isMaterialized() {
 		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterator<E> iterator() {
+		return container.iterator();
 	}
 	
 	//method
