@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.container.readcontainer;
 
-//Java imports
-import java.util.Iterator;
-
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.base.Container;
@@ -13,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -129,8 +127,8 @@ final class IterableReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterator<E> iterator() {
-		return container.iterator();
+	public CopyableIterator<E> iterator() {
+		return IterableReadContainerIterator.forIterable(container);
 	}
 	
 	//method
