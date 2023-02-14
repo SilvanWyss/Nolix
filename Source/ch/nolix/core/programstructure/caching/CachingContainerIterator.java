@@ -1,21 +1,25 @@
 //package declaration
 package ch.nolix.core.programstructure.caching;
 
-//Java imports
-import java.util.Iterator;
-
 //own imports
 import ch.nolix.core.container.pair.Pair;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
-final class CachingContainerIterator<E> implements Iterator<E> {
+final class CachingContainerIterator<E> implements CopyableIterator<E> {
 	
 	//attribute
-	private final Iterator<Pair<String, E>> parentCachingContainerIterator;
+	private final CopyableIterator<Pair<String, E>> parentCachingContainerIterator;
 	
 	//constructor
-	public CachingContainerIterator(final Iterator<Pair<String, E>> parentCachingContainerIterator) {
+	public CachingContainerIterator(final CopyableIterator<Pair<String, E>> parentCachingContainerIterator) {
 		this.parentCachingContainerIterator = parentCachingContainerIterator;
+	}
+	
+	//method
+	@Override
+	public CopyableIterator<E> getCopy() {
+		return new CachingContainerIterator<>(parentCachingContainerIterator.getCopy());
 	}
 	
 	//method
