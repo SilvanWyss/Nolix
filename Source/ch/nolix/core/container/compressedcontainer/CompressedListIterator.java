@@ -2,16 +2,16 @@
 package ch.nolix.core.container.compressedcontainer;
 
 //Java imports
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
-final class CompressedListIterator<E> implements Iterator<E> {
+final class CompressedListIterator<E> implements CopyableIterator<E> {
 	
 	//static method
 	public static <E2> CompressedListIterator<E2> forCompressedListWithFirstNode(
@@ -26,15 +26,15 @@ final class CompressedListIterator<E> implements Iterator<E> {
 	}
 	
 	//optional attribute
-	private CompressedListNode<E> currentNode;
+	private CompressedListNode<E> nextNode;
 	
 	//optional attribute
-	private int currentNodeIndex;
+	private int nextNodeIndex;
 	
 	//constructor
 	private CompressedListIterator() {
-		currentNode = null;
-		currentNodeIndex = -1;
+		nextNode = null;
+		nextNodeIndex = -1;
 	}
 	
 	//constructor
@@ -45,14 +45,25 @@ final class CompressedListIterator<E> implements Iterator<E> {
 			throw ArgumentIsNullException.forArgumentName("first node");
 		}
 		
-		currentNode = firstNode;
-		currentNodeIndex = 1;
+		nextNode = firstNode;
+		nextNodeIndex = 1;
+	}
+	
+	//method
+	@Override
+	public CopyableIterator<E> getCopy() {
+		
+		if (!hasNext()) {
+			return forEmptyCompressedList();
+		}
+		
+		return forCompressedListWithFirstNode(nextNode);
 	}
 	
 	//method
 	@Override
 	public boolean hasNext() {
-		return (currentNode != null);
+		return (nextNode != null);
 	}
 	
 	@Override
@@ -74,8 +85,8 @@ final class CompressedListIterator<E> implements Iterator<E> {
 	
 	//method
 	private void moveForward() {
-		if (currentNodeIndex < currentNode.getElementCount()) {
-			currentNodeIndex++;
+		if (nextNodeIndex < nextNode.getElementCount()) {
+			nextNodeIndex++;
 		} else {
 			moveForwardCurrentNode();
 		}
@@ -83,23 +94,23 @@ final class CompressedListIterator<E> implements Iterator<E> {
 	
 	//method
 	private void moveForwardCurrentNode() {
-		if (currentNode.hasNextNode()) {
+		if (nextNode.hasNextNode()) {
 			
-			currentNode = currentNode.getRefNextNode();
+			nextNode = nextNode.getRefNextNode();
 			
-			currentNodeIndex = 1;
+			nextNodeIndex = 1;
 		} else {
 			
-			currentNode = null;
+			nextNode = null;
 			
-			currentNodeIndex = -1;
+			nextNodeIndex = -1;
 		}
 	}
 	
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = currentNode.getRefElement();
+		final var element = nextNode.getRefElement();
 		
 		moveForward();
 		
