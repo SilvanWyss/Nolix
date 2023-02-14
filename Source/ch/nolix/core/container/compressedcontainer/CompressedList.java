@@ -1,9 +1,7 @@
 //package declaration
 package ch.nolix.core.container.compressedcontainer;
 
-//Java imports
-import java.util.Iterator;
-
+//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -12,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -103,7 +102,7 @@ public final class CompressedList<E> extends Container<E> {
 	
 	//method
 	@Override
-	public Iterator<E> iterator() {
+	public CopyableIterator<E> iterator() {
 		
 		if (isEmpty()) {
 			return CompressedListIterator.forEmptyCompressedList();
