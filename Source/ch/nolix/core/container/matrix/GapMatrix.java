@@ -3,7 +3,6 @@ package ch.nolix.core.container.matrix;
 
 //Java imports
 import java.util.Arrays;
-import java.util.Iterator;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
@@ -14,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -182,7 +182,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
 	//method
 	@Override
-	public Iterator<E> iterator() {
+	public CopyableIterator<E> iterator() {
 		return GapMatrixIterator.forGapMatrix(this);
 	}
 	
