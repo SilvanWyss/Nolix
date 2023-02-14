@@ -2,20 +2,29 @@
 package ch.nolix.core.container.matrix;
 
 //Java imports
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
-final class GapMatrixIterator<E> implements Iterator<E> {
+final class GapMatrixIterator<E> implements CopyableIterator<E> {
 	
 	//static method
 	public static <E2> GapMatrixIterator<E2> forGapMatrix(final GapMatrix<E2> gapMatrix) {
 		return new GapMatrixIterator<>(gapMatrix);
+	}
+	
+	//static method
+	private static <E2> GapMatrixIterator<E2> forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
+		final GapMatrix<E2> gapMatrix,
+		final int p1BasedNextElementRowIndex,
+		final int p1BasedNextElementColumnIndex
+	) {
+		return new GapMatrixIterator<>(gapMatrix, p1BasedNextElementRowIndex, p1BasedNextElementColumnIndex);
 	}
 	
 	//attribute
@@ -35,6 +44,30 @@ final class GapMatrixIterator<E> implements Iterator<E> {
 		this.parentGapMatrix = parentGapMatrix;
 		
 		incrementNextElementRowAndColumnIndex();
+	}
+	
+	//constructor
+	private GapMatrixIterator(
+		final GapMatrix<E> parentGapMatrix,
+		final int p1BasedNextElementRowIndex,
+		final int p1BasedNextElementColumnIndex
+	) {
+		GlobalValidator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
+		
+		this.parentGapMatrix = parentGapMatrix;
+		nextElementColumnIndex = p1BasedNextElementRowIndex;
+		nextElementColumnIndex = p1BasedNextElementColumnIndex;
+	}
+	
+	//method
+	@Override
+	public CopyableIterator<E> getCopy() {
+		return
+		forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
+			parentGapMatrix,
+			nextElementRowIndex,
+			nextElementColumnIndex
+		);
 	}
 	
 	//method
