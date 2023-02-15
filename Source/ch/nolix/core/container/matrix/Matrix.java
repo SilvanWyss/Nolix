@@ -17,6 +17,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
@@ -498,7 +499,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * @return a new iterator for the current {@link Matrix}.
 	 */
 	@Override
-	public MatrixIterator<E> iterator() {
+	public CopyableIterator<E> iterator() {
 		return MatrixIterator.forMatrix(this);
 	}
 	
