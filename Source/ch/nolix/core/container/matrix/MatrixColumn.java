@@ -8,6 +8,7 @@ import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -67,7 +68,7 @@ public final class MatrixColumn<E> extends Container<E> {
 	
 	//method
 	@Override
-	public MatrixColumnIterator<E> iterator() {
+	public CopyableIterator<E> iterator() {
 		return MatrixColumnIterator.forMatrixColumn(this);
 	}
 	
