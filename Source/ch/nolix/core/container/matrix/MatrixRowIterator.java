@@ -2,16 +2,16 @@
 package ch.nolix.core.container.matrix;
 
 //Java imports
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
-final class MatrixRowIterator<E> implements Iterator<E> {
+final class MatrixRowIterator<E> implements CopyableIterator<E> {
 	
 	//static method
 	public static <E2> MatrixRowIterator<E2> forMatrixRow(final MatrixRow<E2> matrixRow) {
@@ -22,7 +22,7 @@ final class MatrixRowIterator<E> implements Iterator<E> {
 	private final MatrixRow<E> parentMatrixRow;
 	
 	//attribute
-	private int nextElement1BasedColumnIndex = 1;
+	private int nextElement1BasedColumnIndex;
 	
 	//constructor
 	private MatrixRowIterator(final MatrixRow<E> parentMatrixRow) {
@@ -30,6 +30,27 @@ final class MatrixRowIterator<E> implements Iterator<E> {
 		GlobalValidator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
 		
 		this.parentMatrixRow = parentMatrixRow;
+		nextElement1BasedColumnIndex = 1;
+	}
+	
+	//constructor
+	private MatrixRowIterator(final MatrixRow<E> parentMatrixRow, final int nextElement1BasedColumnIndex) {
+		
+		GlobalValidator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
+		
+		GlobalValidator
+		.assertThat(nextElement1BasedColumnIndex)
+		.thatIsNamed("next element 1-based column index")
+		.isPositive();
+		
+		this.parentMatrixRow = parentMatrixRow;
+		this.nextElement1BasedColumnIndex = nextElement1BasedColumnIndex;
+	}
+	
+	//method
+	@Override
+	public CopyableIterator<E> getCopy() {
+		return new MatrixRowIterator<>(parentMatrixRow, nextElement1BasedColumnIndex);
 	}
 	
 	//method
