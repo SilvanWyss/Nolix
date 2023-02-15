@@ -9,6 +9,8 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
@@ -23,7 +25,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  * @date 2016-10-01
  * @param <E> is the type of the elements of the sequences of a {@link SequencePattern}.
  */
-public final class SequencePattern<E> {
+public final class SequencePattern<E> implements ISequencePattern<E> {
 	
 	//multi-attributes
 	private final LinkedList<IElementTakerBooleanGetter<E>> elementConditions = new LinkedList<>();
@@ -88,18 +90,10 @@ public final class SequencePattern<E> {
 	
 	//method
 	/**
-	 * @return the number of elements of the sequences of the current {@link SequencePattern}.
+	 * {@inheritDoc}
 	 */
-	public int getSize() {
-		return elementConditions.getElementCount();
-	}
-	
-	//package visible method
-	/**
-	 * @param list
-	 * @return the sequences that matches the given list.
-	 */
-	LinkedList<LinkedList<E>> getSequences(final LinkedList<E> list) {
+	@Override
+	public IContainer<? extends IContainer<E>> getMatchingSequencesFrom(final IContainer<E> list) {
 		
 		final var sequences = new LinkedList<LinkedList<E>>();
 		
@@ -139,6 +133,14 @@ public final class SequencePattern<E> {
 		}
 		
 		return sequences;
+	}
+	
+	//method
+	/**
+	 * @return the number of elements of the sequences of the current {@link SequencePattern}.
+	 */
+	public int getSize() {
+		return elementConditions.getElementCount();
 	}
 	
 	//method
