@@ -4,9 +4,8 @@ package ch.nolix.core.container.sequencesearch;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.linkedlist.LinkedListIterator;
 //own imports
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
@@ -107,7 +106,7 @@ public final class SequencePattern<E> {
 		final int maxSequenceCount = list.getElementCount() - getSize() + 1;
 		
 		//Iterates the given list.
-		final LinkedListIterator<E> iterator = list.iterator();
+		final var iterator = list.iterator();
 		for (var i = 1; i <= maxSequenceCount; i++) {
 		
 			//Asserts that the current sequence fulfills the element conditions of the current SequencePattern.

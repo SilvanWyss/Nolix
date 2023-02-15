@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.independent.independenthelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
@@ -418,7 +419,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	 * @return a new iterator of the current {@link LinkedList}.
 	 */
 	@Override
-	public LinkedListIterator<E> iterator() {
+	public CopyableIterator<E> iterator() {
 		return LinkedListIterator.withFirstNodeOrNull(firstNode);
 	}
 	
