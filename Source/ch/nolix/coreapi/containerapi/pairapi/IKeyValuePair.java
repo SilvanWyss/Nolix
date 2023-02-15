@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.documentapi.keyvalueapi;
+package ch.nolix.coreapi.containerapi.pairapi;
 
 //interface
 public interface IKeyValuePair<K, V> {
