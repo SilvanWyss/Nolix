@@ -1,13 +1,11 @@
 //package declaration
 package ch.nolix.core.independent.independentcontainer;
 
-//Java imports
-import java.util.Iterator;
-
 //own imports
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
 public final class ArrayReadContainer<E> implements Iterable<E> {
@@ -34,7 +32,7 @@ public final class ArrayReadContainer<E> implements Iterable<E> {
 	
 	//method
 	@Override
-	public Iterator<E> iterator() {
+	public CopyableIterator<E> iterator() {
 		return ArrayIterator.forArray(array);
 	}
 }
