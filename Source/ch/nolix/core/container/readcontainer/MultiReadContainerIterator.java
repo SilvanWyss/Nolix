@@ -1,21 +1,20 @@
 //package declaration
 package ch.nolix.core.container.readcontainer;
 
-//Java imports
-import java.util.Iterator;
-
+//own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
-final class MultiReadContainerIterator<E> implements Iterator<E> {
+final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 	
 	//attribute
-	private final Iterator<Container<E>> rootIterator;
+	private final CopyableIterator<Container<E>> rootIterator;
 	
 	//optional attribute
-	private Iterator<E> currentIterator;
+	private CopyableIterator<E> currentIterator;
 	
 	//constructor
 	public MultiReadContainerIterator(final Container<Container<E>> containers) {
@@ -25,6 +24,21 @@ final class MultiReadContainerIterator<E> implements Iterator<E> {
 		if (rootIterator.hasNext()) {
 			currentIterator = rootIterator.next().iterator();
 		}
+	}
+	
+	//constructor
+	private MultiReadContainerIterator(
+		final CopyableIterator<Container<E>> rootIterator,
+		final CopyableIterator<E> currentIterator
+	) {		
+		this.rootIterator = rootIterator;
+		this.currentIterator = currentIterator;
+	}
+	
+	//method
+	@Override
+	public CopyableIterator<E> getCopy() {
+		return new MultiReadContainerIterator<>(rootIterator.getCopy(), currentIterator.getCopy());
 	}
 	
 	//method

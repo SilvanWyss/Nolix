@@ -26,7 +26,8 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.MaterializationRequestab
  * @date 2016-01-01
  * @param <E> is the type of the elements a {@link IContainer}.
  */
-public interface IContainer<E> extends EmptinessRequestable, Iterable<E>, MaterializationRequestable {
+public interface IContainer<E>
+extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRequestable {
 	
 	//method declaration
 	/**
