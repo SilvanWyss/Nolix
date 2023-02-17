@@ -120,30 +120,23 @@ public final class ReadContainer<E> extends Container<E> {
 	
 	//method
 	/**
-	 * An object equals a {@link ReadContainer}
-	 * if it is a {@link ReadContainer} that contains exactly the same elements.
+	 * An object equals a {@link ReadContainer} when
+	 * the object is a {@link ReadContainer} that contains exactly the same elements in the same order.
 	 * 
-	 * @param object
-	 * @return true if the given object equals the current {@link ReadContainer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(final Object object) {
 		
-		//Handles the case that the given object is not a ReadContainer.
-		if (!(object instanceof ReadContainer<?>)) {
-			return false;
+		//Handles the case that the given object is a ReadContainer.
+		if (object instanceof ReadContainer<?> localContainer) {
+			return containsExactlyInSameOrder(localContainer);
 		}
 		
-		//Handles the case that the given object is a ReadContainer.		
-			final var readContainer = (ReadContainer<?>)object;
-			
-			if (getElementCount() != readContainer.getElementCount()) {
-				return false;
-			}
-			
-			return containsAllOf(readContainer);
+		//Handles the case that the given object is not a ReadContainer.
+		return false;
 	}
-
+	
 	//method
 	/**
 	 * {@inheritDoc}
