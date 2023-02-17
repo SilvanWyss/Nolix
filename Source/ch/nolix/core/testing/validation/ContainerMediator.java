@@ -1,9 +1,13 @@
 //package declaration
 package ch.nolix.core.testing.validation;
 
+//Java imports
+import java.util.Objects;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.independent.containerhelper.IterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
@@ -17,29 +21,60 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	}
 	
 	//method
-	public void containsAsManyElementsAs(final Object[] array) {
+	public boolean containsAsManyElementsAs(final Object[] array) {
 		
 		if (array == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ARRAY);
 		}
 		
-		hasElementCount(array.length);
+		return hasElementCount(array.length);
 	}
 	
 	//method
-	public void hasElementCount(final int elementCount) {
+	public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked")E... elements) {
+		
+		final var localElements = GlobalArrayHelper.createArrayWithElements(firstElement, elements);
+		
+		containsExactlyEqualing(localElements);
+	}
+	
+	//method
+	public void containsExactlyEqualing(final E[] elements) {
+		if (containsAsManyElementsAs(elements)) {
+			var index = 0;
+			for (final var e : getRefValue()) {
+				
+				if (!Objects.equals(e, elements[index])) {
+					addCurrentTestCaseError(
+						"A container with exactly equaling elements was expected, but the "
+						+ (index + 1)
+						+ "th element of the container does not equal the given "
+						+ (index + 1) + " element.");
+				}
+				
+				index++;
+			}
+		}
+	}
+	
+	//method
+	public boolean hasElementCount(final int elementCount) {
 		
 		if (elementCount < 0) {
 			throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ELEMENT_COUNT, elementCount);
 		}
 				
 		if (getRefValue() == null) {
+			
 			addCurrentTestCaseError("A container with " + elementCount + " elements was expected, but null was received.");
+			
+			return false;
 		} else {
 			
 			final var actualElementCount = IterableHelper.getElementCount(getRefValue());
 			
 			if (actualElementCount != elementCount) {
+				
 				addCurrentTestCaseError(
 					"A container with "
 					+ elementCount
@@ -47,7 +82,11 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 					+ actualElementCount
 					+ " elements was received."
 				);
+				
+				return false;
 			}
+			
+			return true;
 		}
 	}
 	
