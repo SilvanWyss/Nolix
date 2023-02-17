@@ -5,6 +5,9 @@ package ch.nolix.core.independent.container;
 import java.util.Arrays;
 import java.util.Iterator;
 
+//own imports
+import ch.nolix.core.independent.containervalidator.GlobalArrayValidator;
+
 //class
 public final class ImmutableList<E> implements Iterable<E> {
 	
@@ -37,19 +40,28 @@ public final class ImmutableList<E> implements Iterable<E> {
 	
 	//constructor
 	@SuppressWarnings("unchecked")
-	public ImmutableList() {
+	private ImmutableList() {
+		
 		elements = (E[])new Object[0];
+		
+		GlobalArrayValidator.assertDoesNotContainNull(elements);
 	}
 	
 	//constructor
-	private ImmutableList(final E[] elements) {
-		this.elements = elements.clone();
+	private ImmutableList(final E[] paramElements) {
+		
+		elements = paramElements.clone();
+		
+		GlobalArrayValidator.assertDoesNotContainNull(elements);
 	}
 	
 	//constructor
-	private ImmutableList(final E firstElement, final E[] elements) {
-		this.elements = Arrays.copyOfRange(elements, 0, 1 + elements.length);
-		this.elements[elements.length] = firstElement;
+	private ImmutableList(final E firstElement, final E[] paramElements) {
+		
+		elements = Arrays.copyOfRange(paramElements, 0, 1 + paramElements.length);
+		elements[paramElements.length] = firstElement;
+		
+		GlobalArrayValidator.assertDoesNotContainNull(paramElements);
 	}
 	
 	//method

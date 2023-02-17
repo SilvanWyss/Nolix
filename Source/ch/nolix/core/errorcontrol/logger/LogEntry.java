@@ -42,7 +42,7 @@ public final class LogEntry {
 		}
 		
 		if (additionalInfoLines == null) {
-			this.additionalInfoLines = new ImmutableList<>();
+			this.additionalInfoLines = ImmutableList.createEmptyList();
 		} else {
 			this.additionalInfoLines = ImmutableList.withElements(additionalInfoLines);
 		}
