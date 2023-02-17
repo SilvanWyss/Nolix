@@ -23,7 +23,8 @@ public final class FileLogHandler extends LogHandler {
 	//static method
 	public static String getLocalNolixLogFilePath() {
 		
-		final var localNolixFilePath = GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + FOLDER_DELIMITER + NOLIX_LOG_FILE_NAME;
+		final var localNolixFilePath =
+		GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + FOLDER_DELIMITER + NOLIX_LOG_FILE_NAME;
 		createFileIfDoesNotExist(localNolixFilePath);
 		
 		return localNolixFilePath;

@@ -21,7 +21,10 @@ public final class MSSQLSchemaStatementCreator implements ISchemaStatementCreato
 	@Override
 	public String createStatementToAddTable(ITableDTO table) {
 		return 
-		"CREATE TABLE " + table.getName() + " (" + table.getColumns().to(this::getColumnAsSQL).toStringWithSeparator(",") + ")";
+		"CREATE TABLE "
+		+ table.getName()
+		+ " (" + table.getColumns().to(this::getColumnAsSQL).toStringWithSeparator(",")
+		+ ")";
 	}
 	
 	//method
