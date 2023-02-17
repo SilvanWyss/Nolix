@@ -5,12 +5,17 @@ package ch.nolix.core.net.websocket;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.functionapi.requestuniversalapi.CompletenessRequestable;
 
 //class
-public final class WebSocketCompleteMessage {
+public final class WebSocketCompleteMessage implements CompletenessRequestable {
+	
+	//attribute
+	private boolean complete;
 	
 	//attribute
 	private final LinkedList<Byte> message = new LinkedList<>();
@@ -21,7 +26,6 @@ public final class WebSocketCompleteMessage {
 		final InputStream inputStream,
 		final IElementTaker<WebSocketFrame> controlFrameTaker
 	) {
-		var complete = false;
 		while (isOpenFunction.getOutput() && !complete) {
 			
 			final var frame = new WebSocketFrame(inputStream);
@@ -61,5 +65,11 @@ public final class WebSocketCompleteMessage {
 		}
 		
 		return byteArray;
+	}
+	
+	//method
+	@Override
+	public boolean isComplete() {
+		return complete;
 	}
 }
