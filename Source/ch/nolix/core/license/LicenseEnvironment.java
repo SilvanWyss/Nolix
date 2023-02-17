@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.license;
 
-import ch.nolix.core.independent.independentnolixenvironment.GlobalNolixEnvironmentHelper;
+import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
 
 //class
 /**

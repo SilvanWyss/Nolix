@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.independent.independenthelper;
+package ch.nolix.core.independent.containerhelper;
 
 //class
 /**

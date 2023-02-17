@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.independent.independentcontainer.List;
+import ch.nolix.core.independent.container.List;
 
 //class
 final class StackTraceElementFinder {

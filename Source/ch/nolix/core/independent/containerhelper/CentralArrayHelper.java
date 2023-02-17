@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.core.independent.independenthelper;
+package ch.nolix.core.independent.containerhelper;
 
-//own imports
-import ch.nolix.core.independent.independentcontainer.List;
+import ch.nolix.core.independent.container.List;
 
 //class
 /**

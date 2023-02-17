@@ -5,7 +5,7 @@ package ch.nolix.core.testing.validation;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
+import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 

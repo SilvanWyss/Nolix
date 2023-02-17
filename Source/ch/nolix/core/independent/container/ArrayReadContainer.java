@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.independent.independentcontainer;
+package ch.nolix.core.independent.container;
 
 //own imports
 import ch.nolix.core.container.arraycontrol.ArrayIterator;

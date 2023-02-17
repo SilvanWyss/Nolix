@@ -4,7 +4,7 @@ package ch.nolix.core.errorcontrol.validator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
-import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
+import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
 
 //class
 /**

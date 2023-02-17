@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.independent.independentnolixenvironment.GlobalNolixEnvironmentHelper;
+import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
 
 //class
 public final class FileLogHandler extends LogHandler {

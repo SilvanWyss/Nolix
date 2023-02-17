@@ -4,7 +4,7 @@ package ch.nolix.core.testing.basetest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.independent.independentcontainer.List;
+import ch.nolix.core.independent.container.List;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Runnable;
 

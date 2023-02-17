@@ -7,8 +7,8 @@ import java.math.BigDecimal;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.independent.independentcontainer.List;
-import ch.nolix.core.independent.independenthelper.CentralArrayHelper;
+import ch.nolix.core.independent.container.List;
+import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
 
 //class
 /**
