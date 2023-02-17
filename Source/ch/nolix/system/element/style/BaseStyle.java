@@ -477,12 +477,17 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 			try {
 				element.addOrChangeAttribute(aa);
 			} catch (final Throwable error) {
-				throw
+				
+				final var invalidArgumentException =
 				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					"attaching attribute",
 					aa,
 					"could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'"
 				);
+				
+				invalidArgumentException.initCause(error);
+				
+				throw invalidArgumentException;
 			}
 		}
 	}
