@@ -1,7 +1,11 @@
 //package declaration
 package ch.nolix.core.testing.validation;
 
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.independent.containerhelper.IterableHelper;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
@@ -10,6 +14,41 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	//constructor
 	public ContainerMediator(final IElementTaker<String> expectationErrorTaker, final Iterable<E> container) {
 		super(expectationErrorTaker, container);
+	}
+	
+	//method
+	public void containsAsManyElementsAs(final Object[] array) {
+		
+		if (array == null) {
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ARRAY);
+		}
+		
+		hasElementCount(array.length);
+	}
+	
+	//method
+	public void hasElementCount(final int elementCount) {
+		
+		if (elementCount < 0) {
+			throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ELEMENT_COUNT, elementCount);
+		}
+				
+		if (getRefValue() == null) {
+			addCurrentTestCaseError("A container with " + elementCount + " elements was expected, but null was received.");
+		} else {
+			
+			final var actualElementCount = IterableHelper.getElementCount(getRefValue());
+			
+			if (actualElementCount != elementCount) {
+				addCurrentTestCaseError(
+					"A container with "
+					+ elementCount
+					+ " elements was expected, but a container with "
+					+ actualElementCount
+					+ " elements was received."
+				);
+			}
+		}
 	}
 	
 	//method
