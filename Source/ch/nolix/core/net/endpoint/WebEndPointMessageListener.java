@@ -30,7 +30,15 @@ final class WebEndPointMessageListener extends BatchWorker {
 	//method
 	@Override
 	protected void runStep() {
-		receiveMessage();
+		
+		final var message =
+		new WebSocketCompleteMessage(
+			parentWebEndPoint::isOpen,
+			parentWebEndPoint.getRefInputStream(),
+			parentWebEndPoint::receiveControlFrame
+		);
+		
+		receiveMessage(message);
 	}
 	
 	//method
@@ -40,25 +48,18 @@ final class WebEndPointMessageListener extends BatchWorker {
 	}
 	
 	//method
-	private void receiveMessage() {
-		
-		final var message =
-		new WebSocketCompleteMessage(
-			parentWebEndPoint::isOpen,
-			parentWebEndPoint.getRefInputStream(),
-			parentWebEndPoint::receiveControlFrame
-		)
-		.getMessage();
-		
-		receiveMessage(message);
-	}
-	
-	//method
 	private void receiveMessage(final String message) {
 		
 		//A web socket can send frames that contain a payload of length 0 resp. an empty message.
 		if (!message.isEmpty()) {
 			parentWebEndPoint.receiveRawMessageInBackground(message);
+		}
+	}
+	
+	//method
+	private void receiveMessage(final WebSocketCompleteMessage message) {
+		if (message.isComplete()) {
+			receiveMessage(message.getMessage());
 		}
 	}
 }
