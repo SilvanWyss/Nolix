@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.core.independent.containerhelper;
 
+//Java imports
+import java.util.Arrays;
+
+//own imports
 import ch.nolix.core.independent.container.List;
 
 //class
@@ -12,6 +16,24 @@ import ch.nolix.core.independent.container.List;
  * @date 2017-08-14
  */
 public final class GlobalArrayHelper {
+	
+	//static method
+	/**
+	 * @param firstElement
+	 * @param elements
+	 * @param <E> is the type of the given firstElement and of the given elements.
+	 * @return a new array with the given firstElement and elements.
+	 */
+	public static <E> E[] createArrayWithElements(
+		final E firstElement,
+		final @SuppressWarnings("unchecked")E... elements
+	) {
+		
+		final var array = Arrays.copyOfRange(elements, 0, 1 + elements.length);
+		array[elements.length] = firstElement;
+		
+		return array;
+	}
 	
 	//static method
 	/**
