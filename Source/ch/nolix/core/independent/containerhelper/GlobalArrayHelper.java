@@ -5,13 +5,13 @@ import ch.nolix.core.independent.container.List;
 
 //class
 /**
- * The {@link CentralArrayHelper} provides functions to handle arrays.
- * Of the {@link CentralArrayHelper} class an instance cannot be created.
+ * The {@link GlobalArrayHelper} provides functions to handle arrays.
+ * Of the {@link GlobalArrayHelper} class an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-08-14
  */
-public final class CentralArrayHelper {
+public final class GlobalArrayHelper {
 	
 	//static method
 	/**
@@ -251,7 +251,7 @@ public final class CentralArrayHelper {
 	
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link CentralArrayHelper} can be created.
+	 * Prevents that an instance of the {@link GlobalArrayHelper} can be created.
 	 */
-	private CentralArrayHelper() {}
+	private GlobalArrayHelper() {}
 }

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.independent.container.List;
-import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 
 //class
 /**
@@ -55,7 +55,7 @@ public final class GlobalValidator {
 	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<Byte> assertThat(final byte[] argument) {
-		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -91,7 +91,7 @@ public final class GlobalValidator {
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -117,7 +117,7 @@ public final class GlobalValidator {
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
 	}
 	
 	//static method
@@ -153,7 +153,7 @@ public final class GlobalValidator {
 		}
 		
 		//Handles the case that the given argument is not null.
-		return new ExtendedContainerMediator<>(CentralArrayHelper.createIterable(argument));
+		return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
 	}
 	
 	//static method

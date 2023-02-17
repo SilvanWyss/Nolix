@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 
 //class
 /**
@@ -167,7 +167,7 @@ public class LongMediator extends Mediator {
 		throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 			getArgumentName(),
 			argument,
-			"does not equal one of {" + CentralArrayHelper.createString(values) + "}"
+			"does not equal one of {" + GlobalArrayHelper.createString(values) + "}"
 		);
 	}
 	

@@ -3,7 +3,7 @@ package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
@@ -28,7 +28,7 @@ public final class MultiDoubleMediator extends Mediator {
 	public MultiDoubleMediator(final IElementTaker<String> expectationErrorTaker, final double[] values) {
 		
 		//Calls other constructor.
-		this(expectationErrorTaker, CentralArrayHelper.createIterable(values));
+		this(expectationErrorTaker, GlobalArrayHelper.createIterable(values));
 	}
 
 	//constructor

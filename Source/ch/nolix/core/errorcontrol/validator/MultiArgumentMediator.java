@@ -4,7 +4,7 @@ package ch.nolix.core.errorcontrol.validator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.independent.containerhelper.CentralArrayHelper;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
@@ -49,7 +49,7 @@ public class MultiArgumentMediator<A> {
 	MultiArgumentMediator(final A[] arguments) {
 
 		//Calls other constructor.
-		this(CentralArrayHelper.createIterable(arguments));
+		this(GlobalArrayHelper.createIterable(arguments));
 	}
 	
 	//method
