@@ -119,7 +119,7 @@ public final class Server extends BaseServer {
 		}
 		
 		//Creates and starts a ServerListener for the current Server.
-		new ServerListener(this).start();
+		new ServerListener(this);
 	}
 	
 	//constructor

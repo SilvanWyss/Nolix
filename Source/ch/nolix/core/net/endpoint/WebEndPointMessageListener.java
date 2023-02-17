@@ -23,6 +23,8 @@ final class WebEndPointMessageListener extends Worker {
 		GlobalValidator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
 		
 		this.parentWebEndPoint = parentWebEndPoint;
+		
+		start();
 	}
 	
 	//method

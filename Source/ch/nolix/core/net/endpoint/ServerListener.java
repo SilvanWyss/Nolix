@@ -36,6 +36,8 @@ final class ServerListener extends Worker {
 		
 		//Sets the parentServer of the current ServerListener.
 		this.parentServer = parentServer;
+		
+		start();
 	}
 	
 	//method
@@ -70,6 +72,6 @@ final class ServerListener extends Worker {
 	 * @param socket
 	 */
 	private void takeSocket(final Socket socket) {
-		new ServerSocketProcessor(parentServer, socket).start();
+		new ServerSocketProcessor(parentServer, socket);
 	}
 }

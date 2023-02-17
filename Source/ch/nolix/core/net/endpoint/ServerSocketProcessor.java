@@ -45,6 +45,8 @@ final class ServerSocketProcessor extends Worker {
 		} catch (final IOException pIOException) {
 			throw WrapperException.forError(pIOException);
 		}
+		
+		start();
 	}
 	
 	//method

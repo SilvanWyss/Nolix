@@ -18,6 +18,8 @@ final class NetEndPointMessageListener extends Worker {
 		GlobalValidator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
 		
 		this.parentNetEndPoint = parentNetEndPoint;
+		
+		start();
 	}
 	
 	//method
