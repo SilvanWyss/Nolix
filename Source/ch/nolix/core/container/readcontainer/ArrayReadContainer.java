@@ -53,7 +53,7 @@ final class ArrayReadContainer<E> extends Container<E> {
 		.isNotNull();
 		
 		//Sets the array of the current ArrayReadContainer.
-		this.array = array;
+		this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.
 	}
 	
 	//method
