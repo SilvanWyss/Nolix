@@ -3,16 +3,25 @@ package ch.nolix.core.errorcontrol.logger;
 
 //class
 public final class LogEntry {
-
+	
+	//static method
+	public static LogEntry withHarmLevelAndMessage(final HarmLevel harmLevel, final String message) {
+		return new LogEntry(harmLevel, message);
+	}
+	
 	//attribute
 	private final String message;
+	
+	//attribute
 	private final HarmLevel harmLevel;
-	private final long creationTimeInMilliseconds;
+	
+	//attribute
+	private final long creationTimeInMillisecondsSince1970;
 	
 	//constructor
-	public LogEntry(final HarmLevel harmLevel, final String message) {
+	private LogEntry(final HarmLevel harmLevel, final String message) {
 		
-		creationTimeInMilliseconds = System.currentTimeMillis();
+		creationTimeInMillisecondsSince1970 = System.currentTimeMillis();
 		
 		if (harmLevel == null) {
 			this.harmLevel = HarmLevel.ERROR;
@@ -28,8 +37,8 @@ public final class LogEntry {
 	}
 	
 	//method
-	public long getCreationTimeInMilliseconds() {
-		return creationTimeInMilliseconds;
+	public long getCreationTimeInMillisecondsSince1970() {
+		return creationTimeInMillisecondsSince1970;
 	}
 	
 	//method

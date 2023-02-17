@@ -61,9 +61,13 @@ public final class GlobalLogger {
 			}
 			
 			if (error.getMessage() == null || error.getMessage().isBlank()) {
-				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured."));
+				logWorker.takeLogEntry(
+					LogEntry.withHarmLevelAndMessage(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured.")
+				);
 			} else {
-				logWorker.takeLogEntry(new LogEntry(HarmLevel.ERROR, error.getMessage()));
+				logWorker.takeLogEntry(
+					LogEntry.withHarmLevelAndMessage(HarmLevel.ERROR, error.getMessage())
+				);
 			}
 		}
 	}
@@ -79,7 +83,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.ERROR,
 					error
 				)
@@ -102,7 +106,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.ERROR,
 					"The " + valueName + " " + value + " " + errorPredicate + "."
 				)
@@ -125,7 +129,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.ERROR,
 					"The " + valueName + " " + value + " " + errorPredicate + "."
 				)
@@ -144,7 +148,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.FATAL_ERROR,
 					fatalError
 				)
@@ -163,7 +167,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.INFO,
 					info
 				)
@@ -182,7 +186,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.INFO,
 					valueName + " " + value
 				)
@@ -201,7 +205,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.INFO,
 					valueName + " " + value
 				)
@@ -220,7 +224,7 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				new LogEntry(
+				LogEntry.withHarmLevelAndMessage(
 					HarmLevel.WARNING,
 					warning
 				)
