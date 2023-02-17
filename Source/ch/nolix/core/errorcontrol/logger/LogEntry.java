@@ -1,12 +1,15 @@
 //package declaration
 package ch.nolix.core.errorcontrol.logger;
 
+//own imports
+import ch.nolix.core.independent.container.ImmutableList;
+
 //class
 public final class LogEntry {
 	
 	//static method
-	public static LogEntry withHarmLevelAndMessage(final HarmLevel harmLevel, final String message) {
-		return new LogEntry(harmLevel, message);
+	public static LogEntry withMessageAndHarmLevel(final String message, final HarmLevel harmLevel) {
+		return new LogEntry(harmLevel, message, new String[0]);
 	}
 	
 	//attribute
@@ -18,8 +21,11 @@ public final class LogEntry {
 	//attribute
 	private final long creationTimeInMillisecondsSince1970;
 	
+	//multi-attribute
+	private final ImmutableList<String> additionalInfoLines;
+	
 	//constructor
-	private LogEntry(final HarmLevel harmLevel, final String message) {
+	private LogEntry(final HarmLevel harmLevel, final String message, final String[] additionalInfoLines) {
 		
 		creationTimeInMillisecondsSince1970 = System.currentTimeMillis();
 		
@@ -34,6 +40,17 @@ public final class LogEntry {
 		} else {
 			this.message = message;
 		}
+		
+		if (additionalInfoLines == null) {
+			this.additionalInfoLines = new ImmutableList<>();
+		} else {
+			this.additionalInfoLines = ImmutableList.withElements(additionalInfoLines);
+		}
+	}
+	
+	//method
+	public ImmutableList<String> getAdditionalInfoLines() {
+		return additionalInfoLines;
 	}
 	
 	//method

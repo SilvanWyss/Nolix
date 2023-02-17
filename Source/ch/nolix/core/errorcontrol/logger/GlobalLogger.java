@@ -61,11 +61,11 @@ public final class GlobalLogger {
 			
 			if (error.getMessage() == null || error.getMessage().isBlank()) {
 				logWorker.takeLogEntry(
-					LogEntry.withHarmLevelAndMessage(HarmLevel.ERROR, "A " + error.getClass().getName() + " occured.")
+					LogEntry.withMessageAndHarmLevel("A " + error.getClass().getName() + " occured.", HarmLevel.ERROR)
 				);
 			} else {
 				logWorker.takeLogEntry(
-					LogEntry.withHarmLevelAndMessage(HarmLevel.ERROR, error.getMessage())
+					LogEntry.withMessageAndHarmLevel(error.getMessage(), HarmLevel.ERROR)
 				);
 			}
 		}
@@ -82,9 +82,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.ERROR,
-					error
+				LogEntry.withMessageAndHarmLevel(
+					error,
+					HarmLevel.ERROR
 				)
 			);
 		}
@@ -105,9 +105,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.ERROR,
-					"The " + valueName + " " + value + " " + errorPredicate + "."
+				LogEntry.withMessageAndHarmLevel(
+					"The " + valueName + " " + value + " " + errorPredicate + ".",
+					HarmLevel.ERROR
 				)
 			);
 		}
@@ -128,9 +128,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.ERROR,
-					"The " + valueName + " " + value + " " + errorPredicate + "."
+				LogEntry.withMessageAndHarmLevel(
+					"The " + valueName + " " + value + " " + errorPredicate + ".",
+					HarmLevel.ERROR
 				)
 			);
 		}
@@ -147,9 +147,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.FATAL_ERROR,
-					fatalError
+				LogEntry.withMessageAndHarmLevel(
+					fatalError,
+					HarmLevel.FATAL_ERROR
 				)
 			);
 		}
@@ -166,9 +166,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.INFO,
-					info
+				LogEntry.withMessageAndHarmLevel(
+					info,
+					HarmLevel.INFO
 				)
 			);
 		}
@@ -185,9 +185,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.INFO,
-					valueName + " " + value
+				LogEntry.withMessageAndHarmLevel(
+					valueName + " " + value,
+					HarmLevel.INFO
 				)
 			);
 		}
@@ -204,9 +204,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.INFO,
-					valueName + " " + value
+				LogEntry.withMessageAndHarmLevel(
+					valueName + " " + value,
+					HarmLevel.INFO
 				)
 			);
 		}
@@ -223,9 +223,9 @@ public final class GlobalLogger {
 			}
 			
 			logWorker.takeLogEntry(
-				LogEntry.withHarmLevelAndMessage(
-					HarmLevel.WARNING,
-					warning
+				LogEntry.withMessageAndHarmLevel(
+					warning,
+					HarmLevel.WARNING
 				)
 			);
 		}
