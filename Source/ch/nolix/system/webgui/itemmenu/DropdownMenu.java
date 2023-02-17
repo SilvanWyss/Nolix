@@ -20,9 +20,9 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//constructor
 	public DropdownMenu() {
 		getRefStyle()
-		.setBackgroundColorForState(ControlState.BASE, Color.YELLOW)
-		.setBackgroundColorForState(ControlState.HOVER, Color.CHARTREUSE)
-		.setBackgroundColorForState(ControlState.FOCUS, Color.CHARTREUSE);
+		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
+		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
+		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
 	}
 	
 	//method
