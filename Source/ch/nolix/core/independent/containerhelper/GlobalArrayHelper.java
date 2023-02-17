@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.independent.containerhelper;
 
-//Java imports
-import java.util.Arrays;
-
 //own imports
 import ch.nolix.core.independent.container.List;
 
@@ -29,8 +26,9 @@ public final class GlobalArrayHelper {
 		final @SuppressWarnings("unchecked")E... elements
 	) {
 		
-		final var array = Arrays.copyOfRange(elements, 0, 1 + elements.length);
-		array[elements.length] = firstElement;
+		final @SuppressWarnings("unchecked")var array = (E[])new Object[elements.length + 1];
+		array[0] = firstElement;
+		System.arraycopy(elements, 0, array, 1, elements.length);
 		
 		return array;
 	}
