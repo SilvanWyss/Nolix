@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.containertest.basetest;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -677,7 +678,7 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(1);
-		//TODO: Do a verification more precisely.
+		expect(result.getRefOne()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
 	}
 	
 	//method
@@ -692,7 +693,9 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);
-		//TODO: Do a verification more precisely.
+		expect(result.getRefAt1BasedIndex(1)).containsExactlyEqualing("x", "y");
+		expect(result.getRefAt1BasedIndex(2)).containsExactlyEqualing("xx", "yy");
+		expect(result.getRefAt1BasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
 	}
 	
 	//method
