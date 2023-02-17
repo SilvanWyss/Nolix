@@ -9,14 +9,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
-//TODO: Make LinkedListIterator package-visible.
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <E> is the type of the elements of a {@link LinkedListIterator}.
  */
-public final class LinkedListIterator<E> implements CopyableIterator<E> {
+final class LinkedListIterator<E> implements CopyableIterator<E> {
 	
 	//static method
 	public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
