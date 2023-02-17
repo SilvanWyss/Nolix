@@ -4,10 +4,10 @@ package ch.nolix.core.net.endpoint;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.websocket.WebSocketCompleteMessage;
-import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.core.programcontrol.worker.BatchWorker;
 
 //class
-final class WebEndPointMessageListener extends Worker {
+final class WebEndPointMessageListener extends BatchWorker {
 	
 	//static method
 	public static WebEndPointMessageListener forWebEndPoint(final WebEndPoint webEndPoint) {
@@ -29,10 +29,14 @@ final class WebEndPointMessageListener extends Worker {
 	
 	//method
 	@Override
-	protected void run() {
-		while (parentWebEndPoint.isOpen()) {
-			receiveMessage();
-		}
+	protected void runStep() {
+		receiveMessage();
+	}
+	
+	//method
+	@Override
+	protected boolean shouldRunNextStep() {
+		return parentWebEndPoint.isOpen();
 	}
 	
 	//method
