@@ -9,11 +9,16 @@ import ch.nolix.core.programcontrol.worker.Worker;
 //class
 final class WebEndPointMessageListener extends Worker {
 	
+	//static method
+	public static WebEndPointMessageListener forWebEndPoint(final WebEndPoint webEndPoint) {
+		return new WebEndPointMessageListener(webEndPoint);
+	}
+	
 	//attribute
 	private final WebEndPoint parentWebEndPoint;
 	
 	//constructor
-	public WebEndPointMessageListener(final WebEndPoint parentWebEndPoint) {
+	private WebEndPointMessageListener(final WebEndPoint parentWebEndPoint) {
 		
 		GlobalValidator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
 		

@@ -45,7 +45,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
 		
-		new WebEndPointMessageListener(this).start();
+		WebEndPointMessageListener.forWebEndPoint(this).start();
 		
 		waitToTargetInfo();
 	}
