@@ -1,10 +1,6 @@
 //package declaration
 package ch.nolix.core.independent.container;
 
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-
 //class
 final class ListNode<E> {
 	
@@ -18,7 +14,7 @@ final class ListNode<E> {
 	public ListNode(final E element) {
 		
 		if (element == null) {
-			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
+			throw new IllegalArgumentException("The given element is null.");
 		}
 		
 		this.element = element;
@@ -53,7 +49,7 @@ final class ListNode<E> {
 	public void setNextNode(final ListNode<E> nextNode) {
 		
 		if (nextNode == null) {
-			throw ArgumentIsNullException.forArgumentName("next node");
+			throw new IllegalArgumentException("The given next node is null.");
 		}
 		
 		this.nextNode = nextNode;
