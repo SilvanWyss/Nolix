@@ -3,7 +3,9 @@ package ch.nolix.businesstest.mathtest.bigdecimalmathtest;
 
 //Java imports
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -45,6 +47,40 @@ public final class ComplexNumberTest extends Test {
 		//verification
 		expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
 		expect(result.getImaginaryComponent().doubleValue()).isEqualTo(1.0);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_creation_2A() {
+		
+		//execution
+		final var realComponent = new BigDecimal("3.14159265359").setScale(5, RoundingMode.HALF_UP);
+		final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(10, RoundingMode.HALF_UP);
+		
+		//execution
+		final var result = new ComplexNumber(realComponent, imaginaryComponent);
+		
+		//verification
+		expect(result.getScale()).isEqualTo(10);
+		expect(result.getRealComponent()).hasStringRepresentation("3.1415900000");
+		expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182818285");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_creation_2B() {
+		
+		//execution
+		final var realComponent = new BigDecimal("3.14159265359").setScale(10, RoundingMode.HALF_UP);
+		final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(5, RoundingMode.HALF_UP);
+		
+		//execution
+		final var result = new ComplexNumber(realComponent, imaginaryComponent);
+		
+		//verification
+		expect(result.getScale()).isEqualTo(10);
+		expect(result.getRealComponent()).hasStringRepresentation("3.1415926536");
+		expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182800000");
 	}
 	
 	//method
