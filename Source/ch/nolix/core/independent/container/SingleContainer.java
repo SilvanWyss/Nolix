@@ -1,11 +1,6 @@
 //package declaration
 package ch.nolix.core.independent.container;
 
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-
 //class
 /**
  * A {@link SingleContainer} is empty or stores 1 element.
@@ -39,7 +34,7 @@ public final class SingleContainer<E> {
 		
 		//Asserts that the given element is not null.
 		if (element == null) {
-			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
+			throw new IllegalArgumentException("The given element is null.");
 		}
 		
 		//Sets the element of the current SingleContainer.
@@ -55,7 +50,7 @@ public final class SingleContainer<E> {
 		
 		//Asserts that the current SingleContainer is not empty.
 		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
+			throw new IllegalStateException("The current SingleContainer is empty.");
 		}
 		
 		//Returns the element of the current SingleContainer.
