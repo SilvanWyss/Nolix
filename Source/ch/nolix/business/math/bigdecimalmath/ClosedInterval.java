@@ -137,8 +137,8 @@ public final class ClosedInterval implements IClosedInterval {
 	@Override
 	public boolean intersectsWith(final IClosedInterval closedInterval) {
 		return 
-		max.compareTo(closedInterval.getMin()) > 0
-		&& min.compareTo(closedInterval.getMax()) > 0;
+		getMin().compareTo(closedInterval.getMax()) < 0
+		&& getMax().compareTo(closedInterval.getMin()) > 0;
 	}
 	
 	//method
