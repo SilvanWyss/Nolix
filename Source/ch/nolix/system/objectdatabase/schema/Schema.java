@@ -5,13 +5,12 @@ package ch.nolix.system.objectdatabase.schema;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
-public final class Schema implements ISchema<DataImplementation> {
+public final class Schema implements ISchema {
 	
 	//static method
 	@SuppressWarnings("unchecked")
@@ -20,15 +19,15 @@ public final class Schema implements ISchema<DataImplementation> {
 	}
 	
 	//static method
-	public static Schema withEntityTypes(IContainer<Class<? extends IEntity<DataImplementation>>> entityTypesInOrder) {
+	public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypesInOrder) {
 		return new Schema(entityTypesInOrder);
 	}
 	
 	//multi-attribute
-	private final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypesInOrder;
+	private final IContainer<Class<? extends IEntity>> entityTypesInOrder;
 	
 	//constructor
-	private Schema(final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypesInOrder) {
+	private Schema(final IContainer<Class<? extends IEntity>> entityTypesInOrder) {
 		
 		assertContainsDifferentEntityTypesOnly(entityTypesInOrder);
 		
@@ -37,19 +36,19 @@ public final class Schema implements ISchema<DataImplementation> {
 	
 	//method
 	@Override
-	public Class<? extends IEntity<DataImplementation>> getEntityTypeByName(final String name) {
+	public Class<? extends IEntity> getEntityTypeByName(final String name) {
 		return getEntityTypes().getRefFirst(et -> et.getSimpleName().equals(name));
 	}
 	
 	//method	
 	@Override
-	public IContainer<Class<? extends IEntity<DataImplementation>>> getEntityTypes() {
+	public IContainer<Class<? extends IEntity>> getEntityTypes() {
 		return entityTypesInOrder;
 	}
 	
 	//method
 	private void assertContainsDifferentEntityTypesOnly(
-		final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypes
+		final IContainer<Class<? extends IEntity>> entityTypes
 	) {
 		if (!containsDifferentEntityTypesOnly(entityTypes)) {
 			throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -62,7 +61,7 @@ public final class Schema implements ISchema<DataImplementation> {
 	
 	//method
 	private boolean containsDifferentEntityTypesOnly(
-		final IContainer<Class<? extends IEntity<DataImplementation>>> entityTypes
+		final IContainer<Class<? extends IEntity>> entityTypes
 	) {
 		
 		for (final var et : entityTypes) {

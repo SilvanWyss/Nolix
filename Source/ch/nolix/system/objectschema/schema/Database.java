@@ -4,7 +4,6 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -12,7 +11,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public final class Database extends SchemaObject implements IDatabase<SchemaImplementation> {
+public final class Database extends SchemaObject implements IDatabase {
 	
 	//static attribute
 	private final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -30,7 +29,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	private RawSchemaAdapter rawSchemaAdapter;
 	
 	//multi-attribute
-	private LinkedList<ITable<SchemaImplementation>> tables = new LinkedList<>();
+	private LinkedList<ITable> tables = new LinkedList<>();
 	
 	//constructor
 	public Database(final String name) {
@@ -42,7 +41,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	
 	//method
 	@Override
-	public Database addTable(final ITable<SchemaImplementation> table) {
+	public Database addTable(final ITable table) {
 		
 		databaseHelper.assertCanAddGivenTable(this, table);
 		mutationExecutor.addTableToDatabase(this, (Table)table);
@@ -64,7 +63,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	
 	//method
 	@Override
-	public IContainer<ITable<SchemaImplementation>> getRefTables() {
+	public IContainer<ITable> getRefTables() {
 		
 		loadTablesFromDatabaseIfNeeded();
 		
@@ -105,7 +104,7 @@ public final class Database extends SchemaObject implements IDatabase<SchemaImpl
 	}
 	
 	//method
-	void addTableAttribute(final ITable<SchemaImplementation> table) {
+	void addTableAttribute(final ITable table) {
 		tables.addAtEnd(table);
 	}
 	

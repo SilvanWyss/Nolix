@@ -11,23 +11,23 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean allNewAndEditedMandatoryPropertiesAreSet(ITable<?, ?> table);
+	boolean allNewAndEditedMandatoryPropertiesAreSet(ITable<?> table);
 	
 	//method declaration
-	boolean canInsertEntity(ITable<?, ?> table);
+	boolean canInsertEntity(ITable<?> table);
 	
 	//method declaration
-	boolean canInsertGivenEntity(ITable<?, ?> table, IEntity<?> entity);
+	boolean canInsertGivenEntity(ITable<?> table, IEntity entity);
 	
 	//method declaration
-	boolean containsEntityWithGivenIdInLocalData(ITable<?, ?> table, String id);
+	boolean containsEntityWithGivenIdInLocalData(ITable<?> table, String id);
 	
 	//method declaration
-	<IMPL, E extends IEntity<IMPL>> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(ITable<IMPL, E> table);
+	<E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(ITable<E> table);
 	
 	//method declaration
-	boolean hasChanges(ITable<?, ?> table);
+	boolean hasChanges(ITable<?> table);
 	
 	//method declaration
-	boolean hasInsertedGivenEntityInLocalData(ITable<?, ?> table, IEntity<?> entity);
+	boolean hasInsertedGivenEntityInLocalData(ITable<?> table, IEntity entity);
 }

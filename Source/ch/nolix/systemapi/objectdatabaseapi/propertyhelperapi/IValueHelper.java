@@ -9,8 +9,8 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IValueHelper extends IPropertyHelper {
 	
 	//method declaration
-	boolean canSetGivenValue(IValue<?, ?> value, Object valueToSet);
+	boolean canSetGivenValue(IValue<?> value, Object valueToSet);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForSetValue(IValue<?, ?> value, Object valueToSet);
+	IEntityUpdateDTO createEntityUpdateDTOForSetValue(IValue<?> value, Object valueToSet);
 }

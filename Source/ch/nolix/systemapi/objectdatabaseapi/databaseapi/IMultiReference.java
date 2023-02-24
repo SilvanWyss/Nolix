@@ -6,10 +6,10 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
 public interface IMultiReference<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
-extends Clearable, IBaseReference<IMPL, E> {
+extends Clearable, IBaseReference<E> {
 	
 	//method declaration
 	void addEntity(E entity);
@@ -21,7 +21,7 @@ extends Clearable, IBaseReference<IMPL, E> {
 	IContainer<String> getReferencedEntityIds();
 	
 	//method declaration
-	IContainer<? extends IMultiReferenceEntry<IMPL, E>> getRefLocalEntries();
+	IContainer<? extends IMultiReferenceEntry<E>> getRefLocalEntries();
 	
 	//method declaration
 	void removeEntity(E entity);

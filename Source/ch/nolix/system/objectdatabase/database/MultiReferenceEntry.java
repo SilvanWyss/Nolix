@@ -11,32 +11,32 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 
 //class
-final class MultiReferenceEntry<E extends IEntity<DataImplementation>>
-implements IMultiReferenceEntry<DataImplementation, E> {
+final class MultiReferenceEntry<E extends IEntity>
+implements IMultiReferenceEntry<E> {
 	
 	//static attribute
 	private static final DatabaseObjectHelper databaseObjectHelper = new DatabaseObjectHelper();
 	
 	//static method
-	public static <E2 extends IEntity<DataImplementation>> MultiReferenceEntry<E2>
+	public static <E2 extends IEntity> MultiReferenceEntry<E2>
 	loadedEntryForMultiReferenceAndReferencedEntityId(
-		final IMultiReference<DataImplementation, E2> multiReference,
+		final IMultiReference<E2> multiReference,
 		final String referencedEntityId
 	) {
 		return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.LOADED, referencedEntityId);
 	}
 	
 	//static method
-	public static <E2 extends IEntity<DataImplementation>> MultiReferenceEntry<E2>
+	public static <E2 extends IEntity> MultiReferenceEntry<E2>
 	newEntryForMultiReferenceAndReferencedEntityId(
-		final IMultiReference<DataImplementation, E2> multiReference,
+		final IMultiReference<E2> multiReference,
 		final String referencedEntityId
 	) {
 		return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
 	}
 	
 	//attribute
-	private final IMultiReference<DataImplementation, E> parentMultiReference;
+	private final IMultiReference<E> parentMultiReference;
 	
 	//attribute
 	private DatabaseObjectState state;
@@ -46,7 +46,7 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	
 	//constructor
 	private MultiReferenceEntry(
-		final IMultiReference<DataImplementation, E> parentMultiReference,
+		final IMultiReference<E> parentMultiReference,
 		final DatabaseObjectState initialState,
 		final String referencedEntityId
 	) {
@@ -62,7 +62,7 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IProperty<DataImplementation> getRefBackReferencingPropertyOrNull() {
+	public IProperty getRefBackReferencingPropertyOrNull() {
 		return
 		getReferencedEntity()
 		.technicalGetRefProperties()
@@ -71,7 +71,7 @@ implements IMultiReferenceEntry<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IMultiReference<DataImplementation, E> getRefParentMultiReference() {
+	public IMultiReference<E> getRefParentMultiReference() {
 		return parentMultiReference;
 	}
 	

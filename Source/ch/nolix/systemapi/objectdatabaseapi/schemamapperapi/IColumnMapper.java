@@ -8,23 +8,23 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface IColumnMapper<IMPL> {
+public interface IColumnMapper {
 	
 	//method declaration
-	IColumn<IMPL> createColumnFromGivenPropertyUsingGivenReferencableTables(
-		IProperty<?> property,
-		IContainer<ITable<IMPL>> referencableTables
+	IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
+		IProperty property,
+		IContainer<ITable> referencableTables
 	);
 	
 	//method declaration
-	<E extends IEntity<?>> IContainer<IColumn<IMPL>> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
+	<E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
 		Class<E> entityType,
-		IContainer<ITable<IMPL>> referencableTables
+		IContainer<ITable> referencableTables
 	);
 	
 	//method declaration
-	IContainer<IColumn<IMPL>> createColumnsFromGivenEntityUsingGivenReferencableTables(
-		IEntity<?> entity,
-		IContainer<ITable<IMPL>> referencableTables
+	IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
+		IEntity entity,
+		IContainer<ITable> referencableTables
 	);
 }

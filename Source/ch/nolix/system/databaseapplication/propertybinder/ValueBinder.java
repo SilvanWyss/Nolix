@@ -8,11 +8,11 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 
 //class
-public final class ValueBinder extends PropertyBinder<IValue<?, ?>, ITextbox> {
+public final class ValueBinder extends PropertyBinder<IValue<?>, ITextbox> {
 	
 	//attribute
 	@Override
-	protected void addSelectionOptionsToControlForProperty(final ITextbox control, final IValue<?, ?> property) {
+	protected void addSelectionOptionsToControlForProperty(final ITextbox control, final IValue<?> property) {
 		//Does nothing.
 	}
 	
@@ -30,13 +30,13 @@ public final class ValueBinder extends PropertyBinder<IValue<?, ?>, ITextbox> {
 	
 	//method
 	@Override
-	protected void updatePropertyFromControl(final IValue<?, ?> value, final ITextbox textBox) {
+	protected void updatePropertyFromControl(final IValue<?> value, final ITextbox textBox) {
 		value.setValueFromString(textBox.getText());
 	}
 	
 	//method
 	@Override
-	protected void updateControlFromProperty(final ITextbox textBox, final IValue<?, ?> value) {
+	protected void updateControlFromProperty(final ITextbox textBox, final IValue<?> value) {
 		if (value.containsAny()) {
 			textBox.setText(value.getRefValue().toString());
 		}

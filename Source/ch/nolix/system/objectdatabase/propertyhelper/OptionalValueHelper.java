@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public final class OptionalValueHelper extends PropertyHelper implements IOptionalValueHelper {
 	
 	@Override
-	public boolean canSetGivenValue(final IOptionalValue<?, ?> optionalValue, final Object value) {
+	public boolean canSetGivenValue(final IOptionalValue<?> optionalValue, final Object value) {
 		return
 		canSetValue(optionalValue)
 		&& value != null;
@@ -21,7 +21,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	//method
 	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForSetValue(
-		final IOptionalValue<?, ?> optionalValue,
+		final IOptionalValue<?> optionalValue,
 		final Object value
 	) {
 		
@@ -36,7 +36,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	}
 	
 	//method
-	private boolean canSetValue(final IOptionalValue<?, ?> optionalValue) {
+	private boolean canSetValue(final IOptionalValue<?> optionalValue) {
 		return
 		optionalValue != null
 		&& optionalValue.isOpen();

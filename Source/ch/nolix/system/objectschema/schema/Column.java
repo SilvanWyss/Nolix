@@ -11,7 +11,6 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.ColumnDTO;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -22,7 +21,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 
 //class
-public final class Column extends SchemaObject implements IColumn<SchemaImplementation> {
+public final class Column extends SchemaObject implements IColumn {
 	
 	//constant
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
@@ -43,7 +42,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//static method
-	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable<SchemaImplementation>> tables) {
+	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable> tables) {
 		return
 		new Column(
 			columnDTO.getId(),
@@ -62,7 +61,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	private String name = INITIAL_HEADER;
 	
 	//attribute
-	private IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
+	private IParametrizedPropertyType parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attributes
 	private Table parentTable;
@@ -70,7 +69,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	//constructor
 	public Column(
 		final String name,
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parametrizedPropertyType);
 	}
@@ -79,7 +78,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	private Column(
 		final String id,
 		final String name,
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
@@ -116,7 +115,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	@Override
-	public IParametrizedPropertyType<SchemaImplementation> getParametrizedPropertyType() {
+	public IParametrizedPropertyType getParametrizedPropertyType() {
 		return parametrizedPropertyType;
 	}
 		
@@ -159,7 +158,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	//method
 	@Override
 	public Column setParametrizedPropertyType(
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		
 		mutationValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
@@ -189,7 +188,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	}
 	
 	//method
-	IContainer<IColumn<SchemaImplementation>> getRefBackReferencingColumns() {
+	IContainer<IColumn> getRefBackReferencingColumns() {
 		
 		if (!columnHelper.isAReferenceColumn(this)) {
 			return new LinkedList<>();
@@ -220,7 +219,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	
 	//method
 	void setParametrizedPropertyTypeAttribute(
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		this.parametrizedPropertyType = parametrizedPropertyType;
 	}
@@ -242,7 +241,7 @@ public final class Column extends SchemaObject implements IColumn<SchemaImplemen
 	}
 	
 	//method
-	private IContainer<IColumn<SchemaImplementation>> getRefBackReferencingColumnsWhenIsReferenceColumn() {
+	private IContainer<IColumn> getRefBackReferencingColumnsWhenIsReferenceColumn() {
 		
 		if (columnHelper.belongsToDatabase(this)) {
 			return

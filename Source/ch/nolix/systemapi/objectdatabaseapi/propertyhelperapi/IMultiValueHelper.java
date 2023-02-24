@@ -9,17 +9,17 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IMultiValueHelper extends IPropertyHelper {
 	
 	//method declaration
-	boolean canAddGivenValue(IMultiValue<?, ?> multiValue, Object value);
+	boolean canAddGivenValue(IMultiValue<?> multiValue, Object value);
 	
 	//method declaration
-	boolean canClear(IMultiValue<?, ?> multiValue);
+	boolean canClear(IMultiValue<?> multiValue);
 	
 	//method declaration
-	<V> boolean canRemoveValue(IMultiValue<?, V> multiValue, V value);
+	<V> boolean canRemoveValue(IMultiValue<V> multiValue, V value);
 	
 	//method declaration
-	<V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(IMultiValue<?, V> multiValue, V addedValue);
+	<V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(IMultiValue<V> multiValue, V addedValue);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForClear(IMultiValue<?, ?> multiValue);
+	IEntityUpdateDTO createEntityUpdateDTOForClear(IMultiValue<?> multiValue);
 }

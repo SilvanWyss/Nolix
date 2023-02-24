@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class Database implements IDatabase<DataImplementation> {
+public final class Database implements IDatabase {
 	
 	//static attribute
 	private static final DatabaseTableLoader databaseTableLoader = new DatabaseTableLoader();
@@ -21,7 +21,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	//static method
 	public static Database withDataAndSchemaAdapterAndSchema(
 		final IDataAndSchemaAdapter dataAndSchemaAdapter,
-		final ISchema<DataImplementation> schema
+		final ISchema schema
 	) {
 		return new Database(dataAndSchemaAdapter, schema);
 	}
@@ -33,13 +33,13 @@ public final class Database implements IDatabase<DataImplementation> {
 	private final IDataAndSchemaAdapter dataAndSchemaAdapter;
 	
 	//attribute
-	private final ISchema<DataImplementation> schema;
+	private final ISchema schema;
 	
 	//multi-attribute
-	private final LinkedList<? extends ITable<DataImplementation, IEntity<DataImplementation>>> tables;
+	private final LinkedList<? extends ITable<IEntity>> tables;
 	
 	//constructor
-	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema<DataImplementation> schema) {
+	private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema schema) {
 		
 		GlobalValidator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
 		GlobalValidator.assertThat(schema).thatIsNamed(ISchema.class).isNotNull();
@@ -52,28 +52,28 @@ public final class Database implements IDatabase<DataImplementation> {
 	
 	//method
 	@Override
-	public <E extends IEntity<DataImplementation>> IContainer<E> getRefEntitiesByType(final Class<E> type) {
+	public <E extends IEntity> IContainer<E> getRefEntitiesByType(final Class<E> type) {
 		return getRefTableByEntityType(type).getRefEntities();
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityType(
+	public <E extends IEntity> ITable<E> getRefTableByEntityType(
 		final Class<E> entityClass
 	) {
-		return (ITable<DataImplementation, E>)getRefTableByName(entityClass.getSimpleName());		
+		return (ITable<E>)getRefTableByName(entityClass.getSimpleName());		
 	}
 	
 	//method	
 	@Override
-	public ITable<DataImplementation, IEntity<DataImplementation>> getRefTableByName(final String name) {
+	public ITable<IEntity> getRefTableByName(final String name) {
 		return tables.getRefFirst(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
-	public IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> getRefTables() {
+	public IContainer<? extends ITable<IEntity>> getRefTables() {
 		return tables;
 	}
 	
@@ -101,9 +101,9 @@ public final class Database implements IDatabase<DataImplementation> {
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity<DataImplementation>> IDatabase<DataImplementation> insertEntity(final E entity) {
+	public <E extends IEntity> IDatabase insertEntity(final E entity) {
 		
-		getRefTableByEntityType(entity.getClass()).insertEntity(entity);
+		getRefTableByEntityType((Class<E>)entity.getClass()).insertEntity(entity);
 		
 		return this;
 	}
@@ -139,7 +139,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//method
-	ISchema<DataImplementation> internalGetSchema() {
+	ISchema internalGetSchema() {
 		return schema;
 	}
 	
@@ -151,7 +151,7 @@ public final class Database implements IDatabase<DataImplementation> {
 	}
 	
 	//method
-	private LinkedList<Table<IEntity<DataImplementation>>> loadTables() {
+	private LinkedList<Table<IEntity>> loadTables() {
 		return databaseTableLoader.loadTablesForDatabase(this);
 	}
 }

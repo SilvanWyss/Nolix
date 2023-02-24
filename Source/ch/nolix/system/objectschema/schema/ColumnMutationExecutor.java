@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
-//own imports
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
 //class
@@ -42,7 +40,7 @@ final class ColumnMutationExecutor {
 	//method
 	public void setParametrizedPropertyTypeToColumn(
 		final Column column,
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		
 		column.setParametrizedPropertyTypeAttribute(parametrizedPropertyType);

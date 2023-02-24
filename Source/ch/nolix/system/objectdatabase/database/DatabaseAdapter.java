@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi.IDatabaseAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -16,7 +15,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapter, DataImplementation> {
+public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapter> {
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -31,7 +30,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	private final String databaseName;
 	
 	//attribute
-	private final ISchema<DataImplementation> schema;
+	private final ISchema schema;
 	
 	//attribute
 	private final Database database;
@@ -45,8 +44,8 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	//constructor
 	protected DatabaseAdapter(
 		final String databaseName,
-		final ISchemaAdapter<SchemaImplementation> schemaAdapter,
-		final ISchema<DataImplementation> schema,
+		final ISchemaAdapter schemaAdapter,
+		final ISchema schema,
 		final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator
 	) {
 		
@@ -74,7 +73,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	
 	//method
 	@Override
-	public final <E extends IEntity<DataImplementation>> ITable<DataImplementation, E> getRefTableByEntityType(
+	public final <E extends IEntity> ITable<E> getRefTableByEntityType(
 		final Class<E> entityType
 	) {
 		return database.getRefTableByEntityType(entityType);
@@ -94,7 +93,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	
 	//method
 	@Override
-	public final <E extends IEntity<DataImplementation>> DatabaseAdapter insert(final E entity) {
+	public final <E extends IEntity> DatabaseAdapter insert(final E entity) {
 		
 		database.insertEntity(entity);
 		
@@ -129,7 +128,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	}
 	
 	//method
-	protected final ISchema<DataImplementation> getSchema() {
+	protected final ISchema getSchema() {
 		return schema;
 	}
 	

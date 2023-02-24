@@ -3,13 +3,13 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
 public interface IBaseReference<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
-extends IProperty<IMPL> {
+extends IProperty {
 	
 	//method declaration
-	ITable<IMPL, E> getReferencedTable();
+	ITable<E> getReferencedTable();
 	
 	//method declaration
 	String getReferencedTableName();

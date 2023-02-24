@@ -8,17 +8,17 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 public interface IPropertyValidator {
 	
 	//method declaration
-	void assertBelongsToEntity(IProperty<?> property);
+	void assertBelongsToEntity(IProperty property);
 	
 	//method declaration
-	void assertDoesNotBelongToEntity(IProperty<?> property);
+	void assertDoesNotBelongToEntity(IProperty property);
 	
 	//method declaration
-	void assertIsNotEmpty(IProperty<?> property);
+	void assertIsNotEmpty(IProperty property);
 	
 	//method declaration
-	void assertIsNotMandatoryAndEmptyBoth(IProperty<?> property);
+	void assertIsNotMandatoryAndEmptyBoth(IProperty property);
 	
 	//method declaration
-	void assertKnowsParentColumn(IProperty<?> property);
+	void assertKnowsParentColumn(IProperty property);
 }

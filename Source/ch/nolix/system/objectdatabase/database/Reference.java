@@ -17,8 +17,8 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValid
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class Reference<E extends IEntity<DataImplementation>> extends BaseReference<E>
-implements IReference<DataImplementation, E> {
+public final class Reference<E extends IEntity> extends BaseReference<E>
+implements IReference<E> {
 	
 	//constant
 	private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
@@ -46,7 +46,7 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
+	public IContainer<IProperty> getRefBackReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
@@ -97,7 +97,7 @@ implements IReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean referencesEntity(final IEntity<?> entity) {
+	public boolean referencesEntity(final IEntity entity) {
 		return
 		containsAny()
 		&& entity != null
@@ -164,7 +164,7 @@ implements IReference<DataImplementation, E> {
 	}
 	
 	//method
-	private void updateBackReferencingPropertyForClear(final IProperty<DataImplementation> backReferencingProperty) {
+	private void updateBackReferencingPropertyForClear(final IProperty backReferencingProperty) {
 		switch (backReferencingProperty.getType()) {
 			case BACK_REFERENCE:
 				final var backReference = (BackReference<?>)backReferencingProperty;
@@ -205,7 +205,7 @@ implements IReference<DataImplementation, E> {
 	}
 	
 	//method
-	private IProperty<DataImplementation> getPendantReferencingPropertyToEntityOrNull(final E entity) {
+	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
 		return entityHelper.getRefReferencingProperties(entity).getRefFirstOrNull(rp -> rp.hasName(getName()));
 	}
 

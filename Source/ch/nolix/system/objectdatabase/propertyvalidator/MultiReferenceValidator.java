@@ -17,7 +17,7 @@ public final class MultiReferenceValidator extends PropertyValidator implements 
 	
 	//method
 	@Override
-	public void assertCanAddGivenEntity(final IMultiReference<?, ?> multiReference, final IEntity<?> entity) {
+	public void assertCanAddGivenEntity(final IMultiReference<?> multiReference, final IEntity entity) {
 		if (!MULTI_REFERENCE_HELPER.canAddGivenEntity(multiReference, entity)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot add the given entity");
 		}
@@ -25,7 +25,7 @@ public final class MultiReferenceValidator extends PropertyValidator implements 
 	
 	//method
 	@Override
-	public void assertCanClear(final IMultiReference<?, ?> multiReference) {
+	public void assertCanClear(final IMultiReference<?> multiReference) {
 		if (!MULTI_REFERENCE_HELPER.canClear(multiReference)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot clear");
 		}
@@ -33,8 +33,8 @@ public final class MultiReferenceValidator extends PropertyValidator implements 
 	
 	//method
 	@Override
-	public <IMPL, E extends IEntity<IMPL>> void assertCanRemoveEntity(
-		final IMultiReference<IMPL, E> multiReference,
+	public <E extends IEntity> void assertCanRemoveEntity(
+		final IMultiReference<E> multiReference,
 		final E entity
 	) {
 		if (!MULTI_REFERENCE_HELPER.canRemoveEntity(multiReference, entity)) {

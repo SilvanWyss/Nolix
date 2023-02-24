@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public final class PropertyBinding {
 	
 	//attributes
-	private final IProperty<?> property;
+	private final IProperty property;
 	private final IControl<?, ?> control;
 	private final ILabel<?, ?> errorText = new Label().setInvisible();
 	
@@ -20,7 +20,7 @@ public final class PropertyBinding {
 	private Throwable currentError;
 	
 	//constructors
-	public PropertyBinding(final IProperty<?> property, final IControl<?, ?> control) {
+	public PropertyBinding(final IProperty property, final IControl<?, ?> control) {
 		
 		GlobalValidator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
 		GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
@@ -45,7 +45,7 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public IProperty<?> getRefProperty() {
+	public IProperty getRefProperty() {
 		return property;
 	}
 	

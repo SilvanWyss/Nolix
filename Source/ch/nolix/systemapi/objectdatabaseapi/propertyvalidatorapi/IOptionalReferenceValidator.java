@@ -9,11 +9,11 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 public interface IOptionalReferenceValidator extends IPropertyValidator {
 	
 	//method declaration
-	void assertCanClear(IOptionalReference<?, ?> optionalReference);
+	void assertCanClear(IOptionalReference<?> optionalReference);
 	
 	//method declaration
-	void assertCanSetGivenEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
+	void assertCanSetGivenEntity(IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method declaration
-	void assertIsNotEmpty(IOptionalReference<?, ?> optionalReference);
+	void assertIsNotEmpty(IOptionalReference<?> optionalReference);
 }

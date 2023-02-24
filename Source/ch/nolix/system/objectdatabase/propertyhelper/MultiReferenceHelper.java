@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public final class MultiReferenceHelper extends PropertyHelper implements IMultiReferenceHelper {
 	
 	@Override
-	public boolean canAddGivenEntity(IMultiReference<?, ?> multiReference, IEntity<?> entity) {
+	public boolean canAddGivenEntity(IMultiReference<?> multiReference, IEntity entity) {
 		return
 		canAddEntity(multiReference)
 		&& entity != null
@@ -23,7 +23,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public boolean canClear(IMultiReference<?, ?> multiReference) {
+	public boolean canClear(IMultiReference<?> multiReference) {
 		return
 		multiReference != null
 		&& multiReference.belongsToEntity()
@@ -32,8 +32,8 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public <IMPL, E extends IEntity<IMPL>> boolean canRemoveEntity(
-		final IMultiReference<IMPL, E> multiReference,
+	public <E extends IEntity> boolean canRemoveEntity(
+		final IMultiReference<E> multiReference,
 		final E entity
 	) {
 		return
@@ -44,8 +44,8 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	//method
 	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForAddEntity(
-		final IMultiReference<?, ?> multiReference,
-		final IEntity<?> entity
+		final IMultiReference<?> multiReference,
+		final IEntity entity
 	) {
 		
 		final var parentEntity = multiReference.getRefParentEntity();
@@ -60,7 +60,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiReference<?, ?> multiReference) {
+	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiReference<?> multiReference) {
 		
 		final var parentEntity = multiReference.getRefParentEntity();
 		
@@ -72,7 +72,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	}
 	
 	//method
-	private boolean canAddEntity(final IMultiReference<?, ?> multiReference) {
+	private boolean canAddEntity(final IMultiReference<?> multiReference) {
 		return
 		multiReference != null
 		&& multiReference.belongsToEntity()
@@ -80,7 +80,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	}
 	
 	//method
-	private boolean canRemoveEntity(IMultiReference<?, ?> multiReference) {
+	private boolean canRemoveEntity(IMultiReference<?> multiReference) {
 		return
 		multiReference != null
 		&& multiReference.isOpen();

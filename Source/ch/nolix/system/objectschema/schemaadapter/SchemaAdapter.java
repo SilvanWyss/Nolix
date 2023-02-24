@@ -5,7 +5,6 @@ package ch.nolix.system.objectschema.schemaadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Database;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 
 //class
-public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementation> {
+public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
@@ -23,7 +22,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private IDatabase<SchemaImplementation> database;
+	private IDatabase database;
 	
 	//attribute
 	private final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter;
@@ -51,7 +50,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	
 	//method
 	@Override
-	public ISchemaAdapter<SchemaImplementation> addTable(final ITable<SchemaImplementation> table) {
+	public ISchemaAdapter addTable(final ITable table) {
 		
 		database.addTable(table);
 		
@@ -66,13 +65,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter<SchemaImplementati
 	
 	//method
 	@Override
-	public final ITable<SchemaImplementation> getRefTableByName(final String name) {
+	public final ITable getRefTableByName(final String name) {
 		return databaseHelper.getRefTableWithGivenName(database, name);
 	}
 	
 	//method
 	@Override
-	public final IContainer<ITable<SchemaImplementation>> getRefTables() {
+	public final IContainer<ITable> getRefTables() {
 		return database.getRefTables();
 	}
 	

@@ -13,7 +13,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public boolean canAddGivenValue(final IMultiValue<?, ?> multiValue, final Object value) {
+	public boolean canAddGivenValue(final IMultiValue<?> multiValue, final Object value) {
 		return
 		assertCanAddValue(multiValue)
 		&& value != null;
@@ -21,7 +21,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public boolean canClear(final IMultiValue<?, ?> multiValue) {
+	public boolean canClear(final IMultiValue<?> multiValue) {
 		return
 		multiValue != null
 		&& multiValue.belongsToEntity()
@@ -30,7 +30,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public <V> boolean canRemoveValue(final IMultiValue<?, V> multiValue, final V value) {
+	public <V> boolean canRemoveValue(final IMultiValue<V> multiValue, final V value) {
 		return
 		canRemoveValue(multiValue)
 		&& value != null;
@@ -39,7 +39,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	//method
 	@Override
 	public <V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(
-		final IMultiValue<?, V> multiValue,
+		final IMultiValue<V> multiValue,
 		final V addedValue
 	) {
 		
@@ -55,7 +55,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiValue<?, ?> multiValue) {
+	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiValue<?> multiValue) {
 		
 		final var parentEntity = multiValue.getRefParentEntity();
 		
@@ -68,7 +68,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	}
 	
 	//method
-	private boolean assertCanAddValue(final IMultiValue<?, ?> multiValue) {
+	private boolean assertCanAddValue(final IMultiValue<?> multiValue) {
 		return
 		multiValue != null
 		&& multiValue.belongsToEntity()
@@ -76,7 +76,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	}
 	
 	//method
-	private boolean canRemoveValue(final IMultiValue<?, ?> multiValue) {
+	private boolean canRemoveValue(final IMultiValue<?> multiValue) {
 		return
 		multiValue != null
 		&& multiValue.isOpen();

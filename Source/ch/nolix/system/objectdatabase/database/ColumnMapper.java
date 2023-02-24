@@ -14,10 +14,10 @@ final class ColumnMapper {
 	private final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper = new ParametrizedPropertyTypeMapper();
 	
 	//method
-	public IColumn<DataImplementation> createColumnFromDTOForParentTableUsingGivenReferencableTables(
+	public IColumn createColumnFromDTOForParentTableUsingGivenReferencableTables(
 		final IColumnDTO columnDTO,
-		final Table<IEntity<DataImplementation>> parentTable,
-		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final Table<IEntity> parentTable,
+		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		return
 		Column.withNameAndIdAndParametrizedPropertyTypeAndParentTable(

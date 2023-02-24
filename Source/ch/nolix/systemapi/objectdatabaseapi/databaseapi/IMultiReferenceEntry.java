@@ -6,13 +6,13 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IMultiReferenceEntry<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
 extends IDatabaseObject {
 	
 	//method declaration
-	IProperty<IMPL> getRefBackReferencingPropertyOrNull();
+	IProperty getRefBackReferencingPropertyOrNull();
 	
 	//method declaration
 	E getReferencedEntity();
@@ -21,5 +21,5 @@ extends IDatabaseObject {
 	String getReferencedEntityId();
 	
 	//method declaration
-	IMultiReference<IMPL, E> getRefParentMultiReference();
+	IMultiReference<E> getRefParentMultiReference();
 }

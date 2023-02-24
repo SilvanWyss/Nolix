@@ -7,10 +7,10 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 
 //class
 public final class ParametrizedOptionalBackReferenceType<
-	IMPL,
-	C extends IColumn<IMPL>
+
+	C extends IColumn
 >
-extends BaseParametrizedBackReferenceType<IMPL, C> {
+extends BaseParametrizedBackReferenceType<C> {
 	
 	//constructor
 	public ParametrizedOptionalBackReferenceType(final C backReferencedColumn) {

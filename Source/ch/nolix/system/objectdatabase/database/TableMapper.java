@@ -14,7 +14,7 @@ final class TableMapper {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public Table<IEntity<DataImplementation>> createEmptyTableFromTableDTOForDatabase(
+	public Table<IEntity> createEmptyTableFromTableDTOForDatabase(
 		final ITableDTO tableDTO,
 		final Database database
 	) {
@@ -23,16 +23,16 @@ final class TableMapper {
 			database,
 			tableDTO.getName(),
 			tableDTO.getId(),
-			(Class<IEntity<DataImplementation>>)database.internalGetSchema().getEntityTypeByName(tableDTO.getName())
+			(Class<IEntity>)database.internalGetSchema().getEntityTypeByName(tableDTO.getName())
 		);
 	}
 	
 	//method
-	public ITable<DataImplementation, IEntity<DataImplementation>>
+	public ITable<IEntity>
 	createTableFromTableDTOForDatabaseUsingGivenReferencableTables(
 		final ITableDTO tableDTO,
 		final Database database,
-		final IContainer<ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<ITable<IEntity>> referencableTables
 	) {
 		
 		final var table = createEmptyTableFromTableDTOForDatabase(tableDTO, database);

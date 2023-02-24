@@ -9,7 +9,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IEntity<IMPL> extends Deletable, IDatabaseObject, Identified, ShortDescripted {
+public interface IEntity extends Deletable, IDatabaseObject, Identified, ShortDescripted {
 	
 	//method declaration
 	boolean belongsToTable();
@@ -18,10 +18,10 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, Identified, S
 	String getParentTableName();
 	
 	//method declaration
-	IDatabase<IMPL> getRefParentDatabase();
+	IDatabase getRefParentDatabase();
 	
 	//method declaration
-	ITable<IMPL, IEntity<IMPL>> getRefParentTable();
+	ITable<IEntity> getRefParentTable();
 	
 	//method declaration
 	String getSaveStamp();
@@ -33,5 +33,5 @@ public interface IEntity<IMPL> extends Deletable, IDatabaseObject, Identified, S
 	boolean isReferencedInPersistedData();
 	
 	//method declaration
-	IContainer<? extends IProperty<IMPL>> technicalGetRefProperties();
+	IContainer<? extends IProperty> technicalGetRefProperties();
 }

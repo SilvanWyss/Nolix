@@ -10,50 +10,50 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public interface ITableHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	void assertContainsGivenColumn(ITable<?> table, IColumn<?> column);
+	void assertContainsGivenColumn(ITable table, IColumn column);
 	
 	//method declaration
-	void assertDoesNotBelongToDatabase(ITable<?> table);
+	void assertDoesNotBelongToDatabase(ITable table);
 	
 	//method declaration
-	void assertDoesNotContainGivenColumn(ITable<?> table, IColumn<?> column);
+	void assertDoesNotContainGivenColumn(ITable table, IColumn column);
 	
 	//method declaration
-	void assertDoesNotContainColumnWithGivenName(ITable<?> table, String name);
+	void assertDoesNotContainColumnWithGivenName(ITable table, String name);
 	
 	//method declaration
-	void assertIsNotReferenced(ITable<?> table);
+	void assertIsNotReferenced(ITable table);
 	
 	//method declaration
-	boolean canBeAddedToDatabase(ITable<?> table);
+	boolean canBeAddedToDatabase(ITable table);
 	
 	//method declaration
-	boolean containsGivenColumn(ITable<?> table, IColumn<?> column);
+	boolean containsGivenColumn(ITable table, IColumn column);
 	
 	//method declaration
-	boolean containsColumnBackReferencedByGivenColumn(ITable<?> table, IColumn<?> column);
+	boolean containsColumnBackReferencedByGivenColumn(ITable table, IColumn column);
 	
 	//method declaration
-	boolean containsColumnThatReferencesBackGivenColumn(ITable<?> table, IColumn<?> column) ;
+	boolean containsColumnThatReferencesBackGivenColumn(ITable table, IColumn column) ;
 	
 	//method declaration
-	boolean containsColumnThatReferencesGivenTable(ITable<?> table, ITable<?> probableReferencedTable);
+	boolean containsColumnThatReferencesGivenTable(ITable table, ITable probableReferencedTable);
 	
 	//method declaration
-	boolean containsColumnWithGivenName(ITable<?> table, final String name);
+	boolean containsColumnWithGivenName(ITable table, final String name);
 	
 	//method declaration
-	int getColumnCount(ITable<?> table);
+	int getColumnCount(ITable table);
 	
 	//method declaration
-	<IMPL> IContainer<IColumn<IMPL>> getRefBackReferenceColumns(ITable<IMPL> table);
+	 IContainer<IColumn> getRefBackReferenceColumns(ITable table);
 	
 	//method declaration
-	<IMPL> IContainer<IColumn<IMPL>> getRefBackReferencingColumns(ITable<IMPL> table);
+	 IContainer<IColumn> getRefBackReferencingColumns(ITable table);
 	
 	//method declaration
-	<IMPL> IContainer<IColumn<IMPL>> getRefReferencingColumns(ITable<IMPL> table);
+	 IContainer<IColumn> getRefReferencingColumns(ITable table);
 	
 	//method declaration
-	boolean isReferenced(ITable<?> table);
+	boolean isReferenced(ITable table);
 }

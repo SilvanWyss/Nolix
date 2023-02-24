@@ -11,17 +11,17 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IOptionalReferenceHelper {
 			
 	//method declaration
-	boolean canClear(IOptionalReference<?, ?> optionalReference);
+	boolean canClear(IOptionalReference<?> optionalReference);
 	
 	//method declaration
-	boolean canSetGivenEntity(final IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
+	boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method
-	IEntityUpdateDTO createEntityUpdateDTOForClear(IOptionalReference<?, ?> optionalReference);
+	IEntityUpdateDTO createEntityUpdateDTOForClear(IOptionalReference<?> optionalReference);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IOptionalReference<?, ?> optionalReference, IEntity<?> entity);
+	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method declaration
-	<IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(IOptionalReference<IMPL, ?> optionalReference);
+	 IProperty getRefBackReferencingPropertyOrNull(IOptionalReference<?> optionalReference);
 }

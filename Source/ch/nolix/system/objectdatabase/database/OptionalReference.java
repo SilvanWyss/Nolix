@@ -20,8 +20,8 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalRefere
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class OptionalReference<E extends IEntity<DataImplementation>> extends BaseReference<E>
-implements IOptionalReference<DataImplementation, E> {
+public final class OptionalReference<E extends IEntity> extends BaseReference<E>
+implements IOptionalReference<E> {
 	
 	//constant
 	private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
@@ -60,7 +60,7 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
+	public IContainer<IProperty> getRefBackReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
@@ -111,7 +111,7 @@ implements IOptionalReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean referencesEntity(IEntity<?> entity) {
+	public boolean referencesEntity(IEntity entity) {
 		return
 		containsAny()
 		&& entity != null
@@ -204,12 +204,12 @@ implements IOptionalReference<DataImplementation, E> {
 	}
 	
 	//method
-	private IProperty<DataImplementation> getPendantReferencingPropertyToEntityOrNull(final E entity) {
+	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
 		return entityHelper.getRefReferencingProperties(entity).getRefFirstOrNull(rp -> rp.hasName(getName()));
 	}
 	
 	//method
-	private void updateBackReferencingPropertyForClear(final IProperty<DataImplementation> backReferencingProperty) {
+	private void updateBackReferencingPropertyForClear(final IProperty backReferencingProperty) {
 		switch (backReferencingProperty.getType()) {
 			case BACK_REFERENCE:
 				final var backReference = (BackReference<?>)backReferencingProperty;

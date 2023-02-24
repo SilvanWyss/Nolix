@@ -19,7 +19,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValida
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class Property implements IProperty<DataImplementation> {
+public abstract class Property implements IProperty {
 	
 	//constant
 	private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
@@ -31,10 +31,10 @@ public abstract class Property implements IProperty<DataImplementation> {
 	private boolean edited;
 	
 	//optional attribute
-	private IEntity<DataImplementation> parentEntity;
+	private IEntity parentEntity;
 	
 	//optional attribute
-	private IColumn<DataImplementation> parentColumn;
+	private IColumn parentColumn;
 	
 	//method
 	@Override
@@ -59,7 +59,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	@Override
-	public IColumn<DataImplementation> getRefParentColumn() {
+	public IColumn getRefParentColumn() {
 		
 		PROPERTY_VALIDATOR.assertKnowsParentColumn(this);
 		
@@ -68,7 +68,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	
 	//method
 	@Override
-	public final IEntity<DataImplementation> getRefParentEntity() {
+	public final IEntity getRefParentEntity() {
 		
 		PROPERTY_VALIDATOR.assertBelongsToEntity(this);
 		
@@ -150,7 +150,7 @@ public abstract class Property implements IProperty<DataImplementation> {
 	abstract void internalSetOrClearDirectlyFromContent(Object content);
 	
 	//method
-	final void internalSetParentColumn(final IColumn<DataImplementation> parentColumn) {
+	final void internalSetParentColumn(final IColumn parentColumn) {
 		
 		GlobalValidator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
 		

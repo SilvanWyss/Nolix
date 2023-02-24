@@ -7,11 +7,11 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface IParametrizedPropertyTypeMapper<IMPL> {
+public interface IParametrizedPropertyTypeMapper {
 	
 	//method declaration
-	IParametrizedPropertyType<IMPL> createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
-		IProperty<?> property,
-		IContainer<ITable<IMPL>> referencableTables
+	IParametrizedPropertyType createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
+		IProperty property,
+		IContainer<ITable> referencableTables
 	);
 }

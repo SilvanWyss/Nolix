@@ -9,5 +9,5 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 public interface IReferenceValidator extends IPropertyValidator {
 	
 	//method declaration
-	void assertCanSetGivenEntity(IReference<?, ?> reference, IEntity<?> entity);
+	void assertCanSetGivenEntity(IReference<?> reference, IEntity entity);
 }

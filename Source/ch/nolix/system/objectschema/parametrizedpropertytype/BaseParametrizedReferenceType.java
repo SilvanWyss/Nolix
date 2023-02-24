@@ -15,13 +15,13 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO
 
 //class
 public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType
-implements IBaseParametrizedReferenceType<SchemaImplementation> {
+implements IBaseParametrizedReferenceType {
 	
 	//attribute
-	private final ITable<SchemaImplementation> referencedTable;
+	private final ITable referencedTable;
 	
 	//constructor
-	protected BaseParametrizedReferenceType(final ITable<SchemaImplementation> referencedTable) {
+	protected BaseParametrizedReferenceType(final ITable referencedTable) {
 		
 		super(DataType.STRING);
 		
@@ -32,37 +32,37 @@ implements IBaseParametrizedReferenceType<SchemaImplementation> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
 	//method
 	@Override
-	public ITable<SchemaImplementation> getReferencedTable() {
+	public ITable getReferencedTable() {
 		return referencedTable;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable<?> table) {
+	public final boolean referencesTable(final ITable table) {
 		return (getReferencedTable() == table);
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackColumn(final IColumn<?> column) {
+	public final boolean referencesBackColumn(final IColumn column) {
 		return false;
 	}
 	

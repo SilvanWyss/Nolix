@@ -8,15 +8,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //interface
-public interface IDatabaseAdapter<
-	DA extends IDatabaseAdapter<DA, IMPL>,
-	IMPL
->
+public interface IDatabaseAdapter<DA extends IDatabaseAdapter<DA>>
 extends EmptyCopyable<DA>, IMultiTimeChangeSaver {
 	
 	//method declaration
-	<E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableByEntityType(final Class<E> entityType);
+	<E extends IEntity> ITable<E> getRefTableByEntityType(final Class<E> entityType);
 	
 	//method declaration
-	<E extends IEntity<IMPL>> DA insert(E entity);
+	<E extends IEntity> DA insert(E entity);
 }

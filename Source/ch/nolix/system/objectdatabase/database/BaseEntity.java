@@ -25,7 +25,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class BaseEntity implements IEntity<DataImplementation> {
+public abstract class BaseEntity implements IEntity {
 	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
@@ -40,7 +40,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	private IEntityFlyWeight entityFlyweight = VoidEntityFlyWeight.INSTANCE;
 	
 	//optional attribute
-	private ITable<DataImplementation, IEntity<DataImplementation>> parentTable;
+	private ITable<IEntity> parentTable;
 	
 	//optional attribute
 	private String saveStamp;
@@ -77,13 +77,13 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	@Override
-	public final IDatabase<DataImplementation> getRefParentDatabase() {
+	public final IDatabase getRefParentDatabase() {
 		return getRefParentTable().getRefParentDatabase();
 	}
 	
 	//method
 	@Override
-	public final ITable<DataImplementation, IEntity<DataImplementation>> getRefParentTable() {
+	public final ITable<IEntity> getRefParentTable() {
 		
 		EntityValidator.INSTANCE.assertBelongsToTable(this);
 		
@@ -150,7 +150,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	@Override
-	public final IContainer<? extends IProperty<DataImplementation>> technicalGetRefProperties() {
+	public final IContainer<? extends IProperty> technicalGetRefProperties() {
 		return getRefProperties();
 	}
 	
@@ -230,7 +230,7 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	}
 	
 	//method
-	final void internalSetParentTable(final ITable<DataImplementation, IEntity<DataImplementation>> parentTable) {
+	final void internalSetParentTable(final ITable<IEntity> parentTable) {
 		
 		GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
@@ -316,14 +316,14 @@ public abstract class BaseEntity implements IEntity<DataImplementation> {
 	
 	//method
 	private void updateBackReferencingPropertyForDeletion(
-		final IProperty<DataImplementation> backReferencingProperty
+		final IProperty backReferencingProperty
 	) {
-		updateBackReferencingPropertyForDeletion((IBaseBackReference<DataImplementation, ?>)backReferencingProperty);
+		updateBackReferencingPropertyForDeletion((IBaseBackReference<?>)backReferencingProperty);
 	}
 	
 	//method
 	private void updateBackReferencingPropertyForDeletion(
-		final IBaseBackReference<DataImplementation, ?> baseBackReference
+		final IBaseBackReference<?> baseBackReference
 	) {
 		switch (baseBackReference.getType()) {
 			case BACK_REFERENCE:

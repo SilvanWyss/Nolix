@@ -9,14 +9,14 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
 public interface IDatabaseEngineHelper {
 	
 	//method declaration
-	void assertDoesNotContainDatabaseWithGivenName(IDatabaseEngine<?> databaseEngine, String name);
+	void assertDoesNotContainDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 	
 	//method declaration
-	boolean containsDatabaseWithGivenName(IDatabaseEngine<?> databaseEngine, String name);
+	boolean containsDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 	
 	//method declaration
-	int getDatabaseCount(IDatabaseEngine<?> databaseEngine);
+	int getDatabaseCount(IDatabaseEngine databaseEngine);
 	
 	//method declaration
-	<IMPL> IDatabase<IMPL> getRefDatabaseWithGivenName(IDatabaseEngine<IMPL> databaseEngine, String name);
+	 IDatabase getRefDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 }

@@ -41,7 +41,7 @@ public final class DatabaseSaveValidator {
 	
 	//method
 	private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
-		final IEntity<DataImplementation> entity,
+		final IEntity entity,
 		final Database database
 	) {
 		if (entityHelper.isNewOrEdited(entity)) {
@@ -51,7 +51,7 @@ public final class DatabaseSaveValidator {
 	
 	//method
 	private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(
-		final IEntity<DataImplementation> entity,
+		final IEntity entity,
 		final Database database
 	) {
 		for (final var p : entity.technicalGetRefProperties()) {
@@ -62,7 +62,7 @@ public final class DatabaseSaveValidator {
 	//method
 	private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
 		final Database database,
-		final IProperty<DataImplementation> property
+		final IProperty property
 	) {
 		if (propertyHelper.isNewOrEdited(property)) {
 			addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(property, database);
@@ -71,13 +71,13 @@ public final class DatabaseSaveValidator {
 	
 	//method
 	private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(
-			final IProperty<DataImplementation> property,
+			final IProperty property,
 			final Database database
 		) {
 		switch (property.getType()) {
 			case REFERENCE:
 				
-				final var reference = (IReference<?, ?>)property;
+				final var reference = (IReference<?>)property;
 											
 				database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 					reference.getReferencedTableName(),

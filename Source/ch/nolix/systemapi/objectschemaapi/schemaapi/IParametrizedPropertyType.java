@@ -7,16 +7,16 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //interface
-public interface IParametrizedPropertyType<IMPL> {
+public interface IParametrizedPropertyType {
 	
 	//method declaration
-	IBaseParametrizedBackReferenceType<IMPL> asBaseParametrizedBackReferenceType();
+	IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType();
 	
 	//method declaration
-	IBaseParametrizedReferenceType<IMPL> asBaseParametrizedReferenceType();
+	IBaseParametrizedReferenceType asBaseParametrizedReferenceType();
 	
 	//method declaration
-	IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType();
+	IBaseParametrizedValueType<?> asBaseParametrizedValueType();
 	
 	//method declaration
 	DataType getDataType();
@@ -25,10 +25,10 @@ public interface IParametrizedPropertyType<IMPL> {
 	PropertyType getPropertyType();
 	
 	//method declaration
-	boolean referencesTable(ITable<?> table);
+	boolean referencesTable(ITable table);
 	
 	//method declaration
-	boolean referencesBackColumn(IColumn<?> column);
+	boolean referencesBackColumn(IColumn column);
 	
 	//method declaration
 	IParametrizedPropertyTypeDTO toDTO();

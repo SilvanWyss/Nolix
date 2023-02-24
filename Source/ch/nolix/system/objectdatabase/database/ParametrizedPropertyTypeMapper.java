@@ -22,10 +22,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO
 final class ParametrizedPropertyTypeMapper {
 	
 	//method
-	public IParametrizedPropertyType<DataImplementation>
+	public IParametrizedPropertyType
 	createParametrizedPropertyTypeFromDTOUsingGivenReferencableTables(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyTypeDTO,
-		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		switch (parametrizedPropertyTypeDTO.getPropertyType()) {
 			case VALUE:

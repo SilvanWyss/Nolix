@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.independent.container;
 
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+
 //class
 /**
  * A {@link SingleContainer} is empty or stores 1 element.

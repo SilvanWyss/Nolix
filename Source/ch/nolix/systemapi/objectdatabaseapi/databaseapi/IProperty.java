@@ -12,22 +12,22 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //interface
-public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, MandatoryRequestable, Named {
+public interface IProperty extends EmptinessRequestable, IDatabaseObject, MandatoryRequestable, Named {
 	
 	//method declaration
 	boolean belongsToEntity();
 	
 	//method declaration
-	IContainer<IProperty<IMPL>> getRefBackReferencingProperties();
+	IContainer<IProperty> getRefBackReferencingProperties();
 	
 	//method
-	IColumn<IMPL> getRefParentColumn();
+	IColumn getRefParentColumn();
 	
 	//method declaration
-	IEntity<IMPL> getRefParentEntity();
+	IEntity getRefParentEntity();
 	
 	//method declaration
-	IContainer<IProperty<IMPL>> getRefReferencingProperties();
+	IContainer<IProperty> getRefReferencingProperties();
 	
 	//method declaration
 	PropertyType getType();
@@ -36,13 +36,13 @@ public interface IProperty<IMPL> extends EmptinessRequestable, IDatabaseObject, 
 	boolean knowsParentColumn();
 	
 	//method declaration
-	boolean referencesBackEntity(IEntity<?> entity);
+	boolean referencesBackEntity(IEntity entity);
 	
 	//method declaration
-	boolean referencesBackProperty(IProperty<?> property);
+	boolean referencesBackProperty(IProperty property);
 	
 	//method declaration
-	boolean referencesEntity(IEntity<?> entity);
+	boolean referencesEntity(IEntity entity);
 	
 	//method declaration
 	boolean referencesUninsertedEntity();

@@ -8,16 +8,15 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
 public abstract class BaseParametrizedValueType<
-	IMPL,
+
 	V
 >
-extends ParametrizedPropertyType<IMPL>
-implements IBaseParametrizedValueType<IMPL, V> {
+extends ParametrizedPropertyType
+implements IBaseParametrizedValueType<V> {
 	
 	//attribute
 	private final Class<V> valueType;
@@ -32,19 +31,19 @@ implements IBaseParametrizedValueType<IMPL, V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<IMPL, ?> asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<IMPL, ?> asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
 		return this;
 	}
 	
@@ -56,7 +55,7 @@ implements IBaseParametrizedValueType<IMPL, V> {
 	
 	//method
 	@Override
-	public final <E2 extends IEntity<IMPL>> boolean referencesTable(final ITable<IMPL, E2> table) {
+	public final boolean referencesTable(final ITable<?> table) {
 		return false;
 	}
 }

@@ -16,7 +16,7 @@ public final class PropertyBinderFactory {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <P extends IProperty<?>> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
+	public <P extends IProperty> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
 		return
 		switch (property.getType()) {
 			case VALUE ->

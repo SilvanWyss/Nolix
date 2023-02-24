@@ -3,10 +3,10 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
 public interface IBaseParametrizedBackReferenceType<
-	IMPL,
-	C extends IColumn<IMPL>
+
+	C extends IColumn
 >
-extends IParametrizedPropertyType<IMPL> {
+extends IParametrizedPropertyType {
 	
 	//method declaration
 	C getBackReferencedColumn();

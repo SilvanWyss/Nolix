@@ -10,14 +10,14 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 
 //class
-public final class MultiValueEntry<V> implements IMultiValueEntry<DataImplementation, V> {
+public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 	
 	//constant
 	private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
 	
 	//static method
 	public static <V2> MultiValueEntry<V2> loadedEntryForMultiValueAndValue(
-		final IMultiValue<DataImplementation, V2> multiValue,
+		final IMultiValue<V2> multiValue,
 		final V2 value
 	) {
 		return new MultiValueEntry<>(multiValue, DatabaseObjectState.LOADED, value);
@@ -25,14 +25,14 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<DataImplementa
 	
 	//static method
 	public static <V2> MultiValueEntry<V2> newEntryForMultiValueAndValue(
-		final IMultiValue<DataImplementation, V2> multiValue,
+		final IMultiValue<V2> multiValue,
 		final V2 value
 	) {
 		return new MultiValueEntry<>(multiValue, DatabaseObjectState.NEW, value);
 	}
 	
 	//attribute
-	private final IMultiValue<DataImplementation, V> parentMultiValue;
+	private final IMultiValue<V> parentMultiValue;
 	
 	//attribute
 	private DatabaseObjectState state;
@@ -42,7 +42,7 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<DataImplementa
 	
 	//constructor
 	private MultiValueEntry(
-		final IMultiValue<DataImplementation, V> parentMultiValue,
+		final IMultiValue<V> parentMultiValue,
 		final DatabaseObjectState initialState,
 		final V value
 	) {
@@ -58,7 +58,7 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<DataImplementa
 	
 	//method
 	@Override
-	public IMultiValue<DataImplementation, V> getRefParentMultiValue() {
+	public IMultiValue<V> getRefParentMultiValue() {
 		return parentMultiValue;
 	}
 	

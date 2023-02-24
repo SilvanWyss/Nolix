@@ -7,7 +7,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType implements IParametrizedPropertyType<SchemaImplementation> {
+public abstract class ParametrizedPropertyType implements IParametrizedPropertyType {
 	
 	//attribute
 	private final DataType dataType;

@@ -5,20 +5,20 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IParametrizedPropertyType<IMPL> {
+public interface IParametrizedPropertyType {
 	
 	//method declaration
-	IBaseParametrizedBackReferenceType<IMPL, ?> asBaseParametrizedBackReferenceType();
+	IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType();
 	
 	//method declaration
-	IBaseParametrizedReferenceType<IMPL, ?> asBaseParametrizedReferenceType();
+	IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType();
 	
 	//method declaration
-	IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType();
+	IBaseParametrizedValueType<?> asBaseParametrizedValueType();
 	
 	//method declaration
 	PropertyType getPropertyType();
 	
 	//method declaration
-	<E extends IEntity<IMPL>> boolean referencesTable(ITable<IMPL, E> table);
+	boolean referencesTable(ITable<?> table);
 }

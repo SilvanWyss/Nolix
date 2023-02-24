@@ -20,7 +20,7 @@ final class DatabaseTableLoader {
 	private static final ColumnMapper columnMapper = new ColumnMapper();
 	
 	//method
-	public LinkedList<Table<IEntity<DataImplementation>>> loadTablesForDatabase(final Database database) {
+	public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 		
 		final var rawTables = database.internalGetRefDataAndSchemaAdapter().loadTables();
 		
@@ -35,7 +35,7 @@ final class DatabaseTableLoader {
 	
 	//method
 	private void addBaseValueColumnsToTablesFromRawTables(
-		final IContainer<Table<IEntity<DataImplementation>>> tables,
+		final IContainer<Table<IEntity>> tables,
 		final IContainer<ITableDTO> rawTables
 	) {
 		for (final var t : tables) {
@@ -47,7 +47,7 @@ final class DatabaseTableLoader {
 	
 	//method
 	private void addBaseValueColumnsToTableFromRawTable(
-		final Table<IEntity<DataImplementation>> table,
+		final Table<IEntity> table,
 		final ITableDTO rawTable
 	) {
 		
@@ -73,9 +73,9 @@ final class DatabaseTableLoader {
 	
 	//method
 	private void addBaseReferenceColumnsToTablesFromRawTables(
-		final IContainer<Table<IEntity<DataImplementation>>> tables,
+		final IContainer<Table<IEntity>> tables,
 		final IContainer<ITableDTO> rawTables,
-		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		for (final var t : tables) {
 			final var tableName = t.getName();
@@ -86,9 +86,9 @@ final class DatabaseTableLoader {
 	
 	//method
 	private void addBaseReferenceColumnsToTableFromRawTable(
-		final Table<IEntity<DataImplementation>> table,
+		final Table<IEntity> table,
 		final ITableDTO rawTable,
-		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		
 		final var rawBaseReferenceColumns =
@@ -113,9 +113,9 @@ final class DatabaseTableLoader {
 	
 	//method
 	private void addBaseBackReferenceColumnsToTablesFromRawTables(
-		final IContainer<Table<IEntity<DataImplementation>>> tables,
+		final IContainer<Table<IEntity>> tables,
 		final IContainer<ITableDTO> rawTables,
-		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		for (final var t : tables) {
 			final var tableName = t.getName();
@@ -126,9 +126,9 @@ final class DatabaseTableLoader {
 	
 	//method
 	private void addBaseBackReferenceColumnsToTableFromRawTable(
-		final Table<IEntity<DataImplementation>> table,
+		final Table<IEntity> table,
 		final ITableDTO rawTable,
-		final IContainer<? extends ITable<DataImplementation, IEntity<DataImplementation>>> referencableTables
+		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		
 		final var rawBaseValueColumns =

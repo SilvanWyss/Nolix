@@ -6,7 +6,6 @@ import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
-import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
 import ch.nolix.system.sqlrawdata.dataandschemaadapter.MSSQLDatabaseAndSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
@@ -34,7 +33,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 		final String databaseName,
 		final String loginName,
 		final String loginPassword,
-		final ISchema<DataImplementation> schema
+		final ISchema schema
 	) {
 		this(
 			databaseName,
@@ -52,7 +51,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 	//constructor
 	private MSSQLDatabaseAdapter(
 		final String databaseName,
-		final ISchema<DataImplementation> schema,
+		final ISchema schema,
 		final SQLConnectionPool pSQLConnectionPool
 	) {
 		

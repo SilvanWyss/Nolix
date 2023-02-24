@@ -14,7 +14,7 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
 	//method
 	@Override
 	public void assertDoesNotContainDatabaseWithGivenName(
-		final IDatabaseEngine<?> databaseEngine,
+		final IDatabaseEngine databaseEngine,
 		final String name
 	) {
 		if (!containsDatabaseWithGivenName(databaseEngine, name)) {
@@ -29,7 +29,7 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
 	//method
 	@Override
 	public boolean containsDatabaseWithGivenName(
-		final IDatabaseEngine<?> databaseEngine,
+		final IDatabaseEngine databaseEngine,
 		final String name
 	) {
 		return databaseEngine.getRefDatabases().containsAny(db -> db.hasName(name));
@@ -37,14 +37,14 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
 	
 	//method
 	@Override
-	public int getDatabaseCount(final IDatabaseEngine<?> databaseEngine) {
+	public int getDatabaseCount(final IDatabaseEngine databaseEngine) {
 		return databaseEngine.getRefDatabases().getElementCount();
 	}
 	
 	//method
 	@Override
-	public <IMPL> IDatabase<IMPL> getRefDatabaseWithGivenName(
-		final IDatabaseEngine<IMPL> databaseEngine,
+	public  IDatabase getRefDatabaseWithGivenName(
+		final IDatabaseEngine databaseEngine,
 		final String name
 	) {
 		return databaseEngine.getRefDatabases().getRefFirst(db -> db.hasName(name));

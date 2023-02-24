@@ -13,7 +13,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	
 	//method
 	@Override
-	public boolean canSetGivenValue(final IValue<?, ?> value, final Object valueToSet) {
+	public boolean canSetGivenValue(final IValue<?> value, final Object valueToSet) {
 		return
 		canSetValue(value)
 		&& valueToSet != null;
@@ -21,7 +21,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForSetValue(final IValue<?, ?> value, final Object setValue) {
+	public IEntityUpdateDTO createEntityUpdateDTOForSetValue(final IValue<?> value, final Object setValue) {
 		
 		final var parentEntity = value.getRefParentEntity();
 		
@@ -34,7 +34,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	}
 	
 	//method
-	private boolean canSetValue(final IValue<?, ?> value) {
+	private boolean canSetValue(final IValue<?> value) {
 		return
 		value != null
 		&& value.isOpen();

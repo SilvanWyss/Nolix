@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class PropertyBinder<P extends IProperty<?>, W extends IControl<?, ?>> {
+public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, ?>> {
 	
 	//method
 	public final PropertyBinding bindControlWithProperty(final W control, final P property) {

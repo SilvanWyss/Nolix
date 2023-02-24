@@ -13,44 +13,44 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public interface IColumnHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	void assertBelongsToTable(IColumn<?> column);
+	void assertBelongsToTable(IColumn column);
 	
 	//method declaration
-	void assertDoesNotBelongToTable(IColumn<?> column);
+	void assertDoesNotBelongToTable(IColumn column);
 	
 	//method declaration
-	void assertIsABackReferenceColumn(IColumn<?> column);
+	void assertIsABackReferenceColumn(IColumn column);
 	
 	//method declaration
-	void assertIsAReferenceColumn(IColumn<?> column);
+	void assertIsAReferenceColumn(IColumn column);
 	
 	//method declaration
-	boolean belongsToDatabase(IColumn<?> column);
+	boolean belongsToDatabase(IColumn column);
 	
 	//method declaration
-	BasePropertyType getBasePropertyType(IColumn<?> column);
+	BasePropertyType getBasePropertyType(IColumn column);
 	
 	//method declaration
-	<IMPL> IDatabase<IMPL> getParentDatabase(IColumn<IMPL> column);
+	 IDatabase getParentDatabase(IColumn column);
 	
 	//method declaration
-	PropertyType getPropertyType(IColumn<?> column);
+	PropertyType getPropertyType(IColumn column);
 	
 	//method declaration
-	boolean isABackReferenceColumn(IColumn<?> column);
+	boolean isABackReferenceColumn(IColumn column);
 	
 	//method declaration
-	boolean isAReferenceColumn(IColumn<?> column);
+	boolean isAReferenceColumn(IColumn column);
 	
 	//method declaration
-	boolean isAValidBackReferenceColumn(IColumn<?> column);
+	boolean isAValidBackReferenceColumn(IColumn column);
 	
 	//method declaration
-	boolean isAValueColumn(IColumn<?> column);
+	boolean isAValueColumn(IColumn column);
 	
 	//method declaration
-	boolean referencesBackGivenColumn(IColumn<?> column, IColumn<?> probableBackReferencedColumn);
+	boolean referencesBackGivenColumn(IColumn column, IColumn probableBackReferencedColumn);
 	
 	//method declaration
-	boolean referencesGivenTable(IColumn<?> column, ITable<?> table);
+	boolean referencesGivenTable(IColumn column, ITable table);
 }

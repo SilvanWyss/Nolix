@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public final class ParametrizedMultiReferenceType extends BaseParametrizedReferenceType {
 	
 	//constructor
-	public ParametrizedMultiReferenceType(final ITable<SchemaImplementation> referencedTable) {
+	public ParametrizedMultiReferenceType(final ITable referencedTable) {
 		super(referencedTable);
 	}
 	

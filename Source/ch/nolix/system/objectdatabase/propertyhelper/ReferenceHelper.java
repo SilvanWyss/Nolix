@@ -15,7 +15,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public boolean canSetGivenEntity(final IReference<?, ?> reference, final IEntity<?> entity) {
+	public boolean canSetGivenEntity(final IReference<?> reference, final IEntity entity) {
 		return
 		canSetEntity(reference)
 		&& entity != null
@@ -26,8 +26,8 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	//method
 	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForSetEntity(
-		final IReference<?, ?> reference,
-		final IEntity<?> entity
+		final IReference<?> reference,
+		final IEntity entity
 	) {
 		
 		final var parentEntity = reference.getRefParentEntity();
@@ -41,7 +41,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(final IReference<IMPL, ?> reference) {
+	public  IProperty getRefBackReferencingPropertyOrNull(final IReference<?> reference) {
 		return
 		reference
 		.getReferencedEntity()
@@ -50,7 +50,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	}
 	
 	//method
-	private boolean canSetEntity(final IReference<?, ?> reference) {
+	private boolean canSetEntity(final IReference<?> reference) {
 		return
 		reference != null
 		&& reference.belongsToEntity()

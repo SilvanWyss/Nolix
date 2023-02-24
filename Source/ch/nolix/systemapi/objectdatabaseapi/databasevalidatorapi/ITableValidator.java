@@ -9,5 +9,5 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public interface ITableValidator {
 	
 	//method declaration	
-	void assertCanInsertGivenEntity(ITable<?, ?> table, IEntity<?> entity);
+	void assertCanInsertGivenEntity(ITable<?> table, IEntity entity);
 }

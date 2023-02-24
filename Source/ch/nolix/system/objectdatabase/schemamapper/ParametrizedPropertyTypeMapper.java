@@ -14,7 +14,6 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptiona
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiBackReference;
@@ -29,17 +28,17 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParametrizedPropertyTypeMapper implements IParametrizedPropertyTypeMapper<SchemaImplementation> {
+public final class ParametrizedPropertyTypeMapper implements IParametrizedPropertyTypeMapper {
 	
 	//static attribute
 	private static final IPropertyHelper propertyHelper = new PropertyHelper();
 	
 	//method
 	@Override
-	public IParametrizedPropertyType<SchemaImplementation>
+	public IParametrizedPropertyType
 	createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
-		final IProperty<?> property,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+		final IProperty property,
+		final IContainer<ITable> referencableTables
 	) {
 		switch (property.getType()) {
 			case VALUE:
@@ -50,7 +49,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				return new ParametrizedMultiValueType<>(DataType.forType(propertyHelper.getDataType(property)));
 			case REFERENCE:
 										
-				final var reference = (IReference<?, ?>)property;
+				final var reference = (IReference<?>)property;
 				
 				return
 				new ParametrizedReferenceType(
@@ -58,7 +57,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				);
 			case OPTIONAL_REFERENCE:
 				
-				final var optionalReference = (IOptionalReference<?, ?>)property;
+				final var optionalReference = (IOptionalReference<?>)property;
 				
 				return
 				new ParametrizedOptionalReferenceType(
@@ -66,7 +65,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				);
 			case MULTI_REFERENCE:
 				
-				final var multiReference = (IMultiReference<?, ?>)property;
+				final var multiReference = (IMultiReference<?>)property;
 				
 				return
 				new ParametrizedMultiReferenceType(
@@ -74,7 +73,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				);
 			case BACK_REFERENCE:
 				
-				final var backReference = (IBackReference<?, ?>)property;
+				final var backReference = (IBackReference<?>)property;
 				
 				return
 				new ParametrizedBackReferenceType(
@@ -85,7 +84,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				);
 			case OPTIONAL_BACK_REFERENCE:
 				
-				final var optionalBackReference = (IOptionalBackReference<?, ?>)property;
+				final var optionalBackReference = (IOptionalBackReference<?>)property;
 				
 				return
 				new ParametrizedOptionalBackReferenceType(
@@ -96,7 +95,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				);
 			case MULTI_BACK_REFERENCE:
 				
-				final var multiBackReference = (IMultiBackReference<?, ?>)property;
+				final var multiBackReference = (IMultiBackReference<?>)property;
 				
 				return
 				new ParametrizedMultiBackReferenceType(

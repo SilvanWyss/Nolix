@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
@@ -49,7 +48,7 @@ final class ColumnMutationValidator {
 	//method
 	public void assertCanSetParametrizedPropertyTypeToColumn(
 		final Column column,
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		
 		columnHelper.assertIsOpen(column);

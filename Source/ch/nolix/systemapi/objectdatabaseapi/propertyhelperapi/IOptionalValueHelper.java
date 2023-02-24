@@ -9,8 +9,8 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IOptionalValueHelper extends IPropertyHelper {
 	
 	//method declaration
-	boolean canSetGivenValue(IOptionalValue<?, ?> optionalValue, Object value);
+	boolean canSetGivenValue(IOptionalValue<?> optionalValue, Object value);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForSetValue(IOptionalValue<?, ?> optionalValue, Object value);
+	IEntityUpdateDTO createEntityUpdateDTOForSetValue(IOptionalValue<?> optionalValue, Object value);
 }

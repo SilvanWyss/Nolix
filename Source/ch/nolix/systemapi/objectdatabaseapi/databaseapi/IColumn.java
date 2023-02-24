@@ -7,13 +7,13 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IColumn<IMPL> extends IDatabaseObject, Identified, Named {
+public interface IColumn extends IDatabaseObject, Identified, Named {
 	
 	//method declaration
-	IParametrizedPropertyType<IMPL> getParametrizedPropertyType();
+	IParametrizedPropertyType getParametrizedPropertyType();
 	
 	//method declaration
-	ITable<IMPL, IEntity<IMPL>> getRefParentTable();
+	ITable<IEntity> getRefParentTable();
 	
 	//method
 	boolean technicalContainsGivenValueInPersistedData(String value);

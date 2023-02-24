@@ -11,8 +11,8 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseReference<E extends IEntity<DataImplementation>> extends Property
-implements IBaseReference<DataImplementation, E> {
+public abstract class BaseReference<E extends IEntity> extends Property
+implements IBaseReference<E> {
 	
 	//attribute
 	private final String referencedTableName;
@@ -30,7 +30,7 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final ITable<DataImplementation, E> getReferencedTable() {
+	public final ITable<E> getReferencedTable() {
 		
 		extractReferencedTableIfNotExtracted();
 		
@@ -45,19 +45,19 @@ implements IBaseReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public final IContainer<IProperty<DataImplementation>> getRefReferencingProperties() {
+	public final IContainer<IProperty> getRefReferencingProperties() {
 		return new ImmutableList<>();
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackEntity(final IEntity<?> entity) {
+	public final boolean referencesBackEntity(final IEntity entity) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public boolean referencesBackProperty(final IProperty<?> property) {
+	public boolean referencesBackProperty(final IProperty property) {
 		return false;
 	}
 	

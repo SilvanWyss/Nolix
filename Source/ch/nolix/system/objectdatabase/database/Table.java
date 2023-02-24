@@ -18,7 +18,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 
 //class
-public final class Table<E extends IEntity<DataImplementation>> implements ITable<DataImplementation, E> {
+public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
@@ -27,7 +27,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private static final EntityMapper entityMapper = new EntityMapper();
 	
 	//static method
-	static <E2 extends IEntity<DataImplementation>> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
+	static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
 		final Database parentDatabase,
 		final String name,
 		final String id,
@@ -49,14 +49,14 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	private final Class<E> entityClass;
 	
 	//attribute
-	private final CachingProperty<IContainer<IColumn<DataImplementation>>> columnsThatReferenceCurrentTable =
+	private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable =
 	new CachingProperty<>(() -> tableHelper.getColumsThatReferenceGivenTable(this));
 	
 	//attribute
 	private boolean loadedAllEntitiesInLocalData;
 	
 	//multi-attribute
-	private final LinkedList<IColumn<DataImplementation>> columns = new LinkedList<>();
+	private final LinkedList<IColumn> columns = new LinkedList<>();
 	
 	//multi-attribute
 	private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
@@ -100,7 +100,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public IContainer<IColumn<DataImplementation>> getRefColumns() {
+	public IContainer<IColumn> getRefColumns() {
 		return columns;
 	}
 	
@@ -143,7 +143,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public IDatabase<DataImplementation> getRefParentDatabase() {
+	public IDatabase getRefParentDatabase() {
 		return parentDatabase;
 	}
 	
@@ -155,10 +155,10 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	
 	//method
 	@Override
-	public ITable<DataImplementation, E> insertEntity(final E entity) {
+	public ITable<E> insertEntity(final E entity) {
 		
 		@SuppressWarnings("unchecked")
-		final var table = (ITable<DataImplementation, IEntity<DataImplementation>>)this;
+		final var table = (ITable<IEntity>)this;
 		
 		//The inserted Entity must know its Table to be inserted.
 		((BaseEntity)entity).internalSetParentTable(table);
@@ -195,7 +195,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	void internalAddColumn(final IColumn<DataImplementation> column) {
+	void internalAddColumn(final IColumn column) {
 		columns.addAtEnd(column);
 	}
 		
@@ -206,7 +206,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	IContainer<IColumn<DataImplementation>> internalGetColumnsThatReferencesCurrentTable() {
+	IContainer<IColumn> internalGetColumnsThatReferencesCurrentTable() {
 		return columnsThatReferenceCurrentTable.getValue();
 	}
 	
@@ -226,7 +226,7 @@ public final class Table<E extends IEntity<DataImplementation>> implements ITabl
 	}
 	
 	//method
-	void internalSetColumns(final IContainer<IColumn<DataImplementation>> columns) {
+	void internalSetColumns(final IContainer<IColumn> columns) {
 		this.columns.clear();
 		this.columns.addAtEnd(columns);
 	}

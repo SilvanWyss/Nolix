@@ -5,7 +5,6 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.schemamapper.ColumnMapper;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
@@ -18,19 +17,19 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public final class SchemaInitializer {
 	
 	//static attribute
-	private static final ITableMapper<SchemaImplementation> tableMapper =
+	private static final ITableMapper tableMapper =
 	new ch.nolix.system.objectdatabase.schemamapper.TableMapper();
 	
 	//static attribute
 	private static final EntityCreator entityCreator = new EntityCreator();
 	
 	//static attribute
-	private static final IColumnMapper<SchemaImplementation> columnMapper = new ColumnMapper();
+	private static final IColumnMapper columnMapper = new ColumnMapper();
 	
 	//method
 	public void initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
-		final ISchema<DataImplementation> schema,
-		final ISchemaAdapter<SchemaImplementation> schemaAdapter
+		final ISchema schema,
+		final ISchemaAdapter schemaAdapter
 	) {
 		if (databaseIsEmpty(schemaAdapter)) {
 			initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(schema, schemaAdapter);
@@ -38,14 +37,14 @@ public final class SchemaInitializer {
 	}
 	
 	//method
-	private boolean databaseIsEmpty(final ISchemaAdapter<SchemaImplementation> schemaAdapter) {
+	private boolean databaseIsEmpty(final ISchemaAdapter schemaAdapter) {
 		return (schemaAdapter.getTableCount() == 0);
 	}
 	
 	//method
 	private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
-		final ISchema<DataImplementation> schema,
-		final ISchemaAdapter<SchemaImplementation> schemaAdapter
+		final ISchema schema,
+		final ISchemaAdapter schemaAdapter
 	) {
 		
 		final var tables = tableMapper.createEmptyTablesFromSchema(schema);
@@ -61,8 +60,8 @@ public final class SchemaInitializer {
 	
 	//method
 	private void addBaseValueColumnsToTablesFromSchema(
-		final IContainer<ITable<SchemaImplementation>> tables,
-		final ISchema<DataImplementation> schema
+		final IContainer<ITable> tables,
+		final ISchema schema
 	) {
 		for (final var t : tables) {
 			final var entityType = schema.getEntityTypeByName(t.getName());
@@ -72,8 +71,8 @@ public final class SchemaInitializer {
 	
 	//method
 	private void addBaseValueColumnsToTableFromEntityType(
-		final ITable<SchemaImplementation> table,
-		final Class<? extends IEntity<DataImplementation>> entityType
+		final ITable table,
+		final Class<? extends IEntity> entityType
 	) {
 		
 		final var entity = entityCreator.createEmptyEntityOf(entityType);
@@ -94,9 +93,9 @@ public final class SchemaInitializer {
 	
 	//method
 	private void addBaseReferenceColumnsToTablesFromSchema(
-		final IContainer<ITable<SchemaImplementation>> tables,
-		final ISchema<DataImplementation> schema,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+		final IContainer<ITable> tables,
+		final ISchema schema,
+		final IContainer<ITable> referencableTables
 	) {
 		for (final var t : tables) {
 			final var entityType = schema.getEntityTypeByName(t.getName());
@@ -106,9 +105,9 @@ public final class SchemaInitializer {
 	
 	//method
 	private void addBaseReferenceColumnsToTableFromEntityType(
-		final ITable<SchemaImplementation> table,
-		final Class<? extends IEntity<DataImplementation>> entityType,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+		final ITable table,
+		final Class<? extends IEntity> entityType,
+		final IContainer<ITable> referencableTables
 	) {
 		
 		final var entity = entityCreator.createEmptyEntityOf(entityType);
@@ -129,9 +128,9 @@ public final class SchemaInitializer {
 	
 	//method
 	private void addBaseBackReferenceColumnsToTablesFromSchema(
-		final IContainer<ITable<SchemaImplementation>> tables,
-		final ISchema<DataImplementation> schema,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+		final IContainer<ITable> tables,
+		final ISchema schema,
+		final IContainer<ITable> referencableTables
 	) {
 		for (final var t : tables) {
 			final var entityType = schema.getEntityTypeByName(t.getName());
@@ -141,9 +140,9 @@ public final class SchemaInitializer {
 	
 	//method
 	private void addBaseBackReferenceColumnsToTableFromEntityType(
-		final ITable<SchemaImplementation> table,
-		final Class<? extends IEntity<DataImplementation>> entityType,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+		final ITable table,
+		final Class<? extends IEntity> entityType,
+		final IContainer<ITable> referencableTables
 	) {
 		
 		final var entity = entityCreator.createEmptyEntityOf(entityType);

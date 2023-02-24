@@ -15,15 +15,15 @@ final class EntityMapper {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity<DataImplementation>> E createLoadedEntityFromDTO(
+	public <E extends IEntity> E createLoadedEntityFromDTO(
 		final ILoadedEntityDTO loadedEntityDTO,
-		final ITable<DataImplementation, E> table
+		final ITable<E> table
 	) {
 		
 		final var loadedEntity = entityCreator.createEmptyEntityFor(table);
 		
 		final var concreteEntity = (BaseEntity)loadedEntity;
-		concreteEntity.internalSetParentTable((ITable<DataImplementation, IEntity<DataImplementation>>)table);
+		concreteEntity.internalSetParentTable((ITable<IEntity>)table);
 		concreteEntity.internalSetLoaded();
 		addDataToEntityFromLoadedEntityDTO(loadedEntityDTO, concreteEntity);
 		

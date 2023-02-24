@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class Value<V> extends BaseValue<V> implements IValue<DataImplementation, V> {
+public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	
 	//static attribute
 	private static final IValueHelper valueHelper = new ValueHelper();

@@ -11,11 +11,11 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 public interface IReferenceHelper extends IPropertyHelper {
 	
 	//method declaration
-	boolean canSetGivenEntity(final IReference<?, ?> reference, IEntity<?> entity);
+	boolean canSetGivenEntity(final IReference<?> reference, IEntity entity);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IReference<?, ?> reference, IEntity<?> entity);
+	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IReference<?> reference, IEntity entity);
 	
 	//method declaration
-	<IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(IReference<IMPL, ?> reference);
+	 IProperty getRefBackReferencingPropertyOrNull(IReference<?> reference);
 }

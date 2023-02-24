@@ -28,7 +28,7 @@ public final class EntityValidator implements IEntityValidator {
 	
 	//method
 	@Override
-	public void assertBelongsToTable(final IEntity<?> entity) {
+	public void assertBelongsToTable(final IEntity entity) {
 		if (!entity.belongsToTable()) {
 			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(entity, ITable.class);
 		}
@@ -36,7 +36,7 @@ public final class EntityValidator implements IEntityValidator {
 	
 	//method
 	@Override
-	public void assertCanBeDeleted(final IEntity<?> entity) {
+	public void assertCanBeDeleted(final IEntity entity) {
 		if (!entityHelper.canBeDeleted(entity)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be deleted");
 		}
@@ -44,7 +44,7 @@ public final class EntityValidator implements IEntityValidator {
 	
 	//method
 	@Override
-	public void assertDoesNotBelongToTable(final IEntity<?> entity) {
+	public void assertDoesNotBelongToTable(final IEntity entity) {
 		if (entity.belongsToTable()) {
 			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getRefParentTable());
 		}
@@ -52,7 +52,7 @@ public final class EntityValidator implements IEntityValidator {
 	
 	//method
 	@Override
-	public void assertHasSaveStamp(final IEntity<?> entity) {
+	public void assertHasSaveStamp(final IEntity entity) {
 		if (!entity.hasSaveStamp()) {
 			throw
 			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseCatalogue.SAVE_STAMP);
@@ -61,7 +61,7 @@ public final class EntityValidator implements IEntityValidator {
 	
 	//method
 	@Override
-	public void assertIsNotReferenced(final IEntity<?> entity) {
+	public void assertIsNotReferenced(final IEntity entity) {
 		if (entityHelper.isReferenced(entity)) {
 			throw ReferencedArgumentException.forArgument(entity);
 		}

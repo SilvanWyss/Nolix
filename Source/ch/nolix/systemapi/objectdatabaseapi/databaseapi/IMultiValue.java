@@ -6,16 +6,16 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
 public interface IMultiValue<
-	IMPL,
+
 	V
 >
-extends Clearable, IBaseValue<IMPL, V> {
+extends Clearable, IBaseValue<V> {
 	
 	//method declaration
 	void addValue(V value);
 	
 	//method declaration
-	IContainer<? extends IMultiValueEntry<IMPL, V>> getRefLocalEntries();
+	IContainer<? extends IMultiValueEntry<V>> getRefLocalEntries();
 	
 	//method declaration
 	IContainer<V> getRefValues();

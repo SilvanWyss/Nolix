@@ -10,20 +10,20 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 
 //interface
-public interface IColumn<IMPL>
-extends Deletable, EmptinessRequestable, IDatabaseObject, Identified, FluentNameable<IColumn<IMPL>> {
+public interface IColumn
+extends Deletable, EmptinessRequestable, IDatabaseObject, Identified, FluentNameable<IColumn> {
 	
 	//method declaration
 	boolean belongsToTable();
 	
 	//method declaration
-	IParametrizedPropertyType<IMPL> getParametrizedPropertyType();
+	IParametrizedPropertyType getParametrizedPropertyType();
 	
 	//method declaration
-	ITable<IMPL> getParentTable();
+	ITable getParentTable();
 	
 	//method declaration
-	IColumn<IMPL> setParametrizedPropertyType(IParametrizedPropertyType<IMPL> parametrizedPropertyType);
+	IColumn setParametrizedPropertyType(IParametrizedPropertyType parametrizedPropertyType);
 	
 	//method declaration
 	IColumnDTO toDTO();

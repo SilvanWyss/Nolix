@@ -14,7 +14,6 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptiona
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
@@ -26,7 +25,7 @@ public final class ParametrizedPropertyTypeMapper {
 	//method
 	public ParametrizedPropertyType createParametrizedPropertyTypeFromDTO(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
-		final IContainer<ITable<SchemaImplementation>> tables
+		final IContainer<ITable> tables
 	) {
 		switch (parametrizedPropertyType.getPropertyType()) {
 			case VALUE:
@@ -73,7 +72,7 @@ public final class ParametrizedPropertyTypeMapper {
 	//method
 	private Column getRefBackReferencedColumnFromParametrizedPropertyType(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
-		final IContainer<ITable<SchemaImplementation>> tables
+		final IContainer<ITable> tables
 	) {
 		
 		final var baseParametrizedBackReferenceType = (IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType;
@@ -84,9 +83,9 @@ public final class ParametrizedPropertyTypeMapper {
 	}
 	
 	//method
-	private ITable<SchemaImplementation> getRefReferencedTableFromParametrizedPropertyType(
+	private ITable getRefReferencedTableFromParametrizedPropertyType(
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
-		final IContainer<ITable<SchemaImplementation>> tables
+		final IContainer<ITable> tables
 	) {
 		
 		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType;

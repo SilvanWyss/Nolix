@@ -14,8 +14,8 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValida
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class BackReference<E extends IEntity<DataImplementation>> extends BaseBackReference<E>
-implements IBackReference<DataImplementation, E>{
+public final class BackReference<E extends IEntity> extends BaseBackReference<E>
+implements IBackReference<E>{
 	
 	//constant
 	private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
@@ -46,7 +46,7 @@ implements IBackReference<DataImplementation, E>{
 	
 	//method
 	@Override
-	public IContainer<IProperty<DataImplementation>> getRefReferencingProperties() {
+	public IContainer<IProperty> getRefReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
@@ -93,7 +93,7 @@ implements IBackReference<DataImplementation, E>{
 	
 	//method
 	@Override
-	public boolean referencesBackEntity(final IEntity<?> entity) {
+	public boolean referencesBackEntity(final IEntity entity) {
 		return
 		containsAny()
 		&& entity != null

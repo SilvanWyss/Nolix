@@ -6,10 +6,10 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
 public final class ParametrizedValueType<
-	IMPL,
+
 	V
 >
-extends BaseParametrizedValueType<IMPL, V> {
+extends BaseParametrizedValueType<V> {
 	
 	//constructor
 	public ParametrizedValueType(final Class<V> valueType) {

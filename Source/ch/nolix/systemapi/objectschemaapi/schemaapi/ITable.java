@@ -11,33 +11,33 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 
 //interface
-public interface ITable<IMPL>
+public interface ITable
 extends
 Deletable,
 IDatabaseObject,
 Identified,
-FluentNameable<ITable<IMPL>> {
+FluentNameable<ITable> {
 	
 	//method declaration
-	ITable<IMPL> addColumn(IColumn<IMPL> column);
+	ITable addColumn(IColumn column);
 	
 	//method declaration
 	boolean belongsToDatabase();
 	
 	//method declaration
-	ITable<IMPL> createColumnWithNameAndParametrizedPropertyType(
+	ITable createColumnWithNameAndParametrizedPropertyType(
 		String name,
-		IParametrizedPropertyType<IMPL> parametrizedPropertyType
+		IParametrizedPropertyType parametrizedPropertyType
 	);
 	
 	//method declaration
 	IFlatTableDTO getFlatDTO();
 	
 	//method declaration
-	IDatabase<IMPL> getParentDatabase();
+	IDatabase getParentDatabase();
 	
 	//method declarations
-	IContainer<IColumn<IMPL>> getRefColumns();
+	IContainer<IColumn> getRefColumns();
 	
 	//method declaration
 	ITableDTO toDTO();

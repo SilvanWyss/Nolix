@@ -4,7 +4,6 @@ package ch.nolix.system.objectdatabase.databaseadapter;
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.databaseandschemaadapter.DataAndSchemaAdapter;
-import ch.nolix.system.objectdatabase.database.DataImplementation;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
@@ -24,7 +23,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	NodeDatabaseAdapter(
 		final String databaseName,
 		final IMutableNode<?> nodeDatabase, 
-		final ISchema<DataImplementation> schema
+		final ISchema schema
 	) {
 		
 		super(

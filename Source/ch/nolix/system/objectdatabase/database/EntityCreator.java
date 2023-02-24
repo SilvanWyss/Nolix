@@ -10,12 +10,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public final class EntityCreator {
 	
 	//method
-	public <E extends IEntity<DataImplementation>> E createEmptyEntityFor(final ITable<DataImplementation, E> table) {
+	public <E extends IEntity> E createEmptyEntityFor(final ITable<E> table) {
 		return createEmptyEntityOf(table.getEntityType());
 	}
 	
 	//method
-	public <E extends IEntity<DataImplementation>> E createEmptyEntityOf(final Class<E> entityType) {
+	public <E extends IEntity> E createEmptyEntityOf(final Class<E> entityType) {
 		return GlobalClassHelper.createInstanceFromDefaultConstructorOf(entityType);
 	}
 }

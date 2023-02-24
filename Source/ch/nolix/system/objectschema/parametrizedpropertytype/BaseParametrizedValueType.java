@@ -14,7 +14,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO
 
 //class
 public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType
-implements IBaseParametrizedValueType<SchemaImplementation, V> {
+implements IBaseParametrizedValueType<V> {
 	
 	//constructor
 	protected BaseParametrizedValueType(final DataType dataType) {
@@ -23,31 +23,31 @@ implements IBaseParametrizedValueType<SchemaImplementation, V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable<?> table) {
+	public final boolean referencesTable(final ITable table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackColumn(final IColumn<?> column) {
+	public final boolean referencesBackColumn(final IColumn column) {
 		return false;
 	}
 	

@@ -8,16 +8,16 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //interface
-public interface IDatabase<IMPL> extends IDatabaseObject, Named {
+public interface IDatabase extends IDatabaseObject, Named {
 	
 	//method declaration
-	IDatabase<IMPL> addTable(ITable<IMPL> table);
+	IDatabase addTable(ITable table);
 	
 	//method declaration
-	IDatabase<IMPL> createTableWithName(String name);
+	IDatabase createTableWithName(String name);
 	
 	//method declaration
-	IContainer<ITable<IMPL>> getRefTables();
+	IContainer<ITable> getRefTables();
 	
 	//method declaration
 	int getTableCount();

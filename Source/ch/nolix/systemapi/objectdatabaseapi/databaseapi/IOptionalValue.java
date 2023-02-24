@@ -6,10 +6,10 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
 public interface IOptionalValue<
-	IMPL,
+
 	V
 >
-extends Clearable, IBaseValue<IMPL, V> {
+extends Clearable, IBaseValue<V> {
 	
 	//method declaration
 	V getRefValue();

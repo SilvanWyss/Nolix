@@ -9,8 +9,8 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface ITable<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
 extends IDatabaseObject, Identified, Named {
 	
@@ -24,7 +24,7 @@ extends IDatabaseObject, Identified, Named {
 	Class<E> getEntityType();
 	
 	//method declaration
-	IContainer<IColumn<IMPL>> getRefColumns();
+	IContainer<IColumn> getRefColumns();
 	
 	//method declaration
 	IContainer<E> getRefEntities();
@@ -33,10 +33,10 @@ extends IDatabaseObject, Identified, Named {
 	E getRefEntityById(String id);
 	
 	//method declaration
-	IDatabase<IMPL> getRefParentDatabase();
+	IDatabase getRefParentDatabase();
 	
 	//method declaration
-	ITable<IMPL, E> insertEntity(E entity);
+	ITable<E> insertEntity(E entity);
 	
 	//method declaration
 	IContainer<E> technicalGetRefEntitiesInLocalData();

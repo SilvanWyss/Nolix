@@ -4,8 +4,8 @@ package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface

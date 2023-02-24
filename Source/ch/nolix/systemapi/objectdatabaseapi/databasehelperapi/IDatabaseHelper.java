@@ -11,17 +11,17 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean allNewAndEditedMandatoryPropertiesAreSet(IDatabase<?> database);
+	boolean allNewAndEditedMandatoryPropertiesAreSet(IDatabase database);
 	
 	//method declaration
-	boolean canSaveChanges(IDatabase<?> database);
+	boolean canSaveChanges(IDatabase database);
 	
 	//method declaration
-	<IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(IDatabase<IMPL> database);
+	 IContainer<IEntity> getRefEntitiesInLocalData(IDatabase database);
 	
 	//method declaration
-	<IMPL, E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableForGivenEntity(IDatabase<IMPL> database, E entity);
+	<E extends IEntity> ITable<E> getRefTableForGivenEntity(IDatabase database, E entity);
 	
 	//method declaration
-	boolean hasChanges(IDatabase<?> database);
+	boolean hasChanges(IDatabase database);
 }

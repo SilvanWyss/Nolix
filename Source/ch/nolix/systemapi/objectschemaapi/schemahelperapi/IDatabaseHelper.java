@@ -11,65 +11,65 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean allBackReferencesAreValid(IDatabase<?> database);
+	boolean allBackReferencesAreValid(IDatabase database);
 	
 	//method declaration
-	void assertAllBackReferencesAreValid(IDatabase<?> database);
+	void assertAllBackReferencesAreValid(IDatabase database);
 	
 	//method declaration
-	void assertCanAddGivenTable(IDatabase<?> database, ITable<?> table);
+	void assertCanAddGivenTable(IDatabase database, ITable table);
 	
 	//method declaration
 	void assertCanSetGivenNameToDatabase(String name);
 	
 	//method declaration
-	void assertContainsGivenTable(IDatabase<?> database, ITable<?> table);
+	void assertContainsGivenTable(IDatabase database, ITable table);
 	
 	//method declaration
-	void assertContainsTableReferencedByGivenColumn(IDatabase<?> database, IColumn<?> column);
+	void assertContainsTableReferencedByGivenColumn(IDatabase database, IColumn column);
 	
 	//method declaration
-	void assertContainsTableWithColumnBackReferencedByGivenColumn(IDatabase<?> database, IColumn<?> column);
+	void assertContainsTableWithColumnBackReferencedByGivenColumn(IDatabase database, IColumn column);
 	
 	//method declaration
-	void assertContainsTableWithGivenColumn(IDatabase<?> database, IColumn<?> column);
+	void assertContainsTableWithGivenColumn(IDatabase database, IColumn column);
 	
 	//method declaration
-	void assertDoesNotContainTableWithGivenName(IDatabase<?> database, String name);
+	void assertDoesNotContainTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
-	boolean canAddGivenTable(IDatabase<?> database, ITable<?> table);
+	boolean canAddGivenTable(IDatabase database, ITable table);
 	
 	//method declaration
-	boolean canAddTable(IDatabase<?> database);
+	boolean canAddTable(IDatabase database);
 	
 	//method declaration
 	boolean canSetGivenNameToDatabase(String name);
 	
 	//method declaration
-	boolean containsGivenTable(IDatabase<?> database, ITable<?> table);
+	boolean containsGivenTable(IDatabase database, ITable table);
 	
 	//method declaration
-	boolean containsTableReferencedByGivenColumn(IDatabase<?> database, IColumn<?> column);
+	boolean containsTableReferencedByGivenColumn(IDatabase database, IColumn column);
 	
 	//method declaration
-	boolean containsTableWithColumnBackReferencedByGivenColumn(IDatabase<?> database, IColumn<?> column);
+	boolean containsTableWithColumnBackReferencedByGivenColumn(IDatabase database, IColumn column);
 	
 	//method declaration
-	boolean containsTableWithGivenColumn(IDatabase<?> database, IColumn<?> column);
+	boolean containsTableWithGivenColumn(IDatabase database, IColumn column);
 	
 	//method declaration
-	boolean containsTableWithGivenName(IDatabase<?> database, String name);
+	boolean containsTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
-	void deleteTableWithGivenName(IDatabase<?> database, String name);
+	void deleteTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
-	<IMPL> IContainer<IColumn<IMPL>> getRefAllBackReferenceColumns(IDatabase<IMPL> database);
+	 IContainer<IColumn> getRefAllBackReferenceColumns(IDatabase database);
 	
 	//method declaration
-	<IMPL> ITable<IMPL> getRefTableWithGivenName(IDatabase<IMPL> database, String name);
+	 ITable getRefTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
-	int getTableCount(IDatabase<?> database);
+	int getTableCount(IDatabase database);
 }

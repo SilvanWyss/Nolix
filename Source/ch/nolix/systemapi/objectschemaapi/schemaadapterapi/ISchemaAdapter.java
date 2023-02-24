@@ -6,16 +6,16 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface ISchemaAdapter<IMPL> extends IMultiTimeChangeSaver {
+public interface ISchemaAdapter extends IMultiTimeChangeSaver {
 	
 	//method declaration
-	ISchemaAdapter<IMPL> addTable(ITable<IMPL> table);
+	ISchemaAdapter addTable(ITable table);
 	
 	//method declaration
-	ITable<IMPL> getRefTableByName(String name);
+	ITable getRefTableByName(String name);
 	
 	//method declaration
-	IContainer<ITable<IMPL>> getRefTables();
+	IContainer<ITable> getRefTables();
 	
 	//method declaration
 	int getTableCount();

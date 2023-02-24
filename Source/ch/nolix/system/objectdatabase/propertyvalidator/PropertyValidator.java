@@ -20,7 +20,7 @@ public class PropertyValidator implements IPropertyValidator {
 	
 	//method
 	@Override
-	public final void assertBelongsToEntity(final IProperty<?> property) {
+	public final void assertBelongsToEntity(final IProperty property) {
 		if (!property.belongsToEntity()) {
 			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(property, IEntity.class);
 		}
@@ -28,7 +28,7 @@ public class PropertyValidator implements IPropertyValidator {
 	
 	//method
 	@Override
-	public final void assertDoesNotBelongToEntity(final IProperty<?> property) {
+	public final void assertDoesNotBelongToEntity(final IProperty property) {
 		if (property.belongsToEntity()) {
 			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getRefParentEntity());
 		}
@@ -36,7 +36,7 @@ public class PropertyValidator implements IPropertyValidator {
 	
 	//method
 	@Override
-	public final void assertIsNotEmpty(final IProperty<?> property) {
+	public final void assertIsNotEmpty(final IProperty property) {
 		if (property.isEmpty()) {
 			throw EmptyArgumentException.forArgument(property);
 		}
@@ -44,7 +44,7 @@ public class PropertyValidator implements IPropertyValidator {
 	
 	//method
 	@Override
-	public final void assertIsNotMandatoryAndEmptyBoth(final IProperty<?> property) {
+	public final void assertIsNotMandatoryAndEmptyBoth(final IProperty property) {
 		if (PROPERTY_HELPER.isMandatoryAndEmptyBoth(property)) {
 			throw EmptyArgumentException.forArgument(property);
 		}
@@ -52,7 +52,7 @@ public class PropertyValidator implements IPropertyValidator {
 	
 	//method
 	@Override
-	public final void assertKnowsParentColumn(final IProperty<?> property) {
+	public final void assertKnowsParentColumn(final IProperty property) {
 		if (!property.knowsParentColumn()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "does not know its parent column");
 		}

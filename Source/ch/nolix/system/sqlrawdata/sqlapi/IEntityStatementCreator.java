@@ -3,8 +3,8 @@ package ch.nolix.system.sqlrawdata.sqlapi;
 
 //own imports
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface

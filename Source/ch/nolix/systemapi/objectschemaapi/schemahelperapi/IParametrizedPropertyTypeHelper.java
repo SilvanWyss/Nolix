@@ -9,11 +9,11 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 public interface IParametrizedPropertyTypeHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean isABaseBackReferenceType(IParametrizedPropertyType<?> parametrizedPropertyType);
+	boolean isABaseBackReferenceType(IParametrizedPropertyType parametrizedPropertyType);
 	
 	//method declaration
-	boolean isABaseReferenceType(IParametrizedPropertyType<?> parametrizedPropertyType);
+	boolean isABaseReferenceType(IParametrizedPropertyType parametrizedPropertyType);
 	
 	//method declaration
-	boolean isABaseValueType(IParametrizedPropertyType<?> parametrizedPropertyType);
+	boolean isABaseValueType(IParametrizedPropertyType parametrizedPropertyType);
 }

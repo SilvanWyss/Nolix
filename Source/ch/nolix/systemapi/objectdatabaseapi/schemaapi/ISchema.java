@@ -5,11 +5,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 
 //interface
-public interface ISchema<IMPL> {
+public interface ISchema {
 	
 	//method declaration
-	Class<? extends IEntity<IMPL>> getEntityTypeByName(String name);
+	Class<? extends IEntity> getEntityTypeByName(String name);
 	
 	//method declaration
-	IContainer<Class<? extends IEntity<IMPL>>> getEntityTypes();
+	IContainer<Class<? extends IEntity>> getEntityTypes();
 }

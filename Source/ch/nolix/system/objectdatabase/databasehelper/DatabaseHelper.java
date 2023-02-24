@@ -17,13 +17,13 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase<?> database) {
+	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
 		return database.getRefTables().containsOnly(tableHelper::allNewAndEditedMandatoryPropertiesAreSet);
 	}
 	
 	//method
 	@Override
-	public boolean canSaveChanges(final IDatabase<?> database) {
+	public boolean canSaveChanges(final IDatabase database) {
 		return
 		database.isOpen()
 		&& database.isLinkedWithRealDatabase()
@@ -32,23 +32,23 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public <IMPL> IContainer<IEntity<IMPL>> getRefEntitiesInLocalData(final IDatabase<IMPL> database) {
+	public  IContainer<IEntity> getRefEntitiesInLocalData(final IDatabase database) {
 		return database.getRefTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <IMPL, E extends IEntity<IMPL>> ITable<IMPL, E> getRefTableForGivenEntity(
-		final IDatabase<IMPL> database,
+	public <E extends IEntity> ITable<E> getRefTableForGivenEntity(
+		final IDatabase database,
 		final E entity
 	) {
-		return database.getRefTableByEntityType(entity.getClass());
+		return database.getRefTableByEntityType((Class<E>)entity.getClass());
 	}
 	
 	//method
 	@Override
-	public boolean hasChanges(final IDatabase<?> database) {
+	public boolean hasChanges(final IDatabase database) {
 		return database.getRefTables().containsAny(tableHelper::hasChanges);
 	}
 }

@@ -3,10 +3,10 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
 public interface IBackReference<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 > 
-extends IBaseBackReference<IMPL, E> {
+extends IBaseBackReference<E> {
 	
 	//method declaration
 	E getBackReferencedEntity();

@@ -20,7 +20,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 		
 	//method
 	@Override
-	public final boolean belongsToLoadedEntity(final IProperty<?> property) {
+	public final boolean belongsToLoadedEntity(final IProperty property) {
 		return
 		property.belongsToEntity()
 		&& isLoaded(property.getRefParentEntity());
@@ -28,7 +28,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public final Class<?> getDataType(final IProperty<?> property) {
+	public final Class<?> getDataType(final IProperty property) {
 		return
 		switch (property.getType().getBaseType()) {
 			case BASE_VALUE ->
@@ -42,19 +42,19 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public final boolean isForMultiContent(final IProperty<?> property) {
+	public final boolean isForMultiContent(final IProperty property) {
 		return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
 	}
 	
 	//method
 	@Override
-	public final boolean isForSingleContent(final IProperty<?> property) {
+	public final boolean isForSingleContent(final IProperty property) {
 		return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
 	}
 	
 	//method
 	@Override
-	public final boolean isMandatoryAndEmptyBoth(final IProperty<?> property) {
+	public final boolean isMandatoryAndEmptyBoth(final IProperty property) {
 		return
 		property.isMandatory()
 		&& property.isEmpty();
@@ -62,7 +62,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	@Override
-	public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IProperty<?> property) {
+	public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IProperty property) {
 		return
 		!property.isMandatory()
 		|| !isNewOrEdited(property)
@@ -70,7 +70,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
-	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?, ?> multiValue) {
+	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?> multiValue) {
 		
 		if (multiValue.isEmpty()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot know its data type");
@@ -80,7 +80,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
-	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?, ?> optionalValue) {
+	private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?> optionalValue) {
 		
 		if (optionalValue.isEmpty()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot know its data type");
@@ -90,7 +90,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
-	private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?, ?> value) {
+	private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?> value) {
 		
 		if (value.isEmpty()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot know its data type");
@@ -100,7 +100,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
-	private Class<?> getDataTypeWhenIsBaseValue(final IProperty<?> property) {
+	private Class<?> getDataTypeWhenIsBaseValue(final IProperty property) {
 		
 		if (!property.belongsToEntity()) {
 			return getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(property);
@@ -110,7 +110,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
-	private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty<?> property) {
+	private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty property) {
 		final var propertyParentEntity = property.getRefParentEntity();
 		
 		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
@@ -123,15 +123,15 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	}
 	
 	//method
-	private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IProperty<?> property) {
+	private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IProperty property) {
 		return
 		switch (property.getType()) {
 			case VALUE ->
-				getDataTypeWhenDoesNotBelongToEntity((IValue<?, ?>)property);
+				getDataTypeWhenDoesNotBelongToEntity((IValue<?>)property);
 			case OPTIONAL_VALUE ->
-				getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?, ?>)property);
+				getDataTypeWhenDoesNotBelongToEntity((IOptionalValue<?>)property);
 			case MULTI_VALUE ->
-				getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?, ?>)property);
+				getDataTypeWhenDoesNotBelongToEntity((IMultiValue<?>)property);
 			default ->
 				throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "is not a base value");
 		};

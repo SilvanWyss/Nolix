@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdatabase.schemamapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -12,20 +11,20 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ColumnMapper implements IColumnMapper<SchemaImplementation> {
+public final class ColumnMapper implements IColumnMapper {
 	
 	//static attribute
 	private static final EntityCreator entityCreator = new EntityCreator();
 	
 	//static attribute
-	private static final IParametrizedPropertyTypeMapper<SchemaImplementation> parametrizedPropertyTypeMapper =
+	private static final IParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =
 	new ParametrizedPropertyTypeMapper();
 	
 	//method
 	@Override
-	public IColumn<SchemaImplementation> createColumnFromGivenPropertyUsingGivenReferencableTables(
-		final IProperty<?> property,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+	public IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
+		final IProperty property,
+		final IContainer<ITable> referencableTables
 	) {
 		return
 		new Column(
@@ -39,10 +38,10 @@ public final class ColumnMapper implements IColumnMapper<SchemaImplementation> {
 	
 	//method
 	@Override
-	public <E extends IEntity<?>> IContainer<IColumn<SchemaImplementation>>
+	public <E extends IEntity> IContainer<IColumn>
 	createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
 		final Class<E> entityType,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+		final IContainer<ITable> referencableTables
 	) {
 		return
 		createColumnsFromGivenEntityUsingGivenReferencableTables(
@@ -53,9 +52,9 @@ public final class ColumnMapper implements IColumnMapper<SchemaImplementation> {
 	
 	//method
 	@Override
-	public IContainer<IColumn<SchemaImplementation>> createColumnsFromGivenEntityUsingGivenReferencableTables(
-		final IEntity<?> entity,
-		final IContainer<ITable<SchemaImplementation>> referencableTables
+	public IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
+		final IEntity entity,
+		final IContainer<ITable> referencableTables
 	) {
 		return
 		entity

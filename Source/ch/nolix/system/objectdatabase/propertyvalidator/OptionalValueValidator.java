@@ -17,7 +17,7 @@ public final class OptionalValueValidator extends PropertyValidator implements I
 	
 	//method
 	@Override
-	public <V> void assertCanSetGivenValue(final IOptionalValue<?, V> optionalValue, final V value) {
+	public <V> void assertCanSetGivenValue(final IOptionalValue<V> optionalValue, final V value) {
 		if (!OPTIONAL_VALUE_HELPER.canSetGivenValue(optionalValue, value)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
 		}
@@ -25,7 +25,7 @@ public final class OptionalValueValidator extends PropertyValidator implements I
 	
 	//method
 	@Override
-	public void assertHasValue(final IOptionalValue<?, ?> optionalValue) {
+	public void assertHasValue(final IOptionalValue<?> optionalValue) {
 		if (optionalValue.isEmpty()) {
 			throw EmptyArgumentException.forArgument(optionalValue);
 		}

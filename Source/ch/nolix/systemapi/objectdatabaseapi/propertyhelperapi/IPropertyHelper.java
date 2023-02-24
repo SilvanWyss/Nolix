@@ -9,20 +9,20 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 public interface IPropertyHelper extends IDatabaseObjectHelper {
 			
 	//method declaration
-	boolean belongsToLoadedEntity(IProperty<?> property);
+	boolean belongsToLoadedEntity(IProperty property);
 	
 	//method declaration
-	Class<?> getDataType(IProperty<?> property);
+	Class<?> getDataType(IProperty property);
 	
 	//method declaration
-	boolean isForMultiContent(IProperty<?> property);
+	boolean isForMultiContent(IProperty property);
 	
 	//method declaration
-	boolean isForSingleContent(IProperty<?> property);
+	boolean isForSingleContent(IProperty property);
 	
 	//method declaration
-	boolean isMandatoryAndEmptyBoth(IProperty<?> property);
+	boolean isMandatoryAndEmptyBoth(IProperty property);
 		
 	//method declaration
-	boolean isSetForCaseIsNewOrEditedAndMandatory(IProperty<?> property);
+	boolean isSetForCaseIsNewOrEditedAndMandatory(IProperty property);
 }

@@ -8,13 +8,13 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
 public final class ParametrizedOptionalReferenceType<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
-extends BaseParametrizedReferenceType<IMPL, E> {
+extends BaseParametrizedReferenceType<E> {
 	
 	//constructor
-	public ParametrizedOptionalReferenceType(final ITable<IMPL, E> referencedTable) {
+	public ParametrizedOptionalReferenceType(final ITable<E> referencedTable) {
 		super(referencedTable);
 	}
 	

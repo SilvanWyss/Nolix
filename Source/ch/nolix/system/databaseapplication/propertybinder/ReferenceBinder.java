@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 
 //class
-public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<?>>, IDropdownMenu<?, ?>> {
+public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, IDropdownMenu<?, ?>> {
 	
 	//method
 	@Override
@@ -21,7 +21,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	@Override
 	protected void addSelectionOptionsToControlForProperty(
 		final IDropdownMenu<?, ?> dropdownMenu,
-		final IReference<?, IEntity<?>> reference
+		final IReference<IEntity> reference
 	) {
 		for (final var e : reference.getReferencedTable().getRefEntities()) {
 			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
@@ -40,7 +40,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	//method
 	@Override
 	protected void updatePropertyFromControl(
-		final IReference<?, IEntity<?>> reference,
+		final IReference<IEntity> reference,
 		final IDropdownMenu<?, ?> dropdownMenu
 	) {
 		
@@ -53,7 +53,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<?, IEntity<
 	@Override
 	protected void updateControlFromProperty(
 		final IDropdownMenu<?, ?> dropdownMenu,
-		final IReference<?, IEntity<?>> reference
+		final IReference<IEntity> reference
 	) {
 		if (reference.containsAny()) {
 			dropdownMenu.selectItemById(reference.getReferencedEntityId());

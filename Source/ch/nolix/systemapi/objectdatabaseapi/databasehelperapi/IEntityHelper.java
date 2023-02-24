@@ -13,44 +13,44 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 public interface IEntityHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean allNewAndEditedMandatoryPropertiesAreSet(IEntity<?> entity);
+	boolean allNewAndEditedMandatoryPropertiesAreSet(IEntity entity);
 	
 	//method declaration
-	boolean canBeDeleted(IEntity<?> entity);
+	boolean canBeDeleted(IEntity entity);
 	
 	//method declaration
-	boolean canBeInsertedIntoTable(IEntity<?> entity);
+	boolean canBeInsertedIntoTable(IEntity entity);
 	
 	//method declaration
-	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity<?> entity);
+	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForEntity(IEntity<?> entity);
+	IEntityUpdateDTO createEntityUpdateDTOForEntity(IEntity entity);
 	
 	//method declaration
-	IEntityHeadDTO createEntityHeadDTOForEntity(IEntity<?> entity);
+	IEntityHeadDTO createEntityHeadDTOForEntity(IEntity entity);
 	
 	//method declaration
-	INewEntityDTO createNewEntityDTOForEntity(IEntity<?> entity);
+	INewEntityDTO createNewEntityDTOForEntity(IEntity entity);
 	
 	//method declaration
-	<IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(IEntity<IMPL> entity);
+	 IContainer<IProperty> getRefBackReferencingProperties(IEntity entity);
 	
 	//method declaration
-	<IMPL> IContainer<? extends IProperty<IMPL>> getRefEditedProperties(IEntity<IMPL> entity);
+	 IContainer<? extends IProperty> getRefEditedProperties(IEntity entity);
 	
 	//method declaration
-	<IMPL> IContainer<? extends IProperty<IMPL>> getRefReferencingProperties(IEntity<IMPL> entity);
+	 IContainer<? extends IProperty> getRefReferencingProperties(IEntity entity);
 	
 	//method declaration
-	boolean isReferenced(IEntity<?> entity);
+	boolean isReferenced(IEntity entity);
 	
 	//method declaration
-	<IMPL> boolean isReferencedInLocalData(IEntity<IMPL> entity);
+	 boolean isReferencedInLocalData(IEntity entity);
 	
 	//method declaration
-	<IMPL> boolean referencesGivenEntity(IEntity<IMPL> sourceEntity, IEntity<IMPL> entity);
+	 boolean referencesGivenEntity(IEntity sourceEntity, IEntity entity);
 	
 	//method declaration
-	boolean referencesUninsertedEntity(IEntity<?> entity);
+	boolean referencesUninsertedEntity(IEntity entity);
 }

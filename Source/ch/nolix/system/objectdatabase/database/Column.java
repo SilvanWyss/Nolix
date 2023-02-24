@@ -12,14 +12,14 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public final class Column extends ImmutableDatabaseObject implements IColumn<DataImplementation> {
+public final class Column extends ImmutableDatabaseObject implements IColumn {
 	
 	//static method
 	static Column withNameAndIdAndParametrizedPropertyTypeAndParentTable(
 		final String name,
 		final String id,
-		final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType,
-		final Table<IEntity<DataImplementation>> parentTable
+		final IParametrizedPropertyType parametrizedPropertyType,
+		final Table<IEntity> parentTable
 	) {
 		return new Column(name, id, parametrizedPropertyType, parentTable);
 	}
@@ -31,17 +31,17 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	private final String id;
 	
 	//attribute
-	private final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType;
+	private final IParametrizedPropertyType parametrizedPropertyType;
 	
 	//attribute
-	private final Table<IEntity<DataImplementation>> parentTable;
+	private final Table<IEntity> parentTable;
 	
 	//constructor
 	private Column(
 		final String name,
 		final String id,
-		final IParametrizedPropertyType<DataImplementation> parametrizedPropertyType,
-		final Table<IEntity<DataImplementation>> parentTable
+		final IParametrizedPropertyType parametrizedPropertyType,
+		final Table<IEntity> parentTable
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -69,13 +69,13 @@ public final class Column extends ImmutableDatabaseObject implements IColumn<Dat
 	
 	//method
 	@Override
-	public IParametrizedPropertyType<DataImplementation> getParametrizedPropertyType() {
+	public IParametrizedPropertyType getParametrizedPropertyType() {
 		return parametrizedPropertyType;
 	}
 	
 	//method
 	@Override
-	public ITable<DataImplementation, IEntity<DataImplementation>> getRefParentTable() {
+	public ITable<IEntity> getRefParentTable() {
 		return parentTable;
 	}
 	

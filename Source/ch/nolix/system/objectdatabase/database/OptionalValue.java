@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueV
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<DataImplementation, V> {
+public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
 	
 	//constant
 	private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();

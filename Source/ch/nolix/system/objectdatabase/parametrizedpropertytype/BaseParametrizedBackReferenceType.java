@@ -8,16 +8,15 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedBackRef
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
 public abstract class BaseParametrizedBackReferenceType<
-	IMPL,
-	C extends IColumn<IMPL>
+
+	C extends IColumn
 >
-extends ParametrizedPropertyType<IMPL>
-implements IBaseParametrizedBackReferenceType<IMPL, C>{
+extends ParametrizedPropertyType
+implements IBaseParametrizedBackReferenceType<C>{
 	
 	//attribute
 	private final C backReferencedColumn;
@@ -32,19 +31,19 @@ implements IBaseParametrizedBackReferenceType<IMPL, C>{
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<IMPL, C> asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType<C> asBaseParametrizedBackReferenceType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<IMPL, ?> asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
@@ -56,7 +55,7 @@ implements IBaseParametrizedBackReferenceType<IMPL, C>{
 	
 	//method
 	@Override
-	public final <E2 extends IEntity<IMPL>> boolean referencesTable(final ITable<IMPL, E2> table) {
+	public final boolean referencesTable(final ITable<?> table) {
 		return false;
 	}
 }

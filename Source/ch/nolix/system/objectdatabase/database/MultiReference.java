@@ -20,8 +20,8 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReference
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class MultiReference<E extends IEntity<DataImplementation>> extends BaseReference<E>
-implements IMultiReference<DataImplementation, E> {
+public final class MultiReference<E extends IEntity> extends BaseReference<E>
+implements IMultiReference<E> {
 	
 	//static attribute
 	private static final IMultiReferenceHelper multiReferenceHelper = new MultiReferenceHelper();
@@ -73,9 +73,9 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IContainer<IProperty<DataImplementation>> getRefBackReferencingProperties() {
+	public IContainer<IProperty> getRefBackReferencingProperties() {
 		
-		final var backReferencingProperties = new LinkedList<IProperty<DataImplementation>>();
+		final var backReferencingProperties = new LinkedList<IProperty>();
 		
 		for (final var re : getReferencedEntities()) {
 			
@@ -107,7 +107,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public IContainer<? extends IMultiReferenceEntry<DataImplementation, E>> getRefLocalEntries() {
+	public IContainer<? extends IMultiReferenceEntry<E>> getRefLocalEntries() {
 		return localEntries;
 	}
 	
@@ -131,7 +131,7 @@ implements IMultiReference<DataImplementation, E> {
 	
 	//method
 	@Override
-	public boolean referencesEntity(final IEntity<?> entity) {
+	public boolean referencesEntity(final IEntity entity) {
 		
 		if (entity == null) {
 			return false;

@@ -6,10 +6,10 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //interface
 public interface IOptionalReference<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
-extends Clearable, IBaseReference<IMPL, E> {
+extends Clearable, IBaseReference<E> {
 		
 	//method declaration
 	E getReferencedEntity();

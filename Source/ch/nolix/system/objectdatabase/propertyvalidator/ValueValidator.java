@@ -16,7 +16,7 @@ public final class ValueValidator extends PropertyValidator implements IValueVal
 	
 	//method
 	@Override
-	public void assertCanSetGivenValue(final IValue<?, ?> value, final Object valueToSet) {
+	public void assertCanSetGivenValue(final IValue<?> value, final Object valueToSet) {
 		if (!valueHelper.canSetGivenValue(value, valueToSet)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot set the given value");
 		}

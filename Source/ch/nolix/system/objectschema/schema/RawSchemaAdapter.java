@@ -4,7 +4,6 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
@@ -29,27 +28,27 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
-	public void addColumnToTable(final ITable<SchemaImplementation> table, final IColumn<SchemaImplementation> column) {
+	public void addColumnToTable(final ITable table, final IColumn column) {
 		internalRawSchemaAdapter.addColumn(table.getName(), column.toDTO());
 	}
 	
 	//method
-	public void addTable(final ITable<SchemaImplementation> table) {
+	public void addTable(final ITable table) {
 		internalRawSchemaAdapter.addTable(table.toDTO());
 	}
 	
 	//method
-	public boolean columnIsEmpty(final IColumn<SchemaImplementation> column) {
+	public boolean columnIsEmpty(final IColumn column) {
 		return internalRawSchemaAdapter.columnIsEmpty(column.getParentTable().getName(), column.getName());
 	}
 	
 	//method
-	public void deleteColumn(final IColumn<SchemaImplementation> column) {
+	public void deleteColumn(final IColumn column) {
 		internalRawSchemaAdapter.deleteColumn(column.getParentTable().getName(), column.getName());
 	}
 	
 	//method
-	public void deleteTable(final ITable<SchemaImplementation> table) {
+	public void deleteTable(final ITable table) {
 		internalRawSchemaAdapter.deleteTable(table.getName());
 	}
 	
@@ -59,7 +58,7 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
-	public IContainer<IColumnDTO> loadColumnsOfTable(final ITable<SchemaImplementation> table) {
+	public IContainer<IColumnDTO> loadColumnsOfTable(final ITable table) {
 		return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
 	}
 	
@@ -80,7 +79,7 @@ final class RawSchemaAdapter {
 	
 	//method
 	public void setColumnName(
-		final IColumn<SchemaImplementation> column,
+		final IColumn column,
 		final String columnName,
 		final String newColumnName
 	) {
@@ -88,8 +87,8 @@ final class RawSchemaAdapter {
 	}
 	
 	public void setColumnParametrizedPropertyType(
-		final IColumn<SchemaImplementation> column,
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IColumn column,
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		internalRawSchemaAdapter.setColumnParametrizedPropertyType(
 			column.getId(),

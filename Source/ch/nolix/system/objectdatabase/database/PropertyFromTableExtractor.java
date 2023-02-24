@@ -13,13 +13,13 @@ final class PropertyFromTableExtractor {
 	
 	//method
 	public IContainer<Property> createPropertiesFromTable(
-		final ITable<DataImplementation, IEntity<DataImplementation>> table
+		final ITable<IEntity> table
 	) {
 		return table.getRefColumns().to(this::createPropertyFromColumn);
 	}
 	
 	//method
-	private Property createEmptyPropertyFromColumn(final IColumn<DataImplementation> column) {
+	private Property createEmptyPropertyFromColumn(final IColumn column) {
 		switch (column.getParametrizedPropertyType().getPropertyType()) {
 			case VALUE:
 				return new Value<>();
@@ -64,7 +64,7 @@ final class PropertyFromTableExtractor {
 	}
 	
 	//method
-	private Property createPropertyFromColumn(final IColumn<DataImplementation> column) {
+	private Property createPropertyFromColumn(final IColumn column) {
 		
 		final var property = createEmptyPropertyFromColumn(column);
 		property.internalSetParentColumn(column);

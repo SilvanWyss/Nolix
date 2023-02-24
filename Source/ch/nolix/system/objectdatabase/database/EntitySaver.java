@@ -27,7 +27,7 @@ public final class EntitySaver {
 	private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
 	
 	//method
-	public void saveChangesOfEntity(final IEntity<DataImplementation> entity, final Database database) {
+	public void saveChangesOfEntity(final IEntity entity, final Database database) {
 		switch (entity.getState()) {
 			case NEW:
 				saveNewEntity(entity, database);
@@ -44,7 +44,7 @@ public final class EntitySaver {
 	}
 	
 	//method
-	private void saveNewEntity(final IEntity<DataImplementation> newEntity, final Database database) {
+	private void saveNewEntity(final IEntity newEntity, final Database database) {
 		
 		database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
 			newEntity.getParentTableName(),
@@ -55,7 +55,7 @@ public final class EntitySaver {
 	}
 	
 	//method
-	private void saveChangesOfEditedEntity(final IEntity<DataImplementation> editedEntity, final Database database) {
+	private void saveChangesOfEditedEntity(final IEntity editedEntity, final Database database) {
 		
 		database.internalGetRefDataAndSchemaAdapter().updateEntity(
 			editedEntity.getParentTableName(),
@@ -66,7 +66,7 @@ public final class EntitySaver {
 	}
 	
 	//method
-	private void saveEntityDeletion(final IEntity<DataImplementation> deletedEntity, final Database database) {
+	private void saveEntityDeletion(final IEntity deletedEntity, final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().deleteEntity(
 			deletedEntity.getRefParentTable().getName(),
 			ENTITY_HELPER.createEntityHeadDTOForEntity(deletedEntity)
@@ -75,7 +75,7 @@ public final class EntitySaver {
 	
 	//method
 	private void saveMultiPropertyChangesOfEntity(
-		final IEntity<DataImplementation> entity,
+		final IEntity entity,
 		final Database database
 	) {
 		for (final var p : entity.technicalGetRefProperties()) {
@@ -84,7 +84,7 @@ public final class EntitySaver {
 	}
 	
 	//method
-	private void saveChangesOfPotentialMultiProperty(final Database database, final IProperty<DataImplementation> p) {
+	private void saveChangesOfPotentialMultiProperty(final Database database, final IProperty p) {
 		if (PROPERTY_HELPER.isNewOrEdited(p)) {
 			saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(database, p);
 		}
@@ -92,13 +92,13 @@ public final class EntitySaver {
 	
 	//method
 	private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(final Database database,
-			final IProperty<DataImplementation> p) {
+			final IProperty p) {
 		switch (p.getType()) {
 			case MULTI_VALUE:
-				MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?, ?>)p, database);
+				MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>)p, database);
 				break;
 			case MULTI_REFERENCE:
-				MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?, ?>)p, database);
+				MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?>)p, database);
 				break;
 			default:
 				//Does nothing.

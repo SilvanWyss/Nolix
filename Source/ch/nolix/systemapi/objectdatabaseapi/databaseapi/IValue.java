@@ -3,10 +3,10 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
 public interface IValue<
-	IMPL,
+
 	V
 >
-extends IBaseValue<IMPL, V> {
+extends IBaseValue<V> {
 	
 	//method declaration
 	V getRefValue();

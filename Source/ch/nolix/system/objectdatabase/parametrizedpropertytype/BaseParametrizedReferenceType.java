@@ -12,17 +12,17 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
 public abstract class BaseParametrizedReferenceType<
-	IMPL,
-	E extends IEntity<IMPL>
+
+	E extends IEntity
 >
-extends ParametrizedPropertyType<IMPL>
-implements IBaseParametrizedReferenceType<IMPL, E> {
+extends ParametrizedPropertyType
+implements IBaseParametrizedReferenceType<E> {
 	
 	//attribute
-	private final ITable<IMPL, E> referencedTable;
+	private final ITable<E> referencedTable;
 	
 	//constructor
-	protected BaseParametrizedReferenceType(final ITable<IMPL, E> referencedTable) {
+	protected BaseParametrizedReferenceType(final ITable<E> referencedTable) {
 		
 		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
@@ -31,31 +31,31 @@ implements IBaseParametrizedReferenceType<IMPL, E> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<IMPL, ?> asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<IMPL, ?> asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<IMPL, ?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
 	//method
 	@Override
-	public final ITable<IMPL, E> getRefencedTable() {
+	public final ITable<E> getRefencedTable() {
 		return referencedTable;
 	}
 	
 	//method
 	@Override
-	public final <E2 extends IEntity<IMPL>> boolean referencesTable(final ITable<IMPL, E2> table) {
+	public final boolean referencesTable(final ITable<?> table) {
 		return (getRefencedTable() == table);
 	}
 }

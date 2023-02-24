@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueVali
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<DataImplementation, V> {
+public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 	
 	//constant
 	private static final IMultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
@@ -46,7 +46,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<Dat
 	
 	//method
 	@Override
-	public IContainer<? extends IMultiValueEntry<DataImplementation, V>> getRefLocalEntries() {
+	public IContainer<? extends IMultiValueEntry<V>> getRefLocalEntries() {
 		return localEntries;
 	}
 	

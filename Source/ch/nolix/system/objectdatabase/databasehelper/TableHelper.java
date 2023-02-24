@@ -17,7 +17,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?, ?> table) {
+	public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?> table) {
 		return
 		table
 		.technicalGetRefEntitiesInLocalData()		
@@ -28,13 +28,13 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean canInsertEntity(final ITable<?, ?> table) {
+	public boolean canInsertEntity(final ITable<?> table) {
 		return table.isOpen();
 	}
 	
 	//method
 	@Override
-	public boolean canInsertGivenEntity(ITable<?, ?> table, IEntity<?> entity) {
+	public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
 		return
 		canInsertEntity(table)
 		&& entityHelper.canBeInsertedIntoTable(entity)
@@ -43,17 +43,17 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean containsEntityWithGivenIdInLocalData(final ITable<?, ?> table, final String id) {
+	public boolean containsEntityWithGivenIdInLocalData(final ITable<?> table, final String id) {
 		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> e.hasId(id));
 	}
 	
 	//method
 	@Override
-	public <IMPL, E extends IEntity<IMPL>> IContainer<IColumn<IMPL>> getColumsThatReferenceGivenTable(
-		final ITable<IMPL, E> table
+	public <E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(
+		final ITable<E> table
 	) {
 		
-		final var columns = new LinkedList<IColumn<IMPL>>();
+		final var columns = new LinkedList<IColumn>();
 		for (final var t : table.getRefParentDatabase().getRefTables()) {
 			for (final var c : t.getRefColumns()) {
 				if (c.getParametrizedPropertyType().referencesTable(table)) {
@@ -67,13 +67,13 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	
 	//method
 	@Override
-	public boolean hasChanges(final ITable<?, ?> table) {
+	public boolean hasChanges(final ITable<?> table) {
 		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !entityHelper.isLoaded(e));
 	}
 	
 	//method
 	@Override
-	public boolean hasInsertedGivenEntityInLocalData(final ITable<?, ?> table, final IEntity<?> entity) {
+	public boolean hasInsertedGivenEntityInLocalData(final ITable<?> table, final IEntity entity) {
 		return containsEntityWithGivenIdInLocalData(table, entity.getId());
 	}
 }

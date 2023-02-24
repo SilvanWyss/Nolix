@@ -2,7 +2,6 @@
 package ch.nolix.system.objectdatabase.schemamapper;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
@@ -11,13 +10,13 @@ import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.ITableMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class TableMapper implements ITableMapper<SchemaImplementation> {
+public final class TableMapper implements ITableMapper {
 	
 	//static attribute
-	private static final IColumnMapper<SchemaImplementation> columnMapper = new ColumnMapper();
+	private static final IColumnMapper columnMapper = new ColumnMapper();
 	
 	@Override
-	public IContainer<ITable<SchemaImplementation>> createTablesFrom(final ISchema<?> schema) {
+	public IContainer<ITable> createTablesFrom(final ISchema schema) {
 		
 		final var tables = createEmptyTablesFromSchema(schema);
 		
@@ -36,12 +35,12 @@ public final class TableMapper implements ITableMapper<SchemaImplementation> {
 	
 	//method
 	@Override
-	public IContainer<ITable<SchemaImplementation>> createEmptyTablesFromSchema(final ISchema<?> schema) {
+	public IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema) {
 		return schema.getEntityTypes().to(this::createEmptyTableFrom);
 	}
 	
 	//method
-	private <E extends IEntity<?>> ITable<SchemaImplementation> createEmptyTableFrom(final Class<E> entityType) {
+	private <E extends IEntity> ITable createEmptyTableFrom(final Class<E> entityType) {
 		return new Table(entityType.getSimpleName());
 	}
 }

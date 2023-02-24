@@ -10,7 +10,7 @@ public final class GlobalPropertyBinder {
 	private static final PropertyBinderFactory propertyBinderFactory = new PropertyBinderFactory();
 	
 	//static method
-	public static <P extends IProperty<?>> PropertyBinding createControlAndBindItWith(final P property) {
+	public static <P extends IProperty> PropertyBinding createControlAndBindItWith(final P property) {
 		return propertyBinderFactory.getPropertyBinderFor(property).createControlAndBindItWith(property);
 	}
 	

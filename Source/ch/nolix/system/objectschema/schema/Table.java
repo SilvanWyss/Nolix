@@ -8,7 +8,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
-import ch.nolix.system.objectschema.parametrizedpropertytype.SchemaImplementation;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
 import ch.nolix.system.objectschema.schemadto.TableDTO;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
@@ -22,7 +21,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
-public final class Table extends SchemaObject implements ITable<SchemaImplementation> {
+public final class Table extends SchemaObject implements ITable {
 	
 	//static attributes
 	private static final TableMutationValidator mutationValidator = new TableMutationValidator();
@@ -49,7 +48,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	private Database parentDatabase;
 	
 	//multi-attribute
-	private LinkedList<IColumn<SchemaImplementation>> columns = new LinkedList<>();
+	private LinkedList<IColumn> columns = new LinkedList<>();
 	
 	//constructor
 	public Table(final String name) {
@@ -70,7 +69,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	
 	//method
 	@Override
-	public Table addColumn(final IColumn<SchemaImplementation> column) {
+	public Table addColumn(final IColumn column) {
 		
 		mutationValidator.assertCanAddColumnToTable(this, (Column)column);
 		mutationExecutor.addColumnToTable(this, (Column)column);
@@ -88,7 +87,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	@Override
 	public Table createColumnWithNameAndParametrizedPropertyType( 
 		final String name,
-		final IParametrizedPropertyType<SchemaImplementation> parametrizedPropertyType
+		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		return addColumn(new Column(name, parametrizedPropertyType));
 	}
@@ -129,7 +128,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	
 	//method
 	@Override
-	public IContainer<IColumn<SchemaImplementation>> getRefColumns() {
+	public IContainer<IColumn> getRefColumns() {
 		
 		loadColumnsFromDatabaseIfNeeded();
 		
@@ -169,7 +168,7 @@ public final class Table extends SchemaObject implements ITable<SchemaImplementa
 	}
 	
 	//method
-	void addColumnAttribute(final IColumn<SchemaImplementation> column) {
+	void addColumnAttribute(final IColumn column) {
 		columns.addAtEnd(column);
 	}
 	

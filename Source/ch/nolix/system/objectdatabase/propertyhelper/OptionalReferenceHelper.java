@@ -14,7 +14,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		
 	//method
 	@Override
-	public boolean canClear(final IOptionalReference<?, ?> optionalReference) {
+	public boolean canClear(final IOptionalReference<?> optionalReference) {
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
@@ -23,7 +23,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public boolean canSetGivenEntity(final IOptionalReference<?, ?> optionalReference, final IEntity<?> entity) {
+	public boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
 		return
 		canSetEntity(optionalReference)
 		&& entity != null
@@ -33,7 +33,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IOptionalReference<?, ?> optionalReference) {
+	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IOptionalReference<?> optionalReference) {
 		
 		final var parentEntity = optionalReference.getRefParentEntity();
 		
@@ -47,8 +47,8 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	//method
 	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForSetEntity(
-		final IOptionalReference<?, ?> optionalReference,
-		final IEntity<?> entity
+		final IOptionalReference<?> optionalReference,
+		final IEntity entity
 	) {
 		
 		final var parentEntity = optionalReference.getRefParentEntity();
@@ -62,8 +62,8 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public <IMPL> IProperty<IMPL> getRefBackReferencingPropertyOrNull(
-		final IOptionalReference<IMPL, ?> optionalReference
+	public  IProperty getRefBackReferencingPropertyOrNull(
+		final IOptionalReference<?> optionalReference
 	) {
 		return
 		optionalReference
@@ -73,7 +73,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	}
 	
 	//method
-	private boolean canSetEntity(final IOptionalReference<?, ?> optionalReference) {
+	private boolean canSetEntity(final IOptionalReference<?> optionalReference) {
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()

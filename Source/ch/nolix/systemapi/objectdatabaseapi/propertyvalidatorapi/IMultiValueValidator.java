@@ -8,11 +8,11 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 public interface IMultiValueValidator extends IPropertyValidator {
 	
 	//method declaration
-	void assertCanAddGivenValue(IMultiValue<?, ?> multiValue, Object value);
+	void assertCanAddGivenValue(IMultiValue<?> multiValue, Object value);
 	
 	//method declaration
-	void assertCanClear(IMultiValue<?, ?> multiValue);
+	void assertCanClear(IMultiValue<?> multiValue);
 	
 	//method declaration
-	<V> void assertCanRemoveValue(IMultiValue<?, V> multiValue, V value);
+	<V> void assertCanRemoveValue(IMultiValue<V> multiValue, V value);
 }

@@ -16,13 +16,13 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO
 
 //class
 public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType
-implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
+implements IBaseParametrizedBackReferenceType {
 	
 	//attribute
-	private final IColumn<SchemaImplementation> backReferencedColumn;
+	private final IColumn backReferencedColumn;
 	
 	//constructor
-	protected BaseParametrizedBackReferenceType(final IColumn<SchemaImplementation> backReferencedColumn) {
+	protected BaseParametrizedBackReferenceType(final IColumn backReferencedColumn) {
 		
 		super(DataType.STRING);
 		
@@ -33,37 +33,37 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<SchemaImplementation> asBaseParametrizedBackReferenceType() {
+	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<SchemaImplementation> asBaseParametrizedReferenceType() {
+	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<SchemaImplementation, ?> asBaseParametrizedValueType() {
+	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	
 	//method
 	@Override
-	public IColumn<SchemaImplementation> getBackReferencedColumn() {
+	public IColumn getBackReferencedColumn() {
 		return backReferencedColumn;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesTable(final ITable<?> table) {
+	public final boolean referencesTable(final ITable table) {
 		return false;
 	}
 	
 	//method
 	@Override
-	public final boolean referencesBackColumn(final IColumn<?> column) {
+	public final boolean referencesBackColumn(final IColumn column) {
 		return (getBackReferencedColumn() == column);
 	}
 	
@@ -79,7 +79,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	}
 	
 	//method
-	private void assertIsAnyReferenceColumn(IColumn<SchemaImplementation> backReferencedColumn) {
+	private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
 		if (!isAnyReferenceColumn(backReferencedColumn)) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -91,7 +91,7 @@ implements IBaseParametrizedBackReferenceType<SchemaImplementation> {
 	}
 	
 	//method
-	private boolean isAnyReferenceColumn(IColumn<SchemaImplementation> backReferencedColumn) {
+	private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
 		return
 		backReferencedColumn.getParametrizedPropertyType().getPropertyType().getBaseType() ==
 		BasePropertyType.BASE_REFERENCE;

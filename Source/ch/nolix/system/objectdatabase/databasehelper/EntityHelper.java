@@ -24,7 +24,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity<?> entity) {
+	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
 		
 		if (isNewOrEdited(entity)) {
 			return
@@ -36,13 +36,13 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public boolean canBeDeleted(final IEntity<?> entity) {
+	public boolean canBeDeleted(final IEntity entity) {
 		return (isLoaded(entity) && !isReferenced(entity));
 	}
 	
 	//method
 	@Override
-	public boolean canBeInsertedIntoTable(final IEntity<?> entity) {
+	public boolean canBeInsertedIntoTable(final IEntity entity) {
 		return
 		isNew(entity)
 		&& entity.belongsToTable();
@@ -50,13 +50,13 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity<?> entity) {
+	public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity entity) {
 		return entity.technicalGetRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
 	}
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForEntity(final IEntity<?> entity) {
+	public IEntityUpdateDTO createEntityUpdateDTOForEntity(final IEntity entity) {
 		return
 		new EntityUpdateDTO(
 			entity.getId(),
@@ -67,44 +67,44 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public IEntityHeadDTO createEntityHeadDTOForEntity(IEntity<?> entity) {
+	public IEntityHeadDTO createEntityHeadDTOForEntity(IEntity entity) {
 		return new EntityHeadDTO(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method
 	@Override
-	public INewEntityDTO createNewEntityDTOForEntity(final IEntity<?> entity) {
+	public INewEntityDTO createNewEntityDTOForEntity(final IEntity entity) {
 		return
 		new NewEntityDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
 	}
 	
 	//method
 	@Override
-	public <IMPL> IContainer<IProperty<IMPL>> getRefBackReferencingProperties(final IEntity<IMPL> entity) {
+	public  IContainer<IProperty> getRefBackReferencingProperties(final IEntity entity) {
 		return entity.technicalGetRefProperties().toFromGroups(IProperty::getRefBackReferencingProperties);
 	}
 	
 	//method
 	@Override
-	public <IMPL> IContainer<? extends IProperty<IMPL>> getRefEditedProperties(final IEntity<IMPL> entity) {
+	public  IContainer<? extends IProperty> getRefEditedProperties(final IEntity entity) {
 		return entity.technicalGetRefProperties().getRefSelected(propertyHelper::isEdited);
 	}
 	
 	//method
 	@Override
-	public <IMPL> IContainer<? extends IProperty<IMPL>> getRefReferencingProperties(final IEntity<IMPL> entity) {
+	public  IContainer<? extends IProperty> getRefReferencingProperties(final IEntity entity) {
 		return entity.technicalGetRefProperties().toFromGroups(IProperty::getRefReferencingProperties);
 	}
 	
 	//method
 	@Override
-	public boolean isReferenced(final IEntity<?> entity) {
+	public boolean isReferenced(final IEntity entity) {
 		return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
 	}
 	
 	//method
 	@Override
-	public <IMPL> boolean isReferencedInLocalData(final IEntity<IMPL> entity) {
+	public  boolean isReferencedInLocalData(final IEntity entity) {
 		
 		if (!entity.belongsToTable()) {
 			return false;
@@ -121,18 +121,18 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public <IMPL> boolean referencesGivenEntity(final IEntity<IMPL> sourceEntity, final IEntity<IMPL> entity) {
+	public  boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
 		return sourceEntity.technicalGetRefProperties().containsAny(p -> p.referencesEntity(entity));
 	}
 	
 	//method
 	@Override
-	public boolean referencesUninsertedEntity(final IEntity<?> entity) {
+	public boolean referencesUninsertedEntity(final IEntity entity) {
 		return entity.technicalGetRefProperties().containsAny(IProperty::referencesUninsertedEntity);
 	}
 	
 	//method
-	private boolean isBaseValueOrBaseReference(final IProperty<?> property) {
+	private boolean isBaseValueOrBaseReference(final IProperty property) {
 		
 		final var baseType = property.getType().getBaseType();
 		
@@ -142,7 +142,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	}
 	
 	//method
-	private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty<?> property) {
+	private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty property) {
 		return
 		isBaseValueOrBaseReference(property)
 		&& propertyHelper.isMandatoryAndEmptyBoth(property);

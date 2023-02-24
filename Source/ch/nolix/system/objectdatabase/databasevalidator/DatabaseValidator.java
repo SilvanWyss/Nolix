@@ -16,7 +16,7 @@ public final class DatabaseValidator implements IDatabaseValidator {
 	
 	//method
 	@Override
-	public void assertCanSaveChanges(final IDatabase<?> database) {
+	public void assertCanSaveChanges(final IDatabase database) {
 		if (!databaseHelper.canSaveChanges(database)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "cannot save changes");
 		}
