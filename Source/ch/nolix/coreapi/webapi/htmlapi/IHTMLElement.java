@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.coreapi.webapi.htmlapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IHTMLElement<CE extends IHTMLElement<CE, A>, A extends IHTMLAttribute> {
+public interface IHTMLElement<HTMLE extends IHTMLElement<HTMLE, A>, A extends IHTMLAttribute> {
 	
 	//method declaration
 	boolean containsAttributes();
@@ -19,7 +20,7 @@ public interface IHTMLElement<CE extends IHTMLElement<CE, A>, A extends IHTMLAtt
 	IContainer<A> getRefAttributes();
 	
 	//method declaration
-	IContainer<CE> getRefChildElements();
+	IContainer<HTMLE> getRefChildElements();
 	
 	//method declaration
 	String getType();
