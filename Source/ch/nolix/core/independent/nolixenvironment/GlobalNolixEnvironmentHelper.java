@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-//own imports
-import ch.nolix.core.errorcontrol.exception.WrapperException;
-
 //class
 public final class GlobalNolixEnvironmentHelper {
 	
@@ -39,7 +36,7 @@ public final class GlobalNolixEnvironmentHelper {
 			try {
 				Files.createDirectory(lPath);
 			} catch (final IOException pIOException) {
-				throw WrapperException.forError(pIOException);
+				throw new RuntimeException(pIOException);
 			}
 		}
 	}
