@@ -4,6 +4,7 @@ package ch.nolix.businesstest.mathtest.bigdecimalmathtest;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.business.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -337,6 +338,111 @@ public final class ClosedIntervalTest extends Test {
 		
 		//verification
 		expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenGivenClosedIntervalIsBefore() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		final var closedInterval = new ClosedInterval(-2.0, -1.0);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenGivenClosedIntervalIsAfter() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		final var closedInterval = new ClosedInterval(2.0, 3.0);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenEqualsGivenClosedInterval() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		final var closedInterval = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenEclosesGivenClosedInterval() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 2.0);
+		final var closedInterval = new ClosedInterval(0.0, 1.0);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenGivenClosedIntervalEncloses() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		final var closedInterval = new ClosedInterval(0.0, 2.0);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtBegin() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		final var closedInterval = new ClosedInterval(-1.0, 0.25);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtEnd() {
+		
+		//setup
+		final var testUnit = new ClosedInterval(0.0, 1.0);
+		final var closedInterval = new ClosedInterval(0.75, 2.0);
+		
+		//execution
+		final var result = testUnit.intersectsWith(closedInterval);
+		
+		//verification
+		expect(result);
 	}
 	
 	//method
