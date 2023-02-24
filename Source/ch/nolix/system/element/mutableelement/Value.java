@@ -57,15 +57,24 @@ public final class Value<V> extends SingleValue<V> {
 			name,
 			setterMethod,
 			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
-			(final String s) -> {
-				
-				if (s.isEmpty()) {
-					return Node.EMPTY_NODE;
-				}
-				
-				return Node.withChildNode(s);
-			}
+			Value::getStringValueSpecificationForAValueFromString
 		);
+	}
+	
+	//static method
+	/**
+	 * @param string
+	 * @return the specification of a {@link String} value of a {@link Value} from the given string.
+	 * @throws InvalidArgumentException if
+	 * the given string does not represent a {@link String} value for a {@link Value}.
+	 */
+	private static Node getStringValueSpecificationForAValueFromString(final String string) {
+		
+		if (string.isEmpty()) {
+			return Node.EMPTY_NODE;
+		}
+		
+		return Node.withChildNode(string);
 	}
 	
 	//constructor
