@@ -59,15 +59,8 @@ public final class GlobalLogger {
 				}
 			}
 			
-			if (error.getMessage() == null || error.getMessage().isBlank()) {
-				logWorker.takeLogEntry(
-					LogEntry.withMessageAndHarmLevel("A " + error.getClass().getName() + " occured.", HarmLevel.ERROR)
-				);
-			} else {
-				logWorker.takeLogEntry(
-					LogEntry.withMessageAndHarmLevel(error.getMessage(), HarmLevel.ERROR)
-				);
-			}
+			final var logEntry = LogEntry.forError(error);
+			logWorker.takeLogEntry(logEntry);
 		}
 	}
 	

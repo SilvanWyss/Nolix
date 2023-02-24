@@ -2,16 +2,45 @@
 package ch.nolix.core.errorcontrol.logger;
 
 //own imports
+import ch.nolix.core.errorcontrol.errormapping.StackTraceMapper;
 import ch.nolix.core.independent.container.ImmutableList;
 
 //class
 public final class LogEntry {
+	
+	//constant
+	private static final StackTraceMapper STACK_TRACE_MAPPER = StackTraceMapper.INSTANCE;
+	
+	//static method
+	public static LogEntry forError(final Throwable error) {
+		return new LogEntry(HarmLevel.ERROR, getMessageFromError(error), getAdditionalInfoLinesFromError(error));
+	}
 	
 	//static method
 	public static LogEntry withMessageAndHarmLevel(final String message, final HarmLevel harmLevel) {
 		return new LogEntry(harmLevel, message, new String[0]);
 	}
 	
+	//static method
+	private static String[] getAdditionalInfoLinesFromError(Throwable error) {
+		return STACK_TRACE_MAPPER.mapErrorToStackTrace(error);
+	}
+	
+	//method
+	private static String getMessageFromError(final Throwable error) {
+		
+		if (error == null) {
+			return "An error occured.";
+		}
+		
+		final var message = error.getMessage();
+		if (message == null || message.isBlank()) {
+			return "An error occured.";
+		}
+		
+		return message;
+	}
+		
 	//attribute
 	private final String message;
 	
