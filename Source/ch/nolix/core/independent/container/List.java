@@ -3,10 +3,7 @@ package ch.nolix.core.independent.container;
 
 //Java imports
 import java.util.Iterator;
-
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import java.util.NoSuchElementException;
 
 //class
 public final class List<E> implements Iterable<E> {
@@ -104,7 +101,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public E getRefFirst() {
 		
-		supposeIsNotEmpty();
+		assertIsNotEmpty();
 		
 		return beginNode.getRefElement();
 	}
@@ -128,7 +125,7 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public void removeFirst() {
 		
-		supposeIsNotEmpty();
+		assertIsNotEmpty();
 		
 		if (!beginNode.hasNextNode()) {
 			beginNode = null;
@@ -143,41 +140,40 @@ public final class List<E> implements Iterable<E> {
 	//method
 	public void removeFirst(final E element) {
 		
-		if (isEmpty()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
-		}
-		
-		if (beginNode.contains(element)) {
-			removeFirst();
-			return;
-		}
-		
-		var iteratorNode = beginNode;
-		while (iteratorNode.hasNextNode()) {
+		if (!isEmpty()) {
 			
-			if (iteratorNode.getRefNextNodeOrNull().contains(element)) {
-				
-				if (!iteratorNode.getRefNextNodeOrNull().hasNextNode()) {
-					iteratorNode.removeNextNode();
-					endNode = iteratorNode;
-				} else {
-					iteratorNode.setNextNode(iteratorNode.getRefNextNodeOrNull().getRefNextNodeOrNull());
-				}
-				
-				elementCount--;
+			if (beginNode.contains(element)) {
+				removeFirst();
 				return;
 			}
 			
-			iteratorNode = iteratorNode.getRefNextNodeOrNull();
+			var iteratorNode = beginNode;
+			while (iteratorNode.hasNextNode()) {
+				
+				if (iteratorNode.getRefNextNodeOrNull().contains(element)) {
+					
+					if (!iteratorNode.getRefNextNodeOrNull().hasNextNode()) {
+						iteratorNode.removeNextNode();
+						endNode = iteratorNode;
+					} else {
+						iteratorNode.setNextNode(iteratorNode.getRefNextNodeOrNull().getRefNextNodeOrNull());
+					}
+					
+					elementCount--;
+					return;
+				}
+				
+				iteratorNode = iteratorNode.getRefNextNodeOrNull();
+			}
+			
+			throw new NoSuchElementException("The current List does not contain the given element '" + element + "'.");
 		}
-		
-		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the element '" + element + "'");
 	}
 	
 	//method
-	private void supposeIsNotEmpty() {
+	private void assertIsNotEmpty() {
 		if (isEmpty()) {
-			throw EmptyArgumentException.forArgument(this);
+			throw new IllegalStateException("The current List is empty.");
 		}
 	}
 }
