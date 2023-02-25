@@ -1243,7 +1243,7 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link LinkedList} contains n elements.
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
 	 *  
 	 * {@inheritDoc}
 	 */
