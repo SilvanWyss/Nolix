@@ -317,6 +317,22 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_inBigDecimalScale() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(3.0, 2.0, 10);
+		
+		//execution
+		final var result = testUnit.inBigDecimalScale(50);
+		
+		//verification
+		expect(result.getBigDecimalScale()).isEqualTo(50);
+		expect(result.getRealComponent().scale()).isEqualTo(50);
+		expect(result.getImaginaryComponent().scale()).isEqualTo(50);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
 		
 		//setup
@@ -481,5 +497,19 @@ public final class ComplexNumberTest extends Test {
 		
 		//verification
 		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_toString() {
+		
+		//setup
+		final var testUnit = new ComplexNumber(3.0, 2.0, 5);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("3.00000 + 2.00000i");
 	}
 }
