@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.businesstest.mathtest.bigdecimalmathtest;
 
+//own imports
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -11,7 +12,7 @@ public final class ComplexSequenceDefinedBy1PredecessorTest extends Test {
 	
 	//method
 	@TestCase
-	public void test_getValueAtIndex() {
+	public void test_getValueAt1BasedIndex() {
 		
 		//setup
 		final var testUnit =
