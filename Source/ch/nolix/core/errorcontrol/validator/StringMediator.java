@@ -172,7 +172,7 @@ public class StringMediator extends ArgumentMediator<String> {
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				getRefArgument(),
-				"has the length " + getRefArgument().length() + " and is therefore longer than " + maxLength
+				"is longer than " + maxLength
 			);
 		}
 	}
