@@ -4,12 +4,27 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class GlobalValidatorForStringTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_hasLength_whenTheGivenLengthIsNegative() {
+		
+		//setup
+		final var string = "Hocus pocus";
+		
+		//execution & verification
+		expectRunning(() -> GlobalValidator.assertThat(string).hasLength(-1))
+		.throwsException()
+		.ofType(NegativeArgumentException.class)
+		.withMessage("The given length '-1' is negative.");
+	}
 	
 	//method
 	@TestCase
@@ -85,5 +100,19 @@ public final class GlobalValidatorForStringTest extends Test {
 		//execution & verification
 		expectRunning(() -> GlobalValidator.assertThat(string).isNotEmpty())
 		.doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotLongerThan_whenTheGivenStringIsLonger() {
+		
+		//setup
+		final var string = "Hocus pocus";
+		
+		//execution & verification
+		expectRunning(() -> GlobalValidator.assertThat(string).isNotLongerThan(10))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage("The given argument 'Hocus pocus' is longer than 10.");
 	}
 }
