@@ -48,6 +48,8 @@ final class ServerSocketProcessor extends Worker {
 		}
 		
 		start();
+		
+		GlobalLogger.logInfo("Created a ServerSocketProcessor.");
 	}
 	
 	//method
@@ -83,6 +85,8 @@ final class ServerSocketProcessor extends Worker {
 	private SingleContainer<BaseNetEndPoint> createOptionalNetEndPoint() {
 		
 		final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
+		
+		GlobalLogger.logInfo("The current ServerSocektProcessor received the first line: " + firstReveivedLine);
 		
 		switch (getNetEndPointCreationTypeFromFirstReceivedLine(firstReveivedLine)) {
 			case REGULAR_SOCKET_WITH_DEFAULT_TARGET:
