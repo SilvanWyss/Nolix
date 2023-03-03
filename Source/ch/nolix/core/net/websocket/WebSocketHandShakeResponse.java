@@ -17,6 +17,7 @@ public final class WebSocketHandShakeResponse {
 	//constants
 	public static final String WEB_SOCKET_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 	public static final String SEC_WEBSOCKET_ACCEPT_HEADER = "Sec-WebSocket-Accept";
+	public static final String SEC_WEBSOCKET_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
 	
 	//attributes
 	private final String secWebSocketKey;
@@ -57,6 +58,7 @@ public final class WebSocketHandShakeResponse {
 		+ "Upgrade: websocket\r\n"
 		+ "Connection: Upgrade\r\n"
 		+ SEC_WEBSOCKET_ACCEPT_HEADER + ": " + secWebSocketAccept + "\r\n"
+		+ SEC_WEBSOCKET_PROTOCOL_HEADER + ": chat\r\n"
 		+ "\r\n";
 	}
 }
