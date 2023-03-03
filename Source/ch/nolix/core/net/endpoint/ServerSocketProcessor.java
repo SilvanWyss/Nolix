@@ -86,7 +86,7 @@ final class ServerSocketProcessor extends Worker {
 		
 		final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
 		
-		GlobalLogger.logInfo("The current ServerSocektProcessor received the first line: " + firstReveivedLine);
+		GlobalLogger.logInfo("The current ServerSocketProcessor received the first line: " + firstReveivedLine);
 		
 		switch (getNetEndPointCreationTypeFromFirstReceivedLine(firstReveivedLine)) {
 			case REGULAR_SOCKET_WITH_DEFAULT_TARGET:
