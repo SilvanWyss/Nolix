@@ -10,7 +10,6 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalInputStreamHelper;
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
