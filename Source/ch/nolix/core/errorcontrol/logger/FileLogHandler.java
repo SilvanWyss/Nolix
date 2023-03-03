@@ -48,11 +48,20 @@ public final class FileLogHandler extends LogHandler {
 	@Override
 	protected void log(final LogEntry logEntry) {
 		try {
+			
 			Files.writeString(
 				Paths.get(getLocalNolixLogFilePath()),
 				logEntry.toString() + System.lineSeparator(),
 				StandardOpenOption.APPEND
 			);
+			
+			for (final var ail : logEntry.getAdditionalInfoLines()) {
+				Files.writeString(
+					Paths.get(getLocalNolixLogFilePath()),
+					"  " + ail + System.lineSeparator(),
+					StandardOpenOption.APPEND
+				);
+			}
 		} catch (final IOException pIOException) {
 			throw WrapperException.forError(pIOException);
 		}	

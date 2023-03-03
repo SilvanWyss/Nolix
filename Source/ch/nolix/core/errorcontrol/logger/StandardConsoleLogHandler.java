@@ -7,15 +7,11 @@ public final class StandardConsoleLogHandler extends LogHandler {
 	//method
 	@Override
 	protected void log(final LogEntry logEntry) {
-		switch (logEntry.getHarmLevel()) {
-			case INFO, WARNING:
-				System.out.println(logEntry.toString());
-				break;
-			case ERROR, FATAL_ERROR:
-				System.err.println(logEntry.toString());
-				break;
-			default:
-				//Does nothing.
+		
+		System.out.println(logEntry.toString());
+		
+		for (final var ail : logEntry.getAdditionalInfoLines()) {
+			System.out.println("  "+ ail);
 		}
 	}
 }
