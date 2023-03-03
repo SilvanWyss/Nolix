@@ -10,12 +10,14 @@ import java.nio.charset.StandardCharsets;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalInputStreamHelper;
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.http.HTTPRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
@@ -102,7 +104,15 @@ final class ServerSocketProcessor extends Worker {
 				fillUpUntilEmptyLineFollows(lines, socketInputStream);
 				
 				if (WebSocketHandShakeRequest.canBe(lines)) {
-					sendRawMessage(new WebSocketHandShakeRequest(lines).getWebSocketHandShakeResponse().toString());
+					
+					GlobalLogger.logInfo("Received a web socket opening handshake request: " + lines.toString());
+					
+					final var openingHandshakeResponse =
+					new WebSocketHandShakeRequest(lines).getWebSocketHandShakeResponse().toString();
+					
+					GlobalLogger.logInfo("Send opening handshake response: " + openingHandshakeResponse);
+					sendRawMessage(openingHandshakeResponse);
+					
 					return new SingleContainer<>(new WebEndPoint(socket, socketInputStream, socketOutputStream));
 				}
 				
