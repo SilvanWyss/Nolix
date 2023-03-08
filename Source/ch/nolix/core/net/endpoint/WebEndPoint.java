@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.netapi.baseendpointapi.EndPointType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 

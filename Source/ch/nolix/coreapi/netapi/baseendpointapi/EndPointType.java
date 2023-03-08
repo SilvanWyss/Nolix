@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.endpoint;
+package ch.nolix.coreapi.netapi.baseendpointapi;
 
 //enum
 public enum EndPointType {
