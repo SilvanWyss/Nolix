@@ -138,7 +138,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this net end point does not have a target.
 	 */
 	@Override
-	public String getTarget() {
+	public String getCustomTargetSlot() {
 		return internalEndPoint.getCustomTargetSlot();
 	}
 	
@@ -147,7 +147,7 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasRequestedConnection() {
+	public boolean isFrontedEndPoint() {
 		return internalEndPoint.isFrontendEndPoint();
 	}
 	
@@ -156,7 +156,7 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasTarget() {
+	public boolean hasCustomTargetSlot() {
 		return internalEndPoint.hasCustomTargetSlot();
 	}
 	
@@ -193,7 +193,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the reply to the given message if the current {@link NetEndPoint} stays connected, null otherwise.
 	 */
 	@Override
-	public String getReplyTo(final String message) {
+	public String getReplyForRequest(final String message) {
 		return sendAndWaitToReply(message);
 	}
 	

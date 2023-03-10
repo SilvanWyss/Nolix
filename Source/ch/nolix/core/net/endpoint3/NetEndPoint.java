@@ -153,7 +153,7 @@ public class NetEndPoint extends EndPoint {
 		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
 		
 		//Sends message and gets reply.
-		final var reply = Node.fromString(internalNetEndPoint.getReplyTo(message));
+		final var reply = Node.fromString(internalNetEndPoint.getReplyForRequest(message));
 		
 		//Enumerates the header of the reply.
 		switch (reply.getHeader()) {
@@ -173,7 +173,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public String getTarget() {
-		return internalNetEndPoint.getTarget();
+		return internalNetEndPoint.getCustomTargetSlot();
 	}
 
 	//method
@@ -182,7 +182,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean hasRequestedConnection() {
-		return internalNetEndPoint.hasRequestedConnection();
+		return internalNetEndPoint.isFrontedEndPoint();
 	}
 
 	//method
@@ -191,7 +191,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean hasTarget() {
-		return internalNetEndPoint.hasTarget();
+		return internalNetEndPoint.hasCustomTargetSlot();
 	}
 	
 	//method
@@ -239,7 +239,7 @@ public class NetEndPoint extends EndPoint {
 		final var message = Protocol.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
 		
 		//Sends the message and gets reply.
-		final var replyMessage = internalNetEndPoint.getReplyTo(message);
+		final var replyMessage = internalNetEndPoint.getReplyForRequest(message);
 		if (replyMessage == null) {
 			return;
 		}

@@ -110,12 +110,12 @@ public abstract class BaseServer implements GroupCloseable {
 		endPoint.assertIsOpen();
 		
 		//Handles the case that the given endPoint does not have a target.
-		if (!endPoint.hasTarget()) {
+		if (!endPoint.hasCustomTargetSlot()) {
 			getRefDefaultEndPointTaker().takeEndPoint(endPoint);
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefEndPointTakerByName(endPoint.getTarget()).takeEndPoint(endPoint);
+			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
 		}
 	}
 	

@@ -83,7 +83,7 @@ public final class NetEndPointTest extends Test {
 			try (final var testUnit = new NetEndPoint(port)) {
 			
 				//execution
-				final var result = testUnit.getReplyTo("MESSAGE");
+				final var result = testUnit.getReplyForRequest("MESSAGE");
 				
 				//verification
 				expect(endPointTaker.getReceivedMessageOrNull()).isEqualTo("MESSAGE");

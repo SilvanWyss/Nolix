@@ -39,25 +39,25 @@ public abstract class EndPoint implements GroupCloseable {
 	}
 	
 	//method declaration
-	public abstract String getReplyTo(final String message);
+	public abstract String getReplyForRequest(final String request);
 	
 	//method declaration
 	/**
 	 * @return the target of this end point.
 	 */
-	public abstract String getTarget();
-	
-	//method declaration
-	/**
-	 * @return true if this end point has requested the connection.
-	 */
-	public abstract boolean hasRequestedConnection();
+	public abstract String getCustomTargetSlot();
 	
 	//method declaration
 	/**
 	 * @return true if this end point has a target.
 	 */
-	public abstract boolean hasTarget();
+	public abstract boolean hasCustomTargetSlot();
+	
+	//method declaration
+	/**
+	 * @return true if this end point has requested the connection.
+	 */
+	public abstract boolean isFrontedEndPoint();
 	
 	//method declaration
 	/**

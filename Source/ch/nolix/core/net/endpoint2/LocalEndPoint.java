@@ -163,10 +163,10 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local end point does not have a target.
 	 */
 	@Override
-	public String getTarget() {
+	public String getCustomTargetSlot() {
 		
 		//Asserts that this local end point has a target.
-		if (!hasTarget()) {
+		if (!hasCustomTargetSlot()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target");
 		}
 		
@@ -178,7 +178,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return true if this local end point has requested the connection.
 	 */
 	@Override
-	public boolean hasRequestedConnection() {
+	public boolean isFrontedEndPoint() {
 		return requestedConnection;
 	}
 	
@@ -187,7 +187,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return true if this local end point has a target.
 	 */
 	@Override
-	public boolean hasTarget() {
+	public boolean hasCustomTargetSlot() {
 		return (target != null);
 	}
 	
@@ -208,7 +208,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the reply to the given message from this local end point.
 	 */
 	@Override
-	public String getReplyTo(final String message) {
+	public String getReplyForRequest(final String message) {
 		return getRefCounterpart().receiveAndGetReply(message);
 	}
 	
