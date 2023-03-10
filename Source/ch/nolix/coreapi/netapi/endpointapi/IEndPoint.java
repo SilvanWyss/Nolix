@@ -15,5 +15,5 @@ public interface IEndPoint extends IBaseEndPoint {
 	void sendMessage(String message);
 	
 	//method declaration
-	void setReceiver(final IElementTaker<String> receiver);
+	void setReceiver(IElementTaker<String> receiver);
 }
