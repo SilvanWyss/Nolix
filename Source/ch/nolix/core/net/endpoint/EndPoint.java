@@ -11,7 +11,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.netapi.baseendpointapi.EndPointType;
+import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
@@ -81,7 +81,7 @@ public abstract class EndPoint implements GroupCloseable {
 	/**
 	 * @return the type of the current {@link EndPoint}.
 	 */
-	public abstract EndPointType getType();
+	public abstract ConnectionType getType();
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.

@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.baseendpointapi.EndPointType;
+import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 
 //class
@@ -115,8 +115,8 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public EndPointType getType() {
-		return EndPointType.LOCAL;
+	public ConnectionType getType() {
+		return ConnectionType.LOCAL;
 	}
 	
 	//method

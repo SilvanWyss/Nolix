@@ -17,7 +17,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.netapi.baseendpointapi.EndPointType;
+import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
@@ -204,8 +204,8 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public EndPointType getType() {
-		return EndPointType.REGULAR_SOCKET;
+	public ConnectionType getType() {
+		return ConnectionType.REGULAR_SOCKET;
 	}
 	
 	//method
