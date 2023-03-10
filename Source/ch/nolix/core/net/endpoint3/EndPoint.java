@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
+//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -31,44 +31,8 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	//optional attribute
 	private IDataProviderController receiverController;
 	
-	//multi-attribute
-	private final LinkedList<ChainedNode> appendedCommands = new LinkedList<>();
-	
 	//constructor
 	EndPoint() {}
-	
-	//method
-	/**
-	 * Appends the given command to current {@link EndPoint}.
-	 * 
-	 * @param command
-	 * @throws ArgumentIsNullException if the given command is null.
-	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
-	 */
-	public final void appendCommand(final ChainedNode command) {
-		
-		assertIsOpen();
-		
-		appendedCommands.addAtEnd(command);
-	}
-	
-	//method
-	/**
-	 * Appends the given commands to current {@link EndPoint}.
-	 * 
-	 * @param firstCommand
-	 * @param commands
-	 * @throws ArgumentIsNullException if the given firstCommand or one of the given commands is null.
-	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
-	 */
-	public final void appendCommands(final ChainedNode firstCommand, ChainedNode... commands) {
-		
-		appendCommand(firstCommand);
-		
-		for (final var c : commands) {
-			appendCommand(c);
-		}
-	}
 	
 	//method
 	/**
@@ -168,22 +132,6 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	 */
 	@Override
 	public final void noteClose() {}
-	
-	//method
-	/**
-	 * Runs the appended commands of the current {@link EndPoint}.
-	 * The appended commands of the current local {@link EndPoint} will be removed in any case.
-	 * 
-	 * @throws ClosedArgumentException if the current local {@link EndPoint} is closed.
-	 */
-	public final void runAppendedCommands() {
-		
-		assertIsOpen();
-		
-		final var lAppendedCommands = appendedCommands.getCopy();
-		appendedCommands.clear();
-		run(lAppendedCommands);
-	}
 	
 	//method
 	/**
