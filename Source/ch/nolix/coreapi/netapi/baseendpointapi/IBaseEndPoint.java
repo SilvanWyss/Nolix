@@ -8,10 +8,10 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 public interface IBaseEndPoint extends GroupCloseable {
 	
 	//method declaration
-	ConnectionRequestRole getConnectionRequestRole();
+	String getCustomTargetSlot();
 	
 	//method declaration
-	String getCustomTargetSlot();
+	PeerType getPeerType();
 	
 	//method declaration
 	TargetSlotDefinition getTargetSlotDefinition();
@@ -20,16 +20,16 @@ public interface IBaseEndPoint extends GroupCloseable {
 	EndPointType getType();
 	
 	//method declaration
-	boolean hasBeenRequestedForConnection();
-	
-	//method declaration
 	boolean hasCustomTargetSlot();
 	
 	//method declaration
 	boolean hasDefaultTargetSlot();
-		
+	
 	//method declaration
-	boolean hasRequestedConnection();
+	boolean isBackendEndPoint();
+	
+	//method declaration
+	boolean isFrontendEndPoint();
 	
 	//method declaration
 	boolean isLocalEndPoint();
