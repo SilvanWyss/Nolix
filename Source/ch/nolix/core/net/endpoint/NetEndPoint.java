@@ -232,15 +232,6 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isWebEndPoint() {
-		return false;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void noteClose() {
 		if (canWork()) {
 			try {

@@ -135,15 +135,6 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isWebEndPoint() {
-		return false;
-	}
-	
-	//method
-	/**
 	 * Lets this local send the given message.
 	 * 
 	 * @param message

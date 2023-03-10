@@ -7,13 +7,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
+import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 
 //class
 /**
@@ -23,13 +21,10 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-public abstract class EndPoint implements GroupCloseable {
+public abstract class EndPoint extends BaseEndPoint {
 	
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
-	
-	//attribute
-	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
 	private String target;
@@ -55,29 +50,12 @@ public abstract class EndPoint implements GroupCloseable {
 	}
 	
 	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final CloseController getRefCloseController() {
-		return closeController;
-	}
-	
-	//method
-	public abstract PeerType getPeerType();
-	
-	//method declaration
-	/**
-	 * @return the type of the current {@link EndPoint}.
-	 */
-	public abstract ConnectionType getConnectionType();
-	
-	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * @return the target of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a target.
 	 */
+	@Override
 	public final String getCustomTargetSlot() {
 		
 		//Asserts that the current EndPoint has a target.
@@ -89,6 +67,17 @@ public abstract class EndPoint implements GroupCloseable {
 	}
 	
 	//method
+	@Override
+	public final TargetSlotDefinition getTargetSlotDefinition() {
+		
+		if (target == null) {
+			return TargetSlotDefinition.DEFAULT;
+		}
+		
+		return TargetSlotDefinition.CUSTOM;
+	}
+	
+	//method
 	/**
 	 * @return true if the current {@link EndPoint} has a receiver.
 	 */
@@ -96,33 +85,11 @@ public abstract class EndPoint implements GroupCloseable {
 		return (receiver != null);
 	}
 	
-	//method
-	/**
-	 * @return true if the current {@link EndPoint} has a target.
-	 */
-	public final boolean hasCustomTargetSlot() {
-		return (target != null);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link EndPoint} is a local {@link EndPoint}.
-	 */
-	public final boolean isLocalEndPoint() {
-		return !isNetEndPoint();
-	}
-	
 	//method declaration
 	/**
 	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
 	 */
 	public abstract boolean isNetEndPoint();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
-	 */
-	public abstract boolean isWebEndPoint();
 	
 	//method
 	/**

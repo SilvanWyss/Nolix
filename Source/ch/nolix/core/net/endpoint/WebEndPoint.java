@@ -77,12 +77,6 @@ final class WebEndPoint extends BaseNetEndPoint {
 	
 	//method
 	@Override
-	public boolean isWebEndPoint() {
-		return true;
-	}
-	
-	//method
-	@Override
 	public void noteClose() {
 		
 		if (canWork()) {
