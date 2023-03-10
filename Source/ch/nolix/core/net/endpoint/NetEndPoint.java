@@ -18,7 +18,7 @@ import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -28,9 +28,16 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  */
 public final class NetEndPoint extends BaseNetEndPoint {
 	
-	//attributes
+	//attribute
+	private final PeerType peerType;
+	
+	//attribute
 	private final Socket socket;
+	
+	//attribute
 	private final InputStream socketInputStream;
+	
+	//attribute
 	private final OutputStream socketOutputStream;
 	
 	//constructor
@@ -81,12 +88,14 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 */
 	public NetEndPoint(final String ip, final int port) {
 		
-		super(ConnectionOrigin.REQUESTED_CONNECTION, TargetInfoState.RECEIVED_TARGET_INFO);
+		super(TargetInfoState.RECEIVED_TARGET_INFO);
 		
 		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+		
+		peerType = PeerType.FRONTEND;
 		
 		try {
 			socket = new Socket(ip, port);
@@ -114,12 +123,14 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 */
 	public NetEndPoint(final String ip, final int port, final String target) {
 		
-		super(ConnectionOrigin.REQUESTED_CONNECTION, target);
+		super(target);
 		
 		GlobalValidator
 		.assertThat(port)
 		.thatIsNamed(LowerCaseCatalogue.PORT)
 		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+		
+		peerType = PeerType.FRONTEND;
 		
 		try {
 			socket = new Socket(ip, port);
@@ -151,12 +162,13 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		final OutputStream socketOutputStream
 	) {
 		
-		super(ConnectionOrigin.ACCEPTED_CONNECTION, TargetInfoState.RECEIVED_TARGET_INFO);
+		super(TargetInfoState.RECEIVED_TARGET_INFO);
 		
 		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 		GlobalValidator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		GlobalValidator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
+		peerType = PeerType.BACKEND;		
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
@@ -186,17 +198,24 @@ public final class NetEndPoint extends BaseNetEndPoint {
 		final String target
 	) {
 		
-		super(ConnectionOrigin.ACCEPTED_CONNECTION, target);
+		super(target);
 		
 		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 		GlobalValidator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		GlobalValidator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
+		peerType = PeerType.BACKEND;
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
 		
 		new NetEndPointMessageListener(this);
+	}
+	
+	//method
+	@Override
+	public PeerType getPeerType() {
+		return peerType;
 	}
 	
 	//method

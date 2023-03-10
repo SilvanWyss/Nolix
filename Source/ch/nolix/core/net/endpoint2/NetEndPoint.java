@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -148,7 +149,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean isFrontedEndPoint() {
-		return internalEndPoint.isFrontendEndPoint();
+		return (internalEndPoint.getPeerType() == PeerType.FRONTEND);
 	}
 	
 	//method

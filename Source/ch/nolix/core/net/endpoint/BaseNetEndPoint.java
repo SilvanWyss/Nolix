@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -37,10 +36,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
 	 * @throws ArgumentIsNullException if the given targetInfoState is null.
 	 */
-	BaseNetEndPoint(final ConnectionOrigin connectionOrigin, final TargetInfoState targetInfoState) {
-		
-		//Calls constructor of the base class.
-		super(connectionOrigin);
+	BaseNetEndPoint(final TargetInfoState targetInfoState) {
 		
 		//Asserts that the given targetInfoState is not null.
 		GlobalValidator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
@@ -60,10 +56,10 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	BaseNetEndPoint(final ConnectionOrigin connectionOrigin, final String target) {
+	BaseNetEndPoint(final String target) {
 		
 		//Calls constructor of the base class.
-		super(connectionOrigin, target);
+		super(target);
 				
 		confirmReceivedTargetInfo();
 	}

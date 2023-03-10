@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 
 //class
 /**
@@ -19,6 +19,9 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
 public final class LocalEndPoint extends EndPoint {
 	
 	//attribute
+	private final PeerType peerType;
+		
+	//attribute
 	private final LocalEndPoint counterpart;
 	
 	//constructor
@@ -27,8 +30,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint() {
 		
-		//Calls constructor of the base class.
-		super(ConnectionOrigin.REQUESTED_CONNECTION);
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -43,8 +45,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint(final IEndPointTaker target) {
 		
-		//Calls constructor of the base class.
-		super(ConnectionOrigin.REQUESTED_CONNECTION);
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -67,8 +68,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint(final BaseServer baseServer, final String target) {
 		
-		//Calls constructor of the base class.
-		super(ConnectionOrigin.REQUESTED_CONNECTION);
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -89,8 +89,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	private LocalEndPoint(final LocalEndPoint counterpart) {
 		
-		//Calls constructor of the base class.
-		super(ConnectionOrigin.ACCEPTED_CONNECTION);
+		peerType = PeerType.BACKEND;
 		
 		//Asserts that the given counterpart is not null.
 		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
@@ -100,6 +99,12 @@ public final class LocalEndPoint extends EndPoint {
 		
 		//Sets the counterpart of this local end point.
 		this.counterpart = counterpart;
+	}
+	
+	//method
+	@Override
+	public PeerType getPeerType() {
+		return peerType;
 	}
 	
 	//method

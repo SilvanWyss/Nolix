@@ -16,7 +16,7 @@ import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -25,9 +25,16 @@ final class WebEndPoint extends BaseNetEndPoint {
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
-	//attributes
+	//attribute
+	private final PeerType peerType;
+	
+	//attribute
 	private final Socket socket;
+	
+	//attribute
 	private final InputStream socketInputStream;
+	
+	//attribute
 	private final OutputStream socketOutputStream;
 	
 	//constructor
@@ -37,12 +44,13 @@ final class WebEndPoint extends BaseNetEndPoint {
 		final OutputStream socketOutputStream
 	) {
 		
-		super(ConnectionOrigin.ACCEPTED_CONNECTION, TargetInfoState.WAITS_TO_TARGET_INFO);
+		super(TargetInfoState.WAITS_TO_TARGET_INFO);
 		
 		GlobalValidator.assertThat(socket).thatIsNamed(Socket.class).isNotNull();
 		GlobalValidator.assertThat(socketInputStream).thatIsNamed("socket input stream").isNotNull();
 		GlobalValidator.assertThat(socketOutputStream).thatIsNamed("socket output stream").isNotNull();
 		
+		peerType = PeerType.BACKEND;
 		this.socket = socket;
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
@@ -53,6 +61,12 @@ final class WebEndPoint extends BaseNetEndPoint {
 		waitToTargetInfo();
 		
 		GlobalLogger.logInfo("Created a WebEndPoint.");
+	}
+	
+	//method
+	@Override
+	public PeerType getPeerType() {
+		return peerType;
 	}
 	
 	//method

@@ -12,7 +12,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.ConnectionOrigin;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -28,27 +28,17 @@ public abstract class EndPoint implements GroupCloseable {
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
-	//attributes
-	private final boolean requestedConnection;
+	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
-	//optional attributes
+	//optional attribute
 	private String target;
+	
+	//optional attribute
 	private IElementTaker<String> receiver;
 	
 	//constructor
-	/**
-	 * Creates a new {@link EndPoint}.
-	 * 
-	 * @param connectionOrigin
-	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
-	 */
-	EndPoint(final ConnectionOrigin connectionOrigin) {
-		
-		GlobalValidator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
-		
-		requestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
-	}
+	public EndPoint() {}
 	
 	//constructor
 	/**
@@ -60,11 +50,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	EndPoint(final ConnectionOrigin connectionOrigin, final String target) {
-		
-		GlobalValidator.assertThat(connectionOrigin).thatIsNamed(ConnectionOrigin.class).isNotNull();
-		
-		requestedConnection = connectionOrigin == ConnectionOrigin.REQUESTED_CONNECTION;
+	EndPoint(final String target) {
 		setTarget(target);
 	}
 	
@@ -76,6 +62,9 @@ public abstract class EndPoint implements GroupCloseable {
 	public final CloseController getRefCloseController() {
 		return closeController;
 	}
+	
+	//method
+	public abstract PeerType getPeerType();
 	
 	//method declaration
 	/**
@@ -105,14 +94,6 @@ public abstract class EndPoint implements GroupCloseable {
 	 */
 	public final boolean hasReceiver() {
 		return (receiver != null);
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link EndPoint} has requested the connection.
-	 */
-	public final boolean isFrontendEndPoint() {
-		return requestedConnection;
 	}
 	
 	//method
