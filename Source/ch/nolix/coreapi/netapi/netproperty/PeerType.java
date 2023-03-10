@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.netapi.baseendpointapi;
+package ch.nolix.coreapi.netapi.netproperty;
 
 //enum
 public enum PeerType {
