@@ -12,6 +12,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
+import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 
 //class
 /**
@@ -21,7 +22,7 @@ import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-public abstract class EndPoint extends BaseEndPoint {
+public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 	
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
@@ -81,6 +82,7 @@ public abstract class EndPoint extends BaseEndPoint {
 	/**
 	 * @return true if the current {@link EndPoint} has a receiver.
 	 */
+	@Override
 	public final boolean hasReceiver() {
 		return (receiver != null);
 	}
@@ -99,6 +101,7 @@ public abstract class EndPoint extends BaseEndPoint {
 	 * @throws ArgumentIsNullException if the given receiver is null.
 	 * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
 	 */
+	@Override
 	public final void setReceiver(final IElementTaker<String> receiver) {
 		
 		//Asserts that the given receiver is not null.
@@ -110,14 +113,6 @@ public abstract class EndPoint extends BaseEndPoint {
 		//Sets the receiver of the current EndPoint.
 		this.receiver = receiver;
 	}
-	
-	//method declaration
-	/**
-	 * Lets the current {@link EndPoint} send the given message.
-	 * 
-	 * @param message
-	 */
-	public abstract void sendMessage(String message);
 	
 	//method
 	/**
