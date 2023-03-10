@@ -146,7 +146,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ClosedArgumentException if this local end point is closed.
 	 */
 	@Override
-	public void send(final String message) {
+	public void sendMessage(final String message) {
 		
 		//Asserts that the given message is not null.
 		GlobalValidator.assertThat(message).thatIsNamed("message").isNotNull();

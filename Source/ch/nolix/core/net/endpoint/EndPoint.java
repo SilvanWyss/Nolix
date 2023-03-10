@@ -89,7 +89,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 * @return the target of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a target.
 	 */
-	public final String getTarget() {
+	public final String getCustomTargetSlot() {
 		
 		//Asserts that the current EndPoint has a target.
 		if (this.target == null) {
@@ -111,7 +111,7 @@ public abstract class EndPoint implements GroupCloseable {
 	/**
 	 * @return true if the current {@link EndPoint} has requested the connection.
 	 */
-	public final boolean hasRequestedConnection() {
+	public final boolean isFrontendEndPoint() {
 		return requestedConnection;
 	}
 	
@@ -119,7 +119,7 @@ public abstract class EndPoint implements GroupCloseable {
 	/**
 	 * @return true if the current {@link EndPoint} has a target.
 	 */
-	public final boolean hasTarget() {
+	public final boolean hasCustomTargetSlot() {
 		return (target != null);
 	}
 	
@@ -169,7 +169,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 * 
 	 * @param message
 	 */
-	public abstract void send(String message);
+	public abstract void sendMessage(String message);
 	
 	//method
 	/**

@@ -86,7 +86,7 @@ public final class NetEndPointTest extends Test {
 			try (final var testUnit = new NetEndPoint(port)) {
 				
 				//execution
-				testUnit.send("MESSAGE");
+				testUnit.sendMessage("MESSAGE");
 				GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
 				
 				//verification

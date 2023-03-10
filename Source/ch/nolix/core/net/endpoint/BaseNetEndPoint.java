@@ -84,7 +84,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * @param message
 	 */
 	@Override
-	public final void send(final String message) {
+	public final void sendMessage(final String message) {
 		sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
 	}
 	
@@ -158,12 +158,12 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	private String getTargetMessage() {
 		
 		//Handles the case that the current BaseNetEndPoint has a target.
-		if (!hasTarget()) {
+		if (!hasCustomTargetSlot()) {
 			return String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX);
 		}
 		
 		//Handles the case that the current BaseNetEndPoint does not have a target.
-		return (NetEndPointProtocol.TARGET_PREFIX + getTarget());
+		return (NetEndPointProtocol.TARGET_PREFIX + getCustomTargetSlot());
 	}
 	
 	//method

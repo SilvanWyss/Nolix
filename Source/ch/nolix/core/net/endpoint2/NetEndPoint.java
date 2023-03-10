@@ -139,7 +139,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public String getTarget() {
-		return internalEndPoint.getTarget();
+		return internalEndPoint.getCustomTargetSlot();
 	}
 	
 	//method
@@ -148,7 +148,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean hasRequestedConnection() {
-		return internalEndPoint.hasRequestedConnection();
+		return internalEndPoint.isFrontendEndPoint();
 	}
 	
 	//method
@@ -157,7 +157,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean hasTarget() {
-		return internalEndPoint.hasTarget();
+		return internalEndPoint.hasCustomTargetSlot();
 	}
 	
 	//method
@@ -290,7 +290,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param pPackage
 	 */
 	private void send(final Package pPackage) {
-		internalEndPoint.send(pPackage.toString());
+		internalEndPoint.sendMessage(pPackage.toString());
 	}
 	
 	//method
