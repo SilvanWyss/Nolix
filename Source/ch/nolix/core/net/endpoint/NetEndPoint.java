@@ -223,7 +223,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ConnectionType getType() {
+	public ConnectionType getConnectionType() {
 		return ConnectionType.REGULAR_SOCKET;
 	}
 	

@@ -120,7 +120,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ConnectionType getType() {
+	public ConnectionType getConnectionType() {
 		return ConnectionType.LOCAL;
 	}
 	

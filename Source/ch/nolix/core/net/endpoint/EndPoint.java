@@ -38,7 +38,7 @@ public abstract class EndPoint implements GroupCloseable {
 	private IElementTaker<String> receiver;
 	
 	//constructor
-	public EndPoint() {}
+	protected EndPoint() {}
 	
 	//constructor
 	/**
@@ -50,7 +50,7 @@ public abstract class EndPoint implements GroupCloseable {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	EndPoint(final String target) {
+	protected EndPoint(final String target) {
 		setTarget(target);
 	}
 	
@@ -70,7 +70,7 @@ public abstract class EndPoint implements GroupCloseable {
 	/**
 	 * @return the type of the current {@link EndPoint}.
 	 */
-	public abstract ConnectionType getType();
+	public abstract ConnectionType getConnectionType();
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.

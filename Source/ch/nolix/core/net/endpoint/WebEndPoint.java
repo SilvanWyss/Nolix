@@ -71,7 +71,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 	
 	//method
 	@Override
-	public ConnectionType getType() {
+	public ConnectionType getConnectionType() {
 		return ConnectionType.WEB_SOCKET;
 	}
 	
