@@ -142,7 +142,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the target of this local duplex controller.
 	 */
 	@Override
-	public String getTarget() {
+	public String getCustomTargetSlot() {
 		return target;
 	}
 
@@ -151,7 +151,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return true if this local duplex controller has requested the conneciton.
 	 */
 	@Override
-	public boolean hasRequestedConnection() {
+	public boolean isFrontendEndPoint() {
 		return requestedConnection;
 	}
 	
@@ -160,7 +160,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return true if this local duplex controller has a target.
 	 */
 	@Override
-	public boolean hasTarget() {
+	public boolean hasCustomTargetSlot() {
 		return (target != null);
 	}
 

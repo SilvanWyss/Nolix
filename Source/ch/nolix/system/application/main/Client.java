@@ -82,7 +82,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return the name of the target {@link Application} of the current {@link Client}.
 	 */
 	public final String getTarget() {
-		return getRefEndPoint().getTarget();
+		return getRefEndPoint().getCustomTargetSlot();
 	}
 	
 	//method
@@ -90,7 +90,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} has requested the connection.
 	 */
 	public final boolean hasRequestedConnection() {
-		return getRefEndPoint().hasRequestedConnection();
+		return getRefEndPoint().isFrontendEndPoint();
 	}
 	
 	//method
@@ -98,7 +98,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} has a target.
 	 */
 	public final boolean hasTarget() {
-		return getRefEndPoint().hasTarget();
+		return getRefEndPoint().hasCustomTargetSlot();
 	}
 	
 	//method declaration
@@ -279,7 +279,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 		createCloseDependencyTo(endPoint);
 		
 		//Sets the receiver controller of the EndPoint of the current Client.
-		endPoint.setReceiverController(new ClientDataProviderController(this));
+		endPoint.setReceivingDataProviderController(new ClientDataProviderController(this));
 	}
 	
 	//method

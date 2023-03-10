@@ -47,13 +47,13 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	/**
 	 * @return the target of the current {@link EndPoint}.
 	 */
-	public abstract String getTarget();
+	public abstract String getCustomTargetSlot();
 	
 	//method
 	/**
 	 * @return true if the current {@link EndPoint} has a receiver controller
 	 */
-	public final boolean hasReceiverController() {
+	public final boolean hasReceivingDataProviderController() {
 		return (receiverController != null);
 	}
 	
@@ -61,13 +61,13 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	/**
 	 * @return true if the current {@link EndPoint} has requested the connection.
 	 */
-	public abstract boolean hasRequestedConnection();
+	public abstract boolean isFrontendEndPoint();
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link EndPoint} has a target.
 	 */
-	public abstract boolean hasTarget();
+	public abstract boolean hasCustomTargetSlot();
 	
 	//method
 	/**
@@ -77,12 +77,12 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	public final boolean hasTarget(final String target) {
 		
 		//Handles the case that current EndPoint does not have a target.
-		if (!hasTarget()) {
+		if (!hasCustomTargetSlot()) {
 			return false;
 		}
 		
 		//Handles the case that current EndPoint has a target.
-		return getTarget().equals(target);
+		return getCustomTargetSlot().equals(target);
 	}
 	
 	//method
@@ -140,7 +140,7 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	 * @param receiverController
 	 * @throws ArgumentIsNullException if the given receiverController is null.
 	 */
-	public final void setReceiverController(final IDataProviderController receiverController) {
+	public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
 		
 		//Asserts that the given receiverController is not null.
 		GlobalValidator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
@@ -166,13 +166,13 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	 */
 	IDataProviderController getRefReceiverController() {
 		
-		if (hasReceiverController()) {
+		if (hasReceivingDataProviderController()) {
 			return receiverController;
 		}
 		
-		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceiverController);
+		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceivingDataProviderController);
 		
-		if (!hasReceiverController()) {
+		if (!hasReceivingDataProviderController()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);
 		}
 		

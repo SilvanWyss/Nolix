@@ -112,12 +112,12 @@ public final class Server extends BaseServer {
 	void internalTakeEndPoint(final EndPoint endPoint) {
 		
 		//Handles the case that the given endPoint does not have a target.
-		if (!endPoint.hasTarget()) {
+		if (!endPoint.hasCustomTargetSlot()) {
 			getRefDefaultApplication().takeEndPoint(endPoint);
 			
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefApplicationByInstanceName(endPoint.getTarget()).takeEndPoint(endPoint);
+			getRefApplicationByInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
 		}
 	}
 }

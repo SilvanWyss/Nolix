@@ -44,7 +44,7 @@ public final class NetEndPointTest extends Test {
 		//method
 		@Override
 		public void takeEndPoint(final EndPoint endPoint) {
-			endPoint.setReceiverController(
+			endPoint.setReceivingDataProviderController(
 				new IDataProviderController() {
 					
 					//method
