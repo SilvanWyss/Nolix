@@ -70,12 +70,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 		return (receiver != null);
 	}
 	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
-	 */
-	public abstract boolean isNetEndPoint();
-	
 	//method
 	/**
 	 * Sets the receiver of the current {@link EndPoint}.

@@ -174,7 +174,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return true if the current {@link NetEndPoint} is a net end point.
 	 */
 	public boolean isNetEndPoint() {
-		return internalEndPoint.isNetEndPoint();
+		return internalEndPoint.isRegularNetEndPoint();
 	}
 	
 	//method

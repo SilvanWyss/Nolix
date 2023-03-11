@@ -126,15 +126,6 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if this local end point is a net end point.
-	 */
-	@Override
-	public boolean isNetEndPoint() {
-		return false;
-	}
-	
-	//method
-	/**
 	 * Lets this local send the given message.
 	 * 
 	 * @param message

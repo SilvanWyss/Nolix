@@ -66,15 +66,6 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final boolean isNetEndPoint() {
-		return true;
-	}
-	
-	//method
-	/**
 	 * Lets the current {@link BaseNetEndPoint} send the given message.
 	 * 
 	 * @param message
