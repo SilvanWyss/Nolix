@@ -33,23 +33,6 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 	//optional attribute
 	private IElementTaker<String> receiver;
 	
-	//constructor
-	protected EndPoint() {}
-	
-	//constructor
-	/**
-	 * Creates a new {@link EndPoint} with the given target.
-	 * 
-	 * @param connectionOrigin
-	 * @param target
-	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
-	 * @throws ArgumentIsNullException if the given target is null.
-	 * @throws InvalidArgumentException if the given target is blank.
-	 */
-	protected EndPoint(final String target) {
-		setTarget(target);
-	}
-	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	/**

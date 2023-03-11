@@ -59,7 +59,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	BaseNetEndPoint(final String target) {
 		
 		//Calls constructor of the base class.
-		super(target);
+		setTarget(target);
 				
 		confirmReceivedTargetInfo();
 	}
