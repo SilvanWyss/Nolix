@@ -4,7 +4,7 @@ package ch.nolix.coretest.nettest.endpointtest;
 //own imports
 import ch.nolix.core.net.endpoint.EndPoint;
 import ch.nolix.core.net.endpoint.IEndPointTaker;
-import ch.nolix.core.net.endpoint.NetEndPoint;
+import ch.nolix.core.net.endpoint.SocketEndPoint;
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -61,7 +61,7 @@ public final class NetEndPointTest extends Test {
 			//execution & verification
 			expectRunning(
 				() -> {
-					try (final var result = new NetEndPoint(port)) {
+					try (final var result = new SocketEndPoint(port)) {
 						GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
 					}
 				}
@@ -83,7 +83,7 @@ public final class NetEndPointTest extends Test {
 			final var endPointTaker = new TestEndPointTaker();
 			server.addDefaultEndPointTaker(endPointTaker);
 			
-			try (final var testUnit = new NetEndPoint(port)) {
+			try (final var testUnit = new SocketEndPoint(port)) {
 				
 				//execution
 				testUnit.sendMessage("MESSAGE");

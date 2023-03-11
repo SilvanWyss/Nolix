@@ -90,11 +90,11 @@ final class ServerSocketProcessor extends Worker {
 		
 		switch (getNetEndPointCreationTypeFromFirstReceivedLine(firstReveivedLine)) {
 			case REGULAR_SOCKET_WITH_DEFAULT_TARGET:
-				return new SingleContainer<>(new NetEndPoint(socket, socketInputStream, socketOutputStream));
+				return new SingleContainer<>(new SocketEndPoint(socket, socketInputStream, socketOutputStream));
 			case REGULAR_SOCKET_WITH_CUSTOM_TARGET:
 				return
 				new SingleContainer<>(
-					new NetEndPoint(
+					new SocketEndPoint(
 						socket,
 						socketInputStream,
 						socketOutputStream,

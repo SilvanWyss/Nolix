@@ -41,7 +41,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final int port) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.core.net.endpoint.NetEndPoint(port));
+		this(new ch.nolix.core.net.endpoint.SocketEndPoint(port));
 	}
 	
 	//constructor
@@ -57,7 +57,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final int port, final String target) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.core.net.endpoint.NetEndPoint(port, target));
+		this(new ch.nolix.core.net.endpoint.SocketEndPoint(port, target));
 	}
 	
 	//constructor
@@ -70,7 +70,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.core.net.endpoint.NetEndPoint(ip));
+		this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip));
 	}
 	
 	//constructor
@@ -85,7 +85,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip,	final int port) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.core.net.endpoint.NetEndPoint(ip, port));
+		this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port));
 	}
 	
 	//constructor
@@ -103,7 +103,7 @@ public class NetEndPoint extends EndPoint {
 	public NetEndPoint(final String ip,	final int port,	final String target) {
 		
 		//Calls other constructor.
-		this(new ch.nolix.core.net.endpoint.NetEndPoint(ip, port, target));
+		this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port, target));
 	}
 	
 	//constructor

@@ -10,10 +10,10 @@ import ch.nolix.core.programcontrol.worker.Worker;
 final class NetEndPointMessageListener extends Worker {
 	
 	//attributes
-	private final NetEndPoint parentNetEndPoint;
+	private final SocketEndPoint parentNetEndPoint;
 		
 	//constructor
-	public NetEndPointMessageListener(final NetEndPoint parentNetEndPoint) {
+	public NetEndPointMessageListener(final SocketEndPoint parentNetEndPoint) {
 
 		GlobalValidator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
 		

@@ -26,7 +26,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-public final class NetEndPoint extends BaseNetEndPoint {
+public final class SocketEndPoint extends BaseNetEndPoint {
 	
 	//attribute
 	private final PeerType peerType;
@@ -42,19 +42,19 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to 
+	 * Creates a new {@link SocketEndPoint} that will connect to 
 	 * the main target on the given port on the local machine.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final int port) {
+	public SocketEndPoint(final int port) {
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to the given target on the given port on the local machine.
+	 * Creates a new {@link SocketEndPoint} that will connect to the given target on the given port on the local machine.
 	 * 
 	 * @param port
 	 * @param target
@@ -62,31 +62,31 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	public NetEndPoint(final int port, final String target) {
+	public SocketEndPoint(final int port, final String target) {
 		this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, target);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to
+	 * Creates a new {@link SocketEndPoint} that will connect to
 	 * the main target on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
 	 * 
 	 * @param ip
 	 */
-	public NetEndPoint(final String ip) {
+	public SocketEndPoint(final String ip) {
 		this(ip, Server.DEFAULT_PORT);
 	}
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to
+	 * Creates a new {@link SocketEndPoint} that will connect to
 	 * the main target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public NetEndPoint(final String ip, final int port) {
+	public SocketEndPoint(final String ip, final int port) {
 		
 		super(TargetInfoState.RECEIVED_TARGET_INFO);
 		
@@ -111,7 +111,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link NetEndPoint} that will connect to
+	 * Creates a new {@link SocketEndPoint} that will connect to
 	 * the given target on the given port on the machine with the given ip.
 	 * 
 	 * @param ip
@@ -121,7 +121,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	public NetEndPoint(final String ip, final int port, final String target) {
+	public SocketEndPoint(final String ip, final int port, final String target) {
 		
 		super(target);
 		
@@ -156,7 +156,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * @throws ArgumentIsNullException if the given socketInputStream is null.
 	 * @throws ArgumentIsNullException if the given socketOutputStream is null.
 	 */
-	NetEndPoint(
+	SocketEndPoint(
 		final Socket socket,
 		final InputStream socketInputStream,
 		final OutputStream socketOutputStream
@@ -191,7 +191,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	NetEndPoint(
+	SocketEndPoint(
 		final Socket socket,
 		final InputStream socketInputStream,
 		final OutputStream socketOutputStream,

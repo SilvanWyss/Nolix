@@ -12,7 +12,7 @@ import ch.nolix.core.programcontrol.worker.Worker;
 
 //class
 /**
- * A {@link ServerListener} listens to {@link NetEndPoint}s for a {@link Server}.
+ * A {@link ServerListener} listens to {@link SocketEndPoint}s for a {@link Server}.
  *  
  * @author Silvan Wyss
  * @date 2017-05-06
