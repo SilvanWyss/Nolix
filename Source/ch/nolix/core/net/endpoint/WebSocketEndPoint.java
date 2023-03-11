@@ -20,7 +20,7 @@ import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
-final class WebEndPoint extends BaseNetEndPoint {
+final class WebSocketEndPoint extends BaseNetEndPoint {
 	
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
@@ -38,7 +38,7 @@ final class WebEndPoint extends BaseNetEndPoint {
 	private final OutputStream socketOutputStream;
 	
 	//constructor
-	public WebEndPoint(
+	public WebSocketEndPoint(
 		final Socket socket,
 		final InputStream socketInputStream,
 		final OutputStream socketOutputStream

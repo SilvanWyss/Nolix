@@ -116,7 +116,7 @@ final class ServerSocketProcessor extends Worker {
 					GlobalLogger.logInfo("Send opening handshake response: " + openingHandshakeResponse);
 					sendRawMessage(openingHandshakeResponse);
 					
-					return new SingleContainer<>(new WebEndPoint(socket, socketInputStream, socketOutputStream));
+					return new SingleContainer<>(new WebSocketEndPoint(socket, socketInputStream, socketOutputStream));
 				}
 				
 				if (HTTPRequest.canBe(lines)) {

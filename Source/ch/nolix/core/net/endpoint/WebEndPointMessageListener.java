@@ -10,15 +10,15 @@ import ch.nolix.core.programcontrol.worker.BatchWorker;
 final class WebEndPointMessageListener extends BatchWorker {
 	
 	//static method
-	public static WebEndPointMessageListener forWebEndPoint(final WebEndPoint webEndPoint) {
-		return new WebEndPointMessageListener(webEndPoint);
+	public static WebEndPointMessageListener forWebEndPoint(final WebSocketEndPoint webSocketEndPoint) {
+		return new WebEndPointMessageListener(webSocketEndPoint);
 	}
 	
 	//attribute
-	private final WebEndPoint parentWebEndPoint;
+	private final WebSocketEndPoint parentWebEndPoint;
 	
 	//constructor
-	private WebEndPointMessageListener(final WebEndPoint parentWebEndPoint) {
+	private WebEndPointMessageListener(final WebSocketEndPoint parentWebEndPoint) {
 		
 		GlobalValidator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
 		
