@@ -30,15 +30,6 @@ public enum PropertyType {
 	
 	//constructor
 	PropertyType(final BasePropertyType baseType, final Cardinality cardinality) {
-		
-		if (baseType == null) {
-			throw new IllegalArgumentException("The given base type is null.");
-		}
-		
-		if (cardinality == null) {
-			throw new IllegalArgumentException("The given cardinality is null.");
-		}
-		
 		this.baseType = baseType;
 		this.cardinality = cardinality;
 	}
