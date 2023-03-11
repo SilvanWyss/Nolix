@@ -53,13 +53,13 @@ public abstract class BaseEndPoint implements IBaseEndPoint {
 	
 	//method
 	@Override
-	public final boolean isRegularNetEndPoint() {
-		return (getConnectionType() == ConnectionType.REGULAR_SOCKET);
+	public final boolean isSocketEndPoint() {
+		return (getConnectionType() == ConnectionType.SOCKET);
 	}
 	
 	//method
 	@Override
-	public final boolean isWebEndPoint() {
+	public final boolean isWebSocketEndPoint() {
 		return (getConnectionType() == ConnectionType.WEB_SOCKET);
 	}
 }

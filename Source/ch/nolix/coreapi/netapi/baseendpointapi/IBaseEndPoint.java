@@ -37,8 +37,8 @@ public interface IBaseEndPoint extends GroupCloseable {
 	boolean isLocalEndPoint();
 	
 	//method declaration
-	boolean isRegularNetEndPoint();
+	boolean isSocketEndPoint();
 	
 	//method declaration
-	boolean isWebEndPoint();
+	boolean isWebSocketEndPoint();
 }

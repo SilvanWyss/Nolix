@@ -4,6 +4,6 @@ package ch.nolix.coreapi.netapi.netproperty;
 //enum
 public enum ConnectionType {
 	LOCAL,
-	REGULAR_SOCKET,
+	SOCKET,
 	WEB_SOCKET
 }

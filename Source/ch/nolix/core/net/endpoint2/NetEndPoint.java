@@ -174,7 +174,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return true if the current {@link NetEndPoint} is a net end point.
 	 */
 	public boolean isNetEndPoint() {
-		return internalEndPoint.isRegularNetEndPoint();
+		return internalEndPoint.isSocketEndPoint();
 	}
 	
 	//method
@@ -183,7 +183,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean isWebEndPoint() {
-		return internalEndPoint.isWebEndPoint();
+		return internalEndPoint.isWebSocketEndPoint();
 	}
 	
 	//method

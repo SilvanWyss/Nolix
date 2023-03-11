@@ -224,7 +224,7 @@ public final class NetEndPoint extends BaseNetEndPoint {
 	 */
 	@Override
 	public ConnectionType getConnectionType() {
-		return ConnectionType.REGULAR_SOCKET;
+		return ConnectionType.SOCKET;
 	}
 	
 	//method
