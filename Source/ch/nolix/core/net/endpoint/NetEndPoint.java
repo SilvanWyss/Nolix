@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
 /**
- * A {@link BaseNetEndPoint} can send messages to an other {@link BaseNetEndPoint} that is on:
+ * A {@link NetEndPoint} can send messages to an other {@link NetEndPoint} that is on:
  * -the same process on the local computer
  * -another process on the local computer
  * -another process on another computer
@@ -19,7 +19,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public abstract class BaseNetEndPoint extends EndPoint {
+public abstract class NetEndPoint extends EndPoint {
 	
 	//constant
 	private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
@@ -29,14 +29,14 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link BaseNetEndPoint} with the given connectionOrigin and connectionOrigin.
+	 * Creates a new {@link NetEndPoint} with the given connectionOrigin and connectionOrigin.
 	 * 
 	 * @param connectionOrigin
 	 * @param targetInfoState
 	 * @throws ArgumentIsNullException if the given connectionOrigin is null.
 	 * @throws ArgumentIsNullException if the given targetInfoState is null.
 	 */
-	BaseNetEndPoint(final TargetInfoState targetInfoState) {
+	NetEndPoint(final TargetInfoState targetInfoState) {
 		
 		//Asserts that the given targetInfoState is not null.
 		GlobalValidator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
@@ -48,7 +48,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//constructor
 	/**
-	 * Creates a new {@link BaseNetEndPoint} with the given connectionOrigin and target.
+	 * Creates a new {@link NetEndPoint} with the given connectionOrigin and target.
 	 * 
 	 * @param connectionOrigin
 	 * @param target
@@ -56,7 +56,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	 * @throws ArgumentIsNullException if the given target is null.
 	 * @throws InvalidArgumentException if the given target is blank.
 	 */
-	BaseNetEndPoint(final String target) {
+	NetEndPoint(final String target) {
 		
 		//Calls constructor of the base class.
 		setTarget(target);
@@ -66,7 +66,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link BaseNetEndPoint} send the given message.
+	 * Lets the current {@link NetEndPoint} send the given message.
 	 * 
 	 * @param message
 	 */
@@ -77,7 +77,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseNetEndPoint} has a target info.
+	 * @return true if the current {@link NetEndPoint} has a target info.
 	 */
 	protected final boolean hasTargetInfo() {
 		return hasTargetInfo;
@@ -85,7 +85,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
+	 * Lets the current {@link NetEndPoint} send the given rawMessage.
 	 * 
 	 * @param rawMessage
 	 */
@@ -97,7 +97,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method declaration
 	/**
-	 * Lets the current {@link BaseNetEndPoint} send the given rawMessage.
+	 * Lets the current {@link NetEndPoint} send the given rawMessage.
 	 * 
 	 * @param rawMessage
 	 */
@@ -105,8 +105,8 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Sends the target message of the current {@link BaseNetEndPoint}
-	 * to the counterpart of the current {@link BaseNetEndPoint}.
+	 * Sends the target message of the current {@link NetEndPoint}
+	 * to the counterpart of the current {@link NetEndPoint}.
 	 */
 	protected final void sendTargetMessage() {
 		sendRawMessage(getTargetMessage());
@@ -114,7 +114,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link BaseNetEndPoint} receive the given rawMessage asynchronously.
+	 * Lets the current {@link NetEndPoint} receive the given rawMessage asynchronously.
 	 * 
 	 * @param rawMessage
 	 */
@@ -124,9 +124,9 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Confirms that the current {@link BaseNetEndPoint} has a target info.
+	 * Confirms that the current {@link NetEndPoint} has a target info.
 	 * 
-	 * @throws InvalidArgumentException if the current {@link BaseNetEndPoint} has already a target info.
+	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has already a target info.
 	 */
 	private void confirmReceivedTargetInfo() {
 		
@@ -140,7 +140,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * @return the target message of the current {@link BaseNetEndPoint}.
+	 * @return the target message of the current {@link NetEndPoint}.
 	 */
 	private String getTargetMessage() {
 		
@@ -155,10 +155,10 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link BaseNetEndPoint} receive the given message.
+	 * Lets the current {@link NetEndPoint} receive the given message.
 	 * 
 	 * @param message
-	 * @throws ClosedArgumentException if the current {@link BaseNetEndPoint} is closed.
+	 * @throws ClosedArgumentException if the current {@link NetEndPoint} is closed.
 	 */
 	private void receiveMessage(final String message) {
 		
@@ -170,7 +170,7 @@ public abstract class BaseNetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets the current {@link BaseNetEndPoint} receive the given rawMessage.
+	 * Lets the current {@link NetEndPoint} receive the given rawMessage.
 	 * 
 	 * @param rawMessage
 	 * @throws InvalidArgumentException if the given rawMessage is not valid.

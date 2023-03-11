@@ -15,7 +15,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 
 //class
 /**
- * A {@link Server} is a {@link BaseServer} that listens to {@link BaseNetEndPoint} on a specific port.
+ * A {@link Server} is a {@link BaseServer} that listens to {@link NetEndPoint} on a specific port.
  * 
  * A {@link Server} supports the WebSocket protocol and can communicate with a WebSocket.
  * The WebSocket protocol is complicated. Because:
@@ -58,7 +58,7 @@ public final class Server extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the default port.
+	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the default port.
 	 */
 	public Server() {
 		
@@ -68,7 +68,7 @@ public final class Server extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the given port.
+	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
@@ -81,7 +81,7 @@ public final class Server extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the given port.
+	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * When a web browser connects to the {@link Server},
 	 * the {@link Server} will send the given HTTP message and close the connection.
@@ -124,7 +124,7 @@ public final class Server extends BaseServer {
 	
 	//constructor
 	/**
-	 * Creates a new {@link Server} that will listen to {@link BaseNetEndPoint}s on the default port.
+	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the default port.
 	 * 
 	 * When a web browser connects to the {@link Server},
 	 * the {@link Server} will send the given HTTP message and close the connection.

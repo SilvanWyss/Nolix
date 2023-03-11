@@ -82,7 +82,7 @@ final class ServerSocketProcessor extends Worker {
 	}
 	
 	//method
-	private SingleContainer<BaseNetEndPoint> createOptionalNetEndPoint() {
+	private SingleContainer<NetEndPoint> createOptionalNetEndPoint() {
 		
 		final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
 		
