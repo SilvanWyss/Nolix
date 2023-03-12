@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -12,8 +13,6 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
- * A {@link BaseServer} contains {@link IEndPointTaker}s.
- * 
  * @author Silvan Wyss
  * @date 2017-05-06
  */
@@ -26,41 +25,41 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	private ISlot defaultEndPointTaker;
 	
 	//multi-attribute
-	private final LinkedList<ISlot> endPointTakers = new LinkedList<>();
+	private final LinkedList<ISlot> slots = new LinkedList<>();
 	
 	//method
 	/**
 	 * Adds the given defaultEndPointTaker to the current {@link BaseServer}.
 	 * A default {@link IEndPointTaker} takes all {@link EndPoint}s that do not have a target.
 	 * 
-	 * @param defaultEndPointTaker
+	 * @param defaultSlot
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	public final void addDefaultEndPointTaker(final ISlot defaultEndPointTaker) {
-		addEndPointTaker(defaultEndPointTaker);
-		this.defaultEndPointTaker = defaultEndPointTaker;
+	public final void addDefaultSlot(final ISlot defaultSlot) {
+		addSlot(defaultSlot);
+		this.defaultEndPointTaker = defaultSlot;
 	}
 	
 	//method
 	/**
 	 * Adds the given endPointTaker to the current {@link BaseServer}.
 	 * 
-	 * @param endPointTaker
+	 * @param slot
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	public final void addEndPointTaker(final ISlot endPointTaker) {
+	public final void addSlot(final ISlot slot) {
 		
 		//Extracts the name of the given endPointTaker.
-		final var name = endPointTaker.getName();
+		final var name = slot.getName();
 		
 		//Asserts that the current Server does not contain already
 		//an IEndPointTaker with the same name as the given endPointTaker.
 		assertDoesNotContainEndPointTakerWithName(name);
 		
 		//Adds the given endPointTaker to the current Server.
-		this.endPointTakers.addAtEnd(endPointTaker);
+		this.slots.addAtEnd(slot);
 	}
 	
 	//method
@@ -69,7 +68,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 */
 	@Override
 	public final void clear() {
-		endPointTakers.clear();
+		slots.clear();
 		defaultEndPointTaker = null;
 	}
 	
@@ -87,7 +86,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
 	 */
 	public final boolean containsEndPointTakerWithName(final String name) {
-		return endPointTakers.containsAny(ept -> ept.hasName(name));
+		return slots.containsAny(ept -> ept.hasName(name));
 	}
 	
 	//method
@@ -105,7 +104,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 */
 	@Override
 	public final boolean isEmpty() {
-		return endPointTakers.isEmpty();
+		return slots.isEmpty();
 	}
 	
 	//method
@@ -117,7 +116,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * a {@link IEndPointTaker} with the given name.
 	 */
 	public final void removeEndPointTakerWithName(final String name) {
-		removeEndPointTaker(endPointTakers.getRefFirst(ept -> ept.hasName(name)));
+		removeEndPointTaker(slots.getRefFirst(ept -> ept.hasName(name)));
 	}
 	
 	//method
@@ -196,7 +195,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
 	private ISlot getRefEndPointTakerByName(final String name) {
-		return endPointTakers.getRefFirst(ept -> ept.hasName(name));
+		return slots.getRefFirst(ept -> ept.hasName(name));
 	}
 	
 	//method
@@ -208,7 +207,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 */
 	private void removeEndPointTaker(final ISlot endPointTaker) {
 		
-		endPointTakers.removeFirstOccurrenceOf(endPointTaker);
+		slots.removeFirstOccurrenceOf(endPointTaker);
 		
 		if (endPointTaker == defaultEndPointTaker) {
 			defaultEndPointTaker = null;
