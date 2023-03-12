@@ -15,5 +15,11 @@ public interface IServer extends Clearable, GroupCloseable {
 	void addSlot(ISlot slot);
 	
 	//method declaration
-	void removeSlot(ISlot slot);
+	boolean containsDefaultSlot();
+	
+	//method declaration
+	boolean containsSlotWithName(String name);
+	
+	//method declaration
+	void removeSlotByName(String name);
 }
