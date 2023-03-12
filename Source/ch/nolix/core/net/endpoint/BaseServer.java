@@ -22,7 +22,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private ISlot defaultEndPointTaker;
+	private ISlot defaultSlot;
 	
 	//multi-attribute
 	private final LinkedList<ISlot> slots = new LinkedList<>();
@@ -38,7 +38,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 */
 	public final void addDefaultSlot(final ISlot defaultSlot) {
 		addSlot(defaultSlot);
-		this.defaultEndPointTaker = defaultSlot;
+		this.defaultSlot = defaultSlot;
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 		
 		//Asserts that the current Server does not contain already
 		//an IEndPointTaker with the same name as the given endPointTaker.
-		assertDoesNotContainEndPointTakerWithName(name);
+		assertDoesNotContainSlotWithName(name);
 		
 		//Adds the given endPointTaker to the current Server.
 		this.slots.addAtEnd(slot);
@@ -69,15 +69,15 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	@Override
 	public final void clear() {
 		slots.clear();
-		defaultEndPointTaker = null;
+		defaultSlot = null;
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link BaseServer} contains a default {@link IEndPointTaker}.
 	 */
-	public final boolean containsDefaultEndPointTaker() {
-		return (defaultEndPointTaker != null);
+	public final boolean containsSlot() {
+		return (defaultSlot != null);
 	}
 	
 	//method
@@ -85,7 +85,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @param name
 	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
 	 */
-	public final boolean containsEndPointTakerWithName(final String name) {
+	public final boolean containsSlotWithName(final String name) {
 		return slots.containsAny(ept -> ept.hasName(name));
 	}
 	
@@ -115,8 +115,8 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name.
 	 */
-	public final void removeEndPointTakerWithName(final String name) {
-		removeEndPointTaker(slots.getRefFirst(ept -> ept.hasName(name)));
+	public final void removeSlotByName(final String name) {
+		removeSlot(slots.getRefFirst(ept -> ept.hasName(name)));
 	}
 	
 	//method
@@ -131,18 +131,18 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with a name that equals the target of the given endPoint. 
 	 */
-	public final void takeEndPoint(final EndPoint endPoint) {
+	final void internalTakeBackendEndPoint(final EndPoint endPoint) {
 		
 		//Asserts that the given endPoint is open.
 		endPoint.assertIsOpen();
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
-			getRefDefaultEndPointTaker().takeBackendEndPoint(endPoint);
+			getRefDefaultSlot().takeBackendEndPoint(endPoint);
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
+			getRefSlotName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
 		}
 	}
 	
@@ -151,8 +151,8 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private void assertContainsDefaultEndPointTakter() {
-		if (!containsDefaultEndPointTaker()) {
+	private void assertContainsDefaultSlot() {
+		if (!containsSlot()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "default end point taker");
 		}
 	}
@@ -163,8 +163,8 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	private void assertDoesNotContainEndPointTakerWithName(final String name) {
-		if (containsEndPointTakerWithName(name)) {
+	private void assertDoesNotContainSlotWithName(final String name) {
+		if (containsSlotWithName(name)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
@@ -179,11 +179,11 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private ISlot getRefDefaultEndPointTaker() {
+	private ISlot getRefDefaultSlot() {
 		
-		assertContainsDefaultEndPointTakter();
+		assertContainsDefaultSlot();
 		
-		return defaultEndPointTaker;
+		return defaultSlot;
 	}
 	
 	//method
@@ -194,7 +194,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
-	private ISlot getRefEndPointTakerByName(final String name) {
+	private ISlot getRefSlotName(final String name) {
 		return slots.getRefFirst(ept -> ept.hasName(name));
 	}
 	
@@ -205,12 +205,12 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @param endPointTaker
 	 * @throws InvalidArgumentException if the current {@link BaseServer} does not contain the given endPointTaker.
 	 */
-	private void removeEndPointTaker(final ISlot endPointTaker) {
+	private void removeSlot(final ISlot endPointTaker) {
 		
 		slots.removeFirstOccurrenceOf(endPointTaker);
 		
-		if (endPointTaker == defaultEndPointTaker) {
-			defaultEndPointTaker = null;
+		if (endPointTaker == defaultSlot) {
+			defaultSlot = null;
 		}
 	}
 }
