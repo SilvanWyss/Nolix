@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -22,10 +23,10 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private IEndPointTaker defaultEndPointTaker;
+	private ISlot defaultEndPointTaker;
 	
 	//multi-attribute
-	private final LinkedList<IEndPointTaker> endPointTakers = new LinkedList<>();
+	private final LinkedList<ISlot> endPointTakers = new LinkedList<>();
 	
 	//method
 	/**
@@ -36,7 +37,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	public final void addDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+	public final void addDefaultEndPointTaker(final ISlot defaultEndPointTaker) {
 		addEndPointTaker(defaultEndPointTaker);
 		this.defaultEndPointTaker = defaultEndPointTaker;
 	}
@@ -49,7 +50,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
+	public final void addEndPointTaker(final ISlot endPointTaker) {
 		
 		//Extracts the name of the given endPointTaker.
 		final var name = endPointTaker.getName();
@@ -138,11 +139,11 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
-			getRefDefaultEndPointTaker().takeEndPoint(endPoint);
+			getRefDefaultEndPointTaker().takeBackendEndPoint(endPoint);
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
+			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
 		}
 	}
 	
@@ -179,7 +180,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private IEndPointTaker getRefDefaultEndPointTaker() {
+	private ISlot getRefDefaultEndPointTaker() {
 		
 		assertContainsDefaultEndPointTakter();
 		
@@ -194,7 +195,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
-	private IEndPointTaker getRefEndPointTakerByName(final String name) {
+	private ISlot getRefEndPointTakerByName(final String name) {
 		return endPointTakers.getRefFirst(ept -> ept.hasName(name));
 	}
 	
@@ -205,7 +206,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * @param endPointTaker
 	 * @throws InvalidArgumentException if the current {@link BaseServer} does not contain the given endPointTaker.
 	 */
-	private void removeEndPointTaker(final IEndPointTaker endPointTaker) {
+	private void removeEndPointTaker(final ISlot endPointTaker) {
 		
 		endPointTakers.removeFirstOccurrenceOf(endPointTaker);
 		

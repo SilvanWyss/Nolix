@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
@@ -25,7 +26,7 @@ public class NetEndPoint extends EndPoint {
 	private int nextSentPackageIndex = 1;
 	
 	//attributes
-	private final ch.nolix.core.net.endpoint.EndPoint internalEndPoint;
+	private final IEndPoint internalEndPoint;
 	
 	//multi-attribute
 	private final LinkedList<Package> receivedPackages = new LinkedList<>();
@@ -113,7 +114,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param internalEndPoint
 	 * @throws ArgumentIsNullException if the given internalEndPoint is null.
 	 */
-	NetEndPoint(final ch.nolix.core.net.endpoint.EndPoint internalEndPoint) {
+	NetEndPoint(final IEndPoint internalEndPoint) {
 		
 		GlobalValidator.assertThat(internalEndPoint).thatIsNamed("internal EndPoint").isNotNull();
 		
@@ -202,7 +203,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return the internal end point of the current {@link NetEndPoint}.
 	 */
-	ch.nolix.core.net.endpoint.EndPoint getRefInternalEndPoint() {
+	IEndPoint getRefInternalEndPoint() {
 		return internalEndPoint;
 	}
 	

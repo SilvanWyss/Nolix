@@ -2,13 +2,13 @@
 package ch.nolix.coretest.nettest.endpointtest;
 
 //own imports
-import ch.nolix.core.net.endpoint.EndPoint;
-import ch.nolix.core.net.endpoint.IEndPointTaker;
 import ch.nolix.core.net.endpoint.SocketEndPoint;
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
+import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 
 //class
 public final class NetEndPointTest extends Test {
@@ -17,7 +17,7 @@ public final class NetEndPointTest extends Test {
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 	
 	//static class
-	private static final class TestEndPointTaker implements IEndPointTaker {
+	private static final class TestEndPointTaker implements ISlot {
 		
 		//optional attribute
 		private String receivedMessage;
@@ -35,7 +35,7 @@ public final class NetEndPointTest extends Test {
 		
 		//method
 		@Override
-		public void takeEndPoint(final EndPoint endPoint) {
+		public void takeBackendEndPoint(final IEndPoint endPoint) {
 			endPoint.setReceiver(this::setMessage);
 		}
 		
