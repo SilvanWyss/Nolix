@@ -7,16 +7,16 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
+import ch.nolix.coreapi.netapi.endpointapi.IServer;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-05-06
  */
-public abstract class BaseServer implements Clearable, GroupCloseable {
+public abstract class BaseServer implements IServer {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
@@ -29,64 +29,56 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	
 	//method
 	/**
-	 * Adds the given defaultEndPointTaker to the current {@link BaseServer}.
-	 * A default {@link IEndPointTaker} takes all {@link EndPoint}s that do not have a target.
-	 * 
-	 * @param defaultSlot
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void addDefaultSlot(final ISlot defaultSlot) {
+		
 		addSlot(defaultSlot);
+		
 		this.defaultSlot = defaultSlot;
 	}
 	
 	//method
 	/**
-	 * Adds the given endPointTaker to the current {@link BaseServer}.
-	 * 
-	 * @param slot
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void addSlot(final ISlot slot) {
 		
-		//Extracts the name of the given endPointTaker.
-		final var name = slot.getName();
+		assertDoesNotContainSlotWithName(slot.getName());
 		
-		//Asserts that the current Server does not contain already
-		//an IEndPointTaker with the same name as the given endPointTaker.
-		assertDoesNotContainSlotWithName(name);
-		
-		//Adds the given endPointTaker to the current Server.
 		this.slots.addAtEnd(slot);
 	}
 	
 	//method
 	/**
-	 * Removes all {@link IEndPointTaker}s from the current {@link BaseServer}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void clear() {
+		
 		slots.clear();
+		
 		defaultSlot = null;
 	}
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseServer} contains a default {@link IEndPointTaker}.
+	 * {@inheritDoc}
 	 */
-	public final boolean containsSlot() {
+	@Override
+	public final boolean containsDefaultSlot() {
 		return (defaultSlot != null);
 	}
 	
 	//method
 	/**
-	 * @param name
-	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean containsSlotWithName(final String name) {
-		return slots.containsAny(ept -> ept.hasName(name));
+		return slots.containsAny(s -> s.hasName(name));
 	}
 	
 	//method
@@ -100,7 +92,7 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseServer} does not contain a {@link IEndPointTaker}.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean isEmpty() {
@@ -109,14 +101,11 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	
 	//method
 	/**
-	 * Removes the {@link IEndPointTaker} with the given name from the current {@link BaseServer}.
-	 * 
-	 * @param name
-	 * @throws InvalidArgumentException if the current {@link BaseServer} does not contain
-	 * a {@link IEndPointTaker} with the given name.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void removeSlotByName(final String name) {
-		removeSlot(slots.getRefFirst(ept -> ept.hasName(name)));
+		removeSlot(slots.getRefFirst(s -> s.hasName(name)));
 	}
 	
 	//method
@@ -131,10 +120,10 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 	 * the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with a name that equals the target of the given endPoint. 
 	 */
-	final void internalTakeBackendEndPoint(final EndPoint endPoint) {
+	final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
 		
 		//Asserts that the given endPoint is open.
-		endPoint.assertIsOpen();
+		assertIsOpen(endPoint);
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
@@ -145,14 +134,14 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 			getRefSlotName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
 		}
 	}
-	
+
 	//method
 	/**
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
 	private void assertContainsDefaultSlot() {
-		if (!containsSlot()) {
+		if (!containsDefaultSlot()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "default end point taker");
 		}
 	}
@@ -170,6 +159,17 @@ public abstract class BaseServer implements Clearable, GroupCloseable {
 				this,
 				"contains already an EndPointTaker with the name '" + name + "'"
 			);
+		}
+	}
+	
+	//method
+	/**
+	 * @param endPoint
+	 * @throws ClosedArgumentException if the given endPoint is closed.
+	 */
+	private void assertIsOpen(final IEndPoint endPoint) {
+		if (endPoint.isClosed()) {
+			throw ClosedArgumentException.forArgument(endPoint);
 		}
 	}
 	
