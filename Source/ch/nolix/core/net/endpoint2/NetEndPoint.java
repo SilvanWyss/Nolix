@@ -22,7 +22,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
  * @author Silvan Wyss
  * @date 2017-05-22
  */
-public class NetEndPoint extends EndPoint {
+public final class NetEndPoint extends EndPoint {
 	
 	//constant
 	private int nextSentPackageIndex = 1;
@@ -130,7 +130,7 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void createCloseDependencyTo(final GroupCloseable element) {
+	public void createCloseDependencyTo(final GroupCloseable element) {
 		
 		//This implementation just ensures that it cannot be overwritten.
 		super.createCloseDependencyTo(element);
@@ -211,7 +211,7 @@ public class NetEndPoint extends EndPoint {
 		receive(Package.createPackageFromString(message));
 	}
 	
-	final LinkedList<Package> getRefReceivedPackages() {
+	LinkedList<Package> getRefReceivedPackages() {
 		return receivedPackages;
 	}
 	
@@ -219,7 +219,7 @@ public class NetEndPoint extends EndPoint {
 	/**
 	 * @return the index of the next sent package. of the current {@link NetEndPoint}
 	 */
-	final int getNextSentPackageIndex() {
+	int getNextSentPackageIndex() {
 		
 		//Resets the index of the text sent package if it has reached the maximum value.
 		if (nextSentPackageIndex == Integer.MAX_VALUE) {
@@ -266,7 +266,7 @@ public class NetEndPoint extends EndPoint {
 	 * @return the reply with the given index
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has not received a package with the given index.
 	 */
-	private final Package getAndRemoveReceivedPackage(final int index) {
+	private Package getAndRemoveReceivedPackage(final int index) {
 		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
 	}
 	
@@ -275,7 +275,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param index
 	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
-	private final boolean receivedPackage(final int index) {
+	private boolean receivedPackage(final int index) {
 		return getRefReceivedPackages().containsAny(rp -> rp.hasIndex(index));
 	}
 	
