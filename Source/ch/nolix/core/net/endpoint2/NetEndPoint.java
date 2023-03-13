@@ -9,7 +9,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
+import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
@@ -136,6 +138,15 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ConnectionType getConnectionType() {
+		return internalEndPoint.getConnectionType();
+	}
+	
+	//method
+	/**
 	 * @return the target of the current {@link NetEndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if this net end point does not have a target.
 	 */
@@ -149,25 +160,8 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isFrontedEndPoint() {
-		return (internalEndPoint.getPeerType() == PeerType.FRONTEND);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean hasCustomTargetSlot() {
-		return internalEndPoint.hasCustomTargetSlot();
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link NetEndPoint} is a local end point.
-	 */
-	public boolean isLocalEndPoint() {
-		return internalEndPoint.isLocalEndPoint();
+	public PeerType getPeerType() {
+		return internalEndPoint.getPeerType();
 	}
 	
 	//method
@@ -180,15 +174,6 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isWebSocketEndPoint() {
-		return internalEndPoint.isWebSocketEndPoint();
-	}
-	
-	//method
-	/**
 	 * Sends the given message and returns the reply.
 	 * 
 	 * @param message
@@ -197,6 +182,15 @@ public class NetEndPoint extends EndPoint {
 	@Override
 	public String getReplyForRequest(final String message) {
 		return sendAndWaitToReply(message);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TargetSlotDefinition getTargetSlotDefinition() {
+		return internalEndPoint.getTargetSlotDefinition();
 	}
 	
 	//method

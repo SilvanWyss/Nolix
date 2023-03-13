@@ -7,6 +7,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
+import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 
 //class
 /**
@@ -16,9 +19,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  * @date 2017-05-22
  */
 public final class LocalEndPoint extends EndPoint {
-
+	
+	//attribute
+	private final PeerType peerType;
+	
 	//attributes
-	private final boolean requestedConnection;
 	private final LocalEndPoint counterpart;
 	
 	//optional attribute
@@ -30,8 +35,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint() {
 		
-		//Sets the requested connection flag of this local end point.
-		requestedConnection = false;
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this);
@@ -49,8 +53,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint(final IEndPointTaker target) {
 		
-		//Sets the requested connection flag of this local end point.
-		requestedConnection = true;
+		peerType = PeerType.FRONTEND;
 	
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this, target.getName());
@@ -71,8 +74,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint(final BaseServer baseServer, final String target) {
 		
-		//Sets the requested connection flag of this local end point.
-		requestedConnection = true;
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local end point.
 		counterpart = new LocalEndPoint(this, target);
@@ -92,8 +94,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	private LocalEndPoint(final LocalEndPoint counterPart) {
 		
-		//Sets the requested connection flag of this local end point.
-		requestedConnection = false;
+		peerType = PeerType.BACKEND;
 		
 		//Asserts that the given counter part is not null.
 		GlobalValidator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
@@ -117,8 +118,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	private LocalEndPoint(final LocalEndPoint counterpart, final String target) {
 		
-		//Sets the requested connection flag of this local end point.
-		requestedConnection = false;
+		peerType = PeerType.BACKEND;
 		
 		//Asserts that the given counter part is not null.
 		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
@@ -132,7 +132,25 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the target of this local end point.
 		this.target = target;
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ConnectionType getConnectionType() {
+		return ConnectionType.LOCAL;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public PeerType getPeerType() {
+		return peerType;
+	}
+	
 	//method
 	/**
 	 * Lets this local end point send the given message.
@@ -172,33 +190,6 @@ public final class LocalEndPoint extends EndPoint {
 		
 		return target;
 	}
-
-	//method
-	/**
-	 * @return true if this local end point has requested the connection.
-	 */
-	@Override
-	public boolean isFrontedEndPoint() {
-		return requestedConnection;
-	}
-	
-	//method
-	/**
-	 * @return true if this local end point has a target.
-	 */
-	@Override
-	public boolean hasCustomTargetSlot() {
-		return (target != null);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isWebSocketEndPoint() {
-		return false;
-	}
 	
 	//method
 	/**
@@ -210,6 +201,20 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	public String getReplyForRequest(final String message) {
 		return getRefCounterpart().receiveAndGetReply(message);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public TargetSlotDefinition getTargetSlotDefinition() {
+		
+		if (target == null) {
+			return TargetSlotDefinition.DEFAULT;
+		}
+		
+		return TargetSlotDefinition.CUSTOM;
 	}
 	
 	//method

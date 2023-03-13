@@ -182,7 +182,7 @@ public class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public boolean isFrontendEndPoint() {
-		return internalNetEndPoint.isFrontedEndPoint();
+		return internalNetEndPoint.isFrontendEndPoint();
 	}
 
 	//method

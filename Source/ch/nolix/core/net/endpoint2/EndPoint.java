@@ -6,49 +6,24 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-05-21
  */
-public abstract class EndPoint implements GroupCloseable {
+public abstract class EndPoint extends BaseEndPoint {
 	
 	//constant
 	private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 	
-	//attribute
-	private final CloseController closeController = CloseController.forElement(this);
-	
 	//optional attribute
 	private IElementTakerElementGetter<String, String> replier;
 	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final CloseController getRefCloseController() {
-		return closeController;
-	}
-	
 	//method declaration
 	public abstract String getReplyForRequest(final String request);
-	
-	//method declaration
-	/**
-	 * @return the target of this end point.
-	 */
-	public abstract String getCustomTargetSlot();
-	
-	//method declaration
-	/**
-	 * @return true if this end point has a target.
-	 */
-	public abstract boolean hasCustomTargetSlot();
 	
 	//method
 	/**
@@ -57,18 +32,6 @@ public abstract class EndPoint implements GroupCloseable {
 	public boolean hasReplier() {
 		return (replier != null);
 	}
-	
-	//method declaration
-	/**
-	 * @return true if this end point has requested the connection.
-	 */
-	public abstract boolean isFrontedEndPoint();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
-	 */
-	public abstract boolean isWebSocketEndPoint();
 	
 	//method
 	/**
