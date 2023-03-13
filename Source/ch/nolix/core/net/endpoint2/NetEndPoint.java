@@ -183,7 +183,7 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isWebEndPoint() {
+	public boolean isWebSocketEndPoint() {
 		return internalEndPoint.isWebSocketEndPoint();
 	}
 	

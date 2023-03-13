@@ -12,9 +12,6 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
- * An end point can send messages to an other end point of the same type.
- * An end point is abortable.
- * 
  * @author Silvan Wyss
  * @date 2017-05-21
  */
@@ -53,6 +50,14 @@ public abstract class EndPoint implements GroupCloseable {
 	 */
 	public abstract boolean hasCustomTargetSlot();
 	
+	//method
+	/**
+	 * @return true if this end point has a replier.
+	 */
+	public boolean hasReplier() {
+		return (replier != null);
+	}
+	
 	//method declaration
 	/**
 	 * @return true if this end point has requested the connection.
@@ -63,7 +68,7 @@ public abstract class EndPoint implements GroupCloseable {
 	/**
 	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
 	 */
-	public abstract boolean isWebEndPoint();
+	public abstract boolean isWebSocketEndPoint();
 	
 	//method
 	/**
@@ -120,13 +125,5 @@ public abstract class EndPoint implements GroupCloseable {
 		}
 		
 		return replier;
-	}
-	
-	//method
-	/**
-	 * @return true if this end point has a replier.
-	 */
-	private boolean hasReplier() {
-		return (replier != null);
 	}
 }

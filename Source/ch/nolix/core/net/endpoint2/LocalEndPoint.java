@@ -196,7 +196,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isWebEndPoint() {
+	public boolean isWebSocketEndPoint() {
 		return false;
 	}
 	
