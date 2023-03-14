@@ -5,6 +5,7 @@ package ch.nolix.core.net.endpoint2;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 
 //class
 /**
@@ -72,7 +73,7 @@ public final class Server extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+	protected void noteAddedDefaultEndPointTaker(final ISlot defaultEndPointTaker) {
 		internalServer.addDefaultSlot(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
 	}
 	
@@ -81,7 +82,7 @@ public final class Server extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {
+	protected void noteAddedEndPointTaker(final ISlot endPointTaker) {
 		internalServer.addSlot(new ServerEndPointTaker(endPointTaker.getName(), this));
 	}
 }

@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
+import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 
@@ -51,7 +52,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @param target
 	 * @throws ArgumentIsNullException if the given target is null.
 	 */
-	public LocalEndPoint(final IEndPointTaker target) {
+	public LocalEndPoint(final ISlot target) {
 		
 		peerType = PeerType.FRONTEND;
 	
@@ -61,7 +62,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Clears the target of this local end point.
 		this.target = null;
 		
-		target.takeEndPoint(getRefCounterpart());
+		target.takeBackendEndPoint(getRefCounterpart());
 	}
 	
 	//constructor

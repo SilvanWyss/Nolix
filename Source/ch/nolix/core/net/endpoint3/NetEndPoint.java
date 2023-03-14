@@ -30,7 +30,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 public class NetEndPoint extends EndPoint {
 	
 	//attribute
-	private final ch.nolix.core.net.endpoint2.EndPoint internalNetEndPoint;
+	private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalNetEndPoint;
 		
 	//constructor
 	/**
@@ -114,7 +114,7 @@ public class NetEndPoint extends EndPoint {
 	 * @param internalNetEndPoint
 	 * @throws ArgumentIsNullException if the given netEndPoint is null.
 	 */
-	NetEndPoint(final ch.nolix.core.net.endpoint2.EndPoint internalNetEndPoint) {
+	NetEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalNetEndPoint) {
 		
 		//Asserts that the given netEndPoint is not null.
 		GlobalValidator.assertThat(internalNetEndPoint).isOfType(ch.nolix.core.net.endpoint2.NetEndPoint.class);

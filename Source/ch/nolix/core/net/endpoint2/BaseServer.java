@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -22,10 +23,10 @@ public abstract class BaseServer implements GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private IEndPointTaker defaultEndPointTaker;
+	private ISlot defaultEndPointTaker;
 	
 	//multi-attribute
-	private final LinkedList<IEndPointTaker> endPointTakers = new LinkedList<>();
+	private final LinkedList<ISlot> endPointTakers = new LinkedList<>();
 	
 	//method
 	/**
@@ -36,7 +37,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given defaultEndPointTaker.
 	 */
-	public final void addDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+	public final void addDefaultEndPointTaker(final ISlot defaultEndPointTaker) {
 		
 		addEndPointTakerToList(defaultEndPointTaker);
 		this.defaultEndPointTaker = defaultEndPointTaker;
@@ -52,7 +53,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	public final void addEndPointTaker(final IEndPointTaker endPointTaker) {
+	public final void addEndPointTaker(final ISlot endPointTaker) {
 		
 		addEndPointTakerToList(endPointTaker);
 		
@@ -111,11 +112,11 @@ public abstract class BaseServer implements GroupCloseable {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
-			getRefDefaultEndPointTaker().takeEndPoint(endPoint);
+			getRefDefaultEndPointTaker().takeBackendEndPoint(endPoint);
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
+			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
 		}
 	}
 	
@@ -125,7 +126,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param defaultEndPointTaker
 	 */
-	protected abstract void noteAddedDefaultEndPointTaker(IEndPointTaker defaultEndPointTaker);
+	protected abstract void noteAddedDefaultEndPointTaker(ISlot defaultEndPointTaker);
 	
 	//method declaration
 	/**
@@ -133,7 +134,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param endPointTaker
 	 */
-	protected abstract void noteAddedEndPointTaker(IEndPointTaker endPointTaker);
+	protected abstract void noteAddedEndPointTaker(ISlot endPointTaker);
 	
 	//method
 	/**
@@ -143,7 +144,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	private void addEndPointTakerToList(IEndPointTaker endPointTaker) {
+	private void addEndPointTakerToList(ISlot endPointTaker) {
 		
 		//Extracts the name of the given endPointTaker.
 		final var name = endPointTaker.getName();
@@ -189,7 +190,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private IEndPointTaker getRefDefaultEndPointTaker() {
+	private ISlot getRefDefaultEndPointTaker() {
 		
 		assertContainsDefaultEndPointTakter();
 		
@@ -204,7 +205,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
-	private IEndPointTaker getRefEndPointTakerByName(final String name) {
+	private ISlot getRefEndPointTakerByName(final String name) {
 		return endPointTakers.getRefFirst(ept -> ept.hasName(name));
 	}
 }

@@ -6,13 +6,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2021-06-28
  */
-final class ServerEndPointTaker implements ch.nolix.core.net.endpoint2.IEndPointTaker {
+final class ServerEndPointTaker implements ISlot {
 	
 	//attributes
 	private final String name;
@@ -51,7 +52,7 @@ final class ServerEndPointTaker implements ch.nolix.core.net.endpoint2.IEndPoint
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void takeEndPoint(final ch.nolix.core.net.endpoint2.EndPoint endPoint) {
+	public void takeBackendEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint endPoint) {
 		parentServer.takeEndPoint(new NetEndPoint(endPoint));
 	}
 }

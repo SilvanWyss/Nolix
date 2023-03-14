@@ -2,19 +2,19 @@
 package ch.nolix.coretest.nettest.endpoint2test;
 
 //own imports
-import ch.nolix.core.net.endpoint2.EndPoint;
-import ch.nolix.core.net.endpoint2.IEndPointTaker;
 import ch.nolix.core.net.endpoint2.NetEndPoint;
 import ch.nolix.core.net.endpoint2.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
+import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 
 //class
 public final class NetEndPointTest extends Test {
 	
 	//static class
-	private static final class EndPointTaker implements IEndPointTaker {
+	private static final class EndPointTaker implements ISlot {
 		
 		//optional attribute
 		private String receivedMessage;
@@ -32,7 +32,7 @@ public final class NetEndPointTest extends Test {
 		
 		//method
 		@Override
-		public void takeEndPoint(final EndPoint endPoint) {
+		public void takeBackendEndPoint(final IEndPoint endPoint) {
 			endPoint.setReplier(this::getReply);
 		}
 		
