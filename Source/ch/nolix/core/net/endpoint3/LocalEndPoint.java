@@ -169,7 +169,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return true if this duplex controller is a net duplex controller.
 	 */
 	@Override
-	public boolean isNetEndPoint() {
+	public boolean isSocketEndPoint() {
 		return false;
 	}
 	
@@ -178,7 +178,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isWebEndPoint() {
+	public boolean isWebSocketEndPoint() {
 		return false;
 	}
 	

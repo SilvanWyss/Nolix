@@ -138,7 +138,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} is a net {@link Client}.
 	 */
 	public final boolean isNetClient() {
-		return getRefEndPoint().isNetEndPoint();
+		return getRefEndPoint().isSocketEndPoint();
 	}
 	
 	//method
@@ -147,7 +147,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	public final boolean isWebClient() {
-		return getRefEndPoint().isWebEndPoint();
+		return getRefEndPoint().isWebSocketEndPoint();
 	}
 	
 	//method
@@ -228,11 +228,12 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	/**
 	 * Runs the given commands on the counterpart of the current {@link Client}.
 	 * 
+	 * @param command
 	 * @param commands
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	protected final void runOnCounterpart(final ChainedNode... commands) {
-		getRefEndPoint().run(commands);
+	protected final void runOnCounterpart(final ChainedNode command, final ChainedNode... commands) {
+		getRefEndPoint().run(command, commands);
 	}
 	
 	//method

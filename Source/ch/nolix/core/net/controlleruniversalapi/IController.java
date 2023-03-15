@@ -23,7 +23,8 @@ public interface IController {
 	/**
 	 * Lets the current {@link IController} run the given commands.
 	 * 
+	 * @param command 
 	 * @param commands
 	 */
-	void run(final ChainedNode... commands);
+	void run(ChainedNode command, ChainedNode... commands);
 }

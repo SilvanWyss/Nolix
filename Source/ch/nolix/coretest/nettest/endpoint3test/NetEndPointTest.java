@@ -62,7 +62,10 @@ public final class NetEndPointTest extends Test {
 					
 					//method
 					@Override
-					public final void run(final ChainedNode... commands) {
+					public final void run(final ChainedNode command, final ChainedNode... commands) {
+						
+						run(command);
+						
 						for (final var c : commands) {
 							run(c);
 						}

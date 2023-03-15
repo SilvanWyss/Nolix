@@ -15,8 +15,6 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
- * A {@link EndPoint} can interact with another {@link EndPoint} of the same type.
- * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
@@ -71,39 +69,23 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	
 	//method
 	/**
-	 * @param target
-	 * @return true if the current {@link EndPoint} has the given target.
-	 */
-	public final boolean hasTarget(final String target) {
-		
-		//Handles the case that current EndPoint does not have a target.
-		if (!hasCustomTargetSlot()) {
-			return false;
-		}
-		
-		//Handles the case that current EndPoint has a target.
-		return getCustomTargetSlot().equals(target);
-	}
-	
-	//method
-	/**
 	 * @return true if the current {@link EndPoint} is a local {@link EndPoint}.
 	 */
 	public final boolean isLocalEndPoint() {
-		return !isNetEndPoint();
+		return !isSocketEndPoint();
 	}
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
 	 */
-	public abstract boolean isNetEndPoint();
+	public abstract boolean isSocketEndPoint();
 	
 	//method declaration
 	/**
 	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
 	 */
-	public abstract boolean isWebEndPoint();
+	public abstract boolean isWebSocketEndPoint();
 	
 	//method declaration
 	/**
@@ -118,7 +100,9 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void run(final ChainedNode... commands) {
+	public final void run(final ChainedNode command, ChainedNode... commands) {
+		
+		run(command);
 		
 		//Iterates the given commands.
 		for (final var c : commands) {
