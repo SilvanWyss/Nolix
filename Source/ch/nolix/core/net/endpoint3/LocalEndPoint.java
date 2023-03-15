@@ -125,8 +125,8 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public Node getData(final ChainedNode request) {
-		return counterpart.getRefReceiverController().getData(request);
+	public Node getDataForRequest(final ChainedNode request) {
+		return counterpart.getRefReceiverController().getDataForRequest(request);
 	}
 	
 	//method
@@ -191,12 +191,12 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public void run(final ChainedNode command) {
+	public void runCommand(final ChainedNode command) {
 		
 		//Asserts that this local duplex controller is not aborted.
 		assertIsOpen();
 		
-		counterpart.getRefReceiverController().run(command);
+		counterpart.getRefReceiverController().runCommand(command);
 	}
 	
 	//method
@@ -208,13 +208,13 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public void run(final Iterable<ChainedNode> commands) {
+	public void runCommands(final Iterable<ChainedNode> commands) {
 		
 		//Asserts that this local duplex controller is open.
 		assertIsOpen();
 		
 		final IDataProviderController counterpartReceiverController = counterpart.getRefReceiverController();
 		
-		commands.forEach(counterpartReceiverController::run);
+		commands.forEach(counterpartReceiverController::runCommand);
 	}
 }

@@ -41,7 +41,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node getData(final ChainedNode request) {
+	public Node getDataForRequest(final ChainedNode request) {
 		return parentClient.getDataFromHere(request);
 	}
 	
@@ -50,7 +50,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run(final ChainedNode command) {
+	public void runCommand(final ChainedNode command) {
 		parentClient.runHere(command);
 	}
 	
@@ -59,7 +59,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run(final ChainedNode command, final ChainedNode... commands) {
+	public void runCommands(final ChainedNode command, final ChainedNode... commands) {
 		
 		parentClient.runHere(command);
 		

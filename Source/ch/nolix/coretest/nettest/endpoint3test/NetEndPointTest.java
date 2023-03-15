@@ -49,25 +49,25 @@ public final class NetEndPointTest extends Test {
 					
 					//method
 					@Override
-					public Node getData(final ChainedNode request) {
+					public Node getDataForRequest(final ChainedNode request) {
 						EndPointTaker.this.setRequest(request);
 						return Node.withHeader("DATA");
 					}
 					
 					//method
 					@Override
-					public void run(final ChainedNode command) {
+					public void runCommand(final ChainedNode command) {
 						EndPointTaker.this.setCommand(command);
 					}
 					
 					//method
 					@Override
-					public final void run(final ChainedNode command, final ChainedNode... commands) {
+					public final void runCommands(final ChainedNode command, final ChainedNode... commands) {
 						
-						run(command);
+						runCommand(command);
 						
 						for (final var c : commands) {
-							run(c);
+							runCommand(c);
 						}
 					}
 				}
@@ -125,7 +125,7 @@ public final class NetEndPointTest extends Test {
 			try (final var testUnit = new NetEndPoint(port)) {
 			
 				//execution
-				testUnit.run(ChainedNode.withHeader("COMMAND"));
+				testUnit.runCommand(ChainedNode.withHeader("COMMAND"));
 				
 				//verification
 				expect(endPointTaker.getReceivedCommandOrNull()).isEqualTo(ChainedNode.withHeader("COMMAND"));
@@ -149,7 +149,7 @@ public final class NetEndPointTest extends Test {
 			try (final var testUnit = new NetEndPoint(port)) {
 				
 				//execution
-				final var result = testUnit.getData(ChainedNode.withHeader("REQUEST"));
+				final var result = testUnit.getDataForRequest(ChainedNode.withHeader("REQUEST"));
 				
 				//verification
 				expect(endPointTaker.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));

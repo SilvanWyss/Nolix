@@ -147,7 +147,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this {@link NetEndPoint} is aborted.
 	 */
 	@Override
-	public Node getData(final ChainedNode request) {
+	public Node getDataForRequest(final ChainedNode request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
@@ -217,8 +217,8 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run(final ChainedNode command) {
-		run(LinkedList.withElements(command));
+	public void runCommand(final ChainedNode command) {
+		runCommands(LinkedList.withElements(command));
 	}
 	
 	//method
@@ -229,7 +229,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws ClosedArgumentException if the current {@link NetEndPoint} is closed.
 	 */
 	@Override
-	public void run(final Iterable<ChainedNode> commands) {
+	public void runCommands(final Iterable<ChainedNode> commands) {
 			
 		//Asserts that this {@link NetEndPoint} is open.
 		assertIsOpen();
@@ -298,12 +298,12 @@ public class NetEndPoint extends EndPoint {
 			case Protocol.COMMANDS_HEADER:
 				
 				for (final var a : message.getChildNodes()) {
-					receiverController.run(a);
+					receiverController.runCommand(a);
 				}
 				
 				return Protocol.DONE_HEADER;
 			case Protocol.DATA_REQUEST_HEADER:
-				return (Protocol.DATA_HEADER + '(' + receiverController.getData(message.getSingleChildNode()) + ')');
+				return (Protocol.DATA_HEADER + '(' + receiverController.getDataForRequest(message.getSingleChildNode()) + ')');
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.MESSAGE, message);
 		}

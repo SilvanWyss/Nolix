@@ -93,20 +93,20 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	 * 
 	 * @param commands
 	 */
-	public abstract void run(Iterable<ChainedNode> commands);
+	public abstract void runCommands(Iterable<ChainedNode> commands);
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void run(final ChainedNode command, ChainedNode... commands) {
+	public final void runCommands(final ChainedNode command, ChainedNode... commands) {
 		
-		run(command);
+		runCommand(command);
 		
 		//Iterates the given commands.
 		for (final var c : commands) {
-			run(c);
+			runCommand(c);
 		}
 	}
 	

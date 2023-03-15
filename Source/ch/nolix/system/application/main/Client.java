@@ -187,7 +187,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final BaseNode<?> getDataFromCounterpart(final ChainedNode request) {
-		return getRefEndPoint().getData(request);
+		return getRefEndPoint().getDataForRequest(request);
 	}
 	
 	//method declaration
@@ -221,7 +221,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void runOnCounterpart(final ChainedNode command) {
-		getRefEndPoint().run(command);
+		getRefEndPoint().runCommand(command);
 	}
 	
 	//method
@@ -233,7 +233,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void runOnCounterpart(final ChainedNode command, final ChainedNode... commands) {
-		getRefEndPoint().run(command, commands);
+		getRefEndPoint().runCommands(command, commands);
 	}
 	
 	//method
@@ -244,7 +244,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void runOnCounterpart(final Iterable<ChainedNode> commands) {
-		getRefEndPoint().run(commands);
+		getRefEndPoint().runCommands(commands);
 	}
 	
 	//method

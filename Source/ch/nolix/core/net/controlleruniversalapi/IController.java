@@ -17,7 +17,7 @@ public interface IController {
 	 * 
 	 * @param command
 	 */
-	void run(ChainedNode command);
+	void runCommand(ChainedNode command);
 	
 	//method declaration
 	/**
@@ -26,5 +26,5 @@ public interface IController {
 	 * @param command 
 	 * @param commands
 	 */
-	void run(ChainedNode command, ChainedNode... commands);
+	void runCommands(ChainedNode command, ChainedNode... commands);
 }

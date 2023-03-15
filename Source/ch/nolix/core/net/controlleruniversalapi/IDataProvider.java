@@ -17,5 +17,5 @@ public interface IDataProvider {
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
-	Node getData(ChainedNode request);
+	Node getDataForRequest(ChainedNode request);
 }
