@@ -7,15 +7,15 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.netapi.endpoint2api.IServer;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-03-05
  */
-public abstract class BaseServer implements GroupCloseable {
+public abstract class BaseServer implements IServer {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
@@ -28,13 +28,9 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * Adds the given defaultEndPointTaker to the current {@link BaseServer}.
-	 * A default {@link IEndPointTaker} takes all {@link EndPoint}s that do not have a target.
-	 * 
-	 * @param defaultEndPointTaker
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link IEndPointTaker} with the same name as the given defaultEndPointTaker.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void addDefaultSlot(final ISlot defaultEndPointTaker) {
 		
 		addSlotToList(defaultEndPointTaker);
@@ -45,12 +41,9 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * Adds the given endPointTaker to the current {@link BaseServer}.
-	 * 
-	 * @param endPointTaker
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void addSlot(final ISlot endPointTaker) {
 		
 		addSlotToList(endPointTaker);
@@ -60,17 +53,18 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * @return true if the current {@link BaseServer} contains a default {@link IEndPointTaker}.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean containsDefaultSlot() {
 		return (defaultSlot != null);
 	}
 	
 	//method
 	/**
-	 * @param name
-	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean containsSlotWithName(final String name) {
 		return slots.containsAny(ept -> ept.hasName(name));
 	}
