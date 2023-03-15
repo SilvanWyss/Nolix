@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -11,9 +12,6 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
- * A {@link BaseServer} contains {@link IEndPointTaker}s.
- * A {@link BaseServer} is closable.
- * 
  * @author Silvan Wyss
  * @date 2017-03-05
  */
@@ -23,10 +21,10 @@ public abstract class BaseServer implements GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private ISlot defaultEndPointTaker;
+	private ISlot defaultSlot;
 	
 	//multi-attribute
-	private final LinkedList<ISlot> endPointTakers = new LinkedList<>();
+	private final LinkedList<ISlot> slots = new LinkedList<>();
 	
 	//method
 	/**
@@ -37,12 +35,12 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given defaultEndPointTaker.
 	 */
-	public final void addDefaultEndPointTaker(final ISlot defaultEndPointTaker) {
+	public final void addDefaultSlot(final ISlot defaultEndPointTaker) {
 		
-		addEndPointTakerToList(defaultEndPointTaker);
-		this.defaultEndPointTaker = defaultEndPointTaker;
+		addSlotToList(defaultEndPointTaker);
+		this.defaultSlot = defaultEndPointTaker;
 		
-		noteAddedDefaultEndPointTaker(defaultEndPointTaker);
+		noteAddedDefaultSlot(defaultEndPointTaker);
 	}
 	
 	//method
@@ -53,19 +51,19 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	public final void addEndPointTaker(final ISlot endPointTaker) {
+	public final void addSlot(final ISlot endPointTaker) {
 		
-		addEndPointTakerToList(endPointTaker);
+		addSlotToList(endPointTaker);
 		
-		noteAddedEndPointTaker(endPointTaker);
+		noteAddedSlot(endPointTaker);
 	}
 	
 	//method
 	/**
 	 * @return true if the current {@link BaseServer} contains a default {@link IEndPointTaker}.
 	 */
-	public final boolean containsDefaultEndPointTaker() {
-		return (defaultEndPointTaker != null);
+	public final boolean containsDefaultSlot() {
+		return (defaultSlot != null);
 	}
 	
 	//method
@@ -73,8 +71,8 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param name
 	 * @return true if the current {@link BaseServer} contains a {@link IEndPointTaker} with the given name.
 	 */
-	public final boolean containsEndPointTakerWithName(final String name) {
-		return endPointTakers.containsAny(ept -> ept.hasName(name));
+	public final boolean containsSlotWithName(final String name) {
+		return slots.containsAny(ept -> ept.hasName(name));
 	}
 	
 	//method
@@ -105,18 +103,18 @@ public abstract class BaseServer implements GroupCloseable {
 	 * the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with a name that equals the target of the given endPoint. 
 	 */
-	public final void takeEndPoint(final EndPoint endPoint) {
+	final void internalTakeBackendEndPoint(final EndPoint endPoint) {
 		
 		//Asserts that the given endPoint is open.
 		endPoint.assertIsOpen();
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
-			getRefDefaultEndPointTaker().takeBackendEndPoint(endPoint);
+			getRefDefaultSlot().takeBackendEndPoint(endPoint);
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getRefEndPointTakerByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
+			getRefSlotByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
 		}
 	}
 	
@@ -126,7 +124,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param defaultEndPointTaker
 	 */
-	protected abstract void noteAddedDefaultEndPointTaker(ISlot defaultEndPointTaker);
+	protected abstract void noteAddedDefaultSlot(ISlot defaultEndPointTaker);
 	
 	//method declaration
 	/**
@@ -134,7 +132,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param endPointTaker
 	 */
-	protected abstract void noteAddedEndPointTaker(ISlot endPointTaker);
+	protected abstract void noteAddedSlot(ISlot endPointTaker);
 	
 	//method
 	/**
@@ -144,17 +142,17 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	private void addEndPointTakerToList(ISlot endPointTaker) {
+	private void addSlotToList(ISlot endPointTaker) {
 		
 		//Extracts the name of the given endPointTaker.
 		final var name = endPointTaker.getName();
 		
 		//Asserts that the current Server does not contain
 		//an EndPointTaker with the same name as the given endPointTaker.
-		assertDoesNotContainEndPointTakerWithName(name);
+		assertDoesNotContainSlotWithName(name);
 		
 		//Adds the given endPointTaker to the current Server.
-		this.endPointTakers.addAtEnd(endPointTaker);
+		this.slots.addAtEnd(endPointTaker);
 	}
 	
 	//method
@@ -162,8 +160,8 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private void assertContainsDefaultEndPointTakter() {
-		if (!containsDefaultEndPointTaker()) {
+	private void assertContainsDefaultSlot() {
+		if (!containsDefaultSlot()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "default end point taker");
 		}
 	}
@@ -174,8 +172,8 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link IEndPointTaker} with the same name as the given endPointTaker.
 	 */
-	private void assertDoesNotContainEndPointTakerWithName(final String name) {
-		if (containsEndPointTakerWithName(name)) {
+	private void assertDoesNotContainSlotWithName(final String name) {
+		if (containsSlotWithName(name)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
@@ -190,11 +188,11 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private ISlot getRefDefaultEndPointTaker() {
+	private ISlot getRefDefaultSlot() {
 		
-		assertContainsDefaultEndPointTakter();
+		assertContainsDefaultSlot();
 		
-		return defaultEndPointTaker;
+		return defaultSlot;
 	}
 	
 	//method
@@ -205,7 +203,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
-	private ISlot getRefEndPointTakerByName(final String name) {
-		return endPointTakers.getRefFirst(ept -> ept.hasName(name));
+	private ISlot getRefSlotByName(final String name) {
+		return slots.getRefFirst(ept -> ept.hasName(name));
 	}
 }

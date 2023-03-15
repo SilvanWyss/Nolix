@@ -83,7 +83,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = target;
 		
 		//Lets the given server take the counterpart of this lcoal end point.
-		baseServer.takeEndPoint(getRefCounterpart());
+		baseServer.internalTakeBackendEndPoint(getRefCounterpart());
 	}
 	
 	//constructor

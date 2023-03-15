@@ -74,7 +74,7 @@ public final class Server extends BaseServer {
 	 */
 	@Override
 	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
-		internalServer.addDefaultEndPointTaker(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
+		internalServer.addDefaultSlot(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
 	}
 	
 	//method
@@ -83,6 +83,6 @@ public final class Server extends BaseServer {
 	 */
 	@Override
 	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {
-		internalServer.addEndPointTaker(new ServerEndPointTaker(endPointTaker.getName(), this));
+		internalServer.addSlot(new ServerEndPointTaker(endPointTaker.getName(), this));
 	}
 }

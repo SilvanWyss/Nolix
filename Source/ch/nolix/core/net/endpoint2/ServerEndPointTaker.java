@@ -54,6 +54,6 @@ final class ServerEndPointTaker implements ISlot {
 	 */
 	@Override
 	public void takeBackendEndPoint(final IEndPoint endPoint) {
-		parentServer.takeEndPoint(new NetEndPoint(endPoint));
+		parentServer.internalTakeBackendEndPoint(new NetEndPoint(endPoint));
 	}
 }
