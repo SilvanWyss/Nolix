@@ -7,24 +7,20 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public abstract class EndPoint implements GroupCloseable, IDataProviderController {
+public abstract class EndPoint extends BaseEndPoint implements IDataProviderController {
 	
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
-	
-	//attribute
-	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
 	private IDataProviderController receiverController;
@@ -34,58 +30,11 @@ public abstract class EndPoint implements GroupCloseable, IDataProviderControlle
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final CloseController getRefCloseController() {
-		return closeController;
-	}
-	
-	//method declaration
-	/**
-	 * @return the target of the current {@link EndPoint}.
-	 */
-	public abstract String getCustomTargetSlot();
-	
-	//method
-	/**
 	 * @return true if the current {@link EndPoint} has a receiver controller
 	 */
 	public final boolean hasReceivingDataProviderController() {
 		return (receiverController != null);
 	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} has requested the connection.
-	 */
-	public abstract boolean isFrontendEndPoint();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} has a target.
-	 */
-	public abstract boolean hasCustomTargetSlot();
-	
-	//method
-	/**
-	 * @return true if the current {@link EndPoint} is a local {@link EndPoint}.
-	 */
-	public final boolean isLocalEndPoint() {
-		return !isSocketEndPoint();
-	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} is a net {@link EndPoint}.
-	 */
-	public abstract boolean isSocketEndPoint();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link EndPoint} is a web {@link EndPoint}.
-	 */
-	public abstract boolean isWebSocketEndPoint();
 	
 	//method declaration
 	/**

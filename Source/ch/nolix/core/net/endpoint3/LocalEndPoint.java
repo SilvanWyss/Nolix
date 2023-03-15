@@ -10,6 +10,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
+import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
+import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
+import ch.nolix.coreapi.netapi.netproperty.PeerType;
 
 //class
 /**
@@ -20,8 +23,10 @@ import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
  */
 public final class LocalEndPoint extends EndPoint {
 	
-	//attributes
-	private final boolean requestedConnection;
+	//attribute
+	private final PeerType peerType;
+	
+	//attribute
 	private final LocalEndPoint counterpart;
 	
 	//optional attribute
@@ -34,8 +39,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint() {
 		
-		//Sets the reqested connection flag of this local duplex controller.
-		requestedConnection = true;
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local duplex controller.
 		this.counterpart = new LocalEndPoint(this);
@@ -52,8 +56,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	public LocalEndPoint(final IEndPointTaker target) {
 		
-		//Sets the reqested connection flag of this local duplex controller.
-		requestedConnection = true;
+		peerType = PeerType.FRONTEND;
 		
 		//Creates the counterpart of this local duplex controller.
 		this.counterpart = new LocalEndPoint(this, target.getName());
@@ -74,8 +77,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	private LocalEndPoint(LocalEndPoint counterpart) {
 		
-		//Sets the reqested connection flag of this local duplex controller.
-		requestedConnection = false;
+		peerType = PeerType.BACKEND;
 		
 		//Asserts that the given counterpart is not null.
 		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
@@ -103,8 +105,7 @@ public final class LocalEndPoint extends EndPoint {
 		final String target
 	) {
 		
-		//Sets the requested connection flag of this local duplex controller.
-		requestedConnection = false;
+		peerType = PeerType.BACKEND;
 		
 		//Asserts that the given counterpart is not null.
 		GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
@@ -118,7 +119,16 @@ public final class LocalEndPoint extends EndPoint {
 		//Sets the target of this local duplex controller.
 		this.target = target;
 	}
-
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ConnectionType getConnectionType() {
+		return ConnectionType.LOCAL;
+	}
+	
 	//method
 	/**
 	 * @return the data the given request requests from this local duplex controller.
@@ -145,32 +155,14 @@ public final class LocalEndPoint extends EndPoint {
 	public String getCustomTargetSlot() {
 		return target;
 	}
-
-	//method
-	/**
-	 * @return true if this local duplex controller has requested the conneciton.
-	 */
-	@Override
-	public boolean isFrontendEndPoint() {
-		return requestedConnection;
-	}
 	
 	//method
 	/**
-	 * @return true if this local duplex controller has a target.
+	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasCustomTargetSlot() {
-		return (target != null);
-	}
-
-	//method
-	/**
-	 * @return true if this duplex controller is a net duplex controller.
-	 */
-	@Override
-	public boolean isSocketEndPoint() {
-		return false;
+	public PeerType getPeerType() {
+		return peerType;
 	}
 	
 	//method
@@ -178,8 +170,13 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isWebSocketEndPoint() {
-		return false;
+	public TargetSlotDefinition getTargetSlotDefinition() {
+		
+		if (target == null) {
+			return TargetSlotDefinition.DEFAULT;
+		}
+		
+		return TargetSlotDefinition.CUSTOM;
 	}
 	
 	//method
