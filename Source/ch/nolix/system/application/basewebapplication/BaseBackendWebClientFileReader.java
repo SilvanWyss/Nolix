@@ -9,6 +9,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 
 //class
@@ -60,7 +61,7 @@ final class BaseBackendWebClientFileReader {
 	}
 
 	//method
-	public void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
+	public void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
 		switch (receiveOptionalFileCommand.getChildNodeCount()) {
 			case 0:
 				receiveOptionalFileFromCounterpart(new SingleContainer<>());

@@ -2,7 +2,6 @@
 package ch.nolix.core.net.endpoint3;
 
 //own imports
-import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -11,6 +10,7 @@ import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 
 //class
 /**
@@ -42,14 +42,14 @@ public abstract class EndPoint extends BaseEndPoint implements IDataProviderCont
 	 * 
 	 * @param commands
 	 */
-	public abstract void runCommands(Iterable<ChainedNode> commands);
+	public abstract void runCommands(Iterable<? extends IChainedNode> commands);
 	
 	//method
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void runCommands(final ChainedNode command, ChainedNode... commands) {
+	public final void runCommands(final IChainedNode command, IChainedNode... commands) {
 		
 		runCommand(command);
 		

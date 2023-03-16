@@ -2,14 +2,14 @@
 package ch.nolix.core.net.endpoint3;
 
 //own imports
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
@@ -135,7 +135,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public Node getDataForRequest(final ChainedNode request) {
+	public INode<?> getDataForRequest(final IChainedNode request) {
 		return counterpart.getRefReceiverController().getDataForRequest(request);
 	}
 	
@@ -188,7 +188,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public void runCommand(final ChainedNode command) {
+	public void runCommand(final IChainedNode command) {
 		
 		//Asserts that this local duplex controller is not aborted.
 		assertIsOpen();
@@ -205,7 +205,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
 	 */
 	@Override
-	public void runCommands(final Iterable<ChainedNode> commands) {
+	public void runCommands(final Iterable<? extends IChainedNode> commands) {
 		
 		//Asserts that this local duplex controller is open.
 		assertIsOpen();

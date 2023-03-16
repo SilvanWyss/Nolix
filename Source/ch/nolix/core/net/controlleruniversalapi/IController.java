@@ -2,7 +2,7 @@
 package ch.nolix.core.net.controlleruniversalapi;
 
 //own imports
-import ch.nolix.core.document.chainednode.ChainedNode;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 
 //interface
 /**
@@ -17,7 +17,7 @@ public interface IController {
 	 * 
 	 * @param command
 	 */
-	void runCommand(ChainedNode command);
+	void runCommand(IChainedNode command);
 	
 	//method declaration
 	/**
@@ -26,5 +26,5 @@ public interface IController {
 	 * @param command 
 	 * @param commands
 	 */
-	void runCommands(ChainedNode command, ChainedNode... commands);
+	void runCommands(IChainedNode command, IChainedNode... commands);
 }

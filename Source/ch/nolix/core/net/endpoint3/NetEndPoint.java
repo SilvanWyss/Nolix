@@ -18,6 +18,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
@@ -159,7 +161,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if this {@link NetEndPoint} is aborted.
 	 */
 	@Override
-	public Node getDataForRequest(final ChainedNode request) {
+	public INode<?> getDataForRequest(final IChainedNode request) {
 		
 		//Creates message.
 		final String message = Protocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
@@ -211,7 +213,7 @@ public class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void runCommand(final ChainedNode command) {
+	public void runCommand(final IChainedNode command) {
 		runCommands(LinkedList.withElements(command));
 	}
 	
@@ -223,7 +225,7 @@ public class NetEndPoint extends EndPoint {
 	 * @throws ClosedArgumentException if the current {@link NetEndPoint} is closed.
 	 */
 	@Override
-	public void runCommands(final Iterable<ChainedNode> commands) {
+	public void runCommands(final Iterable<? extends IChainedNode> commands) {
 			
 		//Asserts that this {@link NetEndPoint} is open.
 		assertIsOpen();

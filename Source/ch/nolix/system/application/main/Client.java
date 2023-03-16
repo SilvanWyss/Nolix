@@ -6,8 +6,6 @@ import java.util.HashMap;
 
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
@@ -16,6 +14,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnconnectedArgumentEx
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -186,7 +186,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return the data the given request requests from the counterpart of the current {@link Client}.
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	protected final BaseNode<?> getDataFromCounterpart(final ChainedNode request) {
+	protected final INode<?> getDataFromCounterpart(final IChainedNode request) {
 		return getRefEndPoint().getDataForRequest(request);
 	}
 	
@@ -195,7 +195,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @param request
 	 * @return the data the given request requests from the current {@link Client}.
 	 */
-	protected abstract Node getDataFromHere(ChainedNode request);
+	protected abstract INode<?> getDataFromHere(IChainedNode request);
 	
 	//method
 	/**
@@ -211,7 +211,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * 
 	 * @param command
 	 */
-	protected abstract void runHere(ChainedNode command);
+	protected abstract void runHere(IChainedNode command);
 	
 	//method
 	/**
@@ -220,7 +220,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @param command
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	protected final void runOnCounterpart(final ChainedNode command) {
+	protected final void runOnCounterpart(final IChainedNode command) {
 		getRefEndPoint().runCommand(command);
 	}
 	
@@ -243,7 +243,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @param commands
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	protected final void runOnCounterpart(final Iterable<ChainedNode> commands) {
+	protected final void runOnCounterpart(final Iterable<? extends IChainedNode> commands) {
 		getRefEndPoint().runCommands(commands);
 	}
 	

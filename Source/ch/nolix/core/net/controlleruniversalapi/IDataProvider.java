@@ -2,8 +2,8 @@
 package ch.nolix.core.net.controlleruniversalapi;
 
 //own imports
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //interface
 /**
@@ -17,5 +17,5 @@ public interface IDataProvider {
 	 * @param request
 	 * @return the data the given request requests from the current {@link IDataProvider}.
 	 */
-	Node getDataForRequest(ChainedNode request);
+	INode<?> getDataForRequest(IChainedNode request);
 }

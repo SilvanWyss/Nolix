@@ -3,11 +3,11 @@ package ch.nolix.system.application.basewebapplication;
 
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.BaseNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.webapi.sessionapi.ICookieManager;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
@@ -60,16 +60,16 @@ implements ICookieManager {
 	
 	//method
 	@Override
-	protected final Node getDataFromHere(final ChainedNode request) {
+	protected final INode<?> getDataFromHere(final IChainedNode request) {
 		return getDataFromHereFromBaseBackendWebClient(request);
 	}
 	
 	//method declaration
-	protected abstract Node getDataFromHereFromBaseBackendWebClient(final ChainedNode request);
+	protected abstract INode<?> getDataFromHereFromBaseBackendWebClient(final IChainedNode request);
 	
 	//method
 	@Override
-	protected final void runHere(final ChainedNode command) {
+	protected final void runHere(final IChainedNode command) {
 		switch (command.getHeader()) {
 			case CommandProtocol.RECEIVE_OPTIONAL_FILE:
 				receiveOptionalFileFromCounterpart(command);
@@ -80,7 +80,7 @@ implements ICookieManager {
 	}
 	
 	//method declaration
-	protected abstract void runHereOnBaseBackendWebClient(ChainedNode command);
+	protected abstract void runHereOnBaseBackendWebClient(IChainedNode command);
 	
 	//method
 	final IContainer<byte[]> internalGetFilesFromClipboardOfCounterpart() {
@@ -132,7 +132,7 @@ implements ICookieManager {
 	}
 	
 	//method
-	private String getCookieValueByCookieNameOrNullFromData(final BaseNode<?> data) {
+	private String getCookieValueByCookieNameOrNullFromData(final INode<?> data) {
 		
 		if (!data.hasHeader()) {
 			return null;
@@ -142,7 +142,7 @@ implements ICookieManager {
 	}
 	
 	//method
-	private void receiveOptionalFileFromCounterpart(final ChainedNode receiveOptionalFileCommand) {
+	private void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
 		fileReader.receiveOptionalFileFromCounterpart(receiveOptionalFileCommand);
 	}
 }

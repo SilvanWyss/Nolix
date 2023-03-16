@@ -2,11 +2,11 @@
 package ch.nolix.system.application.webapplication;
 
 //own imports
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
@@ -23,13 +23,13 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	
 	//method
 	@Override
-	protected Node getDataFromHereFromBaseBackendWebClient(final ChainedNode request) {
+	protected INode<?> getDataFromHereFromBaseBackendWebClient(final IChainedNode request) {
 		throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REQUEST, request);
 	}
 	
 	//method
 	@Override
-	protected void runHereOnBaseBackendWebClient(final ChainedNode command) {
+	protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
 		switch (command.getHeader()) {
 			case ObjectProtocol.GUI:
 				runGUICommand(command.getNextNode());				
@@ -45,12 +45,12 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	}
 	
 	//method
-	void internalRunOnCounterpart(final IContainer<ChainedNode> updateCommands) {
+	void internalRunOnCounterpart(final IContainer<? extends IChainedNode> updateCommands) {
 		runOnCounterpart(updateCommands);
 	}
 	
 	//method
-	private void runCommandOnControl(final IControl<?, ?> control, final ChainedNode command) {
+	private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
 		switch (command.getHeader()) {
 			case ControlCommandProtocol.RUN_HTML_EVENT:
 				runRunHTMLEventCommandOnControl(control, command);
@@ -62,12 +62,15 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	}
 	
 	//method
-	private void runGUICommand(final ChainedNode pGUICommand) {
+	private void runGUICommand(final IChainedNode pGUICommand) {
 		switch (pGUICommand.getHeader()) {
 			case ObjectProtocol.CONTROL_BY_FIXED_ID:
 				
 				final var command = pGUICommand.getNextNode();
-				final var controlFixedId = pGUICommand.getSingleChildNodeHeader();
+				
+				//TODO: pGUICommand.getSingleChildNodeHeader()
+				final var controlFixedId = pGUICommand.getSingleChildNode().getHeader();
+				
 				final var session = (BackendWebClientSession<AC>)getRefCurrentSession();
 				final var gui = session.getRefGUI();
 				final var control = gui.getRefControlByFixedId(controlFixedId);
@@ -95,9 +98,10 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	}
 	
 	//method
-	private void runRunHTMLEventCommandOnControl(final IControl<?, ?> control, final ChainedNode runHTMLEventCommand) {
+	private void runRunHTMLEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHTMLEventCommand) {
 		
-		final var lHTMLEvent = runHTMLEventCommand.getSingleChildNodeHeader();
+		//TODO: runHTMLEventCommand.getSingleChildNodeHeader();
+		final var lHTMLEvent = runHTMLEventCommand.getSingleChildNode().getHeader();
 		
 		control.runHTMLEvent(lHTMLEvent);
 	}

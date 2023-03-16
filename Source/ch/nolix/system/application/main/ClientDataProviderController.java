@@ -2,12 +2,12 @@
 package ch.nolix.system.application.main;
 
 //own imports
-import ch.nolix.core.document.chainednode.ChainedNode;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
 /**
@@ -41,7 +41,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Node getDataForRequest(final ChainedNode request) {
+	public INode<?> getDataForRequest(final IChainedNode request) {
 		return parentClient.getDataFromHere(request);
 	}
 	
@@ -50,7 +50,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void runCommand(final ChainedNode command) {
+	public void runCommand(final IChainedNode command) {
 		parentClient.runHere(command);
 	}
 	
@@ -59,7 +59,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void runCommands(final ChainedNode command, final ChainedNode... commands) {
+	public void runCommands(final IChainedNode command, final IChainedNode... commands) {
 		
 		parentClient.runHere(command);
 		
