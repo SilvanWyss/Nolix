@@ -14,5 +14,5 @@ public interface IController {
 	void runCommands(IChainedNode command, IChainedNode... commands);
 	
 	//method declaration
-	void runCommands(Iterable<IChainedNode> commands);
+	void runCommands(Iterable<? extends IChainedNode> commands);
 }
