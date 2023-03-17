@@ -2,11 +2,10 @@
 package ch.nolix.coreapi.netapi.endpoint3api;
 
 //own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //interface
-public interface IServer extends Clearable, GroupCloseable {
+public interface IServer extends GroupCloseable {
 	
 	//method declaration
 	void addDefaultSlot(ISlot defaultSlot);
@@ -19,7 +18,4 @@ public interface IServer extends Clearable, GroupCloseable {
 	
 	//method declaration
 	boolean containsSlotWithName(String name);
-	
-	//method declaration
-	void removeSlotByName(String name);
 }
