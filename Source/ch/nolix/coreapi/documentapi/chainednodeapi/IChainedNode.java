@@ -77,6 +77,16 @@ public interface IChainedNode extends BlanknessRequestable, OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * 
+	 * @return the header of the single child node of the current {@link IChainedNode}.
+	 * @throws RuntimeException if
+	 * the current {@link IChainedNode} does not contain child nodes or contains several child nodes.
+	 * @throws RuntimeException if the single child node of the current {@link IChainedNode} does not have a header.
+	 */
+	String getSingleChildNodeHeader();
+	
+	//method declaration
+	/**
 	 * @return true if the current {@link IChainedNode} has a next node.
 	 */
 	boolean hasNextNode();

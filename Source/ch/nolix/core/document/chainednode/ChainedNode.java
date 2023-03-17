@@ -559,12 +559,9 @@ public final class ChainedNode implements IChainedNode {
 	
 	//method
 	/**
-	 * @return the header of the one attribute of the current {@link ChainedNode}.
-	 * @throws EmptyArgumentException if the current {@link ChainedNode} does not contain an attribute.
-	 * @throws InvalidArgumentException if the current {@link ChainedNode} contains several attributes.
-	 * @throws ArgumentDoesNotHaveAttributeException if
-	 * the one attribute of the current {@link ChainedNode} does not have a header.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public String getSingleChildNodeHeader() {
 		return getSingleChildNode().getHeader();
 	}

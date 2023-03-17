@@ -67,10 +67,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 			case ObjectProtocol.CONTROL_BY_FIXED_ID:
 				
 				final var command = pGUICommand.getNextNode();
-				
-				//TODO: pGUICommand.getSingleChildNodeHeader()
-				final var controlFixedId = pGUICommand.getSingleChildNode().getHeader();
-				
+				final var controlFixedId = pGUICommand.getSingleChildNodeHeader();
 				final var session = (BackendWebClientSession<AC>)getRefCurrentSession();
 				final var gui = session.getRefGUI();
 				final var control = gui.getRefControlByFixedId(controlFixedId);
@@ -100,8 +97,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	//method
 	private void runRunHTMLEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHTMLEventCommand) {
 		
-		//TODO: runHTMLEventCommand.getSingleChildNodeHeader();
-		final var lHTMLEvent = runHTMLEventCommand.getSingleChildNode().getHeader();
+		final var lHTMLEvent = runHTMLEventCommand.getSingleChildNodeHeader();
 		
 		control.runHTMLEvent(lHTMLEvent);
 	}
