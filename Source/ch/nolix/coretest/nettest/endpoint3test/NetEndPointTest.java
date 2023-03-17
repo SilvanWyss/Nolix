@@ -4,7 +4,6 @@ package ch.nolix.coretest.nettest.endpoint3test;
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.net.endpoint3.IEndPointTaker;
 import ch.nolix.core.net.endpoint3.NetEndPoint;
@@ -12,7 +11,10 @@ import ch.nolix.core.net.endpoint3.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 
 //class
 public final class NetEndPointTest extends Test {
@@ -57,6 +59,20 @@ public final class NetEndPointTest extends Test {
 					
 					//method
 					@Override
+					public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+						//TODO: Implement.
+						return null;
+					}
+					
+					//method
+					@Override
+					public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+						//TODO: Implement.
+						return null;
+					}
+					
+					//method
+					@Override
 					public void runCommand(final IChainedNode command) {
 						EndPointTaker.this.setCommand(command);
 					}
@@ -70,6 +86,12 @@ public final class NetEndPointTest extends Test {
 						for (final var c : commands) {
 							runCommand(c);
 						}
+					}
+					
+					//method
+					@Override
+					public void runCommands(final Iterable<? extends IChainedNode> commands) {
+						//TODO: Implement.
 					}
 				}
 			);

@@ -4,10 +4,11 @@ package ch.nolix.system.application.main;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.net.endpoint3.EndPoint;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 
 //class
 /**
@@ -50,6 +51,26 @@ final class ClientDataProviderController implements IDataProviderController {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void runCommand(final IChainedNode command) {
 		parentClient.runHere(command);
 	}
@@ -67,5 +88,14 @@ final class ClientDataProviderController implements IDataProviderController {
 		for (final var c : commands) {
 			parentClient.runHere(c);
 		}
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void runCommands(final Iterable<? extends IChainedNode> commands) {
+		//TODO: Implement.
 	}
 }

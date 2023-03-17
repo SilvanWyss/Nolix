@@ -3,21 +3,21 @@ package ch.nolix.core.net.endpoint3;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.BaseEndPoint;
-import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public abstract class EndPoint extends BaseEndPoint implements IDataProviderController {
+public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 	
 	//constant
 	private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
@@ -30,20 +30,13 @@ public abstract class EndPoint extends BaseEndPoint implements IDataProviderCont
 	
 	//method
 	/**
-	 * @return true if the current {@link EndPoint} has a receiver controller
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean hasReceivingDataProviderController() {
 		return (receiverController != null);
 	}
-	
-	//method declaration
-	/**
-	 * Lets current {@link EndPoint} run the given commands.
-	 * 
-	 * @param commands
-	 */
-	public abstract void runCommands(Iterable<? extends IChainedNode> commands);
-	
+		
 	//method
 	/**
 	 * {@inheritDoc}
@@ -68,11 +61,9 @@ public abstract class EndPoint extends BaseEndPoint implements IDataProviderCont
 	
 	//method
 	/**
-	 * Sets the receiver controller of the current {@link EndPoint}.
-	 * 
-	 * @param receiverController
-	 * @throws ArgumentIsNullException if the given receiverController is null.
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
 		
 		//Asserts that the given receiverController is not null.
@@ -103,7 +94,9 @@ public abstract class EndPoint extends BaseEndPoint implements IDataProviderCont
 			return receiverController;
 		}
 		
-		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasReceivingDataProviderController);
+		GlobalSequencer
+		.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS)
+		.waitUntil(this::hasReceivingDataProviderController);
 		
 		if (!hasReceivingDataProviderController()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);

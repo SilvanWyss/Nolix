@@ -16,8 +16,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.IPv6Catalogue;
-import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
@@ -182,6 +182,26 @@ public class NetEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	/**
 	 * @return the target of the current {@link NetEndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if this {@link NetEndPoint} does not have a target.
 	 */
@@ -287,7 +307,7 @@ public class NetEndPoint extends EndPoint {
 	private final String receiveAndGetReply(final ChainedNode message) {
 		
 		//Gets the receiver controller of the current NetEndPoint.
-		final IDataProviderController receiverController = getRefReceiverController();
+		final var receiverController = getRefReceiverController();
 		
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {

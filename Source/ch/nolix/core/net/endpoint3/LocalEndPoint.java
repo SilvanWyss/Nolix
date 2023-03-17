@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.controlleruniversalapi.IDataProviderController;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
@@ -141,6 +141,24 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+		return counterpart.getRefReceiverController().getDataForRequests(request, requests);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+		return counterpart.getRefReceiverController().getDataForRequests(requests);
+	}
+	
+	//method
+	/**
 	 * @return the counterpart of this local duplex controller.
 	 */
 	public LocalEndPoint getRefCounterpart() {
@@ -198,11 +216,7 @@ public final class LocalEndPoint extends EndPoint {
 	
 	//method
 	/**
-	 * Lets this local duplex controller run the given commands.
-	 * 
-	 * @param commands
-	 * @throws ClosedArgumentException if this local duplex contorller is closed.
-	 * @throws ArgumentDoesNotHaveAttributeException if this local duplex controller does not have a receiver controller.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void runCommands(final Iterable<? extends IChainedNode> commands) {
@@ -210,7 +224,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that this local duplex controller is open.
 		assertIsOpen();
 		
-		final IDataProviderController counterpartReceiverController = counterpart.getRefReceiverController();
+		final var counterpartReceiverController = counterpart.getRefReceiverController();
 		
 		commands.forEach(counterpartReceiverController::runCommand);
 	}
