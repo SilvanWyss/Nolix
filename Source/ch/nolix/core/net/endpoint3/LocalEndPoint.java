@@ -11,6 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
+import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 
@@ -54,7 +55,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * 
 	 * @param target
 	 */
-	public LocalEndPoint(final IEndPointTaker target) {
+	public LocalEndPoint(final ISlot target) {
 		
 		peerType = PeerType.FRONTEND;
 		
@@ -65,7 +66,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = null;
 		
 		//Lets the given target take the counterpart of this local duplex controller.
-		target.takeEndPoint(getRefCounterpart());
+		target.takeBackendEndPoint(getRefCounterpart());
 	}
 	
 	//constructor
