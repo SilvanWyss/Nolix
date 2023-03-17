@@ -73,7 +73,7 @@ public final class Server extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedDefaultEndPointTaker(final IEndPointTaker defaultEndPointTaker) {
+	protected void noteAddedDefaultSlot(final IEndPointTaker defaultEndPointTaker) {
 		internalServer.addDefaultSlot(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
 	}
 	
@@ -82,7 +82,7 @@ public final class Server extends BaseServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void noteAddedEndPointTaker(final IEndPointTaker endPointTaker) {
+	protected void noteAddedSlot(final IEndPointTaker endPointTaker) {
 		internalServer.addSlot(new ServerEndPointTaker(endPointTaker.getName(), this));
 	}
 }

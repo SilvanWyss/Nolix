@@ -53,6 +53,6 @@ final class ServerEndPointTaker implements ISlot {
 	 */
 	@Override
 	public void takeBackendEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint endPoint) {
-		parentServer.takeEndPoint(new NetEndPoint(endPoint));
+		parentServer.internalTakeBackendEndPoint(new NetEndPoint(endPoint));
 	}
 }

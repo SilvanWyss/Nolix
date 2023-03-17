@@ -96,7 +96,7 @@ public final class NetEndPointTest extends Test {
 		try (final var server = new Server(port)) {
 			
 			//setup
-			server.addDefaultEndPointTaker(new EndPointTaker());
+			server.addDefaultSlot(new EndPointTaker());
 			
 			//execution & verification
 			expectRunning(
@@ -121,7 +121,7 @@ public final class NetEndPointTest extends Test {
 			
 			//setup
 			final var endPointTaker = new EndPointTaker();
-			server.addDefaultEndPointTaker(endPointTaker);
+			server.addDefaultSlot(endPointTaker);
 			
 			try (final var testUnit = new NetEndPoint(port)) {
 			
@@ -145,7 +145,7 @@ public final class NetEndPointTest extends Test {
 			
 			//setup
 			final var endPointTaker = new EndPointTaker();
-			server.addDefaultEndPointTaker(endPointTaker);
+			server.addDefaultSlot(endPointTaker);
 			
 			try (final var testUnit = new NetEndPoint(port)) {
 				
