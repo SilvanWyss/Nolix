@@ -3,12 +3,12 @@ package ch.nolix.core.net.endpoint3;
 
 //class
 /**
- * Of the {@link Protocol} an instance cannot be created.
+ * Of the {@link NetEndPointProtocol} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-final class Protocol {
+final class NetEndPointProtocol {
 	
 	//constants
 	public static final String COMMANDS_HEADER = "Commands";
@@ -19,7 +19,7 @@ final class Protocol {
 	
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link Protocol} can be created.
+	 * Prevents that an instance of the {@link NetEndPointProtocol} can be created.
 	 */
-	private Protocol() {}
+	private NetEndPointProtocol() {}
 }
