@@ -10,11 +10,19 @@ package ch.nolix.core.net.endpoint3;
  */
 final class NetEndPointProtocol {
 	
-	//constants
+	//constant
 	public static final String COMMANDS_HEADER = "Commands";
-	public static final String DATA_REQUEST_HEADER = "DataRequest";
-	public static final String DONE_HEADER = "Done";
+	
+	//constant
 	public static final String DATA_HEADER = "Data";
+	
+	//constant
+	public static final String DATA_REQUEST_HEADER = "DataRequest";
+	
+	//constant
+	public static final String DONE_HEADER = "Done";
+	
+	//constant
 	public static final String ERROR_HEADER = "Error";
 	
 	//constructor
