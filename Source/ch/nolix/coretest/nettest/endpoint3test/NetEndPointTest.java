@@ -4,8 +4,6 @@ package ch.nolix.coretest.nettest.endpoint3test;
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.net.endpoint3.EndPoint;
-import ch.nolix.core.net.endpoint3.IEndPointTaker;
 import ch.nolix.core.net.endpoint3.NetEndPoint;
 import ch.nolix.core.net.endpoint3.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
@@ -15,12 +13,14 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 
 //class
 public final class NetEndPointTest extends Test {
 	
 	//static class
-	private static final class EndPointTaker implements IEndPointTaker {
+	private static final class EndPointTaker implements ISlot {
 		
 		//optional attribute
 		private IChainedNode command;
@@ -46,7 +46,7 @@ public final class NetEndPointTest extends Test {
 		
 		//method
 		@Override
-		public void takeEndPoint(final EndPoint endPoint) {
+		public void takeBackendEndPoint(final IEndPoint endPoint) {
 			endPoint.setReceivingDataProviderController(
 				new IDataProviderController() {
 					

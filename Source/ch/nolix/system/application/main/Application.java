@@ -11,10 +11,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class
@@ -119,7 +119,7 @@ implements IApplication<AC> {
 	 * 
 	 * @param endPoint
 	 */
-	public final void takeEndPoint(final EndPoint endPoint) {
+	public final void takeEndPoint(final IEndPoint endPoint) {
 		takeClient(createBackendClientWithEndPoint(endPoint));
 	}
 	
@@ -182,7 +182,7 @@ implements IApplication<AC> {
 	 * @param endPoint
 	 * @return a new {@link BackendClient} with the given endPoint
 	 */
-	private BC createBackendClientWithEndPoint(final EndPoint endPoint) {
+	private BC createBackendClientWithEndPoint(final IEndPoint endPoint) {
 		
 		final var backendClient = GlobalClassHelper.createInstanceFromDefaultConstructorOf(getClientClass());
 		backendClient.internalSetEndPoint(endPoint);

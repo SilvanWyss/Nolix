@@ -16,6 +16,7 @@ import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -32,7 +33,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private EndPoint endPoint;
+	private IEndPoint endPoint;
 	
 	//multi-attribute
 	private final HashMap<String, String> sessionVariables = new HashMap<>();
@@ -265,7 +266,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws ArgumentIsNullException if the given endPoint is null.
 	 * @throws InvalidArgumentException if the current {@link Client} is already connected.
 	 */
-	final void internalSetEndPoint(final EndPoint endPoint) {
+	final void internalSetEndPoint(final IEndPoint endPoint) {
 		
 		//Asserts that the given endPoint is not null.
 		GlobalValidator.assertThat(endPoint).thatIsNamed(EndPoint.class).isNotNull();
@@ -307,7 +308,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return the {@link EndPoint} of the current {@link Client}.
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	private EndPoint getRefEndPoint() {
+	private IEndPoint getRefEndPoint() {
 		
 		assertIsConnected();
 		

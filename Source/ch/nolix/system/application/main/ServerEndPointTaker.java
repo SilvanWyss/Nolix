@@ -5,15 +5,16 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2021-06-28
  */
-final class ServerEndPointTaker implements ch.nolix.core.net.endpoint3.IEndPointTaker {
+final class ServerEndPointTaker implements ISlot {
 	
 	//attribute
 	private final String name;
@@ -54,7 +55,7 @@ final class ServerEndPointTaker implements ch.nolix.core.net.endpoint3.IEndPoint
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void takeEndPoint(final EndPoint endPoint) {
+	public void takeBackendEndPoint(final IEndPoint endPoint) {
 		parentServer.internalTakeEndPoint(endPoint);
 	}
 }

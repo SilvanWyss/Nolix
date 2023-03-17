@@ -4,8 +4,8 @@ package ch.nolix.system.application.main;
 //own imports
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.net.endpoint3.EndPoint;
 import ch.nolix.core.net.target.ServerTarget;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 
 //class
@@ -109,7 +109,7 @@ public final class Server extends BaseServer {
 	 * 
 	 * @param endPoint
 	 */
-	void internalTakeEndPoint(final EndPoint endPoint) {
+	void internalTakeEndPoint(final IEndPoint endPoint) {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
