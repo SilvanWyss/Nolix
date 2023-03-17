@@ -2,6 +2,7 @@
 package ch.nolix.system.application.main;
 
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
@@ -52,8 +53,12 @@ final class ClientDataProviderController implements IDataProviderController {
 	 */
 	@Override
 	public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-		//TODO: Implement.
-		return null;
+		
+		//Concatenates the given requests.
+		final var concatenatedRequests = ImmutableList.withElements(request, requests);
+		
+		//Calls other method.
+		return getDataForRequests(concatenatedRequests);
 	}
 	
 	//method
@@ -82,12 +87,11 @@ final class ClientDataProviderController implements IDataProviderController {
 	@Override
 	public void runCommands(final IChainedNode command, final IChainedNode... commands) {
 		
-		parentClient.runHere(command);
+		//Concatenates the given commands.
+		final var concatenatedCommands = ImmutableList.withElements(command, commands);
 		
-		//Iterates the given commands.
-		for (final var c : commands) {
-			parentClient.runHere(c);
-		}
+		//Calls other method.
+		runCommands(concatenatedCommands);
 	}
 	
 	//method
@@ -96,6 +100,10 @@ final class ClientDataProviderController implements IDataProviderController {
 	 */
 	@Override
 	public void runCommands(final Iterable<? extends IChainedNode> commands) {
-		//TODO: Implement.
+		
+		//Iterates the given commands.
+		for (final var c : commands) {
+			parentClient.runHere(c);
+		}
 	}
 }
