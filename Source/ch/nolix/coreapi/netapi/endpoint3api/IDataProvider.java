@@ -16,5 +16,5 @@ public interface IDataProvider {
 	IContainer<INode<?>> getDataForRequests(IChainedNode request, IChainedNode... requests);
 	
 	//method declaration
-	IContainer<INode<?>> getDataForRequests(Iterable<IChainedNode> requests);
+	IContainer<INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
 }
