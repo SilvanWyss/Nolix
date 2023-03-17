@@ -176,7 +176,7 @@ public final class NetEndPointTest extends Test {
 				
 				//verification
 				expect(endPointTaker.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));
-				//TODO: expect(result).isEqualTo(Node.withHeader("DATA"));
+				expect(result).isEqualTo(Node.withHeader("DATA"));
 			}
 		}
 	}
