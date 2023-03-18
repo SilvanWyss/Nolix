@@ -12,7 +12,10 @@ public final class WebSocketServer extends BaseServer {
 	
 	//constructor
 	public WebSocketServer(final int port, final ISSLCertificate paramSSLCertificate) {
+		
 		internalWebSocketServer = new ch.nolix.core.net.endpoint3.WebSocketServer(port, paramSSLCertificate);
+		
+		createCloseDependencyTo(internalWebSocketServer);
 	}
 	
 	//method
