@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -287,6 +288,24 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param defaultApplication2
 	 */
 	protected abstract void noteAddedDefaultApplication(Application<?, ?> defaultApplication2);
+	
+	//method
+	/**
+	 * Lets the current {@link Server} take the given endPoint.
+	 * 
+	 * @param endPoint
+	 */
+	void internalTakeEndPoint(final IEndPoint endPoint) {
+		
+		//Handles the case that the given endPoint does not have a target.
+		if (!endPoint.hasCustomTargetSlot()) {
+			getRefDefaultApplication().takeEndPoint(endPoint);
+			
+		//Handles the case that the given endPoint has a target.
+		} else {
+			getRefApplicationByInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
+		}
+	}
 	
 	//method
 	/**
