@@ -11,6 +11,7 @@ import org.java_websocket.handshake.ClientHandshake;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
 final class WebSocketServerInternalServer extends org.java_websocket.server.WebSocketServer {
@@ -22,7 +23,11 @@ final class WebSocketServerInternalServer extends org.java_websocket.server.WebS
 	private final LinkedList<WebSocketEndPoint2> webSocketEndPoints = new LinkedList<>();
 	
 	//constructor
-	public WebSocketServerInternalServer(final WebSocketServer parentWebSocketServer, final int port) {
+	public WebSocketServerInternalServer(
+		final WebSocketServer parentWebSocketServer,
+		final int port,
+		final ISSLCertificate paramSSLCertificate
+	) {
 		
 		super(new InetSocketAddress(port));
 		

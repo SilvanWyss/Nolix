@@ -13,7 +13,7 @@ public final class WebSocketServer extends BaseServer {
 	
 	//constructor
 	public WebSocketServer(final int port, final ISSLCertificate paramSSLCertificate) {
-		internalWebSocketServer = new WebSocketServerInternalServer(this, port);
+		internalWebSocketServer = new WebSocketServerInternalServer(this, port, paramSSLCertificate);
 	}
 	
 	//method
