@@ -5,8 +5,8 @@ package ch.nolix.coreapi.netapi.tlsapi;
 public interface ISSLCertificate {
 	
 	//method declaration
-	String getPrivateKey();
+	byte[] getPrivateKeyBytes();
 	
 	//method declaration
-	String getPublicKey();
+	byte[] getPublicKeyBytes();
 }
