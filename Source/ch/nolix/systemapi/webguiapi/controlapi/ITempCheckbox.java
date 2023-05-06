@@ -5,14 +5,14 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ICheckbox extends IControl<ICheckbox, ICheckboxStyle> {
+public interface ITempCheckbox extends IControl<ITempCheckbox, ICheckboxStyle> {
 	
 	//method declaration
-	ICheckbox check();
+	ITempCheckbox check();
 	
 	//method declaration
 	boolean isChecked();
 	
 	//method declaration
-	ICheckbox unCheck();
+	ITempCheckbox unCheck();
 }
