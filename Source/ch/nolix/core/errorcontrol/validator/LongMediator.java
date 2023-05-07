@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidPortException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonNegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
@@ -17,6 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
+import ch.nolix.core.net.constant.PortCatalogue;
 
 //class
 /**
@@ -265,6 +267,16 @@ public class LongMediator extends Mediator {
 		//Asserts that the argument of this long mediator is not positive.
 		if (argument > 0) {
 			throw PositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
+		}
+	}
+	
+	//method
+	/**
+	 * @throws InvalidPortException if the argument of the current {@link LongMediator} is not a port.
+	 */
+	public final void isPort() {
+		if (argument < PortCatalogue.MIN_PORT || argument > PortCatalogue.MAX_PORT) {
+			throw InvalidPortException.forPort(argument);
 		}
 	}
 	
