@@ -46,7 +46,7 @@ public final class Server extends BaseServer {
 	</head>
 	<body>
 	<h1>Nolix</h1>
-	<p>The requested server does not support web browsers.</p>
+	<p>The requested server does not support web clients.</p>
 	</body>
 	</html>
 	""";
