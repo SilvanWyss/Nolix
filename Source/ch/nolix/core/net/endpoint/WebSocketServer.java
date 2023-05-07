@@ -24,13 +24,13 @@ public final class WebSocketServer extends BaseServer {
 	""";
 	
 	//constructor
-	public WebSocketServer(final int port, final String HTMLPage, final ISSLCertificate paramSSLCertificate) {
-		//TODO: Implement.
+	public WebSocketServer(final int port, final ISSLCertificate paramSSLCertificate) {
+		this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
 	}
 	
 	//constructor
-	public WebSocketServer(final int port, final ISSLCertificate paramSSLCertificate) {
-		this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
+	public WebSocketServer(final int port, final String paramHTMLPage, final ISSLCertificate paramSSLCertificate) {
+		new WebSocketServerWorker(this, port, paramHTMLPage, paramSSLCertificate);
 	}
 	
 	//method

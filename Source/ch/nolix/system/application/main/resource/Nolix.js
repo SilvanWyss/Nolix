@@ -1423,7 +1423,7 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "CoreAPI/NetAPI
                     this.webSocket = new WebSocket('ws://' + ip + ':' + port);
                     break;
                 case WebSocketType_1.WebSocketType.SECURE_WEB_SOCKET:
-                    this.webSocket = new WebSocket('wss://' + ip + ':' + port);
+                    this.webSocket = new WebSocket('wss://' + ip + ':' + port + '/websocket');
                     break;
             }
             this.webSocket.onopen = this.onOpen;

@@ -2,6 +2,7 @@
 package ch.nolix.system.application.main;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.main.resource.ResourcePathCatalogue;
@@ -63,12 +64,17 @@ record WebSocketServerHTMLPage(String serverDomain, int serverPort) {
 	}
 	
 	//method
+	private String getServerDomainInQuotes() {
+		return GlobalStringHelper.getInQuotes(getServerDomain());
+	}
+	
+	//method
 	private String getStartScript() {
 		return
 		"<script>\n"
 		+ "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
 		+ "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURLOnSecureWebSocket("
-		+ getServerDomain()
+		+ getServerDomainInQuotes()
 		+ ", "
 		+ getServerPort()
 		+ ");"

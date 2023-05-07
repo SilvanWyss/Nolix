@@ -5,7 +5,7 @@ package ch.nolix.core.net.tls;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //record
-public record SSLCertificate(String privateKeyPEMFilePath, String publicKeyPEMFilePath) implements ISSLCertificate {
+public record SSLCertificate(String publicKeyPEMFilePath, String privateKeyPEMFilePath) implements ISSLCertificate {
 	
 	//method
 	@Override
