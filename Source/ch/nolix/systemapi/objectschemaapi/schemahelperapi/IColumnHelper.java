@@ -31,7 +31,7 @@ public interface IColumnHelper extends IDatabaseObjectHelper {
 	BasePropertyType getBasePropertyType(IColumn column);
 	
 	//method declaration
-	 IDatabase getParentDatabase(IColumn column);
+	IDatabase getParentDatabase(IColumn column);
 	
 	//method declaration
 	PropertyType getPropertyType(IColumn column);
