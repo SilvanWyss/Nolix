@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
-import ch.nolix.core.errorcontrol.logger.GlobalLogger;
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+
 //Netty imports
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -27,23 +29,19 @@ final class WebSocketServerChannelInboundHandler extends SimpleChannelInboundHan
 	}
 	
 	//method
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception {
-    	
-    	GlobalLogger.logInfo("Received raw message from client.");
-    	
-    	if (parentWebSocketServerEndPoint == null) {
-    		parentWebSocketServerEndPoint = new WebSocketServerEndPoint(ctx);
-    		parentWebSocketServer.internalTakeBackendEndPoint(parentWebSocketServerEndPoint);
-    	}
-    	
-        if (frame instanceof TextWebSocketFrame) {
-            String rawMessage = ((TextWebSocketFrame) frame).text();
-            GlobalLogger.logInfo("Received raw message from client: " + rawMessage);
-            parentWebSocketServerEndPoint.receiveRawMessageInBackground(rawMessage);
-        } else {
-            String message = "unsupported frame type: " + frame.getClass().getName();
-            throw new UnsupportedOperationException(message);
-        }
-    }
+	@Override
+	protected void channelRead0(final ChannelHandlerContext ctx, final WebSocketFrame frame) throws Exception {
+		
+		if (parentWebSocketServerEndPoint == null) {
+			parentWebSocketServerEndPoint = new WebSocketServerEndPoint(ctx);
+			parentWebSocketServer.internalTakeBackendEndPoint(parentWebSocketServerEndPoint);
+		}
+		
+		if (frame instanceof TextWebSocketFrame) {
+			String rawMessage = ((TextWebSocketFrame) frame).text();
+			parentWebSocketServerEndPoint.receiveRawMessageInBackground(rawMessage);
+		} else {
+			throw InvalidArgumentException.forArgument(frame);
+		}
+	}
 }
