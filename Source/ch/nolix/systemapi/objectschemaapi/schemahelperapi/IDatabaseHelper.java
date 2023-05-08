@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemahelperapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -65,7 +66,7 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	void deleteTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
-	 IContainer<IColumn> getRefAllBackReferenceColumns(IDatabase database);
+	IContainer<IColumn> getRefAllBackReferenceColumns(IDatabase database);
 	
 	//method declaration
 	 ITable getRefTableWithGivenName(IDatabase database, String name);
