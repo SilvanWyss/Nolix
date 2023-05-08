@@ -436,10 +436,12 @@ public final class Matrix {
 		
 		try {
 			inverseMatrix = matrix.getInverse();
-		} catch (final Throwable error) {
+		} catch (
+			final Throwable error //NOSONAR: If there does not exist an inverse matrix, a pseudo-inverse matrix will be calculated.
+		) {
 			inverseMatrix = matrix.getPseudoInverse();
 		}
-				
+		
 		return
 		inverseMatrix
 		.getProduct(transposedMatrix)
