@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databasehelperapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
@@ -17,7 +18,7 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	boolean canSaveChanges(IDatabase database);
 	
 	//method declaration
-	 IContainer<IEntity> getRefEntitiesInLocalData(IDatabase database);
+	IContainer<IEntity> getRefEntitiesInLocalData(IDatabase database);
 	
 	//method declaration
 	<E extends IEntity> ITable<E> getRefTableForGivenEntity(IDatabase database, E entity);
