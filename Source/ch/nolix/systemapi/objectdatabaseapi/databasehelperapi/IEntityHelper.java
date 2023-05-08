@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databasehelperapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -34,22 +35,22 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	INewEntityDTO createNewEntityDTOForEntity(IEntity entity);
 	
 	//method declaration
-	 IContainer<IProperty> getRefBackReferencingProperties(IEntity entity);
+	IContainer<IProperty> getRefBackReferencingProperties(IEntity entity);
 	
 	//method declaration
-	 IContainer<? extends IProperty> getRefEditedProperties(IEntity entity);
+	IContainer<? extends IProperty> getRefEditedProperties(IEntity entity);
 	
 	//method declaration
-	 IContainer<? extends IProperty> getRefReferencingProperties(IEntity entity);
+	IContainer<? extends IProperty> getRefReferencingProperties(IEntity entity);
 	
 	//method declaration
 	boolean isReferenced(IEntity entity);
 	
 	//method declaration
-	 boolean isReferencedInLocalData(IEntity entity);
+	boolean isReferencedInLocalData(IEntity entity);
 	
 	//method declaration
-	 boolean referencesGivenEntity(IEntity sourceEntity, IEntity entity);
+	boolean referencesGivenEntity(IEntity sourceEntity, IEntity entity);
 	
 	//method declaration
 	boolean referencesUninsertedEntity(IEntity entity);
