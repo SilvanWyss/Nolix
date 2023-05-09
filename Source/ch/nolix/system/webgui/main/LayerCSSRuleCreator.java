@@ -29,7 +29,7 @@ public final class LayerCSSRuleCreator {
 	
 	//method
 	private String getCSSSelectorForLayer(final ILayer<?> layer) {
-		return ("#" + layer.getFixedId());
+		return ("#" + layer.getInternalId());
 	}
 	
 	//method

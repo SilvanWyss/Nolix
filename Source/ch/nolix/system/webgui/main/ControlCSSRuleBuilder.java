@@ -71,7 +71,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 	
 	//method
 	protected final String getCSSSelectorForControlAndAllStates(final C control) {
-		return "#" + control.getFixedId();
+		return "#" + control.getInternalId();
 	}
 	
 	//method
@@ -79,11 +79,11 @@ implements IControlCSSRuleBuilder<C, CS> {
 		return
 		switch (state) {
 			case BASE ->
-				"#" + control.getFixedId();
+				"#" + control.getInternalId();
 			case FOCUS ->
-				"#" + control.getFixedId() + ":focus";
+				"#" + control.getInternalId() + ":focus";
 			case HOVER ->
-				"#" + control.getFixedId() + ":hover";
+				"#" + control.getInternalId() + ":hover";
 			default ->
 				throw InvalidArgumentException.forArgument(state);
 		};

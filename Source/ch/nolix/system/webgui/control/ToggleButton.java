@@ -90,7 +90,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
 		
 		//Registers a HTML event, that will be triggered after the HTML toggle button, at the HTML container element.
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmouseup"));
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmouseup"));
 	}
 	
 	//method

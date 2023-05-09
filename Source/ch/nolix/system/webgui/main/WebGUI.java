@@ -202,7 +202,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 		
 		for (final var l : getRefLayers()) {
 			for (final var c : l.getRefControls()) {
-				if (c.hasFixedId(fixedId)) {
+				if (c.hasInternalId(fixedId)) {
 					return c;
 				}
 			}

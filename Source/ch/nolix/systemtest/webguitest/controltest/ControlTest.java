@@ -39,7 +39,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		final var testUnit = createTestUnit();
 		
 		//execution
-		final var result = testUnit.getFixedId();
+		final var result = testUnit.getInternalId();
 		
 		//verification
 		expect(result).startsWith("i");
@@ -52,12 +52,12 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		final var fixedId = testUnit.getFixedId();
+		final var fixedId = testUnit.getInternalId();
 		
 		for (var i = 1; i <= 10_000; i++) {
 			
 			//execution
-			final var result = testUnit.getFixedId();
+			final var result = testUnit.getInternalId();
 			
 			//verification
 			expect(result).isEqualTo(fixedId);

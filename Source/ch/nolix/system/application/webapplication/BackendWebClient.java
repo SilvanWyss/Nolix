@@ -84,7 +84,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 				for (final var p : pGUICommand.getChildNodes()) {
 					final var fixedControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
 					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-					final var control2 = controls2.getRefFirst(c -> c.hasFixedId(fixedControlId2));
+					final var control2 = controls2.getRefFirst(c -> c.hasInternalId(fixedControlId2));
 					control2.setUserInput(userInput);
 				}
 				

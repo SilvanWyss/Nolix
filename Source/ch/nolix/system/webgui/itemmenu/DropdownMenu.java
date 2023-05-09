@@ -36,7 +36,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onchange"));
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onchange"));
 	}
 	
 	//method

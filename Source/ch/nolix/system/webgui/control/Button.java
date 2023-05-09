@@ -127,8 +127,8 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
 		list.addAtEnd(
-			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmousedown"),
-			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onmouseup")
+			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmousedown"),
+			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmouseup")
 		);
 	}
 	

@@ -102,7 +102,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getFixedId(), "onclick"));
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onclick"));
 	}
 	
 	//method

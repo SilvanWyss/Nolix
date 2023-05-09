@@ -167,7 +167,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final String getFixedId() {
+	public final String getInternalId() {
 		return fixedId;
 	}
 	
@@ -233,8 +233,8 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final boolean hasFixedId(final String fixedId) {
-		return getFixedId().equals(fixedId);
+	public final boolean hasInternalId(final String fixedId) {
+		return getInternalId().equals(fixedId);
 	}
 	
 	//method

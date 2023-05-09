@@ -183,6 +183,6 @@ final class BackendWebClientCounterpartUpdater {
 	
 	//method
 	private ChainedNode createUserInputFunctionFromControlAndString(final IControl<?, ?> control, final String string) {
-		return ChainedNode.withChildNodesFromNodes(Node.withHeader(control.getFixedId()), Node.withHeader(string));
+		return ChainedNode.withChildNodesFromNodes(Node.withHeader(control.getInternalId()), Node.withHeader(string));
 	}
 }

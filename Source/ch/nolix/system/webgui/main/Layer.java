@@ -191,7 +191,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public String getFixedId() {
+	public String getInternalId() {
 		return fixedId;
 	}
 	
@@ -254,8 +254,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public boolean hasFixedId(final String fixedId) {
-		return getFixedId().equals(fixedId);
+	public boolean hasInternalId(final String fixedId) {
+		return getInternalId().equals(fixedId);
 	}
 	
 	//method
