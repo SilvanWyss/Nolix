@@ -1376,10 +1376,10 @@ define("CoreAPI/NetAPI/WebSocketAPI/WebSocketType", ["require", "exports"], func
         WebSocketType[WebSocketType["SECURE_WEB_SOCKET"] = 1] = "SECURE_WEB_SOCKET";
     })(WebSocketType = exports.WebSocketType || (exports.WebSocketType = {}));
 });
-define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, WebSocketType_1) {
+define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, WebSocketType_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class NetEndPoint2 {
+    class NetEndPoint {
         constructor(ip, port, optionalTarget, webSocketType) {
             this.onMessage = (messageEvent) => {
                 this.receive(messageEvent.data);
@@ -1387,8 +1387,8 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "CoreAPI/NetAPI
             this.onOpen = (event) => {
                 console.log("The current NetEndPoint2 has been connected.");
                 const targetMessage = (this.target === undefined) ?
-                    NetEndPoint2.CLEAR_TARGET_MESSAGE_PREFIX :
-                    NetEndPoint2.TARGET_MESSAGE_PREFIX + this.target;
+                    NetEndPoint.CLEAR_TARGET_MESSAGE_PREFIX :
+                    NetEndPoint.TARGET_MESSAGE_PREFIX + this.target;
                 this.sendRawMessage(targetMessage);
             };
             if (ip === null) {
@@ -1442,7 +1442,7 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "CoreAPI/NetAPI
             return (this.target !== undefined);
         }
         send(message) {
-            this.sendRawMessage(NetEndPoint2.STANDARD_MESSAGE_PREFIX + message);
+            this.sendRawMessage(NetEndPoint.STANDARD_MESSAGE_PREFIX + message);
         }
         setReceiver(receiver) {
             if (receiver === null) {
@@ -1464,7 +1464,7 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "CoreAPI/NetAPI
                 throw new Error('The given message is empty.');
             }
             switch (message[0]) {
-                case NetEndPoint2.STANDARD_MESSAGE_PREFIX:
+                case NetEndPoint.STANDARD_MESSAGE_PREFIX:
                     if (this.receiver === undefined) {
                         throw new Error('The current NetEndPoint2 does not have a receiver.');
                     }
@@ -1478,12 +1478,12 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "CoreAPI/NetAPI
             this.webSocket.send(rawMessage);
         }
     }
-    NetEndPoint2.STANDARD_MESSAGE_PREFIX = 'M';
-    NetEndPoint2.TARGET_MESSAGE_PREFIX = 'T';
-    NetEndPoint2.CLEAR_TARGET_MESSAGE_PREFIX = 'A';
-    exports.NetEndPoint2 = NetEndPoint2;
+    NetEndPoint.STANDARD_MESSAGE_PREFIX = 'M';
+    NetEndPoint.TARGET_MESSAGE_PREFIX = 'T';
+    NetEndPoint.CLEAR_TARGET_MESSAGE_PREFIX = 'A';
+    exports.NetEndPoint = NetEndPoint;
 });
-define("Core/Net/EndPoint3/MessageRole", ["require", "exports"], function (require, exports) {
+define("Core/Net/EndPoint2/MessageRole", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MessageRole;
@@ -1494,7 +1494,7 @@ define("Core/Net/EndPoint3/MessageRole", ["require", "exports"], function (requi
         MessageRole[MessageRole["ERROR_MESSAGE"] = 3] = "ERROR_MESSAGE";
     })(MessageRole = exports.MessageRole || (exports.MessageRole = {}));
 });
-define("Core/Net/EndPoint3/Package", ["require", "exports", "Core/Net/EndPoint3/MessageRole"], function (require, exports, MessageRole_1) {
+define("Core/Net/EndPoint2/Package", ["require", "exports", "Core/Net/EndPoint2/MessageRole"], function (require, exports, MessageRole_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Package {
@@ -1585,17 +1585,17 @@ define("Core/Net/EndPoint3/Package", ["require", "exports", "Core/Net/EndPoint3/
     Package.INDEX_STRING_LENGTH = 8;
     exports.Package = Package;
 });
-define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container/LinkedList", "Core/Net/EndPoint3/MessageRole", "Core/Net/EndPoint2/NetEndPoint2", "Core/Net/EndPoint3/Package"], function (require, exports, LinkedList_4, MessageRole_2, NetEndPoint2_1, Package_1) {
+define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container/LinkedList", "Core/Net/EndPoint2/MessageRole", "Core/Net/EndPoint/NetEndPoint", "Core/Net/EndPoint2/Package"], function (require, exports, LinkedList_4, MessageRole_2, NetEndPoint_1, Package_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class NetEndPoint3 {
+    class NetEndPoint2 {
         constructor(ip, port, optionalTarget, webSocketType) {
             this.messageIndex = 0;
             this.receivedPackages = new LinkedList_4.LinkedList();
             this.receive = (message) => {
                 this.receivePackage(Package_1.Package.createFromString(message));
             };
-            this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget, webSocketType);
+            this.internalNetEndPoint = new NetEndPoint_1.NetEndPoint(ip, port, optionalTarget, webSocketType);
             this.internalNetEndPoint.setReceiver(this.receive);
         }
         getTarget() {
@@ -1651,7 +1651,7 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container
         }
         waitToAndGetAndRemoveReceivedPackage(index) {
             const startTimeInMilliseconds = new Date().getMilliseconds();
-            while (new Date().getMilliseconds() - startTimeInMilliseconds < NetEndPoint3.TIMEOUT_IN_MILLISECONDS) {
+            while (new Date().getMilliseconds() - startTimeInMilliseconds < NetEndPoint2.TIMEOUT_IN_MILLISECONDS) {
                 const package_ = this.receivedPackages.getRefFirstByConditionOrNull(rp => rp.hasIndex(index));
                 if (package_ !== null) {
                     this.receivedPackages.removeFirst2(package_);
@@ -1661,14 +1661,14 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Container
             throw new Error('The current NetEndPoint3 reached the timeout by waiting to a message.');
         }
     }
-    NetEndPoint3.TIMEOUT_IN_MILLISECONDS = 5000;
-    exports.NetEndPoint3 = NetEndPoint3;
+    NetEndPoint2.TIMEOUT_IN_MILLISECONDS = 5000;
+    exports.NetEndPoint2 = NetEndPoint2;
 });
-define("Core/Net/EndPoint5/IDataProviderController", ["require", "exports"], function (require, exports) {
+define("Core/Net/EndPoint3/IDataProviderController", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Core/Net/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
+define("Core/Net/EndPoint3/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint5Protocol {
@@ -1680,10 +1680,10 @@ define("Core/Net/EndPoint5/NetEndPoint5Protocol", ["require", "exports"], functi
     NetEndPoint5Protocol.ERROR_HEADER = "Error";
     exports.NetEndPoint5Protocol = NetEndPoint5Protocol;
 });
-define("Core/Net/EndPoint5/NetEndPoint5", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Document/Node/Node", "Core/Container/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Net/EndPoint5/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_5, NetEndPoint3_1, NetEndPoint5Protocol_1) {
+define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Document/Node/Node", "Core/Container/LinkedList", "Core/Net/EndPoint2/NetEndPoint2", "Core/Net/EndPoint3/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_5, NetEndPoint2_1, NetEndPoint5Protocol_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class NetEndPoint5 {
+    class NetEndPoint3 {
         constructor(ip, port, optionalTarget, webSocketType) {
             this.receiverController = undefined;
             this.receiveMessageAndGetReply = (message) => {
@@ -1694,7 +1694,7 @@ define("Core/Net/EndPoint5/NetEndPoint5", ["require", "exports", "Core/Document/
                     return (NetEndPoint5Protocol_1.NetEndPoint5Protocol.ERROR_HEADER + '(' + Node_2.Node.createReproducingString(exception.getMessage()) + ')');
                 }
             };
-            this.internalNetEndPoint = new NetEndPoint3_1.NetEndPoint3(ip, port, optionalTarget, webSocketType);
+            this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget, webSocketType);
             this.internalNetEndPoint.setReceiver(this.receiveMessageAndGetReply);
         }
         getData(request) {
@@ -1752,7 +1752,7 @@ define("Core/Net/EndPoint5/NetEndPoint5", ["require", "exports", "Core/Document/
             }
         }
     }
-    exports.NetEndPoint5 = NetEndPoint5;
+    exports.NetEndPoint3 = NetEndPoint3;
 });
 define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_6) {
     "use strict";
@@ -2590,7 +2590,7 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
     TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
     exports.TargetApplicationExtractor = TargetApplicationExtractor;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint5/NetEndPoint5", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_10, NetEndPoint5_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_10, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
@@ -2614,7 +2614,7 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
         }
         constructor(ip, port, optionalTarget, webSocketType) {
             this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTakerAndWindow((command) => this.takeEvent(command), window);
-            this.endPoint = new NetEndPoint5_1.NetEndPoint5(ip, port, optionalTarget, webSocketType);
+            this.endPoint = new NetEndPoint3_1.NetEndPoint3(ip, port, optionalTarget, webSocketType);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
         }
         createSetUserInputsCommand() {
