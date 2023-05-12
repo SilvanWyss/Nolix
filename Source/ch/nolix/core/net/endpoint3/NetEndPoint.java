@@ -159,22 +159,9 @@ public final class NetEndPoint extends EndPoint {
 	@Override
 	public INode<?> getDataForRequest(final IChainedNode request) {
 		
-		//Creates message.
-		final var message = NetEndPointProtocol.DATA_REQUEST_HEADER + '(' + request.toString() + ')';
+		final var requests = ImmutableList.withElement(request);
 		
-		//Sends message and receives reply.
-		final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
-		
-		//Enumerates the header of the reply.
-		return
-		switch (reply.getHeader()) {
-			case NetEndPointProtocol.DATA_HEADER ->
-				reply.getRefSingleChildNode();
-			case NetEndPointProtocol.ERROR_HEADER ->
-				throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
-			default ->
-				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
-		};
+		return getDataForRequests(requests).getRefOne();
 	}
 	
 	//method
@@ -182,7 +169,7 @@ public final class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+	public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
 		
 		//Concatenates the given requests.
 		final var concatenatedRequests = ImmutableList.withElements(request, requests);
@@ -196,9 +183,24 @@ public final class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-		//TODO: Implement.
-		return null;
+	public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+		
+		//Creates message.
+		final var message = NetEndPointProtocol.DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
+		
+		//Sends message and receives reply.
+		final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
+		
+		//Enumerates the header of the reply.
+		return
+		switch (reply.getHeader()) {
+			case NetEndPointProtocol.MULTI_DATA_HEADER ->
+				reply.getRefChildNodes();
+			case NetEndPointProtocol.ERROR_HEADER ->
+				throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
+			default ->
+				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
+		};
 	}
 	
 	//method

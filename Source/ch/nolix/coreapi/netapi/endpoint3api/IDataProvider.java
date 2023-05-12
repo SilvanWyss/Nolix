@@ -13,8 +13,8 @@ public interface IDataProvider {
 	INode<?> getDataForRequest(IChainedNode request);
 	
 	//method declaration
-	IContainer<INode<?>> getDataForRequests(IChainedNode request, IChainedNode... requests);
+	IContainer<? extends INode<?>> getDataForRequests(IChainedNode request, IChainedNode... requests);
 	
 	//method declaration
-	IContainer<INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
+	IContainer<? extends INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
 }

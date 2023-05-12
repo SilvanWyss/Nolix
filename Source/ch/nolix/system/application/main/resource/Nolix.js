@@ -1367,6 +1367,16 @@ define("Core/Math/CentralCalculator", ["require", "exports"], function (require,
     }
     exports.CentralCalculator = CentralCalculator;
 });
+define("Core/Net/EndPoint/Protocol", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Protocol {
+    }
+    Protocol.TARGET_PREFIX = 'T';
+    Protocol.MAIN_TARGET_PREFIX = 'A';
+    Protocol.MESSAGE_PREFIX = 'M';
+    exports.Protocol = Protocol;
+});
 define("CoreAPI/NetAPI/WebSocketAPI/WebSocketType", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -1376,7 +1386,7 @@ define("CoreAPI/NetAPI/WebSocketAPI/WebSocketType", ["require", "exports"], func
         WebSocketType[WebSocketType["SECURE_WEB_SOCKET"] = 1] = "SECURE_WEB_SOCKET";
     })(WebSocketType = exports.WebSocketType || (exports.WebSocketType = {}));
 });
-define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, WebSocketType_1) {
+define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "Core/Net/EndPoint/Protocol", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, Protocol_1, WebSocketType_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint {
@@ -1387,8 +1397,8 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "CoreAPI/NetAPI/W
             this.onOpen = (event) => {
                 console.log("The current NetEndPoint2 has been connected.");
                 const targetMessage = (this.target === undefined) ?
-                    NetEndPoint.CLEAR_TARGET_MESSAGE_PREFIX :
-                    NetEndPoint.TARGET_MESSAGE_PREFIX + this.target;
+                    Protocol_1.Protocol.MAIN_TARGET_PREFIX :
+                    Protocol_1.Protocol.TARGET_PREFIX + this.target;
                 this.sendRawMessage(targetMessage);
             };
             if (ip === null) {
@@ -1442,7 +1452,7 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "CoreAPI/NetAPI/W
             return (this.target !== undefined);
         }
         send(message) {
-            this.sendRawMessage(NetEndPoint.STANDARD_MESSAGE_PREFIX + message);
+            this.sendRawMessage(Protocol_1.Protocol.MESSAGE_PREFIX + message);
         }
         setReceiver(receiver) {
             if (receiver === null) {
@@ -1464,7 +1474,7 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "CoreAPI/NetAPI/W
                 throw new Error('The given message is empty.');
             }
             switch (message[0]) {
-                case NetEndPoint.STANDARD_MESSAGE_PREFIX:
+                case Protocol_1.Protocol.MESSAGE_PREFIX:
                     if (this.receiver === undefined) {
                         throw new Error('The current NetEndPoint2 does not have a receiver.');
                     }
@@ -1478,9 +1488,6 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "CoreAPI/NetAPI/W
             this.webSocket.send(rawMessage);
         }
     }
-    NetEndPoint.STANDARD_MESSAGE_PREFIX = 'M';
-    NetEndPoint.TARGET_MESSAGE_PREFIX = 'T';
-    NetEndPoint.CLEAR_TARGET_MESSAGE_PREFIX = 'A';
     exports.NetEndPoint = NetEndPoint;
 });
 define("Core/Net/EndPoint2/MessageRole", ["require", "exports"], function (require, exports) {
@@ -1668,43 +1675,58 @@ define("Core/Net/EndPoint3/IDataProviderController", ["require", "exports"], fun
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-define("Core/Net/EndPoint3/NetEndPoint5Protocol", ["require", "exports"], function (require, exports) {
+define("Core/Net/EndPoint3/Protocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class NetEndPoint5Protocol {
+    class Protocol {
     }
-    NetEndPoint5Protocol.COMMANDS_HEADER = "Commands";
-    NetEndPoint5Protocol.DATA_REQUEST_HEADER = "DataRequest";
-    NetEndPoint5Protocol.DATA_HEADER = "Data";
-    NetEndPoint5Protocol.DONE_HEADER = "Done";
-    NetEndPoint5Protocol.ERROR_HEADER = "Error";
-    exports.NetEndPoint5Protocol = NetEndPoint5Protocol;
+    Protocol.COMMANDS_HEADER = 'Commands';
+    Protocol.DATA_REQUEST_HEADER = 'DataRequest';
+    Protocol.DATA_HEADER = 'Data';
+    Protocol.DONE_HEADER = 'Done';
+    Protocol.ERROR_HEADER = 'Error';
+    Protocol.MULTI_DATA_HEADER = 'MultiData';
+    Protocol.MULTI_DATA_REQUEST_HEADER = 'MultiDataRequest';
+    exports.Protocol = Protocol;
 });
-define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Document/Node/Node", "Core/Container/LinkedList", "Core/Net/EndPoint2/NetEndPoint2", "Core/Net/EndPoint3/NetEndPoint5Protocol"], function (require, exports, ChainedNode_1, Node_2, LinkedList_5, NetEndPoint2_1, NetEndPoint5Protocol_1) {
+define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Container/LinkedList", "Core/Net/EndPoint2/NetEndPoint2", "Core/Document/Node/Node", "Core/Net/EndPoint3/Protocol"], function (require, exports, ChainedNode_1, LinkedList_5, NetEndPoint2_1, Node_2, Protocol_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint3 {
         constructor(ip, port, optionalTarget, webSocketType) {
-            this.receiverController = undefined;
             this.receiveMessageAndGetReply = (message) => {
                 try {
                     return this.receiveDocumentNodeMessageAndGetReply(ChainedNode_1.ChainedNode.fromString(message));
                 }
                 catch (exception) {
-                    return (NetEndPoint5Protocol_1.NetEndPoint5Protocol.ERROR_HEADER + '(' + Node_2.Node.createReproducingString(exception.getMessage()) + ')');
+                    return (Protocol_2.Protocol.ERROR_HEADER + '(' + Node_2.Node.createReproducingString(exception.getMessage()) + ')');
                 }
             };
             this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget, webSocketType);
             this.internalNetEndPoint.setReceiver(this.receiveMessageAndGetReply);
         }
         getData(request) {
-            const message = 'Data' + request.toStringInBrackets();
+            const message = Protocol_2.Protocol.DATA_HEADER + request.toStringInBrackets();
             const reply = Node_2.Node.fromString(this.internalNetEndPoint.sendAndGetReply(message));
             switch (reply.getHeader()) {
-                case 'Data':
+                case Protocol_2.Protocol.DATA_HEADER:
                     return reply.getRefOneAttribute();
-                case 'Error':
+                case Protocol_2.Protocol.ERROR_HEADER:
                     throw new Error(reply.getOneAttributeHeader());
+                default:
+                    throw new Error('The given reply is not valid.');
+            }
+        }
+        getMultiData(requests) {
+            const message = Protocol_2.Protocol.DATA_REQUEST_HEADER + requests.toStringInBrackets();
+            const reply = Node_2.Node.fromString(this.internalNetEndPoint.sendAndGetReply(message));
+            switch (reply.getHeader()) {
+                case Protocol_2.Protocol.MULTI_DATA_HEADER:
+                    return reply.getRefAttributes();
+                case Protocol_2.Protocol.ERROR_HEADER:
+                    throw new Error(reply.getOneAttributeHeader());
+                default:
+                    throw new Error('The given reply is not valid.');
             }
         }
         getTarget() {
@@ -1719,7 +1741,7 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
             this.runCommands(commands);
         }
         runCommands(commands) {
-            const message = NetEndPoint5Protocol_1.NetEndPoint5Protocol.COMMANDS_HEADER + commands.toStringInBrackets();
+            const message = Protocol_2.Protocol.COMMANDS_HEADER + commands.toStringInBrackets();
             this.internalNetEndPoint.sendAndGetReply(message);
         }
         setReceiverController(receiverController) {
@@ -1732,21 +1754,20 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
             this.receiverController = receiverController;
         }
         getReceiverController() {
-            if (!this.hasReceiverController()) {
-                throw new Error('The current NetEndPoint5 does not have a recevierController.');
-            }
             return this.receiverController;
         }
         receiveDocumentNodeMessageAndGetReply(message) {
             const receiverController = this.getReceiverController();
             switch (message.getHeader()) {
-                case NetEndPoint5Protocol_1.NetEndPoint5Protocol.COMMANDS_HEADER:
+                case Protocol_2.Protocol.COMMANDS_HEADER:
                     for (const a of message.getAttributes()) {
                         receiverController.run(a);
                     }
-                    return NetEndPoint5Protocol_1.NetEndPoint5Protocol.DONE_HEADER;
-                case NetEndPoint5Protocol_1.NetEndPoint5Protocol.DATA_REQUEST_HEADER:
-                    return (NetEndPoint5Protocol_1.NetEndPoint5Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
+                    return Protocol_2.Protocol.DONE_HEADER;
+                case Protocol_2.Protocol.DATA_REQUEST_HEADER:
+                    return (Protocol_2.Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
+                case Protocol_2.Protocol.MULTI_DATA_REQUEST_HEADER:
+                    return (Protocol_2.Protocol.MULTI_DATA_HEADER + '(' + receiverController.getMultiData(message.getAttributes()) + ')');
                 default:
                     throw new Error('The given message is not valid.');
             }
@@ -2535,7 +2556,7 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     ObjectProtocol.URL = 'URL';
     exports.ObjectProtocol = ObjectProtocol;
 });
-define("System/Application/WebApplication/ReceiverController", ["require", "exports"], function (require, exports) {
+define("System/Application/WebApplication/ReceiverController", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_10) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ReceiverController {
@@ -2557,6 +2578,13 @@ define("System/Application/WebApplication/ReceiverController", ["require", "expo
         }
         getData(request) {
             return this.getDataMethod(request);
+        }
+        getMultiData(requests) {
+            const multiData = new LinkedList_10.LinkedList();
+            for (const r of requests) {
+                multiData.addAtEnd(this.getDataMethod(r));
+            }
+            return multiData;
         }
         run(command) {
             this.runMethod(command);
@@ -2590,7 +2618,7 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
     TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
     exports.TargetApplicationExtractor = TargetApplicationExtractor;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_10, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_11, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
@@ -2681,7 +2709,7 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             CookieManager_1.CookieManager.INSTANCE.setOrAddCookieWithNameAndValue(name, value);
         }
         takeEvent(command) {
-            const commands = new LinkedList_10.LinkedList();
+            const commands = new LinkedList_11.LinkedList();
             commands.addAtEnd(this.createSetUserInputsCommand());
             commands.addAtEnd(command);
             this.endPoint.runCommands(commands);

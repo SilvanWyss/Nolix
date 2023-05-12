@@ -145,7 +145,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
+	public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
 		return counterpart.getRefReceiverController().getDataForRequests(request, requests);
 	}
 	
@@ -154,7 +154,7 @@ public final class LocalEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
+	public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
 		return counterpart.getRefReceiverController().getDataForRequests(requests);
 	}
 	

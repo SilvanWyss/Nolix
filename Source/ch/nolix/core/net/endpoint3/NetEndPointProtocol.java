@@ -25,6 +25,9 @@ final class NetEndPointProtocol {
 	//constant
 	public static final String ERROR_HEADER = "Error";
 	
+	//constant
+	public static final String MULTI_DATA_HEADER = "MultiData";
+	
 	//constructor
 	/**
 	 * Prevents that an instance of the {@link NetEndPointProtocol} can be created.
