@@ -3,6 +3,7 @@ package ch.nolix.system.application.main;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.endpoint3.EndPoint;
@@ -67,8 +68,7 @@ final class ClientDataProviderController implements IDataProviderController {
 	 */
 	@Override
 	public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-		//TODO: Implement.
-		return null;
+		return ReadContainer.forIterable(requests).to(parentClient::getDataFromHere);
 	}
 	
 	//method
