@@ -14,12 +14,6 @@ final class NetEndPointProtocol {
 	public static final String COMMANDS_HEADER = "Commands";
 	
 	//constant
-	public static final String DATA_HEADER = "Data";
-	
-	//constant
-	public static final String DATA_REQUEST_HEADER = "DataRequest";
-	
-	//constant
 	public static final String DONE_HEADER = "Done";
 	
 	//constant
@@ -27,6 +21,9 @@ final class NetEndPointProtocol {
 	
 	//constant
 	public static final String MULTI_DATA_HEADER = "MultiData";
+	
+	//constant
+	public static final String MULTI_DATA_REQUEST_HEADER = "MultiDataRequest";
 	
 	//constructor
 	/**

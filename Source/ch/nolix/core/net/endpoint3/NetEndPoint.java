@@ -186,7 +186,7 @@ public final class NetEndPoint extends EndPoint {
 	public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
 		
 		//Creates message.
-		final var message = NetEndPointProtocol.DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
+		final var message = NetEndPointProtocol.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 		
 		//Sends message and receives reply.
 		final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
@@ -301,11 +301,11 @@ public final class NetEndPoint extends EndPoint {
 				}
 				
 				return NetEndPointProtocol.DONE_HEADER;
-			case NetEndPointProtocol.DATA_REQUEST_HEADER:
+			case NetEndPointProtocol.MULTI_DATA_REQUEST_HEADER:
 				return
-				NetEndPointProtocol.DATA_HEADER
+				NetEndPointProtocol.MULTI_DATA_HEADER
 				+ GlobalStringHelper.getInParantheses(
-					receiverController.getDataForRequest(message.getSingleChildNode()).toString()
+					receiverController.getDataForRequests(message.getChildNodes()).toString()
 				);
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.MESSAGE, message);

@@ -1,3 +1,14 @@
+define("Core/CommonType/CommonTypeConstant/StringCatalogue", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class StringCatalogue {
+        constructor() { }
+    }
+    StringCatalogue.BINARY_PREFIX = '0b';
+    StringCatalogue.EMPTY = '';
+    StringCatalogue.HEXADECIMAL_PREFIX = '0x';
+    exports.StringCatalogue = StringCatalogue;
+});
 define("Core/CommonType/CommonTypeHelper/GlobalStringHelper", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -22,46 +33,7 @@ define("Core/CommonType/CommonTypeHelper/GlobalStringHelper", ["require", "expor
     }
     exports.GlobalStringHelper = GlobalStringHelper;
 });
-define("Core/Constant/FontCodeCatalogue", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class FontCodeCatalogue {
-        constructor() { }
-    }
-    FontCodeCatalogue.ARIAL = 'Arial';
-    FontCodeCatalogue.ARIAL_BLACK = 'Arial Black';
-    FontCodeCatalogue.COMIC_SANS_MS = 'Comic Sans MS';
-    FontCodeCatalogue.IMPACT = 'Impact';
-    FontCodeCatalogue.LUCIDA_CONSOLE = 'Lucida Console';
-    FontCodeCatalogue.PAPYRUS = 'Papyrus';
-    FontCodeCatalogue.TAHOMA = 'Tahoma';
-    FontCodeCatalogue.VERDANA = 'Verdana';
-    exports.FontCodeCatalogue = FontCodeCatalogue;
-});
-define("Core/Constant/PascalCaseNameCatalogue", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class PascalCaseNameCatalogue {
-        constructor() { }
-    }
-    PascalCaseNameCatalogue.CURSOR_POSITION = 'CursorPosition';
-    PascalCaseNameCatalogue.HEIGHT = 'Height';
-    PascalCaseNameCatalogue.SIZE = 'Size';
-    PascalCaseNameCatalogue.WIDTH = 'Width';
-    exports.PascalCaseNameCatalogue = PascalCaseNameCatalogue;
-});
-define("Core/Constant/StringCatalogue", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class StringCatalogue {
-        constructor() { }
-    }
-    StringCatalogue.BINARY_PREFIX = '0b';
-    StringCatalogue.EMPTY = '';
-    StringCatalogue.HEXADECIMAL_PREFIX = '0x';
-    exports.StringCatalogue = StringCatalogue;
-});
-define("Core/Container/Container", ["require", "exports"], function (require, exports) {
+define("Core/Container/Base/Container", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Container {
@@ -146,7 +118,7 @@ define("Core/Container/Container", ["require", "exports"], function (require, ex
     }
     exports.Container = Container;
 });
-define("Core/Container/LinkedListNode", ["require", "exports"], function (require, exports) {
+define("Core/Container/LinkedList/LinkedListNode", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class LinkedListNode {
@@ -192,7 +164,7 @@ define("Core/Container/LinkedListNode", ["require", "exports"], function (requir
     }
     exports.LinkedListNode = LinkedListNode;
 });
-define("Core/Container/LinkedListIterator", ["require", "exports"], function (require, exports) {
+define("Core/Container/LinkedList/LinkedListIterator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class LinkedListIterator {
@@ -219,7 +191,7 @@ define("Core/Container/LinkedListIterator", ["require", "exports"], function (re
     }
     exports.LinkedListIterator = LinkedListIterator;
 });
-define("Core/Container/LinkedList", ["require", "exports", "Core/Container/Container", "Core/Container/LinkedListIterator", "Core/Container/LinkedListNode"], function (require, exports, Container_1, LinkedListIterator_1, LinkedListNode_1) {
+define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Container/Base/Container", "Core/Container/LinkedList/LinkedListIterator", "Core/Container/LinkedList/LinkedListNode"], function (require, exports, Container_1, LinkedListIterator_1, LinkedListNode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class LinkedList extends Container_1.Container {
@@ -393,123 +365,6 @@ define("Core/Container/LinkedList", ["require", "exports", "Core/Container/Conta
     }
     exports.LinkedList = LinkedList;
 });
-define("Core/Container/SingleContainer", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class SingleContainer {
-        constructor(optionalElement) {
-            this.element = optionalElement;
-        }
-        static withElement(element) {
-            if (element === null) {
-                throw new Error('The given element is null.');
-            }
-            if (element === undefined) {
-                throw new Error('The given element is undefined.');
-            }
-            return new SingleContainer(element);
-        }
-        static withoutElement() {
-            return new SingleContainer(undefined);
-        }
-        contains(element) {
-            return (Object.is(this.element, element));
-        }
-        containsAny() {
-            return (this.element !== undefined);
-        }
-        getRefElement() {
-            if (this.element === undefined) {
-                throw new Error('The current SingleContainer does not contain an element.');
-            }
-            return this.element;
-        }
-        isEmpty() {
-            return (this.element === undefined);
-        }
-    }
-    SingleContainer.EMPTY_CONTAINER = new SingleContainer(undefined);
-    exports.SingleContainer = SingleContainer;
-});
-define("Core/Container/Pair/Pair", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class Pair {
-        constructor(element1, element2) {
-            if (element1 === null) {
-                throw new Error('The given element1 is null.');
-            }
-            if (element1 === undefined) {
-                throw new Error('The given element1 is undefined.');
-            }
-            if (element2 === null) {
-                throw new Error('The given element2 is null.');
-            }
-            if (element2 === undefined) {
-                throw new Error('The given element2 is undefined.');
-            }
-            this.element1 = element1;
-            this.element2 = element2;
-        }
-        getRefElement1() {
-            return this.element1;
-        }
-        getRefElement2() {
-            return this.element2;
-        }
-    }
-    exports.Pair = Pair;
-});
-define("Core/Container/Caching/CachingContainer", ["require", "exports", "Core/Container/LinkedList", "Core/Container/Pair/Pair"], function (require, exports, LinkedList_1, Pair_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class CachingContainer {
-        constructor() {
-            this.elements = new LinkedList_1.LinkedList();
-        }
-        contains(element) {
-            return this.elements.contains(e => Object.is(e, element));
-        }
-        containsWithId(id) {
-            return this.elements.contains(e => e.getRefElement1() === id);
-        }
-        getRefById(id) {
-            return this.elements.getRefFirstByCondition(e => e.getRefElement1() === id).getRefElement2();
-        }
-        registerAtId(id, element) {
-            console.log('The current CachingContainer registers an element at the given id \'' + id + '\'.');
-            if (id === null) {
-                throw new Error('The given id is null.');
-            }
-            if (id === undefined) {
-                throw new Error('The given id is undefined.');
-            }
-            if (id.length === 0) {
-                throw new Error('The given id is empty.');
-            }
-            if (element === null) {
-                throw new Error('The given element is null.');
-            }
-            if (element === undefined) {
-                throw new Error('The given element is undefined.');
-            }
-            this.assertDoesNotContainId(id);
-            this.assertDoesNotContain(element);
-            this.elements.addAtEnd(new Pair_1.Pair(id, element));
-        }
-        assertDoesNotContain(element) {
-            if (this.contains(element)) {
-                throw new Error('The current CachingContainer contains already the given element.');
-            }
-        }
-        assertDoesNotContainId(id) {
-            if (this.containsWithId(id)) {
-                throw new Error('The current CachingContainer contains already an element with the given id.');
-            }
-        }
-    }
-    exports.CachingContainer = CachingContainer;
-});
 define("Core/Container/Matrix/MatrixIterator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -537,7 +392,7 @@ define("Core/Container/Matrix/MatrixIterator", ["require", "exports"], function 
     }
     exports.MatrixIterator = MatrixIterator;
 });
-define("Core/Container/Matrix/Matrix", ["require", "exports", "Core/Container/Container", "Core/Container/Matrix/MatrixIterator"], function (require, exports, Container_2, MatrixIterator_1) {
+define("Core/Container/Matrix/Matrix", ["require", "exports", "Core/Container/Base/Container", "Core/Container/Matrix/MatrixIterator"], function (require, exports, Container_2, MatrixIterator_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Matrix extends Container_2.Container {
@@ -687,12 +542,79 @@ define("Core/Container/Matrix/Matrix", ["require", "exports", "Core/Container/Co
     }
     exports.Matrix = Matrix;
 });
-define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_2) {
+define("Core/Container/Pair/Pair", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class Pair {
+        constructor(element1, element2) {
+            if (element1 === null) {
+                throw new Error('The given element1 is null.');
+            }
+            if (element1 === undefined) {
+                throw new Error('The given element1 is undefined.');
+            }
+            if (element2 === null) {
+                throw new Error('The given element2 is null.');
+            }
+            if (element2 === undefined) {
+                throw new Error('The given element2 is undefined.');
+            }
+            this.element1 = element1;
+            this.element2 = element2;
+        }
+        getRefElement1() {
+            return this.element1;
+        }
+        getRefElement2() {
+            return this.element2;
+        }
+    }
+    exports.Pair = Pair;
+});
+define("Core/Container/SingleContainer/SingleContainer", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class SingleContainer {
+        constructor(optionalElement) {
+            this.element = optionalElement;
+        }
+        static withElement(element) {
+            if (element === null) {
+                throw new Error('The given element is null.');
+            }
+            if (element === undefined) {
+                throw new Error('The given element is undefined.');
+            }
+            return new SingleContainer(element);
+        }
+        static withoutElement() {
+            return new SingleContainer(undefined);
+        }
+        contains(element) {
+            return (Object.is(this.element, element));
+        }
+        containsAny() {
+            return (this.element !== undefined);
+        }
+        getRefElement() {
+            if (this.element === undefined) {
+                throw new Error('The current SingleContainer does not contain an element.');
+            }
+            return this.element;
+        }
+        isEmpty() {
+            return (this.element === undefined);
+        }
+    }
+    SingleContainer.EMPTY_CONTAINER = new SingleContainer(undefined);
+    exports.SingleContainer = SingleContainer;
+});
+define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Node {
         constructor() {
-            this.attributes = new LinkedList_2.LinkedList();
+            this.attributes = new LinkedList_1.LinkedList();
         }
         static createOriginStringFromReproducingString(reproducinString) {
             var originString = '';
@@ -932,14 +854,14 @@ define("Core/Document/ChainedNode/Task", ["require", "exports"], function (requi
         Task[Task["READ_NEXT_NODE"] = 2] = "READ_NEXT_NODE";
     })(Task = exports.Task || (exports.Task = {}));
 });
-define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/LinkedList", "Core/Document/Node/Node", "Core/Constant/StringCatalogue", "Core/Document/ChainedNode/Task"], function (require, exports, LinkedList_3, Node_1, StringCatalogue_1, Task_1) {
+define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Container/LinkedList/LinkedList", "Core/Document/Node/Node", "Core/CommonType/CommonTypeConstant/StringCatalogue", "Core/Document/ChainedNode/Task"], function (require, exports, LinkedList_2, Node_1, StringCatalogue_1, Task_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ChainedNode {
         constructor() {
             this.header = undefined;
             this.nextNode = undefined;
-            this.attributes = new LinkedList_3.LinkedList();
+            this.attributes = new LinkedList_2.LinkedList();
         }
         static createReproducingString(string) {
             var reprodudingString = '';
@@ -1262,71 +1184,10 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
     ChainedNode.CLOSED_BRACKET_CODE = '$C';
     exports.ChainedNode = ChainedNode;
 });
-define("Core/GridUniversalAPI/TopLeftPositionedRectangle", ["require", "exports"], function (require, exports) {
+define("Core/Math/GlobalCalculator", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    class TopLeftPositionedRectangle {
-        constructor(xPosition, yPosition, width, height) {
-            if (xPosition === null) {
-                throw new Error('The given xPosition is null.');
-            }
-            if (xPosition === undefined) {
-                throw new Error('The given xPosition is undefined.');
-            }
-            if (yPosition === null) {
-                throw new Error('The given yPosition is null.');
-            }
-            if (yPosition === undefined) {
-                throw new Error('The given yPosition is undefined.');
-            }
-            if (width === null) {
-                throw new Error('The given width is null.');
-            }
-            if (width === undefined) {
-                throw new Error('The given width is undefined.');
-            }
-            if (height === null) {
-                throw new Error('The given height is null.');
-            }
-            if (height === undefined) {
-                throw new Error('The given height is undefined.');
-            }
-            if (width < 0) {
-                throw new Error('The given width is negative.');
-            }
-            if (height < 0) {
-                throw new Error('The given height is negative.');
-            }
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
-            this.width = width;
-            this.height = height;
-        }
-        getBottomYPosition() {
-            return (this.yPosition + this.height);
-        }
-        getHeight() {
-            return this.height;
-        }
-        getRightXPosition() {
-            return (this.xPosition + this.width);
-        }
-        getWidth() {
-            return this.width;
-        }
-        getXPosition() {
-            return this.xPosition;
-        }
-        getYPosition() {
-            return this.yPosition;
-        }
-    }
-    exports.TopLeftPositionedRectangle = TopLeftPositionedRectangle;
-});
-define("Core/Math/CentralCalculator", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    class CentralCalculator {
+    class GlobalCalculator {
         static getMax(...values) {
             if (values === undefined) {
                 throw new Error('The given values is undefined.');
@@ -1365,7 +1226,7 @@ define("Core/Math/CentralCalculator", ["require", "exports"], function (require,
         }
         constructor() { }
     }
-    exports.CentralCalculator = CentralCalculator;
+    exports.GlobalCalculator = GlobalCalculator;
 });
 define("Core/Net/EndPoint/Protocol", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1592,13 +1453,13 @@ define("Core/Net/EndPoint2/Package", ["require", "exports", "Core/Net/EndPoint2/
     Package.INDEX_STRING_LENGTH = 8;
     exports.Package = Package;
 });
-define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container/LinkedList", "Core/Net/EndPoint2/MessageRole", "Core/Net/EndPoint/NetEndPoint", "Core/Net/EndPoint2/Package"], function (require, exports, LinkedList_4, MessageRole_2, NetEndPoint_1, Package_1) {
+define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint2/MessageRole", "Core/Net/EndPoint/NetEndPoint", "Core/Net/EndPoint2/Package"], function (require, exports, LinkedList_3, MessageRole_2, NetEndPoint_1, Package_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint2 {
         constructor(ip, port, optionalTarget, webSocketType) {
             this.messageIndex = 0;
-            this.receivedPackages = new LinkedList_4.LinkedList();
+            this.receivedPackages = new LinkedList_3.LinkedList();
             this.receive = (message) => {
                 this.receivePackage(Package_1.Package.createFromString(message));
             };
@@ -1681,15 +1542,13 @@ define("Core/Net/EndPoint3/Protocol", ["require", "exports"], function (require,
     class Protocol {
     }
     Protocol.COMMANDS_HEADER = 'Commands';
-    Protocol.DATA_REQUEST_HEADER = 'DataRequest';
-    Protocol.DATA_HEADER = 'Data';
     Protocol.DONE_HEADER = 'Done';
     Protocol.ERROR_HEADER = 'Error';
     Protocol.MULTI_DATA_HEADER = 'MultiData';
     Protocol.MULTI_DATA_REQUEST_HEADER = 'MultiDataRequest';
     exports.Protocol = Protocol;
 });
-define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Container/LinkedList", "Core/Net/EndPoint2/NetEndPoint2", "Core/Document/Node/Node", "Core/Net/EndPoint3/Protocol"], function (require, exports, ChainedNode_1, LinkedList_5, NetEndPoint2_1, Node_2, Protocol_2) {
+define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint2/NetEndPoint2", "Core/Document/Node/Node", "Core/Net/EndPoint3/Protocol"], function (require, exports, ChainedNode_1, LinkedList_4, NetEndPoint2_1, Node_2, Protocol_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class NetEndPoint3 {
@@ -1706,19 +1565,11 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
             this.internalNetEndPoint.setReceiver(this.receiveMessageAndGetReply);
         }
         getData(request) {
-            const message = Protocol_2.Protocol.DATA_HEADER + request.toStringInBrackets();
-            const reply = Node_2.Node.fromString(this.internalNetEndPoint.sendAndGetReply(message));
-            switch (reply.getHeader()) {
-                case Protocol_2.Protocol.DATA_HEADER:
-                    return reply.getRefOneAttribute();
-                case Protocol_2.Protocol.ERROR_HEADER:
-                    throw new Error(reply.getOneAttributeHeader());
-                default:
-                    throw new Error('The given reply is not valid.');
-            }
+            const requests = LinkedList_4.LinkedList.withElement(request);
+            return this.getMultiData(requests).getRefOne();
         }
         getMultiData(requests) {
-            const message = Protocol_2.Protocol.DATA_REQUEST_HEADER + requests.toStringInBrackets();
+            const message = Protocol_2.Protocol.MULTI_DATA_REQUEST_HEADER + requests.toStringInBrackets();
             const reply = Node_2.Node.fromString(this.internalNetEndPoint.sendAndGetReply(message));
             switch (reply.getHeader()) {
                 case Protocol_2.Protocol.MULTI_DATA_HEADER:
@@ -1736,7 +1587,7 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
             return (this.receiverController !== undefined);
         }
         run(command) {
-            const commands = new LinkedList_5.LinkedList();
+            const commands = new LinkedList_4.LinkedList();
             commands.addAtEnd(command);
             this.runCommands(commands);
         }
@@ -1764,8 +1615,6 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
                         receiverController.run(a);
                     }
                     return Protocol_2.Protocol.DONE_HEADER;
-                case Protocol_2.Protocol.DATA_REQUEST_HEADER:
-                    return (Protocol_2.Protocol.DATA_HEADER + '(' + receiverController.getData(message.getOneAttribute()) + ')');
                 case Protocol_2.Protocol.MULTI_DATA_REQUEST_HEADER:
                     return (Protocol_2.Protocol.MULTI_DATA_HEADER + '(' + receiverController.getMultiData(message.getAttributes()) + ')');
                 default:
@@ -1775,7 +1624,69 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
     }
     exports.NetEndPoint3 = NetEndPoint3;
 });
-define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_6) {
+define("Core/ProgramAtom/Name/PascalCaseCatalogue", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class PascalCaseCatalogue {
+        constructor() { }
+    }
+    PascalCaseCatalogue.CURSOR_POSITION = 'CursorPosition';
+    PascalCaseCatalogue.HEIGHT = 'Height';
+    PascalCaseCatalogue.SIZE = 'Size';
+    PascalCaseCatalogue.WIDTH = 'Width';
+    exports.PascalCaseCatalogue = PascalCaseCatalogue;
+});
+define("Core/ProgramStructure/Caching/CachingContainer", ["require", "exports", "Core/Container/LinkedList/LinkedList", "Core/Container/Pair/Pair"], function (require, exports, LinkedList_5, Pair_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class CachingContainer {
+        constructor() {
+            this.elements = new LinkedList_5.LinkedList();
+        }
+        contains(element) {
+            return this.elements.contains(e => Object.is(e, element));
+        }
+        containsWithId(id) {
+            return this.elements.contains(e => e.getRefElement1() === id);
+        }
+        getRefById(id) {
+            return this.elements.getRefFirstByCondition(e => e.getRefElement1() === id).getRefElement2();
+        }
+        registerAtId(id, element) {
+            console.log('The current CachingContainer registers an element at the given id \'' + id + '\'.');
+            if (id === null) {
+                throw new Error('The given id is null.');
+            }
+            if (id === undefined) {
+                throw new Error('The given id is undefined.');
+            }
+            if (id.length === 0) {
+                throw new Error('The given id is empty.');
+            }
+            if (element === null) {
+                throw new Error('The given element is null.');
+            }
+            if (element === undefined) {
+                throw new Error('The given element is undefined.');
+            }
+            this.assertDoesNotContainId(id);
+            this.assertDoesNotContain(element);
+            this.elements.addAtEnd(new Pair_1.Pair(id, element));
+        }
+        assertDoesNotContain(element) {
+            if (this.contains(element)) {
+                throw new Error('The current CachingContainer contains already the given element.');
+            }
+        }
+        assertDoesNotContainId(id) {
+            if (this.containsWithId(id)) {
+                throw new Error('The current CachingContainer contains already an element with the given id.');
+            }
+        }
+    }
+    exports.CachingContainer = CachingContainer;
+});
+define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_6) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class BaseTest {
@@ -2011,7 +1922,7 @@ define("Core/Testing/Test/FunctionMediator", ["require", "exports", "Core/Testin
     }
     exports.FunctionMediator = FunctionMediator;
 });
-define("Core/Testing/Test/TestPool", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_7) {
+define("Core/Testing/Test/TestPool", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_7) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TestPool {
@@ -2125,7 +2036,7 @@ define("System/FrontendWebGUI/EventFunction", ["require", "exports", "Core/Docum
     }
     exports.EventFunction = EventFunction;
 });
-define("System/GUI/Graphic/IImage", ["require", "exports"], function (require, exports) {
+define("SystemAPI/GraphicAPI/ImageAPI/IImage", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
@@ -2149,7 +2060,7 @@ define("System/Element/Element", ["require", "exports", "Core/Document/Node/Node
     }
     exports.Element = Element;
 });
-define("System/FrontendWebGUI/UserInput", ["require", "exports", "System/Element/Element", "Core/Container/LinkedList", "Core/Document/Node/Node"], function (require, exports, Element_1, LinkedList_8, Node_4) {
+define("System/FrontendWebGUI/UserInput", ["require", "exports", "System/Element/Element", "Core/Container/LinkedList/LinkedList", "Core/Document/Node/Node"], function (require, exports, Element_1, LinkedList_8, Node_4) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class UserInput extends Element_1.Element {
@@ -2237,7 +2148,7 @@ define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System
     }
     exports.UserInputFunction = UserInputFunction;
 });
-define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_9) {
+define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_9) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebGUI {
@@ -2349,7 +2260,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
     }
     exports.FrontendWebGUI = FrontendWebGUI;
 });
-define("System/GUI/Color/Color", ["require", "exports"], function (require, exports) {
+define("System/Graphic/Color/Color", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Color {
@@ -2420,7 +2331,7 @@ define("System/GUI/Color/Color", ["require", "exports"], function (require, expo
     Color.WHITE = new Color(255, 255, 255, 255);
     exports.Color = Color;
 });
-define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Color", "System/Element/Element", "Core/Container/Matrix/Matrix", "Core/Document/Node/Node", "Core/Constant/PascalCaseNameCatalogue"], function (require, exports, Color_1, Element_2, Matrix_1, Node_5, PascalCaseNameCatalogue_1) {
+define("System/Graphic/Image/Image", ["require", "exports", "System/Graphic/Color/Color", "System/Element/Element", "Core/Container/Matrix/Matrix", "Core/Document/Node/Node", "Core/ProgramAtom/Name/PascalCaseCatalogue"], function (require, exports, Color_1, Element_2, Matrix_1, Node_5, PascalCaseCatalogue_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class Image extends Element_2.Element {
@@ -2430,7 +2341,7 @@ define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Colo
         }
         static fromSpecification(specification) {
             const pixels = new Matrix_1.Matrix();
-            const width = specification.getRefFirstAttributeWithHeader(PascalCaseNameCatalogue_1.PascalCaseNameCatalogue.WIDTH).getOneAttributeAsNumber();
+            const width = specification.getRefFirstAttributeWithHeader(PascalCaseCatalogue_1.PascalCaseCatalogue.WIDTH).getOneAttributeAsNumber();
             var row = new Array();
             var i = 1;
             for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
@@ -2497,7 +2408,7 @@ define("System/GUI/Graphic/Image", ["require", "exports", "System/GUI/Color/Colo
     Image.PIXEL_ARRAY_HEADER = 'PixelArray';
     exports.Image = Image;
 });
-define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/GUI/Graphic/Image", "System/FrontendWebGUI/UserInputFunction", "System/FrontendWebGUI/EventFunction"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_1, UserInputFunction_1, EventFunction_1) {
+define("System/Application/WebApplication/FrontendWebClientGUIManager", ["require", "exports", "System/Application/WebApplicationProtocol/CommandProtocol", "System/FrontendWebGUI/FrontendWebGUI", "System/Graphic/Image/Image", "System/FrontendWebGUI/UserInputFunction", "System/FrontendWebGUI/EventFunction"], function (require, exports, CommandProtocol_1, FrontendWebGUI_1, Image_1, UserInputFunction_1, EventFunction_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClientGUIManager {
@@ -2556,7 +2467,7 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     ObjectProtocol.URL = 'URL';
     exports.ObjectProtocol = ObjectProtocol;
 });
-define("System/Application/WebApplication/ReceiverController", ["require", "exports", "Core/Container/LinkedList"], function (require, exports, LinkedList_10) {
+define("System/Application/WebApplication/ReceiverController", ["require", "exports", "Core/Container/LinkedList/LinkedList"], function (require, exports, LinkedList_10) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ReceiverController {
@@ -2600,7 +2511,7 @@ define("System/Application/WebApplicationProtocol/RequestProtocol", ["require", 
     RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME = "GetCookieValueByCookieName";
     exports.RequestProtocol = RequestProtocol;
 });
-define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer"], function (require, exports, GlobalStringHelper_1, SingleContainer_1) {
+define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer/SingleContainer"], function (require, exports, GlobalStringHelper_1, SingleContainer_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TargetApplicationExtractor {
@@ -2618,7 +2529,7 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
     TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
     exports.TargetApplicationExtractor = TargetApplicationExtractor;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_11, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_11, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
@@ -2728,7 +2639,7 @@ define("SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle", ["require", "e
         DirectionInRectangle[DirectionInRectangle["DIAGONAL_DOWN"] = 3] = "DIAGONAL_DOWN";
     })(DirectionInRectangle = exports.DirectionInRectangle || (exports.DirectionInRectangle = {}));
 });
-define("System/GUI/Color/ColorGradient", ["require", "exports", "System/GUI/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, Color_2, DirectionInRectangle_1) {
+define("System/Graphic/Color/ColorGradient", ["require", "exports", "System/Graphic/Color/Color", "SystemAPI/GUIAPI/StructureProperty/DirectionInRectangle"], function (require, exports, Color_2, DirectionInRectangle_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class ColorGradient {
