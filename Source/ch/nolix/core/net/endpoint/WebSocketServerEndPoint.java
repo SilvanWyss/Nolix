@@ -41,7 +41,7 @@ final class WebSocketServerEndPoint extends NetEndPoint {
 	//method
 	@Override
 	public void noteClose() {
-		//TODO: Implement.
+		channelHandlerContext.close();
 	}
 	
 	//method
