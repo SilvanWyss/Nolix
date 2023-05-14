@@ -21,9 +21,13 @@ public abstract class BaseBackendWebClient<
 extends BackendClient<BBWC, AC>
 implements ICookieManager {
 	
-	//static attribute
+	//constant
 	private static final BaseBackendWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR =
-	new BaseBackendWebClientCommandCreator();
+	BaseBackendWebClientCommandCreator.INSTANCE;
+	
+	//constant
+	private static final BaseBackendWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR =
+	BaseBackendWebClientRequestCreator.INSTANCE;
 	
 	//attribute
 	private final BaseBackendWebClientFileReader fileReader = BaseBackendWebClientFileReader.forBackendWebClient(this);
@@ -43,7 +47,7 @@ implements ICookieManager {
 	public final String getCookieValueByCookieNameOrNull(final String cookieName) {
 		
 		final var getCookieValueRequest =
-		BaseBackendWebClientRequestCreator.INSTANCE.createGetCookieValueRequestForCookieName(cookieName);
+		BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetCookieValueRequestForCookieName(cookieName);
 		
 		return getCookieValueByCookieNameOrNullFromData(getDataFromCounterpart(getCookieValueRequest));
 	}

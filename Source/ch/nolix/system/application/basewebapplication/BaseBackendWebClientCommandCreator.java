@@ -15,6 +15,12 @@ import ch.nolix.system.application.basewebapplicationprotocol.ObjectProtocol;
 //class
 final class BaseBackendWebClientCommandCreator {
 	
+	//constant
+	public static final BaseBackendWebClientCommandCreator INSTANCE = new BaseBackendWebClientCommandCreator();
+	
+	//constructor
+	private BaseBackendWebClientCommandCreator() {}
+	
 	//method
 	public ChainedNode createDeleteCookieByNameCommand(final String cookieName) {
 		return
