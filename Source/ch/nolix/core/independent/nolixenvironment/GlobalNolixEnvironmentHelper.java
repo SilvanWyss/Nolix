@@ -13,10 +13,18 @@ public final class GlobalNolixEnvironmentHelper {
 	public static final String LOCAL_NOLIX_FOLDER_NAME = "Nolix";
 	
 	//constant
+	public static final String LOCAL_NOLIX_CONFIGURATION_FILE_NAME = "nolix_configuration.txt";
+	
+	//constant
 	private static final String APPDATA_HEADER = "APPDATA";
 	
 	//constant
 	private static final char FOLDER_DELIMITER = '/';
+	
+	//static method
+	public static String getLocalNolixConfigurationFilePath() {
+		return getLocalNolixFolderPath() + FOLDER_DELIMITER + LOCAL_NOLIX_CONFIGURATION_FILE_NAME;
+	}
 	
 	//static method
 	public static String getLocalNolixFolderPath() {
