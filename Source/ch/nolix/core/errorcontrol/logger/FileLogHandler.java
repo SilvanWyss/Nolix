@@ -15,7 +15,7 @@ import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
 public final class FileLogHandler extends LogHandler {
 	
 	//constant
-	public static final String NOLIX_LOG_FILE_NAME = "Log.txt";
+	public static final String NOLIX_LOG_FILE_NAME = "nolix_log.txt";
 	
 	//constant
 	private static final char FOLDER_DELIMITER = '/';
