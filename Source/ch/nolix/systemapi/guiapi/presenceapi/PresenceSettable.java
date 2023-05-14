@@ -11,5 +11,8 @@ public interface PresenceSettable<PS extends PresenceSettable<PS>> extends Prese
 	PS setInvisible();
 	
 	//method declaration
+	PS setVisibility(boolean visible);
+	
+	//method declaration
 	PS setVisible();
 }

@@ -413,6 +413,15 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final C setVisibility(final boolean visible) {
+		
+		voidSetVisibility(visible);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
 	public final void technicalSetParentControl(final IControl<?, ?> parentControl) {
 		setParent(ControlParent.forControl(parentControl));
 	}
@@ -542,5 +551,14 @@ implements IControl<C, CS> {
 	//method
 	private void setPresence(final Presence presence) {
 		this.presence.setValue(presence);
+	}
+	
+	//method
+	private void voidSetVisibility(final boolean visible) {
+		if (!visible) {
+			setInvisible();
+		} else {
+			setVisible();
+		}
 	}
 }
