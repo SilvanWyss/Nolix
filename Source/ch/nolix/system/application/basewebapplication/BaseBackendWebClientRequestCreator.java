@@ -27,4 +27,13 @@ final class BaseBackendWebClientRequestCreator {
 	public ChainedNode createGetTextFromClipboardRequest() {
 		return ChainedNode.withHeader(RequestProtocol.GET_TEXT_FROM_CLIPBOARD);
 	}
+	
+	//method
+	public ChainedNode createGetURLParameterValueRequestForURLParameterName(final String paramURLParameterName) {
+		return
+		ChainedNode.withHeaderAndChildNode(
+			RequestProtocol.GET_URL_PARARAMETER_VALUE,
+			ChainedNode.withHeader(paramURLParameterName)
+		);
+	}
 }

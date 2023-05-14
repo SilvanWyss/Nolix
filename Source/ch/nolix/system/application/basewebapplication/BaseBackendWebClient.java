@@ -53,6 +53,17 @@ implements ICookieManager {
 	}
 	
 	//method
+	public final String getURLParameterValueByURLParameterNameOrNull(final String paramURLParameterName) {
+		
+		final var getURLParameterValueRequest =
+		BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetURLParameterValueRequestForURLParameterName(paramURLParameterName);
+		
+		final var paramURLParameterValueReply = getDataFromCounterpart(getURLParameterValueRequest);
+		
+		return paramURLParameterValueReply.getHeaderOrNull();
+	}
+	
+	//method
 	@Override
 	public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
 		

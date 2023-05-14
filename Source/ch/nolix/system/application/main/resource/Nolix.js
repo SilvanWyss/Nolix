@@ -1978,6 +1978,24 @@ define("Core/Web/CookieManager", ["require", "exports"], function (require, expo
     CookieManager.INSTANCE = new CookieManager();
     exports.CookieManager = CookieManager;
 });
+define("Core/Web/URLLineReader", ["require", "exports", "Core/Container/SingleContainer/SingleContainer"], function (require, exports, SingleContainer_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    class URLLineReader {
+        constructor() { }
+        getOptionalValueOfURLParameterByName(name) {
+            const parameterString = window.location.search;
+            const localURLSearchParams = new URLSearchParams(parameterString);
+            const value = localURLSearchParams.get(name);
+            if (value === null) {
+                return SingleContainer_1.SingleContainer.withoutElement();
+            }
+            return SingleContainer_1.SingleContainer.withElement(value);
+        }
+    }
+    URLLineReader.INSTANCE = new URLLineReader();
+    exports.URLLineReader = URLLineReader;
+});
 define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2507,43 +2525,44 @@ define("System/Application/WebApplicationProtocol/RequestProtocol", ["require", 
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class RequestProtocol {
+        RequestProtocol() { }
     }
-    RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME = "GetCookieValueByCookieName";
+    RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME = 'GetCookieValueByCookieName';
+    RequestProtocol.GET_URL_PARAMETER_VALUE_BY_URL_PARAMETER_NAME = 'GetURLParameterValueByURLParameterName';
     exports.RequestProtocol = RequestProtocol;
 });
-define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer/SingleContainer"], function (require, exports, GlobalStringHelper_1, SingleContainer_1) {
+define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer/SingleContainer", "Core/Web/URLLineReader"], function (require, exports, GlobalStringHelper_1, SingleContainer_2, URLLineReader_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TargetApplicationExtractor {
         getOptionalTargetApplicationFromURL() {
-            const parameterString = window.location.search;
-            const lURLSearchParams = new URLSearchParams(parameterString);
-            const app = lURLSearchParams.get('app');
-            if (app === null) {
-                return SingleContainer_1.SingleContainer.withoutElement();
+            const appContainer = URLLineReader_1.URLLineReader.INSTANCE.getOptionalValueOfURLParameterByName('app');
+            if (appContainer.containsAny()) {
+                const app = appContainer.getRefElement();
+                const targetApplication = GlobalStringHelper_1.GlobalStringHelper.createStringWithReplacedParts(app, '_', ' ');
+                return SingleContainer_2.SingleContainer.withElement(targetApplication);
             }
-            const targetApplication = GlobalStringHelper_1.GlobalStringHelper.createStringWithReplacedParts(app, '_', ' ');
-            return SingleContainer_1.SingleContainer.withElement(targetApplication);
+            return SingleContainer_2.SingleContainer.withoutElement();
         }
     }
     TargetApplicationExtractor.INSTANCE = new TargetApplicationExtractor();
     exports.TargetApplicationExtractor = TargetApplicationExtractor;
 });
-define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_11, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_2, TargetApplicationExtractor_1, WebSocketType_2) {
+define("System/Application/WebApplication/FrontendWebClient", ["require", "exports", "Core/Document/ChainedNode/ChainedNode", "System/Application/WebApplicationProtocol/CommandProtocol", "Core/Web/CookieManager", "System/Application/WebApplication/FrontendWebClientGUIManager", "Core/Container/LinkedList/LinkedList", "Core/Net/EndPoint3/NetEndPoint3", "Core/Document/Node/Node", "System/Application/WebApplicationProtocol/ObjectProtocol", "System/Application/WebApplication/ReceiverController", "System/Application/WebApplicationProtocol/RequestProtocol", "Core/Container/SingleContainer/SingleContainer", "System/Application/WebApplication/TargetApplicationExtractor", "CoreAPI/NetAPI/WebSocketAPI/WebSocketType", "Core/Web/URLLineReader"], function (require, exports, ChainedNode_3, CommandProtocol_2, CookieManager_1, FrontendWebClientGUIManager_1, LinkedList_11, NetEndPoint3_1, Node_6, ObjectProtocol_1, ReceiverController_1, RequestProtocol_1, SingleContainer_3, TargetApplicationExtractor_1, WebSocketType_2, URLLineReader_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClient {
         static toIpAndPort(ip, port) {
-            return new FrontendWebClient(ip, port, SingleContainer_2.SingleContainer.withoutElement(), WebSocketType_2.WebSocketType.BASE_WEB_SOCKET);
+            return new FrontendWebClient(ip, port, SingleContainer_3.SingleContainer.withoutElement(), WebSocketType_2.WebSocketType.BASE_WEB_SOCKET);
         }
         static toIpAndPortOnSecureWebSocket(ip, port) {
-            return new FrontendWebClient(ip, port, SingleContainer_2.SingleContainer.withoutElement(), WebSocketType_2.WebSocketType.SECURE_WEB_SOCKET);
+            return new FrontendWebClient(ip, port, SingleContainer_3.SingleContainer.withoutElement(), WebSocketType_2.WebSocketType.SECURE_WEB_SOCKET);
         }
         static toIpAndPortAndApplication(ip, port, application) {
-            return new FrontendWebClient(ip, port, SingleContainer_2.SingleContainer.withElement(application), WebSocketType_2.WebSocketType.BASE_WEB_SOCKET);
+            return new FrontendWebClient(ip, port, SingleContainer_3.SingleContainer.withElement(application), WebSocketType_2.WebSocketType.BASE_WEB_SOCKET);
         }
         static toIpAndPortAndApplicationOnSecureWebSocket(ip, port, application) {
-            return new FrontendWebClient(ip, port, SingleContainer_2.SingleContainer.withElement(application), WebSocketType_2.WebSocketType.SECURE_WEB_SOCKET);
+            return new FrontendWebClient(ip, port, SingleContainer_3.SingleContainer.withElement(application), WebSocketType_2.WebSocketType.SECURE_WEB_SOCKET);
         }
         static toIpAndPortAndApplicationFromURL(ip, port) {
             return new FrontendWebClient(ip, port, TargetApplicationExtractor_1.TargetApplicationExtractor.INSTANCE.getOptionalTargetApplicationFromURL(), WebSocketType_2.WebSocketType.BASE_WEB_SOCKET);
@@ -2568,6 +2587,13 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
                         return new Node_6.Node();
                     }
                     return Node_6.Node.withHeader(cookieValue);
+                case RequestProtocol_1.RequestProtocol.GET_URL_PARAMETER_VALUE_BY_URL_PARAMETER_NAME:
+                    const conURLParamterName = request.getOneAttribute().getHeader();
+                    const conURLParameterValue = URLLineReader_2.URLLineReader.INSTANCE.getOptionalValueOfURLParameterByName(conURLParamterName);
+                    if (conURLParameterValue.containsAny()) {
+                        return Node_6.Node.withHeader(conURLParameterValue.getRefElement());
+                    }
+                    return new Node_6.Node();
                 default:
                     throw new Error('The given request \'' + request + '\' not valid.');
             }
