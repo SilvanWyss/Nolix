@@ -100,6 +100,14 @@ public abstract class BackendClient<
 	
 	//method
 	/**
+	 * @return the size of the {@link Session} stack of the current {@link BackendClient}.
+	 */
+	final int internalGetSessionStackSize() {
+		return sessionManager.getSessionStackSize();
+	}
+	
+	//method
+	/**
 	 * Pops the current {@link Session} of the current {@link BackendClient} from the current {@link BackendClient}.
 	 * Closes the current {@link BackendClient} if
 	 * the current {@link Session} of the current {@link BackendClient} was

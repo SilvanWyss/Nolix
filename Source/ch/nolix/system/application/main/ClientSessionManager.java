@@ -68,6 +68,11 @@ final class ClientSessionManager<
 	}
 	
 	//method
+	public int getSessionStackSize() {
+		return sessionStack.getElementCount();
+	}
+	
+	//method
 	public void popCurrentSession() {
 		popCurrentSessionFromStack();
 		closeClientOrReinitializeCurrentSession();
@@ -154,11 +159,6 @@ final class ClientSessionManager<
 	//method
 	private Session<C, AC> getRefTopSession() {
 		return sessionStack.getRefLast();
-	}
-	
-	//method
-	private int getSessionStackSize() {
-		return sessionStack.getElementCount();
 	}
 	
 	//method

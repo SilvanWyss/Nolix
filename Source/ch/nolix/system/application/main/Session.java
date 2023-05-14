@@ -77,6 +77,11 @@ public abstract class Session<
 	}
 	
 	//method
+	public boolean hasParentSession() {
+		return (getRefParentClient().internalGetSessionStackSize() > 1);
+	}
+	
+	//method
 	@Override
 	public boolean isClosed() {
 		
