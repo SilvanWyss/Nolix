@@ -500,6 +500,7 @@ public final class ChainedNode implements IChainedNode {
 	}
 	
 	//method
+	//For a better performance, this implementation does not use all comfortable methods.
 	/**
 	 * {@inheritDoc}
 	 */
@@ -507,12 +508,29 @@ public final class ChainedNode implements IChainedNode {
 	public String getHeaderOrEmptyString() {
 		
 		//Handles the case that current ChainedNode does not have a header.
-		if (!hasHeader()) {
+		if (header == null) {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
 		//Handles the case that current ChainedNode has a header.
-		return getHeader();
+		return header;
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHeaderOrNull() {
+		
+		//Handles the case that current ChainedNode does not have a header.
+		if (header == null) {
+			return null;
+		}
+		
+		//Handles the case that current ChainedNode has a header.
+		return header;
 	}
 	
 	//method

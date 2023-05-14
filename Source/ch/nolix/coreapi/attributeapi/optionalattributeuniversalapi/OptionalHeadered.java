@@ -25,6 +25,13 @@ public interface OptionalHeadered {
 	
 	//method declaration
 	/**
+	 * @return the header of the current {@link OptionalHeadered} if the current {@link OptionalHeadered} has a header,
+	 * null otherwise.
+	 */
+	String getHeaderOrNull();
+	
+	//method declaration
+	/**
 	 * @return true if the current {@link OptionalHeadered} has a header.
 	 */
 	boolean hasHeader();

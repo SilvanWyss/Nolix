@@ -137,15 +137,31 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	@Override
 	public final String getHeaderOrEmptyString() {
 		
-		//Handles the case that current BaseNode<?> does not have a header.
+		//Handles the case that current BaseNode does not have a header.
 		if (!hasHeader()) {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		//Handles the case that current BaseNode<?> has a header.
+		//Handles the case that current BaseNode has a header.
 		return getHeader();
 	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getHeaderOrNull() {
 		
+		//Handles the case that current BaseNode does not have a header.
+		if (!hasHeader()) {
+			return null;
+		}
+		
+		//Handles the case that current BaseNode has a header.
+		return getHeader();
+	}
+	
 	//method
 	/**
 	 * {@inheritDoc}
