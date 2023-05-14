@@ -225,6 +225,6 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	 * @return true if the given method is a test case.
 	 */
 	private boolean isTestCase(final Method method) {
-		return (method != null && ReflectionHelper.methodHasAnnotation(method, TestCase.class));
+		return (method != null && ReflectionHelper.elementHasAnnotation(method, TestCase.class));
 	}
 }

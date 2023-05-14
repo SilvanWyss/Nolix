@@ -81,7 +81,7 @@ public final class TestCaseWrapper {
 	
 	//method
 	public boolean testCaseHasTimeout() {
-		return !ReflectionHelper.methodHasAnnotation(getRefTestCase(), IgnoreTimeout.class);
+		return !ReflectionHelper.elementHasAnnotation(getRefTestCase(), IgnoreTimeout.class);
 	}
 	
 	//method
@@ -90,7 +90,7 @@ public final class TestCaseWrapper {
 		Method lCleanup = null;
 		for (final var m : parentTest.getClass().getMethods()) {
 			
-			if (ReflectionHelper.methodHasAnnotation(m, Cleanup.class)) {
+			if (ReflectionHelper.elementHasAnnotation(m, Cleanup.class)) {
 				
 				if (lCleanup != null) {
 					throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(), "contains more than 1 cleanup");
@@ -109,7 +109,7 @@ public final class TestCaseWrapper {
 		Method lSetup = null;
 		for (final var m : parentTest.getClass().getMethods()) {
 			
-			if (ReflectionHelper.methodHasAnnotation(m, Setup.class)) {
+			if (ReflectionHelper.elementHasAnnotation(m, Setup.class)) {
 				
 				if (lSetup != null) {
 					throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(), "contains more than 1 setup");

@@ -3,8 +3,8 @@ package ch.nolix.core.testing.basetest;
 
 //Java imports
 import java.lang.annotation.Annotation;
+import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 //own imports
@@ -32,8 +32,11 @@ final class ReflectionHelper {
 	}
 	
 	//static method
-	public static <A extends Annotation> boolean methodHasAnnotation(final Method method, final Class<A> annotation) {
-		return (method.getAnnotation(annotation) != null);
+	public static <A extends Annotation> boolean elementHasAnnotation(
+		final AnnotatedElement element,
+		final Class<A> annotation
+	) {
+		return (element.getAnnotation(annotation) != null);
 	}
 	
 	//static method
