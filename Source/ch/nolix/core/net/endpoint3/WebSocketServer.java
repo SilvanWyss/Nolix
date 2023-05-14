@@ -2,15 +2,32 @@
 package ch.nolix.core.net.endpoint3;
 
 //own imports
+import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
 public final class WebSocketServer extends BaseServer {
 	
+	//constant
+	private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER =
+	NolixConfigurationSSLCertificateReader.INSTANCE;
+	
+	//static method
+	public WebSocketServer forPortAndHTMLPageAndSSLCertificateFromNolixConfiguration(
+		final int port,
+		final String paramHTMLPage
+	) {
+		
+		final var paramSSLCertificate =
+		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
+		
+		return new WebSocketServer(port, paramHTMLPage, paramSSLCertificate);
+	}
+	
 	//attribute
 	private final ch.nolix.core.net.endpoint2.WebSocketServer internalWebSocketServer;
-	
+			
 	//constructor
 	public WebSocketServer(final int port, final String HTMLPage, final ISSLCertificate paramSSLCertificate) {
 		

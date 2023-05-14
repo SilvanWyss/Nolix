@@ -1,7 +1,5 @@
 package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
-import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.core.net.tls.SSLCertificate;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.main.WebSocketServer;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
@@ -23,12 +21,9 @@ public final class SecureButtonTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		@SuppressWarnings("resource")
 		final var server =
-		new WebSocketServer(
-			PortCatalogue.HTTPS_PORT,
-			"nolix.tech",
-			new SSLCertificate("C:/certs/cert.pem", "C:/certs/privkey.pem")
+		WebSocketServer.forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
+			"nolix.tech"
 		);
 		
 		//Adds a default Application to the Server.
