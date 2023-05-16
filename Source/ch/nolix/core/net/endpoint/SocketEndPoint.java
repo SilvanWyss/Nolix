@@ -106,7 +106,7 @@ public final class SocketEndPoint extends NetEndPoint {
 		}
 		
 		sendTargetMessage();
-		new NetEndPointMessageListener(this);
+		new SocketEndPointMessageListener(this);
 	}
 	
 	//constructor
@@ -141,7 +141,7 @@ public final class SocketEndPoint extends NetEndPoint {
 		}
 		
 		sendTargetMessage();
-		new NetEndPointMessageListener(this);
+		new SocketEndPointMessageListener(this);
 	}
 	
 	//constructor
@@ -173,7 +173,7 @@ public final class SocketEndPoint extends NetEndPoint {
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
 		
-		new NetEndPointMessageListener(this);
+		new SocketEndPointMessageListener(this);
 	}
 	
 	//constructor
@@ -209,7 +209,7 @@ public final class SocketEndPoint extends NetEndPoint {
 		this.socketInputStream = socketInputStream;
 		this.socketOutputStream = socketOutputStream;
 		
-		new NetEndPointMessageListener(this);
+		new SocketEndPointMessageListener(this);
 	}
 	
 	//method
