@@ -29,7 +29,7 @@ final class SocketEndPointMessageListener extends Worker {
 			
 			final var line = GlobalInputStreamHelper.readLineFrom(parentNetEndPoint.getRefInputStream());
 			
-			if (line.isEmpty()) {
+			if (line == null) {
 				parentNetEndPoint.close();
 				break;
 			}
