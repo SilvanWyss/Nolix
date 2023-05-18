@@ -29,7 +29,7 @@ public final class NetEndPointTest extends Test {
 			expectRunning(
 				() -> {
 					try (final var result = new NetEndPoint(port)) {
-						GlobalSequencer.waitForMilliseconds(10);
+						GlobalSequencer.waitForMilliseconds(1);
 					}
 				}
 			)

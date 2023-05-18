@@ -62,7 +62,7 @@ public final class NetEndPointTest extends Test {
 			expectRunning(
 				() -> {
 					try (final var result = new SocketEndPoint(port)) {
-						GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
+						GlobalSequencer.waitForMilliseconds(1);
 					}
 				}
 			)
