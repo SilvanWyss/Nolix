@@ -8,7 +8,7 @@ import ch.nolix.system.rawdatabase.databaseadapter.BaseDatabaseAdapter;
 import ch.nolix.system.sqlrawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqlrawdata.databasereader.DatabaseReader;
 import ch.nolix.system.sqlrawdata.databasewriter.DatabaseWriter;
-import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
+import ch.nolix.system.sqlrawdata.sqlsyntaxapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 

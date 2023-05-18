@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqlrawdata.sqlapi;
+package ch.nolix.system.sqlrawdata.sqlsyntaxapi;
 
 //interface
 public interface IMultiValueQueryCreator {

@@ -6,10 +6,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.sqlrawdata.sqlapi.IEntityQueryCreator;
-import ch.nolix.system.sqlrawdata.sqlapi.IMultiReferenceQueryCreator;
-import ch.nolix.system.sqlrawdata.sqlapi.IMultiValueQueryCreator;
-import ch.nolix.system.sqlrawdata.sqlapi.ISQLSyntaxProvider;
+import ch.nolix.system.sqlrawdata.sqlsyntaxapi.IEntityQueryCreator;
+import ch.nolix.system.sqlrawdata.sqlsyntaxapi.IMultiReferenceQueryCreator;
+import ch.nolix.system.sqlrawdata.sqlsyntaxapi.IMultiValueQueryCreator;
+import ch.nolix.system.sqlrawdata.sqlsyntaxapi.ISQLSyntaxProvider;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;

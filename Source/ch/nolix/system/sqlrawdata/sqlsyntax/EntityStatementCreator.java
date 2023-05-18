@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.system.sqlrawdata.mssql;
+package ch.nolix.system.sqlrawdata.sqlsyntax;
 
-//own imports
-import ch.nolix.system.sqlrawdata.sqlapi.IEntityStatementCreator;
+import ch.nolix.system.sqlrawdata.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;

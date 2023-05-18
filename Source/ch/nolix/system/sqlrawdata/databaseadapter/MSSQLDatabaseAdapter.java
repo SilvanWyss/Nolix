@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdata.databaseadapter;
 
 //own imports
 import ch.nolix.core.sql.SQLConnectionPool;
-import ch.nolix.system.sqlrawdata.mssql.SQLSyntaxProvider;
+import ch.nolix.system.sqlrawdata.sqlsyntax.SQLSyntaxProvider;
 import ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
