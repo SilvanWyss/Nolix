@@ -58,7 +58,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " WHERE Id = '"
 		+ entityId
-		+ "' "
+		+ "'; "
 		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The database does not contain a "
 		+ tableName
 		+ " with the id "
@@ -90,7 +90,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		"UPDATE" 
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " SET SaveStamp = '"
-		+ (entity.getSaveStamp() + 1)
+		+ (Integer.valueOf(entity.getSaveStamp()) + 1)
 		+ " WHERE Id = '"
 		+ entity.getId()
 		+ " AND SaveStamp = "
@@ -115,15 +115,15 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		"UPDATE "
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " SET SaveStamp = '"
-		+ (entityUpdate.getSaveStamp() + 1)
+		+ (Integer.valueOf(entityUpdate.getSaveStamp()) + 1)
 		+ "'"
 		+ contentFieldSetsPrecessor
-		+ contentFieldSets
+		+ contentFieldSets.toStringWithSeparator(", ")
 		+ " WHERE Id = '"
 		+ entityUpdate.getId()
 		+ "' AND SaveStamp = '"
 		+  entityUpdate.getSaveStamp()
-		+ ";"
+		+ "';"
 		+ "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
 	}
 	
