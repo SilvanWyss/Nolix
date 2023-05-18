@@ -137,14 +137,6 @@ public final class SequencerMediator {
 	
 	//method
 	/**
-	 * Waits for a second.
-	 */
-	public void waitForASecond() {
-		GlobalSequencer.waitForASecond();
-	}
-	
-	//method
-	/**
 	 * Waits for the given durationInMilliseconds.
 	 * 
 	 * @param durationInMilliseconds

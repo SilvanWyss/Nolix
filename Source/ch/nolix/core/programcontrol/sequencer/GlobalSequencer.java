@@ -175,19 +175,6 @@ public final class GlobalSequencer {
 	
 	//static method
 	/**
-	 * Waits for a second.
-	 * 
-	 * @return a {@link ActionMediator}.
-	 */
-	public static ActionMediator waitForASecond() {
-		
-		Waiter.waitForSeconds(1);
-		
-		return actionMediator;
-	}
-	
-	//static method
-	/**
 	 * Waits for the given durationInMilliseconds.
 	 * 
 	 * @param durationInMilliseconds
