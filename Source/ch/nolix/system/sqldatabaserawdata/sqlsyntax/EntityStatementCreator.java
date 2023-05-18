@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
+//own imports
 import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
@@ -79,7 +80,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ 1
 		+ "', "
 		+ newEntity.getContentFields().to(this::getValueOrNullInSQLOf).toStringWithSeparator(", ")
-		+ ")";
+		+ ");";
 	}
 	
 	//method
