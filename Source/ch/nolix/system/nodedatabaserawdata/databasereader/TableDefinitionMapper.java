@@ -5,7 +5,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
-import ch.nolix.system.sqlrawdata.schemainfo.TableInfo;
+import ch.nolix.system.sqldatabaserawdata.schemainfo.TableInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 

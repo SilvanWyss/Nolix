@@ -3,8 +3,8 @@ package ch.nolix.system.nodedatabaserawdata.databasereader;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.sqlrawdata.databasedto.LoadedContentFieldDTO;
-import ch.nolix.system.sqlrawdata.databasereader.ValueMapper;
+import ch.nolix.system.sqldatabaserawdata.databasedto.LoadedContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasereader.ValueMapper;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 

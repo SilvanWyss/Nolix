@@ -39,7 +39,7 @@ AndPortCapturer<
 		return
 		new MSSQLSchemaAdapter(
 			next().getDatabaseName(),
-			ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter
+			ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				next().getDatabaseName(),
 				SQLConnectionPool

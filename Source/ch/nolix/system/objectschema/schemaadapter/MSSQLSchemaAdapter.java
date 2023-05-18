@@ -20,7 +20,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 		return
 		new MSSQLSchemaAdapter(
 			databaseName,
-			ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter
+			ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				databaseName,
 				pSQLConnectionPool
@@ -41,7 +41,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 	//constructor
 	MSSQLSchemaAdapter(
 		String databaseName,
-		final ch.nolix.system.sqlrawschema.schemaadapter.MSSQLSchemaAdapter pMSSQLSchemaAdapter
+		final ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter pMSSQLSchemaAdapter
 	) {
 		super(databaseName, pMSSQLSchemaAdapter);
 	}

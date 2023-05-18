@@ -5,7 +5,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.structure.EntityNodeSearcher;
-import ch.nolix.system.sqlrawdata.databasedto.LoadedEntityDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.LoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
