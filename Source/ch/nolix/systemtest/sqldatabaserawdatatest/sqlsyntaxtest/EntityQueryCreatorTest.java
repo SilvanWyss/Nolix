@@ -9,6 +9,7 @@ import ch.nolix.system.sqldatabaserawdata.sqlsyntax.EntityQueryCreator;
 //class
 public final class EntityQueryCreatorTest extends Test {
 	
+	//method
 	@TestCase
 	public void testCase_createQueryToCountEntitiesWithGivenValueAtGivenColumn() {
 		
@@ -17,13 +18,14 @@ public final class EntityQueryCreatorTest extends Test {
 		
 		//execution
 		final var result =
-		testUnit.createQueryToCountEntitiesWithGivenValueAtGivenColumn("MyTable", "MyColumn", "MyValue");
+		testUnit.createQueryToCountEntitiesWithGivenValueAtGivenColumn("MyTable", "MyColumn", "my_value");
 		
 		//verification
-		final var expectedResult = "SELECT COUNT(MyColumn) FROM EMyTable WHERE MyColumn = 'MyValue';";
+		final var expectedResult = "SELECT COUNT(MyColumn) FROM EMyTable WHERE MyColumn = 'my_value';";
 		expect(result).isEqualTo(expectedResult);
 	}
 	
+	//method
 	@TestCase
 	public void testCase_createQueryToLoadSchemaTimestamp() {
 		
