@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
+//own imports
 import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityQueryCreator;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
@@ -31,7 +32,17 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		final String columnName,
 		final String value
 	) {
-		return "SELECT COUNT(" + columnName + ") FROM " + tableName + " WHERE "+ columnName + " = '" + value + "'";
+		return
+		"SELECT COUNT("
+		+ columnName
+		+ ") FROM "
+		+ TableType.ENTITY_TABLE.getNamePrefix()
+		+ tableName
+		+ " WHERE "
+		+ columnName
+		+ " = '"
+		+ value
+		+ "';";
 	}
 	
 	//method
@@ -41,7 +52,8 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		"SELECT Id, SaveStamp, "
 		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
 		+ " FROM "
-		+ tableInfo.getTableName();
+		+ tableInfo.getTableName()
+		+ ";";
 	}
 	
 	//method
@@ -54,7 +66,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableInfo.getTableName()
 		+ " WHERE Id = '"
 		+ id
-		+ "'";
+		+ "';";
 	}
 	
 	//method
@@ -69,6 +81,6 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		+ DatabasePropertySystemTableColumn.KEY.getLabel()
 		+ " = '"
 		+ DatabaseProperty.SCHEMA_TIMESTAMP.getLabel()
-		+ "'";
+		+ "';";
 	}
 }
