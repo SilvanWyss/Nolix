@@ -9,104 +9,9 @@ import ch.nolix.core.net.endpoint3.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
-import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 
 //class
 public final class NetEndPointTest extends Test {
-	
-	//static class
-	private static final class EndPointTaker implements ISlot {
-		
-		//optional attribute
-		private IChainedNode command;
-		
-		//optional attribute
-		private IChainedNode request;
-		
-		//method
-		@Override
-		public String getName() {
-			return "EndPointTaker";
-		}
-		
-		//method
-		public IChainedNode getReceivedCommandOrNull() {
-			return command;
-		}
-		
-		//method
-		public IChainedNode getReceivedRequestOrNull() {
-			return request;
-		}
-		
-		//method
-		@Override
-		public void takeBackendEndPoint(final IEndPoint endPoint) {
-			endPoint.setReceivingDataProviderController(
-				new IDataProviderController() {
-					
-					//method
-					@Override
-					public Node getDataForRequest(final IChainedNode request) {
-						EndPointTaker.this.setRequest(request);
-						return Node.withHeader("DATA");
-					}
-					
-					//method
-					@Override
-					public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-						//TODO: Implement.
-						return null;
-					}
-					
-					//method
-					@Override
-					public IContainer<INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-						//TODO: Implement.
-						return null;
-					}
-					
-					//method
-					@Override
-					public void runCommand(final IChainedNode command) {
-						EndPointTaker.this.setCommand(command);
-					}
-					
-					//method
-					@Override
-					public final void runCommands(final IChainedNode command, final IChainedNode... commands) {
-						
-						runCommand(command);
-						
-						for (final var c : commands) {
-							runCommand(c);
-						}
-					}
-					
-					//method
-					@Override
-					public void runCommands(final Iterable<? extends IChainedNode> commands) {
-						//TODO: Implement.
-					}
-				}
-			);
-		}
-		
-		//method
-		private void setCommand(final IChainedNode command) {
-			this.command = command;
-		}
-		
-		//method
-		private void setRequest(final IChainedNode request) {
-			this.request = request;
-		}
-	}
 	
 	//method
 	@TestCase
@@ -114,17 +19,17 @@ public final class NetEndPointTest extends Test {
 		
 		//parameter definition
 		final var port = 50000;
-				
+		
 		try (final var server = new Server(port)) {
 			
 			//setup
-			server.addDefaultSlot(new EndPointTaker());
+			server.addDefaultSlot(new TestSlot());
 			
 			//execution & verification
 			expectRunning(
 				() -> {
 					try (final var result = new NetEndPoint(port)) {
-						GlobalSequencer.waitForMilliseconds(500);
+						GlobalSequencer.waitForMilliseconds(10);
 					}
 				}
 			)
@@ -134,7 +39,7 @@ public final class NetEndPointTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_run() {
+	public void testCase_runCommand() {
 		
 		//parameter definition
 		final var port = 50000;
@@ -142,16 +47,17 @@ public final class NetEndPointTest extends Test {
 		try (final var server = new Server(port)) {
 			
 			//setup
-			final var endPointTaker = new EndPointTaker();
-			server.addDefaultSlot(endPointTaker);
+			final var slot = new TestSlot();
+			server.addDefaultSlot(slot);
 			
 			try (final var testUnit = new NetEndPoint(port)) {
-			
+				
 				//execution
-				testUnit.runCommand(ChainedNode.withHeader("COMMAND"));
+				testUnit.runCommand(ChainedNode.fromString("test_command"));
 				
 				//verification
-				expect(endPointTaker.getReceivedCommandOrNull()).isEqualTo(ChainedNode.withHeader("COMMAND"));
+				expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
+				.hasStringRepresentation("test_command");
 			}
 		}
 	}
@@ -166,17 +72,18 @@ public final class NetEndPointTest extends Test {
 		try (final var server = new Server(port)) {
 			
 			//setup
-			final var endPointTaker = new EndPointTaker();
-			server.addDefaultSlot(endPointTaker);
+			final var slot = new TestSlot();
+			server.addDefaultSlot(slot);
 			
 			try (final var testUnit = new NetEndPoint(port)) {
 				
 				//execution
-				final var result = testUnit.getDataForRequest(ChainedNode.withHeader("REQUEST"));
+				final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
 				
 				//verification
-				expect(endPointTaker.getReceivedRequestOrNull()).isEqualTo(ChainedNode.withHeader("REQUEST"));
-				expect(result).isEqualTo(Node.withHeader("DATA"));
+				expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
+				.hasStringRepresentation("test_request");
+				expect(result).isEqualTo(Node.withHeader("test_data"));
 			}
 		}
 	}
