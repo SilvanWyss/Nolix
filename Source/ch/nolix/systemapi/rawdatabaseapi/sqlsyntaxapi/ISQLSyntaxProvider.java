@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi;
+package ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi;
 
 //interface
 public interface ISQLSyntaxProvider {

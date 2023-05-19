@@ -5,13 +5,13 @@ package ch.nolix.system.sqldatabaserawdata.databasewriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLCollector;
 import ch.nolix.core.sql.SQLConnection;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityStatementCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiReferenceStatementCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiValueStatementCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

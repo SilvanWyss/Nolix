@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
-//own imports
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
@@ -11,6 +9,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class

@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiValueQueryCreator;
 import ch.nolix.system.sqldatabaserawschema.multivalueentrytable.MultiValueEntryTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueQueryCreator;
 
 //class
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {

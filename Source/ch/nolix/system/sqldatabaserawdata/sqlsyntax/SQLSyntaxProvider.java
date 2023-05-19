@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityQueryCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityStatementCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiReferenceQueryCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiReferenceStatementCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiValueQueryCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiValueStatementCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueQueryCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
 
 //class
 public final class SQLSyntaxProvider implements ISQLSyntaxProvider {

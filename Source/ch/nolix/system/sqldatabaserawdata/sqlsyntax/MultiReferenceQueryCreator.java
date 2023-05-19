@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiReferenceQueryCreator;
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
 
 //class
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {

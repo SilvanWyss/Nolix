@@ -6,14 +6,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityQueryCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiReferenceQueryCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IMultiValueQueryCreator;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.ISQLSyntaxProvider;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueQueryCreator;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
 
 //class
 final class InternalDatabaseReader {

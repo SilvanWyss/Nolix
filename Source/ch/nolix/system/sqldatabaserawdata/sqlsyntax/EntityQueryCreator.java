@@ -1,14 +1,13 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
-//own imports
-import ch.nolix.system.sqldatabaserawdata.sqlsyntaxapi.IEntityQueryCreator;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 import ch.nolix.system.sqldatabaserawschema.structure.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
 
 //class
 public final class EntityQueryCreator implements IEntityQueryCreator {
