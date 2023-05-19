@@ -46,7 +46,7 @@ public final class AsLongAsMediator {
 	 * @return a new after all mediator with the given time interval in milliseconds.
 	 * @throws NegativeArgumentException if the given time interval in milliseconds is negative.
 	 */
-	public AfterAllMediator afterAllMilliseconds(final int timeIntervalInMilliseconds) {
+	public AfterAllMediator afterEveryMilliseconds(final int timeIntervalInMilliseconds) {
 		
 		//Handles the case that this as long as mediator does not have a max run count.
 		if (!hasMaxRunCount()) {
@@ -61,8 +61,8 @@ public final class AsLongAsMediator {
 	/**
 	 * @return a new {@link AfterAllMediator} with a time interval of 1 second.
 	 */
-	public AfterAllMediator afterAllSeconds() {
-		return afterAllMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
+	public AfterAllMediator afterEverySecond() {
+		return afterEveryMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
 	}
 	
 	//method

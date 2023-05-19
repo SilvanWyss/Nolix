@@ -66,7 +66,7 @@ public final class MandelbrotFractalTutorial {
 				)
 			);
 			
-			GlobalSequencer.asLongAs(this::isOpen).afterAllSeconds().runInBackground(this::updateCounterpart);
+			GlobalSequencer.asLongAs(this::isOpen).afterEverySecond().runInBackground(this::updateCounterpart);
 		}
 	}
 	
