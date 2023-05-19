@@ -12,13 +12,13 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**
- * A {@link AfterAllMediator} is not mutable.
+ * A {@link AfterEveryMediator} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2017-01-01
  */
-public final class AfterAllMediator {
-
+public final class AfterEveryMediator {
+	
 	//attribute
 	private final int timeIntervalInMilliseconds;
 	
@@ -28,14 +28,14 @@ public final class AfterAllMediator {
 	
 	//constructor
 	/**
-	 * Creates a new {@link AfterAllMediator} with the given condition and time interval in milliseconds.
+	 * Creates a new {@link AfterEveryMediator} with the given condition and time interval in milliseconds.
 	 * 
 	 * @param condition
 	 * @param timeIntervalInMilliseconds
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is negative.
 	 */
-	AfterAllMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
+	AfterEveryMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
 		
 		GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 		GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
@@ -47,7 +47,7 @@ public final class AfterAllMediator {
 	
 	//constructor
 	/**
-	 * Creates a new {@link AfterAllMediator} with the given maxRunCount, condition and time interval in milliseconds.
+	 * Creates a new {@link AfterEveryMediator} with the given maxRunCount, condition and time interval in milliseconds.
 	 * 
 	 * @param maxRunCount
 	 * @param condition
@@ -56,7 +56,7 @@ public final class AfterAllMediator {
 	 * @throws ArgumentIsNullException if the given condition is null.
 	 * @throws NegativeArgumentException if the given timeIntervalInMillisecondss is negative.
 	 */
-	AfterAllMediator(
+	AfterEveryMediator(
 		final int maxRunCount,
 		final IBooleanGetter condition,
 		final int timeIntervalInMilliseconds
@@ -73,7 +73,7 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * Lets the current {@link AfterAllMediator} run the given job.
+	 * Lets the current {@link AfterEveryMediator} run the given job.
 	 * 
 	 * @param job
 	 */
@@ -91,7 +91,7 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * Lets the current {@link AfterAllMediator} run the given job in background.
+	 * Lets the current {@link AfterEveryMediator} run the given job in background.
 	 * 
 	 * @param job
 	 * @return a new {@link Future}.
@@ -110,7 +110,7 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AfterAllMediator} does not have condition.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AfterEveryMediator} does not have condition.
 	 */
 	private void assertHasCondition() {
 		if (!hasCondition()) {
@@ -120,7 +120,7 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * @return true if the current {@link AfterAllMediator} has a condition.
+	 * @return true if the current {@link AfterEveryMediator} has a condition.
 	 */
 	private boolean hasCondition() {
 		return (condition != null);
@@ -128,7 +128,7 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * @return true if the current {@link AfterAllMediator} has a max run count.
+	 * @return true if the current {@link AfterEveryMediator} has a max run count.
 	 */
 	private boolean hasMaxRunCount() {
 		return (maxRunCount != null);
@@ -136,8 +136,8 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * Lets the current {@link AfterAllMediator} run the given job in background
-	 * for the case when the current {@link AfterAllMediator} does not have a max run count.
+	 * Lets the current {@link AfterEveryMediator} run the given job in background
+	 * for the case when the current {@link AfterEveryMediator} does not have a max run count.
 	 * 
 	 * @param job
 	 * @return a new {@link Future}.
@@ -156,8 +156,8 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * Lets the current {@link AfterAllMediator} run the given job in background
-	 * for the case when the current {@link AfterAllMediator} has a max run count.
+	 * Lets the current {@link AfterEveryMediator} run the given job in background
+	 * for the case when the current {@link AfterEveryMediator} has a max run count.
 	 * 
 	 * @param job
 	 * @return a new {@link Future}.
@@ -176,11 +176,11 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * Lets the current {@link AfterAllMediator} run the given job
-	 * for the case when the current {@link AfterAllMediator} does not have a max run count.
+	 * Lets the current {@link AfterEveryMediator} run the given job
+	 * for the case when the current {@link AfterEveryMediator} does not have a max run count.
 	 * 
 	 * @param job
-	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AfterAllMediator} does not have condition.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link AfterEveryMediator} does not have condition.
 	 */
 	private void runWhenDoesNotHaveMaxRunCount(IAction job) {
 		
@@ -194,8 +194,8 @@ public final class AfterAllMediator {
 	
 	//method
 	/**
-	 * Lets the current {@link AfterAllMediator} run the given job
-	 * for the case when the current {@link AfterAllMediator} has a max run count.
+	 * Lets the current {@link AfterEveryMediator} run the given job
+	 * for the case when the current {@link AfterEveryMediator} has a max run count.
 	 * 
 	 * @param job
 	 */
