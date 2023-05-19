@@ -31,6 +31,28 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	}
 	
 	//method
+	public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked")E... elements) {
+		
+		final var localElements = GlobalArrayHelper.createArrayWithElements(element, elements);
+		
+		containsAsManyElementsAs(localElements);
+		
+		var index = 0;
+		for (final var e : getOriValue()) {
+			
+			if (e != localElements[index]) {
+				addCurrentTestCaseError(
+					"A container with exactly the given elements was expected, but the "
+					+ (index + 1)
+					+ "th element of the container is not the same element as the "
+					+ (index + 1) + " element of the given elements.");
+			}
+			
+			index++;
+		}
+	}
+	
+	//method
 	public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked")E... elements) {
 		
 		final var localElements = GlobalArrayHelper.createArrayWithElements(firstElement, elements);
@@ -40,20 +62,21 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//method
 	public void containsExactlyEqualing(final E[] elements) {
-		if (containsAsManyElementsAs(elements)) {
-			var index = 0;
-			for (final var e : getOriValue()) {
-				
-				if (!Objects.equals(e, elements[index])) {
-					addCurrentTestCaseError(
-						"A container with exactly equaling elements was expected, but the "
-						+ (index + 1)
-						+ "th element of the container does not equal the given "
-						+ (index + 1) + " element.");
-				}
-				
-				index++;
+		
+		containsAsManyElementsAs(elements);
+		
+		var index = 0;
+		for (final var e : getOriValue()) {
+			
+			if (!Objects.equals(e, elements[index])) {
+				addCurrentTestCaseError(
+					"A container with exactly equaling elements was expected, but the "
+					+ (index + 1)
+					+ "th element of the container does not equal the given "
+					+ (index + 1) + " element.");
 			}
+			
+			index++;
 		}
 	}
 	
