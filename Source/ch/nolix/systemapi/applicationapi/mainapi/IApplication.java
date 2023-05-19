@@ -11,5 +11,5 @@ public interface IApplication<AC> {
 	String getInstanceName();
 	
 	//method declaration
-	AC getRefApplicationContext();
+	AC getOriApplicationContext();
 }

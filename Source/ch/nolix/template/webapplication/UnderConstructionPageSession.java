@@ -26,7 +26,7 @@ public final class UnderConstructionPageSession extends BackendWebClientSession<
 	//method
 	@Override
 	protected void initialize() {
-		getRefGUI()
+		getOriGUI()
 		.pushLayerWithRootControl(
 			new VerticalStack()
 			.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)

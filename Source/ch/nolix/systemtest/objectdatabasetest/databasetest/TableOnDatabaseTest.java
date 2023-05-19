@@ -33,7 +33,7 @@ public final class TableOnDatabaseTest extends Test {
 		final var thing = new Thing();
 		
 		//setup part 2: Gains test unit.
-		final var testUnit = nodeDatabaseAdapter.getRefTableByEntityType(Thing.class);
+		final var testUnit = nodeDatabaseAdapter.getOriTableByEntityType(Thing.class);
 		
 		//execution
 		final var result = testUnit.containsEntityWithId(thing.getId());
@@ -56,7 +56,7 @@ public final class TableOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
 		//setup part 2: Gains test unit.
-		final var testUnit = nodeDatabaseAdapter.getRefTableByEntityType(Thing.class);
+		final var testUnit = nodeDatabaseAdapter.getOriTableByEntityType(Thing.class);
 		
 		//execution
 		final var result = testUnit.containsEntityWithId(thing.getId());

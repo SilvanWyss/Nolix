@@ -18,7 +18,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
-		return database.getRefTables().containsOnly(tableHelper::allNewAndEditedMandatoryPropertiesAreSet);
+		return database.getOriTables().containsOnly(tableHelper::allNewAndEditedMandatoryPropertiesAreSet);
 	}
 	
 	//method
@@ -32,23 +32,23 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public  IContainer<IEntity> getRefEntitiesInLocalData(final IDatabase database) {
-		return database.getRefTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
+	public  IContainer<IEntity> getOriEntitiesInLocalData(final IDatabase database) {
+		return database.getOriTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity> ITable<E> getRefTableForGivenEntity(
+	public <E extends IEntity> ITable<E> getOriTableForGivenEntity(
 		final IDatabase database,
 		final E entity
 	) {
-		return database.getRefTableByEntityType((Class<E>)entity.getClass());
+		return database.getOriTableByEntityType((Class<E>)entity.getClass());
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges(final IDatabase database) {
-		return database.getRefTables().containsAny(tableHelper::hasChanges);
+		return database.getOriTables().containsAny(tableHelper::hasChanges);
 	}
 }

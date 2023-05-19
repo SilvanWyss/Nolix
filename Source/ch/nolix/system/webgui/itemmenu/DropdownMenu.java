@@ -19,7 +19,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//constructor
 	public DropdownMenu() {
-		getRefStyle()
+		getOriStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
 		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);

@@ -50,19 +50,19 @@ PresenceSettable<C> {
 	ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
 	
 	//method declaration
-	IContainer<IControl<?, ?>> getRefChildControls();
+	IContainer<IControl<?, ?>> getOriChildControls();
 	
 	//method declaration
-	IControl<?, ?> getRefParentControl();
+	IControl<?, ?> getOriParentControl();
 	
 	//method declaration
-	IWebGUI<?> getRefParentGUI();
+	IWebGUI<?> getOriParentGUI();
 	
 	//method declaration
-	ILayer<?> getRefParentLayer();
+	ILayer<?> getOriParentLayer();
 	
 	//method declaration
-	CL getRefStyle();
+	CL getOriStyle();
 	
 	//method declaration
 	void registerHTMLElementEventsAt(ILinkedList<IHTMLElementEvent> list);

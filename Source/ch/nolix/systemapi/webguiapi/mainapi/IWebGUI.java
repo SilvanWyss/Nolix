@@ -33,16 +33,16 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	IImage getIcon();
 	
 	//method declaration
-	IControl<?, ?> getRefControlByFixedId(String fixedId);
+	IControl<?, ?> getOriControlByFixedId(String fixedId);
 	
 	//method declaration
-	IContainer<IControl<?, ?>> getRefControls();
+	IContainer<IControl<?, ?>> getOriControls();
 	
 	//method declaration
-	IContainer<ILayer<?>> getRefLayers();
+	IContainer<ILayer<?>> getOriLayers();
 	
 	//method declaration
-	ILayer<?> getRefTopLayer();
+	ILayer<?> getOriTopLayer();
 		
 	//method declaration
 	@Override

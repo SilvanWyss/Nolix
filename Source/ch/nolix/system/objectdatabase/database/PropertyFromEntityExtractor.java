@@ -12,7 +12,7 @@ import ch.nolix.core.reflection.GlobalFieldHelper;
 final class PropertyFromEntityExtractor {
 	
 	//method
-	public LinkedList<Property> getRefPropertiesFrom(final Object entity) {
+	public LinkedList<Property> getOriPropertiesFrom(final Object entity) {
 		
 		final var properties = new LinkedList<Property>();
 		

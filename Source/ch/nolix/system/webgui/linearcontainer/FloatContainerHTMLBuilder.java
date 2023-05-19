@@ -39,7 +39,7 @@ public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<Floa
 	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfFloatContainer(
 		final FloatContainer floatContainer
 	) {
-		return floatContainer.getRefChildControls().to(this::createHTMLElementsForChildControl);
+		return floatContainer.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
 	
 	//method

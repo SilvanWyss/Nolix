@@ -38,7 +38,7 @@ public final class CustomFractalTutorial2 {
 		@Override
 		protected void initialize() {
 			
-			getRefGUI()
+			getOriGUI()
 			.pushLayerWithRootControl(
 				new ImageControl()
 				.setImage(
@@ -62,7 +62,7 @@ public final class CustomFractalTutorial2 {
 					.setBigDecimalScale(10)
 					.build()
 					.startImageGeneration()
-					.getRefImage()
+					.getOriImage()
 				)
 			);
 			

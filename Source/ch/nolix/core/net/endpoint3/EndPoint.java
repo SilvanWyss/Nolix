@@ -88,7 +88,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 	 * @return the receiver controller of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver controller.
 	 */
-	IDataProviderController getRefReceiverController() {
+	IDataProviderController getOriReceiverController() {
 		
 		if (hasReceivingDataProviderController()) {
 			return receiverController;

@@ -27,7 +27,7 @@ TypeRequestable {
 	/**
 	 * @return the child {@link IStylableElement}s of the current {@link IStylableElement}.
 	 */
-	IContainer<? extends IStylableElement<?>> getRefChildStylableElements();
+	IContainer<? extends IStylableElement<?>> getOriChildStylableElements();
 	
 	//method declaration
 	/**

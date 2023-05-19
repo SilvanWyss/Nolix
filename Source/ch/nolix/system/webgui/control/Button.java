@@ -64,7 +64,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//constructor
 	public Button() {
-		getRefStyle()
+		getOriStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
 		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
@@ -78,7 +78,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	

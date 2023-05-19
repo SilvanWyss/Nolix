@@ -23,5 +23,5 @@ public interface IOptionalReferenceHelper {
 	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method declaration
-	IProperty getRefBackReferencingPropertyOrNull(IOptionalReference<?> optionalReference);
+	IProperty getOriBackReferencingPropertyOrNull(IOptionalReference<?> optionalReference);
 }

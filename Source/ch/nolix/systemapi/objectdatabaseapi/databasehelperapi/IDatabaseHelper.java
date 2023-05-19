@@ -18,10 +18,10 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	boolean canSaveChanges(IDatabase database);
 	
 	//method declaration
-	IContainer<IEntity> getRefEntitiesInLocalData(IDatabase database);
+	IContainer<IEntity> getOriEntitiesInLocalData(IDatabase database);
 	
 	//method declaration
-	<E extends IEntity> ITable<E> getRefTableForGivenEntity(IDatabase database, E entity);
+	<E extends IEntity> ITable<E> getOriTableForGivenEntity(IDatabase database, E entity);
 	
 	//method declaration
 	boolean hasChanges(IDatabase database);

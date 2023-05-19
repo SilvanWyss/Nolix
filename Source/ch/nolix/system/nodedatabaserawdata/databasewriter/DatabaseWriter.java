@@ -182,7 +182,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public CloseController getRefCloseController() {
+	public CloseController getOriCloseController() {
 		return closeController;
 	}
 	
@@ -218,6 +218,6 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	private ITableInfo getTableInfoByTableName(final String tableName) {
-		return tableInfos.getRefFirst(td -> td.getTableName().equals(tableName));
+		return tableInfos.getOriFirst(td -> td.getTableName().equals(tableName));
 	}
 }

@@ -38,7 +38,7 @@ public final class JuliaFractalTutorial {
 		@Override
 		protected void initialize() {
 			
-			getRefGUI()
+			getOriGUI()
 			.pushLayerWithRootControl(
 				new ImageControl()
 				.setImage(
@@ -62,7 +62,7 @@ public final class JuliaFractalTutorial {
 					.setBigDecimalScale(10)
 					.build()
 					.startImageGeneration()
-					.getRefImage()
+					.getOriImage()
 				)
 			);
 			

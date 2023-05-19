@@ -175,10 +175,10 @@ public final class ClosedIntervalTest extends Test {
 		final var result = testUnit.getHalfs();
 		
 		//verification
-		expect(result.getRefElement1().getMin()).isEqualTo(BigDecimal.valueOf(-1.0).setScale(scale));
-		expect(result.getRefElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-		expect(result.getRefElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-		expect(result.getRefElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
+		expect(result.getOriElement1().getMin()).isEqualTo(BigDecimal.valueOf(-1.0).setScale(scale));
+		expect(result.getOriElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
 	}
 	
 	//method
@@ -195,10 +195,10 @@ public final class ClosedIntervalTest extends Test {
 		final var result = testUnit.getHalfs();
 		
 		//verification
-		expect(result.getRefElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-		expect(result.getRefElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
-		expect(result.getRefElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
-		expect(result.getRefElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
+		expect(result.getOriElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
+		expect(result.getOriElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
+		expect(result.getOriElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
 	}
 	
 	//method
@@ -215,10 +215,10 @@ public final class ClosedIntervalTest extends Test {
 		final var result = testUnit.getHalfs();
 		
 		//verification
-		expect(result.getRefElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-		expect(result.getRefElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-		expect(result.getRefElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
-		expect(result.getRefElement2().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
+		expect(result.getOriElement2().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
 	}
 	
 	//method

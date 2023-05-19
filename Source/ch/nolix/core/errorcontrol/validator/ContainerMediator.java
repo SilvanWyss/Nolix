@@ -105,7 +105,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Iterates the elements of the argument of this container mediator.
 		var found = false;
-		for (final E e : getRefArgument()) {
+		for (final E e : getOriArgument()) {
 			
 			//Handles the case that the current element fulfills the given condition.
 			if (condition.getOutput(e)) {
@@ -117,7 +117,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		if (!found) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
-				getRefArgument(),
+				getOriArgument(),
 				"does not contain element that fulfils the given condition"
 			);
 		}
@@ -146,7 +146,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		var actualElementCount = 0;
 		
 		//Iterates the argument of this container mediator.
-		Iterator<E> iterator = getRefArgument().iterator();
+		Iterator<E> iterator = getOriArgument().iterator();
 		while (iterator.hasNext()) {
 			
 			actualElementCount++;
@@ -157,7 +157,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 				throw
 				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					getArgumentName(),
-					getRefArgument(),
+					getOriArgument(),
 					"contains more than " + elementCount + " elements"
 				);
 			}
@@ -171,7 +171,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"contains less than " + elementCount + " elements"
 			);
 		}
@@ -206,8 +206,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		isNotNull();
 		
 		//Asserts that the argument of this container mediator is empty.
-		if (IterableHelper.containsAny(getRefArgument())) {
-			throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getRefArgument());
+		if (IterableHelper.containsAny(getOriArgument())) {
+			throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
 		}
 	}
 
@@ -222,8 +222,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		isNotNull();
 		
 		//Asserts that the argument of this container mediator is not empty.
-		if (IterableHelper.isEmpty(getRefArgument())) {
-			throw EmptyArgumentException.forArgument(getRefArgument());
+		if (IterableHelper.isEmpty(getOriArgument())) {
+			throw EmptyArgumentException.forArgument(getOriArgument());
 		}
 	}
 }

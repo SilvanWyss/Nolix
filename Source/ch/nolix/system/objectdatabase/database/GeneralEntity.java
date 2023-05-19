@@ -31,6 +31,6 @@ public final class GeneralEntity extends BaseEntity {
 	//method
 	@Override
 	IContainer<Property> internalLoadProperties() {
-		return propertyFromTableExtractor.createPropertiesFromTable(getRefParentTable());
+		return propertyFromTableExtractor.createPropertiesFromTable(getOriParentTable());
 	}
 }

@@ -81,34 +81,34 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain a child {@link INode} at the given p1BasedIndex.
 	 */
-	N getRefChildNodeAt1BasedIndex(int p1BasedIndex);
+	N getOriChildNodeAt1BasedIndex(int p1BasedIndex);
 	
 	//method declaration
 	/**
 	 * @return the child {@link INode}s of the current {@link INode}.
 	 */
-	IContainer<N> getRefChildNodes();
+	IContainer<N> getOriChildNodes();
 	
 	//method declaration
 	/**
 	 * @param selector
 	 * @return the child {@link INode}s the given selector selects from the current {@link INode}.
 	 */
-	IContainer<N> getRefChildNodesThat(IElementTakerBooleanGetter<INode<?>> selector);
+	IContainer<N> getOriChildNodesThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**
 	 * @param header
 	 * @return the child {@link INode}s with the given header from the current {@link INode}.
 	 */
-	IContainer<N> getRefChildNodesWithHeader(String header);
+	IContainer<N> getOriChildNodesWithHeader(String header);
 	
 	//method declaration
 	/**
 	 * @return the first child {@link INode} from the current {@link INode}.
 	 * @throws RuntimeException if the current {@link INode} does not contain child {@link INode}s.
 	 */
-	N getRefFirstChildNode();
+	N getOriFirstChildNode();
 	
 	//method declaration
 	/**
@@ -117,7 +117,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain a child {@link INode} the given selector selects.
 	 */
-	N getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+	N getOriFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**
@@ -125,7 +125,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	 * @return the first child {@link INode} the given selector selects from the current {@link INode} if
 	 * the given selector selects a child {@link INode} of the current {@link INode}. Otherwise null is returned.
 	 */
-	N getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector);
+	N getOriFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector);
 	
 	//method declaration
 	/**
@@ -134,7 +134,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain a child {@link INode} with the given header.
 	 */
-	N getRefFirstChildNodeWithHeader(String header);
+	N getOriFirstChildNodeWithHeader(String header);
 	
 	//method declaration
 	/**
@@ -142,7 +142,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	 * @throws RuntimeException if
 	 * the current {@link INode} does not contain child {@link INode}s or contains several child {@link INode}s.
 	 */
-	N getRefSingleChildNode();
+	N getOriSingleChildNode();
 	
 	//method declaration
 	/**

@@ -52,7 +52,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		mSQLConnection = pSQLConnection;
 		this.schemaStatementCreator = schemaStatementCreator;
 		
-		getRefCloseController().createCloseDependencyTo(mSQLConnection);
+		getOriCloseController().createCloseDependencyTo(mSQLConnection);
 		mSQLCollector.addSQLStatement("USE " + databaseName);
 	}
 	
@@ -82,7 +82,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public CloseController getRefCloseController() {
+	public CloseController getOriCloseController() {
 		return closeController;
 	}
 	

@@ -9,8 +9,8 @@ public interface IBaseReference<
 extends IProperty {
 	
 	//method declaration
-	ITable<E> getReferencedTable();
+	ITable<E> getOrierencedTable();
 	
 	//method declaration
-	String getReferencedTableName();
+	String getOrierencedTableName();
 }

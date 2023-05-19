@@ -24,16 +24,16 @@ extends IDatabaseObject, Identified, Named {
 	Class<E> getEntityType();
 	
 	//method declaration
-	IContainer<IColumn> getRefColumns();
+	IContainer<IColumn> getOriColumns();
 	
 	//method declaration
-	IContainer<E> getRefEntities();
+	IContainer<E> getOriEntities();
 	
 	//method declaration
-	E getRefEntityById(String id);
+	E getOriEntityById(String id);
 	
 	//method declaration
-	IDatabase getRefParentDatabase();
+	IDatabase getOriParentDatabase();
 	
 	//method declaration
 	ITable<E> insertEntity(E entity);

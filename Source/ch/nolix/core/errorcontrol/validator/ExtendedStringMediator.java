@@ -32,7 +32,7 @@ public class ExtendedStringMediator extends StringMediator {
 	 * @return a new {@link StringMediator} for the argument of the current {@link ExtendedStringMediator}.
 	 */
 	public final StringMediator thatIsNamed(final Class<?> type) {
-		return new StringMediator(type.getSimpleName(), getRefArgument());
+		return new StringMediator(type.getSimpleName(), getOriArgument());
 	}
 	
 	//method
@@ -44,6 +44,6 @@ public class ExtendedStringMediator extends StringMediator {
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public StringMediator thatIsNamed(final String argumentName) {
-		return new StringMediator(argumentName, getRefArgument());
+		return new StringMediator(argumentName, getOriArgument());
 	}
 }

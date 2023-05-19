@@ -97,7 +97,7 @@ final class WebSocketEndPoint extends NetEndPoint {
 	}
 	
 	//method
-	InputStream getRefInputStream() {
+	InputStream getOriInputStream() {
 		return socketInputStream;
 	}
 	

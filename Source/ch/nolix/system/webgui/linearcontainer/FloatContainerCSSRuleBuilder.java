@@ -58,7 +58,7 @@ extends ExtendedControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> {
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
-						floatContainer.getRefStyle().getChildControlMarginWhenHasState(state)
+						floatContainer.getOriStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
 				)

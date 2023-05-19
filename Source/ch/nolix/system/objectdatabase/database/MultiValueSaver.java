@@ -11,7 +11,7 @@ final class MultiValueSaver {
 	
 	//method
 	public void saveChangesOfMultiValue(final IMultiValue<?> multiValue, final Database database) {
-		for (final var le : multiValue.getRefLocalEntries()) {
+		for (final var le : multiValue.getOriLocalEntries()) {
 			saveChangeOfMultiValueEntry(le, database);
 		}
 	}
@@ -40,25 +40,25 @@ final class MultiValueSaver {
 	//method
 	private void saveMultiValueEntryCreation(final IMultiValueEntry<?> multiValueEntry, final Database database) {
 		
-		final var entity = multiValueEntry.getRefParentMultiValue().getRefParentEntity();
+		final var entity = multiValueEntry.getOriParentMultiValue().getOriParentEntity();
 		
 		database.internalGetRefDataAndSchemaAdapter().insertMultiValueEntry(
 			entity.getParentTableName(),
 			entity.getId(),
-			multiValueEntry.getRefParentMultiValue().getName(),
-			multiValueEntry.getRefValue().toString()
+			multiValueEntry.getOriParentMultiValue().getName(),
+			multiValueEntry.getOriValue().toString()
 		);
 	}
 	
 	//method
 	private void saveMultiValueEntryDeletion(final IMultiValueEntry<?> multiValueEntry, final Database database) {
 		
-		final var entity = multiValueEntry.getRefParentMultiValue().getRefParentEntity();
+		final var entity = multiValueEntry.getOriParentMultiValue().getOriParentEntity();
 		
 		database.internalGetRefDataAndSchemaAdapter().deleteMultiValueEntry(
 			entity.getParentTableName(),
 			entity.getId(),
-			multiValueEntry.getRefParentMultiValue().getName(),
+			multiValueEntry.getOriParentMultiValue().getName(),
 			multiValueEntry.toString()
 		);
 	}

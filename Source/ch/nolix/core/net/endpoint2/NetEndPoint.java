@@ -197,7 +197,7 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * @return the internal end point of the current {@link NetEndPoint}.
 	 */
-	IEndPoint getRefInternalEndPoint() {
+	IEndPoint getOriInternalEndPoint() {
 		return internalEndPoint;
 	}
 	
@@ -211,7 +211,7 @@ public final class NetEndPoint extends EndPoint {
 		receive(Package.createPackageFromString(message));
 	}
 	
-	LinkedList<Package> getRefReceivedPackages() {
+	LinkedList<Package> getOriReceivedPackages() {
 		return receivedPackages;
 	}
 	
@@ -243,7 +243,7 @@ public final class NetEndPoint extends EndPoint {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getRefReplier().getOutput(pPackage.getRefContent());
+					final String reply = getOriReplier().getOutput(pPackage.getOriContent());
 					if (isOpen()) {
 						send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 					}
@@ -254,7 +254,7 @@ public final class NetEndPoint extends EndPoint {
 				
 				break;
 			default:
-				getRefReceivedPackages().addAtEnd(pPackage);
+				getOriReceivedPackages().addAtEnd(pPackage);
 		}
 	}
 	
@@ -267,7 +267,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has not received a package with the given index.
 	 */
 	private Package getAndRemoveReceivedPackage(final int index) {
-		return getRefReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
+		return getOriReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
 	}
 	
 	//method
@@ -276,7 +276,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
 	private boolean receivedPackage(final int index) {
-		return getRefReceivedPackages().containsAny(rp -> rp.hasIndex(index));
+		return getOriReceivedPackages().containsAny(rp -> rp.hasIndex(index));
 	}
 	
 	//method
@@ -311,9 +311,9 @@ public final class NetEndPoint extends EndPoint {
 		return
 		switch (response.getMessageRole()) {
 			case SUCCESS_RESPONSE ->
-				response.getRefContent();
+				response.getOriContent();
 			case ERROR_RESPONSE ->
-				throw GeneralException.withErrorMessage(response.getRefContent());
+				throw GeneralException.withErrorMessage(response.getOriContent());
 			default ->
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY,	response);
 		};

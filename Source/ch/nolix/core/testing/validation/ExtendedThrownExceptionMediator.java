@@ -67,7 +67,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 		//Handles the case that the current extended thrown exception mediator
 		//does not have an exception.
 		if (!hasException()) {
-			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker());
+			return new ExtendedThrownExceptionMediator(getOriExpectationErrorTaker());
 		}
 		
 		//Handles the case that the current extended thrown exception mediator has an exception.
@@ -81,6 +81,6 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
 			);
 		}
 		
-		return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker(), getException());
+		return new ExtendedThrownExceptionMediator(getOriExpectationErrorTaker(), getException());
 	}
 }

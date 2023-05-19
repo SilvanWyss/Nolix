@@ -72,7 +72,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 		new BaseParametrizedReferenceTypeDTO(
 			propertyType,
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
-			getReferencedTableIdFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
+			getOrierencedTableIdFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 	
@@ -94,7 +94,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	) {
 		
 		final var backReferencedColumnNode =
-		parametrizedPropertyTypeNodeSearcher.getRefBackReferencedColumnIdNodeFromPropertyTypeNode(
+		parametrizedPropertyTypeNodeSearcher.getOriBackReferencedColumnIdNodeFromPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -105,7 +105,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
-		parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
+		parametrizedPropertyTypeNodeSearcher.getOriDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
 		
 		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
@@ -116,7 +116,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	) {
 		
 		final var propertyTypeNode =
-		parametrizedPropertyTypeNodeSearcher.getRefPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		parametrizedPropertyTypeNodeSearcher.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -124,12 +124,12 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getReferencedTableIdFromParametrizedPropertyTypeNode(
+	private String getOrierencedTableIdFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
 		
 		final var referencedTableIdNode =
-		parametrizedPropertyTypeNodeSearcher.getRefReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+		parametrizedPropertyTypeNodeSearcher.getOriReferencedTableIdNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		

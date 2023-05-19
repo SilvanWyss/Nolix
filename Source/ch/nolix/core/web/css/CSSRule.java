@@ -13,7 +13,7 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	
 	//static method
 	public static CSSRule fromCSSRule(final ICSSRule<?> pCSSRule) {
-		return withSelectorsAndProperties(pCSSRule.getSelectors(), pCSSRule.getRefProperties());
+		return withSelectorsAndProperties(pCSSRule.getSelectors(), pCSSRule.getOriProperties());
 	}
 	
 	//static method
@@ -49,7 +49,7 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	
 	//method
 	@Override
-	public IContainer<CSSProperty> getRefProperties() {
+	public IContainer<CSSProperty> getOriProperties() {
 		return properties;
 	}
 	
@@ -63,6 +63,6 @@ public final class CSSRule implements ICSSRule<CSSProperty> {
 	@Override
 	public String toString() {
 		return
-		getSelectors().toStringWithSeparator(',') + GlobalStringHelper.getInBraces(getRefProperties().toConcatenatedString());
+		getSelectors().toStringWithSeparator(',') + GlobalStringHelper.getInBraces(getOriProperties().toConcatenatedString());
 	}
 }

@@ -40,7 +40,7 @@ final class DatabaseTableLoader {
 	) {
 		for (final var t : tables) {
 			final var tableName = t.getName();
-			final var rawTable = rawTables.getRefFirst(rt -> rt.getName().equals(tableName));
+			final var rawTable = rawTables.getOriFirst(rt -> rt.getName().equals(tableName));
 			addBaseValueColumnsToTableFromRawTable(t, rawTable);
 		}
 	}
@@ -54,7 +54,7 @@ final class DatabaseTableLoader {
 		final var rawBaseValueColumns =
 		rawTable
 		.getColumns()
-		.getRefSelected(
+		.getOriSelected(
 			c -> c.getParametrizedPropertyType().getPropertyType().getBaseType() == BasePropertyType.BASE_VALUE
 		);
 		
@@ -79,7 +79,7 @@ final class DatabaseTableLoader {
 	) {
 		for (final var t : tables) {
 			final var tableName = t.getName();
-			final var rawTable = rawTables.getRefFirst(rt -> rt.getName().equals(tableName));
+			final var rawTable = rawTables.getOriFirst(rt -> rt.getName().equals(tableName));
 			addBaseReferenceColumnsToTableFromRawTable(t, rawTable, referencableTables);
 		}
 	}
@@ -94,7 +94,7 @@ final class DatabaseTableLoader {
 		final var rawBaseReferenceColumns =
 		rawTable
 		.getColumns()
-		.getRefSelected(
+		.getOriSelected(
 			c -> c.getParametrizedPropertyType().getPropertyType().getBaseType() == BasePropertyType.BASE_REFERENCE
 		);
 		
@@ -119,7 +119,7 @@ final class DatabaseTableLoader {
 	) {
 		for (final var t : tables) {
 			final var tableName = t.getName();
-			final var rawTable = rawTables.getRefFirst(rt -> rt.getName().equals(tableName));
+			final var rawTable = rawTables.getOriFirst(rt -> rt.getName().equals(tableName));
 			addBaseBackReferenceColumnsToTableFromRawTable(t, rawTable, referencableTables);
 		}
 	}
@@ -134,7 +134,7 @@ final class DatabaseTableLoader {
 		final var rawBaseValueColumns =
 		rawTable
 		.getColumns()
-		.getRefSelected(
+		.getOriSelected(
 			c -> c.getParametrizedPropertyType().getPropertyType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE
 		);
 		

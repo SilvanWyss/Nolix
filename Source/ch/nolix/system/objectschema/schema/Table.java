@@ -128,7 +128,7 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	@Override
-	public IContainer<IColumn> getRefColumns() {
+	public IContainer<IColumn> getOriColumns() {
 		
 		loadColumnsFromDatabaseIfNeeded();
 		
@@ -161,7 +161,7 @@ public final class Table extends SchemaObject implements ITable {
 	@Override
 	protected void noteClose() {
 		
-		//Does not call getRefColumns method to avoid that the columns need to be loaded from the database.
+		//Does not call getOriColumns method to avoid that the columns need to be loaded from the database.
 		for (final var c : columns) {
 			((Column)c).internalClose();
 		}
@@ -173,7 +173,7 @@ public final class Table extends SchemaObject implements ITable {
 	}
 	
 	//method
-	RawSchemaAdapter internalgetRefRawSchemaAdapter() {
+	RawSchemaAdapter internalgetOriRawSchemaAdapter() {
 		return getParentDatabase().internalGetRefRawSchemaAdapter();
 	}
 	
@@ -205,7 +205,7 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	private IContainer<IColumnDTO> createColumnDTOs() {
-		return getRefColumns().to(IColumn::toDTO);
+		return getOriColumns().to(IColumn::toDTO);
 	}
 	
 	//method
@@ -223,11 +223,11 @@ public final class Table extends SchemaObject implements ITable {
 		
 		loadedColumnsFromDatabase = true;
 		
-		final var tables = getParentDatabase().getRefTables();
+		final var tables = getParentDatabase().getOriTables();
 		
 		columns =
 		LinkedList.fromIterable(
-			internalgetRefRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables))
+			internalgetOriRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables))
 		);
 		
 		for (final var c : columns) {

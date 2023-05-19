@@ -79,7 +79,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = parentMatrixColumn.getRefAt1BasedIndex(nextElement1BasedRowIndex);
+		final var element = parentMatrixColumn.getOriAt1BasedIndex(nextElement1BasedRowIndex);
 		
 		nextElement1BasedRowIndex++;
 		

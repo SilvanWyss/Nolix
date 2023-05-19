@@ -39,7 +39,7 @@ public final class LoadedEntityDTOMapper {
 		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
 		for (final var ci : tableInfo.getColumnInfos()) {
 			
-			final var contentFieldNode = entityNode.getRefChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
+			final var contentFieldNode = entityNode.getOriChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
 			
 			contentFields.addAtEnd(contentFieldDTOMapper.createContentFieldDTOFromContentFieldNode(contentFieldNode, ci));
 		}
@@ -50,7 +50,7 @@ public final class LoadedEntityDTOMapper {
 	//method
 	private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
 		
-		final var idNode = entityNodeSearcher.getRefIdNodeFromEntityNode(entityNode);
+		final var idNode = entityNodeSearcher.getOriIdNodeFromEntityNode(entityNode);
 		
 		return idNode.getHeader();
 	}
@@ -58,7 +58,7 @@ public final class LoadedEntityDTOMapper {
 	//method
 	private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		return saveStampNode.getHeader();
 	}

@@ -131,7 +131,7 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	/**
 	 * @return the {@link AutoCloseable}s of the current {@link BaseTest}.
 	 */
-	final List<AutoCloseable> getRefClosableElements() {
+	final List<AutoCloseable> getOriClosableElements() {
 		return closableElements;
 	}
 	
@@ -139,13 +139,13 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	/**
 	 * @return the test cases of the current {@link BaseTest} ordered alphabetically.
 	 */
-	List<Method> getRefTestCasesOrderedAlphabetically() {
+	List<Method> getOriTestCasesOrderedAlphabetically() {
 		
 		final var testCasesOrderedAlphabetically = new List<Method>();
-		final var testCases = getRefTestCases();
+		final var testCases = getOriTestCases();
 		while (!testCases.isEmpty()) {
 			
-			var testCase = testCases.getRefFirst();
+			var testCase = testCases.getOriFirst();
 			for (final var tc : testCases) {
 				if (tc.getName().compareTo(testCase.getName()) < 0) {
 					testCase = tc;
@@ -201,7 +201,7 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	/**
 	 * @return the test cases of the current {@link BaseTest}.
 	 */
-	private List<Method> getRefTestCases() {
+	private List<Method> getOriTestCases() {
 		
 		final var testCases = new List<Method>();
 		Class<?> lClass = getClass();

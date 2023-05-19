@@ -15,7 +15,7 @@ public final class TableDefinitionLoader {
 	//method
 	public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final IMutableNode<?> databaseNode) {
 		
-		final var tableNodes = databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
+		final var tableNodes = databaseNode.getOriChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
 		
 		return tableNodes.to(tableDefinitionMapper::createTableDefinitionFromTableNode);
 	}

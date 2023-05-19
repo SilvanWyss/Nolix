@@ -44,7 +44,7 @@ public final class ValueOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefValue_whenContainsAnyAndIsNotSaved() {
+	public void testCase_getOriValue_whenContainsAnyAndIsNotSaved() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -56,7 +56,7 @@ public final class ValueOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution
-		final var result = garfield.name.getRefValue();
+		final var result = garfield.name.getOriValue();
 		
 		//verification
 		expect(result).isEqualTo("Garfield");
@@ -64,7 +64,7 @@ public final class ValueOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefValue_whenContainsAnyAndIsSaved() {
+	public void testCase_getOriValue_whenContainsAnyAndIsSaved() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
@@ -78,10 +78,10 @@ public final class ValueOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		
 		//execution
-		final var result = loadedGarfield.name.getRefValue();
+		final var result = loadedGarfield.name.getOriValue();
 		
 		//verification
 		expect(result).isEqualTo("Garfield");
@@ -162,7 +162,7 @@ public final class ValueOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loaedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		
 		//setup verification
 		expect(loaedGarfield.getState()).is(DatabaseObjectState.LOADED);

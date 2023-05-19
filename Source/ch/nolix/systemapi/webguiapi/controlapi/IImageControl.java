@@ -16,7 +16,7 @@ public interface IImageControl<
 > extends Clearable, IControl<IC, IICS> {
 	
 	//method declaration
-	I getRefImage();
+	I getOriImage();
 	
 	//method declaration
 	boolean hasLeftMouseButtonPressAction();

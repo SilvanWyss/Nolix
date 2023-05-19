@@ -747,7 +747,7 @@ public final class Matrix {
 		
 		values = new double[newValues.getElementCount()][values.length];
 		for (var i = 0; i < newValues.getElementCount(); i++) {
-			values[i] = newValues.getRefAt1BasedIndex(i + 1);
+			values[i] = newValues.getOriAt1BasedIndex(i + 1);
 		}
 		
 		return this;

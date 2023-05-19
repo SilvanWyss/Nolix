@@ -40,7 +40,7 @@ public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageC
 			lHTMLAttributes.addAtEnd(
 				HTMLAttribute.withNameAndValue(
 					HTMLAttributeNameCatalogue.SRC,
-					"data:image/jpeg;base64," + imageControl.getRefImage().toJPGString()
+					"data:image/jpeg;base64," + imageControl.getOriImage().toJPGString()
 				)
 			);
 		}

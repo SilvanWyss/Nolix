@@ -63,7 +63,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 		
 		setCursorIcon(CursorIcon.EDIT);
 		
-		getRefStyle()
+		getOriStyle()
 		.setBorderThicknessForState(ControlState.BASE, 1)
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
@@ -84,7 +84,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	

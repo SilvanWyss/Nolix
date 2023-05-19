@@ -51,9 +51,9 @@ public final class ClosureMediator extends Mediator {
 		try {
 			closure.run();
 			addCurrentTestCaseError("An exception was expected, but no exception was thrown.");
-			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker());
+			return new ExtendedThrownExceptionMediator(getOriExpectationErrorTaker());
 		} catch (final Throwable exception) {
-			return new ExtendedThrownExceptionMediator(getRefExpectationErrorTaker(), exception);
+			return new ExtendedThrownExceptionMediator(getOriExpectationErrorTaker(), exception);
 		}
 	}
 	

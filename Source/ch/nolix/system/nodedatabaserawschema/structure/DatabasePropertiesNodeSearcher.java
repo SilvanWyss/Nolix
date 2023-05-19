@@ -11,15 +11,15 @@ public final class DatabasePropertiesNodeSearcher {
 	//method
 	public Time getSchemaTimestampFromDatabasePropertiesNode(final IMutableNode<?> databasePropertiesNode) {
 		
-		final var schemaTimeStampNode = getRefSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+		final var schemaTimeStampNode = getOriSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
 		return Time.fromSpecification(schemaTimeStampNode);
 	}
 	
 	//method
-	public IMutableNode<?> getRefSchemaTimestampNodeFromDatabasePropertiesNode(
+	public IMutableNode<?> getOriSchemaTimestampNodeFromDatabasePropertiesNode(
 		final IMutableNode<?> databasePropertiesNode
 	) {
-		return databasePropertiesNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
+		return databasePropertiesNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP);
 	}
 }

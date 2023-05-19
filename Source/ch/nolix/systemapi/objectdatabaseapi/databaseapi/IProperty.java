@@ -18,16 +18,16 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
 	boolean belongsToEntity();
 	
 	//method declaration
-	IContainer<IProperty> getRefBackReferencingProperties();
+	IContainer<IProperty> getOriBackReferencingProperties();
 	
 	//method
-	IColumn getRefParentColumn();
+	IColumn getOriParentColumn();
 	
 	//method declaration
-	IEntity getRefParentEntity();
+	IEntity getOriParentEntity();
 	
 	//method declaration
-	IContainer<IProperty> getRefReferencingProperties();
+	IContainer<IProperty> getOriReferencingProperties();
 	
 	//method declaration
 	PropertyType getType();

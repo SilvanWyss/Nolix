@@ -144,7 +144,7 @@ public final class TestCaseRunner extends Thread {
 	
 	//method
 	private void closeCloseableElements() {
-		for (final var ce : testInstance.getRefClosableElements()) {
+		for (final var ce : testInstance.getOriClosableElements()) {
 			closeCloseableElement(ce);
 		}
 	}
@@ -166,7 +166,7 @@ public final class TestCaseRunner extends Thread {
 		if (!hasExceptionError()) {
 			return
 			new TestCaseResult(
-				testCaseWrapper.getRefTestCase(),
+				testCaseWrapper.getOriTestCase(),
 				getRuntimeInMilliseconds(),
 				testInstance.getExpectationErrors()
 			);
@@ -174,7 +174,7 @@ public final class TestCaseRunner extends Thread {
 		
 		return
 		new TestCaseResult(
-			testCaseWrapper.getRefTestCase(),
+			testCaseWrapper.getOriTestCase(),
 			getRuntimeInMilliseconds(),
 			testInstance.getExpectationErrors(),
 			getExceptionError()
@@ -189,7 +189,7 @@ public final class TestCaseRunner extends Thread {
 	//method
 	private void runCleanup() {
 		try {
-			testCaseWrapper.getRefCleanup().invoke(testInstance);
+			testCaseWrapper.getOriCleanup().invoke(testInstance);
 		} catch (final InvocationTargetException invocationTargetException) {
 			if (!hasExceptionError()) {
 				exceptionError =
@@ -217,7 +217,7 @@ public final class TestCaseRunner extends Thread {
 	//method
 	private void runSetup() {
 		try {
-			testCaseWrapper.getRefSetup().invoke(testInstance);
+			testCaseWrapper.getOriSetup().invoke(testInstance);
 		} catch (final InvocationTargetException invocationTargetException) {
 			if (!hasExceptionError()) {
 				exceptionError =
@@ -231,7 +231,7 @@ public final class TestCaseRunner extends Thread {
 	//method
 	private void runTestCase() {
 		try {
-			testCaseWrapper.getRefTestCase().invoke(testInstance, (Object[])new Class[0]);
+			testCaseWrapper.getOriTestCase().invoke(testInstance, (Object[])new Class[0]);
 		} catch (final InvocationTargetException invocationTargetException) {
 			if (!hasExceptionError()) {
 				exceptionError =

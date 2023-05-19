@@ -49,7 +49,7 @@ public final class SingleContainer<E> {
 	 * @return the element of the current {@link SingleContainer}.
 	 * @throws EmptyArgumentException if the current {@link SingleContainer} is empty.
 	 */
-	public E getRefElement() {
+	public E getOriElement() {
 		
 		//Asserts that the current SingleContainer is not empty.
 		if (isEmpty()) {

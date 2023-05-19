@@ -70,7 +70,7 @@ final class ControlParent {
 	}
 	
 	//method
-	public IControl<?, ?> getRefControl() {
+	public IControl<?, ?> getOriControl() {
 		
 		assertIsControl();
 		
@@ -78,7 +78,7 @@ final class ControlParent {
 	}
 	
 	//method
-	public Object getRefElement() {
+	public Object getOriElement() {
 		
 		if (isControl()) {
 			return control;
@@ -88,13 +88,13 @@ final class ControlParent {
 	}
 	
 	//method
-	public ILayer<?> getRefRootLayer() {
+	public ILayer<?> getOriRootLayer() {
 		
 		if (isLayer()) {
 			return layer;
 		}
 		
-		return control.getRefParentLayer();
+		return control.getOriParentLayer();
 	}
 	
 	//method

@@ -39,7 +39,7 @@ public final class ReadContainerTest extends ContainerTest {
 	
 	//method
 	@TestCase
-	public void testCase_getRefAt1BasedIndex() {
+	public void testCase_getOriAt1BasedIndex() {
 		
 		//setup
 		final String[] array1 = {"apple", "banana", "cerish"};
@@ -50,20 +50,20 @@ public final class ReadContainerTest extends ContainerTest {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
-		expect(readContainer.getRefAt1BasedIndex(1)).isEqualTo("apple");
-		expect(readContainer.getRefAt1BasedIndex(2)).isEqualTo("banana");
-		expect(readContainer.getRefAt1BasedIndex(3)).isEqualTo("cerish");
-		expect(readContainer.getRefAt1BasedIndex(4)).isEqualTo("elephant");
-		expect(readContainer.getRefAt1BasedIndex(5)).isEqualTo("lion");
-		expect(readContainer.getRefAt1BasedIndex(6)).isEqualTo("monkey");
-		expect(readContainer.getRefAt1BasedIndex(7)).isEqualTo("flower");
-		expect(readContainer.getRefAt1BasedIndex(8)).isEqualTo("tree");
-		expect(readContainer.getRefAt1BasedIndex(9)).isEqualTo("palm");
+		expect(readContainer.getOriAt1BasedIndex(1)).isEqualTo("apple");
+		expect(readContainer.getOriAt1BasedIndex(2)).isEqualTo("banana");
+		expect(readContainer.getOriAt1BasedIndex(3)).isEqualTo("cerish");
+		expect(readContainer.getOriAt1BasedIndex(4)).isEqualTo("elephant");
+		expect(readContainer.getOriAt1BasedIndex(5)).isEqualTo("lion");
+		expect(readContainer.getOriAt1BasedIndex(6)).isEqualTo("monkey");
+		expect(readContainer.getOriAt1BasedIndex(7)).isEqualTo("flower");
+		expect(readContainer.getOriAt1BasedIndex(8)).isEqualTo("tree");
+		expect(readContainer.getOriAt1BasedIndex(9)).isEqualTo("palm");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getRefSelected() {
+	public void testCase_getOriSelected() {
 		
 		//setup
 		final String[] array1 = { "A", "AA", "AAA" };
@@ -74,9 +74,9 @@ public final class ReadContainerTest extends ContainerTest {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
-		expect(readContainer.getRefSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
-		expect(readContainer.getRefSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
-		expect(readContainer.getRefSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
+		expect(readContainer.getOriSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
+		expect(readContainer.getOriSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
+		expect(readContainer.getOriSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
 	}
 	
 	//method

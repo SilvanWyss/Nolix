@@ -25,7 +25,7 @@ public record ParametrizedPropertyTypeSQLRecord(
 	}
 	
 	//method
-	public String getReferencedTableIdValue() {
+	public String getOrierencedTableIdValue() {
 		return referencedTableIdValue;
 	}
 }

@@ -52,10 +52,10 @@ public final class LocalEndPoint extends EndPoint {
 		counterpart = new LocalEndPoint(this);
 		
 		//Sets the target of the counterpart of htis local end point.
-		getRefCounterPart().setTarget(target.getName());
+		getOriCounterPart().setTarget(target.getName());
 		
 		//Lets the given target take the counterpart of this local end point.
-		target.takeBackendEndPoint(getRefCounterPart());
+		target.takeBackendEndPoint(getOriCounterPart());
 	}
 	
 	//constructor
@@ -75,10 +75,10 @@ public final class LocalEndPoint extends EndPoint {
 		counterpart = new LocalEndPoint(this);
 		
 		//Sets the target of the counterpart of this local end point.
-		getRefCounterPart().setTarget(target);
+		getOriCounterPart().setTarget(target);
 		
 		//Lets the given server take the counterpart of this local end point.
-		baseServer.internalTakeBackendEndPoint(getRefCounterPart());
+		baseServer.internalTakeBackendEndPoint(getOriCounterPart());
 	}
 	
 	//constructor
@@ -112,7 +112,7 @@ public final class LocalEndPoint extends EndPoint {
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	public LocalEndPoint getRefCounterPart() {
+	public LocalEndPoint getOriCounterPart() {
 		return counterpart;
 	}
 	
@@ -161,6 +161,6 @@ public final class LocalEndPoint extends EndPoint {
 	 * @param message
 	 */
 	private void receiveRawMessage(final String message) {
-		getRefReceiver().run(message);
+		getOriReceiver().run(message);
 	}
 }

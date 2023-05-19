@@ -25,7 +25,7 @@ public final class CSS implements ICSS<CSSRule, CSSProperty> {
 	
 	//method
 	@Override
-	public IContainer<CSSRule> getRefRules() {
+	public IContainer<CSSRule> getOriRules() {
 		return rules;
 	}
 	
@@ -38,6 +38,6 @@ public final class CSS implements ICSS<CSSRule, CSSProperty> {
 	//method
 	@Override
 	public String toStringWithoutEnclosingBrackets() {
-		return getRefRules().toConcatenatedString();
+		return getOriRules().toConcatenatedString();
 	}
 }

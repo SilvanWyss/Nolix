@@ -109,7 +109,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	/**
 	 * @return the values of the current {@link MultiValue}.
 	 */
-	public IContainer<V> getRefValues() {
+	public IContainer<V> getOriValues() {
 		return values;
 	}
 	
@@ -184,11 +184,11 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		
 		//Iterates the values of the current MultiProperty.
-		for (final var v : getRefValues()) {
+		for (final var v : getOriValues()) {
 			
 			//Creates a specification from the current value.
 			final var specification =
-			Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(v).getRefChildNodes());
+			Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(v).getOriChildNodes());
 			
 			//Adds the specification to the given list.
 			list.addAtEnd(specification);

@@ -66,6 +66,6 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%08d%c%s", getIndex(), getMessageRole().getPrefix(), getRefContent());
+		return String.format("%08d%c%s", getIndex(), getMessageRole().getPrefix(), getOriContent());
 	}
 }

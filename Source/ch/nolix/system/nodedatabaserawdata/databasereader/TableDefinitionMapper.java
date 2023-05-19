@@ -30,7 +30,7 @@ final class TableDefinitionMapper {
 		
 		final var columnInfos = new LinkedList<IColumnInfo>();
 		var columnIndexOnEntityNode = 3;
-		for (final var cn : getRefColumnNodesInOrderFromTableNode(tableNode)) {
+		for (final var cn : getOriColumnNodesInOrderFromTableNode(tableNode)) {
 			
 			columnInfos.addAtEnd(
 				columnDefinitionMapper.createColumnDefinitionFromColumnNode(
@@ -46,8 +46,8 @@ final class TableDefinitionMapper {
 	}
 	
 	//method
-	private IContainer<? extends IMutableNode<?>> getRefColumnNodesInOrderFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNodeSearcher.getRefColumnNodesFromTableNode(tableNode);
+	private IContainer<? extends IMutableNode<?>> getOriColumnNodesInOrderFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode);
 	}
 	
 	//method

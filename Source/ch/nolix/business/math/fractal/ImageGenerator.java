@@ -70,7 +70,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 	@Override
 	public Throwable getError() {
 		
-		final var futureWithError = futures.getRefFirstOrNull(IFuture::caughtError);
+		final var futureWithError = futures.getOriFirstOrNull(IFuture::caughtError);
 		
 		if (futureWithError == null) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
@@ -81,7 +81,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 	
 	//method
 	@Override
-	public MutableImage getRefImage() {
+	public MutableImage getOriImage() {
 		return image;
 	}
 	

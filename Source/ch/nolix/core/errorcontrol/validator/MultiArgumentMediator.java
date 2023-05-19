@@ -60,7 +60,7 @@ public class MultiArgumentMediator<A> {
 		
 		//Iterates the arguments of this multi argument mediator.
 		var index = 1;
-		for (final A a : getRefArguments()) {
+		for (final A a : getOriArguments()) {
 			
 			//Asserts that the current argument is not null.
 			if (a == null) {
@@ -82,7 +82,7 @@ public class MultiArgumentMediator<A> {
 		
 		//Iterates the arguments of this multi argument mediator.
 		var index = 1;
-		for (final A a : getRefArguments()) {
+		for (final A a : getOriArguments()) {
 			
 			//Asserts that the current argument fulfills the given condition.
 			if (!condition.getOutput(a)) {
@@ -102,7 +102,7 @@ public class MultiArgumentMediator<A> {
 	/**
 	 * @return the arguments of this multi argument mediator.
 	 */
-	protected final Iterable<A> getRefArguments() {
+	protected final Iterable<A> getOriArguments() {
 		return arguments;
 	}
 }

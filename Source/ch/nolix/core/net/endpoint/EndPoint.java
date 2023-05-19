@@ -106,7 +106,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 	 * @return the receiver of the current {@link EndPoint}.
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint} does not have a receiver.
 	 */
-	protected final IElementTaker<String> getRefReceiver() {
+	protected final IElementTaker<String> getOriReceiver() {
 		
 		if (hasReceiver()) {
 			return receiver;

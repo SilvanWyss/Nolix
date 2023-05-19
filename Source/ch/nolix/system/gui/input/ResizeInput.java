@@ -21,12 +21,12 @@ public final class ResizeInput extends Element implements IResizeInput<ResizeInp
 	//static method
 	public static ResizeInput fromSpecification(final INode<?> specification) {
 		
-		final var sizeSpecification = specification.getRefSingleChildNode();
+		final var sizeSpecification = specification.getOriSingleChildNode();
 		
 		return
 		withViewAreaWidthAndViewAreaHeight(
-			sizeSpecification.getRefChildNodeAt1BasedIndex(1).toInt(),
-			sizeSpecification.getRefChildNodeAt1BasedIndex(2).toInt()
+			sizeSpecification.getOriChildNodeAt1BasedIndex(1).toInt(),
+			sizeSpecification.getOriChildNodeAt1BasedIndex(2).toInt()
 		);
 	}
 	

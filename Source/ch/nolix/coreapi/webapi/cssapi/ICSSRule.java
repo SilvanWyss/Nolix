@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface ICSSRule<P extends ICSSProperty> {
 	
 	//method declaration
-	IContainer<P> getRefProperties();
+	IContainer<P> getOriProperties();
 	
 	//method declaration
 	IContainer<String> getSelectors();

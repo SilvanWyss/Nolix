@@ -45,13 +45,13 @@ public final class EntityOnDatabaseTest extends Test {
 		testUnit.setInsertAction_(() -> testUnit.ageInYears.setValue(1));
 		
 		//setup verification
-		expect(testUnit.ageInYears.getRefValue()).isEqualTo(0);
+		expect(testUnit.ageInYears.getOriValue()).isEqualTo(0);
 		
 		//execution
 		nodeDatabaseAdapter.insert(testUnit);
 		
 		//verification
-		expect(testUnit.ageInYears.getRefValue()).isEqualTo(1);
+		expect(testUnit.ageInYears.getOriValue()).isEqualTo(1);
 	}
 	
 	//method
@@ -92,14 +92,14 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapterB =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldB =
-		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		nodeDatabaseAdapterB.getOriTableByEntityType(Pet.class).getOriEntityById(garfieldA.getId());
 		garfieldB.ageInYears.setValue(6);
 		
 		//setup part 3: Makes a change.
 		final var nodeDatabaseAdapterC =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldC =
-		nodeDatabaseAdapterC.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		nodeDatabaseAdapterC.getOriTableByEntityType(Pet.class).getOriEntityById(garfieldA.getId());
 		garfieldC.ageInYears.setValue(6);
 		nodeDatabaseAdapterC.saveChangesAndReset();
 		
@@ -128,14 +128,14 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapterB =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldB =
-		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		nodeDatabaseAdapterB.getOriTableByEntityType(Pet.class).getOriEntityById(garfieldA.getId());
 		garfieldB.ageInYears.setValue(6);
 		
 		//setup part 3: Deletes the Entity.
 		final var nodeDatabaseAdapterC =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldC =
-		nodeDatabaseAdapterC.getRefTableByEntityType(Pet.class).getRefEntityById(garfieldA.getId());
+		nodeDatabaseAdapterC.getOriTableByEntityType(Pet.class).getOriEntityById(garfieldA.getId());
 		garfieldC.delete();
 		nodeDatabaseAdapterC.saveChangesAndReset();
 		
@@ -162,7 +162,7 @@ public final class EntityOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		
 		//execution part 1
 		loadedGarfield.delete();
@@ -177,8 +177,8 @@ public final class EntityOnDatabaseTest extends Test {
 		expect(loadedGarfield.isClosed());
 		expect(
 			nodeDatabaseAdapter
-			.getRefTableByEntityType(Pet.class)
-			.getRefEntities()
+			.getOriTableByEntityType(Pet.class)
+			.getOriEntities()
 			.containsNone(e -> e.hasId(garfield.getId()))
 		);
 	}

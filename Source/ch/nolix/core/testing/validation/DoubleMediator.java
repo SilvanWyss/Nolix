@@ -257,7 +257,7 @@ public final class DoubleMediator extends Mediator {
 	 * and has a default max deviation.
 	 */
 	public DoubleDeviationMediator withDefaultMaxDeviation() {
-		return new DoubleDeviationMediator(getRefExpectationErrorTaker(), value);
+		return new DoubleDeviationMediator(getOriExpectationErrorTaker(), value);
 	}
 	
 	//method
@@ -270,6 +270,6 @@ public final class DoubleMediator extends Mediator {
 	 * @throws NegativeArgumentException if the given max deviation is negative.
 	 */
 	public DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
-		return new DoubleDeviationMediator(getRefExpectationErrorTaker(), value, maxDeviation);
+		return new DoubleDeviationMediator(getOriExpectationErrorTaker(), value, maxDeviation);
 	}
 }

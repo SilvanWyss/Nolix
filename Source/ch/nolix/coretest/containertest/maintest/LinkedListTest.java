@@ -24,12 +24,12 @@ public final class LinkedListTest extends ContainerTest {
 		
 		//verification
 		expect(testUnit.getElementCount()).isEqualTo(6);
-		expect(testUnit.getRefAt1BasedIndex(1)).isEqualTo("b1");
-		expect(testUnit.getRefAt1BasedIndex(2)).isEqualTo("b2");
-		expect(testUnit.getRefAt1BasedIndex(3)).isEqualTo("a1");
-		expect(testUnit.getRefAt1BasedIndex(4)).isEqualTo("a2");
-		expect(testUnit.getRefAt1BasedIndex(5)).isEqualTo("a3");
-		expect(testUnit.getRefAt1BasedIndex(6)).isEqualTo("a4");
+		expect(testUnit.getOriAt1BasedIndex(1)).isEqualTo("b1");
+		expect(testUnit.getOriAt1BasedIndex(2)).isEqualTo("b2");
+		expect(testUnit.getOriAt1BasedIndex(3)).isEqualTo("a1");
+		expect(testUnit.getOriAt1BasedIndex(4)).isEqualTo("a2");
+		expect(testUnit.getOriAt1BasedIndex(5)).isEqualTo("a3");
+		expect(testUnit.getOriAt1BasedIndex(6)).isEqualTo("a4");
 	}
 	
 	//method
@@ -45,10 +45,10 @@ public final class LinkedListTest extends ContainerTest {
 		
 		//verification
 		expect(testUnit.getElementCount()).isEqualTo(4);
-		expect(testUnit.getRefAt1BasedIndex(1)).isEqualTo("a1");
-		expect(testUnit.getRefAt1BasedIndex(2)).isEqualTo("a2");
-		expect(testUnit.getRefAt1BasedIndex(3)).isEqualTo("a3");
-		expect(testUnit.getRefAt1BasedIndex(4)).isEqualTo("a4");
+		expect(testUnit.getOriAt1BasedIndex(1)).isEqualTo("a1");
+		expect(testUnit.getOriAt1BasedIndex(2)).isEqualTo("a2");
+		expect(testUnit.getOriAt1BasedIndex(3)).isEqualTo("a3");
+		expect(testUnit.getOriAt1BasedIndex(4)).isEqualTo("a4");
 	}
 	
 	//method
@@ -64,8 +64,8 @@ public final class LinkedListTest extends ContainerTest {
 		
 		//verification
 		expect(testUnit.getElementCount()).isEqualTo(2);
-		expect(testUnit.getRefAt1BasedIndex(1)).isEqualTo("b1");
-		expect(testUnit.getRefAt1BasedIndex(2)).isEqualTo("b2");
+		expect(testUnit.getOriAt1BasedIndex(1)).isEqualTo("b1");
+		expect(testUnit.getOriAt1BasedIndex(2)).isEqualTo("b2");
 	}
 	
 	//method

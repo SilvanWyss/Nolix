@@ -98,7 +98,7 @@ public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridC
 			return HTMLElement.withType(HTMLElementTypeCatalogue.TD);
 		}
 		
-		final var childControl = gridContainer.getRefChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
+		final var childControl = gridContainer.getOriChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
 		final var childControlHTMLElement = childControl.toHTMLElement();
 		return HTMLElement.withTypeAndChildElement(HTMLElementTypeCatalogue.TD, childControlHTMLElement);
 	}

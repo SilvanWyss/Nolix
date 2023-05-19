@@ -94,7 +94,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 			return stateProperty.getValue();
 		}
 		
-		final var baseStateProperty = getRefBaseStateProperty();
+		final var baseStateProperty = getOriBaseStateProperty();
 		if (baseStateProperty.hasValueOrDefinesEmpty()) {
 			return baseStateProperty.getValue();
 		}
@@ -119,7 +119,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 			return stateProperty.hasValue();
 		}
 		
-		final var baseStateProperty = getRefBaseStateProperty();
+		final var baseStateProperty = getOriBaseStateProperty();
 		if (baseStateProperty.hasValueOrDefinesEmpty()) {
 			return baseStateProperty.hasValue();
 		}

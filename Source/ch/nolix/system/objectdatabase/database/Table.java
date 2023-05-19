@@ -89,7 +89,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	//method
 	@Override
 	public int getEntityCount() {
-		return getRefEntities().getElementCount();
+		return getOriEntities().getElementCount();
 	}
 	
 	//method
@@ -100,7 +100,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public IContainer<IColumn> getRefColumns() {
+	public IContainer<IColumn> getOriColumns() {
 		return columns;
 	}
 	
@@ -118,7 +118,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public IContainer<E> getRefEntities() {
+	public IContainer<E> getOriEntities() {
 		
 		loadAllEntitiesInLocalDataIfNotLoaded();
 		
@@ -127,15 +127,15 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public E getRefEntityById(final String id) {
+	public E getOriEntityById(final String id) {
 		
-		final var entity = technicalGetRefEntitiesInLocalData().getRefFirstOrNull(e -> e.hasId(id));
+		final var entity = technicalGetRefEntitiesInLocalData().getOriFirstOrNull(e -> e.hasId(id));
 		
 		if (entity == null) {
 			
 			addEntityWithIdWhenIsNotAdded(id);
 			
-			return getRefEntityByIdWhenIsInLocalData(id);
+			return getOriEntityByIdWhenIsInLocalData(id);
 		}
 		
 		return entity;
@@ -143,7 +143,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public IDatabase getRefParentDatabase() {
+	public IDatabase getOriParentDatabase() {
 		return parentDatabase;
 	}
 	
@@ -243,8 +243,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	}
 	
 	//method
-	private E getRefEntityByIdWhenIsInLocalData(final String id) {
-		return technicalGetRefEntitiesInLocalData().getRefFirst(e -> e.hasId(id));
+	private E getOriEntityByIdWhenIsInLocalData(final String id) {
+		return technicalGetRefEntitiesInLocalData().getOriFirst(e -> e.hasId(id));
 	}
 	
 	//method

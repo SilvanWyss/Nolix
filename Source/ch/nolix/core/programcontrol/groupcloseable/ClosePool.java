@@ -69,7 +69,7 @@ final class ClosePool implements IClosePool {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<GroupCloseable> getRefElements() {
+	public IContainer<GroupCloseable> getOriElements() {
 		return elements;
 	}
 	

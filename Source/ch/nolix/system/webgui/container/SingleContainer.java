@@ -38,18 +38,18 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(getRefControl());
+		return ImmutableList.withElements(getOriControl());
 	}
 	
 	//method
 	@Override
-	public IControl<?, ?> getRefControl() {
+	public IControl<?, ?> getOriControl() {
 		return control.getValue();
 	}
 	

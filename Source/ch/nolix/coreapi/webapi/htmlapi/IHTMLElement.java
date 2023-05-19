@@ -17,10 +17,10 @@ public interface IHTMLElement<HTMLE extends IHTMLElement<HTMLE, A>, A extends IH
 	String getInnerText();
 	
 	//method declaration
-	IContainer<A> getRefAttributes();
+	IContainer<A> getOriAttributes();
 	
 	//method declaration
-	IContainer<HTMLE> getRefChildElements();
+	IContainer<HTMLE> getOriChildElements();
 	
 	//method declaration
 	String getType();

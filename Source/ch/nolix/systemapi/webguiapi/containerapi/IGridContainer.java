@@ -18,7 +18,7 @@ extends IContainer<GC, GCS> {
 	int getColumnCount();
 	
 	//method declaration
-	IControl<?, ?> getRefChildControlAt1BasedRowAndColumnIndex(int rowIndex, int columnIndex);
+	IControl<?, ?> getOriChildControlAt1BasedRowAndColumnIndex(int rowIndex, int columnIndex);
 	
 	//method declaration
 	int getRowCount();

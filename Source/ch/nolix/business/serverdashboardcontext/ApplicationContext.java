@@ -32,7 +32,7 @@ public final class ApplicationContext implements IApplicationContext {
 	//method
 	@Override
 	public IContainer<IApplicationSheet> getGUIApplicationSheets() {
-		return getRefGUIApplications().to(this::createApplicationSheetForGUIApplication);
+		return getOriGUIApplications().to(this::createApplicationSheetForGUIApplication);
 	}
 	
 	//method
@@ -49,11 +49,11 @@ public final class ApplicationContext implements IApplicationContext {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private IContainer<Application<BackendWebClient<?>, ?>> getRefGUIApplications() {
+	private IContainer<Application<BackendWebClient<?>, ?>> getOriGUIApplications() {
 		
 		final var lGUIApplications = new LinkedList<Application<BackendWebClient<?>, ?>>();
 		
-		for (final var a : server.getRefApplications().getRefSelected(this::applicationIsForBackendGUIClients)) {
+		for (final var a : server.getOriApplications().getOriSelected(this::applicationIsForBackendGUIClients)) {
 			lGUIApplications.addAtEnd((Application<BackendWebClient<?>, ?>)a);
 		}
 		

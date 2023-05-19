@@ -65,8 +65,8 @@ public final class Style extends BaseStyle<Style> {
 			
 			setAttachingAttributesTo(element);
 			
-			final var elements = element.getRefChildStylableElements();
-			final var configurations = getRefConfigurations();
+			final var elements = element.getOriChildStylableElements();
+			final var configurations = getOriConfigurations();
 			elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 		}
 	}

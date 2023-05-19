@@ -33,12 +33,12 @@ public final class URLParameterTutorial {
 		protected void initialize() {
 			
 			final var localURLParameter1 =
-			getRefParentClient().getURLParameterValueByURLParameterNameOrNull("parameter1");
+			getOriParentClient().getURLParameterValueByURLParameterNameOrNull("parameter1");
 			
 			final var localURLParameter2 =
-			getRefParentClient().getURLParameterValueByURLParameterNameOrNull("parameter2");
+			getOriParentClient().getURLParameterValueByURLParameterNameOrNull("parameter2");
 			
-			getRefGUI()
+			getOriGUI()
 			.pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(

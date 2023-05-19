@@ -9,28 +9,28 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 public final class TableNodeSearcher {
 	
 	//method
-	public IMutableNode<?> getRefEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
+	public IMutableNode<?> getOriEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
 		return
-		tableNode.getRefFirstChildNodeThat(
+		tableNode.getOriFirstChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getOriChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
 	//method
-	public IMutableNode<?> getRefEntityNodeFromTableNodeOrNull(final IMutableNode<?> tableNode, final String id) {
+	public IMutableNode<?> getOriEntityNodeFromTableNodeOrNull(final IMutableNode<?> tableNode, final String id) {
 		return
-		tableNode.getRefFirstChildNodeThatOrNull(
+		tableNode.getOriFirstChildNodeThatOrNull(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getOriChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
 	//method
-	public IContainer<? extends IMutableNode<?>> getRefEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.ENTITY);
+	public IContainer<? extends IMutableNode<?>> getOriEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getOriChildNodesWithHeader(SubNodeHeaderCatalogue.ENTITY);
 	}
 	
 	//method
@@ -39,7 +39,7 @@ public final class TableNodeSearcher {
 		tableNode.removeAndGetRefFirstChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-			&& a.getRefChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
+			&& a.getOriChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id)
 		);
 	}
 	
@@ -63,7 +63,7 @@ public final class TableNodeSearcher {
 					return false;
 				}
 				
-				final var field = a.getRefChildNodeAt1BasedIndex(valueIndex);
+				final var field = a.getOriChildNodeAt1BasedIndex(valueIndex);
 				return (field.hasHeader(value) || field.containsChildNodeWithHeader(value));
 			}
 		);
@@ -79,7 +79,7 @@ public final class TableNodeSearcher {
 		tableNode.containsChildNodeThat(
 			a ->
 			a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
-			&& a.getRefChildNodeAt1BasedIndex(valueIndex).hasHeader(header)
+			&& a.getOriChildNodeAt1BasedIndex(valueIndex).hasHeader(header)
 		);
 	}
 }

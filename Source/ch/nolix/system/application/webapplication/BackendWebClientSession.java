@@ -13,7 +13,7 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	private final IWebGUI<?> webGUI = new WebGUI();
 	
 	//method
-	public final IWebGUI<?> getRefGUI() {
+	public final IWebGUI<?> getOriGUI() {
 		return webGUI;
 	}
 	
@@ -21,7 +21,7 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	@Override
 	protected final void fullInitialize() {
 		
-		getRefGUI()
+		getOriGUI()
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
 		
@@ -41,8 +41,8 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	@Override
 	protected final void updateCounterpart() {
 		
-		getRefGUI().applyStyleIfHasStyle();
+		getOriGUI().applyStyleIfHasStyle();
 		
-		getRefParentClient().internalUpdateCounterpartFromWebGUI(getRefGUI());
+		getOriParentClient().internalUpdateCounterpartFromWebGUI(getOriGUI());
 	}
 }

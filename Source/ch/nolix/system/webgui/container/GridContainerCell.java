@@ -74,7 +74,7 @@ public final class GridContainerCell extends MutableElement implements Clearable
 	}
 
 	//method
-	public IControl<?, ?> getRefControl() {
+	public IControl<?, ?> getOriControl() {
 		return control.getValue();
 	}
 	

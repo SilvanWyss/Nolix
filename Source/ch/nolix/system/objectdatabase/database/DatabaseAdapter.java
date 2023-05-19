@@ -62,21 +62,21 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 		this.databaseName = databaseName;
 		final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.getOutput();
 		database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
-		getRefCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
+		getOriCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
 	}
 	
 	//method
 	@Override
-	public final CloseController getRefCloseController() {
+	public final CloseController getOriCloseController() {
 		return closeController;
 	}
 	
 	//method
 	@Override
-	public final <E extends IEntity> ITable<E> getRefTableByEntityType(
+	public final <E extends IEntity> ITable<E> getOriTableByEntityType(
 		final Class<E> entityType
 	) {
-		return database.getRefTableByEntityType(entityType);
+		return database.getOriTableByEntityType(entityType);
 	}
 	
 	//method

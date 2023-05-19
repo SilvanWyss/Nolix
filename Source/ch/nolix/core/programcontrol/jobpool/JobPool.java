@@ -62,7 +62,7 @@ public final class JobPool {
 	//method
 	synchronized ISingleContainer<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
 		
-		final var nextFreshJobWrapper = jobWrappers.getRefFirstOrNull(JobWrapper::isFresh);
+		final var nextFreshJobWrapper = jobWrappers.getOriFirstOrNull(JobWrapper::isFresh);
 		
 		if (nextFreshJobWrapper == null) {
 			return new SingleContainer<>();

@@ -61,7 +61,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 		new EntityUpdateDTO(
 			entity.getId(),
 			entity.getSaveStamp(),
-			getRefEditedProperties(entity).to(IProperty::technicalToContentField)
+			getOriEditedProperties(entity).to(IProperty::technicalToContentField)
 		);
 	}
 	
@@ -80,20 +80,20 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public  IContainer<IProperty> getRefBackReferencingProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().toFromGroups(IProperty::getRefBackReferencingProperties);
+	public  IContainer<IProperty> getOriBackReferencingProperties(final IEntity entity) {
+		return entity.technicalGetRefProperties().toFromGroups(IProperty::getOriBackReferencingProperties);
 	}
 	
 	//method
 	@Override
-	public  IContainer<? extends IProperty> getRefEditedProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().getRefSelected(propertyHelper::isEdited);
+	public  IContainer<? extends IProperty> getOriEditedProperties(final IEntity entity) {
+		return entity.technicalGetRefProperties().getOriSelected(propertyHelper::isEdited);
 	}
 	
 	//method
 	@Override
-	public  IContainer<? extends IProperty> getRefReferencingProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().toFromGroups(IProperty::getRefReferencingProperties);
+	public  IContainer<? extends IProperty> getOriReferencingProperties(final IEntity entity) {
+		return entity.technicalGetRefProperties().toFromGroups(IProperty::getOriReferencingProperties);
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 			return false;
 		}
 		
-		for (final var t : entity.getRefParentTable().getRefParentDatabase().getRefTables()) {
+		for (final var t : entity.getOriParentTable().getOriParentDatabase().getOriTables()) {
 			if (t.technicalGetRefEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
 				return true;
 			}

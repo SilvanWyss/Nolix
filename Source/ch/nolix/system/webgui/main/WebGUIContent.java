@@ -60,6 +60,6 @@ final class WebGUIContent implements IWebGUIContent {
 	
 	//method
 	private IContainer<IHTMLElement<?, ?>> getHTMLChildElements() {
-		return parentWebGUI.getRefLayers().to(ILayer::toHTMLElement);
+		return parentWebGUI.getOriLayers().to(ILayer::toHTMLElement);
 	}
 }

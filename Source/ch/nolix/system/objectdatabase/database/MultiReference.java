@@ -73,14 +73,14 @@ implements IMultiReference<E> {
 	
 	//method
 	@Override
-	public IContainer<IProperty> getRefBackReferencingProperties() {
+	public IContainer<IProperty> getOriBackReferencingProperties() {
 		
 		final var backReferencingProperties = new LinkedList<IProperty>();
 		
-		for (final var re : getReferencedEntities()) {
+		for (final var re : getOrierencedEntities()) {
 			
 			final var backReferencingProperty =
-			re.technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+			re.technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
 			
 			if (backReferencingProperty != null) {
 				backReferencingProperties.addAtEnd(backReferencingProperty);
@@ -92,22 +92,22 @@ implements IMultiReference<E> {
 	
 	//method
 	@Override
-	public IContainer<E> getReferencedEntities() {
-		return getReferencedEntityIds().to(getReferencedTable()::getRefEntityById);
+	public IContainer<E> getOrierencedEntities() {
+		return getOrierencedEntityIds().to(getOrierencedTable()::getOriEntityById);
 	}
 	
 	//method
 	@Override
-	public IContainer<String> getReferencedEntityIds() {
+	public IContainer<String> getOrierencedEntityIds() {
 		
 		extractReferencedEntityIdsIfNeeded();
 		
-		return localEntries.to(IMultiReferenceEntry::getReferencedEntityId);
+		return localEntries.to(IMultiReferenceEntry::getOrierencedEntityId);
 	}
 	
 	//method
 	@Override
-	public IContainer<? extends IMultiReferenceEntry<E>> getRefLocalEntries() {
+	public IContainer<? extends IMultiReferenceEntry<E>> getOriLocalEntries() {
 		return localEntries;
 	}
 	
@@ -120,7 +120,7 @@ implements IMultiReference<E> {
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getReferencedEntityIds().isEmpty();
+		return getOrierencedEntityIds().isEmpty();
 	}
 	
 	//method
@@ -137,13 +137,13 @@ implements IMultiReference<E> {
 			return false;
 		}
 		
-		return getReferencedEntityIds().containsEqualing(entity.getId());
+		return getOrierencedEntityIds().containsEqualing(entity.getId());
 	}
 	
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return getReferencedEntities().containsAny(e -> !e.belongsToTable());
+		return getOrierencedEntities().containsAny(e -> !e.belongsToTable());
 	}
 	
 	//method
@@ -154,7 +154,7 @@ implements IMultiReference<E> {
 		
 		extractReferencedEntityIdsIfNeeded();
 		
-		localEntries.getRefFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
+		localEntries.getOriFirst(le -> le.getOrierencedEntityId().equals(entity.getId())).internalSetDeleted();
 	}
 	
 	//method
@@ -173,7 +173,7 @@ implements IMultiReference<E> {
 	@Override
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
-			for (final var e : getReferencedEntities()) {
+			for (final var e : getOrierencedEntities()) {
 				updateProbableBackReferenceForSetOrAddedEntity(e);
 			}
 		}
@@ -187,7 +187,7 @@ implements IMultiReference<E> {
 	//method
 	private void clearWhenContainsAny() {
 		
-		getReferencedEntities().forEach(this::removeEntity);
+		getOrierencedEntities().forEach(this::removeEntity);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -216,8 +216,8 @@ implements IMultiReference<E> {
 	private IContainer<MultiReferenceEntry<E>> loadReferencedEntityIds() {
 		return
 		internalGetRefDataAndSchemaAdapter().loadMultiReferenceEntries(
-			getRefParentEntity().getParentTableName(),
-			getRefParentEntity().getId(),
+			getOriParentEntity().getParentTableName(),
+			getOriParentEntity().getId(),
 			getName()
 		)
 		.to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
@@ -238,19 +238,19 @@ implements IMultiReference<E> {
 				final var baseBackReference = (BaseBackReference<?>)p;
 				
 				if (
-					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					baseBackReference.getBackReferencedTableName().equals(getOriParentEntity().getParentTableName())
 					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
 				) {
 					
 					switch (baseBackReference.getType()) {
 						case BACK_REFERENCE:
 							final var backReference = (BackReference<?>)baseBackReference;
-							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
 							backReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case OPTIONAL_BACK_REFERENCE:
 							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
 							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:

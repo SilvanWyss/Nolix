@@ -13,7 +13,7 @@ public interface IMatrix<E> extends IContainer<E> {
 	IContainer<? extends IContainer<E>> getColumns();
 	
 	//method declaration
-	E getRefAt1BasedRowIndexAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
+	E getOriAt1BasedRowIndexAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
 	
 	//method declaration
 	int getRowCount();

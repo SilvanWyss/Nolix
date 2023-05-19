@@ -234,7 +234,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return true if the current {@link BaseStyle} contains the given selectorRole.
 	 */
 	public final boolean containsSelectorRole(final String selectorRole) {
-		return selectorRoles.getRefValues().containsEqualing(selectorRole);
+		return selectorRoles.getOriValues().containsEqualing(selectorRole);
 	}
 	
 	//method
@@ -251,7 +251,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return true if the current {@link BaseStyle} contains the given selectorToken.
 	 */
 	public final boolean containsSelectorToken(final String selectorToken) {
-		return selectorTokens.getRefValues().containsEqualing(selectorToken);
+		return selectorTokens.getOriValues().containsEqualing(selectorToken);
 	}
 	
 	//method
@@ -277,7 +277,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return the selector roles of the current {@link BaseStyle}.
 	 */
 	public final IContainer<String> getSelectorRoles() {
-		return selectorRoles.getRefValues();
+		return selectorRoles.getOriValues();
 	}
 	
 	//method
@@ -285,7 +285,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return the selector tokens of the current {@link BaseStyle}.
 	 */
 	public final IContainer<String> getSelectorTokens() {
-		return selectorTokens.getRefValues();
+		return selectorTokens.getOriValues();
 	}
 	
 	//method
@@ -454,8 +454,8 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 		return asConcrete();
 	}
 	
-	protected final IContainer<BaseStyle<?>> getRefConfigurations() {
-		return configurations.getRefValues();
+	protected final IContainer<BaseStyle<?>> getOriConfigurations() {
+		return configurations.getOriValues();
 	}
 	
 	//method declaration
@@ -473,7 +473,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * is not valid for the given element.
 	 */
 	protected final void setAttachingAttributesTo(IStylableElement<?> element) {
-		for (final var aa : attachingAttributes.getRefValues()) {
+		for (final var aa : attachingAttributes.getOriValues()) {
 			try {
 				element.addOrChangeAttribute(aa);
 			} catch (final Throwable error) {

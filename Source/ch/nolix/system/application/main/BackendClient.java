@@ -54,8 +54,8 @@ public abstract class BackendClient<
 	/**
 	 * @return the context of the parent {@link Application} of the current {@link BackendClient}.
 	 */
-	public AC getRefApplicationContext() {
-		return getParentApplication().getRefApplicationContext();
+	public AC getOriApplicationContext() {
+		return getParentApplication().getOriApplicationContext();
 	}
 	
 	//method
@@ -82,8 +82,8 @@ public abstract class BackendClient<
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BackendClient} does not have a current {@link Session}.
 	 */
-	protected final Session<BC, AC> getRefCurrentSession() {
-		return sessionManager.getRefCurrentSession();
+	protected final Session<BC, AC> getOriCurrentSession() {
+		return sessionManager.getOriCurrentSession();
 	}
 	
 	//method

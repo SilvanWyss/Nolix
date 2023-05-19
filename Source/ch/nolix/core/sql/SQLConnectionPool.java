@@ -72,7 +72,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 		
 		final var lSQLConnection = getOrCreateAvailableSQLConnectionWrapper();
 		
-		final var innerSQLConnection = lSQLConnection.getRefSQLConnection();
+		final var innerSQLConnection = lSQLConnection.getOriSQLConnection();
 		lSQLConnection.setAsInUse();
 		
 		return innerSQLConnection;
@@ -115,7 +115,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	
 	//method
 	@Override
-	public CloseController getRefCloseController() {
+	public CloseController getOriCloseController() {
 		return closeController;
 	}
 	
@@ -135,7 +135,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	
 	//method
 	public void takeBackSQLConnection(final SQLConnection pSQLConnection) {
-		mSQLConnections.getRefFirst(sqlc -> sqlc.contains(pSQLConnection)).setAvailable();
+		mSQLConnections.getOriFirst(sqlc -> sqlc.contains(pSQLConnection)).setAvailable();
 	}
 	
 	//method
@@ -158,7 +158,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	//method
 	private SQLConnectionWrapper getOrCreateAvailableSQLConnectionWrapper() {
 		
-		final var lSQLConnectionWrapper = mSQLConnections.getRefFirstOrNull(SQLConnectionWrapper::isAvailable);
+		final var lSQLConnectionWrapper = mSQLConnections.getOriFirstOrNull(SQLConnectionWrapper::isAvailable);
 		if (lSQLConnectionWrapper != null) {
 			return lSQLConnectionWrapper;
 		}

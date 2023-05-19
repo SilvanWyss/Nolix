@@ -52,28 +52,28 @@ public final class Database implements IDatabase {
 	
 	//method
 	@Override
-	public <E extends IEntity> IContainer<E> getRefEntitiesByType(final Class<E> type) {
-		return getRefTableByEntityType(type).getRefEntities();
+	public <E extends IEntity> IContainer<E> getOriEntitiesByType(final Class<E> type) {
+		return getOriTableByEntityType(type).getOriEntities();
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity> ITable<E> getRefTableByEntityType(
+	public <E extends IEntity> ITable<E> getOriTableByEntityType(
 		final Class<E> entityClass
 	) {
-		return (ITable<E>)getRefTableByName(entityClass.getSimpleName());		
+		return (ITable<E>)getOriTableByName(entityClass.getSimpleName());		
 	}
 	
 	//method	
 	@Override
-	public ITable<IEntity> getRefTableByName(final String name) {
-		return tables.getRefFirst(t -> t.hasName(name));
+	public ITable<IEntity> getOriTableByName(final String name) {
+		return tables.getOriFirst(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
-	public IContainer<? extends ITable<IEntity>> getRefTables() {
+	public IContainer<? extends ITable<IEntity>> getOriTables() {
 		return tables;
 	}
 	
@@ -103,7 +103,7 @@ public final class Database implements IDatabase {
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity> IDatabase insertEntity(final E entity) {
 		
-		getRefTableByEntityType((Class<E>)entity.getClass()).insertEntity(entity);
+		getOriTableByEntityType((Class<E>)entity.getClass()).insertEntity(entity);
 		
 		return this;
 	}
@@ -128,7 +128,7 @@ public final class Database implements IDatabase {
 	
 	//method
 	void internalClose() {
-		for (final var t : getRefTables()) {
+		for (final var t : getOriTables()) {
 			((Table<?>)t).internalClose();
 		}
 	}
@@ -145,7 +145,7 @@ public final class Database implements IDatabase {
 	
 	//method
 	void internalReset() {
-		for (final var t : getRefTables()) {
+		for (final var t : getOriTables()) {
 			((Table<?>)t).internalReset();
 		}
 	}

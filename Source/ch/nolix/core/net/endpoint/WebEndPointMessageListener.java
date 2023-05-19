@@ -34,7 +34,7 @@ final class WebEndPointMessageListener extends BatchWorker {
 		final var message =
 		new WebSocketCompleteMessage(
 			parentWebEndPoint::isOpen,
-			parentWebEndPoint.getRefInputStream(),
+			parentWebEndPoint.getOriInputStream(),
 			parentWebEndPoint::receiveControlFrame
 		);
 		

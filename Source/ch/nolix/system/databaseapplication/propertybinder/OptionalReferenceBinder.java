@@ -21,7 +21,7 @@ extends PropertyBinder<IOptionalReference<IEntity>, IDropdownMenu<?, ?>> {
 		
 		dropdownMenu.addBlankItem();
 		
-		for (final var e : optionalReference.getReferencedTable().getRefEntities()) {
+		for (final var e : optionalReference.getOrierencedTable().getOriEntities()) {
 			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
 		}
 	}
@@ -51,7 +51,7 @@ extends PropertyBinder<IOptionalReference<IEntity>, IDropdownMenu<?, ?>> {
 			optionalReference.clear();
 		} else {
 			
-			final var selectedEntityId = dropdownMenu.getRefSelectedItem().getId();
+			final var selectedEntityId = dropdownMenu.getOriSelectedItem().getId();
 			
 			optionalReference.setEntityById(selectedEntityId);
 		}
@@ -66,7 +66,7 @@ extends PropertyBinder<IOptionalReference<IEntity>, IDropdownMenu<?, ?>> {
 		if (optionalReference.isEmpty()) {
 			dropdownMenu.selectBlankItem();
 		} else {
-			dropdownMenu.selectItemById(optionalReference.getReferencedEntityId());
+			dropdownMenu.selectItemById(optionalReference.getOrierencedEntityId());
 		}
 	}
 }

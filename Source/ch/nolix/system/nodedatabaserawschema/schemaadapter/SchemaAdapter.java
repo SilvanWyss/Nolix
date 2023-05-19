@@ -86,7 +86,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public CloseController getRefCloseController() {
+	public CloseController getOriCloseController() {
 		return closeController;
 	}
 	

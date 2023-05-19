@@ -68,23 +68,23 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 				
 				final var command = pGUICommand.getNextNode();
 				final var controlFixedId = pGUICommand.getSingleChildNodeHeader();
-				final var session = (BackendWebClientSession<AC>)getRefCurrentSession();
-				final var gui = session.getRefGUI();
-				final var control = gui.getRefControlByFixedId(controlFixedId);
+				final var session = (BackendWebClientSession<AC>)getOriCurrentSession();
+				final var gui = session.getOriGUI();
+				final var control = gui.getOriControlByFixedId(controlFixedId);
 				
 				runCommandOnControl(control, command);
 				
 				break;
 			case CommandProtocol.SET_USER_INPUTS:
 				
-				final var session2 = (BackendWebClientSession<AC>)getRefCurrentSession();
-				final var gui2 = session2.getRefGUI();
-				final var controls2 = gui2.getRefControls();
+				final var session2 = (BackendWebClientSession<AC>)getOriCurrentSession();
+				final var gui2 = session2.getOriGUI();
+				final var controls2 = gui2.getOriControls();
 				
 				for (final var p : pGUICommand.getChildNodes()) {
 					final var fixedControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
 					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-					final var control2 = controls2.getRefFirst(c -> c.hasInternalId(fixedControlId2));
+					final var control2 = controls2.getOriFirst(c -> c.hasInternalId(fixedControlId2));
 					control2.setUserInput(userInput);
 				}
 				
@@ -105,7 +105,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	//method
 	private void updateCounterpartIfOpen() {
 		if (isOpen()) {
-			((BackendWebClientSession<AC>)getRefCurrentSession()).updateCounterpart();
+			((BackendWebClientSession<AC>)getOriCurrentSession()).updateCounterpart();
 		}
 	}
 }

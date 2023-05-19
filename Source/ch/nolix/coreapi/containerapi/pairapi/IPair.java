@@ -16,13 +16,13 @@ public interface IPair<E1, E2> {
 	/**
 	 * @return the element1 of the current {@link IPair}.
 	 */
-	E1 getRefElement1();
+	E1 getOriElement1();
 	
 	//method declaration
 	/**
 	 * @return the element2 of the current {@link IPair}.
 	 */
-	E2 getRefElement2();
+	E2 getOriElement2();
 	
 	//method declaration
 	/**

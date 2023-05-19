@@ -32,7 +32,7 @@ public final class VerticalStackHTMLBuilder implements IControlHTMLBuilder<Verti
 	
 	//method
 	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
-		return verticalStack.getRefChildControls().to(this::createHTMLElementsForChildControl);
+		return verticalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
 	
 	//method

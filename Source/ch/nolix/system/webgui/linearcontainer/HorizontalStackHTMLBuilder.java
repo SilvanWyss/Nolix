@@ -34,7 +34,7 @@ public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<Hor
 	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfHorizontalStack(
 		final HorizontalStack horizontalStack
 	) {
-		return horizontalStack.getRefChildControls().to(this::createHTMLElementsForChildControl);
+		return horizontalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
 	
 	//method

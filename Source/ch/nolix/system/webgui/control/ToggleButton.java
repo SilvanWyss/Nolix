@@ -52,7 +52,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	

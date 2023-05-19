@@ -13,7 +13,7 @@ public interface ICachingContainer<E> extends IContainer<E> {
 	String getIdOf(E element);
 	
 	//method declaration
-	E getRefById(String id);
+	E getOriById(String id);
 	
 	//method declaration
 	String registerAndGetId(E element);

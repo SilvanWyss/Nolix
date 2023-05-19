@@ -71,7 +71,7 @@ public final class LayerCSSRuleCreator {
 			return 0;
 		}
 		
-		return layer.getRefParentGUI().getRefLayers().get1BasedIndexOfFirstOccuranceOf(layer);
+		return layer.getOriParentGUI().getOriLayers().get1BasedIndexOfFirstOccuranceOf(layer);
 	}
 	
 	//method

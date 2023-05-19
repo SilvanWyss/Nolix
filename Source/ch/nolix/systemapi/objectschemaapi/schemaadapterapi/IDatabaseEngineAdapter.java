@@ -9,5 +9,5 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
 public interface IDatabaseEngineAdapter extends IChangeSaver {
 	
 	//method declaration
-	IDatabaseEngine getRefDatabaseEngine();
+	IDatabaseEngine getOriDatabaseEngine();
 }

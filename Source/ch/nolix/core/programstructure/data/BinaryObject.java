@@ -34,7 +34,7 @@ public final class BinaryObject implements IBinaryObject{
 	
 	//method
 	@Override
-	public byte[] getRefBytes() {
+	public byte[] getOriBytes() {
 		return bytes;
 	}
 	

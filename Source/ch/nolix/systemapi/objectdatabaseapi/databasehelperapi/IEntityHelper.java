@@ -35,13 +35,13 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	INewEntityDTO createNewEntityDTOForEntity(IEntity entity);
 	
 	//method declaration
-	IContainer<IProperty> getRefBackReferencingProperties(IEntity entity);
+	IContainer<IProperty> getOriBackReferencingProperties(IEntity entity);
 	
 	//method declaration
-	IContainer<? extends IProperty> getRefEditedProperties(IEntity entity);
+	IContainer<? extends IProperty> getOriEditedProperties(IEntity entity);
 	
 	//method declaration
-	IContainer<? extends IProperty> getRefReferencingProperties(IEntity entity);
+	IContainer<? extends IProperty> getOriReferencingProperties(IEntity entity);
 	
 	//method declaration
 	boolean isReferenced(IEntity entity);

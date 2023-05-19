@@ -192,16 +192,16 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 
 	//method
 	@Override
-	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
-		return getRefLayers();
+	public IContainer<? extends IStylableElement<?>> getOriChildStylableElements() {
+		return getOriLayers();
 	}
 	
 	//method
 	@Override
-	public IControl<?, ?> getRefControlByFixedId(final String fixedId) {
+	public IControl<?, ?> getOriControlByFixedId(final String fixedId) {
 		
-		for (final var l : getRefLayers()) {
-			for (final var c : l.getRefControls()) {
+		for (final var l : getOriLayers()) {
+			for (final var c : l.getOriControls()) {
 				if (c.hasInternalId(fixedId)) {
 					return c;
 				}
@@ -217,20 +217,20 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefControls() {
-		return getRefLayers().toFromGroups(ILayer::getRefControls);
+	public IContainer<IControl<?, ?>> getOriControls() {
+		return getOriLayers().toFromGroups(ILayer::getOriControls);
 	}
 	
 	//method
 	@Override
-	public IContainer<ILayer<?>> getRefLayers() {
-		return layers.getRefValues();
+	public IContainer<ILayer<?>> getOriLayers() {
+		return layers.getOriValues();
 	}
 	
 	//method
 	@Override
-	public ILayer<?> getRefTopLayer() {
-		return getRefLayers().getRefLast();
+	public ILayer<?> getOriTopLayer() {
+		return getOriLayers().getOriLast();
 	}
 	
 	//method
@@ -260,7 +260,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getRefLayers().isEmpty();
+		return getOriLayers().isEmpty();
 	}
 	
 	//method
@@ -394,7 +394,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	private void registerHTMLElementEventsAt(final LinkedList<IHTMLElementEvent> lHTMLElementEventRegistrations) {
-		for (final var c : getRefControls()) {
+		for (final var c : getOriControls()) {
 			c.registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
 		}
 	}

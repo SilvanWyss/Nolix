@@ -188,13 +188,13 @@ public final class Column extends SchemaObject implements IColumn {
 	}
 	
 	//method
-	IContainer<IColumn> getRefBackReferencingColumns() {
+	IContainer<IColumn> getOriBackReferencingColumns() {
 		
 		if (!columnHelper.isAReferenceColumn(this)) {
 			return new LinkedList<>();
 		}
 		
-		return getRefBackReferencingColumnsWhenIsReferenceColumn();
+		return getOriBackReferencingColumnsWhenIsReferenceColumn();
 	}
 	
 	//method
@@ -241,18 +241,18 @@ public final class Column extends SchemaObject implements IColumn {
 	}
 	
 	//method
-	private IContainer<IColumn> getRefBackReferencingColumnsWhenIsReferenceColumn() {
+	private IContainer<IColumn> getOriBackReferencingColumnsWhenIsReferenceColumn() {
 		
 		if (columnHelper.belongsToDatabase(this)) {
 			return
 			columnHelper
 			.getParentDatabase(this)
-			.getRefTables()
-			.toFromGroups(t -> t.getRefColumns().getRefSelected(c -> columnHelper.referencesBackGivenColumn(c, this)));
+			.getOriTables()
+			.toFromGroups(t -> t.getOriColumns().getOriSelected(c -> columnHelper.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getRefColumns().getRefSelected(c -> columnHelper.referencesBackGivenColumn(c, this));
+			return getParentTable().getOriColumns().getOriSelected(c -> columnHelper.referencesBackGivenColumn(c, this));
 		}
 		
 		return new LinkedList<>();
@@ -265,12 +265,12 @@ public final class Column extends SchemaObject implements IColumn {
 			return
 			columnHelper
 			.getParentDatabase(this)
-			.getRefTables()
-			.containsAny(t -> t.getRefColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this)));
+			.getOriTables()
+			.containsAny(t -> t.getOriColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getRefColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this));
+			return getParentTable().getOriColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this));
 		}
 		
 		return false;

@@ -66,7 +66,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = null;
 		
 		//Lets the given target take the counterpart of this local duplex controller.
-		target.takeBackendEndPoint(getRefCounterpart());
+		target.takeBackendEndPoint(getOriCounterpart());
 	}
 	
 	//constructor
@@ -137,7 +137,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public INode<?> getDataForRequest(final IChainedNode request) {
-		return counterpart.getRefReceiverController().getDataForRequest(request);
+		return counterpart.getOriReceiverController().getDataForRequest(request);
 	}
 	
 	//method
@@ -146,7 +146,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-		return counterpart.getRefReceiverController().getDataForRequests(request, requests);
+		return counterpart.getOriReceiverController().getDataForRequests(request, requests);
 	}
 	
 	//method
@@ -155,14 +155,14 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-		return counterpart.getRefReceiverController().getDataForRequests(requests);
+		return counterpart.getOriReceiverController().getDataForRequests(requests);
 	}
 	
 	//method
 	/**
 	 * @return the counterpart of this local duplex controller.
 	 */
-	public LocalEndPoint getRefCounterpart() {
+	public LocalEndPoint getOriCounterpart() {
 		return counterpart;
 	}
 	
@@ -212,7 +212,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that this local duplex controller is not aborted.
 		assertIsOpen();
 		
-		counterpart.getRefReceiverController().runCommand(command);
+		counterpart.getOriReceiverController().runCommand(command);
 	}
 	
 	//method
@@ -225,7 +225,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that this local duplex controller is open.
 		assertIsOpen();
 		
-		final var counterpartReceiverController = counterpart.getRefReceiverController();
+		final var counterpartReceiverController = counterpart.getOriReceiverController();
 		
 		commands.forEach(counterpartReceiverController::runCommand);
 	}

@@ -154,7 +154,7 @@ final class BackendWebClientCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetUserInputFunctionsCommandFromWebGUI(final IWebGUI<?> webGUI) {
-		return createSetUserInputFunctionsCommandForControls(webGUI.getRefControls());
+		return createSetUserInputFunctionsCommandForControls(webGUI.getOriControls());
 	}
 	
 	//method
@@ -166,7 +166,7 @@ final class BackendWebClientCounterpartUpdater {
 			final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();
 			if (userInputFunction.containsAny()) {
 				userInputFunctions.addAtEnd(
-					createUserInputFunctionFromControlAndString(c, userInputFunction.getRefElement())
+					createUserInputFunctionFromControlAndString(c, userInputFunction.getOriElement())
 				);
 			}
 		}

@@ -111,7 +111,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean blankItemIsSelected() {
-		return (containsBlankItem() && getRefBlankItem().isSelected());
+		return (containsBlankItem() && getOriBlankItem().isSelected());
 	}
 	
 	//method
@@ -123,49 +123,49 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean containsBlankItem() {
-		return getRefItems().containsAny(IItemMenuItem::isBlank);
+		return getOriItems().containsAny(IItemMenuItem::isBlank);
 	}
 	
 	//method
 	@Override
 	public final boolean containsItemWithId(final String id) {
-		return getRefItems().containsAny(i -> i.hasId(id));
+		return getOriItems().containsAny(i -> i.hasId(id));
 	}
 	
 	//method
 	@Override
 	public final boolean containsItemWithText(final String text) {
-		return getRefItems().containsAny(i -> i.getText().equals(text));
+		return getOriItems().containsAny(i -> i.getText().equals(text));
 	}
 	
 	//method
 	@Override
 	public final String getIdByItemText(final String itemText) {
-		return getRefItemByText(itemText).getId();
+		return getOriItemByText(itemText).getId();
 	}
 	
 	//method
 	@Override
-	public final IContainer<IControl<?, ?>> getRefChildControls() {
+	public final IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	
 	//method
 	@Override
-	public final IContainer<IItemMenuItem<?>> getRefItems() {
-		return items.getRefValues();
+	public final IContainer<IItemMenuItem<?>> getOriItems() {
+		return items.getOriValues();
 	}
 	
 	//method
 	@Override
-	public final IItemMenuItem<?> getRefSelectedItem() {
-		return getRefItems().getRefFirst(IItemMenuItem::isSelected);
+	public final IItemMenuItem<?> getOriSelectedItem() {
+		return getOriItems().getOriFirst(IItemMenuItem::isSelected);
 	}
 	
 	//method
 	@Override
 	public final String getTextByItemId(final String itemId) {
-		return getRefItemById(itemId).getText();
+		return getOriItemById(itemId).getText();
 	}
 	
 	//method
@@ -176,7 +176,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		return getRefItems().getRefFirst(IItemMenuItem::isSelected).getText();
+		return getOriItems().getOriFirst(IItemMenuItem::isSelected).getText();
 	}
 	
 	//method
@@ -188,7 +188,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean isEmpty() {
-		return getRefItems().isEmpty();
+		return getOriItems().isEmpty();
 	}
 	
 	//method
@@ -207,7 +207,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectBlankItem() {
 		
-		getRefBlankItem().select();
+		getOriBlankItem().select();
 				
 		return asConcrete();
 	}
@@ -216,7 +216,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectFirstItem() {
 		
-		getRefFirstItem().select();
+		getOriFirstItem().select();
 		
 		return asConcrete();
 	}
@@ -225,7 +225,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectItemById(final String id) {
 		
-		getRefItemById(id).select();
+		getOriItemById(id).select();
 		
 		return asConcrete();
 	}
@@ -234,7 +234,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectItemByText(final String text) {
 		
-		getRefItemByText(text);
+		getOriItemByText(text);
 		
 		return asConcrete();
 	}
@@ -264,9 +264,9 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	public final IM setUserInput(final String userInput) {
 		
 		if (userInput.isEmpty()) {
-			getRefItems().forEach(IItemMenuItem::unselect);
+			getOriItems().forEach(IItemMenuItem::unselect);
 		} else {
-			getRefItemByText(userInput).select();
+			getOriItemByText(userInput).select();
 		}
 		
 		return asConcrete();
@@ -318,23 +318,23 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	}
 	
 	//method
-	private IItemMenuItem<?> getRefBlankItem() {
-		return getRefItems().getRefFirst(IItemMenuItem::isBlank);
+	private IItemMenuItem<?> getOriBlankItem() {
+		return getOriItems().getOriFirst(IItemMenuItem::isBlank);
 	}
 	
 	//method
-	private IItemMenuItem<?> getRefFirstItem() {
-		return getRefItems().getRefFirst();
+	private IItemMenuItem<?> getOriFirstItem() {
+		return getOriItems().getOriFirst();
 	}
 	
 	//method
-	private IItemMenuItem<?> getRefItemById(final String itemId) {
-		return getRefItems().getRefFirst(i -> i.hasId(itemId));
+	private IItemMenuItem<?> getOriItemById(final String itemId) {
+		return getOriItems().getOriFirst(i -> i.hasId(itemId));
 	}
 	
 	//method
-	private IItemMenuItem<?> getRefItemByText(final String itemText) {
-		return getRefItems().getRefFirst(i -> i.getText().equals(itemText));
+	private IItemMenuItem<?> getOriItemByText(final String itemText) {
+		return getOriItems().getOriFirst(i -> i.getText().equals(itemText));
 	}
 	
 	//method

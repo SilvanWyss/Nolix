@@ -45,13 +45,13 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		
 		//verification
 		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		expect(loadedJohn.pet.isEmpty());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsNewAndNotEmpty() {
+	public void testCase_getOriEntity_whenIsNewAndNotEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -65,7 +65,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution
-		final var result = john.pet.getReferencedEntity();
+		final var result = john.pet.getOrierencedEntity();
 		
 		//verification
 		expect(result).is(garfield);
@@ -73,7 +73,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsLoadedAndNotEmpty() {
+	public void testCase_getOriEntity_whenIsLoadedAndNotEmpty() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
@@ -89,10 +89,10 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		
 		//execution
-		final var result = loadedJohn.pet.getReferencedEntity();
+		final var result = loadedJohn.pet.getOrierencedEntity();
 		
 		//verification
 		expect(result.getId()).isEqualTo(garfield.getId());
@@ -115,7 +115,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapterB =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var loadedGarfieldB =
-		nodeDatabaseAdapterB.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapterB.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		final var johnB = new Person();
 		johnB.pet.setEntity(loadedGarfieldB);
 		nodeDatabaseAdapterB.insert(johnB);
@@ -124,7 +124,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapterC =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var loadedGarfieldC =
-		nodeDatabaseAdapterC.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapterC.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		loadedGarfieldC.delete();
 		nodeDatabaseAdapterC.saveChangesAndReset();
 				

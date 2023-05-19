@@ -56,12 +56,12 @@ implements IOptionalBackReference<E>{
 	//method
 	@Override
 	public E getBackReferencedEntity() {
-		return getBackReferencedTable().getRefEntityById(getBackReferencedEntityId());
+		return getBackReferencedTable().getOriEntityById(getBackReferencedEntityId());
 	}
 	
 	//method
 	@Override
-	public IContainer<IProperty> getRefReferencingProperties() {
+	public IContainer<IProperty> getOriReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
@@ -69,7 +69,7 @@ implements IOptionalBackReference<E>{
 		
 		return
 		ImmutableList.withElement(
-			getBackReferencedEntity().technicalGetRefProperties().getRefFirst(p -> p.hasName(getBackReferencedPropertyName()))
+			getBackReferencedEntity().technicalGetRefProperties().getOriFirst(p -> p.hasName(getBackReferencedPropertyName()))
 		);
 	}
 	

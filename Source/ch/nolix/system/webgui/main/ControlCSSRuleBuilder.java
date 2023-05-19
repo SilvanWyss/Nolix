@@ -171,7 +171,7 @@ implements IControlCSSRuleBuilder<C, CS> {
 		final LinkedList<ICSSProperty> list
 	) {
 				
-		final var style = control.getRefStyle();
+		final var style = control.getOriStyle();
 		
 		final var opacity = style.getOpacityWhenHasState(state);
 		if (opacity < 1.0) {

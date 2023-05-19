@@ -76,7 +76,7 @@ implements IApplication<AC> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final AC getRefApplicationContext() {
+	public final AC getOriApplicationContext() {
 		return applicationContext;
 	}
 	
@@ -84,7 +84,7 @@ implements IApplication<AC> {
 	/**
 	 * @return the {@link Client}s of the current {@link Application}.
 	 */
-	public final IContainer<BC> getRefClients() {
+	public final IContainer<BC> getOriClients() {
 		
 		removeClosedClients();
 		
@@ -96,7 +96,7 @@ implements IApplication<AC> {
 	 * @return true if the current {@link Application} has a {@link Client} connected.
 	 */
 	public final boolean hasClientConnected() {
-		return getRefClients().containsAny();
+		return getOriClients().containsAny();
 	}
 	
 	//method

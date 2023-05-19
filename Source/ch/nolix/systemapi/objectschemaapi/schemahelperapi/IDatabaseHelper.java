@@ -66,10 +66,10 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	void deleteTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
-	IContainer<IColumn> getRefAllBackReferenceColumns(IDatabase database);
+	IContainer<IColumn> getOriAllBackReferenceColumns(IDatabase database);
 	
 	//method declaration
-	 ITable getRefTableWithGivenName(IDatabase database, String name);
+	 ITable getOriTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
 	int getTableCount(IDatabase database);

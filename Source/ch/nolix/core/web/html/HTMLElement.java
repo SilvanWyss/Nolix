@@ -23,8 +23,8 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		return
 		withTypeAndAttributesAndChildElements(
 			pHTMLElement.getType(),
-			pHTMLElement.getRefAttributes(),
-			pHTMLElement.getRefChildElements()
+			pHTMLElement.getOriAttributes(),
+			pHTMLElement.getOriChildElements()
 		);
 	}
 	
@@ -154,13 +154,13 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//method
 	@Override
 	public boolean containsAttributes() {
-		return getRefAttributes().containsAny();
+		return getOriAttributes().containsAny();
 	}
 	
 	//method
 	@Override
 	public boolean containsChildElements() {
-		return getRefChildElements().containsAny();
+		return getOriChildElements().containsAny();
 	}
 	
 	//method
@@ -171,13 +171,13 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	
 	//method
 	@Override
-	public IContainer<HTMLAttribute> getRefAttributes() {
+	public IContainer<HTMLAttribute> getOriAttributes() {
 		return attributes;
 	}
 	
 	//method
 	@Override
-	public IContainer<HTMLElement> getRefChildElements() {
+	public IContainer<HTMLElement> getOriChildElements() {
 		return childElements;
 	}
 	
@@ -200,12 +200,12 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	
 	//method
 	private String getAttributesAsString() {
-		return getRefAttributes().toStringWithSeparator(" ");
+		return getOriAttributes().toStringWithSeparator(" ");
 	}
 	
 	//method
 	private String getChildElementsAsString() {
-		return getRefChildElements().toStringWithSeparator("");
+		return getOriChildElements().toStringWithSeparator("");
 	}
 	
 	//method

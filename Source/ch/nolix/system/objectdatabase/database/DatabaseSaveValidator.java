@@ -32,7 +32,7 @@ public final class DatabaseSaveValidator {
 	//method
 	public void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(final Database database) {
 		
-		final var entitiesInLocalData = databaseHelper.getRefEntitiesInLocalData(database);
+		final var entitiesInLocalData = databaseHelper.getOriEntitiesInLocalData(database);
 		
 		for (final var e : entitiesInLocalData) {
 			addExpectionsThatNewlyReferencedEntitiesExistToDatabase(e, database);
@@ -80,8 +80,8 @@ public final class DatabaseSaveValidator {
 				final var reference = (IReference<?>)property;
 											
 				database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-					reference.getReferencedTableName(),
-					reference.getReferencedEntityId()
+					reference.getOrierencedTableName(),
+					reference.getOrierencedEntityId()
 				);
 											
 				break;
@@ -91,8 +91,8 @@ public final class DatabaseSaveValidator {
 				
 				if (optionalReference.containsAny()) {
 					database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-						optionalReference.getReferencedTableName(),
-						optionalReference.getReferencedEntityId()
+						optionalReference.getOrierencedTableName(),
+						optionalReference.getOrierencedEntityId()
 					);
 				}
 				
@@ -100,13 +100,13 @@ public final class DatabaseSaveValidator {
 			case MULTI_REFERENCE:
 				
 				final var multiReference = (MultiReference<?>)property;
-				final var referencedTableName = multiReference.getReferencedTableName();
+				final var referencedTableName = multiReference.getOrierencedTableName();
 				
-				for (final var le : multiReference.getRefLocalEntries()) {
+				for (final var le : multiReference.getOriLocalEntries()) {
 					if (multiReferenceEntryHelper.isNewOrEdited(le)) {
 						database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 							referencedTableName,
-							le.getReferencedEntityId()
+							le.getOrierencedEntityId()
 						);
 					}
 				}

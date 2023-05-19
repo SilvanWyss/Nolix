@@ -98,7 +98,7 @@ public final class MutableValue<V> extends SingleValue<V> {
 			name,
 			defaultValue,
 			setterMethod,
-			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
+			s -> s.getOriSingleChildNode().getHeaderOrEmptyString(),
 			(final String s) -> {
 				
 				if (s.isEmpty()) {

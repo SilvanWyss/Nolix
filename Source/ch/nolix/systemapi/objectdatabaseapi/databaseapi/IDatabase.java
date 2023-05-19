@@ -9,16 +9,16 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public interface IDatabase extends IDatabaseObject {
 	
 	//method declarations
-	<E extends IEntity> IContainer<E> getRefEntitiesByType(Class<E> type); 
+	<E extends IEntity> IContainer<E> getOriEntitiesByType(Class<E> type); 
 	
 	//method declaration
-	<E extends IEntity> ITable<E> getRefTableByEntityType(Class<E> entityClass);
+	<E extends IEntity> ITable<E> getOriTableByEntityType(Class<E> entityClass);
 	
 	//method declaration
-	ITable<IEntity> getRefTableByName(String name);
+	ITable<IEntity> getOriTableByName(String name);
 	
 	//method declaration
-	IContainer<? extends ITable<IEntity>> getRefTables();
+	IContainer<? extends ITable<IEntity>> getOriTables();
 	
 	//method declaration
 	ITime getSchemaTimestamp();

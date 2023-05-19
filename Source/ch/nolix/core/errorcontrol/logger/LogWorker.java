@@ -61,7 +61,7 @@ final class LogWorker extends Thread {
 	
 	//method
 	private synchronized LogEntry getAndRemoveNextLogEntry() {
-		final var logEntry = logEntries.getRefFirst();
+		final var logEntry = logEntries.getOriFirst();
 		logEntries.removeFirst();
 		return logEntry;
 	}

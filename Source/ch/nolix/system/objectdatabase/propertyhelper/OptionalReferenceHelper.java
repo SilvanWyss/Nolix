@@ -18,7 +18,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
-		&& optionalReference.getRefParentEntity().isOpen();
+		&& optionalReference.getOriParentEntity().isOpen();
 	}
 	
 	//method
@@ -28,14 +28,14 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		canSetEntity(optionalReference)
 		&& entity != null
 		&& entity.isOpen()
-		&& optionalReference.getReferencedTableName().equals(entity.getParentTableName());
+		&& optionalReference.getOrierencedTableName().equals(entity.getParentTableName());
 	}
 	
 	//method
 	@Override
 	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IOptionalReference<?> optionalReference) {
 		
-		final var parentEntity = optionalReference.getRefParentEntity();
+		final var parentEntity = optionalReference.getOriParentEntity();
 		
 		return new EntityUpdateDTO(
 			parentEntity.getId(),
@@ -51,7 +51,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		final IEntity entity
 	) {
 		
-		final var parentEntity = optionalReference.getRefParentEntity();
+		final var parentEntity = optionalReference.getOriParentEntity();
 		
 		return new EntityUpdateDTO(
 			parentEntity.getId(),
@@ -62,14 +62,14 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public  IProperty getRefBackReferencingPropertyOrNull(
+	public  IProperty getOriBackReferencingPropertyOrNull(
 		final IOptionalReference<?> optionalReference
 	) {
 		return
 		optionalReference
-		.getReferencedEntity()
+		.getOrierencedEntity()
 		.technicalGetRefProperties()
-		.getRefFirstOrNull(p -> p.referencesBackProperty(optionalReference));
+		.getOriFirstOrNull(p -> p.referencesBackProperty(optionalReference));
 	}
 	
 	//method
@@ -77,6 +77,6 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
-		&& optionalReference.getRefParentEntity().isOpen();
+		&& optionalReference.getOriParentEntity().isOpen();
 	}
 }

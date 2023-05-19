@@ -24,11 +24,11 @@ public class TimeMediator extends ArgumentMediator<ITime> {
 		
 		isNotNull();
 		
-		if (!getRefArgument().isAfter(time)) {
+		if (!getOriArgument().isAfter(time)) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"is not after " + time
 			);
 		}
@@ -39,11 +39,11 @@ public class TimeMediator extends ArgumentMediator<ITime> {
 		
 		isNotNull();
 		
-		if (!getRefArgument().isBefore(time)) {
+		if (!getOriArgument().isBefore(time)) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"is not before " + time
 			);
 		}

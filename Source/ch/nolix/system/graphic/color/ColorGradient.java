@@ -48,11 +48,11 @@ public final class ColorGradient extends Element implements IColorGradient {
 	 */
 	public static ColorGradient fromSpecification(final INode<?> specification) {
 		
-		final var attributes = specification.getRefChildNodes();
+		final var attributes = specification.getOriChildNodes();
 		
-		final var directionSpecification = Node.withChildNode(attributes.getRefAt1BasedIndex(1));
-		final var color1Specification = Node.withChildNode(attributes.getRefAt1BasedIndex(2));
-		final var color2Specification = Node.withChildNode(attributes.getRefAt1BasedIndex(3));
+		final var directionSpecification = Node.withChildNode(attributes.getOriAt1BasedIndex(1));
+		final var color1Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(2));
+		final var color2Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(3));
 		
 		return new ColorGradient(
 			DirectionInRectangle.fromSpecification(directionSpecification),

@@ -13,24 +13,24 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getRefSingleChildNode_whenNodeDoesNotContainChildNodes() {
+	public final void testCase_getOriSingleChildNode_whenNodeDoesNotContainChildNodes() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a");
 		
 		//execution & verification
-		expectRunning(testUnit::getRefSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(testUnit::getOriSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method
 	@TestCase
-	public final void testCase_getRefSingleChildNode_whenNodeContains1ChildNode() {
+	public final void testCase_getOriSingleChildNode_whenNodeContains1ChildNode() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 		
 		//execution
-		final var result = testUnit.getRefSingleChildNode();
+		final var result = testUnit.getOriSingleChildNode();
 		
 		//verification
 		expect(result).hasStringRepresentation("b");
@@ -38,15 +38,15 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefChildNodeAt1BasedIndex() {
+	public void testCase_getOriChildNodeAt1BasedIndex() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a", "b", "c", "d");
 		
 		//execution
-		final var result1 = testUnit.getRefChildNodeAt1BasedIndex(1);
-		final var result2 = testUnit.getRefChildNodeAt1BasedIndex(2);
-		final var result3 = testUnit.getRefChildNodeAt1BasedIndex(3);
+		final var result1 = testUnit.getOriChildNodeAt1BasedIndex(1);
+		final var result2 = testUnit.getOriChildNodeAt1BasedIndex(2);
+		final var result3 = testUnit.getOriChildNodeAt1BasedIndex(3);
 		
 		//verification part 1
 		expect(result1.toString()).isEqualTo("b");
@@ -55,13 +55,13 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 		
 		//verification part 2
 		expectRunning(
-			() -> testUnit.getRefChildNodeAt1BasedIndex(-1)).throwsException().ofType(ArgumentIsOutOfRangeException.class
+			() -> testUnit.getOriChildNodeAt1BasedIndex(-1)).throwsException().ofType(ArgumentIsOutOfRangeException.class
 		);
 		expectRunning(
-			() -> testUnit.getRefChildNodeAt1BasedIndex(0)).throwsException().ofType(ArgumentIsOutOfRangeException.class
+			() -> testUnit.getOriChildNodeAt1BasedIndex(0)).throwsException().ofType(ArgumentIsOutOfRangeException.class
 		);
 		expectRunning(
-			() -> testUnit.getRefChildNodeAt1BasedIndex(4)).throwsException().ofType(ArgumentIsOutOfRangeException.class
+			() -> testUnit.getOriChildNodeAt1BasedIndex(4)).throwsException().ofType(ArgumentIsOutOfRangeException.class
 		);
 	}
 	
@@ -123,13 +123,13 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefSingleChildNode_1A() {
+	public void testCase_getOriSingleChildNode_1A() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a", "b");
 		
 		//execution
-		final var result = testUnit.getRefSingleChildNode();
+		final var result = testUnit.getOriSingleChildNode();
 		
 		
 		//verification
@@ -138,13 +138,13 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefSingleChildNode_1B() {
+	public void testCase_getOriSingleChildNode_1B() {
 		
 		//setup
 		final var testUnit = createBlankNode();
 		
 		//execution
-		expectRunning(testUnit::getRefSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(testUnit::getOriSingleChildNode).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method

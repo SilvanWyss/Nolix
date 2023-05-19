@@ -61,7 +61,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ parametrezidPropertyTypeRecord.getDataTypeValue()
 		+ ", "
-		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
+		+ parametrezidPropertyTypeRecord.getOrierencedTableIdValue()
 		+ ", "
 		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ " FROM "
@@ -154,7 +154,7 @@ final class SystemDataWriterSQLStatementCreator {
 		+ ", "
 		+ ColumnTableColumn.REFERENCED_TABLE_ID
 		+ " = "
-		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
+		+ parametrezidPropertyTypeRecord.getOrierencedTableIdValue()
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID
 		+ " = "

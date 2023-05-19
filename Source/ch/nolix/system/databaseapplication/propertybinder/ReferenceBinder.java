@@ -23,7 +23,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, I
 		final IDropdownMenu<?, ?> dropdownMenu,
 		final IReference<IEntity> reference
 	) {
-		for (final var e : reference.getReferencedTable().getRefEntities()) {
+		for (final var e : reference.getOrierencedTable().getOriEntities()) {
 			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
 		}
 	}
@@ -44,7 +44,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, I
 		final IDropdownMenu<?, ?> dropdownMenu
 	) {
 		
-		final var selectedEntityId = dropdownMenu.getRefSelectedItem().getId();
+		final var selectedEntityId = dropdownMenu.getOriSelectedItem().getId();
 		
 		reference.setEntityById(selectedEntityId);
 	}
@@ -56,7 +56,7 @@ public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, I
 		final IReference<IEntity> reference
 	) {
 		if (reference.containsAny()) {
-			dropdownMenu.selectItemById(reference.getReferencedEntityId());
+			dropdownMenu.selectItemById(reference.getOrierencedEntityId());
 		}
 	}
 }

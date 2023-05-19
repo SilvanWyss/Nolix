@@ -37,25 +37,25 @@ public final class YesNoDialogTutorial {
 		protected void initialize() {
 			
 			//Adds a Button, that can open a YesNoDialog, to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootControl(
+			getOriGUI().pushLayerWithRootControl(
 				new Button()
 				.setText("Click me")
 				.setLeftMouseButtonPressAction(
 					() -> 
-					getRefGUI()
+					getOriGUI()
 					.pushLayer(
 						YesNoDialogFactory
 						.INSTANCE
 						.createYesNoDialogWithYesNoQuestionAndConfirmAction(
 							"Do you want to open nolix.ch?",
-							() -> getRefGUI().onFrontEnd().openNewTabWithURL("nolix.ch")
+							() -> getOriGUI().onFrontEnd().openNewTabWithURL("nolix.ch")
 						)
 					)
 				)
 			);
 			
 			//Adds a Style to the GUI of the current MainSession.
-			getRefGUI().setStyle(
+			getOriGUI().setStyle(
 				new Style()
 				.addConfiguration(
 					new DeepStyle()

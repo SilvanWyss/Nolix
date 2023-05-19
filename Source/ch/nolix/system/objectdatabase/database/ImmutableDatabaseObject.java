@@ -15,7 +15,7 @@ abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObjec
 	
 	//method
 	@Override
-	public final CloseController getRefCloseController() {
+	public final CloseController getOriCloseController() {
 		return closeController;
 	}
 	

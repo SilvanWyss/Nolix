@@ -13,11 +13,11 @@ public final class GlobalReflectionHelper {
 	
 	//static method
 	public static String getFieldName(final Object object, final Object attribute) {
-		return getRefField(object, attribute).getName();
+		return getOriField(object, attribute).getName();
 	}
 	
 	//static method
-	public static Field getRefField(final Object object, final Object attribute) {
+	public static Field getOriField(final Object object, final Object attribute) {
 		
 		var lClass = object.getClass();
 		while (lClass != null) {

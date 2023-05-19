@@ -300,7 +300,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	E getRefAny();
+	E getOriAny();
 	
 	//method declaration declaration
 	/**
@@ -308,7 +308,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return the element at the given p1BasedIndex.
 	 * @throws RuntimeException if the current {@link IContainer} does not contain an element at the given p1BasedIndex.
 	 */
-	E getRefAt1BasedIndex(int p1BasedIndex);
+	E getOriAt1BasedIndex(int p1BasedIndex);
 	
 	//method declaration
 	/**
@@ -318,7 +318,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * the biggest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<C extends Comparable<C>> E getRefByMax(IElementTakerElementGetter<E, C> norm);
+	<C extends Comparable<C>> E getOriByMax(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
@@ -328,14 +328,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * the smallest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<C extends Comparable<C>> E getRefByMin(IElementTakerElementGetter<E, C> norm);
+	<C extends Comparable<C>> E getOriByMin(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
 	 * @return the first element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	E getRefFirst();
+	E getOriFirst();
 	
 	//method declaration
 	/**
@@ -344,20 +344,20 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @throws RuntimeException if
 	 * the current {@link IContainer} does not contain an element the given selector selects.
 	 */
-	E getRefFirst(IElementTakerBooleanGetter<? super E> selector);
+	E getOriFirst(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**
 	 * @return the first element of the current {@link IContainer} or null.
 	 */
-	E getRefFirstOrNull();
+	E getOriFirstOrNull();
 	
 	//method declaration
 	/**
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
 	 */
-	E getRefFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
+	E getOriFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method
 	/**
@@ -365,14 +365,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * groups with the elements of the current {@link IContainer} grouped by the given norm.
 	 */
-	IContainer<? extends IContainer<E>> getRefGroups(IElementTakerElementGetter<E, ?> norm);
+	IContainer<? extends IContainer<E>> getOriGroups(IElementTakerElementGetter<E, ?> norm);
 	
 	//method declaration
 	/**
 	 * @return the last element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	E getRefLast();
+	E getOriLast();
 	
 	//method declaration
 	/**
@@ -381,7 +381,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * the elements from the current {@link IContainer} that are of the given type.
 	 */
-	<E2 extends E> IContainer<E2> getRefOfType(Class<E2> type);
+	<E2 extends E> IContainer<E2> getOriOfType(Class<E2> type);
 	
 	//method declaration
 	/**
@@ -389,7 +389,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 * @throws RuntimeException if the current {@link IContainer} contains several elements.
 	 */
-	E getRefOne();
+	E getOriOne();
 	
 	//method declaration
 	/**
@@ -397,7 +397,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * the elements from the current {@link IContainer} the given selector skips (!).
 	 */
-	IContainer<E> getRefOther(IElementTakerBooleanGetter<E> selector);
+	IContainer<E> getOriOther(IElementTakerBooleanGetter<E> selector);
 	
 	//method declaration
 	/**
@@ -405,7 +405,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * the elements the given selector selects from the current {@link IContainer}.
 	 */
-	IContainer<E> getRefSelected(IElementTakerBooleanGetter<? super E> selector);
+	IContainer<E> getOriSelected(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**

@@ -22,7 +22,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		
 		//verification
 		expect(result.getArgumentName()).isEqualTo("argument");
-		expect(result.getRefArgument()).isNull();
+		expect(result.getOriArgument()).isNull();
 		expect(result.getErrorPredicate()).isEqualTo("is not valid");
 		expect(result.getMessage()).isEqualTo("The given argument is not valid.");
 	}
@@ -39,7 +39,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		
 		//verification
 		expect(result.getArgumentName()).isEqualTo("Node");
-		expect(result.getRefArgument()).is(node);
+		expect(result.getOriArgument()).is(node);
 		expect(result.getErrorPredicate()).isEqualTo("is not valid");
 		expect(result.getMessage()).isEqualTo("The given Node 'Parking(Slot(Id(A)), Slot(Id(B)))' is not valid.");
 	}
@@ -56,7 +56,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		
 		//verification
 		expect(result.getArgumentName()).isEqualTo("BigDecimal");
-		expect(result.getRefArgument()).is(amount);
+		expect(result.getOriArgument()).is(amount);
 		expect(result.getErrorPredicate()).isEqualTo("is not a whole number");
 		expect(result.getMessage()).isEqualTo("The given BigDecimal '10.5' is not a whole number.");
 	}
@@ -78,7 +78,7 @@ public final class InvalidArgumentExceptionTest extends Test {
 		
 		//verification
 		expect(result.getArgumentName()).isEqualTo("amount");
-		expect(result.getRefArgument()).is(amount);
+		expect(result.getOriArgument()).is(amount);
 		expect(result.getErrorPredicate()).isEqualTo("is not a whole number");
 		expect(result.getMessage()).isEqualTo("The given amount '10.5' is not a whole number.");
 	}

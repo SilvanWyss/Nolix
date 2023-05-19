@@ -38,7 +38,7 @@ public final class ValueBinder extends PropertyBinder<IValue<?>, ITextbox> {
 	@Override
 	protected void updateControlFromProperty(final ITextbox textBox, final IValue<?> value) {
 		if (value.containsAny()) {
-			textBox.setText(value.getRefValue().toString());
+			textBox.setText(value.getOriValue().toString());
 		}
 	}
 }

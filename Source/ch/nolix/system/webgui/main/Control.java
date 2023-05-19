@@ -134,7 +134,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final boolean belongsToGUI() {
-		return (belongsToLayer() && getRefParentLayer().belongsToGUI());
+		return (belongsToLayer() && getOriParentLayer().belongsToGUI());
 	}
 	
 	//method
@@ -148,7 +148,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C editStyle(final IElementTaker<CS> styleEditor) {
 		
-		styleEditor.run(getRefStyle());
+		styleEditor.run(getOriStyle());
 		
 		return asConcrete();
 	}
@@ -203,31 +203,31 @@ implements IControl<C, CS> {
 		
 	//method
 	@Override
-	public final IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
-		return getRefChildControls();
+	public final IContainer<? extends IStylableElement<?>> getOriChildStylableElements() {
+		return getOriChildControls();
 	}
 	
 	//method
 	@Override
-	public final IControl<?, ?> getRefParentControl() {
-		return getRefParent().getRefControl();
+	public final IControl<?, ?> getOriParentControl() {
+		return getOriParent().getOriControl();
 	}
 	
 	//method
 	@Override
-	public final IWebGUI<?> getRefParentGUI() {
-		return getRefParentLayer().getRefParentGUI();
+	public final IWebGUI<?> getOriParentGUI() {
+		return getOriParentLayer().getOriParentGUI();
 	}
 	
 	//method
 	@Override
-	public final ILayer<?> getRefParentLayer() {
-		return getRefParent().getRefRootLayer();
+	public final ILayer<?> getOriParentLayer() {
+		return getOriParent().getOriRootLayer();
 	}
 	
 	//method
 	@Override
-	public final CS getRefStyle() {
+	public final CS getOriStyle() {
 		return style.getExtensionElement();
 	}
 	
@@ -473,7 +473,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	protected final void resetStyle() {
-		getRefStyle().reset();
+		getOriStyle().reset();
 	}
 	
 	//method
@@ -486,7 +486,7 @@ implements IControl<C, CS> {
 	//method
 	private void assertDoesNotBelongToParent() {
 		if (belongsToParent()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getRefElement());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getOriElement());
 		}
 	}
 	
@@ -496,7 +496,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private ControlParent getRefParent() {
+	private ControlParent getOriParent() {
 		
 		assertBelongsToParent();
 		
@@ -544,7 +544,7 @@ implements IControl<C, CS> {
 		this.parent = parent;
 		
 		if (parent.isControl()) {
-			parent.getRefControl().getRefStyle().addChild(getRefStyle());
+			parent.getOriControl().getOriStyle().addChild(getOriStyle());
 		}
 	}
 	

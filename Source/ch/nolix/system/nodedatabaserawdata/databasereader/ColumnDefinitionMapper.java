@@ -37,28 +37,28 @@ public final class ColumnDefinitionMapper {
 	private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		return
 		getDataTypeFromParametrizedPropertyTypeNode(
-			columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode)
+			columnNodeSearcher.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode)
 		);
 	}
 	
 	//method
 	private String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNodeSearcher.getRefIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return columnNodeSearcher.getOriIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNodeSearcher.getRefNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return columnNodeSearcher.getOriNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
-		columnNodeSearcher.getRefParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		columnNodeSearcher.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		final var propertyTypeNode =
-		parametrizedPropertyTypeNodeSearcher.getRefPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		parametrizedPropertyTypeNodeSearcher.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -74,7 +74,7 @@ public final class ColumnDefinitionMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(IMutableNode<?> parametrizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
-			parametrizedPropertyTypeNodeSearcher.getRefDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)
+			parametrizedPropertyTypeNodeSearcher.getOriDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 }

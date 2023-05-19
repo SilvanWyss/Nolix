@@ -13,13 +13,13 @@ public abstract class BaseValue<V> extends Property implements IBaseValue<V> {
 	
 	//method
 	@Override
-	public final IContainer<IProperty> getRefBackReferencingProperties() {
+	public final IContainer<IProperty> getOriBackReferencingProperties() {
 		return new ImmutableList<>();
 	}
 	
 	//method
 	@Override
-	public final IContainer<IProperty> getRefReferencingProperties() {
+	public final IContainer<IProperty> getOriReferencingProperties() {
 		return new ImmutableList<>();
 	}
 	

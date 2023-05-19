@@ -60,14 +60,14 @@ implements IOptionalReference<E> {
 	
 	//method
 	@Override
-	public IContainer<IProperty> getRefBackReferencingProperties() {
+	public IContainer<IProperty> getOriBackReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
 		}
 		
 		final var backReferencingProperty =
-		getReferencedEntity().technicalGetRefProperties().getRefFirstOrNull(p -> p.referencesBackProperty(this));
+		getOrierencedEntity().technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
 		
 		if (backReferencingProperty != null) {
 			return ImmutableList.withElement(backReferencingProperty);
@@ -78,13 +78,13 @@ implements IOptionalReference<E> {
 	
 	//method
 	@Override
-	public E getReferencedEntity() {
-		return getReferencedTable().getRefEntityById(getReferencedEntityId());
+	public E getOrierencedEntity() {
+		return getOrierencedTable().getOriEntityById(getOrierencedEntityId());
 	}
 	
 	//method
 	@Override
-	public String getReferencedEntityId() {
+	public String getOrierencedEntityId() {
 		
 		OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 		
@@ -115,7 +115,7 @@ implements IOptionalReference<E> {
 		return
 		containsAny()
 		&& entity != null
-		&& getReferencedEntityId().equals(entity.getId());
+		&& getOrierencedEntityId().equals(entity.getId());
 	}
 	
 	//method
@@ -123,7 +123,7 @@ implements IOptionalReference<E> {
 	public boolean referencesUninsertedEntity() {
 		return
 		containsAny()
-		&& !getReferencedEntity().belongsToTable();
+		&& !getOrierencedEntity().belongsToTable();
 	}
 	
 	//method
@@ -147,7 +147,7 @@ implements IOptionalReference<E> {
 	@Override
 	public void setEntityById(final String id) {
 		
-		final var entity = getReferencedTable().getRefEntityById(id);
+		final var entity = getOrierencedTable().getOriEntityById(id);
 		
 		setEntity(entity);
 	}
@@ -160,7 +160,7 @@ implements IOptionalReference<E> {
 			return new ContentFieldDTO(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getReferencedEntityId());
+		return new ContentFieldDTO(getName(), getOrierencedEntityId());
 	}
 	
 	//method
@@ -177,7 +177,7 @@ implements IOptionalReference<E> {
 	@Override
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
-			updateProbableBackReferenceForSetOrAddedEntity(getReferencedEntity());
+			updateProbableBackReferenceForSetOrAddedEntity(getOrierencedEntity());
 		}
 	}
 	
@@ -205,7 +205,7 @@ implements IOptionalReference<E> {
 	
 	//method
 	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-		return entityHelper.getRefReferencingProperties(entity).getRefFirstOrNull(rp -> rp.hasName(getName()));
+		return entityHelper.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
 	}
 	
 	//method
@@ -240,7 +240,7 @@ implements IOptionalReference<E> {
 	//method
 	private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
 		
-		final var backReferencingProperty = optionalReferenceHelper.getRefBackReferencingPropertyOrNull(this);
+		final var backReferencingProperty = optionalReferenceHelper.getOriBackReferencingPropertyOrNull(this);
 		
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
@@ -255,19 +255,19 @@ implements IOptionalReference<E> {
 				final var baseBackReference = (BaseBackReference<?>)p;
 				
 				if (
-					baseBackReference.getBackReferencedTableName().equals(getRefParentEntity().getParentTableName())
+					baseBackReference.getBackReferencedTableName().equals(getOriParentEntity().getParentTableName())
 					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
 				) {
 					
 					switch (baseBackReference.getType()) {
 						case BACK_REFERENCE:
 							final var backReference = (BackReference<?>)baseBackReference;
-							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
 							backReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case OPTIONAL_BACK_REFERENCE:
 							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
 							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:

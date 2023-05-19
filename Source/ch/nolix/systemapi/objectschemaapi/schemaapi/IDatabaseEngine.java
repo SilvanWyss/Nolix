@@ -13,5 +13,5 @@ public interface IDatabaseEngine {
 	IDatabaseEngine createDatabaseWithName(String name);
 	
 	//method declaration
-	IContainer<IDatabase> getRefDatabases();
+	IContainer<IDatabase> getOriDatabases();
 }

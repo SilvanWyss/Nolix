@@ -18,7 +18,7 @@ final class ServerDashboardSession extends BackendWebClientSession<IApplicationC
 	//method
 	@Override
 	protected void initialize() {
-		getRefGUI()
+		getOriGUI()
 		.setStyle(SERVER_DASHBOARD_STYLE_CREATOR.createServerDashboardStyle())
 		.pushLayerWithRootControl(createApplicationSetControl());
 	}
@@ -40,8 +40,8 @@ final class ServerDashboardSession extends BackendWebClientSession<IApplicationC
 	//method
 	private IContainer<IApplicationSheet> getGUIApplicationSheets() {
 		return
-		getRefApplicationContext()
+		getOriApplicationContext()
 		.getGUIApplicationSheets()
-		.getRefOther(as -> as.getApplicationName().equals(getApplicationName()));
+		.getOriOther(as -> as.getApplicationName().equals(getApplicationName()));
 	}
 }

@@ -55,10 +55,10 @@ extends Clearable, IControl<IM, IMS> {
 	String getIdByItemText(String itemText);
 	
 	//method declaration
-	IContainer<IItemMenuItem<?>> getRefItems();
+	IContainer<IItemMenuItem<?>> getOriItems();
 	
 	//method declaration
-	IItemMenuItem<?> getRefSelectedItem();
+	IItemMenuItem<?> getOriSelectedItem();
 	
 	//method declaration
 	String getTextByItemId(String itemId);

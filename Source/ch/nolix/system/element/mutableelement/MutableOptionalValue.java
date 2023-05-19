@@ -81,7 +81,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 		return new MutableOptionalValue<>(
 			name,
 			setterMethod,
-			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
+			s -> s.getOriSingleChildNode().getHeaderOrEmptyString(),
 			(final String s) -> {
 				
 				if (s.isEmpty()) {

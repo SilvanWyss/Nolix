@@ -50,7 +50,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 		final LinkedList<? super ICSSRule<?>> list
 	) {
 		
-		final var style = control.getRefStyle();
+		final var style = control.getOriStyle();
 		final var gridThickness = style.getGridThicknessWhenHasState(state);
 		final var childControlMargin = style.getChildControlMarginWhenHasState(state);
 		

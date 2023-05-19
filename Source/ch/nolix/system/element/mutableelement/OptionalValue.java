@@ -69,7 +69,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 		return new OptionalValue<>(
 			name,
 			setterMethod,
-			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
+			s -> s.getOriSingleChildNode().getHeaderOrEmptyString(),
 			(final String s) -> {
 				
 				if (s.isEmpty()) {

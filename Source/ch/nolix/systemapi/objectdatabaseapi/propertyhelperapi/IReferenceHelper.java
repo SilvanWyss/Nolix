@@ -17,5 +17,5 @@ public interface IReferenceHelper extends IPropertyHelper {
 	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IReference<?> reference, IEntity entity);
 	
 	//method declaration
-	IProperty getRefBackReferencingPropertyOrNull(IReference<?> reference);
+	IProperty getOriBackReferencingPropertyOrNull(IReference<?> reference);
 }

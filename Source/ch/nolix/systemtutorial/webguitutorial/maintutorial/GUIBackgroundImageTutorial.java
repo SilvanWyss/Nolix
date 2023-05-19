@@ -36,7 +36,7 @@ public final class GUIBackgroundImageTutorial {
 			Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/Pilatus.jpg");
 			
 			//Sets the Image as background image to the GUI of the current MainSession.
-			getRefGUI().setBackgroundImage(image, ImageApplication.SCALE_TO_FRAME);
+			getOriGUI().setBackgroundImage(image, ImageApplication.SCALE_TO_FRAME);
 		}
 	}
 	

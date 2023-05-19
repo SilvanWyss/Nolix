@@ -34,7 +34,7 @@ extends ExtendedControlCSSRuleBuilder<VerticalStack, VerticalStackStyle> {
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
 						CSSPropertyNameCatalogue.MARGIN,
-						verticalStack.getRefStyle().getChildControlMarginWhenHasState(state)
+						verticalStack.getOriStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
 				)

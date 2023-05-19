@@ -5,7 +5,7 @@ package ch.nolix.coreapi.programstructureapi.dataapi;
 public interface IBinaryObject {
 	
 	//method declaration
-	byte[] getRefBytes();
+	byte[] getOriBytes();
 	
 	//method declaration
 	int getSize();

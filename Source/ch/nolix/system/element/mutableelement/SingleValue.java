@@ -65,7 +65,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	 */
 	public final Node getSpecification() {
 		return
-		Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(getValue()).getRefChildNodes());
+		Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(getValue()).getOriChildNodes());
 	}
 	
 	//method

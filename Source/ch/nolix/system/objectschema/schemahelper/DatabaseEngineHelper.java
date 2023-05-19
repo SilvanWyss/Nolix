@@ -32,21 +32,21 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
 		final IDatabaseEngine databaseEngine,
 		final String name
 	) {
-		return databaseEngine.getRefDatabases().containsAny(db -> db.hasName(name));
+		return databaseEngine.getOriDatabases().containsAny(db -> db.hasName(name));
 	}
 	
 	//method
 	@Override
 	public int getDatabaseCount(final IDatabaseEngine databaseEngine) {
-		return databaseEngine.getRefDatabases().getElementCount();
+		return databaseEngine.getOriDatabases().getElementCount();
 	}
 	
 	//method
 	@Override
-	public  IDatabase getRefDatabaseWithGivenName(
+	public  IDatabase getOriDatabaseWithGivenName(
 		final IDatabaseEngine databaseEngine,
 		final String name
 	) {
-		return databaseEngine.getRefDatabases().getRefFirst(db -> db.hasName(name));
+		return databaseEngine.getOriDatabases().getOriFirst(db -> db.hasName(name));
 	}
 }

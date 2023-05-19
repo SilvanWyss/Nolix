@@ -40,12 +40,12 @@ public final class NolixConfigurationSSLCertificateReader {
 		
 		final var publicKeyPEMFilePath =
 		defaultSSLCertificateConfiguration
-		.getRefFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
+		.getOriFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
 		.getSingleChildNodeHeader();
 		
 		final var privateKeyPEMFilePath =
 		defaultSSLCertificateConfiguration
-		.getRefFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
+		.getOriFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
 		.getSingleChildNodeHeader();
 						
 		return new SSLCertificate(publicKeyPEMFilePath, privateKeyPEMFilePath);
@@ -55,7 +55,7 @@ public final class NolixConfigurationSSLCertificateReader {
 	private ISSLCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
 		
 		final var defaultSSLCertificateConfiguration =
-		nolixConfiguration.getRefFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
+		nolixConfiguration.getOriFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 		
 		return getDefaultSSLCertificateFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
 	}

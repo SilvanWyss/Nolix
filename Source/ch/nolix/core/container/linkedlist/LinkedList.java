@@ -342,7 +342,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	 * if the current {@link Container} does not contain an element at the given index.
 	 */
 	@Override
-	public E getRefAt1BasedIndex(final int p1BasedIndex) {
+	public E getOriAt1BasedIndex(final int p1BasedIndex) {
 		
 		//Iterates the current LinkedList.
 		var i = 1;
@@ -373,7 +373,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	 * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
 	 */
 	@Override
-	public E getRefLast() {
+	public E getOriLast() {
 		
 		//Asserts that the current list is not empty.
 		if (isEmpty()) {
@@ -432,7 +432,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	public void removeAll(final IElementTakerBooleanGetter<E> selector) {
 		
-		final var remainingElements = getRefOther(selector);
+		final var remainingElements = getOriOther(selector);
 		
 		clear();
 		
@@ -448,7 +448,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	public E removeAndGetRefFirst() {
 		
-		final var element = getRefFirst();
+		final var element = getOriFirst();
 		
 		removeFirst();
 		
@@ -464,7 +464,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
 		
-		final var element = getRefFirst(selector);
+		final var element = getOriFirst(selector);
 		
 		removeFirst(selector);
 		
@@ -480,7 +480,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	public E removeAndGetRefLast() {
 		
-		final var element = getRefLast();
+		final var element = getOriLast();
 		
 		removeLast();
 		
@@ -665,20 +665,20 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 		final var subList2 = getOrderedSubList(middleIndex + 1, endIndex, norm);
 		for (var i = 1; i <= length; i++) {
 			if (subList1.isEmpty()) {
-				list.addAtEnd(subList2.getRefFirst());
+				list.addAtEnd(subList2.getOriFirst());
 				subList2.removeFirst();
 			} else if (subList2.isEmpty()) {
-				list.addAtEnd(subList1.getRefFirst());
+				list.addAtEnd(subList1.getOriFirst());
 				subList1.removeFirst();
 				
 			} else {
-				final Comparable value1 = norm.getOutput(subList1.getRefFirst());
-				final Comparable value2 = norm.getOutput(subList2.getRefFirst());
+				final Comparable value1 = norm.getOutput(subList1.getOriFirst());
+				final Comparable value2 = norm.getOutput(subList2.getOriFirst());
 				if (value1.compareTo(value2) > 0) {
-					list.addAtEnd(subList2.getRefFirst());
+					list.addAtEnd(subList2.getOriFirst());
 					subList2.removeFirst();
 				} else {
-					list.addAtEnd(subList1.getRefFirst());
+					list.addAtEnd(subList1.getOriFirst());
 					subList1.removeFirst();
 				}
 			}
@@ -723,7 +723,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	 * @param selector
 	 */
 	private void removeFirstWhenContainsAny(final IElementTakerBooleanGetter<E> selector) {
-		if (selector.getOutput(getRefFirst())) {
+		if (selector.getOutput(getOriFirst())) {
 			removeFirst();
 		} else {
 			var iterator = firstNode;

@@ -14,6 +14,6 @@ public final class ExtendedMethodMediator extends MethodMediator {
 	
 	//method
 	public MethodMediator thatIsNamed(final String argumentName) {
-		return new MethodMediator(argumentName, getRefArgument());
+		return new MethodMediator(argumentName, getOriArgument());
 	}
 }

@@ -8,10 +8,10 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 public interface IRootControlOwner<RCO extends IRootControlOwner<RCO>> extends Clearable {
 	
 	//method declaration
-	IContainer<IControl<?, ?>> getRefControls();
+	IContainer<IControl<?, ?>> getOriControls();
 	
 	//method declaration
-	IControl<?, ?> getRefRootControl();
+	IControl<?, ?> getOriRootControl();
 	
 	//method declaration
 	RCO setRootControl(IControl<?, ?> rootControl);

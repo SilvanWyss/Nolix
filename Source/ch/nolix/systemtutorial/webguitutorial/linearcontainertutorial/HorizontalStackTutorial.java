@@ -45,16 +45,16 @@ public final class HorizontalStackTutorial {
 			horizontalStack.addControl(label1, label2, label3, label4);
 			
 			//Configures the style of the HorizontalStack.
-			horizontalStack.getRefStyle().setChildControlMarginForState(ControlState.BASE, 20);
+			horizontalStack.getOriStyle().setChildControlMarginForState(ControlState.BASE, 20);
 			
 			//Configures the style of the Labels.
-			label1.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
-			label2.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
-			label3.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
-			label4.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
+			label1.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
+			label2.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
+			label3.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
+			label4.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the HorizontalStack to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootControl(horizontalStack);
+			getOriGUI().pushLayerWithRootControl(horizontalStack);
 		}
 	}
 	

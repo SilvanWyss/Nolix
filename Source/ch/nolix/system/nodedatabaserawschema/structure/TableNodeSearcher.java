@@ -11,38 +11,38 @@ public class TableNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public final IMutableNode<?> getRefColumnNodeFromTableNodeByColumnName(
+	public final IMutableNode<?> getOriColumnNodeFromTableNodeByColumnName(
 		final IMutableNode<?> tableNode,
 		final String columnName
 	) {
 		return
-		getRefColumnNodesFromTableNode(tableNode).getRefFirst(
-			csn -> columnNodeSearcher.getRefNameNodeFromColumnNode(csn).getRefSingleChildNode().hasHeader(columnName)
+		getOriColumnNodesFromTableNode(tableNode).getOriFirst(
+			csn -> columnNodeSearcher.getOriNameNodeFromColumnNode(csn).getOriSingleChildNode().hasHeader(columnName)
 		);
 	}
 	
 	//method
-	public final IContainer<? extends IMutableNode<?>> getRefColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
+	public final IContainer<? extends IMutableNode<?>> getOriColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getOriChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
 	//method
-	public final IMutableNode<?> getRefIdNodeFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
+	public final IMutableNode<?> getOriIdNodeFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
-	public final IMutableNode<?> getRefNameNodeFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+	public final IMutableNode<?> getOriNameNodeFromTableNode(final IMutableNode<?> tableNode) {
+		return tableNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
 	public String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
-		return getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+		return getOriIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	public String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
-		return getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+		return getOriNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 	}
 }

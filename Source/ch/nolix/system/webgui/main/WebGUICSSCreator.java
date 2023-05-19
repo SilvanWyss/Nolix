@@ -68,7 +68,7 @@ public final class WebGUICSSCreator {
 		final IWebGUI<?> webGUI,
 		final LinkedList<ICSSRule<?>> lCSSRules
 	) {
-		for (final var l : webGUI.getRefLayers()) {
+		for (final var l : webGUI.getOriLayers()) {
 			fillUpCSSRulesOfLayerIntoList(l, lCSSRules);
 		}
 	}
@@ -78,7 +78,7 @@ public final class WebGUICSSCreator {
 		
 		lCSSRules.addAtEnd(layer.getCSSRule());
 		
-		for (final var c : layer.getRefControls()) {
+		for (final var c : layer.getOriControls()) {
 			lCSSRules.addAtEnd(c.getCSSRules());
 		}
 	}

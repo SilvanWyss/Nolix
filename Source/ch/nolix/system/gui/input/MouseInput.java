@@ -27,9 +27,9 @@ public final class MouseInput extends Element implements IMouseInput<MouseInput>
 		return
 		withCursorPositionAndInputType(
 			Discrete2DPoint.fromSpecification(
-				specification.getRefFirstChildNodeWithHeader(CURSOR_POSITION_HEADER)
+				specification.getOriFirstChildNodeWithHeader(CURSOR_POSITION_HEADER)
 			),
-			MouseInputType.fromSpecification(specification.getRefFirstChildNodeWithHeader(INPUT_TYPE_HEADER))
+			MouseInputType.fromSpecification(specification.getOriFirstChildNodeWithHeader(INPUT_TYPE_HEADER))
 		);
 	}
 	

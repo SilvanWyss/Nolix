@@ -17,7 +17,7 @@ public interface IDatabase extends IDatabaseObject, Named {
 	IDatabase createTableWithName(String name);
 	
 	//method declaration
-	IContainer<ITable> getRefTables();
+	IContainer<ITable> getOriTables();
 	
 	//method declaration
 	int getTableCount();

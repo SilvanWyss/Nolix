@@ -57,10 +57,10 @@ public final class DeepStyle extends BaseStyle<DeepStyle> {
 	public void styleElement(IStylableElement<?> element) {
 		if (!hasMaxSelectorLevel()) {
 
-			final var elements = element.getRefChildStylableElements();
+			final var elements = element.getOriChildStylableElements();
 			
 			if (selects(element)) {
-				final var configurations = getRefConfigurations();
+				final var configurations = getOriConfigurations();
 				setAttachingAttributesTo(element);
 				elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 			}
@@ -131,13 +131,13 @@ public final class DeepStyle extends BaseStyle<DeepStyle> {
 	private void configure(IStylableElement<?> element, int level) {
 		if (level > 0) {
 			
-			final var elements = element.getRefChildStylableElements();
+			final var elements = element.getOriChildStylableElements();
 			
 			if (selects(element)) {
 				
 				setAttachingAttributesTo(element);
 				
-				final var configurations = getRefConfigurations();
+				final var configurations = getOriConfigurations();
 				elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 			}
 				

@@ -15,13 +15,13 @@ extends Clearable, IBaseReference<E> {
 	void addEntity(E entity);
 	
 	//method declaration
-	IContainer<E> getReferencedEntities();
+	IContainer<E> getOrierencedEntities();
 	
 	//method declaration
-	IContainer<String> getReferencedEntityIds();
+	IContainer<String> getOrierencedEntityIds();
 	
 	//method declaration
-	IContainer<? extends IMultiReferenceEntry<E>> getRefLocalEntries();
+	IContainer<? extends IMultiReferenceEntry<E>> getOriLocalEntries();
 	
 	//method declaration
 	void removeEntity(E entity);

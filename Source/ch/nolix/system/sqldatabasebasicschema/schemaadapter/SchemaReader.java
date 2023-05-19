@@ -65,7 +65,7 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public CloseController getRefCloseController() {
+	public CloseController getOriCloseController() {
 		return closeController;
 	}
 	

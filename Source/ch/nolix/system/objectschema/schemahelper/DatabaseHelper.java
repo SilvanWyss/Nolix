@@ -25,7 +25,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean allBackReferencesAreValid(final IDatabase database) {
-		return getRefAllBackReferenceColumns(database).containsOnly(columnHelper::isAValidBackReferenceColumn);
+		return getOriAllBackReferenceColumns(database).containsOnly(columnHelper::isAValidBackReferenceColumn);
 	}
 	
 	//method
@@ -148,7 +148,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean containsGivenTable(final IDatabase database, ITable table) {
-		return database.getRefTables().contains(table);
+		return database.getOriTables().contains(table);
 	}
 	
 	//method
@@ -163,7 +163,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 			return false;
 		}
 		
-		return database.getRefTables().containsAny(t -> columnHelper.referencesGivenTable(column, t));
+		return database.getOriTables().containsAny(t -> columnHelper.referencesGivenTable(column, t));
 	}
 	
 	//method
@@ -179,48 +179,48 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		}
 		
 		return
-		database.getRefTables().containsAny(t -> tableHelper.containsColumnBackReferencedByGivenColumn(t, column));
+		database.getOriTables().containsAny(t -> tableHelper.containsColumnBackReferencedByGivenColumn(t, column));
 	}
 	
 	//method
 	@Override
 	public boolean containsTableWithGivenColumn(final IDatabase database, final IColumn column) {
-		return database.getRefTables().containsAny(t -> tableHelper.containsGivenColumn(t, column));
+		return database.getOriTables().containsAny(t -> tableHelper.containsGivenColumn(t, column));
 	}
 	
 	//method
 	@Override
 	public boolean containsTableWithGivenName(final IDatabase database, final String name) {
-		return database.getRefTables().containsAny(t -> t.hasName(name));
+		return database.getOriTables().containsAny(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
 	public void deleteTableWithGivenName(final IDatabase database, final String name) {
-		getRefTableWithGivenName(database, name).delete();
+		getOriTableWithGivenName(database, name).delete();
 	}
 	
 	//method
 	@Override
-	public  IContainer<IColumn> getRefAllBackReferenceColumns(final IDatabase database) {
-		return database.getRefTables().toFromGroups(tableHelper::getRefBackReferenceColumns);
+	public  IContainer<IColumn> getOriAllBackReferenceColumns(final IDatabase database) {
+		return database.getOriTables().toFromGroups(tableHelper::getOriBackReferenceColumns);
 	}
 	
 	//method
 	@Override
-	public  ITable getRefTableWithGivenName(final IDatabase database, final String name) {
-		return database.getRefTables().getRefFirst(t -> t.hasName(name));
+	public  ITable getOriTableWithGivenName(final IDatabase database, final String name) {
+		return database.getOriTables().getOriFirst(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
 	public int getTableCount(final IDatabase database) {
-		return database.getRefTables().getElementCount();
+		return database.getOriTables().getElementCount();
 	}
 	
 	//method
 	private boolean canAddGivenTableBecauseOfColumns(final IDatabase database, final ITable table) {
-		return table.getRefColumns().containsOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
+		return table.getOriColumns().containsOnly(c -> canAddGivenTableBecauseOfGivenColumn(database, table, c));
 	}
 	
 	//method

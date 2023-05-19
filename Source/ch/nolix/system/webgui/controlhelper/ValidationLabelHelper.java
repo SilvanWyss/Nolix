@@ -15,7 +15,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 	@Override
 	public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
 		
-		final var validationLabel = getRefNearestValidationLabelOfControlOrNull(control);
+		final var validationLabel = getOriNearestValidationLabelOfControlOrNull(control);
 		
 		if (validationLabel != null) {
 			validationLabel.clear();
@@ -52,19 +52,19 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 	
 	//method
 	@Override
-	public IValidationLabel<?, ?> getRefNearestValidationLabelOfControlOrNull(final IControl<?, ?> control) {
+	public IValidationLabel<?, ?> getOriNearestValidationLabelOfControlOrNull(final IControl<?, ?> control) {
 		
 		if (control.belongsToControl()) {
 			
-			final var parentControl = control.getRefParentControl();
+			final var parentControl = control.getOriParentControl();
 			
-			for (final var cc : parentControl.getRefChildControls()) {
+			for (final var cc : parentControl.getOriChildControls()) {
 				if (cc instanceof final IValidationLabel<?, ?> validationLabel) {
 					return validationLabel;
 				}
 			}
 			
-			return getRefNearestValidationLabelOfControlOrNull(parentControl);
+			return getOriNearestValidationLabelOfControlOrNull(parentControl);
 		}
 		
 		return null;
@@ -77,7 +77,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 		final Throwable error
 	) {
 		
-		final var validationLabel = getRefNearestValidationLabelOfControlOrNull(control);
+		final var validationLabel = getOriNearestValidationLabelOfControlOrNull(control);
 		
 		if (validationLabel	!= null) {
 			validationLabel.showError(error);

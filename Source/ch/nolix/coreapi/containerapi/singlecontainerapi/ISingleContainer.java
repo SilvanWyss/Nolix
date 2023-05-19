@@ -8,5 +8,5 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 public interface ISingleContainer<E> extends EmptinessRequestable {
 	
 	//method declaration
-	E getRefElement();
+	E getOriElement();
 }

@@ -22,7 +22,7 @@ extends ArgumentCapturer<S, N> {
 	}
 	
 	//method
-	public final S getRefSchema() {
-		return getRefArgument();
+	public final S getOriSchema() {
+		return getOriArgument();
 	}
 }

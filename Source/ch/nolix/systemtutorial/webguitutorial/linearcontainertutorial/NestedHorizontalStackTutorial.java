@@ -61,7 +61,7 @@ public final class NestedHorizontalStackTutorial {
 			horizontalStack3.editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20));
 			
 			//Adds the VerticalStack to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootControl(verticalStack);
+			getOriGUI().pushLayerWithRootControl(verticalStack);
 		}
 	}
 	

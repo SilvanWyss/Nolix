@@ -60,8 +60,8 @@ implements ILinearContainer<LC, LCS> {
 	
 	//method
 	@Override
-	public final IContainer<IControl<?, ?>> getRefChildControls() {
-		return childControls.getRefValues();
+	public final IContainer<IControl<?, ?>> getOriChildControls() {
+		return childControls.getOriValues();
 	}
 	
 	//method

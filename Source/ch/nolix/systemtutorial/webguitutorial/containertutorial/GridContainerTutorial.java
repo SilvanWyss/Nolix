@@ -48,12 +48,12 @@ public final class GridContainerTutorial {
 			
 			//Configures the style of the GridContainer.
 			gridContainer
-			.getRefStyle()
+			.getOriStyle()
 			.setChildControlMarginForState(ControlState.BASE, 20)
 			.setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the GridContainer to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootControl(gridContainer);
+			getOriGUI().pushLayerWithRootControl(gridContainer);
 		}
 	}
 	

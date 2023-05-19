@@ -32,7 +32,7 @@ final class Worker extends Thread {
 				break;
 			}
 			
-			final var jobWrapper = jobWrapperContainer.getRefElement();
+			final var jobWrapper = jobWrapperContainer.getOriElement();
 			jobWrapper.run();
 		}
 		

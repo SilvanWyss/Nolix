@@ -64,7 +64,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			),
 			Node.withHeaderAndChildNode(
 				SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
-				baseParametrizedReferenceType.getReferencedTableId()
+				baseParametrizedReferenceType.getOrierencedTableId()
 			)
 		);
 	}

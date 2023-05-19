@@ -63,7 +63,7 @@ public final class Database extends SchemaObject implements IDatabase {
 	
 	//method
 	@Override
-	public IContainer<ITable> getRefTables() {
+	public IContainer<ITable> getOriTables() {
 		
 		loadTablesFromDatabaseIfNeeded();
 		
@@ -97,7 +97,7 @@ public final class Database extends SchemaObject implements IDatabase {
 	@Override
 	protected void noteClose() {
 		
-		//Does not call getRefTables method to avoid that the tables need to be loaded from the database.
+		//Does not call getOriTables method to avoid that the tables need to be loaded from the database.
 		for (final var t : tables) {
 			((Table)t).internalClose();
 		}

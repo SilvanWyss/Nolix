@@ -70,11 +70,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator does not have the given length.
-		if (getRefArgument().length() != length) {
+		if (getOriArgument().length() != length) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"does not have the length " + length
 			);
 		}
@@ -91,11 +91,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is blank.
-		if (!getRefArgument().isBlank()) {
+		if (!getOriArgument().isBlank()) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"is not blank"
 			);
 		}
@@ -112,8 +112,8 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not empty.
-		if (!getRefArgument().isEmpty()) {
-			throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getRefArgument());
+		if (!getOriArgument().isEmpty()) {
+			throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
 		}
 	}
 
@@ -128,8 +128,8 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not empty.
-		if (getRefArgument().isEmpty()) {
-			throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getRefArgument());
+		if (getOriArgument().isEmpty()) {
+			throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
 		}
 	}
 	
@@ -144,11 +144,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the the argument of the current StringMediator is not blank.
-		if (getRefArgument().isBlank()) {
+		if (getOriArgument().isBlank()) {
 			throw 
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"is blank"
 			);
 		}
@@ -167,11 +167,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not longer than the given max length says.
-		if (getRefArgument().length() > maxLength) {
+		if (getOriArgument().length() > maxLength) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"is longer than " + maxLength
 			);
 		}
@@ -190,12 +190,12 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not shorter than the given min length says.
-		if (getRefArgument().length() < minLength) {
+		if (getOriArgument().length() < minLength) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
-				"has the length " + getRefArgument().length() + " and is therefore shorter than " + minLength
+				getOriArgument(),
+				"has the length " + getOriArgument().length() + " and is therefore shorter than " + minLength
 			);
 		}
 	}

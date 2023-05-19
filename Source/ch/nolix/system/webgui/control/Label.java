@@ -55,7 +55,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	

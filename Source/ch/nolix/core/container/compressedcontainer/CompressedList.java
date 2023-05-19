@@ -34,7 +34,7 @@ public final class CompressedList<E> extends Container<E> {
 			firstNode = CompressedListNode.forElement(element);
 			lastNode = firstNode;
 		} else {
-			if (!lastNode.getRefElement().equals(element)) {
+			if (!lastNode.getOriElement().equals(element)) {
 				final var nextNode = CompressedListNode.forElement(element);
 				lastNode.setNextNode(nextNode);
 				lastNode = nextNode;
@@ -55,7 +55,7 @@ public final class CompressedList<E> extends Container<E> {
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
-	public E getRefAt1BasedIndex(final int p1BasedIndex) {
+	public E getOriAt1BasedIndex(final int p1BasedIndex) {
 		
 		if (p1BasedIndex < 1) {
 			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.INDEX, p1BasedIndex);
@@ -72,14 +72,14 @@ public final class CompressedList<E> extends Container<E> {
 			iteratorIndex += iteratorNode.getElementCount();
 			
 			if (iteratorIndex > p1BasedIndex) {
-				return iteratorNode.getRefElement();
+				return iteratorNode.getOriElement();
 			}
 			
 			if (!iteratorNode.hasNextNode()) {
 				break;
 			}
 			
-			iteratorNode = iteratorNode.getRefNextNode();
+			iteratorNode = iteratorNode.getOriNextNode();
 		}
 		
 		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
@@ -87,11 +87,11 @@ public final class CompressedList<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getRefLast() {
+	public E getOriLast() {
 		
 		GlobalValidator.assertThat(this).isNotEmpty();
 		
-		return lastNode.getRefElement();
+		return lastNode.getOriElement();
 	}
 	
 	//method

@@ -12,10 +12,10 @@ public interface ISchemaAdapter extends IMultiTimeChangeSaver {
 	ISchemaAdapter addTable(ITable table);
 	
 	//method declaration
-	ITable getRefTableByName(String name);
+	ITable getOriTableByName(String name);
 	
 	//method declaration
-	IContainer<ITable> getRefTables();
+	IContainer<ITable> getOriTables();
 	
 	//method declaration
 	int getTableCount();

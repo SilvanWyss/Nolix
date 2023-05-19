@@ -46,7 +46,7 @@ implements IBackReference<E>{
 	
 	//method
 	@Override
-	public IContainer<IProperty> getRefReferencingProperties() {
+	public IContainer<IProperty> getOriReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
@@ -54,7 +54,7 @@ implements IBackReference<E>{
 		
 		return
 		ImmutableList.withElement(
-			getBackReferencedEntity().technicalGetRefProperties().getRefFirst(p -> p.hasName(getBackReferencedPropertyName()))
+			getBackReferencedEntity().technicalGetRefProperties().getOriFirst(p -> p.hasName(getBackReferencedPropertyName()))
 		);
 	}
 	
@@ -67,7 +67,7 @@ implements IBackReference<E>{
 	//method
 	@Override
 	public E getBackReferencedEntity() {
-		return getBackReferencedTable().getRefEntityById(getBackReferencedEntityId());
+		return getBackReferencedTable().getOriEntityById(getBackReferencedEntityId());
 	}
 	
 	//method

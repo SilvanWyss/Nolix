@@ -47,7 +47,7 @@ public class BuilderTutorial {
 		}
 		
 		public final String getName() {
-			return getRefArgument();
+			return getOriArgument();
 		}
 		
 		public final N withName(final String name) {
@@ -62,7 +62,7 @@ public class BuilderTutorial {
 		}
 		
 		public final int getAgeInYears() {
-			return getRefArgument();
+			return getOriArgument();
 		}
 		
 		public final N withAgeInYears(final int ageInYears) {
@@ -77,7 +77,7 @@ public class BuilderTutorial {
 		}
 		
 		public final int getWeightInKilogram() {
-			return getRefArgument();
+			return getOriArgument();
 		}
 		
 		public final N withWeightInKilogram(final int ageInYears) {

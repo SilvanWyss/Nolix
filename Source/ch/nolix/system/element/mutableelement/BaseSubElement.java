@@ -50,7 +50,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> extends Propert
 			internalSubElement.addOrChangeAttribute(
 				Node.withHeaderAndChildNodes(
 					attribute.getHeader().substring(attributePrefix.length()),
-					attribute.getRefChildNodes()
+					attribute.getOriChildNodes()
 				)
 			);
 			
@@ -65,7 +65,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> extends Propert
 	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		for (final var a : internalSubElement.getAttributes()) {
 			list.addAtEnd(
-				Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getRefChildNodes())
+				Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getOriChildNodes())
 			);
 		}
 	}

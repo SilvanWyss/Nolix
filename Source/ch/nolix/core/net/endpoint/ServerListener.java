@@ -57,7 +57,7 @@ final class ServerListener extends Worker {
 	protected void run() {
 		try {
 			while (isOpen()) {
-				final var socket = parentServer.getRefServerSocket().accept();
+				final var socket = parentServer.getOriServerSocket().accept();
 				takeSocket(socket);
 			}
 		} catch (final IOException exception) {

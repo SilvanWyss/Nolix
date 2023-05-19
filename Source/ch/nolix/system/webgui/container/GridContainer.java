@@ -33,7 +33,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	new MultiValueExtractor<>(
 		CELL_HEADER,
 		this::addCell,
-		() -> cells.getRefSelected(GridContainerCell::containsAny),
+		() -> cells.getOriSelected(GridContainerCell::containsAny),
 		GridContainerCell::fromSpecification,
 		GridContainerCell::getSpecification
 	);
@@ -47,7 +47,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	public boolean containsControlAt1BasedRowAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
-		return cells.getRefAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
+		return cells.getOriAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
 	}
 	
 	//method
@@ -58,11 +58,11 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public IControl<?, ?> getRefChildControlAt1BasedRowAndColumnIndex(
+	public IControl<?, ?> getOriChildControlAt1BasedRowAndColumnIndex(
 		final int p1BasedRowIndex,
 		final int p1BasedColumnIndex
 	) {
-		return cells.getRefAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getRefControl();
+		return cells.getOriAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getOriControl();
 	}
 	
 	//method
@@ -73,12 +73,12 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		
 		final var childControls = new LinkedList<IControl<?, ?>>();
 		for (final var c : cells) {
 			if (c.containsAny()) {
-				childControls.addAtEnd(c.getRefControl());
+				childControls.addAtEnd(c.getOriControl());
 			}
 		}
 		
@@ -97,7 +97,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		cell.setControl(control);
 		addCell(cell);
 		
-		cell.getRefControl().technicalSetParentControl(this);
+		cell.getOriControl().technicalSetParentControl(this);
 		
 		return this;
 	}

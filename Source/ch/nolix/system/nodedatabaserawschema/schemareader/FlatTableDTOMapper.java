@@ -15,8 +15,8 @@ final class FlatTableDTOMapper {
 	//method
 	public FlatTableDTO createFlatTableDTOFromTableNode(final IMutableNode<?> tableNode) {
 		
-		final var id = tableNodeSearcher.getRefIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
-		final var name = tableNodeSearcher.getRefNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+		final var id = tableNodeSearcher.getOriIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+		final var name = tableNodeSearcher.getOriNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 		
 		return new FlatTableDTO(id, name);
 	}

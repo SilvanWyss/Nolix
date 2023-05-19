@@ -96,7 +96,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
 	private void moveForwardCurrentNode() {
 		if (nextNode.hasNextNode()) {
 			
-			nextNode = nextNode.getRefNextNode();
+			nextNode = nextNode.getOriNextNode();
 			
 			nextNodeIndex = 1;
 		} else {
@@ -110,7 +110,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = nextNode.getRefElement();
+		final var element = nextNode.getOriElement();
 		
 		moveForward();
 		

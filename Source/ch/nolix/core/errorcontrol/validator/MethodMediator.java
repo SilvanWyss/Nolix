@@ -29,11 +29,11 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		
 		isNotNull();
 		
-		if (getRefArgument().getAnnotations().length != 0) {
+		if (getOriArgument().getAnnotations().length != 0) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"has annotations"
 			);
 		}
@@ -46,11 +46,11 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		
 		isNotNull();
 		
-		if (getRefArgument().getReturnType() != void.class) {
+		if (getOriArgument().getReturnType() != void.class) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"returns something"
 			);
 		}
@@ -67,11 +67,11 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		
 		isNotNull();
 		
-		if (getRefArgument().getAnnotation(annotationType) == null) {
+		if (getOriArgument().getAnnotation(annotationType) == null) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"does not have the annotation '" + annotationType.getName() + "'"
 			);
 		}
@@ -88,12 +88,12 @@ public class MethodMediator extends ArgumentMediator<Method> {
 		
 		isNotNull();
 		
-		for (final var p : getRefArgument().getParameters()) {
+		for (final var p : getOriArgument().getParameters()) {
 			if (!p.getType().isAssignableFrom(type)) {
 				throw
 				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 					getArgumentName(),
-					getRefArgument(),
+					getOriArgument(),
 					"has a parameter '" + p.getName() + "', that is not a " + type.getName()
 				);
 			}
@@ -109,11 +109,11 @@ public class MethodMediator extends ArgumentMediator<Method> {
 			throw ArgumentIsNullException.forArgumentName("return type");
 		}
 		
-		if (getRefArgument().getReturnType() != returnType) {
+		if (getOriArgument().getReturnType() != returnType) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getRefArgument(),
+				getOriArgument(),
 				"does not have the return type '" + returnType.getName() +  "'"
 			);
 		}

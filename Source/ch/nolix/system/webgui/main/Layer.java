@@ -203,18 +203,18 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefControls() {
+	public IContainer<IControl<?, ?>> getOriControls() {
 		
 		if (isEmpty()) {
-			return getRefControlsWhenIsEmpty();
+			return getOriControlsWhenIsEmpty();
 		}
 		
-		return getRefControlsWhenIsNotEmpty();
+		return getOriControlsWhenIsNotEmpty();
 	}
 	
 	//method
 	@Override
-	public IWebGUI<?> getRefParentGUI() {
+	public IWebGUI<?> getOriParentGUI() {
 		
 		assertBelongsToGUI();
 		
@@ -223,7 +223,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IControl<?, ?> getRefRootControl() {
+	public IControl<?, ?> getOriRootControl() {
 		return rootControl.getValue();
 	}
 	
@@ -235,12 +235,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IContainer<? extends IStylableElement<?>> getRefChildStylableElements() {
+	public IContainer<? extends IStylableElement<?>> getOriChildStylableElements() {
 		
 		final var childConfigurableElements = new LinkedList<IControl<?, ?>>();
 		
 		if (containsAny()) {
-			childConfigurableElements.addAtEnd(getRefRootControl());
+			childConfigurableElements.addAtEnd(getOriRootControl());
 		}
 		
 		return childConfigurableElements;
@@ -290,7 +290,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public void removeSelfFromGUI() {
-		getRefParentGUI().removeLayer(this);
+		getOriParentGUI().removeLayer(this);
 		parentGUI = null;
 	}
 	
@@ -410,7 +410,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	private void assertDoesNotBelongToGUI() {
 		if (belongsToGUI()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getRefParentGUI());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentGUI());
 		}
 	}
 	
@@ -425,7 +425,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		final LinkedList<IControl<?, ?>> list
 	) {
 		
-		final var childControls = control.getRefChildControls();
+		final var childControls = control.getOriChildControls();
 		
 		list.addAtEnd(childControls);
 		childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
@@ -444,16 +444,16 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	}
 	
 	//method
-	private IContainer<IControl<?, ?>> getRefControlsWhenIsEmpty() {
+	private IContainer<IControl<?, ?>> getOriControlsWhenIsEmpty() {
 		return new ImmutableList<>();
 	}
 	
 	//method
-	private IContainer<IControl<?, ?>> getRefControlsWhenIsNotEmpty() {
+	private IContainer<IControl<?, ?>> getOriControlsWhenIsNotEmpty() {
 		
 		final var controls = new LinkedList<IControl<?, ?>>();
-		controls.addAtEnd(getRefRootControl());
-		fillUpChildControlsOfControlIntoListRecursively(getRefRootControl(), controls);
+		controls.addAtEnd(getOriRootControl());
+		fillUpChildControlsOfControlIntoListRecursively(getOriRootControl(), controls);
 		
 		return controls;
 	}

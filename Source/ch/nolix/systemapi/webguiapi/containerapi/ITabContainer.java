@@ -19,16 +19,16 @@ extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<ITabContainer, ITab
 	boolean containsSelectedTab();
 	
 	//method declaration
-	ILabelStyle<?> getRefHeaderStyle();
+	ILabelStyle<?> getOriHeaderStyle();
 	
 	//method declaration
-	ITabContainerTab getRefSelectedTab();
+	ITabContainerTab getOriSelectedTab();
 	
 	//method declaration
-	ITabContainerTab getRefTabByHeader(String header);
+	ITabContainerTab getOriTabByHeader(String header);
 	
 	//method declaration
-	IContainer<ITabContainerTab> getRefTabs();
+	IContainer<ITabContainerTab> getOriTabs();
 	
 	//method declaration
 	int getTabCount();

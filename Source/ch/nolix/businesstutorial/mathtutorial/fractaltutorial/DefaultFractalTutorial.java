@@ -35,9 +35,9 @@ public final class DefaultFractalTutorial {
 		@Override
 		protected void initialize() {
 			
-			getRefGUI()
+			getOriGUI()
 			.pushLayerWithRootControl(
-				new ImageControl().setImage(new FractalBuilder().build().startImageGeneration().getRefImage())
+				new ImageControl().setImage(new FractalBuilder().build().startImageGeneration().getOriImage())
 			);
 			
 			GlobalSequencer.asLongAs(this::isOpen).afterEverySecond().runInBackground(this::updateCounterpart);

@@ -91,7 +91,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final boolean containsChildNodes() {
-		return getRefChildNodes().containsAny();
+		return getOriChildNodes().containsAny();
 	}
 	
 	//method
@@ -100,7 +100,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final boolean containsChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		return getRefChildNodes().containsAny(selector::getOutput);
+		return getOriChildNodes().containsAny(selector::getOutput);
 	}
 	
 	//method
@@ -118,7 +118,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final boolean containsOneChildNode() {
-		return getRefChildNodes().containsOne();
+		return getOriChildNodes().containsOne();
 	}
 	
 	//method
@@ -127,7 +127,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final int getChildNodeCount() {
-		return getRefChildNodes().getElementCount();
+		return getOriChildNodes().getElementCount();
 	}
 	
 	//method
@@ -168,7 +168,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final IContainer<String> getChildNodesHeaders() {
-		return getRefChildNodes().to(INode::getHeader);
+		return getOriChildNodes().to(INode::getHeader);
 	}
 	
 	//method declaration
@@ -176,8 +176,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BN getRefChildNodeAt1BasedIndex(final int index) {
-		return getRefChildNodes().getRefAt1BasedIndex(index);
+	public final BN getOriChildNodeAt1BasedIndex(final int index) {
+		return getOriChildNodes().getOriAt1BasedIndex(index);
 	}
 	
 	//method declaration
@@ -185,8 +185,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<BN> getRefChildNodesWithHeader(final String header) {
-		return getRefChildNodesThat(a -> a.hasHeader(header));
+	public final IContainer<BN> getOriChildNodesWithHeader(final String header) {
+		return getOriChildNodesThat(a -> a.hasHeader(header));
 	}
 	
 	//method declaration
@@ -194,8 +194,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<BN> getRefChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-		return getRefChildNodes().getRefSelected(selector);
+	public final IContainer<BN> getOriChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+		return getOriChildNodes().getOriSelected(selector);
 	}
 	
 	//method
@@ -203,8 +203,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BN getRefFirstChildNode() {
-		return getRefChildNodes().getRefFirst();
+	public final BN getOriFirstChildNode() {
+		return getOriChildNodes().getOriFirst();
 	}
 	
 	//method
@@ -212,8 +212,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BN getRefSingleChildNode() {
-		return getRefChildNodes().getRefOne();
+	public final BN getOriSingleChildNode() {
+		return getOriChildNodes().getOriOne();
 	}
 	
 	//method
@@ -221,8 +221,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BN getRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
-		return getRefChildNodes().getRefFirst(selector);
+	public final BN getOriFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
+		return getOriChildNodes().getOriFirst(selector);
 	}
 	
 	//method
@@ -230,8 +230,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BN getRefFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
-		return getRefChildNodes().getRefFirstOrNull(selector);
+	public final BN getOriFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
+		return getOriChildNodes().getOriFirstOrNull(selector);
 	}
 	
 	//method
@@ -239,8 +239,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final BN getRefFirstChildNodeWithHeader(final String header) {
-		return getRefFirstChildNodeThat(a -> a.hasHeader(header));
+	public final BN getOriFirstChildNodeWithHeader(final String header) {
+		return getOriFirstChildNodeThat(a -> a.hasHeader(header));
 	}
 	
 	//method
@@ -249,7 +249,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final boolean getSingleChildNodeAsBoolean() {
-		return getRefSingleChildNode().toBoolean();
+		return getOriSingleChildNode().toBoolean();
 	}
 
 	//method
@@ -258,7 +258,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final double getSingleChildNodeAsDouble() {
-		return getRefSingleChildNode().toDouble();
+		return getOriSingleChildNode().toDouble();
 	}
 
 	//method
@@ -267,7 +267,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final int getSingleChildNodeAsInt() {
-		return getRefSingleChildNode().toInt();
+		return getOriSingleChildNode().toInt();
 	}
 	
 	//method
@@ -276,7 +276,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 */
 	@Override
 	public final String getSingleChildNodeHeader() {
-		return getRefSingleChildNode().getHeader();
+		return getOriSingleChildNode().getHeader();
 	}
 
 	//method
@@ -392,7 +392,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 			throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
 		}
 		
-		return new IntPair(getRefChildNodeAt1BasedIndex(1).toInt(), getRefChildNodeAt1BasedIndex(2).toInt());
+		return new IntPair(getOriChildNodeAt1BasedIndex(1).toInt(), getOriChildNodeAt1BasedIndex(2).toInt());
 	}
 	
 	//method
@@ -413,7 +413,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		if (containsChildNodes()) {
 			stringBuilder
 			.append(CharacterCatalogue.OPEN_BRACKET)
-			.append(getRefChildNodes().toString())
+			.append(getOriChildNodes().toString())
 			.append(CharacterCatalogue.CLOSED_BRACKET);
 		}
 		
@@ -433,7 +433,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 		.setName(getHeader());
 		
 		//Iterates the child nodes of the current BaseNode.
-		for (final BaseNode<?> cn : getRefChildNodes()) {
+		for (final BaseNode<?> cn : getOriChildNodes()) {
 			
 			//Handles the case that the current child node itself does not contain child nodes.
 			if (!cn.containsChildNodes()) {
@@ -466,10 +466,10 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	) {
 		
 		//Handles the case that all child nodes of the current BaseNode themselves do not contain child nodes.
-		if (getRefChildNodes().containsNone(INode::containsChildNodes)) {
+		if (getOriChildNodes().containsNone(INode::containsChildNodes)) {
 			stringBuilder
 			.append(CharacterCatalogue.OPEN_BRACKET)
-			.append(getRefChildNodes().toString())
+			.append(getOriChildNodes().toString())
 			.append(CharacterCatalogue.CLOSED_BRACKET);
 			
 		//Handles the case that the current BaseNode contains child nodes that themselves contains child nodes.
@@ -482,7 +482,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 			//Iterates the child nodes of the current BaseNode.
 			final var attributeCount = getChildNodeCount();
 			var index = 1;
-			for (final BaseNode<?> cn : getRefChildNodes()) {
+			for (final BaseNode<?> cn : getOriChildNodes()) {
 				
 				stringBuilder.append(cn.toFormattedString(leadingTabulators + 1));
 				
@@ -526,8 +526,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 			return false;
 		}
 		
-		final var iterator = node.getRefChildNodes().iterator();
-		for (final var cn : getRefChildNodes()) {
+		final var iterator = node.getOriChildNodes().iterator();
+		for (final var cn : getOriChildNodes()) {
 			if (!cn.equals(iterator.next())) {
 				return false;
 			}

@@ -161,8 +161,8 @@ public final class KeyInput extends Element implements IKeyInput<KeyInput> {
 	public static KeyInput fromSpecification(final INode<?> specification) {
 		return
 		withKeyAndInputType(
-			Key.fromSpecification(specification.getRefChildNodeAt1BasedIndex(1)),
-			KeyInputType.fromSpecification(specification.getRefChildNodeAt1BasedIndex(2))
+			Key.fromSpecification(specification.getOriChildNodeAt1BasedIndex(1)),
+			KeyInputType.fromSpecification(specification.getOriChildNodeAt1BasedIndex(2))
 		);
 	}
 	

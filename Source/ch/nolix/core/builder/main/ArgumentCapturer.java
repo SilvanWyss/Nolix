@@ -60,7 +60,7 @@ public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not hav
 	}
 	
 	//method
-	protected final A getRefArgument() {
+	protected final A getOriArgument() {
 		
 		assertHasArgument();
 		
@@ -90,7 +90,7 @@ public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not hav
 	
 	//method
 	private N build() {
-		return getRefBuilder().getOutput();
+		return getOriBuilder().getOutput();
 	}
 	
 	//method
@@ -104,7 +104,7 @@ public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not hav
 	}
 
 	//method
-	private IElementGetter<N> getRefBuilder() {
+	private IElementGetter<N> getOriBuilder() {
 		
 		assertHasBuilder();
 		

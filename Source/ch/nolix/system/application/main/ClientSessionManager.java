@@ -52,11 +52,11 @@ final class ClientSessionManager<
 	
 	//method
 	public boolean currentSessionIsTopSession() {
-		return (containsCurrentSession() && getRefCurrentSession() == getRefTopSession());
+		return (containsCurrentSession() && getOriCurrentSession() == getOriTopSession());
 	}
 	
 	//method
-	public Session<C, AC> getRefCurrentSession() {
+	public Session<C, AC> getOriCurrentSession() {
 		
 		GlobalSequencer
 		.forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
@@ -80,7 +80,7 @@ final class ClientSessionManager<
 	
 	//method
 	public void popCurrentSessionAndForwardGivenResult(final Object result) {
-		getRefCurrentSession().setResult(result);
+		getOriCurrentSession().setResult(result);
 		popCurrentSessionFromStack();
 	}
 	
@@ -111,7 +111,7 @@ final class ClientSessionManager<
 		
 		parentClient.internalAssertIsOpen();
 		
-		return (R)session.getRefResult();
+		return (R)session.getOriResult();
 	}
 	
 	//method
@@ -136,7 +136,7 @@ final class ClientSessionManager<
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				"current Session",
-				getRefCurrentSession(),
+				getOriCurrentSession(),
 				"is not the top Session"
 			);
 		}
@@ -147,18 +147,18 @@ final class ClientSessionManager<
 		if (!containsCurrentSession()) {
 			parentClient.close();
 		} else {
-			initializeSession(getRefCurrentSession());
+			initializeSession(getOriCurrentSession());
 		}
 	}
 	
 	//method
 	private int getCurrentSessionIndex() {
-		return sessionStack.get1BasedIndexOfFirstOccuranceOf(getRefCurrentSession());
+		return sessionStack.get1BasedIndexOfFirstOccuranceOf(getOriCurrentSession());
 	}
 	
 	//method
-	private Session<C, AC> getRefTopSession() {
-		return sessionStack.getRefLast();
+	private Session<C, AC> getOriTopSession() {
+		return sessionStack.getOriLast();
 	}
 	
 	//method
@@ -200,7 +200,7 @@ final class ClientSessionManager<
 		if (sessionStack.isEmpty()) {
 			currentSession = null;
 		} else {
-			currentSession = sessionStack.getRefLast();
+			currentSession = sessionStack.getOriLast();
 		}
 	}
 }

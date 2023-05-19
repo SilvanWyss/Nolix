@@ -23,7 +23,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	public final boolean belongsToLoadedEntity(final IProperty property) {
 		return
 		property.belongsToEntity()
-		&& isLoaded(property.getRefParentEntity());
+		&& isLoaded(property.getOriParentEntity());
 	}
 	
 	//method
@@ -76,7 +76,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(multiValue, "cannot know its data type");
 		}
 		
-		return multiValue.getRefValues().getRefFirst().getClass();
+		return multiValue.getOriValues().getOriFirst().getClass();
 	}
 	
 	//method
@@ -86,7 +86,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot know its data type");
 		}
 		
-		return optionalValue.getRefValue().getClass();
+		return optionalValue.getOriValue().getClass();
 	}
 	
 	//method
@@ -96,7 +96,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot know its data type");
 		}
 		
-		return value.getRefValue().getClass();
+		return value.getOriValue().getClass();
 	}
 	
 	//method
@@ -111,9 +111,9 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
 	
 	//method
 	private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty property) {
-		final var propertyParentEntity = property.getRefParentEntity();
+		final var propertyParentEntity = property.getOriParentEntity();
 		
-		final var propertyField = GlobalReflectionHelper.getRefField(propertyParentEntity, property);
+		final var propertyField = GlobalReflectionHelper.getOriField(propertyParentEntity, property);
 		
 		final var propertyDeclaredType = (ParameterizedType)propertyField.getGenericType();
 		

@@ -12,14 +12,14 @@ public interface IMultiReferenceEntry<
 extends IDatabaseObject {
 	
 	//method declaration
-	IProperty getRefBackReferencingPropertyOrNull();
+	IProperty getOriBackReferencingPropertyOrNull();
 	
 	//method declaration
-	E getReferencedEntity();
+	E getOrierencedEntity();
 	
 	//method declaration
-	String getReferencedEntityId();
+	String getOrierencedEntityId();
 	
 	//method declaration
-	IMultiReference<E> getRefParentMultiReference();
+	IMultiReference<E> getOriParentMultiReference();
 }

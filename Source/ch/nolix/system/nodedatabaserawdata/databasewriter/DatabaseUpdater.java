@@ -48,13 +48,13 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getOriChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeChildNodes();
 	}
@@ -68,13 +68,13 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getOriChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		multiValueColumnNode.removeChildNodes();
 	}
@@ -89,13 +89,13 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferencedColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getOriChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
 	}
@@ -110,13 +110,13 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getOriChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
 	}
@@ -128,12 +128,12 @@ final class DatabaseUpdater {
 		final IEntityHeadDTO entity
 	) {
 		
-		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
+		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
 		final var entityNode =
 		tableNodeSearcher.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.getId());
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
@@ -144,7 +144,7 @@ final class DatabaseUpdater {
 	public void expectGivenSchemaTimestamp(final IMutableNode<?> databaseNode, final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
-		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+		databaseNodeSearcher.getOriDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 		
 		final var actualSchemaTimestamp =
 		databasePropertiesNodeSearcher.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
@@ -161,7 +161,7 @@ final class DatabaseUpdater {
 		final String entityId
 	) {
 		
-		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
 		final var containsEntity = tableNodeSearcher.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
 			tableNode,
@@ -189,13 +189,13 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiReferenceColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+		final var multiReferenceColumnNode = entityNode.getOriChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		multiReferenceColumnNode.addChildNode(Node.withHeader(referencedEntityId));
 	}
@@ -210,13 +210,13 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueColumnNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
+		final var multiValueColumnNode = entityNode.getOriChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		multiValueColumnNode.addChildNode(Node.withHeader(entry));
 	}
@@ -228,7 +228,7 @@ final class DatabaseUpdater {
 		final INewEntityDTO newEntity
 	) {
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
 		if (tableNodeSearcher.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
 			throw
@@ -247,14 +247,14 @@ final class DatabaseUpdater {
 	public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDTO entity) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableName);
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
 		if (entityNode == null) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entity.getSaveStamp())) {
@@ -273,14 +273,14 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
 		if (entityNode == null) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		final var saveStampNode = entityNodeSearcher.getRefSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entityUpdate.getSaveStamp())) {
@@ -303,7 +303,7 @@ final class DatabaseUpdater {
 			
 			final var columnInfo = tableInfo.getColumnInfoByColumnName(ucf.getColumnName());
 			final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
-			final var contentFieldNode = entityNode.getRefChildNodeAt1BasedIndex(columnIndex);
+			final var contentFieldNode = entityNode.getOriChildNodeAt1BasedIndex(columnIndex);
 						
 			final var value = ucf.getValueAsStringOrNull();
 			if (value == null) {

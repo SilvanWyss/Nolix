@@ -18,5 +18,5 @@ public interface IDatabaseEngineHelper {
 	int getDatabaseCount(IDatabaseEngine databaseEngine);
 	
 	//method declaration
-	IDatabase getRefDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
+	IDatabase getOriDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 }

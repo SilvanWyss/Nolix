@@ -48,7 +48,7 @@ public final class InternalDatabaseReader {
 	public Time getSchemaTimestamp() {
 		
 		final var databasePropertiesNode =
-		databaseNodeSearcher.getRefDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+		databaseNodeSearcher.getOriDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 		
 		return databasePropertiesNodeSearcher.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
 	}
@@ -57,11 +57,11 @@ public final class InternalDatabaseReader {
 	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
 		return
 		tableNodeSearcher
-		.getRefEntityNodesFromTableNode(tableNode)
+		.getOriEntityNodesFromTableNode(tableNode)
 		.to(rn -> loadedEntityDTOMapper.createLoadedEntityDTOFromEntityNode(rn, tableInfo));
 	}
 	
@@ -73,13 +73,13 @@ public final class InternalDatabaseReader {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueNode = entityNode.getRefChildNodeAt1BasedIndex(multiReferenceColumnIndex);
+		final var multiValueNode = entityNode.getOriChildNodeAt1BasedIndex(multiReferenceColumnIndex);
 		
 		return multiValueNode.getChildNodesHeaders();
 	}
@@ -92,17 +92,17 @@ public final class InternalDatabaseReader {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
-		final var multiValueNode = entityNode.getRefChildNodeAt1BasedIndex(multiValueColumnIndex);
+		final var multiValueNode = entityNode.getOriChildNodeAt1BasedIndex(multiValueColumnIndex);
 		
 		return
 		multiValueNode
-		.getRefChildNodes()
+		.getOriChildNodes()
 		.to(a -> valueMapper.createValueFromString(a.getHeader(), multiValueColumnInfo));
 	}
 	
@@ -110,9 +110,9 @@ public final class InternalDatabaseReader {
 	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getRefEntityNodeFromTableNode(tableNode, id);
+		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, id);
 		
 		return loadedEntityDTOMapper.createLoadedEntityDTOFromEntityNode(entityNode, tableInfo);
 	}
@@ -125,7 +125,7 @@ public final class InternalDatabaseReader {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
 		final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 		
@@ -140,7 +140,7 @@ public final class InternalDatabaseReader {
 	//method
 	public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
 		
-		final var tableNode = databaseNodeSearcher.getRefTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
 		return tableNodeSearcher.tableNodeContainsEntityNodeWithGivenId(tableNode, id);
 	}

@@ -60,7 +60,7 @@ final class WebApplicationControlFactory {
 		.setLeftMouseButtonPressAction(
 			i ->
 			i
-			.getRefParentGUI()
+			.getOriParentGUI()
 			.onFrontEnd()
 			.redirectTo(pGUIApplicationSheet.getApplicationTarget())
 		);

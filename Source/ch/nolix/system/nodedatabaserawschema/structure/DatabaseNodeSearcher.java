@@ -14,50 +14,50 @@ public final class DatabaseNodeSearcher {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//method
-	public IMutableNode<?> getRefColumnNodeByColumnIdFromDatabaseNode(
+	public IMutableNode<?> getOriColumnNodeByColumnIdFromDatabaseNode(
 		final IMutableNode<?> databaseNode,
 		final String columnId
 	) {
 		return
-		getRefTableNodesFromDatabaseNode(databaseNode)
-		.toFromGroups(tableNodeSearcher::getRefColumnNodesFromTableNode)
-		.getRefFirst(cn -> columnNodeSearcher.getRefIdNodeFromColumnNode(cn).getRefSingleChildNode().hasHeader(columnId));
+		getOriTableNodesFromDatabaseNode(databaseNode)
+		.toFromGroups(tableNodeSearcher::getOriColumnNodesFromTableNode)
+		.getOriFirst(cn -> columnNodeSearcher.getOriIdNodeFromColumnNode(cn).getOriSingleChildNode().hasHeader(columnId));
 	}
 	
 	//method
-	public IMutableNode<?> getRefDatabasePropertiesNodeFromDatabaseNode(final IMutableNode<?> databaseNode) {
-		return databaseNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
+	public IMutableNode<?> getOriDatabasePropertiesNodeFromDatabaseNode(final IMutableNode<?> databaseNode) {
+		return databaseNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
 	}
 	
 	//method
-	public IMutableNode<?> getRefTableNodeByTableIdFromDatabaseNode(
+	public IMutableNode<?> getOriTableNodeByTableIdFromDatabaseNode(
 		final IMutableNode<?> databaseNode,
 		final String tableId
 	) {
 		return
-		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
-			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getRefSingleChildNode().hasHeader(tableId)
+		getOriTableNodesFromDatabaseNode(databaseNode).getOriFirst(
+			tsn -> tsn.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getOriSingleChildNode().hasHeader(tableId)
 		);
 	}
 	
 	//method
-	public IMutableNode<?> getRefTableNodeByTableNameFromDatabaseNode(
+	public IMutableNode<?> getOriTableNodeByTableNameFromDatabaseNode(
 		final IMutableNode<?> databaseNode,
 		final String tableName
 	) {
 		return
-		getRefTableNodesFromDatabaseNode(databaseNode).getRefFirst(
-			tsn -> tsn.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME).getRefSingleChildNode().hasHeader(tableName)
+		getOriTableNodesFromDatabaseNode(databaseNode).getOriFirst(
+			tsn -> tsn.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME).getOriSingleChildNode().hasHeader(tableName)
 		);
 	}
 	
 	//method
-	public IContainer<? extends IMutableNode<?>> getRefTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
-		return databaseNode.getRefChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
+	public IContainer<? extends IMutableNode<?>> getOriTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
+		return databaseNode.getOriChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
 	}
 	
 	//method
 	public int getTableNodeCount(final IMutableNode<?> databaseNode) {
-		return databaseNode.getRefChildNodes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
+		return databaseNode.getOriChildNodes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
 	}
 }

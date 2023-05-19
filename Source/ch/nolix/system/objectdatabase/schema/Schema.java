@@ -37,7 +37,7 @@ public final class Schema implements ISchema {
 	//method
 	@Override
 	public Class<? extends IEntity> getEntityTypeByName(final String name) {
-		return getEntityTypes().getRefFirst(et -> et.getSimpleName().equals(name));
+		return getEntityTypes().getOriFirst(et -> et.getSimpleName().equals(name));
 	}
 	
 	//method	
@@ -63,6 +63,6 @@ public final class Schema implements ISchema {
 	private boolean containsDifferentEntityTypesOnly(
 		final IContainer<Class<? extends IEntity>> entityTypes
 	) {
-		return entityTypes.getRefGroups(Class::getSimpleName).containsAsManyAs(entityTypes);
+		return entityTypes.getOriGroups(Class::getSimpleName).containsAsManyAs(entityTypes);
 	}
 }

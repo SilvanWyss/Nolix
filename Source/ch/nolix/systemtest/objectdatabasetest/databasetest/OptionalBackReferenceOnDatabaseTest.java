@@ -41,7 +41,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsNewAndEmpty() {
+	public void testCase_getOriEntity_whenIsNewAndEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -60,7 +60,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsNewAndNotEmpty() {
+	public void testCase_getOriEntity_whenIsNewAndNotEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -82,7 +82,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefEntity_whenIsLoaded() {
+	public void testCase_getOriEntity_whenIsLoaded() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -98,7 +98,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		
 		//execution
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		final var result = loadedGarfield.owner.getBackReferencedEntity();
 		
 		//verification
@@ -139,12 +139,12 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		loadedJohn.delete();
 		
 		//verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		expect(loadedGarfield.owner.isEmpty());
 		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
 	}
@@ -169,12 +169,12 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		final var bello = new Pet();
 		nodeDatabaseAdapter.insert(bello);
 		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		loadedJohn.pet.setEntity(bello);
 		
 		//setup part 2 verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		expect(loadedGarfield.owner.isEmpty());
 		
 		//execution & verification
@@ -199,7 +199,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//setup part 1 verification
-		expect(john.pet.getReferencedEntity()).is(garfield);
+		expect(john.pet.getOrierencedEntity()).is(garfield);
 		expect(garfield.owner.getBackReferencedEntity()).is(john);
 		expect(odie.owner.isEmpty());
 		
@@ -208,17 +208,17 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		
 		//setup part 3
 		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		final var loadedOdie =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(odie.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(odie.getId());
 		
 		//execution
 		loadedJohn.pet.setEntity(loadedOdie);
 		
 		//verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
-		expect(loadedJohn.pet.getReferencedEntity()).is(loadedOdie);
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		expect(loadedJohn.pet.getOrierencedEntity()).is(loadedOdie);
 		expect(loadedGarfield.owner.isEmpty());
 		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
 	}

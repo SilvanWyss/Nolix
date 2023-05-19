@@ -42,7 +42,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//constructor
 	public ValidationLabel() {
-		getRefStyle().setTextColorForState(ControlState.BASE, Color.RED);
+		getOriStyle().setTextColorForState(ControlState.BASE, Color.RED);
 	}
 	
 	//method
@@ -65,7 +65,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	

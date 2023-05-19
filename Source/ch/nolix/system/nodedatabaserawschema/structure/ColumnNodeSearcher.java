@@ -13,17 +13,17 @@ public final class ColumnNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getRefIdNodeFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
+	public IMutableNode<?> getOriIdNodeFromColumnNode(final IMutableNode<?> columnNode) {
+		return columnNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
-	public IMutableNode<?> getRefNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
+	public IMutableNode<?> getOriNameNodeFromColumnNode(final IMutableNode<?> columnNode) {
+		return columnNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
 	//method
-	public IMutableNode<?> getRefParametrizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNode.getRefFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
+	public IMutableNode<?> getOriParametrizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
+		return columnNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
 	}
 }

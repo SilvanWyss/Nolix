@@ -53,7 +53,7 @@ public final class ParametrizedPropertyTypeSQLRecordMapper {
 		new ParametrizedPropertyTypeSQLRecord(
 			"'" + baseParametrizedReferenceType.getPropertyType().toString() + "'",
 			"'" + baseParametrizedReferenceType.getDataType().name() + "'",
-			"'" + baseParametrizedReferenceType.getReferencedTableId() + "'",
+			"'" + baseParametrizedReferenceType.getOrierencedTableId() + "'",
 			SQLSyntaxCatalogue.NULL
 		);
 	}

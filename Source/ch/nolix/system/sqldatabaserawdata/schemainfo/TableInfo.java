@@ -49,7 +49,7 @@ implements ITableInfo {
 	//method
 	@Override
 	public IColumnInfo getColumnInfoByColumnName(final String columnName) {
-		return getColumnInfos().getRefFirst(cd -> cd.getColumnName().equals(columnName));
+		return getColumnInfos().getOriFirst(cd -> cd.getColumnName().equals(columnName));
 	}
 	
 	//method

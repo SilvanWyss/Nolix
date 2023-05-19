@@ -62,16 +62,16 @@ implements IMultiReferenceEntry<E> {
 	
 	//method
 	@Override
-	public IProperty getRefBackReferencingPropertyOrNull() {
+	public IProperty getOriBackReferencingPropertyOrNull() {
 		return
-		getReferencedEntity()
+		getOrierencedEntity()
 		.technicalGetRefProperties()
-		.getRefFirstOrNull(p -> p.referencesBackProperty(getRefParentMultiReference()));
+		.getOriFirstOrNull(p -> p.referencesBackProperty(getOriParentMultiReference()));
 	}
 	
 	//method
 	@Override
-	public IMultiReference<E> getRefParentMultiReference() {
+	public IMultiReference<E> getOriParentMultiReference() {
 		return parentMultiReference;
 	}
 	
@@ -79,7 +79,7 @@ implements IMultiReferenceEntry<E> {
 	@Override
 	public DatabaseObjectState getState() {
 		return
-		switch (getRefParentMultiReference().getState()) {
+		switch (getOriParentMultiReference().getState()) {
 			case DELETED ->
 				DatabaseObjectState.DELETED;
 			case CLOSED ->
@@ -91,32 +91,32 @@ implements IMultiReferenceEntry<E> {
 	
 	//method
 	@Override
-	public E getReferencedEntity() {
-		return getRefParentMultiReference().getReferencedTable().getRefEntityById(getReferencedEntityId());
+	public E getOrierencedEntity() {
+		return getOriParentMultiReference().getOrierencedTable().getOriEntityById(getOrierencedEntityId());
 	}
 	
 	//method
 	@Override
-	public String getReferencedEntityId() {
+	public String getOrierencedEntityId() {
 		return referencedEntityId;
 	}
 	
 	//method
 	@Override
 	public boolean isClosed() {
-		return getRefParentMultiReference().isClosed();
+		return getOriParentMultiReference().isClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isDeleted() {
-		return getRefParentMultiReference().isDeleted();
+		return getOriParentMultiReference().isDeleted();
 	}
 	
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return getRefParentMultiReference().isLinkedWithRealDatabase();
+		return getOriParentMultiReference().isLinkedWithRealDatabase();
 	}
 	
 	//method

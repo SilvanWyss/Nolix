@@ -56,7 +56,7 @@ public final class Value<V> extends SingleValue<V> {
 		return new Value<>(
 			name,
 			setterMethod,
-			s -> s.getRefSingleChildNode().getHeaderOrEmptyString(),
+			s -> s.getOriSingleChildNode().getHeaderOrEmptyString(),
 			Value::getStringValueSpecificationForAValueFromString
 		);
 	}

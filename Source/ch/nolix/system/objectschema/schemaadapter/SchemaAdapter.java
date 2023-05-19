@@ -43,7 +43,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		
 		this.rawSchemaAdapter = rawSchemaAdapter;
 		
-		getRefCloseController().createCloseDependencyTo(rawSchemaAdapter);
+		getOriCloseController().createCloseDependencyTo(rawSchemaAdapter);
 		
 		resetUsingDatabaseName(databaseName);
 	}
@@ -59,20 +59,20 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final CloseController getRefCloseController() {
+	public final CloseController getOriCloseController() {
 		return closeController;
 	}
 	
 	//method
 	@Override
-	public final ITable getRefTableByName(final String name) {
-		return databaseHelper.getRefTableWithGivenName(database, name);
+	public final ITable getOriTableByName(final String name) {
+		return databaseHelper.getOriTableWithGivenName(database, name);
 	}
 	
 	//method
 	@Override
-	public final IContainer<ITable> getRefTables() {
-		return database.getRefTables();
+	public final IContainer<ITable> getOriTables() {
+		return database.getOriTables();
 	}
 	
 	//method

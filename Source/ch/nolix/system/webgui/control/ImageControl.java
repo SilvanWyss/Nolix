@@ -65,13 +65,13 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getRefChildControls() {
+	public IContainer<IControl<?, ?>> getOriChildControls() {
 		return new ImmutableList<>();
 	}
 	
 	//method
 	@Override
-	public MutableImage getRefImage() {
+	public MutableImage getOriImage() {
 		return image.getValue();
 	}
 	

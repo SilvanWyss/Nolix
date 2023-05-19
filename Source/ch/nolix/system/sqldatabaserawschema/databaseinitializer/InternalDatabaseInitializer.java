@@ -53,7 +53,7 @@ final class InternalDatabaseInitializer {
 		+ ") VALUES ("
 		+ DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
 		+ ", '"
-		+ Time.ofNow().getSpecification().getRefSingleChildNode()
+		+ Time.ofNow().getSpecification().getOriSingleChildNode()
 		+ "');";
 	}
 }

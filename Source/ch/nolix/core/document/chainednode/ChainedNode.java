@@ -62,7 +62,7 @@ public final class ChainedNode implements IChainedNode {
 			chainedNode.setHeader(node.getHeader());
 		}
 		
-		chainedNode.addChildNodesFromNodes(node.getRefChildNodes());
+		chainedNode.addChildNodesFromNodes(node.getOriChildNodes());
 				
 		return chainedNode;
 	}
@@ -418,7 +418,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public ChainedNode getChildNodeAt1BasedIndex(final int index) {
-		return childNodes.getRefAt1BasedIndex(index);
+		return childNodes.getOriAt1BasedIndex(index);
 	}
 
 	//method
@@ -480,7 +480,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public ChainedNode getFirstChildNodeWithHeader(final String header) {
-		return getChildNodes().getRefFirst(a -> a.hasHeader(header));
+		return getChildNodes().getOriFirst(a -> a.hasHeader(header));
 	}
 	
 	//method
@@ -572,7 +572,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public ChainedNode getSingleChildNode() {
-		return childNodes.getRefOne();
+		return childNodes.getOriOne();
 	}
 	
 	//method

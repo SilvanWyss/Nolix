@@ -49,7 +49,7 @@ final class ParametrizedPropertyTypeMapper {
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
 				final var referencedTable =
-				referencableTables.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO.getReferencedTableId()));
+				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO.getOrierencedTableId()));
 				
 				return new ParametrizedReferenceType<>(referencedTable);
 			case OPTIONAL_REFERENCE:
@@ -58,7 +58,7 @@ final class ParametrizedPropertyTypeMapper {
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
 				final var referencedTable2 =
-				referencableTables.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO2.getReferencedTableId()));
+				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO2.getOrierencedTableId()));
 				
 				return new ParametrizedOptionalReferenceType<>(referencedTable2);
 			case MULTI_REFERENCE:
@@ -67,7 +67,7 @@ final class ParametrizedPropertyTypeMapper {
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
 				final var referencedTable3 =
-				referencableTables.getRefFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO3.getReferencedTableId()));
+				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO3.getOrierencedTableId()));
 				
 				return new ParametrizedMultiReferenceType<>(referencedTable3);
 			case BACK_REFERENCE:
@@ -77,8 +77,8 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var backReferencedColumn =
 				referencableTables
-				.toFromGroups(ITable::getRefColumns)
-				.getRefFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO.getBackReferencedColumnId()));
+				.toFromGroups(ITable::getOriColumns)
+				.getOriFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO.getBackReferencedColumnId()));
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn);
 			case OPTIONAL_BACK_REFERENCE:
@@ -88,8 +88,8 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var backReferencedColumn2 =
 				referencableTables
-				.toFromGroups(ITable::getRefColumns)
-				.getRefFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO2.getBackReferencedColumnId()));
+				.toFromGroups(ITable::getOriColumns)
+				.getOriFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO2.getBackReferencedColumnId()));
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn2);
 			case MULTI_BACK_REFERENCE:
@@ -99,8 +99,8 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var backReferencedColumn3 =
 				referencableTables
-				.toFromGroups(ITable::getRefColumns)
-				.getRefFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO3.getBackReferencedColumnId()));
+				.toFromGroups(ITable::getOriColumns)
+				.getOriFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDTO3.getBackReferencedColumnId()));
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn3);
 			default:

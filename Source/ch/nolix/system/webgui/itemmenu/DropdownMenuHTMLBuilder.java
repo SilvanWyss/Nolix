@@ -47,7 +47,7 @@ public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<Dropdo
 	private IContainer<IHTMLElement<?, ?>> createHTMLChildElementsForDropdownMenu(
 		final IDropdownMenu<?, ?> dropdownMenu
 	) {
-		return createHTMLElementsFromItems(dropdownMenu.getRefItems());
+		return createHTMLElementsFromItems(dropdownMenu.getOriItems());
 	}
 	
 	//method

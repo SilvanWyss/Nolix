@@ -17,7 +17,7 @@ public abstract class BaseEndPoint implements IBaseEndPoint {
 	
 	//method
 	@Override
-	public final ICloseController getRefCloseController() {
+	public final ICloseController getOriCloseController() {
 		return closeController;
 	}
 	

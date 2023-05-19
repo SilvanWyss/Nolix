@@ -80,7 +80,7 @@ public final class SchemaInitializer {
 		final var baseValues =
 		entity
 		.technicalGetRefProperties()
-		.getRefSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_VALUE);
+		.getOriSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_VALUE);
 		
 		for (final var bv : baseValues) {
 			
@@ -115,7 +115,7 @@ public final class SchemaInitializer {
 		final var baseReferences =
 		entity
 		.technicalGetRefProperties()
-		.getRefSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_REFERENCE);
+		.getOriSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_REFERENCE);
 		
 		for (final var br : baseReferences) {
 			
@@ -150,7 +150,7 @@ public final class SchemaInitializer {
 		final var baseBackReferences =
 		entity
 		.technicalGetRefProperties()
-		.getRefSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
+		.getOriSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
 		
 		for (final var bbr : baseBackReferences) {
 			

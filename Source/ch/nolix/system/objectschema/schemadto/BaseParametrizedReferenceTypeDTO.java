@@ -32,7 +32,7 @@ implements IBaseParametrizedReferenceTypeDTO {
 	
 	//method
 	@Override
-	public String getReferencedTableId() {
+	public String getOrierencedTableId() {
 		return referencedTableId;
 	}
 }

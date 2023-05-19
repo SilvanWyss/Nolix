@@ -30,7 +30,7 @@ implements IBaseReference<E> {
 	
 	//method
 	@Override
-	public final ITable<E> getReferencedTable() {
+	public final ITable<E> getOrierencedTable() {
 		
 		extractReferencedTableIfNotExtracted();
 		
@@ -39,13 +39,13 @@ implements IBaseReference<E> {
 	
 	//method
 	@Override
-	public final String getReferencedTableName() {
+	public final String getOrierencedTableName() {
 		return referencedTableName;
 	}
 	
 	//method
 	@Override
-	public final IContainer<IProperty> getRefReferencingProperties() {
+	public final IContainer<IProperty> getOriReferencingProperties() {
 		return new ImmutableList<>();
 	}
 	
@@ -71,7 +71,7 @@ implements IBaseReference<E> {
 						final var backReference = (BackReference<?>)p;
 						
 						if (backReference.referencesBackProperty(this)) {
-							backReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
 						}
 						
 						break;
@@ -81,7 +81,7 @@ implements IBaseReference<E> {
 						final var optionalBackReference = (OptionalBackReference<?>)p;
 						
 						if (optionalBackReference.referencesBackProperty(this)) {
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getRefParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
 						}
 						
 						break;
@@ -113,6 +113,6 @@ implements IBaseReference<E> {
 	@SuppressWarnings("unchecked")
 	private Table<E> loadReferencedTable() {
 		return
-		(Table<E>)getRefParentEntity().getRefParentTable().getRefParentDatabase().getRefTableByName(getReferencedTableName());
+		(Table<E>)getOriParentEntity().getOriParentTable().getOriParentDatabase().getOriTableByName(getOrierencedTableName());
 	}
 }

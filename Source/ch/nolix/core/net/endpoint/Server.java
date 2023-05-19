@@ -174,7 +174,7 @@ public final class Server extends BaseServer {
 	/**
 	 * @return the {@link ServerSocket} of the current {@link Server}.
 	 */
-	ServerSocket getRefServerSocket() {
+	ServerSocket getOriServerSocket() {
 		return serverSocket;
 	}
 }

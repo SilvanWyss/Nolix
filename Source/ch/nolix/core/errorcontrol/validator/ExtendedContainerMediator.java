@@ -46,7 +46,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 	 * for the argument of this extended container mediator.
 	 */
 	public final ContainerMediator<E> thatIsInstanceOf(final Class<?> type) {
-		return new ContainerMediator<>(type.getSimpleName(), getRefArgument());
+		return new ContainerMediator<>(type.getSimpleName(), getOriArgument());
 	}
 	
 	//method
@@ -58,6 +58,6 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public ContainerMediator<E> thatIsNamed(final String argumentName) {
-		return new ContainerMediator<>(argumentName, getRefArgument());
+		return new ContainerMediator<>(argumentName, getOriArgument());
 	}
 }

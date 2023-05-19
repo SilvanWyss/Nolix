@@ -40,17 +40,17 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public ILabel<?, ?> getRefErrorLabel() {
+	public ILabel<?, ?> getOriErrorLabel() {
 		return errorText;
 	}
 	
 	//method
-	public IProperty getRefProperty() {
+	public IProperty getOriProperty() {
 		return property;
 	}
 	
 	//method
-	public IControl<?, ?> getRefControl() {
+	public IControl<?, ?> getOriControl() {
 		return control;
 	}
 	

@@ -19,6 +19,6 @@ public class AndPasswordCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//method
 	public final String getPassword() {
-		return getRefArgument();
+		return getOriArgument();
 	}
 }

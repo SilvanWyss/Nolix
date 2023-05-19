@@ -35,10 +35,10 @@ public final class HelloWorldGUITutorial {
 			final var label = new Label().setText("Hello World");
 			
 			//Configures the style of the Label.
-			label.getRefStyle().setTextSizeForState(ControlState.BASE, 50);
+			label.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the Label to the GUI of the current MainSession.
-			getRefGUI().pushLayerWithRootControl(label);
+			getOriGUI().pushLayerWithRootControl(label);
 		}
 	}
 	

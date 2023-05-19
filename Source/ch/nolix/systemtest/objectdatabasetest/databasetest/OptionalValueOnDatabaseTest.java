@@ -26,7 +26,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		
 		//method
 		public String getName() {
-			return name.getRefValue();
+			return name.getOriValue();
 		}
 		
 		//method
@@ -57,13 +57,13 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		
 		//verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		expectNot(loadedGarfield.hasName());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getRefValue_whenContainsAnyAndIsNotSaved() {
+	public void testCase_getOriValue_whenContainsAnyAndIsNotSaved() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -83,7 +83,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getRefValue_whenContainsAnyAndIsSaved() {
+	public void testCase_getOriValue_whenContainsAnyAndIsSaved() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
@@ -97,7 +97,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		
 		//execution
 		final var result = loadedGarfield.getName();

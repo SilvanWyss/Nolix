@@ -50,14 +50,14 @@ public final class MatrixColumn<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getRefAt1BasedIndex(final int rowIndex) {
-		return parentMatrix.getRefAt1BasedRowIndexAndColumnIndex(rowIndex, getColumnIndex());
+	public E getOriAt1BasedIndex(final int rowIndex) {
+		return parentMatrix.getOriAt1BasedRowIndexAndColumnIndex(rowIndex, getColumnIndex());
 	}
 	
 	//method
 	@Override
-	public E getRefLast() {
-		return parentMatrix.getRefAt1BasedRowIndexAndColumnIndex(parentMatrix.getRowCount(), getColumnIndex());
+	public E getOriLast() {
+		return parentMatrix.getOriAt1BasedRowIndexAndColumnIndex(parentMatrix.getRowCount(), getColumnIndex());
 	}
 	
 	//method

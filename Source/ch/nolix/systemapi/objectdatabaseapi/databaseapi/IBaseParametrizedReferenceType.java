@@ -9,5 +9,5 @@ public interface IBaseParametrizedReferenceType<
 extends IParametrizedPropertyType {
 	
 	//method declaration
-	ITable<E> getRefencedTable();
+	ITable<E> getOriencedTable();
 }

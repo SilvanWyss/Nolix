@@ -106,13 +106,13 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
 	//method
 	@Override
-	public E getRefAt1BasedIndex(final int p1BasedIndex) {
-		return getRefAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
+	public E getOriAt1BasedIndex(final int p1BasedIndex) {
+		return getOriAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public E getRefAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
+	public E getOriAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 		
 		assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
 		
@@ -126,7 +126,7 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public E getRefLast() {
+	public E getOriLast() {
 		
 		final var rowCount = getRowCount();
 		

@@ -67,7 +67,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 	 * @return the replier of this end point.
 	 * @throws ArgumentDoesNotHaveAttributeException if this end point does not have a replier.
 	 */
-	protected final IElementTakerElementGetter<String, String> getRefReplier() {
+	protected final IElementTakerElementGetter<String, String> getOriReplier() {
 		
 		final long startTimeInMilliseconds = System.currentTimeMillis();
 		

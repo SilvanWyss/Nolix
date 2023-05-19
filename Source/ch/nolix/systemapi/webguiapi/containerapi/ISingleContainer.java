@@ -12,7 +12,7 @@ public interface ISingleContainer<
 extends IContainer<SC, SCS> {
 	
 	//method declaration
-	IControl<?, ?> getRefControl();
+	IControl<?, ?> getOriControl();
 	
 	//method declaration
 	SC setControl(IControl<?, ?> control);

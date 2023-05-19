@@ -17,8 +17,8 @@ extends ArgumentCapturer<D, N> {
 	}
 	
 	//method
-	public final D getRefDatabase() {
-		return getRefArgument();
+	public final D getOriDatabase() {
+		return getOriArgument();
 	}
 	
 	//method

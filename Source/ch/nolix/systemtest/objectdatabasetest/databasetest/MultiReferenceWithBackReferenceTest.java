@@ -63,19 +63,19 @@ public final class MultiReferenceWithBackReferenceTest extends Test {
 		
 		//execution
 		final var loadedJohn =
-		nodeDatabaseAdapter.getRefTableByEntityType(Person.class).getRefEntityById(john.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		
 		//verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(garfield.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		final var loadedSimba =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(simba.getId());
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(simba.getId());
 		final var loadedOdie =
-		nodeDatabaseAdapter.getRefTableByEntityType(Pet.class).getRefEntityById(odie.getId());
-		expect(loadedJohn.pets.getReferencedEntities().getElementCount()).isEqualTo(3);
-		expect(loadedJohn.pets.getReferencedEntities().contains(loadedGarfield));
-		expect(loadedJohn.pets.getReferencedEntities().contains(loadedSimba));
-		expect(loadedJohn.pets.getReferencedEntities().contains(loadedOdie));
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(odie.getId());
+		expect(loadedJohn.pets.getOrierencedEntities().getElementCount()).isEqualTo(3);
+		expect(loadedJohn.pets.getOrierencedEntities().contains(loadedGarfield));
+		expect(loadedJohn.pets.getOrierencedEntities().contains(loadedSimba));
+		expect(loadedJohn.pets.getOrierencedEntities().contains(loadedOdie));
 		expect(loadedGarfield.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedSimba.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
