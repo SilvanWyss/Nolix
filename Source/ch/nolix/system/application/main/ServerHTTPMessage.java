@@ -4,7 +4,7 @@ package ch.nolix.system.application.main;
 //own imports
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.application.main.resource.ResourcePathCatalogue;
+import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 
 //class
 record ServerHTTPMessage(String serverIP,  int serverPort) {
