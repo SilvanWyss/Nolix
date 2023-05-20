@@ -21,7 +21,7 @@ import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.gui.canvas.Background;
 import ch.nolix.system.gui.frontend.LocalFrontEndReader;
 import ch.nolix.system.gui.frontend.LocalFrontEndWriter;
-import ch.nolix.system.gui.icon.IconCatalogue;
+import ch.nolix.system.gui.iconresource.IconCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;

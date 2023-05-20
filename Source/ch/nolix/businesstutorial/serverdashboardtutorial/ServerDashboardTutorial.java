@@ -5,7 +5,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.WebApplicationContext;
-import ch.nolix.system.gui.icon.IconCatalogue;
+import ch.nolix.system.gui.iconresource.IconCatalogue;
 import ch.nolix.systemtutorial.webguitutorial.controltutorial.ImageControlTutorial;
 import ch.nolix.systemtutorial.webguitutorial.itemmenututorial.DropdownMenuTutorial;
 import ch.nolix.systemtutorial.webguitutorial.maintutorial.HelloWorldGUITutorial;

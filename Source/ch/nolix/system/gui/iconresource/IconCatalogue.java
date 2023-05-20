@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.icon;
+package ch.nolix.system.gui.iconresource;
 
 import ch.nolix.system.graphic.image.Image;
 
@@ -7,7 +7,7 @@ import ch.nolix.system.graphic.image.Image;
 public final class IconCatalogue {
 	
 	//constant
-	private static final String NOLIX_ICON_RESOURCE_PATH = "ch/nolix/system/gui/icon/resource/Nolix_Icon.png";
+	private static final String NOLIX_ICON_RESOURCE_PATH = "ch/nolix/system/gui/iconresource/nolix_icon.png";
 	
 	//constant
 	public static final Image NOLIX_ICON = Image.fromResource(NOLIX_ICON_RESOURCE_PATH);
