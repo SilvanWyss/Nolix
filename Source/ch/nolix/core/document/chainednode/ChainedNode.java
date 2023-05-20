@@ -175,7 +175,20 @@ public final class ChainedNode implements IChainedNode {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
-		chainedNode.addChildNode(attribute);
+		chainedNode.addChildNodes(attribute);
+		
+		return chainedNode;
+	}
+	
+	public static ChainedNode withHeaderAndChildNodes(
+		final String header,
+		final ChainedNode childNode,
+		final ChainedNode... childNodes
+	) {
+		
+		final var chainedNode = new ChainedNode();
+		chainedNode.setHeader(header);
+		chainedNode.addChildNodes(childNode, childNodes);
 		
 		return chainedNode;
 	}
@@ -283,6 +296,7 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * @param header
 	 * @param nextNode
+	 * @param childNode
 	 * @param childNodes
 	 * @return a new {@link ChainedNode} with the given header and nextNode.
 	 * @throws ArgumentIsNullException if the given header is null.
@@ -293,12 +307,13 @@ public final class ChainedNode implements IChainedNode {
 	public static ChainedNode withHeaderAndNextNodeAndChildNodes(
 		final String header,
 		ChainedNode nextNode,
+		final IChainedNode childNode,
 		final IChainedNode... childNodes
 	) {
 		
 		final var chainedNode = new ChainedNode();
 		chainedNode.setHeader(header);
-		chainedNode.addChildNode(childNodes);
+		chainedNode.addChildNodes(childNode, childNodes);
 		chainedNode.setNextNode(nextNode);
 		
 		return chainedNode;
@@ -757,12 +772,20 @@ public final class ChainedNode implements IChainedNode {
 	
 	//method
 	/**
-	 * Adds the given childNodes to the current {@link ChainedNode}.
+	 * Adds the given childNode and childNodes to the current {@link ChainedNode}.
 	 * 
+	 * @param childNode
 	 * @param childNodes
 	 * @throws ArgumentIsNullException if one of the given childNodes is null.
 	 */
-	private void addChildNode(final IChainedNode... childNodes) {
+	private void addChildNodes(final IChainedNode childNode, final IChainedNode... childNodes) {
+		
+		if (childNode instanceof ChainedNode chainedNode) {
+			this.childNodes.addAtEnd(chainedNode);
+		} else {
+			this.childNodes.addAtEnd(fromChainedNode(childNode));
+		}
+		
 		for (final var cn : childNodes) {
 			if (cn instanceof ChainedNode chainedNode) {
 				this.childNodes.addAtEnd(chainedNode);
@@ -788,11 +811,17 @@ public final class ChainedNode implements IChainedNode {
 	/**
 	 * Adds the given attributes to the current {@link ChainedNode}.
 	 * 
-	 * @param attributes
+	 * @param childNodes
 	 * @throws ArgumentIsNullException if one of the given attribute is null.
 	 */
-	private void addChildNodes(final Iterable<? extends IChainedNode> attributes) {
-		attributes.forEach(this::addChildNode);
+	private void addChildNodes(final Iterable<? extends IChainedNode> childNodes) {
+		for (final var cn : childNodes) {
+			if (cn instanceof ChainedNode chainedNode) {
+				this.childNodes.addAtEnd(chainedNode);
+			} else {
+				this.childNodes.addAtEnd(fromChainedNode(cn));
+			}
+		}
 	}
 	
 	//method
