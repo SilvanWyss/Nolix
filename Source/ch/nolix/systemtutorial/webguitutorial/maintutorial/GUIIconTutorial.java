@@ -29,7 +29,7 @@ public final class GUIIconTutorial {
 		
 		@Override
 		protected void initialize() {
-			getOriGUI().setIcon(Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/Matterhorn.jpg"));
+			getOriGUI().setIcon(Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/matterhorn.jpg"));
 		}
 	}
 	
