@@ -8,6 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
+import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebClientCounterpartUpdater;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
@@ -19,7 +20,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	
 	//attribute
 	private final BackendWebClientCounterpartUpdater counterpartUpdater =
-	BackendWebClientCounterpartUpdater.forBackendWebClient(this);
+	BackendWebClientCounterpartUpdater.forCounterpartRunner(this::runOnCounterpart);
 	
 	//method
 	@Override

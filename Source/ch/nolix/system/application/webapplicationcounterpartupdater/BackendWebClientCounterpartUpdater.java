@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.application.webapplication;
+package ch.nolix.system.application.webapplicationcounterpartupdater;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -8,6 +8,8 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
@@ -18,22 +20,26 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
-final class BackendWebClientCounterpartUpdater {
+public final class BackendWebClientCounterpartUpdater {
 	
 	//static method
-	public static BackendWebClientCounterpartUpdater forBackendWebClient(final BackendWebClient<?> backendWebClient) {
-		return new BackendWebClientCounterpartUpdater(backendWebClient);
+	public static BackendWebClientCounterpartUpdater forCounterpartRunner(
+		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner
+	) {
+		return new BackendWebClientCounterpartUpdater(counterpartRunner);
 	}
 	
 	//attribute
-	private final BackendWebClient<?> parentBackendWebClient;
+	private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
 	
 	//constructor
-	private BackendWebClientCounterpartUpdater(final BackendWebClient<?> parentBackendWebClient) {
+	private BackendWebClientCounterpartUpdater(
+		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner
+	) {
 		
-		GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
+		GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 		
-		this.parentBackendWebClient = parentBackendWebClient;
+		this.counterpartRunner = counterpartRunner;
 	}
 	
 	//method
@@ -41,7 +47,7 @@ final class BackendWebClientCounterpartUpdater {
 		
 		final var updateCommands = createUpdateCommandsFromWebGUI(webGUI);
 		
-		parentBackendWebClient.internalRunOnCounterpart(updateCommands);
+		counterpartRunner.run(updateCommands);
 	}
 	
 	//method
