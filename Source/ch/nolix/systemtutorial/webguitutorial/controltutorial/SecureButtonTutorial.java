@@ -22,9 +22,7 @@ public final class SecureButtonTutorial {
 		
 		//Creates a Server.
 		final var server =
-		WebSocketServer.forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
-			"nolix.tech"
-		);
+		WebSocketServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication("Button tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
