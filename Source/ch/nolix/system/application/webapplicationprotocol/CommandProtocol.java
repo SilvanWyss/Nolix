@@ -11,6 +11,9 @@ public final class CommandProtocol {
 	public static final String SET_EVENT_FUNCTIONS = "SetEventFunctions";
 	
 	//constant
+	public static final String SET_HTML_ELEMENT = "SetHTMLElement";
+	
+	//constant
 	public static final String SET_ICON = "SetIcon";
 	
 	//constant

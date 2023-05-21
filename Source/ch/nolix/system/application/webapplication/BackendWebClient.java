@@ -9,6 +9,7 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
 import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebClientCounterpartUpdater;
+import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebClientPartialCounterpartUpdater;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
@@ -17,10 +18,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
 public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebClient<AC>, AC> {
-	
-	//attribute
-	private final BackendWebClientCounterpartUpdater counterpartUpdater =
-	BackendWebClientCounterpartUpdater.forCounterpartRunner(this::runOnCounterpart);
 	
 	//method
 	@Override
@@ -41,8 +38,17 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	}
 	
 	//method
+	void internalUpdateControlOnCounterpart(final IControl<?, ?> control) {
+		BackendWebClientPartialCounterpartUpdater
+		.forCounterpartRunner(this::runOnCounterpart)
+		.updateControlOnCounterpart(control);
+	}
+	
+	//method
 	void internalUpdateCounterpartFromWebGUI(final IWebGUI<?> webGUI) {
-		counterpartUpdater.updateCounterpartFromWebGUI(webGUI);
+		BackendWebClientCounterpartUpdater
+		.forCounterpartRunner(this::runOnCounterpart)
+		.updateCounterpartFromWebGUI(webGUI);
 	}
 	
 	//method

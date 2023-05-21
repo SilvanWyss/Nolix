@@ -2006,6 +2006,7 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     CommandProtocol.REDIRECT = "Redirect";
     CommandProtocol.SET_CSS = "SetCSS";
     CommandProtocol.SET_EVENT_FUNCTIONS = 'SetEventFunctions';
+    CommandProtocol.SET_HTML_ELEMENT = "SetHTMLElement";
     CommandProtocol.SET_ICON = 'SetIcon';
     CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = 'SetOrAddCookieWithNameAndValue';
     CommandProtocol.SET_ROOT_HTML_ELEMENT = 'SetRootHTMLElement';
@@ -2186,7 +2187,6 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             }
             this.eventTaker = eventTaker;
             this.window = window;
-            this.rootElement = this.getRefRootElement();
             this.style = this.window.document.createElement('style');
             this.window.document.head.appendChild(this.style);
         }
@@ -2228,6 +2228,12 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
                 }
             }
         }
+        setHTMLElementFromString(paramHTMLElementId, paramHTMLElementAsString) {
+            console.log('id: ' + paramHTMLElementId);
+            const localHTMLElement = this.getOriHTMLElementById(paramHTMLElementId);
+            console.log('localHTMLElement: ' + localHTMLElement);
+            localHTMLElement.outerHTML = paramHTMLElementAsString;
+        }
         setIcon(icon) {
             if (icon === null) {
                 throw new Error('The given icon is null.');
@@ -2239,7 +2245,8 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             iconHTMLElement.href = icon.toCanvas().toDataURL('image/png');
         }
         setRootHTMLElementFromString(rootHTMLElementAsString) {
-            this.rootElement.innerHTML = rootHTMLElementAsString;
+            const rootElement = this.getRefRootElement();
+            rootElement.outerHTML = rootHTMLElementAsString;
         }
         setTitle(title) {
             if (title === null) {
@@ -2263,11 +2270,14 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             }
             this.userInputFunctions = userInputFunctions;
         }
+        getOriHTMLElementById(paramHTMLElementId) {
+            return this.window.document.getElementById(paramHTMLElementId);
+        }
         getRefRootElement() {
-            var rootElement = this.window.document.getElementById('rootElement');
+            var rootElement = this.window.document.getElementById('root');
             if (rootElement === null) {
                 rootElement = this.window.document.createElement('div');
-                rootElement.id = 'rootElement';
+                rootElement.id = 'root';
                 this.window.document.body.appendChild(rootElement);
             }
             return rootElement;
@@ -2456,6 +2466,11 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
                     break;
                 case CommandProtocol_1.CommandProtocol.SET_ROOT_HTML_ELEMENT:
                     this.mFrontendWebGUI.setRootHTMLElementFromString(pGUICommand.getOneAttribute().getHeader());
+                    break;
+                case CommandProtocol_1.CommandProtocol.SET_HTML_ELEMENT:
+                    const localHTMLElementId = pGUICommand.getAttributeAt(1).getHeader();
+                    const localHTMLElementAsString = pGUICommand.getAttributeAt(2).getHeader();
+                    this.mFrontendWebGUI.setHTMLElementFromString(localHTMLElementId, localHTMLElementAsString);
                     break;
                 case CommandProtocol_1.CommandProtocol.SET_CSS:
                     const lCSS = pGUICommand.getOneAttribute().getHeader();
