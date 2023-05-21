@@ -17,6 +17,17 @@ public final class WebSocketServer extends BaseServer {
 	NolixConfigurationSSLCertificateReader.INSTANCE;
 	
 	//static method
+	public static WebSocketServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
+		
+		final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
+		
+		final var paramSSLCertificate =
+		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
+		
+		return new WebSocketServer(PortCatalogue.HTTPS_PORT, domain, paramSSLCertificate);
+	}
+	
+	//static method
 	public static WebSocketServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
 		final String domain
 	) {
