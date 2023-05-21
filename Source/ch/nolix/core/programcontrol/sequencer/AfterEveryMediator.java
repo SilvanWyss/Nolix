@@ -204,20 +204,23 @@ public final class AfterEveryMediator {
 		//Handles the case that the current AfterAllMediator does not have a condition.
 		if (!hasCondition()) {
 			for (var i = 1; i <= maxRunCount; i++) {
-				job.run();
+				
 				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+				
+				job.run();
 			}
 			
 		//Handles the case that the current AfterAllMediator has a condition.
 		} else {
 			for (var i = 1; i <= maxRunCount; i++) {
 				
+				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
+				
 				if (!condition.getOutput()) {
 					break;
 				}
 				
 				job.run();
-				Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 			}
 		}
 	}

@@ -342,16 +342,20 @@ final class JobRunner extends Thread {
 	public void run() {
 		
 		//main loop
-		while (!reachedProbableMaxRunCount() && !violatesProbableCondition()) {
+		while (!reachedProbableMaxRunCount()) {
 			try {
-				
-				finishedJobCount++;
-				job.run();
 				
 				//Handles the case that the current JobRunner has a time interval.
 				if (hasTimeInterval()) {
 					Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 				}
+				
+				if (violatesProbableCondition()) {
+					break;
+				}
+				
+				finishedJobCount++;
+				job.run();
 			} catch (final Throwable lError) {
 				error = lError;
 				GlobalLogger.logError(lError);
