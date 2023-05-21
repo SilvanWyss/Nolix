@@ -17,6 +17,9 @@ public final class NolixConfigurationSSLCertificateReader {
 	private static final String DEFAULT_SSL_CERTIFICATE_HEADER = "DefaultSSLCertificate";
 	
 	//constant
+	private static final String DOMAIN_HEADER = "Domain";
+	
+	//constant
 	private static final String PUBLIC_KEY_PEM_FILE_HEADER = "PublicKeyPEMFile";
 	
 	//constant
@@ -31,6 +34,31 @@ public final class NolixConfigurationSSLCertificateReader {
 		final var localNolixConfiguration = getLocalNolixConfiguration();
 		
 		return getDefaultSSLCertificateFromNolixConfiguration(localNolixConfiguration);
+	}
+	
+	//method
+	public String getDefaultDomainFromLocalNolixConfiguration() {
+		
+		final var localNolixConfiguration = getLocalNolixConfiguration();
+		
+		return getDefaultDomainFromNolixConfiguration(localNolixConfiguration);
+	}
+	
+	//method
+	private String getDefaultDomainFromDefaultCertificateConfiguration(final INode<?> defaultSSLCertificateConfiguration) {
+		return
+		defaultSSLCertificateConfiguration
+		.getOriFirstChildNodeWithHeader(DOMAIN_HEADER)
+		.getSingleChildNodeHeader();
+	}
+	
+	//method
+	private String getDefaultDomainFromNolixConfiguration(final INode<?> nolixConfiguration) {
+		
+		final var defaultSSLCertificateConfiguration =
+		nolixConfiguration.getOriFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
+		
+		return getDefaultDomainFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
 	}
 	
 	//method
