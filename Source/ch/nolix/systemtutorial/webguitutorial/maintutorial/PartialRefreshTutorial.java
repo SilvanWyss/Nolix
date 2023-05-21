@@ -68,12 +68,12 @@ public final class PartialRefreshTutorial {
 					GlobalSequencer
 					.asLongAs(this::isOpen)
 					.afterEveryMilliseconds(50)
-					.runInBackground(this::updateDateAndTime);
+					.runInBackground(this::updateTime);
 				}
 			);
 		}
 		
-		private void updateDateAndTime() {
+		private void updateTime() {
 			
 			timeLabel.setText(getCurrentTimeText());
 			
