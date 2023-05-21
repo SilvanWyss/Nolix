@@ -28,13 +28,13 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
-final class WebSocketServerSSLContextCreator {
+final class SecureServerSSLContextCreator {
 	
 	//constant
-	public static final WebSocketServerSSLContextCreator INSTANCE = new WebSocketServerSSLContextCreator();
+	public static final SecureServerSSLContextCreator INSTANCE = new SecureServerSSLContextCreator();
 	
 	//constructor
-	private WebSocketServerSSLContextCreator() {}
+	private SecureServerSSLContextCreator() {}
 	
 	//method
 	public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {

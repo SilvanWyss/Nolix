@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 
 //class
-record WebSocketServerHTMLPage(String serverDomain, int serverPort) {
+record SecureServerHTMLPage(String serverDomain, int serverPort) {
 	
 	//constant
 	private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
@@ -17,7 +17,7 @@ record WebSocketServerHTMLPage(String serverDomain, int serverPort) {
 	private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 	
 	//constructor
-	public WebSocketServerHTMLPage(final String serverDomain, final int serverPort) {
+	public SecureServerHTMLPage(final String serverDomain, final int serverPort) {
 		
 		GlobalValidator.assertThat(serverDomain).thatIsNamed("server domain").isNotBlank();
 		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isPort();

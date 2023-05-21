@@ -12,16 +12,16 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 
 //class
-final class WebSocketServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
+final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 	
 	//attribute
-	private final WebSocketServer parentWebSocketServer;
+	private final SecureServer parentWebSocketServer;
 	
 	//optional attribute
-	private WebSocketServerEndPoint parentWebSocketServerEndPoint;
+	private SecureServerEndPoint parentWebSocketServerEndPoint;
 	
 	//constructor
-	public WebSocketServerChannelInboundHandler(final WebSocketServer parentWebSocketServer) {
+	public SecureServerChannelInboundHandler(final SecureServer parentWebSocketServer) {
 		
 		GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
 		
@@ -33,7 +33,7 @@ final class WebSocketServerChannelInboundHandler extends SimpleChannelInboundHan
 	protected void channelRead0(final ChannelHandlerContext ctx, final WebSocketFrame frame) throws Exception {
 		
 		if (parentWebSocketServerEndPoint == null) {
-			parentWebSocketServerEndPoint = new WebSocketServerEndPoint(ctx);
+			parentWebSocketServerEndPoint = new SecureServerEndPoint(ctx);
 			parentWebSocketServer.internalTakeBackendEndPoint(parentWebSocketServerEndPoint);
 		}
 		

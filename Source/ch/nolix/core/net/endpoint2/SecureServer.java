@@ -1,20 +1,20 @@
 //package declaration
-package ch.nolix.core.net.endpoint3;
+package ch.nolix.core.net.endpoint2;
 
 //own imports
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
-import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
+import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
-public final class WebSocketServer extends BaseServer {
+public final class SecureServer extends BaseServer {
 	
 	//constant
 	private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER =
 	NolixConfigurationSSLCertificateReader.INSTANCE;
 	
 	//static method
-	public WebSocketServer forPortAndHTMLPageAndSSLCertificateFromNolixConfiguration(
+	public SecureServer forPortAndHTMLPageAndSSLCertificateFromNolixConfiguration(
 		final int port,
 		final String paramHTMLPage
 	) {
@@ -22,16 +22,16 @@ public final class WebSocketServer extends BaseServer {
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new WebSocketServer(port, paramHTMLPage, paramSSLCertificate);
+		return new SecureServer(port, paramHTMLPage, paramSSLCertificate);
 	}
 	
 	//attribute
-	private final ch.nolix.core.net.endpoint2.WebSocketServer internalWebSocketServer;
-			
+	private final ch.nolix.core.net.endpoint.SecureServer internalWebSocketServer;
+	
 	//constructor
-	public WebSocketServer(final int port, final String HTMLPage, final ISSLCertificate paramSSLCertificate) {
+	public SecureServer(final int port, final String HTMLPage, final ISSLCertificate paramSSLCertificate) {
 		
-		internalWebSocketServer = new ch.nolix.core.net.endpoint2.WebSocketServer(port, HTMLPage, paramSSLCertificate);
+		internalWebSocketServer = new ch.nolix.core.net.endpoint.SecureServer(port, HTMLPage, paramSSLCertificate);
 		
 		createCloseDependencyTo(internalWebSocketServer);
 	}
@@ -48,4 +48,3 @@ public final class WebSocketServer extends BaseServer {
 		internalWebSocketServer.addSlot(new ServerEndPointTaker(slot.getName(), this));
 	}
 }
-

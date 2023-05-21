@@ -22,11 +22,11 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 final class WebSocketServerWorker extends Worker {
 	
 	//constant
-	private static final WebSocketServerSSLContextCreator WEB_SOCKET_SERVER_SSL_CONTEXT_CREATOR =
-	WebSocketServerSSLContextCreator.INSTANCE;
+	private static final SecureServerSSLContextCreator WEB_SOCKET_SERVER_SSL_CONTEXT_CREATOR =
+	SecureServerSSLContextCreator.INSTANCE;
 	
 	//attribute
-	private final WebSocketServer parentWebSocketServer;
+	private final SecureServer parentWebSocketServer;
 	
 	//attribute
 	private final int port;
@@ -39,7 +39,7 @@ final class WebSocketServerWorker extends Worker {
 	
 	//constructor
 	public WebSocketServerWorker(
-		final WebSocketServer parentWebSocketServer,
+		final SecureServer parentWebSocketServer,
 		final int port,
 		final String paramHTMLPage,
 		final ISSLCertificate paramSSLCertificate
@@ -70,7 +70,7 @@ final class WebSocketServerWorker extends Worker {
 			b.group(bossGroup, workerGroup)
 			.channel(NioServerSocketChannel.class)
 			.handler(new LoggingHandler(LogLevel.INFO))
-			.childHandler(new WebSocketServerInitializer(parentWebSocketServer, mHTMLPage, sslCtx));
+			.childHandler(new SecureServerInitializer(parentWebSocketServer, mHTMLPage, sslCtx));
 			Channel ch = b.bind(port).sync().channel();
 			ch.closeFuture().sync();
 		} catch (InterruptedException interruptedException) {

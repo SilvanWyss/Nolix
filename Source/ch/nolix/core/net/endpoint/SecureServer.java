@@ -6,7 +6,7 @@ import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
-public final class WebSocketServer extends BaseServer {
+public final class SecureServer extends BaseServer {
 	
 	//constant
 	public static final String DEFAULT_HTML_PAGE =
@@ -29,7 +29,7 @@ public final class WebSocketServer extends BaseServer {
 	NolixConfigurationSSLCertificateReader.INSTANCE;
 	
 	//static method
-	public static WebSocketServer forPortAndHTMLPageAndSSLCertificateFromNolixConfiguration(
+	public static SecureServer forPortAndHTMLPageAndSSLCertificateFromNolixConfiguration(
 		final int port,
 		final String paramHTMLPage
 	) {
@@ -37,16 +37,16 @@ public final class WebSocketServer extends BaseServer {
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new WebSocketServer(port, paramHTMLPage, paramSSLCertificate);
+		return new SecureServer(port, paramHTMLPage, paramSSLCertificate);
 	}
 	
 	//constructor
-	public WebSocketServer(final int port, final ISSLCertificate paramSSLCertificate) {
+	public SecureServer(final int port, final ISSLCertificate paramSSLCertificate) {
 		this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
 	}
 	
 	//constructor
-	public WebSocketServer(final int port, final String paramHTMLPage, final ISSLCertificate paramSSLCertificate) {
+	public SecureServer(final int port, final String paramHTMLPage, final ISSLCertificate paramSSLCertificate) {
 		new WebSocketServerWorker(this, port, paramHTMLPage, paramSSLCertificate);
 	}
 	

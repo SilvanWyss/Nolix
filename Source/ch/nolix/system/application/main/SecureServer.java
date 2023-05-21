@@ -7,7 +7,7 @@ import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
-public final class WebSocketServer extends BaseServer {
+public final class SecureServer extends BaseServer {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTPS_PORT;
@@ -17,29 +17,29 @@ public final class WebSocketServer extends BaseServer {
 	NolixConfigurationSSLCertificateReader.INSTANCE;
 	
 	//static method
-	public static WebSocketServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
+	public static SecureServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
 		
 		final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
 		
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new WebSocketServer(PortCatalogue.HTTPS_PORT, domain, paramSSLCertificate);
+		return new SecureServer(PortCatalogue.HTTPS_PORT, domain, paramSSLCertificate);
 	}
 	
 	//static method
-	public static WebSocketServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
+	public static SecureServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
 		final String domain
 	) {
 		
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new WebSocketServer(DEFAULT_PORT, domain, paramSSLCertificate);
+		return new SecureServer(DEFAULT_PORT, domain, paramSSLCertificate);
 	}
 	
 	//static method
-	public static WebSocketServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
+	public static SecureServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
 		final int port,
 		final String domain
 	) {
@@ -47,20 +47,20 @@ public final class WebSocketServer extends BaseServer {
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new WebSocketServer(port, domain, paramSSLCertificate);
+		return new SecureServer(port, domain, paramSSLCertificate);
 	}
 	
 	//attribute
-	private final ch.nolix.core.net.endpoint3.WebSocketServer internalWebSocketServer;
+	private final ch.nolix.core.net.endpoint3.SecureServer internalWebSocketServer;
 	
 	//constructor
-	public WebSocketServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
+	public SecureServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
 		
-		final var localHTMLPage = new WebSocketServerHTMLPage(domain, port);
+		final var localHTMLPage = new SecureServerHTMLPage(domain, port);
 		final var localHTMLPageAsString = localHTMLPage.toString();
 		
 		internalWebSocketServer =
-		new ch.nolix.core.net.endpoint3.WebSocketServer(port, localHTMLPageAsString, paramSSLCertificate);
+		new ch.nolix.core.net.endpoint3.SecureServer(port, localHTMLPageAsString, paramSSLCertificate);
 		
 		createCloseDependencyTo(internalWebSocketServer);
 	}

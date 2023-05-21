@@ -12,12 +12,12 @@ import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
-final class WebSocketServerEndPoint extends NetEndPoint {
+final class SecureServerEndPoint extends NetEndPoint {
 	
 	private final ChannelHandlerContext channelHandlerContext;
 	
 	//constructor
-	public WebSocketServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
+	public SecureServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
 		
 		super(TargetInfoState.WAITS_TO_TARGET_INFO);
 		
