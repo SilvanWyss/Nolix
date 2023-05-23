@@ -1334,6 +1334,9 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "Core/Net/EndPoin
             if (message.length === 0) {
                 throw new Error('The given message is empty.');
             }
+            if (message.endsWith('\r\n')) {
+                message = message.substring(0, message.length - 2);
+            }
             switch (message[0]) {
                 case Protocol_1.Protocol.MESSAGE_PREFIX:
                     if (this.receiver === undefined) {

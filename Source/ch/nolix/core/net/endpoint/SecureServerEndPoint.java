@@ -47,6 +47,6 @@ final class SecureServerEndPoint extends NetEndPoint {
 	//method
 	@Override
 	protected void sendRawMessage(final String rawMessage) {
-		channelHandlerContext.channel().writeAndFlush(new TextWebSocketFrame(rawMessage));
+		channelHandlerContext.channel().writeAndFlush(new TextWebSocketFrame(rawMessage + "\r\n"));
 	}
 }

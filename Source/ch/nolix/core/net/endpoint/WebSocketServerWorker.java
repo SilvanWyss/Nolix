@@ -4,6 +4,7 @@ package ch.nolix.core.net.endpoint;
 //Netty imports
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -67,6 +68,7 @@ final class WebSocketServerWorker extends Worker {
 		
 		try {
 			ServerBootstrap b = new ServerBootstrap();
+			b.childOption(ChannelOption.TCP_NODELAY, true);
 			b.group(bossGroup, workerGroup)
 			.channel(NioServerSocketChannel.class)
 			.handler(new LoggingHandler(LogLevel.INFO))
