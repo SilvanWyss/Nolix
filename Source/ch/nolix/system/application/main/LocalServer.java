@@ -1,12 +1,22 @@
 //package declaration
 package ch.nolix.system.application.main;
 
+//own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
+
 //class
 /**
  * @author Silvan Wyss
  * @date 2021-06-29
  */
 public final class LocalServer extends BaseServer {
+	
+	//method
+	@Override
+	public IServerTarget asTarget() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asTarget");
+	}
 	
 	//method
 	/**

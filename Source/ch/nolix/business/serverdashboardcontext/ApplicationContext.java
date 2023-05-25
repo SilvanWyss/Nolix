@@ -1,30 +1,31 @@
 //package declaration
 package ch.nolix.business.serverdashboardcontext;
 
+//own imports
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.main.Server;
+import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 
 //class
 public final class ApplicationContext implements IApplicationContext {
 	
 	//static method
-	public static ApplicationContext toServer(final Server server) {
+	public static ApplicationContext toServer(final BaseServer server) {
 		return new ApplicationContext(server);
 	}
 	
 	//attribute
-	private final Server server;
+	private final BaseServer server;
 	
 	//constructor
-	private ApplicationContext(final Server server) {
+	private ApplicationContext(final BaseServer server) {
 		
-		GlobalValidator.assertThat(server).thatIsNamed(Server.class).isNotNull();
+		GlobalValidator.assertThat(server).thatIsNamed("server").isNotNull();
 		
 		this.server = server;
 	}

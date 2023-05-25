@@ -3,8 +3,10 @@ package ch.nolix.system.application.main;
 
 //own imports
 import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 
 //class
 public final class SecureServer extends BaseServer {
@@ -53,6 +55,12 @@ public final class SecureServer extends BaseServer {
 	//attribute
 	private final ch.nolix.core.net.endpoint3.SecureServer internalWebSocketServer;
 	
+	//attribute
+	private final String domain;
+	
+	//attribute
+	private final int port;
+	
 	//constructor
 	public SecureServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
 		
@@ -62,7 +70,16 @@ public final class SecureServer extends BaseServer {
 		internalWebSocketServer =
 		new ch.nolix.core.net.endpoint3.SecureServer(port, localHTMLPageAsString, paramSSLCertificate);
 		
+		this.domain = domain;
+		this.port = port;
+		
 		createCloseDependencyTo(internalWebSocketServer);
+	}
+	
+	//method
+	@Override
+	public IServerTarget asTarget() {
+		return ServerTarget.forIpOrAddressNameAndPort(domain, port);
 	}
 	
 	//method

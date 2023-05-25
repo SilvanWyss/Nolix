@@ -9,6 +9,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 
 //class
 /**
@@ -175,6 +176,12 @@ public abstract class BaseServer implements GroupCloseable {
 			instanceName
 		);
 	}
+	
+	//method
+	/**
+	 * @return the current {@link Server} as {@link IServerTarget}.
+	 */
+	public abstract IServerTarget asTarget();
 	
 	//method
 	/**

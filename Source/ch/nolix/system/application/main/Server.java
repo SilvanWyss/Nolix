@@ -64,6 +64,7 @@ public final class Server extends BaseServer {
 	/**
 	 * @return the current {@link Server} as {@link IServerTarget}.
 	 */
+	@Override
 	public IServerTarget asTarget() {
 		return ServerTarget.forIpOrAddressNameAndPort(getIp(), getPort());
 	}

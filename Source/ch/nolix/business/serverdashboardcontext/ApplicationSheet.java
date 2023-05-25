@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.business.serverdashboardcontext;
 
+//own imports
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -9,7 +10,7 @@ import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.main.Server;
+import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.BackendWebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -20,7 +21,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	//static method
 	public static ApplicationSheet forGUIApplicationOnServer(
 		final Application<BackendWebClient<?>, ?> pGUIApplication,
-		final Server server
+		final BaseServer server
 	) {
 		
 		if (pGUIApplication.getOriApplicationContext() instanceof IWebApplicationContext) {
