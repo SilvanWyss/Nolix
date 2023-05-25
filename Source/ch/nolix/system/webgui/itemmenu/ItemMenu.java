@@ -234,7 +234,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectItemByText(final String text) {
 		
-		getOriItemByText(text);
+		getOriItemByText(text).select();
 		
 		return asConcrete();
 	}
