@@ -47,7 +47,7 @@ public final class SecureServer extends BaseServer {
 	
 	//constructor
 	public SecureServer(final int port, final String paramHTMLPage, final ISSLCertificate paramSSLCertificate) {
-		new WebSocketServerWorker(this, port, paramHTMLPage, paramSSLCertificate);
+		new SecureServerWorker(this, port, paramHTMLPage, paramSSLCertificate);
 	}
 	
 	//method

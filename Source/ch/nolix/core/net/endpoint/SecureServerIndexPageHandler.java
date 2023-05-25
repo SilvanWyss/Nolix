@@ -20,11 +20,11 @@ import static io.netty.handler.codec.http.HttpMethod.*;
 import static io.netty.handler.codec.http.HttpResponseStatus.*;
 
 //class
-final class WebSocketIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
+final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 	
 	private final String mHTMLPage;
 	
-	public WebSocketIndexPageHandler(String paramHTMLPage) {
+	public SecureServerIndexPageHandler(String paramHTMLPage) {
 		mHTMLPage = paramHTMLPage;
 	}
 	

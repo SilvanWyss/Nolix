@@ -41,7 +41,7 @@ final class SecureServerInitializer extends ChannelInitializer<SocketChannel> {
 		pipeline.addLast(new HttpObjectAggregator(65536));
 		pipeline.addLast(new WebSocketServerCompressionHandler());
 		pipeline.addLast(new WebSocketServerProtocolHandler(WEBSOCKET_PATH, null, true));
-		pipeline.addLast(new WebSocketIndexPageHandler(mHTMLPage));
+		pipeline.addLast(new SecureServerIndexPageHandler(mHTMLPage));
 		pipeline.addLast(new SecureServerChannelInboundHandler(parentWebSocketServer));
 	}
 }

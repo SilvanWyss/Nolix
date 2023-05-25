@@ -20,7 +20,7 @@ import ch.nolix.core.programcontrol.worker.Worker;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
-final class WebSocketServerWorker extends Worker {
+final class SecureServerWorker extends Worker {
 	
 	//constant
 	private static final SecureServerSSLContextCreator WEB_SOCKET_SERVER_SSL_CONTEXT_CREATOR =
@@ -39,7 +39,7 @@ final class WebSocketServerWorker extends Worker {
 	private final ISSLCertificate mSSLCertificate;
 	
 	//constructor
-	public WebSocketServerWorker(
+	public SecureServerWorker(
 		final SecureServer parentWebSocketServer,
 		final int port,
 		final String paramHTMLPage,
