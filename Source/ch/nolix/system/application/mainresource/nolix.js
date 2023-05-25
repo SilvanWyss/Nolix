@@ -2232,9 +2232,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             }
         }
         setHTMLElementFromString(paramHTMLElementId, paramHTMLElementAsString) {
-            console.log('id: ' + paramHTMLElementId);
             const localHTMLElement = this.getOriHTMLElementById(paramHTMLElementId);
-            console.log('localHTMLElement: ' + localHTMLElement);
             localHTMLElement.outerHTML = paramHTMLElementAsString;
         }
         setIcon(icon) {
