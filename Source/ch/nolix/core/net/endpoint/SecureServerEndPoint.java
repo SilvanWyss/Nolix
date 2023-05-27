@@ -9,6 +9,7 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -36,6 +37,15 @@ final class SecureServerEndPoint extends NetEndPoint {
 	@Override
 	public PeerType getPeerType() {
 		return PeerType.BACKEND;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SecurityLevel getConnectionSecurityLevel() {
+		return SecurityLevel.SECURE;
 	}
 	
 	//method

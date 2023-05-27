@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.targetuniversalapi;
 
+//own imports
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
+
 //interface
 public interface IServerTarget {
 	
@@ -9,6 +12,9 @@ public interface IServerTarget {
 	
 	//method declaration
 	int getPort();
+	
+	//method declaration
+	SecurityLevel getSecurityLevelForConnections();
 	
 	//method declaration
 	String toURL();

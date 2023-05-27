@@ -17,6 +17,7 @@ import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -67,6 +68,12 @@ final class WebSocketEndPoint extends NetEndPoint {
 	@Override
 	public PeerType getPeerType() {
 		return peerType;
+	}
+	
+	//method
+	@Override
+	public SecurityLevel getConnectionSecurityLevel() {
+		return SecurityLevel.UNSECURE;
 	}
 	
 	//method

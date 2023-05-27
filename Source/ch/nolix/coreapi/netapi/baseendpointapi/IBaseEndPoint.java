@@ -4,6 +4,7 @@ package ch.nolix.coreapi.netapi.baseendpointapi;
 //own imports
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //interface
@@ -11,6 +12,9 @@ public interface IBaseEndPoint extends GroupCloseable {
 	
 	//method declaration
 	ConnectionType getConnectionType();
+	
+	//method declaration
+	SecurityLevel getConnectionSecurityLevel();
 	
 	//method declaration
 	String getCustomTargetSlot();

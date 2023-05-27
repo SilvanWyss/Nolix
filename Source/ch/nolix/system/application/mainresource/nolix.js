@@ -2213,7 +2213,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             this.window.open(pURL, '_blank');
         }
         redirectTo(pURL) {
-            if (!pURL.startsWith('http://')) {
+            if (!pURL.startsWith('http://') && !pURL.startsWith('https://')) {
                 pURL = 'http://' + pURL;
             }
             console.log('The current CanvasGUI redirects to \'' + pURL + '\'');

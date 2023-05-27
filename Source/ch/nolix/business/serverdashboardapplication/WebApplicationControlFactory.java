@@ -2,6 +2,7 @@
 package ch.nolix.business.serverdashboardapplication;
 
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.control.ImageControl;
@@ -31,13 +32,16 @@ final class WebApplicationControlFactory {
 	private WebApplicationControlFactory() {}
 	
 	//method
-	public IControl<?, ?> createWebApplicationControl(final IApplicationSheet pGUIApplicationSheet) {
+	public IControl<?, ?> createWebApplicationControl(
+		final IApplicationSheet pGUIApplicationSheet,
+		final SecurityLevel securityLevelForConnections
+	) {
 		
 		final var guiApplicationVerticalStack =
 		new VerticalStack()
 		.addControl(
 			createApplicationNameLabel(pGUIApplicationSheet),
-			createLogoImageControl(pGUIApplicationSheet)
+			createLogoImageControl(pGUIApplicationSheet, securityLevelForConnections)
 		);
 		
 		if (pGUIApplicationSheet.hasApplicationDescription()) {
@@ -53,7 +57,10 @@ final class WebApplicationControlFactory {
 	}
 	
 	//method
-	private IControl<?, ?> createLogoImageControl(final IApplicationSheet pGUIApplicationSheet) {
+	private IControl<?, ?> createLogoImageControl(
+		final IApplicationSheet pGUIApplicationSheet,
+		final SecurityLevel securityLevelForConnections
+	) {
 		return
 		new ImageControl()
 		.setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet))
@@ -62,7 +69,7 @@ final class WebApplicationControlFactory {
 			i
 			.getOriParentGUI()
 			.onFrontEnd()
-			.redirectTo(pGUIApplicationSheet.getApplicationTarget())
+			.redirectTo(pGUIApplicationSheet.getApplicationTarget(securityLevelForConnections))
 		);
 	}
 	

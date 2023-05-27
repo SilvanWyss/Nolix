@@ -3,16 +3,20 @@ package ch.nolix.core.net.target;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 
 //class
 public class ServerTarget implements IServerTarget {
 	
 	//static method
-	public static ServerTarget forIpOrAddressNameAndPort(final String ipOrAddressName, final int port) {
-		return new ServerTarget(ipOrAddressName, port);
+	public static ServerTarget forIpOrAddressNameAndPortAndSecurityLevelForConnections(
+		final String ipOrAddressName,
+		final int port,
+		final SecurityLevel securityLevelForConnections
+	) {
+		return new ServerTarget(ipOrAddressName, port, securityLevelForConnections);
 	}
 	
 	//attribute
@@ -21,17 +25,27 @@ public class ServerTarget implements IServerTarget {
 	//attribute
 	private final int port;
 	
+	//attribute
+	private final SecurityLevel securityLevelForConnections;
+	
 	//constructor
-	protected ServerTarget(final String ipOrAddressName, final int port) {
+	protected ServerTarget(
+		final String ipOrAddressName,
+		final int port,
+		final SecurityLevel securityLevelForConnections
+	) {
 		
 		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
 		
-		GlobalValidator.assertThat(port)
-		.thatIsNamed(LowerCaseCatalogue.PORT)
-		.isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
-		
+		GlobalValidator
+		.assertThat(securityLevelForConnections)
+		.thatIsNamed("security level for connections")
+		.isNotNull();
+				
 		this.ipOrAddressName = ipOrAddressName;
 		this.port = port;
+		this.securityLevelForConnections = securityLevelForConnections;
 	}
 	
 	//method
@@ -48,7 +62,19 @@ public class ServerTarget implements IServerTarget {
 	
 	//method
 	@Override
+	public final SecurityLevel getSecurityLevelForConnections() {
+		return securityLevelForConnections;
+	}
+	
+	//method
+	@Override
 	public String toURL() {
-		return (getIpOrAddressName() + ":" + getPort());	
+		return
+		switch (getSecurityLevelForConnections()) {
+			case UNSECURE ->
+				"http://" + getIpOrAddressName() + ":" + getPort();
+			case SECURE ->
+				"https://" + getIpOrAddressName() + ":" + getPort();
+		};
 	}
 }

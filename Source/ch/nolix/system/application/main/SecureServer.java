@@ -6,6 +6,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 
 //class
@@ -13,6 +14,9 @@ public final class SecureServer extends BaseServer {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTPS_PORT;
+	
+	//constant
+	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.SECURE;
 	
 	//constant
 	private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER =
@@ -79,7 +83,12 @@ public final class SecureServer extends BaseServer {
 	//method
 	@Override
 	public IServerTarget asTarget() {
-		return ServerTarget.forIpOrAddressNameAndPort(domain, port);
+		return
+		ServerTarget.forIpOrAddressNameAndPortAndSecurityLevelForConnections(
+			domain,
+			port,
+			SECURITY_LEVEL_FOR_CONNECTIONS
+		);
 	}
 	
 	//method

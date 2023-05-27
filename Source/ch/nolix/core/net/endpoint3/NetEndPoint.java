@@ -24,6 +24,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 
 //class
 /**
@@ -217,6 +218,15 @@ public final class NetEndPoint extends EndPoint {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public SecurityLevel getConnectionSecurityLevel() {
+		return internalEndPoint.getConnectionSecurityLevel();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public TargetSlotDefinition getTargetSlotDefinition() {
 		return internalEndPoint.getTargetSlotDefinition();
 	}
@@ -240,17 +250,24 @@ public final class NetEndPoint extends EndPoint {
 		//Creates message.
 		final var message = NetEndPointProtocol.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
 		
-		//Sends the message and received reply.
-		final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
+		final var replyAsString = internalEndPoint.getReplyForRequest(message);
 		
-		//Enumerates the header of the reply.
-		switch (reply.getHeader()) {
-			case NetEndPointProtocol.DONE_HEADER:
-				break;
-			case NetEndPointProtocol.ERROR_HEADER:
-				throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
-			default:
-				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
+		if (replyAsString == null) {
+			//When one of the givne commands is a redirect command, the counterpart will redirect and leave null.
+		} else {
+			
+			//Sends the message and received reply.
+			final var reply = Node.fromString(replyAsString);
+			
+			//Enumerates the header of the reply.
+			switch (reply.getHeader()) {
+				case NetEndPointProtocol.DONE_HEADER:
+					break;
+				case NetEndPointProtocol.ERROR_HEADER:
+					throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
+				default:
+					throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
+			}
 		}
 	}
 	

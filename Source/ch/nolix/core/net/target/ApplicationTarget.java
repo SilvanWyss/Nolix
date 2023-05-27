@@ -3,27 +3,34 @@ package ch.nolix.core.net.target;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 
 //class
 public final class ApplicationTarget extends ServerTarget implements IApplicationTarget {
 	
 	//static method
-	public static ApplicationTarget forIpOrAddressNameAndPortAndApplicationName(
+	public static ApplicationTarget forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
 		final String ipOrAddressName,
 		final int port,
-		final String applicationName
+		final String applicationName,
+		final SecurityLevel securityLevelForConnections
 	) {
-		return new ApplicationTarget(ipOrAddressName, port, applicationName);
+		return new ApplicationTarget(ipOrAddressName, port, applicationName, securityLevelForConnections);
 	}
 	
 	//attribute
 	private final String applicationName;
 	
 	//constructor
-	private ApplicationTarget(final String ipOrAddressName, final int port, final String applicationName) {
+	private ApplicationTarget(
+		final String ipOrAddressName,
+		final int port,
+		final String applicationName,
+		final SecurityLevel securityLevelForConnections
+	) {
 		
-		super(ipOrAddressName, port);
+		super(ipOrAddressName, port, securityLevelForConnections);
 		
 		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
 		

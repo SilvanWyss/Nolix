@@ -9,6 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 
 //class
 /**
@@ -123,6 +124,15 @@ public final class LocalEndPoint extends EndPoint {
 	@Override
 	public ConnectionType getConnectionType() {
 		return ConnectionType.LOCAL;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SecurityLevel getConnectionSecurityLevel() {
+		return SecurityLevel.UNSECURE;
 	}
 	
 	//method

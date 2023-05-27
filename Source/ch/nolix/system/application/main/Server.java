@@ -5,6 +5,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.net.target.ServerTarget;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 
 //class
@@ -18,6 +19,9 @@ public final class Server extends BaseServer {
 	
 	//constant
 	public static final int DEFAULT_PORT = ch.nolix.core.net.endpoint3.Server.DEFAULT_PORT;
+	
+	//constant
+	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 	
 	//static method
 	/**
@@ -66,7 +70,12 @@ public final class Server extends BaseServer {
 	 */
 	@Override
 	public IServerTarget asTarget() {
-		return ServerTarget.forIpOrAddressNameAndPort(getIp(), getPort());
+		return
+		ServerTarget.forIpOrAddressNameAndPortAndSecurityLevelForConnections(
+			getIp(),
+			getPort(),
+			SECURITY_LEVEL_FOR_CONNECTIONS
+		);
 	}
 	
 	//method

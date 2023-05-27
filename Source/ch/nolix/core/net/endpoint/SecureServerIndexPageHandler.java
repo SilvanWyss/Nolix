@@ -43,18 +43,11 @@ final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<Ful
 		}
 		
 		// Send the index page
-		if ("/".equals(req.uri()) || "/index.html".equals(req.uri())) {
-			ByteBuf content = Unpooled.copiedBuffer(mHTMLPage, CharsetUtil.US_ASCII);
-			FullHttpResponse res = new DefaultFullHttpResponse(req.protocolVersion(), OK, content);
-			
-			res.headers().set(CONTENT_TYPE, "text/html; charset=UTF-8");
-			HttpUtil.setContentLength(res, content.readableBytes());
-			
-			sendHttpResponse(ctx, req, res);
-		} else {
-			sendHttpResponse(ctx, req, new DefaultFullHttpResponse(req.protocolVersion(), NOT_FOUND,
-			ctx.alloc().buffer(0)));
-		}
+		ByteBuf content = Unpooled.copiedBuffer(mHTMLPage, CharsetUtil.US_ASCII);
+		FullHttpResponse res = new DefaultFullHttpResponse(req.protocolVersion(), OK, content);
+		res.headers().set(CONTENT_TYPE, "text/html; charset=UTF-8");
+		HttpUtil.setContentLength(res, content.readableBytes());
+		sendHttpResponse(ctx, req, res);
 	}
 	
 	@Override

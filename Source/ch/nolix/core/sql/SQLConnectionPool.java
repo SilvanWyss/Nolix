@@ -8,6 +8,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -15,6 +16,9 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
+	
+	//constant
+	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 	
 	//static attribute
 	private static final SQLConnectionFactory sSQLConnectionFactory = new SQLConnectionFactory();
@@ -117,6 +121,12 @@ public final class SQLConnectionPool implements GroupCloseable, ISQLDatabaseTarg
 	@Override
 	public CloseController getOriCloseController() {
 		return closeController;
+	}
+	
+	//method
+	@Override
+	public SecurityLevel getSecurityLevelForConnections() {
+		return SECURITY_LEVEL_FOR_CONNECTIONS;
 	}
 	
 	//method

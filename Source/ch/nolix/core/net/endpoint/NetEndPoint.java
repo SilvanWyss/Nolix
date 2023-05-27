@@ -175,7 +175,7 @@ public abstract class NetEndPoint extends EndPoint {
 	 * @param rawMessage
 	 * @throws InvalidArgumentException if the given rawMessage is not valid.
 	 */
-	private void receiveRawMessage(final String rawMessage) {
+	void receiveRawMessage(final String rawMessage) {
 		
 		//Enumerates the first character of the given rawMessage.
 		switch (rawMessage.charAt(0)) {

@@ -31,13 +31,15 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
 	//method
 	@Override
 	protected void channelRead0(final ChannelHandlerContext ctx, final WebSocketFrame frame) throws Exception {
-		
 		if (parentWebSocketServerEndPoint == null) {
 			parentWebSocketServerEndPoint = new SecureServerEndPoint(ctx);
+			
+			//The end point must receive the current message to know its content before it is added to the server.
+			String rawMessage = ((TextWebSocketFrame) frame).text();
+			parentWebSocketServerEndPoint.receiveRawMessage(rawMessage);
+			
 			parentWebSocketServer.internalTakeBackendEndPoint(parentWebSocketServerEndPoint);
-		}
-		
-		if (frame instanceof TextWebSocketFrame) {
+		} else if (frame instanceof TextWebSocketFrame) {
 			String rawMessage = ((TextWebSocketFrame) frame).text();
 			parentWebSocketServerEndPoint.receiveRawMessageInBackground(rawMessage);
 		} else {

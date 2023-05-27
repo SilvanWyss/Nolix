@@ -19,6 +19,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
+import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
@@ -225,6 +226,15 @@ public final class SocketEndPoint extends NetEndPoint {
 	@Override
 	public ConnectionType getConnectionType() {
 		return ConnectionType.SOCKET;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SecurityLevel getConnectionSecurityLevel() {
+		return SecurityLevel.UNSECURE;
 	}
 	
 	//method

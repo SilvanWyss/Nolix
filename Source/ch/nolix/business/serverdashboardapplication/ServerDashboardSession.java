@@ -30,7 +30,7 @@ final class ServerDashboardSession extends BackendWebClientSession<IApplicationC
 		
 		for (final var as : getGUIApplicationSheets()) {
 			floatContainer.addControl(
-				WebApplicationControlFactory.INSTANCE.createWebApplicationControl(as)
+				WebApplicationControlFactory.INSTANCE.createWebApplicationControl(as, getOriParentClient().getConnectionSecurityLevel())
 			);
 		}
 		
