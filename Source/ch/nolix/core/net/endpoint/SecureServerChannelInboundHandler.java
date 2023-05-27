@@ -29,6 +29,16 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
 	}
 	
 	//method
+	/**
+	 * Is triggered when the communication is stopped. For example when the client closes the connections.
+	 * Closes the parent {@link SecureServerEndPoint} of the current {@link SecureServerChannelInboundHandler}.
+	 */
+	@Override
+	public void channelInactive(final ChannelHandlerContext channelHandlerContext) throws Exception {
+		parentWebSocketServerEndPoint.close();
+	}
+	
+	//method
 	@Override
 	protected void channelRead0(final ChannelHandlerContext ctx, final WebSocketFrame frame) throws Exception {
 		if (parentWebSocketServerEndPoint == null) {
