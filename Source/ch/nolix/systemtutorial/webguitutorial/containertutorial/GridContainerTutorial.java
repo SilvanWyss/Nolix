@@ -49,7 +49,6 @@ public final class GridContainerTutorial {
 			//Configures the style of the GridContainer.
 			gridContainer
 			.getOriStyle()
-			.setChildControlMarginForState(ControlState.BASE, 20)
 			.setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the GridContainer to the GUI of the current MainSession.

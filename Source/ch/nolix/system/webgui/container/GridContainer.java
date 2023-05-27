@@ -42,7 +42,8 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//constructor
 	public GridContainer() {
 		getOriStyle()
-		.setGridThicknessForState(ControlState.BASE, 1);
+		.setGridThicknessForState(ControlState.BASE, 1)
+		.setChildControlMarginForState(ControlState.BASE, 10);
 	}
 	
 	//method
