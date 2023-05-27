@@ -10,6 +10,7 @@ import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -19,6 +20,9 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//static attribute
 	public static final GridContainerCSSRuleBuilder INSTANCE = new GridContainerCSSRuleBuilder();
+	
+	//constant
+	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
 	
 	//constructor
 	private GridContainerCSSRuleBuilder() {}
@@ -52,16 +56,16 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 		
 		final var style = control.getOriStyle();
 		final var gridThickness = style.getGridThicknessWhenHasState(state);
+		final var gridcolor = style.getGridColorWhenHasState(state);
 		final var childControlMargin = style.getChildControlMarginWhenHasState(state);
 		
 		list.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(control)
-				+ " "
-				+ HTMLElementTypeCatalogue.TABLE,
+				getCSSSelectorForControlAndState(control, state) + " table, th, td",
 				ImmutableList.withElements(
-					CSSProperty.withNameAndValue("border-style", "solid"),
-					CSSProperty.withNameAndValue("border-thickness", gridThickness + CSSUnitCatalogue.PX)
+					CSSProperty.withNameAndValue("border-collapse", "collapse"),
+					CSSProperty.withNameAndValue("border", "solid " + gridThickness + CSSUnitCatalogue.PX),
+					CSSProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(gridcolor))
 				)
 			)
 		);
@@ -72,8 +76,6 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 				+ " "
 				+ HTMLElementTypeCatalogue.TD,
 				ImmutableList.withElements(
-					CSSProperty.withNameAndValue("border-style", "solid"),
-					CSSProperty.withNameAndValue("border-thickness", gridThickness + CSSUnitCatalogue.PX),
 					CSSProperty.withNameAndValue("padding", childControlMargin + CSSUnitCatalogue.PX)
 				)
 			)
@@ -86,13 +88,6 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 		final GridContainer control,
 		final LinkedList<? super ICSSRule<?>> list
 	) {
-		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(control)
-				+ " "
-				+ HTMLElementTypeCatalogue.TABLE,
-				ImmutableList.withElements(CSSProperty.withNameAndValue("border-collapse", "collapse"))
-			)
-		);
+		//Does nothing.
 	}
 }

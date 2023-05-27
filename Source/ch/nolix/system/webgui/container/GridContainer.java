@@ -13,6 +13,7 @@ import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -37,6 +38,12 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		GridContainerCell::fromSpecification,
 		GridContainerCell::getSpecification
 	);
+	
+	//constructor
+	public GridContainer() {
+		getOriStyle()
+		.setGridThicknessForState(ControlState.BASE, 1);
+	}
 	
 	//method
 	@Override
