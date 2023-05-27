@@ -53,9 +53,6 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	//method
 	@Override
 	protected final void updateCounterpart() {
-		
-		getOriGUI().applyStyleIfHasStyle();
-		
 		if (restrictedNextUpdateToControl()) {
 			
 			getOriParentClient().internalUpdateControlOnCounterpart(controlToUpdate);

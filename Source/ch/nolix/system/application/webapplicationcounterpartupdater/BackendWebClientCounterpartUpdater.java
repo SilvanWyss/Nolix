@@ -45,6 +45,8 @@ public final class BackendWebClientCounterpartUpdater {
 	//method
 	public void updateCounterpartFromWebGUI(final IWebGUI<?> webGUI) {
 		
+		webGUI.applyStyleIfHasStyle();
+		
 		final var updateCommands = createUpdateCommandsFromWebGUI(webGUI);
 		
 		counterpartRunner.run(updateCommands);
