@@ -11,7 +11,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  * @date 2016-09-01
  */
 public enum ContainerRole {
-	OVERALL_CONTAINTER,
+	OVERALL_CONTAINER,
 	MAIN_CONTENT_CONTAINER,
 	DIALOG_CONTAINER,
 	TITLE_CONTAINER;
