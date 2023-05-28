@@ -79,8 +79,8 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		
 		//verification
-		expect(loadedJohn.pets.getOrierencedEntities().getElementCount()).isEqualTo(2);
-		expect(loadedJohn.pets.getOrierencedEntities().containsAny(p -> p.hasId(garfield.getId())));
-		expect(loadedJohn.pets.getOrierencedEntities().containsAny(p -> p.hasId(odie.getId())));
+		expect(loadedJohn.pets.getReferencedEntities().getElementCount()).isEqualTo(2);
+		expect(loadedJohn.pets.getReferencedEntities().containsAny(p -> p.hasId(garfield.getId())));
+		expect(loadedJohn.pets.getReferencedEntities().containsAny(p -> p.hasId(odie.getId())));
 	}
 }

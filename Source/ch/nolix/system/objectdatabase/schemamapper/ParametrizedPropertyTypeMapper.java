@@ -53,7 +53,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				
 				return
 				new ParametrizedReferenceType(
-					referencableTables.getOriFirst(t -> t.hasName(reference.getOrierencedTableName()))
+					referencableTables.getOriFirst(t -> t.hasName(reference.getReferencedTableName()))
 				);
 			case OPTIONAL_REFERENCE:
 				
@@ -61,7 +61,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				
 				return
 				new ParametrizedOptionalReferenceType(
-					referencableTables.getOriFirst(t -> t.hasName(optionalReference.getOrierencedTableName()))
+					referencableTables.getOriFirst(t -> t.hasName(optionalReference.getReferencedTableName()))
 				);
 			case MULTI_REFERENCE:
 				
@@ -69,7 +69,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				
 				return
 				new ParametrizedMultiReferenceType(
-					referencableTables.getOriFirst(t -> t.hasName(multiReference.getOrierencedTableName()))
+					referencableTables.getOriFirst(t -> t.hasName(multiReference.getReferencedTableName()))
 				);
 			case BACK_REFERENCE:
 				

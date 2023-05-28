@@ -44,7 +44,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution
-		final var result = john.pet.getOrierencedEntity();
+		final var result = john.pet.getReferencedEntity();
 		
 		//verification
 		expect(result).is(garfield);
@@ -71,7 +71,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
 		
 		//execution
-		final var result = loadedJohn.pet.getOrierencedEntity();
+		final var result = loadedJohn.pet.getReferencedEntity();
 		
 		//verification
 		expect(result.getId()).isEqualTo(garfield.getId());

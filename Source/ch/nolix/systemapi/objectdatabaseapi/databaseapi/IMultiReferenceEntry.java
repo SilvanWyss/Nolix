@@ -15,10 +15,10 @@ extends IDatabaseObject {
 	IProperty getOriBackReferencingPropertyOrNull();
 	
 	//method declaration
-	E getOrierencedEntity();
+	E getReferencedEntity();
 	
 	//method declaration
-	String getOrierencedEntityId();
+	String getReferencedEntityId();
 	
 	//method declaration
 	IMultiReference<E> getOriParentMultiReference();

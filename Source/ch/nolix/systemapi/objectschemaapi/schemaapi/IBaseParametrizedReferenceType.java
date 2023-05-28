@@ -5,5 +5,5 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 public interface IBaseParametrizedReferenceType extends IParametrizedPropertyType {
 	
 	//method declaration
-	ITable getOrierencedTable();
+	ITable getReferencedTable();
 }

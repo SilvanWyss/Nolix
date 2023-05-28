@@ -60,7 +60,7 @@ final class ColumnMutationValidator {
 		) {
 			
 			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parametrizedPropertyType;
-			final var referencedTable = baseParametrizedReferenceType.getOrierencedTable();
+			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
 			
 			databaseHelper.assertContainsGivenTable(columnHelper.getParentDatabase(column), referencedTable);
 		}

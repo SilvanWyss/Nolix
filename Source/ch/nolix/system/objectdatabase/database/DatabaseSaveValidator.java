@@ -80,8 +80,8 @@ public final class DatabaseSaveValidator {
 				final var reference = (IReference<?>)property;
 											
 				database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-					reference.getOrierencedTableName(),
-					reference.getOrierencedEntityId()
+					reference.getReferencedTableName(),
+					reference.getReferencedEntityId()
 				);
 											
 				break;
@@ -91,8 +91,8 @@ public final class DatabaseSaveValidator {
 				
 				if (optionalReference.containsAny()) {
 					database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-						optionalReference.getOrierencedTableName(),
-						optionalReference.getOrierencedEntityId()
+						optionalReference.getReferencedTableName(),
+						optionalReference.getReferencedEntityId()
 					);
 				}
 				
@@ -100,13 +100,13 @@ public final class DatabaseSaveValidator {
 			case MULTI_REFERENCE:
 				
 				final var multiReference = (MultiReference<?>)property;
-				final var referencedTableName = multiReference.getOrierencedTableName();
+				final var referencedTableName = multiReference.getReferencedTableName();
 				
 				for (final var le : multiReference.getOriLocalEntries()) {
 					if (multiReferenceEntryHelper.isNewOrEdited(le)) {
 						database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 							referencedTableName,
-							le.getOrierencedEntityId()
+							le.getReferencedEntityId()
 						);
 					}
 				}

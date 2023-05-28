@@ -30,7 +30,7 @@ implements IBaseReference<E> {
 	
 	//method
 	@Override
-	public final ITable<E> getOrierencedTable() {
+	public final ITable<E> getReferencedTable() {
 		
 		extractReferencedTableIfNotExtracted();
 		
@@ -39,7 +39,7 @@ implements IBaseReference<E> {
 	
 	//method
 	@Override
-	public final String getOrierencedTableName() {
+	public final String getReferencedTableName() {
 		return referencedTableName;
 	}
 	
@@ -113,6 +113,6 @@ implements IBaseReference<E> {
 	@SuppressWarnings("unchecked")
 	private Table<E> loadReferencedTable() {
 		return
-		(Table<E>)getOriParentEntity().getOriParentTable().getOriParentDatabase().getOriTableByName(getOrierencedTableName());
+		(Table<E>)getOriParentEntity().getOriParentTable().getOriParentDatabase().getOriTableByName(getReferencedTableName());
 	}
 }

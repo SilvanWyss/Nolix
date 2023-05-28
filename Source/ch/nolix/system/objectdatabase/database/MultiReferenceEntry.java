@@ -64,7 +64,7 @@ implements IMultiReferenceEntry<E> {
 	@Override
 	public IProperty getOriBackReferencingPropertyOrNull() {
 		return
-		getOrierencedEntity()
+		getReferencedEntity()
 		.technicalGetRefProperties()
 		.getOriFirstOrNull(p -> p.referencesBackProperty(getOriParentMultiReference()));
 	}
@@ -91,13 +91,13 @@ implements IMultiReferenceEntry<E> {
 	
 	//method
 	@Override
-	public E getOrierencedEntity() {
-		return getOriParentMultiReference().getOrierencedTable().getOriEntityById(getOrierencedEntityId());
+	public E getReferencedEntity() {
+		return getOriParentMultiReference().getReferencedTable().getOriEntityById(getReferencedEntityId());
 	}
 	
 	//method
 	@Override
-	public String getOrierencedEntityId() {
+	public String getReferencedEntityId() {
 		return referencedEntityId;
 	}
 	

@@ -90,6 +90,6 @@ public final class ParametrizedPropertyTypeMapper {
 		
 		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType;
 		
-		return tables.getOriFirst(t -> t.hasId(baseParametrizedReferenceType.getOrierencedTableId()));
+		return tables.getOriFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
 	}
 }

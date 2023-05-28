@@ -28,7 +28,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		canSetEntity(optionalReference)
 		&& entity != null
 		&& entity.isOpen()
-		&& optionalReference.getOrierencedTableName().equals(entity.getParentTableName());
+		&& optionalReference.getReferencedTableName().equals(entity.getParentTableName());
 	}
 	
 	//method
@@ -67,7 +67,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	) {
 		return
 		optionalReference
-		.getOrierencedEntity()
+		.getReferencedEntity()
 		.technicalGetRefProperties()
 		.getOriFirstOrNull(p -> p.referencesBackProperty(optionalReference));
 	}

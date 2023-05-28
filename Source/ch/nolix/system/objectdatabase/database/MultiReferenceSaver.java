@@ -52,7 +52,7 @@ final class MultiReferenceSaver {
 			entity.getParentTableName(),
 			entity.getId(),
 			multiReferenceEntry.getOriParentMultiReference().getName(),
-			multiReferenceEntry.getOrierencedEntityId()
+			multiReferenceEntry.getReferencedEntityId()
 		);
 	}
 	
@@ -68,7 +68,7 @@ final class MultiReferenceSaver {
 			entity.getParentTableName(),
 			entity.getId(),
 			multiReferenceEntry.getOriParentMultiReference().getName(),
-			multiReferenceEntry.getOrierencedEntityId()
+			multiReferenceEntry.getReferencedEntityId()
 		);
 	}
 }

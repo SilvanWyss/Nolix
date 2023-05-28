@@ -49,7 +49,7 @@ final class ParametrizedPropertyTypeMapper {
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
 				final var referencedTable =
-				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO.getOrierencedTableId()));
+				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO.getReferencedTableId()));
 				
 				return new ParametrizedReferenceType<>(referencedTable);
 			case OPTIONAL_REFERENCE:
@@ -58,7 +58,7 @@ final class ParametrizedPropertyTypeMapper {
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
 				final var referencedTable2 =
-				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO2.getOrierencedTableId()));
+				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO2.getReferencedTableId()));
 				
 				return new ParametrizedOptionalReferenceType<>(referencedTable2);
 			case MULTI_REFERENCE:
@@ -67,7 +67,7 @@ final class ParametrizedPropertyTypeMapper {
 				(IBaseParametrizedReferenceTypeDTO)parametrizedPropertyTypeDTO;
 				
 				final var referencedTable3 =
-				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO3.getOrierencedTableId()));
+				referencableTables.getOriFirst(t -> t.hasId(baseParametrizedReferenceTypeDTO3.getReferencedTableId()));
 				
 				return new ParametrizedMultiReferenceType<>(referencedTable3);
 			case BACK_REFERENCE:

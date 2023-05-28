@@ -19,7 +19,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		canSetEntity(reference)
 		&& entity != null
 		&& entity.isOpen()
-		&& reference.getOrierencedTableName().equals(entity.getParentTableName());
+		&& reference.getReferencedTableName().equals(entity.getParentTableName());
 	}
 	
 	//method
@@ -43,7 +43,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	public  IProperty getOriBackReferencingPropertyOrNull(final IReference<?> reference) {
 		return
 		reference
-		.getOrierencedEntity()
+		.getReferencedEntity()
 		.technicalGetRefProperties()
 		.getOriFirstOrNull(p -> p.referencesBackProperty(reference));
 	}

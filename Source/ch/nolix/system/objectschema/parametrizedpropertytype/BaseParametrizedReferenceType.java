@@ -50,14 +50,14 @@ implements IBaseParametrizedReferenceType {
 	
 	//method
 	@Override
-	public ITable getOrierencedTable() {
+	public ITable getReferencedTable() {
 		return referencedTable;
 	}
 	
 	//method
 	@Override
 	public final boolean referencesTable(final ITable table) {
-		return (getOrierencedTable() == table);
+		return (getReferencedTable() == table);
 	}
 	
 	//method
@@ -73,7 +73,7 @@ implements IBaseParametrizedReferenceType {
 		new BaseParametrizedReferenceTypeDTO(
 			getPropertyType(),
 			getDataType(),
-			getOrierencedTable().getId()
+			getReferencedTable().getId()
 		);
 	}
 }

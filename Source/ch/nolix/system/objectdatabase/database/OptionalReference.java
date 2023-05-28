@@ -67,7 +67,7 @@ implements IOptionalReference<E> {
 		}
 		
 		final var backReferencingProperty =
-		getOrierencedEntity().technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
+		getReferencedEntity().technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
 		
 		if (backReferencingProperty != null) {
 			return ImmutableList.withElement(backReferencingProperty);
@@ -78,13 +78,13 @@ implements IOptionalReference<E> {
 	
 	//method
 	@Override
-	public E getOrierencedEntity() {
-		return getOrierencedTable().getOriEntityById(getOrierencedEntityId());
+	public E getReferencedEntity() {
+		return getReferencedTable().getOriEntityById(getReferencedEntityId());
 	}
 	
 	//method
 	@Override
-	public String getOrierencedEntityId() {
+	public String getReferencedEntityId() {
 		
 		OPTIONAL_REFERENCE_VALIDATOR.assertIsNotEmpty(this);
 		
@@ -115,7 +115,7 @@ implements IOptionalReference<E> {
 		return
 		containsAny()
 		&& entity != null
-		&& getOrierencedEntityId().equals(entity.getId());
+		&& getReferencedEntityId().equals(entity.getId());
 	}
 	
 	//method
@@ -123,7 +123,7 @@ implements IOptionalReference<E> {
 	public boolean referencesUninsertedEntity() {
 		return
 		containsAny()
-		&& !getOrierencedEntity().belongsToTable();
+		&& !getReferencedEntity().belongsToTable();
 	}
 	
 	//method
@@ -147,7 +147,7 @@ implements IOptionalReference<E> {
 	@Override
 	public void setEntityById(final String id) {
 		
-		final var entity = getOrierencedTable().getOriEntityById(id);
+		final var entity = getReferencedTable().getOriEntityById(id);
 		
 		setEntity(entity);
 	}
@@ -160,7 +160,7 @@ implements IOptionalReference<E> {
 			return new ContentFieldDTO(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getOrierencedEntityId());
+		return new ContentFieldDTO(getName(), getReferencedEntityId());
 	}
 	
 	//method
@@ -177,7 +177,7 @@ implements IOptionalReference<E> {
 	@Override
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
-			updateProbableBackReferenceForSetOrAddedEntity(getOrierencedEntity());
+			updateProbableBackReferenceForSetOrAddedEntity(getReferencedEntity());
 		}
 	}
 	

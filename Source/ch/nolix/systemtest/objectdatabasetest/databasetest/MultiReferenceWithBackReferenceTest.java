@@ -72,10 +72,10 @@ public final class MultiReferenceWithBackReferenceTest extends Test {
 		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(simba.getId());
 		final var loadedOdie =
 		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(odie.getId());
-		expect(loadedJohn.pets.getOrierencedEntities().getElementCount()).isEqualTo(3);
-		expect(loadedJohn.pets.getOrierencedEntities().contains(loadedGarfield));
-		expect(loadedJohn.pets.getOrierencedEntities().contains(loadedSimba));
-		expect(loadedJohn.pets.getOrierencedEntities().contains(loadedOdie));
+		expect(loadedJohn.pets.getReferencedEntities().getElementCount()).isEqualTo(3);
+		expect(loadedJohn.pets.getReferencedEntities().contains(loadedGarfield));
+		expect(loadedJohn.pets.getReferencedEntities().contains(loadedSimba));
+		expect(loadedJohn.pets.getReferencedEntities().contains(loadedOdie));
 		expect(loadedGarfield.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedSimba.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);

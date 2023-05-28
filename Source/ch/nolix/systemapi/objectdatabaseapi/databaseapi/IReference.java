@@ -9,10 +9,10 @@ public interface IReference<
 extends IBaseReference<E> {
 	
 	//method declaration
-	E getOrierencedEntity();
+	E getReferencedEntity();
 	
 	//method declaration
-	String getOrierencedEntityId();
+	String getReferencedEntityId();
 	
 	//method declaration
 	void setEntity(final E entity);

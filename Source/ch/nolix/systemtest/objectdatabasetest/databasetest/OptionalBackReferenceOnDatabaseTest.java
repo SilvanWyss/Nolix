@@ -199,7 +199,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//setup part 1 verification
-		expect(john.pet.getOrierencedEntity()).is(garfield);
+		expect(john.pet.getReferencedEntity()).is(garfield);
 		expect(garfield.owner.getBackReferencedEntity()).is(john);
 		expect(odie.owner.isEmpty());
 		
@@ -218,7 +218,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		//verification
 		final var loadedGarfield =
 		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
-		expect(loadedJohn.pet.getOrierencedEntity()).is(loadedOdie);
+		expect(loadedJohn.pet.getReferencedEntity()).is(loadedOdie);
 		expect(loadedGarfield.owner.isEmpty());
 		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
 	}

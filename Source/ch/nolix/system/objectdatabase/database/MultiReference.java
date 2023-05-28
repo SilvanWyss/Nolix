@@ -77,7 +77,7 @@ implements IMultiReference<E> {
 		
 		final var backReferencingProperties = new LinkedList<IProperty>();
 		
-		for (final var re : getOrierencedEntities()) {
+		for (final var re : getReferencedEntities()) {
 			
 			final var backReferencingProperty =
 			re.technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
@@ -92,17 +92,17 @@ implements IMultiReference<E> {
 	
 	//method
 	@Override
-	public IContainer<E> getOrierencedEntities() {
-		return getOrierencedEntityIds().to(getOrierencedTable()::getOriEntityById);
+	public IContainer<E> getReferencedEntities() {
+		return getReferencedEntityIds().to(getReferencedTable()::getOriEntityById);
 	}
 	
 	//method
 	@Override
-	public IContainer<String> getOrierencedEntityIds() {
+	public IContainer<String> getReferencedEntityIds() {
 		
 		extractReferencedEntityIdsIfNeeded();
 		
-		return localEntries.to(IMultiReferenceEntry::getOrierencedEntityId);
+		return localEntries.to(IMultiReferenceEntry::getReferencedEntityId);
 	}
 	
 	//method
@@ -120,7 +120,7 @@ implements IMultiReference<E> {
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getOrierencedEntityIds().isEmpty();
+		return getReferencedEntityIds().isEmpty();
 	}
 	
 	//method
@@ -137,13 +137,13 @@ implements IMultiReference<E> {
 			return false;
 		}
 		
-		return getOrierencedEntityIds().containsEqualing(entity.getId());
+		return getReferencedEntityIds().containsEqualing(entity.getId());
 	}
 	
 	//method
 	@Override
 	public boolean referencesUninsertedEntity() {
-		return getOrierencedEntities().containsAny(e -> !e.belongsToTable());
+		return getReferencedEntities().containsAny(e -> !e.belongsToTable());
 	}
 	
 	//method
@@ -154,7 +154,7 @@ implements IMultiReference<E> {
 		
 		extractReferencedEntityIdsIfNeeded();
 		
-		localEntries.getOriFirst(le -> le.getOrierencedEntityId().equals(entity.getId())).internalSetDeleted();
+		localEntries.getOriFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
 	}
 	
 	//method
@@ -173,7 +173,7 @@ implements IMultiReference<E> {
 	@Override
 	void internalUpdateProbableBackReferencesWhenIsNew() {
 		if (containsAny()) {
-			for (final var e : getOrierencedEntities()) {
+			for (final var e : getReferencedEntities()) {
 				updateProbableBackReferenceForSetOrAddedEntity(e);
 			}
 		}
@@ -187,7 +187,7 @@ implements IMultiReference<E> {
 	//method
 	private void clearWhenContainsAny() {
 		
-		getOrierencedEntities().forEach(this::removeEntity);
+		getReferencedEntities().forEach(this::removeEntity);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}

@@ -72,7 +72,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 		new BaseParametrizedReferenceTypeDTO(
 			propertyType,
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
-			getOrierencedTableIdFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
+			getReferencedTableIdFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);
 	}
 	
@@ -124,7 +124,7 @@ public class ParametrizedPropertyTypeDTOMapper {
 	}
 	
 	//method
-	private String getOrierencedTableIdFromParametrizedPropertyTypeNode(
+	private String getReferencedTableIdFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
 		
