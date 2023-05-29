@@ -156,7 +156,7 @@ final class WebSocketEndPoint extends NetEndPoint {
 		GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasTargetInfo);
 		
 		if (!hasTargetInfo()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout while waiting to target.");
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout while waiting to target");
 		}
 	}
 }
