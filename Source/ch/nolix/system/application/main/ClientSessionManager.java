@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.main;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -164,13 +165,17 @@ final class ClientSessionManager<
 	//method
 	private void initializeSession(final Session<C, AC> session) {
 		
-		//Check if the Client is open because it can be closed before.
+		//Check if the parentClient is open because it could be closed before.
 		if (parentClient.isOpen()) {
 			session.fullInitialize();
 		}
 		
-		//Check if the Client is open because it can be closed before.
-		if (parentClient.isOpen()) {
+		/*
+		 * Check if the parentClient is open because it could be closed by the fullInitialize method.
+		 * Checks if the session belongs to a Client because
+		 * it could be popped from the Client by the fullInitialize method.
+		 */
+		if (parentClient.isOpen() && session.belongsToClient()) {
 			session.updateCounterpart();
 		}
 	}
