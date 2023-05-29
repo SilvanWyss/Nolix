@@ -58,7 +58,6 @@ public final class WebSocketHandShakeResponse {
 		+ "Upgrade: websocket\r\n"
 		+ "Connection: Upgrade\r\n"
 		+ SEC_WEBSOCKET_ACCEPT_HEADER + ": " + secWebSocketAccept + "\r\n"
-		+ SEC_WEBSOCKET_PROTOCOL_HEADER + ": chat\r\n"
 		+ "\r\n";
 	}
 }
