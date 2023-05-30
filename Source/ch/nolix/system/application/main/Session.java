@@ -57,14 +57,6 @@ public abstract class Session<
 	
 	//method
 	/**
-	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
-	 */
-	public Application<BC, AC> getOriParentApplication() {
-		return getOriParentClient().getParentApplication();
-	}
-	
-	//method
-	/**
 	 * @return the parent client of the current {@link Session}.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
@@ -233,5 +225,13 @@ public abstract class Session<
 		if (belongsToClient()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a client");
 		}
+	}
+	
+	//method
+	/**
+	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
+	 */
+	private Application<BC, AC> getOriParentApplication() {
+		return getOriParentClient().getParentApplication();
 	}
 }
