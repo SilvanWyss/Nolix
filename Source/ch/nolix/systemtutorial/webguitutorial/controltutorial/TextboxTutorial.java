@@ -1,9 +1,9 @@
 package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -16,7 +16,7 @@ public final class TextboxTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Textbox tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("Textbox tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();

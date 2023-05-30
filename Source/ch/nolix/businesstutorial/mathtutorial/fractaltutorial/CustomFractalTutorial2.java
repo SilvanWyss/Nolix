@@ -4,9 +4,9 @@ import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.business.math.fractal.FractalBuilder;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.control.ImageControl;
@@ -22,7 +22,7 @@ public final class CustomFractalTutorial2 {
 		server.addDefaultApplication(
 			"Custom fractal tutorial",
 			MainSession.class,
-			VoidApplicationContext.INSTANCE
+			new VoidObject()
 		);
 		
 		//Starts a web browser that will connect to the Server.

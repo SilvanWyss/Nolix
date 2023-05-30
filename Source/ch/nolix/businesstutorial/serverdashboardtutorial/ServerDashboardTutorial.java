@@ -2,8 +2,8 @@ package ch.nolix.businesstutorial.serverdashboardtutorial;
 
 import ch.nolix.business.serverdashboardapplication.ServerDashboardApplication;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.WebApplicationContext;
 import ch.nolix.system.gui.iconresource.IconCatalogue;
 import ch.nolix.systemtutorial.webguitutorial.controltutorial.ImageControlTutorial;
@@ -32,12 +32,12 @@ public final class ServerDashboardTutorial {
 		server.addApplication(
 			"ImageControl tutorial",
 			ImageControlTutorial.MainSession.class,
-			VoidApplicationContext.INSTANCE
+			new VoidObject()
 		);
 		server.addApplication(
 			"DropdownMenu tutorial",
 			DropdownMenuTutorial.MainSession.class,
-			VoidApplicationContext.INSTANCE
+			new VoidObject()
 		);
 		
 		//Starts a web browser that will connect to the Server.

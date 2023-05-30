@@ -3,9 +3,9 @@ package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.system.application.webapplication.BackendWebClientSession;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
@@ -21,7 +21,7 @@ public final class ValidationLabelTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("ValidationLabel tutorial", MainSession.class, VoidApplicationContext.INSTANCE);
+		server.addDefaultApplication("ValidationLabel tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();

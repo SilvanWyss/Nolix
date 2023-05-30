@@ -1,7 +1,7 @@
 package ch.nolix.systemtutorial.webguitutorial.maintutorial;
 
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.SecureServer;
-import ch.nolix.system.application.main.VoidApplicationContext;
 import ch.nolix.systemtutorial.webguitutorial.maintutorial.PartialRefreshTutorial.MainSession;
 
 public class SecurePartialRefreshTutorial {
@@ -15,7 +15,7 @@ public class SecurePartialRefreshTutorial {
 		secureServer.addDefaultApplication(
 			"Secure partial refresh tutorial",
 			MainSession.class,
-			VoidApplicationContext.INSTANCE
+			new VoidObject()
 		);
 	}
 }
