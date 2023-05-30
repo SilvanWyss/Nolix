@@ -48,19 +48,19 @@ public abstract class Session<
 	
 	//method
 	/**
-	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
-	 */
-	public Application<BC, AC> getParentApplication() {
-		return getOriParentClient().getParentApplication();
-	}
-	
-	//method
-	/**
 	 * @return
 	 * the context of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
 	public AC getOriApplicationContext() {
-		return getParentApplication().getOriApplicationContext();
+		return getOriParentApplication().getOriApplicationContext();
+	}
+	
+	//method
+	/**
+	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
+	 */
+	public Application<BC, AC> getOriParentApplication() {
+		return getOriParentClient().getParentApplication();
 	}
 	
 	//method
