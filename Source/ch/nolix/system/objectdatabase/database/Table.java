@@ -143,6 +143,27 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
+	public E getOriEntityByIdOrNull(final String id) {
+		
+		final var entity = technicalGetRefEntitiesInLocalData().getOriFirstOrNull(e -> e.hasId(id));
+		
+		if (entity == null) {
+			
+			if (internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id)) {
+				
+				addEntityWithIdWhenIsNotAdded(id);
+				
+				return getOriEntityByIdWhenIsInLocalData(id);
+			}
+			
+			return null;
+		}
+		
+		return entity;
+	}
+	
+	//method
+	@Override
 	public IDatabase getOriParentDatabase() {
 		return parentDatabase;
 	}

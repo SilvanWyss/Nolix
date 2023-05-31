@@ -33,6 +33,9 @@ extends IDatabaseObject, Identified, Named {
 	E getOriEntityById(String id);
 	
 	//method declaration
+	E getOriEntityByIdOrNull(String id);
+	
+	//method declaration
 	IDatabase getOriParentDatabase();
 	
 	//method declaration
