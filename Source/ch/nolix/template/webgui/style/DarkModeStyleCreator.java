@@ -7,6 +7,7 @@ import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
@@ -16,12 +17,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
 public final class DarkModeStyleCreator {
-	
-	//constant
-	public static final DarkModeStyleCreator INSTANCE = new DarkModeStyleCreator();
-	
-	//constructor
-	private DarkModeStyleCreator() {}
 	
 	//method
 	public Style createDarkModeStyle() {
@@ -35,11 +30,11 @@ public final class DarkModeStyleCreator {
 			createGridContainerStyle(),
 			createTitleStyle(),
 			createButtonStyle(),
+			createTextboxStyle(),
 			createDropdownMenuStyle(),
 			createDialogLayerStyle(),
 			createOverallVerticalStackStyle(),
 			createMainLabelStyle()
-			//createActionButtonStyle()
 		);
 	}
 	
@@ -52,7 +47,7 @@ public final class DarkModeStyleCreator {
 			
 		);
 	}
-
+	
 	//method
 	private DeepStyle createGridContainerStyle() {
 		return
@@ -90,6 +85,19 @@ public final class DarkModeStyleCreator {
 	}
 	
 	//method
+	private DeepStyle createTextboxStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(Textbox.class)
+		.addAttachingAttribute(
+			"BaseWidth(200)",
+			"BaseBackground(Color(0x202020))",
+			"HoverBackground(Color(0x000000))",
+			"FocusBackground(Color(0x000000))"
+		);
+	}
+	
+	//method
 	private DeepStyle createDropdownMenuStyle() {
 		return
 		new DeepStyle()
@@ -101,7 +109,7 @@ public final class DarkModeStyleCreator {
 			"FocusBackground(Color(0x000000))"
 		);
 	}
-
+	
 	//method
 	private DeepStyle createDialogLayerStyle() {
 		return
@@ -116,7 +124,7 @@ public final class DarkModeStyleCreator {
 			"ContentPosition(CENTER)"
 		);
 	}
-
+	
 	//method
 	private DeepStyle createOverallVerticalStackStyle() {
 		return
@@ -133,7 +141,7 @@ public final class DarkModeStyleCreator {
 			"BaseTextColor(White)"
 		);
 	}
-
+	
 	//method
 	private DeepStyle createMainLabelStyle() {
 		return
