@@ -24,6 +24,7 @@ public final class CharacterCatalogue {
 	public static final char FAT_CHECK_MARK = 0x2714;
 	public static final char FAT_CROSS = 0x2716;
 	public static final char HOME = 0x2302;
+	public static final char INFINITY = 0x221E;
 	public static final char MINUS = '-';
 	public static final char NEW_LINE = '\n';
 	public static final char OPEN_BRACKET = '(';
