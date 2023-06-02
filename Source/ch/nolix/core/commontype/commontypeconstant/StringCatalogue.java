@@ -20,8 +20,10 @@ public final class StringCatalogue {
 	public static final String INFINITY = "\u221E";
 	public static final String MINUS = "-";
 	public static final String NULL_HEADER = "null";
+	public static final String QUESTION_MARK = "?";
 	public static final String SPACE = " ";
 	public static final String TABULATOR = "\t";
+	public static final String THIN_CROSS = "\u2715";
 	public static final String TRUE_HEADER = "true";
 	public static final String UNDERSCORE = "_";
 	
