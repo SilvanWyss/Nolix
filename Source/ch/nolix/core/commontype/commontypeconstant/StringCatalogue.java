@@ -17,7 +17,7 @@ public final class StringCatalogue {
 	public static final String EMPTY_STRING = "";
 	public static final String FALSE_HEADER = "false";
 	public static final String HEXADECIMAL_PREFIX = "0x";
-	public static final String INFINITY = "\0u221E";
+	public static final String INFINITY = "\u221E";
 	public static final String MINUS = "-";
 	public static final String NULL_HEADER = "null";
 	public static final String SPACE = " ";
