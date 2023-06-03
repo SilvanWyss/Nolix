@@ -47,7 +47,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	//method
 	void internalUpdateCounterpartFromWebGUI(final IWebGUI<?> webGUI) {
 		BackendWebClientCounterpartUpdater
-		.forCounterpartRunner(this::runOnCounterpart)
+		.forCounterpartRunner(this::runOnCounterpart, this::isOpen)
 		.updateCounterpartFromWebGUI(webGUI);
 	}
 	

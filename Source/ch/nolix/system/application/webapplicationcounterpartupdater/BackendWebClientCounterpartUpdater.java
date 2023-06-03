@@ -9,6 +9,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
@@ -24,21 +25,28 @@ public final class BackendWebClientCounterpartUpdater {
 	
 	//static method
 	public static BackendWebClientCounterpartUpdater forCounterpartRunner(
-		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner
+		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
+		final IBooleanGetter openStateRequester
 	) {
-		return new BackendWebClientCounterpartUpdater(counterpartRunner);
+		return new BackendWebClientCounterpartUpdater(counterpartRunner, openStateRequester);
 	}
+	
+	//attribute
+	private final IBooleanGetter openStateRequester;
 	
 	//attribute
 	private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
 	
 	//constructor
 	private BackendWebClientCounterpartUpdater(
-		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner
+		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
+		final IBooleanGetter openStateRequester
 	) {
 		
+		GlobalValidator.assertThat(openStateRequester).thatIsNamed("open state requester").isNotNull();
 		GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 		
+		this.openStateRequester = openStateRequester;
 		this.counterpartRunner = counterpartRunner;
 	}
 	
@@ -49,7 +57,9 @@ public final class BackendWebClientCounterpartUpdater {
 		
 		final var updateCommands = createUpdateCommandsFromWebGUI(webGUI);
 		
-		counterpartRunner.run(updateCommands);
+		if (openStateRequester.getOutput()) {
+			counterpartRunner.run(updateCommands);
+		}
 	}
 	
 	//method
