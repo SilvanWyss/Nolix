@@ -32,10 +32,19 @@ public abstract class Session<
 	
 	//method
 	/**
-	 * @return true if the current {@link Session} belongs to a client.
+	 * @return true if the current {@link Session} belongs to a {@link Client}.
 	 */
 	public final boolean belongsToClient() {
 		return (parentClient != null);
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * @return true if the current {@link Session} belongs to a {@link Client} that is open.
+	 */
+	public final boolean belongsToOpenClient() {
+		return ((parentClient != null) && parentClient.isOpen());
 	}
 	
 	//method
