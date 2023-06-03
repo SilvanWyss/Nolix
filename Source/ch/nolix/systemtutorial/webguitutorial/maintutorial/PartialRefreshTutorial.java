@@ -66,7 +66,7 @@ public final class PartialRefreshTutorial {
 					GlobalSequencer.waitForMilliseconds(1000);
 					
 					GlobalSequencer
-					.asLongAs(this::isOpen)
+					.asLongAs(this::belongsToOpenClient)
 					.afterEveryMilliseconds(50)
 					.runInBackground(this::updateTime);
 				}

@@ -64,7 +64,10 @@ public final class BlackWhiteJuliaFractalTutorial {
 				)
 			);
 			
-			GlobalSequencer.asLongAs(this::isOpen).afterEverySecond().runInBackground(this::updateCounterpart);
+			GlobalSequencer
+			.asLongAs(this::belongsToOpenClient)
+			.afterEverySecond()
+			.runInBackground(this::updateCounterpart);
 		}
 	}
 	

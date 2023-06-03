@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.CloseStateRequestable;
 
 //class
 /**
@@ -22,7 +21,7 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.CloseStateRequestable;
 public abstract class Session<
 	BC extends BackendClient<BC, AC>,
 	AC
-> implements CloseStateRequestable {
+> {
 	
 	//attribute
 	private BC parentClient;
@@ -80,17 +79,6 @@ public abstract class Session<
 	//method
 	public boolean hasParentSession() {
 		return (getOriParentClient().internalGetSessionStackSize() > 1);
-	}
-	
-	//method
-	@Override
-	public boolean isClosed() {
-		
-		if (!belongsToClient()) {
-			return false;
-		}
-		
-		return getOriParentClient().isClosed();
 	}
 	
 	//method
