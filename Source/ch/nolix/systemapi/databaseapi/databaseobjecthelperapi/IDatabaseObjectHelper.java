@@ -42,4 +42,7 @@ public interface IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean isNewOrEdited(IDatabaseObject databaseObject);
+	
+	//method declaration
+	boolean isNewOrLoaded(IDatabaseObject databaseObject);
 }

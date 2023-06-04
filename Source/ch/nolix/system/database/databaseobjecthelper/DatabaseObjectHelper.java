@@ -98,4 +98,10 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 	public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
 		return (isNew(databaseObject) || isEdited(databaseObject));
 	}
+	
+	//method
+	@Override
+	public boolean isNewOrLoaded(IDatabaseObject databaseObject) {
+		return (isNew(databaseObject) || isLoaded(databaseObject));
+	}
 }
