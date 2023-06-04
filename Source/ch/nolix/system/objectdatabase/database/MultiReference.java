@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -20,8 +21,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReference
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
 
 //class
-public final class MultiReference<E extends IEntity> extends BaseReference<E>
-implements IMultiReference<E> {
+public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 	
 	//static attribute
 	private static final IMultiReferenceHelper multiReferenceHelper = new MultiReferenceHelper();
@@ -102,7 +102,10 @@ implements IMultiReference<E> {
 		
 		extractReferencedEntityIdsIfNeeded();
 		
-		return localEntries.to(IMultiReferenceEntry::getReferencedEntityId);
+		return
+		localEntries
+		.getOriSelected(multiReferenceHelper::isNewOrLoaded)
+		.to(IMultiReferenceEntry::getReferencedEntityId);
 	}
 	
 	//method
@@ -155,6 +158,8 @@ implements IMultiReference<E> {
 		extractReferencedEntityIdsIfNeeded();
 		
 		localEntries.getOriFirst(le -> le.getReferencedEntityId().equals(entity.getId())).internalSetDeleted();
+		
+		setAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method
