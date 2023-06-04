@@ -3,6 +3,7 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.testing.basetest.IgnoreTimeout;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
@@ -82,5 +83,69 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		expect(loadedJohn.pets.getReferencedEntities().getElementCount()).isEqualTo(2);
 		expect(loadedJohn.pets.getReferencedEntities().containsAny(p -> p.hasId(garfield.getId())));
 		expect(loadedJohn.pets.getReferencedEntities().containsAny(p -> p.hasId(odie.getId())));
+	}
+	
+	//method
+	@TestCase
+	public void testCase_whenReferencedEntityIsLoadedAndDeleted() {
+		
+		//setup part 1: initialize database
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class, Person.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		final var odie = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.insert(odie);
+		final var john = new Person();
+		john.pets.addEntity(garfield);
+		john.pets.addEntity(odie);
+		nodeDatabaseAdapter.insert(john);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2: prepare changes
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		
+		//execution & verification
+		expectRunning(loadedGarfield::delete).throwsException();
+	}
+	
+	//method
+	@TestCase
+	@IgnoreTimeout
+	public void testCase_whenReferencedEntityIsLoadedAndRemovedAndDeleted() {
+		
+		//setup part 1: initialize database
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class, Person.class);
+		final var nodeDatabaseAdapter =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		final var garfield = new Pet();
+		final var odie = new Pet();
+		nodeDatabaseAdapter.insert(garfield);
+		nodeDatabaseAdapter.insert(odie);
+		final var john = new Person();
+		john.pets.addEntity(garfield);
+		john.pets.addEntity(odie);
+		nodeDatabaseAdapter.insert(john);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 2: remove Entity from MultiReference
+		final var loadedJohn =
+		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		final var loadedGarfield =
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		loadedJohn.pets.removeEntity(loadedGarfield);
+		nodeDatabaseAdapter.saveChangesAndReset();
+		
+		//setup part 3: prepare deleting Entity
+		final var loadedGarfield2 =
+		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		loadedGarfield2.delete();
+		
+		//execution & verification
+		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
 	}
 }
