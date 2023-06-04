@@ -28,6 +28,8 @@ final class MultiReferenceSaver {
 			case NEW:
 				saveMultiReferenceEntryCreation(multiReferenceEntry, database);
 				break;
+			case LOADED:
+				break;
 			case DELETED:
 				saveMultiReferenceEntryDeletion(multiReferenceEntry, database);
 				break;
