@@ -70,6 +70,14 @@ public abstract class BaseEntity implements IEntity {
 	}
 	
 	//method
+	public final void deleteWithoutReferenceCheck() {
+		
+		updateBackReferencingPropertiesForDeletion();
+		
+		updateStateForDelete();
+	}
+	
+	//method
 	@Override
 	public final String getId() {
 		return id;
