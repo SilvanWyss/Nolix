@@ -30,6 +30,12 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 	
 	//method
 	@Override
+	public void redirectToUrl(String url) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectToUrl");
+	}
+	
+	//method
+	@Override
 	public void saveFile(final byte[] bytes) {
 		
 		final var fileChooser = new JFileChooser();

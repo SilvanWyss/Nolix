@@ -13,5 +13,8 @@ public interface IFrontEndWriter {
 	void redirectTo(IApplicationTarget applicationTarget);
 	
 	//method declaration
+	void redirectToUrl(String url);
+	
+	//method declaration
 	void saveFile(byte[] bytes);
 }

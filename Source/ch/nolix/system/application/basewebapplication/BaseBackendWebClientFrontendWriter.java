@@ -41,6 +41,12 @@ final class BaseBackendWebClientFrontendWriter implements IFrontEndWriter {
 	
 	//method
 	@Override
+	public void redirectToUrl(final String url) {
+		parentBackendWebClient.internalRedirectCounterpartToUrl(url);		
+	}
+	
+	//method
+	@Override
 	public void saveFile(final byte[] bytes) {
 		parentBackendWebClient.internalSaveFileOnCounterpart(bytes);
 	}

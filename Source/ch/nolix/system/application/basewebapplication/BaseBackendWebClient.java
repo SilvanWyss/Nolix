@@ -134,6 +134,11 @@ implements ICookieManager {
 	}
 	
 	//method
+	final void internalRedirectCounterpartToUrl(final String url) {
+		//TODO: Implement.
+	}
+	
+	//method
 	final void internalRunOnCounterpart(final ChainedNode command) {
 		runOnCounterpart(command);
 	}
