@@ -89,10 +89,15 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 				final var controls2 = gui2.getOriControls();
 				
 				for (final var p : pGUICommand.getChildNodes()) {
+					
 					final var internalControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
 					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-					final var control2 = controls2.getOriFirst(c -> c.hasInternalId(internalControlId2));
-					control2.setUserInput(userInput);
+					final var control2 = controls2.getOriFirstOrNull(c -> c.hasInternalId(internalControlId2));
+					
+					//The control could be removed on the server in the meanwhile.
+					if (control2 != null) {
+						control2.setUserInput(userInput);
+					}
 				}
 				
 				break;
