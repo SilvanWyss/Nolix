@@ -74,12 +74,16 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 			case ObjectProtocol.CONTROL_BY_FIXED_ID:
 				
 				final var command = pGUICommand.getNextNode();
-				final var controlInternalId = pGUICommand.getSingleChildNodeHeader();
+				final var internalControlId = pGUICommand.getSingleChildNodeHeader();
 				final var session = (WebClientSession<AC>)getOriCurrentSession();
 				final var gui = session.getOriGUI();
-				final var control = gui.getOriControlByInternalId(controlInternalId);
+				final var controls = gui.getOriControls();
+				final var control = controls.getOriFirstOrNull(c -> c.hasInternalId(internalControlId));
 				
-				runCommandOnControl(control, command);
+				//The control could be removed on the server in the meanwhile.
+				if (control != null) {
+					runCommandOnControl(control, command);
+				}
 				
 				break;
 			case CommandProtocol.SET_USER_INPUTS:
