@@ -198,7 +198,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public IControl<?, ?> getOriControlByFixedId(final String fixedId) {
+	public IControl<?, ?> getOriControlByInternalId(final String fixedId) {
 		
 		for (final var l : getOriLayers()) {
 			for (final var c : l.getOriControls()) {

@@ -74,10 +74,10 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 			case ObjectProtocol.CONTROL_BY_FIXED_ID:
 				
 				final var command = pGUICommand.getNextNode();
-				final var controlFixedId = pGUICommand.getSingleChildNodeHeader();
+				final var controlInternalId = pGUICommand.getSingleChildNodeHeader();
 				final var session = (WebClientSession<AC>)getOriCurrentSession();
 				final var gui = session.getOriGUI();
-				final var control = gui.getOriControlByFixedId(controlFixedId);
+				final var control = gui.getOriControlByInternalId(controlInternalId);
 				
 				runCommandOnControl(control, command);
 				
@@ -89,9 +89,9 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 				final var controls2 = gui2.getOriControls();
 				
 				for (final var p : pGUICommand.getChildNodes()) {
-					final var fixedControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
+					final var internalControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
 					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-					final var control2 = controls2.getOriFirst(c -> c.hasInternalId(fixedControlId2));
+					final var control2 = controls2.getOriFirst(c -> c.hasInternalId(internalControlId2));
 					control2.setUserInput(userInput);
 				}
 				

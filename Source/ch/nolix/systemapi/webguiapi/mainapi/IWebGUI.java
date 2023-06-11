@@ -33,7 +33,7 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	IImage getIcon();
 	
 	//method declaration
-	IControl<?, ?> getOriControlByFixedId(String fixedId);
+	IControl<?, ?> getOriControlByInternalId(String fixedId);
 	
 	//method declaration
 	IContainer<IControl<?, ?>> getOriControls();
