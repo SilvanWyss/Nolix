@@ -11,6 +11,9 @@ package ch.nolix.core.commontype.commontypeconstant;
 public final class StringCatalogue {
 	
 	//constant
+	public static final String AVERAGE = "\u00D8";
+	
+	//constant
 	public static final String DEFAULT_STRING = "Default";
 	
 	//constant
@@ -30,6 +33,9 @@ public final class StringCatalogue {
 	
 	//constant
 	public static final String INFINITY = "\u221E";
+	
+	//constant
+	public static final String LONG_LEFT_RIGHT_ARROW = "\u27F7";
 	
 	//constant
 	public static final String MINUS = "-";
@@ -54,6 +60,9 @@ public final class StringCatalogue {
 	
 	//constant
 	public static final String UNDERSCORE = "_";
+	
+	//constant
+	public static final String UPPERCASE_DELTA = "\u0394";
 	
 	//constructor
 	/**
