@@ -4,7 +4,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -27,7 +27,7 @@ public final class GridContainerTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<Object> {
+	private static final class MainSession extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {

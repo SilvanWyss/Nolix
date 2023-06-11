@@ -4,7 +4,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.control.ImageControl;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
@@ -30,7 +30,7 @@ public final class TextureCatalogueTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	public static final class MainSession extends BackendWebClientSession<Object> {
+	public static final class MainSession extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {

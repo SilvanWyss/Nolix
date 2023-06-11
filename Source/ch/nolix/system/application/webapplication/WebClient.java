@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
-public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebClient<AC>, AC> {
+public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC> {
 	
 	//method
 	@Override
@@ -75,7 +75,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 				
 				final var command = pGUICommand.getNextNode();
 				final var controlFixedId = pGUICommand.getSingleChildNodeHeader();
-				final var session = (BackendWebClientSession<AC>)getOriCurrentSession();
+				final var session = (WebClientSession<AC>)getOriCurrentSession();
 				final var gui = session.getOriGUI();
 				final var control = gui.getOriControlByFixedId(controlFixedId);
 				
@@ -84,7 +84,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 				break;
 			case CommandProtocol.SET_USER_INPUTS:
 				
-				final var session2 = (BackendWebClientSession<AC>)getOriCurrentSession();
+				final var session2 = (WebClientSession<AC>)getOriCurrentSession();
 				final var gui2 = session2.getOriGUI();
 				final var controls2 = gui2.getOriControls();
 				
@@ -112,7 +112,7 @@ public final class BackendWebClient<AC> extends BaseBackendWebClient<BackendWebC
 	//method
 	private void updateCounterpartIfOpen() {
 		if (isOpen()) {
-			((BackendWebClientSession<AC>)getOriCurrentSession()).updateCounterpart();
+			((WebClientSession<AC>)getOriCurrentSession()).updateCounterpart();
 		}
 	}
 }

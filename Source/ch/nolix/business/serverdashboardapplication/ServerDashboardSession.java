@@ -4,13 +4,13 @@ package ch.nolix.business.serverdashboardapplication;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-final class ServerDashboardSession extends BackendWebClientSession<IApplicationContext> {
+final class ServerDashboardSession extends WebClientSession<IApplicationContext> {
 	
 	//static attribute
 	private static final ServerDashboardStyleCreator SERVER_DASHBOARD_STYLE_CREATOR = new ServerDashboardStyleCreator();

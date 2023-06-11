@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
-public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSession<BackendWebClient<AC>, AC> {
+public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<WebClient<AC>, AC> {
 	
 	//attribute
 	private final IWebGUI<?> webGUI = new WebGUI();
@@ -39,7 +39,7 @@ public abstract class BackendWebClientSession<AC> extends BaseBackendWebClientSe
 	//method
 	@Override
 	protected final Class<?> getClientClass() {
-		return BackendWebClient.class;
+		return WebClient.class;
 	}
 	
 	//method

@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
-import ch.nolix.system.application.webapplication.BackendWebClient;
+import ch.nolix.system.application.webapplication.WebClient;
 
 //class
 public final class ApplicationContext implements IApplicationContext {
@@ -38,24 +38,24 @@ public final class ApplicationContext implements IApplicationContext {
 	
 	//method
 	private boolean applicationIsForBackendGUIClients(final Application<?, ?> application) {
-		return (application.getClientClass() == BackendWebClient.class);
+		return (application.getClientClass() == WebClient.class);
 	}
 	
 	//method
 	private IApplicationSheet createApplicationSheetForGUIApplication(
-		final Application<BackendWebClient<?>, ?> pGUIApplication
+		final Application<WebClient<?>, ?> pGUIApplication
 	) {
 		return ApplicationSheet.forGUIApplicationOnServer(pGUIApplication, server);
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private IContainer<Application<BackendWebClient<?>, ?>> getOriGUIApplications() {
+	private IContainer<Application<WebClient<?>, ?>> getOriGUIApplications() {
 		
-		final var lGUIApplications = new LinkedList<Application<BackendWebClient<?>, ?>>();
+		final var lGUIApplications = new LinkedList<Application<WebClient<?>, ?>>();
 		
 		for (final var a : server.getOriApplications().getOriSelected(this::applicationIsForBackendGUIClients)) {
-			lGUIApplications.addAtEnd((Application<BackendWebClient<?>, ?>)a);
+			lGUIApplications.addAtEnd((Application<WebClient<?>, ?>)a);
 		}
 		
 		return lGUIApplications;

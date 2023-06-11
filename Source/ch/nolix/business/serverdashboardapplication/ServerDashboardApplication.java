@@ -6,11 +6,11 @@ import ch.nolix.business.serverdashboardcontext.ApplicationContext;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
-import ch.nolix.system.application.webapplication.BackendWebClient;
+import ch.nolix.system.application.webapplication.WebClient;
 
 //class
 public final class ServerDashboardApplication
-extends Application<BackendWebClient<IApplicationContext>, IApplicationContext> {
+extends Application<WebClient<IApplicationContext>, IApplicationContext> {
 	
 	//static method
 	public static ServerDashboardApplication forServer(final BaseServer server) {

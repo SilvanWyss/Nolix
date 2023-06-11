@@ -6,7 +6,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.dialog.EnterValueDialogFactory;
@@ -33,7 +33,7 @@ public final class EnterValueDialogFactoryTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<Object> {
+	private static final class MainSession extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {

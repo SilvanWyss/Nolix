@@ -2,7 +2,7 @@ package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.SecureServer;
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -28,7 +28,7 @@ public final class SecureButtonTutorial {
 		server.addDefaultApplication("Button tutorial", MainSession.class, new VoidObject());
 	}
 	
-	private static final class MainSession extends BackendWebClientSession<Object> {
+	private static final class MainSession extends WebClientSession<Object> {
 		
 		private int count;
 		

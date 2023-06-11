@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
-import ch.nolix.system.application.webapplication.BackendWebClient;
+import ch.nolix.system.application.webapplication.WebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
@@ -21,7 +21,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//static method
 	public static ApplicationSheet forGUIApplicationOnServer(
-		final Application<BackendWebClient<?>, ?> pGUIApplication,
+		final Application<WebClient<?>, ?> pGUIApplication,
 		final BaseServer server
 	) {
 		

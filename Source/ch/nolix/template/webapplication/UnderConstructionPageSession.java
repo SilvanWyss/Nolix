@@ -2,7 +2,7 @@
 package ch.nolix.template.webapplication;
 
 //own imports
-import ch.nolix.system.application.webapplication.BackendWebClientSession;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.webgui.control.Button;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class UnderConstructionPageSession extends BackendWebClientSession<Object> {
+public final class UnderConstructionPageSession extends WebClientSession<Object> {
 	
 	//constant
 	private static final String CRANE_IMAGE_RESOURCE_PATH = "ch/nolix/template/webapplication/resource/crane.jpg";
