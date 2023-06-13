@@ -10,6 +10,7 @@ import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
@@ -26,6 +27,7 @@ public final class DarkModeStyleCreator {
 			"Background(Color(0x202020))"
 		)
 		.addConfiguration(
+			createGeneralControlStyle(),
 			createVerticalStackStyle(),
 			createGridContainerStyle(),
 			createTitleStyle(),
@@ -36,6 +38,13 @@ public final class DarkModeStyleCreator {
 			createOverallVerticalStackStyle(),
 			createMainLabelStyle()
 		);
+	}
+	
+	private DeepStyle createGeneralControlStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(Control.class)
+		.addAttachingAttribute("BaseTextColor(White)");
 	}
 	
 	//method
@@ -137,8 +146,7 @@ public final class DarkModeStyleCreator {
 			"BaseWidth(80%)",
 			"BaseBackground(Color(0x404040))",
 			"BasePadding(20)",
-			"BaseChildControlMargin(20)",
-			"BaseTextColor(White)"
+			"BaseChildControlMargin(20)"
 		);
 	}
 	
@@ -151,8 +159,7 @@ public final class DarkModeStyleCreator {
 			LabelRole.MAIN_LABEL
 		)
 		.addAttachingAttribute(
-			"BaseTextSize(50)",
-			"BaseTextColor(White)"
+			"BaseTextSize(50)"
 		);
 	}
 }
