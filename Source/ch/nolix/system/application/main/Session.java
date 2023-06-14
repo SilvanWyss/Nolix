@@ -26,6 +26,12 @@ public abstract class Session<
 	//attribute
 	private BC parentClient;
 	
+	//attribute
+	private boolean isUpdatingCounterpart;
+	
+	//attribute
+	private boolean updateCounterpartIsRequired;
+	
 	//optional attribute
 	private Object result;
 	
@@ -137,6 +143,31 @@ public abstract class Session<
 		getOriParentClient().internalSetCurrentSession(session);
 	}
 	
+	//method
+	/**
+	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
+	 */
+	public final synchronized void updateCounterpart() {
+		
+		updateCounterpartIsRequired = true;
+		
+		if (!isUpdatingCounterpart) {
+			try {
+				
+				isUpdatingCounterpart = true;
+								
+				while (updateCounterpartIsRequired && getOriParentClient().isOpen()) {
+					
+					updateCounterpartIsRequired = false;
+					
+					updateCounterpartActually();
+				}
+			} finally {
+				isUpdatingCounterpart = false;
+			}
+		}
+	}
+	
 	//method declaration
 	/**
 	 * Initializes the current {@link Session}.
@@ -151,9 +182,9 @@ public abstract class Session<
 	
 	//method declaration
 	/**
-	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
+	 * Updates the counterpart of the {@link Client} of the current {@link Session} actually.
 	 */
-	protected abstract void updateCounterpart();
+	protected abstract void updateCounterpartActually();
 	
 	final Object getOriResult() {
 		
