@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.coreapi.attributeapi.fluentmultiattributeuniversalapi} package declares
- * types with a certain multi-attribute.
+ * fluent types with a certain multi-attribute.
  * 
  * @author Silvan Wyss
  * @date 2023-06-16
