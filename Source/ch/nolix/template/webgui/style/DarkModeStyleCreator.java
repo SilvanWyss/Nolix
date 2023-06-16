@@ -9,6 +9,8 @@ import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.control.Textbox;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
+import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
+import ch.nolix.system.webgui.linearcontainer.LinearContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
@@ -23,24 +25,23 @@ public final class DarkModeStyleCreator {
 	public Style createDarkModeStyle() {
 		return
 		new Style()
-		.addAttachingAttribute(
-			"Background(Color(0x202020))"
-		)
+		.addAttachingAttribute("Background(Color(0x202020))")
 		.addConfiguration(
-			createGeneralControlStyle(),
-			createVerticalStackStyle(),
+			createControlStyle(),
+			createLinearContainerStyle(),
 			createGridContainerStyle(),
-			createTitleStyle(),
 			createButtonStyle(),
 			createTextboxStyle(),
 			createDropdownMenuStyle(),
 			createDialogLayerStyle(),
 			createOverallVerticalStackStyle(),
-			createMainLabelStyle()
+			createHeaderHorizontalStackStyle(),
+			createTitleLabelStyle(),
+			createLevel1HeaderLabelStyle()
 		);
 	}
 	
-	private DeepStyle createGeneralControlStyle() {
+	private DeepStyle createControlStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Control.class)
@@ -48,13 +49,11 @@ public final class DarkModeStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createVerticalStackStyle() {
+	private DeepStyle createLinearContainerStyle() {
 		return
 		new DeepStyle()
-		.setSelectorType(VerticalStack.class)
-		.addAttachingAttribute(
-			
-		);
+		.setSelectorType(LinearContainer.class)
+		.addAttachingAttribute("BaseChildControlMargin(10)");
 	}
 	
 	//method
@@ -69,19 +68,6 @@ public final class DarkModeStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createTitleStyle() {
-		return
-		new DeepStyle()
-		.setSelectorType(Label.class)
-		.addSelectorRole(
-			LabelRole.TITLE
-		)
-		.addAttachingAttribute(
-			"BaseTextSize(50)"
-		);
-	}
-	
-	//method
 	private DeepStyle createButtonStyle() {
 		return
 		new DeepStyle()
@@ -89,7 +75,7 @@ public final class DarkModeStyleCreator {
 		.addAttachingAttribute(
 			"BaseBackground(Color(0x202020))",
 			"HoverBackground(Color(0x000000))",
-			"BasePadding(5)"
+			"BasePadding(2)"
 		);
 	}
 	
@@ -124,12 +110,10 @@ public final class DarkModeStyleCreator {
 		return
 		new DeepStyle()
 		.setSelectorType(Layer.class)
-		.addSelectorRole(
-			LayerRole.DIALOG_LAYER
-		)
+		.addSelectorRole(LayerRole.DIALOG_LAYER)
 		.addAttachingAttribute(
 			"Opacity(90%)",
-			"Background(Color(0x808080))",
+			"Background(Color(0x404040))",
 			"ContentPosition(CENTER)"
 		);
 	}
@@ -139,9 +123,7 @@ public final class DarkModeStyleCreator {
 		return
 		new DeepStyle()
 		.setSelectorType(VerticalStack.class)
-		.addSelectorRole(
-			ContainerRole.OVERALL_CONTAINER
-		)
+		.addSelectorRole(ContainerRole.OVERALL_CONTAINER)
 		.addAttachingAttribute(
 			"BaseWidth(80%)",
 			"BaseBackground(Color(0x404040))",
@@ -151,15 +133,32 @@ public final class DarkModeStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createMainLabelStyle() {
+	private DeepStyle createHeaderHorizontalStackStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(HorizontalStack.class)
+		.addSelectorRole(ContainerRole.HEADER_CONTAINER)
+		.addAttachingAttribute(
+			"ContentAlignment(BOTTOM)",
+			"BaseChildControlMargin(50)"
+		);
+	}
+	
+	//method
+	private DeepStyle createTitleLabelStyle() {
 		return
 		new DeepStyle()
 		.setSelectorType(Label.class)
-		.addSelectorRole(
-			LabelRole.MAIN_LABEL
-		)
-		.addAttachingAttribute(
-			"BaseTextSize(50)"
-		);
+		.addSelectorRole(LabelRole.TITLE)
+		.addAttachingAttribute("BaseTextSize(50)");
+	}
+	
+	//method
+	private DeepStyle createLevel1HeaderLabelStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(Label.class)
+		.addSelectorRole(LabelRole.LEVEL1_HEADER)
+		.addAttachingAttribute("BaseTextSize(30)");
 	}
 }
