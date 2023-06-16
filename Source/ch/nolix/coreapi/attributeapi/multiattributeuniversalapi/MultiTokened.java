@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.attributeapi.fluentmultiattributeuniversalapi;
+package ch.nolix.coreapi.attributeapi.multiattributeuniversalapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
