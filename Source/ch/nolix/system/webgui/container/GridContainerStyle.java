@@ -31,6 +31,9 @@ implements IGridContainerStyle<GridContainerStyle> {
 	public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 	
 	//constant
+	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
+	
+	//constant
 	private static final String GRID_TYPE_HEADER = "GridType";
 	
 	//constant
@@ -95,6 +98,12 @@ implements IGridContainerStyle<GridContainerStyle> {
 	@Override
 	public int getChildControlMarginWhenHasState(final ControlState state) {
 		return childControlMargin.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public IColor getDefaultTextColor() {
+		return DEFAULT_TEXT_COLOR;
 	}
 	
 	//method
