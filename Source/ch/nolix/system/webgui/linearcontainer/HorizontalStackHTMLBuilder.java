@@ -8,10 +8,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<HorizontalStack> {
+public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<IHorizontalStack> {
 	
 	//static attribute
 	public static final HorizontalStackHTMLBuilder INSTANCE = new HorizontalStackHTMLBuilder();
@@ -21,7 +22,7 @@ public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<Hor
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final HorizontalStack horizontalStack) {
+	public HTMLElement createHTMLElementForControl(final IHorizontalStack horizontalStack) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HTMLElementTypeCatalogue.DIV,
@@ -32,7 +33,7 @@ public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<Hor
 	
 	//method
 	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfHorizontalStack(
-		final HorizontalStack horizontalStack
+		final IHorizontalStack horizontalStack
 	) {
 		return horizontalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
