@@ -8,6 +8,7 @@ import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.control.Textbox;
+import ch.nolix.system.webgui.control.ValidationLabel;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.LinearContainer;
@@ -33,6 +34,7 @@ public final class DarkModeStyleCreator {
 			createButtonStyle(),
 			createTextboxStyle(),
 			createDropdownMenuStyle(),
+			createValidationLabelStyle(),
 			createDialogLayerStyle(),
 			createOverallVerticalStackStyle(),
 			createHeaderHorizontalStackStyle(),
@@ -103,6 +105,14 @@ public final class DarkModeStyleCreator {
 			"HoverBackground(Color(0x000000))",
 			"FocusBackground(Color(0x000000))"
 		);
+	}
+	
+	//method
+	private DeepStyle createValidationLabelStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(ValidationLabel.class)
+		.addAttachingAttribute("BaseTextColor(Orange)");
 	}
 	
 	//method
