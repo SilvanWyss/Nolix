@@ -71,6 +71,18 @@ public final class CSSPropertyNameCatalogue {
 	public static final String MARGIN = "margin";
 	
 	//constant
+	public static final String MARGIN_BOTTOM = "margin-bottom";
+	
+	//constant
+	public static final String MARGIN_LEFT = "margin-left";
+	
+	//constant
+	public static final String MARGIN_RIGHT = "margin-right";
+	
+	//constant
+	public static final String MARGIN_TOP = "margin-top";
+	
+	//constant
 	public static final String MAX_HEIGHT = "max-height";
 	
 	//constant
