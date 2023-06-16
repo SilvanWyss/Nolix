@@ -39,7 +39,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	/**
 	 * @param name
 	 * @param adderMethod
-	 * @return a new {@link MultiValue} that will store {@link String}s and have the given name and setterMethod.
+	 * @return a new {@link MultiValue} that will store {@link String}s and have the given name and adderMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given adderMethod is null.
