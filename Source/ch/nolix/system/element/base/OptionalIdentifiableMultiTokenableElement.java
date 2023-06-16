@@ -6,17 +6,19 @@ import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeuniversalapi.FluentMultiTokenable;
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalIdentifiable;
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalTokenable;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 
 //class
-public abstract class OptionalIdentifiableOptionalTokenableElement<
-	E extends FluentOptionalIdentifiable<E> & FluentOptionalTokenable<E>
+abstract class OptionalIdentifiableMultiTokenableElement<
+	E extends FluentOptionalIdentifiable<E> & FluentMultiTokenable<E>
 >
 extends MutableElement
-implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
+implements FluentOptionalIdentifiable<E>, FluentMultiTokenable<E> {
 	
 	//constant
 	private static final String ID_HEADER = PascalCaseCatalogue.ID;
@@ -28,7 +30,18 @@ implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 	private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
 	
 	//attribute
-	private final MutableOptionalValue<String> token = MutableOptionalValue.forString(TOKEN_HEADER, this::setToken);
+	private final MultiValue<String> tokens = MultiValue.forStrings(TOKEN_HEADER, this::addToken);
+	
+	//method
+	@Override
+	public final E addToken(final String token) {
+		
+		GlobalValidator.assertThat(token).thatIsNamed(LowerCaseCatalogue.TOKEN).isNotBlank();
+		
+		tokens.add(token);
+		
+		return asConcrete();
+	}
 	
 	//method
 	@Override
@@ -44,8 +57,8 @@ implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 	
 	//method
 	@Override
-	public final String getToken() {
-		return token.getValue();
+	public final IContainer<String> getTokens() {
+		return tokens.getOriValues();
 	}
 	
 	//method
@@ -62,18 +75,6 @@ implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 	
 	//method
 	@Override
-	public final boolean hasToken() {
-		return token.hasValue();
-	}
-	
-	//method
-	@Override
-	public final boolean hasToken(final String token) {
-		return (hasToken() && getToken().equals(token));
-	}
-	
-	//method
-	@Override
 	public E removeId() {
 		
 		id.clear();
@@ -83,9 +84,18 @@ implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 	
 	//method
 	@Override
-	public final E removeToken() {
+	public final E removeToken(final String token) {
 		
-		token.clear();
+		tokens.remove(token);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final E removeTokens() {
+		
+		tokens.clear();
 		
 		return asConcrete();
 	}
@@ -95,7 +105,7 @@ implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 	public final void reset() {
 		
 		removeId();
-		removeToken();
+		removeTokens();
 		
 		resetElement();
 	}
@@ -107,17 +117,6 @@ implements FluentOptionalIdentifiable<E>, FluentOptionalTokenable<E> {
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id.setValue(id);
-		
-		return asConcrete();
-	}
-	
-	//method
-	@Override
-	public final E setToken(final String token) {
-		
-		GlobalValidator.assertThat(token).thatIsNamed(LowerCaseCatalogue.TOKEN).isNotBlank();
-		
-		this.token.setValue(token);
 		
 		return asConcrete();
 	}

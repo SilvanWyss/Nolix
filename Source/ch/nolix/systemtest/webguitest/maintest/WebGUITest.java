@@ -23,7 +23,7 @@ public final class WebGUITest extends Test {
 		expect(result.getIcon()).isEqualTo(WebGUI.DEFAULT_ICON);
 		expect(result.getBackgroundColor()).isEqualTo(WebGUI.DEFAULT_BACKGROUND_COLOR);
 		expect(result.isEmpty());
-		expectNot(result.hasToken());
+		expect(result.getTokens()).isEmpty();
 	}
 	
 	//method

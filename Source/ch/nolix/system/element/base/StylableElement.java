@@ -6,7 +6,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
 public abstract class StylableElement<SE extends IStylableElement<SE>>
-extends OptionalIdentifiableOptionalTokenableElement<SE>
+extends OptionalIdentifiableMultiTokenableElement<SE>
 implements IStylableElement<SE> {
 	
 	//method

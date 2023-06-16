@@ -562,7 +562,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	
 	//method
 	private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {
-		return !containsSelectorTokens() || getSelectorTokens().containsAny(element::hasToken);
+		return !containsSelectorTokens() || getSelectorTokens().containsAnyOf(element.getTokens());
 	}
 	
 	//method
