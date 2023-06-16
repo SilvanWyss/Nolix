@@ -58,7 +58,7 @@ extends ExtendedControlCSSRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
 					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.MARGIN,
+						CSSPropertyNameCatalogue.MARGIN_RIGHT,
 						horizontalStack.getOriStyle().getChildControlMarginWhenHasState(state)
 						+ CSSUnitCatalogue.PX
 					)
