@@ -16,6 +16,7 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -25,6 +26,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
+	
+	//constant
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.EDIT;
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -46,6 +50,12 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//attribute
 	private final MutableValue<String> value = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	
+	//method
+	@Override
+	public CursorIcon getDefaultCursorIcon() {
+		return DEFAULT_CURSOR_ICON;
+	}
 	
 	//method
 	@Override

@@ -20,6 +20,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlhelper.ValidationLabelHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -31,6 +32,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
+	
+	//constant
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.HAND;
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -68,6 +72,12 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
 		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
+	}
+	
+	//method
+	@Override
+	public CursorIcon getDefaultCursorIcon() {
+		return DEFAULT_CURSOR_ICON;
 	}
 	
 	//method

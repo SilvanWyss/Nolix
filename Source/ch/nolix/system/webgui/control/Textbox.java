@@ -31,6 +31,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
 	
 	//constant
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.EDIT;
+	
+	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
 	
 	//constant
@@ -60,9 +63,6 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//constructor
 	public Textbox() {
-		
-		setCursorIcon(CursorIcon.EDIT);
-		
 		getOriStyle()
 		.setBorderThicknessForState(ControlState.BASE, 1)
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
@@ -74,6 +74,12 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	@Override
 	public void emptyText() {
 		setText(StringCatalogue.EMPTY_STRING);
+	}
+	
+	//method
+	@Override
+	public CursorIcon getDefaultCursorIcon() {
+		return DEFAULT_CURSOR_ICON;
 	}
 	
 	//method

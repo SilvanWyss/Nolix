@@ -16,6 +16,7 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -27,6 +28,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 public final class ValidationLabel
 extends Control<ValidationLabel, ValidationLabelStyle>
 implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
+	
+	//constant
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.EDIT;
 	
 	//constant
 	private static final String ERROR_HEADER = PascalCaseCatalogue.ERROR;
@@ -49,6 +53,12 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	@Override
 	public void clear() {
 		error.clear();
+	}
+	
+	//method
+	@Override
+	public CursorIcon getDefaultCursorIcon() {
+		return DEFAULT_CURSOR_ICON;
 	}
 	
 	//method

@@ -47,6 +47,9 @@ PresenceSettable<C> {
 	CursorIcon getCursorIcon();
 	
 	//method declaration
+	CursorIcon getDefaultCursorIcon();
+	
+	//method declaration
 	ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
 	
 	//method declaration
