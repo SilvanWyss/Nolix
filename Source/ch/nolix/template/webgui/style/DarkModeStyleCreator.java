@@ -125,7 +125,7 @@ public final class DarkModeStyleCreator {
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINER)
 		.addAttachingAttribute(
 			"BaseWidth(80%)",
-			"MinHeight(100%)",
+			"MinHeight(80%)",
 			"BaseBackground(Color(0x404040))",
 			"BasePadding(20)",
 			"BaseChildControlMargin(20)"
