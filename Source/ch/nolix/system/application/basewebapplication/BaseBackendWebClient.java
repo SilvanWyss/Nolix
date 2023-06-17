@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.webapi.sessionapi.ICookieManager;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.main.BackendClient;
@@ -125,10 +125,10 @@ implements ICookieManager {
 	}
 	
 	//method
-	final void internalRedirectCounterpartTo(final IApplicationTarget applicationTarget) {
+	final void internalRedirectCounterpartTo(final IApplicationInstanceTarget applicationInstanceTarget) {
 		
 		final var redirectCommand =
-		BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationTarget);
+		BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationInstanceTarget);
 		
 		runOnCounterpart(redirectCommand);
 	}

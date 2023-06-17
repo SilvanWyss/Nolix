@@ -2,7 +2,7 @@
 package ch.nolix.businessapi.serverdashboardcontextapi;
 
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
@@ -19,7 +19,7 @@ public interface IApplicationSheet {
 	String getApplicationName();
 	
 	//method declaration
-	IApplicationTarget getApplicationTarget(final SecurityLevel securityLevelForConnections);
+	IApplicationInstanceTarget getApplicationTarget(final SecurityLevel securityLevelForConnections);
 	
 	//method declaration
 	IServerTarget getServer();

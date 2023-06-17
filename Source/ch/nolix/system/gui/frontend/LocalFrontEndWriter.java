@@ -10,7 +10,7 @@ import ch.nolix.core.environment.localcomputer.PopupWindowProvider;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class
@@ -24,7 +24,7 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 	
 	//method
 	@Override
-	public void redirectTo(final IApplicationTarget applicationTarget) {
+	public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectTo");
 	}
 	

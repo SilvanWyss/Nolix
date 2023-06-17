@@ -2,8 +2,8 @@
 package ch.nolix.coreapi.programcontrolapi.targetuniversalapi;
 
 //interface
-public interface IApplicationTarget extends IServerTarget {
+public interface IApplicationInstanceTarget extends IServerTarget {
 	
 	//method
-	String getApplicationName();
+	String getApplicationInstanceName();
 }

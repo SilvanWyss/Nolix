@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.frontendapi;
 
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 
 //interface
 public interface IFrontEndWriter {
@@ -10,7 +10,7 @@ public interface IFrontEndWriter {
 	void openNewTabWithURL(String pURL);
 	
 	//method declaration
-	void redirectTo(IApplicationTarget applicationTarget);
+	void redirectTo(IApplicationInstanceTarget applicationInstanceTarget);
 	
 	//method declaration
 	void redirectToUrl(String url);

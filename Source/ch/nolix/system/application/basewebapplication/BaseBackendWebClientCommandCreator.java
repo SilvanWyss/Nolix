@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.basewebapplicationprotocol.ObjectProtocol;
 
@@ -43,11 +43,11 @@ final class BaseBackendWebClientCommandCreator {
 	}
 	
 	//method
-	public ChainedNode createRedirectCommand(final IApplicationTarget applicationTarget) {
+	public ChainedNode createRedirectCommand(final IApplicationInstanceTarget applicationInstanceTarget) {
 		return
 		ChainedNode.withHeaderAndChildNode(
 			CommandProtocol.REDIRECT,
-			ChainedNode.withHeader(applicationTarget.toURL())
+			ChainedNode.withHeader(applicationInstanceTarget.toURL())
 		);
 	}
 	

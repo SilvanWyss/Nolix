@@ -4,10 +4,10 @@ package ch.nolix.core.net.target;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 
 //class
-public final class ApplicationTarget extends ServerTarget implements IApplicationTarget {
+public final class ApplicationTarget extends ServerTarget implements IApplicationInstanceTarget {
 	
 	//static method
 	public static ApplicationTarget forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
@@ -39,13 +39,13 @@ public final class ApplicationTarget extends ServerTarget implements IApplicatio
 	
 	//method
 	@Override
-	public String getApplicationName() {
+	public String getApplicationInstanceName() {
 		return applicationName;
 	}
 	
 	//method
 	@Override
 	public String toURL() {
-		return (super.toURL() + "?app=" + getApplicationName().replace(" ", "_"));
+		return (super.toURL() + "?app=" + getApplicationInstanceName().replace(" ", "_"));
 	}
 }

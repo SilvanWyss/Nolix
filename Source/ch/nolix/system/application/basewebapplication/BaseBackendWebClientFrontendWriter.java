@@ -3,7 +3,7 @@ package ch.nolix.system.application.basewebapplication;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class
@@ -35,8 +35,8 @@ final class BaseBackendWebClientFrontendWriter implements IFrontEndWriter {
 	
 	//method
 	@Override
-	public void redirectTo(final IApplicationTarget applicationTarget) {
-		parentBackendWebClient.internalRedirectCounterpartTo(applicationTarget);
+	public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
+		parentBackendWebClient.internalRedirectCounterpartTo(applicationInstanceTarget);
 	}
 	
 	//method

@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.target.ApplicationTarget;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
@@ -123,7 +123,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//method
 	@Override
-	public IApplicationTarget getApplicationTarget(final SecurityLevel securityLevelForConnections) {
+	public IApplicationInstanceTarget getApplicationTarget(final SecurityLevel securityLevelForConnections) {
 		return
 		ApplicationTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
 			getServer().getIpOrAddressName(),
