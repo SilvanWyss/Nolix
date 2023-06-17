@@ -4,6 +4,7 @@ package ch.nolix.template.webgui.style;
 //own imports
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
+import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.container.GridContainer;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
@@ -35,11 +36,12 @@ public final class DarkModeStyleCreator {
 			createTextboxStyle(),
 			createDropdownMenuStyle(),
 			createValidationLabelStyle(),
-			createDialogLayerStyle(),
 			createOverallVerticalStackStyle(),
 			createHeaderHorizontalStackStyle(),
 			createTitleLabelStyle(),
-			createLevel1HeaderLabelStyle()
+			createLevel1HeaderLabelStyle(),
+			createDialogLayerStyle(),
+			createDialogContainerStyle()
 		);
 	}
 	
@@ -116,19 +118,6 @@ public final class DarkModeStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createDialogLayerStyle() {
-		return
-		new DeepStyle()
-		.setSelectorType(Layer.class)
-		.addSelectorRole(LayerRole.DIALOG_LAYER)
-		.addAttachingAttribute(
-			"Opacity(90%)",
-			"Background(Color(0x404040))",
-			"ContentPosition(CENTER)"
-		);
-	}
-	
-	//method
 	private DeepStyle createOverallVerticalStackStyle() {
 		return
 		new DeepStyle()
@@ -136,6 +125,7 @@ public final class DarkModeStyleCreator {
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINER)
 		.addAttachingAttribute(
 			"BaseWidth(80%)",
+			"MinHeight(100%)",
 			"BaseBackground(Color(0x404040))",
 			"BasePadding(20)",
 			"BaseChildControlMargin(20)"
@@ -170,5 +160,29 @@ public final class DarkModeStyleCreator {
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
 		.addAttachingAttribute("BaseTextSize(30)");
+	}
+	
+	//method
+	private DeepStyle createDialogLayerStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(Layer.class)
+		.addSelectorRole(LayerRole.DIALOG_LAYER)
+		.addAttachingAttribute(
+			"Background(Color(0x808080E0))",
+			"ContentPosition(CENTER)"
+		);
+	}
+	
+	//method
+	private DeepStyle createDialogContainerStyle() {
+		return
+		new DeepStyle()
+		.setSelectorType(Container.class)
+		.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
+		.addAttachingAttribute(
+			"BaseBackground(Color(0x404040E0))",
+			"BasePadding(50)"
+		);
 	}
 }
