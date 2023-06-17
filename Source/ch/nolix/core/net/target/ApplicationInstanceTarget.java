@@ -7,23 +7,23 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 
 //class
-public final class ApplicationTarget extends ServerTarget implements IApplicationInstanceTarget {
+public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 	
 	//static method
-	public static ApplicationTarget forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
+	public static ApplicationInstanceTarget forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
 		final String ipOrAddressName,
 		final int port,
 		final String applicationName,
 		final SecurityLevel securityLevelForConnections
 	) {
-		return new ApplicationTarget(ipOrAddressName, port, applicationName, securityLevelForConnections);
+		return new ApplicationInstanceTarget(ipOrAddressName, port, applicationName, securityLevelForConnections);
 	}
 	
 	//attribute
 	private final String applicationName;
 	
 	//constructor
-	private ApplicationTarget(
+	protected ApplicationInstanceTarget(
 		final String ipOrAddressName,
 		final int port,
 		final String applicationName,
@@ -39,7 +39,7 @@ public final class ApplicationTarget extends ServerTarget implements IApplicatio
 	
 	//method
 	@Override
-	public String getApplicationInstanceName() {
+	public final String getApplicationInstanceName() {
 		return applicationName;
 	}
 	

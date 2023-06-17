@@ -5,7 +5,7 @@ package ch.nolix.business.serverdashboardcontext;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.target.ApplicationTarget;
+import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
@@ -125,7 +125,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	@Override
 	public IApplicationInstanceTarget getApplicationTarget(final SecurityLevel securityLevelForConnections) {
 		return
-		ApplicationTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
 			getServer().getIpOrAddressName(),
 			getServer().getPort(),
 			getApplicationName(),
