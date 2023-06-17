@@ -27,7 +27,7 @@ public final class DarkModeStyleCreator {
 	public Style createDarkModeStyle() {
 		return
 		new Style()
-		.addAttachingAttribute("Background(Color(0x202020))")
+		.addAttachingAttribute("Background(Color(0x606060))")
 		.addConfiguration(
 			createControlStyle(),
 			createLinearContainerStyle(),
