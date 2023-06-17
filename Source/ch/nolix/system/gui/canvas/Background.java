@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.gui.canvas;
 
+//Java imports
+import java.util.Locale;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -317,7 +320,22 @@ public final class Background extends Element implements IBackground {
 	
 	//method
 	private String getColorCodeOfColor(final IColor color) {
-		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+		
+		if (color.hasFullAlphaValue()) {
+			return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
+		}
+		
+		final var alphaValueInPercent = (double)color.getAlphaValue() / Color.MAX_COLOR_COMPONENT;
+		
+		return
+		String.format(
+			Locale.ENGLISH,
+			"rgba(%d, %d, %d, %f)",
+			color.getRedValue(),
+			color.getGreenValue(),
+			color.getBlueValue(),
+			alphaValueInPercent
+		);
 	}
 	
 	//method
