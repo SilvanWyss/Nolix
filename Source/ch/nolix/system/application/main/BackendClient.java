@@ -34,7 +34,15 @@ public abstract class BackendClient<
 	 * @return the name of the parent {@link Application} of the current {@link BackendClient}.
 	 */
 	public final String getApplicationName() {
-		return getParentApplication().getInstanceName();
+		return getOriParentApplication().getInstanceName();
+	}
+	
+	//method
+	/**
+	 * @return the context of the parent {@link Application} of the current {@link BackendClient}.
+	 */
+	public AC getOriApplicationContext() {
+		return getOriParentApplication().getOriApplicationContext();
 	}
 	
 	//method
@@ -43,19 +51,11 @@ public abstract class BackendClient<
 	 * @throws InvalidArgumentException if
 	 * the current {@link BackendClient} does not reference its parent {@link Application}.
 	 */
-	public final Application<BC, AC> getParentApplication() {
+	public final Application<BC, AC> getOriParentApplication() {
 		
 		assertReferencesParentApplication();
 		
 		return parentApplication;
-	}
-	
-	//method
-	/**
-	 * @return the context of the parent {@link Application} of the current {@link BackendClient}.
-	 */
-	public AC getOriApplicationContext() {
-		return getParentApplication().getOriApplicationContext();
 	}
 	
 	//method

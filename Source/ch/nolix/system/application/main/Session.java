@@ -260,6 +260,6 @@ public abstract class Session<
 	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
 	private Application<BC, AC> getOriParentApplication() {
-		return getOriParentClient().getParentApplication();
+		return getOriParentClient().getOriParentApplication();
 	}
 }
