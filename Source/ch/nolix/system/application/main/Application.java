@@ -5,8 +5,11 @@ package ch.nolix.system.application.main;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -36,6 +39,9 @@ implements IApplication<AC> {
 	//attribute
 	private final AC applicationContext;
 	
+	//optional attribute
+	private BaseServer parentServer;
+	
 	//multi-attribute
 	private final LinkedList<BC> clients = new LinkedList<>();
 	
@@ -51,6 +57,15 @@ implements IApplication<AC> {
 		GlobalValidator.assertThat(applicationContext).thatIsNamed("application context").isNotNull();
 		
 		this.applicationContext = applicationContext;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean belongsToServer() {
+		return (parentServer != null);
 	}
 	
 	//method
@@ -169,6 +184,43 @@ implements IApplication<AC> {
 	
 	//method
 	/**
+	 * Sets the parent {@link BaseServer} of the current {@link Application}.
+	 * 
+	 * @param parentServer
+	 * @throws ArgumentBelongsToParentException if
+	 * the current {@link Application} belongs already to a {@link BaseServer}.
+	 */
+	final void internalSetParentServer(final BaseServer parentServer) {
+		
+		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
+		assertDoesNotBelongToServer();
+		
+		this.parentServer = parentServer;
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentBelongsToParentException if the current {@link Application} belongs already to a {@link BaseServer}.
+	 */
+	private void assertDoesNotBelongToServer() {
+		if (belongsToServer()) {
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentServer());
+		}
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotBelongToParentException if
+	 * the current {@link Application} does not belong to a {@link BaseServer}.
+	 */
+	private void assertBelongsToServer() {
+		if (!belongsToServer()) {
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, BaseServer.class);
+		}
+	}
+	
+	//method
+	/**
 	 * @throws ArgumentHasAttributeException if the current {@link Application} has already an instance name.
 	 */
 	private void assertDoesNotHaveInstanceName() {
@@ -198,6 +250,19 @@ implements IApplication<AC> {
 		final var constructor = getInitialSessionClass().getDeclaredConstructors()[0];
 		constructor.setAccessible(true);
 		return constructor;
+	}
+	
+	//method
+	/**
+	 * @return the parent {@link BaseServer} of the current {@link Application}.
+	 * @throws ArgumentDoesNotBelongToParentException if
+	 * the current {@link Application} does not belong to a {@link BaseServer}.
+	 */
+	private BaseServer getOriParentServer() {
+		
+		assertBelongsToServer();
+		
+		return parentServer;
 	}
 	
 	//method

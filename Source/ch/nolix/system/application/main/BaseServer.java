@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.system.application.main;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -37,6 +39,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param application
 	 * @param instanceName
 	 * @throws ArgumentIsNullException if the given application is null.
+	 * @throws ArgumentBelongsToParentException if the given application belongs already to a {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given instanceName is null
 	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
@@ -44,6 +47,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 */
 	public final void addApplication(final Application<?, ?> application, final String instanceName) {
 		
+		application.internalSetParentServer(this);
 		application.internalSetInstanceName(instanceName);
 		
 		addApplicationToList(application);
@@ -63,6 +67,8 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given instanceName.
 	 */
 	public final void addApplication(final Application<?, ?> application) {
+		
+		//Calls other method
 		addApplication(application, application.getApplicationName());
 	}
 	
@@ -112,6 +118,8 @@ public abstract class BaseServer implements GroupCloseable {
 	public final <BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
 		final Application<BC, AC> defaultApplication
 	) {
+		
+		//Calls other method
 		addDefaultApplication(defaultApplication, defaultApplication.getApplicationName());
 	}
 	
@@ -125,6 +133,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param <BC> is the type of the {@link BackendClient} of the given defaultApplication.
 	 * @param <AC> is the type of the context of the given defaultApplication.
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
+	 * @throws ArgumentBelongsToParentException if the given defaultApplication belongs already to a {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given instanceName is null.
 	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
@@ -135,6 +144,7 @@ public abstract class BaseServer implements GroupCloseable {
 		final String instanceName
 	) {
 		
+		defaultApplication.internalSetParentServer(this);
 		defaultApplication.internalSetInstanceName(instanceName);
 		
 		addApplicationToList(defaultApplication);

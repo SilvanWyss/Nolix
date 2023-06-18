@@ -5,6 +5,9 @@ package ch.nolix.systemapi.applicationapi.mainapi;
 public interface IApplication<AC> {
 	
 	//method declaration
+	boolean belongsToServer();
+	
+	//method declaration
 	String getApplicationName();
 	
 	//method declaration
