@@ -200,6 +200,22 @@ public class StringMediator extends ArgumentMediator<String> {
 		}
 	}
 	
+	/**
+	 * @param regularExpression
+	 * @throws InvalidArgumentException if
+	 * the argument of the current {@link StringMediator} does not match the given regularExpression.
+	 */
+	public void matches(final String regularExpression) {
+		
+		//Asserts that the argument of the current StringMediator is not null.
+		isNotNull();
+		
+		//Asserts that the argument of the current StringMediator matches the given regularExpression.
+		if (!getOriArgument().matches(regularExpression)) {
+			throw InvalidArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
+		}
+	}
+	
 	//method
 	/**
 	 * @param directory
