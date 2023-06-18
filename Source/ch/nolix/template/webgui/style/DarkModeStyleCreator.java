@@ -79,7 +79,10 @@ public final class DarkModeStyleCreator {
 		.addAttachingAttribute(
 			"BaseBackground(Color(0x202020))",
 			"HoverBackground(Color(0x000000))",
-			"BasePadding(2)"
+			"BaseTopPadding(2)",
+			"BaseBottomPadding(2)",
+			"BaseLeftPadding(10)",
+			"BaseRightPadding(10)"
 		);
 	}
 	
