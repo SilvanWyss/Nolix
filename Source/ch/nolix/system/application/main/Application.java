@@ -14,10 +14,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class
@@ -59,6 +62,18 @@ implements IApplication<AC> {
 		this.applicationContext = applicationContext;
 	}
 	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final IApplicationInstanceTarget asTarget() {
+		
+		final var serverTarget = getOriParentServer().asTarget();
+		
+		return asTargetWithServerTarget(serverTarget);
+	}
+
 	//method
 	/**
 	 * {@inheritDoc}
@@ -228,7 +243,22 @@ implements IApplication<AC> {
 			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "instance name");
 		}
 	}
-
+	
+	//method
+	/**
+	 * @param serverTarget
+	 * @return the current {@link Application} as target using the given serverTarget.
+	 */
+	private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
+		return
+		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
+			serverTarget.getIpOrAddressName(),
+			serverTarget.getPort(),
+			getInstanceName(),
+			serverTarget.getSecurityLevelForConnections()
+		);
+	}
+	
 	//method
 	/**
 	 * @param endPoint
