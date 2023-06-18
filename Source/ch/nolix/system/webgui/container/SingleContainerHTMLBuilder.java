@@ -39,6 +39,6 @@ public final class SingleContainerHTMLBuilder implements IControlHTMLBuilder<Sin
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(singleContainer.toHTMLElement());
+		return ImmutableList.withElements(singleContainer.getOriControl().toHTMLElement());
 	}
 }
