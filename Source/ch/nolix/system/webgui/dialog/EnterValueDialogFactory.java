@@ -71,9 +71,9 @@ public final class EnterValueDialogFactory {
 	) {
 		
 		final var newValue = valueTextbox.getText();
-
+		
 		valueTaker.run(newValue);
-			
+		
 		confirmButton.getOriParentLayer().removeSelfFromGUI();
 	}
 }
