@@ -4,6 +4,7 @@ package ch.nolix.core.container.base;
 //Java imports
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 import java.util.Random;
 
 //own imports
@@ -481,7 +482,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		final var sumAsBigDecimal = getSum(norm);
 		final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
-		final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal);
+		final var averageAsBigDecimal = sumAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 		
 		return averageAsBigDecimal.doubleValue();
 	}
@@ -1037,7 +1038,9 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
-		final var varianceAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal.divide(elementCountAsBigDecimal);
+		
+		final var varianceAsBigDecimal =
+		sumOfSquaredDeviationsAsBigDecimal.divide(elementCountAsBigDecimal, MathContext.DECIMAL32);
 		
 		return varianceAsBigDecimal.doubleValue();
 	}
