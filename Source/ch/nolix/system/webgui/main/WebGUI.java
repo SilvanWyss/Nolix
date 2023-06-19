@@ -11,6 +11,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.webapi.cssapi.ICSS;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
@@ -105,6 +106,9 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//attribute
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
 	
+	//optional attribute
+	private IAction removeLayerAction;
+	
 	//constructor
 	public WebGUI() {
 		
@@ -116,7 +120,9 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	public void clear() {
-		layers.clear();
+		while (containsAny()) {
+			removeLayer(getOriTopLayer());
+		}
 	}
 	
 	//method
@@ -301,7 +307,13 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	//method
 	@Override
 	public void removeLayer(final ILayer<?> layer) {
+		
 		layers.remove(layer);
+		
+		//TODO: Beautify this code.
+		if (removeLayerAction != null) {
+			removeLayerAction.run();
+		}
 	}
 	
 	//method
@@ -357,6 +369,17 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	public WebGUI setIcon(final IImage icon) {
 		
 		this.icon.setValue(Image.fromAnyImage(icon));
+		
+		return this;
+	}
+	
+	//method
+	@Override
+	public WebGUI setRemoveLayerAction(IAction removeLayerAction) {
+		
+		GlobalValidator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
+		
+		this.removeLayerAction = removeLayerAction;
 		
 		return this;
 	}
