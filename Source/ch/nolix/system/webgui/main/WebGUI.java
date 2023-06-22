@@ -259,6 +259,12 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
+	public boolean hasRemoveLayerAction() {
+		return (removeLayerAction != null);
+	}
+	
+	//method
+	@Override
 	public boolean hasRole(final String role) {
 		return false;
 	}
@@ -310,10 +316,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 		
 		layers.remove(layer);
 		
-		//TODO: Beautify this code.
-		if (removeLayerAction != null) {
-			removeLayerAction.run();
-		}
+		runProbableRemoveLayerAction();
 	}
 	
 	//method
@@ -419,6 +422,13 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	private void registerHTMLElementEventsAt(final LinkedList<IHTMLElementEvent> lHTMLElementEventRegistrations) {
 		for (final var c : getOriControls()) {
 			c.registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
+		}
+	}
+	
+	//method
+	private void runProbableRemoveLayerAction() {
+		if (hasRemoveLayerAction()) {
+			removeLayerAction.run();
 		}
 	}
 }

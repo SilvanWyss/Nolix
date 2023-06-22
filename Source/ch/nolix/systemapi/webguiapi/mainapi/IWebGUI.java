@@ -45,7 +45,10 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	
 	//method declaration
 	ILayer<?> getOriTopLayer();
-		
+	
+	//method declaration
+	boolean hasRemoveLayerAction();
+	
 	//method declaration
 	@Override
 	IFrontEndWriter onFrontEnd();
