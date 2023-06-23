@@ -47,7 +47,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//multi-attribute
-	private final LinkedList<SQLConnectionWrapper> mSQLConnections = new LinkedList<>();
+	private final LinkedList<SqlConnectionWrapper> mSQLConnections = new LinkedList<>();
 	
 	//constructor
 	SqlConnectionPool(
@@ -84,7 +84,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//method
 	public boolean containsAvailableSQLConnection() {
-		return mSQLConnections.containsAny(SQLConnectionWrapper::isAvailable);
+		return mSQLConnections.containsAny(SqlConnectionWrapper::isAvailable);
 	}
 	
 	//method
@@ -155,10 +155,10 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	private SQLConnectionWrapper createSQLConnectionWrapper() {
+	private SqlConnectionWrapper createSQLConnectionWrapper() {
 		
 		final var lSQLConnectionWrapper =
-		SQLConnectionWrapper.forSQLConnection(sSQLConnectionFactory.createSQLConnectionFor(this));
+		SqlConnectionWrapper.forSQLConnection(sSQLConnectionFactory.createSQLConnectionFor(this));
 		
 		mSQLConnections.addAtEnd(lSQLConnectionWrapper);
 		
@@ -166,9 +166,9 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	private SQLConnectionWrapper getOrCreateAvailableSQLConnectionWrapper() {
+	private SqlConnectionWrapper getOrCreateAvailableSQLConnectionWrapper() {
 		
-		final var lSQLConnectionWrapper = mSQLConnections.getOriFirstOrNull(SQLConnectionWrapper::isAvailable);
+		final var lSQLConnectionWrapper = mSQLConnections.getOriFirstOrNull(SqlConnectionWrapper::isAvailable);
 		if (lSQLConnectionWrapper != null) {
 			return lSQLConnectionWrapper;
 		}

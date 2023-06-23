@@ -6,11 +6,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
-final class SQLConnectionWrapper implements AutoCloseable {
+final class SqlConnectionWrapper implements AutoCloseable {
 	
 	//static method
-	public static SQLConnectionWrapper forSQLConnection(final SqlConnection pSQLConnection) {
-		return new SQLConnectionWrapper(pSQLConnection);
+	public static SqlConnectionWrapper forSQLConnection(final SqlConnection pSQLConnection) {
+		return new SqlConnectionWrapper(pSQLConnection);
 	}
 	
 	//attribute
@@ -20,7 +20,7 @@ final class SQLConnectionWrapper implements AutoCloseable {
 	private boolean available = true;
 	
 	//constructor
-	private SQLConnectionWrapper(final SqlConnection pSQLConnection) {
+	private SqlConnectionWrapper(final SqlConnection pSQLConnection) {
 		
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).fulfills(SqlConnection::isOpen);
