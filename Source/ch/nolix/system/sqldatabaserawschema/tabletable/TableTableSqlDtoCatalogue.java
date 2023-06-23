@@ -9,7 +9,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class TableTableSQLDTOCatalogue {
+public final class TableTableSqlDtoCatalogue {
 	
 	//constant
 	private static final IColumnDTO ID_COLUMN_SQL_DTO =
@@ -27,5 +27,5 @@ public final class TableTableSQLDTOCatalogue {
 	new TableDTO(SystemDataTable.TABLE.getQualifiedName(), ID_COLUMN_SQL_DTO, NAME_COLUMN_SQL_DTO);
 	
 	//constructor
-	private TableTableSQLDTOCatalogue() {}
+	private TableTableSqlDtoCatalogue() {}
 }

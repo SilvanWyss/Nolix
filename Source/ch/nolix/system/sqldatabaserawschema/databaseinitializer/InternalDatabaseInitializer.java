@@ -9,7 +9,7 @@ import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProper
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqldatabaserawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
-import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableSQLDTOCatalogue;
+import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableSqlDtoCatalogue;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -24,7 +24,7 @@ final class InternalDatabaseInitializer {
 	) {
 		
 		schemaAdapter.addTable(DatabasePropertyTableSQLDTOCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
-		schemaAdapter.addTable(TableTableSQLDTOCatalogue.TABLE_TABLE_SQL_DTO);
+		schemaAdapter.addTable(TableTableSqlDtoCatalogue.TABLE_TABLE_SQL_DTO);
 		schemaAdapter.addTable(ColumnTableSQLDTOCatalogue.COLUMN_TABLE_SQL_DTO);
 		
 		schemaAdapter.addTable(MultiReferenceEntryTableSqlDtoCatalogue.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
