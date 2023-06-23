@@ -5,7 +5,7 @@ package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlCollector;
-import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter;
@@ -32,7 +32,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	private final SqlCollector mSQLCollector = new SqlCollector();
 	
 	//attribute
-	private final SQLConnection mSQLConnection;
+	private final SqlConnection mSQLConnection;
 	
 	//attribute
 	private final ISchemaStatementCreator schemaStatementCreator;
@@ -43,7 +43,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	//constructor
 	private SchemaWriter(
 		final String databaseName,
-		final SQLConnection pSQLConnection,
+		final SqlConnection pSQLConnection,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
 		

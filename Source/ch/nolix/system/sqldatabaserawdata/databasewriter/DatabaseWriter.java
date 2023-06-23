@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabaserawdata.databasewriter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
@@ -41,7 +41,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	//constructor
 	private DatabaseWriter(
 		final String databaseName,
-		final SQLConnection pSQLConnection,
+		final SqlConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {

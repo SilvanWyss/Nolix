@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabaserawschema.schemareader;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
@@ -45,7 +45,7 @@ public final class SchemaReader implements ISchemaReader {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final SQLConnection mSQLConnection;
+	private final SqlConnection mSQLConnection;
 	
 	//attribute
 	private final ISchemaAdapter schemaAdapter;
@@ -53,11 +53,11 @@ public final class SchemaReader implements ISchemaReader {
 	//constructor
 	private SchemaReader(
 		final String databaseName,
-		final SQLConnection pSQLConnection,
+		final SqlConnection pSQLConnection,
 		final ISchemaAdapter schemaAdapter
 	) {
 		
-		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SQLConnection.class).isNotNull();
+		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();
 		GlobalValidator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
 		
 		mSQLConnection = pSQLConnection;

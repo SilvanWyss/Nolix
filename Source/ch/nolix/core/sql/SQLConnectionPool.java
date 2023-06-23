@@ -72,7 +72,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	public SQLConnection borrowSQLConnection() {
+	public SqlConnection borrowSQLConnection() {
 		
 		final var lSQLConnection = getOrCreateAvailableSQLConnectionWrapper();
 		
@@ -144,7 +144,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	public void takeBackSQLConnection(final SQLConnection pSQLConnection) {
+	public void takeBackSQLConnection(final SqlConnection pSQLConnection) {
 		mSQLConnections.getOriFirst(sqlc -> sqlc.contains(pSQLConnection)).setAvailable();
 	}
 	

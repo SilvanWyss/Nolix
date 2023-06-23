@@ -5,7 +5,7 @@ package ch.nolix.core.sql;
 import java.sql.Connection;
 
 //class
-public final class MsSqlConnection extends SQLConnection {
+public final class MsSqlConnection extends SqlConnection {
 	
 	//constant
 	public static final SQLDatabaseEngine SQL_DATABASE_ENGINE = SQLDatabaseEngine.MSSQL;

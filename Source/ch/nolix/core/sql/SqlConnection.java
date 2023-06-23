@@ -18,7 +18,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
-public abstract class SQLConnection implements GroupCloseable {
+public abstract class SqlConnection implements GroupCloseable {
 	
 	//attribute
 	private final SQLDatabaseEngine mSQLDatabaseEngine;
@@ -33,7 +33,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	private final SQLConnectionPool parentSQLConnectionPool;
 	
 	//constructor
-	protected SQLConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
+	protected SqlConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
 		
 		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
 		GlobalValidator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
@@ -44,7 +44,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//constructor
-	protected SQLConnection(
+	protected SqlConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final int port,
 		final String userName,
@@ -60,7 +60,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//constructor
-	protected SQLConnection(
+	protected SqlConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
@@ -84,7 +84,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//constructor
-	protected SQLConnection(
+	protected SqlConnection(
 		final SQLDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
@@ -135,7 +135,7 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final SQLConnection execute(final Iterable<String> pSQLStatements) {
+	public final SqlConnection execute(final Iterable<String> pSQLStatements) {
 		
 		try (final var statement = connection.createStatement()) {
 			
@@ -162,12 +162,12 @@ public abstract class SQLConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final SQLConnection execute(final String pSQLStatement) {
+	public final SqlConnection execute(final String pSQLStatement) {
 		return execute(ReadContainer.withElements(pSQLStatement));
 	}
 	
 	//method
-	public final SQLConnection execute(final String... pSQLStatements) {
+	public final SqlConnection execute(final String... pSQLStatements) {
 		return execute(ReadContainer.forArray(pSQLStatements));
 	}
 	

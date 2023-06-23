@@ -37,7 +37,7 @@ public final class SqlCollector implements Clearable {
 	}
 	
 	//method
-	public void executeAndClearUsingConnection(final SQLConnection pSQLConnection) {
+	public void executeAndClearUsingConnection(final SqlConnection pSQLConnection) {
 		try {
 			executeUsingConnection(pSQLConnection);
 		} finally {
@@ -46,7 +46,7 @@ public final class SqlCollector implements Clearable {
 	}
 	
 	//method
-	public void executeUsingConnection(final SQLConnection pSQLConnection) {
+	public void executeUsingConnection(final SqlConnection pSQLConnection) {
 		pSQLConnection.execute(mSQLStatements);
 	}
 	

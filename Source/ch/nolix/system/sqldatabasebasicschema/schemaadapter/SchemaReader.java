@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLConnection;
+import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqldatabasebasicschema.flatschemadto.FlatTableDTO;
@@ -30,7 +30,7 @@ final class SchemaReader implements ISchemaReader {
 	}
 	
 	//attribute
-	private final SQLConnection mSQLConnection;
+	private final SqlConnection mSQLConnection;
 	
 	//attribute
 	private final ISchemaQueryCreator schemaQueryCreator;
@@ -41,7 +41,7 @@ final class SchemaReader implements ISchemaReader {
 	//constructor
 	private SchemaReader(
 		final String databaseName,
-		final SQLConnection pSQLConnection,
+		final SqlConnection pSQLConnection,
 		final ISchemaQueryCreator schemaQueryCreator
 	) {
 		
