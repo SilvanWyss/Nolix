@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueQueryCreator;
-import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 //class
 final class InternalDatabaseReader {
@@ -40,7 +40,7 @@ final class InternalDatabaseReader {
 	public InternalDatabaseReader(
 		final String databaseName,
 		final SqlConnection pSQLConnection,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();

@@ -7,10 +7,10 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreato
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueQueryCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreator;
-import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 //class
-public final class SqlSyntaxProvider implements ISQLSyntaxProvider {
+public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
 	
 	//static attribute
 	private static final IEntityQueryCreator entityQueryCreator = new EntityQueryCreator();

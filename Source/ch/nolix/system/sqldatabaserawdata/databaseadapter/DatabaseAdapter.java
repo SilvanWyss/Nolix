@@ -9,7 +9,7 @@ import ch.nolix.system.sqldatabaserawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqldatabaserawdata.databasereader.DatabaseReader;
 import ch.nolix.system.sqldatabaserawdata.databasewriter.DatabaseWriter;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
@@ -23,7 +23,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 		final String databaseName,
 		final SqlConnectionPool pSQLConnectionPool,
 		final ISchemaAdapter schemaAdapter,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		this(
@@ -41,7 +41,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 		final String databaseName,
 		final SqlConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		super(
 			DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(

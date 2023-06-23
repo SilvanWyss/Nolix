@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreator;
-import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -39,7 +39,7 @@ public final class InternalDatabaseWriter {
 	public InternalDatabaseWriter(
 		final String databaseName,
 		final SqlConnection pSQLConnection,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();

@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -24,7 +24,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 		final String databaseName,
 		final SqlConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		return new DatabaseWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
 	}
@@ -43,7 +43,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 		final String databaseName,
 		final SqlConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();

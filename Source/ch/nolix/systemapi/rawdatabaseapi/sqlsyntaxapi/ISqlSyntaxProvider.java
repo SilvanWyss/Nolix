@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi;
 
 //interface
-public interface ISQLSyntaxProvider {
+public interface ISqlSyntaxProvider {
 	
 	//method declaration
 	IEntityQueryCreator getEntityQueryCreator();

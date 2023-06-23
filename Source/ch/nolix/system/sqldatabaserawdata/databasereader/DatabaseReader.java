@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
+import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 
 //class
 public final class DatabaseReader implements IDatabaseReader {
@@ -22,7 +22,7 @@ public final class DatabaseReader implements IDatabaseReader {
 		final String databaseName,
 		final SqlConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		return
 		new DatabaseReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
@@ -42,7 +42,7 @@ public final class DatabaseReader implements IDatabaseReader {
 		final String databaseName,
 		final SqlConnection pSQLConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final ISQLSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider pSQLSyntaxProvider
 	) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
