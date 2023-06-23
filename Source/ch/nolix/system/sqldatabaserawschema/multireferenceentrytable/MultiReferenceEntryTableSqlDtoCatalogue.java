@@ -9,7 +9,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class MultiReferenceEntryTableSQLDTOCatalogue {
+public final class MultiReferenceEntryTableSqlDtoCatalogue {
 	
 	//constant
 	private static final IColumnDTO MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO =
@@ -39,5 +39,5 @@ public final class MultiReferenceEntryTableSQLDTOCatalogue {
 	);
 	
 	//constructor
-	private MultiReferenceEntryTableSQLDTOCatalogue() {}
+	private MultiReferenceEntryTableSqlDtoCatalogue() {}
 }
