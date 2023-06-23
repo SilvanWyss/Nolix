@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDT
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
 
 //class
-public final class ParametrizedPropertyTypeSQLRecordMapper {
+public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	public ParametrizedPropertyTypeSQLRecord createParametrizedPropertyTypeRecordFrom(

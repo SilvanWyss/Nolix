@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawschema.schemawriter;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.system.sqldatabaserawschema.columntable.ColumnTableColumn;
-import ch.nolix.system.sqldatabaserawschema.columntable.ParametrizedPropertyTypeSQLRecordMapper;
+import ch.nolix.system.sqldatabaserawschema.columntable.ParametrizedPropertyTypeSqlRecordMapper;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
@@ -18,8 +18,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriterSqlStatementCreator {
 	
 	//static attribute
-	private static final ParametrizedPropertyTypeSQLRecordMapper parametrizedPropertyTypeSQLRecordMapper =
-	new ParametrizedPropertyTypeSQLRecordMapper();
+	private static final ParametrizedPropertyTypeSqlRecordMapper parametrizedPropertyTypeSqlRecordMapper =
+	new ParametrizedPropertyTypeSqlRecordMapper();
 	
 	//static attribute
 	private static final TableTableRecordMapper tableSystemTableRecordMapper =
@@ -29,7 +29,7 @@ final class SystemDataWriterSqlStatementCreator {
 	public String createStatementToAddColumn(final String parentTableName, final IColumnDTO column) {
 		
 		final var parametrezidPropertyTypeRecord =
-		parametrizedPropertyTypeSQLRecordMapper.createParametrizedPropertyTypeRecordFrom(
+		parametrizedPropertyTypeSqlRecordMapper.createParametrizedPropertyTypeRecordFrom(
 			column.getParametrizedPropertyType()
 		);
 		
@@ -142,7 +142,7 @@ final class SystemDataWriterSqlStatementCreator {
 	) {
 		
 		final var parametrezidPropertyTypeRecord =
-		parametrizedPropertyTypeSQLRecordMapper.createParametrizedPropertyTypeRecordFrom(parametrizedPropertyType);
+		parametrizedPropertyTypeSqlRecordMapper.createParametrizedPropertyTypeRecordFrom(parametrizedPropertyType);
 		
 		return
 		"UPDATE "
