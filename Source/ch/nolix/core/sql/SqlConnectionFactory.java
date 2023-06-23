@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
 
 //class
-public final class SQLConnectionFactory {
+public final class SqlConnectionFactory {
 	
 	//method
 	public SqlConnection createSQLConnectionFor(final SQLConnectionPool pSQLDatabaseTarget) {

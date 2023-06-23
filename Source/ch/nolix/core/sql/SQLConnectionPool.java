@@ -21,7 +21,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 	
 	//static attribute
-	private static final SQLConnectionFactory sSQLConnectionFactory = new SQLConnectionFactory();
+	private static final SqlConnectionFactory sSQLConnectionFactory = new SqlConnectionFactory();
 	
 	//static method
 	public static SQLConnectionPoolBuilder forIpOrAddressName(final String ipOrAddressName) {
