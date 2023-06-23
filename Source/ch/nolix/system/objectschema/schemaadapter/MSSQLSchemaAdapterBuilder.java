@@ -5,7 +5,7 @@ import ch.nolix.core.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.toargumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.builder.usingargumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 
 //class
@@ -42,7 +42,7 @@ AndPortCapturer<
 			ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				next().getDatabaseName(),
-				SQLConnectionPool
+				SqlConnectionPool
 				.forIpOrAddressName(ipOrAddressName)
 				.andPort(getPort())
 				.andDatabase(next().getDatabaseName())

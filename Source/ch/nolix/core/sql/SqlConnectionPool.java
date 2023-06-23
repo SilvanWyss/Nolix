@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
-public final class SQLConnectionPool implements GroupCloseable, ISqlDatabaseTarget {
+public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarget {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
@@ -50,7 +50,7 @@ public final class SQLConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private final LinkedList<SQLConnectionWrapper> mSQLConnections = new LinkedList<>();
 	
 	//constructor
-	SQLConnectionPool(
+	SqlConnectionPool(
 		final String ipOrAddressName,
 		final int port,
 		final String databaseName,

@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SqlConnection;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
@@ -20,7 +20,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	//static method
 	public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool pSQLConnectionPool,
 		final ISchemaAdapter schemaAdapter
 	) {
 		return

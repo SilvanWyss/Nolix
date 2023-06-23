@@ -15,7 +15,7 @@ AndPortCapturer<
 		WithSQLDatabaseEngineCapturer<
 			UsingLoginNameCapturer<
 				AndLoginPasswordCapturer<
-					SQLConnectionPool
+					SqlConnectionPool
 				>
 			>
 		>
@@ -40,9 +40,9 @@ AndPortCapturer<
 	}
 	
 	//method
-	private SQLConnectionPool build(final String ipOrAddressName) {
+	private SqlConnectionPool build(final String ipOrAddressName) {
 		return
-		new SQLConnectionPool(
+		new SqlConnectionPool(
 			ipOrAddressName,
 			getPort(),
 			next().getDatabaseName(),

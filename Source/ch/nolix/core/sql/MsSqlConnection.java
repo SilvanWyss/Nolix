@@ -56,7 +56,7 @@ public final class MsSqlConnection extends SqlConnection {
 		final int port,
 		final String userName,
 		final String userPassword,
-		final SQLConnectionPool parentSQLConnectionPool
+		final SqlConnectionPool parentSQLConnectionPool
 	) {
 		super(
 			SQL_DATABASE_ENGINE,

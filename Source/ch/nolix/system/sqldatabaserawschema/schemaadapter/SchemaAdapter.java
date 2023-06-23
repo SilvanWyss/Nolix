@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqldatabaserawschema.databaseinitializer.DatabaseInitializer;
 import ch.nolix.system.sqldatabaserawschema.schemareader.SchemaReader;
@@ -34,7 +34,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//constructor
 	protected SchemaAdapter(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool pSQLConnectionPool,
 		final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
 	) {
 		

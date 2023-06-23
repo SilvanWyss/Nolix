@@ -5,7 +5,7 @@ package ch.nolix.system.sqldatabaserawdata.databasereader;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlConnection;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
@@ -20,7 +20,7 @@ public final class DatabaseReader implements IDatabaseReader {
 	//static method
 	public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {

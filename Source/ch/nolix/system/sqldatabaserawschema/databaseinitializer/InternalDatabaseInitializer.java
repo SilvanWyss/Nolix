@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawschema.databaseinitializer;
 
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.sqldatabaserawschema.columntable.ColumnTableSQLDTOCatalogue;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
@@ -20,7 +20,7 @@ final class InternalDatabaseInitializer {
 	public void initializeDatabase(
 		final String databaseName,
 		final ISchemaAdapter schemaAdapter,
-		final SQLConnectionPool pSQLConnectionPool
+		final SqlConnectionPool pSQLConnectionPool
 	) {
 		
 		schemaAdapter.addTable(DatabasePropertyTableSQLDTOCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
@@ -35,7 +35,7 @@ final class InternalDatabaseInitializer {
 		createSchemaTimestampEntry(databaseName, pSQLConnectionPool);
 	}
 
-	private void createSchemaTimestampEntry(final String databaseName, SQLConnectionPool pSQLConnectionPool) {
+	private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool pSQLConnectionPool) {
 		try (final var lSQLConnection = pSQLConnectionPool.borrowSQLConnection()) {
 			lSQLConnection.execute("USE " + databaseName);
 			lSQLConnection.execute(createSQLStatementToCreateSchemaTimestampEntry());

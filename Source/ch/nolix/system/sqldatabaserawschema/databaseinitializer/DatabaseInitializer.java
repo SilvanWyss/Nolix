@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawschema.databaseinitializer;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.sqldatabaserawschema.databaseschemainspector.DatabaseSchemaInspector;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -18,7 +18,7 @@ public final class DatabaseInitializer {
 	public void initializeDatabaseIfNotInitialized(
 		final String databaseName,
 		final ISchemaAdapter schemaAdapter,
-		final SQLConnectionPool pSQLConnectionPool
+		final SqlConnectionPool pSQLConnectionPool
 	) {
 		switch (databaseSchemaInspector.getDatabaseSchemaState(schemaAdapter)) {
 			case UNINITIALIZED:

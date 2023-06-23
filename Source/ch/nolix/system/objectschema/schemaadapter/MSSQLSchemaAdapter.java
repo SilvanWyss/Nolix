@@ -4,7 +4,7 @@ package ch.nolix.system.objectschema.schemaadapter;
 //own imports
 import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 
 //class
 public final class MSSQLSchemaAdapter extends SchemaAdapter {
@@ -15,7 +15,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 	//static method
 	public static MSSQLSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool
+		final SqlConnectionPool pSQLConnectionPool
 	) {
 		return
 		new MSSQLSchemaAdapter(

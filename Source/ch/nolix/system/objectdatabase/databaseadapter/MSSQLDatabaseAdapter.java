@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.databaseadapter;
 
 //own imports
 import ch.nolix.core.net.constant.IPv4Catalogue;
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.SQLDatabaseEngine;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
@@ -24,7 +24,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//attribute
-	private final SQLConnectionPool mSQLConnectionPool; 
+	private final SqlConnectionPool mSQLConnectionPool; 
 	
 	//constructor
 	MSSQLDatabaseAdapter(
@@ -38,7 +38,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 		this(
 			databaseName,
 			schema,
-			SQLConnectionPool
+			SqlConnectionPool
 			.forIpOrAddressName(ipOrAddressName)
 			.andPort(port)
 			.andDatabase(databaseName)
@@ -52,7 +52,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 	private MSSQLDatabaseAdapter(
 		final String databaseName,
 		final ISchema schema,
-		final SQLConnectionPool pSQLConnectionPool
+		final SqlConnectionPool pSQLConnectionPool
 	) {
 		
 		super(

@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaserawdata.databaseadapter;
 
 //own imports
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.rawdatabase.databaseadapter.BaseDatabaseAdapter;
 import ch.nolix.system.sqldatabaserawdata.databaseinspector.DatabaseInspector;
@@ -21,7 +21,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 	//constructor
 	protected DatabaseAdapter(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool pSQLConnectionPool,
 		final ISchemaAdapter schemaAdapter,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {
@@ -39,7 +39,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 	//constructor
 	private DatabaseAdapter(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool pSQLConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
 		final ISQLSyntaxProvider pSQLSyntaxProvider
 	) {

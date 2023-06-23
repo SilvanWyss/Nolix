@@ -30,7 +30,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private final SQLConnectionPool parentSQLConnectionPool;
+	private final SqlConnectionPool parentSQLConnectionPool;
 	
 	//constructor
 	protected SqlConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
@@ -90,7 +90,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		final int port,
 		final String userName,
 		final String userPassword,
-		final SQLConnectionPool parentSQLConnectionPool
+		final SqlConnectionPool parentSQLConnectionPool
 	) {
 		
 		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
@@ -99,7 +99,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		GlobalValidator
 		.assertThat(parentSQLConnectionPool)
 		.thatIsNamed("parent SQLConnectionPool")
-		.fulfills(SQLConnectionPool::isOpen);
+		.fulfills(SqlConnectionPool::isOpen);
 		
 		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		

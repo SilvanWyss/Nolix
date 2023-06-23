@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaserawdata.dataandschemaadapter;
 
 //own imports
-import ch.nolix.core.sql.SQLConnectionPool;
+import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.rawdatabase.databaseandschemaadapter.BaseDataAndSchemaAdapter;
 import ch.nolix.system.sqldatabaserawdata.databaseadapter.MSSQLDatabaseAdapter;
 import ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter;
@@ -13,7 +13,7 @@ public final class MSSQLDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapte
 	//static method
 	public static MSSQLDatabaseAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
-		final SQLConnectionPool pSQLConnectionPool
+		final SqlConnectionPool pSQLConnectionPool
 	) {
 		return
 		new MSSQLDatabaseAndSchemaAdapter(
