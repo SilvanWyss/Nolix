@@ -14,13 +14,13 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	
 	//static method
-	public static MSSQLDatabaseAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
-		return new MSSQLDatabaseAdapterBuilder(ipOrAddressName);
+	public static MsSqlDatabaseAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
+		return new MsSqlDatabaseAdapterBuilder(ipOrAddressName);
 	}
 	
 	//static method
-	public static MSSQLDatabaseAdapterBuilder toLocalHost() {
-		return new MSSQLDatabaseAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
+	public static MsSqlDatabaseAdapterBuilder toLocalHost() {
+		return new MsSqlDatabaseAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
 	//attribute

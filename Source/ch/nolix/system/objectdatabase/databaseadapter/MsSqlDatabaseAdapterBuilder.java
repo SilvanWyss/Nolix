@@ -10,7 +10,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
-public final class MSSQLDatabaseAdapterBuilder
+public final class MsSqlDatabaseAdapterBuilder
 extends
 AndPortCapturer<
 	ToDatabaseNameCapturer<
@@ -29,7 +29,7 @@ AndPortCapturer<
 	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
 	
 	//constructor
-	public MSSQLDatabaseAdapterBuilder(final String ipOrAddressName) {
+	public MsSqlDatabaseAdapterBuilder(final String ipOrAddressName) {
 		
 		super(
 			DEFAULT_PORT,
