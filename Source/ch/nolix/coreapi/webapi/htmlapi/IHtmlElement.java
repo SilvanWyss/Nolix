@@ -5,7 +5,7 @@ package ch.nolix.coreapi.webapi.htmlapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IHtmlElement<HTMLE extends IHtmlElement<HTMLE, A>, A extends IHtmlAttribute> {
+public interface IHtmlElement<HE extends IHtmlElement<HE, A>, A extends IHtmlAttribute> {
 	
 	//method declaration
 	boolean containsAttributes();
@@ -20,7 +20,7 @@ public interface IHtmlElement<HTMLE extends IHtmlElement<HTMLE, A>, A extends IH
 	IContainer<A> getOriAttributes();
 	
 	//method declaration
-	IContainer<HTMLE> getOriChildElements();
+	IContainer<HE> getOriChildElements();
 	
 	//method declaration
 	String getType();
