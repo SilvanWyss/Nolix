@@ -5,7 +5,7 @@ import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.databaseadapter.MsSqlDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
-public final class MSSQLDatabaseAdapterTutorial {
+public final class MsSqlDatabaseAdapterTutorial {
 	
 	private static final class Person extends Entity {
 		
@@ -44,5 +44,5 @@ public final class MSSQLDatabaseAdapterTutorial {
 		System.out.println(loadedDonaldDuck.toString());
 	}
 	
-	private MSSQLDatabaseAdapterTutorial() {}
+	private MsSqlDatabaseAdapterTutorial() {}
 }
