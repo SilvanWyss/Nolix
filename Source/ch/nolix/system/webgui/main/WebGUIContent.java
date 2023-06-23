@@ -8,7 +8,7 @@ import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
@@ -54,7 +54,7 @@ final class WebGUIContent implements IWebGUIContent {
 	}
 	
 	//method
-	private IContainer<? extends IHTMLAttribute> getHTMLAttributes() {
+	private IContainer<? extends IHtmlAttribute> getHTMLAttributes() {
 		return LinkedList.withElements(HTMLAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, ROOT_DIV_ID));
 	}
 	

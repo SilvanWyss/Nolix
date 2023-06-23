@@ -3,13 +3,13 @@ package ch.nolix.core.web.html;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 
 //class
-public final class HTMLAttribute implements IHTMLAttribute {
+public final class HTMLAttribute implements IHtmlAttribute {
 	
 	//static method
-	public static HTMLAttribute fromHTMLAttribute(final IHTMLAttribute pHTMLAttribute) {
+	public static HTMLAttribute fromHTMLAttribute(final IHtmlAttribute pHTMLAttribute) {
 		
 		if (pHTMLAttribute instanceof HTMLAttribute lHTMLAttribute) {
 			return lHTMLAttribute;

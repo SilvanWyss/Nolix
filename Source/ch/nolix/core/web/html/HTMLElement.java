@@ -7,7 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 
 //class
@@ -34,7 +34,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttribute(final String type, final IHTMLAttribute attribute) {
+	public static HTMLElement withTypeAndAttribute(final String type, final IHtmlAttribute attribute) {
 		return
 		new HTMLElement(
 			type,
@@ -47,7 +47,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndAttributeAndChildElement(
 		final String type,
-		final IHTMLAttribute attribute,
+		final IHtmlAttribute attribute,
 		final IHTMLElement<?, ?> childElement
 	) {
 		return
@@ -62,7 +62,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndAttributes(
 		final String type,
-		final IContainer<? extends IHTMLAttribute> attributes
+		final IContainer<? extends IHtmlAttribute> attributes
 	) {
 		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
 	}
@@ -70,7 +70,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndAttributesAndChildElement(
 		final String type,
-		final IContainer<? extends IHTMLAttribute> attributes,
+		final IContainer<? extends IHtmlAttribute> attributes,
 		final IHTMLElement<?, ?> childElement
 	) {
 		
@@ -83,7 +83,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndAttributesAndChildElements(
 		final String type,
-		final IContainer<? extends IHTMLAttribute> attributes,
+		final IContainer<? extends IHtmlAttribute> attributes,
 		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {
 		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
@@ -92,7 +92,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndAttributesAndInnerText(
 		final String type,
-		final IContainer<? extends IHTMLAttribute> attributes,
+		final IContainer<? extends IHtmlAttribute> attributes,
 		final String innerText
 	) {
 		return new HTMLElement(type, attributes, innerText, new ImmutableList<>());
@@ -137,7 +137,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//constructor
 	private HTMLElement(
 		final String type,
-		final IContainer<? extends IHTMLAttribute> attributes,
+		final IContainer<? extends IHtmlAttribute> attributes,
 		final String innerText,
 		final IContainer<? extends IHTMLElement<?, ?>> childElements
 	) {

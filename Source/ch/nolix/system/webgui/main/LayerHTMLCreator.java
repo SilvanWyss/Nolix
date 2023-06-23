@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.webgui.layerhelper.LayerHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -31,7 +31,7 @@ public final class LayerHTMLCreator {
 	}
 	
 	//method
-	private IContainer<IHTMLAttribute> getHTMLAttributesForLayer(final ILayer<?> layer) {
+	private IContainer<IHtmlAttribute> getHTMLAttributesForLayer(final ILayer<?> layer) {
 		return ImmutableList.withElement(LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer));
 	}
 	

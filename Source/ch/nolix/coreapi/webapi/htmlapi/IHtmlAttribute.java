@@ -5,7 +5,7 @@ package ch.nolix.coreapi.webapi.htmlapi;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 
 //interface
-public interface IHTMLAttribute extends Named {
+public interface IHtmlAttribute extends Named {
 	
 	//method declaration
 	String getValue();

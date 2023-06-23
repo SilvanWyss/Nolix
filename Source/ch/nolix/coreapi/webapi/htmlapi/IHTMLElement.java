@@ -5,7 +5,7 @@ package ch.nolix.coreapi.webapi.htmlapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IHTMLElement<HTMLE extends IHTMLElement<HTMLE, A>, A extends IHTMLAttribute> {
+public interface IHTMLElement<HTMLE extends IHTMLElement<HTMLE, A>, A extends IHtmlAttribute> {
 	
 	//method declaration
 	boolean containsAttributes();

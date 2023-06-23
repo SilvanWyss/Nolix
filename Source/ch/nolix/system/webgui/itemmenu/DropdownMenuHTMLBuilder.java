@@ -6,7 +6,7 @@ import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -34,9 +34,9 @@ public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<Dropdo
 	}
 	
 	//method
-	private IContainer<? extends IHTMLAttribute> createHTMLAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
+	private IContainer<? extends IHtmlAttribute> createHTMLAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
 		
-		final var lHTMLAttribtues = new LinkedList<IHTMLAttribute>();
+		final var lHTMLAttribtues = new LinkedList<IHtmlAttribute>();
 		
 		lHTMLAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
 		
