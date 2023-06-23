@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawdata.databasewriter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.sql.SQLCollector;
+import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
@@ -21,7 +21,7 @@ public final class InternalDatabaseWriter {
 	private int saveCount;
 	
 	//attribute
-	private final SQLCollector mSQLCollector = new SQLCollector();
+	private final SqlCollector mSQLCollector = new SqlCollector();
 	
 	//attribute
 	private final SQLConnection mSQLConnection;

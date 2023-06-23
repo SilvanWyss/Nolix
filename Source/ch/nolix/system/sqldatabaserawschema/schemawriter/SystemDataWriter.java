@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawschema.schemawriter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.sql.SQLCollector;
+import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
@@ -18,12 +18,12 @@ final class SystemDataWriter implements ChangeRequestable {
 	new SystemDataWriterSQLStatementCreator();
 	
 	//attribute
-	private final SQLCollector mSQLCollector;
+	private final SqlCollector mSQLCollector;
 	
 	//constructor
-	public SystemDataWriter(final SQLCollector pSQLCollector) {
+	public SystemDataWriter(final SqlCollector pSQLCollector) {
 		
-		GlobalValidator.assertThat(pSQLCollector).thatIsNamed(SQLCollector.class).isNotNull();
+		GlobalValidator.assertThat(pSQLCollector).thatIsNamed(SqlCollector.class).isNotNull();
 		
 		mSQLCollector = pSQLCollector;
 	}

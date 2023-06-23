@@ -7,13 +7,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 
 //class
-public final class SQLCollector implements Clearable {
+public final class SqlCollector implements Clearable {
 	
 	//multi-attribute
 	private final LinkedList<String> mSQLStatements = new LinkedList<>();
 	
 	//method
-	public SQLCollector addSQLStatement(final String pSQLstatement) {
+	public SqlCollector addSQLStatement(final String pSQLstatement) {
 		
 		GlobalValidator.assertThat(pSQLstatement)	.thatIsNamed("SQL statement").isNotBlank();
 		
@@ -23,7 +23,7 @@ public final class SQLCollector implements Clearable {
 	}
 	
 	//method
-	public SQLCollector addSQLStatements(final Iterable<String> pSQLStatements) {
+	public SqlCollector addSQLStatements(final Iterable<String> pSQLStatements) {
 		
 		pSQLStatements.forEach(this::addSQLStatement);
 		

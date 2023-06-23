@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabaserawschema.schemawriter;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.core.sql.SQLCollector;
+import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SQLConnection;
 import ch.nolix.core.sql.SQLConnectionPool;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
@@ -44,7 +44,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	private final InternalSchemaWriter internalSchemaWriter;
 	
 	//attribute
-	private final SQLCollector mSQLCollector = new SQLCollector();
+	private final SqlCollector mSQLCollector = new SqlCollector();
 	
 	//attribute
 	private final SQLConnection mSQLConnection;
