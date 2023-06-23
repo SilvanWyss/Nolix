@@ -10,7 +10,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class MultiValueEntryTableSQLDTOCatalogue {
+public final class MultiValueEntryTableSqlDtoCatalogue {
 	
 	//constant
 	private static final IColumnDTO MULTI_VALUE_COLUMN_COLUMN_SQL_DTO =
@@ -40,5 +40,5 @@ public final class MultiValueEntryTableSQLDTOCatalogue {
 	);
 	
 	//constructor
-	private MultiValueEntryTableSQLDTOCatalogue() {}
+	private MultiValueEntryTableSqlDtoCatalogue() {}
 }
