@@ -9,7 +9,7 @@ import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
-public final class MSSQLSchemaAdapterTutorial {
+public final class MsSqlSchemaAdapterTutorial {
 	
 	public static void main(String[] args) {
 		try (
@@ -39,5 +39,5 @@ public final class MSSQLSchemaAdapterTutorial {
 		}
 	}
 	
-	private MSSQLSchemaAdapterTutorial() {}
+	private MsSqlSchemaAdapterTutorial() {}
 }
