@@ -7,18 +7,18 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.sql.SqlConnectionPool;
 
 //class
-public final class MSSQLSchemaAdapter extends SchemaAdapter {
+public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
 	
 	//static method
-	public static MSSQLSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+	public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
 		final SqlConnectionPool pSQLConnectionPool
 	) {
 		return
-		new MSSQLSchemaAdapter(
+		new MsSqlSchemaAdapter(
 			databaseName,
 			ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
@@ -39,7 +39,7 @@ public final class MSSQLSchemaAdapter extends SchemaAdapter {
 	}
 	
 	//constructor
-	MSSQLSchemaAdapter(
+	MsSqlSchemaAdapter(
 		String databaseName,
 		final ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter pMSSQLSchemaAdapter
 	) {

@@ -6,7 +6,7 @@ import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.SqlDatabaseEngine;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
-import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
+import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqldatabaserawdata.dataandschemaadapter.MSSQLDatabaseAndSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
@@ -57,7 +57,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 		
 		super(
 			databaseName,
-			MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
+			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
 			schema,
 			() ->
 			MSSQLDatabaseAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(

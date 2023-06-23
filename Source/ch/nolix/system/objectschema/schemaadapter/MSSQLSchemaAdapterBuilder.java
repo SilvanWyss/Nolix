@@ -14,7 +14,7 @@ extends
 AndPortCapturer<
 	ToDatabaseNameCapturer<
 		UsingLoginNameCapturer<
-			AndLoginPasswordCapturer<MSSQLSchemaAdapter>
+			AndLoginPasswordCapturer<MsSqlSchemaAdapter>
 		>
 	>
 > {
@@ -35,9 +35,9 @@ AndPortCapturer<
 	}
 	
 	//method
-	private MSSQLSchemaAdapter build(final String ipOrAddressName) {
+	private MsSqlSchemaAdapter build(final String ipOrAddressName) {
 		return
-		new MSSQLSchemaAdapter(
+		new MsSqlSchemaAdapter(
 			next().getDatabaseName(),
 			ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
