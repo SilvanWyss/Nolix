@@ -14,8 +14,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriter implements ChangeRequestable {
 	
 	//static attribute
-	private final SystemDataWriterSQLStatementCreator systemDataWriterSQLStatementCreator =
-	new SystemDataWriterSQLStatementCreator();
+	private final SystemDataWriterSqlStatementCreator systemDataWriterSqlStatementCreator =
+	new SystemDataWriterSqlStatementCreator();
 	
 	//attribute
 	private final SqlCollector mSQLCollector;
@@ -31,25 +31,25 @@ final class SystemDataWriter implements ChangeRequestable {
 	//method
 	public void addColumn(final String tableName, final IColumnDTO column) {
 		mSQLCollector.addSQLStatement(
-			systemDataWriterSQLStatementCreator.createStatementToAddColumn(tableName, column)
+			systemDataWriterSqlStatementCreator.createStatementToAddColumn(tableName, column)
 		);
 	}
 	
 	//method
 	public void deleteColumn(String tableName, String columnName) {
 		mSQLCollector.addSQLStatement(
-			systemDataWriterSQLStatementCreator.createStatementToDeleteColumn(tableName, columnName)
+			systemDataWriterSqlStatementCreator.createStatementToDeleteColumn(tableName, columnName)
 		);
 	}
 	
 	//method
 	public void addTable(final ITableDTO table) {
-		mSQLCollector.addSQLStatements(systemDataWriterSQLStatementCreator.createStatementsToAddTable(table));
+		mSQLCollector.addSQLStatements(systemDataWriterSqlStatementCreator.createStatementsToAddTable(table));
 	}
 	
 	//method
 	public void deleteTable(final String tableName) {
-		mSQLCollector.addSQLStatement(systemDataWriterSQLStatementCreator.createStatementToDeleteTable(tableName));
+		mSQLCollector.addSQLStatement(systemDataWriterSqlStatementCreator.createStatementToDeleteTable(tableName));
 	}
 		
 	//method
@@ -61,7 +61,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	//method
 	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		mSQLCollector.addSQLStatement(
-			systemDataWriterSQLStatementCreator.createStatementToSetColumnName(
+			systemDataWriterSqlStatementCreator.createStatementToSetColumnName(
 				tableName,
 				columnName,
 				newColumnName
@@ -75,7 +75,7 @@ final class SystemDataWriter implements ChangeRequestable {
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
 		mSQLCollector.addSQLStatement(
-			systemDataWriterSQLStatementCreator.createStatementToSetColumnParametrizedPropertyType(
+			systemDataWriterSqlStatementCreator.createStatementToSetColumnParametrizedPropertyType(
 				columnId,
 				parametrizedPropertyType
 			)
@@ -85,14 +85,14 @@ final class SystemDataWriter implements ChangeRequestable {
 	//method
 	public void setSchemaTimestamp(ITime schemaTimestamp) {
 		mSQLCollector.addSQLStatement(
-			systemDataWriterSQLStatementCreator.createStatementToSetSchemaTimestamp(schemaTimestamp)
+			systemDataWriterSqlStatementCreator.createStatementToSetSchemaTimestamp(schemaTimestamp)
 		);
 	}
 	
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
 		mSQLCollector.addSQLStatement(
-			systemDataWriterSQLStatementCreator.createStatementToSetTableName(tableName, newTableName)
+			systemDataWriterSqlStatementCreator.createStatementToSetTableName(tableName, newTableName)
 		);
 	}
 }

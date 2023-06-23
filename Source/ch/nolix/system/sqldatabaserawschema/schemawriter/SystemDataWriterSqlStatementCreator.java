@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-final class SystemDataWriterSQLStatementCreator {
+final class SystemDataWriterSqlStatementCreator {
 	
 	//static attribute
 	private static final ParametrizedPropertyTypeSQLRecordMapper parametrizedPropertyTypeSQLRecordMapper =
