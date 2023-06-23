@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.control;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
@@ -14,7 +14,7 @@ public final class ValidationHTMLBuilder implements IControlHTMLBuilder<Validati
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> createHTMLElementForControl(final ValidationLabel control) {
+	public IHtmlElement<?, ?> createHTMLElementForControl(final ValidationLabel control) {
 		
 		if (control.isEmpty()) {
 			return

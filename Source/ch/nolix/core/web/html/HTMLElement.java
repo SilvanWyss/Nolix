@@ -8,13 +8,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
 //class
-public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribute> {
+public final class HTMLElement implements IHtmlElement<HTMLElement, HTMLAttribute> {
 	
 	//static method
-	public static HTMLElement fromHTMLElement(final IHTMLElement<?, ?> pHTMLElement) {
+	public static HTMLElement fromHTMLElement(final IHtmlElement<?, ?> pHTMLElement) {
 		
 		if (pHTMLElement instanceof HTMLElement lHTMLAttribute) {
 			return lHTMLAttribute;
@@ -48,7 +48,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	public static HTMLElement withTypeAndAttributeAndChildElement(
 		final String type,
 		final IHtmlAttribute attribute,
-		final IHTMLElement<?, ?> childElement
+		final IHtmlElement<?, ?> childElement
 	) {
 		return
 		new HTMLElement(
@@ -71,10 +71,10 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	public static HTMLElement withTypeAndAttributesAndChildElement(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
-		final IHTMLElement<?, ?> childElement
+		final IHtmlElement<?, ?> childElement
 	) {
 		
-		final var childElements = new LinkedList<IHTMLElement<?, ?>>();
+		final var childElements = new LinkedList<IHtmlElement<?, ?>>();
 		childElements.addAtEnd(childElement);
 		
 		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
@@ -84,7 +84,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	public static HTMLElement withTypeAndAttributesAndChildElements(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
-		final IContainer<? extends IHTMLElement<?, ?>> childElements
+		final IContainer<? extends IHtmlElement<?, ?>> childElements
 	) {
 		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
 	}
@@ -99,7 +99,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndChildElement(final String type, final IHTMLElement<?, ?> childElement) {
+	public static HTMLElement withTypeAndChildElement(final String type, final IHtmlElement<?, ?> childElement) {
 		return
 		new HTMLElement(
 			type,
@@ -112,7 +112,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 	//static method
 	public static HTMLElement withTypeAndChildElements(
 		final String type,
-		final IContainer<? extends IHTMLElement<?, ?>> childElements
+		final IContainer<? extends IHtmlElement<?, ?>> childElements
 	) {
 		return new HTMLElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
 	}
@@ -139,7 +139,7 @@ public final class HTMLElement implements IHTMLElement<HTMLElement, HTMLAttribut
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
 		final String innerText,
-		final IContainer<? extends IHTMLElement<?, ?>> childElements
+		final IContainer<? extends IHtmlElement<?, ?>> childElements
 	) {
 		
 		GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();

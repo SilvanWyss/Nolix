@@ -7,7 +7,7 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.layerhelper.LayerHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
@@ -21,7 +21,7 @@ public final class LayerHTMLCreator {
 	private LayerHTMLCreator() {}
 	
 	//method
-	public IHTMLElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
+	public IHtmlElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -36,7 +36,7 @@ public final class LayerHTMLCreator {
 	}
 	
 	//method
-	private IContainer<IHTMLElement<?, ?>> getHTMLChildElementsForLayer(final ILayer<?> layer) {
+	private IContainer<IHtmlElement<?, ?>> getHTMLChildElementsForLayer(final ILayer<?> layer) {
 		
 		if (layer.isEmpty()) {
 			return new ImmutableList<>();
@@ -46,7 +46,7 @@ public final class LayerHTMLCreator {
 	}
 	
 	//method
-	private IHTMLElement<?, ?> getContentHTMLElementForLayer(final ILayer<?> layer) {
+	private IHtmlElement<?, ?> getContentHTMLElementForLayer(final ILayer<?> layer) {
 		return layer.getOriRootControl().toHTMLElement();
 	}
 }

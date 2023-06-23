@@ -12,7 +12,7 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
@@ -431,7 +431,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IHTMLElement<?, ?> toHTMLElement() {
+	public final IHtmlElement<?, ?> toHTMLElement() {
 		return getHTMLBuilder().createHTMLElementForControl(asConcrete());
 	}
 	

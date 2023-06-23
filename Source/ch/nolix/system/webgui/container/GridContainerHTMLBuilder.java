@@ -7,7 +7,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 
@@ -22,7 +22,7 @@ public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridC
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> createHTMLElementForControl(final GridContainer control) {
+	public IHtmlElement<?, ?> createHTMLElementForControl(final GridContainer control) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,

@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSS;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -112,7 +112,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetRootHTMLElementCommandFromHTMLElement(final IHTMLElement<?, ?> pHTMLElement) {
+	private ChainedNode createSetRootHTMLElementCommandFromHTMLElement(final IHtmlElement<?, ?> pHTMLElement) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,

@@ -9,7 +9,7 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
@@ -38,7 +38,7 @@ final class WebGUIContent implements IWebGUIContent {
 	
 	//method
 	@Override
-	public IHTMLElement<?, ?> toHTMLElement() {
+	public IHtmlElement<?, ?> toHTMLElement() {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -59,7 +59,7 @@ final class WebGUIContent implements IWebGUIContent {
 	}
 	
 	//method
-	private IContainer<IHTMLElement<?, ?>> getHTMLChildElements() {
+	private IContainer<IHtmlElement<?, ?>> getHTMLChildElements() {
 		return parentWebGUI.getOriLayers().to(ILayer::toHTMLElement);
 	}
 }

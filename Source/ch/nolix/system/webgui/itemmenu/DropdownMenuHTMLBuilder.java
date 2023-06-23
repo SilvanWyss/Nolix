@@ -7,7 +7,7 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
-import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
@@ -44,21 +44,21 @@ public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<Dropdo
 	}
 	
 	//method
-	private IContainer<IHTMLElement<?, ?>> createHTMLChildElementsForDropdownMenu(
+	private IContainer<IHtmlElement<?, ?>> createHTMLChildElementsForDropdownMenu(
 		final IDropdownMenu<?, ?> dropdownMenu
 	) {
 		return createHTMLElementsFromItems(dropdownMenu.getOriItems());
 	}
 	
 	//method
-	private IContainer<IHTMLElement<?, ?>> createHTMLElementsFromItems(
+	private IContainer<IHtmlElement<?, ?>> createHTMLElementsFromItems(
 		final IContainer<? extends IItemMenuItem<?>> items
 	) {
 		return items.to(this::createHTMLElementForItem);
 	}
 	
 	//method
-	private IHTMLElement<?, ?> createHTMLElementForItem(final IItemMenuItem<?> item) {
+	private IHtmlElement<?, ?> createHTMLElementForItem(final IItemMenuItem<?> item) {
 		return
 		HTMLElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.OPTION,
