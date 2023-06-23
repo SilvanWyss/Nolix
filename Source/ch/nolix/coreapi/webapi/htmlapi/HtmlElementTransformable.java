@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.webapi.htmlapi;
 
 //interface
-public interface HTMLElementTransformable {
+public interface HtmlElementTransformable {
 	
 	//method declaration
 	IHTMLElement<?, ?> toHTMLElement();

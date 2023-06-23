@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.InternalIdentified;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
@@ -13,7 +13,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 public interface ILayer<L extends ILayer<L>>
 extends
 InternalIdentified,
-HTMLElementTransformable,
+HtmlElementTransformable,
 ICanvas<L>,
 IStylableElement<L>,
 IRootControlOwner<L> {

@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTransformable;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.Dimensionable;
 import ch.nolix.systemapi.guiapi.presenceapi.PresenceSettable;
@@ -23,7 +23,7 @@ public interface IControl<
 extends
 Dimensionable<C>,
 InternalIdentified,
-HTMLElementTransformable,
+HtmlElementTransformable,
 IStylableElement<C>,
 IUserInputCell<C>,
 PresenceSettable<C> {
