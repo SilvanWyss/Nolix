@@ -38,7 +38,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private final String databaseName;
 	
 	//attribute
-	private final SQLDatabaseEngine mSQLDatabaseEngine;
+	private final SqlDatabaseEngine mSQLDatabaseEngine;
 	
 	//attribute
 	private final Credential credential;
@@ -54,7 +54,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 		final String ipOrAddressName,
 		final int port,
 		final String databaseName,
-		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine pSQLDatabaseEngine,
 		final String loginName,
 		final String loginPassword
 	) {
@@ -62,7 +62,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
 		GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 				
 		this.ipOrAddressName = ipOrAddressName;
 		this.port = port;
@@ -131,7 +131,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//method
 	@Override
-	public SQLDatabaseEngine getSQLDatabaseEngine() {
+	public SqlDatabaseEngine getSQLDatabaseEngine() {
 		return mSQLDatabaseEngine;
 	}
 	

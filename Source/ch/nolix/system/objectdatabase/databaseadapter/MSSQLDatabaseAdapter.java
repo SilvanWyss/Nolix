@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.databaseadapter;
 //own imports
 import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.core.sql.SQLDatabaseEngine;
+import ch.nolix.core.sql.SqlDatabaseEngine;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectschema.schemaadapter.MSSQLSchemaAdapter;
 import ch.nolix.system.sqldatabaserawdata.dataandschemaadapter.MSSQLDatabaseAndSchemaAdapter;
@@ -42,7 +42,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 			.forIpOrAddressName(ipOrAddressName)
 			.andPort(port)
 			.andDatabase(databaseName)
-			.withSQLDatabaseEngine(SQLDatabaseEngine.MSSQL)
+			.withSQLDatabaseEngine(SqlDatabaseEngine.MSSQL)
 			.usingLoginName(loginName)
 			.andLoginPassword(loginPassword)
 		);

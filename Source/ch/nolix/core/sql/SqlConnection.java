@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 public abstract class SqlConnection implements GroupCloseable {
 	
 	//attribute
-	private final SQLDatabaseEngine mSQLDatabaseEngine;
+	private final SqlDatabaseEngine mSQLDatabaseEngine;
 	
 	//attribute
 	private final Connection connection;
@@ -33,9 +33,9 @@ public abstract class SqlConnection implements GroupCloseable {
 	private final SqlConnectionPool parentSQLConnectionPool;
 	
 	//constructor
-	protected SqlConnection(final SQLDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
+	protected SqlConnection(final SqlDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		GlobalValidator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
 		
 		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
@@ -45,7 +45,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//constructor
 	protected SqlConnection(
-		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine pSQLDatabaseEngine,
 		final int port,
 		final String userName,
 		final String userPassword
@@ -61,14 +61,14 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//constructor
 	protected SqlConnection(
-		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
 		final String userName,
 		final String userPassword
 	) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		
 		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
 		
@@ -85,7 +85,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//constructor
 	protected SqlConnection(
-		final SQLDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine pSQLDatabaseEngine,
 		final String ip,
 		final int port,
 		final String userName,
@@ -93,7 +93,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		final SqlConnectionPool parentSQLConnectionPool
 	) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SQLDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		GlobalValidator.assertThat(parentSQLConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
 		
 		GlobalValidator
@@ -213,7 +213,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final SQLDatabaseEngine getSQLDatabaseEngine() {
+	public final SqlDatabaseEngine getSQLDatabaseEngine() {
 		return mSQLDatabaseEngine;
 	}
 	

@@ -8,7 +8,7 @@ import java.sql.Connection;
 public final class MsSqlConnection extends SqlConnection {
 	
 	//constant
-	public static final SQLDatabaseEngine SQL_DATABASE_ENGINE = SQLDatabaseEngine.MSSQL;
+	public static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MSSQL;
 	
 	//constant
 	private static final String MSSQL_DATABASE_ENINGE_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
