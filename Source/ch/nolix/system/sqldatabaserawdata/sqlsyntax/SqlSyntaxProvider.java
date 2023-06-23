@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreato
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISQLSyntaxProvider;
 
 //class
-public final class SQLSyntaxProvider implements ISQLSyntaxProvider {
+public final class SqlSyntaxProvider implements ISQLSyntaxProvider {
 	
 	//static attribute
 	private static final IEntityQueryCreator entityQueryCreator = new EntityQueryCreator();

@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawdata.databaseadapter;
 
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntax.SQLSyntaxProvider;
+import ch.nolix.system.sqldatabaserawdata.sqlsyntax.SqlSyntaxProvider;
 import ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
@@ -23,7 +23,7 @@ public final class MSSQLDatabaseAdapter extends DatabaseAdapter {
 			databaseName,
 			pSQLConnectionPool,
 			MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
-			new SQLSyntaxProvider()
+			new SqlSyntaxProvider()
 		);
 	}
 }
