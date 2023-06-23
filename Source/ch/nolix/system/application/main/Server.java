@@ -57,7 +57,7 @@ public final class Server extends BaseServer {
 		internalServer =
 		new ch.nolix.core.net.endpoint3.Server(
 			port,
-			new ServerHTTPMessage(getIp(), port).toString()
+			new ServerHttpMessage(getIp(), port).toString()
 		);
 		
 		//Creates a close dependency between the current Server and its internalServer.
