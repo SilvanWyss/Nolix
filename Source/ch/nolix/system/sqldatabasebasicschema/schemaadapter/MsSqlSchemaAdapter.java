@@ -7,18 +7,18 @@ import ch.nolix.system.sqldatabasebasicschema.mssqllanguage.MsSqlSchemaQueryCrea
 import ch.nolix.system.sqldatabasebasicschema.mssqllanguage.MsSqlSchemaStatementCreator;
 
 //class
-public final class MSSQLSchemaAdapter extends SchemaAdapter {
+public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	
 	//static method
-	public static MSSQLSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+	public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,	
 		final SqlConnectionPool pSQLConnectionPool
 	) {
-		return new MSSQLSchemaAdapter(databaseName, pSQLConnectionPool);
+		return new MsSqlSchemaAdapter(databaseName, pSQLConnectionPool);
 	}
 	
 	//constructor
-	private MSSQLSchemaAdapter(final String databaseName, final SqlConnectionPool pSQLConnectionPool) {
+	private MsSqlSchemaAdapter(final String databaseName, final SqlConnectionPool pSQLConnectionPool) {
 		super(databaseName, pSQLConnectionPool, new MsSqlSchemaQueryCreator(), new MsSqlSchemaStatementCreator());
 	}
 }
