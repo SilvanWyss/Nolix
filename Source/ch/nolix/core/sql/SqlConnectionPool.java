@@ -24,8 +24,8 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private static final SqlConnectionFactory sSQLConnectionFactory = new SqlConnectionFactory();
 	
 	//static method
-	public static SQLConnectionPoolBuilder forIpOrAddressName(final String ipOrAddressName) {
-		return new SQLConnectionPoolBuilder(ipOrAddressName, DEFAULT_PORT);
+	public static SqlConnectionPoolBuilder forIpOrAddressName(final String ipOrAddressName) {
+		return new SqlConnectionPoolBuilder(ipOrAddressName, DEFAULT_PORT);
 	}
 	
 	//attribute
