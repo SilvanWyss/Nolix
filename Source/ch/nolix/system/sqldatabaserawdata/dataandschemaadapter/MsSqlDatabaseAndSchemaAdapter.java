@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabaserawdata.dataandschemaadapter;
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.rawdatabase.databaseandschemaadapter.BaseDataAndSchemaAdapter;
-import ch.nolix.system.sqldatabaserawdata.databaseadapter.MSSQLDatabaseAdapter;
+import ch.nolix.system.sqldatabaserawdata.databaseadapter.MsSqlDatabaseAdapter;
 import ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
@@ -17,14 +17,14 @@ public final class MsSqlDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapte
 	) {
 		return
 		new MsSqlDatabaseAndSchemaAdapter(
-			MSSQLDatabaseAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
+			MsSqlDatabaseAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
 			MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool)
 		);
 	}
 		
 	//constructor
 	private MsSqlDatabaseAndSchemaAdapter(
-		final MSSQLDatabaseAdapter pMSSQLDatabaseAdapter,
+		final MsSqlDatabaseAdapter pMSSQLDatabaseAdapter,
 		final MSSQLSchemaAdapter pMSSQLSchemaAdapter
 	) {
 		super(pMSSQLDatabaseAdapter, pMSSQLSchemaAdapter);
