@@ -18,7 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.http.HTTPRequest;
+import ch.nolix.core.net.http.HttpRequest;
 import ch.nolix.core.net.websocket.WebSocketHandShakeRequest;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.worker.Worker;
@@ -119,7 +119,7 @@ final class ServerSocketProcessor extends Worker {
 					return new SingleContainer<>(new WebSocketEndPoint(socket, socketInputStream, socketOutputStream));
 				}
 				
-				if (HTTPRequest.canBe(lines)) {
+				if (HttpRequest.canBe(lines)) {
 					sendRawMessage(parentServer.getHTTPMessage());
 					return new SingleContainer<>();
 				}

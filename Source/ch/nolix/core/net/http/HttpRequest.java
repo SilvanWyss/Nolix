@@ -7,7 +7,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
-public record HTTPRequest(String content) {
+public record HttpRequest(String content) {
 	
 	//constants
 	public static final String ACCEPT_HEADER = "Accept";
@@ -24,7 +24,7 @@ public record HTTPRequest(String content) {
 	}
 	
 	//constructor
-	public HTTPRequest(final String content) { //NOSONAR
+	public HttpRequest(final String content) { //NOSONAR
 		
 		GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
 		
