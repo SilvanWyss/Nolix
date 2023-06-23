@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
@@ -25,7 +25,7 @@ public final class TextboxHTMLBuilder implements IControlHTMLBuilder<ITextbox> {
 	public HTMLElement createHTMLElementForControl(final ITextbox textbox) {
 		return
 		HTMLElement.withTypeAndAttributes(
-			HTMLElementTypeCatalogue.INPUT,
+			HtmlElementTypeCatalogue.INPUT,
 			ImmutableList.withElements(
 				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(textbox),
 				HTMLAttribute.withNameAndValue(HTMLAttributeNameCatalogue.VALUE, textbox.getText())

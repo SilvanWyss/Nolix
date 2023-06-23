@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.system.webgui.layerhelper.LayerHelper;
@@ -24,7 +24,7 @@ public final class LayerHTMLCreator {
 	public IHTMLElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
-			HTMLElementTypeCatalogue.DIV,
+			HtmlElementTypeCatalogue.DIV,
 			getHTMLAttributesForLayer(layer),
 			getHTMLChildElementsForLayer(layer)
 		);

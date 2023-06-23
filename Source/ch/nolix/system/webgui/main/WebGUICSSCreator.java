@@ -9,7 +9,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
@@ -37,7 +37,7 @@ public final class WebGUICSSCreator {
 		
 		lCSSRules.addAtEnd(
 			CSSRule.withSelectorAndProperties(
-				HTMLElementTypeCatalogue.BODY,
+				HtmlElementTypeCatalogue.BODY,
 				getBodyCSSPropertiesFromWebGUI(webGUI)
 			)	
 		);

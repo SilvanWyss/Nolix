@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
@@ -25,7 +25,7 @@ public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<IHo
 	public HTMLElement createHTMLElementForControl(final IHorizontalStack horizontalStack) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
-			HTMLElementTypeCatalogue.DIV,
+			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(horizontalStack)),
 			createHTMLElementsForChildControlsOfHorizontalStack(horizontalStack)
 		);
@@ -40,6 +40,6 @@ public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<IHo
 	
 	//method
 	private HTMLElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
-		return HTMLElement.withTypeAndChildElement(HTMLElementTypeCatalogue.DIV, childControl.toHTMLElement());
+		return HTMLElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHTMLElement());
 	}
 }

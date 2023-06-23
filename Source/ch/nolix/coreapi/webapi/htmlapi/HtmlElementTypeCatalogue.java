@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.webapi.htmlapi;
 
 //class
-public final class HTMLElementTypeCatalogue {
+public final class HtmlElementTypeCatalogue {
 	
 	//constant
 	public static final String BODY = "body";
@@ -44,5 +44,5 @@ public final class HTMLElementTypeCatalogue {
 	public static final String TR = "tr";
 	
 	//constructor
-	private HTMLElementTypeCatalogue() {}
+	private HtmlElementTypeCatalogue() {}
 }

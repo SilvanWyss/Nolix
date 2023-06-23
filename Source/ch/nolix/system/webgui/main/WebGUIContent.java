@@ -7,7 +7,7 @@ import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHTMLElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -41,7 +41,7 @@ final class WebGUIContent implements IWebGUIContent {
 	public IHTMLElement<?, ?> toHTMLElement() {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
-			HTMLElementTypeCatalogue.DIV,
+			HtmlElementTypeCatalogue.DIV,
 			getHTMLAttributes(),
 			getHTMLChildElements()
 		);

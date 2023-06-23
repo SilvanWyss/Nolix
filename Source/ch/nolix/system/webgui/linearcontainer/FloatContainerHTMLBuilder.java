@@ -7,7 +7,7 @@ import ch.nolix.core.web.html.HTMLAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -29,7 +29,7 @@ public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<Floa
 	public HTMLElement createHTMLElementForControl(final FloatContainer floatContainer) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElements(
-			HTMLElementTypeCatalogue.DIV,
+			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(floatContainer)),
 			createHTMLElementsForChildControlsOfFloatContainer(floatContainer)
 		);
@@ -46,7 +46,7 @@ public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<Floa
 	private HTMLElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
 		return
 		HTMLElement.withTypeAndAttributesAndChildElement(
-			HTMLElementTypeCatalogue.DIV,
+			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(
 				HTMLAttribute.withNameAndValue(
 					HTMLAttributeNameCatalogue.CLASS,

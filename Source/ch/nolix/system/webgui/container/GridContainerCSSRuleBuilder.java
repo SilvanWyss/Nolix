@@ -9,7 +9,7 @@ import ch.nolix.core.web.css.CSSRule;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.coreapi.webapi.htmlapi.HTMLElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -74,7 +74,7 @@ extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
 			CSSRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(control)
 				+ " "
-				+ HTMLElementTypeCatalogue.TD,
+				+ HtmlElementTypeCatalogue.TD,
 				ImmutableList.withElements(
 					CSSProperty.withNameAndValue("padding", childControlMargin + CSSUnitCatalogue.PX)
 				)
