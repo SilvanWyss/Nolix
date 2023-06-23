@@ -8,34 +8,31 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
-import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class HorizontalStackHTMLBuilder implements IControlHtmlBuilder<IHorizontalStack> {
+public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<VerticalStack> {
 	
 	//static attribute
-	public static final HorizontalStackHTMLBuilder INSTANCE = new HorizontalStackHTMLBuilder();
+	public static final VerticalStackHtmlBuilder INSTANCE = new VerticalStackHtmlBuilder();
 	
 	//constructor
-	private HorizontalStackHTMLBuilder() {}
+	private VerticalStackHtmlBuilder() {}
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final IHorizontalStack horizontalStack) {
+	public HtmlElement createHTMLElementForControl(final VerticalStack verticalStack) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(horizontalStack)),
-			createHTMLElementsForChildControlsOfHorizontalStack(horizontalStack)
+			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(verticalStack)),
+			createHTMLElementsForChildControlsOfVerticalStack(verticalStack)
 		);
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfHorizontalStack(
-		final IHorizontalStack horizontalStack
-	) {
-		return horizontalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
+	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
+		return verticalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
 	
 	//method

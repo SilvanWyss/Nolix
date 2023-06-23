@@ -161,7 +161,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	//method
 	@Override
 	protected IControlHtmlBuilder<Label> getHTMLBuilder() {
-		return LabelHTMLBuilder.INSTANCE;
+		return LabelHtmlBuilder.INSTANCE;
 	}
 	
 	//method

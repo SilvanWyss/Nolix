@@ -139,7 +139,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<ValidationLabel> getHTMLBuilder() {
-		return new ValidationHTMLBuilder();
+		return new ValidationHtmlBuilder();
 	}
 	
 	//method

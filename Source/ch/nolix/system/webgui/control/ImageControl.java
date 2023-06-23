@@ -231,7 +231,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<ImageControl> getHTMLBuilder() {
-		return ImageControlHTMLBuilder.INSTANCE;
+		return ImageControlHtmlBuilder.INSTANCE;
 	}
 	
 	//method

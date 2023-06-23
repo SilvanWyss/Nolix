@@ -13,16 +13,16 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class FloatContainerHTMLBuilder implements IControlHtmlBuilder<FloatContainer> {
+public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<FloatContainer> {
 	
 	//constant
 	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "floatContainerChild";
 	
 	//static attribute
-	public static final FloatContainerHTMLBuilder INSTANCE = new FloatContainerHTMLBuilder();
+	public static final FloatContainerHtmlBuilder INSTANCE = new FloatContainerHtmlBuilder();
 	
 	//constructor
-	private FloatContainerHTMLBuilder() {}
+	private FloatContainerHtmlBuilder() {}
 	
 	//method
 	@Override

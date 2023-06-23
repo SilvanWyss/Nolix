@@ -12,13 +12,13 @@ import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class TextboxHTMLBuilder implements IControlHtmlBuilder<ITextbox> {
+public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 	
 	//static attribute
-	public static final TextboxHTMLBuilder INSTANCE = new TextboxHTMLBuilder();
+	public static final TextboxHtmlBuilder INSTANCE = new TextboxHtmlBuilder();
 	
 	//constructor
-	private TextboxHTMLBuilder() {}
+	private TextboxHtmlBuilder() {}
 	
 	//method
 	@Override

@@ -197,7 +197,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	//method
 	@Override
 	protected IControlHtmlBuilder<ITextbox> getHTMLBuilder() {
-		return TextboxHTMLBuilder.INSTANCE;
+		return TextboxHtmlBuilder.INSTANCE;
 	}
 	
 	//method

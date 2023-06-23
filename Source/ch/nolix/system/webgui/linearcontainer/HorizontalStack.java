@@ -61,7 +61,7 @@ implements IHorizontalStack {
 	//method
 	@Override
 	protected IControlHtmlBuilder<IHorizontalStack> getHTMLBuilder() {
-		return HorizontalStackHTMLBuilder.INSTANCE;
+		return HorizontalStackHtmlBuilder.INSTANCE;
 	}
 	
 	//method

@@ -23,7 +23,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	//method
 	@Override
 	protected IControlHtmlBuilder<FloatContainer> getHTMLBuilder() {
-		return FloatContainerHTMLBuilder.INSTANCE;
+		return FloatContainerHtmlBuilder.INSTANCE;
 	}
 	
 	//method

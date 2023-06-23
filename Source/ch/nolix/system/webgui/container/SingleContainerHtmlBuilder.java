@@ -11,13 +11,13 @@ import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class SingleContainerHTMLBuilder implements IControlHtmlBuilder<SingleContainer> {
+public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<SingleContainer> {
 	
 	//static attribute
-	public static final SingleContainerHTMLBuilder INSTANCE = new SingleContainerHTMLBuilder();
+	public static final SingleContainerHtmlBuilder INSTANCE = new SingleContainerHtmlBuilder();
 	
 	//constructor
-	private SingleContainerHTMLBuilder() {}
+	private SingleContainerHtmlBuilder() {}
 	
 	//method
 	@Override

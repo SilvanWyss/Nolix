@@ -90,7 +90,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<SingleContainer> getHTMLBuilder() {
-		return SingleContainerHTMLBuilder.INSTANCE;
+		return SingleContainerHtmlBuilder.INSTANCE;
 	}
 	
 	//method

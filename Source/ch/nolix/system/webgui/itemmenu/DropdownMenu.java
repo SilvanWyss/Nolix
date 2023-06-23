@@ -58,7 +58,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<DropdownMenu> getHTMLBuilder() {
-		return DropdownMenuHTMLBuilder.INSTANCE;
+		return DropdownMenuHtmlBuilder.INSTANCE;
 	}
 	
 	//method

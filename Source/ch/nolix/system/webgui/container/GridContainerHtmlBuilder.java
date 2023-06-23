@@ -12,13 +12,13 @@ import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class GridContainerHTMLBuilder implements IControlHtmlBuilder<GridContainer> {
+public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridContainer> {
 	
 	//static attribute
-	public static final GridContainerHTMLBuilder INSTANCE = new GridContainerHTMLBuilder();
+	public static final GridContainerHtmlBuilder INSTANCE = new GridContainerHtmlBuilder();
 	
 	//constructor
-	private GridContainerHTMLBuilder() {}
+	private GridContainerHtmlBuilder() {}
 	
 	//method
 	@Override

@@ -10,25 +10,22 @@ import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class ValidationHTMLBuilder implements IControlHtmlBuilder<ValidationLabel> {
+public final class LabelHtmlBuilder implements IControlHtmlBuilder<Label> {
+	
+	//static attribute
+	public static final LabelHtmlBuilder INSTANCE = new LabelHtmlBuilder();
+	
+	//constructor
+	private LabelHtmlBuilder() {}
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHTMLElementForControl(final ValidationLabel control) {
-		
-		if (control.isEmpty()) {
-			return
-			HtmlElement.withTypeAndAttributes(
-				HtmlElementTypeCatalogue.DIV,
-				ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control))
-			);
-		}
-		
+	public IHtmlElement<?, ?> createHTMLElementForControl(final Label control) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
-			control.getError().getMessage()
+			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
+			control.getText()
 		);
 	}
 }

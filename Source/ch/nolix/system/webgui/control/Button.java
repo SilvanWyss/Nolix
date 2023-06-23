@@ -275,7 +275,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	protected IControlHtmlBuilder<Button> getHTMLBuilder() {
-		return ButtonHTMLBuilder.INSTANCE;
+		return ButtonHtmlBuilder.INSTANCE;
 	}
 	
 	//method

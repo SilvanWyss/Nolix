@@ -9,13 +9,13 @@ import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class ButtonHTMLBuilder implements IControlHtmlBuilder<Button> {
+public final class ButtonHtmlBuilder implements IControlHtmlBuilder<Button> {
 	
 	//static attribute
-	public static final ButtonHTMLBuilder INSTANCE = new ButtonHTMLBuilder();
+	public static final ButtonHtmlBuilder INSTANCE = new ButtonHtmlBuilder();
 	
 	//constructor
-	private ButtonHTMLBuilder() {}
+	private ButtonHtmlBuilder() {}
 	
 	//method
 	@Override

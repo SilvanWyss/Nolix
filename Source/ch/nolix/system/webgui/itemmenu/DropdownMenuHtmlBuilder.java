@@ -14,13 +14,13 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
 //class
-public final class DropdownMenuHTMLBuilder implements IControlHtmlBuilder<DropdownMenu> {
+public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<DropdownMenu> {
 	
 	//static attribute
-	public static final DropdownMenuHTMLBuilder INSTANCE = new DropdownMenuHTMLBuilder();
+	public static final DropdownMenuHtmlBuilder INSTANCE = new DropdownMenuHtmlBuilder();
 	
 	//constructor
-	private DropdownMenuHTMLBuilder() {}
+	private DropdownMenuHtmlBuilder() {}
 	
 	//method
 	@Override
