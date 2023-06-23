@@ -12,7 +12,7 @@ public final class SQLConnectionFactory {
 	public SQLConnection createSQLConnectionFor(final SQLConnectionPool pSQLDatabaseTarget) {
 		switch (pSQLDatabaseTarget.getSQLDatabaseEngine()) {
 			case MSSQL:
-				return new MSSQLConnection(
+				return new MsSqlConnection(
 					pSQLDatabaseTarget.getIpOrAddressName(),
 					pSQLDatabaseTarget.getPort(),
 					pSQLDatabaseTarget.getLoginName(),

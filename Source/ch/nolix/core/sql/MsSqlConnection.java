@@ -5,7 +5,7 @@ package ch.nolix.core.sql;
 import java.sql.Connection;
 
 //class
-public final class MSSQLConnection extends SQLConnection {
+public final class MsSqlConnection extends SQLConnection {
 	
 	//constant
 	public static final SQLDatabaseEngine SQL_DATABASE_ENGINE = SQLDatabaseEngine.MSSQL;
@@ -14,14 +14,14 @@ public final class MSSQLConnection extends SQLConnection {
 	private static final String MSSQL_DATABASE_ENINGE_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	
 	//constructor
-	public MSSQLConnection(
+	public MsSqlConnection(
 		final Connection connection
 	) {
 		super(SQL_DATABASE_ENGINE, connection);
 	}
 	
 	//constructor
-	public MSSQLConnection(
+	public MsSqlConnection(
 		final int port,
 		final String userName,
 		final String userPassword
@@ -35,7 +35,7 @@ public final class MSSQLConnection extends SQLConnection {
 	}
 	
 	//constructor
-	public MSSQLConnection(
+	public MsSqlConnection(
 		final String ip,
 		final int port,
 		final String userName,
@@ -51,7 +51,7 @@ public final class MSSQLConnection extends SQLConnection {
 	}
 	
 	//constructor
-	public MSSQLConnection(
+	public MsSqlConnection(
 		final String ip,
 		final int port,
 		final String userName,
