@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
 public final class FloatContainer extends LinearContainer<FloatContainer, FloatContainerStyle> {
@@ -22,7 +22,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<FloatContainer> getHTMLBuilder() {
+	protected IControlHtmlBuilder<FloatContainer> getHTMLBuilder() {
 		return FloatContainerHTMLBuilder.INSTANCE;
 	}
 	

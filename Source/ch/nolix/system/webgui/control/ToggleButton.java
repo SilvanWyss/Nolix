@@ -19,7 +19,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButton;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButtonStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -198,7 +198,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<IToggleButton> getHTMLBuilder() {
+	protected IControlHtmlBuilder<IToggleButton> getHTMLBuilder() {
 		//TODO: Implement.
 		return null;
 	}

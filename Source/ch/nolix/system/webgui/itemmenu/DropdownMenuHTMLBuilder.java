@@ -9,12 +9,12 @@ import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
 //class
-public final class DropdownMenuHTMLBuilder implements IControlHTMLBuilder<DropdownMenu> {
+public final class DropdownMenuHTMLBuilder implements IControlHtmlBuilder<DropdownMenu> {
 	
 	//static attribute
 	public static final DropdownMenuHTMLBuilder INSTANCE = new DropdownMenuHTMLBuilder();

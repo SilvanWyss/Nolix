@@ -8,10 +8,10 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class ImageControlHTMLBuilder implements IControlHTMLBuilder<ImageControl> {
+public final class ImageControlHTMLBuilder implements IControlHtmlBuilder<ImageControl> {
 	
 	//static attribute
 	public static final ImageControlHTMLBuilder INSTANCE = new ImageControlHTMLBuilder();

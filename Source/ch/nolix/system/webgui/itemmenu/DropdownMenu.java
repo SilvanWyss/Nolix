@@ -8,7 +8,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HTMLElementEvent;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
@@ -57,7 +57,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<DropdownMenu> getHTMLBuilder() {
+	protected IControlHtmlBuilder<DropdownMenu> getHTMLBuilder() {
 		return DropdownMenuHTMLBuilder.INSTANCE;
 	}
 	

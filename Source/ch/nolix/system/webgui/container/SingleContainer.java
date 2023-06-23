@@ -9,7 +9,7 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -89,7 +89,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<SingleContainer> getHTMLBuilder() {
+	protected IControlHtmlBuilder<SingleContainer> getHTMLBuilder() {
 		return SingleContainerHTMLBuilder.INSTANCE;
 	}
 	

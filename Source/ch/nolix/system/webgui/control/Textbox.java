@@ -22,7 +22,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextboxStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
@@ -196,7 +196,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<ITextbox> getHTMLBuilder() {
+	protected IControlHtmlBuilder<ITextbox> getHTMLBuilder() {
 		return TextboxHTMLBuilder.INSTANCE;
 	}
 	

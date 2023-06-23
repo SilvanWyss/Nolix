@@ -9,11 +9,11 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class FloatContainerHTMLBuilder implements IControlHTMLBuilder<FloatContainer> {
+public final class FloatContainerHTMLBuilder implements IControlHtmlBuilder<FloatContainer> {
 	
 	//constant
 	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "floatContainerChild";

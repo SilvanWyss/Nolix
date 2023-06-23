@@ -19,7 +19,7 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
@@ -138,7 +138,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<ValidationLabel> getHTMLBuilder() {
+	protected IControlHtmlBuilder<ValidationLabel> getHTMLBuilder() {
 		return new ValidationHTMLBuilder();
 	}
 	

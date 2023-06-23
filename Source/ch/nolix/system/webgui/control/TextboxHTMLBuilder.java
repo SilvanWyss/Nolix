@@ -9,10 +9,10 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class TextboxHTMLBuilder implements IControlHTMLBuilder<ITextbox> {
+public final class TextboxHTMLBuilder implements IControlHtmlBuilder<ITextbox> {
 	
 	//static attribute
 	public static final TextboxHTMLBuilder INSTANCE = new TextboxHTMLBuilder();

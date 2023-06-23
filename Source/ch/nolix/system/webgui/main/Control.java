@@ -24,7 +24,7 @@ import ch.nolix.systemapi.guiapi.presenceapi.Presence;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -448,7 +448,7 @@ implements IControl<C, CS> {
 	protected abstract IControlCSSRuleBuilder<C, CS> getCSSRuleCreator();
 	
 	//method declaration
-	protected abstract IControlHTMLBuilder<C> getHTMLBuilder();
+	protected abstract IControlHtmlBuilder<C> getHTMLBuilder();
 	
 	//method declaration
 	protected abstract void resetControl();

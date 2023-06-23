@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 
@@ -60,7 +60,7 @@ implements IHorizontalStack {
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<IHorizontalStack> getHTMLBuilder() {
+	protected IControlHtmlBuilder<IHorizontalStack> getHTMLBuilder() {
 		return HorizontalStackHTMLBuilder.INSTANCE;
 	}
 	

@@ -9,10 +9,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class GridContainerHTMLBuilder implements IControlHTMLBuilder<GridContainer> {
+public final class GridContainerHTMLBuilder implements IControlHtmlBuilder<GridContainer> {
 	
 	//static attribute
 	public static final GridContainerHTMLBuilder INSTANCE = new GridContainerHTMLBuilder();

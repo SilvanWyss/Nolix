@@ -6,10 +6,10 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class ButtonHTMLBuilder implements IControlHTMLBuilder<Button> {
+public final class ButtonHTMLBuilder implements IControlHtmlBuilder<Button> {
 	
 	//static attribute
 	public static final ButtonHTMLBuilder INSTANCE = new ButtonHTMLBuilder();

@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
 public final class VerticalStack extends LinearContainer<VerticalStack, VerticalStackStyle> {
@@ -21,7 +21,7 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<VerticalStack> getHTMLBuilder() {
+	protected IControlHtmlBuilder<VerticalStack> getHTMLBuilder() {
 		return VerticalStackHTMLBuilder.INSTANCE;
 	}
 	

@@ -19,7 +19,7 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
 
@@ -230,7 +230,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<ImageControl> getHTMLBuilder() {
+	protected IControlHtmlBuilder<ImageControl> getHTMLBuilder() {
 		return ImageControlHTMLBuilder.INSTANCE;
 	}
 	

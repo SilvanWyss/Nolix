@@ -7,10 +7,10 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class ValidationHTMLBuilder implements IControlHTMLBuilder<ValidationLabel> {
+public final class ValidationHTMLBuilder implements IControlHtmlBuilder<ValidationLabel> {
 	
 	//method
 	@Override

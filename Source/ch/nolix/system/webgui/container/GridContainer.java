@@ -12,7 +12,7 @@ import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
@@ -145,7 +145,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlHTMLBuilder<GridContainer> getHTMLBuilder() {
+	protected IControlHtmlBuilder<GridContainer> getHTMLBuilder() {
 		return GridContainerHTMLBuilder.INSTANCE;
 	}
 	

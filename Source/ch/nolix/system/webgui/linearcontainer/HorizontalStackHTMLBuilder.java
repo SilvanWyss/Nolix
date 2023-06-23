@@ -7,12 +7,12 @@ import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHTMLBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class HorizontalStackHTMLBuilder implements IControlHTMLBuilder<IHorizontalStack> {
+public final class HorizontalStackHTMLBuilder implements IControlHtmlBuilder<IHorizontalStack> {
 	
 	//static attribute
 	public static final HorizontalStackHTMLBuilder INSTANCE = new HorizontalStackHTMLBuilder();
