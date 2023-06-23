@@ -7,11 +7,11 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SqlDatabaseEngine;
 
 //class
-public class WithSQLDatabaseEngineCapturer<N>
+public class WithSqlDatabaseEngineCapturer<N>
 extends ArgumentCapturer<SqlDatabaseEngine, N> {
 	
 	//constructor
-	public WithSQLDatabaseEngineCapturer(final N nextArgumentCapturer) {
+	public WithSqlDatabaseEngineCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
 	

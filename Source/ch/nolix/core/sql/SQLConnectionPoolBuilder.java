@@ -5,14 +5,14 @@ import ch.nolix.core.builder.andargumentcapturer.AndDatabaseNameCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.builder.usingargumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.withargumentcapturer.WithSQLDatabaseEngineCapturer;
+import ch.nolix.core.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
 
 //class
 public final class SqlConnectionPoolBuilder
 extends
 AndPortCapturer<
 	AndDatabaseNameCapturer<
-		WithSQLDatabaseEngineCapturer<
+		WithSqlDatabaseEngineCapturer<
 			UsingLoginNameCapturer<
 				AndLoginPasswordCapturer<
 					SqlConnectionPool
@@ -28,7 +28,7 @@ AndPortCapturer<
 		super(
 			defaultPort,
 			new AndDatabaseNameCapturer<>(
-				new WithSQLDatabaseEngineCapturer<>(
+				new WithSqlDatabaseEngineCapturer<>(
 					new UsingLoginNameCapturer<>(
 						new AndLoginPasswordCapturer<>(null)
 					)
