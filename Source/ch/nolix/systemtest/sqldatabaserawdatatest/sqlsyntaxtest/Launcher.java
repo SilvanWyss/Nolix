@@ -6,7 +6,7 @@ public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new SQLSyntaxTestPool().run();
+		new SqlSyntaxTestPool().run();
 	}
 	
 	//constructor

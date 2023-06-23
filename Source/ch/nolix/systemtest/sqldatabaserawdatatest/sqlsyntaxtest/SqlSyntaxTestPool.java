@@ -5,10 +5,10 @@ package ch.nolix.systemtest.sqldatabaserawdatatest.sqlsyntaxtest;
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public final class SQLSyntaxTestPool extends TestPool {
+public final class SqlSyntaxTestPool extends TestPool {
 	
 	//constructor
-	public SQLSyntaxTestPool() {
+	public SqlSyntaxTestPool() {
 		super(
 			EntityQueryCreatorTest.class,
 			EntityStatementCreatorTest.class
