@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class SingleContainer
@@ -61,7 +61,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	

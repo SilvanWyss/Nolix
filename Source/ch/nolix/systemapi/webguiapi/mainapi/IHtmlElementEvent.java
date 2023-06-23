@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.mainapi;
 
 //interface
-public interface IHTMLElementEvent {
+public interface IHtmlElementEvent {
 	
 	//method declaration
 	String getHTMLElementId();

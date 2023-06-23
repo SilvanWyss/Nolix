@@ -9,7 +9,7 @@ import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public abstract class LinearContainer<
@@ -72,7 +72,7 @@ implements ILinearContainer<LC, LCS> {
 	
 	//method
 	@Override
-	public final void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public final void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	

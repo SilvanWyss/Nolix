@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class DropdownMenu
@@ -45,7 +45,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onchange"));
 	}
 	

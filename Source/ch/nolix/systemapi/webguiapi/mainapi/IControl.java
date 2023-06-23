@@ -68,7 +68,7 @@ PresenceSettable<C> {
 	CL getOriStyle();
 	
 	//method declaration
-	void registerHTMLElementEventsAt(ILinkedList<IHTMLElementEvent> list);
+	void registerHTMLElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 	
 	//method declaration
 	void runHTMLEvent(String pHTMLEvent);

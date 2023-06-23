@@ -17,7 +17,7 @@ import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 
 //class
@@ -152,7 +152,7 @@ public final class BackendWebClientCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetEventFunctionsCommandFromHTMLElementEventRegistrations(
-		final IContainer<IHTMLElementEvent> pHTMLElementEventRegistrations
+		final IContainer<IHtmlElementEvent> pHTMLElementEventRegistrations
 	) {
 		
 		final var eventFunctions =

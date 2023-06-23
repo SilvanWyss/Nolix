@@ -3,10 +3,10 @@ package ch.nolix.system.webgui.main;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //record
-public record HTMLElementEvent(String mHTMLElementId, String mHTMLEvent) implements IHTMLElementEvent {
+public record HTMLElementEvent(String mHTMLElementId, String mHTMLEvent) implements IHtmlElementEvent {
 	
 	//static method
 	public static HTMLElementEvent withHTMLElementIdAndHTMLEvent(final String pHTMLElementId, final String pHTMLEvent) {

@@ -25,7 +25,7 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
@@ -120,7 +120,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	

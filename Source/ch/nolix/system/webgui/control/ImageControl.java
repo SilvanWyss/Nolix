@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class ImageControl
@@ -111,7 +111,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onclick"));
 	}
 	

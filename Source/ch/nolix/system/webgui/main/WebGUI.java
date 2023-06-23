@@ -33,7 +33,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
@@ -187,9 +187,9 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public IContainer<IHTMLElementEvent> getHTMLElementEventRegistrations() {
+	public IContainer<IHtmlElementEvent> getHTMLElementEventRegistrations() {
 		
-		final var lHTMLElementEventRegistrations = new LinkedList<IHTMLElementEvent>();
+		final var lHTMLElementEventRegistrations = new LinkedList<IHtmlElementEvent>();
 		
 		registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
 		
@@ -419,7 +419,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	}
 	
 	//method
-	private void registerHTMLElementEventsAt(final LinkedList<IHTMLElementEvent> lHTMLElementEventRegistrations) {
+	private void registerHTMLElementEventsAt(final LinkedList<IHtmlElementEvent> lHTMLElementEventRegistrations) {
 		for (final var c : getOriControls()) {
 			c.registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
 		}

@@ -22,7 +22,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
@@ -101,7 +101,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 		
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	

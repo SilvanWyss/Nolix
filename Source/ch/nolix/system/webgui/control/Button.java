@@ -28,7 +28,7 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
@@ -135,7 +135,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		list.addAtEnd(
 			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmousedown"),
 			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmouseup")

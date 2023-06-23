@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webguiapi.controlapi.IToggleButtonStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IHTMLElementEvent;
+import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyle> implements IToggleButton {
@@ -97,7 +97,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHTMLElementEvent> list) {
+	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		
 		//Registers a HTML event, that will be triggered after the HTML toggle button, at the HTML container element.
 		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmouseup"));
