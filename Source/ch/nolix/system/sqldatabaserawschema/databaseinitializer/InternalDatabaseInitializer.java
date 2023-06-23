@@ -5,7 +5,7 @@ import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.sqldatabaserawschema.columntable.ColumnTableSqlDtoCatalogue;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertyTableSQLDTOCatalogue;
+import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalogue;
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqldatabaserawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
@@ -23,7 +23,7 @@ final class InternalDatabaseInitializer {
 		final SqlConnectionPool pSQLConnectionPool
 	) {
 		
-		schemaAdapter.addTable(DatabasePropertyTableSQLDTOCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
+		schemaAdapter.addTable(DatabasePropertyTableSqlDtoCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
 		schemaAdapter.addTable(TableTableSqlDtoCatalogue.TABLE_TABLE_SQL_DTO);
 		schemaAdapter.addTable(ColumnTableSqlDtoCatalogue.COLUMN_TABLE_SQL_DTO);
 		

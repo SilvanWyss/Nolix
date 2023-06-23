@@ -7,7 +7,7 @@ import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 
 //class
-public final class DatabasePropertyTableSQLDTOCatalogue {
+public final class DatabasePropertyTableSqlDtoCatalogue {
 	
 	//constant
 	private static final ColumnDTO KEY_COLUMN_SQL_DTO =
@@ -26,5 +26,5 @@ public final class DatabasePropertyTableSQLDTOCatalogue {
 	);
 	
 	//constructor
-	private DatabasePropertyTableSQLDTOCatalogue() {}
+	private DatabasePropertyTableSqlDtoCatalogue() {}
 }
