@@ -18,7 +18,7 @@ AndPortCapturer<
 			AndLoginPasswordCapturer<
 				AndSchemaCapturer<
 					ISchema,
-					MSSQLDatabaseAdapter
+					MsSqlDatabaseAdapter
 				>
 			>
 		>
@@ -46,9 +46,9 @@ AndPortCapturer<
 	}
 	
 	//method
-	private MSSQLDatabaseAdapter build(final String ipOrAddressName) {
+	private MsSqlDatabaseAdapter build(final String ipOrAddressName) {
 		return		
-		new MSSQLDatabaseAdapter(
+		new MsSqlDatabaseAdapter(
 			ipOrAddressName,
 			getPort(),
 			next().getDatabaseName(),
