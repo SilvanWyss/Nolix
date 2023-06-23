@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.container;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
@@ -23,7 +23,7 @@ public final class SingleContainerHTMLBuilder implements IControlHtmlBuilder<Sin
 	@Override
 	public IHtmlElement<?, ?> createHTMLElementForControl(final SingleContainer control) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
 			createHTMLElementsForChildControlsOfSingleContainer(control)

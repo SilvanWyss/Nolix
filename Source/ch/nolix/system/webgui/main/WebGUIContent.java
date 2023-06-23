@@ -5,7 +5,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
@@ -40,7 +40,7 @@ final class WebGUIContent implements IWebGUIContent {
 	@Override
 	public IHtmlElement<?, ?> toHTMLElement() {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			getHTMLAttributes(),
 			getHTMLChildElements()

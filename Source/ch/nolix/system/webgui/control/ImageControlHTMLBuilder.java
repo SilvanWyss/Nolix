@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.control;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -21,9 +21,9 @@ public final class ImageControlHTMLBuilder implements IControlHtmlBuilder<ImageC
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final ImageControl imageControl) {
+	public HtmlElement createHTMLElementForControl(final ImageControl imageControl) {
 		return
-		HTMLElement.withTypeAndAttributes(
+		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.IMG,
 			createHTMLAttributesFromImageControl(imageControl)
 		);

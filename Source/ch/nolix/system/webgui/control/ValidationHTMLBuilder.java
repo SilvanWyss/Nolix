@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.control;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -18,14 +18,14 @@ public final class ValidationHTMLBuilder implements IControlHtmlBuilder<Validati
 		
 		if (control.isEmpty()) {
 			return
-			HTMLElement.withTypeAndAttributes(
+			HtmlElement.withTypeAndAttributes(
 				HtmlElementTypeCatalogue.DIV,
 				ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control))
 			);
 		}
 		
 		return
-		HTMLElement.withTypeAndAttributesAndInnerText(
+		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
 			control.getError().getMessage()

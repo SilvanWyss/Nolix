@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.container;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
@@ -24,7 +24,7 @@ public final class GridContainerHTMLBuilder implements IControlHtmlBuilder<GridC
 	@Override
 	public IHtmlElement<?, ?> createHTMLElementForControl(final GridContainer control) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElement(
+		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
 			createHTMLElementForTableOfGridContainer(control)
@@ -32,29 +32,29 @@ public final class GridContainerHTMLBuilder implements IControlHtmlBuilder<GridC
 	}
 	
 	//method
-	public HTMLElement createHTMLElementForTableOfGridContainer(final GridContainer control) {
+	public HtmlElement createHTMLElementForTableOfGridContainer(final GridContainer control) {
 		return
-		HTMLElement.withTypeAndChildElement(
+		HtmlElement.withTypeAndChildElement(
 			HtmlElementTypeCatalogue.TABLE,
 			createHTMLElementForTableBodyOfGridContainer(control)
 		);
 	}
 	
 	//method
-	private HTMLElement createHTMLElementForTableBodyOfGridContainer(final GridContainer gridContainer) {
+	private HtmlElement createHTMLElementForTableBodyOfGridContainer(final GridContainer gridContainer) {
 		return
-		HTMLElement.withTypeAndChildElements(
+		HtmlElement.withTypeAndChildElements(
 			HtmlElementTypeCatalogue.TBODY,
 			createHTMLElementsForChildControlsOfGridContainer(gridContainer)
 		);
 	}
 	
 	//method
-	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfGridContainer(
+	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfGridContainer(
 		final GridContainer gridContainer
 	) {
 		
-		final var lHTMLElements = new LinkedList<HTMLElement>();
+		final var lHTMLElements = new LinkedList<HtmlElement>();
 		
 		for (var ri = 1; ri <= gridContainer.getRowCount(); ri++) {
 			lHTMLElements.addAtEnd(createHTMLElementForRowOfGridContainer(gridContainer, ri));
@@ -64,21 +64,21 @@ public final class GridContainerHTMLBuilder implements IControlHtmlBuilder<GridC
 	}
 	
 	//method
-	private HTMLElement createHTMLElementForRowOfGridContainer(final GridContainer gridContainer, final int rowIndex) {
+	private HtmlElement createHTMLElementForRowOfGridContainer(final GridContainer gridContainer, final int rowIndex) {
 		return
-		HTMLElement.withTypeAndChildElements(
+		HtmlElement.withTypeAndChildElements(
 			HtmlElementTypeCatalogue.TR,
 			createHTMLElementsForCellsOfRowOfGridContainer(gridContainer, rowIndex)
 		);
 	}
 	
 	//method
-	private IContainer<HTMLElement> createHTMLElementsForCellsOfRowOfGridContainer(
+	private IContainer<HtmlElement> createHTMLElementsForCellsOfRowOfGridContainer(
 		final GridContainer gridContainer,
 		final int rowIndex
 	) {
 		
-		final var lHTMLElements = new LinkedList<HTMLElement>();
+		final var lHTMLElements = new LinkedList<HtmlElement>();
 		
 		for (var ci = 1; ci <= gridContainer.getColumnCount(); ci++) {
 			lHTMLElements.addAtEnd(createHTMLElementForCellOfGridContainer(gridContainer, rowIndex, ci));
@@ -88,18 +88,18 @@ public final class GridContainerHTMLBuilder implements IControlHtmlBuilder<GridC
 	}
 	
 	//method
-	private HTMLElement createHTMLElementForCellOfGridContainer(
+	private HtmlElement createHTMLElementForCellOfGridContainer(
 		final GridContainer gridContainer,
 		final int rowIndex,
 		final int columnIndex
 	) {
 		
 		if (!gridContainer.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
-			return HTMLElement.withType(HtmlElementTypeCatalogue.TD);
+			return HtmlElement.withType(HtmlElementTypeCatalogue.TD);
 		}
 		
 		final var childControl = gridContainer.getOriChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
 		final var childControlHTMLElement = childControl.toHTMLElement();
-		return HTMLElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHTMLElement);
+		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHTMLElement);
 	}
 }

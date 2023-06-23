@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -26,9 +26,9 @@ public final class FloatContainerHTMLBuilder implements IControlHtmlBuilder<Floa
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final FloatContainer floatContainer) {
+	public HtmlElement createHTMLElementForControl(final FloatContainer floatContainer) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(floatContainer)),
 			createHTMLElementsForChildControlsOfFloatContainer(floatContainer)
@@ -36,16 +36,16 @@ public final class FloatContainerHTMLBuilder implements IControlHtmlBuilder<Floa
 	}
 	
 	//method
-	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfFloatContainer(
+	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfFloatContainer(
 		final FloatContainer floatContainer
 	) {
 		return floatContainer.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
 	
 	//method
-	private HTMLElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
+	private HtmlElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElement(
+		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(
 				HtmlAttribute.withNameAndValue(

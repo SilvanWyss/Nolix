@@ -11,12 +11,12 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
 //class
-public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribute> {
+public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribute> {
 	
 	//static method
-	public static HTMLElement fromHTMLElement(final IHtmlElement<?, ?> pHTMLElement) {
+	public static HtmlElement fromHTMLElement(final IHtmlElement<?, ?> pHTMLElement) {
 		
-		if (pHTMLElement instanceof HTMLElement lHTMLAttribute) {
+		if (pHTMLElement instanceof HtmlElement lHTMLAttribute) {
 			return lHTMLAttribute;
 		}
 		
@@ -29,14 +29,14 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 	}
 	
 	//static method
-	public static HTMLElement withType(final String type) {
-		return new HTMLElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, new ImmutableList<>());
+	public static HtmlElement withType(final String type) {
+		return new HtmlElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, new ImmutableList<>());
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttribute(final String type, final IHtmlAttribute attribute) {
+	public static HtmlElement withTypeAndAttribute(final String type, final IHtmlAttribute attribute) {
 		return
-		new HTMLElement(
+		new HtmlElement(
 			type,
 			ImmutableList.withElement(attribute),
 			StringCatalogue.EMPTY_STRING,
@@ -45,13 +45,13 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttributeAndChildElement(
+	public static HtmlElement withTypeAndAttributeAndChildElement(
 		final String type,
 		final IHtmlAttribute attribute,
 		final IHtmlElement<?, ?> childElement
 	) {
 		return
-		new HTMLElement(
+		new HtmlElement(
 			type,
 			ImmutableList.withElement(attribute),
 			StringCatalogue.EMPTY_STRING,
@@ -60,15 +60,15 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttributes(
+	public static HtmlElement withTypeAndAttributes(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes
 	) {
-		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
+		return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttributesAndChildElement(
+	public static HtmlElement withTypeAndAttributesAndChildElement(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
 		final IHtmlElement<?, ?> childElement
@@ -77,49 +77,49 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 		final var childElements = new LinkedList<IHtmlElement<?, ?>>();
 		childElements.addAtEnd(childElement);
 		
-		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
+		return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttributesAndChildElements(
+	public static HtmlElement withTypeAndAttributesAndChildElements(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
 		final IContainer<? extends IHtmlElement<?, ?>> childElements
 	) {
-		return new HTMLElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
+		return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndAttributesAndInnerText(
+	public static HtmlElement withTypeAndAttributesAndInnerText(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
 		final String innerText
 	) {
-		return new HTMLElement(type, attributes, innerText, new ImmutableList<>());
+		return new HtmlElement(type, attributes, innerText, new ImmutableList<>());
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndChildElement(final String type, final IHtmlElement<?, ?> childElement) {
+	public static HtmlElement withTypeAndChildElement(final String type, final IHtmlElement<?, ?> childElement) {
 		return
-		new HTMLElement(
+		new HtmlElement(
 			type,
 			new ImmutableList<>(),
 			StringCatalogue.EMPTY_STRING,
-			ImmutableList.withElement(HTMLElement.fromHTMLElement(childElement))
+			ImmutableList.withElement(HtmlElement.fromHTMLElement(childElement))
 		);
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndChildElements(
+	public static HtmlElement withTypeAndChildElements(
 		final String type,
 		final IContainer<? extends IHtmlElement<?, ?>> childElements
 	) {
-		return new HTMLElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
+		return new HtmlElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
 	}
 	
 	//static method
-	public static HTMLElement withTypeAndInnerText(final String type, final String innerText) {
-		return new HTMLElement(type, new ImmutableList<>(), innerText, new ImmutableList<>());
+	public static HtmlElement withTypeAndInnerText(final String type, final String innerText) {
+		return new HtmlElement(type, new ImmutableList<>(), innerText, new ImmutableList<>());
 	}
 	
 	//attribute
@@ -132,10 +132,10 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 	private final IContainer<HtmlAttribute> attributes;
 	
 	//multi attribute
-	private final IContainer<HTMLElement> childElements;
+	private final IContainer<HtmlElement> childElements;
 	
 	//constructor
-	private HTMLElement(
+	private HtmlElement(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
 		final String innerText,
@@ -148,7 +148,7 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 		this.type = type;
 		this.attributes = attributes.to(HtmlAttribute::fromHTMLAttribute);
 		this.innerText = innerText;
-		this.childElements = childElements.to(HTMLElement::fromHTMLElement);
+		this.childElements = childElements.to(HtmlElement::fromHTMLElement);
 	}
 	
 	//method
@@ -177,7 +177,7 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribut
 	
 	//method
 	@Override
-	public IContainer<HTMLElement> getOriChildElements() {
+	public IContainer<HtmlElement> getOriChildElements() {
 		return childElements;
 	}
 	

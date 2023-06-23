@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.control;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
@@ -19,9 +19,9 @@ public final class ButtonHTMLBuilder implements IControlHtmlBuilder<Button> {
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final Button button) {
+	public HtmlElement createHTMLElementForControl(final Button button) {
 		return
-		HTMLElement.withTypeAndAttributesAndInnerText(
+		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.BUTTON,
 			ImmutableList.withElement(
 				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(button)

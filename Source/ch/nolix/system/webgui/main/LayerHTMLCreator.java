@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.main;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
@@ -23,7 +23,7 @@ public final class LayerHTMLCreator {
 	//method
 	public IHtmlElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			getHTMLAttributesForLayer(layer),
 			getHTMLChildElementsForLayer(layer)

@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.itemmenu;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
@@ -24,9 +24,9 @@ public final class DropdownMenuHTMLBuilder implements IControlHtmlBuilder<Dropdo
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final DropdownMenu dropdownMenu) {
+	public HtmlElement createHTMLElementForControl(final DropdownMenu dropdownMenu) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.SELECT,
 			createHTMLAttributesForDropdownMenu(dropdownMenu),
 			createHTMLChildElementsForDropdownMenu(dropdownMenu)
@@ -60,7 +60,7 @@ public final class DropdownMenuHTMLBuilder implements IControlHtmlBuilder<Dropdo
 	//method
 	private IHtmlElement<?, ?> createHTMLElementForItem(final IItemMenuItem<?> item) {
 		return
-		HTMLElement.withTypeAndAttributesAndInnerText(
+		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.OPTION,
 			createHTMLAttributesForItem(item),
 			item.getText()

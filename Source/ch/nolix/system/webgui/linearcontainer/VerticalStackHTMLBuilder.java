@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.web.html.HTMLElement;
+import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -21,9 +21,9 @@ public final class VerticalStackHTMLBuilder implements IControlHtmlBuilder<Verti
 	
 	//method
 	@Override
-	public HTMLElement createHTMLElementForControl(final VerticalStack verticalStack) {
+	public HtmlElement createHTMLElementForControl(final VerticalStack verticalStack) {
 		return
-		HTMLElement.withTypeAndAttributesAndChildElements(
+		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(verticalStack)),
 			createHTMLElementsForChildControlsOfVerticalStack(verticalStack)
@@ -31,12 +31,12 @@ public final class VerticalStackHTMLBuilder implements IControlHtmlBuilder<Verti
 	}
 	
 	//method
-	private IContainer<HTMLElement> createHTMLElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
+	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
 		return verticalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
 	}
 	
 	//method
-	private HTMLElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
-		return HTMLElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHTMLElement());
+	private HtmlElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
+		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHTMLElement());
 	}
 }
