@@ -6,7 +6,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDTO;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDTO;
-import ch.nolix.system.sqldatabaserawschema.structure.SQLDatatypeCatalogue;
+import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;
 import ch.nolix.system.sqldatabaserawschema.structure.TableType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
@@ -16,15 +16,15 @@ final class SchemaDTOMapper {
 	
 	//constant
 	private static final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO SQL_ID_COLUMN_DTO =
-	new ColumnDTO(PascalCaseCatalogue.ID, SQLDatatypeCatalogue.TEXT);
+	new ColumnDTO(PascalCaseCatalogue.ID, SqlDatatypeCatalogue.TEXT);
 	
 	//constant
 	private static final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO SQL_SAVE_STAMP_COLUMN_DTO =
-	new ColumnDTO(PascalCaseCatalogue.SAVE_STAMP, SQLDatatypeCatalogue.INTEGER);
+	new ColumnDTO(PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 	
 	//method
 	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO createSQLColumnDTOFrom(final IColumnDTO column) {
-		return new ColumnDTO(column.getName(), SQLDatatypeCatalogue.TEXT);
+		return new ColumnDTO(column.getName(), SqlDatatypeCatalogue.TEXT);
 	}
 	
 	//method
