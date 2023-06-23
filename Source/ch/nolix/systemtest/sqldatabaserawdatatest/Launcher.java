@@ -6,7 +6,7 @@ public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new SQLDatabaseRawDataTestPool().run();
+		new SqlDatabaseRawDataTestPool().run();
 	}
 	
 	//constructor

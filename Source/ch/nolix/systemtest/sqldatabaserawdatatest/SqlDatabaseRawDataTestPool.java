@@ -6,10 +6,10 @@ import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.systemtest.sqldatabaserawdatatest.sqlsyntaxtest.SQLSyntaxTestPool;
 
 //class
-public class SQLDatabaseRawDataTestPool extends TestPool {
+public class SqlDatabaseRawDataTestPool extends TestPool {
 	
 	//constructor
-	public SQLDatabaseRawDataTestPool() {
+	public SqlDatabaseRawDataTestPool() {
 		super(new SQLSyntaxTestPool());
 	}
 }
