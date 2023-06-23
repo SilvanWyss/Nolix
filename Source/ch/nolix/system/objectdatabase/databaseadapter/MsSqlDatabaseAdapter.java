@@ -7,7 +7,7 @@ import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.SqlDatabaseEngine;
 import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
 import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
-import ch.nolix.system.sqldatabaserawdata.dataandschemaadapter.MSSQLDatabaseAndSchemaAdapter;
+import ch.nolix.system.sqldatabaserawdata.dataandschemaadapter.MsSqlDatabaseAndSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
@@ -60,7 +60,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
 			schema,
 			() ->
-			MSSQLDatabaseAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+			MsSqlDatabaseAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				databaseName,
 				pSQLConnectionPool
 			)

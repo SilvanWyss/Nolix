@@ -8,22 +8,22 @@ import ch.nolix.system.sqldatabaserawdata.databaseadapter.MSSQLDatabaseAdapter;
 import ch.nolix.system.sqldatabaserawschema.schemaadapter.MSSQLSchemaAdapter;
 
 //class
-public final class MSSQLDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapter {
+public final class MsSqlDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//static method
-	public static MSSQLDatabaseAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+	public static MsSqlDatabaseAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
 		final SqlConnectionPool pSQLConnectionPool
 	) {
 		return
-		new MSSQLDatabaseAndSchemaAdapter(
+		new MsSqlDatabaseAndSchemaAdapter(
 			MSSQLDatabaseAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
 			MSSQLSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool)
 		);
 	}
 		
 	//constructor
-	private MSSQLDatabaseAndSchemaAdapter(
+	private MsSqlDatabaseAndSchemaAdapter(
 		final MSSQLDatabaseAdapter pMSSQLDatabaseAdapter,
 		final MSSQLSchemaAdapter pMSSQLSchemaAdapter
 	) {
