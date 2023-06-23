@@ -9,7 +9,7 @@ import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.SqlDatabaseEngine;
 
 //class
-public final class MSSQLSchemaAdapterBuilder
+public final class MsSqlSchemaAdapterBuilder
 extends
 AndPortCapturer<
 	ToDatabaseNameCapturer<
@@ -20,7 +20,7 @@ AndPortCapturer<
 > {
 	
 	//constructor
-	public MSSQLSchemaAdapterBuilder(final String ipOrAddressName, final int defaultPort) {
+	public MsSqlSchemaAdapterBuilder(final String ipOrAddressName, final int defaultPort) {
 		
 		super(
 			defaultPort,

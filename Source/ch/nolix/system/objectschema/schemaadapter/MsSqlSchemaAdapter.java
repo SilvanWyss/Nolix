@@ -29,12 +29,12 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	}
 	
 	//static method
-	public static MSSQLSchemaAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
-		return new MSSQLSchemaAdapterBuilder(ipOrAddressName, DEFAULT_PORT);
+	public static MsSqlSchemaAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
+		return new MsSqlSchemaAdapterBuilder(ipOrAddressName, DEFAULT_PORT);
 	}
 	
 	//static method
-	public static MSSQLSchemaAdapterBuilder toLocalhost() {
+	public static MsSqlSchemaAdapterBuilder toLocalhost() {
 		return toIpOrAddress(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
