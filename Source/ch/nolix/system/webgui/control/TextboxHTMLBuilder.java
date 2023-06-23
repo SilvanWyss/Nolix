@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.control;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlAttribute;
-import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
+import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
@@ -28,7 +28,7 @@ public final class TextboxHTMLBuilder implements IControlHtmlBuilder<ITextbox> {
 			HtmlElementTypeCatalogue.INPUT,
 			ImmutableList.withElements(
 				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(textbox),
-				HtmlAttribute.withNameAndValue(HTMLAttributeNameCatalogue.VALUE, textbox.getText())
+				HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.VALUE, textbox.getText())
 			)
 		);
 	}

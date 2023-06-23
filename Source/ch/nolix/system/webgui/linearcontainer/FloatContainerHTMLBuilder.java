@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.linearcontainer;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlAttribute;
-import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
+import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -49,7 +49,7 @@ public final class FloatContainerHTMLBuilder implements IControlHtmlBuilder<Floa
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(
 				HtmlAttribute.withNameAndValue(
-					HTMLAttributeNameCatalogue.CLASS,
+					HtmlAttributeNameCatalogue.CLASS,
 					CHILD_CONTROL_CSS_CLASS_NAME
 				)
 			),

@@ -2,7 +2,7 @@
 package ch.nolix.core.web.html;
 
 //class
-public final class HTMLAttributeNameCatalogue {
+public final class HtmlAttributeNameCatalogue {
 	
 	//constant
 	public static final String CLASS = "class";
@@ -23,5 +23,5 @@ public final class HTMLAttributeNameCatalogue {
 	public static final String VALUE = "value";
 	
 	//constructor
-	private HTMLAttributeNameCatalogue() {}
+	private HtmlAttributeNameCatalogue() {}
 }

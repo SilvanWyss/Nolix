@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.control;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
-import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
+import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -39,7 +39,7 @@ public final class ImageControlHTMLBuilder implements IControlHtmlBuilder<ImageC
 		if (imageControl.containsAny()) {
 			lHTMLAttributes.addAtEnd(
 				HtmlAttribute.withNameAndValue(
-					HTMLAttributeNameCatalogue.SRC,
+					HtmlAttributeNameCatalogue.SRC,
 					"data:image/jpeg;base64," + imageControl.getOriImage().toJPGString()
 				)
 			);
