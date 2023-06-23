@@ -10,7 +10,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
 
 //class
-public final class ColumnTableSQLDTOCatalogue {
+public final class ColumnTableSqlDtoCatalogue {
 	
 	//constant
 	private static final IColumnDTO ID_SQL_DTO =
@@ -54,5 +54,5 @@ public final class ColumnTableSQLDTOCatalogue {
 	);
 	
 	//constructor
-	private ColumnTableSQLDTOCatalogue() {}
+	private ColumnTableSqlDtoCatalogue() {}
 }
