@@ -12,13 +12,13 @@ import ch.nolix.system.webgui.layerhelper.LayerHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
-public final class LayerHTMLCreator {
+public final class LayerHtmlCreator {
 	
 	//static attribute
-	public static final LayerHTMLCreator INSTANCE = new LayerHTMLCreator();
+	public static final LayerHtmlCreator INSTANCE = new LayerHtmlCreator();
 	
 	//constructor
-	private LayerHTMLCreator() {}
+	private LayerHtmlCreator() {}
 	
 	//method
 	public IHtmlElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
