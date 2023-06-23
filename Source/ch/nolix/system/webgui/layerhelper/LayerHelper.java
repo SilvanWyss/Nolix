@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.layerhelper;
 
 //own imports
-import ch.nolix.core.web.html.HTMLAttribute;
+import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
@@ -16,7 +16,7 @@ public final class LayerHelper {
 	private LayerHelper() {}
 	
 	//method
-	public HTMLAttribute createIdHTMLAttributeForLayer(final ILayer<?> layer) {
-		return HTMLAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, layer.getInternalId());
+	public HtmlAttribute createIdHTMLAttributeForLayer(final ILayer<?> layer) {
+		return HtmlAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, layer.getInternalId());
 	}
 }

@@ -11,7 +11,7 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
 //class
-public final class HTMLElement implements IHtmlElement<HTMLElement, HTMLAttribute> {
+public final class HTMLElement implements IHtmlElement<HTMLElement, HtmlAttribute> {
 	
 	//static method
 	public static HTMLElement fromHTMLElement(final IHtmlElement<?, ?> pHTMLElement) {
@@ -129,7 +129,7 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HTMLAttribut
 	private final String innerText;
 	
 	//multi-attribute
-	private final IContainer<HTMLAttribute> attributes;
+	private final IContainer<HtmlAttribute> attributes;
 	
 	//multi attribute
 	private final IContainer<HTMLElement> childElements;
@@ -146,7 +146,7 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HTMLAttribut
 		GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 		
 		this.type = type;
-		this.attributes = attributes.to(HTMLAttribute::fromHTMLAttribute);
+		this.attributes = attributes.to(HtmlAttribute::fromHTMLAttribute);
 		this.innerText = innerText;
 		this.childElements = childElements.to(HTMLElement::fromHTMLElement);
 	}
@@ -171,7 +171,7 @@ public final class HTMLElement implements IHtmlElement<HTMLElement, HTMLAttribut
 	
 	//method
 	@Override
-	public IContainer<HTMLAttribute> getOriAttributes() {
+	public IContainer<HtmlAttribute> getOriAttributes() {
 		return attributes;
 	}
 	

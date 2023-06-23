@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.controlhelper;
 
 //own imports
-import ch.nolix.core.web.html.HTMLAttribute;
+import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -16,7 +16,7 @@ public final class ControlHelper {
 	private ControlHelper() {}
 	
 	//method
-	public HTMLAttribute createIdHTMLAttributeForControl(final IControl<?, ?> control) {
-		return HTMLAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, control.getInternalId());
+	public HtmlAttribute createIdHTMLAttributeForControl(final IControl<?, ?> control) {
+		return HtmlAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, control.getInternalId());
 	}
 }

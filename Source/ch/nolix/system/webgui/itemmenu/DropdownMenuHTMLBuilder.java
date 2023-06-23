@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.itemmenu;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.html.HTMLAttribute;
+import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -68,12 +68,12 @@ public final class DropdownMenuHTMLBuilder implements IControlHtmlBuilder<Dropdo
 	}
 	
 	//method
-	private IContainer<HTMLAttribute> createHTMLAttributesForItem(final IItemMenuItem<?> item) {
+	private IContainer<HtmlAttribute> createHTMLAttributesForItem(final IItemMenuItem<?> item) {
 		
-		final var lHTMLAttributes = new LinkedList<HTMLAttribute>();
+		final var lHTMLAttributes = new LinkedList<HtmlAttribute>();
 		
 		if (item.isSelected()) {
-			lHTMLAttributes.addAtEnd(HTMLAttribute.withNameAndValue("selected", "selected"));
+			lHTMLAttributes.addAtEnd(HtmlAttribute.withNameAndValue("selected", "selected"));
 		}
 		
 		return lHTMLAttributes;

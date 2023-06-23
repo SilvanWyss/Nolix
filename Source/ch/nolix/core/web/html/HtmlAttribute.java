@@ -6,12 +6,12 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 
 //class
-public final class HTMLAttribute implements IHtmlAttribute {
+public final class HtmlAttribute implements IHtmlAttribute {
 	
 	//static method
-	public static HTMLAttribute fromHTMLAttribute(final IHtmlAttribute pHTMLAttribute) {
+	public static HtmlAttribute fromHTMLAttribute(final IHtmlAttribute pHTMLAttribute) {
 		
-		if (pHTMLAttribute instanceof HTMLAttribute lHTMLAttribute) {
+		if (pHTMLAttribute instanceof HtmlAttribute lHTMLAttribute) {
 			return lHTMLAttribute;
 		}
 		
@@ -19,13 +19,13 @@ public final class HTMLAttribute implements IHtmlAttribute {
 	}
 	
 	//static method
-	public static HTMLAttribute withNameAndValue(final String name, final int value) {
+	public static HtmlAttribute withNameAndValue(final String name, final int value) {
 		return withNameAndValue(name, String.valueOf(value));
 	}
 	
 	//static method
-	public static HTMLAttribute withNameAndValue(final String name, final String value) {
-		return new HTMLAttribute(name, value);
+	public static HtmlAttribute withNameAndValue(final String name, final String value) {
+		return new HtmlAttribute(name, value);
 	}
 	
 	//attribute
@@ -36,7 +36,7 @@ public final class HTMLAttribute implements IHtmlAttribute {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	private HTMLAttribute(final String name, final String value) {
+	private HtmlAttribute(final String name, final String value) {
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.KEY);

@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.web.html.HTMLAttribute;
+import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HTMLAttributeNameCatalogue;
 import ch.nolix.core.web.html.HTMLElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -55,7 +55,7 @@ final class WebGUIContent implements IWebGUIContent {
 	
 	//method
 	private IContainer<? extends IHtmlAttribute> getHTMLAttributes() {
-		return LinkedList.withElements(HTMLAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, ROOT_DIV_ID));
+		return LinkedList.withElements(HtmlAttribute.withNameAndValue(HTMLAttributeNameCatalogue.ID, ROOT_DIV_ID));
 	}
 	
 	//method
