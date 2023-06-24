@@ -10,5 +10,5 @@ public interface IDatabaseDto {
 	String getName();
 	
 	//method declaration
-	IContainer<ITableDTO> getTables();
+	IContainer<ITableDto> getTables();
 }

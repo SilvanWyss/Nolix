@@ -6,12 +6,12 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
 
 //class
-public final class ColumnDto implements IColumnDTO {
+public final class ColumnDto implements IColumnDto {
 	
 	//constant
 	private static final IContainer<IConstraintDto> EMPTY_CONSTRAINT_LIST = new LinkedList<>();

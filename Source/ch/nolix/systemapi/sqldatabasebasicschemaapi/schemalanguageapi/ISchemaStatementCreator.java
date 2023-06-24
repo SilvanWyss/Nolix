@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi;
 
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ISchemaStatementCreator {
 	
 	//method declaration
-	String createStatementToAddColumn(String tableName, IColumnDTO column);
+	String createStatementToAddColumn(String tableName, IColumnDto column);
 	
 	//method declaration
-	String createStatementToAddTable(ITableDTO table);
+	String createStatementToAddTable(ITableDto table);
 	
 	//method declaration
 	String createStatementToDeleteColumn(String tableName, String columnName);

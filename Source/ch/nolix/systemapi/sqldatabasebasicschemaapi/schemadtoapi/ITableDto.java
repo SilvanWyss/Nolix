@@ -4,13 +4,10 @@ package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IColumnDTO {
+public interface ITableDto {
 	
 	//method declaration
-	IContainer<IConstraintDto> getConstraints();
-	
-	//method declaration
-	IDataTypeDto getDataType();
+	IContainer<IColumnDto> getColumns();
 	
 	//method declaration
 	String getName();

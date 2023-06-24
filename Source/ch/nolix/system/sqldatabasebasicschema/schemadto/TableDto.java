@@ -6,25 +6,25 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 
 //class
-public final class TableDto implements ITableDTO {
+public final class TableDto implements ITableDto {
 	
 	//attribute
 	private final String name;
 	
 	//mutli-attribute
-	private final IContainer<IColumnDTO> columns;
+	private final IContainer<IColumnDto> columns;
 	
 	//constructor
-	public TableDto(final String name, final IColumnDTO... columns) {
+	public TableDto(final String name, final IColumnDto... columns) {
 		this(name, ReadContainer.forArray(columns));
 	}
 	
 	//constructor
-	public TableDto(final String name, final IContainer<IColumnDTO> columns) {
+	public TableDto(final String name, final IContainer<IColumnDto> columns) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
@@ -35,7 +35,7 @@ public final class TableDto implements ITableDTO {
 	
 	//method
 	@Override
-	public IContainer<IColumnDTO> getColumns() {
+	public IContainer<IColumnDto> getColumns() {
 		return columns;
 	}
 	

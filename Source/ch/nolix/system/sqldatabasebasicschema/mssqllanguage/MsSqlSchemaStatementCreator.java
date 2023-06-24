@@ -2,10 +2,10 @@
 package ch.nolix.system.sqldatabasebasicschema.mssqllanguage;
 
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
@@ -13,13 +13,13 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	
 	//method
 	@Override
-	public String createStatementToAddColumn(final String tabbleName, final IColumnDTO column) {
+	public String createStatementToAddColumn(final String tabbleName, final IColumnDto column) {
 		return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column));
 	}
 	
 	//method
 	@Override
-	public String createStatementToAddTable(ITableDTO table) {
+	public String createStatementToAddTable(ITableDto table) {
 		return 
 		"CREATE TABLE "
 		+ table.getName()
@@ -56,7 +56,7 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	}
 	
 	//method
-	private String getColumnAsSql(final IColumnDTO column) {
+	private String getColumnAsSql(final IColumnDto column) {
 		
 		var sql = column.getName() + " " + getDataTypeAsSql(column.getDataType());
 		
@@ -80,7 +80,7 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	}
 	
 	//method
-	private String getConstraintsAsSql(final IColumnDTO column) {
+	private String getConstraintsAsSql(final IColumnDto column) {
 		return column.getConstraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
 	}
 	

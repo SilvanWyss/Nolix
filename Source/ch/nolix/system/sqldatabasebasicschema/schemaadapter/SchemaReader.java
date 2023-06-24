@@ -13,8 +13,8 @@ import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDto;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaQueryCreator;
 
 //class
@@ -71,7 +71,7 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public IContainer<IColumnDTO> loadColumns(final String tableName) {
+	public IContainer<IColumnDto> loadColumns(final String tableName) {
 		return
 		sqlConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
@@ -89,7 +89,7 @@ final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public IContainer<ITableDTO> loadTables() {
+	public IContainer<ITableDto> loadTables() {
 		return loadFlatTables().to(t -> new TableDto(t.getName(), loadColumns(t.getName())));
 	}
 	

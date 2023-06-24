@@ -9,8 +9,8 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableD
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaQueryCreator;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
@@ -54,13 +54,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final void addColumn(final String tableName, final IColumnDTO column) {
+	public final void addColumn(final String tableName, final IColumnDto column) {
 		schemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
 	@Override
-	public final void addTable(final ITableDTO table) {
+	public final void addTable(final ITableDto table) {
 		schemaWriter.addTable(table);
 	}
 	
@@ -108,7 +108,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final IContainer<IColumnDTO> loadColumns(final String tableName) {
+	public final IContainer<IColumnDto> loadColumns(final String tableName) {
 		return schemaReader.loadColumns(tableName);
 	}
 	
@@ -120,7 +120,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final IContainer<ITableDTO> loadTables() {
+	public final IContainer<ITableDto> loadTables() {
 		return schemaReader.loadTables();
 	}
 	

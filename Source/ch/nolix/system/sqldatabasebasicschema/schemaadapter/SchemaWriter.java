@@ -9,8 +9,8 @@ import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
 //class
@@ -58,13 +58,13 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void addColumn(final String tableName, final IColumnDTO column) {
+	public void addColumn(final String tableName, final IColumnDto column) {
 		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
 	}
 	
 	//method
 	@Override
-	public void addTable(final ITableDTO table) {
+	public void addTable(final ITableDto table) {
 		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToAddTable(table));
 	}
 	

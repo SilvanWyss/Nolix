@@ -7,18 +7,18 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDatabaseDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 
 //class
-public record DatabaseDto(String name, ImmutableList<ITableDTO> tables) implements IDatabaseDto {
+public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implements IDatabaseDto {
 	
 	//constructor
-	public DatabaseDto(final String name, final IContainer<ITableDTO> tables) {
+	public DatabaseDto(final String name, final IContainer<ITableDto> tables) {
 		this(name, ImmutableList.forIterable(tables));
 	}
 	
 	//constructor
-	public DatabaseDto(final String name, final ImmutableList<ITableDTO> tables) { //NOSONAR: This implementations checks the given arguments.
+	public DatabaseDto(final String name, final ImmutableList<ITableDto> tables) { //NOSONAR: This implementations checks the given arguments.
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
 		
@@ -35,7 +35,7 @@ public record DatabaseDto(String name, ImmutableList<ITableDTO> tables) implemen
 	
 	//method
 	@Override
-	public IContainer<ITableDTO> getTables() {
+	public IContainer<ITableDto> getTables() {
 		return tables;
 	}
 }

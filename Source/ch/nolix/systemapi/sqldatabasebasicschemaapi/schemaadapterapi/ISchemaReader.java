@@ -4,8 +4,8 @@ package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ISchemaReader extends GroupCloseable {
@@ -14,13 +14,13 @@ public interface ISchemaReader extends GroupCloseable {
 	boolean columnsIsEmpty(String tableName, String columnName);
 	
 	//method declaration
-	IContainer<IColumnDTO> loadColumns(String tableName);
+	IContainer<IColumnDto> loadColumns(String tableName);
 	
 	//method declaration
 	IContainer<IFlatTableDto> loadFlatTables();
 	
 	//method declaration
-	IContainer<ITableDTO> loadTables();
+	IContainer<ITableDto> loadTables();
 	
 	//method declaration
 	boolean tableExists(String tableName);
