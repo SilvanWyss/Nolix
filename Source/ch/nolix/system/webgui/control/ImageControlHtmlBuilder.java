@@ -32,12 +32,12 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageC
 	//method
 	private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final ImageControl imageControl) {
 		
-		final var lHTMLAttributes = new LinkedList<HtmlAttribute>();
+		final var htmlAttributes = new LinkedList<HtmlAttribute>();
 		
-		lHTMLAttributes.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(imageControl));
+		htmlAttributes.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(imageControl));
 		
 		if (imageControl.containsAny()) {
-			lHTMLAttributes.addAtEnd(
+			htmlAttributes.addAtEnd(
 				HtmlAttribute.withNameAndValue(
 					HtmlAttributeNameCatalogue.SRC,
 					"data:image/jpeg;base64," + imageControl.getOriImage().toJPGString()
@@ -45,6 +45,6 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageC
 			);
 		}
 		
-		return lHTMLAttributes;
+		return htmlAttributes;
 	}
 }

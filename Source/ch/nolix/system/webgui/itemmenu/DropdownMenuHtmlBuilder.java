@@ -36,11 +36,11 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 	//method
 	private IContainer<? extends IHtmlAttribute> createHtmlAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
 		
-		final var lHTMLAttribtues = new LinkedList<IHtmlAttribute>();
+		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
 		
-		lHTMLAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
+		htmlAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
 		
-		return lHTMLAttribtues;
+		return htmlAttribtues;
 	}
 	
 	//method
@@ -70,12 +70,12 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 	//method
 	private IContainer<HtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
 		
-		final var lHTMLAttributes = new LinkedList<HtmlAttribute>();
+		final var htmlAttributes = new LinkedList<HtmlAttribute>();
 		
 		if (item.isSelected()) {
-			lHTMLAttributes.addAtEnd(HtmlAttribute.withNameAndValue("selected", "selected"));
+			htmlAttributes.addAtEnd(HtmlAttribute.withNameAndValue("selected", "selected"));
 		}
 		
-		return lHTMLAttributes;
+		return htmlAttributes;
 	}
 }

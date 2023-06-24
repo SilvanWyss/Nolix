@@ -113,9 +113,9 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	//method
 	private void runRunHTMLEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHTMLEventCommand) {
 		
-		final var lHTMLEvent = runHTMLEventCommand.getSingleChildNodeHeader();
+		final var htmlEvent = runHTMLEventCommand.getSingleChildNodeHeader();
 		
-		control.runHTMLEvent(lHTMLEvent);
+		control.runHTMLEvent(htmlEvent);
 	}
 	
 	//method

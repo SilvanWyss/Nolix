@@ -54,13 +54,13 @@ public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridC
 		final GridContainer gridContainer
 	) {
 		
-		final var lHTMLElements = new LinkedList<HtmlElement>();
+		final var htmlElements = new LinkedList<HtmlElement>();
 		
 		for (var ri = 1; ri <= gridContainer.getRowCount(); ri++) {
-			lHTMLElements.addAtEnd(createHtmlElementForRowOfGridContainer(gridContainer, ri));
+			htmlElements.addAtEnd(createHtmlElementForRowOfGridContainer(gridContainer, ri));
 		}
 		
-		return lHTMLElements;
+		return htmlElements;
 	}
 	
 	//method
@@ -78,13 +78,13 @@ public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridC
 		final int rowIndex
 	) {
 		
-		final var lHTMLElements = new LinkedList<HtmlElement>();
+		final var htmlElements = new LinkedList<HtmlElement>();
 		
 		for (var ci = 1; ci <= gridContainer.getColumnCount(); ci++) {
-			lHTMLElements.addAtEnd(createHtmlElementForCellOfGridContainer(gridContainer, rowIndex, ci));
+			htmlElements.addAtEnd(createHtmlElementForCellOfGridContainer(gridContainer, rowIndex, ci));
 		}
 		
-		return lHTMLElements;
+		return htmlElements;
 	}
 	
 	//method
@@ -99,7 +99,7 @@ public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridC
 		}
 		
 		final var childControl = gridContainer.getOriChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
-		final var childControlHTMLElement = childControl.toHTMLElement();
-		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHTMLElement);
+		final var childControlHtmlElement = childControl.toHtmlElement();
+		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHtmlElement);
 	}
 }

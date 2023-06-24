@@ -11,8 +11,8 @@ public final class HtmlAttribute implements IHtmlAttribute {
 	//static method
 	public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
 		
-		if (htmlAttribute instanceof HtmlAttribute lHTMLAttribute) {
-			return lHTMLAttribute;
+		if (htmlAttribute instanceof HtmlAttribute concreteHtmlAttribute) {
+			return concreteHtmlAttribute;
 		}
 		
 		return withNameAndValue(htmlAttribute.getName(), htmlAttribute.getValue());

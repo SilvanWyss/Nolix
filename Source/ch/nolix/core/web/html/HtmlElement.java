@@ -16,8 +16,8 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	//static method
 	public static HtmlElement fromHtmlElement(final IHtmlElement<?, ?> htmlElement) {
 		
-		if (htmlElement instanceof HtmlElement lHTMLAttribute) {
-			return lHTMLAttribute;
+		if (htmlElement instanceof HtmlElement htmlAttribute) {
+			return htmlAttribute;
 		}
 		
 		return

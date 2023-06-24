@@ -431,14 +431,14 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IHtmlElement<?, ?> toHTMLElement() {
+	public final IHtmlElement<?, ?> toHtmlElement() {
 		return getHTMLBuilder().createHtmlElementForControl(asConcrete());
 	}
 	
 	//method
 	@Override
-	public final String toHTMLString() {
-		return toHTMLElement().toString();
+	public final String toHtmlString() {
+		return toHtmlElement().toString();
 	}
 	
 	//method declaration

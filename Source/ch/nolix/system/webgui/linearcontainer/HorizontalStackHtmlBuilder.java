@@ -40,6 +40,6 @@ public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHo
 	
 	//method
 	private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
-		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHTMLElement());
+		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHtmlElement());
 	}
 }

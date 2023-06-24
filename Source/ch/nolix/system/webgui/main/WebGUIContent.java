@@ -38,7 +38,7 @@ final class WebGUIContent implements IWebGUIContent {
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> toHTMLElement() {
+	public IHtmlElement<?, ?> toHtmlElement() {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -49,8 +49,8 @@ final class WebGUIContent implements IWebGUIContent {
 	
 	//method
 	@Override
-	public String toHTMLString() {
-		return toHTMLElement().toString();
+	public String toHtmlString() {
+		return toHtmlElement().toString();
 	}
 	
 	//method
@@ -60,6 +60,6 @@ final class WebGUIContent implements IWebGUIContent {
 	
 	//method
 	private IContainer<IHtmlElement<?, ?>> getHTMLChildElements() {
-		return parentWebGUI.getOriLayers().to(ILayer::toHTMLElement);
+		return parentWebGUI.getOriLayers().to(ILayer::toHtmlElement);
 	}
 }

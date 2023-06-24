@@ -108,7 +108,7 @@ public final class BackendWebClientCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetRootHTMLElementCommandFromWebGUI(final IWebGUI<?> webGUI) {
-		return createSetRootHTMLElementCommandFromHtmlElement(webGUI.getContent().toHTMLElement());
+		return createSetRootHTMLElementCommandFromHtmlElement(webGUI.getContent().toHtmlElement());
 	}
 	
 	//method

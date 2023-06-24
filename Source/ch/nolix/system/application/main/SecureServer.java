@@ -68,11 +68,11 @@ public final class SecureServer extends BaseServer {
 	//constructor
 	public SecureServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
 		
-		final var localHTMLPage = new SecureServerHTMLPage(domain, port);
-		final var localHTMLPageAsString = localHTMLPage.toString();
+		final var htmlPage = new SecureServerHTMLPage(domain, port);
+		final var htmlPageAsString = htmlPage.toString();
 		
 		internalWebSocketServer =
-		new ch.nolix.core.net.endpoint3.SecureServer(port, localHTMLPageAsString, paramSSLCertificate);
+		new ch.nolix.core.net.endpoint3.SecureServer(port, htmlPageAsString, paramSSLCertificate);
 		
 		this.domain = domain;
 		this.port = port;

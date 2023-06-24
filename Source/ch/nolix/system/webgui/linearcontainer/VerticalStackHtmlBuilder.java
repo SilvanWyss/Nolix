@@ -37,6 +37,6 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<Verti
 	
 	//method
 	private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
-		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHTMLElement());
+		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHtmlElement());
 	}
 }

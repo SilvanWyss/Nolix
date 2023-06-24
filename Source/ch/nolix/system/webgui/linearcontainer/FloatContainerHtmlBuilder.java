@@ -53,7 +53,7 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 					CHILD_CONTROL_CSS_CLASS_NAME
 				)
 			),
-			childControl.toHTMLElement()
+			childControl.toHtmlElement()
 		);
 	}
 }

@@ -189,11 +189,11 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	@Override
 	public IContainer<IHtmlElementEvent> getHTMLElementEventRegistrations() {
 		
-		final var lHTMLElementEventRegistrations = new LinkedList<IHtmlElementEvent>();
+		final var htmlElementEventRegistrations = new LinkedList<IHtmlElementEvent>();
 		
-		registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
+		registerHTMLElementEventsAt(htmlElementEventRegistrations);
 		
-		return lHTMLElementEventRegistrations;
+		return htmlElementEventRegistrations;
 	}
 
 	//method
@@ -419,9 +419,9 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	}
 	
 	//method
-	private void registerHTMLElementEventsAt(final LinkedList<IHtmlElementEvent> lHTMLElementEventRegistrations) {
+	private void registerHTMLElementEventsAt(final LinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
 		for (final var c : getOriControls()) {
-			c.registerHTMLElementEventsAt(lHTMLElementEventRegistrations);
+			c.registerHTMLElementEventsAt(htmlElementEventRegistrations);
 		}
 	}
 	

@@ -5,8 +5,8 @@ package ch.nolix.coreapi.webapi.htmlapi;
 public interface HtmlElementTransformable {
 	
 	//method declaration
-	IHtmlElement<?, ?> toHTMLElement();
+	IHtmlElement<?, ?> toHtmlElement();
 	
 	//method declaration
-	String toHTMLString();
+	String toHtmlString();
 }
