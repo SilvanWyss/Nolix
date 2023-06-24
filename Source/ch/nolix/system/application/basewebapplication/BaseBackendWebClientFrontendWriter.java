@@ -29,8 +29,8 @@ final class BaseBackendWebClientFrontendWriter implements IFrontEndWriter {
 	
 	//method
 	@Override
-	public void openNewTabWithURL(final String pURL) {
-		parentBackendWebClient.internalOpenNewTabOnCounterpartWithURL(pURL);
+	public void openNewTabWithUrl(final String url) {
+		parentBackendWebClient.internalOpenNewTabOnCounterpartWithUrl(url);
 	}
 	
 	//method

@@ -17,5 +17,5 @@ public interface IServerTarget {
 	SecurityLevel getSecurityLevelForConnections();
 	
 	//method declaration
-	String toURL();
+	String toUrl();
 }

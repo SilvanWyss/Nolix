@@ -150,8 +150,8 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//method
 	@Override
-	public String toURL() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "toURL");
+	public String toUrl() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "toUrl");
 	}
 	
 	//method

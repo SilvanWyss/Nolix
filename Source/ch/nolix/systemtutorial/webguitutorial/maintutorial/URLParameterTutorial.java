@@ -20,7 +20,7 @@ public final class URLParameterTutorial {
 		server.addDefaultApplication("URL parameter tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
-		ShellProvider.startDefaultWebBrowserOpeningURL("http://127.0.0.1/?parameter1=5000&parameter2=60000");
+		ShellProvider.startDefaultWebBrowserOpeningUrl("http://127.0.0.1/?parameter1=5000&parameter2=60000");
 		
 		//Closes the Server as soon as it does not have a client connected any more.
 		GlobalSequencer.waitForSeconds(2);
@@ -32,20 +32,20 @@ public final class URLParameterTutorial {
 		@Override
 		protected void initialize() {
 			
-			final var localURLParameter1 =
-			getOriParentClient().getURLParameterValueByURLParameterNameOrNull("parameter1");
+			final var localUrlParameter1 =
+			getOriParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter1");
 			
-			final var localURLParameter2 =
-			getOriParentClient().getURLParameterValueByURLParameterNameOrNull("parameter2");
+			final var localUrlParameter2 =
+			getOriParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter2");
 			
 			getOriGUI()
 			.pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(
 					new Label()
-					.setText("URL parameter 1: " + localURLParameter1),
+					.setText("URL parameter 1: " + localUrlParameter1),
 					new Label()
-					.setText("URL parameter 2: " + localURLParameter2)
+					.setText("URL parameter 2: " + localUrlParameter2)
 				)
 				.editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 50))
 			);

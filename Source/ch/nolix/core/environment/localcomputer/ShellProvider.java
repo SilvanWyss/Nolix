@@ -30,13 +30,13 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startDefaultWebBrowserOpeningLoopBackAddress() {
-		startDefaultWebBrowserOpeningURL(IPv4Catalogue.LOOP_BACK_ADDRESS);
+		startDefaultWebBrowserOpeningUrl(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
 	//static method
-	public static void startDefaultWebBrowserOpeningURL(final String pURL) {
+	public static void startDefaultWebBrowserOpeningUrl(final String url) {
 		try {
-			Desktop.getDesktop().browse(new URI(getURLWithHttpPrefix(pURL)));
+			Desktop.getDesktop().browse(new URI(getUrlWithHttpPrefix(url)));
 		} catch (final IOException | URISyntaxException exception) {
 			throw WrapperException.forError(exception);
 		}
@@ -87,13 +87,13 @@ public final class ShellProvider {
 	}
 	
 	//static method
-	private static String getURLWithHttpPrefix(final String pURL) {
+	private static String getUrlWithHttpPrefix(final String url) {
 		
-		if (!pURL.startsWith("http://")) {
-			return ("http://" + pURL);
+		if (!url.startsWith("http://")) {
+			return ("http://" + url);
 		}
 		
-		return pURL;
+		return url;
 	}
 	
 	//static method

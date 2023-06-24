@@ -48,7 +48,7 @@ public final class YesNoDialogTutorial {
 						.INSTANCE
 						.createYesNoDialogWithYesNoQuestionAndConfirmAction(
 							"Do you want to open nolix.ch?",
-							() -> getOriGUI().onFrontEnd().openNewTabWithURL("nolix.ch")
+							() -> getOriGUI().onFrontEnd().openNewTabWithUrl("nolix.ch")
 						)
 					)
 				)

@@ -53,14 +53,14 @@ implements ICookieManager {
 	}
 	
 	//method
-	public final String getURLParameterValueByURLParameterNameOrNull(final String paramURLParameterName) {
+	public final String getUrlParameterValueByUrlParameterNameOrNull(final String urlParameterName) {
 		
-		final var getURLParameterValueRequest =
-		BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetURLParameterValueRequestForURLParameterName(paramURLParameterName);
+		final var getUrlParameterValueRequest =
+		BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
 		
-		final var paramURLParameterValueReply = getDataFromCounterpart(getURLParameterValueRequest);
+		final var urlParameterValueReply = getDataFromCounterpart(getUrlParameterValueRequest);
 		
-		return paramURLParameterValueReply.getHeaderOrNull();
+		return urlParameterValueReply.getHeaderOrNull();
 	}
 	
 	//method
@@ -112,9 +112,9 @@ implements ICookieManager {
 	}
 	
 	//method
-	final void internalOpenNewTabOnCounterpartWithURL(final String pURL) {
+	final void internalOpenNewTabOnCounterpartWithUrl(final String url) {
 		
-		final var openNewTabCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createOpenNewTabCommand(pURL);
+		final var openNewTabCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createOpenNewTabCommand(url);
 		
 		runOnCounterpart(openNewTabCommand);
 	}

@@ -68,7 +68,7 @@ public class ServerTarget implements IServerTarget {
 	
 	//method
 	@Override
-	public String toURL() {
+	public String toUrl() {
 		return
 		switch (getSecurityLevelForConnections()) {
 			case UNSECURE ->

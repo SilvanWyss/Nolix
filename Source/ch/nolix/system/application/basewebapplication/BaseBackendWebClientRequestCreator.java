@@ -29,11 +29,11 @@ final class BaseBackendWebClientRequestCreator {
 	}
 	
 	//method
-	public ChainedNode createGetURLParameterValueRequestForURLParameterName(final String paramURLParameterName) {
+	public ChainedNode createGetUrlParameterValueRequestForUrlParameterName(final String urlParameterName) {
 		return
 		ChainedNode.withHeaderAndChildNode(
 			RequestProtocol.GET_URL_PARARAMETER_VALUE,
-			ChainedNode.withHeader(paramURLParameterName)
+			ChainedNode.withHeader(urlParameterName)
 		);
 	}
 }

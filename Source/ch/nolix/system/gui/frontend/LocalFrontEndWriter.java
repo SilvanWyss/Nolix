@@ -18,8 +18,8 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 	
 	//method
 	@Override
-	public void openNewTabWithURL(final String pURL) {
-		ShellProvider.startDefaultWebBrowserOpeningURL(pURL);
+	public void openNewTabWithUrl(final String url) {
+		ShellProvider.startDefaultWebBrowserOpeningUrl(url);
 	}
 	
 	//method

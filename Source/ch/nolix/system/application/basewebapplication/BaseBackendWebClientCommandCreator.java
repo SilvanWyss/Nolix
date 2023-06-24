@@ -31,13 +31,13 @@ final class BaseBackendWebClientCommandCreator {
 	}
 	
 	//method
-	public ChainedNode createOpenNewTabCommand(final String pURL) {
+	public ChainedNode createOpenNewTabCommand(final String url) {
 		return
 		ChainedNode.withHeaderAndChildNode(
 			CommandProtocol.OPEN_NEW_TAB,
 			ChainedNode.withHeaderAndChildNode(
 				ObjectProtocol.URL,
-				ChainedNode.withHeader(pURL)
+				ChainedNode.withHeader(url)
 			)
 		);
 	}
@@ -47,7 +47,7 @@ final class BaseBackendWebClientCommandCreator {
 		return
 		ChainedNode.withHeaderAndChildNode(
 			CommandProtocol.REDIRECT,
-			ChainedNode.withHeader(applicationInstanceTarget.toURL())
+			ChainedNode.withHeader(applicationInstanceTarget.toUrl())
 		);
 	}
 	

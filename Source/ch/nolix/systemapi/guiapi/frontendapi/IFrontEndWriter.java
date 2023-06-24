@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanc
 public interface IFrontEndWriter {
 	
 	//method declaration
-	void openNewTabWithURL(String pURL);
+	void openNewTabWithUrl(String url);
 	
 	//method declaration
 	void redirectTo(IApplicationInstanceTarget applicationInstanceTarget);
