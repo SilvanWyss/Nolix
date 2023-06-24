@@ -42,12 +42,12 @@ public final class Column extends SchemaObject implements IColumn {
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//static method
-	public static Column fromDTO(final IColumnDto columnDto, final IContainer<ITable> tables) {
+	public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
 		return
 		new Column(
 			columnDto.getId(),
 			columnDto.getName(),
-			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTO(
+			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDto(
 				columnDto.getParametrizedPropertyType(),
 				tables
 			)

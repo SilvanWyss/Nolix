@@ -31,7 +31,7 @@ public final class Table extends SchemaObject implements ITable {
 	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//static method
-	public static Table fromFlatDTO(final IFlatTableDto flatTableDto) {
+	public static Table fromFlatDto(final IFlatTableDto flatTableDto) {
 		return new Table(flatTableDto.getId(), flatTableDto.getName());
 	}
 	
@@ -101,7 +101,7 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	@Override
-	public IFlatTableDto getFlatDTO() {
+	public IFlatTableDto getFlatDto() {
 		return new FlatTableDto(getId(), getName());
 	}
 	
@@ -154,7 +154,7 @@ public final class Table extends SchemaObject implements ITable {
 	//method
 	@Override
 	public TableDto toDto() {
-		return new TableDto(getId(), getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
+		return new TableDto(getId(), getName(), createSaveStampConfigurationDto(), createColumnDtos());
 	}
 	
 	//method
@@ -204,12 +204,12 @@ public final class Table extends SchemaObject implements ITable {
 	}
 	
 	//method
-	private IContainer<IColumnDto> createColumnDTOs() {
+	private IContainer<IColumnDto> createColumnDtos() {
 		return getOriColumns().to(IColumn::toDto);
 	}
 	
 	//method
-	private ISaveStampConfigurationDto createSaveStampConfigurationDTO() {
+	private ISaveStampConfigurationDto createSaveStampConfigurationDto() {
 		return new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP);
 	}
 	
@@ -227,7 +227,7 @@ public final class Table extends SchemaObject implements ITable {
 		
 		columns =
 		LinkedList.fromIterable(
-			internalgetOriRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDTO(c, tables))
+			internalgetOriRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables))
 		);
 		
 		for (final var c : columns) {

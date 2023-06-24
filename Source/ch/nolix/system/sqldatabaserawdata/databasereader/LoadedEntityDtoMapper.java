@@ -19,7 +19,7 @@ final class LoadedEntityDtoMapper {
 	private static final ContentFieldMapper contentFieldMapper = new ContentFieldMapper();
 	
 	//method
-	public ILoadedEntityDto createLoadedEntityDTOFrosqlRecord(
+	public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
 		final List<String> sqlRecordValues,
 		final ITableInfo tableInfo
 	) {

@@ -15,7 +15,7 @@ final class EntityMapper {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity> E createLoadedEntityFromDTO(
+	public <E extends IEntity> E createLoadedEntityFromDto(
 		final ILoadedEntityDto loadedEntityDto,
 		final ITable<E> table
 	) {
@@ -25,7 +25,7 @@ final class EntityMapper {
 		final var concreteEntity = (BaseEntity)loadedEntity;
 		concreteEntity.internalSetParentTable((ITable<IEntity>)table);
 		concreteEntity.internalSetLoaded();
-		addDataToEntityFromLoadedEntityDTO(loadedEntityDto, concreteEntity);
+		addDataToEntityFromLoadedEntityDto(loadedEntityDto, concreteEntity);
 		
 		return loadedEntity;
 	}
@@ -44,7 +44,7 @@ final class EntityMapper {
 	}
 	
 	//method
-	private void addDataToEntityFromLoadedEntityDTO(final ILoadedEntityDto loadedEntityDto, final BaseEntity entity) {
+	private void addDataToEntityFromLoadedEntityDto(final ILoadedEntityDto loadedEntityDto, final BaseEntity entity) {
 		
 		entity.internalSetId(loadedEntityDto.getId());
 		entity.internalSetSaveStamp(loadedEntityDto.getSaveStamp());

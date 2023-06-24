@@ -259,8 +259,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private E createLoadedEntityFromDTO(ILoadedEntityDto loadedEntityDto) {
-		return (E)entityMapper.createLoadedEntityFromDTO(loadedEntityDto, (Table<BaseEntity>)this);
+	private E createLoadedEntityFromDto(ILoadedEntityDto loadedEntityDto) {
+		return (E)entityMapper.createLoadedEntityFromDto(loadedEntityDto, (Table<BaseEntity>)this);
 	}
 	
 	//method
@@ -269,9 +269,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	}
 	
 	//method
-	private void insertEntityFromGivenLoadedEntityDTOInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
+	private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
 		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
-			entitiesInLocalData.addAtEnd(createLoadedEntityFromDTO(loadedEntity));
+			entitiesInLocalData.addAtEnd(createLoadedEntityFromDto(loadedEntity));
 		}
 	}
 	
@@ -296,7 +296,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 		
 		for (final var r : internalGetRefDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
-			insertEntityFromGivenLoadedEntityDTOInLocalDataIfNotInserted(r);
+			insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(r);
 		}
 		
 		loadedAllEntitiesInLocalData = true;
@@ -309,11 +309,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	private E loadEntityById(final String id) {
-		return createLoadedEntityFromDTO(loadEntityDTOById(id));
+		return createLoadedEntityFromDto(loadEntityDtoById(id));
 	}
 	
 	//method
-	private ILoadedEntityDto loadEntityDTOById(final String id) {
+	private ILoadedEntityDto loadEntityDtoById(final String id) {
 		return internalGetRefDataAndSchemaAdapter().loadEntity(getName(), id);
 	}
 }

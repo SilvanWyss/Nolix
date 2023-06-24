@@ -93,7 +93,7 @@ public final class SchemaReader implements ISchemaReader {
 		return
 		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadCoumnsByTableId(tableId))
-		.to(columnDtoMapper::createColumnDTO);
+		.to(columnDtoMapper::createColumnDto);
 	}
 	
 	//method
@@ -102,14 +102,14 @@ public final class SchemaReader implements ISchemaReader {
 		return
 		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadCoumnsByTableName(tableName))
-		.to(columnDtoMapper::createColumnDTO);
+		.to(columnDtoMapper::createColumnDto);
 	}
 	
 	//method
 	@Override
 	public IFlatTableDto loadFlatTableById(final String id) {
 		return
-		tableDtoMapper.createTableDTO(
+		tableDtoMapper.createTableDto(
 			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableById(id))
 		);
 	}
@@ -118,7 +118,7 @@ public final class SchemaReader implements ISchemaReader {
 	@Override
 	public IFlatTableDto loadFlatTableByName(final String name) {
 		return
-		tableDtoMapper.createTableDTO(
+		tableDtoMapper.createTableDto(
 			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableByName(name))
 		);
 	}
@@ -129,7 +129,7 @@ public final class SchemaReader implements ISchemaReader {
 		return
 		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadFlatTables())
-		.to(tableDtoMapper::createTableDTO);
+		.to(tableDtoMapper::createTableDto);
 	}
 	
 	//method

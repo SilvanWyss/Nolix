@@ -20,10 +20,10 @@ public final class EntityStatementCreatorTest extends Test {
 		
 		//setup
 		final var testUnit = new EntityStatementCreator();
-		final var entityHeadDTO = new EntityHeadDto("my_id", "100");
+		final var entityHeadDto = new EntityHeadDto("my_id", "100");
 		
 		//execution
-		final var result = testUnit.createStatementToDeleteEntity("MyTable", entityHeadDTO);
+		final var result = testUnit.createStatementToDeleteEntity("MyTable", entityHeadDto);
 		
 		//verification
 		final var expectedResult =
@@ -55,7 +55,7 @@ public final class EntityStatementCreatorTest extends Test {
 		
 		//setup
 		final var testUnit = new EntityStatementCreator();
-		final var newEntityDTO =
+		final var newEntityDto =
 		new NewEntityDto(
 			"my_id",
 			ImmutableList.withElements(
@@ -66,7 +66,7 @@ public final class EntityStatementCreatorTest extends Test {
 		);
 		
 		//execution
-		final var result = testUnit.createStatementToInsertNewEntity("MyTable", newEntityDTO);
+		final var result = testUnit.createStatementToInsertNewEntity("MyTable", newEntityDto);
 		
 		//verification
 		final var expectedResult =
@@ -81,7 +81,7 @@ public final class EntityStatementCreatorTest extends Test {
 		
 		//setup
 		final var testUnit = new EntityStatementCreator();
-		final var newEntityDTO =
+		final var newEntityDto =
 		new EntityUpdateDto(
 			"my_id",
 			"100",
@@ -93,7 +93,7 @@ public final class EntityStatementCreatorTest extends Test {
 		);
 		
 		//execution
-		final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDTO);
+		final var result = testUnit.createStatementToUpdateEntityOnTable("MyTable", newEntityDto);
 		
 		//verification
 		final var expectedResult =

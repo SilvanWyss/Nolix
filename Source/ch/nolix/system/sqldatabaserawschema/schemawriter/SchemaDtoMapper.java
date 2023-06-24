@@ -29,11 +29,11 @@ final class SchemaDtoMapper {
 	
 	//method
 	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(final ITableDto table) {
-		return new TableDto(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createQslColumnDTOsFrom(table));
+		return new TableDto(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createQslColumnDtosFrom(table));
 	}
 	
 	//method
-	private IContainer<ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto> createQslColumnDTOsFrom(
+	private IContainer<ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto> createQslColumnDtosFrom(
 		final ITableDto table
 	) {
 		

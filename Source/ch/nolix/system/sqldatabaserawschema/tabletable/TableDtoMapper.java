@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 public final class TableDtoMapper {
 	
 	//method
-	public IFlatTableDto createTableDTO(final List<String> tableSystemTableRecord) {
+	public IFlatTableDto createTableDto(final List<String> tableSystemTableRecord) {
 		return new FlatTableDto(tableSystemTableRecord.get(0), tableSystemTableRecord.get(1));
 	}
 }

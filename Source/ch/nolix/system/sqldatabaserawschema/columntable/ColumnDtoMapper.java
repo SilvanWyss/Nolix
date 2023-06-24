@@ -17,7 +17,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 public final class ColumnDtoMapper {
 	
 	//method
-	public ColumnDto createColumnDTO(final List<String> columnSystemTableSqlRecord) {
+	public ColumnDto createColumnDto(final List<String> columnSystemTableSqlRecord) {
 		switch (PropertyType.valueOf(columnSystemTableSqlRecord.get(3)).getBaseType()) {
 			case BASE_VALUE:
 				return createColumnDtoForBaseValue(columnSystemTableSqlRecord);

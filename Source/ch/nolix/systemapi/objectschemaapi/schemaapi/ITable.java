@@ -31,7 +31,7 @@ FluentNameable<ITable> {
 	);
 	
 	//method declaration
-	IFlatTableDto getFlatDTO();
+	IFlatTableDto getFlatDto();
 	
 	//method declaration
 	IDatabase getParentDatabase();

@@ -23,7 +23,7 @@ final class ColumnMapper {
 		Column.withNameAndIdAndParametrizedPropertyTypeAndParentTable(
 			columnDto.getName(),
 			columnDto.getId(),
-			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTOUsingGivenReferencableTables(
+			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDtoUsingGivenReferencableTables(
 				columnDto.getParametrizedPropertyType(),
 				referencableTables
 			),
