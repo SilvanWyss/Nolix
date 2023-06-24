@@ -29,7 +29,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//constructor
 	protected SchemaAdapter(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaQueryCreator schemaQueryCreator,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
@@ -37,14 +37,14 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 		schemaReader =
 		SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
 			databaseName,
-			pSQLConnectionPool,
+			sqlConnectionPool,
 			schemaQueryCreator
 		);
 		
 		schemaWriter =
 		SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
 			databaseName,
-			pSQLConnectionPool,
+			sqlConnectionPool,
 			schemaStatementCreator
 		);
 		

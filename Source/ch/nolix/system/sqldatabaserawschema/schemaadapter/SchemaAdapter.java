@@ -34,24 +34,24 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//constructor
 	protected SchemaAdapter(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
-		final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter pSQLSchemaAdapter
+		final SqlConnectionPool sqlConnectionPool,
+		final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter sqlSchemaAdapter
 	) {
 		
-		databaseInitializer.initializeDatabaseIfNotInitialized(databaseName, pSQLSchemaAdapter, pSQLConnectionPool);
+		databaseInitializer.initializeDatabaseIfNotInitialized(databaseName, sqlSchemaAdapter, sqlConnectionPool);
 		
 		rawSchemaReader =
 		SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 			databaseName,
-			pSQLConnectionPool,
-			pSQLSchemaAdapter
+			sqlConnectionPool,
+			sqlSchemaAdapter
 		);
 		
 		rawSchemaWriter =
 		SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 			databaseName,
-			pSQLConnectionPool,
-			pSQLSchemaAdapter
+			sqlConnectionPool,
+			sqlSchemaAdapter
 		);
 		
 		getOriCloseController().createCloseDependencyTo(rawSchemaReader);

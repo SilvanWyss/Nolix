@@ -9,23 +9,23 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 final class SqlConnectionWrapper implements AutoCloseable {
 	
 	//static method
-	public static SqlConnectionWrapper forSQLConnection(final SqlConnection pSQLConnection) {
-		return new SqlConnectionWrapper(pSQLConnection);
+	public static SqlConnectionWrapper forSQLConnection(final SqlConnection sqlConnection) {
+		return new SqlConnectionWrapper(sqlConnection);
 	}
 	
 	//attribute
-	private final SqlConnection mSQLConnection;
+	private final SqlConnection sqlConnection;
 	
 	//attribute
 	private boolean available = true;
 	
 	//constructor
-	private SqlConnectionWrapper(final SqlConnection pSQLConnection) {
+	private SqlConnectionWrapper(final SqlConnection sqlConnection) {
 		
-		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();
-		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).fulfills(SqlConnection::isOpen);
+		GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
+		GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).fulfills(SqlConnection::isOpen);
 		
-		mSQLConnection = pSQLConnection;
+		this.sqlConnection = sqlConnection;
 	}
 	
 	//method
@@ -33,18 +33,18 @@ final class SqlConnectionWrapper implements AutoCloseable {
 		
 		assertIsAvailable();
 		
-		return mSQLConnection;
+		return sqlConnection;
 	}
 	
 	//method
 	@Override
 	public void close() {
-		mSQLConnection.internalCloseDirectly();
+		sqlConnection.internalCloseDirectly();
 	}
 	
 	//method
-	public boolean contains(final SqlConnection pSQLConnection) {
-		return (mSQLConnection == pSQLConnection);
+	public boolean contains(final SqlConnection sqlConnection) {
+		return (this.sqlConnection == sqlConnection);
 	}
 	
 	//method

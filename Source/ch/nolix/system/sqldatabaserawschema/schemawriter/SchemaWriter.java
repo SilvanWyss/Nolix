@@ -20,13 +20,13 @@ public final class SchemaWriter implements ISchemaWriter {
 	//static method
 	public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaAdapter schemaAdapter
 	) {
 		return
 		new SchemaWriter(
 			databaseName,
-			pSQLConnectionPool.borrowSQLConnection(),
+			sqlConnectionPool.borrowSQLConnection(),
 			schemaAdapter
 		);
 	}
@@ -44,26 +44,26 @@ public final class SchemaWriter implements ISchemaWriter {
 	private final InternalSchemaWriter internalSchemaWriter;
 	
 	//attribute
-	private final SqlCollector mSQLCollector = new SqlCollector();
+	private final SqlCollector sqlCollector = new SqlCollector();
 	
 	//attribute
-	private final SqlConnection mSQLConnection;
+	private final SqlConnection sqlConnection;
 	
 	//constructor
 	public SchemaWriter(
 		final String databaseName,
-		final SqlConnection pSQLConnection,
+		final SqlConnection sqlConnection,
 		final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter schemaWriter
 	) {
 		
-		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();
+		GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 		
-		mSQLConnection = pSQLConnection;
-		systemDataWriter = new SystemDataWriter(mSQLCollector);
+		this.sqlConnection = sqlConnection;
+		systemDataWriter = new SystemDataWriter(sqlCollector);
 		internalSchemaWriter = new InternalSchemaWriter(schemaWriter);		
 		
-		createCloseDependencyTo(pSQLConnection);
-		mSQLConnection.execute("USE " + databaseName);
+		createCloseDependencyTo(sqlConnection);
+		sqlConnection.execute("USE " + databaseName);
 	}
 	
 	//method
@@ -121,7 +121,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void reset() {
-		mSQLCollector.clear();
+		sqlCollector.clear();
 		internalSchemaWriter.reset();
 	}
 	
@@ -130,8 +130,8 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void saveChangesAndReset() {
 		try {
 			
-			mSQLCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
-			mSQLCollector.executeUsingConnection(mSQLConnection);
+			sqlCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
+			sqlCollector.executeUsingConnection(sqlConnection);
 			
 			saveCount++;
 		} finally {

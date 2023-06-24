@@ -13,12 +13,12 @@ public final class MsSqlDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapte
 	//static method
 	public static MsSqlDatabaseAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
 		return
 		new MsSqlDatabaseAndSchemaAdapter(
-			MsSqlDatabaseAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
-			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool)
+			MsSqlDatabaseAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
+			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool)
 		);
 	}
 		

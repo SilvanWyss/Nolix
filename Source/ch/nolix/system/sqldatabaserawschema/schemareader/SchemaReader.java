@@ -35,17 +35,17 @@ public final class SchemaReader implements ISchemaReader {
 	//static method
 	public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaAdapter schemaAdapter
 	) {
-		return new SchemaReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), schemaAdapter);
+		return new SchemaReader(databaseName, sqlConnectionPool.borrowSQLConnection(), schemaAdapter);
 	}
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final SqlConnection mSQLConnection;
+	private final SqlConnection sqlConnection;
 	
 	//attribute
 	private final ISchemaAdapter schemaAdapter;
@@ -53,20 +53,20 @@ public final class SchemaReader implements ISchemaReader {
 	//constructor
 	private SchemaReader(
 		final String databaseName,
-		final SqlConnection pSQLConnection,
+		final SqlConnection sqlConnection,
 		final ISchemaAdapter schemaAdapter
 	) {
 		
-		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();
+		GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 		GlobalValidator.assertThat(schemaAdapter).thatIsNamed(ISchemaAdapter.class).isNotNull();
 		
-		mSQLConnection = pSQLConnection;
+		this.sqlConnection = sqlConnection;
 		this.schemaAdapter = schemaAdapter;
 		
-		createCloseDependencyTo(mSQLConnection);
+		createCloseDependencyTo(sqlConnection);
 		createCloseDependencyTo(schemaAdapter);
 		
-		mSQLConnection.execute("USE " + databaseName);
+		sqlConnection.execute("USE " + databaseName);
 	}
 	
 	//method
@@ -84,14 +84,14 @@ public final class SchemaReader implements ISchemaReader {
 	//method
 	@Override
 	public int getTableCount() {
-		return Integer.valueOf(mSQLConnection.getOneRecord(queryCreator.createQueryToGetTableCount()).get(0));
+		return Integer.valueOf(sqlConnection.getOneRecord(queryCreator.createQueryToGetTableCount()).get(0));
 	}
 	
 	//method
 	@Override
 	public IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
 		return
-		mSQLConnection
+		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadCoumnsByTableId(tableId))
 		.to(columnDTOMapper::createColumnDTO);
 	}
@@ -100,7 +100,7 @@ public final class SchemaReader implements ISchemaReader {
 	@Override
 	public IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
 		return
-		mSQLConnection
+		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadCoumnsByTableName(tableName))
 		.to(columnDTOMapper::createColumnDTO);
 	}
@@ -110,7 +110,7 @@ public final class SchemaReader implements ISchemaReader {
 	public IFlatTableDTO loadFlatTableById(final String id) {
 		return
 		tableDTOMapper.createTableDTO(
-			mSQLConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableById(id))
+			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableById(id))
 		);
 	}
 	
@@ -119,7 +119,7 @@ public final class SchemaReader implements ISchemaReader {
 	public IFlatTableDTO loadFlatTableByName(final String name) {
 		return
 		tableDTOMapper.createTableDTO(
-			mSQLConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableByName(name))
+			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableByName(name))
 		);
 	}
 	
@@ -127,7 +127,7 @@ public final class SchemaReader implements ISchemaReader {
 	@Override
 	public IContainer<IFlatTableDTO> loadFlatTables() {
 		return
-		mSQLConnection
+		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadFlatTables())
 		.to(tableDTOMapper::createTableDTO);
 	}
@@ -137,7 +137,7 @@ public final class SchemaReader implements ISchemaReader {
 	public Time loadSchemaTimestamp() {
 		return
 		Time.fromString(
-			mSQLConnection.getRecords(queryCreator.createQueryToLoadSchemaTimestamp()).getOriFirst().get(0)
+			sqlConnection.getRecords(queryCreator.createQueryToLoadSchemaTimestamp()).getOriFirst().get(0)
 		);
 	}
 	

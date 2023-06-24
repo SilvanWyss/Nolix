@@ -19,34 +19,34 @@ final class LoadedEntityDTOMapper {
 	private static final ContentFieldMapper contentFieldMapper = new ContentFieldMapper();
 	
 	//method
-	public ILoadedEntityDTO createLoadedEntityDTOFromSQLRecord(
-		final List<String> pSQLRecordValues,
+	public ILoadedEntityDTO createLoadedEntityDTOFrosqlRecord(
+		final List<String> sqlRecordValues,
 		final ITableInfo tableInfo
 	) {
 		return
 		new LoadedEntityDTO(
-			pSQLRecordValues.get(0),
-			pSQLRecordValues.get(1),
-			getContentFieldsFromSQLRecord(pSQLRecordValues, tableInfo)
+			sqlRecordValues.get(0),
+			sqlRecordValues.get(1),
+			getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo)
 		);
 	}
 	
 	//method
-	private IContainer<ILoadedContentFieldDTO> getContentFieldsFromSQLRecord(
-		final List<String> pSQLRecordValues,
+	private IContainer<ILoadedContentFieldDTO> getContentFieldsFrosqlRecord(
+		final List<String> sqlRecordValues,
 		final ITableInfo tableInfo
 	) {
-		return getContentFieldsFromSQLRecord(pSQLRecordValues, tableInfo.getColumnInfos());
+		return getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
 	}
 	
 	//method
-	private IContainer<ILoadedContentFieldDTO> getContentFieldsFromSQLRecord(
-		final List<String> pSQLRecordValues,
+	private IContainer<ILoadedContentFieldDTO> getContentFieldsFrosqlRecord(
+		final List<String> sqlRecordValues,
 		final IContainer<IColumnInfo> contentColumnDefinitions
 	) {
 		
 		final var contentFields = new LinkedList<ILoadedContentFieldDTO>();
-		var lSQLRecordValueIterator = pSQLRecordValues.iterator();
+		var lSQLRecordValueIterator = sqlRecordValues.iterator();
 		
 		//Skips id and save stamp.
 		lSQLRecordValueIterator.next();

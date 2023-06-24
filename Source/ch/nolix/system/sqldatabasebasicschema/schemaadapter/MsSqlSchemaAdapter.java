@@ -12,13 +12,13 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	//static method
 	public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,	
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
-		return new MsSqlSchemaAdapter(databaseName, pSQLConnectionPool);
+		return new MsSqlSchemaAdapter(databaseName, sqlConnectionPool);
 	}
 	
 	//constructor
-	private MsSqlSchemaAdapter(final String databaseName, final SqlConnectionPool pSQLConnectionPool) {
-		super(databaseName, pSQLConnectionPool, new MsSqlSchemaQueryCreator(), new MsSqlSchemaStatementCreator());
+	private MsSqlSchemaAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
+		super(databaseName, sqlConnectionPool, new MsSqlSchemaQueryCreator(), new MsSqlSchemaStatementCreator());
 	}
 }

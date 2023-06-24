@@ -20,12 +20,12 @@ public final class DatabaseReader implements IDatabaseReader {
 	//static method
 	public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		return
-		new DatabaseReader(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
+		new DatabaseReader(databaseName, sqlConnectionPool.borrowSQLConnection(), tableInfos, sqlSyntaxProvider);
 	}
 		
 	//attribute
@@ -40,17 +40,17 @@ public final class DatabaseReader implements IDatabaseReader {
 	//constructor
 	private DatabaseReader(
 		final String databaseName,
-		final SqlConnection pSQLConnection,
+		final SqlConnection sqlConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDatabaseReader = new InternalDatabaseReader(databaseName, pSQLConnection, pSQLSyntaxProvider);
+		internalDatabaseReader = new InternalDatabaseReader(databaseName, sqlConnection, sqlSyntaxProvider);
 		this.tableInfos = tableInfos;
 		
-		createCloseDependencyTo(pSQLConnection);
+		createCloseDependencyTo(sqlConnection);
 	}
 	
 	//method

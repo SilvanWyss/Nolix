@@ -21,16 +21,16 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 	//constructor
 	protected DatabaseAdapter(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaAdapter schemaAdapter,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		
 		this(
 			databaseName,
-			pSQLConnectionPool,
+			sqlConnectionPool,
 			databaseInspector.createTableDefinitionsFrom(schemaAdapter),
-			pSQLSyntaxProvider
+			sqlSyntaxProvider
 		);
 		
 		schemaAdapter.close();
@@ -39,22 +39,22 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 	//constructor
 	private DatabaseAdapter(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		super(
 			DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 				databaseName,
-				pSQLConnectionPool,
+				sqlConnectionPool,
 				tableInfos,
-				pSQLSyntaxProvider
+				sqlSyntaxProvider
 			),
 			DatabaseWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 				databaseName,
-				pSQLConnectionPool,
+				sqlConnectionPool,
 				tableInfos,
-				pSQLSyntaxProvider
+				sqlSyntaxProvider
 			)
 		);
 	}

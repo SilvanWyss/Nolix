@@ -21,10 +21,10 @@ extends ArgumentCapturer<SqlDatabaseEngine, N> {
 	}
 	
 	//method
-	public final N withSQLDatabaseEngine(final SqlDatabaseEngine pSQLDatabaseEngine) {
+	public final N withSQLDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		
-		return setArgumentAndGetNext(pSQLDatabaseEngine);
+		return setArgumentAndGetNext(sqlDatabaseEngine);
 	}
 }

@@ -21,7 +21,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 public abstract class SqlConnection implements GroupCloseable {
 	
 	//attribute
-	private final SqlDatabaseEngine mSQLDatabaseEngine;
+	private final SqlDatabaseEngine sqlDatabaseEngine;
 	
 	//attribute
 	private final Connection connection;
@@ -33,25 +33,25 @@ public abstract class SqlConnection implements GroupCloseable {
 	private final SqlConnectionPool parentSQLConnectionPool;
 	
 	//constructor
-	protected SqlConnection(final SqlDatabaseEngine pSQLDatabaseEngine, final Connection connection) {
+	protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		GlobalValidator.assertThat(connection).thatIsNamed(Connection.class).isNotNull();
 		
-		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
+		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		this.connection = connection;
 		parentSQLConnectionPool = null;
 	}
 	
 	//constructor
 	protected SqlConnection(
-		final SqlDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine sqlDatabaseEngine,
 		final int port,
 		final String userName,
 		final String userPassword
 	) {
 		this(
-			pSQLDatabaseEngine,
+			sqlDatabaseEngine,
 			IPv4Catalogue.LOOP_BACK_ADDRESS,
 			port,
 			userName,
@@ -61,23 +61,23 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//constructor
 	protected SqlConnection(
-		final SqlDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine sqlDatabaseEngine,
 		final String ip,
 		final int port,
 		final String userName,
 		final String userPassword
 	) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		
-		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
+		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		
 		registerSQLDatabaseEngineDriver();
 		
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://" + ip + ':'+ port, userName, userPassword);
-		} catch (final SQLException pSQLException) {
-			throw WrapperException.forError(pSQLException);
+		} catch (final SQLException sqlException) {
+			throw WrapperException.forError(sqlException);
 		}
 		
 		parentSQLConnectionPool = null;
@@ -85,7 +85,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//constructor
 	protected SqlConnection(
-		final SqlDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine sqlDatabaseEngine,
 		final String ip,
 		final int port,
 		final String userName,
@@ -93,7 +93,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		final SqlConnectionPool parentSQLConnectionPool
 	) {
 		
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		GlobalValidator.assertThat(parentSQLConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
 		
 		GlobalValidator
@@ -101,7 +101,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		.thatIsNamed("parent SQLConnectionPool")
 		.fulfills(SqlConnectionPool::isOpen);
 		
-		this.mSQLDatabaseEngine = pSQLDatabaseEngine;
+		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		
 		registerSQLDatabaseEngineDriver();
 		
@@ -112,8 +112,8 @@ public abstract class SqlConnection implements GroupCloseable {
 				userName,
 				userPassword
 			);
-		} catch (final SQLException pSQLException) {
-			throw WrapperException.forError(pSQLException);
+		} catch (final SQLException sqlException) {
+			throw WrapperException.forError(sqlException);
 		}
 		
 		this.parentSQLConnectionPool = parentSQLConnectionPool;
@@ -135,45 +135,45 @@ public abstract class SqlConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final SqlConnection execute(final Iterable<String> pSQLStatements) {
+	public final SqlConnection execute(final Iterable<String> sqlStatements) {
 		
 		try (final var statement = connection.createStatement()) {
 			
 			connection.setAutoCommit(false);
 			
-			for (final var lSQLStatement : pSQLStatements) {
+			for (final var lSQLStatement : sqlStatements) {
 				statement.addBatch(lSQLStatement);
 			}
 			
 			statement.executeBatch();
 			connection.commit();
-		} catch (final SQLException pSQLException) {
+		} catch (final SQLException sqlException) {
 			
 			try {
 				connection.rollback();
-			} catch (final SQLException pSQLException2) {
-				throw WrapperException.forError(pSQLException2);
+			} catch (final SQLException sqlException2) {
+				throw WrapperException.forError(sqlException2);
 			}
 			
-			throw WrapperException.forError(pSQLException);
+			throw WrapperException.forError(sqlException);
 		}
 		
 		return this;
 	}
 	
 	//method
-	public final SqlConnection execute(final String pSQLStatement) {
-		return execute(ReadContainer.withElements(pSQLStatement));
+	public final SqlConnection execute(final String sqlStatement) {
+		return execute(ReadContainer.withElements(sqlStatement));
 	}
 	
 	//method
-	public final SqlConnection execute(final String... pSQLStatements) {
-		return execute(ReadContainer.forArray(pSQLStatements));
+	public final SqlConnection execute(final String... sqlStatements) {
+		return execute(ReadContainer.forArray(sqlStatements));
 	}
 	
 	//method
-	public final List<String> getOneRecord(final String pSQLQuery) {
-		return getRecords(pSQLQuery).getOriOne();
+	public final List<String> getOneRecord(final String sqlQuery) {
+		return getRecords(sqlQuery).getOriOne();
 	}
 	
 	//method
@@ -183,12 +183,12 @@ public abstract class SqlConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final LinkedList<List<String>> getRecords(final String pSQLQuery) {
+	public final LinkedList<List<String>> getRecords(final String sqlQuery) {
 		
 		final var records = new LinkedList<List<String>>();
 		try (final var statement = connection.createStatement()) {
 			
-			try (final var result = statement.executeQuery(pSQLQuery)) {
+			try (final var result = statement.executeQuery(sqlQuery)) {
 			
 				final var columnCount = result.getMetaData().getColumnCount();
 				
@@ -200,21 +200,21 @@ public abstract class SqlConnection implements GroupCloseable {
 					records.addAtEnd(entries);
 				}
 			}
-		} catch (SQLException pSQLException) {
-			throw WrapperException.forError(pSQLException);
+		} catch (SQLException sqlException) {
+			throw WrapperException.forError(sqlException);
 		}
 		
 		return records;
 	}
 	
 	//method
-	public final IContainer<String> getRecordsAsStrings(final String pSQLQuery) {
-		return getRecords(pSQLQuery).toStrings();
+	public final IContainer<String> getRecordsAsStrings(final String sqlQuery) {
+		return getRecords(sqlQuery).toStrings();
 	}
 	
 	//method
 	public final SqlDatabaseEngine getSQLDatabaseEngine() {
-		return mSQLDatabaseEngine;
+		return sqlDatabaseEngine;
 	}
 	
 	//method
@@ -238,8 +238,8 @@ public abstract class SqlConnection implements GroupCloseable {
 	final void internalCloseDirectly() {
 		try {
 			connection.close();
-		} catch (final SQLException pSQLException) {
-			throw WrapperException.forError(pSQLException);
+		} catch (final SQLException sqlException) {
+			throw WrapperException.forError(sqlException);
 		}
 	}
 	

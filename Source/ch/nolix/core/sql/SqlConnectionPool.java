@@ -38,7 +38,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private final String databaseName;
 	
 	//attribute
-	private final SqlDatabaseEngine mSQLDatabaseEngine;
+	private final SqlDatabaseEngine sqlDatabaseEngine;
 	
 	//attribute
 	private final Credential credential;
@@ -47,14 +47,14 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//multi-attribute
-	private final LinkedList<SqlConnectionWrapper> mSQLConnections = new LinkedList<>();
+	private final LinkedList<SqlConnectionWrapper> sqlConnections = new LinkedList<>();
 	
 	//constructor
 	SqlConnectionPool(
 		final String ipOrAddressName,
 		final int port,
 		final String databaseName,
-		final SqlDatabaseEngine pSQLDatabaseEngine,
+		final SqlDatabaseEngine sqlDatabaseEngine,
 		final String loginName,
 		final String loginPassword
 	) {
@@ -62,12 +62,12 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
 		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
 		GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
-		GlobalValidator.assertThat(pSQLDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 				
 		this.ipOrAddressName = ipOrAddressName;
 		this.port = port;
 		this.databaseName = databaseName;
-		mSQLDatabaseEngine = pSQLDatabaseEngine;
+		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		credential = Credential.withLoginName(loginName).andPassword(loginPassword);
 	}
 	
@@ -84,7 +84,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//method
 	public boolean containsAvailableSQLConnection() {
-		return mSQLConnections.containsAny(SqlConnectionWrapper::isAvailable);
+		return sqlConnections.containsAny(SqlConnectionWrapper::isAvailable);
 	}
 	
 	//method
@@ -132,20 +132,20 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	//method
 	@Override
 	public SqlDatabaseEngine getSQLDatabaseEngine() {
-		return mSQLDatabaseEngine;
+		return sqlDatabaseEngine;
 	}
 	
 	//method
 	@Override
 	public void noteClose() {
-		for (final var sqlc : mSQLConnections) {
+		for (final var sqlc : sqlConnections) {
 			sqlc.close();
 		}
 	}
 	
 	//method
-	public void takeBackSQLConnection(final SqlConnection pSQLConnection) {
-		mSQLConnections.getOriFirst(sqlc -> sqlc.contains(pSQLConnection)).setAvailable();
+	public void takeBackSQLConnection(final SqlConnection sqlConnection) {
+		sqlConnections.getOriFirst(sqlc -> sqlc.contains(sqlConnection)).setAvailable();
 	}
 	
 	//method
@@ -160,7 +160,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 		final var lSQLConnectionWrapper =
 		SqlConnectionWrapper.forSQLConnection(sSQLConnectionFactory.createSQLConnectionFor(this));
 		
-		mSQLConnections.addAtEnd(lSQLConnectionWrapper);
+		sqlConnections.addAtEnd(lSQLConnectionWrapper);
 		
 		return lSQLConnectionWrapper;
 	}
@@ -168,7 +168,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	//method
 	private SqlConnectionWrapper getOrCreateAvailableSQLConnectionWrapper() {
 		
-		final var lSQLConnectionWrapper = mSQLConnections.getOriFirstOrNull(SqlConnectionWrapper::isAvailable);
+		final var lSQLConnectionWrapper = sqlConnections.getOriFirstOrNull(SqlConnectionWrapper::isAvailable);
 		if (lSQLConnectionWrapper != null) {
 			return lSQLConnectionWrapper;
 		}

@@ -19,20 +19,20 @@ public final class SchemaWriter implements ISchemaWriter {
 	//static method
 	public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
-		return new SchemaWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), schemaStatementCreator);
+		return new SchemaWriter(databaseName, sqlConnectionPool.borrowSQLConnection(), schemaStatementCreator);
 	}
 	
 	//attribute
 	private int saveCount;
 	
 	//attribute
-	private final SqlCollector mSQLCollector = new SqlCollector();
+	private final SqlCollector sqlCollector = new SqlCollector();
 	
 	//attribute
-	private final SqlConnection mSQLConnection;
+	private final SqlConnection sqlConnection;
 	
 	//attribute
 	private final ISchemaStatementCreator schemaStatementCreator;
@@ -43,41 +43,41 @@ public final class SchemaWriter implements ISchemaWriter {
 	//constructor
 	private SchemaWriter(
 		final String databaseName,
-		final SqlConnection pSQLConnection,
+		final SqlConnection sqlConnection,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
 		
 		GlobalValidator.assertThat(schemaStatementCreator).thatIsNamed(ISchemaStatementCreator.class).isNotNull();
 		
-		mSQLConnection = pSQLConnection;
+		this.sqlConnection = sqlConnection;
 		this.schemaStatementCreator = schemaStatementCreator;
 		
-		getOriCloseController().createCloseDependencyTo(mSQLConnection);
-		mSQLCollector.addSQLStatement("USE " + databaseName);
+		getOriCloseController().createCloseDependencyTo(sqlConnection);
+		sqlCollector.addSQLStatement("USE " + databaseName);
 	}
 	
 	//method
 	@Override
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		mSQLCollector.addSQLStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
+		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
 	}
 	
 	//method
 	@Override
 	public void addTable(final ITableDTO table) {
-		mSQLCollector.addSQLStatement(schemaStatementCreator.createStatementToAddTable(table));
+		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToAddTable(table));
 	}
 	
 	//method
 	@Override
 	public void deleteColumn(final String tableName, final String columnName) {
-		mSQLCollector.addSQLStatement(schemaStatementCreator.createStatementToDeleteColumn(tableName, columnName));
+		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToDeleteColumn(tableName, columnName));
 	}
 	
 	//method
 	@Override
 	public void deleteTable(final String tableName) {
-		mSQLCollector.addSQLStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
+		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
 	}
 	
 	//method
@@ -95,13 +95,13 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public IContainer<String> getSQLStatements() {
-		return mSQLCollector.getSQLStatements();
+		return sqlCollector.getSQLStatements();
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges() {
-		return mSQLCollector.containsAny();
+		return sqlCollector.containsAny();
 	}
 	
 	//method
@@ -113,7 +113,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-		mSQLCollector.addSQLStatement(
+		sqlCollector.addSQLStatement(
 			schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName)
 		);
 	}
@@ -121,20 +121,20 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void renameTable(final String tableName, final String newTableName) {
-		mSQLCollector.addSQLStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
+		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
 	}
 	
 	//method
 	@Override
 	public void reset() {
-		mSQLCollector.clear();
+		sqlCollector.clear();
 	}
 	
 	//method
 	@Override
 	public void saveChangesAndReset() {
 		try {
-			mSQLCollector.executeUsingConnection(mSQLConnection);
+			sqlCollector.executeUsingConnection(sqlConnection);
 			saveCount++;
 		} finally {
 			reset();

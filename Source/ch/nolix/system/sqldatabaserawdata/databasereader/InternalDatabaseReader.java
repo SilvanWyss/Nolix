@@ -25,7 +25,7 @@ final class InternalDatabaseReader {
 	private static final ValueMapper valueMapper = new ValueMapper();
 	
 	//attribute
-	private final SqlConnection mSQLConnection;
+	private final SqlConnection sqlConnection;
 	
 	//attribute
 	private final IEntityQueryCreator entityQueryCreator;
@@ -39,25 +39,25 @@ final class InternalDatabaseReader {
 	//constructor
 	public InternalDatabaseReader(
 		final String databaseName,
-		final SqlConnection pSQLConnection,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final SqlConnection sqlConnection,
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		
-		GlobalValidator.assertThat(pSQLConnection).thatIsNamed(SqlConnection.class).isNotNull();
+		GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 		
-		mSQLConnection = pSQLConnection;
-		entityQueryCreator = pSQLSyntaxProvider.getEntityQueryCreator();
-		multiValueQueryCreator = pSQLSyntaxProvider.getMultiValueQueryCreator();
-		multiReferenceQueryCreator = pSQLSyntaxProvider.getMultiReferenceQueryCreator();
+		this.sqlConnection = sqlConnection;
+		entityQueryCreator = sqlSyntaxProvider.getEntityQueryCreator();
+		multiValueQueryCreator = sqlSyntaxProvider.getMultiValueQueryCreator();
+		multiReferenceQueryCreator = sqlSyntaxProvider.getMultiReferenceQueryCreator();
 		
-		mSQLConnection.execute("USE " + databaseName);
+		sqlConnection.execute("USE " + databaseName);
 	}
 	
 	//method
 	public Time getSchemaTimestamp() {
 		return
 		Time.fromString(
-			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0)
+			sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0)
 		);
 	}
 	
@@ -67,7 +67,7 @@ final class InternalDatabaseReader {
 		final IColumnInfo multiReferenceColumnInfo
 	) {
 		return
-		mSQLConnection
+		sqlConnection
 		.getRecords(
 			multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
 				entityId,
@@ -83,7 +83,7 @@ final class InternalDatabaseReader {
 		final IColumnInfo multiValueColumnInfo
 	) {
 		return
-		mSQLConnection
+		sqlConnection
 		.getRecords(
 			multiValueQueryCreator.createQueryToLoadMultiValueEntries(
 				entityId,
@@ -96,16 +96,16 @@ final class InternalDatabaseReader {
 	//method
 	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
-		mSQLConnection
+		sqlConnection
 		.getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
-		.to(r -> loadedEntityDTOMapper.createLoadedEntityDTOFromSQLRecord(r, tableInfo));
+		.to(r -> loadedEntityDTOMapper.createLoadedEntityDTOFrosqlRecord(r, tableInfo));
 	}
 	
 	//method
 	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
 		return
-		loadedEntityDTOMapper.createLoadedEntityDTOFromSQLRecord(
-			mSQLConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
+		loadedEntityDTOMapper.createLoadedEntityDTOFrosqlRecord(
+			sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
 			tableInfo
 		);
 	}
@@ -139,7 +139,7 @@ final class InternalDatabaseReader {
 		
 		final var entityCount =
 		Integer.valueOf(
-			mSQLConnection
+			sqlConnection
 			.getOneRecord(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
 			.get(0)
 		);
@@ -153,7 +153,7 @@ final class InternalDatabaseReader {
 		final String referencedEntityId
 	) {
 		return
-		mSQLConnection.getRecords(
+		sqlConnection.getRecords(
 			multiReferenceQueryCreator
 			.createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
 				columnId,
@@ -168,7 +168,7 @@ final class InternalDatabaseReader {
 		final String value
 	) {
 		return
-		mSQLConnection.getRecords(
+		sqlConnection.getRecords(
 			multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
 				columnId,
 				value
@@ -184,7 +184,7 @@ final class InternalDatabaseReader {
 	) {
 		return
 		Integer.valueOf(
-			mSQLConnection.getOneRecord(
+			sqlConnection.getOneRecord(
 				entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
 					tableName,
 					singleColumnName,

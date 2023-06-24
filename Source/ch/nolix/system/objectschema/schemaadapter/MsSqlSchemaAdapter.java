@@ -15,7 +15,7 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	//static method
 	public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
 		return
 		new MsSqlSchemaAdapter(
@@ -23,7 +23,7 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 			ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				databaseName,
-				pSQLConnectionPool
+				sqlConnectionPool
 			)
 		);
 	}

@@ -22,11 +22,11 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	//static attribute
 	public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool,
+		final SqlConnectionPool sqlConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
-		return new DatabaseWriter(databaseName, pSQLConnectionPool.borrowSQLConnection(), tableInfos, pSQLSyntaxProvider);
+		return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSQLConnection(), tableInfos, sqlSyntaxProvider);
 	}
 	
 	//attribute
@@ -41,17 +41,17 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	//constructor
 	private DatabaseWriter(
 		final String databaseName,
-		final SqlConnection pSQLConnection,
+		final SqlConnection sqlConnection,
 		final IContainer<ITableInfo> tableInfos,
-		final ISqlSyntaxProvider pSQLSyntaxProvider
+		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		
 		GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 		
-		internalDatabaseWriter = new InternalDatabaseWriter(databaseName, pSQLConnection, pSQLSyntaxProvider);		
+		internalDatabaseWriter = new InternalDatabaseWriter(databaseName, sqlConnection, sqlSyntaxProvider);		
 		this.tableInfos = tableInfos;
 		
-		createCloseDependencyTo(pSQLConnection);
+		createCloseDependencyTo(sqlConnection);
 	}
 	
 	//method

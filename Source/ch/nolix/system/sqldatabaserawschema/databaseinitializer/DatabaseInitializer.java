@@ -18,11 +18,11 @@ public final class DatabaseInitializer {
 	public void initializeDatabaseIfNotInitialized(
 		final String databaseName,
 		final ISchemaAdapter schemaAdapter,
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
 		switch (databaseSchemaInspector.getDatabaseSchemaState(schemaAdapter)) {
 			case UNINITIALIZED:
-				internalDatabaseInitializer.initializeDatabase(databaseName, schemaAdapter, pSQLConnectionPool);
+				internalDatabaseInitializer.initializeDatabase(databaseName, schemaAdapter, sqlConnectionPool);
 				break;
 			case INITIALIZED:
 				break;

@@ -12,17 +12,17 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	//static method
 	public static MsSqlDatabaseAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
-		return new MsSqlDatabaseAdapter(databaseName, pSQLConnectionPool);
+		return new MsSqlDatabaseAdapter(databaseName, sqlConnectionPool);
 	}
 	
 	//constructor
-	private MsSqlDatabaseAdapter(final String databaseName, final SqlConnectionPool pSQLConnectionPool) {
+	private MsSqlDatabaseAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
 		super(
 			databaseName,
-			pSQLConnectionPool,
-			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
+			sqlConnectionPool,
+			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
 			new SqlSyntaxProvider()
 		);
 	}

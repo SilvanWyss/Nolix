@@ -24,7 +24,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//attribute
-	private final SqlConnectionPool mSQLConnectionPool; 
+	private final SqlConnectionPool sqlConnectionPool; 
 	
 	//constructor
 	MsSqlDatabaseAdapter(
@@ -52,21 +52,21 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	private MsSqlDatabaseAdapter(
 		final String databaseName,
 		final ISchema schema,
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
 		
 		super(
 			databaseName,
-			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, pSQLConnectionPool),
+			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
 			schema,
 			() ->
 			MsSqlDatabaseAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				databaseName,
-				pSQLConnectionPool
+				sqlConnectionPool
 			)
 		);
 		
-		mSQLConnectionPool = pSQLConnectionPool;
+		this.sqlConnectionPool = sqlConnectionPool;
 	}
 	
 	//method
@@ -83,21 +83,21 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	
 	//method
 	private String getLoginPassword() {
-		return mSQLConnectionPool.getLoginPassword();
+		return sqlConnectionPool.getLoginPassword();
 	}
 	
 	//method
 	private String getLoginName() {
-		return mSQLConnectionPool.getLoginName();
+		return sqlConnectionPool.getLoginName();
 	}
 	
 	//method
 	private int getPort() {
-		return mSQLConnectionPool.getPort();
+		return sqlConnectionPool.getPort();
 	}
 	
 	//method
 	private String getIpOrAddress() {
-		return mSQLConnectionPool.getIpOrAddressName();
+		return sqlConnectionPool.getIpOrAddressName();
 	}
 }

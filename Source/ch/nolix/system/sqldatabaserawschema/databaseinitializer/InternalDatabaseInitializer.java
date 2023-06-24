@@ -20,7 +20,7 @@ final class InternalDatabaseInitializer {
 	public void initializeDatabase(
 		final String databaseName,
 		final ISchemaAdapter schemaAdapter,
-		final SqlConnectionPool pSQLConnectionPool
+		final SqlConnectionPool sqlConnectionPool
 	) {
 		
 		schemaAdapter.addTable(DatabasePropertyTableSqlDtoCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
@@ -32,11 +32,11 @@ final class InternalDatabaseInitializer {
 		
 		schemaAdapter.saveChangesAndReset();
 		
-		createSchemaTimestampEntry(databaseName, pSQLConnectionPool);
+		createSchemaTimestampEntry(databaseName, sqlConnectionPool);
 	}
 
-	private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool pSQLConnectionPool) {
-		try (final var lSQLConnection = pSQLConnectionPool.borrowSQLConnection()) {
+	private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool sqlConnectionPool) {
+		try (final var lSQLConnection = sqlConnectionPool.borrowSQLConnection()) {
 			lSQLConnection.execute("USE " + databaseName);
 			lSQLConnection.execute(createSQLStatementToCreateSchemaTimestampEntry());
 		}
