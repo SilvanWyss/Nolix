@@ -16,7 +16,7 @@ public final class ControlHelper {
 	private ControlHelper() {}
 	
 	//method
-	public HtmlAttribute createIdHTMLAttributeForControl(final IControl<?, ?> control) {
+	public HtmlAttribute createIdHtmlAttributeForControl(final IControl<?, ?> control) {
 		return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, control.getInternalId());
 	}
 }

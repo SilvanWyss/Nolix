@@ -30,7 +30,7 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(floatContainer)),
+			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(floatContainer)),
 			createHtmlElementsForChildControlsOfFloatContainer(floatContainer)
 		);
 	}

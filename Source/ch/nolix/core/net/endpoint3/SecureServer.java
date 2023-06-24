@@ -29,9 +29,9 @@ public final class SecureServer extends BaseServer {
 	private final ch.nolix.core.net.endpoint2.SecureServer internalWebSocketServer;
 			
 	//constructor
-	public SecureServer(final int port, final String HTMLPage, final ISSLCertificate paramSSLCertificate) {
+	public SecureServer(final int port, final String HtmlPage, final ISSLCertificate paramSSLCertificate) {
 		
-		internalWebSocketServer = new ch.nolix.core.net.endpoint2.SecureServer(port, HTMLPage, paramSSLCertificate);
+		internalWebSocketServer = new ch.nolix.core.net.endpoint2.SecureServer(port, HtmlPage, paramSSLCertificate);
 		
 		createCloseDependencyTo(internalWebSocketServer);
 	}

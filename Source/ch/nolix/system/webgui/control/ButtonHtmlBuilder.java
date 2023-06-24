@@ -24,7 +24,7 @@ public final class ButtonHtmlBuilder implements IControlHtmlBuilder<Button> {
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.BUTTON,
 			ImmutableList.withElement(
-				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(button)
+				ControlHelper.INSTANCE.createIdHtmlAttributeForControl(button)
 			),
 			button.getText()
 		);

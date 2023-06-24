@@ -199,7 +199,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String htmlEvent) {
+	public void runHtmlEvent(final String htmlEvent) {
 		GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onchange");
 	}
 	

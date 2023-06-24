@@ -21,32 +21,32 @@ public final class LayerHtmlCreator {
 	private LayerHtmlCreator() {}
 	
 	//method
-	public IHtmlElement<?, ?> getHTMLElementForLayer(final ILayer<?> layer) {
+	public IHtmlElement<?, ?> getHtmlElementForLayer(final ILayer<?> layer) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			getHTMLAttributesForLayer(layer),
-			getHTMLChildElementsForLayer(layer)
+			getHtmlAttributesForLayer(layer),
+			getHtmlChildElementsForLayer(layer)
 		);
 	}
 	
 	//method
-	private IContainer<IHtmlAttribute> getHTMLAttributesForLayer(final ILayer<?> layer) {
-		return ImmutableList.withElement(LayerHelper.INSTANCE.createIdHTMLAttributeForLayer(layer));
+	private IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer<?> layer) {
+		return ImmutableList.withElement(LayerHelper.INSTANCE.createIdHtmlAttributeForLayer(layer));
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> getHTMLChildElementsForLayer(final ILayer<?> layer) {
+	private IContainer<IHtmlElement<?, ?>> getHtmlChildElementsForLayer(final ILayer<?> layer) {
 		
 		if (layer.isEmpty()) {
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElement(getContentHTMLElementForLayer(layer));
+		return ImmutableList.withElement(getContentHtmlElementForLayer(layer));
 	}
 	
 	//method
-	private IHtmlElement<?, ?> getContentHTMLElementForLayer(final ILayer<?> layer) {
+	private IHtmlElement<?, ?> getContentHtmlElementForLayer(final ILayer<?> layer) {
 		return layer.getOriRootControl().toHtmlElement();
 	}
 }

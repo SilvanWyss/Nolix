@@ -25,7 +25,7 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<Verti
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(verticalStack)),
+			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(verticalStack)),
 			createHtmlElementsForChildControlsOfVerticalStack(verticalStack)
 		);
 	}

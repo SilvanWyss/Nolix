@@ -28,7 +28,7 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	ICSS<?, ?> getCSS();
 	
 	//method declaration
-	IContainer<IHtmlElementEvent> getHTMLElementEventRegistrations();
+	IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
 	
 	//method declaration
 	@Override

@@ -68,10 +68,10 @@ PresenceSettable<C> {
 	CL getOriStyle();
 	
 	//method declaration
-	void registerHTMLElementEventsAt(ILinkedList<IHtmlElementEvent> list);
+	void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 	
 	//method declaration
-	void runHTMLEvent(String htmlEvent);
+	void runHtmlEvent(String htmlEvent);
 	
 	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);

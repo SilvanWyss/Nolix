@@ -42,8 +42,8 @@ final class WebGUIContent implements IWebGUIContent {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			getHTMLAttributes(),
-			getHTMLChildElements()
+			getHtmlAttributes(),
+			getHtmlChildElements()
 		);
 	}
 	
@@ -54,12 +54,12 @@ final class WebGUIContent implements IWebGUIContent {
 	}
 	
 	//method
-	private IContainer<? extends IHtmlAttribute> getHTMLAttributes() {
+	private IContainer<? extends IHtmlAttribute> getHtmlAttributes() {
 		return LinkedList.withElements(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, ROOT_DIV_ID));
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> getHTMLChildElements() {
+	private IContainer<IHtmlElement<?, ?>> getHtmlChildElements() {
 		return parentWebGUI.getOriLayers().to(ILayer::toHtmlElement);
 	}
 }

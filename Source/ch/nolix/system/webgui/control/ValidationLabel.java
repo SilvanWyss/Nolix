@@ -99,14 +99,14 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	
 	//method
 	@Override
-	public void runHTMLEvent(String htmlEvent) {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
+	public void runHtmlEvent(String htmlEvent) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
 	}
 	
 	//method
@@ -138,7 +138,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<ValidationLabel> getHTMLBuilder() {
+	protected IControlHtmlBuilder<ValidationLabel> getHtmlBuilder() {
 		return new ValidationHtmlBuilder();
 	}
 	

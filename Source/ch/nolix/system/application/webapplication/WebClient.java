@@ -60,7 +60,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
 		switch (command.getHeader()) {
 			case ControlCommandProtocol.RUN_HTML_EVENT:
-				runRunHTMLEventCommandOnControl(control, command);
+				runRunHtmlEventCommandOnControl(control, command);
 				updateCounterpartIfOpen();
 				break;
 			default:
@@ -111,11 +111,11 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	}
 	
 	//method
-	private void runRunHTMLEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHTMLEventCommand) {
+	private void runRunHtmlEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHtmlEventCommand) {
 		
-		final var htmlEvent = runHTMLEventCommand.getSingleChildNodeHeader();
+		final var htmlEvent = runHtmlEventCommand.getSingleChildNodeHeader();
 		
-		control.runHTMLEvent(htmlEvent);
+		control.runHtmlEvent(htmlEvent);
 	}
 	
 	//method

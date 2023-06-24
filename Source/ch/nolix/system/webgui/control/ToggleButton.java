@@ -97,10 +97,10 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		
 		//Registers a HTML event, that will be triggered after the HTML toggle button, at the HTML container element.
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onmouseup"));
+		list.addAtEnd(HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup"));
 	}
 	
 	//method
@@ -117,7 +117,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String htmlEvent) {
+	public void runHtmlEvent(final String htmlEvent) {
 		if (!htmlEvent.equals("onmouseup")) {
 			throw InvalidArgumentException.forArgumentNameAndArgument("HTML event", htmlEvent);
 		}
@@ -198,7 +198,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<IToggleButton> getHTMLBuilder() {
+	protected IControlHtmlBuilder<IToggleButton> getHtmlBuilder() {
 		//TODO: Implement.
 		return null;
 	}

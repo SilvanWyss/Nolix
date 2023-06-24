@@ -20,14 +20,14 @@ public final class ValidationHtmlBuilder implements IControlHtmlBuilder<Validati
 			return
 			HtmlElement.withTypeAndAttributes(
 				HtmlElementTypeCatalogue.DIV,
-				ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control))
+				ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control))
 			);
 		}
 		
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
+			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
 			control.getError().getMessage()
 		);
 	}

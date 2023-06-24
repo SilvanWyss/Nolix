@@ -68,7 +68,7 @@ public final class BackendWebClientCounterpartUpdater {
 		ImmutableList.withElements(
 			createSetTitleCommandFromWebGUI(webGUI),
 			createSetIconCommandFromWebGUI(webGUI),
-			createSetRootHTMLElementCommandFromWebGUI(webGUI),
+			createSetRootHtmlElementCommandFromWebGUI(webGUI),
 			createSetCSSCommandFromWebGUI(webGUI),
 			createSetEventFunctionsCommandFromWebGUI(webGUI),
 			createSetUserInputFunctionsCommandFromWebGUI(webGUI)
@@ -107,12 +107,12 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetRootHTMLElementCommandFromWebGUI(final IWebGUI<?> webGUI) {
-		return createSetRootHTMLElementCommandFromHtmlElement(webGUI.getContent().toHtmlElement());
+	private ChainedNode createSetRootHtmlElementCommandFromWebGUI(final IWebGUI<?> webGUI) {
+		return createSetRootHtmlElementCommandFromHtmlElement(webGUI.getContent().toHtmlElement());
 	}
 	
 	//method
-	private ChainedNode createSetRootHTMLElementCommandFromHtmlElement(final IHtmlElement<?, ?> htmlElement) {
+	private ChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement<?, ?> htmlElement) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
@@ -147,7 +147,7 @@ public final class BackendWebClientCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetEventFunctionsCommandFromWebGUI(final IWebGUI<?> webGUI) {
-		return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGUI.getHTMLElementEventRegistrations());
+		return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGUI.getHtmlElementEventRegistrations());
 	}
 	
 	//method
@@ -157,7 +157,7 @@ public final class BackendWebClientCounterpartUpdater {
 		
 		final var eventFunctions =
 		htmlElementEventRegistrations.to(
-			e -> Node.withChildNode(Node.withHeader(e.getHTMLElementId()), Node.withHeader(e.getHTMLEvent()))
+			e -> Node.withChildNode(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent()))
 		);
 		
 		return

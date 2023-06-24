@@ -52,16 +52,16 @@ public final class BackendWebClientPartialCounterpartUpdater {
 	
 	//method
 	private IContainer<ChainedNode> createUpdateCommandsFromControl(final IControl<?, ?> control) {
-		return ImmutableList.withElement(createSetRootHTMLElementCommandFromControl(control));
+		return ImmutableList.withElement(createSetRootHtmlElementCommandFromControl(control));
 	}
 	
 	//method
-	private ChainedNode createSetRootHTMLElementCommandFromControl(final IControl<?, ?> control) {
-		return createSetHTMLElementCommandFromHtmlElement(control.getInternalId(), control.toHtmlElement());
+	private ChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
+		return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.toHtmlElement());
 	}
 	
 	//method
-	private ChainedNode createSetHTMLElementCommandFromHtmlElement(
+	private ChainedNode createSetHtmlElementCommandFromHtmlElement(
 		final String htmlElementId,
 		final IHtmlElement<?, ?> htmlElement
 	) {

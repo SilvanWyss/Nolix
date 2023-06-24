@@ -127,7 +127,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	
@@ -145,7 +145,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<GridContainer> getHTMLBuilder() {
+	protected IControlHtmlBuilder<GridContainer> getHtmlBuilder() {
 		return GridContainerHtmlBuilder.INSTANCE;
 	}
 	

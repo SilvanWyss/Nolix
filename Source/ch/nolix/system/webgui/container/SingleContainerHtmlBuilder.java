@@ -25,7 +25,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<Sin
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
+			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
 			createHtmlElementsForChildControlsOfSingleContainer(control)
 		);
 	}

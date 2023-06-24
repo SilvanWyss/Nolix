@@ -432,7 +432,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final IHtmlElement<?, ?> toHtmlElement() {
-		return getHTMLBuilder().createHtmlElementForControl(asConcrete());
+		return getHtmlBuilder().createHtmlElementForControl(asConcrete());
 	}
 	
 	//method
@@ -448,7 +448,7 @@ implements IControl<C, CS> {
 	protected abstract IControlCSSRuleBuilder<C, CS> getCSSRuleCreator();
 	
 	//method declaration
-	protected abstract IControlHtmlBuilder<C> getHTMLBuilder();
+	protected abstract IControlHtmlBuilder<C> getHtmlBuilder();
 	
 	//method declaration
 	protected abstract void resetControl();

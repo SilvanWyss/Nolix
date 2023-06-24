@@ -135,10 +135,10 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		list.addAtEnd(
-			HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onmousedown"),
-			HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onmouseup")
+			HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"),
+			HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup")
 		);
 	}
 	
@@ -173,7 +173,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String htmlEvent) {
+	public void runHtmlEvent(final String htmlEvent) {
 		switch (htmlEvent) {
 			case "onmousedown" ->
 				pressLeftMouseButton();
@@ -274,7 +274,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<Button> getHTMLBuilder() {
+	protected IControlHtmlBuilder<Button> getHtmlBuilder() {
 		return ButtonHtmlBuilder.INSTANCE;
 	}
 	

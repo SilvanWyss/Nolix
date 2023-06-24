@@ -16,7 +16,7 @@ public final class LayerHelper {
 	private LayerHelper() {}
 	
 	//method
-	public HtmlAttribute createIdHTMLAttributeForLayer(final ILayer<?> layer) {
+	public HtmlAttribute createIdHtmlAttributeForLayer(final ILayer<?> layer) {
 		return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, layer.getInternalId());
 	}
 }

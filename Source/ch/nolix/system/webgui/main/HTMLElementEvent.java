@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 public record HTMLElementEvent(String htmlElementId, String htmlEvent) implements IHtmlElementEvent {
 	
 	//static method
-	public static HTMLElementEvent withHTMLElementIdAndHtmlEvent(final String htmlElementId, final String htmlEvent) {
+	public static HTMLElementEvent withHtmlElementIdAndHtmlEvent(final String htmlElementId, final String htmlEvent) {
 		return new HTMLElementEvent(htmlElementId, htmlEvent);
 	}
 	
@@ -25,13 +25,13 @@ public record HTMLElementEvent(String htmlElementId, String htmlEvent) implement
 	
 	//method
 	@Override
-	public String getHTMLElementId() {
+	public String getHtmlElementId() {
 		return htmlElementId;
 	}
 	
 	//method
 	@Override
-	public String getHTMLEvent() {
+	public String getHtmlEvent() {
 		return htmlEvent;
 	}
 }

@@ -120,7 +120,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	
@@ -132,8 +132,8 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String htmlEvent) {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
+	public void runHtmlEvent(final String htmlEvent) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
 	}
 	
 	//method
@@ -196,7 +196,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<ITextbox> getHTMLBuilder() {
+	protected IControlHtmlBuilder<ITextbox> getHtmlBuilder() {
 		return TextboxHtmlBuilder.INSTANCE;
 	}
 	

@@ -378,7 +378,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public IHtmlElement<?, ?> toHtmlElement() {
-		return LayerHtmlCreator.INSTANCE.getHTMLElementForLayer(this);
+		return LayerHtmlCreator.INSTANCE.getHtmlElementForLayer(this);
 	}
 	
 	//method

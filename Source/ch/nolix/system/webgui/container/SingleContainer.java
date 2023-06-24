@@ -61,7 +61,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	
@@ -89,7 +89,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<SingleContainer> getHTMLBuilder() {
+	protected IControlHtmlBuilder<SingleContainer> getHtmlBuilder() {
 		return SingleContainerHtmlBuilder.INSTANCE;
 	}
 	

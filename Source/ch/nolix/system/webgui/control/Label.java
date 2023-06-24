@@ -101,7 +101,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 		
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	
@@ -113,8 +113,8 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String htmlEvent) {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
+	public void runHtmlEvent(final String htmlEvent) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
 	}
 	
 	//method
@@ -160,7 +160,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<Label> getHTMLBuilder() {
+	protected IControlHtmlBuilder<Label> getHtmlBuilder() {
 		return LabelHtmlBuilder.INSTANCE;
 	}
 	

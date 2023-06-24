@@ -38,7 +38,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 		
 		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
 		
-		htmlAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(dropdownMenu));
+		htmlAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(dropdownMenu));
 		
 		return htmlAttribtues;
 	}

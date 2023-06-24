@@ -27,7 +27,7 @@ public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.INPUT,
 			ImmutableList.withElements(
-				ControlHelper.INSTANCE.createIdHTMLAttributeForControl(textbox),
+				ControlHelper.INSTANCE.createIdHtmlAttributeForControl(textbox),
 				HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.VALUE, textbox.getText())
 			)
 		);

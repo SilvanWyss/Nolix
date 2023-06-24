@@ -21,7 +21,7 @@ public final class VerticalStack extends LinearContainer<VerticalStack, Vertical
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<VerticalStack> getHTMLBuilder() {
+	protected IControlHtmlBuilder<VerticalStack> getHtmlBuilder() {
 		return VerticalStackHtmlBuilder.INSTANCE;
 	}
 	

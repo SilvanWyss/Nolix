@@ -68,7 +68,7 @@ public final class SecureServer extends BaseServer {
 	//constructor
 	public SecureServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
 		
-		final var htmlPage = new SecureServerHTMLPage(domain, port);
+		final var htmlPage = new SecureServerHtmlPage(domain, port);
 		final var htmlPageAsString = htmlPage.toString();
 		
 		internalWebSocketServer =

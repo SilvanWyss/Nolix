@@ -72,7 +72,7 @@ implements ILinearContainer<LC, LCS> {
 	
 	//method
 	@Override
-	public final void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+	public final void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		//Does nothing.
 	}
 	

@@ -34,7 +34,7 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageC
 		
 		final var htmlAttributes = new LinkedList<HtmlAttribute>();
 		
-		htmlAttributes.addAtEnd(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(imageControl));
+		htmlAttributes.addAtEnd(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(imageControl));
 		
 		if (imageControl.containsAny()) {
 			htmlAttributes.addAtEnd(

@@ -45,8 +45,8 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onchange"));
+	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
+		list.addAtEnd(HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onchange"));
 	}
 	
 	//method
@@ -57,7 +57,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<DropdownMenu> getHTMLBuilder() {
+	protected IControlHtmlBuilder<DropdownMenu> getHtmlBuilder() {
 		return DropdownMenuHtmlBuilder.INSTANCE;
 	}
 	
