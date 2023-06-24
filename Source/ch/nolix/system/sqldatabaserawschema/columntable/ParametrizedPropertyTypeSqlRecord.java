@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaserawschema.columntable;
 
 //class
-public record ParametrizedPropertyTypeSQLRecord(
+public record ParametrizedPropertyTypeSqlRecord(
 	String propertyTypeValue,
 	String dataTypeValue,
 	String referencedTableIdValue,
