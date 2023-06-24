@@ -5,10 +5,10 @@ package ch.nolix.systemtest.guitest;
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public final class GUITestPool extends TestPool {
+public final class GuiTestPool extends TestPool {
 	
 	//constructor
-	public GUITestPool() {
+	public GuiTestPool() {
 		super();
 	}
 }

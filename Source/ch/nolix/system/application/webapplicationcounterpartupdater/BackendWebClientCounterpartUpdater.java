@@ -18,7 +18,7 @@ import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public final class BackendWebClientCounterpartUpdater {
@@ -51,7 +51,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	public void updateCounterpartFromWebGUI(final IWebGUI<?> webGUI) {
+	public void updateCounterpartFromWebGUI(final IWebGui<?> webGUI) {
 		
 		webGUI.applyStyleIfHasStyle();
 		
@@ -63,7 +63,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private IContainer<ChainedNode> createUpdateCommandsFromWebGUI(final IWebGUI<?> webGUI) {
+	private IContainer<ChainedNode> createUpdateCommandsFromWebGUI(final IWebGui<?> webGUI) {
 		return
 		ImmutableList.withElements(
 			createSetTitleCommandFromWebGUI(webGUI),
@@ -76,7 +76,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetTitleCommandFromWebGUI(final IWebGUI<?> webGUI) {
+	private ChainedNode createSetTitleCommandFromWebGUI(final IWebGui<?> webGUI) {
 		return createSetTitleCommandForTitle(webGUI.getTitle());
 	}
 	
@@ -93,7 +93,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetIconCommandFromWebGUI(final IWebGUI<?> webGUI) {
+	private ChainedNode createSetIconCommandFromWebGUI(final IWebGui<?> webGUI) {
 		return createSetIconCommandForIcon(webGUI.getIcon());
 	}
 	
@@ -107,7 +107,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetRootHtmlElementCommandFromWebGUI(final IWebGUI<?> webGUI) {
+	private ChainedNode createSetRootHtmlElementCommandFromWebGUI(final IWebGui<?> webGUI) {
 		return createSetRootHtmlElementCommandFromHtmlElement(webGUI.getContent().toHtmlElement());
 	}
 	
@@ -124,7 +124,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 		
 	//method
-	private ChainedNode createSetCSSCommandFromWebGUI(final IWebGUI<?> webGUI) {
+	private ChainedNode createSetCSSCommandFromWebGUI(final IWebGui<?> webGUI) {
 		return createSetCSSCommandFromCSS(webGUI.getCSS());
 	}
 	
@@ -146,7 +146,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetEventFunctionsCommandFromWebGUI(final IWebGUI<?> webGUI) {
+	private ChainedNode createSetEventFunctionsCommandFromWebGUI(final IWebGui<?> webGUI) {
 		return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGUI.getHtmlElementEventRegistrations());
 	}
 	
@@ -171,7 +171,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetUserInputFunctionsCommandFromWebGUI(final IWebGUI<?> webGUI) {
+	private ChainedNode createSetUserInputFunctionsCommandFromWebGUI(final IWebGui<?> webGUI) {
 		return createSetUserInputFunctionsCommandForControls(webGUI.getOriControls());
 	}
 	

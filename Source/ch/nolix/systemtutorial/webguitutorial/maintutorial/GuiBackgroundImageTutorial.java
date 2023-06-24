@@ -5,10 +5,10 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.control.Label;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.system.graphic.image.Image;
+import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 
-public final class HelloWorldGUITutorial {
+public final class GuiBackgroundImageTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -16,7 +16,7 @@ public final class HelloWorldGUITutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Hello World GUI tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplication("Background image tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -26,21 +26,19 @@ public final class HelloWorldGUITutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	public static final class MainSession extends WebClientSession<Object> {
+	private static final class MainSession extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
 			
-			//Creates Label.
-			final var label = new Label().setText("Hello World");
+			//Loads an Image.
+			final var image =
+			Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/pilatus.jpg");
 			
-			//Configures the style of the Label.
-			label.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
-			
-			//Adds the Label to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(label);
+			//Sets the Image as background image to the GUI of the current MainSession.
+			getOriGUI().setBackgroundImage(image, ImageApplication.SCALE_TO_FRAME);
 		}
 	}
 	
-	private HelloWorldGUITutorial() {}
+	private GuiBackgroundImageTutorial() {}
 }

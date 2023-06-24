@@ -11,18 +11,18 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
-import ch.nolix.systemapi.guiapi.mainapi.IGUI;
+import ch.nolix.systemapi.guiapi.mainapi.IGui;
 
 //interface
-public interface IWebGUI<WGUI extends IWebGUI<WGUI>>
-extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
+public interface IWebGui<WG extends IWebGui<WG>>
+extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	
 	//method declaration
 	@Override
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
-	IWebGUIContent getContent();
+	IWebGuiContent getContent();
 	
 	//method declaration
 	ICSS<?, ?> getCSS();
@@ -54,21 +54,21 @@ extends Clearable, ICanvas<WGUI>, IGUI<WGUI>, IStyleElement<WGUI> {
 	IFrontEndWriter onFrontEnd();
 	
 	//method declaration
-	WGUI pushLayer(ILayer<?> layer);
+	WG pushLayer(ILayer<?> layer);
 	
 	//method declaration
-	WGUI pushLayerWithRootControl(IControl<?, ?> rootControl);
+	WG pushLayerWithRootControl(IControl<?, ?> rootControl);
 	
 	//method declaration
 	void removeLayer(ILayer<?> layer);
 	
 	//method declaration
-	WGUI setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
+	WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
 	
 	//method declaration
 	@Override
-	WGUI setIcon(IImage icon);
+	WG setIcon(IImage icon);
 	
 	//method declaration
-	WGUI setRemoveLayerAction(IAction removeLayerAction);
+	WG setRemoveLayerAction(IAction removeLayerAction);
 }

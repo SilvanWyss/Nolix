@@ -29,7 +29,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
@@ -120,7 +120,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	);
 	
 	//optional attribute
-	private IWebGUI<?> parentGUI;
+	private IWebGui<?> parentGUI;
 	
 	//constructor
 	public Layer() {
@@ -214,7 +214,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IWebGUI<?> getOriParentGUI() {
+	public IWebGui<?> getOriParentGUI() {
 		
 		assertBelongsToGUI();
 		
@@ -367,7 +367,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public void technicalSetParentGUI(final IWebGUI<?> parentGUI) {
+	public void technicalSetParentGUI(final IWebGui<?> parentGUI) {
 		
 		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
 		assertDoesNotBelongToGUI();
@@ -403,7 +403,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	private void assertBelongsToGUI() {
 		if (!belongsToGUI()) {
-			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWebGUI.class);
+			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWebGui.class);
 		}
 	}
 	

@@ -11,25 +11,25 @@ import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGuiContent;
 
 //class
-final class WebGUIContent implements IWebGUIContent {
+final class WebGuiContent implements IWebGuiContent {
 	
 	//constant
 	private static final String ROOT_DIV_ID = "root";
 	
 	//static method
-	public static WebGUIContent forWebGUI(final IWebGUI<?> parentWebGUI) {
-		return new WebGUIContent(parentWebGUI);
+	public static WebGuiContent forWebGUI(final IWebGui<?> parentWebGUI) {
+		return new WebGuiContent(parentWebGUI);
 	}
 	
 	//attribute
-	private final IWebGUI<?> parentWebGUI;
+	private final IWebGui<?> parentWebGUI;
 	
 	//constructor
-	private WebGUIContent(final IWebGUI<?> parentWebGUI) {
+	private WebGuiContent(final IWebGui<?> parentWebGUI) {
 		
 		GlobalValidator.assertThat(parentWebGUI).thatIsNamed("parent web GUI").isNotNull();
 		

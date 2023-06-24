@@ -5,10 +5,8 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.graphic.color.ColorGradient;
 
-public final class GUIBackgroundColorGradientTutorial {
+public final class EmptyGuiTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -16,7 +14,7 @@ public final class GUIBackgroundColorGradientTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Background ColorGradient tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplication("Empty GUI tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -30,11 +28,10 @@ public final class GUIBackgroundColorGradientTutorial {
 		
 		@Override
 		protected void initialize() {
-			
-			//Sets a background ColorGradient to the GUI of the current MainSession.
-			getOriGUI().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
+			//Does nothing.
 		}
 	}
 	
-	private GUIBackgroundColorGradientTutorial() {}
+	private EmptyGuiTutorial() {}
 }
+

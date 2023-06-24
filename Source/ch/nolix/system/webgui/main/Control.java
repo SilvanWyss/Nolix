@@ -28,7 +28,7 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public abstract class Control<
@@ -212,7 +212,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IWebGUI<?> getOriParentGUI() {
+	public final IWebGui<?> getOriParentGUI() {
 		return getOriParentLayer().getOriParentGUI();
 	}
 	

@@ -35,11 +35,11 @@ import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUIContent;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGuiContent;
 
 //class
-public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI> {
+public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui> {
 	
 	//constant
 	public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
@@ -110,7 +110,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	private IAction removeLayerAction;
 	
 	//constructor
-	public WebGUI() {
+	public WebGui() {
 		
 		reset();
 		
@@ -169,14 +169,14 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public IWebGUIContent getContent() {
-		return WebGUIContent.forWebGUI(this);
+	public IWebGuiContent getContent() {
+		return WebGuiContent.forWebGUI(this);
 	}
 	
 	//method
 	@Override
 	public ICSS<?, ?> getCSS() {
-		return WebGUICSSCreator.INSTANCE.createCSSForWebGUI(this);
+		return WebGuiCSSCreator.INSTANCE.createCSSForWebGUI(this);
 	}
 	
 	//method
@@ -289,7 +289,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public WebGUI pushLayer(final ILayer<?> layer) {
+	public WebGui pushLayer(final ILayer<?> layer) {
 		
 		layer.technicalSetParentGUI(this);
 		
@@ -300,7 +300,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public WebGUI pushLayerWithRootControl(final IControl<?, ?> rootControl) {
+	public WebGui pushLayerWithRootControl(final IControl<?, ?> rootControl) {
 		return pushLayer(new Layer().setRootControl(rootControl));
 	}
 	
@@ -320,7 +320,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	}
 	
 	//method
-	public WebGUI setBackground(final IBackground background) {
+	public WebGui setBackground(final IBackground background) {
 		
 		this.background.setValue(background);
 		
@@ -329,31 +329,31 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public WebGUI setBackgroundColor(final IColor backgroundColor) {
+	public WebGui setBackgroundColor(final IColor backgroundColor) {
 		return setBackground(Background.withColor(backgroundColor));
 	}
 	
 	//method
 	@Override
-	public WebGUI setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
+	public WebGui setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
 		return setBackground(Background.withColorGradient(backgroundColorGradient));
 	}
 	
 	//method
 	@Override
-	public WebGUI setBackgroundImage(final IImage backgroundImage) {
+	public WebGui setBackgroundImage(final IImage backgroundImage) {
 		return setBackground(Background.withImage(backgroundImage));
 	}
 	
 	//method
 	@Override
-	public WebGUI setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
+	public WebGui setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
 		return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
 	}
 	
 	//method
 	@Override
-	public WebGUI setFrontEndReaderAndFrontEndWriter(
+	public WebGui setFrontEndReaderAndFrontEndWriter(
 		final IFrontEndReader frontEndReader,
 		final IFrontEndWriter frontEndWriter
 	) {
@@ -369,7 +369,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public WebGUI setIcon(final IImage icon) {
+	public WebGui setIcon(final IImage icon) {
 		
 		this.icon.setValue(Image.fromAnyImage(icon));
 		
@@ -378,7 +378,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public WebGUI setRemoveLayerAction(IAction removeLayerAction) {
+	public WebGui setRemoveLayerAction(IAction removeLayerAction) {
 		
 		GlobalValidator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
 		
@@ -389,7 +389,7 @@ public final class WebGUI extends StyleElement<WebGUI> implements IWebGUI<WebGUI
 	
 	//method
 	@Override
-	public WebGUI setTitle(final String title) {
+	public WebGui setTitle(final String title) {
 		
 		GlobalValidator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
 		

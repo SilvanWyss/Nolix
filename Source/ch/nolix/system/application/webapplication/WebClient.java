@@ -14,7 +14,7 @@ import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC> {
@@ -45,7 +45,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	}
 	
 	//method
-	void internalUpdateCounterpartFromWebGUI(final IWebGUI<?> webGUI) {
+	void internalUpdateCounterpartFromWebGUI(final IWebGui<?> webGUI) {
 		BackendWebClientCounterpartUpdater
 		.forCounterpartRunner(this::runOnCounterpart, this::isOpen)
 		.updateCounterpartFromWebGUI(webGUI);

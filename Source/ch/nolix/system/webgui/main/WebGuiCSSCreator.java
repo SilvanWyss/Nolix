@@ -11,16 +11,16 @@ import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public final class WebGUICSSCreator {
+public final class WebGuiCSSCreator {
 	
 	//static attribute
-	public static final WebGUICSSCreator INSTANCE = new WebGUICSSCreator();
+	public static final WebGuiCSSCreator INSTANCE = new WebGuiCSSCreator();
 	
 	//method
-	public CSS createCSSForWebGUI(final IWebGUI<?> webGUI) {
+	public CSS createCSSForWebGUI(final IWebGui<?> webGUI) {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
@@ -31,7 +31,7 @@ public final class WebGUICSSCreator {
 	
 	//method
 	private void fillUpCSSRulesOfWebGUIIntoList(
-		final IWebGUI<?> webGUI,
+		final IWebGui<?> webGUI,
 		final LinkedList<ICSSRule<?>> lCSSRules
 	) {
 		
@@ -46,7 +46,7 @@ public final class WebGUICSSCreator {
 	}
 	
 	//method
-	private IContainer<ICSSProperty> getBodyCSSPropertiesFromWebGUI(final IWebGUI<?> webGUI) {
+	private IContainer<ICSSProperty> getBodyCSSPropertiesFromWebGUI(final IWebGui<?> webGUI) {
 		
 		final var bodyCSSProperties = new LinkedList<ICSSProperty>();
 		
@@ -65,7 +65,7 @@ public final class WebGUICSSCreator {
 
 	//method
 	private void fillUpCSSRulesOfLayersOfWebGUIIntoList(
-		final IWebGUI<?> webGUI,
+		final IWebGui<?> webGUI,
 		final LinkedList<ICSSRule<?>> lCSSRules
 	) {
 		for (final var l : webGUI.getOriLayers()) {

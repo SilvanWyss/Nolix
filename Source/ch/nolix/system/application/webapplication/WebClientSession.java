@@ -4,22 +4,22 @@ package ch.nolix.system.application.webapplication;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClientSession;
-import ch.nolix.system.webgui.main.WebGUI;
+import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGUI;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<WebClient<AC>, AC> {
 	
 	//attribute
-	private final IWebGUI<?> webGUI = new WebGUI();
+	private final IWebGui<?> webGui = new WebGui();
 	
 	//optional attribute
 	private IControl<?, ?> controlToUpdate;
 	
 	//method
-	public final IWebGUI<?> getOriGUI() {
-		return webGUI;
+	public final IWebGui<?> getOriGUI() {
+		return webGui;
 	}
 	
 	//method

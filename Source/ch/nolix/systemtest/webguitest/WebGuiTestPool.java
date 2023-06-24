@@ -8,10 +8,10 @@ import ch.nolix.systemtest.webguitest.controltest.ControlTestPool;
 import ch.nolix.systemtest.webguitest.maintest.MainTestPool;
 
 //class
-public final class WebGUITestPool extends TestPool {
+public final class WebGuiTestPool extends TestPool {
 	
 	//constructor
-	public WebGUITestPool() {
+	public WebGuiTestPool() {
 		super(
 			new ContainerTestPool(),
 			new ControlTestPool(),

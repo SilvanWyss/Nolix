@@ -11,42 +11,42 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 /**
  * @author Silvan Wyss
  * @date 2022-07-31
- * @param <GUI> is the type of a {@link IGUI}.
+ * @param <G> is the type of a {@link IGui}.
  */
-public interface IGUI<GUI extends IGUI<GUI>> extends FluentTitleable<GUI> {
+public interface IGui<G extends IGui<G>> extends FluentTitleable<G> {
 	
 	//method declaration
 	/**
-	 * @return the {@link IFrontEndReader} of the current {@link IGUI}.
+	 * @return the {@link IFrontEndReader} of the current {@link IGui}.
 	 */
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
 	/**
-	 * @return the icon of the current {@link IGUI}.
+	 * @return the icon of the current {@link IGui}.
 	 */
 	IImage getIcon();
 	
 	//method declaration
 	/**
-	 * A root {@link IGUI} is a {@link IGUI} that is not contained in another {@link IGUI}.
+	 * A root {@link IGui} is a {@link IGui} that is not contained in another {@link IGui}.
 	 * 
-	 * @return true if the current {@link IGUI} is a root {@link IGUI}.
+	 * @return true if the current {@link IGui} is a root {@link IGui}.
 	 */
 	boolean isRootGUI();
 	
 	//method declaration
 	/**
-	 * @return the {@link IFrontEndWriter} of the current {@link IGUI}.
+	 * @return the {@link IFrontEndWriter} of the current {@link IGui}.
 	 */
 	IFrontEndWriter onFrontEnd();
 	
 	//method
 	/**
-	 * Sets the icon of the current{@link IGUI}.
+	 * Sets the icon of the current{@link IGui}.
 	 * 
 	 * @param icon
-	 * @return the current{@link IGUI}.
+	 * @return the current{@link IGui}.
 	 */
-	GUI setIcon(IImage icon);
+	G setIcon(IImage icon);
 }

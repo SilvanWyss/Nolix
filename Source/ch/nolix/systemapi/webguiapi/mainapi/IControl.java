@@ -59,7 +59,7 @@ PresenceSettable<C> {
 	IControl<?, ?> getOriParentControl();
 	
 	//method declaration
-	IWebGUI<?> getOriParentGUI();
+	IWebGui<?> getOriParentGUI();
 	
 	//method declaration
 	ILayer<?> getOriParentLayer();

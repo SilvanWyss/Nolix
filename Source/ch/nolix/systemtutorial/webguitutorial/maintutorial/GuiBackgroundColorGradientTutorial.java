@@ -5,9 +5,10 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.graphic.image.Image;
+import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.graphic.color.ColorGradient;
 
-public final class GUIIconTutorial {
+public final class GuiBackgroundColorGradientTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -15,7 +16,7 @@ public final class GUIIconTutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("GUI icon tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplication("Background ColorGradient tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -25,13 +26,15 @@ public final class GUIIconTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	public static final class MainSession extends WebClientSession<Object> {
+	private static final class MainSession extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
-			getOriGUI().setIcon(Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/matterhorn.jpg"));
+			
+			//Sets a background ColorGradient to the GUI of the current MainSession.
+			getOriGUI().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
 		}
 	}
 	
-	private GUIIconTutorial() {}
+	private GuiBackgroundColorGradientTutorial() {}
 }

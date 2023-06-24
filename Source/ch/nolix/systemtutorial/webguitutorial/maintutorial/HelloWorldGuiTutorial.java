@@ -5,8 +5,10 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
+import ch.nolix.system.webgui.control.Label;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class EmptyGUITutorial {
+public final class HelloWorldGuiTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -14,7 +16,7 @@ public final class EmptyGUITutorial {
 		final var server = Server.forDefaultPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Empty GUI tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplication("Hello World GUI tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startFirefoxOpeningLoopBackAddress();
@@ -24,14 +26,21 @@ public final class EmptyGUITutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	private static final class MainSession extends WebClientSession<Object> {
+	public static final class MainSession extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
-			//Does nothing.
+			
+			//Creates Label.
+			final var label = new Label().setText("Hello World");
+			
+			//Configures the style of the Label.
+			label.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
+			
+			//Adds the Label to the GUI of the current MainSession.
+			getOriGUI().pushLayerWithRootControl(label);
 		}
 	}
 	
-	private EmptyGUITutorial() {}
+	private HelloWorldGuiTutorial() {}
 }
-
