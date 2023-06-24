@@ -14,7 +14,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.programcontrolapi.processproperty.OnOffState;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.system.webgui.main.HTMLElementEvent;
+import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButton;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButtonStyle;
@@ -100,7 +100,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		
 		//Registers a HTML event, that will be triggered after the HTML toggle button, at the HTML container element.
-		list.addAtEnd(HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup"));
+		list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup"));
 	}
 	
 	//method

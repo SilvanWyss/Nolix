@@ -19,7 +19,7 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlhelper.ValidationLabelHelper;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.system.webgui.main.HTMLElementEvent;
+import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
@@ -137,8 +137,8 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		list.addAtEnd(
-			HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"),
-			HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup")
+			HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"),
+			HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup")
 		);
 	}
 	

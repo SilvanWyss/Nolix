@@ -5,7 +5,7 @@ import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.webgui.main.HTMLElementEvent;
+import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
@@ -46,7 +46,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onchange"));
+		list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onchange"));
 	}
 	
 	//method

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.system.webgui.main.HTMLElementEvent;
+import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
@@ -112,7 +112,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onclick"));
+		list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onclick"));
 	}
 	
 	//method
