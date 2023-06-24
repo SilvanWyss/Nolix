@@ -10,32 +10,82 @@ package ch.nolix.core.commontype.commontypeconstant;
  */
 public final class CharacterCatalogue {
 	
-	//constants
+	//constant
 	public static final char APOSTROPH = '\'';
+	
+	//constant
 	public static final char BACK_SLASH = '\\';
+	
+	//constant
 	public static final char BULLET = 0x2022;
+	
+	//constant
 	public static final char CLOSED_BRACKET = ')';
+	
+	//constant
 	public static final char CLOSED_CROCODILE_BRACKET = '>';
+	
+	//constant
 	public static final char CLOSED_SQUARE_BRACKET = ']';
+	
+	//constant
 	public static final char COMMA = ',';
+	
+	//constant
 	public static final char DOLLAR = '$';
+	
+	//constant
 	public static final char DOT = '.';
+	
+	//constant
 	public static final char ELLIPSIS = 0x2026;
+	
+	//constant
 	public static final char FAT_CHECK_MARK = 0x2714;
+	
+	//constant
 	public static final char FAT_CROSS = 0x2716;
+	
+	//constant
 	public static final char HOME = 0x2302;
+	
+	//constant
 	public static final char INFINITY = 0x221E;
+	
+	//constant
 	public static final char MINUS = '-';
+	
+	//constant
 	public static final char NEW_LINE = '\n';
+	
+	//constant
 	public static final char OPEN_BRACKET = '(';
+	
+	//constant
 	public static final char OPEN_CROCODILE_BRACKET = '<';
+	
+	//constant
 	public static final char OPEN_SQUARE_BRACKET = '[';
+	
+	//constant
 	public static final char QUOTE = '\"';
+	
+	//constant
 	public static final char RIGHT_ARROW = 0x2192;
+	
+	//constant
 	public static final char SEMICOLON = ';';
+	
+	//constant
 	public static final char SLASH = '/';
+	
+	//constant
 	public static final char SPACE = ' ';
+	
+	//constant
 	public static final char TABULATOR = '\t';
+	
+	//constant
 	public static final char UNDERSCORE = '_';
 	
 	//constructor
