@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.business.serverdashboardapplication;
 
-//own imports
-import ch.nolix.business.serverdashboardcontext.ServerDashboardContext;
-import ch.nolix.businessapi.serverdashboardcontextapi.IServerDashboardContext;
+import ch.nolix.business.serverdashboardlogic.ServerDashboardContext;
+import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;

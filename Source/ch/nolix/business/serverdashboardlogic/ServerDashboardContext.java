@@ -1,9 +1,8 @@
 //package declaration
-package ch.nolix.business.serverdashboardcontext;
+package ch.nolix.business.serverdashboardlogic;
 
-//own imports
-import ch.nolix.businessapi.serverdashboardcontextapi.IServerDashboardContext;
-import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

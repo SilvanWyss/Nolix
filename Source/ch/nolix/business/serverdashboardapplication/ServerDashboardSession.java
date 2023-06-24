@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.business.serverdashboardapplication;
 
-import ch.nolix.businessapi.serverdashboardcontextapi.IServerDashboardContext;
-import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;

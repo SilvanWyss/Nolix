@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.businessapi.serverdashboardcontextapi;
+package ch.nolix.businessapi.serverdashboardlogicapi;
 
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
