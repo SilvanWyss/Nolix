@@ -22,7 +22,7 @@ public final class MsSqlDatabaseAdapterTutorial {
 		
 		final var schema = Schema.withEntityType(Person.class);
 		
-		final var lMSSQLNodeDatabaseAdapter =
+		final var msSqlNodeDatabaseAdapter =
 		MsSqlDatabaseAdapter
 		.toLocalHost()
 		.andDefaultPort()
@@ -34,12 +34,12 @@ public final class MsSqlDatabaseAdapterTutorial {
 		final var donaldDuck = new Person();
 		donaldDuck.firstName.setValue("Donald");
 		donaldDuck.lastName.setValue("Duck");
-		lMSSQLNodeDatabaseAdapter.insert(donaldDuck);
+		msSqlNodeDatabaseAdapter.insert(donaldDuck);
 		
-		lMSSQLNodeDatabaseAdapter.saveChangesAndReset();
+		msSqlNodeDatabaseAdapter.saveChangesAndReset();
 		
 		final var loadedDonaldDuck =
-		lMSSQLNodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(donaldDuck.getId());
+		msSqlNodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(donaldDuck.getId());
 		
 		System.out.println(loadedDonaldDuck.toString());
 	}
