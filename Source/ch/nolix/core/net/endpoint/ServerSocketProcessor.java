@@ -120,7 +120,7 @@ final class ServerSocketProcessor extends Worker {
 				}
 				
 				if (HttpRequest.canBe(lines)) {
-					sendRawMessage(parentServer.getHTTPMessage());
+					sendRawMessage(parentServer.getHttpMessage());
 					return new SingleContainer<>();
 				}
 				

@@ -36,7 +36,7 @@ public final class ShellProvider {
 	//static method
 	public static void startDefaultWebBrowserOpeningURL(final String pURL) {
 		try {
-			Desktop.getDesktop().browse(new URI(getURLWithHTTPPrefix(pURL)));
+			Desktop.getDesktop().browse(new URI(getURLWithHttpPrefix(pURL)));
 		} catch (final IOException | URISyntaxException exception) {
 			throw WrapperException.forError(exception);
 		}
@@ -87,7 +87,7 @@ public final class ShellProvider {
 	}
 	
 	//static method
-	private static String getURLWithHTTPPrefix(final String pURL) {
+	private static String getURLWithHttpPrefix(final String pURL) {
 		
 		if (!pURL.startsWith("http://")) {
 			return ("http://" + pURL);

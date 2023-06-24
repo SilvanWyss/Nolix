@@ -44,18 +44,18 @@ public final class Server extends BaseServer {
 	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * When a web browser connects to the {@link Server},
-	 * the {@link Server} will send the given HTTP message and close the connection.
+	 * the {@link Server} will send the given httpMessage and close the connection.
 	 * 
 	 * @param port
-	 * @param HTTPMessage
+	 * @param httpMessage
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws ArgumentIsNullException if the given HTTP message is null.
-	 * @throws EmptyArgumentException if the given HTTP message is blank.
+	 * @throws ArgumentIsNullException if the given httpMessage is null.
+	 * @throws EmptyArgumentException if the given httpMessage is blank.
 	 */
-	public Server(final int port, final String HTTPMessage) {
+	public Server(final int port, final String httpMessage) {
 		
 		//Creates the internal net server of the current net server.
-		internalServer = new ch.nolix.core.net.endpoint2.Server(port, HTTPMessage);
+		internalServer = new ch.nolix.core.net.endpoint2.Server(port, httpMessage);
 		
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependencyTo(internalServer);

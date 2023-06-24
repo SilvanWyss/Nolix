@@ -53,7 +53,7 @@ public final class Server extends BaseServer {
 	
 	//attributes
 	private final int port;
-	private final String mHTTPMessage;
+	private final String httpMessage;
 	private final ServerSocket serverSocket;
 	
 	//constructor
@@ -84,27 +84,27 @@ public final class Server extends BaseServer {
 	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * 
 	 * When a web browser connects to the {@link Server},
-	 * the {@link Server} will send the given HTTP message and close the connection.
+	 * the {@link Server} will send the given httpMessage and close the connection.
 	 * 
 	 * @param port
-	 * @param HTTPMessage
+	 * @param httpMessage
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 * @throws ArgumentIsNullException if the given HTTP message is null.
-	 * @throws EmptyArgumentException if the given HTTP message is blank.
+	 * @throws ArgumentIsNullException if the given httpMessage is null.
+	 * @throws EmptyArgumentException if the given httpMessage is blank.
 	 */
-	public Server(final int port, final String HTTPMessage) {
-			
+	public Server(final int port, final String httpMessage) {
+		
 		//Asserts that the given port is in [0,65535]. 
 		GlobalValidator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 		
-		//Asserts that the given HTTP message is not null or blank.
-		GlobalValidator.assertThat(HTTPMessage).thatIsNamed("HTTP message").isNotBlank();
+		//Asserts that the given httpMessage is not null or blank.
+		GlobalValidator.assertThat(httpMessage).thatIsNamed("HTTP message").isNotBlank();
 		
 		//Sets the port of the current Server.
 		this.port = port;
 		
-		//Sets the HTTP message of the current Server.
-		this.mHTTPMessage = HTTPMessage;
+		//Sets the httpMessage of the current Server.
+		this.httpMessage = httpMessage;
 		
 		try {
 			
@@ -127,16 +127,16 @@ public final class Server extends BaseServer {
 	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the default port.
 	 * 
 	 * When a web browser connects to the {@link Server},
-	 * the {@link Server} will send the given HTTP message and close the connection.
+	 * the {@link Server} will send the given httpMessage and close the connection.
 	 * 
-	 * @param HTTPMessage
-	 * @throws ArgumentIsNullException if the given HTTP message is null.
-	 * @throws EmptyArgumentException if the given HTTP message is blank.
+	 * @param httpMessage
+	 * @throws ArgumentIsNullException if the given httpMessage is null.
+	 * @throws EmptyArgumentException if the given httpMessage is blank.
 	 */
-	public Server(final String HTTPMessage) {
+	public Server(final String httpMessage) {
 		
 		//Calls other constructor.
-		this(DEFAULT_PORT, HTTPMessage);
+		this(DEFAULT_PORT, httpMessage);
 	}
 	
 	//method
@@ -166,8 +166,8 @@ public final class Server extends BaseServer {
 	 * 
 	 * @return the HTTP message of the current {@link Server}.
 	 */
-	String getHTTPMessage() {
-		return mHTTPMessage;
+	String getHttpMessage() {
+		return httpMessage;
 	}
 	
 	//method
