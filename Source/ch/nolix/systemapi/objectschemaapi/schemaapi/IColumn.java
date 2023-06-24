@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Identified;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //interface
 public interface IColumn
@@ -26,5 +26,5 @@ extends Deletable, EmptinessRequestable, IDatabaseObject, Identified, FluentName
 	IColumn setParametrizedPropertyType(IParametrizedPropertyType parametrizedPropertyType);
 	
 	//method declaration
-	IColumnDTO toDTO();
+	IColumnDto toDTO();
 }

@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 //own imports
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //interface
 public interface IMultiValueHelper extends IPropertyHelper {
@@ -18,8 +18,8 @@ public interface IMultiValueHelper extends IPropertyHelper {
 	<V> boolean canRemoveValue(IMultiValue<V> multiValue, V value);
 	
 	//method declaration
-	<V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(IMultiValue<V> multiValue, V addedValue);
+	<V> IEntityUpdateDto createEntityUpdateDTOForAddedValue(IMultiValue<V> multiValue, V addedValue);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForClear(IMultiValue<?> multiValue);
+	IEntityUpdateDto createEntityUpdateDTOForClear(IMultiValue<?> multiValue);
 }

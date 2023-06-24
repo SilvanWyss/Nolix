@@ -3,8 +3,8 @@ package ch.nolix.system.sqldatabasebasicschema.mssqllanguage;
 
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaStatementCreator;
 
@@ -68,7 +68,7 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	}
 	
 	//method
-	private String getConstraintAsSql(final IConstraintDTO constraint) {
+	private String getConstraintAsSql(final IConstraintDto constraint) {
 		
 		var sql = constraint.getType().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
 		
@@ -85,12 +85,12 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	}
 	
 	//method
-	private String getConstraintParametersAsSql(final IConstraintDTO constraint) {
+	private String getConstraintParametersAsSql(final IConstraintDto constraint) {
 		return ("(" + constraint.getParameters().toStringWithSeparator(",") + ")");
 	}
 	
 	//method
-	private String getDataTypeAsSql(final IDataTypeDTO dataType) {
+	private String getDataTypeAsSql(final IDataTypeDto dataType) {
 		
 		if (!dataType.hasParameter()) {
 			return dataType.getName();

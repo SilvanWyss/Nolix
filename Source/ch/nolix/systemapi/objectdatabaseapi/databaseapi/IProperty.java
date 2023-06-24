@@ -9,7 +9,7 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.MandatoryRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //interface
 public interface IProperty extends EmptinessRequestable, IDatabaseObject, MandatoryRequestable, Named {
@@ -51,5 +51,5 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
 	void setUpdateAction(IAction updateAction);
 	
 	//method declaration
-	IContentFieldDTO technicalToContentField();
+	IContentFieldDto technicalToContentField();
 }

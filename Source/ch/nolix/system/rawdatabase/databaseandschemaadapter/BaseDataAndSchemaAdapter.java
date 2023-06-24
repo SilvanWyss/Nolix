@@ -7,14 +7,14 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -95,7 +95,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
+	public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
 		databaseAdapter.deleteEntity(tableName, entity);
 	}
 	
@@ -165,7 +165,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
+	public final void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
 		databaseAdapter.insertNewEntity(tableName, newEntity);
 	}
 	
@@ -191,43 +191,43 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method	
 	@Override
-	public final IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final String tableName) {
+	public final IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
 		return databaseAdapter.loadEntitiesOfTable(tableName);
 	}
 	
 	//method
 	@Override
-	public final IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public final IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
 		return schemaReader.loadColumnsByTableId(tableId);
 	}
 	
 	//method
 	@Override
-	public final IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public final IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
 		return schemaReader.loadColumnsByTableName(tableName);
 	}
 	
 	//method
 	@Override
-	public IFlatTableDTO loadFlatTableById(String id) {
+	public IFlatTableDto loadFlatTableById(String id) {
 		return schemaReader.loadFlatTableById(id);
 	}
 	
 	//method
 	@Override
-	public final IFlatTableDTO loadFlatTableByName(final String name) {
+	public final IFlatTableDto loadFlatTableByName(final String name) {
 		return schemaReader.loadFlatTableByName(name);
 	}
 	
 	//method
 	@Override
-	public final IContainer<IFlatTableDTO> loadFlatTables() {
+	public final IContainer<IFlatTableDto> loadFlatTables() {
 		return schemaReader.loadFlatTables();
 	}
 	
 	//method
 	@Override
-	public final ILoadedEntityDTO loadEntity(final String tableName, final String id) {
+	public final ILoadedEntityDto loadEntity(final String tableName, final String id) {
 		return databaseAdapter.loadEntity(tableName, id);
 	}
 	
@@ -239,19 +239,19 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final ITableDTO loadTableById(final String id) {
+	public final ITableDto loadTableById(final String id) {
 		return schemaReader.loadTableById(id);
 	}
 	
 	//method
 	@Override
-	public final ITableDTO loadTableByName(final String name) {
+	public final ITableDto loadTableByName(final String name) {
 		return schemaReader.loadTableByName(name);
 	}
 	
 	//method
 	@Override
-	public final IContainer<ITableDTO> loadTables() {
+	public final IContainer<ITableDto> loadTables() {
 		return schemaReader.loadTables();
 	}
 	
@@ -273,7 +273,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
 		databaseAdapter.setEntityAsUpdated(tableName, entity);
 	}
 	
@@ -295,7 +295,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void updateEntity(final String tableName, final IEntityUpdateDTO entityUpdate) {
+	public final void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
 		databaseAdapter.updateEntity(tableName, entityUpdate);
 	}
 }

@@ -11,14 +11,14 @@ import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
-import ch.nolix.system.objectschema.schemadto.ColumnDTO;
+import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //class
 public final class Column extends SchemaObject implements IColumn {
@@ -42,13 +42,13 @@ public final class Column extends SchemaObject implements IColumn {
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//static method
-	public static Column fromDTO(final IColumnDTO columnDTO, final IContainer<ITable> tables) {
+	public static Column fromDTO(final IColumnDto columnDto, final IContainer<ITable> tables) {
 		return
 		new Column(
-			columnDTO.getId(),
-			columnDTO.getName(),
+			columnDto.getId(),
+			columnDto.getName(),
 			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTO(
-				columnDTO.getParametrizedPropertyType(),
+				columnDto.getParametrizedPropertyType(),
 				tables
 			)
 		);
@@ -169,8 +169,8 @@ public final class Column extends SchemaObject implements IColumn {
 
 	//method
 	@Override
-	public ColumnDTO toDTO() {
-		return new ColumnDTO(getId(), getName(), getParametrizedPropertyType().toDTO());
+	public ColumnDto toDTO() {
+		return new ColumnDto(getId(), getName(), getParametrizedPropertyType().toDTO());
 	}
 	
 	//method

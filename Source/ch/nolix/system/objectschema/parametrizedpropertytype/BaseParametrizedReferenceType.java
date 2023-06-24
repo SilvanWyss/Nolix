@@ -4,14 +4,14 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDTO;
+import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
 
 //class
 public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType
@@ -68,9 +68,9 @@ implements IBaseParametrizedReferenceType {
 	
 	//method
 	@Override
-	public final IParametrizedPropertyTypeDTO toDTO() {
+	public final IParametrizedPropertyTypeDto toDTO() {
 		return
-		new BaseParametrizedReferenceTypeDTO(
+		new BaseParametrizedReferenceTypeDto(
 			getPropertyType(),
 			getDataType(),
 			getReferencedTable().getId()

@@ -7,11 +7,11 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.sqldatabasebasicschema.flatschemadto.FlatTableDTO;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDTO;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDTO;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDTO;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.system.sqldatabasebasicschema.flatschemadto.FlatTableDto;
+import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
+import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDto;
+import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
@@ -75,22 +75,22 @@ final class SchemaReader implements ISchemaReader {
 		return
 		sqlConnection
 		.getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
-		.to(r -> new ColumnDTO(r.get(0), new DataTypeDTO(r.get(1))));
+		.to(r -> new ColumnDto(r.get(0), new DataTypeDto(r.get(1))));
 	}
 	
 	//method
 	@Override
-	public IContainer<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDto> loadFlatTables() {
 		return
 		sqlConnection
 		.getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
-		.to(FlatTableDTO::new);
+		.to(FlatTableDto::new);
 	}
 	
 	//method
 	@Override
 	public IContainer<ITableDTO> loadTables() {
-		return loadFlatTables().to(t -> new TableDTO(t.getName(), loadColumns(t.getName())));
+		return loadFlatTables().to(t -> new TableDto(t.getName(), loadColumns(t.getName())));
 	}
 	
 	//method

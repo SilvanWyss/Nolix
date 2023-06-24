@@ -7,10 +7,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface IColumnDTO {
 	
 	//method declaration
-	IContainer<IConstraintDTO> getConstraints();
+	IContainer<IConstraintDto> getConstraints();
 	
 	//method declaration
-	IDataTypeDTO getDataType();
+	IDataTypeDto getDataType();
 	
 	//method declaration
 	String getName();

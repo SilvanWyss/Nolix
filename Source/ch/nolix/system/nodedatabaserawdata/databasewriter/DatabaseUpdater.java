@@ -13,9 +13,9 @@ import ch.nolix.system.nodedatabaserawdata.structure.TableNodeSearcher;
 import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -125,7 +125,7 @@ final class DatabaseUpdater {
 	public void deleteEntityFromTable(
 		final IMutableNode<?> database,
 		final String tableName,
-		final IEntityHeadDTO entity
+		final IEntityHeadDto entity
 	) {
 		
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
@@ -225,7 +225,7 @@ final class DatabaseUpdater {
 	public void insertEntityIntoTable(
 		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
-		final INewEntityDTO newEntity
+		final INewEntityDto newEntity
 	) {
 		final var tableNode =
 		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
@@ -244,7 +244,7 @@ final class DatabaseUpdater {
 	}
 	
 	//method
-	public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDTO entity) {
+	public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDto entity) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
@@ -269,7 +269,7 @@ final class DatabaseUpdater {
 	public void updateEntityOnTable(
 		final IMutableNode<?> database,
 		final ITableInfo tableInfo,
-		final IEntityUpdateDTO entityUpdate
+		final IEntityUpdateDto entityUpdate
 	) {
 		
 		final var tableNode =
@@ -297,7 +297,7 @@ final class DatabaseUpdater {
 	private void updateEntityNode(
 		final IMutableNode<?> entityNode,
 		final ITableInfo tableInfo,
-		final IEntityUpdateDTO entityUpdate
+		final IEntityUpdateDto entityUpdate
 	) {
 		for (final var ucf : entityUpdate.getUpdatedContentFields()) {
 			

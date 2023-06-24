@@ -6,13 +6,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalValueHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.OptionalValueValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalValueHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
@@ -89,13 +89,13 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
+	public IContentFieldDto technicalToContentField() {
 		
 		if (isEmpty()) {
-			return new ContentFieldDTO(getName());
+			return new ContentFieldDto(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getOriValue().toString());
+		return new ContentFieldDto(getName(), getOriValue().toString());
 	}
 	
 	//method

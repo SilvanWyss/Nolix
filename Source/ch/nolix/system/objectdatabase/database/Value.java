@@ -4,13 +4,13 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.system.objectdatabase.propertyhelper.ValueHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.ValueValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class Value<V> extends BaseValue<V> implements IValue<V> {
@@ -88,8 +88,8 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
-		return new ContentFieldDTO(getName(), getOriValue().toString());
+	public IContentFieldDto technicalToContentField() {
+		return new ContentFieldDto(getName(), getOriValue().toString());
 	}
 	
 	//method

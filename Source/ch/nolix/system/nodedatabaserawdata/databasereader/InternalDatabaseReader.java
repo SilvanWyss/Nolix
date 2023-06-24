@@ -10,7 +10,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.sqldatabaserawdata.databasereader.ValueMapper;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
@@ -28,7 +28,7 @@ public final class InternalDatabaseReader {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//static attribute
-	private static final LoadedEntityDTOMapper loadedEntityDTOMapper = new LoadedEntityDTOMapper();
+	private static final LoadedEntityDtoMapper loadedEntityDtoMapper = new LoadedEntityDtoMapper();
 	
 	//static attribute
 	private static final ValueMapper valueMapper = new ValueMapper();
@@ -54,7 +54,7 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
@@ -62,7 +62,7 @@ public final class InternalDatabaseReader {
 		return
 		tableNodeSearcher
 		.getOriEntityNodesFromTableNode(tableNode)
-		.to(rn -> loadedEntityDTOMapper.createLoadedEntityDTOFromEntityNode(rn, tableInfo));
+		.to(rn -> loadedEntityDtoMapper.createLoadedEntityDTOFromEntityNode(rn, tableInfo));
 	}
 	
 	//method
@@ -107,14 +107,14 @@ public final class InternalDatabaseReader {
 	}
 	
 	//method
-	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
+	public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
 		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, id);
 		
-		return loadedEntityDTOMapper.createLoadedEntityDTOFromEntityNode(entityNode, tableInfo);
+		return loadedEntityDtoMapper.createLoadedEntityDTOFromEntityNode(entityNode, tableInfo);
 	}
 	
 	//method

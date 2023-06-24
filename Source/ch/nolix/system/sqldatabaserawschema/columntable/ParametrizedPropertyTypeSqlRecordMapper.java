@@ -4,28 +4,28 @@ package ch.nolix.system.sqldatabaserawschema.columntable;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.sql.SqlSyntaxCatalogue;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
 
 //class
 public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	public ParametrizedPropertyTypeSqlRecord createParametrizedPropertyTypeRecordFrom(
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType 
+		final IParametrizedPropertyTypeDto parametrizedPropertyType 
 	) {
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
 			case BASE_VALUE:
-				return createBaseParametrizedValueTypeRecord((IBaseParametrizedValueTypeDTO)parametrizedPropertyType);
+				return createBaseParametrizedValueTypeRecord((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
 			case BASE_REFERENCE:
 				return
-				createBaseParametrizedReferenceTypeRecord((IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType);
+				createBaseParametrizedReferenceTypeRecord((IBaseParametrizedReferenceTypeDto)parametrizedPropertyType);
 			case BASE_BACK_REFERENCE:
 				return
 				createBaseParametrizedBackReferenceRecord(
-					(IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType
+					(IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyType
 				);
 			default:
 				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
@@ -34,7 +34,7 @@ public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	private ParametrizedPropertyTypeSqlRecord createBaseParametrizedBackReferenceRecord(
-		final IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType
+		final IBaseParametrizedBackReferenceTypeDto baseParametrizedBackReferenceType
 	) {
 		return
 		new ParametrizedPropertyTypeSqlRecord(
@@ -47,7 +47,7 @@ public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	private ParametrizedPropertyTypeSqlRecord createBaseParametrizedReferenceTypeRecord(
-		final IBaseParametrizedReferenceTypeDTO baseParametrizedReferenceType
+		final IBaseParametrizedReferenceTypeDto baseParametrizedReferenceType
 	) {
 		return
 		new ParametrizedPropertyTypeSqlRecord(
@@ -60,7 +60,7 @@ public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	private ParametrizedPropertyTypeSqlRecord createBaseParametrizedValueTypeRecord(
-		final IBaseParametrizedValueTypeDTO baseParametrizedPropertyType
+		final IBaseParametrizedValueTypeDto baseParametrizedPropertyType
 	) {
 		return
 		new ParametrizedPropertyTypeSqlRecord(

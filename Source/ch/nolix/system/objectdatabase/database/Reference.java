@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.ReferenceValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class Reference<E extends IEntity> extends BaseReference<E>
@@ -140,8 +140,8 @@ implements IReference<E> {
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
-		return new ContentFieldDTO(getName(), getReferencedEntityId());
+	public IContentFieldDto technicalToContentField() {
+		return new ContentFieldDto(getName(), getReferencedEntityId());
 	}
 	
 	//method

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //interface
 public interface IOptionalReferenceHelper {
@@ -17,10 +17,10 @@ public interface IOptionalReferenceHelper {
 	boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method
-	IEntityUpdateDTO createEntityUpdateDTOForClear(IOptionalReference<?> optionalReference);
+	IEntityUpdateDto createEntityUpdateDTOForClear(IOptionalReference<?> optionalReference);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
+	IEntityUpdateDto createEntityUpdateDTOForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method declaration
 	IProperty getOriBackReferencingPropertyOrNull(IOptionalReference<?> optionalReference);

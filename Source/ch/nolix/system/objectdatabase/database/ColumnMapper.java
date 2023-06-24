@@ -5,7 +5,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //class
 final class ColumnMapper {
@@ -15,16 +15,16 @@ final class ColumnMapper {
 	
 	//method
 	public IColumn createColumnFromDTOForParentTableUsingGivenReferencableTables(
-		final IColumnDTO columnDTO,
+		final IColumnDto columnDto,
 		final Table<IEntity> parentTable,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		return
 		Column.withNameAndIdAndParametrizedPropertyTypeAndParentTable(
-			columnDTO.getName(),
-			columnDTO.getId(),
+			columnDto.getName(),
+			columnDto.getId(),
 			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDTOUsingGivenReferencableTables(
-				columnDTO.getParametrizedPropertyType(),
+				columnDto.getParametrizedPropertyType(),
 				referencableTables
 			),
 			parentTable

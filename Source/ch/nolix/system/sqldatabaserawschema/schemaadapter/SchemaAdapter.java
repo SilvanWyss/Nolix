@@ -9,11 +9,11 @@ import ch.nolix.system.sqldatabaserawschema.databaseinitializer.DatabaseInitiali
 import ch.nolix.system.sqldatabaserawschema.schemareader.SchemaReader;
 import ch.nolix.system.sqldatabaserawschema.schemawriter.SchemaWriter;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -66,13 +66,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final void addColumn(final String tableName, IColumnDTO column) {
+	public final void addColumn(final String tableName, IColumnDto column) {
 		rawSchemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
 	@Override
-	public final void addTable(final ITableDTO table) {
+	public final void addTable(final ITableDto table) {
 		rawSchemaWriter.addTable(table);
 	}
 	
@@ -114,31 +114,31 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public final IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
 		return rawSchemaReader.loadColumnsByTableId(tableId);
 	}
 	
 	//method
 	@Override
-	public final IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public final IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
 		return rawSchemaReader.loadColumnsByTableName(tableName);
 	}
 	
 	//method
 	@Override
-	public final IFlatTableDTO loadFlatTableById(final String id) {
+	public final IFlatTableDto loadFlatTableById(final String id) {
 		return rawSchemaReader.loadFlatTableById(id);
 	}
 	
 	//method
 	@Override
-	public IFlatTableDTO loadFlatTableByName(final String name) {
+	public IFlatTableDto loadFlatTableByName(final String name) {
 		return rawSchemaReader.loadFlatTableByName(name);
 	}
 	
 	//method
 	@Override
-	public final IContainer<IFlatTableDTO> loadFlatTables() {
+	public final IContainer<IFlatTableDto> loadFlatTables() {
 		return rawSchemaReader.loadFlatTables();
 	}
 	
@@ -150,19 +150,19 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final ITableDTO loadTableById(final String id) {
+	public final ITableDto loadTableById(final String id) {
 		return rawSchemaReader.loadTableById(id);
 	}
 	
 	//method
 	@Override
-	public final ITableDTO loadTableByName(final String name) {
+	public final ITableDto loadTableByName(final String name) {
 		return rawSchemaReader.loadTableByName(name);
 	}
 	
 	//method
 	@Override
-	public final IContainer<ITableDTO> loadTables() {
+	public final IContainer<ITableDto> loadTables() {
 		return rawSchemaReader.loadTables();
 	}
 	
@@ -192,7 +192,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	@Override
 	public final void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		rawSchemaWriter.setColumnParametrizedPropertyType(columnId, parametrizedPropertyType);
 	}

@@ -9,9 +9,9 @@ import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProper
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableRecordMapper;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -26,7 +26,7 @@ final class SystemDataWriterSqlStatementCreator {
 	new TableTableRecordMapper();
 	
 	//method
-	public String createStatementToAddColumn(final String parentTableName, final IColumnDTO column) {
+	public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 		
 		final var parametrezidPropertyTypeRecord =
 		parametrizedPropertyTypeSqlRecordMapper.createParametrizedPropertyTypeRecordFrom(
@@ -74,7 +74,7 @@ final class SystemDataWriterSqlStatementCreator {
 	}
 	
 	//method
-	public LinkedList<String> createStatementsToAddTable(final ITableDTO table) {
+	public LinkedList<String> createStatementsToAddTable(final ITableDto table) {
 		
 		final var statements = new LinkedList<String>();
 		
@@ -138,7 +138,7 @@ final class SystemDataWriterSqlStatementCreator {
 	//method
 	public String createStatementToSetColumnParametrizedPropertyType(
 		final String columnID,
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		
 		final var parametrezidPropertyTypeRecord =
@@ -198,7 +198,7 @@ final class SystemDataWriterSqlStatementCreator {
 	}
 	
 	//method
-	private String createStatementToAddTableIgnoringColumns(ITableDTO table) {
+	private String createStatementToAddTableIgnoringColumns(ITableDto table) {
 		
 		final var tableSystemTableRecord = tableSystemTableRecordMapper.createTableSystemTableRecordFrom(table);
 		

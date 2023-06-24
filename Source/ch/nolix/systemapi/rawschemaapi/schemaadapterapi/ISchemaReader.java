@@ -3,9 +3,9 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
@@ -18,28 +18,28 @@ public interface ISchemaReader extends GroupCloseable {
 	int getTableCount();
 	
 	//method declaration
-	IContainer<IColumnDTO> loadColumnsByTableName(String tableName);
+	IContainer<IColumnDto> loadColumnsByTableName(String tableName);
 	
 	//method declaration
-	IContainer<IColumnDTO> loadColumnsByTableId(String tableId);
+	IContainer<IColumnDto> loadColumnsByTableId(String tableId);
 	
 	//method declaration
-	IFlatTableDTO loadFlatTableById(String id);
+	IFlatTableDto loadFlatTableById(String id);
 	
 	//method declaration
-	IFlatTableDTO loadFlatTableByName(String name);
+	IFlatTableDto loadFlatTableByName(String name);
 	
 	//method declaration
-	IContainer<IFlatTableDTO> loadFlatTables();
+	IContainer<IFlatTableDto> loadFlatTables();
 	
 	//method declaration
-	ITableDTO loadTableById(String id);
+	ITableDto loadTableById(String id);
 	
 	//method declaration
-	ITableDTO loadTableByName(String name);
+	ITableDto loadTableByName(String name);
 	
 	//method declaration
-	IContainer<ITableDTO> loadTables();
+	IContainer<ITableDto> loadTables();
 	
 	//method declaration
 	ITime loadSchemaTimestamp();

@@ -5,23 +5,23 @@ package ch.nolix.system.nodedatabaserawschema.schemawriter;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
 
 //class
 public final class ParametrizedPropertyTypeNodeMapper {
 	
 	//method
-	public Node createParametrizedPropertyTypeNodeFrom(final IParametrizedPropertyTypeDTO parametrizedPropertyType) {
+	public Node createParametrizedPropertyTypeNodeFrom(final IParametrizedPropertyTypeDto parametrizedPropertyType) {
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
 			case BASE_VALUE:
-				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedValueTypeDTO)parametrizedPropertyType);
+				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
 			case BASE_REFERENCE:
-				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType);
+				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedReferenceTypeDto)parametrizedPropertyType);
 			case BASE_BACK_REFERENCE:
-				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType);
+				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyType);
 			default:
 				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
 		}
@@ -29,7 +29,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	
 	//method
 	private Node createParametrizedPropertyTypeNodeFrom(
-		IBaseParametrizedBackReferenceTypeDTO baseParametrizedBackReferenceType
+		IBaseParametrizedBackReferenceTypeDto baseParametrizedBackReferenceType
 	) {
 		return
 		Node.withHeaderAndChildNode(
@@ -50,7 +50,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeNodeFrom(IBaseParametrizedReferenceTypeDTO baseParametrizedReferenceType) {
+	private Node createParametrizedPropertyTypeNodeFrom(IBaseParametrizedReferenceTypeDto baseParametrizedReferenceType) {
 		return
 		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
@@ -70,7 +70,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeNodeFrom(final IBaseParametrizedValueTypeDTO baseParametrizedValueType) {
+	private Node createParametrizedPropertyTypeNodeFrom(final IBaseParametrizedValueTypeDto baseParametrizedValueType) {
 		return
 		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,

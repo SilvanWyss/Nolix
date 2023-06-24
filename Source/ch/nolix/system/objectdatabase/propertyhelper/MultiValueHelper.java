@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiValueHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {
@@ -37,7 +37,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public <V> IEntityUpdateDTO createEntityUpdateDTOForAddedValue(
+	public <V> IEntityUpdateDto createEntityUpdateDTOForAddedValue(
 		final IMultiValue<V> multiValue,
 		final V addedValue
 	) {
@@ -45,24 +45,24 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		final var parentEntity = multiValue.getOriParentEntity();
 		
 		return
-		new EntityUpdateDTO(
+		new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(multiValue.getName(), "")
+			new ContentFieldDto(multiValue.getName(), "")
 		);
 	}
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiValue<?> multiValue) {
+	public IEntityUpdateDto createEntityUpdateDTOForClear(final IMultiValue<?> multiValue) {
 		
 		final var parentEntity = multiValue.getOriParentEntity();
 		
 		return
-		new EntityUpdateDTO(
+		new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(multiValue.getName())
+			new ContentFieldDto(multiValue.getName())
 		);
 	}
 	

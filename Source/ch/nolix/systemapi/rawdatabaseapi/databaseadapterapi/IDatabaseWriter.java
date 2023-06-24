@@ -3,9 +3,9 @@ package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
@@ -74,7 +74,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param entity
 	 */
-	void deleteEntity(String tableName, IEntityHeadDTO entity);
+	void deleteEntity(String tableName, IEntityHeadDto entity);
 	
 	//method declaration
 	/**
@@ -128,7 +128,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param newEntity
 	 */
-	void insertNewEntity(String tableName, INewEntityDTO newEntity);
+	void insertNewEntity(String tableName, INewEntityDto newEntity);
 	
 	//method declaration
 	/**
@@ -138,7 +138,7 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param entity
 	 */
-	void setEntityAsUpdated(String tableName, IEntityHeadDTO entity);
+	void setEntityAsUpdated(String tableName, IEntityHeadDto entity);
 	
 	//method declaration
 	/**
@@ -147,5 +147,5 @@ public interface IDatabaseWriter extends IMultiTimeChangeSaver {
 	 * @param tableName
 	 * @param entityUpdate
 	 */
-	void updateEntity(String tableName, IEntityUpdateDTO entityUpdate);
+	void updateEntity(String tableName, IEntityUpdateDto entityUpdate);
 }

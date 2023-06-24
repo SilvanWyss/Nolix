@@ -8,9 +8,9 @@ import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -68,14 +68,14 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void addColumn(final String tableName, final IColumnDTO column) {
+	public void addColumn(final String tableName, final IColumnDto column) {
 		systemDataWriter.addColumn(tableName, column);
 		internalSchemaWriter.addColumn(tableName, column);
 	}
 	
 	//method
 	@Override
-	public void addTable(final ITableDTO table) {
+	public void addTable(final ITableDto table) {
 		systemDataWriter.addTable(table);
 		internalSchemaWriter.addTable(table);
 	}
@@ -150,7 +150,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		systemDataWriter.setColumnParametrizedPropertyType(columnId, parametrizedPropertyType);
 	}

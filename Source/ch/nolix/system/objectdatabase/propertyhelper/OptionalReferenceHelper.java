@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //class
 public final class OptionalReferenceHelper extends PropertyHelper implements IOptionalReferenceHelper {
@@ -33,30 +33,30 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IOptionalReference<?> optionalReference) {
+	public IEntityUpdateDto createEntityUpdateDTOForClear(final IOptionalReference<?> optionalReference) {
 		
 		final var parentEntity = optionalReference.getOriParentEntity();
 		
-		return new EntityUpdateDTO(
+		return new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(optionalReference.getName())
+			new ContentFieldDto(optionalReference.getName())
 		);
 	}
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForSetEntity(
+	public IEntityUpdateDto createEntityUpdateDTOForSetEntity(
 		final IOptionalReference<?> optionalReference,
 		final IEntity entity
 	) {
 		
 		final var parentEntity = optionalReference.getOriParentEntity();
 		
-		return new EntityUpdateDTO(
+		return new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(optionalReference.getName(), entity.getId())
+			new ContentFieldDto(optionalReference.getName(), entity.getId())
 		);
 	}
 	

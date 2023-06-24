@@ -12,9 +12,9 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSea
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -70,7 +70,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void addColumn(final String tableName, final IColumnDTO column) {
+	public void addColumn(final String tableName, final IColumnDto column) {
 		
 		final var tableNode =
 		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
@@ -82,7 +82,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void addTable(final ITableDTO table) {
+	public void addTable(final ITableDto table) {
 		
 		editedDatabaseNode.addChildNode(tableNodeMapper.createTableNodeFrom(table));
 		
@@ -180,7 +180,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		
 		final var columnNode = databaseNodeSearcher.getOriColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);

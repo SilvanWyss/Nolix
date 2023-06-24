@@ -7,16 +7,16 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
-import ch.nolix.system.objectschema.schemadto.TableDTO;
-import ch.nolix.system.sqldatabaserawschema.columntable.ColumnDTOMapper;
+import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
+import ch.nolix.system.objectschema.schemadto.TableDto;
+import ch.nolix.system.sqldatabaserawschema.columntable.ColumnDtoMapper;
 import ch.nolix.system.sqldatabaserawschema.structure.TableType;
-import ch.nolix.system.sqldatabaserawschema.tabletable.TableDTOMapper;
+import ch.nolix.system.sqldatabaserawschema.tabletable.TableDtoMapper;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -27,10 +27,10 @@ public final class SchemaReader implements ISchemaReader {
 	private static final QueryCreator queryCreator = new QueryCreator();
 	
 	//static attribute
-	private static final TableDTOMapper tableDTOMapper = new TableDTOMapper();
+	private static final TableDtoMapper tableDtoMapper = new TableDtoMapper();
 	
 	//static attribute
-	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
+	private static final ColumnDtoMapper columnDtoMapper = new ColumnDtoMapper();
 	
 	//static method
 	public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
@@ -89,47 +89,47 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
 		return
 		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadCoumnsByTableId(tableId))
-		.to(columnDTOMapper::createColumnDTO);
+		.to(columnDtoMapper::createColumnDTO);
 	}
 	
 	//method
 	@Override
-	public IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
 		return
 		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadCoumnsByTableName(tableName))
-		.to(columnDTOMapper::createColumnDTO);
+		.to(columnDtoMapper::createColumnDTO);
 	}
 	
 	//method
 	@Override
-	public IFlatTableDTO loadFlatTableById(final String id) {
+	public IFlatTableDto loadFlatTableById(final String id) {
 		return
-		tableDTOMapper.createTableDTO(
+		tableDtoMapper.createTableDTO(
 			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableById(id))
 		);
 	}
 	
 	//method
 	@Override
-	public IFlatTableDTO loadFlatTableByName(final String name) {
+	public IFlatTableDto loadFlatTableByName(final String name) {
 		return
-		tableDTOMapper.createTableDTO(
+		tableDtoMapper.createTableDTO(
 			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableByName(name))
 		);
 	}
 	
 	//method
 	@Override
-	public IContainer<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDto> loadFlatTables() {
 		return
 		sqlConnection
 		.getRecords(queryCreator.createQueryToLoadFlatTables())
-		.to(tableDTOMapper::createTableDTO);
+		.to(tableDtoMapper::createTableDTO);
 	}
 	
 	//method
@@ -143,19 +143,19 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public ITableDTO loadTableById(final String id) {
+	public ITableDto loadTableById(final String id) {
 		return loadTable(loadFlatTableById(id));
 	}
 	
 	//method
 	@Override
-	public ITableDTO loadTableByName(final String name) {
+	public ITableDto loadTableByName(final String name) {
 		return loadTable(loadFlatTableByName(name));
 	}
 	
 	//method
 	@Override
-	public IContainer<ITableDTO> loadTables() {
+	public IContainer<ITableDto> loadTables() {
 		return loadFlatTables().to(t -> loadTableById(t.getId()));
 	}
 	
@@ -166,12 +166,12 @@ public final class SchemaReader implements ISchemaReader {
 	}
 	
 	//method
-	private ITableDTO loadTable(final IFlatTableDTO flatTable) {
+	private ITableDto loadTable(final IFlatTableDto flatTable) {
 		return
-		new TableDTO(
+		new TableDto(
 			flatTable.getId(),
 			flatTable.getName(),
-			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
+			new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP),
 			loadColumnsByTableId(flatTable.getId())
 		);
 	}

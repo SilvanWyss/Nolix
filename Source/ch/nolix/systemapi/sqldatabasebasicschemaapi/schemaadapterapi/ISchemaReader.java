@@ -3,7 +3,7 @@ package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDTO;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDTO;
 
@@ -17,7 +17,7 @@ public interface ISchemaReader extends GroupCloseable {
 	IContainer<IColumnDTO> loadColumns(String tableName);
 	
 	//method declaration
-	IContainer<IFlatTableDTO> loadFlatTables();
+	IContainer<IFlatTableDto> loadFlatTables();
 	
 	//method declaration
 	IContainer<ITableDTO> loadTables();

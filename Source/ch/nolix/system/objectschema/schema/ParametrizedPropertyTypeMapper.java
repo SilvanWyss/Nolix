@@ -15,16 +15,16 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropert
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
 
 //class
 public final class ParametrizedPropertyTypeMapper {
 	
 	//method
 	public ParametrizedPropertyType createParametrizedPropertyTypeFromDTO(
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
+		final IParametrizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		switch (parametrizedPropertyType.getPropertyType()) {
@@ -71,11 +71,11 @@ public final class ParametrizedPropertyTypeMapper {
 	
 	//method
 	private Column getOriBackReferencedColumnFromParametrizedPropertyType(
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
+		final IParametrizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		
-		final var baseParametrizedBackReferenceType = (IBaseParametrizedBackReferenceTypeDTO)parametrizedPropertyType;
+		final var baseParametrizedBackReferenceType = (IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyType;
 		final var backReferencedColumnId = baseParametrizedBackReferenceType.getBackReferencedColumnId();
 		
 		return
@@ -84,11 +84,11 @@ public final class ParametrizedPropertyTypeMapper {
 	
 	//method
 	private ITable getOriReferencedTableFromParametrizedPropertyType(
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType,
+		final IParametrizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		
-		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDTO)parametrizedPropertyType;
+		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDto)parametrizedPropertyType;
 		
 		return tables.getOriFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
 	}

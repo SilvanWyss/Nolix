@@ -5,7 +5,7 @@ package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaReader;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter;
@@ -114,7 +114,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final IContainer<IFlatTableDTO> loadFlatTables() {
+	public final IContainer<IFlatTableDto> loadFlatTables() {
 		return schemaReader.loadFlatTables();
 	}
 	

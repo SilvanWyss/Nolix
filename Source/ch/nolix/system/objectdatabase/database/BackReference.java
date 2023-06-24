@@ -5,13 +5,13 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class BackReference<E extends IEntity> extends BaseBackReference<E>
@@ -108,13 +108,13 @@ implements IBackReference<E>{
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
+	public IContentFieldDto technicalToContentField() {
 		
 		if (isEmpty()) {
-			return new ContentFieldDTO(getName());
+			return new ContentFieldDto(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getBackReferencedEntityId());
+		return new ContentFieldDto(getName(), getBackReferencedEntityId());
 	}
 	
 	//method

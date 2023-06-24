@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalReferenceHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.OptionalReferenceValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IOptionalReferenceHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalReferenceValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class OptionalReference<E extends IEntity> extends BaseReference<E>
@@ -154,13 +154,13 @@ implements IOptionalReference<E> {
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
+	public IContentFieldDto technicalToContentField() {
 		
 		if (isEmpty()) {
-			return new ContentFieldDTO(getName());
+			return new ContentFieldDto(getName());
 		}
 		
-		return new ContentFieldDTO(getName(), getReferencedEntityId());
+		return new ContentFieldDto(getName(), getReferencedEntityId());
 	}
 	
 	//method

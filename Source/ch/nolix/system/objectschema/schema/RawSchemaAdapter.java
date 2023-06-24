@@ -8,9 +8,9 @@ import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -58,12 +58,12 @@ final class RawSchemaAdapter {
 	}
 	
 	//method
-	public IContainer<IColumnDTO> loadColumnsOfTable(final ITable table) {
+	public IContainer<IColumnDto> loadColumnsOfTable(final ITable table) {
 		return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
 	}
 	
 	//method
-	public IContainer<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDto> loadFlatTables() {
 		return internalRawSchemaAdapter.loadFlatTables();
 	}
 	

@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 
 //interface
 public interface IEntityHelper extends IDatabaseObjectHelper {
@@ -26,13 +26,13 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 	
 	//method declaration
-	IEntityUpdateDTO createEntityUpdateDTOForEntity(IEntity entity);
+	IEntityUpdateDto createEntityUpdateDTOForEntity(IEntity entity);
 	
 	//method declaration
-	IEntityHeadDTO createEntityHeadDTOForEntity(IEntity entity);
+	IEntityHeadDto createEntityHeadDTOForEntity(IEntity entity);
 	
 	//method declaration
-	INewEntityDTO createNewEntityDTOForEntity(IEntity entity);
+	INewEntityDto createNewEntityDTOForEntity(IEntity entity);
 	
 	//method declaration
 	IContainer<IProperty> getOriBackReferencingProperties(IEntity entity);

@@ -2,13 +2,13 @@
 package ch.nolix.system.sqldatabaserawschema.tabletable;
 
 //own imports
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
 public final class TableTableRecordMapper {
 	
 	//method
-	public TableTableRecord createTableSystemTableRecordFrom(final ITableDTO table) {
+	public TableTableRecord createTableSystemTableRecordFrom(final ITableDto table) {
 		return
 		new TableTableRecord(
 			"'" + table.getId() + "'",

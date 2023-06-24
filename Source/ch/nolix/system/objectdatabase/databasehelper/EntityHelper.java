@@ -4,17 +4,17 @@ package ch.nolix.system.objectdatabase.databasehelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.NewEntityDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.NewEntityDto;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 
 //class
 public final class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
@@ -56,9 +56,9 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForEntity(final IEntity entity) {
+	public IEntityUpdateDto createEntityUpdateDTOForEntity(final IEntity entity) {
 		return
-		new EntityUpdateDTO(
+		new EntityUpdateDto(
 			entity.getId(),
 			entity.getSaveStamp(),
 			getOriEditedProperties(entity).to(IProperty::technicalToContentField)
@@ -67,15 +67,15 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public IEntityHeadDTO createEntityHeadDTOForEntity(IEntity entity) {
-		return new EntityHeadDTO(entity.getId(), entity.getSaveStamp());
+	public IEntityHeadDto createEntityHeadDTOForEntity(IEntity entity) {
+		return new EntityHeadDto(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method
 	@Override
-	public INewEntityDTO createNewEntityDTOForEntity(final IEntity entity) {
+	public INewEntityDto createNewEntityDTOForEntity(final IEntity entity) {
 		return
-		new NewEntityDTO(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
+		new NewEntityDto(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
 	}
 	
 	//method

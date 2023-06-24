@@ -7,17 +7,17 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.flatschemadto.FlatTableDTO;
-import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
-import ch.nolix.system.objectschema.schemadto.TableDTO;
+import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
+import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
+import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ISaveStampConfigurationDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
@@ -31,8 +31,8 @@ public final class Table extends SchemaObject implements ITable {
 	private static final ITableHelper tableHelper = new TableHelper();
 	
 	//static method
-	public static Table fromFlatDTO(final IFlatTableDTO flatTableDTO) {
-		return new Table(flatTableDTO.getId(), flatTableDTO.getName());
+	public static Table fromFlatDTO(final IFlatTableDto flatTableDto) {
+		return new Table(flatTableDto.getId(), flatTableDto.getName());
 	}
 	
 	//attribute
@@ -101,8 +101,8 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	@Override
-	public IFlatTableDTO getFlatDTO() {
-		return new FlatTableDTO(getId(), getName());
+	public IFlatTableDto getFlatDTO() {
+		return new FlatTableDto(getId(), getName());
 	}
 	
 	//method
@@ -153,8 +153,8 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	@Override
-	public TableDTO toDTO() {
-		return new TableDTO(getId(), getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
+	public TableDto toDTO() {
+		return new TableDto(getId(), getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
 	}
 	
 	//method
@@ -204,13 +204,13 @@ public final class Table extends SchemaObject implements ITable {
 	}
 	
 	//method
-	private IContainer<IColumnDTO> createColumnDTOs() {
+	private IContainer<IColumnDto> createColumnDTOs() {
 		return getOriColumns().to(IColumn::toDTO);
 	}
 	
 	//method
-	private ISaveStampConfigurationDTO createSaveStampConfigurationDTO() {
-		return new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP);
+	private ISaveStampConfigurationDto createSaveStampConfigurationDTO() {
+		return new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP);
 	}
 	
 	//method

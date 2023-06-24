@@ -5,9 +5,9 @@ package ch.nolix.system.sqldatabaserawdata.databasewriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SqlConnection;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreator;
@@ -99,7 +99,7 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
+	public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
 		sqlCollector.addSqlStatement(
 			entityStatementCreator.createStatementToDeleteEntity(tableName, entity)
 		);
@@ -156,7 +156,7 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
+	public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
 		sqlCollector.addSqlStatement(
 			entityStatementCreator.createStatementToInsertNewEntity(tableName, newEntity)
 		);
@@ -178,12 +178,12 @@ public final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+	public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
 		sqlCollector.addSqlStatement(entityStatementCreator.createStatementToSetEntityAsUpdated(tableName, entity));
 	}
 	
 	//method
-	public void updateEntityOnTable(final String tableName, final IEntityUpdateDTO entityUpdate) {
+	public void updateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
 		sqlCollector.addSqlStatement(
 			entityStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate)
 		);

@@ -6,9 +6,9 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
@@ -90,7 +90,7 @@ final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void deleteEntityFromTable(final String tableName, final IEntityHeadDTO entity) {
+	public void deleteEntityFromTable(final String tableName, final IEntityHeadDto entity) {
 		addChangeAction(d -> databaseUpdater.deleteEntityFromTable(d, tableName, entity));
 	}
 	
@@ -146,7 +146,7 @@ final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void insertEntityIntoTable(final ITableInfo tableInfo, final INewEntityDTO newEntity) {
+	public void insertEntityIntoTable(final ITableInfo tableInfo, final INewEntityDto newEntity) {
 		addChangeAction(d -> databaseUpdater.insertEntityIntoTable(d, tableInfo, newEntity));
 	}
 	
@@ -166,12 +166,12 @@ final class InternalDatabaseWriter {
 	}
 	
 	//method
-	public void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+	public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
 		addChangeAction(d -> databaseUpdater.setEntityAsUpdated(d, tableName, entity));
 	}
 	
 	//method
-	public void updateEntityOnTable(final ITableInfo tableInfo, IEntityUpdateDTO entityUpdate) {
+	public void updateEntityOnTable(final ITableInfo tableInfo, IEntityUpdateDto entityUpdate) {
 		addChangeAction(d -> databaseUpdater.updateEntityOnTable(d, tableInfo, entityUpdate));
 	}
 	

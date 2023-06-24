@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
 final class TableMapper {
@@ -15,30 +15,30 @@ final class TableMapper {
 	//method
 	@SuppressWarnings("unchecked")
 	public Table<IEntity> createEmptyTableFromTableDTOForDatabase(
-		final ITableDTO tableDTO,
+		final ITableDto tableDto,
 		final Database database
 	) {
 		return
 		Table.withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
 			database,
-			tableDTO.getName(),
-			tableDTO.getId(),
-			(Class<IEntity>)database.internalGetSchema().getEntityTypeByName(tableDTO.getName())
+			tableDto.getName(),
+			tableDto.getId(),
+			(Class<IEntity>)database.internalGetSchema().getEntityTypeByName(tableDto.getName())
 		);
 	}
 	
 	//method
 	public ITable<IEntity>
 	createTableFromTableDTOForDatabaseUsingGivenReferencableTables(
-		final ITableDTO tableDTO,
+		final ITableDto tableDto,
 		final Database database,
 		final IContainer<ITable<IEntity>> referencableTables
 	) {
 		
-		final var table = createEmptyTableFromTableDTOForDatabase(tableDTO, database);
+		final var table = createEmptyTableFromTableDTOForDatabase(tableDto, database);
 		
 		final var columns =
-		tableDTO.getColumns()
+		tableDto.getColumns()
 		.to(
 			c ->
 			columnMapper.createColumnFromDTOForParentTableUsingGivenReferencableTables(c, table, referencableTables)

@@ -8,10 +8,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
 import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -83,7 +83,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void deleteEntity(final String tableName, final IEntityHeadDTO entity) {
+	public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
 		databaseWriter.deleteEntity(tableName, entity);
 	}
 	
@@ -147,7 +147,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void insertNewEntity(final String tableName, final INewEntityDTO newEntity) {
+	public final void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
 		databaseWriter.insertNewEntity(tableName, newEntity);
 	}
 	
@@ -172,13 +172,13 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method	
 	@Override
-	public final IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final String tableName) {
+	public final IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
 		return databaseReader.loadEntitiesOfTable(tableName);
 	}
 	
 	//method
 	@Override
-	public final ILoadedEntityDTO loadEntity(final String tableName, final String id) {
+	public final ILoadedEntityDto loadEntity(final String tableName, final String id) {
 		return databaseReader.loadEntity(tableName, id);
 	}
 	
@@ -200,7 +200,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
 		databaseWriter.setEntityAsUpdated(tableName, entity);
 	}
 	
@@ -222,7 +222,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void updateEntity(final String tableName, final IEntityUpdateDTO entityUpdate) {
+	public final void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
 		databaseWriter.updateEntity(tableName, entityUpdate);
 	}
 }

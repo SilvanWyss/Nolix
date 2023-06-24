@@ -3,19 +3,19 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 public interface ISchemaWriter extends IMultiTimeChangeSaver {
 	
 	//method declaration
-	void addColumn(String tableName, IColumnDTO column);
+	void addColumn(String tableName, IColumnDto column);
 	
 	//method declaration
-	void addTable(ITableDTO table);
+	void addTable(ITableDto table);
 	
 	//method declaration
 	void deleteColumn(String tableName, String columnName);
@@ -29,7 +29,7 @@ public interface ISchemaWriter extends IMultiTimeChangeSaver {
 	//method declaration
 	void setColumnParametrizedPropertyType(
 		String columnId,
-		IParametrizedPropertyTypeDTO parametrizedPropertyType
+		IParametrizedPropertyTypeDto parametrizedPropertyType
 	);
 	
 	//method declaration

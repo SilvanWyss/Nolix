@@ -5,10 +5,10 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.NewEntityDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.NewEntityDto;
 import ch.nolix.system.sqldatabaserawdata.sqlsyntax.EntityStatementCreator;
 
 //class
@@ -20,7 +20,7 @@ public final class EntityStatementCreatorTest extends Test {
 		
 		//setup
 		final var testUnit = new EntityStatementCreator();
-		final var entityHeadDTO = new EntityHeadDTO("my_id", "100");
+		final var entityHeadDTO = new EntityHeadDto("my_id", "100");
 		
 		//execution
 		final var result = testUnit.createStatementToDeleteEntity("MyTable", entityHeadDTO);
@@ -56,12 +56,12 @@ public final class EntityStatementCreatorTest extends Test {
 		//setup
 		final var testUnit = new EntityStatementCreator();
 		final var newEntityDTO =
-		new NewEntityDTO(
+		new NewEntityDto(
 			"my_id",
 			ImmutableList.withElements(
-				new ContentFieldDTO("MyColumn1", "my_value1"),
-				new ContentFieldDTO("MyColumn2", "my_value2"),
-				new ContentFieldDTO("MyColumn3", "my_value3")
+				new ContentFieldDto("MyColumn1", "my_value1"),
+				new ContentFieldDto("MyColumn2", "my_value2"),
+				new ContentFieldDto("MyColumn3", "my_value3")
 			)
 		);
 		
@@ -82,13 +82,13 @@ public final class EntityStatementCreatorTest extends Test {
 		//setup
 		final var testUnit = new EntityStatementCreator();
 		final var newEntityDTO =
-		new EntityUpdateDTO(
+		new EntityUpdateDto(
 			"my_id",
 			"100",
 			ImmutableList.withElements(
-				new ContentFieldDTO("MyColumn1", "my_value1"),
-				new ContentFieldDTO("MyColumn2", "my_value2"),
-				new ContentFieldDTO("MyColumn3", "my_value3")
+				new ContentFieldDto("MyColumn1", "my_value1"),
+				new ContentFieldDto("MyColumn2", "my_value2"),
+				new ContentFieldDto("MyColumn3", "my_value3")
 			)
 		);
 		

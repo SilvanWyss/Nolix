@@ -10,13 +10,13 @@ import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
-import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDTO;
-import ch.nolix.system.objectschema.schemadto.TableDTO;
+import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
+import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 
 //class
@@ -36,10 +36,10 @@ public final class SchemaReader implements ISchemaReader {
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
 	
 	//static attribute
-	private static final FlatTableDTOMapper flatTableDTOMapper = new FlatTableDTOMapper();
+	private static final FlatTableDtoMapper flatTableDtoMapper = new FlatTableDtoMapper();
 	
 	//static attribute
-	private static final ColumnDTOMapper columnDTOMapper = new ColumnDTOMapper();
+	private static final ColumnDtoMapper columnDtoMapper = new ColumnDtoMapper();
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
@@ -80,54 +80,54 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public IContainer<IColumnDTO> loadColumnsByTableId(final String tableId) {
+	public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
 		
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableIdFromDatabaseNode(databaseNode, tableId);
 		
 		return
-		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method
 	@Override
-	public IContainer<IColumnDTO> loadColumnsByTableName(final String tableName) {
+	public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
 		
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
 		return
-		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method
 	@Override
-	public IFlatTableDTO loadFlatTableById(final String id) {
+	public IFlatTableDto loadFlatTableById(final String id) {
 		return
-		flatTableDTOMapper.createFlatTableDTOFromTableNode(
+		flatTableDtoMapper.createFlatTableDTOFromTableNode(
 			databaseNodeSearcher.getOriTableNodeByTableIdFromDatabaseNode(databaseNode, id)
 		);
 	}
 	
 	//method
 	@Override
-	public IFlatTableDTO loadFlatTableByName(final String name) {
+	public IFlatTableDto loadFlatTableByName(final String name) {
 		return
-		flatTableDTOMapper.createFlatTableDTOFromTableNode(
+		flatTableDtoMapper.createFlatTableDTOFromTableNode(
 			databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, name)
 		);
 	}
 	
 	//method
 	@Override
-	public IContainer<IFlatTableDTO> loadFlatTables() {
+	public IContainer<IFlatTableDto> loadFlatTables() {
 		return
 		databaseNodeSearcher
 		.getOriTableNodesFromDatabaseNode(databaseNode)
-		.to(flatTableDTOMapper::createFlatTableDTOFromTableNode);
+		.to(flatTableDtoMapper::createFlatTableDTOFromTableNode);
 	}
 	
 	//method
 	@Override
-	public ITableDTO loadTableById(final String id) {
+	public ITableDto loadTableById(final String id) {
 		
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableIdFromDatabaseNode(databaseNode, id);
 		
@@ -136,7 +136,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public ITableDTO loadTableByName(final String name) {
+	public ITableDto loadTableByName(final String name) {
 		
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, name);
 		
@@ -145,7 +145,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public IContainer<ITableDTO> loadTables() {
+	public IContainer<ITableDto> loadTables() {
 		return
 		databaseNodeSearcher
 		.getOriTableNodesFromDatabaseNode(databaseNode)
@@ -172,18 +172,18 @@ public final class SchemaReader implements ISchemaReader {
 	}
 	
 	//method
-	private IContainer<IColumnDTO> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
+	private IContainer<IColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
 		return
-		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDTOMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDTOFromColumnNode);
 	}
 	
 	//method
-	private ITableDTO loadTableFromTableNode(final IMutableNode<?> tableNode) {
+	private ITableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
 		return
-		new TableDTO(
+		new TableDto(
 			tableNodeSearcher.getOriIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
 			tableNodeSearcher.getOriNameNodeFromTableNode(tableNode).getSingleChildNodeHeader(),
-			new SaveStampConfigurationDTO(SaveStampStrategy.OWN_SAVE_STAMP),
+			new SaveStampConfigurationDto(SaveStampStrategy.OWN_SAVE_STAMP),
 			loadColumnsFromTableNode(tableNode)
 		);
 	}

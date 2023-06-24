@@ -6,15 +6,15 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
 import ch.nolix.system.sqldatabaserawschema.structure.TableType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter;
 
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
 	
 	//static attribute
-	private static final SchemaDTOMapper schemaDTOMapper = new SchemaDTOMapper();
+	private static final SchemaDtoMapper schemaDtoMapper = new SchemaDtoMapper();
 	
 	//attribute
 	private final ISchemaWriter sqlSchemaWriter;
@@ -28,16 +28,16 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void addColumn(final String tableName, final IColumnDTO column) {
+	public void addColumn(final String tableName, final IColumnDto column) {
 		sqlSchemaWriter.addColumn(
 			TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-			schemaDTOMapper.createQslColumnDTOFrom(column)
+			schemaDtoMapper.createQslColumnDTOFrom(column)
 		);
 	}
 	
 	//method
-	public void addTable(final ITableDTO table) {
-		sqlSchemaWriter.addTable(schemaDTOMapper.createQslTableDTOFrom(table));
+	public void addTable(final ITableDto table) {
+		sqlSchemaWriter.addTable(schemaDtoMapper.createQslTableDTOFrom(table));
 	}
 	
 	//method

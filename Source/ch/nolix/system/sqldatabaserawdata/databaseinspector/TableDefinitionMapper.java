@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawdata.databaseinspector;
 
 import ch.nolix.system.sqldatabaserawdata.schemainfo.TableInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
 public final class TableDefinitionMapper {
@@ -12,7 +12,7 @@ public final class TableDefinitionMapper {
 	private static final ColumnDefinitionMapper columnDefinitionMapper = new ColumnDefinitionMapper();
 	
 	//method
-	public ITableInfo createTableDefinitionFrom(final ITableDTO table) {
+	public ITableInfo createTableDefinitionFrom(final ITableDto table) {
 		return
 		new TableInfo(
 			table.getId(),

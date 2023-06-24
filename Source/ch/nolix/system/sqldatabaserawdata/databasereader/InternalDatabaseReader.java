@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 final class InternalDatabaseReader {
 	
 	//static attribute
-	private static final LoadedEntityDTOMapper loadedEntityDTOMapper = new LoadedEntityDTOMapper();
+	private static final LoadedEntityDtoMapper loadedEntityDtoMapper = new LoadedEntityDtoMapper();
 	
 	//static attribute
 	private static final ValueMapper valueMapper = new ValueMapper();
@@ -94,17 +94,17 @@ final class InternalDatabaseReader {
 	}
 	
 	//method
-	public IContainer<ILoadedEntityDTO> loadEntitiesOfTable(final ITableInfo tableInfo) {
+	public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
 		return
 		sqlConnection
 		.getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
-		.to(r -> loadedEntityDTOMapper.createLoadedEntityDTOFrosqlRecord(r, tableInfo));
+		.to(r -> loadedEntityDtoMapper.createLoadedEntityDTOFrosqlRecord(r, tableInfo));
 	}
 	
 	//method
-	public ILoadedEntityDTO loadEntity(final ITableInfo tableInfo, final String id) {
+	public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
 		return
-		loadedEntityDTOMapper.createLoadedEntityDTOFrosqlRecord(
+		loadedEntityDtoMapper.createLoadedEntityDTOFrosqlRecord(
 			sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
 			tableInfo
 		);

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.databasereader;
 
-import ch.nolix.system.sqldatabaserawdata.databasedto.LoadedContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.LoadedContentFieldDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 
 //class
@@ -12,12 +12,12 @@ public final class ContentFieldMapper {
 	private static final ValueMapper valueMapper = new ValueMapper();
 	
 	//method
-	public ILoadedContentFieldDTO createContentFieldFromString(
+	public ILoadedContentFieldDto createContentFieldFromString(
 		final String string,
 		final IColumnInfo contentColumnDefinition
 	) {
 		return
-		new LoadedContentFieldDTO(
+		new LoadedContentFieldDto(
 			contentColumnDefinition.getColumnName(),
 			valueMapper.createValueFromString(string, contentColumnDefinition)
 		);

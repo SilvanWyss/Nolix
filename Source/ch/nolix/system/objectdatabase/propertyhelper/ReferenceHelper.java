@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IReferenceHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //class
 public final class ReferenceHelper extends PropertyHelper implements IReferenceHelper {
@@ -24,17 +24,17 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForSetEntity(
+	public IEntityUpdateDto createEntityUpdateDTOForSetEntity(
 		final IReference<?> reference,
 		final IEntity entity
 	) {
 		
 		final var parentEntity = reference.getOriParentEntity();
 		
-		return new EntityUpdateDTO(
+		return new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(reference.getName(), entity.getId())
+			new ContentFieldDto(reference.getName(), entity.getId())
 		);
 	}
 	

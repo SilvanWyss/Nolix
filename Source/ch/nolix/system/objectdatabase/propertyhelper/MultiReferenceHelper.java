@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //class
 public final class MultiReferenceHelper extends PropertyHelper implements IMultiReferenceHelper {
@@ -42,7 +42,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForAddEntity(
+	public IEntityUpdateDto createEntityUpdateDTOForAddEntity(
 		final IMultiReference<?> multiReference,
 		final IEntity entity
 	) {
@@ -50,23 +50,23 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 		final var parentEntity = multiReference.getOriParentEntity();
 		
 		return
-		new EntityUpdateDTO(
+		new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(multiReference.getName())
+			new ContentFieldDto(multiReference.getName())
 		);
 	}
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForClear(final IMultiReference<?> multiReference) {
+	public IEntityUpdateDto createEntityUpdateDTOForClear(final IMultiReference<?> multiReference) {
 		
 		final var parentEntity = multiReference.getOriParentEntity();
 		
-		return new EntityUpdateDTO(
+		return new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(multiReference.getName())
+			new ContentFieldDto(multiReference.getName())
 		);
 	}
 	

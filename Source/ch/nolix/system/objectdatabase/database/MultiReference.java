@@ -9,7 +9,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.MultiReferenceValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReferenceValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
@@ -164,8 +164,8 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
-		return new ContentFieldDTO(getName());
+	public IContentFieldDto technicalToContentField() {
+		return new ContentFieldDto(getName());
 	}
 	
 	//method

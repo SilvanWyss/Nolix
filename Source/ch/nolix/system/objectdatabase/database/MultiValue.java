@@ -6,12 +6,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyvalidator.MultiValueValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiValueValidator;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
@@ -90,8 +90,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 	
 	//method
 	@Override
-	public IContentFieldDTO technicalToContentField() {
-		return new ContentFieldDTO(getName());
+	public IContentFieldDto technicalToContentField() {
+		return new ContentFieldDto(getName());
 	}
 	
 	//method

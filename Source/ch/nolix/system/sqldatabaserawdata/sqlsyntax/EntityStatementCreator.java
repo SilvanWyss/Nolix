@@ -5,10 +5,10 @@ import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProper
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 import ch.nolix.system.sqldatabaserawschema.structure.TableType;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -19,7 +19,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	@Override
 	public String createStatementToDeleteEntity(
 		final String tableName,
-		final IEntityHeadDTO entity
+		final IEntityHeadDto entity
 	) {
 		return
 		"DELETE FROM "
@@ -67,12 +67,12 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToInsertNewEntity(final String tableName, final INewEntityDTO newEntity) {
+	public String createStatementToInsertNewEntity(final String tableName, final INewEntityDto newEntity) {
 		return
 		"INSERT INTO "
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
 		+ " (Id, SaveStamp, "
-		+ newEntity.getContentFields().to(IContentFieldDTO::getColumnName).toStringWithSeparator(", ")
+		+ newEntity.getContentFields().to(IContentFieldDto::getColumnName).toStringWithSeparator(", ")
 		+ ") VALUES ('"
 		+ newEntity.getId()
 		+ "', '"
@@ -84,7 +84,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDTO entity) {
+	public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
 		return
 		"UPDATE" 
 		+ TableType.ENTITY_TABLE.getNamePrefix() + tableName
@@ -100,7 +100,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	
 	//method
 	@Override
-	public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDTO entityUpdate) {
+	public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
 		
 		final var contentFieldSets =
 		entityUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSqlOf(cf));
@@ -127,7 +127,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	}
 	
 	//method
-	private String getValueOrNullInSqlOf(final IContentFieldDTO contentField) {
+	private String getValueOrNullInSqlOf(final IContentFieldDto contentField) {
 		
 		final var string = contentField.getValueAsStringOrNull();
 		

@@ -7,8 +7,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Identified;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
-import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ITable
@@ -31,7 +31,7 @@ FluentNameable<ITable> {
 	);
 	
 	//method declaration
-	IFlatTableDTO getFlatDTO();
+	IFlatTableDto getFlatDTO();
 	
 	//method declaration
 	IDatabase getParentDatabase();
@@ -40,5 +40,5 @@ FluentNameable<ITable> {
 	IContainer<IColumn> getOriColumns();
 	
 	//method declaration
-	ITableDTO toDTO();
+	ITableDto toDTO();
 }

@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDTO;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDTO;
+import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IValueHelper;
-import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDTO;
+import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 
 //class
 public final class ValueHelper extends PropertyHelper implements IValueHelper {
@@ -20,15 +20,15 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
 	
 	//method
 	@Override
-	public IEntityUpdateDTO createEntityUpdateDTOForSetValue(final IValue<?> value, final Object setValue) {
+	public IEntityUpdateDto createEntityUpdateDTOForSetValue(final IValue<?> value, final Object setValue) {
 		
 		final var parentEntity = value.getOriParentEntity();
 		
 		return
-		new EntityUpdateDTO(
+		new EntityUpdateDto(
 			parentEntity.getId(),
 			parentEntity.getSaveStamp(),
-			new ContentFieldDTO(value.getName(), setValue.toString())
+			new ContentFieldDto(value.getName(), setValue.toString())
 		);
 	}
 	

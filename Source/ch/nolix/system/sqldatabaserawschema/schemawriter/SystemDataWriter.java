@@ -5,9 +5,9 @@ package ch.nolix.system.sqldatabaserawschema.schemawriter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDTO;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
@@ -29,7 +29,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void addColumn(final String tableName, final IColumnDTO column) {
+	public void addColumn(final String tableName, final IColumnDto column) {
 		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToAddColumn(tableName, column)
 		);
@@ -43,7 +43,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	}
 	
 	//method
-	public void addTable(final ITableDTO table) {
+	public void addTable(final ITableDto table) {
 		sqlCollector.addSqlStatements(systemDataWriterSqlStatementCreator.createStatementsToAddTable(table));
 	}
 	
@@ -72,7 +72,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	//method
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParametrizedPropertyTypeDTO parametrizedPropertyType
+		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToSetColumnParametrizedPropertyType(

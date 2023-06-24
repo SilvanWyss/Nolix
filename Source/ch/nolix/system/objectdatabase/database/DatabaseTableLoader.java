@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDTO;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
 final class DatabaseTableLoader {
@@ -36,7 +36,7 @@ final class DatabaseTableLoader {
 	//method
 	private void addBaseValueColumnsToTablesFromRawTables(
 		final IContainer<Table<IEntity>> tables,
-		final IContainer<ITableDTO> rawTables
+		final IContainer<ITableDto> rawTables
 	) {
 		for (final var t : tables) {
 			final var tableName = t.getName();
@@ -48,7 +48,7 @@ final class DatabaseTableLoader {
 	//method
 	private void addBaseValueColumnsToTableFromRawTable(
 		final Table<IEntity> table,
-		final ITableDTO rawTable
+		final ITableDto rawTable
 	) {
 		
 		final var rawBaseValueColumns =
@@ -74,7 +74,7 @@ final class DatabaseTableLoader {
 	//method
 	private void addBaseReferenceColumnsToTablesFromRawTables(
 		final IContainer<Table<IEntity>> tables,
-		final IContainer<ITableDTO> rawTables,
+		final IContainer<ITableDto> rawTables,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		for (final var t : tables) {
@@ -87,7 +87,7 @@ final class DatabaseTableLoader {
 	//method
 	private void addBaseReferenceColumnsToTableFromRawTable(
 		final Table<IEntity> table,
-		final ITableDTO rawTable,
+		final ITableDto rawTable,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		
@@ -114,7 +114,7 @@ final class DatabaseTableLoader {
 	//method
 	private void addBaseBackReferenceColumnsToTablesFromRawTables(
 		final IContainer<Table<IEntity>> tables,
-		final IContainer<ITableDTO> rawTables,
+		final IContainer<ITableDto> rawTables,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		for (final var t : tables) {
@@ -127,7 +127,7 @@ final class DatabaseTableLoader {
 	//method
 	private void addBaseBackReferenceColumnsToTableFromRawTable(
 		final Table<IEntity> table,
-		final ITableDTO rawTable,
+		final ITableDto rawTable,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		
