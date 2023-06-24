@@ -38,7 +38,7 @@ public final class SchemaReader implements ISchemaReader {
 		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaAdapter schemaAdapter
 	) {
-		return new SchemaReader(databaseName, sqlConnectionPool.borrowSQLConnection(), schemaAdapter);
+		return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaAdapter);
 	}
 	
 	//attribute

@@ -36,13 +36,13 @@ final class InternalDatabaseInitializer {
 	}
 
 	private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool sqlConnectionPool) {
-		try (final var lSQLConnection = sqlConnectionPool.borrowSQLConnection()) {
-			lSQLConnection.execute("USE " + databaseName);
-			lSQLConnection.execute(createSQLStatementToCreateSchemaTimestampEntry());
+		try (final var sqlConnection = sqlConnectionPool.borrowSqlConnection()) {
+			sqlConnection.execute("USE " + databaseName);
+			sqlConnection.execute(createQslStatementToCreateSchemaTimestampEntry());
 		}
 	}
 	
-	private String createSQLStatementToCreateSchemaTimestampEntry() {
+	private String createQslStatementToCreateSchemaTimestampEntry() {
 		return
 		"INSERT INTO "
 		+ SystemDataTable.DATABASE_PROPERTY.getQualifiedName()

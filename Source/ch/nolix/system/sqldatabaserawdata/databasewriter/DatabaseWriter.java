@@ -20,13 +20,13 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//static attribute
-	public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+	public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
 		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
-		return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSQLConnection(), tableInfos, sqlSyntaxProvider);
+		return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
 	}
 	
 	//attribute

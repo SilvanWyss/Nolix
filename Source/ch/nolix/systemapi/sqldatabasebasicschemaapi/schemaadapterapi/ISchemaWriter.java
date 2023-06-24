@@ -22,7 +22,7 @@ public interface ISchemaWriter extends IMultiTimeChangeSaver {
 	void deleteTable(String tableName);
 	
 	//method declaration
-	IContainer<String> getSQLStatements();
+	IContainer<String> getSqlStatements();
 	
 	//method declaration
 	void renameColumn(String tableName, String columnName, String newColumnName);

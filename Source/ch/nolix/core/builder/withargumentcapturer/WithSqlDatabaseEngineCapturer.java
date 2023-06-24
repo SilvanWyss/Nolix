@@ -16,12 +16,12 @@ extends ArgumentCapturer<SqlDatabaseEngine, N> {
 	}
 	
 	//method
-	public final SqlDatabaseEngine getSQLDatabaseEngine() {
+	public final SqlDatabaseEngine getSqlDatabaseEngine() {
 		return getOriArgument();
 	}
 	
 	//method
-	public final N withSQLDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine) {
+	public final N withSqlDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine) {
 		
 		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 		

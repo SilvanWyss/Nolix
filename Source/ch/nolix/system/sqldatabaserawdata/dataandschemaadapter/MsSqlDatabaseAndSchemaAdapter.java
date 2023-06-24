@@ -24,9 +24,9 @@ public final class MsSqlDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapte
 		
 	//constructor
 	private MsSqlDatabaseAndSchemaAdapter(
-		final MsSqlDatabaseAdapter pMSSQLDatabaseAdapter,
-		final MsSqlSchemaAdapter pMSSQLSchemaAdapter
+		final MsSqlDatabaseAdapter msSqlDatabaseAdapter,
+		final MsSqlSchemaAdapter msSqlSchemaAdapter
 	) {
-		super(pMSSQLDatabaseAdapter, pMSSQLSchemaAdapter);
+		super(msSqlDatabaseAdapter, msSqlSchemaAdapter);
 	}
 }

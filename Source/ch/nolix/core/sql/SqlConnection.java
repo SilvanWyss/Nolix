@@ -30,7 +30,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//optional attribute
-	private final SqlConnectionPool parentSQLConnectionPool;
+	private final SqlConnectionPool parentQslConnectionPool;
 	
 	//constructor
 	protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
@@ -40,7 +40,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		
 		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		this.connection = connection;
-		parentSQLConnectionPool = null;
+		parentQslConnectionPool = null;
 	}
 	
 	//constructor
@@ -72,7 +72,7 @@ public abstract class SqlConnection implements GroupCloseable {
 		
 		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		
-		registerSQLDatabaseEngineDriver();
+		registerSqlDatabaseEngineDriver();
 		
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://" + ip + ':'+ port, userName, userPassword);
@@ -80,7 +80,7 @@ public abstract class SqlConnection implements GroupCloseable {
 			throw WrapperException.forError(sqlException);
 		}
 		
-		parentSQLConnectionPool = null;
+		parentQslConnectionPool = null;
 	}
 	
 	//constructor
@@ -90,20 +90,20 @@ public abstract class SqlConnection implements GroupCloseable {
 		final int port,
 		final String userName,
 		final String userPassword,
-		final SqlConnectionPool parentSQLConnectionPool
+		final SqlConnectionPool parentQslConnectionPool
 	) {
 		
 		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
-		GlobalValidator.assertThat(parentSQLConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
+		GlobalValidator.assertThat(parentQslConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
 		
 		GlobalValidator
-		.assertThat(parentSQLConnectionPool)
+		.assertThat(parentQslConnectionPool)
 		.thatIsNamed("parent SQLConnectionPool")
 		.fulfills(SqlConnectionPool::isOpen);
 		
 		this.sqlDatabaseEngine = sqlDatabaseEngine;
 		
-		registerSQLDatabaseEngineDriver();
+		registerSqlDatabaseEngineDriver();
 		
 		try {
 			connection =
@@ -116,21 +116,21 @@ public abstract class SqlConnection implements GroupCloseable {
 			throw WrapperException.forError(sqlException);
 		}
 		
-		this.parentSQLConnectionPool = parentSQLConnectionPool;
+		this.parentQslConnectionPool = parentQslConnectionPool;
 	}
 	
 	//method
-	public final boolean belongsToSQLConnectionPool() {
-		return (parentSQLConnectionPool != null);
+	public final boolean belongsToSqlConnectionPool() {
+		return (parentQslConnectionPool != null);
 	}
 	
 	//method
 	@Override
 	public final void close() {
-		if (!belongsToSQLConnectionPool()) {
+		if (!belongsToSqlConnectionPool()) {
 			GroupCloseable.super.close();
 		} else {
-			giveBackSelfToParentSQLConnectionPool();
+			giveBackSelfToParentSqlConnectionPool();
 		}
 	}
 	
@@ -141,8 +141,8 @@ public abstract class SqlConnection implements GroupCloseable {
 			
 			connection.setAutoCommit(false);
 			
-			for (final var lSQLStatement : sqlStatements) {
-				statement.addBatch(lSQLStatement);
+			for (final var sqlStatement : sqlStatements) {
+				statement.addBatch(sqlStatement);
 			}
 			
 			statement.executeBatch();
@@ -213,7 +213,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final SqlDatabaseEngine getSQLDatabaseEngine() {
+	public final SqlDatabaseEngine getSqlDatabaseEngine() {
 		return sqlDatabaseEngine;
 	}
 	
@@ -221,11 +221,11 @@ public abstract class SqlConnection implements GroupCloseable {
 	@Override
 	public final boolean isClosed() {
 		
-		if (!belongsToSQLConnectionPool()) {
+		if (!belongsToSqlConnectionPool()) {
 			return GroupCloseable.super.isClosed();
 		}
 		
-		return parentSQLConnectionPool.isClosed();
+		return parentQslConnectionPool.isClosed();
 	}
 	
 	//method
@@ -244,17 +244,17 @@ public abstract class SqlConnection implements GroupCloseable {
 	}
 	
 	//method declaration
-	protected abstract String getSQLDatabaseEngineDriverClass();
+	protected abstract String getSqlDatabaseEngineDriverClass();
 	
 	//method
-	private void giveBackSelfToParentSQLConnectionPool() {
-		parentSQLConnectionPool.takeBackSQLConnection(this);
+	private void giveBackSelfToParentSqlConnectionPool() {
+		parentQslConnectionPool.takeBackSqlConnection(this);
 	}
 	
 	//method
-	private void registerSQLDatabaseEngineDriver() {
+	private void registerSqlDatabaseEngineDriver() {
 		try {
-			Class.forName(getSQLDatabaseEngineDriverClass());
+			Class.forName(getSqlDatabaseEngineDriverClass());
 		} catch (final ClassNotFoundException classNotFoundException) {
 			throw WrapperException.forError(classNotFoundException);
 		}

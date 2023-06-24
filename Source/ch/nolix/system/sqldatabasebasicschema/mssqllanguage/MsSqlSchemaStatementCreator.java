@@ -14,7 +14,7 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	//method
 	@Override
 	public String createStatementToAddColumn(final String tabbleName, final IColumnDTO column) {
-		return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSQL(column));
+		return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column));
 	}
 	
 	//method
@@ -23,7 +23,7 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 		return 
 		"CREATE TABLE "
 		+ table.getName()
-		+ " (" + table.getColumns().to(this::getColumnAsSQL).toStringWithSeparator(",")
+		+ " (" + table.getColumns().to(this::getColumnAsSql).toStringWithSeparator(",")
 		+ ")";
 	}
 	
@@ -56,41 +56,41 @@ public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreato
 	}
 	
 	//method
-	private String getColumnAsSQL(final IColumnDTO column) {
+	private String getColumnAsSql(final IColumnDTO column) {
 		
-		var lSQL = column.getName() + " " + getDataTypeAsSQL(column.getDataType());
+		var sql = column.getName() + " " + getDataTypeAsSql(column.getDataType());
 		
 		if (column.getConstraints().containsAny()) {
-			lSQL += getConstraintsAsSQL(column);
+			sql += getConstraintsAsSql(column);
 		}
 		
-		return lSQL;
+		return sql;
 	}
 	
 	//method
-	private String getConstraintAsSQL(final IConstraintDTO constraint) {
+	private String getConstraintAsSql(final IConstraintDTO constraint) {
 		
-		var lSQL = constraint.getType().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
+		var sql = constraint.getType().toString().replace(StringCatalogue.UNDERSCORE, StringCatalogue.SPACE);
 		
 		if (constraint.getParameters().containsAny()) {
-			getConstraintParametersAsSQL(constraint);
+			getConstraintParametersAsSql(constraint);
 		}
 		
-		return lSQL;
+		return sql;
 	}
 	
 	//method
-	private String getConstraintsAsSQL(final IColumnDTO column) {
-		return column.getConstraints().to(this::getConstraintAsSQL).toStringWithSeparator(",");
+	private String getConstraintsAsSql(final IColumnDTO column) {
+		return column.getConstraints().to(this::getConstraintAsSql).toStringWithSeparator(",");
 	}
 	
 	//method
-	private String getConstraintParametersAsSQL(final IConstraintDTO constraint) {
+	private String getConstraintParametersAsSql(final IConstraintDTO constraint) {
 		return ("(" + constraint.getParameters().toStringWithSeparator(",") + ")");
 	}
 	
 	//method
-	private String getDataTypeAsSQL(final IDataTypeDTO dataType) {
+	private String getDataTypeAsSql(final IDataTypeDTO dataType) {
 		
 		if (!dataType.hasParameter()) {
 			return dataType.getName();

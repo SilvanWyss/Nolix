@@ -9,8 +9,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseExcept
 public final class SqlConnectionFactory {
 	
 	//method
-	public SqlConnection createSQLConnectionFor(final SqlConnectionPool sqlDatabaseTarget) {
-		switch (sqlDatabaseTarget.getSQLDatabaseEngine()) {
+	public SqlConnection createQslConnectionFor(final SqlConnectionPool sqlDatabaseTarget) {
+		switch (sqlDatabaseTarget.getSqlDatabaseEngine()) {
 			case MSSQL:
 				return new MsSqlConnection(
 					sqlDatabaseTarget.getIpOrAddressName(),
@@ -20,9 +20,9 @@ public final class SqlConnectionFactory {
 					sqlDatabaseTarget
 				);
 			case MYSQL, ORACLE:
-				throw UnsupportedCaseException.forCase(sqlDatabaseTarget.getSQLDatabaseEngine());
+				throw UnsupportedCaseException.forCase(sqlDatabaseTarget.getSqlDatabaseEngine());
 			default:
-				throw InvalidArgumentException.forArgument(sqlDatabaseTarget.getSQLDatabaseEngine());
+				throw InvalidArgumentException.forArgument(sqlDatabaseTarget.getSqlDatabaseEngine());
 		}
 	}
 }

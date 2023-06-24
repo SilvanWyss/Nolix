@@ -21,7 +21,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 	
 	//static attribute
-	private static final SqlConnectionFactory sSQLConnectionFactory = new SqlConnectionFactory();
+	private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
 	
 	//static method
 	public static SqlConnectionPoolBuilder forIpOrAddressName(final String ipOrAddressName) {
@@ -72,18 +72,18 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	public SqlConnection borrowSQLConnection() {
+	public SqlConnection borrowSqlConnection() {
 		
-		final var lSQLConnection = getOrCreateAvailableSQLConnectionWrapper();
+		final var sqlConnection = getOrCreateAvailableSqlConnectionWrapper();
 		
-		final var innerSQLConnection = lSQLConnection.getOriSQLConnection();
-		lSQLConnection.setAsInUse();
+		final var innerSqlConnection = sqlConnection.getOriSqlConnection();
+		sqlConnection.setAsInUse();
 		
-		return innerSQLConnection;
+		return innerSqlConnection;
 	}
 	
 	//method
-	public boolean containsAvailableSQLConnection() {
+	public boolean containsAvailableSqlConnection() {
 		return sqlConnections.containsAny(SqlConnectionWrapper::isAvailable);
 	}
 	
@@ -131,7 +131,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//method
 	@Override
-	public SqlDatabaseEngine getSQLDatabaseEngine() {
+	public SqlDatabaseEngine getSqlDatabaseEngine() {
 		return sqlDatabaseEngine;
 	}
 	
@@ -144,7 +144,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	public void takeBackSQLConnection(final SqlConnection sqlConnection) {
+	public void takeBackSqlConnection(final SqlConnection sqlConnection) {
 		sqlConnections.getOriFirst(sqlc -> sqlc.contains(sqlConnection)).setAvailable();
 	}
 	
@@ -155,24 +155,24 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	}
 	
 	//method
-	private SqlConnectionWrapper createSQLConnectionWrapper() {
+	private SqlConnectionWrapper createQslConnectionWrapper() {
 		
-		final var lSQLConnectionWrapper =
-		SqlConnectionWrapper.forSQLConnection(sSQLConnectionFactory.createSQLConnectionFor(this));
+		final var sqlConnectionWrapper =
+		SqlConnectionWrapper.forSqlConnection(SQL_CONNECTION_FACTORY.createQslConnectionFor(this));
 		
-		sqlConnections.addAtEnd(lSQLConnectionWrapper);
+		sqlConnections.addAtEnd(sqlConnectionWrapper);
 		
-		return lSQLConnectionWrapper;
+		return sqlConnectionWrapper;
 	}
 	
 	//method
-	private SqlConnectionWrapper getOrCreateAvailableSQLConnectionWrapper() {
+	private SqlConnectionWrapper getOrCreateAvailableSqlConnectionWrapper() {
 		
-		final var lSQLConnectionWrapper = sqlConnections.getOriFirstOrNull(SqlConnectionWrapper::isAvailable);
-		if (lSQLConnectionWrapper != null) {
-			return lSQLConnectionWrapper;
+		final var sqlConnectionWrapper = sqlConnections.getOriFirstOrNull(SqlConnectionWrapper::isAvailable);
+		if (sqlConnectionWrapper != null) {
+			return sqlConnectionWrapper;
 		}
 		
-		return createSQLConnectionWrapper();
+		return createQslConnectionWrapper();
 	}
 }

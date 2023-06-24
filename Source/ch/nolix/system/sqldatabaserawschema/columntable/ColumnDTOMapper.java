@@ -17,60 +17,60 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 public final class ColumnDTOMapper {
 	
 	//method
-	public ColumnDTO createColumnDTO(final List<String> columnSystemTableSQLRecord) {
-		switch (PropertyType.valueOf(columnSystemTableSQLRecord.get(3)).getBaseType()) {
+	public ColumnDTO createColumnDTO(final List<String> columnSystemTableSqlRecord) {
+		switch (PropertyType.valueOf(columnSystemTableSqlRecord.get(3)).getBaseType()) {
 			case BASE_VALUE:
-				return createColumnDTOForBaseValue(columnSystemTableSQLRecord);
+				return createColumnDTOForBaseValue(columnSystemTableSqlRecord);
 			case BASE_BACK_REFERENCE:
-				return createColumnDTOForBaseBackReference(columnSystemTableSQLRecord);
+				return createColumnDTOForBaseBackReference(columnSystemTableSqlRecord);
 			case BASE_REFERENCE:
-				return createColumnDTOForBaseReference(columnSystemTableSQLRecord);
+				return createColumnDTOForBaseReference(columnSystemTableSqlRecord);
 			default:
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(
 					"column system table record",
-					columnSystemTableSQLRecord
+					columnSystemTableSqlRecord
 				);
 		}
 	}
 	
 	//method
-	private ColumnDTO createColumnDTOForBaseBackReference(final List<String> columnSystemTableSQLRecord) {
+	private ColumnDTO createColumnDTOForBaseBackReference(final List<String> columnSystemTableSqlRecord) {
 		return
 		new ColumnDTO(
-			columnSystemTableSQLRecord.get(0),
-			columnSystemTableSQLRecord.get(1),
+			columnSystemTableSqlRecord.get(0),
+			columnSystemTableSqlRecord.get(1),
 			new BaseParametrizedBackReferenceTypeDTO(
-				PropertyType.valueOf(columnSystemTableSQLRecord.get(4)),
-				DataType.valueOf(columnSystemTableSQLRecord.get(5)),
-				columnSystemTableSQLRecord.get(6)
+				PropertyType.valueOf(columnSystemTableSqlRecord.get(4)),
+				DataType.valueOf(columnSystemTableSqlRecord.get(5)),
+				columnSystemTableSqlRecord.get(6)
 			)
 		);
 	}
 	
 	//method
-	private ColumnDTO createColumnDTOForBaseReference(final List<String> columnSystemTableSQLRecord) {
+	private ColumnDTO createColumnDTOForBaseReference(final List<String> columnSystemTableSqlRecord) {
 		return
 		new ColumnDTO(
-			columnSystemTableSQLRecord.get(0),
-			columnSystemTableSQLRecord.get(1),
+			columnSystemTableSqlRecord.get(0),
+			columnSystemTableSqlRecord.get(1),
 			new BaseParametrizedReferenceTypeDTO(
-				PropertyType.valueOf(columnSystemTableSQLRecord.get(3)),
-				DataType.valueOf(columnSystemTableSQLRecord.get(4)),
-				columnSystemTableSQLRecord.get(5)
+				PropertyType.valueOf(columnSystemTableSqlRecord.get(3)),
+				DataType.valueOf(columnSystemTableSqlRecord.get(4)),
+				columnSystemTableSqlRecord.get(5)
 			)
 		);
 	}
 	
 	//method
-	private ColumnDTO createColumnDTOForBaseValue(final List<String> columnSystemTableSQLRecord) {
+	private ColumnDTO createColumnDTOForBaseValue(final List<String> columnSystemTableSqlRecord) {
 		return
 		new ColumnDTO(
-			columnSystemTableSQLRecord.get(0),
-			columnSystemTableSQLRecord.get(1),
+			columnSystemTableSqlRecord.get(0),
+			columnSystemTableSqlRecord.get(1),
 			new BaseParametrizedValueTypeDTO(
-				PropertyType.valueOf(columnSystemTableSQLRecord.get(3)),
-				DataType.valueOf(columnSystemTableSQLRecord.get(4))
+				PropertyType.valueOf(columnSystemTableSqlRecord.get(3)),
+				DataType.valueOf(columnSystemTableSqlRecord.get(4))
 			)
 		);
 	}

@@ -18,14 +18,14 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 public final class DatabaseReader implements IDatabaseReader {
 	
 	//static method
-	public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+	public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool,
 		final IContainer<ITableInfo> tableInfos,
 		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		return
-		new DatabaseReader(databaseName, sqlConnectionPool.borrowSQLConnection(), tableInfos, sqlSyntaxProvider);
+		new DatabaseReader(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
 	}
 		
 	//attribute

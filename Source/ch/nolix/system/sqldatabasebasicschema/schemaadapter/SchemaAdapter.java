@@ -96,8 +96,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final IContainer<String> getSQLStatements() {
-		return schemaWriter.getSQLStatements();
+	public final IContainer<String> getSqlStatements() {
+		return schemaWriter.getSqlStatements();
 	}
 	
 	//method

@@ -30,26 +30,26 @@ final class SystemDataWriter implements ChangeRequestable {
 	
 	//method
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToAddColumn(tableName, column)
 		);
 	}
 	
 	//method
 	public void deleteColumn(String tableName, String columnName) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToDeleteColumn(tableName, columnName)
 		);
 	}
 	
 	//method
 	public void addTable(final ITableDTO table) {
-		sqlCollector.addSQLStatements(systemDataWriterSqlStatementCreator.createStatementsToAddTable(table));
+		sqlCollector.addSqlStatements(systemDataWriterSqlStatementCreator.createStatementsToAddTable(table));
 	}
 	
 	//method
 	public void deleteTable(final String tableName) {
-		sqlCollector.addSQLStatement(systemDataWriterSqlStatementCreator.createStatementToDeleteTable(tableName));
+		sqlCollector.addSqlStatement(systemDataWriterSqlStatementCreator.createStatementToDeleteTable(tableName));
 	}
 		
 	//method
@@ -60,7 +60,7 @@ final class SystemDataWriter implements ChangeRequestable {
 	
 	//method
 	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToSetColumnName(
 				tableName,
 				columnName,
@@ -74,7 +74,7 @@ final class SystemDataWriter implements ChangeRequestable {
 		final String columnId,
 		final IParametrizedPropertyTypeDTO parametrizedPropertyType
 	) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToSetColumnParametrizedPropertyType(
 				columnId,
 				parametrizedPropertyType
@@ -84,14 +84,14 @@ final class SystemDataWriter implements ChangeRequestable {
 	
 	//method
 	public void setSchemaTimestamp(ITime schemaTimestamp) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToSetSchemaTimestamp(schemaTimestamp)
 		);
 	}
 	
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			systemDataWriterSqlStatementCreator.createStatementToSetTableName(tableName, newTableName)
 		);
 	}

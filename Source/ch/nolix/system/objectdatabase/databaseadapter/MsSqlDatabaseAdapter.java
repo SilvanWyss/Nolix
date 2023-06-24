@@ -42,7 +42,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 			.forIpOrAddressName(ipOrAddressName)
 			.andPort(port)
 			.andDatabase(databaseName)
-			.withSQLDatabaseEngine(SqlDatabaseEngine.MSSQL)
+			.withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
 			.usingLoginName(loginName)
 			.andLoginPassword(loginPassword)
 		);

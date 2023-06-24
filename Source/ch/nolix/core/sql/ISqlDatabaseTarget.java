@@ -7,5 +7,5 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IDatabaseTarget;
 public interface ISqlDatabaseTarget extends IDatabaseTarget {
 	
 	//method declaration
-	SqlDatabaseEngine getSQLDatabaseEngine();
+	SqlDatabaseEngine getSqlDatabaseEngine();
 }

@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 final class SqlConnectionWrapper implements AutoCloseable {
 	
 	//static method
-	public static SqlConnectionWrapper forSQLConnection(final SqlConnection sqlConnection) {
+	public static SqlConnectionWrapper forSqlConnection(final SqlConnection sqlConnection) {
 		return new SqlConnectionWrapper(sqlConnection);
 	}
 	
@@ -29,7 +29,7 @@ final class SqlConnectionWrapper implements AutoCloseable {
 	}
 	
 	//method
-	public SqlConnection getOriSQLConnection() {
+	public SqlConnection getOriSqlConnection() {
 		
 		assertIsAvailable();
 		

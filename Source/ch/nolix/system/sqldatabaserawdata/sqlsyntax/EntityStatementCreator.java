@@ -78,7 +78,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 		+ "', '"
 		+ 1
 		+ "', "
-		+ newEntity.getContentFields().to(this::getValueOrNullInSQLOf).toStringWithSeparator(", ")
+		+ newEntity.getContentFields().to(this::getValueOrNullInSqlOf).toStringWithSeparator(", ")
 		+ ");";
 	}
 	
@@ -103,7 +103,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDTO entityUpdate) {
 		
 		final var contentFieldSets =
-		entityUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSQLOf(cf));
+		entityUpdate.getUpdatedContentFields().to(cf -> cf.getColumnName() + " = " + getValueOrNullInSqlOf(cf));
 		
 		var contentFieldSetsPrecessor = " ";
 		if (contentFieldSets.containsAny()) {
@@ -127,7 +127,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
 	}
 	
 	//method
-	private String getValueOrNullInSQLOf(final IContentFieldDTO contentField) {
+	private String getValueOrNullInSqlOf(final IContentFieldDTO contentField) {
 		
 		final var string = contentField.getValueAsStringOrNull();
 		

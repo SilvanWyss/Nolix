@@ -56,7 +56,7 @@ public final class MsSqlConnection extends SqlConnection {
 		final int port,
 		final String userName,
 		final String userPassword,
-		final SqlConnectionPool parentSQLConnectionPool
+		final SqlConnectionPool parentQslConnectionPool
 	) {
 		super(
 			SQL_DATABASE_ENGINE,
@@ -64,13 +64,13 @@ public final class MsSqlConnection extends SqlConnection {
 			port,
 			userName,
 			userPassword,
-			parentSQLConnectionPool
+			parentQslConnectionPool
 		);
 	}
 	
 	//method
 	@Override
-	protected String getSQLDatabaseEngineDriverClass() {
+	protected String getSqlDatabaseEngineDriverClass() {
 		return MSSQL_DATABASE_ENINGE_DRIVER_CLASS;
 	}
 }

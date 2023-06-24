@@ -26,7 +26,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		return
 		new SchemaWriter(
 			databaseName,
-			sqlConnectionPool.borrowSQLConnection(),
+			sqlConnectionPool.borrowSqlConnection(),
 			schemaAdapter
 		);
 	}
@@ -130,7 +130,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void saveChangesAndReset() {
 		try {
 			
-			sqlCollector.addSQLStatements(internalSchemaWriter.getSQLStatements());
+			sqlCollector.addSqlStatements(internalSchemaWriter.getSqlStatements());
 			sqlCollector.executeUsingConnection(sqlConnection);
 			
 			saveCount++;

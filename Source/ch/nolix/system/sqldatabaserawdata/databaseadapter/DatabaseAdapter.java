@@ -44,13 +44,13 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 		final ISqlSyntaxProvider sqlSyntaxProvider
 	) {
 		super(
-			DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+			DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
 				databaseName,
 				sqlConnectionPool,
 				tableInfos,
 				sqlSyntaxProvider
 			),
-			DatabaseWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSQLSyntaxProvider(
+			DatabaseWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
 				databaseName,
 				sqlConnectionPool,
 				tableInfos,

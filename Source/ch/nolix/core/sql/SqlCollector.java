@@ -13,19 +13,19 @@ public final class SqlCollector implements Clearable {
 	private final LinkedList<String> sqlStatements = new LinkedList<>();
 	
 	//method
-	public SqlCollector addSQLStatement(final String sqlstatement) {
+	public SqlCollector addSqlStatement(final String sqlstatement) {
 		
 		GlobalValidator.assertThat(sqlstatement)	.thatIsNamed("SQL statement").isNotBlank();
 		
-		sqlStatements.addAtEnd(getSQLStatementWithSemicolonAtEnd(sqlstatement));
+		sqlStatements.addAtEnd(getSqlStatementWithSemicolonAtEnd(sqlstatement));
 		
 		return this;
 	}
 	
 	//method
-	public SqlCollector addSQLStatements(final Iterable<String> sqlStatements) {
+	public SqlCollector addSqlStatements(final Iterable<String> sqlStatements) {
 		
-		sqlStatements.forEach(this::addSQLStatement);
+		sqlStatements.forEach(this::addSqlStatement);
 		
 		return this;
 	}
@@ -51,7 +51,7 @@ public final class SqlCollector implements Clearable {
 	}
 	
 	//method
-	public IContainer<String> getSQLStatements() {
+	public IContainer<String> getSqlStatements() {
 		return sqlStatements;
 	}
 	
@@ -62,7 +62,7 @@ public final class SqlCollector implements Clearable {
 	}
 	
 	//method
-	private String getSQLStatementWithSemicolonAtEnd(final String sqlStatement) {
+	private String getSqlStatementWithSemicolonAtEnd(final String sqlStatement) {
 		
 		if (!sqlStatement.endsWith(";")) {
 			return (sqlStatement + ";");

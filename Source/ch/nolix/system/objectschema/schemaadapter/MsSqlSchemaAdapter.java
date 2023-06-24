@@ -41,8 +41,8 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	//constructor
 	MsSqlSchemaAdapter(
 		String databaseName,
-		final ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter pMSSQLSchemaAdapter
+		final ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter msSqlSchemaAdapter
 	) {
-		super(databaseName, pMSSQLSchemaAdapter);
+		super(databaseName, msSqlSchemaAdapter);
 	}
 }

@@ -22,7 +22,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaStatementCreator schemaStatementCreator
 	) {
-		return new SchemaWriter(databaseName, sqlConnectionPool.borrowSQLConnection(), schemaStatementCreator);
+		return new SchemaWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaStatementCreator);
 	}
 	
 	//attribute
@@ -53,31 +53,31 @@ public final class SchemaWriter implements ISchemaWriter {
 		this.schemaStatementCreator = schemaStatementCreator;
 		
 		getOriCloseController().createCloseDependencyTo(sqlConnection);
-		sqlCollector.addSQLStatement("USE " + databaseName);
+		sqlCollector.addSqlStatement("USE " + databaseName);
 	}
 	
 	//method
 	@Override
 	public void addColumn(final String tableName, final IColumnDTO column) {
-		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
+		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToAddColumn(tableName, column));
 	}
 	
 	//method
 	@Override
 	public void addTable(final ITableDTO table) {
-		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToAddTable(table));
+		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToAddTable(table));
 	}
 	
 	//method
 	@Override
 	public void deleteColumn(final String tableName, final String columnName) {
-		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToDeleteColumn(tableName, columnName));
+		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToDeleteColumn(tableName, columnName));
 	}
 	
 	//method
 	@Override
 	public void deleteTable(final String tableName) {
-		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
+		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToDeleteTable(tableName));
 	}
 	
 	//method
@@ -94,8 +94,8 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public IContainer<String> getSQLStatements() {
-		return sqlCollector.getSQLStatements();
+	public IContainer<String> getSqlStatements() {
+		return sqlCollector.getSqlStatements();
 	}
 	
 	//method
@@ -113,7 +113,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
-		sqlCollector.addSQLStatement(
+		sqlCollector.addSqlStatement(
 			schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName)
 		);
 	}
@@ -121,7 +121,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	//method
 	@Override
 	public void renameTable(final String tableName, final String newTableName) {
-		sqlCollector.addSQLStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
+		sqlCollector.addSqlStatement(schemaStatementCreator.createStatementToRenameTable(tableName, newTableName));
 	}
 	
 	//method
