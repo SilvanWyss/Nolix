@@ -11,16 +11,40 @@ package ch.nolix.core.commontype.commontypeconstant;
 public final class StringCatalogue {
 	
 	//constant
+	public static final String APOSTROPH = "'";
+	
+	//constant
 	public static final String AVERAGE = "\u00D8";
+	
+	//constant
+	public static final String BACK_SLASH = "\\";
+	
+	//constant
+	public static final String BULLET_POINT = "\u2022";
+	
+	//constant
+	public static final String CLOSED_BRACKET = ")";
+	
+	//constant
+	public static final String CLOSED_CROCODILE_BRACKET = ">";
+	
+	//constant
+	public static final String CLOSED_SQUARE_BRACKET = "]";
+	
+	//constant
+	public static final String COMMA = ",";
 	
 	//constant
 	public static final String DEFAULT_STRING = "Default";
 	
 	//constant
+	public static final String DOLLAR = "$";
+	
+	//constant
 	public static final String DOT = ".";
 	
 	//constant
-	public static final String ELLIPSIS = "...";
+	public static final String ELLIPSIS = "\u2026";
 	
 	//constant
 	public static final String EMPTY_STRING = "";
@@ -29,7 +53,16 @@ public final class StringCatalogue {
 	public static final String FALSE_HEADER = "false";
 	
 	//constant
+	public static final String FAT_CHECK_MARK = "\u2714";
+	
+	//constant
+	public static final String FAT_CROSS = "\u2716";
+	
+	//constant
 	public static final String HEXADECIMAL_PREFIX = "0x";
+	
+	//constant
+	public static final String HOME = "\u2302";
 	
 	//constant
 	public static final String INFINITY = "\u221E";
@@ -38,13 +71,37 @@ public final class StringCatalogue {
 	public static final String LONG_LEFT_RIGHT_ARROW = "\u27F7";
 	
 	//constant
+	public static final String NEW_LINE = "\n";
+	
+	//constant
 	public static final String MINUS = "-";
 	
 	//constant
 	public static final String NULL_HEADER = "null";
 	
 	//constant
+	public static final String OPEN_BRACKET = "(";
+	
+	//constant
+	public static final String OPEN_CROCODILE_BRACKET = "<";
+	
+	//constant
+	public static final String OPEN_SQUARE_BRACKET = "[";
+	
+	//constant
 	public static final String QUESTION_MARK = "?";
+	
+	//constant
+	public static final String QUOTE = "'";
+	
+	//constant
+	public static final String RIGHT_ARROW = "\u2192";
+	
+	//constant
+	public static final String SEMICOLON = ";";
+	
+	//constant
+	public static final String SLASH = "/";
 	
 	//constant
 	public static final String SPACE = " ";
