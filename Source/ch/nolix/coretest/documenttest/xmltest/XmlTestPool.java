@@ -5,10 +5,10 @@ package ch.nolix.coretest.documenttest.xmltest;
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public final class XMLTestPool extends TestPool {
+public final class XmlTestPool extends TestPool {
 	
 	//constructor
-	public XMLTestPool() {
-		super(XMLAttributeTest.class, MutableXMLNodeTest.class);
+	public XmlTestPool() {
+		super(XmlAttributeTest.class, MutableXmlNodeTest.class);
 	}
 }

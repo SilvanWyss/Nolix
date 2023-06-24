@@ -5,7 +5,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
-import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
+import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
 
@@ -219,7 +219,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	
 	//method
 	/**
-	 * @return a {@link IXMLNode} representation of the current {@link INode}.
+	 * @return a {@link IXmlNode} representation of the current {@link INode}.
 	 */
-	IXMLNode<?> toXML();
+	IXmlNode<?> toXML();
 }

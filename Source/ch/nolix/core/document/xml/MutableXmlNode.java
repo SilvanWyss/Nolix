@@ -10,17 +10,17 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.documentapi.xmlapi.IMutableXMLNode;
-import ch.nolix.coreapi.documentapi.xmlapi.IXMLAttribute;
-import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
+import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
+import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
+import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 
 //class
-public final class MutableXMLNode implements IMutableXMLNode {
+public final class MutableXmlNode implements IMutableXmlNode {
 	
 	//static method
-	public static MutableXMLNode fromXMLNode(final IXMLNode<?> pXMLNode) {
+	public static MutableXmlNode fromXMLNode(final IXmlNode<?> pXMLNode) {
 		
-		final var mutableXMLNode = new MutableXMLNode();
+		final var mutableXMLNode = new MutableXmlNode();
 		
 		if (pXMLNode.hasName()) {
 			mutableXMLNode.setName(pXMLNode.getName());
@@ -40,39 +40,39 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	private static String toFormatedString(final IMutableXMLNode mutableXMLNode, final int leadingTabulatorCount) {
+	private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
 		
 		final var stringBuilder = new StringBuilder();
 		
 		stringBuilder
 		.append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
 		.append('<')
-		.append(mutableXMLNode.getName());
+		.append(mutableXmlNode.getName());
 		
-		if (mutableXMLNode.containsAttributes()) {
+		if (mutableXmlNode.containsAttributes()) {
 			stringBuilder
 			.append(' ')
-			.append(mutableXMLNode.getAttributes().toStringWithSeparator(' '));
+			.append(mutableXmlNode.getAttributes().toStringWithSeparator(' '));
 		}
 		
 		stringBuilder.append('>');
 		
-		if (mutableXMLNode.hasValue()) {
-			if (!mutableXMLNode.hasMixedContent()) {
-				stringBuilder.append(mutableXMLNode.getValue());
+		if (mutableXmlNode.hasValue()) {
+			if (!mutableXmlNode.hasMixedContent()) {
+				stringBuilder.append(mutableXmlNode.getValue());
 			} else {
 				stringBuilder
 				.append(CharacterCatalogue.NEW_LINE)
 				.append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
-				.append(mutableXMLNode.getValue())
+				.append(mutableXmlNode.getValue())
 				.append(CharacterCatalogue.NEW_LINE);
 				
 			}
 		}
 		
-		if (mutableXMLNode.containsChildNodes()) {
+		if (mutableXmlNode.containsChildNodes()) {
 			
-			for (final var cn : mutableXMLNode.getOriChildNodes()) {
+			for (final var cn : mutableXmlNode.getOriChildNodes()) {
 				stringBuilder
 				.append(CharacterCatalogue.NEW_LINE)
 				.append(toFormatedString(cn, leadingTabulatorCount + 1));
@@ -81,13 +81,13 @@ public final class MutableXMLNode implements IMutableXMLNode {
 			stringBuilder.append(CharacterCatalogue.NEW_LINE);
 		}
 		
-		if (mutableXMLNode.containsChildNodes()) {
+		if (mutableXmlNode.containsChildNodes()) {
 			stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
 		}
 			
 		stringBuilder
 		.append("</")
-		.append(mutableXMLNode.getName())
+		.append(mutableXmlNode.getName())
 		.append('>');
 		
 		return stringBuilder.toString();
@@ -100,14 +100,14 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	private String value;
 	
 	//multi-attribute
-	private final LinkedList<IXMLAttribute> attributes = new LinkedList<>();
+	private final LinkedList<IXmlAttribute> attributes = new LinkedList<>();
 	
 	//multi-attribute
-	private final LinkedList<IMutableXMLNode> childNodes = new LinkedList<>();
+	private final LinkedList<IMutableXmlNode> childNodes = new LinkedList<>();
 	
 	//method
 	@Override
-	public MutableXMLNode addAttribute(final IXMLAttribute attribute) {
+	public MutableXmlNode addAttribute(final IXmlAttribute attribute) {
 		
 		attributes.addAtEnd(attribute);
 		
@@ -116,7 +116,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public MutableXMLNode addAttributes(final IXMLAttribute firstAttribute, final IXMLAttribute... attributes) {
+	public MutableXmlNode addAttributes(final IXmlAttribute firstAttribute, final IXmlAttribute... attributes) {
 		
 		addAttribute(firstAttribute);
 		
@@ -125,7 +125,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
-	public MutableXMLNode addAttributes(final Iterable<IXMLAttribute> attributes) {
+	public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
 		
 		this.attributes.addAtEnd(attributes);
 		
@@ -134,13 +134,13 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IMutableXMLNode addAttributeWithNameAndValue(final String name, final String value) {
-		return addAttribute(new XMLAttribute(name, value));
+	public IMutableXmlNode addAttributeWithNameAndValue(final String name, final String value) {
+		return addAttribute(new XmlAttribute(name, value));
 	}
 
 	//method
 	@Override
-	public MutableXMLNode addChildNode(final IMutableXMLNode childNode) {
+	public MutableXmlNode addChildNode(final IMutableXmlNode childNode) {
 		
 		childNodes.addAtEnd(childNode);
 		
@@ -149,7 +149,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public MutableXMLNode addChildNodes(final IMutableXMLNode firstChildNode, final IMutableXMLNode... childNodes) {
+	public MutableXmlNode addChildNodes(final IMutableXmlNode firstChildNode, final IMutableXmlNode... childNodes) {
 		
 		addChildNode(firstChildNode);
 		
@@ -157,7 +157,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public MutableXMLNode addChildNodes(final Iterable<IMutableXMLNode> childNodes) {
+	public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
 		
 		//For a better performance, this implementation does not use all comfortable methods.
 		this.childNodes.addAtEnd(childNodes);
@@ -179,7 +179,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IContainer<IXMLAttribute> getAttributes() {
+	public IContainer<IXmlAttribute> getAttributes() {
 		return attributes;
 	}
 	
@@ -212,7 +212,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IContainer<IMutableXMLNode> getOriChildNodes() {
+	public IContainer<IMutableXmlNode> getOriChildNodes() {
 		return childNodes;
 	}
 	
@@ -255,7 +255,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public IMutableXMLNode removeAttributes() {
+	public IMutableXmlNode removeAttributes() {
 		
 		attributes.clear();
 		
@@ -263,7 +263,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	}
 	
 	//method
-	public IMutableXMLNode removeChildNodes() {
+	public IMutableXmlNode removeChildNodes() {
 		
 		childNodes.clear();
 		
@@ -272,7 +272,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IMutableXMLNode removeName() {
+	public IMutableXmlNode removeName() {
 		
 		name = null;
 		
@@ -281,7 +281,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IMutableXMLNode removeValue() {
+	public IMutableXmlNode removeValue() {
 		
 		value = null;
 		
@@ -290,7 +290,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IMutableXMLNode setName(final String name) {
+	public IMutableXmlNode setName(final String name) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		
@@ -301,7 +301,7 @@ public final class MutableXMLNode implements IMutableXMLNode {
 	
 	//method
 	@Override
-	public IMutableXMLNode setValue(final String value) {
+	public IMutableXmlNode setValue(final String value) {
 		
 		GlobalValidator.assertThat(value).isNotEmpty();
 		

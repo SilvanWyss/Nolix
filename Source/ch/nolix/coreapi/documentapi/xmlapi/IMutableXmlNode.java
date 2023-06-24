@@ -1,0 +1,25 @@
+//package declaration
+package ch.nolix.coreapi.documentapi.xmlapi;
+
+//own imports
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.IFluentOptionalValueHolder;
+
+//interface
+public interface IMutableXmlNode
+extends IFluentOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
+	
+	//method declaration
+	IMutableXmlNode addAttribute(IXmlAttribute attribute);
+	
+	//method declaration
+	IMutableXmlNode addAttributes(IXmlAttribute firstAttribute, IXmlAttribute... attributes);
+	
+	//method declaration
+	IMutableXmlNode addAttributeWithNameAndValue(String name, String value);
+	
+	//method declaration
+	IMutableXmlNode addChildNode(IMutableXmlNode childNode);
+	
+	//method declaration
+	IMutableXmlNode addChildNodes(IMutableXmlNode firstChildNode, IMutableXmlNode... childNodes);
+}

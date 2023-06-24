@@ -6,4 +6,4 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.IValueHolder
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 
 //interface
-public interface IXMLAttribute extends Named, IValueHolder<String> {}
+public interface IXmlAttribute extends Named, IValueHolder<String> {}

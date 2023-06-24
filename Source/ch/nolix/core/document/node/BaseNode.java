@@ -6,14 +6,14 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.pair.IntPair;
-import ch.nolix.core.document.xml.MutableXMLNode;
+import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.documentapi.xmlapi.IMutableXMLNode;
+import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
@@ -425,11 +425,11 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IMutableXMLNode toXML() {
+	public final IMutableXmlNode toXML() {
 		
 		//Creates an XMLNode.
 		final var lXMLNode =
-		new MutableXMLNode()
+		new MutableXmlNode()
 		.setName(getHeader());
 		
 		//Iterates the child nodes of the current BaseNode.

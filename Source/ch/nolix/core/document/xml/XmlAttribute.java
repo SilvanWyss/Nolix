@@ -5,10 +5,10 @@ package ch.nolix.core.document.xml;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.documentapi.xmlapi.IXMLAttribute;
+import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
 
 //class
-public final class XMLAttribute implements IXMLAttribute {
+public final class XmlAttribute implements IXmlAttribute {
 	
 	//optional attribute
 	private final String name;
@@ -17,12 +17,12 @@ public final class XMLAttribute implements IXMLAttribute {
 	private final String value;
 	
 	//constructor
-	public XMLAttribute(final String name) {
+	public XmlAttribute(final String name) {
 		this(name, StringCatalogue.EMPTY_STRING);
 	}
 	
 	//constructor
-	public XMLAttribute(final String name, final String value) {
+	public XmlAttribute(final String name, final String value) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();

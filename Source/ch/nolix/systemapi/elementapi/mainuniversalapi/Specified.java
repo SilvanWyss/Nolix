@@ -3,7 +3,7 @@ package ch.nolix.systemapi.elementapi.mainuniversalapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.documentapi.xmlapi.IXMLNode;
+import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
@@ -57,7 +57,7 @@ public interface Specified {
 	/**
 	 * @return a XML representation of the current {@link Specified}.
 	 */
-	default IXMLNode<?> toXML() {
+	default IXmlNode<?> toXML() {
 		return getSpecification().toXML();
 	}
 	
@@ -68,7 +68,7 @@ public interface Specified {
 	 * @throws RuntimeException if the given header is null.
 	 * @throws RuntimeException if the given header is blank.
 	 */
-	default IXMLNode<?> toXMLWithHeader(final String header) {
+	default IXmlNode<?> toXMLWithHeader(final String header) {
 		return getSpecificationWithHeader(header).toXML();
 	}
 }

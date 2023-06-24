@@ -7,10 +7,10 @@ import ch.nolix.coreapi.attributeapi.optionalattributeuniversalapi.IOptionalValu
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IXMLNode<N extends IXMLNode<N>> extends FluentOptionalNameable<N>, IOptionalValueHolder<String> {
+public interface IXmlNode<N extends IXmlNode<N>> extends FluentOptionalNameable<N>, IOptionalValueHolder<String> {
 	
 	//method declaration
-	IContainer<IXMLAttribute> getAttributes();
+	IContainer<IXmlAttribute> getAttributes();
 	
 	//method declaration
 	boolean containsAttributes();
