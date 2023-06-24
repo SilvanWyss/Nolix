@@ -2,7 +2,7 @@
 package ch.nolix.business.serverdashboardcontext;
 
 //own imports
-import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationContext;
+import ch.nolix.businessapi.serverdashboardcontextapi.IServerDashboardContext;
 import ch.nolix.businessapi.serverdashboardcontextapi.IApplicationSheet;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -12,18 +12,18 @@ import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;
 
 //class
-public final class ApplicationContext implements IApplicationContext {
+public final class ServerDashboardContext implements IServerDashboardContext {
 	
 	//static method
-	public static ApplicationContext toServer(final BaseServer server) {
-		return new ApplicationContext(server);
+	public static ServerDashboardContext toServer(final BaseServer server) {
+		return new ServerDashboardContext(server);
 	}
 	
 	//attribute
 	private final BaseServer server;
 	
 	//constructor
-	private ApplicationContext(final BaseServer server) {
+	private ServerDashboardContext(final BaseServer server) {
 		
 		GlobalValidator.assertThat(server).thatIsNamed("server").isNotNull();
 		
