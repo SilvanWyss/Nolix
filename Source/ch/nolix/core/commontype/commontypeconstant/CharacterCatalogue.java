@@ -14,10 +14,13 @@ public final class CharacterCatalogue {
 	public static final char APOSTROPH = '\'';
 	
 	//constant
+	public static final char AVERAGE = '\u00D8';
+	
+	//constant
 	public static final char BACK_SLASH = '\\';
 	
 	//constant
-	public static final char BULLET = 0x2022;
+	public static final char BULLET_POINT = '\u2022';
 	
 	//constant
 	public static final char CLOSED_BRACKET = ')';
@@ -38,19 +41,22 @@ public final class CharacterCatalogue {
 	public static final char DOT = '.';
 	
 	//constant
-	public static final char ELLIPSIS = 0x2026;
+	public static final char ELLIPSIS = '\u2026';
 	
 	//constant
-	public static final char FAT_CHECK_MARK = 0x2714;
+	public static final char FAT_CHECK_MARK = '\u2714';
 	
 	//constant
-	public static final char FAT_CROSS = 0x2716;
+	public static final char FAT_CROSS = '\u2716';
 	
 	//constant
-	public static final char HOME = 0x2302;
+	public static final char HOME = '\u2302';
 	
 	//constant
-	public static final char INFINITY = 0x221E;
+	public static final char INFINITY = '\u221E';
+	
+	//constant
+	public static final char LONG_LEFT_RIGHT_ARROW = '\u27F7';
 	
 	//constant
 	public static final char MINUS = '-';
@@ -68,10 +74,13 @@ public final class CharacterCatalogue {
 	public static final char OPEN_SQUARE_BRACKET = '[';
 	
 	//constant
-	public static final char QUOTE = '\"';
+	public static final char QUESTION_MARK = '?';
 	
 	//constant
-	public static final char RIGHT_ARROW = 0x2192;
+	public static final char QUOTE = '\'';
+	
+	//constant
+	public static final char RIGHT_ARROW = '\u2192';
 	
 	//constant
 	public static final char SEMICOLON = ';';
@@ -86,7 +95,13 @@ public final class CharacterCatalogue {
 	public static final char TABULATOR = '\t';
 	
 	//constant
+	public static final char THIN_CROSS = '\u2715';
+	
+	//constant
 	public static final char UNDERSCORE = '_';
+	
+	//constant
+	public static final char UPPERCASE_DELTA = '\u0394';
 	
 	//constructor
 	/**
