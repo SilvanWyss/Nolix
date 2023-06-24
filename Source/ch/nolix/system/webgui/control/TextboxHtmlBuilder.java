@@ -22,7 +22,7 @@ public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final ITextbox textbox) {
+	public HtmlElement createHtmlElementForControl(final ITextbox textbox) {
 		return
 		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.INPUT,

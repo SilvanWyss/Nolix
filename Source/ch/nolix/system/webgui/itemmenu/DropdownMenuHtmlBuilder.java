@@ -24,17 +24,17 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final DropdownMenu dropdownMenu) {
+	public HtmlElement createHtmlElementForControl(final DropdownMenu dropdownMenu) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.SELECT,
-			createHTMLAttributesForDropdownMenu(dropdownMenu),
-			createHTMLChildElementsForDropdownMenu(dropdownMenu)
+			createHtmlAttributesForDropdownMenu(dropdownMenu),
+			createHtmlChildElementsForDropdownMenu(dropdownMenu)
 		);
 	}
 	
 	//method
-	private IContainer<? extends IHtmlAttribute> createHTMLAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
+	private IContainer<? extends IHtmlAttribute> createHtmlAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
 		
 		final var lHTMLAttribtues = new LinkedList<IHtmlAttribute>();
 		
@@ -44,31 +44,31 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> createHTMLChildElementsForDropdownMenu(
+	private IContainer<IHtmlElement<?, ?>> createHtmlChildElementsForDropdownMenu(
 		final IDropdownMenu<?, ?> dropdownMenu
 	) {
-		return createHTMLElementsFromItems(dropdownMenu.getOriItems());
+		return createHtmlElementsFromItems(dropdownMenu.getOriItems());
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> createHTMLElementsFromItems(
+	private IContainer<IHtmlElement<?, ?>> createHtmlElementsFromItems(
 		final IContainer<? extends IItemMenuItem<?>> items
 	) {
-		return items.to(this::createHTMLElementForItem);
+		return items.to(this::createHtmlElementForItem);
 	}
 	
 	//method
-	private IHtmlElement<?, ?> createHTMLElementForItem(final IItemMenuItem<?> item) {
+	private IHtmlElement<?, ?> createHtmlElementForItem(final IItemMenuItem<?> item) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.OPTION,
-			createHTMLAttributesForItem(item),
+			createHtmlAttributesForItem(item),
 			item.getText()
 		);
 	}
 	
 	//method
-	private IContainer<HtmlAttribute> createHTMLAttributesForItem(final IItemMenuItem<?> item) {
+	private IContainer<HtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
 		
 		final var lHTMLAttributes = new LinkedList<HtmlAttribute>();
 		

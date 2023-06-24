@@ -33,7 +33,7 @@ final class SecureServerWorker extends Worker {
 	private final int port;
 	
 	//attribute
-	private final String mHTMLPage;
+	private final String htmlPage;
 	
 	//attribute
 	private final ISSLCertificate mSSLCertificate;
@@ -42,7 +42,7 @@ final class SecureServerWorker extends Worker {
 	public SecureServerWorker(
 		final SecureServer parentWebSocketServer,
 		final int port,
-		final String paramHTMLPage,
+		final String htmlPage,
 		final ISSLCertificate paramSSLCertificate
 	) {
 		
@@ -52,7 +52,7 @@ final class SecureServerWorker extends Worker {
 		
 		this.parentWebSocketServer = parentWebSocketServer;
 		this.port = port;
-		mHTMLPage = paramHTMLPage;
+		this.htmlPage = htmlPage;
 		mSSLCertificate = paramSSLCertificate;
 		
 		start();
@@ -72,7 +72,7 @@ final class SecureServerWorker extends Worker {
 			b.group(bossGroup, workerGroup)
 			.channel(NioServerSocketChannel.class)
 			.handler(new LoggingHandler(LogLevel.INFO))
-			.childHandler(new SecureServerInitializer(parentWebSocketServer, mHTMLPage, sslCtx));
+			.childHandler(new SecureServerInitializer(parentWebSocketServer, htmlPage, sslCtx));
 			Channel ch = b.bind(port).sync().channel();
 			ch.closeFuture().sync();
 		} catch (InterruptedException interruptedException) {

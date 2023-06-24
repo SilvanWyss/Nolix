@@ -105,7 +105,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	public void runHTMLEvent(String pHTMLEvent) {
+	public void runHTMLEvent(String htmlEvent) {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
 	}
 	

@@ -112,7 +112,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onclick"));
+		list.addAtEnd(HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onclick"));
 	}
 	
 	//method
@@ -129,9 +129,9 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String pHTMLEvent) {
+	public void runHTMLEvent(final String htmlEvent) {
 		
-		GlobalValidator.assertThat(pHTMLEvent).thatIsNamed("HTML event").isEqualTo("onclick");
+		GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onclick");
 		
 		if (hasLeftMouseButtonPressAction()) {
 			leftMouseButtonPressAction.run(this);

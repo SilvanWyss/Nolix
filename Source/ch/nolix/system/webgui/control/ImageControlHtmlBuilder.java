@@ -21,16 +21,16 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageC
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final ImageControl imageControl) {
+	public HtmlElement createHtmlElementForControl(final ImageControl imageControl) {
 		return
 		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.IMG,
-			createHTMLAttributesFromImageControl(imageControl)
+			createHtmlAttributesFromImageControl(imageControl)
 		);
 	}
 	
 	//method
-	private IContainer<HtmlAttribute> createHTMLAttributesFromImageControl(final ImageControl imageControl) {
+	private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final ImageControl imageControl) {
 		
 		final var lHTMLAttributes = new LinkedList<HtmlAttribute>();
 		

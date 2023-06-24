@@ -19,7 +19,7 @@ public final class ButtonHtmlBuilder implements IControlHtmlBuilder<Button> {
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final Button button) {
+	public HtmlElement createHtmlElementForControl(final Button button) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.BUTTON,

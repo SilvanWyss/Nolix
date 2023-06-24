@@ -113,7 +113,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String pHTMLEvent) {
+	public void runHTMLEvent(final String htmlEvent) {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
 	}
 	

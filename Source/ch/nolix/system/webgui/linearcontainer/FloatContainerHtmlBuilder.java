@@ -26,24 +26,24 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final FloatContainer floatContainer) {
+	public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(floatContainer)),
-			createHTMLElementsForChildControlsOfFloatContainer(floatContainer)
+			createHtmlElementsForChildControlsOfFloatContainer(floatContainer)
 		);
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfFloatContainer(
+	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfFloatContainer(
 		final FloatContainer floatContainer
 	) {
-		return floatContainer.getOriChildControls().to(this::createHTMLElementsForChildControl);
+		return floatContainer.getOriChildControls().to(this::createHtmlElementsForChildControl);
 	}
 	
 	//method
-	private HtmlElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
+	private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,

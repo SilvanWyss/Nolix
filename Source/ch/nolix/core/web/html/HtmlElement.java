@@ -14,17 +14,17 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribute> {
 	
 	//static method
-	public static HtmlElement fromHTMLElement(final IHtmlElement<?, ?> pHTMLElement) {
+	public static HtmlElement fromHtmlElement(final IHtmlElement<?, ?> htmlElement) {
 		
-		if (pHTMLElement instanceof HtmlElement lHTMLAttribute) {
+		if (htmlElement instanceof HtmlElement lHTMLAttribute) {
 			return lHTMLAttribute;
 		}
 		
 		return
 		withTypeAndAttributesAndChildElements(
-			pHTMLElement.getType(),
-			pHTMLElement.getOriAttributes(),
-			pHTMLElement.getOriChildElements()
+			htmlElement.getType(),
+			htmlElement.getOriAttributes(),
+			htmlElement.getOriChildElements()
 		);
 	}
 	
@@ -105,7 +105,7 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 			type,
 			new ImmutableList<>(),
 			StringCatalogue.EMPTY_STRING,
-			ImmutableList.withElement(HtmlElement.fromHTMLElement(childElement))
+			ImmutableList.withElement(HtmlElement.fromHtmlElement(childElement))
 		);
 	}
 	
@@ -146,9 +146,9 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 		GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
 		
 		this.type = type;
-		this.attributes = attributes.to(HtmlAttribute::fromHTMLAttribute);
+		this.attributes = attributes.to(HtmlAttribute::fromHtmlAttribute);
 		this.innerText = innerText;
-		this.childElements = childElements.to(HtmlElement::fromHTMLElement);
+		this.childElements = childElements.to(HtmlElement::fromHtmlElement);
 	}
 	
 	//method

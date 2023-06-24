@@ -432,7 +432,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final IHtmlElement<?, ?> toHTMLElement() {
-		return getHTMLBuilder().createHTMLElementForControl(asConcrete());
+		return getHTMLBuilder().createHtmlElementForControl(asConcrete());
 	}
 	
 	//method

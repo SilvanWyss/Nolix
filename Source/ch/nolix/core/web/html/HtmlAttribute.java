@@ -9,13 +9,13 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 public final class HtmlAttribute implements IHtmlAttribute {
 	
 	//static method
-	public static HtmlAttribute fromHTMLAttribute(final IHtmlAttribute pHTMLAttribute) {
+	public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
 		
-		if (pHTMLAttribute instanceof HtmlAttribute lHTMLAttribute) {
+		if (htmlAttribute instanceof HtmlAttribute lHTMLAttribute) {
 			return lHTMLAttribute;
 		}
 		
-		return withNameAndValue(pHTMLAttribute.getName(), pHTMLAttribute.getValue());
+		return withNameAndValue(htmlAttribute.getName(), htmlAttribute.getValue());
 	}
 	
 	//static method

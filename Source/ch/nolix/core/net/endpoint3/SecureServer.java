@@ -14,15 +14,15 @@ public final class SecureServer extends BaseServer {
 	NolixConfigurationSSLCertificateReader.INSTANCE;
 	
 	//static method
-	public SecureServer forPortAndHTMLPageAndSSLCertificateFromNolixConfiguration(
+	public SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
 		final int port,
-		final String paramHTMLPage
+		final String htmlPage
 	) {
 		
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new SecureServer(port, paramHTMLPage, paramSSLCertificate);
+		return new SecureServer(port, htmlPage, paramSSLCertificate);
 	}
 	
 	//attribute

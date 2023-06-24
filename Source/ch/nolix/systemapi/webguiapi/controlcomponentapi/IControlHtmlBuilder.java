@@ -9,5 +9,5 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IControlHtmlBuilder<C extends IControl<C, ?>> {
 	
 	//method declaration
-	IHtmlElement<?, ?> createHTMLElementForControl(C control);
+	IHtmlElement<?, ?> createHtmlElementForControl(C control);
 }

@@ -57,21 +57,21 @@ public final class BackendWebClientPartialCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetRootHTMLElementCommandFromControl(final IControl<?, ?> control) {
-		return createSetHTMLElementCommandFromHTMLElement(control.getInternalId(), control.toHTMLElement());
+		return createSetHTMLElementCommandFromHtmlElement(control.getInternalId(), control.toHTMLElement());
 	}
 	
 	//method
-	private ChainedNode createSetHTMLElementCommandFromHTMLElement(
-		final String paramHTMLElementId,
-		final IHtmlElement<?, ?> pHTMLElement
+	private ChainedNode createSetHTMLElementCommandFromHtmlElement(
+		final String htmlElementId,
+		final IHtmlElement<?, ?> htmlElement
 	) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
 			ChainedNode.withHeaderAndChildNodes(
 				CommandProtocol.SET_HTML_ELEMENT,
-				ChainedNode.withHeader(paramHTMLElementId),
-				ChainedNode.withHeader(pHTMLElement.toString())
+				ChainedNode.withHeader(htmlElementId),
+				ChainedNode.withHeader(htmlElement.toString())
 			)
 		);
 	}

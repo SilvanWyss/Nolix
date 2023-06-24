@@ -82,7 +82,7 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	
 	//method
 	@Override
-	public final void runHTMLEvent(final String pHTMLEvent) {
+	public final void runHTMLEvent(final String htmlEvent) {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHTMLEvent");
 	}
 	

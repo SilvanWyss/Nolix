@@ -22,10 +22,10 @@ import static io.netty.handler.codec.http.HttpResponseStatus.*;
 //class
 final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 	
-	private final String mHTMLPage;
+	private final String htmlPage;
 	
-	public SecureServerIndexPageHandler(String paramHTMLPage) {
-		mHTMLPage = paramHTMLPage;
+	public SecureServerIndexPageHandler(String htmlPage) {
+		this.htmlPage = htmlPage;
 	}
 	
 	@Override
@@ -43,7 +43,7 @@ final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<Ful
 		}
 		
 		// Send the index page
-		ByteBuf content = Unpooled.copiedBuffer(mHTMLPage, CharsetUtil.US_ASCII);
+		ByteBuf content = Unpooled.copiedBuffer(htmlPage, CharsetUtil.US_ASCII);
 		FullHttpResponse res = new DefaultFullHttpResponse(req.protocolVersion(), OK, content);
 		res.headers().set(CONTENT_TYPE, "text/html; charset=UTF-8");
 		HttpUtil.setContentLength(res, content.readableBytes());

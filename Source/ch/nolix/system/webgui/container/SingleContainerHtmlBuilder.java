@@ -21,17 +21,17 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<Sin
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHTMLElementForControl(final SingleContainer control) {
+	public IHtmlElement<?, ?> createHtmlElementForControl(final SingleContainer control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(control)),
-			createHTMLElementsForChildControlsOfSingleContainer(control)
+			createHtmlElementsForChildControlsOfSingleContainer(control)
 		);
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> createHTMLElementsForChildControlsOfSingleContainer(
+	private IContainer<IHtmlElement<?, ?>> createHtmlElementsForChildControlsOfSingleContainer(
 		final SingleContainer singleContainer
 	) {
 		

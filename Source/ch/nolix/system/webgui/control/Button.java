@@ -137,8 +137,8 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	@Override
 	public void registerHTMLElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
 		list.addAtEnd(
-			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmousedown"),
-			HTMLElementEvent.withHTMLElementIdAndHTMLEvent(getInternalId(), "onmouseup")
+			HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onmousedown"),
+			HTMLElementEvent.withHTMLElementIdAndHtmlEvent(getInternalId(), "onmouseup")
 		);
 	}
 	
@@ -173,14 +173,14 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public void runHTMLEvent(final String pHTMLEvent) {
-		switch (pHTMLEvent) {
+	public void runHTMLEvent(final String htmlEvent) {
+		switch (htmlEvent) {
 			case "onmousedown" ->
 				pressLeftMouseButton();
 			case "onmouseup" ->
 				releaseLeftMouseButton();
 			default ->
-				throw InvalidArgumentException.forArgumentNameAndArgument("HTML event", pHTMLEvent);
+				throw InvalidArgumentException.forArgumentNameAndArgument("HTML event", htmlEvent);
 		}
 	}
 	

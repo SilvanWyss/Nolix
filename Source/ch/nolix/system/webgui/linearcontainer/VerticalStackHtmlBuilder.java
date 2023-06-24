@@ -21,22 +21,22 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<Verti
 	
 	//method
 	@Override
-	public HtmlElement createHTMLElementForControl(final VerticalStack verticalStack) {
+	public HtmlElement createHtmlElementForControl(final VerticalStack verticalStack) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHTMLAttributeForControl(verticalStack)),
-			createHTMLElementsForChildControlsOfVerticalStack(verticalStack)
+			createHtmlElementsForChildControlsOfVerticalStack(verticalStack)
 		);
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHTMLElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
-		return verticalStack.getOriChildControls().to(this::createHTMLElementsForChildControl);
+	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
+		return verticalStack.getOriChildControls().to(this::createHtmlElementsForChildControl);
 	}
 	
 	//method
-	private HtmlElement createHTMLElementsForChildControl(final IControl<?, ?> childControl) {
+	private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
 		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.toHTMLElement());
 	}
 }

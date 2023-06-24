@@ -71,7 +71,7 @@ PresenceSettable<C> {
 	void registerHTMLElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 	
 	//method declaration
-	void runHTMLEvent(String pHTMLEvent);
+	void runHTMLEvent(String htmlEvent);
 	
 	//method declaration
 	C setCursorIcon(CursorIcon cursorIcon);
