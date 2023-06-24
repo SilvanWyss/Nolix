@@ -18,7 +18,7 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	private IControl<?, ?> controlToUpdate;
 	
 	//method
-	public final IWebGui<?> getOriGUI() {
+	public final IWebGui<?> getOriGui() {
 		return webGui;
 	}
 	
@@ -26,7 +26,7 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	@Override
 	protected final void fullInitialize() {
 		
-		getOriGUI()
+		getOriGui()
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
 		
@@ -59,7 +59,7 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 			
 			controlToUpdate = null;
 		} else {
-			getOriParentClient().internalUpdateCounterpartFromWebGUI(getOriGUI());
+			getOriParentClient().internalUpdateCounterpartFromWebGui(getOriGui());
 		}
 	}
 	

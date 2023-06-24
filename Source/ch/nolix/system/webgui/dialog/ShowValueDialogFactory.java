@@ -37,6 +37,6 @@ public final class ShowValueDialogFactory {
 	
 	//method
 	private void cancel(final ILayer<?> dialogLayer) {
-		dialogLayer.removeSelfFromGUI();
+		dialogLayer.removeSelfFromGui();
 	}
 }

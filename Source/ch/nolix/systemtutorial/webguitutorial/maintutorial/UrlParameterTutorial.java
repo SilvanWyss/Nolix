@@ -38,7 +38,7 @@ public final class UrlParameterTutorial {
 			final var localUrlParameter2 =
 			getOriParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter2");
 			
-			getOriGUI()
+			getOriGui()
 			.pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(

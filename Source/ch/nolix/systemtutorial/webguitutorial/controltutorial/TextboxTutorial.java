@@ -40,7 +40,7 @@ public final class TextboxTutorial {
 			.setBorderThicknessForState(ControlState.BASE, 1);
 			
 			//Adds the Textbox to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(textBox);
+			getOriGui().pushLayerWithRootControl(textBox);
 		}
 	}
 	

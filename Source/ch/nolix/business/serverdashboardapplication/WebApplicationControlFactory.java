@@ -33,58 +33,58 @@ final class WebApplicationControlFactory {
 	
 	//method
 	public IControl<?, ?> createWebApplicationControl(
-		final IApplicationSheet pGUIApplicationSheet,
+		final IApplicationSheet guiApplicationSheet,
 		final SecurityLevel securityLevelForConnections
 	) {
 		
 		final var guiApplicationVerticalStack =
 		new VerticalStack()
 		.addControl(
-			createApplicationNameLabel(pGUIApplicationSheet),
-			createLogoImageControl(pGUIApplicationSheet, securityLevelForConnections)
+			createApplicationNameLabel(guiApplicationSheet),
+			createLogoImageControl(guiApplicationSheet, securityLevelForConnections)
 		);
 		
-		if (pGUIApplicationSheet.hasApplicationDescription()) {
-			guiApplicationVerticalStack.addControl(createApplicationDescriptionLabel(pGUIApplicationSheet));
+		if (guiApplicationSheet.hasApplicationDescription()) {
+			guiApplicationVerticalStack.addControl(createApplicationDescriptionLabel(guiApplicationSheet));
 		}
 		
 		return guiApplicationVerticalStack;
 	}
 	
 	//method
-	private IControl<?, ?> createApplicationNameLabel(final IApplicationSheet pGUIApplicationSheet) {
-		return new Label().setRole(LabelRole.LEVEL1_HEADER).setText(pGUIApplicationSheet.getApplicationName());
+	private IControl<?, ?> createApplicationNameLabel(final IApplicationSheet guiApplicationSheet) {
+		return new Label().setRole(LabelRole.LEVEL1_HEADER).setText(guiApplicationSheet.getApplicationName());
 	}
 	
 	//method
 	private IControl<?, ?> createLogoImageControl(
-		final IApplicationSheet pGUIApplicationSheet,
+		final IApplicationSheet guiApplicationSheet,
 		final SecurityLevel securityLevelForConnections
 	) {
 		return
 		new ImageControl()
-		.setImage(getApplicationLogoOrDefaultLogo(pGUIApplicationSheet))
+		.setImage(getApplicationLogoOrDefaultLogo(guiApplicationSheet))
 		.setLeftMouseButtonPressAction(
 			i ->
 			i
-			.getOriParentGUI()
+			.getOriParentGui()
 			.onFrontEnd()
-			.redirectTo(pGUIApplicationSheet.getApplicationTarget(securityLevelForConnections))
+			.redirectTo(guiApplicationSheet.getApplicationTarget(securityLevelForConnections))
 		);
 	}
 	
 	//method
-	private IImage getApplicationLogoOrDefaultLogo(final IApplicationSheet pGUIApplicationSheet) {
+	private IImage getApplicationLogoOrDefaultLogo(final IApplicationSheet guiApplicationSheet) {
 
-		if (!pGUIApplicationSheet.hasApplicationLogo()) {
+		if (!guiApplicationSheet.hasApplicationLogo()) {
 			return DEFAULT_LOGO;
 		}
 		
-		return pGUIApplicationSheet.getApplicationLogo().withWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
+		return guiApplicationSheet.getApplicationLogo().withWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
 	}
 	
 	//method
-	private IControl<?, ?> createApplicationDescriptionLabel(final IApplicationSheet pGUIApplicationSheet) {
-		return new Label().setText(pGUIApplicationSheet.getApplicationDescription());
+	private IControl<?, ?> createApplicationDescriptionLabel(final IApplicationSheet guiApplicationSheet) {
+		return new Label().setText(guiApplicationSheet.getApplicationDescription());
 	}
 }

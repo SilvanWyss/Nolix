@@ -60,7 +60,7 @@ public final class EnterValueDialogFactory {
 	
 	//method
 	private void cancel(final ILayer<?> dialogLayer) {
-		dialogLayer.removeSelfFromGUI();
+		dialogLayer.removeSelfFromGui();
 	}
 	
 	//method
@@ -74,6 +74,6 @@ public final class EnterValueDialogFactory {
 		
 		valueTaker.run(newValue);
 		
-		confirmButton.getOriParentLayer().removeSelfFromGUI();
+		confirmButton.getOriParentLayer().removeSelfFromGui();
 	}
 }

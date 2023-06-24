@@ -47,7 +47,7 @@ public final class ImageControlTutorial {
 			.setPaddingForState(ControlState.BASE, 5);
 			
 			//Adds the ImageControl to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(imageControl);
+			getOriGui().pushLayerWithRootControl(imageControl);
 		}
 	}
 	

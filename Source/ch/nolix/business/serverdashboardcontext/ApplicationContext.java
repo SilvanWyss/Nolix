@@ -32,32 +32,32 @@ public final class ApplicationContext implements IApplicationContext {
 	
 	//method
 	@Override
-	public IContainer<IApplicationSheet> getGUIApplicationSheets() {
-		return getOriGUIApplications().to(this::createApplicationSheetForGUIApplication);
+	public IContainer<IApplicationSheet> getGuiApplicationSheets() {
+		return getOriGuiApplications().to(this::createApplicationSheetForGuiApplication);
 	}
 	
 	//method
-	private boolean applicationIsForBackendGUIClients(final Application<?, ?> application) {
+	private boolean applicationIsForBackendGuiClients(final Application<?, ?> application) {
 		return (application.getClientClass() == WebClient.class);
 	}
 	
 	//method
-	private IApplicationSheet createApplicationSheetForGUIApplication(
-		final Application<WebClient<?>, ?> pGUIApplication
+	private IApplicationSheet createApplicationSheetForGuiApplication(
+		final Application<WebClient<?>, ?> guiApplication
 	) {
-		return ApplicationSheet.forGUIApplicationOnServer(pGUIApplication, server);
+		return ApplicationSheet.forGuiApplicationOnServer(guiApplication, server);
 	}
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private IContainer<Application<WebClient<?>, ?>> getOriGUIApplications() {
+	private IContainer<Application<WebClient<?>, ?>> getOriGuiApplications() {
 		
-		final var lGUIApplications = new LinkedList<Application<WebClient<?>, ?>>();
+		final var guiApplications = new LinkedList<Application<WebClient<?>, ?>>();
 		
-		for (final var a : server.getOriApplications().getOriSelected(this::applicationIsForBackendGUIClients)) {
-			lGUIApplications.addAtEnd((Application<WebClient<?>, ?>)a);
+		for (final var a : server.getOriApplications().getOriSelected(this::applicationIsForBackendGuiClients)) {
+			guiApplications.addAtEnd((Application<WebClient<?>, ?>)a);
 		}
 		
-		return lGUIApplications;
+		return guiApplications;
 	}
 }

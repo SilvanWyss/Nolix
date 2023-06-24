@@ -18,7 +18,7 @@ final class ServerDashboardSession extends WebClientSession<IApplicationContext>
 	//method
 	@Override
 	protected void initialize() {
-		getOriGUI()
+		getOriGui()
 		.setStyle(SERVER_DASHBOARD_STYLE_CREATOR.createServerDashboardStyle())
 		.pushLayerWithRootControl(createApplicationSetControl());
 	}
@@ -28,7 +28,7 @@ final class ServerDashboardSession extends WebClientSession<IApplicationContext>
 		
 		final var floatContainer = new FloatContainer().setRole(ContainerRole.MAIN_CONTENT_CONTAINER);
 		
-		for (final var as : getGUIApplicationSheets()) {
+		for (final var as : getGuiApplicationSheets()) {
 			floatContainer.addControl(
 				WebApplicationControlFactory.INSTANCE.createWebApplicationControl(as, getOriParentClient().getConnectionSecurityLevel())
 			);
@@ -38,10 +38,10 @@ final class ServerDashboardSession extends WebClientSession<IApplicationContext>
 	}
 	
 	//method
-	private IContainer<IApplicationSheet> getGUIApplicationSheets() {
+	private IContainer<IApplicationSheet> getGuiApplicationSheets() {
 		return
 		getOriApplicationContext()
-		.getGUIApplicationSheets()
+		.getGuiApplicationSheets()
 		.getOriOther(as -> as.getApplicationName().equals(getApplicationName()));
 	}
 }

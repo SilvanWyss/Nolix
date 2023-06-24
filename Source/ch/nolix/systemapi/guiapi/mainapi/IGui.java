@@ -33,7 +33,7 @@ public interface IGui<G extends IGui<G>> extends FluentTitleable<G> {
 	 * 
 	 * @return true if the current {@link IGui} is a root {@link IGui}.
 	 */
-	boolean isRootGUI();
+	boolean isRootGui();
 	
 	//method declaration
 	/**

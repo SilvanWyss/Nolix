@@ -38,7 +38,7 @@ public final class HelloWorldGuiTutorial {
 			label.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the Label to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(label);
+			getOriGui().pushLayerWithRootControl(label);
 		}
 	}
 	

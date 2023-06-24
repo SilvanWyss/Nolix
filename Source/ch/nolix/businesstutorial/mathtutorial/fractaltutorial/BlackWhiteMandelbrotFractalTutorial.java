@@ -38,7 +38,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		@Override
 		protected void initialize() {
 		
-			getOriGUI()
+			getOriGui()
 			.pushLayerWithRootControl(
 				new ImageControl()
 				.setImage(

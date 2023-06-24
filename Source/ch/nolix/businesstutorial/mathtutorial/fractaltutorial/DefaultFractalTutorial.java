@@ -35,7 +35,7 @@ public final class DefaultFractalTutorial {
 		@Override
 		protected void initialize() {
 			
-			getOriGUI()
+			getOriGui()
 			.pushLayerWithRootControl(
 				new ImageControl().setImage(new FractalBuilder().build().startImageGeneration().getOriImage())
 			);

@@ -19,7 +19,7 @@ IStylableElement<L>,
 IRootControlOwner<L> {
 	
 	//method declaration
-	boolean belongsToGUI();
+	boolean belongsToGui();
 	
 	//method declaration
 	ContentPosition getContentPosition();
@@ -31,7 +31,7 @@ IRootControlOwner<L> {
 	double getOpacity();
 	
 	//method declaration
-	IWebGui<?> getOriParentGUI();
+	IWebGui<?> getOriParentGui();
 	
 	//method declaration
 	LayerRole getRole();
@@ -40,7 +40,7 @@ IRootControlOwner<L> {
 	boolean hasRole();
 	
 	//method declaration
-	void removeSelfFromGUI();
+	void removeSelfFromGui();
 	
 	//method declaration
 	L setContentPosition(ContentPosition contentPosition);
@@ -52,5 +52,5 @@ IRootControlOwner<L> {
 	L setOpacity(double opacity);
 	
 	//method declaration
-	void technicalSetParentGUI(IWebGui<?> parentGUI);
+	void technicalSetParentGui(IWebGui<?> parentGui);
 }

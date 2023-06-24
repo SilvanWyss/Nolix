@@ -54,7 +54,7 @@ public final class VerticalStackTutorial {
 			label4.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the VerticalStack to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(verticalStack);
+			getOriGui().pushLayerWithRootControl(verticalStack);
 		}
 	}
 	

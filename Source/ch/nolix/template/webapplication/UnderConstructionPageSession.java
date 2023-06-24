@@ -26,7 +26,7 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
 	//method
 	@Override
 	protected void initialize() {
-		getOriGUI()
+		getOriGui()
 		.pushLayerWithRootControl(
 			new VerticalStack()
 			.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)

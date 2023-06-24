@@ -32,7 +32,7 @@ PresenceSettable<C> {
 	boolean belongsToControl();
 	
 	//method declaration
-	boolean belongsToGUI();
+	boolean belongsToGui();
 	
 	//method declaration
 	boolean belongsToLayer();
@@ -59,7 +59,7 @@ PresenceSettable<C> {
 	IControl<?, ?> getOriParentControl();
 	
 	//method declaration
-	IWebGui<?> getOriParentGUI();
+	IWebGui<?> getOriParentGui();
 	
 	//method declaration
 	ILayer<?> getOriParentLayer();

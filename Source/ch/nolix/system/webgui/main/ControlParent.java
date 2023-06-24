@@ -50,13 +50,13 @@ final class ControlParent {
 	}
 	
 	//method
-	public boolean belongsToGUI() {
+	public boolean belongsToGui() {
 		
 		if (isControl()) {
-			return control.belongsToGUI();
+			return control.belongsToGui();
 		}
 		
-		return layer.belongsToGUI();
+		return layer.belongsToGui();
 	}
 	
 	//method

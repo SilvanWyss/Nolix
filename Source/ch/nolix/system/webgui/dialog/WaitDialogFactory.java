@@ -36,7 +36,7 @@ public final class WaitDialogFactory {
 			)
 		);
 		
-		GlobalSequencer.runInBackgroundAndOrder(job, waitDialog::removeSelfFromGUI, terminalAction);
+		GlobalSequencer.runInBackgroundAndOrder(job, waitDialog::removeSelfFromGui, terminalAction);
 		
 		return waitDialog;
 	}	

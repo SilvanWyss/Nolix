@@ -59,7 +59,7 @@ public final class HorizontalStackWithBottomContentAlignmentTutorial {
 			label4.editStyle(s -> s.setTextSizeForState(ControlState.BASE, 20));
 			
 			//Adds the HorizontalStack to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(horizontalStack);
+			getOriGui().pushLayerWithRootControl(horizontalStack);
 		}
 	}
 	

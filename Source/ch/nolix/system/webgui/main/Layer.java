@@ -120,7 +120,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	);
 	
 	//optional attribute
-	private IWebGui<?> parentGUI;
+	private IWebGui<?> parentGui;
 	
 	//constructor
 	public Layer() {
@@ -129,8 +129,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public boolean belongsToGUI() {
-		return (parentGUI != null);
+	public boolean belongsToGui() {
+		return (parentGui != null);
 	}
 	
 	//method
@@ -214,11 +214,11 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IWebGui<?> getOriParentGUI() {
+	public IWebGui<?> getOriParentGui() {
 		
-		assertBelongsToGUI();
+		assertBelongsToGui();
 		
-		return parentGUI;
+		return parentGui;
 	}
 	
 	//method
@@ -289,9 +289,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public void removeSelfFromGUI() {
-		getOriParentGUI().removeLayer(this);
-		parentGUI = null;
+	public void removeSelfFromGui() {
+		getOriParentGui().removeLayer(this);
+		parentGui = null;
 	}
 	
 	//method
@@ -367,12 +367,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public void technicalSetParentGUI(final IWebGui<?> parentGUI) {
+	public void technicalSetParentGui(final IWebGui<?> parentGui) {
 		
-		GlobalValidator.assertThat(parentGUI).thatIsNamed("parent GUI").isNotNull();
-		assertDoesNotBelongToGUI();
+		GlobalValidator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
+		assertDoesNotBelongToGui();
 		
-		this.parentGUI = parentGUI;
+		this.parentGui = parentGui;
 	}
 	
 	//method
@@ -401,16 +401,16 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	}
 	
 	//method
-	private void assertBelongsToGUI() {
-		if (!belongsToGUI()) {
+	private void assertBelongsToGui() {
+		if (!belongsToGui()) {
 			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWebGui.class);
 		}
 	}
 	
 	//method
-	private void assertDoesNotBelongToGUI() {
-		if (belongsToGUI()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentGUI());
+	private void assertDoesNotBelongToGui() {
+		if (belongsToGui()) {
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentGui());
 		}
 	}
 	

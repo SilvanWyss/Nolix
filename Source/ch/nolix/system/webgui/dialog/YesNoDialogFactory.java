@@ -46,13 +46,13 @@ public final class YesNoDialogFactory {
 					new Button()
 					.setRole(ButtonRole.CANCEL_BUTTON)
 					.setText("No")
-					.setLeftMouseButtonPressAction(b -> b.getOriParentLayer().removeSelfFromGUI()),
+					.setLeftMouseButtonPressAction(b -> b.getOriParentLayer().removeSelfFromGui()),
 					new Button()
 					.setRole(ButtonRole.CONFIRM_BUTTON)
 					.setText("Yes")
 					.setLeftMouseButtonPressAction(
 						(final IButton<?, ?> b) -> {
-							b.getOriParentLayer().removeSelfFromGUI();
+							b.getOriParentLayer().removeSelfFromGui();
 							confirmAction.run();
 						}
 					)

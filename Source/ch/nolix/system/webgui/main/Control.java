@@ -130,8 +130,8 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final boolean belongsToGUI() {
-		return (belongsToLayer() && getOriParentLayer().belongsToGUI());
+	public final boolean belongsToGui() {
+		return (belongsToLayer() && getOriParentLayer().belongsToGui());
 	}
 	
 	//method
@@ -212,8 +212,8 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IWebGui<?> getOriParentGUI() {
-		return getOriParentLayer().getOriParentGUI();
+	public final IWebGui<?> getOriParentGui() {
+		return getOriParentLayer().getOriParentGui();
 	}
 	
 	//method

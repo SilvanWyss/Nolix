@@ -30,7 +30,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
 		switch (command.getHeader()) {
 			case ObjectProtocol.GUI:
-				runGUICommand(command.getNextNode());				
+				runGuiCommand(command.getNextNode());				
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.COMMAND, command);
@@ -45,10 +45,10 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	}
 	
 	//method
-	void internalUpdateCounterpartFromWebGUI(final IWebGui<?> webGUI) {
+	void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui) {
 		BackendWebClientCounterpartUpdater
 		.forCounterpartRunner(this::runOnCounterpart, this::isOpen)
-		.updateCounterpartFromWebGUI(webGUI);
+		.updateCounterpartFromWebGui(webGui);
 	}
 	
 	//method
@@ -69,14 +69,14 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	}
 	
 	//method
-	private void runGUICommand(final IChainedNode pGUICommand) {
-		switch (pGUICommand.getHeader()) {
+	private void runGuiCommand(final IChainedNode guiCommand) {
+		switch (guiCommand.getHeader()) {
 			case ObjectProtocol.CONTROL_BY_FIXED_ID:
 				
-				final var command = pGUICommand.getNextNode();
-				final var internalControlId = pGUICommand.getSingleChildNodeHeader();
+				final var command = guiCommand.getNextNode();
+				final var internalControlId = guiCommand.getSingleChildNodeHeader();
 				final var session = (WebClientSession<AC>)getOriCurrentSession();
-				final var gui = session.getOriGUI();
+				final var gui = session.getOriGui();
 				final var controls = gui.getOriControls();
 				final var control = controls.getOriFirstOrNull(c -> c.hasInternalId(internalControlId));
 				
@@ -89,10 +89,10 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 			case CommandProtocol.SET_USER_INPUTS:
 				
 				final var session2 = (WebClientSession<AC>)getOriCurrentSession();
-				final var gui2 = session2.getOriGUI();
+				final var gui2 = session2.getOriGui();
 				final var controls2 = gui2.getOriControls();
 				
-				for (final var p : pGUICommand.getChildNodes()) {
+				for (final var p : guiCommand.getChildNodes()) {
 					
 					final var internalControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
 					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
@@ -106,7 +106,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 				
 				break;
 			default:
-				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", pGUICommand);
+				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", guiCommand);
 		}
 	}
 	

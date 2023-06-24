@@ -170,13 +170,13 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public IWebGuiContent getContent() {
-		return WebGuiContent.forWebGUI(this);
+		return WebGuiContent.forWebGui(this);
 	}
 	
 	//method
 	@Override
 	public ICSS<?, ?> getCSS() {
-		return WebGuiCSSCreator.INSTANCE.createCSSForWebGUI(this);
+		return WebGuiCSSCreator.INSTANCE.createCSSForWebGui(this);
 	}
 	
 	//method
@@ -277,7 +277,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	@Override
-	public boolean isRootGUI() {
+	public boolean isRootGui() {
 		return false;
 	}
 	
@@ -291,7 +291,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public WebGui pushLayer(final ILayer<?> layer) {
 		
-		layer.technicalSetParentGUI(this);
+		layer.technicalSetParentGui(this);
 		
 		layers.add(layer);
 		

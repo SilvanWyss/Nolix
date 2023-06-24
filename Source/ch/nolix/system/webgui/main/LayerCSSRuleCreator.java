@@ -67,11 +67,11 @@ public final class LayerCSSRuleCreator {
 	//method
 	private int getCSSZIndexForLayer(final ILayer<?> layer) {
 		
-		if (!layer.belongsToGUI()) {
+		if (!layer.belongsToGui()) {
 			return 0;
 		}
 		
-		return layer.getOriParentGUI().getOriLayers().get1BasedIndexOfFirstOccuranceOf(layer);
+		return layer.getOriParentGui().getOriLayers().get1BasedIndexOfFirstOccuranceOf(layer);
 	}
 	
 	//method

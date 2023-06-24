@@ -21,19 +21,19 @@ final class WebGuiContent implements IWebGuiContent {
 	private static final String ROOT_DIV_ID = "root";
 	
 	//static method
-	public static WebGuiContent forWebGUI(final IWebGui<?> parentWebGUI) {
-		return new WebGuiContent(parentWebGUI);
+	public static WebGuiContent forWebGui(final IWebGui<?> parentWebGui) {
+		return new WebGuiContent(parentWebGui);
 	}
 	
 	//attribute
-	private final IWebGui<?> parentWebGUI;
+	private final IWebGui<?> parentWebGui;
 	
 	//constructor
-	private WebGuiContent(final IWebGui<?> parentWebGUI) {
+	private WebGuiContent(final IWebGui<?> parentWebGui) {
 		
-		GlobalValidator.assertThat(parentWebGUI).thatIsNamed("parent web GUI").isNotNull();
+		GlobalValidator.assertThat(parentWebGui).thatIsNamed("parent web GUI").isNotNull();
 		
-		this.parentWebGUI = parentWebGUI;
+		this.parentWebGui = parentWebGui;
 	}
 	
 	//method
@@ -60,6 +60,6 @@ final class WebGuiContent implements IWebGuiContent {
 	
 	//method
 	private IContainer<IHtmlElement<?, ?>> getHtmlChildElements() {
-		return parentWebGUI.getOriLayers().to(ILayer::toHtmlElement);
+		return parentWebGui.getOriLayers().to(ILayer::toHtmlElement);
 	}
 }

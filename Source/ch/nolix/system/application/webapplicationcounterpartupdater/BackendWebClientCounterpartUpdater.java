@@ -51,11 +51,11 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	public void updateCounterpartFromWebGUI(final IWebGui<?> webGUI) {
+	public void updateCounterpartFromWebGui(final IWebGui<?> webGui) {
 		
-		webGUI.applyStyleIfHasStyle();
+		webGui.applyStyleIfHasStyle();
 		
-		final var updateCommands = createUpdateCommandsFromWebGUI(webGUI);
+		final var updateCommands = createUpdateCommandsFromWebGui(webGui);
 		
 		if (openStateRequester.getOutput()) {
 			counterpartRunner.run(updateCommands);
@@ -63,21 +63,21 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private IContainer<ChainedNode> createUpdateCommandsFromWebGUI(final IWebGui<?> webGUI) {
+	private IContainer<ChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
 		return
 		ImmutableList.withElements(
-			createSetTitleCommandFromWebGUI(webGUI),
-			createSetIconCommandFromWebGUI(webGUI),
-			createSetRootHtmlElementCommandFromWebGUI(webGUI),
-			createSetCSSCommandFromWebGUI(webGUI),
-			createSetEventFunctionsCommandFromWebGUI(webGUI),
-			createSetUserInputFunctionsCommandFromWebGUI(webGUI)
+			createSetTitleCommandFromWebGui(webGui),
+			createSetIconCommandFromWebGui(webGui),
+			createSetRootHtmlElementCommandFromWebGui(webGui),
+			createSetCSSCommandFromWebGui(webGui),
+			createSetEventFunctionsCommandFromWebGui(webGui),
+			createSetUserInputFunctionsCommandFromWebGui(webGui)
 		);
 	}
 	
 	//method
-	private ChainedNode createSetTitleCommandFromWebGUI(final IWebGui<?> webGUI) {
-		return createSetTitleCommandForTitle(webGUI.getTitle());
+	private ChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetTitleCommandForTitle(webGui.getTitle());
 	}
 	
 	//method
@@ -93,8 +93,8 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetIconCommandFromWebGUI(final IWebGui<?> webGUI) {
-		return createSetIconCommandForIcon(webGUI.getIcon());
+	private ChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetIconCommandForIcon(webGui.getIcon());
 	}
 	
 	//method
@@ -107,8 +107,8 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetRootHtmlElementCommandFromWebGUI(final IWebGui<?> webGUI) {
-		return createSetRootHtmlElementCommandFromHtmlElement(webGUI.getContent().toHtmlElement());
+	private ChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetRootHtmlElementCommandFromHtmlElement(webGui.getContent().toHtmlElement());
 	}
 	
 	//method
@@ -124,8 +124,8 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 		
 	//method
-	private ChainedNode createSetCSSCommandFromWebGUI(final IWebGui<?> webGUI) {
-		return createSetCSSCommandFromCSS(webGUI.getCSS());
+	private ChainedNode createSetCSSCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetCSSCommandFromCSS(webGui.getCSS());
 	}
 	
 	//method
@@ -146,8 +146,8 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetEventFunctionsCommandFromWebGUI(final IWebGui<?> webGUI) {
-		return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGUI.getHtmlElementEventRegistrations());
+	private ChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGui.getHtmlElementEventRegistrations());
 	}
 	
 	//method
@@ -171,8 +171,8 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetUserInputFunctionsCommandFromWebGUI(final IWebGui<?> webGUI) {
-		return createSetUserInputFunctionsCommandForControls(webGUI.getOriControls());
+	private ChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetUserInputFunctionsCommandForControls(webGui.getOriControls());
 	}
 	
 	//method

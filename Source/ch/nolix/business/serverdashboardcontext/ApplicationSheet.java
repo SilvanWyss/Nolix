@@ -20,21 +20,21 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 public final class ApplicationSheet implements IApplicationSheet {
 	
 	//static method
-	public static ApplicationSheet forGUIApplicationOnServer(
-		final Application<WebClient<?>, ?> pGUIApplication,
+	public static ApplicationSheet forGuiApplicationOnServer(
+		final Application<WebClient<?>, ?> guiApplication,
 		final BaseServer server
 	) {
 		
-		if (pGUIApplication.getOriApplicationContext() instanceof IWebApplicationContext) {
+		if (guiApplication.getOriApplicationContext() instanceof IWebApplicationContext) {
 			return
 			new ApplicationSheet(
-				pGUIApplication.getInstanceName(),
-				(IWebApplicationContext)pGUIApplication.getOriApplicationContext(),
+				guiApplication.getInstanceName(),
+				(IWebApplicationContext)guiApplication.getOriApplicationContext(),
 				server.asTarget()
 			);
 		}
 		
-		return new ApplicationSheet(pGUIApplication.getInstanceName(), server.asTarget());
+		return new ApplicationSheet(guiApplication.getInstanceName(), server.asTarget());
 	}
 	
 	//attribute
@@ -52,7 +52,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	//constructor
 	private ApplicationSheet(
 		final String applicationName,
-		final IWebApplicationContext pGUIApplicationContext,
+		final IWebApplicationContext guiApplicationContext,
 		final IServerTarget serverTarget
 	) {
 		
@@ -61,16 +61,16 @@ public final class ApplicationSheet implements IApplicationSheet {
 		
 		this.applicationName = applicationName;
 		
-		if (!pGUIApplicationContext.hasApplicationLogo()) {
+		if (!guiApplicationContext.hasApplicationLogo()) {
 			applicationLogo = null;
 		} else {
-			applicationLogo = pGUIApplicationContext.getApplicationLogo();
+			applicationLogo = guiApplicationContext.getApplicationLogo();
 		}
 		
-		if (!pGUIApplicationContext.hasApplicationDescription()) {
+		if (!guiApplicationContext.hasApplicationDescription()) {
 			applicationDescription = null;
 		} else {
-			applicationDescription = pGUIApplicationContext.getApplicationDescription();
+			applicationDescription = guiApplicationContext.getApplicationDescription();
 		}
 		
 		this.serverTarget =serverTarget;

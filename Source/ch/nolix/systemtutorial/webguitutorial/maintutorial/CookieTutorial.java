@@ -42,7 +42,7 @@ public final class CookieTutorial {
 				textbox.setText(input);
 			}
 			
-			getOriGUI().pushLayerWithRootControl(
+			getOriGui().pushLayerWithRootControl(
 				new HorizontalStack()
 				.addControl(
 					textbox,

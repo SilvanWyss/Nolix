@@ -52,7 +52,7 @@ public final class GridContainerTutorial {
 			.setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the GridContainer to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(gridContainer);
+			getOriGui().pushLayerWithRootControl(gridContainer);
 		}
 	}
 	

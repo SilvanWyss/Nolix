@@ -54,7 +54,7 @@ public final class HorizontalStackTutorial {
 			label4.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the HorizontalStack to the GUI of the current MainSession.
-			getOriGUI().pushLayerWithRootControl(horizontalStack);
+			getOriGui().pushLayerWithRootControl(horizontalStack);
 		}
 	}
 	

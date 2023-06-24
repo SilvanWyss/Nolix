@@ -7,5 +7,5 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface IApplicationContext {
 	
 	//method declaration
-	IContainer<IApplicationSheet> getGUIApplicationSheets();
+	IContainer<IApplicationSheet> getGuiApplicationSheets();
 }

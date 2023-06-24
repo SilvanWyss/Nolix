@@ -32,7 +32,7 @@ public final class LayerTutorial {
 		@Override
 		protected void initialize() {
 			
-			getOriGUI().setTitle("Layer tutorial");
+			getOriGui().setTitle("Layer tutorial");
 			
 			//Creates labelA.
 			final var labelA = new Label().setText("A");
@@ -51,10 +51,10 @@ public final class LayerTutorial {
 			.setTextColorForState(ControlState.BASE, Color.BLACK);
 			
 			//Adds a new layer with labelA to the Frame.
-			getOriGUI().pushLayerWithRootControl(labelA);
+			getOriGui().pushLayerWithRootControl(labelA);
 			
 			//Adds a new layer with labelB to the Frame.
-			getOriGUI().pushLayerWithRootControl(labelB);
+			getOriGui().pushLayerWithRootControl(labelB);
 		}
 	}
 	

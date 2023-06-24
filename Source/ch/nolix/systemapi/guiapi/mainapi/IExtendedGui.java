@@ -55,9 +55,9 @@ extends GroupCloseable, IGui<G>, Refreshable {
 	//method
 	/**
 	 * Lets the current {@link IExtendedGui} note a resize.
-	 * The size of the view area of the current {@link IExtendedGui} will be the size of the view area of the given pGUI.
+	 * The size of the view area of the current {@link IExtendedGui} will be the size of the view area of the given gui.
 	 * 
-	 * @param pGUI
+	 * @param gui
 	 */
-	void noteResizeFrom(IExtendedGui<?> pGUI);
+	void noteResizeFrom(IExtendedGui<?> gui);
 }

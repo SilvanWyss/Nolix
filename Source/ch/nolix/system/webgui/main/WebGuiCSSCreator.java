@@ -20,33 +20,33 @@ public final class WebGuiCSSCreator {
 	public static final WebGuiCSSCreator INSTANCE = new WebGuiCSSCreator();
 	
 	//method
-	public CSS createCSSForWebGUI(final IWebGui<?> webGUI) {
+	public CSS createCSSForWebGui(final IWebGui<?> webGui) {
 		
 		final var lCSSRules = new LinkedList<ICSSRule<?>>();
 		
-		fillUpCSSRulesOfWebGUIIntoList(webGUI, lCSSRules);
+		fillUpCSSRulesOfWebGuiIntoList(webGui, lCSSRules);
 		
 		return CSS.withRules(lCSSRules);
 	}
 	
 	//method
-	private void fillUpCSSRulesOfWebGUIIntoList(
-		final IWebGui<?> webGUI,
+	private void fillUpCSSRulesOfWebGuiIntoList(
+		final IWebGui<?> webGui,
 		final LinkedList<ICSSRule<?>> lCSSRules
 	) {
 		
 		lCSSRules.addAtEnd(
 			CSSRule.withSelectorAndProperties(
 				HtmlElementTypeCatalogue.BODY,
-				getBodyCSSPropertiesFromWebGUI(webGUI)
+				getBodyCSSPropertiesFromWebGui(webGui)
 			)	
 		);
 		
-		fillUpCSSRulesOfLayersOfWebGUIIntoList(webGUI, lCSSRules);
+		fillUpCSSRulesOfLayersOfWebGuiIntoList(webGui, lCSSRules);
 	}
 	
 	//method
-	private IContainer<ICSSProperty> getBodyCSSPropertiesFromWebGUI(final IWebGui<?> webGUI) {
+	private IContainer<ICSSProperty> getBodyCSSPropertiesFromWebGui(final IWebGui<?> webGui) {
 		
 		final var bodyCSSProperties = new LinkedList<ICSSProperty>();
 		
@@ -56,19 +56,19 @@ public final class WebGuiCSSCreator {
 			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh")
 		);
 		
-		if (webGUI.hasBackground()) {
-			bodyCSSProperties.addAtEnd(webGUI.getBackground().toCSSProperties());
+		if (webGui.hasBackground()) {
+			bodyCSSProperties.addAtEnd(webGui.getBackground().toCSSProperties());
 		}
 		
 		return bodyCSSProperties;
 	}
 
 	//method
-	private void fillUpCSSRulesOfLayersOfWebGUIIntoList(
-		final IWebGui<?> webGUI,
+	private void fillUpCSSRulesOfLayersOfWebGuiIntoList(
+		final IWebGui<?> webGui,
 		final LinkedList<ICSSRule<?>> lCSSRules
 	) {
-		for (final var l : webGUI.getOriLayers()) {
+		for (final var l : webGui.getOriLayers()) {
 			fillUpCSSRulesOfLayerIntoList(l, lCSSRules);
 		}
 	}

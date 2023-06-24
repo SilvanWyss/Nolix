@@ -38,7 +38,7 @@ public final class CustomFractalTutorial2 {
 		@Override
 		protected void initialize() {
 			
-			getOriGUI()
+			getOriGui()
 			.pushLayerWithRootControl(
 				new ImageControl()
 				.setImage(
