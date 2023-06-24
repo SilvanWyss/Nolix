@@ -205,13 +205,13 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_toXML() {
+	public final void testCase_toXml() {
 		
 		//setup
 		final var testUnit = createNodeWithHeaderAndChildNodes("a");
 		
 		//execution
-		final var result = testUnit.toXML();
+		final var result = testUnit.toXml();
 		
 		//verification
 		expect(result).hasStringRepresentation("<a></a>");

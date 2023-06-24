@@ -221,5 +221,5 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
 	/**
 	 * @return a {@link IXmlNode} representation of the current {@link INode}.
 	 */
-	IXmlNode<?> toXML();
+	IXmlNode<?> toXml();
 }

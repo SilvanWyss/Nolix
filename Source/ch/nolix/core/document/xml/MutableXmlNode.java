@@ -18,25 +18,25 @@ import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 public final class MutableXmlNode implements IMutableXmlNode {
 	
 	//static method
-	public static MutableXmlNode fromXMLNode(final IXmlNode<?> pXMLNode) {
+	public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
 		
-		final var mutableXMLNode = new MutableXmlNode();
+		final var mutableXmlNode = new MutableXmlNode();
 		
-		if (pXMLNode.hasName()) {
-			mutableXMLNode.setName(pXMLNode.getName());
+		if (pXmlNode.hasName()) {
+			mutableXmlNode.setName(pXmlNode.getName());
 		}
 		
-		mutableXMLNode.addAttributes(pXMLNode.getAttributes());
+		mutableXmlNode.addAttributes(pXmlNode.getAttributes());
 		
-		for (final var cn : pXMLNode.getOriChildNodes()) {
-			mutableXMLNode.addChildNode(fromXMLNode(cn));
+		for (final var cn : pXmlNode.getOriChildNodes()) {
+			mutableXmlNode.addChildNode(fromXmlNode(cn));
 		}
 		
-		if (pXMLNode.hasValue()) {
-			mutableXMLNode.setValue(pXMLNode.getValue());
+		if (pXmlNode.hasValue()) {
+			mutableXmlNode.setValue(pXmlNode.getValue());
 		}
 		
-		return mutableXMLNode;
+		return mutableXmlNode;
 	}
 	
 	//method

@@ -26,10 +26,10 @@ public final class XmlAttributeTest extends Test {
 	public void testCase_toString() {
 		
 		//setup
-		final var lXMLAttribute = new XmlAttribute("color", "green");
+		final var xmlAttribute = new XmlAttribute("color", "green");
 		
 		//execution
-		final var result = lXMLAttribute.toString();
+		final var result = xmlAttribute.toString();
 		
 		//verification
 		expect(result).isEqualTo("color='green'");

@@ -57,8 +57,8 @@ public interface Specified {
 	/**
 	 * @return a XML representation of the current {@link Specified}.
 	 */
-	default IXmlNode<?> toXML() {
-		return getSpecification().toXML();
+	default IXmlNode<?> toXml() {
+		return getSpecification().toXml();
 	}
 	
 	//method
@@ -68,7 +68,7 @@ public interface Specified {
 	 * @throws RuntimeException if the given header is null.
 	 * @throws RuntimeException if the given header is blank.
 	 */
-	default IXmlNode<?> toXMLWithHeader(final String header) {
-		return getSpecificationWithHeader(header).toXML();
+	default IXmlNode<?> toXmlWithHeader(final String header) {
+		return getSpecificationWithHeader(header).toXml();
 	}
 }

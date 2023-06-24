@@ -425,10 +425,10 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IMutableXmlNode toXML() {
+	public final IMutableXmlNode toXml() {
 		
-		//Creates an XMLNode.
-		final var lXMLNode =
+		//Creates an XmlNode.
+		final var xmlNode =
 		new MutableXmlNode()
 		.setName(getHeader());
 		
@@ -437,15 +437,15 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 			
 			//Handles the case that the current child node itself does not contain child nodes.
 			if (!cn.containsChildNodes()) {
-				lXMLNode.setValue(cn.toString());
+				xmlNode.setValue(cn.toString());
 				
 			//Handles the case that the current child node itself contains child nodes.
 			} else {
-				lXMLNode.addChildNode(cn.toXML());
+				xmlNode.addChildNode(cn.toXml());
 			}
 		}
 		
-		return lXMLNode;
+		return xmlNode;
 	}
 	
 	//method
