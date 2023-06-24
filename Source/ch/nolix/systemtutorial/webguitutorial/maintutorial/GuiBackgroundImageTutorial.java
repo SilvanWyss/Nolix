@@ -13,7 +13,7 @@ public final class GuiBackgroundImageTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = Server.forDefaultPort();
+		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication("Background image tutorial", MainSession.class, new VoidObject());

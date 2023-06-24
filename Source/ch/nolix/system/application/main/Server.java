@@ -4,6 +4,7 @@ package ch.nolix.system.application.main;
 //own imports
 import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
+import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
@@ -18,17 +19,14 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 public final class Server extends BaseServer {
 	
 	//constant
-	public static final int DEFAULT_PORT = ch.nolix.core.net.endpoint3.Server.DEFAULT_PORT;
-	
-	//constant
 	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 	
 	//static method
 	/**
-	 * @return a new {@link Server} that will listen to net {@link Client}s on the default port.
+	 * @return a new {@link Server} that will listen to net {@link Client}s on the HTTP port (80).
 	 */
-	public static Server forDefaultPort() {
-		return forPort(DEFAULT_PORT);
+	public static Server forHttpPort() {
+		return forPort(PortCatalogue.HTTP_PORT);
 	}
 	
 	//static method

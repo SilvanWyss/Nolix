@@ -14,7 +14,7 @@ public final class HorizontalStackTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = Server.forDefaultPort();
+		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplication("HorizontalStack tutorial", MainSession.class, new VoidObject());

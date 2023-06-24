@@ -15,7 +15,7 @@ public final class ServerDashboardTutorial {
 	public static void main(String[] args) {
 		
 		//Creates a Server.
-		final var server = Server.forDefaultPort();
+		final var server = Server.forHttpPort();
 		
 		//Creates a ServerDashboardApplication for the Server.
 		final var serverDashboardApplication = ServerDashboardApplication.forServer(server);
