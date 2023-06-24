@@ -3,6 +3,7 @@ package ch.nolix.core.net.target;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
@@ -72,9 +73,29 @@ public class ServerTarget implements IServerTarget {
 		return
 		switch (getSecurityLevelForConnections()) {
 			case UNSECURE ->
-				"http://" + getIpOrAddressName() + ":" + getPort();
+				toHttpUrl();
 			case SECURE ->
-				"https://" + getIpOrAddressName() + ":" + getPort();
+				toHttpsUrl();
 		};
+	}
+	
+	//method
+	private String toHttpsUrl() {
+		
+		if (getPort() == PortCatalogue.HTTPS_PORT) {
+			return getIpOrAddressName();
+		}
+		
+		return String.format("https://%s:%s", getIpOrAddressName(), getPort());
+	}
+	
+	//method
+	private String toHttpUrl() {
+		
+		if (getPort() == PortCatalogue.HTTP_PORT) {
+			return String.format("http://%s", getIpOrAddressName());
+		}
+		
+		return String.format("http://%s:%s", getIpOrAddressName(), getPort());
 	}
 }
