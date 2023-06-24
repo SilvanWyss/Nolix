@@ -9,7 +9,7 @@ import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class URLParameterTutorial {
+public final class UrlParameterTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -52,5 +52,5 @@ public final class URLParameterTutorial {
 		}
 	}
 	
-	private URLParameterTutorial() {}
+	private UrlParameterTutorial() {}
 }
