@@ -31,13 +31,13 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	public void addColumn(final String tableName, final IColumnDto column) {
 		sqlSchemaWriter.addColumn(
 			TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-			schemaDtoMapper.createQslColumnDTOFrom(column)
+			schemaDtoMapper.createQslColumnDtoFrom(column)
 		);
 	}
 	
 	//method
 	public void addTable(final ITableDto table) {
-		sqlSchemaWriter.addTable(schemaDtoMapper.createQslTableDTOFrom(table));
+		sqlSchemaWriter.addTable(schemaDtoMapper.createQslTableDtoFrom(table));
 	}
 	
 	//method

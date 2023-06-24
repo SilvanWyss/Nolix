@@ -37,7 +37,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public <V> IEntityUpdateDto createEntityUpdateDTOForAddedValue(
+	public <V> IEntityUpdateDto createEntityUpdateDtoForAddedValue(
 		final IMultiValue<V> multiValue,
 		final V addedValue
 	) {
@@ -54,7 +54,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	
 	//method
 	@Override
-	public IEntityUpdateDto createEntityUpdateDTOForClear(final IMultiValue<?> multiValue) {
+	public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
 		
 		final var parentEntity = multiValue.getOriParentEntity();
 		

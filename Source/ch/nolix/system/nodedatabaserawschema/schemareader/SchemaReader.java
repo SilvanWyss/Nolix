@@ -85,7 +85,7 @@ public final class SchemaReader implements ISchemaReader {
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableIdFromDatabaseNode(databaseNode, tableId);
 		
 		return
-		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDtoFromColumnNode);
 	}
 	
 	//method
@@ -95,14 +95,14 @@ public final class SchemaReader implements ISchemaReader {
 		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
 		return
-		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDtoFromColumnNode);
 	}
 	
 	//method
 	@Override
 	public IFlatTableDto loadFlatTableById(final String id) {
 		return
-		flatTableDtoMapper.createFlatTableDTOFromTableNode(
+		flatTableDtoMapper.createFlatTableDtoFromTableNode(
 			databaseNodeSearcher.getOriTableNodeByTableIdFromDatabaseNode(databaseNode, id)
 		);
 	}
@@ -111,7 +111,7 @@ public final class SchemaReader implements ISchemaReader {
 	@Override
 	public IFlatTableDto loadFlatTableByName(final String name) {
 		return
-		flatTableDtoMapper.createFlatTableDTOFromTableNode(
+		flatTableDtoMapper.createFlatTableDtoFromTableNode(
 			databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, name)
 		);
 	}
@@ -122,7 +122,7 @@ public final class SchemaReader implements ISchemaReader {
 		return
 		databaseNodeSearcher
 		.getOriTableNodesFromDatabaseNode(databaseNode)
-		.to(flatTableDtoMapper::createFlatTableDTOFromTableNode);
+		.to(flatTableDtoMapper::createFlatTableDtoFromTableNode);
 	}
 	
 	//method
@@ -174,7 +174,7 @@ public final class SchemaReader implements ISchemaReader {
 	//method
 	private IContainer<IColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
 		return
-		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDTOFromColumnNode);
+		tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode).to(columnDtoMapper::createColumnDtoFromColumnNode);
 	}
 	
 	//method

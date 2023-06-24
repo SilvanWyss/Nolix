@@ -53,7 +53,7 @@ implements IBaseParametrizedValueType<V> {
 	
 	//method
 	@Override
-	public final IParametrizedPropertyTypeDto toDTO() {
+	public final IParametrizedPropertyTypeDto toDto() {
 		return new BaseParametrizedValueTypeDto(getPropertyType(), getDataType());
 	}
 }

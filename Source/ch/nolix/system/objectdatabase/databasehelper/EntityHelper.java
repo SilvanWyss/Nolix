@@ -56,7 +56,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public IEntityUpdateDto createEntityUpdateDTOForEntity(final IEntity entity) {
+	public IEntityUpdateDto createEntityUpdateDtoForEntity(final IEntity entity) {
 		return
 		new EntityUpdateDto(
 			entity.getId(),
@@ -67,13 +67,13 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public IEntityHeadDto createEntityHeadDTOForEntity(IEntity entity) {
+	public IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity) {
 		return new EntityHeadDto(entity.getId(), entity.getSaveStamp());
 	}
 	
 	//method
 	@Override
-	public INewEntityDto createNewEntityDTOForEntity(final IEntity entity) {
+	public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
 		return
 		new NewEntityDto(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
 	}

@@ -62,7 +62,7 @@ public final class InternalDatabaseReader {
 		return
 		tableNodeSearcher
 		.getOriEntityNodesFromTableNode(tableNode)
-		.to(rn -> loadedEntityDtoMapper.createLoadedEntityDTOFromEntityNode(rn, tableInfo));
+		.to(rn -> loadedEntityDtoMapper.createLoadedEntityDtoFromEntityNode(rn, tableInfo));
 	}
 	
 	//method
@@ -114,7 +114,7 @@ public final class InternalDatabaseReader {
 		
 		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, id);
 		
-		return loadedEntityDtoMapper.createLoadedEntityDTOFromEntityNode(entityNode, tableInfo);
+		return loadedEntityDtoMapper.createLoadedEntityDtoFromEntityNode(entityNode, tableInfo);
 	}
 	
 	//method

@@ -40,5 +40,5 @@ FluentNameable<ITable> {
 	IContainer<IColumn> getOriColumns();
 	
 	//method declaration
-	ITableDto toDTO();
+	ITableDto toDto();
 }

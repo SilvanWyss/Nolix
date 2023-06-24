@@ -23,12 +23,12 @@ final class SchemaDtoMapper {
 	new ColumnDto(PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 	
 	//method
-	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto createQslColumnDTOFrom(final IColumnDto column) {
+	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto createQslColumnDtoFrom(final IColumnDto column) {
 		return new ColumnDto(column.getName(), SqlDatatypeCatalogue.TEXT);
 	}
 	
 	//method
-	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto createQslTableDTOFrom(final ITableDto table) {
+	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(final ITableDto table) {
 		return new TableDto(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createQslColumnDTOsFrom(table));
 	}
 	
@@ -42,7 +42,7 @@ final class SchemaDtoMapper {
 		columns.addAtEnd(SQL_ID_COLUMN_DTO);
 		
 		for (final var c : table.getColumns()) {
-			columns.addAtEnd(createQslColumnDTOFrom(c));
+			columns.addAtEnd(createQslColumnDtoFrom(c));
 		}
 		
 		columns.addAtEnd(SQL_SAVE_STAMP_COLUMN_DTO);

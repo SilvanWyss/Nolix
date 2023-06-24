@@ -69,7 +69,7 @@ implements IBaseParametrizedBackReferenceType {
 	
 	//method
 	@Override
-	public final IParametrizedPropertyTypeDto toDTO() {
+	public final IParametrizedPropertyTypeDto toDto() {
 		return
 		new BaseParametrizedBackReferenceTypeDto(
 			getPropertyType(),

@@ -13,7 +13,7 @@ final class FlatTableDtoMapper {
 	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
 	
 	//method
-	public FlatTableDto createFlatTableDTOFromTableNode(final IMutableNode<?> tableNode) {
+	public FlatTableDto createFlatTableDtoFromTableNode(final IMutableNode<?> tableNode) {
 		
 		final var id = tableNodeSearcher.getOriIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 		final var name = tableNodeSearcher.getOriNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();

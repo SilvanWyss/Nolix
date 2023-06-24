@@ -153,7 +153,7 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	@Override
-	public TableDto toDTO() {
+	public TableDto toDto() {
 		return new TableDto(getId(), getName(), createSaveStampConfigurationDTO(), createColumnDTOs());
 	}
 	
@@ -205,7 +205,7 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	private IContainer<IColumnDto> createColumnDTOs() {
-		return getOriColumns().to(IColumn::toDTO);
+		return getOriColumns().to(IColumn::toDto);
 	}
 	
 	//method

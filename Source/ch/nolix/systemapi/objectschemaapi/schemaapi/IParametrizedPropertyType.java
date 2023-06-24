@@ -31,5 +31,5 @@ public interface IParametrizedPropertyType {
 	boolean referencesBackColumn(IColumn column);
 	
 	//method declaration
-	IParametrizedPropertyTypeDto toDTO();
+	IParametrizedPropertyTypeDto toDto();
 }

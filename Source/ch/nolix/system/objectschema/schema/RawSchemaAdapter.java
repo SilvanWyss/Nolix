@@ -29,12 +29,12 @@ final class RawSchemaAdapter {
 	
 	//method
 	public void addColumnToTable(final ITable table, final IColumn column) {
-		internalRawSchemaAdapter.addColumn(table.getName(), column.toDTO());
+		internalRawSchemaAdapter.addColumn(table.getName(), column.toDto());
 	}
 	
 	//method
 	public void addTable(final ITable table) {
-		internalRawSchemaAdapter.addTable(table.toDTO());
+		internalRawSchemaAdapter.addTable(table.toDto());
 	}
 	
 	//method
@@ -92,7 +92,7 @@ final class RawSchemaAdapter {
 	) {
 		internalRawSchemaAdapter.setColumnParametrizedPropertyType(
 			column.getId(),
-			parametrizedPropertyType.toDTO()
+			parametrizedPropertyType.toDto()
 		);
 	}
 	

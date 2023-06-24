@@ -17,10 +17,10 @@ public interface IOptionalReferenceHelper {
 	boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method
-	IEntityUpdateDto createEntityUpdateDTOForClear(IOptionalReference<?> optionalReference);
+	IEntityUpdateDto createEntityUpdateDtoForClear(IOptionalReference<?> optionalReference);
 	
 	//method declaration
-	IEntityUpdateDto createEntityUpdateDTOForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
+	IEntityUpdateDto createEntityUpdateDtoForSetEntity(IOptionalReference<?> optionalReference, IEntity entity);
 	
 	//method declaration
 	IProperty getOriBackReferencingPropertyOrNull(IOptionalReference<?> optionalReference);

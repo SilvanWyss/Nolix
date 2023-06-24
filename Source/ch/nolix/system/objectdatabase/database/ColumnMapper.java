@@ -14,7 +14,7 @@ final class ColumnMapper {
 	private final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper = new ParametrizedPropertyTypeMapper();
 	
 	//method
-	public IColumn createColumnFromDTOForParentTableUsingGivenReferencableTables(
+	public IColumn createColumnFromDtoForParentTableUsingGivenReferencableTables(
 		final IColumnDto columnDto,
 		final Table<IEntity> parentTable,
 		final IContainer<? extends ITable<IEntity>> referencableTables

@@ -42,7 +42,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public IEntityUpdateDto createEntityUpdateDTOForAddEntity(
+	public IEntityUpdateDto createEntityUpdateDtoForAddEntity(
 		final IMultiReference<?> multiReference,
 		final IEntity entity
 	) {
@@ -59,7 +59,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
 	
 	//method
 	@Override
-	public IEntityUpdateDto createEntityUpdateDTOForClear(final IMultiReference<?> multiReference) {
+	public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiReference<?> multiReference) {
 		
 		final var parentEntity = multiReference.getOriParentEntity();
 		

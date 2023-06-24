@@ -24,7 +24,7 @@ final class DatabaseTableLoader {
 		
 		final var rawTables = database.internalGetRefDataAndSchemaAdapter().loadTables();
 		
-		final var tables = rawTables.to(rt -> tableMapper.createEmptyTableFromTableDTOForDatabase(rt, database));
+		final var tables = rawTables.to(rt -> tableMapper.createEmptyTableFromTableDtoForDatabase(rt, database));
 		
 		addBaseValueColumnsToTablesFromRawTables(tables, rawTables);
 		addBaseReferenceColumnsToTablesFromRawTables(tables, rawTables, tables);
@@ -61,7 +61,7 @@ final class DatabaseTableLoader {
 		for (final var c : rawBaseValueColumns) {
 			
 			final var column =
-			columnMapper.createColumnFromDTOForParentTableUsingGivenReferencableTables(
+			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(
 				c,
 				table,
 				new ImmutableList<>()
@@ -101,7 +101,7 @@ final class DatabaseTableLoader {
 		for (final var c : rawBaseReferenceColumns) {
 			
 			final var column =
-			columnMapper.createColumnFromDTOForParentTableUsingGivenReferencableTables(
+			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(
 				c,
 				table,
 				referencableTables
@@ -141,7 +141,7 @@ final class DatabaseTableLoader {
 		for (final var c : rawBaseValueColumns) {
 			
 			final var column =
-			columnMapper.createColumnFromDTOForParentTableUsingGivenReferencableTables(
+			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(
 				c,
 				table,
 				referencableTables

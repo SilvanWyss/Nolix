@@ -169,8 +169,8 @@ public final class Column extends SchemaObject implements IColumn {
 
 	//method
 	@Override
-	public ColumnDto toDTO() {
-		return new ColumnDto(getId(), getName(), getParametrizedPropertyType().toDTO());
+	public ColumnDto toDto() {
+		return new ColumnDto(getId(), getName(), getParametrizedPropertyType().toDto());
 	}
 	
 	//method

@@ -26,5 +26,5 @@ extends Deletable, EmptinessRequestable, IDatabaseObject, Identified, FluentName
 	IColumn setParametrizedPropertyType(IParametrizedPropertyType parametrizedPropertyType);
 	
 	//method declaration
-	IColumnDto toDTO();
+	IColumnDto toDto();
 }

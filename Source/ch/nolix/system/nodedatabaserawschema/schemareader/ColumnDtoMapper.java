@@ -18,7 +18,7 @@ final class ColumnDtoMapper {
 	new ParametrizedPropertyTypeDtoMapper();
 	
 	//method
-	public ColumnDto createColumnDTOFromColumnNode(final IMutableNode<?> columnNode) {
+	public ColumnDto createColumnDtoFromColumnNode(final IMutableNode<?> columnNode) {
 		return
 		new ColumnDto(
 			getIdFromColumnNode(columnNode),
@@ -44,7 +44,7 @@ final class ColumnDtoMapper {
 		columnNodeSearcher.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		return
-		parametrizedPropertyTypeDtoMapper.createParametrizedProeprtyTypeDTOFromParametrizedPropertyTypeNode(
+		parametrizedPropertyTypeDtoMapper.createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 	}

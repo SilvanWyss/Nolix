@@ -15,7 +15,7 @@ public final class ContentFieldDtoMapper {
 	private static final ValueMapper valueMapper = new ValueMapper();
 	
 	//method
-	public ILoadedContentFieldDto createContentFieldDTOFromContentFieldNode(
+	public ILoadedContentFieldDto createContentFieldDtoFromContentFieldNode(
 		final IMutableNode<?> contentFieldNode,
 		final IColumnInfo columnInfo
 	) {

@@ -19,7 +19,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 	
 	//method
 	@Override
-	public IEntityUpdateDto createEntityUpdateDTOForSetValue(
+	public IEntityUpdateDto createEntityUpdateDtoForSetValue(
 		final IOptionalValue<?> optionalValue,
 		final Object value
 	) {

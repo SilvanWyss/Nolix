@@ -14,7 +14,7 @@ final class TableMapper {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	public Table<IEntity> createEmptyTableFromTableDTOForDatabase(
+	public Table<IEntity> createEmptyTableFromTableDtoForDatabase(
 		final ITableDto tableDto,
 		final Database database
 	) {
@@ -29,19 +29,19 @@ final class TableMapper {
 	
 	//method
 	public ITable<IEntity>
-	createTableFromTableDTOForDatabaseUsingGivenReferencableTables(
+	createTableFromTableDtoForDatabaseUsingGivenReferencableTables(
 		final ITableDto tableDto,
 		final Database database,
 		final IContainer<ITable<IEntity>> referencableTables
 	) {
 		
-		final var table = createEmptyTableFromTableDTOForDatabase(tableDto, database);
+		final var table = createEmptyTableFromTableDtoForDatabase(tableDto, database);
 		
 		final var columns =
 		tableDto.getColumns()
 		.to(
 			c ->
-			columnMapper.createColumnFromDTOForParentTableUsingGivenReferencableTables(c, table, referencableTables)
+			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table, referencableTables)
 		);
 		
 		table.internalSetColumns(columns);

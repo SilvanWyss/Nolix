@@ -26,13 +26,13 @@ public interface IEntityHelper extends IDatabaseObjectHelper {
 	boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 	
 	//method declaration
-	IEntityUpdateDto createEntityUpdateDTOForEntity(IEntity entity);
+	IEntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
 	
 	//method declaration
-	IEntityHeadDto createEntityHeadDTOForEntity(IEntity entity);
+	IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity);
 	
 	//method declaration
-	INewEntityDto createNewEntityDTOForEntity(IEntity entity);
+	INewEntityDto createNewEntityDtoForEntity(IEntity entity);
 	
 	//method declaration
 	IContainer<IProperty> getOriBackReferencingProperties(IEntity entity);

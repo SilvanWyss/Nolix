@@ -20,11 +20,11 @@ public final class ColumnDtoMapper {
 	public ColumnDto createColumnDTO(final List<String> columnSystemTableSqlRecord) {
 		switch (PropertyType.valueOf(columnSystemTableSqlRecord.get(3)).getBaseType()) {
 			case BASE_VALUE:
-				return createColumnDTOForBaseValue(columnSystemTableSqlRecord);
+				return createColumnDtoForBaseValue(columnSystemTableSqlRecord);
 			case BASE_BACK_REFERENCE:
-				return createColumnDTOForBaseBackReference(columnSystemTableSqlRecord);
+				return createColumnDtoForBaseBackReference(columnSystemTableSqlRecord);
 			case BASE_REFERENCE:
-				return createColumnDTOForBaseReference(columnSystemTableSqlRecord);
+				return createColumnDtoForBaseReference(columnSystemTableSqlRecord);
 			default:
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(
@@ -35,7 +35,7 @@ public final class ColumnDtoMapper {
 	}
 	
 	//method
-	private ColumnDto createColumnDTOForBaseBackReference(final List<String> columnSystemTableSqlRecord) {
+	private ColumnDto createColumnDtoForBaseBackReference(final List<String> columnSystemTableSqlRecord) {
 		return
 		new ColumnDto(
 			columnSystemTableSqlRecord.get(0),
@@ -49,7 +49,7 @@ public final class ColumnDtoMapper {
 	}
 	
 	//method
-	private ColumnDto createColumnDTOForBaseReference(final List<String> columnSystemTableSqlRecord) {
+	private ColumnDto createColumnDtoForBaseReference(final List<String> columnSystemTableSqlRecord) {
 		return
 		new ColumnDto(
 			columnSystemTableSqlRecord.get(0),
@@ -63,7 +63,7 @@ public final class ColumnDtoMapper {
 	}
 	
 	//method
-	private ColumnDto createColumnDTOForBaseValue(final List<String> columnSystemTableSqlRecord) {
+	private ColumnDto createColumnDtoForBaseValue(final List<String> columnSystemTableSqlRecord) {
 		return
 		new ColumnDto(
 			columnSystemTableSqlRecord.get(0),

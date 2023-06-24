@@ -18,7 +18,7 @@ public final class LoadedEntityDtoMapper {
 	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 	
 	//method
-	public ILoadedEntityDto createLoadedEntityDTOFromEntityNode(
+	public ILoadedEntityDto createLoadedEntityDtoFromEntityNode(
 		final IMutableNode<?> entityNode,
 		final ITableInfo tableInfo
 	) {
@@ -41,7 +41,7 @@ public final class LoadedEntityDtoMapper {
 			
 			final var contentFieldNode = entityNode.getOriChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
 			
-			contentFields.addAtEnd(contentFieldDtoMapper.createContentFieldDTOFromContentFieldNode(contentFieldNode, ci));
+			contentFields.addAtEnd(contentFieldDtoMapper.createContentFieldDtoFromContentFieldNode(contentFieldNode, ci));
 		}
 		
 		return contentFields;

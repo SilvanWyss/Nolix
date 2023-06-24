@@ -20,7 +20,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	new ParametrizedPropertyTypeNodeSearcher();
 	
 	//method
-	public ParametrizedPropertyTypeDto createParametrizedProeprtyTypeDTOFromParametrizedPropertyTypeNode(
+	public ParametrizedPropertyTypeDto createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
 		
@@ -29,19 +29,19 @@ public class ParametrizedPropertyTypeDtoMapper {
 		switch (propertyType.getBaseType()) {
 			case BASE_VALUE:
 				return
-				createBaseParametrizedValueTypeDTOFromParametrizedPropertyTypeNode(
+				createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
 			case BASE_REFERENCE:
 				return
-				createBaseParametrizedReferenceTypeDTOFromParametrizedPropertyTypeNode(
+				createBaseParametrizedReferenceTypeDtoFromParametrizedPropertyTypeNode(
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
 			case BASE_BACK_REFERENCE:
 				return
-				createBaseParametrizedBackReferenceTypeDTOFromParametrizedPropertyTypeNode(
+				createBaseParametrizedBackReferenceTypeDtoFromParametrizedPropertyTypeNode(
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
@@ -51,7 +51,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private ParametrizedPropertyTypeDto createBaseParametrizedBackReferenceTypeDTOFromParametrizedPropertyTypeNode(
+	private ParametrizedPropertyTypeDto createBaseParametrizedBackReferenceTypeDtoFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
@@ -64,7 +64,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private ParametrizedPropertyTypeDto createBaseParametrizedReferenceTypeDTOFromParametrizedPropertyTypeNode(
+	private ParametrizedPropertyTypeDto createBaseParametrizedReferenceTypeDtoFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
@@ -77,7 +77,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private BaseParametrizedValueTypeDto createBaseParametrizedValueTypeDTOFromParametrizedPropertyTypeNode(
+	private BaseParametrizedValueTypeDto createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {

@@ -48,7 +48,7 @@ public final class EntitySaver {
 		
 		database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
 			newEntity.getParentTableName(),
-			ENTITY_HELPER.createNewEntityDTOForEntity(newEntity)
+			ENTITY_HELPER.createNewEntityDtoForEntity(newEntity)
 		);
 		
 		saveMultiPropertyChangesOfEntity(newEntity, database);
@@ -59,7 +59,7 @@ public final class EntitySaver {
 		
 		database.internalGetRefDataAndSchemaAdapter().updateEntity(
 			editedEntity.getParentTableName(),
-			ENTITY_HELPER.createEntityUpdateDTOForEntity(editedEntity)
+			ENTITY_HELPER.createEntityUpdateDtoForEntity(editedEntity)
 		);
 		
 		saveMultiPropertyChangesOfEntity(editedEntity, database);
@@ -69,7 +69,7 @@ public final class EntitySaver {
 	private void saveEntityDeletion(final IEntity deletedEntity, final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().deleteEntity(
 			deletedEntity.getOriParentTable().getName(),
-			ENTITY_HELPER.createEntityHeadDTOForEntity(deletedEntity)
+			ENTITY_HELPER.createEntityHeadDtoForEntity(deletedEntity)
 		);
 	}
 	

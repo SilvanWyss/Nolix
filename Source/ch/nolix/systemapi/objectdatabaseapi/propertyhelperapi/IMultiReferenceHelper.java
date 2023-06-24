@@ -12,10 +12,10 @@ public interface IMultiReferenceHelper extends IPropertyHelper {
 	<E extends IEntity> boolean canRemoveEntity(IMultiReference<E> multiReference, E entity);
 	
 	//method declaration
-	IEntityUpdateDto createEntityUpdateDTOForAddEntity(IMultiReference<?> multiReference, IEntity entity);
+	IEntityUpdateDto createEntityUpdateDtoForAddEntity(IMultiReference<?> multiReference, IEntity entity);
 	
 	//method declaration
-	IEntityUpdateDto createEntityUpdateDTOForClear(IMultiReference<?> multiReference);
+	IEntityUpdateDto createEntityUpdateDtoForClear(IMultiReference<?> multiReference);
 	
 	//method declaration
 	boolean canAddGivenEntity(IMultiReference<?> multiReference, IEntity entity);
