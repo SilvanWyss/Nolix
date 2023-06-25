@@ -4,7 +4,6 @@ package ch.nolix.business.serverdashboardlogic;
 //own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
@@ -16,12 +15,7 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
 	
 	//static method
 	public static WebApplicationSheet forWebApplication(final Application<WebClient<?>, ?> webApplication) {
-		
-		if (webApplication.getOriApplicationContext() instanceof IWebApplicationContext webApplicationContext) {
-			return new WebApplicationSheet(webApplication.asTarget(), webApplicationContext);
-		}
-		
-		return new WebApplicationSheet(webApplication.asTarget());
+		return new WebApplicationSheet(webApplication);
 	}
 	
 	//attribute
@@ -31,30 +25,23 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
 	private final IImage applicationLogo;
 	
 	//constructor
-	private WebApplicationSheet(final IApplicationInstanceTarget applicationInstanceTarget) {
+	private WebApplicationSheet(final Application<WebClient<?>, ?> webApplication) {
 		
-		GlobalValidator
-		.assertThat(applicationInstanceTarget)
-		.thatIsNamed(IApplicationInstanceTarget.class)
-		.isNotNull();
+		applicationInstanceTarget = webApplication.asTarget();
 		
-		this.applicationInstanceTarget = applicationInstanceTarget;
-		applicationLogo = null;
+		final var applicationContext = webApplication.getOriApplicationContext();
+						
+		if (applicationContext instanceof IWebApplicationContext webApplicationContext) {
+			applicationLogo = webApplicationContext.getApplicationLogo();
+		} else {
+			applicationLogo = null;
+		}
 	}
 	
-	//constructor
-	private WebApplicationSheet(
-		final IApplicationInstanceTarget applicationInstanceTarget,
-		final IWebApplicationContext webApplicationContext
-	) {
-		
-		GlobalValidator
-		.assertThat(applicationInstanceTarget)
-		.thatIsNamed(IApplicationInstanceTarget.class)
-		.isNotNull();
-		
-		this.applicationInstanceTarget = applicationInstanceTarget;
-		applicationLogo = webApplicationContext.getApplicationLogo();
+	//method
+	@Override
+	public IApplicationInstanceTarget getApplicationInstanceTarget() {
+		return applicationInstanceTarget;
 	}
 	
 	//method
@@ -64,12 +51,6 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
 		assertHasApplicationLogo();
 		
 		return applicationLogo;
-	}
-	
-	//method
-	@Override
-	public IApplicationInstanceTarget getApplicationInstanceTarget() {
-		return applicationInstanceTarget;
 	}
 	
 	//method

@@ -9,10 +9,10 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 public interface IWebApplicationSheet {
 	
 	//method declaration
-	IImage getApplicationLogo();
+	IApplicationInstanceTarget getApplicationInstanceTarget();
 	
 	//method declaration
-	IApplicationInstanceTarget getApplicationInstanceTarget();
+	IImage getApplicationLogo();
 	
 	//method declaration
 	boolean hasApplicationLogo();
