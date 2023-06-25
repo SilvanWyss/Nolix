@@ -26,7 +26,7 @@ extends ExtendedControlCSSRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//constructor
 	private HorizontalStackCSSRuleBuilder() {}
-
+	
 	//method
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
@@ -79,7 +79,7 @@ extends ExtendedControlCSSRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 			createCSSPropertyForContentAlignmentOfControl(control)
 		);
 	}
-
+	
 	//method
 	@Override
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
