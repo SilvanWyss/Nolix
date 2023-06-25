@@ -167,6 +167,7 @@ public final class PluralLowerCaseCatalogue {
 	public static final String SENDERS = "senders";
 	public static final String SEPARATORS = "separators";
 	public static final String SEQUENCES ="sequences";
+	public static final String SERVERS = "servers";
 	public static final String SERVICES = "services";
 	public static final String SETUPS = "setups";
 	public static final String SIDE_LENGTHS = "side lengths";

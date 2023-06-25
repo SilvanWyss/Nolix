@@ -167,6 +167,7 @@ public final class LowerCaseCatalogue {
 	public static final String SENDER = "sender";
 	public static final String SEPARATOR = "separator";
 	public static final String SEQUENCE ="sequence";
+	public static final String SERVER = "server";
 	public static final String SERVICE = "service";
 	public static final String SETUP = "setup";
 	public static final String SIDE_LENGTH = "side length";

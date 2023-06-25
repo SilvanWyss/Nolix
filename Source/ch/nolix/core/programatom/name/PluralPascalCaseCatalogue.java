@@ -167,6 +167,7 @@ public final class PluralPascalCaseCatalogue {
 	public static final String SENDERS = "Senders";
 	public static final String SEPARATORS = "Separators";
 	public static final String SEQUENCES = "Sequences";
+	public static final String SERVERS = "Servers";
 	public static final String SERVICES = "Services";
 	public static final String SETUPS = "Setups";
 	public static final String SIDE_LENGTHS = "SideLengths";

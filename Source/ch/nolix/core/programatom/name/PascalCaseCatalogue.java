@@ -167,6 +167,7 @@ public final class PascalCaseCatalogue {
 	public static final String SENDER = "Sender";
 	public static final String SEPARATOR = "Separator";
 	public static final String SEQUENCE = "Sequence";
+	public static final String SERVER = "Server";
 	public static final String SERVICE = "Service";
 	public static final String SETUP = "Setup";
 	public static final String SIDE_LENGTH = "SideLength";
