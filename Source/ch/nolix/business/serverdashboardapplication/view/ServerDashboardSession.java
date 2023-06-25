@@ -14,6 +14,10 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 	
 	//static attribute
+	private static final WebApplicationControlFactory WEB_APPLICATION_CONTROL_FACTORY =
+	new WebApplicationControlFactory();
+	
+	//static attribute
 	private static final ServerDashboardStyleCreator SERVER_DASHBOARD_STYLE_CREATOR = new ServerDashboardStyleCreator();
 	
 	//method
@@ -31,7 +35,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 		
 		for (final var as : getGuiApplicationSheets()) {
 			floatContainer.addControl(
-				WebApplicationControlFactory.INSTANCE.createWebApplicationControl(as, getOriParentClient().getConnectionSecurityLevel())
+				WEB_APPLICATION_CONTROL_FACTORY.createWebApplicationControl(as, getOriParentClient().getConnectionSecurityLevel())
 			);
 		}
 		

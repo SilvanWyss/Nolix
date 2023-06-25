@@ -26,12 +26,6 @@ final class WebApplicationControlFactory {
 	public static final IImage DEFAULT_LOGO =
 	MutableImage.withWidthAndHeightAndColor(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT, Color.GREY);
 	
-	//static attribute
-	public static final WebApplicationControlFactory INSTANCE = new WebApplicationControlFactory();
-	
-	//constructor
-	private WebApplicationControlFactory() {}
-	
 	//method
 	public IControl<?, ?> createWebApplicationControl(
 		final IWebApplicationSheet guiApplicationSheet,
