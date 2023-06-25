@@ -32,7 +32,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	//method
 	@Override
 	public IContainer<IApplicationSheet> getGuiApplicationSheets() {
-		return getOriGuiApplications().to(this::createApplicationSheetForGuiApplication);
+		return getOriGuiApplications().to(this::createApplicationSheetForWebApplication);
 	}
 	
 	//method
@@ -41,10 +41,10 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	}
 	
 	//method
-	private IApplicationSheet createApplicationSheetForGuiApplication(
-		final Application<WebClient<?>, ?> guiApplication
+	private IApplicationSheet createApplicationSheetForWebApplication(
+		final Application<WebClient<?>, ?> webApplication
 	) {
-		return ApplicationSheet.forGuiApplicationOnServer(guiApplication, server);
+		return ApplicationSheet.forWebApplication(webApplication);
 	}
 	
 	//method

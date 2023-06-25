@@ -42,6 +42,8 @@ final class ServerDashboardSession extends WebClientSession<IServerDashboardCont
 		return
 		getOriApplicationContext()
 		.getGuiApplicationSheets()
-		.getOriOther(as -> as.getApplicationName().equals(getApplicationName()));
+		.getOriOther(
+			as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName())
+		);
 	}
 }

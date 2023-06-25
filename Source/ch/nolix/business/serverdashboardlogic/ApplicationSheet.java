@@ -1,16 +1,12 @@
 //package declaration
 package ch.nolix.business.serverdashboardlogic;
 
+//own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.target.ApplicationInstanceTarget;
-import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 import ch.nolix.system.application.main.Application;
-import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -19,61 +15,46 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 public final class ApplicationSheet implements IApplicationSheet {
 	
 	//static method
-	public static ApplicationSheet forGuiApplicationOnServer(
-		final Application<WebClient<?>, ?> guiApplication,
-		final BaseServer server
-	) {
+	public static ApplicationSheet forWebApplication(final Application<WebClient<?>, ?> webApplication) {
 		
-		if (guiApplication.getOriApplicationContext() instanceof IWebApplicationContext) {
-			return
-			new ApplicationSheet(
-				guiApplication.getInstanceName(),
-				(IWebApplicationContext)guiApplication.getOriApplicationContext(),
-				server.asTarget()
-			);
+		if (webApplication.getOriApplicationContext() instanceof IWebApplicationContext webApplicationContext) {
+			return new ApplicationSheet(webApplication.asTarget(), webApplicationContext);
 		}
 		
-		return new ApplicationSheet(guiApplication.getInstanceName(), server.asTarget());
+		return new ApplicationSheet(webApplication.asTarget());
 	}
 	
 	//attribute
-	private final String applicationName;
+	private final IApplicationInstanceTarget applicationInstanceTarget;
 	
 	//optional attribute
 	private final IImage applicationLogo;
-		
-	//attribute
-	private final IServerTarget serverTarget;
-			
+	
 	//constructor
-	private ApplicationSheet(
-		final String applicationName,
-		final IWebApplicationContext guiApplicationContext,
-		final IServerTarget serverTarget
-	) {
+	private ApplicationSheet(final IApplicationInstanceTarget applicationInstanceTarget) {
 		
-		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
-		GlobalValidator.assertThat(serverTarget).thatIsNamed(ServerTarget.class).isNotNull();
+		GlobalValidator
+		.assertThat(applicationInstanceTarget)
+		.thatIsNamed(IApplicationInstanceTarget.class)
+		.isNotNull();
 		
-		this.applicationName = applicationName;
-		
-		applicationLogo = guiApplicationContext.getApplicationLogo();
-		
-		this.serverTarget =serverTarget;
+		this.applicationInstanceTarget = applicationInstanceTarget;
+		applicationLogo = null;
 	}
 	
 	//constructor
 	private ApplicationSheet(
-		final String applicationName,
-		final IServerTarget serverTarget
+		final IApplicationInstanceTarget applicationInstanceTarget,
+		final IWebApplicationContext webApplicationContext
 	) {
 		
-		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
-		GlobalValidator.assertThat(serverTarget).thatIsNamed(ServerTarget.class).isNotNull();
+		GlobalValidator
+		.assertThat(applicationInstanceTarget)
+		.thatIsNamed(IApplicationInstanceTarget.class)
+		.isNotNull();
 		
-		this.applicationName = applicationName;
-		applicationLogo = null;
-		this.serverTarget =serverTarget;
+		this.applicationInstanceTarget = applicationInstanceTarget;
+		applicationLogo = webApplicationContext.getApplicationLogo();
 	}
 	
 	//method
@@ -87,26 +68,8 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//method
 	@Override
-	public String getApplicationName() {
-		return applicationName;
-	}
-	
-	//method
-	@Override
-	public IServerTarget getServer() {
-		return serverTarget;
-	}
-	
-	//method
-	@Override
-	public IApplicationInstanceTarget getApplicationTarget(final SecurityLevel securityLevelForConnections) {
-		return
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
-			getServer().getIpOrAddressName(),
-			getServer().getPort(),
-			getApplicationName(),
-			securityLevelForConnections
-		);
+	public IApplicationInstanceTarget getApplicationInstanceTarget() {
+		return applicationInstanceTarget;
 	}
 	
 	//method

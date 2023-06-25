@@ -49,7 +49,10 @@ final class WebApplicationControlFactory {
 	
 	//method
 	private IControl<?, ?> createApplicationNameLabel(final IApplicationSheet guiApplicationSheet) {
-		return new Label().setRole(LabelRole.LEVEL1_HEADER).setText(guiApplicationSheet.getApplicationName());
+		return
+		new Label()
+		.setRole(LabelRole.LEVEL1_HEADER)
+		.setText(guiApplicationSheet.getApplicationInstanceTarget().getApplicationInstanceName());
 	}
 	
 	//method
@@ -65,7 +68,7 @@ final class WebApplicationControlFactory {
 			i
 			.getOriParentGui()
 			.onFrontEnd()
-			.redirectTo(guiApplicationSheet.getApplicationTarget(securityLevelForConnections))
+			.redirectTo(guiApplicationSheet.getApplicationInstanceTarget())
 		);
 	}
 	
