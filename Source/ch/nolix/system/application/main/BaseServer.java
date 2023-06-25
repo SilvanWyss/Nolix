@@ -77,7 +77,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * Adds a new {@link Application} with the given instanceName, initialSessionClass and applicationContext to
 	 * the current {@link BaseServer}.
 	 * 
-	 * @param instanceName
+	 * @param applicationName
 	 * @param initialSessionClass
 	 * @param applicationContext
 	 * @param <S> is the type of the given initialSessionClass.
@@ -90,18 +90,19 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addApplication(
-		final String instanceName,
+		final String applicationName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
 		//Calls other method.
 		addApplication(
-			BasicApplication.withInitialSessionClassAndApplicationContext(
+			BasicApplication.withApplicationNameAndInitialSessionClassAndApplicationContext(
+				applicationName,
 				initialSessionClass,
 				applicationContext
 			),
-			instanceName
+			applicationName
 		);
 	}
 	
@@ -157,7 +158,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * Adds a new default {@link Application} with the given name, initialSessionClass and applicationContext to
 	 * the current {@link BaseServer}.
 	 * 
-	 * @param instanceName
+	 * @param applicationName
 	 * @param initialSessionClass
 	 * @param applicationContext
 	 * @param <S> is the type of the given initialSessionClass.
@@ -172,18 +173,19 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
 	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
-		final String instanceName,
+		final String applicationName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
 		//Calls other method
 		addDefaultApplication(
-			BasicApplication.withInitialSessionClassAndApplicationContext(
+			BasicApplication.withApplicationNameAndInitialSessionClassAndApplicationContext(
+				applicationName,
 				initialSessionClass,
 				applicationContext
 			),
-			instanceName
+			applicationName
 		);
 	}
 	
