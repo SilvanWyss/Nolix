@@ -8,10 +8,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<VerticalStack> {
+public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVerticalStack> {
 	
 	//static attribute
 	public static final VerticalStackHtmlBuilder INSTANCE = new VerticalStackHtmlBuilder();
@@ -21,7 +22,7 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<Verti
 	
 	//method
 	@Override
-	public HtmlElement createHtmlElementForControl(final VerticalStack verticalStack) {
+	public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -31,7 +32,7 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<Verti
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(final VerticalStack verticalStack) {
+	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(final IVerticalStack verticalStack) {
 		return verticalStack.getOriChildControls().to(this::createHtmlElementsForChildControl);
 	}
 	
