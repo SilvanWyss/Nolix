@@ -12,10 +12,4 @@ public interface IWebApplicationContext {
 	
 	//method declaration
 	IImage getApplicationLogo();
-	
-	//method declaration
-	boolean hasApplicationDescription();
-	
-	//method declaration
-	boolean hasApplicationLogo();
 }

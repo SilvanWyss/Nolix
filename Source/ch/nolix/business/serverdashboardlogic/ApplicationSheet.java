@@ -60,17 +60,9 @@ public final class ApplicationSheet implements IApplicationSheet {
 		
 		this.applicationName = applicationName;
 		
-		if (!guiApplicationContext.hasApplicationLogo()) {
-			applicationLogo = null;
-		} else {
-			applicationLogo = guiApplicationContext.getApplicationLogo();
-		}
+		applicationLogo = guiApplicationContext.getApplicationLogo();
 		
-		if (!guiApplicationContext.hasApplicationDescription()) {
-			applicationDescription = null;
-		} else {
-			applicationDescription = guiApplicationContext.getApplicationDescription();
-		}
+		applicationDescription = guiApplicationContext.getApplicationDescription();
 		
 		this.serverTarget =serverTarget;
 	}
