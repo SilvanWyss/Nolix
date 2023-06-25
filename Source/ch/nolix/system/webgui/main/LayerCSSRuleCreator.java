@@ -84,7 +84,7 @@ public final class LayerCSSRuleCreator {
 		switch (contentPosition) {
 			case TOP_LEFT, LEFT, BOTTOM_LEFT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.LEFT);
-			case TOP, CENTER,BOTTOM:
+			case TOP, CENTER, BOTTOM:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.CENTER);
 			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT:
 				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.RIGHT);
