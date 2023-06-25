@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.businesstutorial.serverdashboardtutorial} package defines
- * tutorials for the {@link ch.nolix.business.serverdashboardapplication.ServerDashboardApplication}.
+ * tutorials for the {@link ch.nolix.business.serverdashboardapplication.main.ServerDashboardApplication}.
  * 
  * @author Silvan Wyss
  * @date 2022-05-20

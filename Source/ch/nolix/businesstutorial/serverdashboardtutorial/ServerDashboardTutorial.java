@@ -1,6 +1,6 @@
 package ch.nolix.businesstutorial.serverdashboardtutorial;
 
-import ch.nolix.business.serverdashboardapplication.ServerDashboardApplication;
+import ch.nolix.business.serverdashboardapplication.main.ServerDashboardApplication;
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.Server;
