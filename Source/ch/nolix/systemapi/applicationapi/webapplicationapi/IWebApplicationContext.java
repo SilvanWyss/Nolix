@@ -8,8 +8,5 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 public interface IWebApplicationContext {
 	
 	//method declaration
-	String getApplicationDescription();
-	
-	//method declaration
 	IImage getApplicationLogo();
 }

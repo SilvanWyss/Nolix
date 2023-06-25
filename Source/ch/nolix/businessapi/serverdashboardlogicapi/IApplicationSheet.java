@@ -10,9 +10,6 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 public interface IApplicationSheet {
 	
 	//method declaration
-	String getApplicationDescription();
-	
-	//method declaration
 	IImage getApplicationLogo();
 	
 	//method declaration
@@ -23,9 +20,6 @@ public interface IApplicationSheet {
 	
 	//method declaration
 	IServerTarget getServer();
-	
-	//method declaration
-	boolean hasApplicationDescription();
 	
 	//method declaration
 	boolean hasApplicationLogo();

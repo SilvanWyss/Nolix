@@ -12,29 +12,10 @@ public class WebApplicationContext implements IWebApplicationContext {
 	//optional attribute
 	private IImage applicationLogo;
 	
-	//optional attribute
-	private String applicationDescription;
-	
-	//method
-	@Override
-	public final String getApplicationDescription() {
-		return applicationDescription;
-	}
-	
 	//method
 	@Override
 	public final IImage getApplicationLogo() {
 		return applicationLogo;
-	}
-	
-	//method
-	public final WebApplicationContext setApplicationDescription(final String applicationDescription) {
-		
-		GlobalValidator.assertThat(applicationDescription).thatIsNamed("application description").isNotBlank();
-		
-		this.applicationDescription = applicationDescription;
-		
-		return this;
 	}
 	
 	//method

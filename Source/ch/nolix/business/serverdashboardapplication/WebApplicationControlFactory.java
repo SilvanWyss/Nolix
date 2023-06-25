@@ -44,10 +44,6 @@ final class WebApplicationControlFactory {
 			createLogoImageControl(guiApplicationSheet, securityLevelForConnections)
 		);
 		
-		if (guiApplicationSheet.hasApplicationDescription()) {
-			guiApplicationVerticalStack.addControl(createApplicationDescriptionLabel(guiApplicationSheet));
-		}
-		
 		return guiApplicationVerticalStack;
 	}
 	
@@ -81,10 +77,5 @@ final class WebApplicationControlFactory {
 		}
 		
 		return guiApplicationSheet.getApplicationLogo().withWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
-	}
-	
-	//method
-	private IControl<?, ?> createApplicationDescriptionLabel(final IApplicationSheet guiApplicationSheet) {
-		return new Label().setText(guiApplicationSheet.getApplicationDescription());
 	}
 }

@@ -41,10 +41,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//optional attribute
 	private final IImage applicationLogo;
-	
-	//optional attribute
-	private final String applicationDescription;
-	
+		
 	//attribute
 	private final IServerTarget serverTarget;
 			
@@ -62,8 +59,6 @@ public final class ApplicationSheet implements IApplicationSheet {
 		
 		applicationLogo = guiApplicationContext.getApplicationLogo();
 		
-		applicationDescription = guiApplicationContext.getApplicationDescription();
-		
 		this.serverTarget =serverTarget;
 	}
 	
@@ -78,17 +73,7 @@ public final class ApplicationSheet implements IApplicationSheet {
 		
 		this.applicationName = applicationName;
 		applicationLogo = null;
-		applicationDescription = null;
 		this.serverTarget =serverTarget;
-	}
-	
-	//method
-	@Override
-	public String getApplicationDescription() {
-
-		assertHasApplicationDescription();
-		
-		return applicationDescription;
 	}
 	
 	//method
@@ -126,21 +111,8 @@ public final class ApplicationSheet implements IApplicationSheet {
 	
 	//method
 	@Override
-	public boolean hasApplicationDescription() {
-		return (applicationDescription != null);
-	}
-	
-	//method
-	@Override
 	public boolean hasApplicationLogo() {
 		return (applicationLogo != null);
-	}
-	
-	//method
-	private void assertHasApplicationDescription() {
-		if (!hasApplicationDescription()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application description");
-		}
 	}
 	
 	//method
