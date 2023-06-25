@@ -10,7 +10,8 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanc
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 	
 	//static method
-	public static ApplicationInstanceTarget forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
+	public static ApplicationInstanceTarget
+	forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 		final String ipOrAddressName,
 		final int port,
 		final String applicationName,
@@ -20,7 +21,7 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 	}
 	
 	//attribute
-	private final String applicationName;
+	private final String applicationInstanceName;
 	
 	//constructor
 	protected ApplicationInstanceTarget(
@@ -34,13 +35,13 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 		
 		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
 		
-		this.applicationName = applicationName;
+		this.applicationInstanceName = applicationName;
 	}
 	
 	//method
 	@Override
 	public final String getApplicationInstanceName() {
-		return applicationName;
+		return applicationInstanceName;
 	}
 	
 	//method

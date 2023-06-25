@@ -288,7 +288,7 @@ implements IApplication<AC> {
 	 */
 	private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
 		return
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 			serverTarget.getIpOrAddressName(),
 			serverTarget.getPort(),
 			getInstanceName(),
