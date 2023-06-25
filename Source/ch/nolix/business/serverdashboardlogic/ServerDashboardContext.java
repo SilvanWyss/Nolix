@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.business.serverdashboardlogic;
 
+//own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
@@ -14,7 +16,7 @@ import ch.nolix.system.application.webapplication.WebClient;
 public final class ServerDashboardContext implements IServerDashboardContext {
 	
 	//static method
-	public static ServerDashboardContext toServer(final BaseServer server) {
+	public static ServerDashboardContext forServer(final BaseServer server) {
 		return new ServerDashboardContext(server);
 	}
 	
@@ -24,7 +26,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	//constructor
 	private ServerDashboardContext(final BaseServer server) {
 		
-		GlobalValidator.assertThat(server).thatIsNamed("server").isNotNull();
+		GlobalValidator.assertThat(server).thatIsNamed(LowerCaseCatalogue.SERVER).isNotNull();
 		
 		this.server = server;
 	}
@@ -32,31 +34,31 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	//method
 	@Override
 	public IContainer<IWebApplicationSheet> getWebApplicationSheets() {
-		return getOriGuiApplications().to(this::createApplicationSheetForWebApplication);
+		return getOriWebApplications().to(WebApplicationSheet::forWebApplication);
 	}
 	
 	//method
-	private boolean applicationIsForBackendGuiClients(final Application<?, ?> application) {
-		return (application.getClientClass() == WebClient.class);
-	}
-	
-	//method
-	private IWebApplicationSheet createApplicationSheetForWebApplication(
-		final Application<WebClient<?>, ?> webApplication
-	) {
-		return WebApplicationSheet.forWebApplication(webApplication);
-	}
-	
-	//method
-	@SuppressWarnings("unchecked")
-	private IContainer<Application<WebClient<?>, ?>> getOriGuiApplications() {
+	private IContainer<Application<WebClient<?>, ?>> getOriWebApplications() {
 		
-		final var guiApplications = new LinkedList<Application<WebClient<?>, ?>>();
+		final var webApplications = new LinkedList<Application<WebClient<?>, ?>>();
 		
-		for (final var a : server.getOriApplications().getOriSelected(this::applicationIsForBackendGuiClients)) {
-			guiApplications.addAtEnd((Application<WebClient<?>, ?>)a);
+		for (final var a : server.getOriApplications()) {
+			if (isWebApplication(a)) {
+				
+				@SuppressWarnings("unchecked")
+				final var webApplication = (Application<WebClient<?>, ?>)a;
+				
+				webApplications.addAtEnd(webApplication);
+			}
 		}
 		
-		return guiApplications;
+		return webApplications;
+	}
+	
+	//method
+	private boolean isWebApplication(final Application<?, ?> application) {
+		return
+		application != null
+		&& application.getClientClass() == WebClient.class;
 	}
 }

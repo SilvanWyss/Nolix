@@ -14,7 +14,7 @@ extends Application<WebClient<IServerDashboardContext>, IServerDashboardContext>
 	
 	//static method
 	public static ServerDashboardApplication forServer(final BaseServer server) {
-		return new ServerDashboardApplication(ServerDashboardContext.toServer(server));
+		return new ServerDashboardApplication(ServerDashboardContext.forServer(server));
 	}
 	
 	//constant
