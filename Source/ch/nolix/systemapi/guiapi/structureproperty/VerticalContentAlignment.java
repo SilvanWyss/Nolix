@@ -13,8 +13,8 @@ public enum VerticalContentAlignment {
 	//static method
 	public static VerticalContentAlignment fromSpecification(final INode<?> specification) {
 		
-		final var verticalContentPositionString = specification.getSingleChildNodeHeader();
+		final var verticalContentAlignmentString = specification.getSingleChildNodeHeader();
 		
-		return valueOf(verticalContentPositionString);
+		return valueOf(verticalContentAlignmentString);
 	}
 }
