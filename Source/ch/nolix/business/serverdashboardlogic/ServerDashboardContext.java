@@ -31,7 +31,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	
 	//method
 	@Override
-	public IContainer<IApplicationSheet> getGuiApplicationSheets() {
+	public IContainer<IApplicationSheet> getWebApplicationSheets() {
 		return getOriGuiApplications().to(this::createApplicationSheetForWebApplication);
 	}
 	

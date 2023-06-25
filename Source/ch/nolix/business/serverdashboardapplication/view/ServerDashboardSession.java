@@ -42,7 +42,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 	private IContainer<IApplicationSheet> getGuiApplicationSheets() {
 		return
 		getOriApplicationContext()
-		.getGuiApplicationSheets()
+		.getWebApplicationSheets()
 		.getOriOther(
 			as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName())
 		);
