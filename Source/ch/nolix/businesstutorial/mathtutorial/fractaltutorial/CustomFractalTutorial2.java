@@ -26,7 +26,7 @@ public final class CustomFractalTutorial2 {
 		);
 		
 		//Starts a web browser that will connect to the Server.
-		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
 		GlobalSequencer.waitForSeconds(2);

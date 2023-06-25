@@ -41,6 +41,6 @@ public final class ServerDashboardTutorial {
 		);
 		
 		//Starts a web browser that will connect to the Server.
-		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 	}
 }

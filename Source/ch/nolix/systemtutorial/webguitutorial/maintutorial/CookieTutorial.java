@@ -22,7 +22,7 @@ public final class CookieTutorial {
 		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("Cookie tutorial", MainSession.class, new VoidObject());
 		
 		//Starts a web browser that will connect to the Server.
-		ShellProvider.startFirefoxOpeningLoopBackAddress();
+		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
 		GlobalSequencer.waitForSeconds(2);
@@ -57,7 +57,7 @@ public final class CookieTutorial {
 			
 			getOriParentClient().setOrAddCookieWithNameAndValue("input", textbox.getText());
 			
-			ShellProvider.startFirefoxOpeningLoopBackAddress();
+			ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 		}
 	}
 	
