@@ -12,7 +12,7 @@ public class SecurePartialRefreshTutorial {
 		final var secureServer = SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 		
 		//Adds a default Application to the SecureServer.
-		secureServer.addDefaultApplication(
+		secureServer.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 			"Secure partial refresh tutorial",
 			MainSession.class,
 			new VoidObject()

@@ -19,7 +19,7 @@ public final class CustomFractalTutorial2 {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication(
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 			"Custom fractal tutorial",
 			MainSession.class,
 			new VoidObject()

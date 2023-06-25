@@ -19,7 +19,7 @@ extends Application<BC, AC> {
 	
 	//static method
 	public static <BC2 extends BackendClient<BC2, AC2>, S extends Session<BC2, AC2>, AC2> BasicApplication<BC2, AC2>
-	withApplicationNameAndInitialSessionClassAndApplicationContext(
+	withNameAndInitialSessionClassAndContext(
 		final String applicationName,
 		final Class<S> initialSessionClass,
 		final AC2 applicationContext

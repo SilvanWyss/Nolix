@@ -20,5 +20,11 @@ public interface IApplication<AC> {
 	String getInstanceName();
 	
 	//method declaration
+	String getNameAddendum();
+	
+	//method declaration
 	AC getOriApplicationContext();
+	
+	//method declaration
+	boolean hasNameAddendum();
 }

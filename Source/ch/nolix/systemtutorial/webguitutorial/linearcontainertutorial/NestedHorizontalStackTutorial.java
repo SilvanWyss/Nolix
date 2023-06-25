@@ -18,7 +18,7 @@ public final class NestedHorizontalStackTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication(
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 			"Nested HorizontalStack tutorial",
 			MainSession.class,
 			new VoidObject()

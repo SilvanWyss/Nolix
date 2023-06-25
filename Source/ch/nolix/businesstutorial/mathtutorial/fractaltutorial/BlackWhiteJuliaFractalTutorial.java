@@ -19,7 +19,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication(
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 			"Black-white Julia fractal tutorial",
 			MainSession.class,
 			new VoidObject()

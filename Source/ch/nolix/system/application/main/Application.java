@@ -10,6 +10,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentHasAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -37,10 +38,10 @@ public abstract class Application<
 implements IApplication<AC> {
 	
 	//attribute
-	private String instanceName;
-	
-	//attribute
 	private final AC applicationContext;
+	
+	//optional attribute
+	private String nameAddendum;
 	
 	//optional attribute
 	private BaseServer parentServer;
@@ -98,7 +99,24 @@ implements IApplication<AC> {
 	 */
 	@Override
 	public final String getInstanceName() {
-		return instanceName;
+		
+		if (!hasNameAddendum()) {
+			return getApplicationName();
+		}
+				
+		return String.format("%s %s", getApplicationName(), getNameAddendum());
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final String getNameAddendum() {
+		
+		assertHasNameAddendum();
+		
+		return nameAddendum;
 	}
 	
 	//method
@@ -127,6 +145,15 @@ implements IApplication<AC> {
 	 */
 	public final boolean hasClientConnected() {
 		return getOriClients().containsAny();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean hasNameAddendum() {
+		return (nameAddendum != null);
 	}
 	
 	//method
@@ -181,20 +208,20 @@ implements IApplication<AC> {
 	
 	//method
 	/**
-	 * Sets the given instanceName to the current {@link Application}.
+	 * Sets the given nameAddendum to the current {@link Application}.
 	 * 
-	 * @param instanceName
-	 * @throws ArgumentIsNullException if the given instanceName is null
-	 * @throws InvalidArgumentException if the given instanceName is blank.
+	 * @param nameAddendum
+	 * @throws ArgumentIsNullException if the given nameAddendum is null
+	 * @throws InvalidArgumentException if the given nameAddendum is blank.
 	 * @throws ArgumentHasAttributeException if the current {@link Application} has already an instance name.
 	 */
-	final void internalSetInstanceName(final String instanceName) {
+	final void internalSetNameAddendum(final String nameAddendum) {
 		
-		GlobalValidator.assertThat(instanceName).thatIsNamed("instance name").isNotBlank();
+		GlobalValidator.assertThat(nameAddendum).thatIsNamed("instance name").isNotBlank();
 		
-		assertDoesNotHaveInstanceName();
+		assertDoesNotHaveNameAddendum();
 		
-		this.instanceName = instanceName;
+		this.nameAddendum = nameAddendum;
 	}
 	
 	//method
@@ -215,16 +242,6 @@ implements IApplication<AC> {
 	
 	//method
 	/**
-	 * @throws ArgumentBelongsToParentException if the current {@link Application} belongs already to a {@link BaseServer}.
-	 */
-	private void assertDoesNotBelongToServer() {
-		if (belongsToServer()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentServer());
-		}
-	}
-	
-	//method
-	/**
 	 * @throws ArgumentDoesNotBelongToParentException if
 	 * the current {@link Application} does not belong to a {@link BaseServer}.
 	 */
@@ -236,11 +253,31 @@ implements IApplication<AC> {
 	
 	//method
 	/**
+	 * @throws ArgumentBelongsToParentException if the current {@link Application} belongs already to a {@link BaseServer}.
+	 */
+	private void assertDoesNotBelongToServer() {
+		if (belongsToServer()) {
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentServer());
+		}
+	}
+	
+	//method
+	/**
 	 * @throws ArgumentHasAttributeException if the current {@link Application} has already an instance name.
 	 */
-	private void assertDoesNotHaveInstanceName() {
-		if (hasInstanceName()) {
+	private void assertDoesNotHaveNameAddendum() {
+		if (hasNameAddendum()) {
 			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "instance name");
+		}
+	}
+	
+	//method
+	/**
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link Application} does not have a name addendum.
+	 */
+	private void assertHasNameAddendum() {
+		if (!hasNameAddendum()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "name addendum");
 		}
 	}
 	
@@ -254,7 +291,7 @@ implements IApplication<AC> {
 		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
 			serverTarget.getIpOrAddressName(),
 			serverTarget.getPort(),
-			getInstanceName(),
+			getNameAddendum(),
 			serverTarget.getSecurityLevelForConnections()
 		);
 	}
@@ -293,14 +330,6 @@ implements IApplication<AC> {
 		assertBelongsToServer();
 		
 		return parentServer;
-	}
-	
-	//method
-	/**
-	 * @return true if the current {@link Appication} has an instance name.
-	 */
-	private boolean hasInstanceName() {
-		return (instanceName != null);
 	}
 	
 	//method

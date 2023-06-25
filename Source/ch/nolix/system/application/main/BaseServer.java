@@ -34,29 +34,6 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
-	 * Adds the given application with the given instanceName to the current {@link BaseServer}.
-	 * 
-	 * @param application
-	 * @param instanceName
-	 * @throws ArgumentIsNullException if the given application is null.
-	 * @throws ArgumentBelongsToParentException if the given application belongs already to a {@link BaseServer}.
-	 * @throws ArgumentIsNullException if the given instanceName is null
-	 * @throws InvalidArgumentException if the given instanceName is blank.
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link Application} with the given instanceName.
-	 */
-	public final void addApplication(final Application<?, ?> application, final String instanceName) {
-		
-		application.internalSetParentServer(this);
-		application.internalSetInstanceName(instanceName);
-		
-		addApplicationToList(application);
-		
-		noteAddedApplication(application);
-	}
-	
-	//method
-	/**
 	 * Adds the given application to the current {@link BaseServer}.
 	 * 
 	 * @param application
@@ -68,8 +45,32 @@ public abstract class BaseServer implements GroupCloseable {
 	 */
 	public final void addApplication(final Application<?, ?> application) {
 		
-		//Calls other method
-		addApplication(application, application.getApplicationName());
+		application.internalSetParentServer(this);
+		
+		addApplicationToList(application);
+		noteAddedApplication(application);
+	}
+	
+	//method
+	/**
+	 * Adds the given application with the given instanceName to the current {@link BaseServer}.
+	 * 
+	 * @param application
+	 * @param nameAddendum
+	 * @throws ArgumentIsNullException if the given application is null.
+	 * @throws ArgumentBelongsToParentException if the given application belongs already to a {@link BaseServer}.
+	 * @throws ArgumentIsNullException if the given instanceName is null
+	 * @throws InvalidArgumentException if the given instanceName is blank.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with the given instanceName.
+	 */
+	public final void addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
+		
+		application.internalSetParentServer(this);
+		application.internalSetNameAddendum(nameAddendum);
+		
+		addApplicationToList(application);
+		noteAddedApplication(application);
 	}
 	
 	//method
@@ -89,21 +90,23 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given instanceName.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addApplication(
+	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void
+	addApplicationWithNameAndInitialSessionClassAndContext(
 		final String applicationName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
-		//Calls other method.
-		addApplication(
-			BasicApplication.withApplicationNameAndInitialSessionClassAndApplicationContext(
-				applicationName,
-				initialSessionClass,
-				applicationContext
-			),
-			applicationName
+		//Creates Application.
+		final var application =
+		BasicApplication.withNameAndInitialSessionClassAndContext(
+			applicationName,
+			initialSessionClass,
+			applicationContext
 		);
+		
+		//Calls other method.
+		addApplication(application);
 	}
 	
 	//method
@@ -120,33 +123,7 @@ public abstract class BaseServer implements GroupCloseable {
 		final Application<BC, AC> defaultApplication
 	) {
 		
-		//Calls other method
-		addDefaultApplication(defaultApplication, defaultApplication.getApplicationName());
-	}
-	
-	//method
-	/**
-	 * Adds the given defaultApplication to the current {@link BaseServer}.
-	 * A default {@link Application} takes all {@link Client}s that do not have a target.
-	 * 
-	 * @param defaultApplication
-	 * @param instanceName
-	 * @param <BC> is the type of the {@link BackendClient} of the given defaultApplication.
-	 * @param <AC> is the type of the context of the given defaultApplication.
-	 * @throws ArgumentIsNullException if the given defaultApplication is null.
-	 * @throws ArgumentBelongsToParentException if the given defaultApplication belongs already to a {@link BaseServer}.
-	 * @throws ArgumentIsNullException if the given instanceName is null.
-	 * @throws InvalidArgumentException if the given instanceName is blank.
-	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
-	 * a {@link Application} with the given instanceName.
-	 */
-	public final <BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
-		final Application<BC, AC> defaultApplication,
-		final String instanceName
-	) {
-		
 		defaultApplication.internalSetParentServer(this);
-		defaultApplication.internalSetInstanceName(instanceName);
 		
 		addApplicationToList(defaultApplication);
 		this.defaultApplication = defaultApplication;
@@ -172,21 +149,23 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given instanceName.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
+	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void
+	addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 		final String applicationName,
 		final Class<S> initialSessionClass,
 		final AC applicationContext
 	) {
 		
-		//Calls other method
-		addDefaultApplication(
-			BasicApplication.withApplicationNameAndInitialSessionClassAndApplicationContext(
-				applicationName,
-				initialSessionClass,
-				applicationContext
-			),
-			applicationName
+		//Creates default Application.
+		final var localDefaultApplication =
+		BasicApplication.withNameAndInitialSessionClassAndContext(
+			applicationName,
+			initialSessionClass,
+			applicationContext
 		);
+		
+		//Calls other method.
+		addDefaultApplication(localDefaultApplication);
 	}
 	
 	//method

@@ -25,7 +25,7 @@ public final class SecureButtonTutorial {
 		SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication("Button tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("Button tutorial", MainSession.class, new VoidObject());
 	}
 	
 	private static final class MainSession extends WebClientSession<Object> {

@@ -18,7 +18,7 @@ public final class UnderConstructionPageTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplication(
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 			"Under construction page tutorial",
 			MainSession.class,
 			new VoidObject()

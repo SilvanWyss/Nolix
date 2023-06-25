@@ -24,17 +24,17 @@ public final class ServerDashboardTutorial {
 		server.addDefaultApplication(serverDashboardApplication);
 		
 		//Adds further Applications to the Server.
-		server.addApplication(
+		server.addApplicationWithNameAndInitialSessionClassAndContext(
 			"HelloWorld",
 			HelloWorldGuiTutorial.MainSession.class,
 			new WebApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON)
 		);
-		server.addApplication(
+		server.addApplicationWithNameAndInitialSessionClassAndContext(
 			"ImageControl tutorial",
 			ImageControlTutorial.MainSession.class,
 			new VoidObject()
 		);
-		server.addApplication(
+		server.addApplicationWithNameAndInitialSessionClassAndContext(
 			"DropdownMenu tutorial",
 			DropdownMenuTutorial.MainSession.class,
 			new VoidObject()
