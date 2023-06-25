@@ -291,7 +291,7 @@ implements IApplication<AC> {
 		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationNameAndSecurityLevelForConnections(
 			serverTarget.getIpOrAddressName(),
 			serverTarget.getPort(),
-			getNameAddendum(),
+			getInstanceName(),
 			serverTarget.getSecurityLevelForConnections()
 		);
 	}
