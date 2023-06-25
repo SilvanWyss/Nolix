@@ -6,7 +6,7 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanc
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 
 //interface
-public interface IApplicationSheet {
+public interface IWebApplicationSheet {
 	
 	//method declaration
 	IImage getApplicationLogo();

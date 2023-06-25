@@ -2,7 +2,7 @@
 package ch.nolix.business.serverdashboardapplication.view;
 
 //own imports
-import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -34,7 +34,7 @@ final class WebApplicationControlFactory {
 	
 	//method
 	public IControl<?, ?> createWebApplicationControl(
-		final IApplicationSheet guiApplicationSheet,
+		final IWebApplicationSheet guiApplicationSheet,
 		final SecurityLevel securityLevelForConnections
 	) {
 		
@@ -49,7 +49,7 @@ final class WebApplicationControlFactory {
 	}
 	
 	//method
-	private IControl<?, ?> createApplicationNameLabel(final IApplicationSheet guiApplicationSheet) {
+	private IControl<?, ?> createApplicationNameLabel(final IWebApplicationSheet guiApplicationSheet) {
 		return
 		new Label()
 		.setRole(LabelRole.LEVEL1_HEADER)
@@ -58,7 +58,7 @@ final class WebApplicationControlFactory {
 	
 	//method
 	private IControl<?, ?> createLogoImageControl(
-		final IApplicationSheet guiApplicationSheet,
+		final IWebApplicationSheet guiApplicationSheet,
 		final SecurityLevel securityLevelForConnections
 	) {
 		return
@@ -74,7 +74,7 @@ final class WebApplicationControlFactory {
 	}
 	
 	//method
-	private IImage getApplicationLogoOrDefaultLogo(final IApplicationSheet guiApplicationSheet) {
+	private IImage getApplicationLogoOrDefaultLogo(final IWebApplicationSheet guiApplicationSheet) {
 
 		if (!guiApplicationSheet.hasApplicationLogo()) {
 			return DEFAULT_LOGO;

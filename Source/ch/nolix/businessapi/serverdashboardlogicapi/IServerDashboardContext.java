@@ -8,5 +8,5 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface IServerDashboardContext {
 	
 	//method declaration
-	IContainer<IApplicationSheet> getWebApplicationSheets();
+	IContainer<IWebApplicationSheet> getWebApplicationSheets();
 }

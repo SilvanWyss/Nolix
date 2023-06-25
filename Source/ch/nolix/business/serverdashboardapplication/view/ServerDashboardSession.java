@@ -2,7 +2,7 @@
 package ch.nolix.business.serverdashboardapplication.view;
 
 //own imports
-import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
@@ -39,7 +39,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 	}
 	
 	//method
-	private IContainer<IApplicationSheet> getGuiApplicationSheets() {
+	private IContainer<IWebApplicationSheet> getGuiApplicationSheets() {
 		return
 		getOriApplicationContext()
 		.getWebApplicationSheets()

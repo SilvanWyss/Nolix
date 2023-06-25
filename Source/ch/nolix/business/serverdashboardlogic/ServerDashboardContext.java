@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.business.serverdashboardlogic;
 
-import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
+import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -31,7 +31,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	
 	//method
 	@Override
-	public IContainer<IApplicationSheet> getWebApplicationSheets() {
+	public IContainer<IWebApplicationSheet> getWebApplicationSheets() {
 		return getOriGuiApplications().to(this::createApplicationSheetForWebApplication);
 	}
 	
@@ -41,10 +41,10 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	}
 	
 	//method
-	private IApplicationSheet createApplicationSheetForWebApplication(
+	private IWebApplicationSheet createApplicationSheetForWebApplication(
 		final Application<WebClient<?>, ?> webApplication
 	) {
-		return ApplicationSheet.forWebApplication(webApplication);
+		return WebApplicationSheet.forWebApplication(webApplication);
 	}
 	
 	//method
