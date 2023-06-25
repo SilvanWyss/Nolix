@@ -1,6 +1,7 @@
 //package declaration
-package ch.nolix.business.serverdashboardapplication;
+package ch.nolix.business.serverdashboardapplication.view;
 
+//own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.system.graphic.color.Color;

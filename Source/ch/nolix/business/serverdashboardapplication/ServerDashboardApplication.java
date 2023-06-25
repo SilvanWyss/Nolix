@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.business.serverdashboardapplication;
 
+import ch.nolix.business.serverdashboardapplication.view.ServerDashboardSession;
 import ch.nolix.business.serverdashboardlogic.ServerDashboardContext;
 import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.system.application.main.Application;

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.business.serverdashboardapplication;
+package ch.nolix.business.serverdashboardapplication.view;
 
 //own imports
 import ch.nolix.system.element.style.DeepStyle;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 
 //class
-public final class ServerDashboardStyleCreator {
+final class ServerDashboardStyleCreator {
 	
 	//method
 	public Style createServerDashboardStyle() {

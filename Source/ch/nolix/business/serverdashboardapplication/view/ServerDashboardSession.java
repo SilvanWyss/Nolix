@@ -1,6 +1,7 @@
 //package declaration
-package ch.nolix.business.serverdashboardapplication;
+package ch.nolix.business.serverdashboardapplication.view;
 
+//own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IApplicationSheet;
 import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -10,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
+public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 	
 	//static attribute
 	private static final ServerDashboardStyleCreator SERVER_DASHBOARD_STYLE_CREATOR = new ServerDashboardStyleCreator();
