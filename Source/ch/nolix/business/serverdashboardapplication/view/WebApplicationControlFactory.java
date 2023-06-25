@@ -3,7 +3,6 @@ package ch.nolix.business.serverdashboardapplication.view;
 
 //own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.control.ImageControl;
@@ -28,15 +27,14 @@ final class WebApplicationControlFactory {
 	
 	//method
 	public IControl<?, ?> createWebApplicationControl(
-		final IWebApplicationSheet guiApplicationSheet,
-		final SecurityLevel securityLevelForConnections
+		final IWebApplicationSheet guiApplicationSheet
 	) {
 		
 		final var guiApplicationVerticalStack =
 		new VerticalStack()
 		.addControl(
 			createApplicationNameLabel(guiApplicationSheet),
-			createLogoImageControl(guiApplicationSheet, securityLevelForConnections)
+			createLogoImageControl(guiApplicationSheet)
 		);
 		
 		return guiApplicationVerticalStack;
@@ -52,8 +50,7 @@ final class WebApplicationControlFactory {
 	
 	//method
 	private IControl<?, ?> createLogoImageControl(
-		final IWebApplicationSheet guiApplicationSheet,
-		final SecurityLevel securityLevelForConnections
+		final IWebApplicationSheet guiApplicationSheet
 	) {
 		return
 		new ImageControl()
