@@ -39,7 +39,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCSSRuleBuilder<ILin
 		final ILink control,
 		final LinkedList<CSSProperty> list
 	) {
-		//Does nothing.
+		list.addAtEnd(CSSProperty.withNameAndValue("text-decoration", "none"));
 	}
 	
 	//method

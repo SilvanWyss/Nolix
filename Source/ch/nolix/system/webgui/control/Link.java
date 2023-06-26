@@ -18,6 +18,7 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ILink;
 import ch.nolix.systemapi.webguiapi.controlapi.ILinkStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -66,6 +67,13 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	
 	//attribute
 	private final MutableOptionalValue<String> url = MutableOptionalValue.forString(URL_HEADER, this::setUrl); 
+	
+	//constructor
+	public Link() {
+		
+		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		reset();
+	}
 	
 	//method
 	@Override
@@ -198,6 +206,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 		setDisplayText(DEFAULT_DISPLAY_TEXT);
 		removeUrl();
 		
+		setCursorIcon(CursorIcon.HAND);
 		getOriStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
 	}
 }
