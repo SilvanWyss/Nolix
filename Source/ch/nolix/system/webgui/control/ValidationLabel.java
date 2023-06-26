@@ -46,7 +46,9 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//constructor
 	public ValidationLabel() {
-		getOriStyle().setTextColorForState(ControlState.BASE, Color.RED);
+		
+		//Reset is technically not mandatory, but required to achieve a custom state on reset.
+		reset();
 	}
 	
 	//method
@@ -145,6 +147,9 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected void resetControl() {
+		
 		clear();
+		
+		getOriStyle().setTextColorForState(ControlState.BASE, Color.RED);
 	}
 }
