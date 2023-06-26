@@ -19,6 +19,10 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//constructor
 	public DropdownMenu() {
+		
+		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		reset();
+		
 		getOriStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)

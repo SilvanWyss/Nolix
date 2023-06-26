@@ -61,7 +61,8 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	//constructor
 	public Textbox() {
 		
-		setCursorIcon(CursorIcon.EDIT);
+		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		reset();
 		
 		getOriStyle()
 		.setBorderThicknessForState(ControlState.BASE, 1)
@@ -199,10 +200,10 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	protected void resetControl() {
 		
 		emptyText();
-		
 		setTextMode(DEFAULT_TEXT_MODE);
-		
 		removeUpdateTextAction();
+		
+		setCursorIcon(CursorIcon.EDIT);
 	}
 	
 	//method

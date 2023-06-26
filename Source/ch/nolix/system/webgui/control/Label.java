@@ -16,6 +16,7 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -46,6 +47,13 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//attribute
 	private final MutableValue<String> value = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	
+	//constructor
+	public Label() {
+		
+		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		reset();
+	}
 	
 	//method
 	@Override
@@ -157,7 +165,10 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	//method
 	@Override
 	protected void resetControl() {
+		
 		removeRole();
 		setText(DEFAULT_TEXT);
+		
+		setCursorIcon(CursorIcon.EDIT);
 	}
 }

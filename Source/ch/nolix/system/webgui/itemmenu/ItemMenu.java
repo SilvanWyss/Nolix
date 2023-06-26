@@ -12,6 +12,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.main.Control;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
@@ -285,8 +286,9 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	protected final void resetControl() {
 		
 		clear();
-		
 		removeSelectAction();
+		
+		setCursorIcon(CursorIcon.EDIT);
 	}
 	
 	//method

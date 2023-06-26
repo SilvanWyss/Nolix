@@ -43,7 +43,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	//constructor
 	public ValidationLabel() {
 		
-		//Reset is technically not mandatory, but required to achieve a custom state on reset.
+		//Info: Reset is technically optional, but required to achieve a custom state on reset.
 		reset();
 	}
 	

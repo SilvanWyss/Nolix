@@ -20,6 +20,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlhelper.ValidationLabelHelper;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
+import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -64,6 +65,10 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//constructor
 	public Button() {
+		
+		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		reset();
+		
 		getOriStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
@@ -271,10 +276,13 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	protected void resetControl() {
+		
 		removeRole();
 		setText(StringCatalogue.EMPTY_STRING);
 		removeLeftMouseButtonPressAction();
 		removeLeftMouseButtonReleaseAction();
+		
+		setCursorIcon(CursorIcon.HAND);
 	}
 	
 	//method
