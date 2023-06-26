@@ -5,6 +5,9 @@ package ch.nolix.coreapi.webapi.htmlapi;
 public final class HtmlElementTypeCatalogue {
 	
 	//constant
+	public static final String A = "a";
+	
+	//constant
 	public static final String BODY = "body";
 	
 	//constant
