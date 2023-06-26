@@ -45,6 +45,9 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	private static final String URL_HEADER = PascalCaseCatalogue.URL;
 	
 	//constant
+	private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
+	
+	//constant
 	private static final LinkCssRuleBuilder LINK_CSS_RULE_BUILDER = new LinkCssRuleBuilder();
 	
 	//attribute
@@ -185,8 +188,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	//method
 	@Override
 	protected IControlHtmlBuilder<ILink> getHtmlBuilder() {
-		//TODO: Implement.
-		return null;
+		return LINK_HTML_BUILDER;
 	}
 	
 	//method
