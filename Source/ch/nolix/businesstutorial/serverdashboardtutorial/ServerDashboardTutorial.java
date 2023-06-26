@@ -7,8 +7,8 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebApplicationContext;
 import ch.nolix.system.gui.iconresource.IconCatalogue;
 import ch.nolix.systemtutorial.webguitutorial.controltutorial.ImageControlTutorial;
-import ch.nolix.systemtutorial.webguitutorial.itemmenututorial.DropdownMenuTutorial;
 import ch.nolix.systemtutorial.webguitutorial.maintutorial.HelloWorldGuiTutorial;
+import ch.nolix.systemtutorial.webguitutorial.maintutorial.PartialRefreshTutorial;
 
 public final class ServerDashboardTutorial {
 	
@@ -25,7 +25,7 @@ public final class ServerDashboardTutorial {
 		
 		//Adds further Applications to the Server.
 		server.addApplicationWithNameAndInitialSessionClassAndContext(
-			"HelloWorld",
+			"Hello World GUI tutorial",
 			HelloWorldGuiTutorial.MainSession.class,
 			new WebApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON)
 		);
@@ -35,8 +35,8 @@ public final class ServerDashboardTutorial {
 			new VoidObject()
 		);
 		server.addApplicationWithNameAndInitialSessionClassAndContext(
-			"DropdownMenu tutorial",
-			DropdownMenuTutorial.MainSession.class,
+			"Partial refresh tutorial",
+			PartialRefreshTutorial.MainSession.class,
 			new VoidObject()
 		);
 		
