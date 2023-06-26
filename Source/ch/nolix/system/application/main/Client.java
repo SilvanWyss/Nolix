@@ -162,13 +162,6 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	
 	//method
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void noteClose() {}
-	
-	//method
-	/**
 	 * Sets a session variable with the given key and value to the current {@link Client}.
 	 * 
 	 * Will overwrite a previous session variable if

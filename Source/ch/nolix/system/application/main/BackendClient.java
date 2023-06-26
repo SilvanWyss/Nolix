@@ -78,6 +78,17 @@ public abstract class BackendClient<
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final void noteClose() {
+		while (sessionManager.containsCurrentSession()) {
+			sessionManager.popCurrentSession();
+		}
+	}
+		
+	//method
+	/**
 	 * @return the current {@link Session} of the current {@link BackendClient}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BackendClient} does not have a current {@link Session}.
