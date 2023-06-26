@@ -141,7 +141,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<ValidationLabel> getHtmlBuilder() {
-		return new ValidationHtmlBuilder();
+		return new ValidationLabelHtmlBuilder();
 	}
 	
 	//method
