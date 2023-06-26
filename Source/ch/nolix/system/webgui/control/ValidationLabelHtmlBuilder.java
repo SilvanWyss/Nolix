@@ -2,6 +2,7 @@
 package ch.nolix.system.webgui.control;
 
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -15,20 +16,21 @@ public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<Val
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final ValidationLabel control) {
-		
-		if (control.isEmpty()) {
-			return
-			HtmlElement.withTypeAndAttributes(
-				HtmlElementTypeCatalogue.DIV,
-				ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control))
-			);
-		}
-		
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
-			control.getError().getMessage()
+			getHtmlDivInnerTextForControl(control)
 		);
+	}
+	
+	//method
+	private String getHtmlDivInnerTextForControl(final ValidationLabel control) {
+		
+		if (control.isEmpty()) {
+			return "\u2800";
+		}
+		
+		return (control.getError().getMessage() + "\u2800");
 	}
 }
