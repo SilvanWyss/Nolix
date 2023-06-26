@@ -47,8 +47,8 @@ final class ServerDashboardStyleCreator {
 			"BaseWidth(250)",
 			"BaseHeight(200)",
 			"CursorIcon(Hand)",
-			"BaseOpacity(25%)",
-			"HoverOpacity(75%)"
+			"BaseOpacity(50%)",
+			"HoverOpacity(90%)"
 		);
 	}
 	
