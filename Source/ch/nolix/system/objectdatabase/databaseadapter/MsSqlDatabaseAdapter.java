@@ -72,32 +72,6 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	//method
 	@Override
 	public DatabaseAdapter getEmptyCopy() {
-		return
-		toIpOrAddress(getIpOrAddress())
-		.andPort(getPort())
-		.toDatabase(getDatabaseName())
-		.usingLoginName(getLoginName())
-		.andLoginPassword(getLoginPassword())
-		.andSchema(getSchema());
-	}
-	
-	//method
-	private String getLoginPassword() {
-		return sqlConnectionPool.getLoginPassword();
-	}
-	
-	//method
-	private String getLoginName() {
-		return sqlConnectionPool.getLoginName();
-	}
-	
-	//method
-	private int getPort() {
-		return sqlConnectionPool.getPort();
-	}
-	
-	//method
-	private String getIpOrAddress() {
-		return sqlConnectionPool.getIpOrAddressName();
+		return new MsSqlDatabaseAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);
 	}
 }
