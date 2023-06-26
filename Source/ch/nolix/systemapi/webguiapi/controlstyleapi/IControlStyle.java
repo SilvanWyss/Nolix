@@ -17,9 +17,6 @@ public interface IControlStyle<CS extends IControlStyle<CS>> extends IMultiState
 	boolean getBoldTextFlagWhenHasState(ControlState state);
 	
 	//method declaration
-	IColor getDefaultTextColor();
-	
-	//method declaration
 	Font getFontWhenHasState(ControlState state);
 	
 	//method declaration

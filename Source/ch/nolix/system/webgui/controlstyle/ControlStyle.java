@@ -34,6 +34,9 @@ implements IControlStyle<CS> {
 	public static final int DEAULT_TEXT_SIZE = 20;
 	
 	//constant
+	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
+	
+	//constant
 	private static final String OPACITY_HEADER = PascalCaseCatalogue.OPACITY;
 	
 	//constant
@@ -97,7 +100,7 @@ implements IControlStyle<CS> {
 		ControlState.class,
 		Color::fromSpecification,
 		IColor::getSpecification,
-		getDefaultTextColor()
+		DEFAULT_TEXT_COLOR
 	);
 	
 	//constructor
