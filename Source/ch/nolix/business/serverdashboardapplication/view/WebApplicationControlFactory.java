@@ -3,7 +3,6 @@ package ch.nolix.business.serverdashboardapplication.view;
 
 //own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
-import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.control.ImageControl;
 import ch.nolix.system.webgui.control.Label;
@@ -16,61 +15,53 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 final class WebApplicationControlFactory {
 	
 	//constant
-	public static final int LOGO_IMAGE_WIDTH = 200;
+	public static final int APPLICATION_LOGO_IMAGE_WIDTH = 250;
 	
 	//constant
-	public static final int LOGO_IMAGE_HEIGHT = 150;
+	public static final int APPLICATION_LOGO_IMAGE_HEIGHT = 200;
 	
 	//constant
-	public static final IImage DEFAULT_LOGO =
-	MutableImage.withWidthAndHeightAndColor(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT, Color.GREY);
+	private static final String DEFAULT_APPLICATION_LOGO_RESOURCE_PATH =
+	"ch/nolix/business/serverdashboardapplication/resource/default_application_logo.jpg";
+	
+	//constant
+	public static final IImage DEFAULT_APPLICATION_LOGO =
+	MutableImage
+	.fromResource(DEFAULT_APPLICATION_LOGO_RESOURCE_PATH)
+	.withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
 	
 	//method
 	public IControl<?, ?> createWebApplicationControl(
 		final IWebApplicationSheet guiApplicationSheet
 	) {
-		
-		final var guiApplicationVerticalStack =
+		return
 		new VerticalStack()
 		.addControl(
-			createApplicationNameLabel(guiApplicationSheet),
-			createLogoImageControl(guiApplicationSheet)
+			new ImageControl()
+			.setImage(getApplicationLogoOrDefaultApplicationLogo(guiApplicationSheet))
+			.setLeftMouseButtonPressAction(
+				ic ->
+				ic
+				.getOriParentGui()
+				.onFrontEnd()
+				.redirectTo(guiApplicationSheet.getApplicationInstanceTarget())
+			),
+			new Label()
+			.setRole(LabelRole.LEVEL1_HEADER)
+			.setText(guiApplicationSheet.getApplicationInstanceTarget().getApplicationInstanceName())
 		);
+	}
+	
+	//method
+	private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationSheet guiApplicationSheet) {
 		
-		return guiApplicationVerticalStack;
-	}
-	
-	//method
-	private IControl<?, ?> createApplicationNameLabel(final IWebApplicationSheet guiApplicationSheet) {
-		return
-		new Label()
-		.setRole(LabelRole.LEVEL1_HEADER)
-		.setText(guiApplicationSheet.getApplicationInstanceTarget().getApplicationInstanceName());
-	}
-	
-	//method
-	private IControl<?, ?> createLogoImageControl(
-		final IWebApplicationSheet guiApplicationSheet
-	) {
-		return
-		new ImageControl()
-		.setImage(getApplicationLogoOrDefaultLogo(guiApplicationSheet))
-		.setLeftMouseButtonPressAction(
-			i ->
-			i
-			.getOriParentGui()
-			.onFrontEnd()
-			.redirectTo(guiApplicationSheet.getApplicationInstanceTarget())
-		);
-	}
-	
-	//method
-	private IImage getApplicationLogoOrDefaultLogo(final IWebApplicationSheet guiApplicationSheet) {
-
 		if (!guiApplicationSheet.hasApplicationLogo()) {
-			return DEFAULT_LOGO;
+			return DEFAULT_APPLICATION_LOGO;
 		}
 		
-		return guiApplicationSheet.getApplicationLogo().withWidthAndHeight(LOGO_IMAGE_WIDTH, LOGO_IMAGE_HEIGHT);
+		return
+		guiApplicationSheet
+		.getApplicationLogo()
+		.withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
 	}
 }
