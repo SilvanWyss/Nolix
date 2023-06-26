@@ -184,7 +184,6 @@ implements IControlCSSRuleBuilder<C, CS> {
 		}
 		
 		list.addAtEnd(
-			
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.COLOR,
 				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getTextColorWhenHasState(state))
@@ -196,7 +195,8 @@ implements IControlCSSRuleBuilder<C, CS> {
 			CSSProperty.withNameAndValue(
 				CSSPropertyNameCatalogue.FONT_SIZE,
 				String.valueOf(style.getTextSizeWhenHasState(state)) + CSSUnitCatalogue.PX
-			)
+			),
+			getFontWeightCSSPropertyForControlAndState(control, state)
 		);
 		
 		fillUpCSSPropertiesForControlAndStateIntoList(control, state, list);
@@ -253,5 +253,18 @@ implements IControlCSSRuleBuilder<C, CS> {
 			getCSSSelectorForControlAndState(control, state),
 			getCSSPropertiesForControlAndState(control, state)
 		);
+	}
+	
+	//method
+	private ICSSProperty getFontWeightCSSPropertyForControlAndState(final C control, final ControlState state) {
+		
+		final var style = control.getOriStyle();
+		final var boldTextFlag = style.getBoldTextFlagWhenHasState(state);
+		
+		if (!boldTextFlag) {
+			return CSSProperty.withNameAndValue("font-weight", "normal");
+		}
+		
+		return CSSProperty.withNameAndValue("font-weight", "bold");
 	}
 }
