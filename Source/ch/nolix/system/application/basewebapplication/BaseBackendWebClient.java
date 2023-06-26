@@ -152,6 +152,14 @@ implements ICookieManager {
 	}
 	
 	//method
+	final void internalWriteTextToClipboardOfCounterpart(final String text) {
+		
+		final var writeTextToClipboardCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createWriteTextToClipBoardCommand(text);
+		
+		runOnCounterpart(writeTextToClipboardCommand);
+	}
+	
+	//method
 	private String getCookieValueByCookieNameOrNullFromData(final INode<?> data) {
 		
 		if (!data.hasHeader()) {

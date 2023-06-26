@@ -2016,6 +2016,7 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     CommandProtocol.SET_TITLE = 'SetTitle';
     CommandProtocol.SET_USER_INPUT_FUNCTIONS = 'SetUserInputFunctions';
     CommandProtocol.SET_USER_INPUTS = 'SetUserInputs';
+    CommandProtocol.WRITE_TEXT_TO_CLIPBOARD = 'WriteTextToClipBoard';
     exports.CommandProtocol = CommandProtocol;
 });
 define("System/FrontendWebGUI/EventFunction", ["require", "exports", "Core/Document/ChainedNode/ChainedNode"], function (require, exports, ChainedNode_2) {
@@ -2216,7 +2217,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             if (!pURL.startsWith('http://') && !pURL.startsWith('https://')) {
                 pURL = 'http://' + pURL;
             }
-            console.log('The current CanvasGUI redirects to \'' + pURL + '\'');
+            console.log('The current CanvasGUI redirects to \'' + pURL + '\'.');
             this.window.open(pURL, '_self');
         }
         setCSS(pCSS) {
@@ -2634,6 +2635,9 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
                 case CommandProtocol_2.CommandProtocol.DELETE_COOKIE_BY_NAME:
                     this.runDeleteCookieByNameCommand(command);
                     break;
+                case CommandProtocol_2.CommandProtocol.WRITE_TEXT_TO_CLIPBOARD:
+                    this.runWriteTextToClipboardCommand(command);
+                    break;
                 default:
                     throw new Error('The given command \'' + command + '\' is not valid.');
             }
@@ -2661,11 +2665,18 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             const value = setOrAddCookieWithNameAndValueCommand.getAttributeAt(2).getHeader();
             CookieManager_1.CookieManager.INSTANCE.setOrAddCookieWithNameAndValue(name, value);
         }
+        runWriteTextToClipboardCommand(writeTextToClipboardCommand) {
+            const text = writeTextToClipboardCommand.getOneAttribute().getHeader();
+            this.writeTextToClipboard(text);
+        }
         takeEvent(command) {
             const commands = new LinkedList_11.LinkedList();
             commands.addAtEnd(this.createSetUserInputsCommand());
             commands.addAtEnd(command);
             this.endPoint.runCommands(commands);
+        }
+        writeTextToClipboard(text) {
+            window.navigator['clipboard'].writeText(text);
         }
     }
     exports.FrontendWebClient = FrontendWebClient;

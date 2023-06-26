@@ -25,6 +25,9 @@ public final class CommandProtocol {
 	//constant
 	public static final String SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = "SetOrAddCookieWithNameAndValue";
 	
+	//constant
+	public static final String WRITE_TEXT_TO_CLIPBOARD = "WriteTextToClipBoard";
+	
 	//constructor
 	private CommandProtocol() {}
 }

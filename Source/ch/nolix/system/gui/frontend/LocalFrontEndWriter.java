@@ -57,4 +57,10 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 			}
 		}
 	}
+	
+	//method
+	@Override
+	public void writeTextToClipboard(final String text) {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "writeTextToClipboard");
+	}
 }

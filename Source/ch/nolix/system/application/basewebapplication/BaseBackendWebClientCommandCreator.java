@@ -71,4 +71,10 @@ final class BaseBackendWebClientCommandCreator {
 			)
 		);
 	}
+	
+	//method
+	public ChainedNode createWriteTextToClipBoardCommand(final String text) {
+		return
+		ChainedNode.withHeaderAndChildNode(CommandProtocol.WRITE_TEXT_TO_CLIPBOARD, ChainedNode.withHeader(text));
+	}
 }

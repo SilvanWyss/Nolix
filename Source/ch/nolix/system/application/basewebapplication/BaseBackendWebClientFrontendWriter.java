@@ -50,4 +50,10 @@ final class BaseBackendWebClientFrontendWriter implements IFrontEndWriter {
 	public void saveFile(final byte[] bytes) {
 		parentBackendWebClient.internalSaveFileOnCounterpart(bytes);
 	}
+	
+	//method
+	@Override
+	public void writeTextToClipboard(final String text) {
+		parentBackendWebClient.internalWriteTextToClipboardOfCounterpart(text);
+	}
 }
