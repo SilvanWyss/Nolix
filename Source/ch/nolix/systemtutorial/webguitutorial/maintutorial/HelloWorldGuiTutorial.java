@@ -16,7 +16,11 @@ public final class HelloWorldGuiTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("Hello World GUI tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
+			"Hello World GUI tutorial",
+			MainSession.class,
+			new VoidObject()
+		);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
@@ -32,7 +36,7 @@ public final class HelloWorldGuiTutorial {
 		protected void initialize() {
 			
 			//Creates Label.
-			final var label = new Label().setText("Hello World");
+			final var label = new Label().setText("Hello World!");
 			
 			//Configures the style of the Label.
 			label.getOriStyle().setTextSizeForState(ControlState.BASE, 50);
