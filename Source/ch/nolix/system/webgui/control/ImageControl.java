@@ -16,7 +16,6 @@ import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
@@ -27,9 +26,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 public final class ImageControl
 extends Control<ImageControl, ImageControlStyle>
 implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
-	
-	//constant
-	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 	
 	//constant
 	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
@@ -53,12 +49,6 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	@Override
 	public void clear() {
 		image.clear();
-	}
-	
-	//method
-	@Override
-	public CursorIcon getDefaultCursorIcon() {
-		return DEFAULT_CURSOR_ICON;
 	}
 	
 	//method

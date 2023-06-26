@@ -6,7 +6,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
@@ -18,21 +17,12 @@ public final class DropdownMenu
 extends ItemMenu<DropdownMenu, DropdownMenuStyle>
 implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
-	//constant
-	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.HAND;
-	
 	//constructor
 	public DropdownMenu() {
 		getOriStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
 		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
-	}
-	
-	//method
-	@Override
-	public CursorIcon getDefaultCursorIcon() {
-		return DEFAULT_CURSOR_ICON;
 	}
 	
 	//method

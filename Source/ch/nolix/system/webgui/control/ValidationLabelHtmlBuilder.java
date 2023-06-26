@@ -2,7 +2,6 @@
 package ch.nolix.system.webgui.control;
 
 //own imports
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;

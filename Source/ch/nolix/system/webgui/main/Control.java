@@ -42,6 +42,9 @@ implements IControl<C, CS> {
 	public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
 	
 	//constant
+	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
+	
+	//constant
 	private static final String PRESENCE_HEADER = "Presence";
 	
 	//constant
@@ -109,7 +112,7 @@ implements IControl<C, CS> {
 	private final MutableValue<CursorIcon> cursorIcon =
 	new MutableValue<>(
 		CURSOR_ICON_HEADER,
-		getDefaultCursorIcon(),
+		DEFAULT_CURSOR_ICON,
 		this::setCursorIcon,
 		CursorIcon::fromSpecification,
 		Node::fromEnum
@@ -462,7 +465,7 @@ implements IControl<C, CS> {
 		removeMinHeight();
 		removeMaxWidth();
 		removeMaxHeight();
-		setCursorIcon(getDefaultCursorIcon());
+		setCursorIcon(DEFAULT_CURSOR_ICON);
 		
 		resetControl();
 	}

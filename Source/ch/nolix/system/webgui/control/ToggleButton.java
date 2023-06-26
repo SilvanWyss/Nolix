@@ -15,7 +15,6 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.OnOffState;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButton;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButtonStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
@@ -28,9 +27,6 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//constant
 	public static final OnOffState DEFAULT_ON_OFF_STATE = OnOffState.OFF;
-	
-	//constant
-	public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.HAND;
 	
 	//attribute
 	private final MutableValue<OnOffState> onOffState =
@@ -47,12 +43,6 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//optional attribute
 	private IAction onAction;
-	
-	//method
-	@Override
-	public CursorIcon getDefaultCursorIcon() {
-		return DEFAULT_CURSOR_ICON;
-	}
 	
 	//method
 	@Override
