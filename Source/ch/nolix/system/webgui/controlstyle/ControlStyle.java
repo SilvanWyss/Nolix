@@ -159,7 +159,7 @@ implements IControlStyle<CS> {
 	
 	//method
 	@Override
-	public void removeCustomOpacities() {
+	public final void removeCustomOpacities() {
 		opacity.setUndefined();
 	}
 	
