@@ -21,7 +21,11 @@ public final class ValidationLabelTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("ValidationLabel tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
+			"ValidationLabel tutorial",
+			MainSession.class,
+			new VoidObject()
+		);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
@@ -49,7 +53,9 @@ public final class ValidationLabelTutorial {
 		}
 		
 		private void enterPositiveNumber() {
+			
 			final var number = Integer.parseInt(positiveNumberTextbox.getText());
+			
 			GlobalValidator.assertThat(number).thatIsNamed(LowerCaseCatalogue.NUMBER).isPositive();
 		}
 	}
