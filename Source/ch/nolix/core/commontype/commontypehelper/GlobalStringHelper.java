@@ -190,14 +190,15 @@ public final class GlobalStringHelper {
 	public static boolean toBoolean(final String string) {
 		
 		//Enumerates the given string.
+		return
 		switch (string) {
-			case "0", "F", "False", "false":
-				return false;
-			case "1", "T", "True", "true":
-				return true;
-			default:
+			case "0", "F", "FALSE", "False", "false" ->
+				false;
+			case "1", "T", "TRUE", "True", "true" ->
+				true;
+			default ->
 				throw UnrepresentingArgumentException.forArgumentAndType(string, Boolean.class);
-		}
+		};
 	}
 	
 	//static method
