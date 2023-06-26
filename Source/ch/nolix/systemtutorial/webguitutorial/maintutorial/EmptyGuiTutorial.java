@@ -14,7 +14,11 @@ public final class EmptyGuiTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("Empty GUI tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
+			"Empty GUI tutorial",
+			MainSession.class,
+			new VoidObject()
+		);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
@@ -34,4 +38,3 @@ public final class EmptyGuiTutorial {
 	
 	private EmptyGuiTutorial() {}
 }
-
