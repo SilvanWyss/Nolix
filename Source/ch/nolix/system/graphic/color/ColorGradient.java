@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.graphic.color;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
@@ -40,8 +42,6 @@ public final class ColorGradient extends Element implements IColorGradient {
 
 	//static method
 	/**
-	 * Creates new {@link ColorGradient} from the given specification.
-	 * 
 	 * @param specification
 	 * @return a new {@link ColorGradient} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
@@ -50,17 +50,56 @@ public final class ColorGradient extends Element implements IColorGradient {
 		
 		final var attributes = specification.getOriChildNodes();
 		
-		final var directionSpecification = Node.withChildNode(attributes.getOriAt1BasedIndex(1));
-		final var color1Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(2));
-		final var color2Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(3));
+		return
+		switch (attributes.getElementCount()) {
+			case 2 ->
+				from2Attributes(attributes);
+			case 3 ->
+				from3Attributes(attributes);
+			default ->
+				throw
+				InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
+		};
+	}
+	
+	//static method
+	/**
+	 * @param attributes
+	 * @return a new {@link ColorGradient} from the given attributes.
+	 * @throws InvalidArgumentException if the given attributes are not valid.
+	 */
+	private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
 		
-		return new ColorGradient(
-			DirectionInRectangle.fromSpecification(directionSpecification),
+		final var color1Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(1));
+		final var color2Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(2));
+		
+		return
+		new ColorGradient(
 			Color.fromSpecification(color1Specification),
 			Color.fromSpecification(color2Specification)
 		);
 	}
 	
+	//static method
+	/**
+	 * @param attributes
+	 * @return a new {@link ColorGradient} from the given attributes.
+	 * @throws InvalidArgumentException if the given attributes are not valid.
+	 */
+	private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
+		
+		final var directionSpecification = Node.withChildNode(attributes.getOriAt1BasedIndex(1));
+		final var color1Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(2));
+		final var color2Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(3));
+		
+		return
+		new ColorGradient(
+			DirectionInRectangle.fromSpecification(directionSpecification),
+			Color.fromSpecification(color1Specification),
+			Color.fromSpecification(color2Specification)
+		);
+	}
+
 	//attribute
 	private final DirectionInRectangle direction;
 	
