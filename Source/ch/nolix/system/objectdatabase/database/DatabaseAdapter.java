@@ -135,7 +135,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	//method
 	private void saveChanges() {
 		
-		databaseSaver.saveChangesOfDatabase(database);
+		databaseSaver.saveChangesOfDatabaseThreadSafe(database);
 		
 		saveCount++;
 	}

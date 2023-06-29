@@ -22,7 +22,14 @@ final class DatabaseSaver {
 	private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 	
 	//method
-	public void saveChangesOfDatabase(final Database database) {
+	public void saveChangesOfDatabaseThreadSafe(final Database database) {
+		synchronized (DatabaseSaver.class) {
+			saveChangesOfDatabase(database);
+		}
+	}
+	
+	//method
+	private void saveChangesOfDatabase(final Database database) {
 		
 		assertCanSaveChangesOfDatabase(database);
 		
