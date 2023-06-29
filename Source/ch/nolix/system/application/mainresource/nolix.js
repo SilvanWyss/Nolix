@@ -2207,15 +2207,15 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             return this.userInputFunctions.to(f => f.getUserInputUsingDocument(this.window.document));
         }
         openNewTabWithURL(pURL) {
-            if (!pURL.startsWith('http://')) {
-                pURL = 'http://' + pURL;
+            if (!pURL.startsWith('http://') && !pURL.startsWith('https://')) {
+                pURL = 'https://' + pURL;
             }
             console.log('The current CanvasGUI opens a new tab with the URL \'' + pURL + '\'');
             this.window.open(pURL, '_blank');
         }
         redirectTo(pURL) {
             if (!pURL.startsWith('http://') && !pURL.startsWith('https://')) {
-                pURL = 'http://' + pURL;
+                pURL = 'https://' + pURL;
             }
             console.log('The current CanvasGUI redirects to \'' + pURL + '\'.');
             this.window.open(pURL, '_self');
