@@ -288,7 +288,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 		clear();
 		removeSelectAction();
 		
-		setCursorIcon(CursorIcon.EDIT);
+		setCursorIcon(CursorIcon.HAND);
 	}
 	
 	//method
