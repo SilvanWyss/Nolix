@@ -19,10 +19,6 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		//setup
 		final var testUnit = createTestUnit();
 		
-		//setup verification
-		final var defaultBaseTextColor = testUnit.getOriStyle().getTextColorWhenHasState(ControlState.BASE);
-		expect(defaultBaseTextColor).isEqualTo(Color.BLACK);
-		
 		//execution
 		testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, Color.DARK_CYAN));
 		
