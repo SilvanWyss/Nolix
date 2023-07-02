@@ -58,6 +58,6 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<DropdownMenu, DropdownMenuStyle> getCssRuleCreator() {
-		return DropdownMenuCSSRuleBuilder.INSTANCE;
+		return DropdownMenuCssRuleBuilder.INSTANCE;
 	}
 }

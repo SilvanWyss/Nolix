@@ -7,13 +7,13 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class DropdownMenuCSSRuleBuilder extends ItemMenuCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> {
+public final class DropdownMenuCssRuleBuilder extends ItemMenuCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> {
 	
 	//static attribute
-	public static final DropdownMenuCSSRuleBuilder INSTANCE = new DropdownMenuCSSRuleBuilder();
+	public static final DropdownMenuCssRuleBuilder INSTANCE = new DropdownMenuCssRuleBuilder();
 	
 	//constructor
-	private DropdownMenuCSSRuleBuilder() {}
+	private DropdownMenuCssRuleBuilder() {}
 	
 	//method
 	@Override
