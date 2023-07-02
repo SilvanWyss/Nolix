@@ -20,7 +20,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class ControlCSSRuleBuilder<
+public abstract class ControlCssRuleBuilder<
 	C extends IControl<C, CS>,
 	CS extends IControlStyle<CS>
 >
