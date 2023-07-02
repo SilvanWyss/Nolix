@@ -6,13 +6,13 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlapi.ILink;
 import ch.nolix.systemapi.webguiapi.controlapi.ILinkStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class LinkCssRuleBuilder extends ExtendedControlCSSRuleBuilder<ILink, ILinkStyle> {
+public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILink, ILinkStyle> {
 	
 	//method
 	@Override

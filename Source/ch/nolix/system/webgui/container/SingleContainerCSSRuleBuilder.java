@@ -5,12 +5,12 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class SingleContainerCSSRuleBuilder
-extends ExtendedControlCSSRuleBuilder<SingleContainer, SingleContainerStyle> {
+extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
 	//static attribute
 	public static final SingleContainerCSSRuleBuilder INSTANCE = new SingleContainerCSSRuleBuilder();

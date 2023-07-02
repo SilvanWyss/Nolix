@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.itemmenu;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -12,7 +12,7 @@ public abstract class ItemMenuCSSRuleBuilder<
 	IM extends ItemMenu<IM, IMS>,
 	IMS extends IItemMenuStyle<IMS>
 >
-extends ExtendedControlCSSRuleBuilder<IM, IMS> {
+extends ExtendedControlCssRuleBuilder<IM, IMS> {
 	
 	//method
 	@Override

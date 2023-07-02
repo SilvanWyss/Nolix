@@ -5,11 +5,11 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ButtonCSSRuleBuilder extends ExtendedControlCSSRuleBuilder<Button, ButtonStyle> {
+public final class ButtonCSSRuleBuilder extends ExtendedControlCssRuleBuilder<Button, ButtonStyle> {
 	
 	//static attribute
 	public static final ButtonCSSRuleBuilder INSTANCE = new ButtonCSSRuleBuilder();

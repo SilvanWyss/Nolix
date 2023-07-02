@@ -11,7 +11,7 @@ import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class HorizontalStackCSSRuleBuilder
-extends ExtendedControlCSSRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
+extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//static attribute
 	public static final HorizontalStackCSSRuleBuilder INSTANCE = new HorizontalStackCSSRuleBuilder();

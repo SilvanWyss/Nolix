@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class ExtendedControlCSSRuleBuilder<
+public abstract class ExtendedControlCssRuleBuilder<
 	EC extends IControl<EC, ECS>,
 	ECS extends IExtendedControlStyle<ECS>
 >

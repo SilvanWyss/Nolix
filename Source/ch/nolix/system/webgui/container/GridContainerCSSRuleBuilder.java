@@ -11,12 +11,12 @@ import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCSSRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class GridContainerCSSRuleBuilder
-extends ExtendedControlCSSRuleBuilder<GridContainer, GridContainerStyle> {
+extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//static attribute
 	public static final GridContainerCSSRuleBuilder INSTANCE = new GridContainerCSSRuleBuilder();
