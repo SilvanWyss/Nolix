@@ -55,7 +55,7 @@ implements IHorizontalStack {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> getCSSRuleCreator() {
-		return HorizontalStackCSSRuleBuilder.INSTANCE;
+		return HorizontalStackCssRuleBuilder.INSTANCE;
 	}
 	
 	//method

@@ -18,14 +18,14 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class HorizontalStackCSSRuleBuilder
+public final class HorizontalStackCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//static attribute
-	public static final HorizontalStackCSSRuleBuilder INSTANCE = new HorizontalStackCSSRuleBuilder();
+	public static final HorizontalStackCssRuleBuilder INSTANCE = new HorizontalStackCssRuleBuilder();
 	
 	//constructor
-	private HorizontalStackCSSRuleBuilder() {}
+	private HorizontalStackCssRuleBuilder() {}
 	
 	//method
 	@Override
