@@ -10,13 +10,13 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ImageControlCSSRuleBuilder extends ExtendedControlCssRuleBuilder<ImageControl, ImageControlStyle> {
+public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuilder<ImageControl, ImageControlStyle> {
 	
 	//static attribute
-	public static final ImageControlCSSRuleBuilder INSTANCE = new ImageControlCSSRuleBuilder();
+	public static final ImageControlCssRuleBuilder INSTANCE = new ImageControlCssRuleBuilder();
 	
 	//constructor
-	private ImageControlCSSRuleBuilder() {}
+	private ImageControlCssRuleBuilder() {}
 	
 	//method
 	@Override
