@@ -14,13 +14,13 @@ import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
-public final class LayerCSSRuleCreator {
+public final class LayerCssRuleCreator {
 	
 	//static attribute
-	public static final LayerCSSRuleCreator INSTANCE = new LayerCSSRuleCreator();
+	public static final LayerCssRuleCreator INSTANCE = new LayerCssRuleCreator();
 	
 	//constructor
-	private LayerCSSRuleCreator() {}
+	private LayerCssRuleCreator() {}
 	
 	//method
 	public CssRule getCssRuleForLayer(final ILayer<?> layer) {
