@@ -7,7 +7,7 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
 //class
-public final class ControlCSSValueHelper {
+public final class ControlCssValueHelper {
 	
 	//method
 	public String getCssValueFromColor(final IColor color) {

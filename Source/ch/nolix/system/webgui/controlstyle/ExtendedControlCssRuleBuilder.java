@@ -7,7 +7,7 @@ import ch.nolix.coreapi.webapi.cssapi.CssBorderStyleCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
+import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
 import ch.nolix.system.webgui.main.ControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -21,7 +21,7 @@ public abstract class ExtendedControlCssRuleBuilder<
 extends ControlCssRuleBuilder<EC, ECS> {
 	
 	//static attribute
-	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
+	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
 		
 	//method
 	@Override

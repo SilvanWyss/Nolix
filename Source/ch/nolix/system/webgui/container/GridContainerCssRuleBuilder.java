@@ -10,7 +10,7 @@ import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
-import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
+import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -22,7 +22,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	public static final GridContainerCssRuleBuilder INSTANCE = new GridContainerCssRuleBuilder();
 	
 	//constant
-	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
+	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
 	
 	//constructor
 	private GridContainerCssRuleBuilder() {}
