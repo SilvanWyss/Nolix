@@ -186,7 +186,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	//method
 	@Override
 	protected IControlCssRuleBuilder<ITextbox, ITextboxStyle> getCSSRuleCreator() {
-		return TextboxCSSRuleBuilder.INSTANCE;
+		return TextboxCssRuleBuilder.INSTANCE;
 	}
 	
 	//method

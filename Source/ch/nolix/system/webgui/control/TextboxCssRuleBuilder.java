@@ -11,13 +11,13 @@ import ch.nolix.systemapi.webguiapi.controlapi.ITextboxStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class TextboxCSSRuleBuilder extends ExtendedControlCssRuleBuilder<ITextbox, ITextboxStyle> {
+public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<ITextbox, ITextboxStyle> {
 	
 	//static attribute
-	public static final TextboxCSSRuleBuilder INSTANCE = new TextboxCSSRuleBuilder();
+	public static final TextboxCssRuleBuilder INSTANCE = new TextboxCssRuleBuilder();
 	
 	//constructor
-	private TextboxCSSRuleBuilder() {}
+	private TextboxCssRuleBuilder() {}
 
 	//method
 	@Override
