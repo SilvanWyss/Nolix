@@ -84,7 +84,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<SingleContainer, SingleContainerStyle> getCSSRuleCreator() {
-		return SingleContainerCSSRuleBuilder.INSTANCE;
+		return SingleContainerCssRuleBuilder.INSTANCE;
 	}
 	
 	//method

@@ -9,14 +9,14 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class SingleContainerCSSRuleBuilder
+public final class SingleContainerCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
 	//static attribute
-	public static final SingleContainerCSSRuleBuilder INSTANCE = new SingleContainerCSSRuleBuilder();
+	public static final SingleContainerCssRuleBuilder INSTANCE = new SingleContainerCssRuleBuilder();
 	
 	//constructor
-	private SingleContainerCSSRuleBuilder() {}
+	private SingleContainerCssRuleBuilder() {}
 	
 	//method
 	@Override
