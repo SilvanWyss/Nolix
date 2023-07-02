@@ -12,7 +12,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
@@ -185,7 +185,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public ICSSRule<?> getCSSRule() {
+	public ICssRule<?> getCSSRule() {
 		return LayerCSSRuleCreator.INSTANCE.getCSSRuleForLayer(this);
 	}
 	

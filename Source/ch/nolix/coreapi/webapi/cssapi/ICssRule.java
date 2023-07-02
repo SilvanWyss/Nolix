@@ -4,7 +4,7 @@ package ch.nolix.coreapi.webapi.cssapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface ICSSRule<P extends ICSSProperty> {
+public interface ICssRule<P extends ICssProperty> {
 	
 	//method declaration
 	IContainer<P> getOriProperties();

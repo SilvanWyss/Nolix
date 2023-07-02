@@ -5,7 +5,7 @@ package ch.nolix.coreapi.webapi.cssapi;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
 
 //interface
-public interface ICSSProperty extends Named {
+public interface ICssProperty extends Named {
 	
 	//method declaration
 	String getValue();

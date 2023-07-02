@@ -13,11 +13,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.web.css.CSSProperty;
+import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.element.main.Element;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.ColorGradient;
@@ -258,14 +258,14 @@ public final class Background extends Element implements IBackground {
 	
 	//method
 	@Override
-	public IContainer<ICSSProperty> toCSSProperties() {
+	public IContainer<ICssProperty> toCSSProperties() {
 		switch (getType()) {
 			case COLOR:
 				
 				final var colorCode = getColorCodeOfColor(color);
 				
 				return
-				ImmutableList.withElement(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, colorCode));
+				ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, colorCode));
 			case COLOR_GRADIENT:
 				
 				final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
@@ -275,7 +275,7 @@ public final class Background extends Element implements IBackground {
 				
 				return
 				ImmutableList.withElements(
-					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
+					CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
 				);
 			case IMAGE:
 				
@@ -283,15 +283,15 @@ public final class Background extends Element implements IBackground {
 				
 				return
 				ImmutableList.withElements(		
-					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.BACKGROUND_IMAGE,
+					CssProperty.withNameAndValue(
+						CssPropertyNameCatalogue.BACKGROUND_IMAGE,
 						"url('" + backgroundImage + "')"
 					),
-					CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
+					CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
 				);
 			case TRANSPARENCY:
 				return
-				ImmutableList.withElement(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.BACKGROUND, "none"));
+				ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, "none"));
 			default:
 				throw InvalidArgumentException.forArgument(this);
 		}

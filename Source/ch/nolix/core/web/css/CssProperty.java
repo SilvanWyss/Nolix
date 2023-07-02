@@ -4,15 +4,15 @@ package ch.nolix.core.web.css;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 
 //class
-public final class CSSProperty implements ICSSProperty {
+public final class CssProperty implements ICssProperty {
 	
 	//static method
-	public static CSSProperty fromCSSProperty(final ICSSProperty pCSSProperty) {
+	public static CssProperty fromCSSProperty(final ICssProperty pCSSProperty) {
 		
-		if (pCSSProperty instanceof CSSProperty lCSSProperty) {
+		if (pCSSProperty instanceof CssProperty lCSSProperty) {
 			return lCSSProperty;
 		}
 		
@@ -20,23 +20,23 @@ public final class CSSProperty implements ICSSProperty {
 	}
 	
 	//static method
-	public static CSSProperty withNameAndValue(final String name, final double value) {
-		return new CSSProperty(name, String.valueOf(value));
+	public static CssProperty withNameAndValue(final String name, final double value) {
+		return new CssProperty(name, String.valueOf(value));
 	}
 	
 	//static method
-	public static CSSProperty withNameAndValue(final String name, final Enum<?> value) {
-		return new CSSProperty(name, value.toString());
+	public static CssProperty withNameAndValue(final String name, final Enum<?> value) {
+		return new CssProperty(name, value.toString());
 	}
 	
 	//static method
-	public static CSSProperty withNameAndValue(final String name, final int value) {
-		return new CSSProperty(name, String.valueOf(value));
+	public static CssProperty withNameAndValue(final String name, final int value) {
+		return new CssProperty(name, String.valueOf(value));
 	}
 	
 	//static method
-	public static CSSProperty withNameAndValue(final String name, final String value) {
-		return new CSSProperty(name, value);
+	public static CssProperty withNameAndValue(final String name, final String value) {
+		return new CssProperty(name, value);
 	}
 	
 	//attribute
@@ -47,7 +47,7 @@ public final class CSSProperty implements ICSSProperty {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	private CSSProperty(final String name, final String value) {
+	private CssProperty(final String name, final String value) {
 		
 		if (name == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.KEY);

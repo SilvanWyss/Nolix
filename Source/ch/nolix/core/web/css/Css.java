@@ -4,28 +4,28 @@ package ch.nolix.core.web.css;
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.ICSS;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICss;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 //class
-public final class CSS implements ICSS<CSSRule, CSSProperty> {
+public final class Css implements ICss<CssRule, CssProperty> {
 	
 	//static method
-	public static CSS withRules(final IContainer<ICSSRule<?>> rules) {
-		return new CSS(rules);
+	public static Css withRules(final IContainer<ICssRule<?>> rules) {
+		return new Css(rules);
 	}
 	
 	//multi-attribute
-	private final IContainer<CSSRule> rules;
+	private final IContainer<CssRule> rules;
 	
 	//constructor
-	private CSS(final IContainer<ICSSRule<?>> rules) {
-		this.rules = rules.to(CSSRule::fromCSSRule);
+	private Css(final IContainer<ICssRule<?>> rules) {
+		this.rules = rules.to(CssRule::fromCSSRule);
 	}
 	
 	//method
 	@Override
-	public IContainer<CSSRule> getOriRules() {
+	public IContainer<CssRule> getOriRules() {
 		return rules;
 	}
 	

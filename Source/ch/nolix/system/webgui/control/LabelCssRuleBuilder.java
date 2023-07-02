@@ -2,9 +2,9 @@
 package ch.nolix.system.webgui.control;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -21,7 +21,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final Label control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -31,7 +31,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final Label label,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -40,7 +40,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final Label label,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -50,7 +50,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final Label label,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}

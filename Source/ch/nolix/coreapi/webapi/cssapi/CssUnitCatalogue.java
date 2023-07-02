@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.webapi.cssapi;
 
 //class
-public final class CSSUnitCatalogue {
+public final class CssUnitCatalogue {
 	
 	//constant
 	public static final String PX = "px";
@@ -14,5 +14,5 @@ public final class CSSUnitCatalogue {
 	public static final String VW = "vw";
 	
 	//constructor
-	private CSSUnitCatalogue() {}
+	private CssUnitCatalogue() {}
 }

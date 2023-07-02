@@ -2,13 +2,13 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
-import ch.nolix.coreapi.webapi.cssapi.CSSFloatCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.webapi.cssapi.CssFloatCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -26,17 +26,17 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final FloatContainer floatContainer,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(floatContainer)
 				+ " ."
 				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
-					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.FLOAT,
-						CSSFloatCatalogue.LEFT
+					CssProperty.withNameAndValue(
+						CssPropertyNameCatalogue.FLOAT,
+						CssFloatCatalogue.LEFT
 					)
 				)
 			)
@@ -48,18 +48,18 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(floatContainer)
 				+ " ."
 				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
-					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.MARGIN,
+					CssProperty.withNameAndValue(
+						CssPropertyNameCatalogue.MARGIN,
 						floatContainer.getOriStyle().getChildControlMarginWhenHasState(state)
-						+ CSSUnitCatalogue.PX
+						+ CssUnitCatalogue.PX
 					)
 				)
 			)
@@ -70,7 +70,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final FloatContainer control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -80,7 +80,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}

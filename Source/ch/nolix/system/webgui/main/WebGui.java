@@ -12,7 +12,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.coreapi.webapi.cssapi.ICSS;
+import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
@@ -175,7 +175,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	@Override
-	public ICSS<?, ?> getCSS() {
+	public ICss<?, ?> getCSS() {
 		return WebGuiCSSCreator.INSTANCE.createCSSForWebGui(this);
 	}
 	

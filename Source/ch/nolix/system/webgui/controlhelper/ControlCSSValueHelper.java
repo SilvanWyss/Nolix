@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.controlhelper;
 
 //own imports
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
@@ -21,7 +21,7 @@ public final class ControlCSSValueHelper {
 	) {
 		
 		if (absoluteOrRelativeInt.isAbsolute()) {
-			return absoluteOrRelativeInt.getAbsoluteValue() + CSSUnitCatalogue.PX;
+			return absoluteOrRelativeInt.getAbsoluteValue() + CssUnitCatalogue.PX;
 		}
 		
 		return (100 * absoluteOrRelativeInt.getPercentage()) + relativeIntCSSUnit;

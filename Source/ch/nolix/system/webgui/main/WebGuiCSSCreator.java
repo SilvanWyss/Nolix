@@ -2,13 +2,13 @@
 package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSS;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
+import ch.nolix.core.web.css.Css;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
@@ -20,23 +20,23 @@ public final class WebGuiCSSCreator {
 	public static final WebGuiCSSCreator INSTANCE = new WebGuiCSSCreator();
 	
 	//method
-	public CSS createCSSForWebGui(final IWebGui<?> webGui) {
+	public Css createCSSForWebGui(final IWebGui<?> webGui) {
 		
-		final var lCSSRules = new LinkedList<ICSSRule<?>>();
+		final var lCSSRules = new LinkedList<ICssRule<?>>();
 		
 		fillUpCSSRulesOfWebGuiIntoList(webGui, lCSSRules);
 		
-		return CSS.withRules(lCSSRules);
+		return Css.withRules(lCSSRules);
 	}
 	
 	//method
 	private void fillUpCSSRulesOfWebGuiIntoList(
 		final IWebGui<?> webGui,
-		final LinkedList<ICSSRule<?>> lCSSRules
+		final LinkedList<ICssRule<?>> lCSSRules
 	) {
 		
 		lCSSRules.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				HtmlElementTypeCatalogue.BODY,
 				getBodyCSSPropertiesFromWebGui(webGui)
 			)	
@@ -46,14 +46,14 @@ public final class WebGuiCSSCreator {
 	}
 	
 	//method
-	private IContainer<ICSSProperty> getBodyCSSPropertiesFromWebGui(final IWebGui<?> webGui) {
+	private IContainer<ICssProperty> getBodyCSSPropertiesFromWebGui(final IWebGui<?> webGui) {
 		
-		final var bodyCSSProperties = new LinkedList<ICSSProperty>();
+		final var bodyCSSProperties = new LinkedList<ICssProperty>();
 		
 		bodyCSSProperties.addAtEnd(
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh")
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.WIDTH, "100vw"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.HEIGHT, "100vh")
 		);
 		
 		if (webGui.hasBackground()) {
@@ -66,7 +66,7 @@ public final class WebGuiCSSCreator {
 	//method
 	private void fillUpCSSRulesOfLayersOfWebGuiIntoList(
 		final IWebGui<?> webGui,
-		final LinkedList<ICSSRule<?>> lCSSRules
+		final LinkedList<ICssRule<?>> lCSSRules
 	) {
 		for (final var l : webGui.getOriLayers()) {
 			fillUpCSSRulesOfLayerIntoList(l, lCSSRules);
@@ -74,7 +74,7 @@ public final class WebGuiCSSCreator {
 	}
 	
 	//method
-	private void fillUpCSSRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICSSRule<?>> lCSSRules) {
+	private void fillUpCSSRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule<?>> lCSSRules) {
 		
 		lCSSRules.addAtEnd(layer.getCSSRule());
 		

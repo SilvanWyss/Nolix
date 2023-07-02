@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.controlcomponentapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -13,5 +13,5 @@ public interface IControlCssRuleBuilder<
 > {
 	
 	//method declaration
-	IContainer<ICSSRule<?>> createCSSRulesForControl(C control);
+	IContainer<ICssRule<?>> createCSSRulesForControl(C control);
 }

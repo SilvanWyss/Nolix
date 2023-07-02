@@ -6,13 +6,13 @@ import java.util.Locale;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
@@ -31,9 +31,9 @@ implements IControlCssRuleBuilder<C, CS> {
 	
 	//method
 	@Override
-	public final IContainer<ICSSRule<?>> createCSSRulesForControl(final C control) {
+	public final IContainer<ICssRule<?>> createCSSRulesForControl(final C control) {
 		
-		final var lCSSRules = new LinkedList<ICSSRule<?>>();
+		final var lCSSRules = new LinkedList<ICssRule<?>>();
 		
 		fillUpCSSRulesForControlAndAllStatesIntoList(control, lCSSRules);
 		fillUpCSSRulesForStateOfControlIntoList(control, ControlState.BASE, lCSSRules);
@@ -46,27 +46,27 @@ implements IControlCssRuleBuilder<C, CS> {
 	//method declaration
 	protected abstract void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		C control,
-		LinkedList<? super ICSSRule<?>> list
+		LinkedList<? super ICssRule<?>> list
 	);
 	
 	//method declaration
 	protected abstract void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		C control,
 		ControlState state,
-		LinkedList<? super ICSSRule<?>> list
+		LinkedList<? super ICssRule<?>> list
 	);
 	
 	//method declaration
 	protected abstract void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		C control,
-		LinkedList<CSSProperty> list
+		LinkedList<CssProperty> list
 	);
 	
 	//method declaration
 	protected abstract void fillUpCSSPropertiesForControlAndStateIntoList(
 		C control,
 		ControlState state,
-		LinkedList<ICSSProperty> list
+		LinkedList<ICssProperty> list
 	);
 	
 	//method
@@ -92,7 +92,7 @@ implements IControlCssRuleBuilder<C, CS> {
 	//method
 	private void fillUpAllCSSPropertiesForControlAndAllStatesIntoList(
 		final C control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		
 		switch (control.getPresence()) {
@@ -100,19 +100,19 @@ implements IControlCssRuleBuilder<C, CS> {
 				// Does nothing. Since presence is configured for all states, the Control will be visible per default.
 				break;
 			case INVISIBLE:
-				list.addAtEnd(CSSProperty.withNameAndValue("visibility", "hidden"));
+				list.addAtEnd(CssProperty.withNameAndValue("visibility", "hidden"));
 				break;
 			case COLLAPSED:
-				list.addAtEnd(CSSProperty.withNameAndValue("display", "none"));
+				list.addAtEnd(CssProperty.withNameAndValue("display", "none"));
 		}
 		
 		if (control.hasMinWidth()) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.MIN_WIDTH,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.MIN_WIDTH,
 					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMinWidth(),
-						CSSUnitCatalogue.VW
+						CssUnitCatalogue.VW
 					)
 				)
 			);
@@ -120,11 +120,11 @@ implements IControlCssRuleBuilder<C, CS> {
 		
 		if (control.hasMinHeight()) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.MIN_HEIGHT,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.MIN_HEIGHT,
 					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMinHeight(),
-						CSSUnitCatalogue.VH
+						CssUnitCatalogue.VH
 					)
 				)
 			);
@@ -132,11 +132,11 @@ implements IControlCssRuleBuilder<C, CS> {
 		
 		if (control.hasMaxWidth()) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.MAX_WIDTH,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.MAX_WIDTH,
 					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMaxWidth(),
-						CSSUnitCatalogue.VW
+						CssUnitCatalogue.VW
 					)
 				)
 			);
@@ -144,19 +144,19 @@ implements IControlCssRuleBuilder<C, CS> {
 		
 		if (control.hasMaxHeight()) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.MAX_HEIGHT,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.MAX_HEIGHT,
 					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						control.getMaxHeight(),
-						CSSUnitCatalogue.VH
+						CssUnitCatalogue.VH
 					)
 				)
 			);
 		}
 		
 		list.addAtEnd(
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.CURSOR,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.CURSOR,
 				control.getCursorIcon().toCSSValue()
 			)
 		);
@@ -168,7 +168,7 @@ implements IControlCssRuleBuilder<C, CS> {
 	private void fillUpAllCSSPropertiesForControlAndStateIntoList(
 		final C control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 				
 		final var style = control.getOriStyle();
@@ -176,25 +176,25 @@ implements IControlCssRuleBuilder<C, CS> {
 		final var opacity = style.getOpacityWhenHasState(state);
 		if (opacity < 1.0) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.OPACITY,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.OPACITY,
 					opacity
 				)
 			);
 		}
 		
 		list.addAtEnd(
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.COLOR,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.COLOR,
 				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getTextColorWhenHasState(state))
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.FONT_FAMILY,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.FONT_FAMILY,
 				style.getFontWhenHasState(state).getCode().toLowerCase(Locale.ENGLISH)
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.FONT_SIZE,
-				String.valueOf(style.getTextSizeWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.FONT_SIZE,
+				String.valueOf(style.getTextSizeWhenHasState(state)) + CssUnitCatalogue.PX
 			),
 			getFontWeightCSSPropertyForControlAndState(control, state)
 		);
@@ -203,7 +203,7 @@ implements IControlCssRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private void fillUpCSSRulesForControlAndAllStatesIntoList(final C control, final LinkedList<ICSSRule<?>> lCSSRules) {
+	private void fillUpCSSRulesForControlAndAllStatesIntoList(final C control, final LinkedList<ICssRule<?>> lCSSRules) {
 		lCSSRules.addAtEnd(getCSSRuleForControlAndAllStates(control));
 		fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(control, lCSSRules);
 	}
@@ -212,16 +212,16 @@ implements IControlCssRuleBuilder<C, CS> {
 	private void fillUpCSSRulesForStateOfControlIntoList(
 		final C control,
 		final ControlState state,
-		final LinkedList<ICSSRule<?>> lCSSRules
+		final LinkedList<ICssRule<?>> lCSSRules
 	) {
 		lCSSRules.addAtEnd(getCSSRuleForControlAndState(control, state));
 		fillUpAdditionalCSSRulesForControlAndStateIntoList(control, state, lCSSRules);
 	}
 	
 	//method
-	private IContainer<CSSProperty> getCSSPropertiesForControlAndAllStates(final C control) {
+	private IContainer<CssProperty> getCSSPropertiesForControlAndAllStates(final C control) {
 		
-		final var lCSSPropertiesForBaseState = new LinkedList<CSSProperty>();
+		final var lCSSPropertiesForBaseState = new LinkedList<CssProperty>();
 		
 		fillUpAllCSSPropertiesForControlAndAllStatesIntoList(control, lCSSPropertiesForBaseState);
 		
@@ -229,9 +229,9 @@ implements IControlCssRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private IContainer<ICSSProperty> getCSSPropertiesForControlAndState(final C control, final ControlState state) {
+	private IContainer<ICssProperty> getCSSPropertiesForControlAndState(final C control, final ControlState state) {
 		
-		final var lCSSProperties = new LinkedList<ICSSProperty>();
+		final var lCSSProperties = new LinkedList<ICssProperty>();
 		
 		fillUpAllCSSPropertiesForControlAndStateIntoList(control, state, lCSSProperties);
 		
@@ -239,32 +239,32 @@ implements IControlCssRuleBuilder<C, CS> {
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForControlAndAllStates(final C control) {
+	private final ICssRule<?> getCSSRuleForControlAndAllStates(final C control) {
 		return
-		CSSRule.withSelectorAndProperties(
+		CssRule.withSelectorAndProperties(
 			getCSSSelectorForControlAndAllStates(control),
 			getCSSPropertiesForControlAndAllStates(control)
 		);
 	}
 	
 	//method
-	private final ICSSRule<?> getCSSRuleForControlAndState(final C control, final ControlState state) {
-		return CSSRule.withSelectorAndProperties(
+	private final ICssRule<?> getCSSRuleForControlAndState(final C control, final ControlState state) {
+		return CssRule.withSelectorAndProperties(
 			getCSSSelectorForControlAndState(control, state),
 			getCSSPropertiesForControlAndState(control, state)
 		);
 	}
 	
 	//method
-	private ICSSProperty getFontWeightCSSPropertyForControlAndState(final C control, final ControlState state) {
+	private ICssProperty getFontWeightCSSPropertyForControlAndState(final C control, final ControlState state) {
 		
 		final var style = control.getOriStyle();
 		final var boldTextFlag = style.getBoldTextFlagWhenHasState(state);
 		
 		if (!boldTextFlag) {
-			return CSSProperty.withNameAndValue("font-weight", "normal");
+			return CssProperty.withNameAndValue("font-weight", "normal");
 		}
 		
-		return CSSProperty.withNameAndValue("font-weight", "bold");
+		return CssProperty.withNameAndValue("font-weight", "bold");
 	}
 }

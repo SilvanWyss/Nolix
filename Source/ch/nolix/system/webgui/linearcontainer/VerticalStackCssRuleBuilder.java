@@ -3,13 +3,13 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
-import ch.nolix.coreapi.webapi.cssapi.CSSAlignItemsCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.webapi.cssapi.CssAlignItemsCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.guiapi.structureproperty.HorizontalContentAlignment;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
@@ -31,16 +31,16 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final IVerticalStack verticalStack,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(verticalStack) + " > div",
 				LinkedList.withElements(
-					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.MARGIN_BOTTOM,
+					CssProperty.withNameAndValue(
+						CssPropertyNameCatalogue.MARGIN_BOTTOM,
 						verticalStack.getOriStyle().getChildControlMarginWhenHasState(state)
-						+ CSSUnitCatalogue.PX
+						+ CssUnitCatalogue.PX
 					)
 				)
 			)
@@ -51,7 +51,7 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final IVerticalStack verticalStack,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -60,11 +60,11 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final IVerticalStack control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		list.addAtEnd(
-			CSSProperty.withNameAndValue("display", "flex"),
-			CSSProperty.withNameAndValue("flex-direction", "column"),
+			CssProperty.withNameAndValue("display", "flex"),
+			CssProperty.withNameAndValue("flex-direction", "column"),
 			createCSSPropertyForContentAlignmentOfControl(control)
 		);
 	}
@@ -74,26 +74,26 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final IVerticalStack verticalStack,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}
 	
 	//method
-	private CSSProperty createCSSPropertyForContentAlignment(final HorizontalContentAlignment contentAlignment) {
+	private CssProperty createCSSPropertyForContentAlignment(final HorizontalContentAlignment contentAlignment) {
 		return
 		switch (contentAlignment) {
 			case LEFT ->
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.START);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
 			case CENTER ->
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.CENTER);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
 			case RIGHT ->
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.END);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
 		};
 	}
 	
 	//method
-	private CSSProperty createCSSPropertyForContentAlignmentOfControl(final IVerticalStack control) {
+	private CssProperty createCSSPropertyForContentAlignmentOfControl(final IVerticalStack control) {
 		
 		final var contentAlignment = control.getContentAlignment();
 		

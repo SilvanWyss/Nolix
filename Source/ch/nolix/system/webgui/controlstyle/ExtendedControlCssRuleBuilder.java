@@ -2,11 +2,11 @@
 package ch.nolix.system.webgui.controlstyle;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.CSSBorderStyleCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.CssBorderStyleCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.system.webgui.main.ControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
@@ -28,7 +28,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 	protected final void fillUpCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		
 		fillUpOptionalCSSPropertiesForControlAndStateIntoList(control, state, list);
@@ -42,70 +42,70 @@ extends ControlCssRuleBuilder<EC, ECS> {
 	protected abstract void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		EC control,
 		ControlState state,
-		LinkedList<ICSSProperty> list
+		LinkedList<ICssProperty> list
 	);
 	
 	//method
 	private void fillUpMandatoryCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		
 		var style = control.getOriStyle();
 		
 		list.addAtEnd(
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_STYLE,
-				CSSBorderStyleCatalogue.SOLID
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_STYLE,
+				CssBorderStyleCatalogue.SOLID
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_LEFT_WIDTH,
-				String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_LEFT_WIDTH,
+				String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_LEFT_COLOR,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_LEFT_COLOR,
 				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getLeftBorderColorWhenHasState(state))
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.PADDING_LEFT,
-				String.valueOf(style.getLeftPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.PADDING_LEFT,
+				String.valueOf(style.getLeftPaddingWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_RIGHT_WIDTH,
-				String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_RIGHT_WIDTH,
+				String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_RIGHT_COLOR,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_RIGHT_COLOR,
 				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getRightBorderColorWhenHasState(state))
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.PADDING_RIGHT,
-				String.valueOf(style.getRightPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.PADDING_RIGHT,
+				String.valueOf(style.getRightPaddingWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_TOP_WIDTH,
-				String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_TOP_WIDTH,
+				String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_TOP_COLOR,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_TOP_COLOR,
 				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getTopBorderColorWhenHasState(state))
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.PADDING_TOP,
-				String.valueOf(style.getTopPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.PADDING_TOP,
+				String.valueOf(style.getTopPaddingWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_BOTTOM_WIDTH,
-				String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_BOTTOM_WIDTH,
+				String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
 				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getBottomBorderColorWhenHasState(state))
 			),
-			CSSProperty.withNameAndValue(
-				CSSPropertyNameCatalogue.PADDING_BOTTOM,
-				String.valueOf(style.getBottomPaddingWhenHasState(state)) + CSSUnitCatalogue.PX
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.PADDING_BOTTOM,
+				String.valueOf(style.getBottomPaddingWhenHasState(state)) + CssUnitCatalogue.PX
 			)
 		);
 		
@@ -116,18 +116,18 @@ extends ControlCssRuleBuilder<EC, ECS> {
 	private void fillUpOptionalCSSPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		
 		var style = control.getOriStyle();
 		
 		if (style.definesWidthForState(state)) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.WIDTH,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.WIDTH,
 					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						style.getWidthForState(state),
-						CSSUnitCatalogue.VW
+						CssUnitCatalogue.VW
 					)
 				)
 			);
@@ -135,11 +135,11 @@ extends ControlCssRuleBuilder<EC, ECS> {
 		
 		if (style.definesHeightForState(state)) {
 			list.addAtEnd(
-				CSSProperty.withNameAndValue(
-					CSSPropertyNameCatalogue.HEIGHT,
+				CssProperty.withNameAndValue(
+					CssPropertyNameCatalogue.HEIGHT,
 					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
 						style.getHeightForState(state),
-						CSSUnitCatalogue.VH
+						CssUnitCatalogue.VH
 					)
 				)
 			);

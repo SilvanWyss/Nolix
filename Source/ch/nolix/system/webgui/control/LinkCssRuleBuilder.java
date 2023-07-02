@@ -3,9 +3,9 @@ package ch.nolix.system.webgui.control;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlapi.ILink;
 import ch.nolix.systemapi.webguiapi.controlapi.ILinkStyle;
@@ -18,7 +18,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final ILink control,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -28,7 +28,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final ILink control,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -37,9 +37,9 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final ILink control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
-		list.addAtEnd(CSSProperty.withNameAndValue("text-decoration", "none"));
+		list.addAtEnd(CssProperty.withNameAndValue("text-decoration", "none"));
 	}
 	
 	//method
@@ -47,7 +47,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final ILink control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}

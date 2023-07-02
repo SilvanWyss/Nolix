@@ -3,13 +3,13 @@ package ch.nolix.system.webgui.main;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.CSSAlignItemsCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSJustifyContentCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
+import ch.nolix.coreapi.webapi.cssapi.CssAlignItemsCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssJustifyContentCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
@@ -23,8 +23,8 @@ public final class LayerCSSRuleCreator {
 	private LayerCSSRuleCreator() {}
 	
 	//method
-	public CSSRule getCSSRuleForLayer(final ILayer<?> layer) {
-		return CSSRule.withSelectorAndProperties(getCSSSelectorForLayer(layer), getCSSPropertiesForLayer(layer));
+	public CssRule getCSSRuleForLayer(final ILayer<?> layer) {
+		return CssRule.withSelectorAndProperties(getCSSSelectorForLayer(layer), getCSSPropertiesForLayer(layer));
 	}
 	
 	//method
@@ -33,21 +33,21 @@ public final class LayerCSSRuleCreator {
 	}
 	
 	//method
-	private IContainer<ICSSProperty> getCSSPropertiesForLayer(final ILayer<?> layer) {
+	private IContainer<ICssProperty> getCSSPropertiesForLayer(final ILayer<?> layer) {
 		
-		final var lCSSProperties = new LinkedList<ICSSProperty>();
+		final var lCSSProperties = new LinkedList<ICssProperty>();
 		
 		if (layer.getOpacity() != 1.0) {
-			lCSSProperties.addAtEnd(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.OPACITY, layer.getOpacity()));
+			lCSSProperties.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.OPACITY, layer.getOpacity()));
 		}
 		
 		lCSSProperties.addAtEnd(
-			CSSProperty.withNameAndValue("position", "absolute"),
+			CssProperty.withNameAndValue("position", "absolute"),
 			getZIndexCSSPropertyForLayer(layer),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.MARGIN, "0px"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.WIDTH, "100vw"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.HEIGHT, "100vh"),
-			CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "flex"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.WIDTH, "100vw"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.HEIGHT, "100vh"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "flex"),
 			getJustifyContentCSSPropertyForLayer(layer),
 			getAlignItemsCSSPropertyForLayer(layer)
 		);
@@ -60,8 +60,8 @@ public final class LayerCSSRuleCreator {
 	}
 	
 	//method
-	private CSSProperty getZIndexCSSPropertyForLayer(final ILayer<?> layer) {
-		return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.Z_INDEX, getCSSZIndexForLayer(layer));
+	private CssProperty getZIndexCSSPropertyForLayer(final ILayer<?> layer) {
+		return CssProperty.withNameAndValue(CssPropertyNameCatalogue.Z_INDEX, getCSSZIndexForLayer(layer));
 	}
 	
 	//method
@@ -75,38 +75,38 @@ public final class LayerCSSRuleCreator {
 	}
 	
 	//method
-	private CSSProperty getJustifyContentCSSPropertyForLayer(final ILayer<?> layer) {
+	private CssProperty getJustifyContentCSSPropertyForLayer(final ILayer<?> layer) {
 		return getJustifyContentCSSPropertyForContentPosition(layer.getContentPosition());
 	}
 	
 	//method
-	private CSSProperty getJustifyContentCSSPropertyForContentPosition(final ContentPosition contentPosition) {
+	private CssProperty getJustifyContentCSSPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
 			case TOP_LEFT, LEFT, BOTTOM_LEFT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.LEFT);
+				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.LEFT);
 			case TOP, CENTER, BOTTOM:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.CENTER);
+				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.CENTER);
 			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.JUSTIFY_CONTENT, CSSJustifyContentCatalogue.RIGHT);
+				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.RIGHT);
 			default:
 				throw InvalidArgumentException.forArgument(contentPosition);
 		}
 	}
 	
 	//method
-	private CSSProperty getAlignItemsCSSPropertyForLayer(final ILayer<?> layer) {
+	private CssProperty getAlignItemsCSSPropertyForLayer(final ILayer<?> layer) {
 		return getAlignItemsCSSPropertyForContentPosition(layer.getContentPosition());
 	}
 	
 	//method
-	private CSSProperty getAlignItemsCSSPropertyForContentPosition(final ContentPosition contentPosition) {
+	private CssProperty getAlignItemsCSSPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
 			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.END);
+				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
 			case CENTER,LEFT, RIGHT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.CENTER);
+				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
 			case TOP, TOP_LEFT, TOP_RIGHT:
-				return CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.START);
+				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
 			default:
 				throw InvalidArgumentException.forArgument(contentPosition); 
 		}

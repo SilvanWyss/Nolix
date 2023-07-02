@@ -4,11 +4,11 @@ package ch.nolix.system.webgui.container;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
@@ -31,7 +31,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final GridContainer control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -41,7 +41,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -51,7 +51,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		
 		final var style = control.getOriStyle();
@@ -60,23 +60,23 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 		final var childControlMargin = style.getChildControlMarginWhenHasState(state);
 		
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndState(control, state) + " table, th, td",
 				ImmutableList.withElements(
-					CSSProperty.withNameAndValue("border-collapse", "collapse"),
-					CSSProperty.withNameAndValue("border", "solid " + gridThickness + CSSUnitCatalogue.PX),
-					CSSProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(gridcolor))
+					CssProperty.withNameAndValue("border-collapse", "collapse"),
+					CssProperty.withNameAndValue("border", "solid " + gridThickness + CssUnitCatalogue.PX),
+					CssProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(gridcolor))
 				)
 			)
 		);
 		
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(control)
 				+ " "
 				+ HtmlElementTypeCatalogue.TD,
 				ImmutableList.withElements(
-					CSSProperty.withNameAndValue("padding", childControlMargin + CSSUnitCatalogue.PX)
+					CssProperty.withNameAndValue("padding", childControlMargin + CssUnitCatalogue.PX)
 				)
 			)
 		);
@@ -86,7 +86,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final GridContainer control,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}

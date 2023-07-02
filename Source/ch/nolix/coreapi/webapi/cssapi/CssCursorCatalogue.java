@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.webapi.cssapi;
 
 //class
-public final class CSSCursorCatalogue {
+public final class CssCursorCatalogue {
 	
 	//constant
 	public static final String CROSSHAIR = "crosshair";
@@ -23,5 +23,5 @@ public final class CSSCursorCatalogue {
 	public static final String WAIT_CONSTANT = "wait";
 	
 	//constructor
-	private CSSCursorCatalogue() {}
+	private CssCursorCatalogue() {}
 }

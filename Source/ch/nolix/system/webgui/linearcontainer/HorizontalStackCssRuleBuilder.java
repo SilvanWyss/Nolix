@@ -3,14 +3,14 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.core.web.css.CSSRule;
-import ch.nolix.coreapi.webapi.cssapi.CSSAlignItemsCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSFloatCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.webapi.cssapi.CssAlignItemsCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssFloatCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
@@ -31,15 +31,15 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final IHorizontalStack horizontalStack,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
-					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.FLOAT,
-						CSSFloatCatalogue.LEFT
+					CssProperty.withNameAndValue(
+						CssPropertyNameCatalogue.FLOAT,
+						CssFloatCatalogue.LEFT
 					)
 				)
 			)
@@ -51,16 +51,16 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final IHorizontalStack horizontalStack,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
-			CSSRule.withSelectorAndProperties(
+			CssRule.withSelectorAndProperties(
 				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
-					CSSProperty.withNameAndValue(
-						CSSPropertyNameCatalogue.MARGIN_RIGHT,
+					CssProperty.withNameAndValue(
+						CssPropertyNameCatalogue.MARGIN_RIGHT,
 						horizontalStack.getOriStyle().getChildControlMarginWhenHasState(state)
-						+ CSSUnitCatalogue.PX
+						+ CssUnitCatalogue.PX
 					)
 				)
 			)
@@ -71,11 +71,11 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final IHorizontalStack control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		list.addAtEnd(
-			CSSProperty.withNameAndValue("display", "flex"),
-			CSSProperty.withNameAndValue("overflow", "auto"),
+			CssProperty.withNameAndValue("display", "flex"),
+			CssProperty.withNameAndValue("overflow", "auto"),
 			createCSSPropertyForContentAlignmentOfControl(control)
 		);
 	}
@@ -85,26 +85,26 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final IHorizontalStack horizontalStack,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}
 	
 	//method
-	private CSSProperty createCSSPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
+	private CssProperty createCSSPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
 		return
 		switch (contentAlignment) {
 			case TOP ->
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.START);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
 			case CENTER ->
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.CENTER);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
 			case BOTTOM ->
-				CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.ALIGN_ITEMS, CSSAlignItemsCatalogue.END);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
 		};
 	}
 	
 	//method
-	private CSSProperty createCSSPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
+	private CssProperty createCSSPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
 		
 		final var contentAlignment = control.getContentAlignment();
 		

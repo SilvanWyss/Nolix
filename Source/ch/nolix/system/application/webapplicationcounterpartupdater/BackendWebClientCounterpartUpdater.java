@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.cssapi.ICSS;
+import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
@@ -129,7 +129,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetCSSCommandFromCSS(final ICSS<?, ?> pCSS) {
+	private ChainedNode createSetCSSCommandFromCSS(final ICss<?, ?> pCSS) {
 		return createSetCSSCommandFromCSS(pCSS.toStringWithoutEnclosingBrackets());
 	}
 	

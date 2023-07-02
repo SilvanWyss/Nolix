@@ -2,9 +2,9 @@
 package ch.nolix.system.webgui.container;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -22,7 +22,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final SingleContainer control,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -32,7 +32,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final SingleContainer control,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -41,7 +41,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final SingleContainer control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -51,7 +51,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final SingleContainer control,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}

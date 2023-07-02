@@ -2,10 +2,7 @@
 package ch.nolix.coreapi.webapi.cssapi;
 
 //class
-public final class CSSJustifyContentCatalogue {
-	
-	//constant
-	public static final String CENTER = "center";
+public final class CssFloatCatalogue {
 	
 	//constant
 	public static final String LEFT = "left";
@@ -14,5 +11,5 @@ public final class CSSJustifyContentCatalogue {
 	public static final String RIGHT = "right";
 	
 	//constructor
-	private CSSJustifyContentCatalogue() {}
+	private CssFloatCatalogue() {}
 }

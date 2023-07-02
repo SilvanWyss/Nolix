@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.webapi.cssapi;
 
 //class
-public final class CSSPropertyNameCatalogue {
+public final class CssPropertyNameCatalogue {
 	
 	//constant
 	public static final String ALIGN_ITEMS = "align-items";
@@ -119,5 +119,5 @@ public final class CSSPropertyNameCatalogue {
 	public static final String Z_INDEX = "z-index";
 	
 	//constructor
-	private CSSPropertyNameCatalogue() {}
+	private CssPropertyNameCatalogue() {}
 }

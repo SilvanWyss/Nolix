@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.itemmenu;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -19,7 +19,7 @@ extends ExtendedControlCssRuleBuilder<IM, IMS> {
 	protected final void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final IM itemMenu,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -28,7 +28,7 @@ extends ExtendedControlCssRuleBuilder<IM, IMS> {
 	@Override
 	protected final void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final IM itemMenu,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}

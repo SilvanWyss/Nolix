@@ -2,9 +2,9 @@
 package ch.nolix.system.webgui.control;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.controlapi.ITextboxStyle;
@@ -24,7 +24,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final ITextbox textbox,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -33,7 +33,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final ITextbox textbox,	
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -42,7 +42,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final ITextbox control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -52,7 +52,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final ITextbox textbox,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
 		//Does nothing.
 	}

@@ -5,51 +5,51 @@ package ch.nolix.core.web.css;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 //class
-public final class CSSRule implements ICSSRule<CSSProperty> {
+public final class CssRule implements ICssRule<CssProperty> {
 	
 	//static method
-	public static CSSRule fromCSSRule(final ICSSRule<?> pCSSRule) {
+	public static CssRule fromCSSRule(final ICssRule<?> pCSSRule) {
 		return withSelectorsAndProperties(pCSSRule.getSelectors(), pCSSRule.getOriProperties());
 	}
 	
 	//static method
-	public static CSSRule withSelectorAndProperties(
+	public static CssRule withSelectorAndProperties(
 		final String selector,
-		final IContainer<? extends ICSSProperty> properties
+		final IContainer<? extends ICssProperty> properties
 	) {
-		return new CSSRule(ImmutableList.withElement(selector), properties);
+		return new CssRule(ImmutableList.withElement(selector), properties);
 	}
 	
 	//static method
-	public static CSSRule withSelectorsAndProperties(
+	public static CssRule withSelectorsAndProperties(
 		final IContainer<String> selectors,
-		final IContainer<? extends ICSSProperty> properties
+		final IContainer<? extends ICssProperty> properties
 	) {
-		return new CSSRule(selectors, properties);
+		return new CssRule(selectors, properties);
 	}
 	
 	//multi-attribute
 	private final IContainer<String> selectors;
 	
 	//multi-attribute
-	private final IContainer<CSSProperty> properties;
+	private final IContainer<CssProperty> properties;
 	
 	//constructor
-	private CSSRule(
+	private CssRule(
 		final IContainer<String> selectors,
-		final IContainer<? extends ICSSProperty> properties
+		final IContainer<? extends ICssProperty> properties
 	) {
-		this.properties = properties.to(CSSProperty::fromCSSProperty);
+		this.properties = properties.to(CssProperty::fromCSSProperty);
 		this.selectors = ImmutableList.forIterable(selectors);
 	}
 	
 	//method
 	@Override
-	public IContainer<CSSProperty> getOriProperties() {
+	public IContainer<CssProperty> getOriProperties() {
 		return properties;
 	}
 	

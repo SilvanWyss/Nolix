@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasuniversalapi.Dimensionable;
@@ -41,7 +41,7 @@ PresenceSettable<C> {
 	C editStyle(IElementTaker<CL> styleEditor);
 	
 	//method declaration
-	IContainer<ICSSRule<?>> getCSSRules();
+	IContainer<ICssRule<?>> getCSSRules();
 	
 	//method declaration
 	CursorIcon getCursorIcon();

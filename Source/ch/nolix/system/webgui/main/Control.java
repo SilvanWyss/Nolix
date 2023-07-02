@@ -11,7 +11,7 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.mutableelement.ExtensionElement;
@@ -155,7 +155,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IContainer<ICSSRule<?>> getCSSRules() {
+	public final IContainer<ICssRule<?>> getCSSRules() {
 		return getCSSRuleCreator().createCSSRulesForControl(asConcrete());
 	}
 	

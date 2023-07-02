@@ -2,10 +2,10 @@
 package ch.nolix.system.webgui.control;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.web.css.CSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.CSSPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
-import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
+import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
+import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -22,7 +22,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	@Override
 	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
 		final ImageControl imageControl,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -32,7 +32,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
 		final ImageControl imageControl,
 		final ControlState state,
-		final LinkedList<? super ICSSRule<?>> list
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -41,7 +41,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	@Override
 	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
 		final ImageControl control,
-		final LinkedList<CSSProperty> list
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -51,8 +51,8 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
 		final ImageControl imageControl,
 		final ControlState state,
-		final LinkedList<ICSSProperty> list
+		final LinkedList<ICssProperty> list
 	) {
-		list.addAtEnd(CSSProperty.withNameAndValue(CSSPropertyNameCatalogue.DISPLAY, "block"));
+		list.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "block"));
 	}
 }
