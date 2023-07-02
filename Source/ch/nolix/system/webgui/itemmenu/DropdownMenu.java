@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -57,7 +57,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<DropdownMenu, DropdownMenuStyle> getCSSRuleCreator() {
 		return DropdownMenuCSSRuleBuilder.INSTANCE;
 	}
 }

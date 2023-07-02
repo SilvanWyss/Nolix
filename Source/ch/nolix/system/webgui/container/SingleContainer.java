@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
@@ -83,7 +83,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<SingleContainer, SingleContainerStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<SingleContainer, SingleContainerStyle> getCSSRuleCreator() {
 		return SingleContainerCSSRuleBuilder.INSTANCE;
 	}
 	

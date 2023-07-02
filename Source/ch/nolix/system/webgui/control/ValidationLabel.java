@@ -17,7 +17,7 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -124,7 +124,7 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<ValidationLabel, ValidationLabelStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> getCSSRuleCreator() {
 		return new ValidationLabelCSSRuleBuilder();
 	}
 	

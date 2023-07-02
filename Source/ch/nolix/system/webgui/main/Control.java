@@ -23,7 +23,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.presenceapi.Presence;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -448,7 +448,7 @@ implements IControl<C, CS> {
 	protected abstract CS createStyle();
 	
 	//method declaration
-	protected abstract IControlCSSRuleBuilder<C, CS> getCSSRuleCreator();
+	protected abstract IControlCssRuleBuilder<C, CS> getCSSRuleCreator();
 	
 	//method declaration
 	protected abstract IControlHtmlBuilder<C> getHtmlBuilder();

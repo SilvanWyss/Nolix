@@ -17,7 +17,7 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButton;
 import ch.nolix.systemapi.webguiapi.controlapi.IToggleButtonStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
@@ -181,7 +181,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<IToggleButton, IToggleButtonStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<IToggleButton, IToggleButtonStyle> getCSSRuleCreator() {
 		//TODO: Implement.
 		return null;
 	}

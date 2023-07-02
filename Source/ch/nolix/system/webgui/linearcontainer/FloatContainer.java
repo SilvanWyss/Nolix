@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
@@ -16,7 +16,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<FloatContainer, FloatContainerStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<FloatContainer, FloatContainerStyle> getCSSRuleCreator() {
 		return FloatContainerCSSRuleBuilder.INSTANCE;
 	}
 	

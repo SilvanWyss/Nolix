@@ -19,7 +19,7 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
@@ -152,7 +152,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<Label, LabelStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<Label, LabelStyle> getCSSRuleCreator() {
 		return LabelCSSRuleBuilder.INSTANCE;
 	}
 	

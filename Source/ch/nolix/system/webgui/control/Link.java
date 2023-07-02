@@ -21,7 +21,7 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ILink;
 import ch.nolix.systemapi.webguiapi.controlapi.ILinkStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -189,7 +189,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<ILink, ILinkStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<ILink, ILinkStyle> getCSSRuleCreator() {
 		return LINK_CSS_RULE_BUILDER;
 	}
 	

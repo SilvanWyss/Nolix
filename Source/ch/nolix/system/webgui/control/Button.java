@@ -23,7 +23,7 @@ import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -263,7 +263,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<Button, ButtonStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<Button, ButtonStyle> getCSSRuleCreator() {
 		return ButtonCSSRuleBuilder.INSTANCE;
 	}
 	

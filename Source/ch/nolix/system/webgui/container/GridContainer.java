@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -139,7 +139,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlCSSRuleBuilder<GridContainer, GridContainerStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<GridContainer, GridContainerStyle> getCSSRuleCreator() {
 		return GridContainerCSSRuleBuilder.INSTANCE;
 	}
 	

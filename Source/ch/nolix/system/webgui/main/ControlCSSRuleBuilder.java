@@ -14,7 +14,7 @@ import ch.nolix.coreapi.webapi.cssapi.CSSUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICSSProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICSSRule;
 import ch.nolix.system.webgui.controlhelper.ControlCSSValueHelper;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCSSRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -24,7 +24,7 @@ public abstract class ControlCSSRuleBuilder<
 	C extends IControl<C, CS>,
 	CS extends IControlStyle<CS>
 >
-implements IControlCSSRuleBuilder<C, CS> {
+implements IControlCssRuleBuilder<C, CS> {
 	
 	//static attribute
 	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
