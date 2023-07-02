@@ -9,13 +9,13 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class LabelCSSRuleBuilder extends ExtendedControlCssRuleBuilder<Label, LabelStyle> {
+public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Label, LabelStyle> {
 	
 	//static attribute
-	public static final LabelCSSRuleBuilder INSTANCE = new LabelCSSRuleBuilder();
+	public static final LabelCssRuleBuilder INSTANCE = new LabelCssRuleBuilder();
 	
 	//constructor
-	private LabelCSSRuleBuilder() {}
+	private LabelCssRuleBuilder() {}
 	
 	//method
 	@Override
