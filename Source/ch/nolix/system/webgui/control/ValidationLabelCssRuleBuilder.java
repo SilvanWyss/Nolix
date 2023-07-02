@@ -9,7 +9,7 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ValidationLabelCSSRuleBuilder
+public final class ValidationLabelCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
