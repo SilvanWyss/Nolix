@@ -24,13 +24,13 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final FloatContainer floatContainer,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(floatContainer)
+				getCssSelectorForControlAndAllStates(floatContainer)
 				+ " ."
 				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
@@ -45,14 +45,14 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(floatContainer)
+				getCssSelectorForControlAndAllStates(floatContainer)
 				+ " ."
 				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
 				LinkedList.withElements(
@@ -68,7 +68,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final FloatContainer control,
 		final LinkedList<CssProperty> list
 	) {
@@ -77,7 +77,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

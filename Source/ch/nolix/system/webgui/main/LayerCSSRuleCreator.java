@@ -23,49 +23,49 @@ public final class LayerCSSRuleCreator {
 	private LayerCSSRuleCreator() {}
 	
 	//method
-	public CssRule getCSSRuleForLayer(final ILayer<?> layer) {
-		return CssRule.withSelectorAndProperties(getCSSSelectorForLayer(layer), getCSSPropertiesForLayer(layer));
+	public CssRule getCssRuleForLayer(final ILayer<?> layer) {
+		return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
 	}
 	
 	//method
-	private String getCSSSelectorForLayer(final ILayer<?> layer) {
+	private String getCssSelectorForLayer(final ILayer<?> layer) {
 		return ("#" + layer.getInternalId());
 	}
 	
 	//method
-	private IContainer<ICssProperty> getCSSPropertiesForLayer(final ILayer<?> layer) {
+	private IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
 		
-		final var lCSSProperties = new LinkedList<ICssProperty>();
+		final var cssProperties = new LinkedList<ICssProperty>();
 		
 		if (layer.getOpacity() != 1.0) {
-			lCSSProperties.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.OPACITY, layer.getOpacity()));
+			cssProperties.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.OPACITY, layer.getOpacity()));
 		}
 		
-		lCSSProperties.addAtEnd(
+		cssProperties.addAtEnd(
 			CssProperty.withNameAndValue("position", "absolute"),
-			getZIndexCSSPropertyForLayer(layer),
+			getZIndexCssPropertyForLayer(layer),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.WIDTH, "100vw"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.HEIGHT, "100vh"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "flex"),
-			getJustifyContentCSSPropertyForLayer(layer),
-			getAlignItemsCSSPropertyForLayer(layer)
+			getJustifyContentCssPropertyForLayer(layer),
+			getAlignItemsCssPropertyForLayer(layer)
 		);
 		
 		if (layer.hasBackground()) {
-			lCSSProperties.addAtEnd(layer.getBackground().toCSSProperties());
+			cssProperties.addAtEnd(layer.getBackground().toCssProperties());
 		}
 		
-		return lCSSProperties;
+		return cssProperties;
 	}
 	
 	//method
-	private CssProperty getZIndexCSSPropertyForLayer(final ILayer<?> layer) {
-		return CssProperty.withNameAndValue(CssPropertyNameCatalogue.Z_INDEX, getCSSZIndexForLayer(layer));
+	private CssProperty getZIndexCssPropertyForLayer(final ILayer<?> layer) {
+		return CssProperty.withNameAndValue(CssPropertyNameCatalogue.Z_INDEX, getCssZIndexForLayer(layer));
 	}
 	
 	//method
-	private int getCSSZIndexForLayer(final ILayer<?> layer) {
+	private int getCssZIndexForLayer(final ILayer<?> layer) {
 		
 		if (!layer.belongsToGui()) {
 			return 0;
@@ -75,12 +75,12 @@ public final class LayerCSSRuleCreator {
 	}
 	
 	//method
-	private CssProperty getJustifyContentCSSPropertyForLayer(final ILayer<?> layer) {
-		return getJustifyContentCSSPropertyForContentPosition(layer.getContentPosition());
+	private CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
+		return getJustifyContentCssPropertyForContentPosition(layer.getContentPosition());
 	}
 	
 	//method
-	private CssProperty getJustifyContentCSSPropertyForContentPosition(final ContentPosition contentPosition) {
+	private CssProperty getJustifyContentCssPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
 			case TOP_LEFT, LEFT, BOTTOM_LEFT:
 				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.LEFT);
@@ -94,12 +94,12 @@ public final class LayerCSSRuleCreator {
 	}
 	
 	//method
-	private CssProperty getAlignItemsCSSPropertyForLayer(final ILayer<?> layer) {
-		return getAlignItemsCSSPropertyForContentPosition(layer.getContentPosition());
+	private CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
+		return getAlignItemsCssPropertyForContentPosition(layer.getContentPosition());
 	}
 	
 	//method
-	private CssProperty getAlignItemsCSSPropertyForContentPosition(final ContentPosition contentPosition) {
+	private CssProperty getAlignItemsCssPropertyForContentPosition(final ContentPosition contentPosition) {
 		switch (contentPosition) {
 			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT:
 				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);

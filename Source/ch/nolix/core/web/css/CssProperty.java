@@ -10,13 +10,13 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 public final class CssProperty implements ICssProperty {
 	
 	//static method
-	public static CssProperty fromCSSProperty(final ICssProperty pCSSProperty) {
+	public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
 		
-		if (pCSSProperty instanceof CssProperty lCSSProperty) {
-			return lCSSProperty;
+		if (cssProperty instanceof CssProperty localCssProperty) {
+			return localCssProperty;
 		}
 		
-		return withNameAndValue(pCSSProperty.getName(), pCSSProperty.getValue());
+		return withNameAndValue(cssProperty.getName(), cssProperty.getValue());
 	}
 	
 	//static method

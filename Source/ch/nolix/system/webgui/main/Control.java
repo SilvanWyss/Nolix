@@ -155,8 +155,8 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IContainer<ICssRule<?>> getCSSRules() {
-		return getCSSRuleCreator().createCSSRulesForControl(asConcrete());
+	public final IContainer<ICssRule<?>> getCssRules() {
+		return getCssRuleCreator().createCssRulesForControl(asConcrete());
 	}
 	
 	//method
@@ -448,7 +448,7 @@ implements IControl<C, CS> {
 	protected abstract CS createStyle();
 	
 	//method declaration
-	protected abstract IControlCssRuleBuilder<C, CS> getCSSRuleCreator();
+	protected abstract IControlCssRuleBuilder<C, CS> getCssRuleCreator();
 	
 	//method declaration
 	protected abstract IControlHtmlBuilder<C> getHtmlBuilder();

@@ -37,7 +37,7 @@ public enum CursorIcon {
 	/**
 	 * @return a CSS value representation of the current {@link CursorIcon}.
 	 */
-	public String toCSSValue() {
+	public String toCssValue() {
 		switch (this) {
 			case ARROW:
 				return CssCursorCatalogue.DEFAULT;

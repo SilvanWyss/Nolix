@@ -19,7 +19,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final Button button,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -28,7 +28,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final Button button,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -38,7 +38,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final Button control,
 		final LinkedList<CssProperty> list
 	) {
@@ -47,7 +47,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final Button button,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

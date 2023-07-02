@@ -19,7 +19,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final Label control,
 		final LinkedList<CssProperty> list
 	) {
@@ -28,7 +28,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final Label label,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -38,7 +38,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final Label label,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -47,7 +47,7 @@ public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Lab
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final Label label,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

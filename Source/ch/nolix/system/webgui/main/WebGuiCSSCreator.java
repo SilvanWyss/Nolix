@@ -20,66 +20,66 @@ public final class WebGuiCSSCreator {
 	public static final WebGuiCSSCreator INSTANCE = new WebGuiCSSCreator();
 	
 	//method
-	public Css createCSSForWebGui(final IWebGui<?> webGui) {
+	public Css createCssForWebGui(final IWebGui<?> webGui) {
 		
-		final var lCSSRules = new LinkedList<ICssRule<?>>();
+		final var cssRules = new LinkedList<ICssRule<?>>();
 		
-		fillUpCSSRulesOfWebGuiIntoList(webGui, lCSSRules);
+		fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
 		
-		return Css.withRules(lCSSRules);
+		return Css.withRules(cssRules);
 	}
 	
 	//method
-	private void fillUpCSSRulesOfWebGuiIntoList(
+	private void fillUpCssRulesOfWebGuiIntoList(
 		final IWebGui<?> webGui,
-		final LinkedList<ICssRule<?>> lCSSRules
+		final LinkedList<ICssRule<?>> cssRules
 	) {
 		
-		lCSSRules.addAtEnd(
+		cssRules.addAtEnd(
 			CssRule.withSelectorAndProperties(
 				HtmlElementTypeCatalogue.BODY,
-				getBodyCSSPropertiesFromWebGui(webGui)
+				getBodyCssPropertiesFromWebGui(webGui)
 			)	
 		);
 		
-		fillUpCSSRulesOfLayersOfWebGuiIntoList(webGui, lCSSRules);
+		fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
 	}
 	
 	//method
-	private IContainer<ICssProperty> getBodyCSSPropertiesFromWebGui(final IWebGui<?> webGui) {
+	private IContainer<ICssProperty> getBodyCssPropertiesFromWebGui(final IWebGui<?> webGui) {
 		
-		final var bodyCSSProperties = new LinkedList<ICssProperty>();
+		final var bodyCssProperties = new LinkedList<ICssProperty>();
 		
-		bodyCSSProperties.addAtEnd(
+		bodyCssProperties.addAtEnd(
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.WIDTH, "100vw"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.HEIGHT, "100vh")
 		);
 		
 		if (webGui.hasBackground()) {
-			bodyCSSProperties.addAtEnd(webGui.getBackground().toCSSProperties());
+			bodyCssProperties.addAtEnd(webGui.getBackground().toCssProperties());
 		}
 		
-		return bodyCSSProperties;
+		return bodyCssProperties;
 	}
 
 	//method
-	private void fillUpCSSRulesOfLayersOfWebGuiIntoList(
+	private void fillUpCssRulesOfLayersOfWebGuiIntoList(
 		final IWebGui<?> webGui,
-		final LinkedList<ICssRule<?>> lCSSRules
+		final LinkedList<ICssRule<?>> cssRules
 	) {
 		for (final var l : webGui.getOriLayers()) {
-			fillUpCSSRulesOfLayerIntoList(l, lCSSRules);
+			fillUpCssRulesOfLayerIntoList(l, cssRules);
 		}
 	}
 	
 	//method
-	private void fillUpCSSRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule<?>> lCSSRules) {
+	private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule<?>> cssRules) {
 		
-		lCSSRules.addAtEnd(layer.getCSSRule());
+		cssRules.addAtEnd(layer.getCssRule());
 		
 		for (final var c : layer.getOriControls()) {
-			lCSSRules.addAtEnd(c.getCSSRules());
+			cssRules.addAtEnd(c.getCssRules());
 		}
 	}
 }

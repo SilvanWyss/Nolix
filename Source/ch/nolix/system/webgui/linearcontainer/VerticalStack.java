@@ -54,7 +54,7 @@ implements IVerticalStack {
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> getCssRuleCreator() {
 		return VerticalStackCssRuleBuilder.INSTANCE;
 	}
 	

@@ -25,28 +25,28 @@ extends ControlCssRuleBuilder<EC, ECS> {
 		
 	//method
 	@Override
-	protected final void fillUpCSSPropertiesForControlAndStateIntoList(
+	protected final void fillUpCssPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {
 		
-		fillUpOptionalCSSPropertiesForControlAndStateIntoList(control, state, list);
+		fillUpOptionalCssPropertiesForControlAndStateIntoList(control, state, list);
 		
-		fillUpMandatoryCSSPropertiesForControlAndStateIntoList(control, state, list);
+		fillUpMandatoryCssPropertiesForControlAndStateIntoList(control, state, list);
 		
-		fillUpCSSPropertiesForExtendedControlAndStateIntoList(control, state, list);
+		fillUpCssPropertiesForExtendedControlAndStateIntoList(control, state, list);
 	}
 	
 	//method declaration
-	protected abstract void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected abstract void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		EC control,
 		ControlState state,
 		LinkedList<ICssProperty> list
 	);
 	
 	//method
-	private void fillUpMandatoryCSSPropertiesForControlAndStateIntoList(
+	private void fillUpMandatoryCssPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
@@ -65,7 +65,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_LEFT_COLOR,
-				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getLeftBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getLeftBorderColorWhenHasState(state))
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_LEFT,
@@ -77,7 +77,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_RIGHT_COLOR,
-				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getRightBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getRightBorderColorWhenHasState(state))
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_RIGHT,
@@ -89,7 +89,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_TOP_COLOR,
-				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getTopBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getTopBorderColorWhenHasState(state))
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_TOP,
@@ -101,7 +101,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
-				CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(style.getBottomBorderColorWhenHasState(state))
+				CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(style.getBottomBorderColorWhenHasState(state))
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_BOTTOM,
@@ -109,11 +109,11 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			)
 		);
 		
-		list.addAtEnd(style.getBackgroundWhenHasState(state).toCSSProperties());
+		list.addAtEnd(style.getBackgroundWhenHasState(state).toCssProperties());
 	}
 	
 	//method
-	private void fillUpOptionalCSSPropertiesForControlAndStateIntoList(
+	private void fillUpOptionalCssPropertiesForControlAndStateIntoList(
 		final EC control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
@@ -125,7 +125,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			list.addAtEnd(
 				CssProperty.withNameAndValue(
 					CssPropertyNameCatalogue.WIDTH,
-					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						style.getWidthForState(state),
 						CssUnitCatalogue.VW
 					)
@@ -137,7 +137,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 			list.addAtEnd(
 				CssProperty.withNameAndValue(
 					CssPropertyNameCatalogue.HEIGHT,
-					CONTROL_CSS_VALUE_HELPER.getCSSValueFromRelativeOrAbsoluteInt(
+					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						style.getHeightForState(state),
 						CssUnitCatalogue.VH
 					)

@@ -175,8 +175,8 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	@Override
-	public ICss<?, ?> getCSS() {
-		return WebGuiCSSCreator.INSTANCE.createCSSForWebGui(this);
+	public ICss<?, ?> getCss() {
+		return WebGuiCSSCreator.INSTANCE.createCssForWebGui(this);
 	}
 	
 	//method

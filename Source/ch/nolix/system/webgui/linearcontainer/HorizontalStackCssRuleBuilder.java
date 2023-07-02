@@ -29,13 +29,13 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IHorizontalStack horizontalStack,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
+				getCssSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
@@ -48,14 +48,14 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IHorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(horizontalStack) + " > div",
+				getCssSelectorForControlAndAllStates(horizontalStack) + " > div",
 				LinkedList.withElements(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_RIGHT,
@@ -69,20 +69,20 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final IHorizontalStack control,
 		final LinkedList<CssProperty> list
 	) {
 		list.addAtEnd(
 			CssProperty.withNameAndValue("display", "flex"),
 			CssProperty.withNameAndValue("overflow", "auto"),
-			createCSSPropertyForContentAlignmentOfControl(control)
+			createCssPropertyForContentAlignmentOfControl(control)
 		);
 	}
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final IHorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
@@ -91,7 +91,7 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	}
 	
 	//method
-	private CssProperty createCSSPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
+	private CssProperty createCssPropertyForContentAlignment(final VerticalContentAlignment contentAlignment) {
 		return
 		switch (contentAlignment) {
 			case TOP ->
@@ -104,10 +104,10 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	}
 	
 	//method
-	private CssProperty createCSSPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
+	private CssProperty createCssPropertyForContentAlignmentOfControl(final IHorizontalStack control) {
 		
 		final var contentAlignment = control.getContentAlignment();
 		
-		return createCSSPropertyForContentAlignment(contentAlignment);
+		return createCssPropertyForContentAlignment(contentAlignment);
 	}
 }

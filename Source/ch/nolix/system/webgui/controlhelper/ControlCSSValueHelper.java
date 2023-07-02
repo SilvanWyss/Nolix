@@ -10,20 +10,20 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 public final class ControlCSSValueHelper {
 	
 	//method
-	public String getCSSValueFromColor(final IColor color) {
+	public String getCssValueFromColor(final IColor color) {
 		return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
 	}
 	
 	//method
-	public String getCSSValueFromRelativeOrAbsoluteInt(
+	public String getCssValueFromRelativeOrAbsoluteInt(
 		final IAbsoluteOrRelativeInt absoluteOrRelativeInt,
-		final String relativeIntCSSUnit
+		final String relativeIntCssUnit
 	) {
 		
 		if (absoluteOrRelativeInt.isAbsolute()) {
 			return absoluteOrRelativeInt.getAbsoluteValue() + CssUnitCatalogue.PX;
 		}
 		
-		return (100 * absoluteOrRelativeInt.getPercentage()) + relativeIntCSSUnit;
+		return (100 * absoluteOrRelativeInt.getPercentage()) + relativeIntCssUnit;
 	}
 }

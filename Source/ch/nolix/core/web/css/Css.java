@@ -20,7 +20,7 @@ public final class Css implements ICss<CssRule, CssProperty> {
 	
 	//constructor
 	private Css(final IContainer<ICssRule<?>> rules) {
-		this.rules = rules.to(CssRule::fromCSSRule);
+		this.rules = rules.to(CssRule::fromCssRule);
 	}
 	
 	//method

@@ -14,7 +14,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final ValidationLabel control,
 		final LinkedList<CssProperty> list
 	) {
@@ -23,7 +23,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ValidationLabel text,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -33,7 +33,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ValidationLabel text,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -42,7 +42,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final ValidationLabel text,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

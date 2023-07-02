@@ -25,7 +25,7 @@ IRootControlOwner<L> {
 	ContentPosition getContentPosition();
 	
 	//method declaration
-	ICssRule<?> getCSSRule();
+	ICssRule<?> getCssRule();
 	
 	//method declaration
 	double getOpacity();

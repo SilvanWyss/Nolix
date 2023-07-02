@@ -258,7 +258,7 @@ public final class Background extends Element implements IBackground {
 	
 	//method
 	@Override
-	public IContainer<ICssProperty> toCSSProperties() {
+	public IContainer<ICssProperty> toCssProperties() {
 		switch (getType()) {
 			case COLOR:
 				

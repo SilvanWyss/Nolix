@@ -28,14 +28,14 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IVerticalStack verticalStack,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(verticalStack) + " > div",
+				getCssSelectorForControlAndAllStates(verticalStack) + " > div",
 				LinkedList.withElements(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_BOTTOM,
@@ -49,7 +49,7 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IVerticalStack verticalStack,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -58,20 +58,20 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final IVerticalStack control,
 		final LinkedList<CssProperty> list
 	) {
 		list.addAtEnd(
 			CssProperty.withNameAndValue("display", "flex"),
 			CssProperty.withNameAndValue("flex-direction", "column"),
-			createCSSPropertyForContentAlignmentOfControl(control)
+			createCssPropertyForContentAlignmentOfControl(control)
 		);
 	}
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final IVerticalStack verticalStack,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
@@ -80,7 +80,7 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	}
 	
 	//method
-	private CssProperty createCSSPropertyForContentAlignment(final HorizontalContentAlignment contentAlignment) {
+	private CssProperty createCssPropertyForContentAlignment(final HorizontalContentAlignment contentAlignment) {
 		return
 		switch (contentAlignment) {
 			case LEFT ->
@@ -93,10 +93,10 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	}
 	
 	//method
-	private CssProperty createCSSPropertyForContentAlignmentOfControl(final IVerticalStack control) {
+	private CssProperty createCssPropertyForContentAlignmentOfControl(final IVerticalStack control) {
 		
 		final var contentAlignment = control.getContentAlignment();
 		
-		return createCSSPropertyForContentAlignment(contentAlignment);
+		return createCssPropertyForContentAlignment(contentAlignment);
 	}
 }

@@ -214,7 +214,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<ImageControl, ImageControlStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<ImageControl, ImageControlStyle> getCssRuleCreator() {
 		return ImageControlCssRuleBuilder.INSTANCE;
 	}
 	

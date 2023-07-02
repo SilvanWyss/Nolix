@@ -16,7 +16,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ILink control,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -25,7 +25,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ILink control,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -35,7 +35,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final ILink control,
 		final LinkedList<CssProperty> list
 	) {
@@ -44,7 +44,7 @@ public final class LinkCssRuleBuilder extends ExtendedControlCssRuleBuilder<ILin
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final ILink control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

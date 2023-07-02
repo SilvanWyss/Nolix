@@ -29,5 +29,5 @@ public interface IBackground extends Specified {
 	BackgroundType getType();
 	
 	//method declaration
-	IContainer<ICssProperty> toCSSProperties();
+	IContainer<ICssProperty> toCssProperties();
 }

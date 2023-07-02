@@ -181,7 +181,7 @@ public final class ToggleButton extends Control<IToggleButton, IToggleButtonStyl
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<IToggleButton, IToggleButtonStyle> getCSSRuleCreator() {
+	protected IControlCssRuleBuilder<IToggleButton, IToggleButtonStyle> getCssRuleCreator() {
 		//TODO: Implement.
 		return null;
 	}

@@ -20,7 +20,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ImageControl imageControl,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -29,7 +29,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ImageControl imageControl,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -39,7 +39,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final ImageControl control,
 		final LinkedList<CssProperty> list
 	) {
@@ -48,7 +48,7 @@ public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuil
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final ImageControl imageControl,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

@@ -69,7 +69,7 @@ public final class BackendWebClientCounterpartUpdater {
 			createSetTitleCommandFromWebGui(webGui),
 			createSetIconCommandFromWebGui(webGui),
 			createSetRootHtmlElementCommandFromWebGui(webGui),
-			createSetCSSCommandFromWebGui(webGui),
+			createSetCssCommandFromWebGui(webGui),
 			createSetEventFunctionsCommandFromWebGui(webGui),
 			createSetUserInputFunctionsCommandFromWebGui(webGui)
 		);
@@ -124,23 +124,23 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 		
 	//method
-	private ChainedNode createSetCSSCommandFromWebGui(final IWebGui<?> webGui) {
-		return createSetCSSCommandFromCSS(webGui.getCSS());
+	private ChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetCssCommandFromCss(webGui.getCss());
 	}
 	
 	//method
-	private ChainedNode createSetCSSCommandFromCSS(final ICss<?, ?> pCSS) {
-		return createSetCSSCommandFromCSS(pCSS.toStringWithoutEnclosingBrackets());
+	private ChainedNode createSetCssCommandFromCss(final ICss<?, ?> css) {
+		return createSetCssCommandFromCss(css.toStringWithoutEnclosingBrackets());
 	}
 	
 	//method
-	private ChainedNode createSetCSSCommandFromCSS(final String pCSS) {
+	private ChainedNode createSetCssCommandFromCss(final String css) {
 		return
 		ChainedNode.withHeaderAndNextNode(
 			ObjectProtocol.GUI,
 			ChainedNode.withHeaderAndChildNode(
 				CommandProtocol.SET_CSS,
-				ChainedNode.withHeader(pCSS)
+				ChainedNode.withHeader(css)
 			)
 		);
 	}

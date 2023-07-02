@@ -12,8 +12,8 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 public final class CssRule implements ICssRule<CssProperty> {
 	
 	//static method
-	public static CssRule fromCSSRule(final ICssRule<?> pCSSRule) {
-		return withSelectorsAndProperties(pCSSRule.getSelectors(), pCSSRule.getOriProperties());
+	public static CssRule fromCssRule(final ICssRule<?> cssRule) {
+		return withSelectorsAndProperties(cssRule.getSelectors(), cssRule.getOriProperties());
 	}
 	
 	//static method
@@ -43,7 +43,7 @@ public final class CssRule implements ICssRule<CssProperty> {
 		final IContainer<String> selectors,
 		final IContainer<? extends ICssProperty> properties
 	) {
-		this.properties = properties.to(CssProperty::fromCSSProperty);
+		this.properties = properties.to(CssProperty::fromCssProperty);
 		this.selectors = ImmutableList.forIterable(selectors);
 	}
 	

@@ -16,7 +16,7 @@ extends ExtendedControlCssRuleBuilder<IM, IMS> {
 	
 	//method
 	@Override
-	protected final void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected final void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IM itemMenu,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -26,7 +26,7 @@ extends ExtendedControlCssRuleBuilder<IM, IMS> {
 	
 	//method
 	@Override
-	protected final void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IM itemMenu,
 		final LinkedList<? super ICssRule<?>> list
 	) {

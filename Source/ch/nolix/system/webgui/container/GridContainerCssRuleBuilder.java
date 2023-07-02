@@ -29,7 +29,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final GridContainer control,
 		final LinkedList<CssProperty> list
 	) {
@@ -38,7 +38,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
@@ -48,7 +48,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final GridContainer control,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -61,18 +61,18 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 		
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndState(control, state) + " table, th, td",
+				getCssSelectorForControlAndState(control, state) + " table, th, td",
 				ImmutableList.withElements(
 					CssProperty.withNameAndValue("border-collapse", "collapse"),
 					CssProperty.withNameAndValue("border", "solid " + gridThickness + CssUnitCatalogue.PX),
-					CssProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCSSValueFromColor(gridcolor))
+					CssProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor))
 				)
 			)
 		);
 		
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCSSSelectorForControlAndAllStates(control)
+				getCssSelectorForControlAndAllStates(control)
 				+ " "
 				+ HtmlElementTypeCatalogue.TD,
 				ImmutableList.withElements(
@@ -84,7 +84,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final GridContainer control,
 		final LinkedList<? super ICssRule<?>> list
 	) {

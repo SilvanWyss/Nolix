@@ -41,7 +41,7 @@ PresenceSettable<C> {
 	C editStyle(IElementTaker<CL> styleEditor);
 	
 	//method declaration
-	IContainer<ICssRule<?>> getCSSRules();
+	IContainer<ICssRule<?>> getCssRules();
 	
 	//method declaration
 	CursorIcon getCursorIcon();

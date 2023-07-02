@@ -20,7 +20,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final SingleContainer control,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -29,7 +29,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final SingleContainer control,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -39,7 +39,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final SingleContainer control,
 		final LinkedList<CssProperty> list
 	) {
@@ -48,7 +48,7 @@ extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final SingleContainer control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

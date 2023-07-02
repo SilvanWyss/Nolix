@@ -21,7 +21,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndStateIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ITextbox textbox,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
@@ -31,7 +31,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCSSRulesForControlAndAllStatesIntoList(
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ITextbox textbox,	
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -40,7 +40,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForControlAndAllStatesIntoList(
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
 		final ITextbox control,
 		final LinkedList<CssProperty> list
 	) {
@@ -49,7 +49,7 @@ public final class TextboxCssRuleBuilder extends ExtendedControlCssRuleBuilder<I
 	
 	//method
 	@Override
-	protected void fillUpCSSPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
 		final ITextbox textbox,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
