@@ -13,14 +13,14 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class FloatContainerCSSRuleBuilder
+public final class FloatContainerCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//static attribute
-	public static final FloatContainerCSSRuleBuilder INSTANCE = new FloatContainerCSSRuleBuilder();
+	public static final FloatContainerCssRuleBuilder INSTANCE = new FloatContainerCssRuleBuilder();
 	
 	//constructor
-	private FloatContainerCSSRuleBuilder() {}
+	private FloatContainerCssRuleBuilder() {}
 
 	//method
 	@Override
