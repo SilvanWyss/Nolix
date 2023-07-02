@@ -9,13 +9,13 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ButtonCSSRuleBuilder extends ExtendedControlCssRuleBuilder<Button, ButtonStyle> {
+public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Button, ButtonStyle> {
 	
 	//static attribute
-	public static final ButtonCSSRuleBuilder INSTANCE = new ButtonCSSRuleBuilder();
+	public static final ButtonCssRuleBuilder INSTANCE = new ButtonCssRuleBuilder();
 	
 	//constructor
-	private ButtonCSSRuleBuilder() {}
+	private ButtonCssRuleBuilder() {}
 	
 	//method
 	@Override

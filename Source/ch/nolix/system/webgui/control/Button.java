@@ -264,7 +264,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	protected IControlCssRuleBuilder<Button, ButtonStyle> getCSSRuleCreator() {
-		return ButtonCSSRuleBuilder.INSTANCE;
+		return ButtonCssRuleBuilder.INSTANCE;
 	}
 	
 	//method
