@@ -140,7 +140,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<GridContainer, GridContainerStyle> getCSSRuleCreator() {
-		return GridContainerCSSRuleBuilder.INSTANCE;
+		return GridContainerCssRuleBuilder.INSTANCE;
 	}
 	
 	//method

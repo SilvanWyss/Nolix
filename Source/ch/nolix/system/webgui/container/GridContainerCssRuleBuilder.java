@@ -15,17 +15,17 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class GridContainerCSSRuleBuilder
+public final class GridContainerCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
 	//static attribute
-	public static final GridContainerCSSRuleBuilder INSTANCE = new GridContainerCSSRuleBuilder();
+	public static final GridContainerCssRuleBuilder INSTANCE = new GridContainerCssRuleBuilder();
 	
 	//constant
 	private static final ControlCSSValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCSSValueHelper(); 
 	
 	//constructor
-	private GridContainerCSSRuleBuilder() {}
+	private GridContainerCssRuleBuilder() {}
 	
 	//method
 	@Override
