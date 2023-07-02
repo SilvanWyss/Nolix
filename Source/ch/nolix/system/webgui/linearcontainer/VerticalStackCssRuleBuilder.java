@@ -17,14 +17,14 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class VerticalStackCSSRuleBuilder
+public final class VerticalStackCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	
 	//static attribute
-	public static final VerticalStackCSSRuleBuilder INSTANCE = new VerticalStackCSSRuleBuilder();
+	public static final VerticalStackCssRuleBuilder INSTANCE = new VerticalStackCssRuleBuilder();
 	
 	//constructor
-	private VerticalStackCSSRuleBuilder() {}
+	private VerticalStackCssRuleBuilder() {}
 	
 	//method
 	@Override
