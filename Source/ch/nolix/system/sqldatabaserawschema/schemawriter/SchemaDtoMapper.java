@@ -23,12 +23,16 @@ final class SchemaDtoMapper {
 	new ColumnDto(PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 	
 	//method
-	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto createQslColumnDtoFrom(final IColumnDto column) {
+	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto createQslColumnDtoFrom(
+		final IColumnDto column
+	) {
 		return new ColumnDto(column.getName(), SqlDatatypeCatalogue.TEXT);
 	}
 	
 	//method
-	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(final ITableDto table) {
+	public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(
+		final ITableDto table
+	) {
 		return new TableDto(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createQslColumnDtosFrom(table));
 	}
 	
