@@ -9,12 +9,6 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 //class
 final class TextureCreator {
 	
-	//static attribute
-	public static final TextureCreator INSTANCE = new TextureCreator();
-	
-	//constructor
-	private TextureCreator() {}
-	
 	//method
 	public IImage createConcreteTexture() {
 		
