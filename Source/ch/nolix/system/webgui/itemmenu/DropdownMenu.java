@@ -17,6 +17,9 @@ public final class DropdownMenu
 extends ItemMenu<DropdownMenu, DropdownMenuStyle>
 implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
+	//constant
+	private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
+	
 	//constructor
 	public DropdownMenu() {
 		
@@ -52,7 +55,7 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<DropdownMenu> getHtmlBuilder() {
-		return DropdownMenuHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method

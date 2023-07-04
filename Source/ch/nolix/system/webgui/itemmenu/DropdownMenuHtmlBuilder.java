@@ -16,12 +16,6 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 //class
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<DropdownMenu> {
 	
-	//static attribute
-	public static final DropdownMenuHtmlBuilder INSTANCE = new DropdownMenuHtmlBuilder();
-	
-	//constructor
-	private DropdownMenuHtmlBuilder() {}
-	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final DropdownMenu dropdownMenu) {
