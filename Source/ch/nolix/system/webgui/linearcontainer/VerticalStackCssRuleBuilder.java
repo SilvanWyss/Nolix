@@ -20,12 +20,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class VerticalStackCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 	
-	//static attribute
-	public static final VerticalStackCssRuleBuilder INSTANCE = new VerticalStackCssRuleBuilder();
-	
-	//constructor
-	private VerticalStackCssRuleBuilder() {}
-	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(

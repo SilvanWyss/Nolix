@@ -24,6 +24,9 @@ implements IVerticalStack {
 	//constant
 	private static final VerticalStackHtmlBuilder HTML_BUILDER = new VerticalStackHtmlBuilder();
 	
+	//constant
+	private static final VerticalStackCssRuleBuilder CSS_RULE_BUILDER = new VerticalStackCssRuleBuilder();
+	
 	//attribute
 	private final MutableValue<HorizontalContentAlignment> contentAlignment =
 	new MutableValue<>(
@@ -58,7 +61,7 @@ implements IVerticalStack {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> getCssRuleCreator() {
-		return VerticalStackCssRuleBuilder.INSTANCE;
+		return CSS_RULE_BUILDER;
 	}
 	
 	//method
