@@ -16,9 +16,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebGuiCssCreator {
 	
-	//static attribute
-	public static final WebGuiCssCreator INSTANCE = new WebGuiCssCreator();
-	
 	//method
 	public Css createCssForWebGui(final IWebGui<?> webGui) {
 		
