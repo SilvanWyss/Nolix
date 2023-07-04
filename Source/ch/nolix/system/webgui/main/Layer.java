@@ -69,7 +69,10 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
 	
 	//constant
-	private static final LayerCssRuleCreator LAYER_CSS_RULE_CREATOR = new LayerCssRuleCreator();
+	private static final LayerHtmlCreator HTML_CREATOR = new LayerHtmlCreator();
+	
+	//constant
+	private static final LayerCssRuleCreator CSS_RULE_CREATOR = new LayerCssRuleCreator();
 	
 	//attribute
 	//An id works correctly for CSS only when it begins with a letter.
@@ -189,7 +192,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public ICssRule<?> getCssRule() {
-		return LAYER_CSS_RULE_CREATOR.getCssRuleForLayer(this);
+		return CSS_RULE_CREATOR.getCssRuleForLayer(this);
 	}
 	
 	//method
@@ -381,7 +384,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public IHtmlElement<?, ?> toHtmlElement() {
-		return LayerHtmlCreator.INSTANCE.getHtmlElementForLayer(this);
+		return HTML_CREATOR.getHtmlElementForLayer(this);
 	}
 	
 	//method

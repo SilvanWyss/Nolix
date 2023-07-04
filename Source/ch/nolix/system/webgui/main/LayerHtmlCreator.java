@@ -14,12 +14,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 public final class LayerHtmlCreator {
 	
-	//static attribute
-	public static final LayerHtmlCreator INSTANCE = new LayerHtmlCreator();
-	
-	//constructor
-	private LayerHtmlCreator() {}
-	
 	//method
 	public IHtmlElement<?, ?> getHtmlElementForLayer(final ILayer<?> layer) {
 		return
