@@ -14,12 +14,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHorizontalStack> {
 	
-	//static attribute
-	public static final HorizontalStackHtmlBuilder INSTANCE = new HorizontalStackHtmlBuilder();
-	
-	//constructor
-	private HorizontalStackHtmlBuilder() {}
-	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final IHorizontalStack horizontalStack) {

@@ -21,6 +21,9 @@ implements IHorizontalStack {
 	//constant
 	private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
 	
+	//constant
+	private static final HorizontalStackHtmlBuilder HTML_BUILDER = new HorizontalStackHtmlBuilder();
+	
 	//attribute
 	private final MutableValue<VerticalContentAlignment> contentAlignment =
 	new MutableValue<>(
@@ -61,7 +64,7 @@ implements IHorizontalStack {
 	//method
 	@Override
 	protected IControlHtmlBuilder<IHorizontalStack> getHtmlBuilder() {
-		return HorizontalStackHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method
