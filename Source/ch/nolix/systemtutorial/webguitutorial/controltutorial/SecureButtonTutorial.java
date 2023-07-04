@@ -1,6 +1,5 @@
 package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.SecureServer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.control.Button;
@@ -25,7 +24,7 @@ public final class SecureButtonTutorial {
 		SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("Button tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext("Button tutorial", MainSession.class);
 	}
 	
 	private static final class MainSession extends WebClientSession<Object> {

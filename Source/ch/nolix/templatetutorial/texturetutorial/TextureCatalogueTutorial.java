@@ -1,7 +1,6 @@
 package ch.nolix.templatetutorial.texturetutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
@@ -20,7 +19,10 @@ public final class TextureCatalogueTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("Hello World GUI tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+			"Hello World GUI tutorial",
+			MainSession.class
+		);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();

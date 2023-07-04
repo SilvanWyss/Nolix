@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
@@ -18,8 +17,11 @@ public final class ImageControlTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("ImageControl tutorial", MainSession.class, new VoidObject());
-				
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+			"ImageControl tutorial",
+			MainSession.class
+		);
+		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 		

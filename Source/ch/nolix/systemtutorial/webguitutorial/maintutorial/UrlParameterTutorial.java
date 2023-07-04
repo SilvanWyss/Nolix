@@ -1,7 +1,6 @@
 package ch.nolix.systemtutorial.webguitutorial.maintutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
@@ -17,7 +16,10 @@ public final class UrlParameterTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext("URL parameter tutorial", MainSession.class, new VoidObject());
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+			"URL parameter tutorial",
+			MainSession.class
+		);
 		
 		//Starts a web browser that will connect to the Server.
 		ShellProvider.startDefaultWebBrowserOpeningUrl("http://127.0.0.1/?parameter1=5000&parameter2=60000");
