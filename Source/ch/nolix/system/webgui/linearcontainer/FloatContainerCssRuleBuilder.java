@@ -16,12 +16,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class FloatContainerCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 	
-	//static attribute
-	public static final FloatContainerCssRuleBuilder INSTANCE = new FloatContainerCssRuleBuilder();
-	
-	//constructor
-	private FloatContainerCssRuleBuilder() {}
-
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

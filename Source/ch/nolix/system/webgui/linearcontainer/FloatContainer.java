@@ -11,6 +11,9 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	//constant
 	private static final FloatContainerHtmlBuilder HTML_BUILDER = new FloatContainerHtmlBuilder();
 	
+	//constant
+	private static final FloatContainerCssRuleBuilder CSS_RULE_BUILDER = new FloatContainerCssRuleBuilder();
+	
 	//method
 	@Override
 	protected FloatContainerStyle createStyle() {
@@ -20,7 +23,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	//method
 	@Override
 	protected IControlCssRuleBuilder<FloatContainer, FloatContainerStyle> getCssRuleCreator() {
-		return FloatContainerCssRuleBuilder.INSTANCE;
+		return CSS_RULE_BUILDER;
 	}
 	
 	//method
