@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToPare
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
@@ -111,6 +112,39 @@ public abstract class BaseServer implements GroupCloseable {
 	
 	//method
 	/**
+	 * Adds a new {@link Application} with the given name, initialSessionClass and a void context to
+	 * the current {@link BaseServer}.
+	 * 
+	 * @param name
+	 * @param initialSessionClass
+	 * @param <S> is the type of the given initialSessionClass.
+	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with an instanceName that equals the given name.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 */
+	public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> void
+	addApplicationWithNameAndInitialSessionClassAndVoidContext(
+		final String name,
+		final Class<S> initialSessionClass
+	) {
+		
+		//Creates Application.
+		final var application =
+		BasicApplication.withNameAndInitialSessionClassAndContext(
+			name,
+			initialSessionClass,
+			new VoidObject()
+		);
+		
+		//Calls other method.
+		addApplication(application);
+	}
+	
+	//method
+	/**
 	 * Adds the given defaultApplication to the current {@link BaseServer}.
 	 * A default {@link Application} takes all {@link Client}s that do not have a target.
 	 * 
@@ -162,6 +196,39 @@ public abstract class BaseServer implements GroupCloseable {
 			applicationName,
 			initialSessionClass,
 			applicationContext
+		);
+		
+		//Calls other method.
+		addDefaultApplication(localDefaultApplication);
+	}
+	
+	//method
+	/**
+	 * Adds a new {@link Application} with the given name, initialSessionClass and a void context as
+	 * default {@link Application} the current {@link BaseServer}.
+	 * 
+	 * @param name
+	 * @param initialSessionClass
+	 * @param <S> is the type of the given initialSessionClass.
+	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
+	 * @throws ArgumentIsNullException if the given name is null.
+	 * @throws InvalidArgumentException if the given name is blank.
+	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
+	 * a {@link Application} with an instanceName that equals the given name.
+	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
+	 */
+	public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> void
+	addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+		final String name,
+		final Class<S> initialSessionClass
+	) {
+		
+		//Creates a default Application.
+		final var localDefaultApplication =
+		BasicApplication.withNameAndInitialSessionClassAndContext(
+			name,
+			initialSessionClass,
+			new VoidObject()
 		);
 		
 		//Calls other method.
