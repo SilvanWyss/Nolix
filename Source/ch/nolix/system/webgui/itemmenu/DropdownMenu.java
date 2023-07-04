@@ -20,6 +20,9 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//constant
 	private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
 	
+	//constant
+	private static final DropdownMenuCssRuleBuilder CSS_RULE_BUILDER = new DropdownMenuCssRuleBuilder();
+	
 	//constructor
 	public DropdownMenu() {
 		
@@ -61,6 +64,6 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<DropdownMenu, DropdownMenuStyle> getCssRuleCreator() {
-		return DropdownMenuCssRuleBuilder.INSTANCE;
+		return CSS_RULE_BUILDER;
 	}
 }
