@@ -16,12 +16,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 public final class LayerCssRuleCreator {
 	
-	//static attribute
-	public static final LayerCssRuleCreator INSTANCE = new LayerCssRuleCreator();
-	
-	//constructor
-	private LayerCssRuleCreator() {}
-	
 	//method
 	public CssRule getCssRuleForLayer(final ILayer<?> layer) {
 		return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
