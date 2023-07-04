@@ -9,12 +9,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 public final class LayerHelper {
 	
-	//static attribute
-	public static final LayerHelper INSTANCE = new LayerHelper();
-	
-	//constructor
-	private LayerHelper() {}
-	
 	//method
 	public HtmlAttribute createIdHtmlAttributeForLayer(final ILayer<?> layer) {
 		return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, layer.getInternalId());

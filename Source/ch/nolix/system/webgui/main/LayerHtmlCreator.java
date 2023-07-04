@@ -14,6 +14,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 public final class LayerHtmlCreator {
 	
+	//constant
+	private static final LayerHelper LAYER_HELPER = new LayerHelper();
+	
 	//method
 	public IHtmlElement<?, ?> getHtmlElementForLayer(final ILayer<?> layer) {
 		return
@@ -26,7 +29,7 @@ public final class LayerHtmlCreator {
 	
 	//method
 	private IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer<?> layer) {
-		return ImmutableList.withElement(LayerHelper.INSTANCE.createIdHtmlAttributeForLayer(layer));
+		return ImmutableList.withElement(LAYER_HELPER.createIdHtmlAttributeForLayer(layer));
 	}
 	
 	//method
