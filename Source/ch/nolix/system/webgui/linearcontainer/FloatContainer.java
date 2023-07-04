@@ -8,6 +8,9 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class FloatContainer extends LinearContainer<FloatContainer, FloatContainerStyle> {
 	
+	//constant
+	private static final FloatContainerHtmlBuilder HTML_BUILDER = new FloatContainerHtmlBuilder();
+	
 	//method
 	@Override
 	protected FloatContainerStyle createStyle() {
@@ -23,7 +26,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	//method
 	@Override
 	protected IControlHtmlBuilder<FloatContainer> getHtmlBuilder() {
-		return FloatContainerHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method

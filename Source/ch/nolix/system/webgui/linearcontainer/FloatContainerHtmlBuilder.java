@@ -18,12 +18,6 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 	//constant
 	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "floatContainerChild";
 	
-	//static attribute
-	public static final FloatContainerHtmlBuilder INSTANCE = new FloatContainerHtmlBuilder();
-	
-	//constructor
-	private FloatContainerHtmlBuilder() {}
-	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {
