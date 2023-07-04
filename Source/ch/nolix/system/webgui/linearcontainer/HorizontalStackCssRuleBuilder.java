@@ -21,12 +21,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class HorizontalStackCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
-	//static attribute
-	public static final HorizontalStackCssRuleBuilder INSTANCE = new HorizontalStackCssRuleBuilder();
-	
-	//constructor
-	private HorizontalStackCssRuleBuilder() {}
-	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
