@@ -18,6 +18,7 @@ import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabelStyle;
 import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
@@ -25,7 +26,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
-public final class Label extends Control<Label, LabelStyle> implements ILabel<Label, LabelStyle> {
+public final class Label extends Control<ILabel, ILabelStyle> implements ILabel {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -123,7 +124,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public Label setRole(final LabelRole role) {
+	public ILabel setRole(final LabelRole role) {
 		
 		this.role.setValue(role);
 		
@@ -132,7 +133,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public Label setText(final String text) {
+	public ILabel setText(final String text) {
 		
 		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
 		
@@ -143,7 +144,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	public Label setUserInput(final String userInput) {
+	public ILabel setUserInput(final String userInput) {
 		
 		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
 		
@@ -158,13 +159,13 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<Label, LabelStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<ILabel, ILabelStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<Label> getHtmlBuilder() {
+	protected IControlHtmlBuilder<ILabel> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	

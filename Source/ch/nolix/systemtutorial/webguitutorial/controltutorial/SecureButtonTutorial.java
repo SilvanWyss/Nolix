@@ -5,6 +5,7 @@ import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 
 /**
  * The {@link SecureButtonTutorial} does the same as the {@link ButtonTutorial}, but
@@ -31,7 +32,7 @@ public final class SecureButtonTutorial {
 		
 		private int count;
 		
-		private final Label countLabel = new Label().setText(String.valueOf(count));
+		private final ILabel countLabel = new Label().setText(String.valueOf(count));
 		
 		@Override
 		protected void initialize() {

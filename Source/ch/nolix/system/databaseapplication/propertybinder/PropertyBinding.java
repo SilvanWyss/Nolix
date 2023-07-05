@@ -14,7 +14,7 @@ public final class PropertyBinding {
 	//attributes
 	private final IProperty property;
 	private final IControl<?, ?> control;
-	private final ILabel<?, ?> errorText = new Label().setInvisible();
+	private final ILabel errorText = new Label().setInvisible();
 	
 	//optional attribute
 	private Throwable currentError;
@@ -40,7 +40,7 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public ILabel<?, ?> getOriErrorLabel() {
+	public ILabel getOriErrorLabel() {
 		return errorText;
 	}
 	

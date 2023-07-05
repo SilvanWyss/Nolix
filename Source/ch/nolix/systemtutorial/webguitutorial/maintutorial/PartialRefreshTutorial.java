@@ -11,6 +11,7 @@ import ch.nolix.system.webgui.control.ImageControl;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class PartialRefreshTutorial {
@@ -39,7 +40,7 @@ public final class PartialRefreshTutorial {
 	
 	public static final class MainSession extends WebClientSession<Object> {
 		
-		private final Label timeLabel =
+		private final ILabel timeLabel =
 		new Label()
 		.editStyle(
 			s -> 

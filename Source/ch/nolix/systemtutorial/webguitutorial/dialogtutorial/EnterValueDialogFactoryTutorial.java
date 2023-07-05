@@ -62,7 +62,7 @@ public final class EnterValueDialogFactoryTutorial {
 			);
 		}
 		
-		private void setNewName(final String name, final ILabel<?, ?> nameLabel) {
+		private void setNewName(final String name, final ILabel nameLabel) {
 			
 			GlobalValidator
 			.assertThat(name)

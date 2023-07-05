@@ -6,7 +6,7 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabelStyle;
 
 //class
-public final class LabelStyle extends ExtendedControlStyle<LabelStyle> implements ILabelStyle<LabelStyle> {
+public final class LabelStyle extends ExtendedControlStyle<ILabelStyle> implements ILabelStyle {
 	
 	//constructor
 	public LabelStyle() {

@@ -7,17 +7,18 @@ import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class LabelHtmlBuilder implements IControlHtmlBuilder<Label> {
+public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
 	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final Label control) {
+	public IHtmlElement<?, ?> createHtmlElementForControl(final ILabel control) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,

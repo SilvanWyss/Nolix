@@ -5,10 +5,7 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ILabel<
-	L extends ILabel<L, LS>,
-	LS extends ILabelStyle<LS>
-> extends IControl<L, LS> {
+public interface ILabel extends IControl<ILabel, ILabelStyle> {
 	
 	//method declaration
 	LabelRole getRole();
@@ -23,8 +20,8 @@ public interface ILabel<
 	void removeRole();
 	
 	//method declaration
-	L setRole(LabelRole role);
+	ILabel setRole(LabelRole role);
 	
 	//method declaration
-	L setText(String text);
+	ILabel setText(String text);
 }

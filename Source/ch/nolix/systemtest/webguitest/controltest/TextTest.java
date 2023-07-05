@@ -6,9 +6,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.webgui.control.Label;
+import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 
 //class
-public final class TextTest extends ControlTest<Label> {
+public final class TextTest extends ControlTest<ILabel> {
 	
 	//method
 	@TestCase
