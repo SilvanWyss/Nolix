@@ -1,18 +1,21 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class DropdownMenuCssRuleBuilder extends ItemMenuCssRuleBuilder<DropdownMenu, DropdownMenuStyle> {
+public final class DropdownMenuCssRuleBuilder extends ItemMenuCssRuleBuilder<IDropdownMenu, IDropdownMenuStyle> {
 	
 	//method
 	@Override
 	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final DropdownMenu control,
+		final IDropdownMenu control,
 		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
@@ -21,7 +24,7 @@ public final class DropdownMenuCssRuleBuilder extends ItemMenuCssRuleBuilder<Dro
 	//method
 	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final DropdownMenu dropdownMenu,
+		final IDropdownMenu dropdownMenu,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {

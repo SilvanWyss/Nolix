@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//own imports
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
@@ -9,13 +10,12 @@ import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
-public final class DropdownMenu
-extends ItemMenu<DropdownMenu, DropdownMenuStyle>
-implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
+public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuStyle> implements IDropdownMenu {
 	
 	//constant
 	private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
@@ -51,19 +51,19 @@ implements IDropdownMenu<DropdownMenu, DropdownMenuStyle> {
 	
 	//method
 	@Override
-	protected DropdownMenuStyle createStyle() {
+	protected IDropdownMenuStyle createStyle() {
 		return new DropdownMenuStyle();
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<DropdownMenu> getHtmlBuilder() {
+	protected IControlHtmlBuilder<IDropdownMenu> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<DropdownMenu, DropdownMenuStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<IDropdownMenu, IDropdownMenuStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 }

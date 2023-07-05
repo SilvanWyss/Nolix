@@ -2,4 +2,4 @@
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
 //interface
-public interface IDropdownMenuStyle<DMS extends IDropdownMenuStyle<DMS>> extends IItemMenuStyle<DMS> {}
+public interface IDropdownMenuStyle extends IItemMenuStyle<IDropdownMenuStyle> {}

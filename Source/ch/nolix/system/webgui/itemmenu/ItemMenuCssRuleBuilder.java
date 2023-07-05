@@ -4,12 +4,13 @@ package ch.nolix.system.webgui.itemmenu;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public abstract class ItemMenuCssRuleBuilder<
-	IM extends ItemMenu<IM, IMS>,
+	IM extends IItemMenu<IM, IMS>,
 	IMS extends IItemMenuStyle<IMS>
 >
 extends ExtendedControlCssRuleBuilder<IM, IMS> {

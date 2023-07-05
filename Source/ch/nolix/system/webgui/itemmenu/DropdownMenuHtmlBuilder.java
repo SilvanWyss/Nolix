@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
@@ -14,14 +15,14 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 
 //class
-public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<DropdownMenu> {
+public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
 	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
-	public HtmlElement createHtmlElementForControl(final DropdownMenu dropdownMenu) {
+	public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.SELECT,
@@ -31,7 +32,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 	}
 	
 	//method
-	private IContainer<? extends IHtmlAttribute> createHtmlAttributesForDropdownMenu(final DropdownMenu dropdownMenu) {
+	private IContainer<? extends IHtmlAttribute> createHtmlAttributesForDropdownMenu(final IDropdownMenu dropdownMenu) {
 		
 		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
 		
@@ -42,7 +43,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 	
 	//method
 	private IContainer<IHtmlElement<?, ?>> createHtmlChildElementsForDropdownMenu(
-		final IDropdownMenu<?, ?> dropdownMenu
+		final IDropdownMenu dropdownMenu
 	) {
 		return createHtmlElementsFromItems(dropdownMenu.getOriItems());
 	}
