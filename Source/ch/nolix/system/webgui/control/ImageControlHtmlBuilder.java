@@ -13,12 +13,6 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageControl> {
 	
-	//static attribute
-	public static final ImageControlHtmlBuilder INSTANCE = new ImageControlHtmlBuilder();
-	
-	//constructor
-	private ImageControlHtmlBuilder() {}
-	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final ImageControl imageControl) {

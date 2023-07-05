@@ -30,6 +30,9 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//constant
 	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
 	
+	//constant
+	private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();
+	
 	//attribute
 	private final MutableOptionalValue<MutableImage> image =
 	new MutableOptionalValue<>(
@@ -221,7 +224,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<ImageControl> getHtmlBuilder() {
-		return ImageControlHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method
