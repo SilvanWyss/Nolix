@@ -14,12 +14,6 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 	
-	//static attribute
-	public static final TextboxHtmlBuilder INSTANCE = new TextboxHtmlBuilder();
-	
-	//constructor
-	private TextboxHtmlBuilder() {}
-	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final ITextbox textbox) {

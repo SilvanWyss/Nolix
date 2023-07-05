@@ -42,6 +42,9 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	//constant
 	private static final String TEXT_MODE_HEADER = "TextMode";
 	
+	//constant
+	private static final TextboxHtmlBuilder HTML_BUILDER = new TextboxHtmlBuilder();
+	
 	//attribute
 	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 	
@@ -192,7 +195,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	//method
 	@Override
 	protected IControlHtmlBuilder<ITextbox> getHtmlBuilder() {
-		return TextboxHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method
