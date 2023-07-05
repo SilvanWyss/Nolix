@@ -12,12 +12,6 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<Label> {
 	
-	//static attribute
-	public static final LabelHtmlBuilder INSTANCE = new LabelHtmlBuilder();
-	
-	//constructor
-	private LabelHtmlBuilder() {}
-	
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final Label control) {

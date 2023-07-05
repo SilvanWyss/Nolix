@@ -36,6 +36,9 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	//constant
 	private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
 	
+	//constant
+	private static final LabelHtmlBuilder HTML_BUILDER = new LabelHtmlBuilder();
+	
 	//attribute
 	private final MutableOptionalValue<LabelRole> role =
 	new MutableOptionalValue<>(
@@ -159,7 +162,7 @@ public final class Label extends Control<Label, LabelStyle> implements ILabel<La
 	//method
 	@Override
 	protected IControlHtmlBuilder<Label> getHtmlBuilder() {
-		return LabelHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method
