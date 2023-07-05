@@ -12,12 +12,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class SingleContainerCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<SingleContainer, SingleContainerStyle> {
 	
-	//static attribute
-	public static final SingleContainerCssRuleBuilder INSTANCE = new SingleContainerCssRuleBuilder();
-	
-	//constructor
-	private SingleContainerCssRuleBuilder() {}
-	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(

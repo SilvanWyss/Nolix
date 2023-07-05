@@ -21,6 +21,9 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	//constant
 	private static final String CONTROL_HEADER = "Control";
 	
+	//constant
+	private static final SingleContainerCssRuleBuilder CSS_RULE_BUILDER = new SingleContainerCssRuleBuilder();
+	
 	//attribute
 	private final MutableOptionalValue<IControl<?, ?>> control =
 	new MutableOptionalValue<>(
@@ -84,7 +87,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<SingleContainer, SingleContainerStyle> getCssRuleCreator() {
-		return SingleContainerCssRuleBuilder.INSTANCE;
+		return CSS_RULE_BUILDER;
 	}
 	
 	//method
