@@ -5,11 +5,7 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IGrid<
-	GC extends IGrid<GC, GCS>,
-	GCS extends IGridStyle<GCS>
->
-extends IContainer<GC, GCS> {
+public interface IGrid extends IContainer<IGrid, IGridStyle> {
 	
 	//method declaration
 	boolean containsControlAt1BasedRowAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
@@ -24,8 +20,8 @@ extends IContainer<GC, GCS> {
 	int getRowCount();
 	
 	//method declaration
-	GC insertControlAtRowAndColumn(int rowIndex, int columnIndex, IControl<?, ?> control);
+	IGrid insertControlAtRowAndColumn(int rowIndex, int columnIndex, IControl<?, ?> control);
 	
 	//method declaration
-	GC insertTextAtRowAndColumn(int rowIndex, int columnIndex, String text);
+	IGrid insertTextAtRowAndColumn(int rowIndex, int columnIndex, String text);
 }

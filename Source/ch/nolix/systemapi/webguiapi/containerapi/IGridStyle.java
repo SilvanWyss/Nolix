@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+//own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.structureproperty.GridType;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IGridStyle<GCS extends IGridStyle<GCS>> extends IExtendedControlStyle<GCS> {
+public interface IGridStyle extends IExtendedControlStyle<IGridStyle> {
 	
 	//method declaration
 	int getChildControlMarginWhenHasState(ControlState state);
@@ -34,14 +35,14 @@ public interface IGridStyle<GCS extends IGridStyle<GCS>> extends IExtendedContro
 	void removeCustomGridTypes();
 	
 	//method declaration
-	GCS setChildControlMarginForState(ControlState state, int childControlMargin);
+	IGridStyle setChildControlMarginForState(ControlState state, int childControlMargin);
 	
 	//method declaration
-	GCS setGridColorForState(ControlState state, IColor gridColor);
+	IGridStyle setGridColorForState(ControlState state, IColor gridColor);
 	
 	//method declaration
-	GCS setGridThicknessForState(ControlState state, int gridThickness);
+	IGridStyle setGridThicknessForState(ControlState state, int gridThickness);
 	
 	//method declaration
-	GCS setGridTypeForState(ControlState state, GridType gridType);
+	IGridStyle setGridTypeForState(ControlState state, GridType gridType);
 }

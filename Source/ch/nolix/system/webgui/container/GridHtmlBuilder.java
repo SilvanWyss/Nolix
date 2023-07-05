@@ -9,17 +9,18 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
+public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final Grid control) {
+	public IHtmlElement<?, ?> createHtmlElementForControl(final IGrid control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
@@ -29,7 +30,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	}
 	
 	//method
-	public HtmlElement createHtmlElementForTableOfGrid(final Grid control) {
+	public HtmlElement createHtmlElementForTableOfGrid(final IGrid control) {
 		return
 		HtmlElement.withTypeAndChildElement(
 			HtmlElementTypeCatalogue.TABLE,
@@ -38,7 +39,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	}
 	
 	//method
-	private HtmlElement createHtmlElementForTableBodyOfGrid(final Grid grid) {
+	private HtmlElement createHtmlElementForTableBodyOfGrid(final IGrid grid) {
 		return
 		HtmlElement.withTypeAndChildElements(
 			HtmlElementTypeCatalogue.TBODY,
@@ -48,7 +49,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	
 	//method
 	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfGrid(
-		final Grid grid
+		final IGrid grid
 	) {
 		
 		final var htmlElements = new LinkedList<HtmlElement>();
@@ -61,7 +62,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	}
 	
 	//method
-	private HtmlElement createHtmlElementForRowOfGrid(final Grid grid, final int rowIndex) {
+	private HtmlElement createHtmlElementForRowOfGrid(final IGrid grid, final int rowIndex) {
 		return
 		HtmlElement.withTypeAndChildElements(
 			HtmlElementTypeCatalogue.TR,
@@ -70,10 +71,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHtmlElementsForCellsOfRowOfGrid(
-		final Grid grid,
-		final int rowIndex
-	) {
+	private IContainer<HtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
 		
 		final var htmlElements = new LinkedList<HtmlElement>();
 		
@@ -85,11 +83,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	}
 	
 	//method
-	private HtmlElement createHtmlElementForCellOfGrid(
-		final Grid grid,
-		final int rowIndex,
-		final int columnIndex
-	) {
+	private HtmlElement createHtmlElementForCellOfGrid(final IGrid grid, final int rowIndex, final int columnIndex) {
 		
 		if (!grid.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
 			return HtmlElement.withType(HtmlElementTypeCatalogue.TD);

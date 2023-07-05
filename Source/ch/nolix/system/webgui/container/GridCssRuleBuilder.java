@@ -12,11 +12,12 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
+import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class GridCssRuleBuilder
-extends ExtendedControlCssRuleBuilder<Grid, GridStyle> {
+public final class GridCssRuleBuilder extends ExtendedControlCssRuleBuilder<IGrid, IGridStyle> {
 	
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
@@ -24,7 +25,7 @@ extends ExtendedControlCssRuleBuilder<Grid, GridStyle> {
 	//method
 	@Override
 	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final Grid control,
+		final IGrid control,
 		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
@@ -33,7 +34,7 @@ extends ExtendedControlCssRuleBuilder<Grid, GridStyle> {
 	//method
 	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final Grid control,
+		final IGrid control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {
@@ -43,7 +44,7 @@ extends ExtendedControlCssRuleBuilder<Grid, GridStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final Grid control,
+		final IGrid control,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -79,7 +80,7 @@ extends ExtendedControlCssRuleBuilder<Grid, GridStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final Grid control,
+		final IGrid control,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.

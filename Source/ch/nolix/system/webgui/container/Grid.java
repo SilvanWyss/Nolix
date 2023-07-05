@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.container;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -11,6 +12,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
+import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -18,9 +20,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
-public final class Grid
-extends Container<Grid, GridStyle>
-implements IGrid<Grid, GridStyle> {
+public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	
 	//constant
 	private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
@@ -101,7 +101,7 @@ implements IGrid<Grid, GridStyle> {
 	
 	//method
 	@Override
-	public Grid insertControlAtRowAndColumn(
+	public IGrid insertControlAtRowAndColumn(
 		final int rowIndex,
 		final int columnIndex,
 		final IControl<?, ?> control
@@ -118,7 +118,7 @@ implements IGrid<Grid, GridStyle> {
 	
 	//method
 	@Override
-	public Grid insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
+	public IGrid insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
 		
 		final var textControl = new Label().setText(text);
 		
@@ -145,13 +145,13 @@ implements IGrid<Grid, GridStyle> {
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<Grid, GridStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<IGrid, IGridStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<Grid> getHtmlBuilder() {
+	protected IControlHtmlBuilder<IGrid> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	
