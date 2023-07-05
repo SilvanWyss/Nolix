@@ -13,6 +13,7 @@ public final class ControlTestPool extends TestPool {
 			ButtonTest.class,
 			LinkTest.class,
 			LabelTest.class,
+			TextboxTest.class,
 			ToggleButtonTest.class
 		);
 	}
