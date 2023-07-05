@@ -11,12 +11,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class LabelCssRuleBuilder extends ExtendedControlCssRuleBuilder<Label, LabelStyle> {
 	
-	//static attribute
-	public static final LabelCssRuleBuilder INSTANCE = new LabelCssRuleBuilder();
-	
-	//constructor
-	private LabelCssRuleBuilder() {}
-	
 	//method
 	@Override
 	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
