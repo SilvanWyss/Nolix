@@ -46,6 +46,9 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	private static final IValidationLabelHelper VALIDATION_LABEL_HELPER = new ValidationLabelHelper();
 	
 	//constant
+	private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
+	
+	//constant
 	private static final ButtonCssRuleBuilder CSS_RULE_BUILDER = new ButtonCssRuleBuilder();
 	
 	//attribute
@@ -273,7 +276,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	protected IControlHtmlBuilder<Button> getHtmlBuilder() {
-		return ButtonHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method

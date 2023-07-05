@@ -11,12 +11,6 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class ButtonHtmlBuilder implements IControlHtmlBuilder<Button> {
 	
-	//static attribute
-	public static final ButtonHtmlBuilder INSTANCE = new ButtonHtmlBuilder();
-	
-	//constructor
-	private ButtonHtmlBuilder() {}
-	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final Button button) {
