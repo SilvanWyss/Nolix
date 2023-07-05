@@ -98,18 +98,22 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		expectNot(testUnit.hasMaxHeight());
 	}
 	
-	//method declaration
+	//method
 	@TestCase
 	public final void testCase_setCursorIcon() {
 		
 		//setup
 		final var testUnit = createTestUnit();
 		
+		//setup verification
+		expect(testUnit.getCursorIcon()).isNot(CursorIcon.MOVE);
+		
 		//execution
-		testUnit.setCursorIcon(CursorIcon.HAND);
+		final var result = testUnit.setCursorIcon(CursorIcon.MOVE);
 		
 		//verification
-		expect(testUnit.getCursorIcon()).is(CursorIcon.HAND);
+		expect(result).is(testUnit);
+		expect(testUnit.getCursorIcon()).is(CursorIcon.MOVE);
 	}
 	
 	//method declaration
