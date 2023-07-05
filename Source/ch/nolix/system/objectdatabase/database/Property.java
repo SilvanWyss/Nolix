@@ -15,17 +15,19 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWeight;
-import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValidator;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
 public abstract class Property implements IProperty {
 	
 	//constant
-	private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
+	private static final PropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
+	
+	//constant
+	private static final VoidPropertyFlyWeight VOID_PROPERTY_FLY_WEIGHT = new VoidPropertyFlyWeight();
 	
 	//attribute
-	private IPropertyFlyWeight propertyFlyWeight = VoidPropertyFlyWeight.INSTANCE;
+	private IPropertyFlyWeight propertyFlyWeight = VOID_PROPERTY_FLY_WEIGHT;
 	
 	//attribute
 	private boolean edited;

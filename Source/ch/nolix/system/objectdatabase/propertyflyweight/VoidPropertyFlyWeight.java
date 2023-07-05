@@ -9,12 +9,6 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWei
 //class
 public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 	
-	//constant
-	public static final VoidPropertyFlyWeight INSTANCE = new VoidPropertyFlyWeight();
-	
-	//constructor
-	private VoidPropertyFlyWeight() {}
-	
 	//method
 	@Override
 	public boolean isVoid() {
