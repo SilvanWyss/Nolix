@@ -9,7 +9,7 @@ import ch.nolix.core.independent.container.ImmutableList;
 public final class LogEntry {
 	
 	//constant
-	private static final StackTraceMapper STACK_TRACE_MAPPER = StackTraceMapper.INSTANCE;
+	private static final StackTraceMapper STACK_TRACE_MAPPER = new StackTraceMapper();
 	
 	//static method
 	public static LogEntry forError(final Throwable error) {

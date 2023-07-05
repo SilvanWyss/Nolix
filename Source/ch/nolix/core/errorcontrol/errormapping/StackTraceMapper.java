@@ -7,12 +7,6 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class StackTraceMapper {
 	
-	//constant
-	public static final StackTraceMapper INSTANCE = new StackTraceMapper();
-	
-	//constructor
-	private StackTraceMapper() {}
-	
 	//method
 	public String[] mapErrorToStackTrace(final Throwable error) {
 		
