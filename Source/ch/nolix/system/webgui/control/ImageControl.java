@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
@@ -17,15 +18,14 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.controlapi.IImageControlStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
-public final class ImageControl
-extends Control<ImageControl, ImageControlStyle>
-implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
+public final class ImageControl extends Control<IImageControl, IImageControlStyle> implements IImageControl {
 	
 	//constant
 	private static final String IMAGE_HEADER = PascalCaseCatalogue.IMAGE;
@@ -46,10 +46,10 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	);
 	
 	//optional attribute
-	private IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonPressAction;
+	private IElementTaker<IImageControl> leftMouseButtonPressAction;
 	
 	//optional attribute
-	private IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonReleaseAction;
+	private IElementTaker<IImageControl> leftMouseButtonReleaseAction;
 	
 	//method
 	@Override
@@ -136,7 +136,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ImageControl setImage(final IImage image) {
+	public IImageControl setImage(final IImage image) {
 		
 		if (image instanceof MutableImage mutableImage) {
 			this.image.setValue(mutableImage);
@@ -149,7 +149,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ImageControl setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
+	public IImageControl setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonPressAction)
@@ -161,9 +161,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ImageControl setLeftMouseButtonPressAction(
-		final IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonPressAction
-	) {
+	public IImageControl setLeftMouseButtonPressAction(final IElementTaker<IImageControl> leftMouseButtonPressAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonPressAction)
@@ -177,7 +175,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ImageControl setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
+	public IImageControl setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonReleaseAction)
@@ -189,8 +187,8 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ImageControl setLeftMouseButtonRelaseAction(
-		final IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonReleaseAction
+	public IImageControl setLeftMouseButtonRelaseAction(
+		final IElementTaker<IImageControl> leftMouseButtonReleaseAction
 	) {
 		
 		GlobalValidator
@@ -205,7 +203,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	public ImageControl setUserInput(final String userInput) {
+	public IImageControl setUserInput(final String userInput) {
 		
 		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
 		
@@ -214,19 +212,19 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	
 	//method
 	@Override
-	protected ImageControlStyle createStyle() {
+	protected IImageControlStyle createStyle() {
 		return new ImageControlStyle();
 	}
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<ImageControl, ImageControlStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<IImageControl, IImageControlStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<ImageControl> getHtmlBuilder() {
+	protected IControlHtmlBuilder<IImageControl> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	

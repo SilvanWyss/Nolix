@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlAttributeNameCatalogue;
@@ -8,17 +9,18 @@ import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.controlapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageControl> {
+public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
 	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
-	public HtmlElement createHtmlElementForControl(final ImageControl imageControl) {
+	public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
 		return
 		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.IMG,
@@ -27,7 +29,7 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageC
 	}
 	
 	//method
-	private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final ImageControl imageControl) {
+	private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
 		
 		final var htmlAttributes = new LinkedList<HtmlAttribute>();
 		

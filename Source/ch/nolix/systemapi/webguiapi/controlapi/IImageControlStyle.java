@@ -5,4 +5,4 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface IImageControlStyle<IICS extends IImageControlStyle<IICS>> extends IExtendedControlStyle<IICS> {}
+public interface IImageControlStyle extends IExtendedControlStyle<IImageControlStyle> {}

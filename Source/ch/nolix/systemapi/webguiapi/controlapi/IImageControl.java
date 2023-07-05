@@ -6,17 +6,14 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IImageControl<
-	IC extends IImageControl<IC, IICS, I>,
-	IICS extends IImageControlStyle<IICS>,
-	I extends IImage
-> extends Clearable, IControl<IC, IICS> {
+public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
 	
 	//method declaration
-	I getOriImage();
+	IMutableImage<?> getOriImage();
 	
 	//method declaration
 	boolean hasLeftMouseButtonPressAction();
@@ -31,17 +28,17 @@ public interface IImageControl<
 	void removeLeftMouseButtonReleaseAction();
 	
 	//method declaration
-	IC setImage(IImage image);
+	IImageControl setImage(IImage image);
 	
 	//method declaration
-	IC setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
+	IImageControl setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
 	
 	//method declaration
-	IC setLeftMouseButtonPressAction(IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonPressAction);
+	IImageControl setLeftMouseButtonPressAction(IElementTaker<IImageControl> leftMouseButtonPressAction);
 	
 	//method declaration
-	IC setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
+	IImageControl setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
 	
 	//method declaration
-	IC setLeftMouseButtonRelaseAction(IElementTaker<IImageControl<?, ?, ?>> leftMouseButtonReleaseAction);
+	IImageControl setLeftMouseButtonRelaseAction(IElementTaker<IImageControl> leftMouseButtonReleaseAction);
 }
