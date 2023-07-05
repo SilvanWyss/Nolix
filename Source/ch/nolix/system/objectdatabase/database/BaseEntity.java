@@ -27,6 +27,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public abstract class BaseEntity implements IEntity {
 	
+	//constant
+	private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
+	
 	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
 	
@@ -58,7 +61,7 @@ public abstract class BaseEntity implements IEntity {
 	@Override
 	public final void delete() {
 		
-		EntityValidator.INSTANCE.assertCanBeDeleted(this);
+		ENTITY_VALIDATOR.assertCanBeDeleted(this);
 		
 		/*
 		 * An Entity must not be referenced on deletion. This is validated.
@@ -93,7 +96,7 @@ public abstract class BaseEntity implements IEntity {
 	@Override
 	public final ITable<IEntity> getOriParentTable() {
 		
-		EntityValidator.INSTANCE.assertBelongsToTable(this);
+		ENTITY_VALIDATOR.assertBelongsToTable(this);
 		
 		return parentTable;
 	}
@@ -102,7 +105,7 @@ public abstract class BaseEntity implements IEntity {
 	@Override
 	public final String getSaveStamp() {
 		
-		EntityValidator.INSTANCE.assertHasSaveStamp(this);
+		ENTITY_VALIDATOR.assertHasSaveStamp(this);
 		
 		return saveStamp;
 	}

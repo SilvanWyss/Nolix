@@ -18,13 +18,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IEntityValidato
 public final class EntityValidator implements IEntityValidator {
 	
 	//static attribute
-	public static final IEntityValidator INSTANCE = new EntityValidator();
-	
-	//static attribute
 	private static final IEntityHelper entityHelper = new EntityHelper();
-	
-	//constructor
-	private EntityValidator() {}
 	
 	//method
 	@Override
