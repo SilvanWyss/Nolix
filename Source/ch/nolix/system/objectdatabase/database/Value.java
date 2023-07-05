@@ -15,6 +15,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	
+	//constant
+	private static final ValueCreator VALUE_CREATOR = new ValueCreator();
+	
 	//static attribute
 	private static final IValueHelper valueHelper = new ValueHelper();
 	
@@ -78,7 +81,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 		
 		@SuppressWarnings("unchecked")
 		final var value =
-		(V)ValueCreator.INSTANCE.createValueOfDataTypeFromString(
+		(V)VALUE_CREATOR.createValueOfDataTypeFromString(
 			DataType.forType(valueHelper.getDataType(this)),
 			string
 		);

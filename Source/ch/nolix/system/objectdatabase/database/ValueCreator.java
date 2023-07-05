@@ -9,9 +9,6 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 //class
 public final class ValueCreator {
 	
-	//static attribute
-	public static final ValueCreator INSTANCE = new ValueCreator();
-	
 	//method
 	public Object createValueOfDataTypeFromString(final DataType dataType, final String string) {
 		return
@@ -38,7 +35,4 @@ public final class ValueCreator {
 				throw InvalidArgumentException.forArgument(dataType);
 		};
 	}
-	
-	//constructor
-	private ValueCreator() {}
 }

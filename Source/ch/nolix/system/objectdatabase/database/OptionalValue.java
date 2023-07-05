@@ -18,6 +18,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
 	
 	//constant
+	private static final ValueCreator VALUE_CREATOR = new ValueCreator();
+	
+	//constant
 	private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 	
 	//static attribute
@@ -79,7 +82,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 		
 		@SuppressWarnings("unchecked")
 		final var value =
-		(V)ValueCreator.INSTANCE.createValueOfDataTypeFromString(
+		(V)VALUE_CREATOR.createValueOfDataTypeFromString(
 			DataType.forType(optionalValueHelper.getDataType(this)),
 			string
 		);
