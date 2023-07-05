@@ -18,14 +18,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class GridContainerCssRuleBuilder
 extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	
-	//static attribute
-	public static final GridContainerCssRuleBuilder INSTANCE = new GridContainerCssRuleBuilder();
-	
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
-	
-	//constructor
-	private GridContainerCssRuleBuilder() {}
 	
 	//method
 	@Override
