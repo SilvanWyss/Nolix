@@ -65,7 +65,7 @@ public final class EnterValueDialogFactory {
 	
 	//method
 	private void confirmNewValue(
-		final IButton<?, ?> confirmButton,
+		final IButton confirmButton,
 		final ITextbox valueTextbox,
 		final IElementTaker<String> valueTaker
 	) {

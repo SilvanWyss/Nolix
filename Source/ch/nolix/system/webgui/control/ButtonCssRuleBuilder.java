@@ -1,20 +1,23 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlapi.IButton;
+import ch.nolix.systemapi.webguiapi.controlapi.IButtonStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Button, ButtonStyle> {
+public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<IButton, IButtonStyle> {
 	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final Button button,
+		final IButton button,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
@@ -23,7 +26,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final Button button,
+		final IButton button,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -33,7 +36,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	//method
 	@Override
 	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final Button control,
+		final IButton control,
 		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
@@ -42,7 +45,7 @@ public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Bu
 	//method
 	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final Button button,
+		final IButton button,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {

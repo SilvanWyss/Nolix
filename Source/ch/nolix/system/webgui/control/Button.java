@@ -23,6 +23,7 @@ import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.controlapi.IButton;
+import ch.nolix.systemapi.webguiapi.controlapi.IButtonStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
@@ -31,7 +32,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
-public final class Button extends Control<Button, ButtonStyle> implements IButton<Button, ButtonStyle> {
+public final class Button extends Control<IButton, IButtonStyle> implements IButton {
 	
 	//constant
 	public static final String DEFAULT_TEXT = StringCatalogue.MINUS;
@@ -64,10 +65,10 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 	
 	//optional attribute
-	private IElementTaker<IButton<?, ?>> leftMouseButtonPressAction;
+	private IElementTaker<IButton> leftMouseButtonPressAction;
 	
 	//optional attribute
-	private IElementTaker<IButton<?, ?>> leftMouseButtonReleaseAction;
+	private IElementTaker<IButton> leftMouseButtonReleaseAction;
 	
 	//constructor
 	public Button() {
@@ -187,7 +188,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
+	public IButton setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonPressAction)
@@ -199,7 +200,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setLeftMouseButtonPressAction(final IElementTaker<IButton<?, ?>> leftMouseButtonPressAction) {
+	public IButton setLeftMouseButtonPressAction(final IElementTaker<IButton> leftMouseButtonPressAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonPressAction)
@@ -213,7 +214,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
+	public IButton setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonReleaseAction)
@@ -225,7 +226,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setLeftMouseButtonRelaseAction(final IElementTaker<IButton<?, ?>> leftMouseButtonReleaseAction) {
+	public IButton setLeftMouseButtonRelaseAction(final IElementTaker<IButton> leftMouseButtonReleaseAction) {
 		
 		GlobalValidator
 		.assertThat(leftMouseButtonReleaseAction)
@@ -239,7 +240,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setRole(final ButtonRole role) {
+	public IButton setRole(final ButtonRole role) {
 		
 		this.role.setValue(role);
 		
@@ -248,7 +249,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setText(final String text) {
+	public IButton setText(final String text) {
 		
 		this.text.setValue(text);
 		
@@ -257,25 +258,25 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	
 	//method
 	@Override
-	public Button setUserInput(final String userInput) {
+	public IButton setUserInput(final String userInput) {
 		return setText(userInput);
 	}
 	
 	//method
 	@Override
-	protected ButtonStyle createStyle() {
+	protected IButtonStyle createStyle() {
 		return new ButtonStyle();
 	}
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<Button, ButtonStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<IButton, IButtonStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<Button> getHtmlBuilder() {
+	protected IControlHtmlBuilder<IButton> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	

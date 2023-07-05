@@ -8,11 +8,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IButton<
-	B extends IButton<B, BS>,
-	BS extends IButtonStyle<BS>
->
-extends IControl<B, BS>, IFluentMutableTextHolder<B> {
+public interface IButton extends IControl<IButton, IButtonStyle>, IFluentMutableTextHolder<IButton> {
 	
 	//method declaration
 	ButtonRole getRole();
@@ -36,17 +32,17 @@ extends IControl<B, BS>, IFluentMutableTextHolder<B> {
 	void removeRole();
 	
 	//method declaration
-	B setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
+	IButton setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
 	
 	//method declaration
-	B setLeftMouseButtonPressAction(IElementTaker<IButton<?, ?>> leftMouseButtonPressAction);
+	IButton setLeftMouseButtonPressAction(IElementTaker<IButton> leftMouseButtonPressAction);
 	
 	//method declaration
-	B setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
+	IButton setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
 	
 	//method declaration
-	B setLeftMouseButtonRelaseAction(IElementTaker<IButton<?, ?>> leftMouseButtonReleaseAction);
+	IButton setLeftMouseButtonRelaseAction(IElementTaker<IButton> leftMouseButtonReleaseAction);
 	
 	//method declaration
-	B setRole(ButtonRole role);
+	IButton setRole(ButtonRole role);
 }
