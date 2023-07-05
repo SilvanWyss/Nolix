@@ -1,21 +1,24 @@
 //package declaration
 package ch.nolix.system.webgui.control;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
+import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabelStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class ValidationLabelCssRuleBuilder
-extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
+extends ExtendedControlCssRuleBuilder<IValidationLabel, IValidationLabelStyle> {
 	
 	//method
 	@Override
 	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final ValidationLabel control,
+		final IValidationLabel control,
 		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
@@ -24,7 +27,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final ValidationLabel text,
+		final IValidationLabel text,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -34,7 +37,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final ValidationLabel text,
+		final IValidationLabel text,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
@@ -43,7 +46,7 @@ extends ExtendedControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> {
 	//method
 	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final ValidationLabel text,
+		final IValidationLabel text,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {

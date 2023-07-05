@@ -17,6 +17,7 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
+import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabelStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -25,8 +26,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class ValidationLabel
-extends Control<ValidationLabel, ValidationLabelStyle>
-implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
+extends Control<IValidationLabel, IValidationLabelStyle>
+implements IValidationLabel {
 	
 	//constant
 	private static final String ERROR_HEADER = PascalCaseCatalogue.ERROR;
@@ -124,13 +125,13 @@ implements IValidationLabel<ValidationLabel, ValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<ValidationLabel, ValidationLabelStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<IValidationLabel, IValidationLabelStyle> getCssRuleCreator() {
 		return new ValidationLabelCssRuleBuilder();
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<ValidationLabel> getHtmlBuilder() {
+	protected IControlHtmlBuilder<IValidationLabel> getHtmlBuilder() {
 		return new ValidationLabelHtmlBuilder();
 	}
 	

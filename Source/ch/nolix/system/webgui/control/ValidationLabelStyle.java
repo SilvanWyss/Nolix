@@ -7,8 +7,8 @@ import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabelStyle;
 
 //class
 public final class ValidationLabelStyle
-extends ExtendedControlStyle<ValidationLabelStyle>
-implements IValidationLabelStyle<ValidationLabelStyle> {
+extends ExtendedControlStyle<IValidationLabelStyle>
+implements IValidationLabelStyle {
 	
 	//constructor
 	public ValidationLabelStyle() {

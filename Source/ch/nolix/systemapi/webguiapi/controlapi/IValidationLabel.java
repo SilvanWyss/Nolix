@@ -6,11 +6,7 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IValidationLabel<
-	VL extends IValidationLabel<VL, VLS>,
-	VLS extends IValidationLabelStyle<VLS>
->
-extends Clearable, IControl<VL, VLS> {
+public interface IValidationLabel extends Clearable, IControl<IValidationLabel, IValidationLabelStyle> {
 	
 	//method declaration
 	Throwable getError();

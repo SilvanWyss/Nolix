@@ -23,7 +23,7 @@ public interface IValidationLabelHelper {
 	);
 	
 	//method declaration
-	IValidationLabel<?, ?> getOriNearestValidationLabelOfControlOrNull(IControl<?, ?> control);
+	IValidationLabel getOriNearestValidationLabelOfControlOrNull(IControl<?, ?> control);
 	
 	//method declaration
 	void showErrorInNearestValidationLabelOfControlOrSwallowError(IControl<?, ?> control, Throwable error);

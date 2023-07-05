@@ -5,4 +5,4 @@ package ch.nolix.systemapi.webguiapi.controlapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface IValidationLabelStyle<VLS extends IValidationLabelStyle<VLS>> extends IExtendedControlStyle<VLS> {}
+public interface IValidationLabelStyle extends IExtendedControlStyle<IValidationLabelStyle> {}

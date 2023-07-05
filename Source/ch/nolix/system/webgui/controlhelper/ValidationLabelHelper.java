@@ -52,14 +52,14 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 	
 	//method
 	@Override
-	public IValidationLabel<?, ?> getOriNearestValidationLabelOfControlOrNull(final IControl<?, ?> control) {
+	public IValidationLabel getOriNearestValidationLabelOfControlOrNull(final IControl<?, ?> control) {
 		
 		if (control.belongsToControl()) {
 			
 			final var parentControl = control.getOriParentControl();
 			
 			for (final var cc : parentControl.getOriChildControls()) {
-				if (cc instanceof final IValidationLabel<?, ?> validationLabel) {
+				if (cc instanceof final IValidationLabel validationLabel) {
 					return validationLabel;
 				}
 			}
