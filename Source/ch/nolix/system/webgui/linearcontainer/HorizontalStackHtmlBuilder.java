@@ -14,13 +14,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHorizontalStack> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final IHorizontalStack horizontalStack) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(horizontalStack)),
+			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(horizontalStack)),
 			createHtmlElementsForChildControlsOfHorizontalStack(horizontalStack)
 		);
 	}

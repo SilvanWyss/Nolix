@@ -14,6 +14,9 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final ITextbox textbox) {
@@ -21,7 +24,7 @@ public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.INPUT,
 			ImmutableList.withElements(
-				ControlHelper.INSTANCE.createIdHtmlAttributeForControl(textbox),
+				CONTROL_HELPER.createIdHtmlAttributeForControl(textbox),
 				HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.VALUE, textbox.getText())
 			)
 		);

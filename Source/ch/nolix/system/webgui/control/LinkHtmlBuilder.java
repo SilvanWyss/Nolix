@@ -19,6 +19,9 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final ILink control) {
@@ -35,7 +38,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
 		
 		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
 		
-		htmlAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control));
+		htmlAttribtues.addAtEnd(CONTROL_HELPER.createIdHtmlAttributeForControl(control));
 		htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
 		
 		if (control.hasUrl()) {

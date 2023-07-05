@@ -12,13 +12,16 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<ValidationLabel> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final ValidationLabel control) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			getHtmlDivInnerTextForControl(control)
 		);
 	}

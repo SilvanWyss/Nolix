@@ -18,13 +18,16 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 	//constant
 	public static final String CHILD_CONTROL_CSS_CLASS_NAME = "floatContainerChild";
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(floatContainer)),
+			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(floatContainer)),
 			createHtmlElementsForChildControlsOfFloatContainer(floatContainer)
 		);
 	}

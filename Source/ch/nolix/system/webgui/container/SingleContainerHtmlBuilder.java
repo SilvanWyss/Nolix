@@ -13,13 +13,16 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<SingleContainer> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final SingleContainer control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			createHtmlElementsForChildControlsOfSingleContainer(control)
 		);
 	}

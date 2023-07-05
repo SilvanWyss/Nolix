@@ -13,6 +13,9 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageControl> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final ImageControl imageControl) {
@@ -28,7 +31,7 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<ImageC
 		
 		final var htmlAttributes = new LinkedList<HtmlAttribute>();
 		
-		htmlAttributes.addAtEnd(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(imageControl));
+		htmlAttributes.addAtEnd(CONTROL_HELPER.createIdHtmlAttributeForControl(imageControl));
 		
 		if (imageControl.containsAny()) {
 			htmlAttributes.addAtEnd(

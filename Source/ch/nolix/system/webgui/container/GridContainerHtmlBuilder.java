@@ -17,6 +17,9 @@ public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridC
 	//static attribute
 	public static final GridContainerHtmlBuilder INSTANCE = new GridContainerHtmlBuilder();
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//constructor
 	private GridContainerHtmlBuilder() {}
 	
@@ -26,7 +29,7 @@ public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridC
 		return
 		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			createHtmlElementForTableOfGridContainer(control)
 		);
 	}

@@ -16,6 +16,9 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 //class
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<DropdownMenu> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final DropdownMenu dropdownMenu) {
@@ -32,7 +35,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<Dropdo
 		
 		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
 		
-		htmlAttribtues.addAtEnd(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(dropdownMenu));
+		htmlAttribtues.addAtEnd(CONTROL_HELPER.createIdHtmlAttributeForControl(dropdownMenu));
 		
 		return htmlAttribtues;
 	}

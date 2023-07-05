@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class ButtonHtmlBuilder implements IControlHtmlBuilder<Button> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public HtmlElement createHtmlElementForControl(final Button button) {
@@ -18,7 +21,7 @@ public final class ButtonHtmlBuilder implements IControlHtmlBuilder<Button> {
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.BUTTON,
 			ImmutableList.withElement(
-				ControlHelper.INSTANCE.createIdHtmlAttributeForControl(button)
+				CONTROL_HELPER.createIdHtmlAttributeForControl(button)
 			),
 			button.getText()
 		);

@@ -12,13 +12,16 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<Label> {
 	
+	//constant
+	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
+	
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final Label control) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElement(ControlHelper.INSTANCE.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			control.getText()
 		);
 	}
