@@ -8,12 +8,6 @@ import ch.nolix.system.application.basewebapplicationprotocol.RequestProtocol;
 //class
 final class BaseBackendWebClientRequestCreator {
 	
-	//static attribute
-	public static final BaseBackendWebClientRequestCreator INSTANCE = new BaseBackendWebClientRequestCreator();
-	
-	//constructor
-	private BaseBackendWebClientRequestCreator() {}
-	
 	//method
 	public ChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
 		return

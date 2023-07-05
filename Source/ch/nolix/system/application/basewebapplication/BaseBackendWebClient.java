@@ -27,7 +27,7 @@ implements ICookieManager {
 	
 	//constant
 	private static final BaseBackendWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR =
-	BaseBackendWebClientRequestCreator.INSTANCE;
+	new BaseBackendWebClientRequestCreator();
 	
 	//attribute
 	private final BaseBackendWebClientFileReader fileReader = BaseBackendWebClientFileReader.forBackendWebClient(this);
@@ -106,7 +106,7 @@ implements ICookieManager {
 	final String internalGetTextFromClipboardOfCounterpart() {
 		
 		final var getTextFromClipBoardCommand =
-		BaseBackendWebClientRequestCreator.INSTANCE.createGetTextFromClipboardRequest();
+		BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetTextFromClipboardRequest();
 		
 		return getDataFromCounterpart(getTextFromClipBoardCommand).getHeader();
 	}
