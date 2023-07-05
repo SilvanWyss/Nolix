@@ -45,6 +45,9 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//constant
 	private static final IValidationLabelHelper VALIDATION_LABEL_HELPER = new ValidationLabelHelper();
 	
+	//constant
+	private static final ButtonCssRuleBuilder CSS_RULE_BUILDER = new ButtonCssRuleBuilder();
+	
 	//attribute
 	private final MutableOptionalValue<ButtonRole> role =
 	new MutableOptionalValue<>(
@@ -264,7 +267,7 @@ public final class Button extends Control<Button, ButtonStyle> implements IButto
 	//method
 	@Override
 	protected IControlCssRuleBuilder<Button, ButtonStyle> getCssRuleCreator() {
-		return ButtonCssRuleBuilder.INSTANCE;
+		return CSS_RULE_BUILDER;
 	}
 	
 	//method

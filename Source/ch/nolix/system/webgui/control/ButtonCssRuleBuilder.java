@@ -11,12 +11,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<Button, ButtonStyle> {
 	
-	//static attribute
-	public static final ButtonCssRuleBuilder INSTANCE = new ButtonCssRuleBuilder();
-	
-	//constructor
-	private ButtonCssRuleBuilder() {}
-	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
