@@ -14,7 +14,7 @@ import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public final class GridContainerCell extends MutableElement implements Clearable {
+public final class GridCell extends MutableElement implements Clearable {
 	
 	//constant
 	private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;
@@ -26,18 +26,18 @@ public final class GridContainerCell extends MutableElement implements Clearable
 	private static final String CONTROL_HEADER = "Control";
 	
 	//static method
-	public static GridContainerCell fromSpecification(final INode<?> specification) {
+	public static GridCell fromSpecification(final INode<?> specification) {
 		
-		final var cell = new GridContainerCell();
+		final var cell = new GridCell();
 		cell.resetFromSpecification(specification);
 		
 		return cell;
 	}
 	
 	//static method
-	public static GridContainerCell withRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
+	public static GridCell withRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
 		
-		final var cell = new GridContainerCell();
+		final var cell = new GridCell();
 		cell.setRowIndex(rowIndex);
 		cell.setColumnIndex(columnIndex);
 		
@@ -60,7 +60,7 @@ public final class GridContainerCell extends MutableElement implements Clearable
 	);
 	
 	//constructor
-	private GridContainerCell() {}
+	private GridCell() {}
 	
 	//method
 	@Override

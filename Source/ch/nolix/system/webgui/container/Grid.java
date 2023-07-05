@@ -10,7 +10,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.control.Label;
-import ch.nolix.systemapi.webguiapi.containerapi.IGridContainer;
+import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -18,35 +18,35 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
-public final class GridContainer
-extends Container<GridContainer, GridContainerStyle>
-implements IGridContainer<GridContainer, GridContainerStyle> {
+public final class Grid
+extends Container<Grid, GridStyle>
+implements IGrid<Grid, GridStyle> {
 	
 	//constant
 	private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
 	
 	//constant
-	private static final GridContainerHtmlBuilder HTML_BUILDER = new GridContainerHtmlBuilder();
+	private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
 	
 	//constant
-	private static final GridContainerCssRuleBuilder CSS_RULE_BUILDER = new GridContainerCssRuleBuilder();
+	private static final GridCssRuleBuilder CSS_RULE_BUILDER = new GridCssRuleBuilder();
 	
 	//multi-attribute
-	private Matrix<GridContainerCell> cells = new Matrix<>();
+	private Matrix<GridCell> cells = new Matrix<>();
 	
 	//attribute
 	@SuppressWarnings("unused")
-	private final MultiValueExtractor<GridContainerCell> cellExtractor =
+	private final MultiValueExtractor<GridCell> cellExtractor =
 	new MultiValueExtractor<>(
 		CELL_HEADER,
 		this::addCell,
-		() -> cells.getOriSelected(GridContainerCell::containsAny),
-		GridContainerCell::fromSpecification,
-		GridContainerCell::getSpecification
+		() -> cells.getOriSelected(GridCell::containsAny),
+		GridCell::fromSpecification,
+		GridCell::getSpecification
 	);
 	
 	//constructor
-	public GridContainer() {
+	public Grid() {
 		getOriStyle()
 		.setGridThicknessForState(ControlState.BASE, 1)
 		.setChildControlMarginForState(ControlState.BASE, 10);
@@ -101,13 +101,13 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public GridContainer insertControlAtRowAndColumn(
+	public Grid insertControlAtRowAndColumn(
 		final int rowIndex,
 		final int columnIndex,
 		final IControl<?, ?> control
 	) {
 		
-		final var cell = GridContainerCell.withRowIndexAndColumnIndex(rowIndex, columnIndex);
+		final var cell = GridCell.withRowIndexAndColumnIndex(rowIndex, columnIndex);
 		cell.setControl(control);
 		addCell(cell);
 		
@@ -118,7 +118,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	public GridContainer insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
+	public Grid insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
 		
 		final var textControl = new Label().setText(text);
 		
@@ -139,19 +139,19 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	
 	//method
 	@Override
-	protected GridContainerStyle createStyle() {
-		return new GridContainerStyle();
+	protected GridStyle createStyle() {
+		return new GridStyle();
 	}
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<GridContainer, GridContainerStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<Grid, GridStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<GridContainer> getHtmlBuilder() {
+	protected IControlHtmlBuilder<Grid> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	
@@ -162,7 +162,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	}
 	
 	//method
-	private void addCell(final GridContainerCell cell) {
+	private void addCell(final GridCell cell) {
 		
 		expandTo(cell.getRowIndex(), cell.getColumnIndex());
 		
@@ -181,15 +181,15 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
 		
 		if (cells.isEmpty()) {
-			cells.addRow(GridContainerCell.withRowIndexAndColumnIndex(1, 1));
+			cells.addRow(GridCell.withRowIndexAndColumnIndex(1, 1));
 		}
 		
 		for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
 			
-			final var column = new LinkedList<GridContainerCell>();
+			final var column = new LinkedList<GridCell>();
 			
 			for (var ri = 1; ri <= getRowCount(); ri++) {
-				column.addAtEnd(GridContainerCell.withRowIndexAndColumnIndex(ri, ci));
+				column.addAtEnd(GridCell.withRowIndexAndColumnIndex(ri, ci));
 			}
 			
 			cells.addColumn(column);
@@ -202,15 +202,15 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 		GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();
 		
 		if (cells.isEmpty()) {
-			cells.addRow(GridContainerCell.withRowIndexAndColumnIndex(1, 1));
+			cells.addRow(GridCell.withRowIndexAndColumnIndex(1, 1));
 		}
 		
 		for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
 			
-			final var row = new LinkedList<GridContainerCell>();
+			final var row = new LinkedList<GridCell>();
 			
 			for (var ci = 1; ci <= getColumnCount(); ci++) {
-				row.addAtEnd(GridContainerCell.withRowIndexAndColumnIndex(ri, ci));
+				row.addAtEnd(GridCell.withRowIndexAndColumnIndex(ri, ci));
 			}
 			
 			cells.addRow(row);

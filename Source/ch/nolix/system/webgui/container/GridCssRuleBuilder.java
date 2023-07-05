@@ -15,8 +15,8 @@ import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class GridContainerCssRuleBuilder
-extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
+public final class GridCssRuleBuilder
+extends ExtendedControlCssRuleBuilder<Grid, GridStyle> {
 	
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
@@ -24,7 +24,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final GridContainer control,
+		final Grid control,
 		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
@@ -33,7 +33,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final GridContainer control,
+		final Grid control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {
@@ -43,7 +43,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final GridContainer control,
+		final Grid control,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -79,7 +79,7 @@ extends ExtendedControlCssRuleBuilder<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final GridContainer control,
+		final Grid control,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.

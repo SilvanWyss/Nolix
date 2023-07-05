@@ -10,13 +10,13 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.structureproperty.GridType;
-import ch.nolix.systemapi.webguiapi.containerapi.IGridContainerStyle;
+import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class GridContainerStyle
-extends ExtendedControlStyle<GridContainerStyle>
-implements IGridContainerStyle<GridContainerStyle> {
+public final class GridStyle
+extends ExtendedControlStyle<GridStyle>
+implements IGridStyle<GridStyle> {
 	
 	//constant
 	public static final GridType DEFAULT_GRID_TYPE = GridType.INNER_LINES;
@@ -87,7 +87,7 @@ implements IGridContainerStyle<GridContainerStyle> {
 	);
 	
 	//constructor
-	public GridContainerStyle() {
+	public GridStyle() {
 		initialize();
 	}
 	
@@ -141,7 +141,7 @@ implements IGridContainerStyle<GridContainerStyle> {
 	
 	//method
 	@Override
-	public GridContainerStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
+	public GridStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 		
 		GlobalValidator.assertThat(childControlMargin).thatIsNamed("child control margin").isNotNegative();
 		
@@ -152,7 +152,7 @@ implements IGridContainerStyle<GridContainerStyle> {
 	
 	//method
 	@Override
-	public GridContainerStyle setGridColorForState(final ControlState state, final IColor gridColor) {
+	public GridStyle setGridColorForState(final ControlState state, final IColor gridColor) {
 		
 		this.gridColor.setValueForState(state, gridColor);
 		
@@ -161,7 +161,7 @@ implements IGridContainerStyle<GridContainerStyle> {
 	
 	//method
 	@Override
-	public GridContainerStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
+	public GridStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
 		
 		GlobalValidator.assertThat(gridThickness).thatIsNamed("grid thickness").isNotNegative();
 		
@@ -172,7 +172,7 @@ implements IGridContainerStyle<GridContainerStyle> {
 	
 	//method
 	@Override
-	public GridContainerStyle setGridTypeForState(final ControlState state, final GridType gridType) {
+	public GridStyle setGridTypeForState(final ControlState state, final GridType gridType) {
 		
 		this.gridType.setValueForState(state, gridType);
 		

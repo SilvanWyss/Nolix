@@ -5,7 +5,7 @@ package ch.nolix.template.webgui.style;
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.container.Container;
-import ch.nolix.system.webgui.container.GridContainer;
+import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.control.Button;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.system.webgui.control.Link;
@@ -32,7 +32,7 @@ public final class DarkModeStyleCreator {
 		.addConfiguration(
 			createControlStyle(),
 			createLinearContainerStyle(),
-			createGridContainerStyle(),
+			createGridStyle(),
 			createLinkStyle(),
 			createButtonStyle(),
 			createTextboxStyle(),
@@ -65,10 +65,10 @@ public final class DarkModeStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createGridContainerStyle() {
+	private DeepStyle createGridStyle() {
 		return
 		new DeepStyle()
-		.setSelectorType(GridContainer.class)
+		.setSelectorType(Grid.class)
 		.addAttachingAttribute(
 			"BaseChildControlMargin(10)",
 			"BaseGridThickness(0)"

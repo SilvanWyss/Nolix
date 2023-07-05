@@ -12,90 +12,90 @@ import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridContainer> {
+public final class GridHtmlBuilder implements IControlHtmlBuilder<Grid> {
 	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final GridContainer control) {
+	public IHtmlElement<?, ?> createHtmlElementForControl(final Grid control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
-			createHtmlElementForTableOfGridContainer(control)
+			createHtmlElementForTableOfGrid(control)
 		);
 	}
 	
 	//method
-	public HtmlElement createHtmlElementForTableOfGridContainer(final GridContainer control) {
+	public HtmlElement createHtmlElementForTableOfGrid(final Grid control) {
 		return
 		HtmlElement.withTypeAndChildElement(
 			HtmlElementTypeCatalogue.TABLE,
-			createHtmlElementForTableBodyOfGridContainer(control)
+			createHtmlElementForTableBodyOfGrid(control)
 		);
 	}
 	
 	//method
-	private HtmlElement createHtmlElementForTableBodyOfGridContainer(final GridContainer gridContainer) {
+	private HtmlElement createHtmlElementForTableBodyOfGrid(final Grid grid) {
 		return
 		HtmlElement.withTypeAndChildElements(
 			HtmlElementTypeCatalogue.TBODY,
-			createHtmlElementsForChildControlsOfGridContainer(gridContainer)
+			createHtmlElementsForChildControlsOfGrid(grid)
 		);
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfGridContainer(
-		final GridContainer gridContainer
+	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfGrid(
+		final Grid grid
 	) {
 		
 		final var htmlElements = new LinkedList<HtmlElement>();
 		
-		for (var ri = 1; ri <= gridContainer.getRowCount(); ri++) {
-			htmlElements.addAtEnd(createHtmlElementForRowOfGridContainer(gridContainer, ri));
+		for (var ri = 1; ri <= grid.getRowCount(); ri++) {
+			htmlElements.addAtEnd(createHtmlElementForRowOfGrid(grid, ri));
 		}
 		
 		return htmlElements;
 	}
 	
 	//method
-	private HtmlElement createHtmlElementForRowOfGridContainer(final GridContainer gridContainer, final int rowIndex) {
+	private HtmlElement createHtmlElementForRowOfGrid(final Grid grid, final int rowIndex) {
 		return
 		HtmlElement.withTypeAndChildElements(
 			HtmlElementTypeCatalogue.TR,
-			createHtmlElementsForCellsOfRowOfGridContainer(gridContainer, rowIndex)
+			createHtmlElementsForCellsOfRowOfGrid(grid, rowIndex)
 		);
 	}
 	
 	//method
-	private IContainer<HtmlElement> createHtmlElementsForCellsOfRowOfGridContainer(
-		final GridContainer gridContainer,
+	private IContainer<HtmlElement> createHtmlElementsForCellsOfRowOfGrid(
+		final Grid grid,
 		final int rowIndex
 	) {
 		
 		final var htmlElements = new LinkedList<HtmlElement>();
 		
-		for (var ci = 1; ci <= gridContainer.getColumnCount(); ci++) {
-			htmlElements.addAtEnd(createHtmlElementForCellOfGridContainer(gridContainer, rowIndex, ci));
+		for (var ci = 1; ci <= grid.getColumnCount(); ci++) {
+			htmlElements.addAtEnd(createHtmlElementForCellOfGrid(grid, rowIndex, ci));
 		}
 		
 		return htmlElements;
 	}
 	
 	//method
-	private HtmlElement createHtmlElementForCellOfGridContainer(
-		final GridContainer gridContainer,
+	private HtmlElement createHtmlElementForCellOfGrid(
+		final Grid grid,
 		final int rowIndex,
 		final int columnIndex
 	) {
 		
-		if (!gridContainer.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
+		if (!grid.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {
 			return HtmlElement.withType(HtmlElementTypeCatalogue.TD);
 		}
 		
-		final var childControl = gridContainer.getOriChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
+		final var childControl = grid.getOriChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
 		final var childControlHtmlElement = childControl.toHtmlElement();
 		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHtmlElement);
 	}

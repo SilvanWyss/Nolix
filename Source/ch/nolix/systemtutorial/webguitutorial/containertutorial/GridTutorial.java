@@ -4,11 +4,11 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.container.GridContainer;
+import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class GridContainerTutorial {
+public final class GridTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -17,7 +17,7 @@ public final class GridContainerTutorial {
 		
 		//Adds a default Application to the Server.
 		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-			"GridContainer tutorial",
+			"Grid tutorial",
 			MainSession.class
 		);
 		
@@ -34,11 +34,11 @@ public final class GridContainerTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Creates a GridContainer.
-			final var gridContainer = new GridContainer();
+			//Creates a Grid.
+			final var grid = new Grid();
 			
-			//Inserts Controls into the GridContainer.
-			gridContainer
+			//Inserts Controls into the Grid.
+			grid
 			.insertControlAtRowAndColumn(1, 1, new Label().setText("A"))
 			.insertControlAtRowAndColumn(1, 3, new Label().setText("B"))
 			.insertControlAtRowAndColumn(2, 2, new Label().setText("C"))
@@ -48,15 +48,15 @@ public final class GridContainerTutorial {
 			.insertControlAtRowAndColumn(4, 2, new Label().setText("G"))
 			.insertControlAtRowAndColumn(4, 4, new Label().setText("H"));
 			
-			//Configures the style of the GridContainer.
-			gridContainer
+			//Configures the style of the Grid.
+			grid
 			.getOriStyle()
 			.setTextSizeForState(ControlState.BASE, 50);
 			
-			//Adds the GridContainer to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(gridContainer);
+			//Adds the Grid to the GUI of the current MainSession.
+			getOriGui().pushLayerWithRootControl(grid);
 		}
 	}
 	
-	private GridContainerTutorial() {}
+	private GridTutorial() {}
 }

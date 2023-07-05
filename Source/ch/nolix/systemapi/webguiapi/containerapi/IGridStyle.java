@@ -7,7 +7,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IGridContainerStyle<GCS extends IGridContainerStyle<GCS>> extends IExtendedControlStyle<GCS> {
+public interface IGridStyle<GCS extends IGridStyle<GCS>> extends IExtendedControlStyle<GCS> {
 	
 	//method declaration
 	int getChildControlMarginWhenHasState(ControlState state);

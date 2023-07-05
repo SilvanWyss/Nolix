@@ -5,9 +5,9 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IGridContainer<
-	GC extends IGridContainer<GC, GCS>,
-	GCS extends IGridContainerStyle<GCS>
+public interface IGrid<
+	GC extends IGrid<GC, GCS>,
+	GCS extends IGridStyle<GCS>
 >
 extends IContainer<GC, GCS> {
 	
