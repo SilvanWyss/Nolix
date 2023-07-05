@@ -30,12 +30,6 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 //class
 final class SecureServerSSLContextCreator {
 	
-	//constant
-	public static final SecureServerSSLContextCreator INSTANCE = new SecureServerSSLContextCreator();
-	
-	//constructor
-	private SecureServerSSLContextCreator() {}
-	
 	//method
 	public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {
 		try {

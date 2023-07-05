@@ -23,8 +23,8 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 final class SecureServerWorker extends Worker {
 	
 	//constant
-	private static final SecureServerSSLContextCreator WEB_SOCKET_SERVER_SSL_CONTEXT_CREATOR =
-	SecureServerSSLContextCreator.INSTANCE;
+	private static final SecureServerSSLContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR =
+	new SecureServerSSLContextCreator();
 	
 	//attribute
 	private final SecureServer parentWebSocketServer;
@@ -62,7 +62,7 @@ final class SecureServerWorker extends Worker {
 	@Override
 	protected void run() {
 		
-		SslContext sslCtx = WEB_SOCKET_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
+		SslContext sslCtx = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
 		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		
