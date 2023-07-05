@@ -10,12 +10,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 //class
 public final class JobMerger {
 	
-	//static attribute
-	public static final JobMerger INSTANCE = new JobMerger();
-	
-	//constructor
-	private JobMerger() {}
-	
 	//method
 	public IAction createMergedJobForJobs(final IAction... jobs) {
 		
