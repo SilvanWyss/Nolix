@@ -9,12 +9,6 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IEntityFlyWeigh
 //class
 public final class VoidEntityFlyWeight implements IEntityFlyWeight {
 	
-	//constant
-	public static final VoidEntityFlyWeight INSTANCE = new VoidEntityFlyWeight();
-	
-	//constructor
-	private VoidEntityFlyWeight() {}
-	
 	//method
 	@Override
 	public boolean isVoid() {

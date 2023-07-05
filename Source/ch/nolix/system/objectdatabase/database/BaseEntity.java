@@ -28,6 +28,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 public abstract class BaseEntity implements IEntity {
 	
 	//constant
+	private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
+	
+	//constant
 	private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 	
 	//static attribute
@@ -40,7 +43,7 @@ public abstract class BaseEntity implements IEntity {
 	private DatabaseObjectState state = DatabaseObjectState.NEW;
 	
 	//attribute
-	private IEntityFlyWeight entityFlyweight = VoidEntityFlyWeight.INSTANCE;
+	private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
 	
 	//optional attribute
 	private ITable<IEntity> parentTable;
