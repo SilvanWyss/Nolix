@@ -62,6 +62,10 @@ implements IControl<C, CS> {
 	//constant
 	private static final String CURSOR_ICON_HEADER = PascalCaseCatalogue.CURSOR_ICON;
 	
+	//constant
+	private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR =
+	new AbsoluteOrRelativeIntValidator();
+	
 	//attribute
 	//An id works correctly for CSS only when it begins with a letter.
 	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
@@ -506,7 +510,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 		
-		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(maxHeight);
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(maxHeight);
 		
 		this.maxHeight.setValue(maxHeight);
 	}
@@ -514,7 +518,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMaxWidth(final AbsoluteOrRelativeInt maxWidth) {
 		
-		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(maxWidth);
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(maxWidth);
 		
 		this.maxWidth.setValue(maxWidth);
 	}
@@ -522,7 +526,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMinHeight(final AbsoluteOrRelativeInt minHeight) {
 		
-		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(minHeight);
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(minHeight);
 		
 		this.minHeight.setValue(minHeight);
 	}
@@ -530,7 +534,7 @@ implements IControl<C, CS> {
 	//method
 	private void setMinWidth(final AbsoluteOrRelativeInt minWidth) {
 		
-		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(minWidth);
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(minWidth);
 		
 		this.minWidth.setValue(minWidth);
 	}

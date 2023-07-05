@@ -8,12 +8,6 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 //class
 public final class AbsoluteOrRelativeIntValidator {
 	
-	//constant
-	public static final AbsoluteOrRelativeIntValidator INSTANCE = new AbsoluteOrRelativeIntValidator();
-	
-	//constructor
-	private AbsoluteOrRelativeIntValidator() {}
-	
 	//method
 	public void assertIsPositive(final IAbsoluteOrRelativeInt absoluteOrRelativeInt) {
 		if (!absoluteOrRelativeInt.isPositive()) {

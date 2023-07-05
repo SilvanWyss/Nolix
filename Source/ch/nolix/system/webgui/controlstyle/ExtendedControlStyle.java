@@ -95,6 +95,10 @@ implements IExtendedControlStyle<ECS> {
 	//constant
 	private static final String PADDING_HEADER = "Padding";
 	
+	//constant
+	private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR =
+	new AbsoluteOrRelativeIntValidator();
+	
 	//attribute
 	private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width =
 	new NonCascadingProperty<>(
@@ -725,7 +729,7 @@ implements IExtendedControlStyle<ECS> {
 	//method
 	private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
 		
-		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(height);
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(height);
 		
 		this.height.setValueForState(state, height);
 	}
@@ -733,7 +737,7 @@ implements IExtendedControlStyle<ECS> {
 	//method
 	private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
 		
-		AbsoluteOrRelativeIntValidator.INSTANCE.assertIsPositive(width);
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(width);
 		
 		this.width.setValueForState(state, width);
 	}
