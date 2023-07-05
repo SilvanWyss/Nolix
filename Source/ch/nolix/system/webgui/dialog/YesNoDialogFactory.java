@@ -17,12 +17,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class YesNoDialogFactory {
 	
-	//static attribute
-	public static final YesNoDialogFactory INSTANCE = new YesNoDialogFactory();
-	
-	//constructor
-	private YesNoDialogFactory() {}
-	
 	//method
 	public Layer createYesNoDialogWithYesNoQuestionAndConfirmAction(
 		final String yesNoQuestion,

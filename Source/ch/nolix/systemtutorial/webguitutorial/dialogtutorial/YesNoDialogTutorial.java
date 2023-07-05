@@ -46,9 +46,7 @@ public final class YesNoDialogTutorial {
 					() -> 
 					getOriGui()
 					.pushLayer(
-						YesNoDialogFactory
-						.INSTANCE
-						.createYesNoDialogWithYesNoQuestionAndConfirmAction(
+						new YesNoDialogFactory().createYesNoDialogWithYesNoQuestionAndConfirmAction(
 							"Do you want to open nolix.ch?",
 							() -> getOriGui().onFrontEnd().openNewTabWithUrl("nolix.ch")
 						)
