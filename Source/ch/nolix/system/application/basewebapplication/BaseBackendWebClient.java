@@ -23,7 +23,7 @@ implements ICookieManager {
 	
 	//constant
 	private static final BaseBackendWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR =
-	BaseBackendWebClientCommandCreator.INSTANCE;
+	new BaseBackendWebClientCommandCreator();
 	
 	//constant
 	private static final BaseBackendWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR =
