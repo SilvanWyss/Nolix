@@ -13,13 +13,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.ITableValidator
 public final class TableValidator implements ITableValidator {
 	
 	//static attribute
-	public static final ITableValidator INSTANCE = new TableValidator();
-	
-	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
-	
-	//constructor
-	private TableValidator() {}
 	
 	//method
 	@Override

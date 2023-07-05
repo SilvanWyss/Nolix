@@ -20,6 +20,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 //class
 public final class Table<E extends IEntity> implements ITable<E> {
 	
+	//constant
+	private static final TableValidator TABLE_VALIDATOR = new TableValidator();
+	
 	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
 	
@@ -184,7 +187,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 		//The inserted Entity must know its Table to be inserted.
 		((BaseEntity)entity).internalSetParentTable(table);
 		
-		TableValidator.INSTANCE.assertCanInsertGivenEntity(this, entity);
+		TABLE_VALIDATOR.assertCanInsertGivenEntity(this, entity);
 		
 		insertWhenCanBeInserted(entity);
 		
