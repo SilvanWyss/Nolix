@@ -13,12 +13,6 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<SingleContainer> {
 	
-	//static attribute
-	public static final SingleContainerHtmlBuilder INSTANCE = new SingleContainerHtmlBuilder();
-	
-	//constructor
-	private SingleContainerHtmlBuilder() {}
-	
 	//method
 	@Override
 	public IHtmlElement<?, ?> createHtmlElementForControl(final SingleContainer control) {

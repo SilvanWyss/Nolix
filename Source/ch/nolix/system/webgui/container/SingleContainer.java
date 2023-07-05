@@ -22,6 +22,9 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	private static final String CONTROL_HEADER = "Control";
 	
 	//constant
+	private static final SingleContainerHtmlBuilder HTML_BUILDER = new SingleContainerHtmlBuilder();
+	
+	//constant
 	private static final SingleContainerCssRuleBuilder CSS_RULE_BUILDER = new SingleContainerCssRuleBuilder();
 	
 	//attribute
@@ -93,7 +96,7 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<SingleContainer> getHtmlBuilder() {
-		return SingleContainerHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method
