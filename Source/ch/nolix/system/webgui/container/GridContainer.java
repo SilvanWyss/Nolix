@@ -26,6 +26,9 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
 	
 	//constant
+	private static final GridContainerHtmlBuilder HTML_BUILDER = new GridContainerHtmlBuilder();
+	
+	//constant
 	private static final GridContainerCssRuleBuilder CSS_RULE_BUILDER = new GridContainerCssRuleBuilder();
 	
 	//multi-attribute
@@ -149,7 +152,7 @@ implements IGridContainer<GridContainer, GridContainerStyle> {
 	//method
 	@Override
 	protected IControlHtmlBuilder<GridContainer> getHtmlBuilder() {
-		return GridContainerHtmlBuilder.INSTANCE;
+		return HTML_BUILDER;
 	}
 	
 	//method

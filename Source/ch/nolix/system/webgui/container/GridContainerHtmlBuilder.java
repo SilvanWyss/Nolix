@@ -14,14 +14,8 @@ import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 //class
 public final class GridContainerHtmlBuilder implements IControlHtmlBuilder<GridContainer> {
 	
-	//static attribute
-	public static final GridContainerHtmlBuilder INSTANCE = new GridContainerHtmlBuilder();
-	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
-	
-	//constructor
-	private GridContainerHtmlBuilder() {}
 	
 	//method
 	@Override
