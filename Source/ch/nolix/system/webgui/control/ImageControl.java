@@ -33,6 +33,9 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//constant
 	private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();
 	
+	//constant
+	private static final ImageControlCssRuleBuilder CSS_RULE_BUILDER = new ImageControlCssRuleBuilder();
+	
 	//attribute
 	private final MutableOptionalValue<MutableImage> image =
 	new MutableOptionalValue<>(
@@ -218,7 +221,7 @@ implements IImageControl<ImageControl, ImageControlStyle, MutableImage> {
 	//method
 	@Override
 	protected IControlCssRuleBuilder<ImageControl, ImageControlStyle> getCssRuleCreator() {
-		return ImageControlCssRuleBuilder.INSTANCE;
+		return CSS_RULE_BUILDER;
 	}
 	
 	//method

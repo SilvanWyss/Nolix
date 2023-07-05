@@ -12,12 +12,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class ImageControlCssRuleBuilder extends ExtendedControlCssRuleBuilder<ImageControl, ImageControlStyle> {
 	
-	//static attribute
-	public static final ImageControlCssRuleBuilder INSTANCE = new ImageControlCssRuleBuilder();
-	
-	//constructor
-	private ImageControlCssRuleBuilder() {}
-	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
