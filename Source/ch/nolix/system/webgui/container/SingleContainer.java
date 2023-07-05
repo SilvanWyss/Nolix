@@ -8,6 +8,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
+import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -15,8 +16,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class SingleContainer
-extends Container<SingleContainer, SingleContainerStyle>
-implements ISingleContainer<SingleContainer, SingleContainerStyle> {
+extends Container<ISingleContainer, ISingleContainerStyle>
+implements ISingleContainer {
 	
 	//constant
 	private static final String CONTROL_HEADER = "Control";
@@ -89,13 +90,13 @@ implements ISingleContainer<SingleContainer, SingleContainerStyle> {
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<SingleContainer, SingleContainerStyle> getCssRuleCreator() {
+	protected IControlCssRuleBuilder<ISingleContainer, ISingleContainerStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
 	//method
 	@Override
-	protected IControlHtmlBuilder<SingleContainer> getHtmlBuilder() {
+	protected IControlHtmlBuilder<ISingleContainer> getHtmlBuilder() {
 		return HTML_BUILDER;
 	}
 	

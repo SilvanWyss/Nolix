@@ -5,4 +5,4 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
 
 //interface
-public interface ISingleContainerStyle<SCS extends ISingleContainerStyle<SCS>> extends IExtendedControlStyle<SCS> {}
+public interface ISingleContainerStyle extends IExtendedControlStyle<ISingleContainerStyle> {}

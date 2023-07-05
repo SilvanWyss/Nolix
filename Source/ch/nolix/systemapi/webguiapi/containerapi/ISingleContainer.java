@@ -5,15 +5,11 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface ISingleContainer<
-	SC extends ISingleContainer<SC, SCS>,
-	SCS extends ISingleContainerStyle<SCS>
->
-extends IContainer<SC, SCS> {
+public interface ISingleContainer extends IContainer<ISingleContainer, ISingleContainerStyle> {
 	
 	//method declaration
 	IControl<?, ?> getOriControl();
 	
 	//method declaration
-	SC setControl(IControl<?, ?> control);
+	ISingleContainer setControl(IControl<?, ?> control);
 }

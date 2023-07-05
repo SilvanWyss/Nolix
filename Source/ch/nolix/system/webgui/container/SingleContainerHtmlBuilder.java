@@ -8,17 +8,18 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
+import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
-public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<SingleContainer> {
+public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
 	
 	//constant
 	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final SingleContainer control) {
+	public IHtmlElement<?, ?> createHtmlElementForControl(final ISingleContainer control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -29,7 +30,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<Sin
 	
 	//method
 	private IContainer<IHtmlElement<?, ?>> createHtmlElementsForChildControlsOfSingleContainer(
-		final SingleContainer singleContainer
+		final ISingleContainer singleContainer
 	) {
 		
 		if (singleContainer.isEmpty()) {
