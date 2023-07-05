@@ -11,9 +11,6 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 public final class NolixConfigurationSSLCertificateReader {
 	
 	//constant
-	public static final NolixConfigurationSSLCertificateReader INSTANCE = new NolixConfigurationSSLCertificateReader();
-	
-	//constant
 	private static final String DEFAULT_SSL_CERTIFICATE_HEADER = "DefaultSSLCertificate";
 	
 	//constant
@@ -24,9 +21,6 @@ public final class NolixConfigurationSSLCertificateReader {
 	
 	//constant
 	private static final String PRIVATE_KEY_PEM_FILE_HEADER = "PrivateKeyPEMFile";
-	
-	//constructor
-	private NolixConfigurationSSLCertificateReader() {}
 	
 	//method
 	public ISSLCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {

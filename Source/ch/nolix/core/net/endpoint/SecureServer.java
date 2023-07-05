@@ -26,7 +26,7 @@ public final class SecureServer extends BaseServer {
 	
 	//constant
 	private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER =
-	NolixConfigurationSSLCertificateReader.INSTANCE;
+	new NolixConfigurationSSLCertificateReader();
 	
 	//static method
 	public static SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
