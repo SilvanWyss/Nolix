@@ -9,7 +9,7 @@ import ch.nolix.system.webgui.control.Label;
 import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
 
 //class
-public final class TextTest extends ControlTest<ILabel> {
+public final class LabelTest extends ControlTest<ILabel> {
 	
 	//method
 	@TestCase

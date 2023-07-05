@@ -12,7 +12,7 @@ public final class ControlTestPool extends TestPool {
 		super(
 			ButtonTest.class,
 			LinkTest.class,
-			TextTest.class,
+			LabelTest.class,
 			ToggleButtonTest.class
 		);
 	}
