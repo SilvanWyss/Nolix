@@ -14,12 +14,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class WaitDialogFactory {
 	
-	//static attribute
-	public static final WaitDialogFactory INSTANCE = new WaitDialogFactory();
-	
-	//constructor
-	private WaitDialogFactory() {}
-	
 	//method
 	public Layer createWaitDialogForJobAndTerminalAction(final IAction job, final IAction terminalAction) {
 		
