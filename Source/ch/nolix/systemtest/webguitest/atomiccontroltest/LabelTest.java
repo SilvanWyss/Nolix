@@ -6,16 +6,53 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 
 //class
 public final class LabelTest extends ControlTest<ILabel> {
 	
 	//method
 	@TestCase
+	public void testCase_removeRole() {
+		
+		//setup
+		final var testUnit = new Label();
+		testUnit.setRole(LabelRole.TITLE);
+		
+		//setup verification
+		expect(testUnit.hasRole());
+		
+		//execution
+		testUnit.removeRole();
+		
+		//verification
+		expectNot(testUnit.hasRole());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_setRole() {
+		
+		//setup
+		final var testUnit = new Label();
+		
+		//setup verification
+		expectNot(testUnit.hasRole());
+		
+		//execution
+		final var result = testUnit.setRole(LabelRole.TITLE);
+		
+		//verification
+		expect(result).is(testUnit);
+		expect(testUnit.getRole()).is(LabelRole.TITLE);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_setText() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = new Label();
 		
 		//setup verification
 		expect(testUnit.getText()).isEqualTo("-");
@@ -32,7 +69,7 @@ public final class LabelTest extends ControlTest<ILabel> {
 	public void testCase_setText_whenGivenTextIsEmpty() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = new Label();
 		
 		//execution
 		testUnit.setText("");
@@ -46,7 +83,7 @@ public final class LabelTest extends ControlTest<ILabel> {
 	public void testCase_setText_whenGivenTextIsNull() {
 		
 		//setup
-		final var testUnit = createTestUnit();
+		final var testUnit = new Label();
 		testUnit.setText("Lorem Ipsum");
 		
 		//execution & verification
