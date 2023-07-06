@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlStyle;
+import ch.nolix.system.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public abstract class LinearContainerStyle<
 	LCS extends ILinearContainerStyle<LCS> & IMultiStateConfiguration<LCS, ControlState>
 >
-extends ExtendedControlStyle<LCS>
+extends ControlStyle<LCS>
 implements ILinearContainerStyle<LCS> {
 	
 	//constant

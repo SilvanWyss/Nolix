@@ -17,8 +17,8 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
 public interface IControl<
-	C extends IControl<C, CL>,
-	CL extends IControlStyle<CL>
+	C extends IControl<C, CS>,
+	CS extends IControlStyle<CS>
 >
 extends
 Dimensionable<C>,
@@ -38,7 +38,7 @@ PresenceSettable<C> {
 	boolean belongsToLayer();
 	
 	//method declaration
-	C editStyle(IElementTaker<CL> styleEditor);
+	C editStyle(IElementTaker<CS> styleEditor);
 	
 	//method declaration
 	IContainer<ICssRule<?>> getCssRules();
@@ -62,7 +62,7 @@ PresenceSettable<C> {
 	ILayer<?> getOriParentLayer();
 	
 	//method declaration
-	CL getOriStyle();
+	CS getOriStyle();
 	
 	//method declaration
 	void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);

@@ -4,235 +4,741 @@ package ch.nolix.system.webgui.controlstyle;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
-import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
+import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
+import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.structure.AbsoluteOrRelativeInt;
+import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
+import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.fontapi.Font;
+import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
+import ch.nolix.systemapi.guiapi.canvasuniversalapi.IBackground;
+import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ControlStyle<CS extends IControlStyle<CS>>
-extends MultiStateConfiguration<CS, ControlState>
-implements IControlStyle<CS> {
+public abstract class ControlStyle<
+	ECS extends IControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>
+>
+extends BaseControlStyle<ECS>
+implements IControlStyle<ECS> {
 	
 	//constant
-	public static final double DEFAULT_OPACITY = 1.0;
+	public static final int DEFAULT_BORDER_THICKNESS = 0;
 	
 	//constant
-	public static final Font DEFAULT_FONT = Font.ARIAL;
+	public static final IColor DEFAULT_BORDER_COLOR = Color.BLACK;
 	
 	//constant
-	public static final boolean DEFAULT_BOLD_TEXT_FLAG = false;
+	public static final IBackground DEFAULT_BACKGROUND = Background.TRANSPARENT_BACKGROUND;
 	
 	//constant
-	public static final int DEAULT_TEXT_SIZE = 20;
+	public static final int DEFAULT_PADDING = 0;
 	
 	//constant
-	public static final Color DEFAULT_TEXT_COLOR = Color.BLACK;
+	private static final String WIDTH_HEADER = PascalCaseCatalogue.WIDTH;
 	
 	//constant
-	private static final String OPACITY_HEADER = PascalCaseCatalogue.OPACITY;
+	private static final String HEIGHT_HEADER = PascalCaseCatalogue.HEIGHT;
+		
+	//constant
+	private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
 	
 	//constant
-	private static final String FONT_HEADER = PascalCaseCatalogue.FONT;
+	private static final String RIGHT_BORDER_THICKNESS_HEADER = "RightBorderThickness";
 	
 	//constant
-	private static final String BOLD_TEXT_FLAG_HEADER = "BoldText";
+	private static final String TOP_BORDER_THICKNESS_HEADER = "TopBorderThickness";
 	
 	//constant
-	private static final String TEXT_SIZE_HEADER = PascalCaseCatalogue.TEXT_SIZE;
+	private static final String BOTTOM_BORDER_THICKNESS_HEADER = "BottomBorderThickness";
 	
 	//constant
-	private static final String TEXT_COLOR_HEADER = "TextColor";
+	private static final String LEFT_BORDER_COLOR_HEADER = "LeftBorderColor";
+	
+	//constant
+	private static final String RIGHT_BORDER_COLOR_HEADER = "RightBorderColor";
+	
+	//constant
+	private static final String TOP_BORDER_COLOR_HEADER = "TopBorderColor";
+	
+	//constant
+	private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";
+	
+	//constant
+	private static final String BACKGROUND_HEADER = "Background";
+	
+	//constant
+	private static final String LEFT_PADDING_HEADER = "LeftPadding";
+	
+	//constant
+	private static final String RIGHT_PADDING_HEADER = "RightPadding";
+	
+	//constant
+	private static final String TOP_PADDING_HEADER = "TopPadding";
+	
+	//constant
+	private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
+	
+	//constant
+	private static final String BORDER_COLOR_HEADER = "BorderColor";
+	
+	//constant
+	private static final String BORDER_THICKNESS_HEADER = "BorderThickness";
+	
+	//constant
+	private static final String PADDING_HEADER = "Padding";
+	
+	//constant
+	private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR =
+	new AbsoluteOrRelativeIntValidator();
 	
 	//attribute
-	private final NonCascadingProperty<ControlState, Double> opacity =
+	private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width =
 	new NonCascadingProperty<>(
-		OPACITY_HEADER,
+		WIDTH_HEADER,
 		ControlState.class,
-		s -> getOpacityFromString(s.getSingleChildNodeHeader()),
-		Node::withChildNode,
-		this::setOpacityForState,
-		DEFAULT_OPACITY
+		AbsoluteOrRelativeInt::fromSpecification,
+		IAbsoluteOrRelativeInt::getSpecification,
+		this::setWidthForState
 	);
 	
 	//attribute
-	private final CascadingProperty<ControlState, Font> font =
-	new CascadingProperty<>(
-		FONT_HEADER,
+	private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height =
+	new NonCascadingProperty<>(
+		HEIGHT_HEADER,
 		ControlState.class,
-		Font::fromSpecification,
-		Node::fromEnum,
-		DEFAULT_FONT
+		AbsoluteOrRelativeInt::fromSpecification,
+		IAbsoluteOrRelativeInt::getSpecification,
+		this::setHeightForState
 	);
 	
 	//attribute
-	private final CascadingProperty<ControlState, Boolean> boldTextFlag =
-	new CascadingProperty<>(
-		BOLD_TEXT_FLAG_HEADER,
-		ControlState.class,
-		INode::getSingleChildNodeAsBoolean,
-		Node::withChildNode,
-		DEFAULT_BOLD_TEXT_FLAG
-	);
-	
-	//attribute
-	private final CascadingProperty<ControlState, Integer> textSize =
-	new CascadingProperty<>(
-		TEXT_SIZE_HEADER,
+	private final NonCascadingProperty<ControlState, Integer> leftBorderThickness =
+	new NonCascadingProperty<>(
+		LEFT_BORDER_THICKNESS_HEADER,
 		ControlState.class,
 		INode::getSingleChildNodeAsInt,
 		Node::withChildNode,
-		this::setTextSizeForState,
-		DEAULT_TEXT_SIZE
+		this::setLeftBorderThicknessForState,
+		DEFAULT_BORDER_THICKNESS
 	);
 	
 	//attribute
-	private final CascadingProperty<ControlState, IColor> textColor =
-	new CascadingProperty<>(
-		TEXT_COLOR_HEADER,
+	private final NonCascadingProperty<ControlState, Integer> rightBorderThickness =
+	new NonCascadingProperty<>(
+		RIGHT_BORDER_THICKNESS_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setRightBorderThicknessForState,
+		DEFAULT_BORDER_THICKNESS
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, Integer> topBorderThickness =
+	new NonCascadingProperty<>(
+		TOP_BORDER_THICKNESS_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setTopBorderThicknessForState,
+		DEFAULT_BORDER_THICKNESS
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, Integer> bottomBorderThickness =
+	new NonCascadingProperty<>(
+		BOTTOM_BORDER_THICKNESS_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setBottomBorderThicknessForState,
+		DEFAULT_BORDER_THICKNESS
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, IColor> leftBorderColor =
+	new NonCascadingProperty<>(
+		LEFT_BORDER_COLOR_HEADER,
 		ControlState.class,
 		Color::fromSpecification,
 		IColor::getSpecification,
-		DEFAULT_TEXT_COLOR
+		DEFAULT_BORDER_COLOR
 	);
 	
-	//constructor
-	protected ControlStyle() {
-		super(ControlState.BASE);
+	//attribute
+	private final NonCascadingProperty<ControlState, IColor> rightBorderColor =
+	new NonCascadingProperty<>(
+		RIGHT_BORDER_COLOR_HEADER,
+		ControlState.class,
+		Color::fromSpecification,
+		IColor::getSpecification,
+		DEFAULT_BORDER_COLOR
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, IColor> topBorderColor =
+	new NonCascadingProperty<>(
+		TOP_BORDER_COLOR_HEADER,
+		ControlState.class,
+		Color::fromSpecification,
+		IColor::getSpecification,
+		DEFAULT_BORDER_COLOR
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, IColor> bottomBorderColor =
+	new NonCascadingProperty<>(
+		BOTTOM_BORDER_COLOR_HEADER,
+		ControlState.class,
+		Color::fromSpecification,
+		IColor::getSpecification,
+		DEFAULT_BORDER_COLOR
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, IBackground> background =
+	new NonCascadingProperty<>(
+		BACKGROUND_HEADER,
+		ControlState.class,
+		Background::fromSpecification,
+		IBackground::getSpecification,
+		DEFAULT_BACKGROUND
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, Integer> leftPadding =
+	new NonCascadingProperty<>(
+		LEFT_PADDING_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setLeftPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, Integer> rightPadding =
+	new NonCascadingProperty<>(
+		RIGHT_PADDING_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setRightPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, Integer> topPadding =
+	new NonCascadingProperty<>(
+		TOP_PADDING_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setTopPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final NonCascadingProperty<ControlState, Integer> bottomPadding =
+	new NonCascadingProperty<>(
+		BOTTOM_PADDING_HEADER,
+		ControlState.class,
+		INode::getSingleChildNodeAsInt,
+		Node::withChildNode,
+		this::setBottomPaddingForState,
+		DEFAULT_PADDING
+	);
+	
+	//attribute
+	private final ForwardingProperty<ControlState, Integer> borderThickness =
+	new ForwardingProperty<>(
+		BORDER_THICKNESS_HEADER,
+		leftBorderThickness,
+		rightBorderThickness,
+		topBorderThickness,
+		bottomBorderThickness
+	);
+	
+	//attribute
+	private final ForwardingProperty<ControlState, IColor> borderColor =
+	new ForwardingProperty<>(
+		BORDER_COLOR_HEADER,
+		leftBorderColor,
+		rightBorderColor,
+		topBorderColor,
+		bottomBorderColor
+	);
+	
+	//attribute
+	private final ForwardingProperty<ControlState, Integer> padding =
+	new ForwardingProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
+	
+	//method
+	@Override
+	public final boolean definesHeightForState(final ControlState state) {
+		return height.hasValueForState(state);
 	}
 	
 	//method
 	@Override
-	@SuppressWarnings("unchecked")
-	public final <CS2 extends IControlStyle<CS2>> void addChild(final CS2 controlStyle) {
-		internalAddChild((CS)controlStyle);
+	public final boolean definesWidthForState(final ControlState state) {
+		return width.hasValueForState(state);
 	}
 	
 	//method
 	@Override
-	public final boolean getBoldTextFlagWhenHasState(final ControlState state) {
-		return boldTextFlag.getValueWhenHasState(state);
+	public final IBackground getBackgroundWhenHasState(final ControlState state) {
+		return background.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final Font getFontWhenHasState(final ControlState state) {
-		return font.getValueWhenHasState(state);
+	public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
+		return bottomBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final double getOpacityWhenHasState(final ControlState state) {
-		return opacity.getValueWhenHasState(state);
+	public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
+		return bottomBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final IColor getTextColorWhenHasState(final ControlState state) {
-		return textColor.getValueWhenHasState(state);
+	public final int getBottomPaddingWhenHasState(final ControlState state) {
+		return bottomPadding.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final int getTextSizeWhenHasState(final ControlState state) {
-		return textSize.getValueWhenHasState(state);
+	public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
+		return leftBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final void removeCustomBoldTextFlags() {
-		boldTextFlag.setUndefined();
+	public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
+		return leftBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final void removeCustomFonts() {
-		font.setUndefined();
+	public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
+		return height.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final void removeCustomOpacities() {
-		opacity.setUndefined();
+	public final int getLeftPaddingWhenHasState(final ControlState state) {
+		return leftPadding.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final void removeCustomTextColors() {
-		textColor.setUndefined();
+	public final IColor getRightBorderColorWhenHasState(final ControlState state) {
+		return rightBorderColor.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final void removeCustomTextSizes() {
-		textSize.setUndefined();
+	public final int getRightBorderThicknessWhenHasState(final ControlState state) {
+		return rightBorderThickness.getValueWhenHasState(state);
 	}
 	
 	//method
 	@Override
-	public final CS setBoldTextFlagForState(final ControlState state, final boolean boldTextFlag) {
+	public final int getRightPaddingWhenHasState(final ControlState state) {
+		return rightPadding.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public final IColor getTopBorderColorWhenHasState(final ControlState state) {
+		return topBorderColor.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public final int getTopBorderThicknessWhenHasState(final ControlState state) {
+		return topBorderThickness.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public final int getTopPaddingWhenHasState(final ControlState state) {
+		return topPadding.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
+		return width.getValueWhenHasState(state);
+	}
+	
+	//method
+	@Override
+	public final void removeCustomBackgrounds() {
+		background.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomBorderColors() {
+		borderColor.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomBorderThicknesses() {
+		removeCustomLeftBorderColors();
+		removeCustomRightBorderColors();
+		removeCustomTopBorderColors();
+		removeCustomBottomBorderColors();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomBottomBorderColors() {
+		bottomBorderColor.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomBottomBorderThicknesses() {
+		bottomBorderThickness.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomBottomPaddings() {
+		bottomPadding.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomHeights() {
+		height.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomLeftBorderColors() {
+		leftBorderColor.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomLeftBorderThicknesses() {
+		leftBorderThickness.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomLeftPaddings() {
+		leftPadding.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomPaddings() {
+		removeCustomLeftPaddings();
+		removeCustomRightPaddings();
+		removeCustomTopPaddings();
+		removeCustomBottomPaddings();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomRightBorderColors() {
+		rightBorderColor.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomRightBorderThicknesses() {
+		rightBorderThickness.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomRightPaddings() {
+		rightPadding.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomTopBorderColors() {
+		topBorderColor.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomTopBorderThicknesses() {
+		topBorderThickness.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomTopPaddings() {
+		topPadding.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final void removeCustomWidths() {
+		width.setUndefined();
+	}
+	
+	//method
+	@Override
+	public final ECS setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
+		return setBackgroundForState(state, Background.withColor(backgroundColor));
+	}
+	
+	//method
+	@Override
+	public final ECS setBackgroundColorGradientForState(
+		final ControlState state,
+		final IColorGradient backgroundColorGradient
+	) {
+		return setBackgroundForState(state, Background.withColorGradient(backgroundColorGradient));
+	}
+	
+	@Override
+	public final ECS setBackgroundForState(ControlState state, IBackground background) {
 		
-		this.boldTextFlag.setValueForState(state, boldTextFlag);
+		this.background.setValueForState(state, background);
 		
 		return asConcrete();
 	}
 	
 	//method
 	@Override
-	public final CS setFontForState(final ControlState state, final Font font) {
+	public final ECS setBackgroundImageForState(
+		final ControlState state,
+		final IImage backgroundImage,
+		final ImageApplication imageApplication
+	) {
+		return setBackgroundForState(
+			state,
+			Background.withImageAndImageApplication(backgroundImage, imageApplication)
+		);
+	}
+	
+	//method
+	@Override
+	public final ECS setBorderColorForState(final ControlState state, final IColor borderColor) {
 		
-		this.font.setValueForState(state, font);
+		this.borderColor.setValueForState(state, borderColor);
 		
 		return asConcrete();
 	}
 	
 	//method
 	@Override
-	public final CS setOpacityForState(final ControlState state, final double opacity) {
+	public final ECS setBorderThicknessForState(final ControlState state, final int borderThickness) {
 		
-		GlobalValidator.assertThat(opacity).thatIsNamed(LowerCaseCatalogue.OPACITY).isBetween(0.0, 1.0);
-		
-		this.opacity.setValueForState(state, opacity);
+		this.borderThickness.setValueForState(state, borderThickness);
 		
 		return asConcrete();
 	}
 	
 	//method
 	@Override
-	public final CS setTextColorForState(final ControlState state, final IColor textColor) {
+	public final ECS setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
 		
-		this.textColor.setValueForState(state, textColor);
+		this.bottomBorderColor.setValueForState(state, bottomBorderColor);
 		
 		return asConcrete();
 	}
 	
 	//method
 	@Override
-	public final CS setTextSizeForState(final ControlState state, final int textSize) {
+	public final ECS setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
 		
-		GlobalValidator.assertThat(textSize).thatIsNamed(LowerCaseCatalogue.TEXT_SIZE).isPositive();
+		GlobalValidator.assertThat(bottomBorderThickness).thatIsNamed("bottom border thickness").isNotNegative();
 		
-		this.textSize.setValueForState(state, textSize);
+		this.bottomBorderThickness.setValueForState(state, bottomBorderThickness);
 		
 		return asConcrete();
 	}
 	
 	//method
-	private double getOpacityFromString(final String string) {
+	@Override
+	public final ECS setBottomPaddingForState(final ControlState state, final int bottomPadding) {
 		
-		GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
+		GlobalValidator.assertThat(bottomPadding).thatIsNamed("bottom padding").isNotNegative();
 		
-		if (!string.endsWith("%")) {
-			return Double.valueOf(string);
-		}
+		this.bottomPadding.setValueForState(state, bottomPadding);
 		
-		return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setHeightForState(final ControlState state, final int height) {
+		
+		setHeightForState(state, AbsoluteOrRelativeInt.withIntValue(height));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setHeightInPercentOfViewAreaForState(
+		final ControlState state,
+		final double heightInPercentOfViewAreaHeight
+	) {
+		
+		setHeightForState(state, AbsoluteOrRelativeInt.withPercentage(heightInPercentOfViewAreaHeight));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
+		
+		this.leftBorderColor.setValueForState(state, leftBorderColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
+		
+		GlobalValidator.assertThat(leftBorderThickness).thatIsNamed("left border thickness").isNotNegative();
+		
+		this.leftBorderThickness.setValueForState(state, leftBorderThickness);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setLeftPaddingForState(final ControlState state, final int leftPadding) {
+		
+		GlobalValidator.assertThat(leftPadding).thatIsNamed("left padding").isNotNegative();
+		
+		this.leftPadding.setValueForState(state, leftPadding);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setPaddingForState(final ControlState state, final int padding) {
+		
+		this.padding.setValueForState(state, padding);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
+		
+		this.rightBorderColor.setValueForState(state, rightBorderColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
+		
+		GlobalValidator.assertThat(rightBorderThickness).thatIsNamed("right border thickness").isNotNegative();
+		
+		this.rightBorderThickness.setValueForState(state, rightBorderThickness);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setRightPaddingForState(final ControlState state, final int rightPadding) {
+		
+		GlobalValidator.assertThat(rightPadding).thatIsNamed("right padding").isNotNegative();
+		
+		this.rightPadding.setValueForState(state, rightPadding);
+		
+		return asConcrete();
+	}
+		
+	//method
+	@Override
+	public final ECS setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
+		
+		this.topBorderColor.setValueForState(state, topBorderColor);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
+		
+		GlobalValidator.assertThat(topBorderThickness).thatIsNamed("top border thickness").isNotNegative();
+		
+		this.topBorderThickness.setValueForState(state, topBorderThickness);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setTopPaddingForState(final ControlState state, final int topPadding) {
+		
+		GlobalValidator.assertThat(topPadding).thatIsNamed("top padding").isNotNegative();
+		
+		this.topPadding.setValueForState(state, topPadding);
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public final ECS setWidthForState(final ControlState state, final int width) {
+		
+		setWidthForState(state, AbsoluteOrRelativeInt.withIntValue(width));
+		
+		return asConcrete();
+	}
+	
+	//method
+	@Override
+	public ECS setWidthInPercentOfViewAreaWidthForState(
+		final ControlState state,
+		final double widthInPercentOfViewAreaWidth
+	) {
+		
+		setWidthForState(state, AbsoluteOrRelativeInt.withPercentage(widthInPercentOfViewAreaWidth));
+		
+		return asConcrete();
+	}
+	
+	//method
+	private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
+		
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(height);
+		
+		this.height.setValueForState(state, height);
+	}
+	
+	//method
+	private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
+		
+		ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(width);
+		
+		this.width.setValueForState(state, width);
 	}
 }

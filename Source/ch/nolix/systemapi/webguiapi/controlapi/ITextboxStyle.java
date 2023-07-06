@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.controlapi;
 
 //own imports
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface ITextboxStyle extends IExtendedControlStyle<ITextboxStyle> {}
+public interface ITextboxStyle extends IControlStyle<ITextboxStyle> {}

@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.containerapi;
 
 //own imports
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface ISingleContainerStyle extends IExtendedControlStyle<ISingleContainerStyle> {}
+public interface ISingleContainerStyle extends IControlStyle<ISingleContainerStyle> {}

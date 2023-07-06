@@ -9,14 +9,14 @@ import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
 import ch.nolix.system.webgui.main.ControlCssRuleBuilder;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ExtendedControlCssRuleBuilder<
 	EC extends IControl<EC, ECS>,
-	ECS extends IExtendedControlStyle<ECS>
+	ECS extends IControlStyle<ECS>
 >
 extends ControlCssRuleBuilder<EC, ECS> {
 	

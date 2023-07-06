@@ -4,11 +4,11 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 //own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.structureproperty.GridType;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IGridStyle extends IExtendedControlStyle<IGridStyle> {
+public interface IGridStyle extends IControlStyle<IGridStyle> {
 	
 	//method declaration
 	int getChildControlMarginWhenHasState(ControlState state);

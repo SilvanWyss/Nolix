@@ -13,12 +13,12 @@ import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.containerapi.IContainer;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //class
 public abstract class Container<
 	C extends IContainer<C, ECS>,
-	ECS extends IExtendedControlStyle<ECS>
+	ECS extends IControlStyle<ECS>
 >
 extends Control<C, ECS> implements IContainer<C, ECS> {
 	

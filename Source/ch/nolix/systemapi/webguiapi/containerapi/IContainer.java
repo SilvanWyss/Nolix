@@ -3,13 +3,13 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IExtendedControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
 public interface IContainer<
 	C extends IContainer<C, ECS>,
-	ECS extends IExtendedControlStyle<ECS>
+	ECS extends IControlStyle<ECS>
 >
 extends Clearable, IControl<C, ECS> {
 		
