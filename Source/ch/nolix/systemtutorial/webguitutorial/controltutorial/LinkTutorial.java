@@ -6,7 +6,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.control.Link;
+import ch.nolix.system.webgui.atomiccontrol.Link;
 
 public final class LinkTutorial {
 	

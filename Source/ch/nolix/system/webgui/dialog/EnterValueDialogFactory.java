@@ -4,17 +4,17 @@ package ch.nolix.system.webgui.dialog;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Label;
-import ch.nolix.system.webgui.control.Textbox;
-import ch.nolix.system.webgui.control.ValidationLabel;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.Textbox;
+import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
-import ch.nolix.systemapi.webguiapi.controlapi.IButton;
-import ch.nolix.systemapi.webguiapi.controlapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 

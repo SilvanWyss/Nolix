@@ -2,10 +2,10 @@ package ch.nolix.systemtutorial.webguitutorial.controltutorial;
 
 import ch.nolix.system.application.main.SecureServer;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 
 /**
  * The {@link SecureButtonTutorial} does the same as the {@link ButtonTutorial}, but

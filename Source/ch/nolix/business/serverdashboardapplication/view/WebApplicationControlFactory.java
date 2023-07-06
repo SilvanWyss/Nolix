@@ -4,11 +4,11 @@ package ch.nolix.business.serverdashboardapplication.view;
 //own imports
 import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class

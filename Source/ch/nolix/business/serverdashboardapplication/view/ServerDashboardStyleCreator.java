@@ -5,13 +5,13 @@ package ch.nolix.business.serverdashboardapplication.view;
 import ch.nolix.system.element.style.BaseStyle;
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 
 //class
 final class ServerDashboardStyleCreator {

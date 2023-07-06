@@ -4,21 +4,21 @@ package ch.nolix.template.webgui.style;
 //own imports
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.Link;
+import ch.nolix.system.webgui.atomiccontrol.Textbox;
+import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.container.Container;
 import ch.nolix.system.webgui.container.Grid;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Label;
-import ch.nolix.system.webgui.control.Link;
-import ch.nolix.system.webgui.control.Textbox;
-import ch.nolix.system.webgui.control.ValidationLabel;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.LinearContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class

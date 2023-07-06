@@ -5,13 +5,13 @@ package ch.nolix.template.webapplication;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class

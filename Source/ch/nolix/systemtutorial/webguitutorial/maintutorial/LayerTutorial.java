@@ -5,7 +5,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class LayerTutorial {

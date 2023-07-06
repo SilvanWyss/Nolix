@@ -7,10 +7,10 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Label;
-import ch.nolix.system.webgui.control.Textbox;
-import ch.nolix.system.webgui.control.ValidationLabel;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.atomiccontrol.Textbox;
+import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 
 public final class ValidationLabelTutorial {

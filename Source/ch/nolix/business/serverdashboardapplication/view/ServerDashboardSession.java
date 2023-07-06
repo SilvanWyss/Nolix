@@ -6,11 +6,11 @@ import ch.nolix.businessapi.serverdashboardlogicapi.IWebApplicationSheet;
 import ch.nolix.businessapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.LabelRole;
 
 //class
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {

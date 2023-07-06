@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.systemapi.webguiapi.controlapi.ILabelStyle;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
 
 //interface
 public interface ITabContainer

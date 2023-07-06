@@ -6,11 +6,11 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.control.Button;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.dialog.EnterValueDialogFactory;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 
 public final class EnterValueDialogFactoryTutorial {
 	

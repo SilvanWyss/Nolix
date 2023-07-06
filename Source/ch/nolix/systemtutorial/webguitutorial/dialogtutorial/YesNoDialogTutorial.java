@@ -6,11 +6,11 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.element.style.DeepStyle;
 import ch.nolix.system.element.style.Style;
-import ch.nolix.system.webgui.control.Button;
+import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.dialog.YesNoDialogFactory;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.controlapi.ButtonRole;
 
 public final class YesNoDialogTutorial {
 	

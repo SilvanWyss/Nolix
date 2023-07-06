@@ -6,7 +6,7 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
-import ch.nolix.system.webgui.control.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class ImageControlTutorial {

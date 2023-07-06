@@ -7,11 +7,11 @@ import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.system.webgui.control.ImageControl;
-import ch.nolix.system.webgui.control.Label;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
+import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.webguiapi.controlapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class PartialRefreshTutorial {

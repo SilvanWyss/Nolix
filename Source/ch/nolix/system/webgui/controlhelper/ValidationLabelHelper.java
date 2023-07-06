@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.controlhelper;
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.systemapi.webguiapi.controlapi.IValidationLabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
