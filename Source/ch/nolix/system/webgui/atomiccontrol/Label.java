@@ -53,7 +53,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	);
 	
 	//attribute
-	private final MutableValue<String> value = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
+	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 	
 	//constructor
 	public Label() {
@@ -83,7 +83,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	//method
 	@Override
 	public String getText() {
-		return value.getValue();
+		return text.getValue();
 	}
 	
 	//method
@@ -135,9 +135,9 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	@Override
 	public ILabel setText(final String text) {
 		
-		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotBlank();
+		GlobalValidator.assertThat(text).thatIsNamed(LowerCaseCatalogue.TEXT).isNotNull();
 		
-		this.value.setValue(text);
+		this.text.setValue(text);
 		
 		return this;
 	}

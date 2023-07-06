@@ -3,7 +3,6 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
@@ -30,19 +29,16 @@ public final class LabelTest extends ControlTest<ILabel> {
 	
 	//method
 	@TestCase
-	public void testCase_setText_whenGivenTextIsBlank() {
+	public void testCase_setText_whenGivenTextIsEmpty() {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		testUnit.setText("Lorem Ipsum");
 		
-		//execution & verification
-		expectRunning(() -> testUnit.setText(" "))
-		.throwsException().ofType(InvalidArgumentException.class)
-		.withMessage("The given text is blank.");
+		//execution
+		testUnit.setText("");
 		
 		//verification
-		expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
+		expect(testUnit.getText()).isEqualTo("");
 	}
 	
 	//method
@@ -55,7 +51,8 @@ public final class LabelTest extends ControlTest<ILabel> {
 		
 		//execution & verification
 		expectRunning(() -> testUnit.setText(null))
-		.throwsException().ofType(ArgumentIsNullException.class)
+		.throwsException()
+		.ofType(ArgumentIsNullException.class)
 		.withMessage("The given text is null.");
 		
 		//verification
