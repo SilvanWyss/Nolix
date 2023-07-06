@@ -141,6 +141,12 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
+	public boolean containsSelectedItem() {
+		return getOriItems().containsAny(IItemMenuItem::isSelected);
+	}
+	
+	//method
+	@Override
 	public final String getIdByItemText(final String itemText) {
 		return getOriItemByText(itemText).getId();
 	}

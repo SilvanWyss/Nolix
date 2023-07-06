@@ -52,6 +52,9 @@ extends Clearable, IControl<IM, IMS> {
 	boolean containsItemWithText(String text);
 	
 	//method declaration
+	boolean containsSelectedItem();
+	
+	//method declaration
 	String getIdByItemText(String itemText);
 	
 	//method declaration
