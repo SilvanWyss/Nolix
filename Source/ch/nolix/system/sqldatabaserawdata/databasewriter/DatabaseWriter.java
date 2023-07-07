@@ -19,7 +19,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class DatabaseWriter implements IDatabaseWriter {
 	
-	//static attribute
+	//static method
 	public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool,
