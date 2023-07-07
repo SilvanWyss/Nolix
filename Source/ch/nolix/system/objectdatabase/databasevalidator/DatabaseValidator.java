@@ -11,13 +11,13 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IDatabaseValida
 //class
 public final class DatabaseValidator implements IDatabaseValidator {
 	
-	//static attribute
-	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	//constant
+	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 	
 	//method
 	@Override
 	public void assertCanSaveChanges(final IDatabase database) {
-		if (!databaseHelper.canSaveChanges(database)) {
+		if (!DATABASE_HELPER.canSaveChanges(database)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(database, "cannot save changes");
 		}
 	}
