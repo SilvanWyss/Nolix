@@ -4,6 +4,7 @@ package ch.nolix.system.sqldatabaserawdata.databasereader;
 //Java imports
 import java.util.List;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.sqldatabaserawdata.databasedto.LoadedEntityDto;
@@ -15,8 +16,8 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 final class LoadedEntityDtoMapper {
 	
-	//static attribute
-	private static final ContentFieldMapper contentFieldMapper = new ContentFieldMapper();
+	//constant
+	private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 	
 	//method
 	public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
@@ -53,7 +54,12 @@ final class LoadedEntityDtoMapper {
 		sqlRecordValueIterator.next();
 		
 		for (final var ccd : contentColumnDefinitions) {
-			contentFields.addAtEnd(contentFieldMapper.createContentFieldFromString(sqlRecordValueIterator.next(), ccd));
+			contentFields.addAtEnd(
+				CONTENT_FIELD_MAPPER.createContentFieldFromString(
+					sqlRecordValueIterator.next(),
+					ccd
+				)
+			);
 		}
 		
 		return contentFields;
