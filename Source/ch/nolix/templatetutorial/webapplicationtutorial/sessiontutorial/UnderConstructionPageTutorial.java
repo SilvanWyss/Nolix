@@ -1,4 +1,4 @@
-package ch.nolix.templatetutorial.webapplicationtutorial;
+package ch.nolix.templatetutorial.webapplicationtutorial.sessiontutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programatom.voidobject.VoidObject;
