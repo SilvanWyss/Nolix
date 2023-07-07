@@ -15,8 +15,8 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 	
-	//static attribute
-	private static final DatabaseInspector databaseInspector = new DatabaseInspector();
+	//constant
+	private static final DatabaseInspector DATABASE_INSPECTOR = new DatabaseInspector();
 		
 	//constructor
 	protected DatabaseAdapter(
@@ -29,7 +29,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 		this(
 			databaseName,
 			sqlConnectionPool,
-			databaseInspector.createTableDefinitionsFrom(schemaAdapter),
+			DATABASE_INSPECTOR.createTableDefinitionsFrom(schemaAdapter),
 			sqlSyntaxProvider
 		);
 		
