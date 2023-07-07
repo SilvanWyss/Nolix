@@ -9,10 +9,16 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public record HttpRequest(String content) {
 	
-	//constants
+	//constant
 	public static final String ACCEPT_HEADER = "Accept";
+	
+	//constant
 	public static final String CONTENT_TYPE_HEADER = "Content-Type";
+	
+	//constant
 	public static final String HOST_HEADER = "Host";
+	
+	//constant
 	public static final String HTTP_HEADER = "HTTP";
 	
 	//static method
