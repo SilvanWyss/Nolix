@@ -124,10 +124,11 @@ public final class ClosedIntervalTest extends Test {
 	public void testCase_equals_whenNullIsGiven() {
 		
 		//setup
+		final ClosedInterval nullCloedInterval = null;
 		final var testUnit = new ClosedInterval(0.0, 1.0);
 		
 		//execution
-		final var result = testUnit.equals(null);
+		final var result = testUnit.equals(nullCloedInterval);
 		
 		//verification
 		expectNot(result);
