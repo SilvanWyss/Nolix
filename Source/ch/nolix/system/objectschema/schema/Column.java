@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -30,18 +31,18 @@ public final class Column extends SchemaObject implements IColumn {
 	private static final ParametrizedPropertyType INITIAL_PROPERTY_TYPE =
 	new ParametrizedValueType<>(DataType.INTEGER_4BYTE);
 	
-	//static attribute
-	private static final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =
+	//constant
+	private static final ParametrizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
 	new ParametrizedPropertyTypeMapper();
 	
-	//static attribute
-	private static final ColumnMutationValidator mutationValidator = new ColumnMutationValidator();
+	//constant
+	private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
 	
-	//static attribute
-	private static final ColumnMutationExecutor mutationExecutor = new ColumnMutationExecutor();
+	//constant
+	private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
 	
-	//static attribute
-	private static final IColumnHelper columnHelper = new ColumnHelper();
+	//constant
+	private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 	
 	//static method
 	public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
@@ -49,7 +50,7 @@ public final class Column extends SchemaObject implements IColumn {
 		new Column(
 			columnDto.getId(),
 			columnDto.getName(),
-			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromDto(
+			PARAMETRIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromDto(
 				columnDto.getParametrizedPropertyType(),
 				tables
 			)
@@ -99,8 +100,8 @@ public final class Column extends SchemaObject implements IColumn {
 	//metod
 	@Override
 	public void delete() {
-		mutationValidator.assertCanDeleteColumn(this);
-		mutationExecutor.deleteColumn(this);
+		MUTATION_VALIDATOR.assertCanDeleteColumn(this);
+		MUTATION_EXECUTOR.deleteColumn(this);
 	}
 	
 	//method
@@ -125,7 +126,7 @@ public final class Column extends SchemaObject implements IColumn {
 	@Override
 	public Table getParentTable() {
 		
-		columnHelper.assertBelongsToTable(this);
+		COLUMN_HELPER.assertBelongsToTable(this);
 		
 		return parentTable;
 	}
@@ -134,7 +135,7 @@ public final class Column extends SchemaObject implements IColumn {
 	@Override
 	public boolean isEmpty() {
 		
-		if (columnHelper.isNew(this)) {
+		if (COLUMN_HELPER.isNew(this)) {
 			return true;
 		}
 		
@@ -151,8 +152,8 @@ public final class Column extends SchemaObject implements IColumn {
 	@Override
 	public Column setName(final String name) {
 		
-		mutationValidator.assertCanSetNameToColumn(this, name);
-		mutationExecutor.setHeaderToColumn(this, name);
+		MUTATION_VALIDATOR.assertCanSetNameToColumn(this, name);
+		MUTATION_EXECUTOR.setHeaderToColumn(this, name);
 		
 		return this;
 	}
@@ -163,8 +164,8 @@ public final class Column extends SchemaObject implements IColumn {
 		final IParametrizedPropertyType parametrizedPropertyType
 	) {
 		
-		mutationValidator.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
-		mutationExecutor.setParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
+		MUTATION_VALIDATOR.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
+		MUTATION_EXECUTOR.setParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
 		
 		return this;
 	}
@@ -192,7 +193,7 @@ public final class Column extends SchemaObject implements IColumn {
 	//method
 	IContainer<IColumn> getOriBackReferencingColumns() {
 		
-		if (!columnHelper.isAReferenceColumn(this)) {
+		if (!COLUMN_HELPER.isAReferenceColumn(this)) {
 			return new LinkedList<>();
 		}
 		
@@ -201,13 +202,13 @@ public final class Column extends SchemaObject implements IColumn {
 	
 	//method
 	RawSchemaAdapter internalGetRefRawSchemaAdapter() {
-		return ((Database)columnHelper.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
+		return ((Database)COLUMN_HELPER.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
 	}
 	
 	//method
 	boolean isBackReferenced() {
 		
-		if (!columnHelper.isAReferenceColumn(this)) {
+		if (!COLUMN_HELPER.isAReferenceColumn(this)) {
 			return false;
 		}
 		
@@ -245,16 +246,16 @@ public final class Column extends SchemaObject implements IColumn {
 	//method
 	private IContainer<IColumn> getOriBackReferencingColumnsWhenIsReferenceColumn() {
 		
-		if (columnHelper.belongsToDatabase(this)) {
+		if (COLUMN_HELPER.belongsToDatabase(this)) {
 			return
-			columnHelper
+			COLUMN_HELPER
 			.getParentDatabase(this)
 			.getOriTables()
-			.toFromGroups(t -> t.getOriColumns().getOriSelected(c -> columnHelper.referencesBackGivenColumn(c, this)));
+			.toFromGroups(t -> t.getOriColumns().getOriSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getOriColumns().getOriSelected(c -> columnHelper.referencesBackGivenColumn(c, this));
+			return getParentTable().getOriColumns().getOriSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
 		}
 		
 		return new LinkedList<>();
@@ -263,16 +264,16 @@ public final class Column extends SchemaObject implements IColumn {
 	//method
 	private boolean isBackReferencedWhenIsAnyReferenceColumn() {
 		
-		if (columnHelper.belongsToDatabase(this)) {
+		if (COLUMN_HELPER.belongsToDatabase(this)) {
 			return
-			columnHelper
+			COLUMN_HELPER
 			.getParentDatabase(this)
 			.getOriTables()
-			.containsAny(t -> t.getOriColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this)));
+			.containsAny(t -> t.getOriColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getOriColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, this));
+			return getParentTable().getOriColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
 		}
 		
 		return false;
