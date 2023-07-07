@@ -18,7 +18,7 @@ public record NewEntityDto(String id,  ImmutableList<IContentFieldDto> contentFi
 	}
 	
 	//constructor
-	public NewEntityDto(final String id, final ImmutableList<IContentFieldDto> contentFields) { //NOSONAR
+	public NewEntityDto(final String id, final ImmutableList<IContentFieldDto> contentFields) {
 		
 		if (id == null) {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);

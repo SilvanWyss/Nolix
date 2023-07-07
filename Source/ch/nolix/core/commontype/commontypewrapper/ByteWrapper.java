@@ -59,7 +59,7 @@ public final class ByteWrapper {
 	 * @param bit7
 	 * @param bit8
 	 */
-	public ByteWrapper( //NOSONAR
+	public ByteWrapper( //NOSONAR: A byte consists of 8 bits.
 		final int bit1,
 		final int bit2,
 		final int bit3,

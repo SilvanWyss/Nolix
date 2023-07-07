@@ -38,7 +38,7 @@ public final class GlobalInputStreamHelper {
 				}
 				
 				bytes.addAtEnd((byte)lByte);
-			} catch (final Exception exception) { //NOSONAR
+			} catch (final Exception exception) { //NOSONAR: At this place any Exception should be caught.
 				return null;
 			}
 		}

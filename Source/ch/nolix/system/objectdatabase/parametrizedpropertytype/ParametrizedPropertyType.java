@@ -4,4 +4,4 @@ package ch.nolix.system.objectdatabase.parametrizedpropertytype;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType implements IParametrizedPropertyType {} //NOSONAR
+public abstract class ParametrizedPropertyType implements IParametrizedPropertyType {}

@@ -24,7 +24,7 @@ public record HttpRequest(String content) {
 	}
 	
 	//constructor
-	public HttpRequest(final String content) { //NOSONAR
+	public HttpRequest(final String content) {
 		
 		GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
 		
