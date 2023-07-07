@@ -7,27 +7,27 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class GlobalControlFactory {
 	
-	//static attribute
-	private static final ControlFactory controlFactory = new ControlFactory();
+	//constant
+	private static final ControlFactory CONTROL_FACTORY = new ControlFactory();
 	
 	//static method
 	public static boolean canCreateControlOfType(final String type) {
-		return controlFactory.canCreateControlOfType(type);
+		return CONTROL_FACTORY.canCreateControlOfType(type);
 	}
 	
 	//static method
 	public static Control<?, ?> createControlFromSpecification(final INode<?> specification) {
-		return controlFactory.createControlFromSpecification(specification);
+		return CONTROL_FACTORY.createControlFromSpecification(specification);
 	}
 	
 	//static method
 	public static Control<?, ?> createControlOfType(final String type) {
-		return controlFactory.createControlOfType(type);
+		return CONTROL_FACTORY.createControlOfType(type);
 	}
 	
 	//static method
 	public static void registerControlClass(@SuppressWarnings("unchecked") final Class<Control<?, ?>>... controlClasses) {
-		controlFactory.registerControlClass(controlClasses);
+		CONTROL_FACTORY.registerControlClass(controlClasses);
 	}
 	
 	//constructor
