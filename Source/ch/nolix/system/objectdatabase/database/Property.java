@@ -180,29 +180,38 @@ public abstract class Property implements IProperty {
 	
 	//method
 	private DatabaseObjectState getStateWhenBelongsToEntity() {
-		switch (getOriParentEntity().getState()) {
-			case NEW:
-				return DatabaseObjectState.NEW;
-			case LOADED:
-				return DatabaseObjectState.LOADED;	
-			case EDITED:
-				
-				if (!edited) {
-					return DatabaseObjectState.LOADED;	 
-				}
-				
-				return DatabaseObjectState.EDITED;
-			case DELETED:
-				return DatabaseObjectState.DELETED;
-			case CLOSED:
-				return DatabaseObjectState.CLOSED;
-			default:
+		
+		final var parentEntityState = getOriParentEntity().getState();
+		
+		return
+		switch (parentEntityState) {
+			case NEW ->
+				DatabaseObjectState.NEW;
+			case LOADED ->
+				DatabaseObjectState.LOADED;	
+			case EDITED ->
+				getStateWhenParentPropertyIsEdited();
+			case DELETED ->
+				DatabaseObjectState.DELETED;
+			case CLOSED ->
+				DatabaseObjectState.CLOSED;
+			default ->
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(
 					LowerCaseCatalogue.STATE,
 					getOriParentEntity().getState()
 				);
+		};
+	}
+	
+	//method
+	private DatabaseObjectState getStateWhenParentPropertyIsEdited() {
+		
+		if (!edited) {
+			return DatabaseObjectState.LOADED;	 
 		}
+		
+		return DatabaseObjectState.EDITED;
 	}
 	
 	//method
