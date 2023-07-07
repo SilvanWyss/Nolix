@@ -20,8 +20,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class SchemaAdapter implements ISchemaAdapter {
 	
-	//static attribute
-	private static final DatabaseInitializer databaseInitializer = new DatabaseInitializer();
+	//constant
+	private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 	
 	//static method
 	public static SchemaAdapter forDatabaseNode(final IMutableNode<?> databaseNode) {
@@ -45,7 +45,7 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	//constructor
 	private SchemaAdapter(final IMutableNode<?> databaseNode) {
 		
-		databaseInitializer.initializeDatabaseIfNotInitialized(databaseNode);
+		DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(databaseNode);
 		
 		schemaReader = new SchemaReader(databaseNode);
 		schemaWriter = new SchemaWriter(databaseNode);
