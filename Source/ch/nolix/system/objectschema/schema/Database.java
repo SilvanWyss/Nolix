@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -13,11 +14,11 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public final class Database extends SchemaObject implements IDatabase {
 	
-	//static attribute
-	private final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	//constant
+	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 	
-	//static attribute
-	private static final DatabaseMutationExecutor mutationExecutor = new DatabaseMutationExecutor();
+	//constant
+	private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
 	
 	//attribute
 	private final String name;
@@ -34,7 +35,7 @@ public final class Database extends SchemaObject implements IDatabase {
 	//constructor
 	public Database(final String name) {
 		
-		databaseHelper.assertCanSetGivenNameToDatabase(name);
+		DATABASE_HELPER.assertCanSetGivenNameToDatabase(name);
 		
 		this.name = name;
 	}
@@ -43,8 +44,8 @@ public final class Database extends SchemaObject implements IDatabase {
 	@Override
 	public Database addTable(final ITable table) {
 		
-		databaseHelper.assertCanAddGivenTable(this, table);
-		mutationExecutor.addTableToDatabase(this, (Table)table);
+		DATABASE_HELPER.assertCanAddGivenTable(this, table);
+		MUTATION_EXECUTOR.addTableToDatabase(this, (Table)table);
 		
 		return this;
 	}
@@ -111,7 +112,7 @@ public final class Database extends SchemaObject implements IDatabase {
 	//method
 	RawSchemaAdapter internalGetRefRawSchemaAdapter() {
 		
-		databaseHelper.assertIsLinkedWithRealDatabase(this);
+		DATABASE_HELPER.assertIsLinkedWithRealDatabase(this);
 		
 		return rawSchemaAdapter;
 	}
@@ -148,14 +149,14 @@ public final class Database extends SchemaObject implements IDatabase {
 	
 	//method
 	private boolean needsToLoadTablesFromDatabase() {
-		return (databaseHelper.isLoaded(this) && !hasLoadedTablesFromDatabase());
+		return (DATABASE_HELPER.isLoaded(this) && !hasLoadedTablesFromDatabase());
 	}
 	
 	//method
 	private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 		
 		GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
-		databaseHelper.assertIsNotLinkedWithRealDatabase(this);
+		DATABASE_HELPER.assertIsNotLinkedWithRealDatabase(this);
 		
 		internalSetLoaded();
 		this.rawSchemaAdapter = rawSchemaAdapter;
