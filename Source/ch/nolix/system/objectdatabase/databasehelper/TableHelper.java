@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.databasehelper;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
@@ -12,8 +13,8 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 //class
 public final class TableHelper extends DatabaseObjectHelper implements ITableHelper {
 	
-	//static attribute
-	private static final EntityHelper entityHelper = new EntityHelper();
+	//constant
+	private static final EntityHelper ENTITY_HELPER = new EntityHelper();
 	
 	//method
 	@Override
@@ -22,7 +23,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		table
 		.technicalGetRefEntitiesInLocalData()		
 		.containsOnly(
-			e -> entityHelper.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
+			e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a BootstrapMethodError.
 		);
 	}
 	
@@ -37,7 +38,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
 		return
 		canInsertEntity(table)
-		&& entityHelper.canBeInsertedIntoTable(entity)
+		&& ENTITY_HELPER.canBeInsertedIntoTable(entity)
 		&& !hasInsertedGivenEntityInLocalData(table, entity);
 	}
 	
@@ -68,7 +69,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	//method
 	@Override
 	public boolean hasChanges(final ITable<?> table) {
-		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !entityHelper.isLoaded(e));
+		return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !ENTITY_HELPER.isLoaded(e));
 	}
 	
 	//method
