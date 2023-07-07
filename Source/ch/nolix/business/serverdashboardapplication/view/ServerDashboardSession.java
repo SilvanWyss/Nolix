@@ -15,11 +15,11 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 //class
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 	
-	//static attribute
+	//constant
 	private static final WebApplicationControlFactory WEB_APPLICATION_CONTROL_FACTORY =
 	new WebApplicationControlFactory();
 	
-	//static attribute
+	//constant
 	private static final ServerDashboardStyleCreator SERVER_DASHBOARD_STYLE_CREATOR = new ServerDashboardStyleCreator();
 	
 	//method
