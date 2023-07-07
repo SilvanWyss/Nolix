@@ -11,12 +11,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 final class TestCaseRun {
 	
-	//static attribute
-	private static final StackTraceElementFinder stackTraceElementFinder = new StackTraceElementFinder();
-	
 	//constant
 	public static final long MAX_DURATION_IN_MILLISECONDS = 5000;
 	
+	//constant
+	private static final StackTraceElementFinder STACK_TRACE_ELEMENT_FINDER = new StackTraceElementFinder();
+		
 	//attribute
 	private final TestCaseWrapper testCaseWrapper;
 	
@@ -91,7 +91,7 @@ final class TestCaseRun {
 					new Error(
 						"Reached timeout.",
 						testCaseWrapper.getOriTestCase().getName(),
-						stackTraceElementFinder
+						STACK_TRACE_ELEMENT_FINDER
 						.getStackTraceElementsOfRunningMethod(testCaseWrapper.getOriTestCase())
 						.getOriFirst()
 						.getLineNumber()
