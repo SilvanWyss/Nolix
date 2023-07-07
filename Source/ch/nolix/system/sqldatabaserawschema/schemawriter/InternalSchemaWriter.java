@@ -13,8 +13,8 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWrit
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
 	
-	//static attribute
-	private static final SchemaDtoMapper schemaDtoMapper = new SchemaDtoMapper();
+	//constant
+	private static final SchemaDtoMapper SCHEMA_DTO_MAPPER = new SchemaDtoMapper();
 	
 	//attribute
 	private final ISchemaWriter sqlSchemaWriter;
@@ -31,13 +31,13 @@ final class InternalSchemaWriter implements ChangeRequestable {
 	public void addColumn(final String tableName, final IColumnDto column) {
 		sqlSchemaWriter.addColumn(
 			TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-			schemaDtoMapper.createQslColumnDtoFrom(column)
+			SCHEMA_DTO_MAPPER.createQslColumnDtoFrom(column)
 		);
 	}
 	
 	//method
 	public void addTable(final ITableDto table) {
-		sqlSchemaWriter.addTable(schemaDtoMapper.createQslTableDtoFrom(table));
+		sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.createQslTableDtoFrom(table));
 	}
 	
 	//method
