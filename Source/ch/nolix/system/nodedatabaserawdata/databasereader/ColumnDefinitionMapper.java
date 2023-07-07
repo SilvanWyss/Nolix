@@ -13,11 +13,11 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 //class
 public final class ColumnDefinitionMapper {
 	
-	//static attribute
-	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
+	//constant
+	private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 	
-	//static attribute
-	private static final ParametrizedPropertyTypeNodeSearcher parametrizedPropertyTypeNodeSearcher =
+	//constant
+	private static final ParametrizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
 	new ParametrizedPropertyTypeNodeSearcher();
 	
 	//method
@@ -39,28 +39,28 @@ public final class ColumnDefinitionMapper {
 	private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		return
 		getDataTypeFromParametrizedPropertyTypeNode(
-			columnNodeSearcher.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode)
+			COLUMN_NODE_SEARCHER.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode)
 		);
 	}
 	
 	//method
 	private String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNodeSearcher.getOriIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return COLUMN_NODE_SEARCHER.getOriIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNodeSearcher.getOriNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
-		columnNodeSearcher.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		COLUMN_NODE_SEARCHER.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		final var propertyTypeNode =
-		parametrizedPropertyTypeNodeSearcher.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -76,7 +76,9 @@ public final class ColumnDefinitionMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(IMutableNode<?> parametrizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
-			parametrizedPropertyTypeNodeSearcher.getOriDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode)
+			PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriDataTypeNodeFromParametriedPropertyTypeNode(
+				parametrizedPropertyTypeNode
+			)
 		);
 	}
 }
