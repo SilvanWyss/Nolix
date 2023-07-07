@@ -32,8 +32,8 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class Matrix {
 	
-	//static attribute
-	private static final Random random = new Random();
+	//constant
+	private static final Random RANDOM = new Random();
 	
 	//multi-attribute
 	private double[][] values;
@@ -109,7 +109,7 @@ public final class Matrix {
 			
 			//Iterates the cells of the current row.
 			for (var j = 0; j < matrix.getColumnCount(); j++) {
-				matrix.values[i][j] = random.nextInt(100);
+				matrix.values[i][j] = RANDOM.nextInt(100);
 			}
 		}
 		
