@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.template.webapplication;
+package ch.nolix.template.webapplication.session;
 
 //own imports
 import ch.nolix.system.application.webapplication.WebClientSession;

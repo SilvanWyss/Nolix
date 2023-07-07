@@ -8,7 +8,7 @@ import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
-import ch.nolix.template.webapplication.UnderConstructionPageSession;
+import ch.nolix.template.webapplication.session.UnderConstructionPageSession;
 
 public final class UnderConstructionPageTutorial {
 	
