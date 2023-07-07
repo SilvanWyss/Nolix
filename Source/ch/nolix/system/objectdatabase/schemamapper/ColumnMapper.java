@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.schemamapper;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -13,11 +14,11 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class ColumnMapper implements IColumnMapper {
 	
-	//static attribute
-	private static final EntityCreator entityCreator = new EntityCreator();
+	//constant
+	private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 	
-	//static attribute
-	private static final IParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =
+	//constant
+	private static final IParametrizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
 	new ParametrizedPropertyTypeMapper();
 	
 	//method
@@ -29,7 +30,7 @@ public final class ColumnMapper implements IColumnMapper {
 		return
 		new Column(
 			property.getName(),
-			parametrizedPropertyTypeMapper.createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
+			PARAMETRIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
 				property,
 				referencableTables
 			)
@@ -45,7 +46,7 @@ public final class ColumnMapper implements IColumnMapper {
 	) {
 		return
 		createColumnsFromGivenEntityUsingGivenReferencableTables(
-			entityCreator.createEmptyEntityOf(entityType),
+			ENTITY_CREATOR.createEmptyEntityOf(entityType),
 			referencableTables
 		);
 	}
