@@ -14,9 +14,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class WebSocketHandShakeResponse {
 	
-	//constants
+	//constant
 	public static final String WEB_SOCKET_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+	
+	//constant
 	public static final String SEC_WEBSOCKET_ACCEPT_HEADER = "Sec-WebSocket-Accept";
+	
+	//constant
 	public static final String SEC_WEBSOCKET_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
 	
 	//attributes
