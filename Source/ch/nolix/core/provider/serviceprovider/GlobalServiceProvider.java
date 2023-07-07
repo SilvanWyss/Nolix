@@ -7,17 +7,17 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 //class
 public final class GlobalServiceProvider {
 	
-	//static attribute
-	private static final ServiceProvider coreServiceProdiver = new ServiceProvider();
+	//constant
+	private static final ServiceProvider SERVICE_PROVIDER = new ServiceProvider();
 	
 	//static method
 	public static <S> S get(final Class<S> pInterface) {
-		return coreServiceProdiver.get(pInterface);
+		return SERVICE_PROVIDER.get(pInterface);
 	}
 	
 	//static method
 	public static <I, S extends I> void register(final Class<I> pInterface,	final S service) {
-		coreServiceProdiver.register(pInterface, service);
+		SERVICE_PROVIDER.register(pInterface, service);
 	}
 	
 	//static method
@@ -26,7 +26,7 @@ public final class GlobalServiceProvider {
 		final S service,
 		final WriteMode writeMode
 	) {
-		coreServiceProdiver.register(pInterface, service, writeMode);
+		SERVICE_PROVIDER.register(pInterface, service, writeMode);
 	}
 	
 	//constructor
