@@ -12,13 +12,13 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.ITableValidator
 //class
 public final class TableValidator implements ITableValidator {
 	
-	//static attribute
-	private static final ITableHelper tableHelper = new TableHelper();
+	//constant
+	private static final ITableHelper TABLE_HELPER = new TableHelper();
 	
 	//method
 	@Override
 	public void assertCanInsertGivenEntity(final ITable<?> table, final IEntity entity) {
-		if (!tableHelper.canInsertGivenEntity(table, entity)) {
+		if (!TABLE_HELPER.canInsertGivenEntity(table, entity)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
 				entity,
