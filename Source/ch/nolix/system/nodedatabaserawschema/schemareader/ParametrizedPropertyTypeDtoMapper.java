@@ -15,8 +15,8 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 //class
 public class ParametrizedPropertyTypeDtoMapper {
 	
-	//static attribute
-	private static final ParametrizedPropertyTypeNodeSearcher parametrizedPropertyTypeNodeSearcher =
+	//constant
+	private static final ParametrizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
 	new ParametrizedPropertyTypeNodeSearcher();
 	
 	//method
@@ -94,7 +94,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	) {
 		
 		final var backReferencedColumnNode =
-		parametrizedPropertyTypeNodeSearcher.getOriBackReferencedColumnIdNodeFromPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriBackReferencedColumnIdNodeFromPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -105,7 +105,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
-		parametrizedPropertyTypeNodeSearcher.getOriDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
 		
 		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
@@ -116,7 +116,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	) {
 		
 		final var propertyTypeNode =
-		parametrizedPropertyTypeNodeSearcher.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -129,7 +129,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	) {
 		
 		final var referencedTableIdNode =
-		parametrizedPropertyTypeNodeSearcher.getOriReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriReferencedTableIdNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
