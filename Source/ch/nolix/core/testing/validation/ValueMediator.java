@@ -17,7 +17,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  */
 public class ValueMediator<V> extends Mediator {
 
-	//attributes
+	//attribute
 	private final V value;
 	
 	//constructor

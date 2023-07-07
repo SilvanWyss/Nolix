@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferen
 public final class BaseParametrizedBackReferenceTypeDto extends ParametrizedPropertyTypeDto
 implements IBaseParametrizedBackReferenceTypeDto {
 	
-	//attributes
+	//attribute
 	private final String backReferencedColumnId;
 	
 	//constructor

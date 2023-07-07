@@ -98,8 +98,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	//attribute
 	private int elementCount;
 	
-	//optional attributes
+	//optional attribute
 	private LinkedListNode<E> firstNode;
+	
+	//optional attribute
 	private LinkedListNode<E> lastNode;
 	
 	//method

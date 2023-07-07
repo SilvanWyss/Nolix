@@ -13,9 +13,13 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Runnable;
 //class
 final class JobWrapper implements Runnable {
 	
-	//attributes
+	//attribute
 	private boolean finished;
+	
+	//attribute
 	private boolean running;
+	
+	//attribute
 	private final IAction job;
 	
 	//optional attribute

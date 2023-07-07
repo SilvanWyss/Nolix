@@ -13,10 +13,16 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestRun {
 	
-	//attributes
+	//attribute
 	private final BaseTest parentTest;
+	
+	//attribute
 	private final ILinePrinter linePrinter;
+	
+	//attribute
 	private boolean started;
+	
+	//attribute
 	private int runtimeInMilliseconds = -1;
 	
 	//constructor

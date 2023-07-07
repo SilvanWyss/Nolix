@@ -7,8 +7,10 @@ import java.lang.reflect.InvocationTargetException;
 //class
 final class ErrorCreator {
 	
-	//static attributes
+	//static attribute
 	private static final OccurancePlaceFinder occurancePlaceFinder = new OccurancePlaceFinder();
+	
+	//static attribute
 	private static final ThrowableHelper throwableHelper = new ThrowableHelper();
 	
 	//method

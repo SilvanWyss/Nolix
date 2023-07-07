@@ -12,9 +12,13 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 //class
 public final class MutableSpecificationValueExtractor extends Property {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTaker<INode<?>> setter;
+	
+	//attribute
 	private final IElementGetter<INode<?>> getter;
 	
 	//constructor

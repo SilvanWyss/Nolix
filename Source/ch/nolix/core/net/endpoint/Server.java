@@ -51,9 +51,13 @@ public final class Server extends BaseServer {
 	</html>
 	""";
 	
-	//attributes
+	//attribute
 	private final int port;
+	
+	//attribute
 	private final String httpMessage;
+	
+	//attribute
 	private final ServerSocket serverSocket;
 	
 	//constructor

@@ -37,8 +37,10 @@ public final class List<E> implements Iterable<E> {
 	//attribute
 	private int elementCount;
 	
-	//optional attributes
+	//optional attribute
 	private ListNode<E> beginNode;
+	
+	//optional attribute
 	private ListNode<E> endNode;
 	
 	//constructor

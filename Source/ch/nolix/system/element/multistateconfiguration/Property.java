@@ -11,8 +11,10 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public abstract class Property<S extends Enum<S>> implements Named {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	protected MultiStateConfiguration<?, S> parent;
 	
 	//constructor

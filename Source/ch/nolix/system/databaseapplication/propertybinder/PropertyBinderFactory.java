@@ -8,10 +8,16 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 //class
 public final class PropertyBinderFactory {
 	
-	//static attributes
+	//static attribute
 	private static final ValueBinder valueBinder = new ValueBinder();
+	
+	//static attribute
 	private static final OptionalValueBinder optionalValueBinder = new OptionalValueBinder();
+	
+	//static attribute
 	private static final ReferenceBinder referenceBinder = new ReferenceBinder();
+	
+	//static attribute
 	private static final OptionalReferenceBinder optionalReferenceBinder = new OptionalReferenceBinder();
 	
 	//method

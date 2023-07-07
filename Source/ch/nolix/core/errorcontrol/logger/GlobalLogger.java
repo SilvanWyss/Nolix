@@ -6,8 +6,10 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class GlobalLogger {
 	
-	//static attributes
+	//static attribute
 	private static boolean active = true;
+	
+	//static attribute
 	private static LogWorker logWorker;
 	
 	//static multi-attribute

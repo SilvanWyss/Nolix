@@ -47,9 +47,13 @@ public class Point3D extends Element {
 		);
 	}
 	
-	//attributes
+	//attribute
 	private final double x;
+	
+	//attribute
 	private final double y;
+	
+	//attribute
 	private final double z;
 	
 	//constructor

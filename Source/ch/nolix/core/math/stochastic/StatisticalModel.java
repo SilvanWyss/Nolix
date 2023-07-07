@@ -12,11 +12,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public abstract class StatisticalModel {
 	
-	//attributes
+	//attribute
 	private final int backStepCount;
 	
-	//multi-attributes
+	//multi-attribute
 	private final double[] inputValues;
+	
+	//multi-attribute
 	private final LinkedList<Double>forecasts = new LinkedList<>();
 	
 	//constructor

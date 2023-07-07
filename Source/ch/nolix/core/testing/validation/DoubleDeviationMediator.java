@@ -18,8 +18,10 @@ public final class DoubleDeviationMediator extends Mediator {
 	//constant
 	public static final double DEFAULT_MAX_DEVIATION = 0.000000001; //10^-9
 	
-	//attributes
+	//attribute
 	private final double value;
+	
+	//attribute
 	private final double maxDeviation;
 	
 	//constructor

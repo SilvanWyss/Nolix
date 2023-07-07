@@ -18,8 +18,10 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper{
 	
-	//static attributes
+	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
+	
+	//static attribute
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//method

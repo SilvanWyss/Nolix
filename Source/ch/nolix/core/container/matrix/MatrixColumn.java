@@ -16,8 +16,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 //class
 public final class MatrixColumn<E> extends Container<E> {
 
-	//attributes
+	//attribute
 	private final Matrix<E> parentMatrix;
+	
+	//attribute
 	private final int columnIndex;
 	
 	//constructor

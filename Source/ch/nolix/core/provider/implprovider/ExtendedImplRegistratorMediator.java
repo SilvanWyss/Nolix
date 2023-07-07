@@ -9,9 +9,11 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IExtendedImplRegistratorMedi
 
 //class
 public final class ExtendedImplRegistratorMediator<IN> implements IExtendedImplRegistratorMediator<IN> {
-
-	//attributes
+	
+	//attribute
 	private final ImplProvider implProvider;
+	
+	//attribute
 	private final Class<IN> mInterface;
 	
 	//constructor

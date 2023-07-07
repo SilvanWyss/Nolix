@@ -16,8 +16,10 @@ import ch.nolix.coreapi.netapi.endpointapi.ISlot;
  */
 final class ServerEndPointTaker implements ISlot {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final BaseServer parentServer;
 	
 	//constructor

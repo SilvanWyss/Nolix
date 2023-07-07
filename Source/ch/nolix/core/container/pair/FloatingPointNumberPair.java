@@ -15,8 +15,10 @@ public final class FloatingPointNumberPair {
 	//constant
 	public static final double DEFAULT_VALUE = 0.0;
 	
-	//attributes
+	//attribute
 	private final double value1;
+	
+	//attribute
 	private final double value2;
 	
 	//constructor

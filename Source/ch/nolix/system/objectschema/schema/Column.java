@@ -34,8 +34,10 @@ public final class Column extends SchemaObject implements IColumn {
 	private static final ParametrizedPropertyTypeMapper parametrizedPropertyTypeMapper =
 	new ParametrizedPropertyTypeMapper();
 	
-	//static attributes
+	//static attribute
 	private static final ColumnMutationValidator mutationValidator = new ColumnMutationValidator();
+	
+	//static attribute
 	private static final ColumnMutationExecutor mutationExecutor = new ColumnMutationExecutor();
 	
 	//static attribute
@@ -63,7 +65,7 @@ public final class Column extends SchemaObject implements IColumn {
 	//attribute
 	private IParametrizedPropertyType parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
-	//optional attributes
+	//optional attribute
 	private Table parentTable;
 	
 	//constructor

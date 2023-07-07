@@ -14,12 +14,22 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 //class
 public final class MutableOptionalValueExtractor<V> extends Property {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTaker<V> setter;
+	
+	//attribute
 	private final IBooleanGetter valuePresenceChecker;
+	
+	//attribute
 	private final IElementGetter<V> getter;
+	
+	//attribute
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+	
+	//attribute
 	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor

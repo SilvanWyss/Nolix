@@ -13,8 +13,10 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 //class
 public final class ColumnDefinitionMapper {
 	
-	//static attributes
+	//static attribute
 	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
+	
+	//static attribute
 	private static final ParametrizedPropertyTypeNodeSearcher parametrizedPropertyTypeNodeSearcher =
 	new ParametrizedPropertyTypeNodeSearcher();
 	

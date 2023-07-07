@@ -21,8 +21,10 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
 	//attribute
 	private boolean isTestInstance;
 	
-	//multi-attributes
+	//multi-attribute
 	private final List<Error> expectationErrors = new List<>();
+	
+	//multi-attribute
 	private final List<AutoCloseable> closableElements = new List<>();
 	
 	//method

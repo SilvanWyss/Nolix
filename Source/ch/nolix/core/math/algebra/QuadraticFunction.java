@@ -15,9 +15,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  */
 public final class QuadraticFunction {
 	
-	//attributes
+	//attribute
 	private final double a;
+	
+	//attribute
 	private final double b;
+	
+	//attribute
 	private final double c;
 	
 	//constructor

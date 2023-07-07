@@ -23,8 +23,10 @@ public final class WebSocketHandShakeResponse {
 	//constant
 	public static final String SEC_WEBSOCKET_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
 	
-	//attributes
+	//attribute
 	private final String secWebSocketKey;
+	
+	//attribute
 	private final String secWebSocketAccept;
 	
 	//constructor

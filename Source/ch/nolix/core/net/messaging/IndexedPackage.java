@@ -17,8 +17,10 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Indexed;
  */
 public class IndexedPackage<C> implements Indexed {
 	
-	//attributes
+	//attribute
 	private final int index;
+	
+	//attribute
 	private final C content;
 	
 	//constructor

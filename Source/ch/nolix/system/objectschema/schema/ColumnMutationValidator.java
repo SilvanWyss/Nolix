@@ -19,10 +19,16 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 final class ColumnMutationValidator {
 	
-	//static attributes
+	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	
+	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
+	
+	//static attribute
 	private static final IColumnHelper columnHelper = new ColumnHelper();
+	
+	//static attribute
 	private static final IParametrizedPropertyTypeHelper parametrizedProeprtyTypeHelper =
 	new ParametrizedPropertyTypeHelper();
 	

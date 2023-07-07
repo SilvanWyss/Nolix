@@ -14,8 +14,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  */
 public final class DoubleDeviationMediator extends Mediator {
 
-	//attributes
+	//attribute
 	private final double argument;
+	
+	//attribute
 	private final double maxDeviation;
 	
 	//constructor

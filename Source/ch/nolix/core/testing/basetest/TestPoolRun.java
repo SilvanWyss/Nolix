@@ -13,10 +13,16 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestPoolRun {
 	
-	//attributes
+	//attribute
 	private final TestPool parentTestPool;
+	
+	//attribute
 	private final ILinePrinter linePrinter;
+	
+	//attribute
 	private boolean started;
+	
+	//attribute
 	private int runtimeInMilliseconds = -1;
 	
 	//constructor

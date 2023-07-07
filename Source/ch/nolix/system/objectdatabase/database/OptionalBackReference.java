@@ -36,7 +36,7 @@ implements IOptionalBackReference<E>{
 		return new OptionalBackReference<>(tableName, backReferencedPropertyName);
 	}
 	
-	//optional attributes
+	//optional attribute
 	private String backReferencedEntityId;
 	
 	//constructor

@@ -13,12 +13,16 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class TestCaseWrapper {
 	
-	//attributes
+	//attribute
 	private final BaseTest parentTest;
+	
+	//attribute
 	private final Method testCase;
 	
-	//optional attributes
+	//optional attribute
 	private final Method setup;
+	
+	//optional attribute
 	private final Method cleanup;
 	
 	//constructor

@@ -34,9 +34,13 @@ public final class WebSocketFrame {
 		return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
 	}
 	
-	//attributes
+	//attribute
 	private final WebSocketFrameFirstNibble firstNibble;
+	
+	//attribute
 	private final WebSocketFramePayloadLength payloadLength;
+	
+	//attribute
 	private final byte[] payload;
 	
 	//optional attribute

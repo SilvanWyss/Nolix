@@ -12,9 +12,13 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableDto implements ITableDto {
 	
-	//attributes
+	//attribute
 	private final String id;
+	
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final ISaveStampConfigurationDto saveStampConfiguration;
 	
 	//multi-attribute

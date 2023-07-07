@@ -25,7 +25,7 @@ public final class LocalEndPoint extends EndPoint {
 	//attribute
 	private final PeerType peerType;
 	
-	//attributes
+	//attribute
 	private final LocalEndPoint counterpart;
 	
 	//optional attribute

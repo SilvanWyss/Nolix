@@ -27,8 +27,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {
 	
-	//multi-attributes
+	//multi-attribute
 	private final LinkedList<IElementTakerBooleanGetter<E>> elementConditions = new LinkedList<>();
+	
+	//multi-attribute
 	private final LinkedList<IElementTakerBooleanGetter<LinkedList<E>>> sequenceConditions = new LinkedList<>();
 	
 	//method

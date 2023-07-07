@@ -9,8 +9,10 @@ import ch.nolix.system.nodedatabaserawschema.databaseschemainspector.DatabaseSch
 //class
 public final class DatabaseInitializer {
 	
-	//static attributes
+	//static attribute
 	private static final DatabaseSchemaInspector databaseSchemaInspector = new DatabaseSchemaInspector();
+	
+	//static attribute
 	private static final InternalDatabaseInitializer internalDatabaseInitializer = new InternalDatabaseInitializer();
 	
 	//method

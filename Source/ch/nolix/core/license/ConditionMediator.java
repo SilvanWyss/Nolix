@@ -7,8 +7,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class ConditionMediator {
 	
-	//attributes
+	//attribute
 	private final LicenseManager parentLicenseManager;
+	
+	//attribute
 	private final boolean condition;
 	
 	//constructor

@@ -8,11 +8,19 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 final class WebSocketFrameFirstNibble {
 	
-	//attributes
+	//attribute
 	private final boolean mFINBit;
+	
+	//attribute
 	private final int opcode;
+	
+	//attribute
 	private final boolean maskBit;
+	
+	//attribute
 	private final WebSocketFramePayloadLengthType payloadLengthSpecification;
+	
+	//attribute
 	private final int m7BitPayloadLength;
 	
 	//static method

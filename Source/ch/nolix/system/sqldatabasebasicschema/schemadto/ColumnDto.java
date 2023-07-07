@@ -16,8 +16,10 @@ public final class ColumnDto implements IColumnDto {
 	//constant
 	private static final IContainer<IConstraintDto> EMPTY_CONSTRAINT_LIST = new LinkedList<>();
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IDataTypeDto dataType;
 	
 	//multi-attribute

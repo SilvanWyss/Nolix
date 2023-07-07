@@ -29,7 +29,7 @@ public final class NetEndPoint extends EndPoint {
 	//constant
 	private int nextSentPackageIndex = 1;
 	
-	//attributes
+	//attribute
 	private final IEndPoint internalEndPoint;
 	
 	//multi-attribute

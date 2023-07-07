@@ -32,8 +32,10 @@ public final class Discrete2DPoint extends Element {
 		);
 	}
 	
-	//attributes
+	//attribute
 	private final int x;
+	
+	//attribute
 	private final int y;
 	
 	//method

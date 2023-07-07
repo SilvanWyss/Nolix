@@ -18,7 +18,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
  */
 final class ResultJobRunner<R> extends Thread {
 
-	//attributes
+	//attribute
 	private final IElementGetter<R> resultJob;
 	private R result;
 	private boolean running = true;

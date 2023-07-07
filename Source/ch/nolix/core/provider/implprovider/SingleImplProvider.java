@@ -13,7 +13,7 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IImplProviderMediator;
 //class
 public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 	
-	//attributes
+	//attribute
 	private final Class<IM> implementation;
 	
 	//constructor

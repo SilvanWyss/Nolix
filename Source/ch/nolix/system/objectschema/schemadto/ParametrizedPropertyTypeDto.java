@@ -10,8 +10,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto
 //class
 public abstract class ParametrizedPropertyTypeDto implements IParametrizedPropertyTypeDto {
 	
-	//attributes
+	//attribute
 	private final PropertyType propertyType;
+	
+	//attribute
 	private final DataType dataType;
 	
 	//constructor

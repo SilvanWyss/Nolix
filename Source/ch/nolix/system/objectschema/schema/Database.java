@@ -16,7 +16,7 @@ public final class Database extends SchemaObject implements IDatabase {
 	//static attribute
 	private final IDatabaseHelper databaseHelper = new DatabaseHelper();
 	
-	//static attributes
+	//static attribute
 	private static final DatabaseMutationExecutor mutationExecutor = new DatabaseMutationExecutor();
 	
 	//attribute

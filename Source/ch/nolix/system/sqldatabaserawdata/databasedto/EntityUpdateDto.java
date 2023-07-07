@@ -12,8 +12,10 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //class
 public final class EntityUpdateDto implements IEntityUpdateDto {
 	
-	//attributes
+	//attribute
 	private final String id;
+	
+	//attribute
 	private final String saveStamp;
 	
 	//multi-attribute

@@ -26,15 +26,25 @@ final class JobRunner extends Thread {
 		return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
 	}
 	
-	//attributes
+	//attribute
 	private final IAction job;
+	
+	//attribute
 	private int finishedJobCount;
+	
+	//attribute
 	private boolean running = true;
 	
-	//optional attributes
+	//optional attribute
 	private final Integer maxRunCount;
+	
+	//optional attribute
 	private final IBooleanGetter condition;
+	
+	//optional attribute
 	private final Integer timeIntervalInMilliseconds;
+	
+	//optional attribute
 	private Throwable error;
 	
 	//constructor

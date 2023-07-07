@@ -345,8 +345,10 @@ public final class ChainedNode implements IChainedNode {
 		return newChainedNode;
 	}
 	
-	//optional attributes
+	//optional attribute
 	private String header;
+	
+	//optional attribute
 	private ChainedNode nextNode;
 	
 	//multi-attribute

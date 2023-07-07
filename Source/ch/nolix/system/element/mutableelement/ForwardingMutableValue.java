@@ -57,11 +57,19 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 		);
 	}
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTaker<V> setter;
+	
+	//attribute
 	private final IElementGetter<V> getter;
+	
+	//attribute
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+	
+	//attribute
 	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor

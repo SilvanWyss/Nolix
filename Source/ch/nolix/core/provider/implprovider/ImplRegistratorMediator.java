@@ -10,9 +10,13 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IImplRegistratorMediator;
 //class
 public final class ImplRegistratorMediator<IN> implements IImplRegistratorMediator<IN> {
 	
-	//attributes
+	//attribute
 	private final ImplProvider implProvider;
+	
+	//attribute
 	private final Class<IN> mInterface;
+	
+	//attribute
 	private final WriteMode writeMode;
 	
 	//constructor

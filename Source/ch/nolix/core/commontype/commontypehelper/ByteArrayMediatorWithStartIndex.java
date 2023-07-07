@@ -8,8 +8,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class ByteArrayMediatorWithStartIndex {
 	
-	//attributes
+	//attribute
 	private final byte[] byteArray;
+	
+	//attribute
 	private int index;
 	
 	//constructor

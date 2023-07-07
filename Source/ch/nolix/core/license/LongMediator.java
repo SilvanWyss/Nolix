@@ -7,8 +7,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class LongMediator {
 	
-	//attributes
+	//attribute
 	private final LicenseManager parentLicenseManager;
+	
+	//attribute
 	private final long value;
 	
 	//constructor

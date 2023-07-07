@@ -26,10 +26,16 @@ import ch.nolix.core.programcontrol.worker.Worker;
 //class
 final class ServerSocketProcessor extends Worker {
 	
-	//attributes
+	//attribute
 	private final Server parentServer;
+	
+	//attribute
 	private final Socket socket;
+	
+	//attribute
 	private final InputStream socketInputStream;
+	
+	//attribute
 	private final OutputStream socketOutputStream;
 	
 	//constructor

@@ -32,8 +32,10 @@ final class OneTypeElementFactory<E> {
 		}
 	}
 	
-	//attributes
+	//attribute
 	private final Class<E> elementClass;
+	
+	//attribute
 	private final IElementTakerElementGetter<INode<?>, E> creator;
 	
 	//constructor

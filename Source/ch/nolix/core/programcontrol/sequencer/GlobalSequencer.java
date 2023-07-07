@@ -23,8 +23,10 @@ import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
  */
 public final class GlobalSequencer {
 	
-	//static attributes
+	//static attribute
 	private static final JobPool jobPool = new JobPool();
+	
+	//static attribute
 	private static final ActionMediator actionMediator = new ActionMediator();
 			
 	//static method

@@ -28,9 +28,13 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
  */
 final class ContainerView<E> extends Container<E> {
 
-	//attributes
+	//attribute
 	private final Container<E> container;
+	
+	//attribute
 	private final int startIndex;
+	
+	//attribute
 	private final int endIndex;
 	
 	//constructor

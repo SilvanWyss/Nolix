@@ -22,8 +22,10 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
 //class
 public final class GapMatrix<E> extends Container<E> implements Clearable {
 	
-	//attributes
+	//attribute
 	private int columnCount;
+	
+	//attribute
 	private int elementCount;
 	
 	//multi-attribute

@@ -36,7 +36,7 @@ implements IReference<E> {
 		return new Reference<>(tableName);
 	}
 	
-	//optional attributes
+	//optional attribute
 	private String referencedEntityId;
 	
 	//constructor

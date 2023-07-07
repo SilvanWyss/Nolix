@@ -17,8 +17,10 @@ public final class IntPair implements IIntPair {
 	//constant
 	public static final int DEFAULT_VALUE = 0;
 	
-	//attributes
+	//attribute
 	private final int value1;
+	
+	//attribute
 	private final int value2;
 	
 	//constructor

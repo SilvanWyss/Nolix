@@ -13,8 +13,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class TestCaseResult {
 	
-	//attributes
+	//attribute
 	private final Method testCase;
+	
+	//attribute
 	private final int runtimeInMilliseconds;
 	
 	//optional attribute

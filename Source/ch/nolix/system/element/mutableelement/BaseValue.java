@@ -19,9 +19,13 @@ import ch.nolix.coreapi.functionapi.requestuniversalapi.MutabilityRequestable;
  */
 public abstract class BaseValue<V> extends Property implements MutabilityRequestable, Named {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+	
+	//attribute
 	protected final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor

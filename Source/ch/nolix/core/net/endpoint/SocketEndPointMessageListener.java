@@ -9,7 +9,7 @@ import ch.nolix.core.programcontrol.worker.Worker;
 //class
 final class SocketEndPointMessageListener extends Worker {
 	
-	//attributes
+	//attribute
 	private final SocketEndPoint parentNetEndPoint;
 	
 	//constructor

@@ -14,10 +14,16 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 //class
 public final class MutableOptionalSpecificationValueExtractor extends Property {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTaker<INode<?>> setter;
+	
+	//attribute
 	private final IBooleanGetter valuePresenceChecker;
+	
+	//attribute
 	private final IElementGetter<Node> getter;
 	
 	//constructor

@@ -12,8 +12,10 @@ import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 //class
 public abstract class BaseSubElement<ME extends IMutableElement> extends Property {
 	
-	//attributes
+	//attribute
 	private final String attributePrefix;
+	
+	//attribute
 	private ME internalSubElement;
 	
 	//constructor

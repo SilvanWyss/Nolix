@@ -11,9 +11,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class PropertyBinding {
 	
-	//attributes
+	//attribute
 	private final IProperty property;
+	
+	//attribute
 	private final IControl<?, ?> control;
+	
+	//attribute
 	private final ILabel errorText = new Label().setInvisible();
 	
 	//optional attribute

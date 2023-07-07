@@ -9,8 +9,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class Error {
 	
-	//attributes
+	//attribute
 	private final String errorMessage;
+	
+	//attribute
 	private final OccurancePlace occurancePlace;
 	
 	//constructor

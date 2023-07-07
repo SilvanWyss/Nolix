@@ -13,8 +13,10 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class LoadedEntityDtoMapper {
 	
-	//static attributes
+	//static attribute
 	private static final ContentFieldDtoMapper contentFieldDtoMapper = new ContentFieldDtoMapper();
+	
+	//static attribute
 	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
 	
 	//method

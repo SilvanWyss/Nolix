@@ -20,8 +20,10 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	//constant
 	private static final String NONE_HEADER = "None";
 	
-	//attributes
+	//attribute
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+	
+	//attribute
 	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//optional attribute

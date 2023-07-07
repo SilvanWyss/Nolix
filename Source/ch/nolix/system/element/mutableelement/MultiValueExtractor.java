@@ -14,11 +14,19 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 //class
 public final class MultiValueExtractor<V> extends Property {
 	
-	//attributes
+	//attribute
 	private final String name;
+	
+	//attribute
 	private final IElementTaker<V> adder;
+	
+	//attribute
 	private final IElementGetter<IContainer<V>> getter;
+	
+	//attribute
 	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+	
+	//attribute
 	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 	
 	//constructor

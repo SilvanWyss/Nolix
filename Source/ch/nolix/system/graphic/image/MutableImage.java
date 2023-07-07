@@ -173,8 +173,10 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 	private final MutableSpecificationValueExtractor pixelsExtractor =
 	new MutableSpecificationValueExtractor(PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 	
-	//optional attributes
+	//optional attribute
 	private Node pixelArraySpecification;
+	
+	//optional attribute
 	private BufferedImage bufferedImage;
 	
 	//constructor

@@ -1549,10 +1549,16 @@ public final class Color extends Element implements IColor {
 		return value;
 	}
 
-	//attributes
+	//attribute
 	private final short redValue;
+	
+	//attribute
 	private final short greenValue;
+	
+	//attribute
 	private final short blueValue;
+	
+	//attribute
 	private final short alphaValue;
 	
 	//constructor

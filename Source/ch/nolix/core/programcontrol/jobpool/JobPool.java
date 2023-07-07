@@ -22,8 +22,10 @@ public final class JobPool {
 	//constant
 	private static final int OPTIMAL_WORKER_COUNT = 100;
 	
-	//multi-attributes
+	//multi-attribute
 	private final LinkedList<Worker> workers = new LinkedList<>();
+	
+	//multi-attribute
 	private final LinkedList<JobWrapper> jobWrappers = new LinkedList<>();
 	
 	//method

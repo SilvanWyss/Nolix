@@ -17,8 +17,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  */
 public final class SequencePatternNextMediator<E> {
 	
-	//attributes
+	//attribute
 	private final SequencePattern<E> sequencePattern;
+	
+	//attribute
 	private final int count;
 	
 	//constructor

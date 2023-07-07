@@ -22,8 +22,10 @@ public final class AfterEveryMediator {
 	//attribute
 	private final int timeIntervalInMilliseconds;
 	
-	//optional attributes
+	//optional attribute
 	private final Integer maxRunCount;
+	
+	//optional attribute
 	private final IBooleanGetter condition;
 	
 	//constructor

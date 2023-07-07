@@ -18,8 +18,10 @@ import ch.nolix.coreapi.functionapi.mutationuniversalapi.Runnable;
  */
 public abstract class TestPool implements Runnable {
 	
-	//multi-attributes
+	//multi-attribute
 	private final List<TestPool> testPools = new List<>();
+	
+	//multi-attribute
 	private final List<Class<BaseTest>> testClasses = new List<>();
 	
 	//constructor

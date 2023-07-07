@@ -8,8 +8,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class IntRoundingWithModeMediator {
 	
-	//attributes
+	//attribute
 	private final int value;
+	
+	//attribute
 	private final RoundingMode roundingMode;
 	
 	//class

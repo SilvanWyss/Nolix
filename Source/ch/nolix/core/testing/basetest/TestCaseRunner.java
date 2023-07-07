@@ -17,11 +17,19 @@ public final class TestCaseRunner extends Thread {
 	//static attribute
 	private static final ErrorCreator errorCreator = new ErrorCreator();
 	
-	//attributes
+	//attribute
 	private final TestCaseWrapper testCaseWrapper;
+	
+	//attribute
 	private final BaseTest testInstance;
+	
+	//attribute
 	private TestCaseResult result;
+	
+	//attribute
 	private long startTime;
+	
+	//attribute
 	private int runtimeInMilliseconds;
 	
 	//optional attribute

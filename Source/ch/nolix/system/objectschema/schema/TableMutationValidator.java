@@ -16,9 +16,13 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 final class TableMutationValidator {
 	
-	//static attributes
+	//static attribute
 	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	
+	//static attribute
 	private static final ITableHelper tableHelper = new TableHelper();
+	
+	//static attribute
 	private static final IColumnHelper columnHelper = new ColumnHelper();
 	
 	//method

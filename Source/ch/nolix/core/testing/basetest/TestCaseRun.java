@@ -17,8 +17,10 @@ final class TestCaseRun {
 	//constant
 	public static final long MAX_DURATION_IN_MILLISECONDS = 5000;
 	
-	//attributes
+	//attribute
 	private final TestCaseWrapper testCaseWrapper;
+	
+	//attribute
 	private boolean started;
 	
 	//constructor
