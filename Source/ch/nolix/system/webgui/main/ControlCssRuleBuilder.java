@@ -4,7 +4,7 @@ package ch.nolix.system.webgui.main;
 //Java imports
 import java.util.Locale;
 
-//onw imports
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.css.CssProperty;
@@ -27,7 +27,7 @@ public abstract class ControlCssRuleBuilder<
 >
 implements IControlCssRuleBuilder<C, CS> {
 	
-	//static attribute
+	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
 	
 	//method
