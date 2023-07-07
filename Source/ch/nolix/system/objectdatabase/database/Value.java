@@ -18,11 +18,11 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	//constant
 	private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 	
-	//static attribute
-	private static final IValueHelper valueHelper = new ValueHelper();
+	//constant
+	private static final IValueHelper VALUE_HELPER = new ValueHelper();
 	
-	//static attribute
-	private static final IValueValidator valueValidator = new ValueValidator();
+	//constant
+	private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
 	
 	//static method
 	public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
@@ -41,7 +41,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	@Override
 	public V getOriValue() {
 		
-		valueValidator.assertIsNotEmpty(this);
+		VALUE_VALIDATOR.assertIsNotEmpty(this);
 		
 		return internalValue;
 	}
@@ -68,7 +68,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	@Override
 	public void setValue(final V value) {
 		
-		valueValidator.assertCanSetGivenValue(this, value);
+		VALUE_VALIDATOR.assertCanSetGivenValue(this, value);
 		
 		updateStateForSetValue(value);
 		
@@ -82,7 +82,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 		@SuppressWarnings("unchecked")
 		final var value =
 		(V)VALUE_CREATOR.createValueOfDataTypeFromString(
-			DataType.forType(valueHelper.getDataType(this)),
+			DataType.forType(VALUE_HELPER.getDataType(this)),
 			string
 		);
 		
