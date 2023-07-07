@@ -8,7 +8,8 @@ import ch.nolix.systemapi.guiapi.fontapi.Font;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IBaseControlStyle<CS extends IBaseControlStyle<CS>> extends IMultiStateConfiguration<CS, ControlState> {
+public interface IBaseControlStyle<CS extends IBaseControlStyle<CS>>
+extends IMultiStateConfiguration<CS, ControlState> {
 	
 	//method declaration
 	<CS2 extends IBaseControlStyle<CS2>> void addChild(final CS2 controlStyle);
