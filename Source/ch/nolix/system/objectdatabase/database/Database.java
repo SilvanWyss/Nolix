@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -15,8 +16,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class Database implements IDatabase {
 	
-	//static attribute
-	private static final DatabaseTableLoader databaseTableLoader = new DatabaseTableLoader();
+	//constant
+	private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 	
 	//static method
 	public static Database withDataAndSchemaAdapterAndSchema(
@@ -152,6 +153,6 @@ public final class Database implements IDatabase {
 	
 	//method
 	private LinkedList<Table<IEntity>> loadTables() {
-		return databaseTableLoader.loadTablesForDatabase(this);
+		return DATABASE_TABLE_LOADER.loadTablesForDatabase(this);
 	}
 }
