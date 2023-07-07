@@ -1,13 +1,15 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 public final class GeneralEntity extends BaseEntity {
 	
-	//static attribute
-	private static final PropertyFromTableExtractor propertyFromTableExtractor = new PropertyFromTableExtractor();
+	//constant
+	private static final PropertyFromTableExtractor PROPERTY_FROM_TABLE_EXTRACTOR = new PropertyFromTableExtractor();
 	
 	//static method
 	public GeneralEntity forTable(final Table<GeneralEntity> table) {
@@ -31,6 +33,6 @@ public final class GeneralEntity extends BaseEntity {
 	//method
 	@Override
 	IContainer<Property> internalLoadProperties() {
-		return propertyFromTableExtractor.createPropertiesFromTable(getOriParentTable());
+		return PROPERTY_FROM_TABLE_EXTRACTOR.createPropertiesFromTable(getOriParentTable());
 	}
 }
