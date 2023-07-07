@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.controlstyle;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.CssBorderStyleCatalogue;
@@ -20,9 +21,9 @@ public abstract class ExtendedControlCssRuleBuilder<
 >
 extends ControlCssRuleBuilder<EC, ECS> {
 	
-	//static attribute
+	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
-		
+	
 	//method
 	@Override
 	protected final void fillUpCssPropertiesForControlAndStateIntoList(
