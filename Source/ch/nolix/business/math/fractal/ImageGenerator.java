@@ -4,6 +4,7 @@ package ch.nolix.business.math.fractal;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.businessapi.mathapi.fractalapi.IFractal;
@@ -30,8 +31,8 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 	//constant
 	private static final int IMAGE_ROWS_PER_THREAD = 10;
 	
-	//static attribute
-	private static final IFractalHelper fractalHelper = new FractalHelper();
+	//constant
+	private static final IFractalHelper FRACTAL_HELPER = new FractalHelper();
 	
 	//attribute
 	private final IFractal fractal;
@@ -52,7 +53,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 		
 		this.fractal = fractal;
 		
-		squaredMinMagnitudeForDivergence = fractalHelper.getSquaredMinMagnitudeForDivergenceOf(fractal);
+		squaredMinMagnitudeForDivergence = FRACTAL_HELPER.getSquaredMinMagnitudeForDivergenceOf(fractal);
 		
 		image =
 		MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
@@ -156,8 +157,8 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 	private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
 		return
 		new ComplexNumber(
-			fractalHelper.getMinXOf(fractal).add(fractalHelper.getUnitsForHorizontalPixelCount(fractal, x)),
-			fractalHelper.getMinYOf(fractal).add(fractalHelper.getUnitsForVerticalPixelCount(fractal, y))
+			FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
+			FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y))
 		);
 	}
 	
@@ -166,7 +167,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 		final IComplexNumber complexNumber
 	) {
 		return
-		fractalHelper.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+		FRACTAL_HELPER.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
 			fractal,
 			complexNumber,
 			squaredMinMagnitudeForDivergence
