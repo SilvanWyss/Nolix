@@ -26,9 +26,13 @@ public final class Appointment extends MutableElement implements IMutableAppoint
 	private static final Time DEFAULT_END_TIME = 
 	Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2020, 1, 1, 11, 0);
 	
-	//constants
+	//constant
 	private static final String SUBJECT_HEADER = PascalCaseCatalogue.SUBJECT;
+	
+	//constant
 	private static final String START_TIME_HEADER = PascalCaseCatalogue.START_TIME;
+	
+	//constant
 	private static final String END_TIME_HEADER = PascalCaseCatalogue.END_TIME;
 	
 	//attribute
