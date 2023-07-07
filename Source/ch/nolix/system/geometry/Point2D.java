@@ -22,12 +22,16 @@ import ch.nolix.system.element.main.Element;
  */
 public final class Point2D extends Element {
 	
-	//constants
+	//constant
 	public static final double DEFAULT_X = 0.0;
+	
+	//constant
 	public static final double DEFAULT_Y = 0.0;
 	
-	//attributes
+	//attribute
 	private final double x;
+	
+	//attribute
 	private final double y;
 	
 	//constructor
