@@ -20,26 +20,26 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class SchemaWriter implements ISchemaWriter {
 	
-	//static attribute
-	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
+	//constant
+	private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 	
-	//static attribute
-	private static final DatabasePropertiesNodeSearcher databasePropertiesNodeSearcher =
+	//constant
+	private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER =
 	new DatabasePropertiesNodeSearcher();
 	
-	//static attribute
-	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	//constant
+	private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 	
-	//static attribute
-	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
+	//constant
+	private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 	
-	//static attribute
-	private static final TableNodeMapper tableNodeMapper = new TableNodeMapper();
+	//constant
+	private static final TableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
 	
-	//static attribute
+	//constant
 	private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
 	
-	//static attribute
+	//constant
 	private static final ParametrizedPropertyTypeNodeMapper parametrizedPropertyTypeNodeMapper =
 	new ParametrizedPropertyTypeNodeMapper();
 	
@@ -73,7 +73,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void addColumn(final String tableName, final IColumnDto column) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
 		tableNode.addChildNode(columnNodeMapper.createColumnNodeFrom(column));
 		
@@ -84,7 +84,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void addTable(final ITableDto table) {
 		
-		editedDatabaseNode.addChildNode(tableNodeMapper.createTableNodeFrom(table));
+		editedDatabaseNode.addChildNode(TABLE_NODE_MAPPER.createTableNodeFrom(table));
 		
 		hasChanges = true;
 	}
@@ -93,11 +93,13 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void deleteColumn(final String tableName, final String columnName) {
 		
-		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		final var tableNode =
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		
 		tableNode.removeFirstChildNodeThat(
 			(final IMutableNode<?> a) ->
 			a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
-			&& columnNodeSearcher.getOriNameNodeFromColumnNode(a).getOriSingleChildNode().hasHeader(columnName)
+			&& COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(a).getOriSingleChildNode().hasHeader(columnName)
 		);
 		
 		hasChanges = true;
@@ -110,7 +112,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		editedDatabaseNode.removeFirstChildNodeThat(
 			(final IMutableNode<?> a) ->
 			a.hasHeader(SubNodeHeaderCatalogue.TABLE)
-			&&  tableNodeSearcher.getOriNameNodeFromTableNode(a).getOriSingleChildNode().hasHeader(tableName)
+			&&  TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(a).getOriSingleChildNode().hasHeader(tableName)
 		);
 		
 		hasChanges = true;
@@ -167,10 +169,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
-		final var columnNode = tableNodeSearcher.getOriColumnNodeFromTableNodeByColumnName(tableNode, columnName);
-		final var headerNode = columnNodeSearcher.getOriNameNodeFromColumnNode(columnNode);
+		final var columnNode = TABLE_NODE_SEARCHER.getOriColumnNodeFromTableNodeByColumnName(tableNode, columnName);
+		final var headerNode = COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(columnNode);
 		headerNode.setHeader(newColumnName);
 		
 		hasChanges = true;
@@ -183,7 +185,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		
-		final var columnNode = databaseNodeSearcher.getOriColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
+		final var columnNode = DATABASE_NODE_SEARCHER.getOriColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 		
 		columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
@@ -198,10 +200,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setSchemaTimestamp(final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
-		databaseNodeSearcher.getOriDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
+		DATABASE_NODE_SEARCHER.getOriDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
 		
 		final var schemaTimestampNode =
-		databasePropertiesNodeSearcher.getOriSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+		DATABASE_PROPERTIES_NODE_SEARCHER.getOriSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
 		schemaTimestampNode.getOriSingleChildNode().setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
 		
@@ -213,9 +215,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setTableName(final String tableName, final String newTableName) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
-		final var nameNode = tableNodeSearcher.getOriNameNodeFromTableNode(tableNode);
+		final var nameNode = TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(tableNode);
 		nameNode.getOriSingleChildNode().setHeader(newTableName);
 		
 		hasChanges = true;
