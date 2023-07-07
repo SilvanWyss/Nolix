@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.databaseinspector;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -8,11 +9,11 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public final class DatabaseInspector {
 	
-	//static attribute
-	private static final TableDefinitionMapper tableDefinitionMapper = new TableDefinitionMapper();
+	//constant
+	private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
 	
 	//method
 	public IContainer<ITableInfo> createTableDefinitionsFrom(final ISchemaAdapter schemaAdapter) {
-		return schemaAdapter.loadTables().to(tableDefinitionMapper::createTableDefinitionFrom);
+		return schemaAdapter.loadTables().to(TABLE_DEFINITION_MAPPER::createTableDefinitionFrom);
 	}
 }
