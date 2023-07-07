@@ -11,13 +11,13 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator
 //class
 public final class ValueValidator extends PropertyValidator implements IValueValidator {
 	
-	//static attribute
-	private static final IValueHelper valueHelper = new ValueHelper();
+	//constant
+	private static final IValueHelper VALUE_HELPER = new ValueHelper();
 	
 	//method
 	@Override
 	public void assertCanSetGivenValue(final IValue<?> value, final Object valueToSet) {
-		if (!valueHelper.canSetGivenValue(value, valueToSet)) {
+		if (!VALUE_HELPER.canSetGivenValue(value, valueToSet)) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(value, "cannot set the given value");
 		}
 	}
