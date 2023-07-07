@@ -8,11 +8,11 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+//own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
@@ -24,8 +24,8 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 //class
 public final class LocalFrontEndReader implements IFrontEndReader {
 	
-	//static attribute
-	private static final JFileChooser fileChooser;
+	//constant
+	private static final JFileChooser FILE_CHOOSER;
 	
 	//static initializing
 	static {
@@ -42,7 +42,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 			throw WrapperException.forError(exception);
 		}
 		
-		fileChooser = new JFileChooser();
+		FILE_CHOOSER = new JFileChooser();
 	}
 	
 	//method
@@ -65,11 +65,11 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 	@Override
 	public SingleContainer<byte[]> readFileToBytes() {
 		
-		if (fileChooser.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
+		if (FILE_CHOOSER.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
 			return new SingleContainer<>();
 		}
 		
-		final var filePath = fileChooser.getSelectedFile().getPath();
+		final var filePath = FILE_CHOOSER.getSelectedFile().getPath();
 		
 		return new SingleContainer<>(new FileAccessor(filePath).readFileToBytes());
 	}
