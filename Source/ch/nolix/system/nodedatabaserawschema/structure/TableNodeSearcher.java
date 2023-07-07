@@ -1,38 +1,39 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //class
-public class TableNodeSearcher {
+public final class TableNodeSearcher {
 	
-	//static attribute
-	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
+	//constant
+	private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 	
 	//method
-	public final IMutableNode<?> getOriColumnNodeFromTableNodeByColumnName(
+	public IMutableNode<?> getOriColumnNodeFromTableNodeByColumnName(
 		final IMutableNode<?> tableNode,
 		final String columnName
 	) {
 		return
 		getOriColumnNodesFromTableNode(tableNode).getOriFirst(
-			csn -> columnNodeSearcher.getOriNameNodeFromColumnNode(csn).getOriSingleChildNode().hasHeader(columnName)
+			csn -> COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(csn).getOriSingleChildNode().hasHeader(columnName)
 		);
 	}
 	
 	//method
-	public final IContainer<? extends IMutableNode<?>> getOriColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
+	public IContainer<? extends IMutableNode<?>> getOriColumnNodesFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNode.getOriChildNodesWithHeader(SubNodeHeaderCatalogue.COLUMN);
 	}
 	
 	//method
-	public final IMutableNode<?> getOriIdNodeFromTableNode(final IMutableNode<?> tableNode) {
+	public IMutableNode<?> getOriIdNodeFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID);
 	}
 	
 	//method
-	public final IMutableNode<?> getOriNameNodeFromTableNode(final IMutableNode<?> tableNode) {
+	public IMutableNode<?> getOriNameNodeFromTableNode(final IMutableNode<?> tableNode) {
 		return tableNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME);
 	}
 	
