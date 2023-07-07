@@ -14,10 +14,10 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 //class
 public final class EntitySaver {
 	
-	//static attribute
+	//constant
 	private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 	
-	//static attribute
+	//constant
 	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 	
 	//constant
