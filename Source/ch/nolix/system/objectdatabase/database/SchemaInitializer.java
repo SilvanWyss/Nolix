@@ -16,15 +16,15 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class SchemaInitializer {
 	
-	//static attribute
-	private static final ITableMapper tableMapper =
+	//constant
+	private static final ITableMapper TABLE_MAPPER =
 	new ch.nolix.system.objectdatabase.schemamapper.TableMapper();
 	
-	//static attribute
-	private static final EntityCreator entityCreator = new EntityCreator();
+	//constant
+	private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 	
-	//static attribute
-	private static final IColumnMapper columnMapper = new ColumnMapper();
+	//constant
+	private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 	
 	//method
 	public void initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
@@ -47,7 +47,7 @@ public final class SchemaInitializer {
 		final ISchemaAdapter schemaAdapter
 	) {
 		
-		final var tables = tableMapper.createEmptyTablesFromSchema(schema);
+		final var tables = TABLE_MAPPER.createEmptyTablesFromSchema(schema);
 		
 		tables.forEach(schemaAdapter::addTable);
 		
@@ -75,7 +75,7 @@ public final class SchemaInitializer {
 		final Class<? extends IEntity> entityType
 	) {
 		
-		final var entity = entityCreator.createEmptyEntityOf(entityType);
+		final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
 		
 		final var baseValues =
 		entity
@@ -85,7 +85,7 @@ public final class SchemaInitializer {
 		for (final var bv : baseValues) {
 			
 			final var column =
-			columnMapper.createColumnFromGivenPropertyUsingGivenReferencableTables(bv, new ImmutableList<>());
+			COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bv, new ImmutableList<>());
 			
 			table.addColumn(column);
 		}
@@ -110,7 +110,7 @@ public final class SchemaInitializer {
 		final IContainer<ITable> referencableTables
 	) {
 		
-		final var entity = entityCreator.createEmptyEntityOf(entityType);
+		final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
 		
 		final var baseReferences =
 		entity
@@ -120,7 +120,7 @@ public final class SchemaInitializer {
 		for (final var br : baseReferences) {
 			
 			final var column =
-			columnMapper.createColumnFromGivenPropertyUsingGivenReferencableTables(br, referencableTables);
+			COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(br, referencableTables);
 			
 			table.addColumn(column);
 		}
@@ -145,7 +145,7 @@ public final class SchemaInitializer {
 		final IContainer<ITable> referencableTables
 	) {
 		
-		final var entity = entityCreator.createEmptyEntityOf(entityType);
+		final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
 		
 		final var baseBackReferences =
 		entity
@@ -155,7 +155,7 @@ public final class SchemaInitializer {
 		for (final var bbr : baseBackReferences) {
 			
 			final var column =
-			columnMapper.createColumnFromGivenPropertyUsingGivenReferencableTables(bbr, referencableTables);
+			COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bbr, referencableTables);
 			
 			table.addColumn(column);
 		}
