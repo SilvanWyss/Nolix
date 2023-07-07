@@ -23,11 +23,11 @@ import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
  */
 public final class GlobalSequencer {
 	
-	//static attribute
-	private static final JobPool jobPool = new JobPool();
+	//constant
+	private static final JobPool JOB_POOL = new JobPool();
 	
-	//static attribute
-	private static final ActionMediator actionMediator = new ActionMediator();
+	//constant
+	private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
 			
 	//static method
 	/**
@@ -68,7 +68,7 @@ public final class GlobalSequencer {
 	 * @throws ArgumentIsNullException if the given job is null.
 	 */
 	public static IFuture enqueue(final IAction job) {
-		return jobPool.enqueue(job);
+		return JOB_POOL.enqueue(job);
 	}
 	
 	//static method
@@ -172,7 +172,7 @@ public final class GlobalSequencer {
 			}
 		}
 		
-		return actionMediator;
+		return ACTION_MEDIATOR;
 	}
 	
 	//static method
@@ -187,7 +187,7 @@ public final class GlobalSequencer {
 		
 		Waiter.waitForMilliseconds(durationInMilliseconds);
 		
-		return actionMediator;
+		return ACTION_MEDIATOR;
 	}
 	
 	//static method
@@ -202,7 +202,7 @@ public final class GlobalSequencer {
 		
 		Waiter.waitForSeconds(durationInSeconds);
 		
-		return actionMediator;
+		return ACTION_MEDIATOR;
 	}
 	
 	//static method
@@ -217,7 +217,7 @@ public final class GlobalSequencer {
 		
 		waitAsLongAs(() -> !condition.getOutput());
 		
-		return actionMediator;
+		return ACTION_MEDIATOR;
 	}
 
 	//constructor
