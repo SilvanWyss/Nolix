@@ -30,8 +30,8 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class ParametrizedPropertyTypeMapper implements IParametrizedPropertyTypeMapper {
 	
-	//static attribute
-	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	//constant
+	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 	
 	//method
 	@Override
@@ -42,11 +42,11 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 	) {
 		switch (property.getType()) {
 			case VALUE:
-				return new ParametrizedValueType<>(DataType.forType(propertyHelper.getDataType(property)));
+				return new ParametrizedValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
 			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(DataType.forType(propertyHelper.getDataType(property)));
+				return new ParametrizedOptionalValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
 			case MULTI_VALUE:
-				return new ParametrizedMultiValueType<>(DataType.forType(propertyHelper.getDataType(property)));
+				return new ParametrizedMultiValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
 			case REFERENCE:
 										
 				final var reference = (IReference<?>)property;
