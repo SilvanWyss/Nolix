@@ -17,14 +17,14 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapter> {
 	
-	//static attribute
-	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	//constant
+	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 	
-	//static attribute
-	private static final SchemaInitializer schemaInitializer = new SchemaInitializer();
+	//constant
+	private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 		
-	//static attribute
-	private static final DatabaseSaver databaseSaver = new DatabaseSaver();
+	//constant
+	private static final DatabaseSaver DATABASE_SAVER = new DatabaseSaver();
 	
 	//attribute
 	private final String databaseName;
@@ -52,7 +52,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 		GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 		GlobalValidator.assertThat(schema).thatIsNamed("schema").isNotNull();
 				
-		schemaInitializer.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
+		SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
 			schema,
 			schemaAdapter
 		);
@@ -88,7 +88,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	//method
 	@Override
 	public final boolean hasChanges() {
-		return databaseHelper.hasChanges(database);
+		return DATABASE_HELPER.hasChanges(database);
 	}
 	
 	//method
@@ -135,7 +135,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	//method
 	private void saveChanges() {
 		
-		databaseSaver.saveChangesOfDatabaseThreadSafe(database);
+		DATABASE_SAVER.saveChangesOfDatabaseThreadSafe(database);
 		
 		saveCount++;
 	}
