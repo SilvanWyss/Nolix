@@ -10,6 +10,7 @@ enum CharacterType {
 	
 	//static method
 	public static CharacterType fromCharacter(final char character) {
+		return
 		switch (character) {
 			case
 			'A',
@@ -40,8 +41,8 @@ enum CharacterType {
 			'Z',
 			'Ä',
 			'Ö',
-			'Ü':
-				return CharacterType.UPPER_CASE_LETTER;
+			'Ü' ->
+				CharacterType.UPPER_CASE_LETTER;
 			case
 			'a',
 			'b',
@@ -71,12 +72,12 @@ enum CharacterType {
 			'z',
 			'ä',
 			'ö',
-			'ü':
-				return CharacterType.LOWER_CASE_LETTER;
-			case '_':
-				return CharacterType.UNDERSCORE;
-			default:
-				return CharacterType.OTHER;
-		}
+			'ü' ->
+				CharacterType.LOWER_CASE_LETTER;
+			case '_' ->
+				CharacterType.UNDERSCORE;
+			default ->
+				CharacterType.OTHER;
+		};
 	}
 }
