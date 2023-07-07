@@ -11,11 +11,10 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 
 //class
-final class MultiReferenceEntry<E extends IEntity>
-implements IMultiReferenceEntry<E> {
+final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
 	
-	//static attribute
-	private static final DatabaseObjectHelper databaseObjectHelper = new DatabaseObjectHelper();
+	//constant
+	private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
 	
 	//static method
 	public static <E2 extends IEntity> MultiReferenceEntry<E2>
@@ -129,6 +128,6 @@ implements IMultiReferenceEntry<E> {
 	
 	//method
 	private void assertIsLoaded() {
-		databaseObjectHelper.assertIsLoaded(this);
+		DATABASE_OBJECT_HELPER.assertIsLoaded(this);
 	}
 }
