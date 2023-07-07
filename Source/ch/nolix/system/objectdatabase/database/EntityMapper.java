@@ -10,8 +10,8 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 //class
 final class EntityMapper {
 	
-	//static attribute
-	private static final EntityCreator entityCreator = new EntityCreator();
+	//constant
+	private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 	
 	//method
 	@SuppressWarnings("unchecked")
@@ -20,7 +20,7 @@ final class EntityMapper {
 		final ITable<E> table
 	) {
 		
-		final var loadedEntity = entityCreator.createEmptyEntityFor(table);
+		final var loadedEntity = ENTITY_CREATOR.createEmptyEntityFor(table);
 		
 		final var concreteEntity = (BaseEntity)loadedEntity;
 		concreteEntity.internalSetParentTable((ITable<IEntity>)table);
