@@ -8,17 +8,17 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 //class
 public final class PropertyBinderFactory {
 	
-	//static attribute
-	private static final ValueBinder valueBinder = new ValueBinder();
+	//constant
+	private static final ValueBinder VALUE_BINDER = new ValueBinder();
 	
-	//static attribute
-	private static final OptionalValueBinder optionalValueBinder = new OptionalValueBinder();
+	//constant
+	private static final OptionalValueBinder OPTIONAL_VALUE_BINDER = new OptionalValueBinder();
 	
-	//static attribute
-	private static final ReferenceBinder referenceBinder = new ReferenceBinder();
+	//constant
+	private static final ReferenceBinder REFERENCE_BINDER = new ReferenceBinder();
 	
-	//static attribute
-	private static final OptionalReferenceBinder optionalReferenceBinder = new OptionalReferenceBinder();
+	//constant
+	private static final OptionalReferenceBinder OPTIONAL_REFERENCE_BINDER = new OptionalReferenceBinder();
 	
 	//method
 	@SuppressWarnings("unchecked")
@@ -26,13 +26,13 @@ public final class PropertyBinderFactory {
 		return
 		switch (property.getType()) {
 			case VALUE ->
-				(PropertyBinder<P, ?>)valueBinder;
+				(PropertyBinder<P, ?>)VALUE_BINDER;
 			case OPTIONAL_VALUE ->
-				(PropertyBinder<P, ?>)optionalValueBinder;
+				(PropertyBinder<P, ?>)OPTIONAL_VALUE_BINDER;
 			case REFERENCE ->
-				(PropertyBinder<P, ?>)referenceBinder;
+				(PropertyBinder<P, ?>)REFERENCE_BINDER;
 			case OPTIONAL_BACK_REFERENCE ->
-				(PropertyBinder<P, ?>)optionalReferenceBinder;
+				(PropertyBinder<P, ?>)OPTIONAL_REFERENCE_BINDER;
 			default ->
 				throw InvalidArgumentException.forArgument(property);
 		};
