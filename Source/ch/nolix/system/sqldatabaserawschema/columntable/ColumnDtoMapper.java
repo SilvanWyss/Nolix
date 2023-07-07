@@ -18,20 +18,21 @@ public final class ColumnDtoMapper {
 	
 	//method
 	public ColumnDto createColumnDto(final List<String> columnSystemTableSqlRecord) {
+		return
 		switch (PropertyType.valueOf(columnSystemTableSqlRecord.get(3)).getBaseType()) {
-			case BASE_VALUE:
-				return createColumnDtoForBaseValue(columnSystemTableSqlRecord);
-			case BASE_BACK_REFERENCE:
-				return createColumnDtoForBaseBackReference(columnSystemTableSqlRecord);
-			case BASE_REFERENCE:
-				return createColumnDtoForBaseReference(columnSystemTableSqlRecord);
-			default:
+			case BASE_VALUE ->
+				createColumnDtoForBaseValue(columnSystemTableSqlRecord);
+			case BASE_BACK_REFERENCE ->
+				createColumnDtoForBaseBackReference(columnSystemTableSqlRecord);
+			case BASE_REFERENCE ->
+				createColumnDtoForBaseReference(columnSystemTableSqlRecord);
+			default ->
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(
 					"column system table record",
 					columnSystemTableSqlRecord
 				);
-		}
+		};
 	}
 	
 	//method
