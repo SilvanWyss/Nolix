@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawschema.schemawriter;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.system.sqldatabaserawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqldatabaserawschema.columntable.ParametrizedPropertyTypeSqlRecordMapper;
@@ -17,19 +18,19 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class SystemDataWriterSqlStatementCreator {
 	
-	//static attribute
-	private static final ParametrizedPropertyTypeSqlRecordMapper parametrizedPropertyTypeSqlRecordMapper =
+	//constant
+	private static final ParametrizedPropertyTypeSqlRecordMapper PARAMETRIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER =
 	new ParametrizedPropertyTypeSqlRecordMapper();
 	
-	//static attribute
-	private static final TableTableRecordMapper tableSystemTableRecordMapper =
+	//constant
+	private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER =
 	new TableTableRecordMapper();
 	
 	//method
 	public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 		
 		final var parametrezidPropertyTypeRecord =
-		parametrizedPropertyTypeSqlRecordMapper.createParametrizedPropertyTypeRecordFrom(
+		PARAMETRIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParametrizedPropertyTypeRecordFrom(
 			column.getParametrizedPropertyType()
 		);
 		
@@ -142,7 +143,7 @@ final class SystemDataWriterSqlStatementCreator {
 	) {
 		
 		final var parametrezidPropertyTypeRecord =
-		parametrizedPropertyTypeSqlRecordMapper.createParametrizedPropertyTypeRecordFrom(parametrizedPropertyType);
+		PARAMETRIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParametrizedPropertyTypeRecordFrom(parametrizedPropertyType);
 		
 		return
 		"UPDATE "
@@ -200,7 +201,7 @@ final class SystemDataWriterSqlStatementCreator {
 	//method
 	private String createStatementToAddTableIgnoringColumns(ITableDto table) {
 		
-		final var tableSystemTableRecord = tableSystemTableRecordMapper.createTableSystemTableRecordFrom(table);
+		final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);
 		
 		return
 	    "INSERT INTO "
