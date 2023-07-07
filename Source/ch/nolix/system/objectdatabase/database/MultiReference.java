@@ -23,11 +23,11 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 	
-	//static attribute
-	private static final IMultiReferenceHelper multiReferenceHelper = new MultiReferenceHelper();
+	//constant
+	private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();
 	
-	//static attribute
-	private static final IMultiReferenceValidator multiReferenceValidator = new MultiReferenceValidator();
+	//constant
+	private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 	
 	//static method
 	public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> type) {
@@ -104,7 +104,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 		
 		return
 		localEntries
-		.getOriSelected(multiReferenceHelper::isNewOrLoaded)
+		.getOriSelected(MULTI_REFERENCE_HELPER::isNewOrLoaded)
 		.to(IMultiReferenceEntry::getReferencedEntityId);
 	}
 	
@@ -153,7 +153,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 	@Override
 	public void removeEntity(final E entity) {
 
-		multiReferenceValidator.assertCanRemoveEntity(this, entity);
+		MULTI_REFERENCE_VALIDATOR.assertCanRemoveEntity(this, entity);
 		
 		extractReferencedEntityIdsIfNeeded();
 		
@@ -186,7 +186,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 	
 	//method
 	private void assertCanAddEntity(final E entity) {
-		multiReferenceValidator.assertCanAddGivenEntity(this, entity);
+		MULTI_REFERENCE_VALIDATOR.assertCanAddGivenEntity(this, entity);
 	}
 	
 	//method
@@ -232,7 +232,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 	private boolean shouldExtractReferencedEntityIds() {
 		return
 		!extractedReferencedEntityIds()
-		&& multiReferenceHelper.belongsToLoadedEntity(this);
+		&& MULTI_REFERENCE_HELPER.belongsToLoadedEntity(this);
 	}
 	
 	//method
