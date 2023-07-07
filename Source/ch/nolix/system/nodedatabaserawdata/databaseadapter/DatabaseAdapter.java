@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.databaseadapter;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.databasereader.DatabaseReader;
@@ -12,8 +13,8 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class DatabaseAdapter extends BaseDatabaseAdapter {
 	
-	//static attribute
-	private static final TableDefinitionLoader tableDefinitionLoader = new TableDefinitionLoader();
+	//constant
+	private static final TableDefinitionLoader TABLE_DEFINITION_LOADER = new TableDefinitionLoader();
 	
 	//static method
 	public static DatabaseAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
@@ -22,7 +23,7 @@ public final class DatabaseAdapter extends BaseDatabaseAdapter {
 	
 	//constructor
 	private DatabaseAdapter(final IMutableNode<?> nodeDatabase) {
-		this(nodeDatabase, tableDefinitionLoader.loadTableDefinitionsFromDatabaseNode(nodeDatabase));
+		this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableDefinitionsFromDatabaseNode(nodeDatabase));
 	}
 	
 	//constructor
