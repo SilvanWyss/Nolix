@@ -26,12 +26,22 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  */
 public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement implements IStyle {
 	
-	//constants
+	//constant
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
+	
+	//constant
 	private static final String SELECTOR_ID_HEADER = "SelectorId";
+	
+	//constant
 	private static final String SELECTOR_ROLE_HEADER = "SelectorRole";
+	
+	//constant
 	private static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
+	
+	//constant
 	private static final String ATTACHING_ATTRIBUTES_HEADER = "Attach";
+	
+	//constant
 	private static final String CONFIGURATIONS_HEADER = "Configurations";
 	
 	//attribute
