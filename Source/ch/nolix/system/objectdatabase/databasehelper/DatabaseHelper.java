@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.databasehelper;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
@@ -12,13 +13,13 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper {
 	
-	//static attribute
-	private final ITableHelper tableHelper = new TableHelper();
+	//constant
+	private static final ITableHelper TABLE_HELPER = new TableHelper();
 	
 	//method
 	@Override
 	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
-		return database.getOriTables().containsOnly(tableHelper::allNewAndEditedMandatoryPropertiesAreSet);
+		return database.getOriTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
 	}
 	
 	//method
@@ -49,6 +50,6 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean hasChanges(final IDatabase database) {
-		return database.getOriTables().containsAny(tableHelper::hasChanges);
+		return database.getOriTables().containsAny(TABLE_HELPER::hasChanges);
 	}
 }
