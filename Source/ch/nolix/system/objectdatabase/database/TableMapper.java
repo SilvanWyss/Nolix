@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -9,8 +10,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 final class TableMapper {
 	
-	//static attribute
-	private static final ColumnMapper columnMapper = new ColumnMapper();
+	//constant
+	private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 	
 	//method
 	@SuppressWarnings("unchecked")
@@ -41,7 +42,7 @@ final class TableMapper {
 		tableDto.getColumns()
 		.to(
 			c ->
-			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table, referencableTables)
+			COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table, referencableTables)
 		);
 		
 		table.internalSetColumns(columns);
