@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.schemawriter;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
@@ -9,8 +10,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableNodeMapper {
 	
-	//static attribute
-	private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
+	//constant
+	private static final ColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 	
 	//method
 	public Node createTableNodeFrom(final ITableDto table) {
@@ -33,6 +34,6 @@ public final class TableNodeMapper {
 	
 	//method
 	private Iterable<Node> createColumnNodesFrom(final ITableDto table) {
-		return table.getColumns().to(columnNodeMapper::createColumnNodeFrom);
+		return table.getColumns().to(COLUMN_NODE_MAPPER::createColumnNodeFrom);
 	}
 }
