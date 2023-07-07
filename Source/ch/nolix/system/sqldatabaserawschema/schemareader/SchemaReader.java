@@ -23,14 +23,14 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdap
 //class
 public final class SchemaReader implements ISchemaReader {
 	
-	//static attribute
-	private static final QueryCreator queryCreator = new QueryCreator();
+	//constant
+	private static final QueryCreator QUERY_CREATOR = new QueryCreator();
 	
-	//static attribute
-	private static final TableDtoMapper tableDtoMapper = new TableDtoMapper();
+	//constant
+	private static final TableDtoMapper TABLE_DTO_MAPPER = new TableDtoMapper();
 	
-	//static attribute
-	private static final ColumnDtoMapper columnDtoMapper = new ColumnDtoMapper();
+	//constant
+	private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 	
 	//static method
 	public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
@@ -84,7 +84,7 @@ public final class SchemaReader implements ISchemaReader {
 	//method
 	@Override
 	public int getTableCount() {
-		return Integer.valueOf(sqlConnection.getOneRecord(queryCreator.createQueryToGetTableCount()).get(0));
+		return Integer.valueOf(sqlConnection.getOneRecord(QUERY_CREATOR.createQueryToGetTableCount()).get(0));
 	}
 	
 	//method
@@ -92,8 +92,8 @@ public final class SchemaReader implements ISchemaReader {
 	public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
 		return
 		sqlConnection
-		.getRecords(queryCreator.createQueryToLoadCoumnsByTableId(tableId))
-		.to(columnDtoMapper::createColumnDto);
+		.getRecords(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
+		.to(COLUMN_DTO_MAPPER::createColumnDto);
 	}
 	
 	//method
@@ -101,16 +101,16 @@ public final class SchemaReader implements ISchemaReader {
 	public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
 		return
 		sqlConnection
-		.getRecords(queryCreator.createQueryToLoadCoumnsByTableName(tableName))
-		.to(columnDtoMapper::createColumnDto);
+		.getRecords(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
+		.to(COLUMN_DTO_MAPPER::createColumnDto);
 	}
 	
 	//method
 	@Override
 	public IFlatTableDto loadFlatTableById(final String id) {
 		return
-		tableDtoMapper.createTableDto(
-			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableById(id))
+		TABLE_DTO_MAPPER.createTableDto(
+			sqlConnection.getOneRecord(QUERY_CREATOR.createQueryToLoadFlatTableById(id))
 		);
 	}
 	
@@ -118,8 +118,8 @@ public final class SchemaReader implements ISchemaReader {
 	@Override
 	public IFlatTableDto loadFlatTableByName(final String name) {
 		return
-		tableDtoMapper.createTableDto(
-			sqlConnection.getOneRecord(queryCreator.createQueryToLoadFlatTableByName(name))
+		TABLE_DTO_MAPPER.createTableDto(
+			sqlConnection.getOneRecord(QUERY_CREATOR.createQueryToLoadFlatTableByName(name))
 		);
 	}
 	
@@ -128,8 +128,8 @@ public final class SchemaReader implements ISchemaReader {
 	public IContainer<IFlatTableDto> loadFlatTables() {
 		return
 		sqlConnection
-		.getRecords(queryCreator.createQueryToLoadFlatTables())
-		.to(tableDtoMapper::createTableDto);
+		.getRecords(QUERY_CREATOR.createQueryToLoadFlatTables())
+		.to(TABLE_DTO_MAPPER::createTableDto);
 	}
 	
 	//method
@@ -137,7 +137,7 @@ public final class SchemaReader implements ISchemaReader {
 	public Time loadSchemaTimestamp() {
 		return
 		Time.fromString(
-			sqlConnection.getRecords(queryCreator.createQueryToLoadSchemaTimestamp()).getOriFirst().get(0)
+			sqlConnection.getRecords(QUERY_CREATOR.createQueryToLoadSchemaTimestamp()).getOriFirst().get(0)
 		);
 	}
 	
