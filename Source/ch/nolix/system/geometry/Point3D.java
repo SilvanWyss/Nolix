@@ -22,9 +22,13 @@ import ch.nolix.system.element.main.Element;
  */
 public class Point3D extends Element {
 	
-	//constants
+	//constant
 	public static final double DEFAULT_X = 0.0;
+	
+	//constant
 	public static final double DEFAULT_Y = 0.0;
+	
+	//constant
 	public static final double DEFAULT_Z = 0.0;
 	
 	//static method
