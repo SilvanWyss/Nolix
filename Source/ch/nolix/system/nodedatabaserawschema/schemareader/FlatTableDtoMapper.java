@@ -9,14 +9,14 @@ import ch.nolix.system.objectschema.flatschemadto.FlatTableDto;
 //class
 final class FlatTableDtoMapper {
 	
-	//static attribute
-	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	//constant
+	private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 	
 	//method
 	public FlatTableDto createFlatTableDtoFromTableNode(final IMutableNode<?> tableNode) {
 		
-		final var id = tableNodeSearcher.getOriIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
-		final var name = tableNodeSearcher.getOriNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+		final var id = TABLE_NODE_SEARCHER.getOriIdNodeFromTableNode(tableNode).getSingleChildNodeHeader();
+		final var name = TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(tableNode).getSingleChildNodeHeader();
 		
 		return new FlatTableDto(id, name);
 	}
