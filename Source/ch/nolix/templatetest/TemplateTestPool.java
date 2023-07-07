@@ -7,10 +7,10 @@ import ch.nolix.templatetest.graphictest.GraphicTestPool;
 import ch.nolix.templatetest.mathtest.MathTestPool;
 
 //class
-public final class TemplatesTestPool extends TestPool {
+public final class TemplateTestPool extends TestPool {
 	
 	//constructor
-	public TemplatesTestPool() {
+	public TemplateTestPool() {
 		super(new GraphicTestPool(), new MathTestPool());
 	}
 }

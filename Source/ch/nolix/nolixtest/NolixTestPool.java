@@ -6,7 +6,7 @@ import ch.nolix.businesstest.BusinessTestPool;
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.CoreTestPool;
 import ch.nolix.systemtest.SystemTestPool;
-import ch.nolix.templatetest.TemplatesTestPool;
+import ch.nolix.templatetest.TemplateTestPool;
 
 //class
 /**
@@ -26,7 +26,7 @@ public final class NolixTestPool extends TestPool {
 			new CoreTestPool(),
 			new SystemTestPool(),
 			new BusinessTestPool(),
-			new TemplatesTestPool()
+			new TemplateTestPool()
 		);
 	}
 }

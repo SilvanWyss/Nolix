@@ -6,7 +6,7 @@ public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new TemplatesTestPool().run();
+		new TemplateTestPool().run();
 	}
 	
 	//constructor
