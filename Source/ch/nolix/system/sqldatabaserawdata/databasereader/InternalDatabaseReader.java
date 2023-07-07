@@ -18,11 +18,11 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 //class
 final class InternalDatabaseReader {
 	
-	//static attribute
-	private static final LoadedEntityDtoMapper loadedEntityDtoMapper = new LoadedEntityDtoMapper();
+	//constant
+	private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 	
-	//static attribute
-	private static final ValueMapper valueMapper = new ValueMapper();
+	//constant
+	private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 	
 	//attribute
 	private final SqlConnection sqlConnection;
@@ -90,7 +90,7 @@ final class InternalDatabaseReader {
 				multiValueColumnInfo.getColumnId()
 			)
 		)
-		.to(r -> valueMapper.createValueFromString(r.get(0), multiValueColumnInfo));
+		.to(r -> VALUE_MAPPER.createValueFromString(r.get(0), multiValueColumnInfo));
 	}
 	
 	//method
@@ -98,13 +98,13 @@ final class InternalDatabaseReader {
 		return
 		sqlConnection
 		.getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
-		.to(r -> loadedEntityDtoMapper.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
+		.to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
 	}
 	
 	//method
 	public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
 		return
-		loadedEntityDtoMapper.createLoadedEntityDtoFrosqlRecord(
+		LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
 			sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
 			tableInfo
 		);
