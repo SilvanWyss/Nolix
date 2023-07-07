@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -23,11 +24,11 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	//constant
 	private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 	
-	//static attribute
-	private static final ITableHelper tableHelper = new TableHelper();
+	//constant
+	private static final ITableHelper TABLE_HELPER = new TableHelper();
 	
-	//static attribute
-	private static final EntityMapper entityMapper = new EntityMapper();
+	//constant
+	private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
 	
 	//static method
 	static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
@@ -53,7 +54,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//attribute
 	private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable =
-	new CachingProperty<>(() -> tableHelper.getColumsThatReferenceGivenTable(this));
+	new CachingProperty<>(() -> TABLE_HELPER.getColumsThatReferenceGivenTable(this));
 	
 	//attribute
 	private boolean loadedAllEntitiesInLocalData;
@@ -263,7 +264,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	//method
 	@SuppressWarnings("unchecked")
 	private E createLoadedEntityFromDto(ILoadedEntityDto loadedEntityDto) {
-		return (E)entityMapper.createLoadedEntityFromDto(loadedEntityDto, (Table<BaseEntity>)this);
+		return (E)ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntityDto, (Table<BaseEntity>)this);
 	}
 	
 	//method
@@ -273,7 +274,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
-		if (!tableHelper.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
+		if (!TABLE_HELPER.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
 			entitiesInLocalData.addAtEnd(createLoadedEntityFromDto(loadedEntity));
 		}
 	}
