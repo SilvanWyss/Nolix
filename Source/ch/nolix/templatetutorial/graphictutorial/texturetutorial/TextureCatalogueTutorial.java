@@ -1,4 +1,4 @@
-package ch.nolix.templatetutorial.texturetutorial;
+package ch.nolix.templatetutorial.graphictutorial.texturetutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
