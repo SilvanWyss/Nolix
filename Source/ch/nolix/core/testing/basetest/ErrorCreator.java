@@ -7,11 +7,11 @@ import java.lang.reflect.InvocationTargetException;
 //class
 final class ErrorCreator {
 	
-	//static attribute
-	private static final OccurancePlaceFinder occurancePlaceFinder = new OccurancePlaceFinder();
+	//constant
+	private static final OccurancePlaceFinder OCCURANCE_PLACE_FINDER = new OccurancePlaceFinder();
 	
-	//static attribute
-	private static final ThrowableHelper throwableHelper = new ThrowableHelper();
+	//constant
+	private static final ThrowableHelper THROWABLE_HELPER = new ThrowableHelper();
 	
 	//method
 	public Error createErrorFromInvocationTargetExceptionInInstance(
@@ -25,8 +25,8 @@ final class ErrorCreator {
 	public Error createErrorFromThrowableInInstance(final Throwable throwable, final Object instance) {
 		return
 		new Error(
-			throwableHelper.getMessageFromThrowableOrDefaultErrorMessage(throwable),
-			occurancePlaceFinder.findOccurancePlaceOfThrowableInInstance(throwable, instance)
+			THROWABLE_HELPER.getMessageFromThrowableOrDefaultErrorMessage(throwable),
+			OCCURANCE_PLACE_FINDER.findOccurancePlaceOfThrowableInInstance(throwable, instance)
 		);
 	}
 }
