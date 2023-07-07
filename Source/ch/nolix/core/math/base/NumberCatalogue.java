@@ -10,12 +10,22 @@ package ch.nolix.core.math.base;
  */
 public final class NumberCatalogue {
 	
-	//constants
+	//constant
 	public static final double EULERS_NUMBER = Math.E;
+	
+	//constant
 	public static final double LOGARITHMUS_DECIMALIS_OF_2 = Math.log(2.0);
+	
+	//constant
 	public static final double PI = Math.PI;
+	
+	//constant
 	public static final double SQUARE_ROOT_OF_2 = Math.sqrt(2.0);
+	
+	//constant
 	public static final double SQUARE_ROOT_OF_3 = Math.sqrt(3.0);
+	
+	//constant
 	public static final double SQUARE_ROOT_OF_5 = Math.sqrt(5.0);
 	
 	//constructor
