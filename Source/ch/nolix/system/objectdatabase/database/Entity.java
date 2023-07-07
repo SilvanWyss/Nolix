@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 public abstract class Entity extends BaseEntity {
 	
-	//static attribute
-	private static final PropertyFromEntityExtractor propertyFromEntityExtractor = new PropertyFromEntityExtractor();
+	//constant
+	private static final PropertyFromEntityExtractor PROPERTY_FROM_ENTITY_EXTRACTOR = new PropertyFromEntityExtractor();
 	
 	//method
 	@Override
@@ -18,6 +19,6 @@ public abstract class Entity extends BaseEntity {
 	//method
 	@Override
 	final IContainer<Property> internalLoadProperties() {
-		return propertyFromEntityExtractor.getOriPropertiesFrom(this);
+		return PROPERTY_FROM_ENTITY_EXTRACTOR.getOriPropertiesFrom(this);
 	}
 }
