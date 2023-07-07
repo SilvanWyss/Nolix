@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.databasehelper;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
@@ -19,8 +20,8 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 //class
 public final class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
 	
-	//static attribute
-	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	//constant
+	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 	
 	//method
 	@Override
@@ -28,7 +29,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 		
 		if (isNewOrEdited(entity)) {
 			return
-			entity.technicalGetRefProperties().containsOnly(propertyHelper::isSetForCaseIsNewOrEditedAndMandatory);
+			entity.technicalGetRefProperties().containsOnly(PROPERTY_HELPER::isSetForCaseIsNewOrEditedAndMandatory);
 		}
 		
 		return true;
@@ -87,7 +88,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	//method
 	@Override
 	public  IContainer<? extends IProperty> getOriEditedProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().getOriSelected(propertyHelper::isEdited);
+		return entity.technicalGetRefProperties().getOriSelected(PROPERTY_HELPER::isEdited);
 	}
 	
 	//method
@@ -145,6 +146,6 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty property) {
 		return
 		isBaseValueOrBaseReference(property)
-		&& propertyHelper.isMandatoryAndEmptyBoth(property);
+		&& PROPERTY_HELPER.isMandatoryAndEmptyBoth(property);
 	}
 }
