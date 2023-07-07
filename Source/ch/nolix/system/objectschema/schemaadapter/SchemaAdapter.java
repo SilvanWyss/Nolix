@@ -15,8 +15,8 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {
 	
-	//static attribute
-	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	//constant
+	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
@@ -66,7 +66,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	//method
 	@Override
 	public final ITable getOriTableByName(final String name) {
-		return databaseHelper.getOriTableWithGivenName(database, name);
+		return DATABASE_HELPER.getOriTableWithGivenName(database, name);
 	}
 	
 	//method
@@ -108,7 +108,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	public final void saveChangesAndReset() {
 		try {
 			
-			databaseHelper.assertAllBackReferencesAreValid(database);
+			DATABASE_HELPER.assertAllBackReferencesAreValid(database);
 			rawSchemaAdapter.saveChangesAndReset();
 			
 			saveCount++;
