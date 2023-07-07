@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
+//own imports
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
@@ -51,7 +52,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
 		"SELECT Id, SaveStamp, "
 		+ tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
 		+ " FROM "
-		+ tableInfo.getTableName()
+		+ TableType.ENTITY_TABLE.getNamePrefix() + tableInfo.getTableName()
 		+ ";";
 	}
 	
