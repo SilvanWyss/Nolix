@@ -9,14 +9,14 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class TableDefinitionLoader {
 	
-	//static attribute
-	private static final TableDefinitionMapper tableDefinitionMapper = new TableDefinitionMapper();
+	//constant
+	private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
 	
 	//method
 	public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final IMutableNode<?> databaseNode) {
 		
 		final var tableNodes = databaseNode.getOriChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
 		
-		return tableNodes.to(tableDefinitionMapper::createTableDefinitionFromTableNode);
+		return tableNodes.to(TABLE_DEFINITION_MAPPER::createTableDefinitionFromTableNode);
 	}
 }
