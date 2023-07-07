@@ -38,8 +38,8 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
  */
 public abstract class Container<E> implements IContainer<E> {
 	
-	//static attribute
-	private static final Random random = new Random();
+	//constant
+	private static final Random RANDOM = new Random();
 	
 	//method
 	/**
@@ -738,7 +738,7 @@ public abstract class Container<E> implements IContainer<E> {
 		assertIsNotEmpty();
 		
 		//Calculates a random element index.
-		final var randomElementIndex = random.nextInt(getElementCount()) + 1;
+		final var randomElementIndex = RANDOM.nextInt(getElementCount()) + 1;
 		
 		return getOriAt1BasedIndex(randomElementIndex);
 	}
