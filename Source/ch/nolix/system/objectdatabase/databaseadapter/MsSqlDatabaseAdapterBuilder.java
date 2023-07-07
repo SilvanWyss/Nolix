@@ -26,7 +26,7 @@ AndPortCapturer<
 > {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
+	public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 	
 	//constructor
 	public MsSqlDatabaseAdapterBuilder(final String ipOrAddressName) {

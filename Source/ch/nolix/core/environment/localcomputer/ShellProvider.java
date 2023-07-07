@@ -49,7 +49,7 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startFirefox(final String url) {
-		startFirefox(url, PortCatalogue.HTTP_PORT);
+		startFirefox(url, PortCatalogue.HTTP);
 	}
 	
 	//static method
@@ -70,7 +70,7 @@ public final class ShellProvider {
 	
 	//static method
 	public static void startFirefoxOpeningLoopBackAddress() {
-		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP_PORT);
+		startFirefox(IPv4Catalogue.LOOP_BACK_ADDRESS, PortCatalogue.HTTP);
 	}
 	
 	//static method

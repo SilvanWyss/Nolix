@@ -30,7 +30,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 public final class Server extends BaseServer {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.HTTP_PORT;
+	public static final int DEFAULT_PORT = PortCatalogue.HTTP;
 	
 	//constant
 	private static final String DEFAULT_HTTP_MESSAGE =

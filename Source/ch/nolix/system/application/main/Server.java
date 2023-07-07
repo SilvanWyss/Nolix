@@ -26,7 +26,7 @@ public final class Server extends BaseServer {
 	 * @return a new {@link Server} that will listen to net {@link Client}s on the HTTP port (80).
 	 */
 	public static Server forHttpPort() {
-		return forPort(PortCatalogue.HTTP_PORT);
+		return forPort(PortCatalogue.HTTP);
 	}
 	
 	//static method

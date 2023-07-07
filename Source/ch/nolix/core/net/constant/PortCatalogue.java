@@ -10,14 +10,26 @@ package ch.nolix.core.net.constant;
  */
 public final class PortCatalogue {
 	
-	//constants
+	//constant
 	public static final int MIN_PORT = 0;
-	public static final int FTP_PORT = 20;
-	public static final int SMTP_PORT = 25;
-	public static final int HTTP_PORT = 80;
-	public static final int HTTPS_PORT = 443;
-	public static final int MSSQL_PORT = 1433;
+	
+	//constant
+	public static final int FTP = 20;
+	
+	//constant
+	public static final int SMTP = 25;
+	
+	//constant
+	public static final int HTTP = 80;
+	
+	//constant
+	public static final int HTTPS = 443;
+	
+	//constant
 	public static final int MAX_PORT = 65535;
+	
+	//constant
+	public static final int MSSQL = 1433;
 	
 	//constructor
 	/**

@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
 public final class SecureServer extends BaseServer {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.HTTPS_PORT;
+	public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
 	
 	//constant
 	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.SECURE;
@@ -30,7 +30,7 @@ public final class SecureServer extends BaseServer {
 		final var paramSSLCertificate =
 		NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultSSLCertificatefromLocalNolixConfiguration();
 		
-		return new SecureServer(PortCatalogue.HTTPS_PORT, domain, paramSSLCertificate);
+		return new SecureServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
 	}
 	
 	//static method

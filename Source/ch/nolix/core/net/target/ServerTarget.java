@@ -82,7 +82,7 @@ public class ServerTarget implements IServerTarget {
 	//method
 	private String toHttpsUrl() {
 		
-		if (getPort() == PortCatalogue.HTTPS_PORT) {
+		if (getPort() == PortCatalogue.HTTPS) {
 			return getIpOrAddressName();
 		}
 		
@@ -92,7 +92,7 @@ public class ServerTarget implements IServerTarget {
 	//method
 	private String toHttpUrl() {
 		
-		if (getPort() == PortCatalogue.HTTP_PORT) {
+		if (getPort() == PortCatalogue.HTTP) {
 			return String.format("http://%s", getIpOrAddressName());
 		}
 		

@@ -10,7 +10,7 @@ import ch.nolix.core.sql.SqlConnectionPool;
 public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.MSSQL_PORT;
+	public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 	
 	//static method
 	public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
