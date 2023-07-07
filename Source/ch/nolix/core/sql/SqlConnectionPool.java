@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.sql;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -20,7 +21,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	//constant
 	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 	
-	//static attribute
+	//constant
 	private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
 	
 	//static method
