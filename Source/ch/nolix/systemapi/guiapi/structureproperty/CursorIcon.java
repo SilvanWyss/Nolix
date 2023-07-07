@@ -38,22 +38,23 @@ public enum CursorIcon {
 	 * @return a CSS value representation of the current {@link CursorIcon}.
 	 */
 	public String toCssValue() {
+		return
 		switch (this) {
-			case ARROW:
-				return CssCursorCatalogue.DEFAULT;
-			case CROSS:
-				return CssCursorCatalogue.CROSSHAIR;
-			case EDIT:
-				return CssCursorCatalogue.TEXT;
-			case HAND:
-				return CssCursorCatalogue.POINTER;
-			case MOVE:
-				return CssCursorCatalogue.MOVE;
-			case WAIT:
-				return CssCursorCatalogue.WAIT_CONSTANT;
-			default:
+			case ARROW ->
+				CssCursorCatalogue.DEFAULT;
+			case CROSS ->
+				CssCursorCatalogue.CROSSHAIR;
+			case EDIT ->
+				CssCursorCatalogue.TEXT;
+			case HAND ->
+				CssCursorCatalogue.POINTER;
+			case MOVE ->
+				CssCursorCatalogue.MOVE;
+			case WAIT ->
+				CssCursorCatalogue.WAIT_CONSTANT;
+			default ->
 				throw InvalidArgumentException.forArgument(this);
-		}
+		};
 	}
 	
 	//method
@@ -63,21 +64,22 @@ public enum CursorIcon {
 	public Cursor toCursor() {
 		
 		//Enumerates the current cursor icon.
+		return
 		switch (this) {
-			case ARROW:
-				return new Cursor(Cursor.DEFAULT_CURSOR);
-			case CROSS:
-				return new Cursor(Cursor.CROSSHAIR_CURSOR);
-			case EDIT:
-				return new Cursor(Cursor.TEXT_CURSOR);
-			case HAND:
-				return new Cursor(Cursor.HAND_CURSOR);
-			case MOVE:
-				return new Cursor(Cursor.MOVE_CURSOR);
-			case WAIT:
-				return new Cursor(Cursor.WAIT_CURSOR);
-			default:
-				return new Cursor(Cursor.DEFAULT_CURSOR);
-		}
+			case ARROW ->
+				new Cursor(Cursor.DEFAULT_CURSOR);
+			case CROSS ->
+				new Cursor(Cursor.CROSSHAIR_CURSOR);
+			case EDIT ->
+				new Cursor(Cursor.TEXT_CURSOR);
+			case HAND ->
+				new Cursor(Cursor.HAND_CURSOR);
+			case MOVE ->
+				new Cursor(Cursor.MOVE_CURSOR);
+			case WAIT ->
+				new Cursor(Cursor.WAIT_CURSOR);
+			default ->
+				new Cursor(Cursor.DEFAULT_CURSOR);
+		};
 	}
 }
