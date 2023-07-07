@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.databasereader;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -12,9 +13,11 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 final class TableDefinitionMapper {
 	
-	//static attribute
-	private static final ColumnDefinitionMapper columnDefinitionMapper = new ColumnDefinitionMapper();
-	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	//constant
+	private static final ColumnDefinitionMapper COLUMN_DEFINITION_MAPPER = new ColumnDefinitionMapper();
+	
+	//constant
+	private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 	
 	//method
 	public ITableInfo createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
@@ -33,7 +36,7 @@ final class TableDefinitionMapper {
 		for (final var cn : getOriColumnNodesInOrderFromTableNode(tableNode)) {
 			
 			columnInfos.addAtEnd(
-				columnDefinitionMapper.createColumnDefinitionFromColumnNode(
+				COLUMN_DEFINITION_MAPPER.createColumnDefinitionFromColumnNode(
 					cn,
 					columnIndexOnEntityNode
 				)
@@ -47,16 +50,16 @@ final class TableDefinitionMapper {
 	
 	//method
 	private IContainer<? extends IMutableNode<?>> getOriColumnNodesInOrderFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNodeSearcher.getOriColumnNodesFromTableNode(tableNode);
+		return TABLE_NODE_SEARCHER.getOriColumnNodesFromTableNode(tableNode);
 	}
 	
 	//method
 	private String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNodeSearcher.getTableIdFromTableNode(tableNode);
+		return TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
 	}
 	
 	//method
 	private String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
-		return tableNodeSearcher.getTableNameFromTableNode(tableNode);
+		return TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
 	}
 }
