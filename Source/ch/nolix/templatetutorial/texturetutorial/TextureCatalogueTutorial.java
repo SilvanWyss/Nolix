@@ -9,7 +9,7 @@ import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
-import ch.nolix.template.texture.TextureCatalogue;
+import ch.nolix.template.graphic.texture.TextureCatalogue;
 
 public final class TextureCatalogueTutorial {
 	

@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.template.texture.TextureCatalogue;
+import ch.nolix.template.graphic.texture.TextureCatalogue;
 
 //class
 public final class TextureCatalogueTest extends Test {
