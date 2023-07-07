@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.template.bigdecimalmath;
+package ch.nolix.template.math.sequencecreator;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
