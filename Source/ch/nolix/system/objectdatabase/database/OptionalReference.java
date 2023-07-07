@@ -20,17 +20,16 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalRefere
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
-public final class OptionalReference<E extends IEntity> extends BaseReference<E>
-implements IOptionalReference<E> {
+public final class OptionalReference<E extends IEntity> extends BaseReference<E> implements IOptionalReference<E> {
 	
 	//constant
 	private static final IOptionalReferenceValidator OPTIONAL_REFERENCE_VALIDATOR = new OptionalReferenceValidator();
 	
-	//static attribute
-	private static final IEntityHelper entityHelper = new EntityHelper();
+	//constant
+	private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 	
-	//static attribute
-	private static final IOptionalReferenceHelper optionalReferenceHelper = new OptionalReferenceHelper();
+	//constant
+	private static final IOptionalReferenceHelper OPTIONAL_REFERENCE_HELPER = new OptionalReferenceHelper();
 	
 	//static method
 	public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> type) {
@@ -205,7 +204,7 @@ implements IOptionalReference<E> {
 	
 	//method
 	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-		return entityHelper.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
+		return ENTITY_HELPER.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
 	}
 	
 	//method
@@ -240,7 +239,7 @@ implements IOptionalReference<E> {
 	//method
 	private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
 		
-		final var backReferencingProperty = optionalReferenceHelper.getOriBackReferencingPropertyOrNull(this);
+		final var backReferencingProperty = OPTIONAL_REFERENCE_HELPER.getOriBackReferencingPropertyOrNull(this);
 		
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
