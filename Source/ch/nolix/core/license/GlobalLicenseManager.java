@@ -15,8 +15,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 public final class GlobalLicenseManager {
 	
-	//static attribute
-	private static final LicenseManager licenseManager = new LicenseManager();
+	//constant
+	private static final LicenseManager LICENSE_MANAGER = new LicenseManager();
 	
 	//static method
 	/**
@@ -28,7 +28,7 @@ public final class GlobalLicenseManager {
 	 * contains already a {@link License} of the type the given license is.
 	 */
 	public static void addLicense(final License license) {
-		licenseManager.addLicense(license);
+		LICENSE_MANAGER.addLicense(license);
 	}
 	
 	//static method
@@ -46,7 +46,7 @@ public final class GlobalLicenseManager {
 	 * contains already a {@link License} of the given licenseType.
 	 */
 	public static <L extends License> void addLicense(final Class<L> licenseType) {
-		licenseManager.addLicense(licenseType);
+		LICENSE_MANAGER.addLicense(licenseType);
 	}
 	
 	//static method
@@ -59,7 +59,7 @@ public final class GlobalLicenseManager {
 	 * does not contain a {@link Feature} of the given featureType.
 	 */
 	public static <F extends Feature> void requireFeature(final Class<F> featureType) {
-		licenseManager.requireFeature(featureType);
+		LICENSE_MANAGER.requireFeature(featureType);
 	}
 	
 	//static method
@@ -70,7 +70,7 @@ public final class GlobalLicenseManager {
 	 * @throws InvalidArgumentException if the {@link GlobalLicenseManager} does not contain the given license.
 	 */
 	public static void removeLicense(final License license) {
-		licenseManager.removeLicense(license);
+		LICENSE_MANAGER.removeLicense(license);
 	}
 	
 	//static method
@@ -79,7 +79,7 @@ public final class GlobalLicenseManager {
 	 * @return a new {@link LongMediator} for the given value.
 	 */
 	public static LongMediator when(final long value) {
-		return licenseManager.when(value);
+		return LICENSE_MANAGER.when(value);
 	}
 	
 	//constructor
