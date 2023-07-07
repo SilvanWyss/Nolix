@@ -23,21 +23,21 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class DatabaseUpdater {
 	
-	//static attribute
-	private static final DatabaseNodeSearcher databaseNodeSearcher = new DatabaseNodeSearcher();
+	//constant
+	private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 	
-	//static attribute
-	private static final DatabasePropertiesNodeSearcher databasePropertiesNodeSearcher =
+	//constant
+	private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER =
 	new DatabasePropertiesNodeSearcher();
 	
-	//static attribute
-	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	//constant
+	private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 	
-	//static attribute
-	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
+	//constant
+	private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 	
-	//static attribute
-	private static final EntityNodeMapper entityNodeMapper = new EntityNodeMapper();
+	//constant
+	private static final EntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 	
 	//method
 	public void deleteEntriesFromMultiReference(
@@ -48,9 +48,9 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -68,9 +68,9 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -89,9 +89,9 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferencedColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -110,9 +110,9 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -128,12 +128,12 @@ final class DatabaseUpdater {
 		final IEntityHeadDto entity
 	) {
 		
-		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
+		final var tableNode = DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
 		final var entityNode =
-		tableNodeSearcher.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.getId());
+		TABLE_NODE_SEARCHER.removeAndGetRefEntityNodeFromTableNode(tableNode, entity.getId());
 		
-		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = ENTITY_NODE_SEARCHER.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		if (!saveStampNode.hasHeader(entity.getSaveStamp())) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
@@ -144,10 +144,10 @@ final class DatabaseUpdater {
 	public void expectGivenSchemaTimestamp(final IMutableNode<?> databaseNode, final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
-		databaseNodeSearcher.getOriDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+		DATABASE_NODE_SEARCHER.getOriDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 		
 		final var actualSchemaTimestamp =
-		databasePropertiesNodeSearcher.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
+		DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
 		
 		if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("schema");
@@ -161,9 +161,9 @@ final class DatabaseUpdater {
 		final String entityId
 	) {
 		
-		final var tableNode = databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
+		final var tableNode = DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 		
-		final var containsEntity = tableNodeSearcher.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
+		final var containsEntity = TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
 			tableNode,
 			FieldIndexCatalogue.ID_INDEX,
 			entityId
@@ -189,9 +189,9 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiReferenceColumnIndex = multiReferenceColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -210,9 +210,9 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(databaseNode, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNode(tableNode, entityId);
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNode(tableNode, entityId);
 		
 		final var multiValueColumnIndex = multiValueColumnInfo.getColumnIndexOnEntityNode();
 		
@@ -228,9 +228,9 @@ final class DatabaseUpdater {
 		final INewEntityDto newEntity
 	) {
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		if (tableNodeSearcher.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
+		if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
 			throw
 			ArgumentHasAttributeException.forArgumentAndAttributeName(
 				"table " + tableInfo.getTableNameInQuotes(),
@@ -238,7 +238,7 @@ final class DatabaseUpdater {
 			);
 		}
 		
-		final var entityNode = entityNodeMapper.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
+		final var entityNode = ENTITY_NODE_MAPPER.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
 		
 		tableNode.addChildNode(entityNode);
 	}
@@ -247,14 +247,14 @@ final class DatabaseUpdater {
 	public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDto entity) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(database, tableName);
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNodeOrNull(tableNode, entity.getId());
 		if (entityNode == null) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = ENTITY_NODE_SEARCHER.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entity.getSaveStamp())) {
@@ -273,14 +273,14 @@ final class DatabaseUpdater {
 	) {
 		
 		final var tableNode =
-		databaseNodeSearcher.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(database, tableInfo.getTableName());
 		
-		final var entityNode = tableNodeSearcher.getOriEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
+		final var entityNode = TABLE_NODE_SEARCHER.getOriEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
 		if (entityNode == null) {
 			throw ResourceWasChangedInTheMeanwhileException.forResource("data");
 		}
 		
-		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = ENTITY_NODE_SEARCHER.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		final var saveStamp = saveStampNode.getHeader();
 		if (!saveStamp.equals(entityUpdate.getSaveStamp())) {
