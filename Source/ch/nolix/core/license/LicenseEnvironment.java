@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.license;
 
+//own imports
 import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
 
 //class
@@ -13,8 +14,10 @@ import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
  */
 public final class LicenseEnvironment {
 	
-	//constants
+	//constant
 	public static final String LOCAL_LICENSE_FOLDER_NAME = "Licenses";
+	
+	//constant
 	public static final String LICENCSE_FILE_EXTENSION = "license";
 	
 	//static method
