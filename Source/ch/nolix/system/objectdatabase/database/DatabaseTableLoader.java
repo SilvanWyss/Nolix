@@ -13,18 +13,18 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 final class DatabaseTableLoader {
 	
-	//static attribute
-	private static final TableMapper tableMapper = new TableMapper();
+	//constant
+	private static final TableMapper TABLE_MAPPER = new TableMapper();
 	
-	//static attribute
-	private static final ColumnMapper columnMapper = new ColumnMapper();
+	//constant
+	private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 	
 	//method
 	public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 		
 		final var rawTables = database.internalGetRefDataAndSchemaAdapter().loadTables();
 		
-		final var tables = rawTables.to(rt -> tableMapper.createEmptyTableFromTableDtoForDatabase(rt, database));
+		final var tables = rawTables.to(rt -> TABLE_MAPPER.createEmptyTableFromTableDtoForDatabase(rt, database));
 		
 		addBaseValueColumnsToTablesFromRawTables(tables, rawTables);
 		addBaseReferenceColumnsToTablesFromRawTables(tables, rawTables, tables);
@@ -61,7 +61,7 @@ final class DatabaseTableLoader {
 		for (final var c : rawBaseValueColumns) {
 			
 			final var column =
-			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(
+			COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
 				c,
 				table,
 				new ImmutableList<>()
@@ -101,7 +101,7 @@ final class DatabaseTableLoader {
 		for (final var c : rawBaseReferenceColumns) {
 			
 			final var column =
-			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(
+			COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
 				c,
 				table,
 				referencableTables
@@ -141,7 +141,7 @@ final class DatabaseTableLoader {
 		for (final var c : rawBaseValueColumns) {
 			
 			final var column =
-			columnMapper.createColumnFromDtoForParentTableUsingGivenReferencableTables(
+			COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(
 				c,
 				table,
 				referencableTables
