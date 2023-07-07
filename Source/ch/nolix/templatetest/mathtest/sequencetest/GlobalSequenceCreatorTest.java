@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.templatetest.bigdecimalmathtest;
+package ch.nolix.templatetest.mathtest.sequencetest;
 
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.core.testing.basetest.TestCase;

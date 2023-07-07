@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.templatetest.bigdecimalmathtest;
+package ch.nolix.templatetest.mathtest.sequencetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public final class BigDecimalMathTestPool extends TestPool {
+public final class SequenceTestPool extends TestPool {
 	
 	//constructor
-	public BigDecimalMathTestPool() {
+	public SequenceTestPool() {
 		super(GlobalSequenceCreatorTest.class);
 	}
 }
