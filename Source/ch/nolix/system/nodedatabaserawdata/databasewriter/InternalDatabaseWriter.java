@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.databasewriter;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -16,8 +17,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class InternalDatabaseWriter {
 	
-	//static attribute
-	private static final DatabaseUpdater databaseUpdater = new DatabaseUpdater();
+	//constant
+	private static final DatabaseUpdater DATABASE_UPDATER = new DatabaseUpdater();
 	
 	//attribute
 	private int saveCount;
@@ -43,7 +44,7 @@ final class InternalDatabaseWriter {
 		final IColumnInfo multiReferenceColumnInfo
 	) {		
 		addChangeAction(
-			d -> databaseUpdater.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo)
+			d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo)
 		);
 	}
 	
@@ -54,7 +55,7 @@ final class InternalDatabaseWriter {
 		final IColumnInfo multiValueColumnInfo
 	) {		
 		addChangeAction(
-			d -> databaseUpdater.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo)
+			d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo)
 		);
 	}
 	
@@ -67,7 +68,7 @@ final class InternalDatabaseWriter {
 	) {
 		addChangeAction(
 			d -> 
-			databaseUpdater.deleteEntryFromMultiReference(
+			DATABASE_UPDATER.deleteEntryFromMultiReference(
 				d,
 				tableInfo,
 				entityId,
@@ -85,23 +86,23 @@ final class InternalDatabaseWriter {
 		final String entry
 	) {
 		addChangeAction(
-			d -> databaseUpdater.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry)
+			d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry)
 		);
 	}
 	
 	//method
 	public void deleteEntityFromTable(final String tableName, final IEntityHeadDto entity) {
-		addChangeAction(d -> databaseUpdater.deleteEntityFromTable(d, tableName, entity));
+		addChangeAction(d -> DATABASE_UPDATER.deleteEntityFromTable(d, tableName, entity));
 	}
 	
 	//method
 	public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
-		addChangeAction(d -> databaseUpdater.expectGivenSchemaTimestamp(d, schemaTimestamp));
+		addChangeAction(d -> DATABASE_UPDATER.expectGivenSchemaTimestamp(d, schemaTimestamp));
 	}
 	
 	//method
 	public void expectTableContainsEntity(final String tableName, final String entityId) {
-		addChangeAction(d -> databaseUpdater.expectTableContainsEntity(d, tableName, entityId));
+		addChangeAction(d -> DATABASE_UPDATER.expectTableContainsEntity(d, tableName, entityId));
 	}
 	
 	//method
@@ -123,7 +124,7 @@ final class InternalDatabaseWriter {
 	) {
 		addChangeAction(
 			d ->
-			databaseUpdater.insertEntryIntoMultiReference(
+			DATABASE_UPDATER.insertEntryIntoMultiReference(
 				d,
 				tableInfo,
 				entityId,
@@ -141,13 +142,13 @@ final class InternalDatabaseWriter {
 		final String entry
 	) {
 		addChangeAction(
-			d -> databaseUpdater.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry)
+			d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry)
 		);
 	}
 	
 	//method
 	public void insertEntityIntoTable(final ITableInfo tableInfo, final INewEntityDto newEntity) {
-		addChangeAction(d -> databaseUpdater.insertEntityIntoTable(d, tableInfo, newEntity));
+		addChangeAction(d -> DATABASE_UPDATER.insertEntityIntoTable(d, tableInfo, newEntity));
 	}
 	
 	//methods
@@ -167,12 +168,12 @@ final class InternalDatabaseWriter {
 	
 	//method
 	public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-		addChangeAction(d -> databaseUpdater.setEntityAsUpdated(d, tableName, entity));
+		addChangeAction(d -> DATABASE_UPDATER.setEntityAsUpdated(d, tableName, entity));
 	}
 	
 	//method
 	public void updateEntityOnTable(final ITableInfo tableInfo, IEntityUpdateDto entityUpdate) {
-		addChangeAction(d -> databaseUpdater.updateEntityOnTable(d, tableInfo, entityUpdate));
+		addChangeAction(d -> DATABASE_UPDATER.updateEntityOnTable(d, tableInfo, entityUpdate));
 	}
 	
 	//method
