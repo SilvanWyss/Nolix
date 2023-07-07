@@ -4,7 +4,7 @@ package ch.nolix.templatetest.bigdecimalmathtest;
 import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.template.math.sequencecreator.GlobalSequenceCreator;
+import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 
 //class
 public final class GlobalSequenceCreatorTest extends Test {
