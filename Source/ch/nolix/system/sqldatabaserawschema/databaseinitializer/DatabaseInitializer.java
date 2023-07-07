@@ -10,11 +10,11 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdap
 //class
 public final class DatabaseInitializer {
 	
-	//static attribute
-	private static final DatabaseSchemaInspector databaseSchemaInspector = new DatabaseSchemaInspector();
+	//constant
+	private static final DatabaseSchemaInspector DATABASE_SCHEMA_INSPECTOR = new DatabaseSchemaInspector();
 	
-	//static attribute
-	private static final InternalDatabaseInitializer internalDatabaseInitializer = new InternalDatabaseInitializer();
+	//constant
+	private static final InternalDatabaseInitializer INTERNAL_DATABASE_INITIALIZER = new InternalDatabaseInitializer();
 	
 	//method
 	public void initializeDatabaseIfNotInitialized(
@@ -22,9 +22,9 @@ public final class DatabaseInitializer {
 		final ISchemaAdapter schemaAdapter,
 		final SqlConnectionPool sqlConnectionPool
 	) {
-		switch (databaseSchemaInspector.getDatabaseSchemaState(schemaAdapter)) {
+		switch (DATABASE_SCHEMA_INSPECTOR.getDatabaseSchemaState(schemaAdapter)) {
 			case UNINITIALIZED:
-				internalDatabaseInitializer.initializeDatabase(databaseName, schemaAdapter, sqlConnectionPool);
+				INTERNAL_DATABASE_INITIALIZER.initializeDatabase(databaseName, schemaAdapter, sqlConnectionPool);
 				break;
 			case INITIALIZED:
 				break;
