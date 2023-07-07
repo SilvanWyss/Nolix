@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.databasereader;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -13,11 +14,11 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class LoadedEntityDtoMapper {
 	
-	//static attribute
-	private static final ContentFieldDtoMapper contentFieldDtoMapper = new ContentFieldDtoMapper();
+	//constant
+	private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 	
-	//static attribute
-	private static final EntityNodeSearcher entityNodeSearcher = new EntityNodeSearcher();
+	//constant
+	private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 	
 	//method
 	public ILoadedEntityDto createLoadedEntityDtoFromEntityNode(
@@ -43,7 +44,7 @@ public final class LoadedEntityDtoMapper {
 			
 			final var contentFieldNode = entityNode.getOriChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
 			
-			contentFields.addAtEnd(contentFieldDtoMapper.createContentFieldDtoFromContentFieldNode(contentFieldNode, ci));
+			contentFields.addAtEnd(CONTENT_FIELD_DTO_MAPPER.createContentFieldDtoFromContentFieldNode(contentFieldNode, ci));
 		}
 		
 		return contentFields;
@@ -52,7 +53,7 @@ public final class LoadedEntityDtoMapper {
 	//method
 	private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
 		
-		final var idNode = entityNodeSearcher.getOriIdNodeFromEntityNode(entityNode);
+		final var idNode = ENTITY_NODE_SEARCHER.getOriIdNodeFromEntityNode(entityNode);
 		
 		return idNode.getHeader();
 	}
@@ -60,7 +61,7 @@ public final class LoadedEntityDtoMapper {
 	//method
 	private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
 		
-		final var saveStampNode = entityNodeSearcher.getOriSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = ENTITY_NODE_SEARCHER.getOriSaveStampNodeFromEntityNode(entityNode);
 		
 		return saveStampNode.getHeader();
 	}
