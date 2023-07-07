@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.schemamapper;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -12,8 +13,8 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class TableMapper implements ITableMapper {
 	
-	//static attribute
-	private static final IColumnMapper columnMapper = new ColumnMapper();
+	//constant
+	private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 	
 	@Override
 	public IContainer<ITable> createTablesFrom(final ISchema schema) {
@@ -24,7 +25,7 @@ public final class TableMapper implements ITableMapper {
 			final var entityType = schema.getEntityTypes().getOriFirst(et -> t.hasName(et.getSimpleName()));						
 			for (
 				final var c :
-				columnMapper.createColumnsFromGivenEntityTypeUsingGivenReferencableTables(entityType, tables)
+				COLUMN_MAPPER.createColumnsFromGivenEntityTypeUsingGivenReferencableTables(entityType, tables)
 			) {
 				t.addColumn(c);
 			}
