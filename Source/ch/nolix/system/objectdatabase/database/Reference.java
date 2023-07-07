@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -17,14 +18,13 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IReferenceValid
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
-public final class Reference<E extends IEntity> extends BaseReference<E>
-implements IReference<E> {
+public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
 	
 	//constant
 	private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 	
-	//static attribute
-	private static final IEntityHelper entityHelper = new EntityHelper();
+	//constant
+	private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 	
 	//static method
 	public static <E2 extends Entity> Reference<E2> forEntity(final Class<E2> type) {
@@ -206,7 +206,7 @@ implements IReference<E> {
 	
 	//method
 	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-		return entityHelper.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
+		return ENTITY_HELPER.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
 	}
 
 	//method
