@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
+//own imports
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityStatementCreator;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
@@ -12,58 +13,58 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 //class
 public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
 	
-	//static attribute
-	private static final IEntityQueryCreator entityQueryCreator = new EntityQueryCreator();
+	//constant
+	private static final IEntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
 	
-	//static attribute
-	private static final IEntityStatementCreator entityStatementCreator = new EntityStatementCreator();
+	//constant
+	private static final IEntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
 	
-	//static attribute
-	private static final IMultiValueQueryCreator multiValueQueryCreator = new MultiValueQueryCreator();
+	//constant
+	private static final IMultiValueQueryCreator MULTI_VALUE_QUERY_CREATOR = new MultiValueQueryCreator();
 	
-	//static attribute
-	private static final IMultiValueStatementCreator multiValueStatementCreator = new MultiValueStatementCreator();
+	//constant
+	private static final IMultiValueStatementCreator MULTI_VALUE_STATEMENT_CREATOR = new MultiValueStatementCreator();
 	
-	//static attribute
-	private static final IMultiReferenceQueryCreator multiReferenceQueryCreator = new MultiReferenceQueryCreator();
+	//constant
+	private static final IMultiReferenceQueryCreator MULTI_REFERENCE_QUERY_CREATOR = new MultiReferenceQueryCreator();
 	
-	//static attribute
-	private static final IMultiReferenceStatementCreator multiReferenceStatementCreator =
+	//constant
+	private static final IMultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR =
 	new MultiReferenceStatementCreator();
 	
 	//method
 	@Override
 	public IMultiReferenceQueryCreator getMultiReferenceQueryCreator() {
-		return multiReferenceQueryCreator;
+		return MULTI_REFERENCE_QUERY_CREATOR;
 	}
 	
 	//method
 	@Override
 	public IMultiValueQueryCreator getMultiValueQueryCreator() {
-		return multiValueQueryCreator;
+		return MULTI_VALUE_QUERY_CREATOR;
 	}
 	
 	//method
 	@Override
 	public IMultiReferenceStatementCreator getMultiReferenceStatemeentCreator() {
-		return multiReferenceStatementCreator;
+		return MULTI_REFERENCE_STATEMENT_CREATOR;
 	}
 	
 	//method
 	@Override
 	public IMultiValueStatementCreator getMultiValueStatemeentCreator() {
-		return multiValueStatementCreator;
+		return MULTI_VALUE_STATEMENT_CREATOR;
 	}
 	
 	//method
 	@Override
 	public IEntityQueryCreator getEntityQueryCreator() {
-		return entityQueryCreator;
+		return ENTITY_QUERY_CREATOR;
 	}
 	
 	//method
 	@Override
 	public IEntityStatementCreator getEntityStatementCreator() {
-		return entityStatementCreator;
+		return ENTITY_STATEMENT_CREATOR;
 	}
 }
