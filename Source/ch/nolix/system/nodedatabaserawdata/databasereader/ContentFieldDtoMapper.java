@@ -11,8 +11,8 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 //class
 public final class ContentFieldDtoMapper {
 	
-	//static attribute
-	private static final ValueMapper valueMapper = new ValueMapper();
+	//constant
+	private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 	
 	//method
 	public ILoadedContentFieldDto createContentFieldDtoFromContentFieldNode(
@@ -31,7 +31,7 @@ public final class ContentFieldDtoMapper {
 		return
 		new LoadedContentFieldDto(
 			columnInfo.getColumnName(),
-			valueMapper.createValueFromString(contentFieldNode.getHeader(), columnInfo)
+			VALUE_MAPPER.createValueFromString(contentFieldNode.getHeader(), columnInfo)
 		);
 	}
 }
