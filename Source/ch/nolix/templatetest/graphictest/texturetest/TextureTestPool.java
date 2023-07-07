@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.templatetest.texturetest;
+package ch.nolix.templatetest.graphictest.texturetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;

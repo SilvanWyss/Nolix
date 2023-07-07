@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.templatetest.texturetest;
+package ch.nolix.templatetest.graphictest.texturetest;
 
 //class
 public final class Launcher {
