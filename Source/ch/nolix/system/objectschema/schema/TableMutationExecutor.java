@@ -8,8 +8,8 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 final class TableMutationExecutor {
 	
-	//static attribute
-	private static final ITableHelper tableHelper = new TableHelper();
+	//constant
+	private static final ITableHelper TABLE_HELPER = new TableHelper();
 	
 	//method
 	public void addColumnToTable(final Table table, final Column column) {
@@ -40,8 +40,8 @@ final class TableMutationExecutor {
 	public void setNameToTable(final Table table, final String name) {
 		
 		final var oldTableName = table.getName();
-		final var referencingColumns = tableHelper.getOriReferencingColumns(table);
-		final var backReferencingColumns = tableHelper.getOriBackReferencingColumns(table);
+		final var referencingColumns = TABLE_HELPER.getOriReferencingColumns(table);
+		final var backReferencingColumns = TABLE_HELPER.getOriBackReferencingColumns(table);
 		
 		table.setNameAttribute(name);
 		
