@@ -14,8 +14,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 public final class TestCaseRunner extends Thread {
 	
-	//static attribute
-	private static final ErrorCreator errorCreator = new ErrorCreator();
+	//constant
+	private static final ErrorCreator ERROR_CREATOR = new ErrorCreator();
 	
 	//attribute
 	private final TestCaseWrapper testCaseWrapper;
@@ -163,7 +163,7 @@ public final class TestCaseRunner extends Thread {
 			closeableElement.close();
 		} catch (final Exception exception) {
 			if (!hasExceptionError()) {
-				exceptionError = errorCreator.createErrorFromThrowableInInstance(exception, closeableElement);
+				exceptionError = ERROR_CREATOR.createErrorFromThrowableInInstance(exception, closeableElement);
 			}
 		}
 	}
@@ -201,7 +201,7 @@ public final class TestCaseRunner extends Thread {
 		} catch (final InvocationTargetException invocationTargetException) {
 			if (!hasExceptionError()) {
 				exceptionError =
-				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
+				ERROR_CREATOR.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
 			}
 		} catch (final IllegalAccessException illegalAccessException) {
 			throw WrapperException.forError(illegalAccessException);
@@ -229,7 +229,7 @@ public final class TestCaseRunner extends Thread {
 		} catch (final InvocationTargetException invocationTargetException) {
 			if (!hasExceptionError()) {
 				exceptionError =
-				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
+				ERROR_CREATOR.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
 			}
 		} catch (final IllegalAccessException illegalAccessException) {
 			throw WrapperException.forError(illegalAccessException);
@@ -243,7 +243,7 @@ public final class TestCaseRunner extends Thread {
 		} catch (final InvocationTargetException invocationTargetException) {
 			if (!hasExceptionError()) {
 				exceptionError =
-				errorCreator.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
+				ERROR_CREATOR.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException, testInstance);
 			}
 		} catch (final IllegalAccessException illegalAccessException) {
 			throw WrapperException.forError(illegalAccessException);
