@@ -17,22 +17,22 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 //class
 public final class DatabaseSaveValidator {
 	
-	//static attribute
-	private static final IDatabaseHelper databaseHelper = new DatabaseHelper();
+	//constant
+	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 	
-	//static attribute
-	private static final IEntityHelper entityHelper = new EntityHelper();
+	//constant
+	private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 	
-	//static attribute
-	private static final IPropertyHelper propertyHelper = new PropertyHelper();
+	//constant
+	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 	
-	//static attribute
-	private static final IMultiReferenceEntryHelper multiReferenceEntryHelper = new MultiReferenceEntryHelper();
+	//constant
+	private static final IMultiReferenceEntryHelper MULTI_REFERENCE_ENTRY_HELPER = new MultiReferenceEntryHelper();
 	
 	//method
 	public void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(final Database database) {
 		
-		final var entitiesInLocalData = databaseHelper.getOriEntitiesInLocalData(database);
+		final var entitiesInLocalData = DATABASE_HELPER.getOriEntitiesInLocalData(database);
 		
 		for (final var e : entitiesInLocalData) {
 			addExpectionsThatNewlyReferencedEntitiesExistToDatabase(e, database);
@@ -44,7 +44,7 @@ public final class DatabaseSaveValidator {
 		final IEntity entity,
 		final Database database
 	) {
-		if (entityHelper.isNewOrEdited(entity)) {
+		if (ENTITY_HELPER.isNewOrEdited(entity)) {
 			addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(entity, database);
 		}
 	}
@@ -64,7 +64,7 @@ public final class DatabaseSaveValidator {
 		final Database database,
 		final IProperty property
 	) {
-		if (propertyHelper.isNewOrEdited(property)) {
+		if (PROPERTY_HELPER.isNewOrEdited(property)) {
 			addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(property, database);
 		}
 	}
@@ -103,7 +103,7 @@ public final class DatabaseSaveValidator {
 				final var referencedTableName = multiReference.getReferencedTableName();
 				
 				for (final var le : multiReference.getOriLocalEntries()) {
-					if (multiReferenceEntryHelper.isNewOrEdited(le)) {
+					if (MULTI_REFERENCE_ENTRY_HELPER.isNewOrEdited(le)) {
 						database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 							referencedTableName,
 							le.getReferencedEntityId()
