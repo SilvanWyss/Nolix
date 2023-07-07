@@ -1,17 +1,18 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawschema.structure;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //class
 public final class DatabaseNodeSearcher {
 	
-	//static attribute
-	private static final TableNodeSearcher tableNodeSearcher = new TableNodeSearcher();
+	//constant
+	private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 	
-	//static attribute
-	private static final ColumnNodeSearcher columnNodeSearcher = new ColumnNodeSearcher();
+	//constant
+	private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 	
 	//method
 	public IMutableNode<?> getOriColumnNodeByColumnIdFromDatabaseNode(
@@ -20,8 +21,8 @@ public final class DatabaseNodeSearcher {
 	) {
 		return
 		getOriTableNodesFromDatabaseNode(databaseNode)
-		.toFromGroups(tableNodeSearcher::getOriColumnNodesFromTableNode)
-		.getOriFirst(cn -> columnNodeSearcher.getOriIdNodeFromColumnNode(cn).getOriSingleChildNode().hasHeader(columnId));
+		.toFromGroups(TABLE_NODE_SEARCHER::getOriColumnNodesFromTableNode)
+		.getOriFirst(cn -> COLUMN_NODE_SEARCHER.getOriIdNodeFromColumnNode(cn).getOriSingleChildNode().hasHeader(columnId));
 	}
 	
 	//method
