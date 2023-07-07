@@ -18,16 +18,16 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper{
 	
-	//static attribute
-	private static final ITableHelper tableHelper = new TableHelper();
+	//constant
+	private static final ITableHelper TABLE_HELPER = new TableHelper();
 	
-	//static attribute
-	private static final IColumnHelper columnHelper = new ColumnHelper();
+	//constant
+	private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 	
 	//method
 	@Override
 	public boolean allBackReferencesAreValid(final IDatabase database) {
-		return getOriAllBackReferenceColumns(database).containsOnly(columnHelper::isAValidBackReferenceColumn);
+		return getOriAllBackReferenceColumns(database).containsOnly(COLUMN_HELPER::isAValidBackReferenceColumn);
 	}
 	
 	//method
@@ -128,7 +128,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	public boolean canAddGivenTable(final IDatabase database, final ITable table) {
 		return
 		canAddTable(database)
-		&& tableHelper.canBeAddedToDatabase(table)
+		&& TABLE_HELPER.canBeAddedToDatabase(table)
 		&& !containsTableWithGivenName(database, table.getName())
 		&& canAddGivenTableBecauseOfColumns(database, table);
 	}
@@ -161,11 +161,11 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	) {
 		
 		//This check is theoretically not necessary, but provides a better performance for some cases.
-		if (!columnHelper.isAReferenceColumn(column)) {
+		if (!COLUMN_HELPER.isAReferenceColumn(column)) {
 			return false;
 		}
 		
-		return database.getOriTables().containsAny(t -> columnHelper.referencesGivenTable(column, t));
+		return database.getOriTables().containsAny(t -> COLUMN_HELPER.referencesGivenTable(column, t));
 	}
 	
 	//method
@@ -176,18 +176,18 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	) {
 		
 		//This check is theoretically not necessary, but provides a better performance for some cases.
-		if (!columnHelper.isABackReferenceColumn(column)) {
+		if (!COLUMN_HELPER.isABackReferenceColumn(column)) {
 			return false;
 		}
 		
 		return
-		database.getOriTables().containsAny(t -> tableHelper.containsColumnBackReferencedByGivenColumn(t, column));
+		database.getOriTables().containsAny(t -> TABLE_HELPER.containsColumnBackReferencedByGivenColumn(t, column));
 	}
 	
 	//method
 	@Override
 	public boolean containsTableWithGivenColumn(final IDatabase database, final IColumn column) {
-		return database.getOriTables().containsAny(t -> tableHelper.containsGivenColumn(t, column));
+		return database.getOriTables().containsAny(t -> TABLE_HELPER.containsGivenColumn(t, column));
 	}
 	
 	//method
@@ -205,7 +205,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public  IContainer<IColumn> getOriAllBackReferenceColumns(final IDatabase database) {
-		return database.getOriTables().toFromGroups(tableHelper::getOriBackReferenceColumns);
+		return database.getOriTables().toFromGroups(TABLE_HELPER::getOriBackReferenceColumns);
 	}
 	
 	//method
@@ -231,7 +231,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		final ITable table,
 		final IColumn column
 	) {
-		switch (columnHelper.getBasePropertyType(column)) {
+		switch (COLUMN_HELPER.getBasePropertyType(column)) {
 			case BASE_VALUE:
 				return true;
 			case BASE_REFERENCE:
@@ -251,6 +251,6 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	) {
 		return
 		containsTableReferencedByGivenColumn(database, referenceColumn)
-		|| columnHelper.referencesGivenTable(referenceColumn, table);
+		|| COLUMN_HELPER.referencesGivenTable(referenceColumn, table);
 	}
 }
