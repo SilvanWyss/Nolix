@@ -17,8 +17,8 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 public final class TableHelper extends DatabaseObjectHelper implements ITableHelper {
 	
-	//static attribute
-	private static final IColumnHelper columnHelper = new ColumnHelper();
+	//constant
+	private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 	
 	//method
 	@Override
@@ -84,11 +84,11 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	public boolean containsColumnBackReferencedByGivenColumn(final ITable table, final IColumn column) {
 		
 		//This check is theoretically not necessary, but provides a better performance for some cases.
-		if (!columnHelper.isABackReferenceColumn(column)) {
+		if (!COLUMN_HELPER.isABackReferenceColumn(column)) {
 			return false;
 		}
 		
-		return table.getOriColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, column));
+		return table.getOriColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, column));
 	}
 	
 	//method
@@ -96,11 +96,11 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	public boolean containsColumnThatReferencesBackGivenColumn(final ITable table, final IColumn column) {
 		
 		//This check is theoretically not necessary, but provides a better performance for some cases.
-		if (!columnHelper.isAReferenceColumn(column)) {
+		if (!COLUMN_HELPER.isAReferenceColumn(column)) {
 			return false;
 		}
 		
-		return table.getOriColumns().containsAny(c -> columnHelper.referencesBackGivenColumn(c, column));
+		return table.getOriColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, column));
 	}
 	
 	//method
@@ -109,7 +109,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		final ITable table,
 		final ITable probableReferencedTable
 	) {
-		return table.getOriColumns().containsAny(c -> columnHelper.referencesGivenTable(c, table));
+		return table.getOriColumns().containsAny(c -> COLUMN_HELPER.referencesGivenTable(c, table));
 	}
 	
 	//method
@@ -127,7 +127,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 	//method
 	@Override
 	public  IContainer<IColumn> getOriBackReferenceColumns(final ITable table) {
-		return table.getOriColumns().getOriSelected(columnHelper::isABackReferenceColumn);
+		return table.getOriColumns().getOriSelected(COLUMN_HELPER::isABackReferenceColumn);
 	}
 	
 	//method
@@ -170,7 +170,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		return
 		table
 		.getOriColumns()
-		.getOriSelected(c -> columns.containsAny(c2 -> columnHelper.referencesBackGivenColumn(c, c2)));
+		.getOriSelected(c -> columns.containsAny(c2 -> COLUMN_HELPER.referencesBackGivenColumn(c, c2)));
 	}
 	
 	//method
@@ -180,7 +180,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		
 		final var columns = table.getOriColumns();
 		
-		return columns.getOriSelected(c -> columns.containsAny(c2 -> columnHelper.referencesBackGivenColumn(c, c2)));
+		return columns.getOriSelected(c -> columns.containsAny(c2 -> COLUMN_HELPER.referencesBackGivenColumn(c, c2)));
 	}
 	
 	//method
@@ -190,13 +190,13 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		.getParentDatabase()
 		.getOriTables()
 		.toFromGroups(ITable::getOriColumns)
-		.getOriSelected(c -> columnHelper.referencesGivenTable(c, table));
+		.getOriSelected(c -> COLUMN_HELPER.referencesGivenTable(c, table));
 	}
 	
 	//method
 	private  IContainer<IColumn> getOriReferencingColumnsWhenDoesNotBelongToDatabase(
 		final ITable table
 	) {
-		return table.getOriColumns().getOriSelected(c -> columnHelper.referencesGivenTable(c, table));
+		return table.getOriColumns().getOriSelected(c -> COLUMN_HELPER.referencesGivenTable(c, table));
 	}
 }
