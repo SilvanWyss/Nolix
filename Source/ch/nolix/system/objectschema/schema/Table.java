@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schema;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -23,14 +24,14 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 //class
 public final class Table extends SchemaObject implements ITable {
 	
-	//static attribute
-	private static final TableMutationValidator mutationValidator = new TableMutationValidator();
+	//constant
+	private static final TableMutationValidator MUTATION_VALIDATOR = new TableMutationValidator();
 	
-	//static attribute
-	private static final TableMutationExecutor mutationExecutor = new TableMutationExecutor();
+	//constant
+	private static final TableMutationExecutor MUTATION_EXECUTOR = new TableMutationExecutor();
 	
-	//static attribute
-	private static final ITableHelper tableHelper = new TableHelper();
+	//constant
+	private static final ITableHelper TABLE_HELPER = new TableHelper();
 	
 	//static method
 	public static Table fromFlatDto(final IFlatTableDto flatTableDto) {
@@ -73,8 +74,8 @@ public final class Table extends SchemaObject implements ITable {
 	@Override
 	public Table addColumn(final IColumn column) {
 		
-		mutationValidator.assertCanAddColumnToTable(this, (Column)column);
-		mutationExecutor.addColumnToTable(this, (Column)column);
+		MUTATION_VALIDATOR.assertCanAddColumnToTable(this, (Column)column);
+		MUTATION_EXECUTOR.addColumnToTable(this, (Column)column);
 		
 		return this;
 	}
@@ -97,8 +98,8 @@ public final class Table extends SchemaObject implements ITable {
 	//method
 	@Override
 	public void delete() {
-		mutationValidator.assertCanDeleteTable(this);
-		mutationExecutor.deleteTable(this);
+		MUTATION_VALIDATOR.assertCanDeleteTable(this);
+		MUTATION_EXECUTOR.deleteTable(this);
 	}
 	
 	//method
@@ -147,8 +148,8 @@ public final class Table extends SchemaObject implements ITable {
 	@Override
 	public Table setName(final String name) {
 		
-		mutationValidator.assertCanSetNameToTable(this, name);
-		mutationExecutor.setNameToTable(this, name);
+		MUTATION_VALIDATOR.assertCanSetNameToTable(this, name);
+		MUTATION_EXECUTOR.setNameToTable(this, name);
 		
 		return this;
 	}
@@ -193,7 +194,7 @@ public final class Table extends SchemaObject implements ITable {
 	void setParentDatabase(final Database parentDatabase) {
 		
 		GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent database").isNotNull();
-		tableHelper.assertDoesNotBelongToDatabase(this);
+		TABLE_HELPER.assertDoesNotBelongToDatabase(this);
 		
 		this.parentDatabase = parentDatabase;
 	}
@@ -248,6 +249,6 @@ public final class Table extends SchemaObject implements ITable {
 	
 	//method
 	private boolean needsToLoadColumnsFromDatabase() {
-		return (tableHelper.isLoaded(this) && !hasLoadedColumnsFromDatabase());
+		return (TABLE_HELPER.isLoaded(this) && !hasLoadedColumnsFromDatabase());
 	}
 }
