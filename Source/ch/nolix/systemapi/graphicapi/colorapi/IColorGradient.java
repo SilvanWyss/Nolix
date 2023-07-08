@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //interface

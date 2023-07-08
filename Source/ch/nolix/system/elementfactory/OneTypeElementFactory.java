@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 
 //class
 final class OneTypeElementFactory<E> {

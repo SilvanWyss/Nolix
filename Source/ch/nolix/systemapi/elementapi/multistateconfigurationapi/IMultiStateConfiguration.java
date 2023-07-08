@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.multistateconfigurationapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.mainuniversalapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
 
 //interface
 public interface IMultiStateConfiguration<

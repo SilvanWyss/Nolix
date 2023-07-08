@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
 import ch.nolix.coreapi.functionapi.requestapi.BlanknessRequestable;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 import ch.nolix.systemapi.guiapi.processapi.Selectable;
 
 //interface

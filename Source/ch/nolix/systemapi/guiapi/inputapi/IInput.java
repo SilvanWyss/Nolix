@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.inputapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //interface
 public interface IInput<I extends IInput<I>> extends Specified {}

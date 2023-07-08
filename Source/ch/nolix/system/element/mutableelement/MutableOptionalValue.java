@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //class
 /**

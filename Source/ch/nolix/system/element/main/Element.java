@@ -3,7 +3,7 @@ package ch.nolix.system.element.main;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.Specified;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //class
 /**

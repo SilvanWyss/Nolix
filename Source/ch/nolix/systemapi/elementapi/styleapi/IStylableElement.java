@@ -5,7 +5,7 @@ import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.FluentMultiT
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalIdentifiable;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.requestapi.TypeRequestable;
-import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 
 //interface
 /**
