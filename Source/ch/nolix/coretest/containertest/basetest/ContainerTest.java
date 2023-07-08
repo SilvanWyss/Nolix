@@ -124,8 +124,8 @@ public abstract class ContainerTest extends Test {
 	testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
-		final var container = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
+		final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.containsExactlyInSameOrder(container);
@@ -140,7 +140,7 @@ public abstract class ContainerTest extends Test {
 	testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		final var container = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxxx", "xxxxx");
 		
 		//execution
@@ -225,7 +225,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_forEach() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		final var list = new LinkedList<String>();
 		
 		//execution
@@ -243,7 +243,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_from() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.from1BasedStartIndex(4);
@@ -288,7 +288,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1A() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 0);
@@ -302,7 +302,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1B() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 1);
@@ -316,7 +316,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1C() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 2);
@@ -330,7 +330,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_gettCount_withIElementTakterBooleanGetter_1D() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 3);
@@ -344,7 +344,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1E() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 4);
@@ -358,7 +358,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1F() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 5);
@@ -372,7 +372,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getCount_withIElementTakterBooleanGetter_1G() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getCount(e -> e.length() > 6);
@@ -449,7 +449,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getMax_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getMax(e ->  1.0 / e.length());
@@ -463,7 +463,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getMax_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getMax(String::length);
@@ -518,7 +518,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getMin_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx");
 		
 		//execution
 		final var result = testUnit.getMin(e ->  1.0 / e.length());
@@ -532,7 +532,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getMin_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getMin(String::length);
@@ -560,7 +560,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriByMax_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriByMax(e ->  1.0 / e.length());
@@ -574,7 +574,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriByMax_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriByMax(String::length);
@@ -602,7 +602,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriByMin_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriByMin(e ->  1.0 / e.length());
@@ -616,7 +616,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriByMin_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriByMin(String::length);
@@ -630,7 +630,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriFirst() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriFirst();
@@ -754,7 +754,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriSelected_1A() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriSelected(e -> e.length() < 4);
@@ -771,7 +771,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getOriSelected_1B() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getOriSelected(e -> e.length() > 6);
@@ -799,7 +799,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_getSum_whenContainsAny() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.getSum(String::length);
@@ -827,7 +827,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_toArray() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.toArray();
@@ -887,7 +887,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_toIntArray() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.toIntArray(String::length);
@@ -941,7 +941,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_until() {
 		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.until1BasedIndex(5);
@@ -960,7 +960,7 @@ public abstract class ContainerTest extends Test {
 	public final void testCase_withElements() {
 		
 		//execution
-		final var result = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var result = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution & verification part 1
 		expect(
@@ -986,9 +986,9 @@ public abstract class ContainerTest extends Test {
 	//method
 	@TestCase
 	public final void testCase_withoutFirst() {
-	
+		
 		//setup
-		final var testUnit = createContainerWithElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
 		final var result = testUnit.withoutFirst();
