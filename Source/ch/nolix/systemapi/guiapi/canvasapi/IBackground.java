@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.canvasuniversalapi;
+package ch.nolix.systemapi.guiapi.canvasapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;

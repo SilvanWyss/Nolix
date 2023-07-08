@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.canvasuniversalapi;
+package ch.nolix.systemapi.guiapi.canvasapi;
 
 //own imports
 import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;

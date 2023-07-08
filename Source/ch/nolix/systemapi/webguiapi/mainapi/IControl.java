@@ -9,7 +9,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.guiapi.canvasuniversalapi.Dimensionable;
+import ch.nolix.systemapi.guiapi.canvasapi.Dimensionable;
 import ch.nolix.systemapi.guiapi.presenceapi.PresenceSettable;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;

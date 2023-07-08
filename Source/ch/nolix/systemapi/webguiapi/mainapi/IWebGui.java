@@ -8,7 +8,7 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
+import ch.nolix.systemapi.guiapi.canvasapi.ICanvas;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.mainapi.IGui;

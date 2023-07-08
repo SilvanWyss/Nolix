@@ -5,7 +5,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.InternalIdentified;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.guiapi.canvasuniversalapi.ICanvas;
+import ch.nolix.systemapi.guiapi.canvasapi.ICanvas;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
 
 //interface
