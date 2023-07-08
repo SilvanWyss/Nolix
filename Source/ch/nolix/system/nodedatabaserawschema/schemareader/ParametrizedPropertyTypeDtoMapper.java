@@ -105,7 +105,9 @@ public class ParametrizedPropertyTypeDtoMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriDataTypeNodeFromParametriedPropertyTypeNode(parametrizedPropertyTypeNode);
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriDataTypeNodeFromParametriedPropertyTypeNode(
+			parametrizedPropertyTypeNode
+		);
 		
 		return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
 	}
