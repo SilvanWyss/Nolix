@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.template.math.sequence;
 
-import ch.nolix.business.math.bigdecimalmath.ComplexNumber;
-import ch.nolix.business.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.IComplexNumber;
-import ch.nolix.businessapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
+import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
+import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
+import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
+import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
 
 //class
 public final class GlobalSequenceCreator {
