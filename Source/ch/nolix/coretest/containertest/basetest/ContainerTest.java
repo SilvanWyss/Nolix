@@ -5,6 +5,7 @@ package ch.nolix.coretest.containertest.basetest;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -696,6 +697,56 @@ public abstract class ContainerTest extends Test {
 		expect(result.getOriAt1BasedIndex(1)).containsExactlyEqualing("x", "y");
 		expect(result.getOriAt1BasedIndex(2)).containsExactlyEqualing("xx", "yy");
 		expect(result.getOriAt1BasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getOriOne_whenDoesNotContainAMatchingElement() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
+		
+		//execution & verification
+		expectRunning(() -> testUnit.getOriOne(e -> e.length() == 7))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage(
+			"The given "
+			+ testUnit.getClass().getSimpleName()
+			+ " 'x,xx,xxx,xxxx,xxxxx,xxxxxx' does not contain an element the given selector selects."
+		);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getOriOne_whenContainsOneMatchingElement() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
+		
+		//execution
+		final var result = testUnit.getOriOne(e -> e.length() == 3);
+		
+		//verification
+		expect(result).isEqualTo("xxx");
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getOriOne_whenContainsSeveralMatchingElements() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
+		
+		//execution & verification
+		expectRunning(() -> testUnit.getOriOne(e -> e.length() == 3))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage(
+			"The given "
+			+ testUnit.getClass().getSimpleName()
+			+ " 'x,y,xx,yy,xxx,yyy' contains several elements the given selector selects."
+		);
 	}
 	
 	//method
