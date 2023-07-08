@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.InternalIdentified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.InternalIdentified;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;

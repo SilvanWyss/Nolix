@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 
 //class
 /**

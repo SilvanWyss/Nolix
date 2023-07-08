@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.styleapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeuniversalapi.FluentMultiTokenable;
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.FluentOptionalIdentifiable;
+import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.FluentMultiTokenable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalIdentifiable;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;

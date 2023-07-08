@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Identified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
 import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 import ch.nolix.systemapi.guiapi.processapi.Selectable;

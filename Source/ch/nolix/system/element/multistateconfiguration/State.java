@@ -5,8 +5,8 @@ package ch.nolix.system.element.multistateconfiguration;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Indexed;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Indexed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
 
 //class
 final class State<S extends Enum<S>> implements Indexed, QualifiedNamed {

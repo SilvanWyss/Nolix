@@ -5,7 +5,7 @@ package ch.nolix.system.sqldatabaserawschema.structure;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
 
 //enum
 public enum SystemDataTable implements QualifiedNamed {

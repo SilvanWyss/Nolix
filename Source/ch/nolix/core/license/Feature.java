@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.license;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class

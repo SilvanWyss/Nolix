@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.IFluentMutableTextHolder;
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTextHolder;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.processproperty.TextMode;

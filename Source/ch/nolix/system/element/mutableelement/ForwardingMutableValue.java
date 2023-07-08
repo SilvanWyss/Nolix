@@ -5,7 +5,7 @@ package ch.nolix.system.element.mutableelement;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;

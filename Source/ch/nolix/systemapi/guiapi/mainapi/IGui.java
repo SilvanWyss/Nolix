@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeuniversalapi.FluentTitleable;
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.FluentTitleable;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;

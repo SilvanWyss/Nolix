@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.xmlapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeuniversalapi.IFluentOptionalValueHolder;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentOptionalValueHolder;
 
 //interface
 public interface IMutableXmlNode

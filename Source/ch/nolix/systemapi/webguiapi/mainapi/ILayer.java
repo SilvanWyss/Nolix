@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.InternalIdentified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.InternalIdentified;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;

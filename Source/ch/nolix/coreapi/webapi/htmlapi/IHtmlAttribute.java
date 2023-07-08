@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.webapi.htmlapi;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeuniversalapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 
 //interface
 public interface IHtmlAttribute extends Named {
