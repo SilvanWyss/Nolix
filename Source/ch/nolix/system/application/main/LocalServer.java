@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
 /**

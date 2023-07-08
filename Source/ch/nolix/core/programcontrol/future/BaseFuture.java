@@ -3,7 +3,7 @@ package ch.nolix.core.programcontrol.future;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
+import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
 /**

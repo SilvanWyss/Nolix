@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 
 //interface
 public interface IApplication<AC> {

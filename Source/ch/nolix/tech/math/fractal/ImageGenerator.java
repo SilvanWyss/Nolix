@@ -14,7 +14,7 @@ import ch.nolix.core.programcontrol.future.BaseFuture;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
+import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;

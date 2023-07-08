@@ -20,8 +20,8 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class

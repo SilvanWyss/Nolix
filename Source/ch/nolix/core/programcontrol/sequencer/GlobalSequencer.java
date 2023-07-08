@@ -11,7 +11,7 @@ import ch.nolix.core.programcontrol.jobpool.JobPool;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
-import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
+import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
 /**

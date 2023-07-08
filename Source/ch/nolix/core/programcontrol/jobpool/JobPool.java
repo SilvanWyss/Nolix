@@ -7,7 +7,7 @@ import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.coreapi.programcontrolapi.futureuniversalapi.IFuture;
+import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
 /**

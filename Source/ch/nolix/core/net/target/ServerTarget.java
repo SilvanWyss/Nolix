@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
 public class ServerTarget implements IServerTarget {

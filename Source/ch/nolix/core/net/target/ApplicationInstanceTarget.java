@@ -4,7 +4,7 @@ package ch.nolix.core.net.target;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IApplicationInstanceTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 
 //class
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {

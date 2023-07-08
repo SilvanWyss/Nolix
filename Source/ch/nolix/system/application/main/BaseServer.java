@@ -12,7 +12,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.coreapi.programcontrolapi.targetuniversalapi.IServerTarget;
+import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
 /**

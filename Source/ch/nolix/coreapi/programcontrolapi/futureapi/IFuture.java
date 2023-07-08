@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.programcontrolapi.futureuniversalapi;
+package ch.nolix.coreapi.programcontrolapi.futureapi;
 
 import ch.nolix.coreapi.functionapi.requestapi.FinishRequestable;
 

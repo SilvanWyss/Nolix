@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.programcontrolapi.targetuniversalapi;
+package ch.nolix.coreapi.programcontrolapi.targetapi;
 
 //own imports
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
