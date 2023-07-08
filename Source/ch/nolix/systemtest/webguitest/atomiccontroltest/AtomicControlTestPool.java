@@ -15,7 +15,8 @@ public final class AtomicControlTestPool extends TestPool {
 			LinkTest.class,
 			LabelTest.class,
 			TextboxTest.class,
-			ToggleButtonTest.class
+			ToggleButtonTest.class,
+			ValidationLabelTest.class
 		);
 	}
 }
