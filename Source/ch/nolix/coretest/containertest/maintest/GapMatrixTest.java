@@ -145,12 +145,19 @@ public final class GapMatrixTest extends ContainerTest {
 	}
 	
 	@Override
-	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
+	protected <E> IContainer<E> createContainerWithElements(
+		final E element,	
+		final @SuppressWarnings("unchecked")E... elements
+	) {
 		
-		final var gapMatrix = new GapMatrix<E>(1, elements.length);
+		final var size = 1 + elements.length;
+		
+		final var gapMatrix = new GapMatrix<E>(1, size);
+		
+		gapMatrix.setAt1BasedRowIndexAndColumnIndex(1, 1, element);
 		
 		for (var i = 0; i < elements.length; i++) {
-			gapMatrix.setAt1BasedRowIndexAndColumnIndex(1, i + 1, elements[i]);
+			gapMatrix.setAt1BasedRowIndexAndColumnIndex(1, i + 2, elements[i]);
 		}
 		
 		return gapMatrix;

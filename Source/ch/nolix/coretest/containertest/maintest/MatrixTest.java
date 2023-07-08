@@ -2,6 +2,7 @@
 package ch.nolix.coretest.containertest.maintest;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -188,11 +189,14 @@ public final class MatrixTest extends ContainerTest {
 	
 	//method
 	@Override
-	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
+	protected <E> IContainer<E> createContainerWithElements(
+		final E element,
+		final @SuppressWarnings("unchecked")E... elements
+	) {
 		
 		final var matrix = new Matrix<E>();
 		
-		matrix.addRow(elements);
+		matrix.addRow(GlobalArrayHelper.createArrayWithElements(element, elements));
 		
 		return matrix;
 	}

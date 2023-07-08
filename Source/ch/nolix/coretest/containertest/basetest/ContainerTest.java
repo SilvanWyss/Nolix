@@ -904,7 +904,7 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void toStrings() {
+	public final void testCase_toStrings() {
 		
 		//setup
 		final var testUnit = createContainerWithElements(10, 20, 30, 40, 50, 60);
@@ -924,7 +924,7 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void toStrings_whenContainerIsEmpty() {
+	public final void testCase_toStrings_whenContainerIsEmpty() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(Integer.class);
@@ -1003,7 +1003,10 @@ public abstract class ContainerTest extends Test {
 	}
 	
 	//method declaration
-	protected abstract <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements);
+	protected abstract <E> IContainer<E> createContainerWithElements(
+		E element,
+		@SuppressWarnings("unchecked")E... elements
+	);
 	
 	//method declaration
 	protected abstract <E> IContainer<E> createEmptyContainerForType(Class<E> type);

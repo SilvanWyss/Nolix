@@ -11,8 +11,11 @@ public final class ImmutableListTest extends ContainerTest {
 	
 	//method
 	@Override
-	protected <E> IContainer<E> createContainerWithElements(@SuppressWarnings("unchecked")E... elements) {
-		return ImmutableList.forArray(elements);
+	protected <E> IContainer<E> createContainerWithElements(
+		final E element,
+		final @SuppressWarnings("unchecked")E... elements
+	) {
+		return ImmutableList.withElements(element, elements);
 	}
 	
 	//method
