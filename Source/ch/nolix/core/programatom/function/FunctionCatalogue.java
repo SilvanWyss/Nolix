@@ -4,7 +4,9 @@ package ch.nolix.core.programatom.function;
 //Java imports
 import java.util.Objects;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
+import ch.nolix.core.errorcontrol.exception.GeneralException;
 
 //class
 /**
@@ -124,6 +126,14 @@ public final class FunctionCatalogue {
 	 */
 	public static long getZero() {
 		return ZERO;
+	}
+	
+	//static method
+	/**
+	 * @throws a new {@link GeneralException}.
+	 */
+	public static void throwException() {
+		throw GeneralException.withErrorMessage("An error was provoked.");
 	}
 	
 	//constructor
