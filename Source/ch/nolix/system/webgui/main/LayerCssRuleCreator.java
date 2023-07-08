@@ -10,7 +10,7 @@ import ch.nolix.coreapi.webapi.cssapi.CssAlignItemsCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssJustifyContentCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
@@ -70,12 +70,12 @@ public final class LayerCssRuleCreator {
 	
 	//method
 	private CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
-		return getJustifyContentCssPropertyForContentPosition(layer.getContentPosition());
+		return getJustifyContentCssPropertyForContentAlignment(layer.getContentAlignment());
 	}
 	
 	//method
-	private CssProperty getJustifyContentCssPropertyForContentPosition(final ContentPosition contentPosition) {
-		switch (contentPosition) {
+	private CssProperty getJustifyContentCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
+		switch (contentAlignment) {
 			case TOP_LEFT, LEFT, BOTTOM_LEFT:
 				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.LEFT);
 			case TOP, CENTER, BOTTOM:
@@ -83,18 +83,18 @@ public final class LayerCssRuleCreator {
 			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT:
 				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.RIGHT);
 			default:
-				throw InvalidArgumentException.forArgument(contentPosition);
+				throw InvalidArgumentException.forArgument(contentAlignment);
 		}
 	}
 	
 	//method
 	private CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
-		return getAlignItemsCssPropertyForContentPosition(layer.getContentPosition());
+		return getAlignItemsCssPropertyForContentAlignment(layer.getContentAlignment());
 	}
 	
 	//method
-	private CssProperty getAlignItemsCssPropertyForContentPosition(final ContentPosition contentPosition) {
-		switch (contentPosition) {
+	private CssProperty getAlignItemsCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
+		switch (contentAlignment) {
 			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT:
 				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
 			case CENTER,LEFT, RIGHT:
@@ -102,7 +102,7 @@ public final class LayerCssRuleCreator {
 			case TOP, TOP_LEFT, TOP_RIGHT:
 				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
 			default:
-				throw InvalidArgumentException.forArgument(contentPosition); 
+				throw InvalidArgumentException.forArgument(contentAlignment); 
 		}
 	}
 }

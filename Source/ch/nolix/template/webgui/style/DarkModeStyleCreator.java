@@ -206,7 +206,7 @@ public final class DarkModeStyleCreator {
 		.addSelectorRole(LayerRole.DIALOG_LAYER)
 		.addAttachingAttribute(
 			"Background(Color(0x808080E0))",
-			"ContentPosition(CENTER)"
+			"ContentAlignment(CENTER)"
 		);
 	}
 	

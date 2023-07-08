@@ -35,7 +35,7 @@ final class ServerDashboardStyleCreator {
 		return
 		new DeepStyle()
 		.setSelectorType(Layer.class)
-		.addAttachingAttribute("ContentPosition(TOP)");
+		.addAttachingAttribute("ContentAlignment(TOP)");
 	}
 	
 	//method

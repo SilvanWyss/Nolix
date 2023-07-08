@@ -6,7 +6,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasapi.ICanvas;
-import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
 
 //interface
 public interface ILayer<L extends ILayer<L>>
@@ -21,7 +21,7 @@ IRootControlOwner<L> {
 	boolean belongsToGui();
 	
 	//method declaration
-	ContentPosition getContentPosition();
+	ContentAlignment getContentAlignment();
 	
 	//method declaration
 	ICssRule<?> getCssRule();
@@ -42,7 +42,7 @@ IRootControlOwner<L> {
 	void removeSelfFromGui();
 	
 	//method declaration
-	L setContentPosition(ContentPosition contentPosition);
+	L setContentAlignment(ContentAlignment contentAlignment);
 	
 	//method declaration
 	L setRole(LayerRole role);

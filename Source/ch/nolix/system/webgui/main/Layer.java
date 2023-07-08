@@ -26,7 +26,7 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.canvasapi.IBackground;
 import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
-import ch.nolix.systemapi.guiapi.structureproperty.ContentPosition;
+import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
@@ -42,7 +42,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	public static final IColor DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 	
 	//constant
-	public static final ContentPosition DEFAULT_CONTENT_POSITION = ContentPosition.TOP;
+	public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 	
 	//static method
 	public static Layer fromSpecification(final INode<?> specification) {
@@ -63,7 +63,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
 	
 	//constant
-	private static final String CONTENT_POSITION_HEADER = "ContentPosition";
+	private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
 	
 	//constant
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
@@ -107,12 +107,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	);
 	
 	//attribute
-	private final MutableValue<ContentPosition> contentPosition =
+	private final MutableValue<ContentAlignment> contentAlignment =
 	new MutableValue<>(
-		CONTENT_POSITION_HEADER,
+		CONTENT_ALIGNMENT_HEADER,
 		DEFAULT_CONTENT_POSITION,
-		this::setContentPosition,
-		ContentPosition::fromSpecification,
+		this::setContentAlignment,
+		ContentAlignment::fromSpecification,
 		Node::fromEnum
 	);
 	
@@ -185,8 +185,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public ContentPosition getContentPosition() {
-		return contentPosition.getValue();
+	public ContentAlignment getContentAlignment() {
+		return contentAlignment.getValue();
 	}
 	
 	//method
@@ -344,9 +344,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public Layer setContentPosition(final ContentPosition contentPosition) {
+	public Layer setContentAlignment(final ContentAlignment contentAlignment) {
 		
-		this.contentPosition.setValue(contentPosition);
+		this.contentAlignment.setValue(contentAlignment);
 		
 		return this;
 	}

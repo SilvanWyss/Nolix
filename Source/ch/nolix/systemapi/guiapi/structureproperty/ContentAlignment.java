@@ -7,9 +7,9 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //enum
 /**
  * @author Silvan Wyss
- * @date 2019-05-18
+ * @date 2016-09-01
  */
-public enum ExtendedContentPosition {
+public enum ContentAlignment {
 	TOP_LEFT,
 	TOP,
 	TOP_RIGHT,
@@ -18,16 +18,15 @@ public enum ExtendedContentPosition {
 	RIGHT,
 	BOTTOM_LEFT,
 	BOTTOM,
-	BOTTOM_RIGHT,
-	FREE;
+	BOTTOM_RIGHT;
 	
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link ExtendedContentPosition} from the given specification.
-	 * @throws RuntimeException if the given specification does not represent a {@link ExtendedContentPosition}.
+	 * @return a new {@link ContentAlignment} from the given specification.
+	 * @throws RuntimeException if the given specification does not represent a {@link ContentAlignment}.
 	 */
-	public static ExtendedContentPosition fromSpecification(final INode<?> specification) {
+	public static ContentAlignment fromSpecification(final INode<?> specification) {
 		return valueOf(specification.getSingleChildNodeHeader());
 	}
 }
