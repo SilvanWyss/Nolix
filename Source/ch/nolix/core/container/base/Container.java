@@ -968,6 +968,7 @@ public abstract class Container<E> implements IContainer<E> {
 		
 		//Handles the case that the given selector did not select an element.
 		if (selectedElement == null) {
+			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
 				this,
 				"does not contain an element the given selector selects"
