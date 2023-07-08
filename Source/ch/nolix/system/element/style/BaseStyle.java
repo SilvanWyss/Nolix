@@ -403,7 +403,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @param element
 	 * @return true if the current {@link BaseStyle} selects the given element.
 	 */
-	public final boolean selects(IStylableElement<?> element) {
+	public final boolean selectsElement(IStylableElement<?> element) {
 		return
 		selectorIdAllowsToSelectElement(element)
 		&& selectorTypeAllowsToSelectElement(element)

@@ -61,7 +61,7 @@ public final class Style extends BaseStyle<Style> {
 	@Override
 	public void styleElement(final IStylableElement<?> element) {
 		
-		if (selects(element)) {
+		if (selectsElement(element)) {
 			
 			setAttachingAttributesTo(element);
 			

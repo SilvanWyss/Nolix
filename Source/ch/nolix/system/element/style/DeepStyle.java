@@ -59,7 +59,7 @@ public final class DeepStyle extends BaseStyle<DeepStyle> {
 
 			final var elements = element.getOriChildStylableElements();
 			
-			if (selects(element)) {
+			if (selectsElement(element)) {
 				final var configurations = getOriConfigurations();
 				setAttachingAttributesTo(element);
 				elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
@@ -133,7 +133,7 @@ public final class DeepStyle extends BaseStyle<DeepStyle> {
 			
 			final var elements = element.getOriChildStylableElements();
 			
-			if (selects(element)) {
+			if (selectsElement(element)) {
 				
 				setAttachingAttributesTo(element);
 				
