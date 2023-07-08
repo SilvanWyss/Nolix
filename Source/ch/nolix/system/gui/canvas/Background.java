@@ -325,8 +325,6 @@ public final class Background extends Element implements IBackground {
 			return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
 		}
 		
-		final var alphaValueInPercent = (double)color.getAlphaValue() / Color.MAX_COLOR_COMPONENT;
-		
 		return
 		String.format(
 			Locale.ENGLISH,
@@ -334,7 +332,7 @@ public final class Background extends Element implements IBackground {
 			color.getRedValue(),
 			color.getGreenValue(),
 			color.getBlueValue(),
-			alphaValueInPercent
+			color.getAlphaPercentage()
 		);
 	}
 	

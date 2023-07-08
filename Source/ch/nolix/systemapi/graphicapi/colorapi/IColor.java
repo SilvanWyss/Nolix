@@ -16,9 +16,23 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
+	 * @return the alpha value of the current {@link IColor} as percentage.
+	 * A percentage is a number in the range [0.0, 1.0].
+	 */
+	double getAlphaPercentage();
+	
+	//method declaration
+	/**
 	 * @return the alpha value of the current {@link IColor}.
 	 */
 	int getAlphaValue();
+	
+	//method declaration
+	/**
+	 * @return the blue value of the current {@link IColor} as percentage.
+	 * A percentage is a number in the range [0.0, 1.0].
+	 */
+	double getBluePercentage();
 	
 	//method declaration
 	/**
@@ -34,6 +48,13 @@ public interface IColor extends Specified {
 	
 	//method declaration
 	/**
+	 * @return the green value of the current {@link IColor} as percentage.
+	 * A percentage is a number in the range [0.0, 1.0].
+	 */
+	double getGreenPercentage();
+	
+	//method declaration
+	/**
 	 * @return the green value of the current {@link IColor}.
 	 */
 	int getGreenValue();
@@ -45,6 +66,13 @@ public interface IColor extends Specified {
 	 * @return the inverted {@link IColor} of the current {@link IColor}.
 	 */
 	IColor getInvertedColor();
+	
+	//method declaration
+	/**
+	 * @return the red value of the current {@link IColor} as percentage.
+	 * A percentage is a number in the range [0.0, 1.0].
+	 */
+	double getRedPercentage();
 	
 	//method declaration
 	/**

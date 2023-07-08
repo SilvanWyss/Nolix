@@ -1623,6 +1623,15 @@ public final class Color extends Element implements IColor {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public double getAlphaPercentage() {
+		return ((double)getAlphaValue() / Color.MAX_COLOR_COMPONENT);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public int getAlphaValue() {
 		return alphaValue;
 	}
@@ -1634,6 +1643,15 @@ public final class Color extends Element implements IColor {
 	@Override
 	public IContainer<INode<?>> getAttributes() {
 		return LinkedList.withElements(Node.withHeader(toHexadecimalString()));
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getBluePercentage() {
+		return ((double)getBlueValue() / Color.MAX_COLOR_COMPONENT);
 	}
 	
 	//method
@@ -1667,6 +1685,15 @@ public final class Color extends Element implements IColor {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public double getGreenPercentage() {
+		return ((double)getGreenValue() / Color.MAX_COLOR_COMPONENT);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public int getGreenValue() {
 		return greenValue;
 	}
@@ -1685,6 +1712,15 @@ public final class Color extends Element implements IColor {
 			MAX_COLOR_COMPONENT - blueValue,
 			alphaValue
 		);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public double getRedPercentage() {
+		return ((double)getRedValue() / Color.MAX_COLOR_COMPONENT);
 	}
 	
 	//method
