@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //interface
 public interface IMultiValue<

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
+import ch.nolix.coreapi.functionapi.mutationapi.IMultiTimeChangeSaver;
 import ch.nolix.coreapi.programstructureapi.factoryuniversalapi.EmptyCopyable;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;

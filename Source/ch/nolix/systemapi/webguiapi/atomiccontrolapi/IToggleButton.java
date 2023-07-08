@@ -3,7 +3,7 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.OnOffRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.OnOffRequestable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.triggeruniversalapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.requestuniversalapi.CloseStateRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
 
 //interface
 public interface CloseStateRequestableTriggerable extends Triggerable, CloseStateRequestable {}

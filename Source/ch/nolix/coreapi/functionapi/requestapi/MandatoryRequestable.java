@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.requestuniversalapi;
+package ch.nolix.coreapi.functionapi.requestapi;
 
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 

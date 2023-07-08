@@ -13,8 +13,8 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.MaterializationRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
 
 //interface
 /**

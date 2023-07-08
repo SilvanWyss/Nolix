@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.CompletenessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.CompletenessRequestable;
 
 //class
 public final class WebSocketCompleteMessage implements CompletenessRequestable {

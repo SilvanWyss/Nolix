@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
+import ch.nolix.coreapi.functionapi.mutationapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 

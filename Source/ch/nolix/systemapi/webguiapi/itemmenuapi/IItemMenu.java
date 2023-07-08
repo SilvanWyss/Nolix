@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.itemmenuapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface

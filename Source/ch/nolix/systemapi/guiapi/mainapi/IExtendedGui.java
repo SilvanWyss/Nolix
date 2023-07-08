@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Refreshable;
+import ch.nolix.coreapi.functionapi.mutationapi.Refreshable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 

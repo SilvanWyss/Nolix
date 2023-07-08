@@ -3,8 +3,8 @@ package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.EmptinessRequestable;
-import ch.nolix.coreapi.functionapi.skilluniversalapi.IBuilder;
+import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
 
 //interface
 /**

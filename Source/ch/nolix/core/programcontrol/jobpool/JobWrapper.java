@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Runnable;
+import ch.nolix.coreapi.functionapi.mutationapi.Runnable;
 
 //class
 final class JobWrapper implements Runnable {

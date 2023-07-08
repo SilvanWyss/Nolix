@@ -17,7 +17,7 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //class
 public final class GapMatrix<E> extends Container<E> implements Clearable {

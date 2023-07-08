@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.IMultiTimeChangeSaver;
+import ch.nolix.coreapi.functionapi.mutationapi.IMultiTimeChangeSaver;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;

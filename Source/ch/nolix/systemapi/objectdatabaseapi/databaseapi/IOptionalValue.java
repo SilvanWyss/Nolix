@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //interface
 public interface IOptionalValue<

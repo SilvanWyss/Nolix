@@ -4,7 +4,7 @@ package ch.nolix.coreapi.documentapi.chainednodeapi;
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.BlanknessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.BlanknessRequestable;
 
 //interface
 /**

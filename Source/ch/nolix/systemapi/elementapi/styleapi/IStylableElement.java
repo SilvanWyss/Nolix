@@ -4,7 +4,7 @@ package ch.nolix.systemapi.elementapi.styleapi;
 import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.FluentMultiTokenable;
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalIdentifiable;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.requestuniversalapi.TypeRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.mainuniversalapi.IMutableElement;
 
 //interface

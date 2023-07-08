@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.mutationuniversalapi;
+package ch.nolix.coreapi.functionapi.mutationapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.requestuniversalapi.ChangeRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.ChangeRequestable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.Closeable;
 
 //interface

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.netapi.endpointapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //interface

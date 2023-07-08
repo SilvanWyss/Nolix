@@ -4,8 +4,8 @@ package ch.nolix.coreapi.containerapi.listapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Clearable;
-import ch.nolix.coreapi.functionapi.skilluniversalapi.Copyable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.functionapi.skillapi.Copyable;
 
 //interface
 /**

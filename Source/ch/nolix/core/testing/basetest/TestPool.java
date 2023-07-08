@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.mutationuniversalapi.Runnable;
+import ch.nolix.coreapi.functionapi.mutationapi.Runnable;
 
 //class
 /**
