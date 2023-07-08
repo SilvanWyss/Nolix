@@ -285,7 +285,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	protected void resetControl() {
 		
 		removeRole();
-		setText(StringCatalogue.EMPTY_STRING);
+		setText(DEFAULT_TEXT);
 		removeLeftMouseButtonPressAction();
 		removeLeftMouseButtonReleaseAction();
 		
