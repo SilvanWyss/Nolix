@@ -28,4 +28,21 @@ public final class GeneralException extends RuntimeException {
 	private GeneralException(final String errorMessage) {
 		super(getValidErroMessageOfErrorMessage(errorMessage));
 	}
+	
+	//method
+	@Override
+	public boolean equals(final Object object) {
+		
+		if (object instanceof GeneralException generalException) {
+			return getMessage().equals(generalException.getMessage());
+		}
+		
+		return false;
+	}
+	
+	//method
+	@Override
+	public int hashCode() {
+		return getMessage().hashCode();
+	}
 }
