@@ -8,6 +8,8 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //interface
 /**
+ * A {@link IStyle} can style {@link IStylableElement}s.
+ * 
  * @author Silvan Wyss
  * @date 2022-05-29
  */
