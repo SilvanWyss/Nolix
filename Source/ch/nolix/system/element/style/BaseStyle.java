@@ -274,6 +274,15 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final IContainer<? extends INode<?>> getAttachingAttributes() {
+		return attachingAttributes.getOriValues();
+	}
+	
+	//method
+	/**
 	 * @return the selector id of the current {@link BaseStyle}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseStyle} does not have a selector id.
