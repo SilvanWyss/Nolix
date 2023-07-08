@@ -941,6 +941,50 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final E getOriOne(final IElementTakerBooleanGetter<? super E> selector) {
+		
+		//Declares the selected element.
+		E selectedElement = null;
+		
+		//Iterates the current Container.
+		for (final var e : this) {
+			
+			//Handles the case that the given selector selects the current element.
+			if (selector.getOutput(e)) {
+				
+				//Handles the case that the given selector selected already an element.
+				if (selectedElement != null) {
+					throw
+					InvalidArgumentException.forArgumentAndErrorPredicate(
+						this,
+						"contains several elements the given selector selects"
+					);
+				}
+				
+				//Handles the case that the given selector did not selected already an element.
+				selectedElement = e;
+			}
+		}
+		
+		//Handles the case that the given selector did not select an element.
+		if (selectedElement == null) {
+			InvalidArgumentException.forArgumentAndErrorPredicate(
+				this,
+				"does not contain an element the given selector selects"
+			);
+		}
+		
+		//Handles the case that the given selector selected an element.
+		return selectedElement;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final IContainer<E> getOriOther(final IElementTakerBooleanGetter<E> selector) {
 		return getOriSelected(e -> !selector.getOutput(e));
 	}

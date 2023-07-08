@@ -394,6 +394,15 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	//method declaration
 	/**
 	 * @param selector
+	 * @return the one element the given selector selects from the current {@link IContainer}.
+	 * @throws RuntimeException if
+	 * the given selector selects none or several elements from the current {@link IContainer}.
+	 */
+	E getOriOne(IElementTakerBooleanGetter<? super E> selector);
+	
+	//method declaration
+	/**
+	 * @param selector
 	 * @return a new {@link IContainer} with
 	 * the elements from the current {@link IContainer} the given selector skips (!).
 	 */
