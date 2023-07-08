@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi;
 
 import ch.nolix.coreapi.functionapi.mutationapi.IMultiTimeChangeSaver;
-import ch.nolix.coreapi.programstructureapi.factoryuniversalapi.EmptyCopyable;
+import ch.nolix.coreapi.programstructureapi.factoryapi.EmptyCopyable;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
