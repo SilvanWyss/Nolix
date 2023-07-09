@@ -15,6 +15,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
@@ -42,7 +43,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	private static final String ATTACHING_ATTRIBUTES_HEADER = "Attach";
 	
 	//constant
-	private static final String CONFIGURATIONS_HEADER = "Configurations";
+	private static final String SUB_STYLE_HEADER = "SubStyle";
 	
 	//attribute
 	private final MutableOptionalValue<String> selectorType =
@@ -70,12 +71,12 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	);
 	
 	//attribute
-	private final MultiValue<BaseStyle<?>> configurations =
+	private final MultiValue<ISelectingStyle> subStyles =
 	new MultiValue<>(
-		CONFIGURATIONS_HEADER,
+		SUB_STYLE_HEADER,
 		this::addConfiguration,
 		this::createConfigurationFromSpecification,
-		BaseStyle::getSpecification
+		ISelectingStyle::getSpecification
 	);
 	
 	//method
@@ -131,9 +132,9 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return the current {@link BaseStyle}.
 	 * @throws ArgumentIsNullException if the given configuration is null.
 	 */
-	public final C addConfiguration(final BaseStyle<?> configuration) {
+	public final C addConfiguration(final ISelectingStyle configuration) {
 		
-		configurations.add(configuration);
+		subStyles.add(configuration);
 		
 		return asConcrete();
 	}
@@ -402,7 +403,7 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 		clearSelectorTokens();
 		
 		attachingAttributes.clear();
-		configurations.clear();
+		subStyles.clear();
 	}
 	
 	//method
@@ -471,8 +472,8 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 		return asConcrete();
 	}
 	
-	protected final IContainer<BaseStyle<?>> getOriConfigurations() {
-		return configurations.getOriValues();
+	protected final IContainer<ISelectingStyle> getOriConfigurations() {
+		return subStyles.getOriValues();
 	}
 	
 	//method
@@ -548,11 +549,11 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 * @return a new {@link BaseStyle} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	private BaseStyle<?> createConfigurationFromSpecification(final INode<?> specification) {
+	private ISelectingStyle createConfigurationFromSpecification(final INode<?> specification) {
 		return
 		switch (specification.getHeader()) {
-			case Style.TYPE_NAME ->
-				Style.fromSpecification(specification);
+			case SelectingStyle.TYPE_NAME ->
+				SelectingStyle.fromSpecification(specification);
 			case DeepSelectingStyle.TYPE_NAME ->
 				DeepSelectingStyle.fromSpecification(specification);
 			default ->
