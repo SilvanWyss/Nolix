@@ -43,6 +43,15 @@ public final class DeepStyle extends BaseStyle<DeepStyle> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean selectsChildElements() {
+		return true;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void styleElement(IStylableElement<?> element) {
 		
 		final var elements = element.getOriChildStylableElements();

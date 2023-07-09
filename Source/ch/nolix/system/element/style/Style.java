@@ -59,6 +59,15 @@ public final class Style extends BaseStyle<Style> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean selectsChildElements() {
+		return false;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void styleElement(final IStylableElement<?> element) {
 		
 		if (selectsElement(element)) {
