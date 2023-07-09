@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  * @date 2016-02-01
  */
 public final class Style extends BaseStyle<Style> {
-
+	
 	//constant
 	public static final String TYPE_NAME = "StandardConfiguration";
 	
