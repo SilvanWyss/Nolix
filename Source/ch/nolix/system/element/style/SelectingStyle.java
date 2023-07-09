@@ -25,10 +25,8 @@ public final class SelectingStyle extends BaseStyle<SelectingStyle> implements I
 	 */
 	public static SelectingStyle fromSpecification(final INode<?> specification) {
 		
-		final var selectingStyle = new SelectingStyle();
-		selectingStyle.resetFromSpecification(specification);
-		
-		return selectingStyle;
+		//TODO: Implement.
+		return null;
 	}
 	
 	//method

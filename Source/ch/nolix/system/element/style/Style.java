@@ -26,10 +26,8 @@ public final class Style extends BaseStyle<Style> {
 	 */
 	public static Style fromFile(final String filePath) {
 		
-		final var configuration = new Style();
-		configuration.resetFromFileWithFilePath(filePath);
-		
-		return configuration;
+		//TODO: Implement.
+		return null;
 	}
 	
 	//static method
@@ -40,10 +38,8 @@ public final class Style extends BaseStyle<Style> {
 	 */
 	public static Style fromSpecification(final INode<?> specification) {
 		
-		final var configuration = new Style();
-		configuration.resetFromSpecification(specification);
-		
-		return configuration;
+		//TODO: Implement.
+		return null;
 	}
 	
 	//constructor

@@ -25,10 +25,8 @@ public final class DeepSelectingStyle extends BaseStyle<DeepSelectingStyle> impl
 	 */
 	public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
 		
-		final var deepConfiguration = new DeepSelectingStyle();
-		deepConfiguration.resetFromSpecification(specification);
-		
-		return deepConfiguration;
+		//TODO: Implement.
+		return null;
 	}
 	
 	//constructor

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+import ch.nolix.core.container.readcontainer.ReadContainer;
 //own imports
 import ch.nolix.core.document.node.BaseNode;
 import ch.nolix.core.document.node.Node;
@@ -12,8 +13,8 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.main.Element;
 import ch.nolix.system.element.mutableelement.MultiValue;
-import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -25,7 +26,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @date 2016-01-01
  * @param <C> is the type of a {@link BaseStyle}.
  */
-public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement implements IStyle {
+public abstract class BaseStyle<C extends BaseStyle<C>> extends Element implements IStyle {
 	
 	//constant
 	private static final String SELECTOR_TYPE_HEADER = "SelectorType";
@@ -284,6 +285,19 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final IContainer<INode<?>> getAttributes() {
+		return
+		ReadContainer.forIterables(
+			getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTES_HEADER, a)),
+			getSubStyles().to(ISelectingStyle::getSpecification)
+		);
+	}
+	
+	//method
+	/**
 	 * @return the selector id of the current {@link BaseStyle}.
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BaseStyle} does not have a selector id.
@@ -316,6 +330,14 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 */
 	public final String getSelectorType() {
 		return selectorType.getValue();
+	}
+	
+	//method
+	/**
+	 * @return the sub styles of the current {@link BaseStyle}.
+	 */
+	public final IContainer<ISelectingStyle> getSubStyles() {
+		return subStyles.getOriValues();
 	}
 	
 	//method
@@ -388,22 +410,6 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 	 */
 	public final void removeSelectorType() {
 		selectorType.clear();
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final void reset() {
-		
-		removeSelectorType();
-		removeSelectorId();
-		clearSelectorRoles();
-		clearSelectorTokens();
-		
-		attachingAttributes.clear();
-		subStyles.clear();
 	}
 	
 	//method
