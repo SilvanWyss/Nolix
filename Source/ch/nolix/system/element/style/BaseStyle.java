@@ -403,8 +403,6 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 		
 		attachingAttributes.clear();
 		configurations.clear();
-		
-		resetBaseConfiguration();
 	}
 	
 	//method
@@ -477,12 +475,6 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 		return configurations.getOriValues();
 	}
 	
-	//method declaration
-	/**
-	 * Resets the current {@link BaseStyle}.
-	 */
-	protected abstract void resetBaseConfiguration();
-
 	//method
 	/**
 	 * Sets the attaching attributes of the current {@link BaseStyle} to the given element.

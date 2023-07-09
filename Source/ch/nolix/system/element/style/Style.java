@@ -70,13 +70,4 @@ public final class Style extends BaseStyle<Style> {
 			elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
 		}
 	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void resetBaseConfiguration() {
-		//Does nothing.
-	}
 }
