@@ -4,7 +4,6 @@ package ch.nolix.systemapi.elementapi.styleapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //interface
@@ -16,7 +15,6 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
  * @author Silvan Wyss
  * @date 2023-07-09
  */
-@AllowDefaultMethodsAsDesignPattern
 public interface IBaseStyle extends Specified {
 	
 	//method declaration
@@ -24,22 +22,6 @@ public interface IBaseStyle extends Specified {
 	 * @return the attaching attributes of the current {@link IBaseStyle}.
 	 */
 	IContainer<? extends INode<?>> getAttachingAttributes();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link IBaseStyle} would
-	 * select the child elements of a given {@link IStylableElement} to style.
-	 */
-	boolean selectsChildElements();
-	
-	//method
-	/**
-	 * @return true if the current {@link IBaseStyle} would not (!)
-	 * select the child elements of a given {@link IStylableElement} to style.
-	 */
-	default boolean skipsChildElements() {
-		return !selectsChildElements();
-	}
 	
 	//method declaration
 	/**

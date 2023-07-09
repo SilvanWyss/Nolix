@@ -17,10 +17,26 @@ public interface ISelectingStyle extends IBaseStyle {
 	
 	//method declaration
 	/**
+	 * @return true if the current {@link ISelectingStyle} would
+	 * select the child elements of a given {@link IStylableElement} to style.
+	 */
+	boolean selectsChildElements();
+		
+	//method declaration
+	/**
 	 * @param element
 	 * @return true if the current {@link ISelectingStyle} would select the given element to style.
 	 */
 	boolean selectsElement(IStylableElement<?> element);
+	
+	//method
+	/**
+	 * @return true if the current {@link ISelectingStyle} would not (!)
+	 * select the child elements of a given {@link IStylableElement} to style.
+	 */
+	default boolean skipsChildElements() {
+		return !selectsChildElements();
+	}
 	
 	//method
 	/**
