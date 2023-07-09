@@ -2,19 +2,21 @@
 package ch.nolix.system.element.style;
 
 //own imports
+import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
+import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-02-01
  */
-public final class Style extends BaseStyle<Style> {
-	
-	//constant
-	public static final String TYPE_NAME = "StandardConfiguration";
+public final class Style extends BaseStyle implements IStyle {
 	
 	//static method
 	/**
@@ -44,10 +46,29 @@ public final class Style extends BaseStyle<Style> {
 	
 	//constructor
 	/**
-	 * Creates a new configuration with default attributes.
+	 * Creates a new {@link Style}.
+	 * 
+	 * @param attachingAttributes
+	 * @param subStyles
 	 */
-	public Style() {
-		//Does nothing.
+	public Style(
+		final IContainer<INode<?>> attachingAttributes,
+		final IContainer<BaseSelectingStyle> subStyles
+	) {
+		super(attachingAttributes, subStyles);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IContainer<INode<?>> getAttributes() {
+		return
+		ReadContainer.forIterables(
+			getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
+			getSubStyles().to(ISelectingStyle::getSpecification)
+		);
 	}
 	
 	//method
@@ -56,14 +77,7 @@ public final class Style extends BaseStyle<Style> {
 	 */
 	@Override
 	public void styleElement(final IStylableElement<?> element) {
-		
-		if (selectsElement(element)) {
-			
-			setAttachingAttributesTo(element);
-			
-			final var elements = element.getOriChildStylableElements();
-			final var configurations = getOriConfigurations();
-			elements.forEach(e -> configurations.forEach(c -> c.styleElement(e)));
-		}
+		setAttachingAttributesToElement(element);
+		letSubStylesStyleChildElementsOfElement(element);
 	}
 }
