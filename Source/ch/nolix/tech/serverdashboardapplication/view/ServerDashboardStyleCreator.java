@@ -3,7 +3,7 @@ package ch.nolix.tech.serverdashboardapplication.view;
 
 //own imports
 import ch.nolix.system.element.style.BaseStyle;
-import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -31,17 +31,17 @@ final class ServerDashboardStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createLayerStyle() {
+	private DeepSelectingStyle createLayerStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyle()
 		.setSelectorType(Layer.class)
 		.addAttachingAttribute("ContentAlignment(TOP)");
 	}
 	
 	//method
-	private DeepStyle createImageControlStyle() {
+	private DeepSelectingStyle createImageControlStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyle()
 		.setSelectorType(ImageControl.class)
 		.addAttachingAttribute(
 			"BaseWidth(250)",
@@ -53,9 +53,9 @@ final class ServerDashboardStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createOverallVerticalStackContainerStyle() {
+	private DeepSelectingStyle createOverallVerticalStackContainerStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyle()
 		.setSelectorType(VerticalStack.class)
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINER)
 		.addAttachingAttribute(
@@ -66,14 +66,14 @@ final class ServerDashboardStyleCreator {
 	}
 	
 	//method
-	private DeepStyle createMainContentFloatContainerStyle() {
+	private DeepSelectingStyle createMainContentFloatContainerStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyle()
 		.setSelectorType(FloatContainer.class)
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute("BaseChildControlMargin(20)")
 		.addConfiguration(
-			new DeepStyle()
+			new DeepSelectingStyle()
 			.setSelectorType(VerticalStack.class)
 			.addAttachingAttribute("BaseChildControlMargin(10)")
 		);
@@ -82,16 +82,16 @@ final class ServerDashboardStyleCreator {
 	//method
 	private BaseStyle<?> createTitleLabelStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyle()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.TITLE)
 		.addAttachingAttribute("BaseTextSize(50)");
 	}
 	
 	//method
-	private DeepStyle createLevel1HeaderLabelStyle() {
+	private DeepSelectingStyle createLevel1HeaderLabelStyle() {
 		return
-		new DeepStyle()
+		new DeepSelectingStyle()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
 		.addAttachingAttribute("BaseTextSize(18)");

@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class DeepStyle extends BaseStyle<DeepStyle> implements ISelectingStyle {
+public final class DeepSelectingStyle extends BaseStyle<DeepSelectingStyle> implements ISelectingStyle {
 	
 	//constant
 	public static final String TYPE_NAME = "DeepConfiguration";
@@ -20,12 +20,12 @@ public final class DeepStyle extends BaseStyle<DeepStyle> implements ISelectingS
 	//static method
 	/**
 	 * @param specification
-	 * @return a new {@link DeepStyle} from the given specification.
+	 * @return a new {@link DeepSelectingStyle} from the given specification.
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
-	public static DeepStyle fromSpecification(final INode<?> specification) {
+	public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
 		
-		final var deepConfiguration = new DeepStyle();
+		final var deepConfiguration = new DeepSelectingStyle();
 		deepConfiguration.resetFromSpecification(specification);
 		
 		return deepConfiguration;
@@ -33,9 +33,9 @@ public final class DeepStyle extends BaseStyle<DeepStyle> implements ISelectingS
 	
 	//constructor
 	/**
-	 * Creates a new {@link DeepStyle}.
+	 * Creates a new {@link DeepSelectingStyle}.
 	 */
-	public DeepStyle() {
+	public DeepSelectingStyle() {
 		//Does nothing.
 	}
 	

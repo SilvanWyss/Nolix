@@ -4,7 +4,7 @@ import ch.nolix.core.environment.localcomputer.ShellProvider;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.element.style.DeepStyle;
+import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.dialog.YesNoDialogFactory;
@@ -58,7 +58,7 @@ public final class YesNoDialogTutorial {
 			getOriGui().setStyle(
 				new Style()
 				.addConfiguration(
-					new DeepStyle()
+					new DeepSelectingStyle()
 					.setSelectorType(Button.class)
 					.addAttachingAttribute(
 						"MinWidth(200)",
@@ -67,19 +67,19 @@ public final class YesNoDialogTutorial {
 						"HoverBackground(Color(Blue))",
 						"BaseTextSize(30)"
 					),
-					new DeepStyle()
+					new DeepSelectingStyle()
 					.setSelectorType(Layer.class)
 					.addAttachingAttribute("Background(Color(White))"),
-					new DeepStyle()
+					new DeepSelectingStyle()
 					.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 					.addAttachingAttribute(
 						"BaseBackground(Color(Lavender))"
 					)
 					.addConfiguration(
-						new DeepStyle()
+						new DeepSelectingStyle()
 						.addSelectorRole(ButtonRole.CONFIRM_BUTTON)
 						.addAttachingAttribute("BaseBackground(Color(LightGreen))", "HoverBackground(Color(Green))"),
-						new DeepStyle()
+						new DeepSelectingStyle()
 						.addSelectorRole(ButtonRole.CANCEL_BUTTON)
 						.addAttachingAttribute(
 							"CursorIcon(Hand)",

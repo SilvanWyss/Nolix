@@ -553,8 +553,8 @@ public abstract class BaseStyle<C extends BaseStyle<C>> extends MutableElement i
 		switch (specification.getHeader()) {
 			case Style.TYPE_NAME ->
 				Style.fromSpecification(specification);
-			case DeepStyle.TYPE_NAME ->
-				DeepStyle.fromSpecification(specification);
+			case DeepSelectingStyle.TYPE_NAME ->
+				DeepSelectingStyle.fromSpecification(specification);
 			default ->
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
