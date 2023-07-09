@@ -4,6 +4,7 @@ package ch.nolix.system.element.style;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
@@ -11,7 +12,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public final class DeepStyle extends BaseStyle<DeepStyle> {
+public final class DeepStyle extends BaseStyle<DeepStyle> implements ISelectingStyle {
 	
 	//constant
 	public static final String TYPE_NAME = "DeepConfiguration";
