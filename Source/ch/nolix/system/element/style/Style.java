@@ -52,7 +52,7 @@ public final class Style extends BaseStyle implements IStyle {
 	 * @param subStyles
 	 */
 	public Style(
-		final IContainer<INode<?>> attachingAttributes,
+		final IContainer<? extends INode<?>> attachingAttributes,
 		final IContainer<BaseSelectingStyle> subStyles
 	) {
 		super(attachingAttributes, subStyles);

@@ -22,10 +22,10 @@ public abstract class BaseStyle extends Element implements IStyle {
 	//constant
 	protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 	
-	//attribute
+	//multi-attribute
 	private final ImmutableList<Node> attachingAttributes;
 	
-	//attribute
+	//multi-attribute
 	private final ImmutableList<BaseSelectingStyle> subStyles;
 	
 	//constructor
@@ -36,7 +36,7 @@ public abstract class BaseStyle extends Element implements IStyle {
 	 * @param subStyles
 	 */
 	protected BaseStyle(
-		final IContainer<INode<?>> attachingAttributes,
+		final IContainer<? extends INode<?>> attachingAttributes,
 		final IContainer<BaseSelectingStyle> subStyles
 	) {
 		

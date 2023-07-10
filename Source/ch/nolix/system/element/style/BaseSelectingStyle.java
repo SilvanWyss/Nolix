@@ -46,7 +46,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 		final ISingleContainer<String> selectorTypeContainer,
 		IContainer<String> selectorRoles,
 		IContainer<String> selectorTokens,
-		final IContainer<INode<?>> attachingAttributes,
+		final IContainer<? extends INode<?>> attachingAttributes,
 		final IContainer<BaseSelectingStyle> subStyles
 	) {
 		
@@ -189,17 +189,6 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 	}
 	
 	//method
-	@Override
-	public void styleElement(final IStylableElement<?> element) {
-		if (selectsElement(element)) {
-			styleElementWhenSelected(element);
-		}
-	}
-	
-	//method declaration
-	protected abstract void styleElementWhenSelected(final IStylableElement<?> element);
-	
-	//method
 	private void assertHasSelectorId() {
 		if (!hasSelectorId()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector id");
@@ -208,7 +197,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 	
 	//method
 	private void assertHasSelectorType() {
-		if (!hasSelectorId()) {
+		if (!hasSelectorType()) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector type");
 		}
 	}

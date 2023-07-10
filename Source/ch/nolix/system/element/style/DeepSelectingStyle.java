@@ -95,7 +95,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 		final ISingleContainer<String> selectorTypeContainer,
 		final IContainer<String> selectorRoles,
 		final IContainer<String> selectorTokens,
-		final IContainer<INode<?>> attachingAttributes,
+		final IContainer<? extends INode<?>> attachingAttributes,
 		final IContainer<BaseSelectingStyle> subStyles
 	) {
 		super(
@@ -122,15 +122,14 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void styleElementWhenSelected(IStylableElement<?> element) {
+	public void styleElement(final IStylableElement<?> element) {
+		
 		if (selectsElement(element)) {
-			
 			setAttachingAttributesToElement(element);
-			
 			letSubStylesStyleChildElementsOfElement(element);
-			
-			styleChildElementsOfElement(element);
 		}
+		
+		styleChildElementsOfElement(element);
 	}
 	
 	//method
