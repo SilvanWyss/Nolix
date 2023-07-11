@@ -82,6 +82,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 		}
 		
 		//Enumerates the first character of the given noun.
+		return
 		switch (noun.charAt(0)) {
 			case
 			'A',
@@ -93,11 +94,11 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
 			'O',
 			'o',
 			'U',
-			'u':
-				return PRONOUN_AN;
-			default:
-				return PRONOUN_A;
-		}
+			'u' ->
+				PRONOUN_AN;
+			default ->
+				PRONOUN_A;
+		};
 	}
 	
 	//static method
