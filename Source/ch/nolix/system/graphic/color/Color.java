@@ -1486,61 +1486,45 @@ public final class Color extends Element implements IColor {
 		//Iterates the given string.
 		for (var i = string.length() - 1; i >= 0; i--) {
 			
-			var tempValue = 0;
+			final var tempValue =
 			
 			//Enumerates the current character.
 			switch (string.charAt(i)) {
-				case '0':
-					tempValue = 0;
-					break;
-				case '1':
-					tempValue = 1;
-					break;
-				case '2':
-					tempValue = 2;
-					break;
-				case '3':
-					tempValue = 3;
-					break;
-				case '4':
-					tempValue = 4;
-					break;
-				case '5':
-					tempValue = 5;
-					break;
-				case '6':
-					tempValue = 6;
-					break;
-				case '7':
-					tempValue = 7;
-					break;
-				case '8':
-					tempValue = 8;
-					break;
-				case '9':
-					tempValue = 9;
-					break;
-				case 'A':
-					tempValue = 10;
-					break;
-				case 'B':
-					tempValue = 11;
-					break;
-				case 'C':
-					tempValue = 12;
-					break;
-				case 'D':
-					tempValue = 13;
-					break;
-				case 'E':
-					tempValue = 14;
-					break;
-				case 'F':
-					tempValue = 15;
-					break;
-				default:
+				case '0' ->
+					0;
+				case '1' ->
+					1;
+				case '2' ->
+					2;
+				case '3' ->
+					3;
+				case '4' ->
+					4;
+				case '5' ->
+					5;
+				case '6' ->
+					6;
+				case '7' ->
+					7;
+				case '8' ->
+					8;
+				case '9' ->
+					9;
+				case 'A' ->
+					10;
+				case 'B' ->
+					11;
+				case 'C' ->
+					12;
+				case 'D' ->
+					13;
+				case 'E' ->
+					14;
+				case 'F' ->
+					15;
+				default ->
 					throw InvalidArgumentException.forArgument(string);
-			}
+			};
 			
 			value += tempValue * base;
 			base *= 16;
