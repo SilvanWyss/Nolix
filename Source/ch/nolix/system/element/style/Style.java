@@ -11,14 +11,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-02-01
  */
-public final class Style extends BaseStyle implements IStyle {
+public final class Style extends BaseStyle {
 	
 	//static method
 	/**
