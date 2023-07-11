@@ -105,7 +105,7 @@ public final class ImmutableList<E> extends Container<E> {
 	 * @param elements
 	 */
 	private ImmutableList(final E[] elements) {
-		this.elements = elements;
+		this.elements = elements; //NOSONAR: A ImmutableList operates on the original instance.
 	}
 	
 	//constructor

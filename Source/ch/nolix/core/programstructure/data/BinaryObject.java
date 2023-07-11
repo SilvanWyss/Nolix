@@ -29,13 +29,13 @@ public final class BinaryObject implements IBinaryObject{
 		
 		GlobalValidator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 		
-		this.bytes = bytes;
+		this.bytes = bytes; //NOSONAR: A BinaryObject operates on the original instance.
 	}
 	
 	//method
 	@Override
 	public byte[] getOriBytes() {
-		return bytes;
+		return bytes; //NOSONAR: A BinaryObject returns the original instance.
 	}
 	
 	//method

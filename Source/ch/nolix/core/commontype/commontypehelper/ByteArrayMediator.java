@@ -15,7 +15,7 @@ public final class ByteArrayMediator {
 		
 		GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 		
-		this.byteArray = byteArray;
+		this.byteArray = byteArray; //NOSONAR: A ByteArrayMediator operates on the original instance.
 	}
 	
 	//method

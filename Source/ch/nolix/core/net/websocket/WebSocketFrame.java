@@ -65,7 +65,7 @@ public final class WebSocketFrame {
 		);
 		
 		payloadLength = new WebSocketFramePayloadLength(payload.length);
-		this.payload = payload;
+		this.payload = payload; //NOSONAR: A WebSocketFrame operates on the original instance.
 		maskingKey = null;
 	}
 	
@@ -193,7 +193,7 @@ public final class WebSocketFrame {
 	
 	//method
 	public byte[] getPayload() {
-		return payload;
+		return payload; //NOSONAR: A WebSocketFrame returns the original instance.
 	}
 	
 	//method
