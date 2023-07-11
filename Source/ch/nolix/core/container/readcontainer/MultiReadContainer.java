@@ -2,6 +2,7 @@
 package ch.nolix.core.container.readcontainer;
 
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -92,6 +93,12 @@ public final class MultiReadContainer<E> extends Container<E> {
 	@Override
 	public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
 		return LinkedList.fromIterable(this).toOrderedList(norm);
+	}
+	
+	//method
+	@Override
+	public String toString() {
+		return toStringWithSeparator(CharacterCatalogue.COMMA);
 	}
 	
 	//method
