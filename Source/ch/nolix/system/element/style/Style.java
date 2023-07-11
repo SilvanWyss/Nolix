@@ -2,9 +2,11 @@
 package ch.nolix.system.element.style;
 
 //own imports
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
@@ -28,8 +30,9 @@ public final class Style extends BaseStyle implements IStyle {
 	 */
 	public static Style fromFile(final String filePath) {
 		
-		//TODO: Implement.
-		return null;
+		final var specification = Node.fromFile(filePath);
+		
+		return fromSpecification(specification);
 	}
 	
 	//static method
@@ -39,9 +42,31 @@ public final class Style extends BaseStyle implements IStyle {
 	 * @throws InvalidArgumentException if the given specification is not valid.
 	 */
 	public static Style fromSpecification(final INode<?> specification) {
+				
+		final var attachingAttributes = new LinkedList<INode<?>>();
+		final var subStyles = new LinkedList<BaseSelectingStyle>();
 		
-		//TODO: Implement.
-		return null;
+		for (final var a : specification.getOriChildNodes()) {
+			switch (a.getHeader()) {
+				case ATTACHING_ATTRIBUTE_HEADER:
+					attachingAttributes.addAtEnd(a.getOriSingleChildNode());
+					break;
+				case SelectingStyle.TYPE_NAME:
+					subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
+					break;
+				case DeepSelectingStyle.TYPE_NAME:
+					subStyles.addAtEnd(DeepSelectingStyle.fromSpecification(a));
+					break;
+				default:
+					throw
+					InvalidArgumentException.forArgumentNameAndArgument(
+						LowerCaseCatalogue.SPECIFICATION,
+						specification
+					);
+			}
+		}
+		
+		return new Style(attachingAttributes, subStyles);
 	}
 	
 	//constructor

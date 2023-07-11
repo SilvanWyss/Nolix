@@ -54,10 +54,10 @@ public final class SelectingStyle extends BaseSelectingStyle {
 					attachingAttributes.addAtEnd(a.getOriSingleChildNode());
 					break;
 				case SelectingStyle.TYPE_NAME:
-					subStyles.addAtEnd(fromSpecification(a));
+					subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
 					break;
 				case DeepSelectingStyle.TYPE_NAME:
-					subStyles.addAtEnd(fromSpecification(a));
+					subStyles.addAtEnd(DeepSelectingStyle.fromSpecification(a));
 					break;
 				default:
 					throw
