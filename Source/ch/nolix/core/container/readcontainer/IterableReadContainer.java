@@ -21,7 +21,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
  * @date 2017-11-26
  * @param <E> is the type of the elements of a {@link IterableReadContainer}.
  */
-final class IterableReadContainer<E> extends Container<E> {
+public final class IterableReadContainer<E> extends Container<E> {
 	
 	//attribute
 	private final Iterable<E> container;
