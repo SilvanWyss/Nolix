@@ -4,6 +4,7 @@ package ch.nolix.coretest.containertest;
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 import ch.nolix.coretest.containertest.maintest.MainTestPool;
+import ch.nolix.coretest.containertest.readcontainertest.ReadContainerTestPool;
 import ch.nolix.coretest.containertest.singlecontainertest.SingleContainerTestPool;
 
 //class
@@ -20,6 +21,7 @@ public final class ContainerTestPool extends TestPool {
 	public ContainerTestPool() {
 		super(
 			new MainTestPool(),
+			new ReadContainerTestPool(),
 			new SingleContainerTestPool()
 		);
 	}
