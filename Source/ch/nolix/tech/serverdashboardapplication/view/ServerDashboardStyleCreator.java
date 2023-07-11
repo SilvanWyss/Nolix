@@ -2,9 +2,10 @@
 package ch.nolix.tech.serverdashboardapplication.view;
 
 //own imports
-import ch.nolix.system.element.style.BaseStyle;
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
+import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.FloatContainer;
@@ -19,29 +20,31 @@ final class ServerDashboardStyleCreator {
 	//method
 	public Style createServerDashboardStyle() {
 		return
-		new Style()
-		.addConfiguration(
+		new StyleBuilder()
+		.addSubStyle(
 			createLayerStyle(),
 			createImageControlStyle(),
 			createOverallVerticalStackContainerStyle(),
 			createMainContentFloatContainerStyle(),
 			createTitleLabelStyle(),
 			createLevel1HeaderLabelStyle()
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createLayerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Layer.class)
-		.addAttachingAttribute("ContentAlignment(TOP)");
+		.addAttachingAttribute("ContentAlignment(TOP)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createImageControlStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(ImageControl.class)
 		.addAttachingAttribute(
 			"BaseWidth(250)",
@@ -49,51 +52,57 @@ final class ServerDashboardStyleCreator {
 			"CursorIcon(Hand)",
 			"BaseOpacity(50%)",
 			"HoverOpacity(90%)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createOverallVerticalStackContainerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(VerticalStack.class)
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINER)
 		.addAttachingAttribute(
 			"ContentAlignment(CENTER)",
 			"BaseChildControlMargin(50)",
 			"BaseTextColor(0x202020)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createMainContentFloatContainerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(FloatContainer.class)
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
 		.addAttachingAttribute("BaseChildControlMargin(20)")
-		.addConfiguration(
-			new DeepSelectingStyle()
+		.addSubStyle(
+			new DeepSelectingStyleBuilder()
 			.setSelectorType(VerticalStack.class)
 			.addAttachingAttribute("BaseChildControlMargin(10)")
-		);
+			.build()
+		)
+		.build();
 	}
 	
 	//method
-	private BaseStyle<?> createTitleLabelStyle() {
+	private DeepSelectingStyle createTitleLabelStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.TITLE)
-		.addAttachingAttribute("BaseTextSize(50)");
+		.addAttachingAttribute("BaseTextSize(50)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createLevel1HeaderLabelStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
-		.addAttachingAttribute("BaseTextSize(18)");
+		.addAttachingAttribute("BaseTextSize(18)")
+		.build();
 	}
 }

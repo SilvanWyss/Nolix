@@ -4,6 +4,8 @@ package ch.nolix.template.webgui.style;
 //own imports
 import ch.nolix.system.element.style.DeepSelectingStyle;
 import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
+import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.Link;
@@ -27,9 +29,9 @@ public final class DarkModeStyleCreator {
 	//method
 	public Style createDarkModeStyle() {
 		return
-		new Style()
+		new StyleBuilder()
 		.addAttachingAttribute("Background(Color(0x202020))")
-		.addConfiguration(
+		.addSubStyle(
 			createControlStyle(),
 			createLinearContainerStyle(),
 			createGridStyle(),
@@ -46,50 +48,55 @@ public final class DarkModeStyleCreator {
 			createLevel1HeaderLabelStyle(),
 			createDialogLayerStyle(),
 			createDialogContainerStyle()
-		);
+		)
+		.build();
 	}
 	
 	private DeepSelectingStyle createControlStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Control.class)
-		.addAttachingAttribute("BaseTextColor(0xC0C0C0)");
+		.addAttachingAttribute("BaseTextColor(0xC0C0C0)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createLinearContainerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(LinearContainer.class)
-		.addAttachingAttribute("BaseChildControlMargin(10)");
+		.addAttachingAttribute("BaseChildControlMargin(10)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createGridStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Grid.class)
 		.addAttachingAttribute(
 			"BaseChildControlMargin(10)",
 			"BaseGridThickness(0)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createLinkStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Link.class)
 		.addAttachingAttribute(
 			"BaseTextColor(Blue)",
 			"HoverTextColor(DarkBlue)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createButtonStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Button.class)
 		.addAttachingAttribute(
 			"MinWidth(200)",
@@ -100,43 +107,47 @@ public final class DarkModeStyleCreator {
 			"BaseRightPadding(10)",
 			"BaseTextColor(Grey)",
 			"HoverTextColor(White)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createTextboxStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Textbox.class)
 		.addAttachingAttribute(
 			"BaseWidth(200)",
 			"BaseBackground(Color(Black))"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createDropdownMenuStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(DropdownMenu.class)
 		.addAttachingAttribute(
 			"BaseWidth(200)",
 			"BaseBackground(Color(Black))"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createValidationLabelStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(ValidationLabel.class)
-		.addAttachingAttribute("BaseTextColor(Orange)");
+		.addAttachingAttribute("BaseTextColor(Orange)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createOverallVerticalStackStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(VerticalStack.class)
 		.addSelectorRole(ContainerRole.OVERALL_CONTAINER)
 		.addAttachingAttribute(
@@ -144,76 +155,83 @@ public final class DarkModeStyleCreator {
 			"MinHeight(80%)",
 			"BasePadding(20)",
 			"BaseChildControlMargin(20)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createHeaderHorizontalStackStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(HorizontalStack.class)
 		.addSelectorRole(ContainerRole.HEADER_CONTAINER)
 		.addAttachingAttribute(
 			"ContentAlignment(BOTTOM)",
 			"BaseChildControlMargin(50)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createMainContentContainerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-		.addAttachingAttribute("MinHeight(500)");
+		.addAttachingAttribute("MinHeight(500)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createFooterHorizontalStackStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(HorizontalStack.class)
 		.addSelectorRole(ContainerRole.FOOTER_CONTAINER)
 		.addAttachingAttribute(
 			"ContentAlignment(BOTTOM)",
 			"BaseChildControlMargin(100)",
 			"BaseTextSize(15)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createTitleLabelStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.TITLE)
-		.addAttachingAttribute("BaseTextSize(50)", "BaseTextColor(White)");
+		.addAttachingAttribute("BaseTextSize(50)", "BaseTextColor(White)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createLevel1HeaderLabelStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Label.class)
 		.addSelectorRole(LabelRole.LEVEL1_HEADER)
-		.addAttachingAttribute("BaseTextSize(30)", "BaseTextColor(White)");
+		.addAttachingAttribute("BaseTextSize(30)", "BaseTextColor(White)")
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createDialogLayerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Layer.class)
 		.addSelectorRole(LayerRole.DIALOG_LAYER)
 		.addAttachingAttribute(
 			"Background(Color(0x808080E0))",
 			"ContentAlignment(CENTER)"
-		);
+		)
+		.build();
 	}
 	
 	//method
 	private DeepSelectingStyle createDialogContainerStyle() {
 		return
-		new DeepSelectingStyle()
+		new DeepSelectingStyleBuilder()
 		.setSelectorType(Container.class)
 		.addSelectorRole(ContainerRole.DIALOG_CONTAINER)
 		.addAttachingAttribute(
@@ -221,6 +239,7 @@ public final class DarkModeStyleCreator {
 			"MinHeight(200)",
 			"BaseBackground(Color(0x202020E0))",
 			"BasePadding(20)"
-		);
+		)
+		.build();
 	}
 }
