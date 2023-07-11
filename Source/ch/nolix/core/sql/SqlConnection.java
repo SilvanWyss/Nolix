@@ -254,7 +254,9 @@ public abstract class SqlConnection implements GroupCloseable {
 	//method
 	private void registerSqlDatabaseEngineDriver() {
 		try {
-			Class.forName(getSqlDatabaseEngineDriverClass());
+			Class.forName( //NOSONAR: Dynamic class loading is needed to gain driver class.
+				getSqlDatabaseEngineDriverClass()
+			);
 		} catch (final ClassNotFoundException classNotFoundException) {
 			throw WrapperException.forError(classNotFoundException);
 		}
