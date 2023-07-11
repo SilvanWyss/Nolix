@@ -17,7 +17,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-public abstract class BaseStyle extends Element implements IStyle {
+abstract class BaseStyle extends Element implements IStyle {
 	
 	//constant
 	protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
@@ -69,8 +69,7 @@ public abstract class BaseStyle extends Element implements IStyle {
 	public final boolean hasAttachingAttributes() {
 		return attachingAttributes.containsAny();
 	}
-	
-	
+		
 	//method
 	/**
 	 * Sets the attaching attributes of the current {@link BaseStyle} to the given element.
@@ -99,10 +98,16 @@ public abstract class BaseStyle extends Element implements IStyle {
 		}
 	}
 	
-	protected final void letSubStylesStyleChildElementsOfElement(IStylableElement<?> element) {
+	//method
+	/**
+	 * Lets the sub styles of the current {@link BaseStyle} style the child element of the given element.
+	 * 
+	 * @param element
+	 */
+	protected final void letSubStylesStyleChildElementsOfElement(final IStylableElement<?> element) {
 		
 		final var childElements = element.getOriChildStylableElements();
 		
-		getSubStyles().forEach(ss -> childElements.forEach(ce -> ss.styleElement(ce)));
+		getSubStyles().forEach(ss -> childElements.forEach(ss::styleElement));
 	}
 }
