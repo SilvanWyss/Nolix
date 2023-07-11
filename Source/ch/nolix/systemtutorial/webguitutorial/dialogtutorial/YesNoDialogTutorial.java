@@ -33,7 +33,8 @@ public final class YesNoDialogTutorial {
 		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
 	}
 	
-	public static final class MainSession extends WebClientSession<Object> {
+	public static final class MainSession //NOSONAR: A 1-file-tutorial is allowed to have a long static class.
+	extends WebClientSession<Object> {
 		
 		@Override
 		protected void initialize() {
