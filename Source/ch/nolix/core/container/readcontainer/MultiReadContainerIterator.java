@@ -6,18 +6,19 @@ import ch.nolix.core.container.base.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
 final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 	
 	//attribute
-	private final CopyableIterator<Container<E>> rootIterator;
+	private final CopyableIterator<IContainer<E>> rootIterator;
 	
 	//optional attribute
 	private CopyableIterator<E> currentIterator;
 	
 	//constructor
-	public MultiReadContainerIterator(final Container<Container<E>> containers) {
+	public MultiReadContainerIterator(final Container<IContainer<E>> containers) {
 		
 		rootIterator = containers.iterator();
 		
@@ -28,7 +29,7 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 	
 	//constructor
 	private MultiReadContainerIterator(
-		final CopyableIterator<Container<E>> rootIterator,
+		final CopyableIterator<IContainer<E>> rootIterator,
 		final CopyableIterator<E> currentIterator
 	) {		
 		this.rootIterator = rootIterator;

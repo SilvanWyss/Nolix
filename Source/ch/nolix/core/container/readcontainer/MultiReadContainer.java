@@ -14,16 +14,26 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
-final class MultiReadContainer<E> extends Container<E> {
+public final class MultiReadContainer<E> extends Container<E> {
 	
 	//attribute
-	private final LinkedList<Container<E>> containers = new LinkedList<>();
+	private final LinkedList<IContainer<E>> containers = new LinkedList<>();
+		
+	//constructor
+	public MultiReadContainer() {}
 	
 	//constructor
 	@SuppressWarnings("unchecked")
 	public MultiReadContainer(final E[]... arrays) {
 		for (final var a : arrays) {
 			this.containers.addAtEnd(new ArrayReadContainer<>(a));
+		}
+	}
+	
+	//constructor
+	public MultiReadContainer(final IContainer<? extends IContainer<E>> containers) {
+		for (final var c : containers) {
+			this.containers.addAtEnd(c);
 		}
 	}
 	
@@ -44,7 +54,7 @@ final class MultiReadContainer<E> extends Container<E> {
 	//method
 	@Override
 	public int getElementCount() {
-		return containers.getSumOfIntegers(Container::getElementCount).intValue();
+		return containers.getSumOfIntegers(IContainer::getElementCount).intValue();
 	}
 	
 	//method
