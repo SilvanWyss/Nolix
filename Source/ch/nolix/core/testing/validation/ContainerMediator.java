@@ -8,7 +8,7 @@ import java.util.Objects;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
-import ch.nolix.core.independent.containerhelper.IterableHelper;
+import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
@@ -94,7 +94,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 			return false;
 		} else {
 			
-			final var actualElementCount = IterableHelper.getElementCount(getOriValue());
+			final var actualElementCount = GlobalIterableHelper.getElementCount(getOriValue());
 			
 			if (actualElementCount != elementCount) {
 				
@@ -134,7 +134,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	//method
 	private void expectIsEmptyWhenIsNotNull() {
 		
-		final var elementCount = IterableHelper.getElementCount(getOriValue());
+		final var elementCount = GlobalIterableHelper.getElementCount(getOriValue());
 		
 		if (elementCount > 0) {
 			addCurrentTestCaseError(
@@ -152,7 +152,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//method
 	private void expectIsNotEmptyWhenIsNotNull() {
-		if (IterableHelper.isEmpty(getOriValue())) {
+		if (GlobalIterableHelper.isEmpty(getOriValue())) {
 			addCurrentTestCaseError("A non-empty container was expected, but an empty container received.");
 		}
 	}

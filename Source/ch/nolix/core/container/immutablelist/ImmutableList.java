@@ -11,7 +11,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.independent.containerhelper.IterableHelper;
+import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -47,7 +47,7 @@ public final class ImmutableList<E> extends Container<E> {
 			return (ImmutableList<E2>)container;
 		}
 		
-		final var elementCount = IterableHelper.getElementCount(container);
+		final var elementCount = GlobalIterableHelper.getElementCount(container);
 		final var elements = new Object[elementCount];
 		var index = 0;
 		for (final var e : container) {

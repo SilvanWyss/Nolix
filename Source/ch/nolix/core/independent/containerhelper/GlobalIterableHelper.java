@@ -3,13 +3,13 @@ package ch.nolix.core.independent.containerhelper;
 
 //class
 /**
- * The {@link IterableHelper} provides methods to handle {@link Iterable}s.
- * Of the {@link IterableHelper} an instance cannot be created.
+ * The {@link GlobalIterableHelper} provides methods to handle {@link Iterable}s.
+ * Of the {@link GlobalIterableHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-12-16
  */
-public final class IterableHelper {
+public final class GlobalIterableHelper {
 	
 	//static method
 	/**
@@ -39,7 +39,7 @@ public final class IterableHelper {
 	
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link IterableHelper} can be created.
+	 * Prevents that an instance of the {@link GlobalIterableHelper} can be created.
 	 */
-	private IterableHelper() {}
+	private GlobalIterableHelper() {}
 }

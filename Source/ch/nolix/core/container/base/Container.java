@@ -18,7 +18,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.independent.containerhelper.IterableHelper;
+import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -213,7 +213,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		//Handles the case that the given container is not a IContainer.
-		return (getElementCount() == IterableHelper.getElementCount(container));
+		return (getElementCount() == GlobalIterableHelper.getElementCount(container));
 	}
 	
 	//method
@@ -276,7 +276,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		//Handles the case that the given container is not a IContainer.
-		return (getElementCount() < IterableHelper.getElementCount(container));
+		return (getElementCount() < GlobalIterableHelper.getElementCount(container));
 	}
 	
 	//method
@@ -294,7 +294,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		//Handles the case that the given container is not a IContainer.
-		return (getElementCount() > IterableHelper.getElementCount(container));
+		return (getElementCount() > GlobalIterableHelper.getElementCount(container));
 	}
 	
 	//method
