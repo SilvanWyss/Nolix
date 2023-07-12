@@ -24,7 +24,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
-public final class DarkModeStyleCreator {
+final class DarkModeStyleCreator {
 	
 	//method
 	public Style createDarkModeStyle() {

@@ -17,21 +17,21 @@ import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.system.webgui.main.WebGui;
-import ch.nolix.template.webgui.style.DarkModeStyleCreator;
+import ch.nolix.template.webgui.style.StyleCatalogue;
 
 //class
-public final class DarkModeStyleCreatorTest extends Test {
+public final class StyleCatalogueTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_createDarkModeStyle() {
+	public void testCase_DarkMode() {
 		
 		//setup
 		final var webGuiWithVariousContent = createWebGuiWithVariousContent();
-		final var testUnit = new DarkModeStyleCreator();
+		final var testUnit = StyleCatalogue.DARK_MODE_STYLE;
 		
 		//execution & verification
-		expectRunning(() -> testUnit.createDarkModeStyle().styleElement(webGuiWithVariousContent)).doesNotThrowException();
+		expectRunning(() -> testUnit.styleElement(webGuiWithVariousContent)).doesNotThrowException();
 	}
 	
 	//method

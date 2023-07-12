@@ -8,6 +8,6 @@ public final class StyleTestPool extends TestPool {
 	
 	//constructor
 	public StyleTestPool() {
-		super(DarkModeStyleCreatorTest.class);
+		super(StyleCatalogueTest.class);
 	}
 }
