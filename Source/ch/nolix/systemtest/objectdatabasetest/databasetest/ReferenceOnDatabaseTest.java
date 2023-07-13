@@ -30,13 +30,13 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsNewAndNotEmpty() {
+	public void testCase_getOriEntity_whenIsNewAndContainsAny() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var john = new Person();
@@ -52,13 +52,13 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsLoadedAndNotEmpty() {
+	public void testCase_getOriEntity_whenIsLoadedAndContainsAny() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var john = new Person();
@@ -76,7 +76,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		//verification
 		expect(result.getId()).isEqualTo(garfield.getId());
 	}
-
+	
 	//method
 	@TestCase
 	public void testCase_isSaved_whenIsNewAndEmpty() {
@@ -85,14 +85,14 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var john = new Person();
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution & verification
 		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
 	}
-
+	
 	//method
 	@TestCase
 	public void testCase_isSaved_whenIsEditedAndReferencedEntityIsDeleted() {
@@ -101,14 +101,14 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var loadedGarfieldB =
 		nodeDatabaseAdapterB.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		final var johnB = new Person();
@@ -117,7 +117,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		
 		//setup part 3: Deletes the referenced Entity.
 		final var nodeDatabaseAdapterC =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var loadedGarfieldC =
 		nodeDatabaseAdapterC.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
 		loadedGarfieldC.delete();
