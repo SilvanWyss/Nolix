@@ -129,8 +129,13 @@ final class DarkModeStyleCreator {
 		new DeepSelectingStyleBuilder()
 		.setSelectorType(DropdownMenu.class)
 		.addAttachingAttribute(
-			"BaseWidth(200)",
-			"BaseBackground(Color(Black))"
+			"MinWidth(200)",
+			"BaseBorderThickness(1)",
+			"BaseBorderColor(Grey)",
+			"HoverBorderColor(White)",
+			"BaseBackground(Color(0x202020))",
+			"BaseTextColor(Grey)",
+			"HoverTextColor(White)"
 		)
 		.build();
 	}
