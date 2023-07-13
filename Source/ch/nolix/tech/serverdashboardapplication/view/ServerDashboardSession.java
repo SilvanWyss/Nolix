@@ -18,9 +18,6 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 	private static final WebApplicationControlFactory WEB_APPLICATION_CONTROL_FACTORY =
 	new WebApplicationControlFactory();
 	
-	//constant
-	private static final ServerDashboardStyleCreator SERVER_DASHBOARD_STYLE_CREATOR = new ServerDashboardStyleCreator();
-	
 	//method
 	@Override
 	protected void initialize() {
@@ -40,7 +37,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 				)
 			)
 		)
-		.setStyle(SERVER_DASHBOARD_STYLE_CREATOR.createServerDashboardStyle());
+		.setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
 	}
 	
 	//method
