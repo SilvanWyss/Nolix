@@ -51,5 +51,6 @@ public final class StyleTest extends Test {
 		
 		//verification
 		expect(result.getAttachingAttributes()).isEmpty();
+		expect(result.getSubStyles()).isEmpty();
 	}
 }

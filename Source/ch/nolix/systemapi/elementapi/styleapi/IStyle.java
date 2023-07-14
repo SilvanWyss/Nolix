@@ -13,6 +13,12 @@ public interface IStyle extends IBaseStyle {
 	
 	//method declaration
 	/**
+	 * @return the sub styles of the current {@link IStyle}.
+	 */
+	IContainer<? extends ISelectingStyle> getSubStyles();
+	
+	//method declaration
+	/**
 	 * @param attachingAttributes
 	 * @param subStyles
 	 * @return a new {@link IStyle} from the current {@link IStyle} with additionally
