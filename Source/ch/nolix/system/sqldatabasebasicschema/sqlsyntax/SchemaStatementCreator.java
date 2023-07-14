@@ -9,7 +9,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 //class
-public final class SqlSchemaStatementCreator implements ISchemaStatementCreator {
+public final class SchemaStatementCreator implements ISchemaStatementCreator {
 	
 	//method
 	@Override
