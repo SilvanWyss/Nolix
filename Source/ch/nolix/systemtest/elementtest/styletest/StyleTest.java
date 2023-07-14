@@ -7,6 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
 import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
@@ -44,13 +45,55 @@ public final class StyleTest extends Test {
 	public void testCase_withAttachingAttributesAndSubStyles_whenIsEmpty() {
 		
 		// setup
+		final var subStyle1 = new SelectingStyleBuilder().build();
+		final var subStyle2 = new SelectingStyleBuilder().build();
 		final var testUnit = new StyleBuilder().build();
 		
 		//execution
-		final var result = testUnit.withAttachingAttributesAndSubStyles(new ImmutableList<>(), new ImmutableList<>());
+		final var result =
+		testUnit.withAttachingAttributesAndSubStyles(
+			ImmutableList.withElements("p1(v1)", "p2(v2)"),
+			ImmutableList.withElements(subStyle1, subStyle2)
+		);
 		
 		//verification
-		expect(result.getAttachingAttributes()).isEmpty();
-		expect(result.getSubStyles()).isEmpty();
+		expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing("p1(v1)", "p2(v2)");
+		final var subStyles = result.getSubStyles();
+		expect(subStyles).hasElementCount(2);
+		expect(subStyles.getOriAt1BasedIndex(1)).is(subStyle1);
+		expect(subStyles.getOriAt1BasedIndex(2)).is(subStyle2);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withAttachingAttributesAndSubStyles_whenContainsAny() {
+		
+		// setup
+		final var subStyle1 = new SelectingStyleBuilder().build();
+		final var subStyle2 = new SelectingStyleBuilder().build();
+		final var subStyle3 = new SelectingStyleBuilder().build();
+		final var subStyle4 = new SelectingStyleBuilder().build();
+		final var testUnit =
+		new StyleBuilder()
+		.addAttachingAttribute("p1(v1)", "p2(v2)")
+		.addSubStyle(subStyle1, subStyle2)
+		.build();
+		
+		//execution
+		final var result =
+		testUnit.withAttachingAttributesAndSubStyles(
+			ImmutableList.withElements("p3(v3)", "p4(v4)"),
+			ImmutableList.withElements(subStyle3, subStyle4)
+		);
+		
+		//verification
+		expect(result.getAttachingAttributes().toStrings())
+		.containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
+		final var subStyles = result.getSubStyles();
+		expect(subStyles).hasElementCount(4);
+		expect(subStyles.getOriAt1BasedIndex(1)).is(subStyle1);
+		expect(subStyles.getOriAt1BasedIndex(2)).is(subStyle2);
+		expect(subStyles.getOriAt1BasedIndex(3)).is(subStyle3);
+		expect(subStyles.getOriAt1BasedIndex(4)).is(subStyle4);
 	}
 }
