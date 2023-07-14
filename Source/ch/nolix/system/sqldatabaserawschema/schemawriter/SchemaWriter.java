@@ -7,12 +7,12 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
+import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
-import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {
@@ -130,6 +130,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void saveChangesAndReset() {
 		try {
 			
+			systemDataWriter.setSchemaTimestamp(Time.ofNow());
 			sqlCollector.addSqlStatements(internalSchemaWriter.getSqlStatements());
 			sqlCollector.executeUsingConnection(sqlConnection);
 			
@@ -153,12 +154,6 @@ public final class SchemaWriter implements ISchemaWriter {
 		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		systemDataWriter.setColumnParametrizedPropertyType(columnId, parametrizedPropertyType);
-	}
-	
-	//method
-	@Override
-	public void setSchemaTimestamp(final ITime schemaTimestamp) {
-		systemDataWriter.setSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method

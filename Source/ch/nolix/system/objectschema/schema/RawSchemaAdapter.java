@@ -4,7 +4,6 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -95,12 +94,7 @@ final class RawSchemaAdapter {
 			parametrizedPropertyType.toDto()
 		);
 	}
-	
-	//method
-	public void setSchemaTimestamp(final Time schemaTimestamp) {
-		internalRawSchemaAdapter.setSchemaTimestamp(schemaTimestamp);
-	}
-	
+		
 	//method
 	public void setTableName(final String tableName, final String newTableName) {
 		internalRawSchemaAdapter.setTableName(tableName, newTableName);

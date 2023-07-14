@@ -11,6 +11,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabasePropertiesNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
+import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
@@ -156,6 +157,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void saveChangesAndReset() {
 		try {
 			
+			setSchemaTimestamp(Time.ofNow());
 			databaseNode.setChildNodes(editedDatabaseNode.getOriChildNodes());
 			
 			saveCount++;
@@ -197,7 +199,19 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void setSchemaTimestamp(final ITime schemaTimestamp) {
+	public void setTableName(final String tableName, final String newTableName) {
+		
+		final var tableNode =
+		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		
+		final var nameNode = TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(tableNode);
+		nameNode.getOriSingleChildNode().setHeader(newTableName);
+		
+		hasChanges = true;
+	}
+	
+	//method
+	private void setSchemaTimestamp(final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
 		DATABASE_NODE_SEARCHER.getOriDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
@@ -206,19 +220,6 @@ public final class SchemaWriter implements ISchemaWriter {
 		DATABASE_PROPERTIES_NODE_SEARCHER.getOriSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
 		schemaTimestampNode.getOriSingleChildNode().setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
-		
-		hasChanges = true;
-	}
-	
-	//method
-	@Override
-	public void setTableName(final String tableName, final String newTableName) {
-		
-		final var tableNode =
-		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
-		
-		final var nameNode = TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(tableNode);
-		nameNode.getOriSingleChildNode().setHeader(newTableName);
 		
 		hasChanges = true;
 	}
