@@ -3,6 +3,7 @@ package ch.nolix.systemtest.objectdatabasetest.databaseadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
@@ -39,7 +40,29 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//verification
 		expect(result.getSaveCount()).isEqualTo(0);
-		expectNot(result.hasChanges());
+		expect(result.isChangeFree());
+	}
+	
+	//method
+	@TestCase
+	public void getEmptyCopy_whenHasChanges() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		final var testUnit =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		testUnit.insert(new Pet());
+		
+		//setup verification
+		expect(testUnit.hasChanges());
+		
+		//execution
+		final var result = testUnit.getEmptyCopy();
+		
+		//verification
+		expect(testUnit.hasChanges());
+		expect(result.isChangeFree());
 	}
 	
 	//method
@@ -57,7 +80,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//verification
 		expect(testUnit.getSaveCount()).isEqualTo(1);
-		expectNot(testUnit.hasChanges());
+		expect(testUnit.isChangeFree());
 	}
 	
 	//method
@@ -76,12 +99,12 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//verification
 		expect(testUnit.getSaveCount()).isEqualTo(1);
-		expectNot(testUnit.hasChanges());
+		expect(testUnit.isChangeFree());
 	}
 	
 	//method
 	@TestCase
-	public void testCase_saveChangesAndReset_whenSchemaWasChangedInTheMeanwhile() {
+	public void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
 		
 		//setup part 1: Creates a database.
 		final var nodeDatabase = new MutableNode();
@@ -98,13 +121,16 @@ public final class NodeDatabaseAdapterTest extends Test {
 		testUnit.insert(new Pet());
 		
 		//setup part 3: Edit the schema of the database.
-		final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("my_database", nodeDatabase);
+		final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
 		schemaAdapter
 		.getOriTableByName("Pet")
 		.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
 		schemaAdapter.saveChangesAndReset();
 		
 		//execution & verification: Try to save the the changes to the database.
-		expectRunning(testUnit::saveChangesAndReset).throwsException();
+		expectRunning(testUnit::saveChangesAndReset)
+		.throwsException()
+		.ofType(ResourceWasChangedInTheMeanwhileException.class)
+		.withMessage("The schema was changed in the meanwhile.");
 	}
 }
