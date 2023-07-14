@@ -63,15 +63,17 @@ public final class ReadContainer<E> extends Container<E> {
 	
 	//static method
 	/**
-	 * @param objects
-	 * @param <E2> is the type of the elements of the given iterable objects.
-	 * @return a new {@link ReadContainer} for the given iterable objects.
-	 * @throws ArgumentIsNullException if the given objects is null.
-	 * @throws ArgumentIsNullException if one of the given objects is null.
+	 * @param container
+	 * @param containers
+	 * @param <E2> is the type of the elements of the given container and containers.
+	 * @return a new {@link ReadContainer} for the given containers.
+	 * @throws ArgumentIsNullException if the given container is null.
+	 * @throws ArgumentIsNullException if the given containers is null.
+	 * @throws ArgumentIsNullException if one of the given containers is null.
 	 */
 	@SafeVarargs
-	public static <E2> ReadContainer<E2> forIterables(final Iterable<E2>... objects) {
-		return new ReadContainer<>(new MultiReadContainer<>(objects));
+	public static <E2> ReadContainer<E2> forContainer(Iterable<? extends E2> container, final Iterable<? extends E2>... containers) {
+		return new ReadContainer<>(new MultiReadContainer<>(container, containers));
 	}
 	
 	//static method
