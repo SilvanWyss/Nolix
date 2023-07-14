@@ -8,16 +8,16 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
+import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
-import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-abstract class BaseStyle extends Element implements IStyle {
+abstract class BaseStyle extends Element implements IBaseStyle {
 	
 	//constant
 	protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
