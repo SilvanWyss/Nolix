@@ -3,8 +3,8 @@ package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.system.sqldatabasebasicschema.mssqllanguage.MsSqlSchemaQueryCreator;
-import ch.nolix.system.sqldatabasebasicschema.mssqllanguage.MsSqlSchemaStatementCreator;
+import ch.nolix.system.sqldatabasebasicschema.sqlsyntax.SqlSchemaQueryCreator;
+import ch.nolix.system.sqldatabasebasicschema.sqlsyntax.SqlSchemaStatementCreator;
 
 //class
 public final class MsSqlSchemaAdapter extends SchemaAdapter {
@@ -19,6 +19,6 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 	
 	//constructor
 	private MsSqlSchemaAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
-		super(databaseName, sqlConnectionPool, new MsSqlSchemaQueryCreator(), new MsSqlSchemaStatementCreator());
+		super(databaseName, sqlConnectionPool, new SqlSchemaQueryCreator(), new SqlSchemaStatementCreator());
 	}
 }

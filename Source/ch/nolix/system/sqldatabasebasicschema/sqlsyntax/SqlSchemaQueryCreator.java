@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.mssqllanguage;
+package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
 
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaQueryCreator;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
 //class
-public final class MsSqlSchemaQueryCreator implements ISchemaQueryCreator {
+public final class SqlSchemaQueryCreator implements ISchemaQueryCreator {
 	
 	//method
 	@Override

@@ -1,15 +1,15 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.mssqllanguage;
+package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
 
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemalanguageapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 //class
-public final class MsSqlSchemaStatementCreator implements ISchemaStatementCreator {
+public final class SqlSchemaStatementCreator implements ISchemaStatementCreator {
 	
 	//method
 	@Override
