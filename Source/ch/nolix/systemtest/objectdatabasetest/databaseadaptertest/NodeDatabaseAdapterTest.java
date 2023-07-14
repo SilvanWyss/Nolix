@@ -8,6 +8,10 @@ import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.schema.Column;
+import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
+import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //class
 public final class NodeDatabaseAdapterTest extends Test {
@@ -73,5 +77,34 @@ public final class NodeDatabaseAdapterTest extends Test {
 		//verification
 		expect(testUnit.getSaveCount()).isEqualTo(1);
 		expectNot(testUnit.hasChanges());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_saveChangesAndReset_whenSchemaWasChangedInTheMeanwhile() {
+		
+		//setup part 1: Creates a database.
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType(Pet.class);
+		NodeDatabaseAdapter
+		.forNodeDatabase(nodeDatabase)
+		.withName("my_database")
+		.usingSchema(schema)
+		.saveChangesAndReset();
+		
+		//setup part 2: Prepare changes for the database.
+		final var testUnit =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		testUnit.insert(new Pet());
+		
+		//setup part 3: Edit the schema of the database.
+		final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("my_database", nodeDatabase);
+		schemaAdapter
+		.getOriTableByName("Pet")
+		.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
+		schemaAdapter.saveChangesAndReset();
+		
+		//execution & verification: Try to save the the changes to the database.
+		expectRunning(testUnit::saveChangesAndReset).throwsException();
 	}
 }
