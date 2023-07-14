@@ -125,14 +125,26 @@ public final class Style extends BaseStyle implements IStyle {
 		final IContainer<ISelectingStyle> subStyles
 	) {
 		
-		final var attachingAttribtuesAsNode = attachingAttributes.to(Node::fromString);
+		final var allAttachingAttributes = new LinkedList<Node>();
 		
-		final var allAttachingAttributes =
-		ReadContainer.forContainer(getAttachingAttributes(), attachingAttribtuesAsNode);
+		for (final var aa : getAttachingAttributes()) {
+			allAttachingAttributes.addAtEnd(Node.fromNode(aa));
+		}
 		
-		final var allSubStylesAsBaseSelectingStyle =
-		ReadContainer.forContainer(getSubStyles(), subStyles).to(Style::toBaseSelectingStyle);
+		for (final var aa : attachingAttributes) {
+			allAttachingAttributes.addAtEnd(Node.fromString(aa));
+		}
 		
-		return new Style(allAttachingAttributes, allSubStylesAsBaseSelectingStyle);		
+		final var allSubStyles = new LinkedList<BaseSelectingStyle>();
+		
+		for (final var ss : getSubStyles()) {
+			allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
+		}
+		
+		for (final var ss : subStyles) {
+			allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
+		}
+		
+		return new Style(allAttachingAttributes, allSubStyles);		
 	}
 }
