@@ -14,7 +14,7 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 	//method
 	@Override
 	public String createStatementToAddColumn(final String tabbleName, final IColumnDto column) {
-		return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column));
+		return ("ALTER TABLE " + tabbleName + " ADD " + getColumnAsSql(column) + ";");
 	}
 	
 	//method
@@ -24,19 +24,19 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 		"CREATE TABLE "
 		+ table.getName()
 		+ " (" + table.getColumns().to(this::getColumnAsSql).toStringWithSeparator(",")
-		+ ")";
+		+ ");";
 	}
 	
 	//method
 	@Override
 	public String createStatementToDeleteColumn(final String tableName, final String columnName) {
-		return ("ALTER TABLE " + tableName + " DROP COLUMN " + columnName);
+		return ("ALTER TABLE " + tableName + " DROP COLUMN " + columnName + ";");
 	}
 	
 	//method
 	@Override
 	public String createStatementToDeleteTable(final String tableName) {
-		return ("DROP TABLE " + tableName);
+		return ("DROP TABLE " + tableName + ";");
 	}
 	
 	//method
@@ -46,13 +46,13 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
 		final String columnName,
 		final String newColumnName
 	) {
-		return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName);
+		return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";");
 	}
 	
 	//method
 	@Override
 	public String createStatementToRenameTable(final String tableName, final String newTableName) {
-		return ("ALTER TABLE " + tableName + " RENAME TO " + newTableName);
+		return ("ALTER TABLE " + tableName + " RENAME TO " + newTableName + ";");
 	}
 	
 	//method
