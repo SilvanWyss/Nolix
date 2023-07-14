@@ -69,6 +69,15 @@ public final class Style extends BaseStyle implements IStyle {
 		return new Style(attachingAttributes, subStyles);
 	}
 	
+	//method
+	/**
+	 * @param selectingStyle
+	 * @return a {@link BaseSelectingStyle} from the current selectingStyle.
+	 */
+	private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyle selectingStyle) {
+		return (BaseSelectingStyle)selectingStyle;
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link Style}.
@@ -90,7 +99,7 @@ public final class Style extends BaseStyle implements IStyle {
 	@Override
 	public IContainer<INode<?>> getAttributes() {
 		return
-		ReadContainer.forIterables(
+		ReadContainer.forContainer(
 			getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
 			getSubStyles().to(ISelectingStyle::getSpecification)
 		);
@@ -104,5 +113,26 @@ public final class Style extends BaseStyle implements IStyle {
 	public void styleElement(final IStylableElement<?> element) {
 		setAttachingAttributesToElement(element);
 		letSubStylesStyleChildElementsOfElement(element);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IStyle withAttachingAttributesAndSubStyles(
+		final IContainer<String> attachingAttributes,
+		final IContainer<ISelectingStyle> subStyles
+	) {
+		
+		final var attachingAttribtuesAsNode = attachingAttributes.to(Node::fromString);
+		
+		final var allAttachingAttributes =
+		ReadContainer.forContainer(getAttachingAttributes(), attachingAttribtuesAsNode);
+		
+		final var allSubStylesAsBaseSelectingStyle =
+		ReadContainer.forContainer(getSubStyles(), subStyles).to(Style::toBaseSelectingStyle);
+		
+		return new Style(allAttachingAttributes, allSubStylesAsBaseSelectingStyle);		
 	}
 }

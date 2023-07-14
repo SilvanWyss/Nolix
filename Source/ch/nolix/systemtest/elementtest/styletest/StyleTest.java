@@ -7,6 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.element.style.Style;
+import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.WebGui;
 
@@ -36,5 +37,19 @@ public final class StyleTest extends Test {
 		//verification
 		expect(webGui.getTitle()).isEqualTo("my_title");
 		expect(webGui.getBackgroundColor()).isEqualTo(Color.BLUE);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withAttachingAttributesAndSubStyles_whenIsEmpty() {
+		
+		// setup
+		final var testUnit = new StyleBuilder().build();
+		
+		//execution
+		final var result = testUnit.withAttachingAttributesAndSubStyles(new ImmutableList<>(), new ImmutableList<>());
+		
+		//verification
+		expect(result.getAttachingAttributes()).isEmpty();
 	}
 }
