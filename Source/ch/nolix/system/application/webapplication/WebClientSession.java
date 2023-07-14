@@ -23,6 +23,11 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	}
 	
 	//method
+	public void updateControlOnCounterpart(final IControl<?, ?> control) {
+		getOriParentClient().internalUpdateControlOnCounterpart(control);
+	}
+	
+	//method
 	@Override
 	protected final void fullInitialize() {
 		
