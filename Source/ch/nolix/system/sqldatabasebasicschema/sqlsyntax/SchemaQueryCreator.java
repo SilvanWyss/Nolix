@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
 //class
-public final class SqlSchemaQueryCreator implements ISchemaQueryCreator {
+public final class SchemaQueryCreator implements ISchemaQueryCreator {
 	
 	//method
 	@Override
