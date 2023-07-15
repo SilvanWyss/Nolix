@@ -76,7 +76,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		
 		//execution
-		testUnit.saveChangesAndReset();
+		testUnit.saveChanges();
 		
 		//verification
 		expect(testUnit.getSaveCount()).isEqualTo(1);
@@ -95,7 +95,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		testUnit.insert(new Pet());
 		
 		//execution
-		testUnit.saveChangesAndReset();
+		testUnit.saveChanges();
 		
 		//verification
 		expect(testUnit.getSaveCount()).isEqualTo(1);
@@ -113,7 +113,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		.forNodeDatabase(nodeDatabase)
 		.withName("my_database")
 		.usingSchema(schema)
-		.saveChangesAndReset();
+		.saveChanges();
 		
 		//setup part 2: Prepare changes for the database.
 		final var testUnit =
@@ -125,10 +125,10 @@ public final class NodeDatabaseAdapterTest extends Test {
 		schemaAdapter
 		.getStoredTableByName("Pet")
 		.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
-		schemaAdapter.saveChangesAndReset();
+		schemaAdapter.saveChanges();
 		
 		//execution & verification: Try to save the the changes to the database.
-		expectRunning(testUnit::saveChangesAndReset)
+		expectRunning(testUnit::saveChanges)
 		.throwsException()
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)
 		.withMessage("The schema was changed in the meanwhile.");

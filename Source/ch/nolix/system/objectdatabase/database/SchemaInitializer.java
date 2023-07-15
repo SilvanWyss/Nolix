@@ -55,7 +55,7 @@ public final class SchemaInitializer {
 		addBaseReferenceColumnsToTablesFromSchema(tables, schema, tables);
 		addBaseBackReferenceColumnsToTablesFromSchema(tables, schema, tables);
 		
-		schemaAdapter.saveChangesAndReset();
+		schemaAdapter.saveChanges();
 	}
 	
 	//method

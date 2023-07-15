@@ -105,11 +105,11 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final void saveChangesAndReset() {
+	public final void saveChanges() {
 		try {
 			
 			DATABASE_HELPER.assertAllBackReferencesAreValid(database);
-			rawSchemaAdapter.saveChangesAndReset();
+			rawSchemaAdapter.saveChanges();
 			
 			saveCount++;
 		} finally {

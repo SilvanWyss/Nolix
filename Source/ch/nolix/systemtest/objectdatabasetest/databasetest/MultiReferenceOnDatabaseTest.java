@@ -46,7 +46,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var john = new Person();
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedJohn =
@@ -73,7 +73,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		john.pets.addEntity(garfield);
 		john.pets.addEntity(odie);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedJohn =
@@ -102,7 +102,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		john.pets.addEntity(garfield);
 		john.pets.addEntity(odie);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2: prepare changes
 		final var loadedGarfield =
@@ -130,7 +130,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		john.pets.addEntity(garfield);
 		john.pets.addEntity(odie);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2: remove Entity from MultiReference
 		final var loadedJohn =
@@ -138,7 +138,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var loadedGarfield =
 		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedJohn.pets.removeEntity(loadedGarfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 3: prepare deleting Entity
 		final var loadedGarfield2 =
@@ -146,6 +146,6 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		loadedGarfield2.delete();
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).doesNotThrowException();
 	}
 }

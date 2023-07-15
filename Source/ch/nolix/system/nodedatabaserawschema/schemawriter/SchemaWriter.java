@@ -154,7 +154,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void saveChangesAndReset() {
+	public void saveChanges() {
 		try {
 			
 			setSchemaTimestamp(Time.ofNow());

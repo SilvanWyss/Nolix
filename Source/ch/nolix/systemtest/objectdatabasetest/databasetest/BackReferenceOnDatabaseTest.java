@@ -91,7 +91,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedGarfield =
@@ -115,7 +115,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).throwsException();
 	}
 	
 	//method
@@ -132,7 +132,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedJohn =
@@ -140,7 +140,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		loadedJohn.delete();
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).throwsException();
 	}
 	
 	//method
@@ -157,7 +157,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var bello = new Pet();
@@ -172,6 +172,6 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		expect(loadedGarfield.owner.isEmpty());
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).throwsException();
 	}
 }

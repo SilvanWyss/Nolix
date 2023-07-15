@@ -53,7 +53,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//verification
 		final var loadedGarfield =
@@ -93,7 +93,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		garfield.setName("Garfield");
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedGarfield =

@@ -42,7 +42,7 @@ public final class NodeSchemaAdapterTest extends Test {
 		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", database);
 		
 		//execution
-		testUnit.addTable(new Table("MyTable")).saveChangesAndReset();
+		testUnit.addTable(new Table("MyTable")).saveChanges();
 		
 		//verification part 1
 		expect(testUnit.isChangeFree());
@@ -78,7 +78,7 @@ public final class NodeSchemaAdapterTest extends Test {
 		//setup
 		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
 		testUnit.addTable(new Table("MyTable1"));
-		testUnit.saveChangesAndReset();
+		testUnit.saveChanges();
 		
 		//execution
 		final var result = testUnit.getSaveCount();
@@ -94,9 +94,9 @@ public final class NodeSchemaAdapterTest extends Test {
 		//setup
 		final var testUnit = NodeSchemaAdapter.forDatabaseNode("MyDatabase", new MutableNode());
 		testUnit.addTable(new Table("MyTable1"));
-		testUnit.saveChangesAndReset();
+		testUnit.saveChanges();
 		testUnit.addTable(new Table("MyTable2"));
-		testUnit.saveChangesAndReset();
+		testUnit.saveChanges();
 		
 		//execution
 		final var result = testUnit.getSaveCount();

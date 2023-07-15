@@ -30,7 +30,7 @@ public final class NodeSchemaAdapterTutorial {
 			countryTable.addColumn(citiesColumn);
 			cityTable.addColumn(new Column("Country", new ParametrizedBackReferenceType(citiesColumn)));
 			
-			nodeDatabaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChangesAndReset();
+			nodeDatabaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChanges();
 			
 			System.out.println(database.toFormattedString());
 		}

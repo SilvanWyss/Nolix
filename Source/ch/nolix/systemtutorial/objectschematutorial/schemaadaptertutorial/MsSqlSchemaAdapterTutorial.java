@@ -35,7 +35,7 @@ public final class MsSqlSchemaAdapterTutorial {
 			
 			cityTable.addColumn(new Column("Country", new ParametrizedBackReferenceType(citiesColumn)));
 			
-			databaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChangesAndReset();
+			databaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChanges();
 		}
 	}
 	

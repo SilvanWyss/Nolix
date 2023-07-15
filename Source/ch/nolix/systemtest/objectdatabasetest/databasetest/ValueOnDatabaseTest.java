@@ -39,7 +39,7 @@ public final class ValueOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).throwsException();
 	}
 	
 	//method
@@ -74,7 +74,7 @@ public final class ValueOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		garfield.name.setValue("Garfield");
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedGarfield =
@@ -134,7 +134,7 @@ public final class ValueOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		garfield.name.setValue("Garfield");
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup verification
 		expect(garfield.getState()).is(DatabaseObjectState.CLOSED);
@@ -158,7 +158,7 @@ public final class ValueOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		garfield.name.setValue("Garfield");
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loaedGarfield =

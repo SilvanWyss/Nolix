@@ -33,7 +33,7 @@ public final class NodeDatabaseAdapterTutorial {
 		donaldDuck.lastName.setValue("Duck");
 		nodeDatabaseAdapter.insert(donaldDuck);
 		
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		final var loadedDonaldDuck =
 		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());

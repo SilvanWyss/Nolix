@@ -69,6 +69,6 @@ final class DatabaseSaver {
 	
 	//method
 	private void commitChangesToDatabase(final Database database) {
-		database.internalGetRefDataAndSchemaAdapter().saveChangesAndReset();
+		database.internalGetRefDataAndSchemaAdapter().saveChanges();
 	}
 }

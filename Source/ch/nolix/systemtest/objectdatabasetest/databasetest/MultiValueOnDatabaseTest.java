@@ -36,7 +36,7 @@ public final class MultiValueOnDatabaseTest extends Test {
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var round = new Round();
 		nodeDatabaseAdapter.insert(round);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedRound =
@@ -61,7 +61,7 @@ public final class MultiValueOnDatabaseTest extends Test {
 		round.amounts.addValue(30);
 		round.amounts.addValue(40);
 		nodeDatabaseAdapter.insert(round);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedRound =
@@ -88,7 +88,7 @@ public final class MultiValueOnDatabaseTest extends Test {
 		round.amounts.addValue(30);
 		round.amounts.addValue(40);
 		nodeDatabaseAdapter.insert(round);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedRound =

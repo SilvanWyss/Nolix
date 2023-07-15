@@ -53,7 +53,7 @@ public final class TableOnDatabaseTest extends Test {
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var thing = new Thing();
 		nodeDatabaseAdapter.insert(thing);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2: Gains test unit.
 		final var testUnit = nodeDatabaseAdapter.getStoredTableByEntityType(Thing.class);

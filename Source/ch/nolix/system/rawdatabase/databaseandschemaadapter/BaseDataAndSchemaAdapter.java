@@ -267,8 +267,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final void saveChangesAndReset() {
-		databaseAdapter.saveChangesAndReset();
+	public final void saveChanges() {
+		databaseAdapter.saveChanges();
 	}
 	
 	//method

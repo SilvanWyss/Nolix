@@ -70,7 +70,7 @@ public final class TableTest extends Test {
 		final var person = new Person();
 		person.setFirstNameAndLastName("Donald", "Duck");
 		nodeDatabaseAdapter.insert(person);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var nodeDatabaseAdapter2 =

@@ -94,7 +94,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedGarfield =
@@ -118,7 +118,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).doesNotThrowException();
 	}
 	
 	//method
@@ -135,7 +135,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedJohn =
@@ -146,7 +146,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		final var loadedGarfield =
 		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		expect(loadedGarfield.owner.isEmpty());
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).doesNotThrowException();
 	}
 	
 	//method
@@ -163,7 +163,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var bello = new Pet();
@@ -178,7 +178,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		expect(loadedGarfield.owner.isEmpty());
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).doesNotThrowException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).doesNotThrowException();
 	}
 	
 	//method
@@ -204,7 +204,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 		expect(odie.owner.isEmpty());
 		
 		//setup part 2
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 3
 		final var loadedJohn =

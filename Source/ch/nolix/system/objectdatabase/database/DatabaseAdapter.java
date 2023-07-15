@@ -114,9 +114,9 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	
 	//method
 	@Override
-	public final void saveChangesAndReset() {
+	public final void saveChanges() {
 		try {
-			saveChanges();
+			justSaveChanges();
 		} finally {
 			reset();
 		}
@@ -133,7 +133,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	}
 	
 	//method
-	private void saveChanges() {
+	private void justSaveChanges() {
 		
 		DATABASE_SAVER.saveChangesOfDatabaseThreadSafe(database);
 		

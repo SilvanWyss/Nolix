@@ -36,7 +36,7 @@ public final class MsSqlDatabaseAdapterTutorial {
 		donaldDuck.lastName.setValue("Duck");
 		msSqlNodeDatabaseAdapter.insert(donaldDuck);
 		
-		msSqlNodeDatabaseAdapter.saveChangesAndReset();
+		msSqlNodeDatabaseAdapter.saveChanges();
 		
 		final var loadedDonaldDuck =
 		msSqlNodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());

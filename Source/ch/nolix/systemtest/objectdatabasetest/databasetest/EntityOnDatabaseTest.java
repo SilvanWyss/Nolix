@@ -68,7 +68,7 @@ public final class EntityOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(garfield);
 		
 		//execution
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//verification
 		expect(garfield.isClosed());
@@ -86,7 +86,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var garfieldA = new Pet();
 		garfieldA.ageInYears.setValue(5);
 		nodeDatabaseAdapterA.insert(garfieldA);
-		nodeDatabaseAdapterA.saveChangesAndReset();
+		nodeDatabaseAdapterA.saveChanges();
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
@@ -101,10 +101,10 @@ public final class EntityOnDatabaseTest extends Test {
 		final var garfieldC =
 		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
 		garfieldC.ageInYears.setValue(6);
-		nodeDatabaseAdapterC.saveChangesAndReset();
+		nodeDatabaseAdapterC.saveChanges();
 		
 		//execution: Tries to save changes.
-		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
+		expectRunning(nodeDatabaseAdapterB::saveChanges)
 		.throwsException()
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)
 		.withMessage("The data was changed in the meanwhile.");
@@ -122,7 +122,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var garfieldA = new Pet();
 		garfieldA.ageInYears.setValue(5);
 		nodeDatabaseAdapterA.insert(garfieldA);
-		nodeDatabaseAdapterA.saveChangesAndReset();
+		nodeDatabaseAdapterA.saveChanges();
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
@@ -137,10 +137,10 @@ public final class EntityOnDatabaseTest extends Test {
 		final var garfieldC =
 		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
 		garfieldC.delete();
-		nodeDatabaseAdapterC.saveChangesAndReset();
+		nodeDatabaseAdapterC.saveChanges();
 		
 		//execution & verification: Tries to save changes.
-		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset)
+		expectRunning(nodeDatabaseAdapterB::saveChanges)
 		.throwsException()
 		.ofType(ResourceWasChangedInTheMeanwhileException.class)
 		.withMessage("The data was changed in the meanwhile.");
@@ -158,7 +158,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		garfield.ageInYears.setValue(5);
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedGarfield =
@@ -171,7 +171,7 @@ public final class EntityOnDatabaseTest extends Test {
 		expect(loadedGarfield.isDeleted());
 		
 		//execution part 2
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//verification part 2
 		expect(loadedGarfield.isClosed());
@@ -195,7 +195,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var garfield = new Pet();
 		garfield.ageInYears.setValue(5);
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution & verification
 		expectRunning(garfield::delete).throwsException();

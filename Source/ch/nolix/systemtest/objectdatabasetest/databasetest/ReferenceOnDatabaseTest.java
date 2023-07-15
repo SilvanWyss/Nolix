@@ -64,7 +64,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var john = new Person();
 		john.pet.setEntity(garfield);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedJohn =
@@ -90,7 +90,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		nodeDatabaseAdapter.insert(john);
 		
 		//execution & verification
-		expectRunning(nodeDatabaseAdapter::saveChangesAndReset).throwsException();
+		expectRunning(nodeDatabaseAdapter::saveChanges).throwsException();
 	}
 	
 	//method
@@ -104,7 +104,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
@@ -121,9 +121,9 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var loadedGarfieldC =
 		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedGarfieldC.delete();
-		nodeDatabaseAdapterC.saveChangesAndReset();
+		nodeDatabaseAdapterC.saveChanges();
 		
 		//execution & verification: Tries to save when the referenced Entity is deleted.
-		expectRunning(nodeDatabaseAdapterB::saveChangesAndReset).throwsException();
+		expectRunning(nodeDatabaseAdapterB::saveChanges).throwsException();
 	}
 }

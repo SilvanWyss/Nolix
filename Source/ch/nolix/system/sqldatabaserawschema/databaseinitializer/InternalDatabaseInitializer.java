@@ -30,7 +30,7 @@ final class InternalDatabaseInitializer {
 		schemaAdapter.addTable(MultiReferenceEntryTableSqlDtoCatalogue.MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO);
 		schemaAdapter.addTable(MultiValueEntryTableSqlDtoCatalogue.MULTI_VALUE_ENTRY_TABLE_SQL_DTO);
 		
-		schemaAdapter.saveChangesAndReset();
+		schemaAdapter.saveChanges();
 		
 		createSchemaTimestampEntry(databaseName, sqlConnectionPool);
 	}

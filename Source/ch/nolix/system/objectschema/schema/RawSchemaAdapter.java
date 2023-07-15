@@ -73,7 +73,7 @@ final class RawSchemaAdapter {
 	
 	//method
 	public void saveChangesAndReset() {
-		internalRawSchemaAdapter.saveChangesAndReset();
+		internalRawSchemaAdapter.saveChanges();
 	}
 	
 	//method

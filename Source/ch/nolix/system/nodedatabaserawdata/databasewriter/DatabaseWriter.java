@@ -200,7 +200,7 @@ public final class DatabaseWriter implements IDatabaseWriter {
 	
 	//method
 	@Override
-	public void saveChangesAndReset() {
+	public void saveChanges() {
 		internalDatabaseWriter.saveChangesAndReset();
 	}
 	

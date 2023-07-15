@@ -2,11 +2,11 @@
 package ch.nolix.systemapi.objectschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IMultiTimeChangeSaver;
+import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
-public interface ISchemaAdapter extends IMultiTimeChangeSaver {
+public interface ISchemaAdapter extends IResettableChangeSaver {
 	
 	//method declaration
 	ISchemaAdapter addTable(ITable table);

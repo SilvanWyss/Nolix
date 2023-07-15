@@ -194,8 +194,8 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final void saveChangesAndReset() {
-		databaseWriter.saveChangesAndReset();
+	public final void saveChanges() {
+		databaseWriter.saveChanges();
 	}
 	
 	//method

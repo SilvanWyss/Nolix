@@ -59,7 +59,7 @@ public final class MultiReferenceWithBackReferenceTest extends Test {
 		john.pets.addEntity(simba);
 		john.pets.addEntity(odie);
 		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChangesAndReset();
+		nodeDatabaseAdapter.saveChanges();
 		
 		//execution
 		final var loadedJohn =
