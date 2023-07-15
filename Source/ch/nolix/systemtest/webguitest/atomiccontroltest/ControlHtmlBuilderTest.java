@@ -27,7 +27,7 @@ extends Test{
 		final var result = testUnit.createHtmlElementForControl(control);
 		
 		//verification part 1
-		final var idAttribute = result.getOriAttributes().getOriOne(a -> a.hasName("id"));
+		final var idAttribute = result.getStoredAttributes().getStoredOne(a -> a.hasName("id"));
 		expect(idAttribute.getValue()).isEqualTo(control.getInternalId());
 		
 		//verification part 2

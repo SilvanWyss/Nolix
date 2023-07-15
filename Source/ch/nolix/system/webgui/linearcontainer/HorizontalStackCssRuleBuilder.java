@@ -53,7 +53,7 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 				LinkedList.withElements(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_RIGHT,
-						horizontalStack.getOriStyle().getChildControlMarginWhenHasState(state)
+						horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state)
 						+ CssUnitCatalogue.PX
 					)
 				)

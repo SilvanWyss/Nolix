@@ -76,7 +76,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 		//Info: Reset is technically optional, but required to achieve a custom state on reset.
 		reset();
 		
-		getOriStyle()
+		getStoredStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
 		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
@@ -90,7 +90,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
 	

@@ -27,8 +27,8 @@ public final class Discrete2DPoint extends Element {
 	public static Discrete2DPoint fromSpecification(final INode<?> specification) {
 		return
 		new Discrete2DPoint(
-			specification.getOriChildNodeAt1BasedIndex(1).toInt(),
-			specification.getOriChildNodeAt1BasedIndex(2).toInt()
+			specification.getStoredChildNodeAt1BasedIndex(1).toInt(),
+			specification.getStoredChildNodeAt1BasedIndex(2).toInt()
 		);
 	}
 	

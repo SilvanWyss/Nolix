@@ -124,7 +124,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public void clear() {
 		while (containsAny()) {
-			removeLayer(getOriTopLayer());
+			removeLayer(getStoredTopLayer());
 		}
 	}
 	
@@ -201,16 +201,16 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 
 	//method
 	@Override
-	public IContainer<? extends IStylableElement<?>> getOriChildStylableElements() {
-		return getOriLayers();
+	public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+		return getStoredLayers();
 	}
 	
 	//method
 	@Override
-	public IControl<?, ?> getOriControlByInternalId(final String fixedId) {
+	public IControl<?, ?> getStoredControlByInternalId(final String fixedId) {
 		
-		for (final var l : getOriLayers()) {
-			for (final var c : l.getOriControls()) {
+		for (final var l : getStoredLayers()) {
+			for (final var c : l.getStoredControls()) {
 				if (c.hasInternalId(fixedId)) {
 					return c;
 				}
@@ -226,20 +226,20 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriControls() {
-		return getOriLayers().toFromGroups(ILayer::getOriControls);
+	public IContainer<IControl<?, ?>> getStoredControls() {
+		return getStoredLayers().toFromGroups(ILayer::getStoredControls);
 	}
 	
 	//method
 	@Override
-	public IContainer<ILayer<?>> getOriLayers() {
-		return layers.getOriValues();
+	public IContainer<ILayer<?>> getStoredLayers() {
+		return layers.getStoredValues();
 	}
 	
 	//method
 	@Override
-	public ILayer<?> getOriTopLayer() {
-		return getOriLayers().getOriLast();
+	public ILayer<?> getStoredTopLayer() {
+		return getStoredLayers().getStoredLast();
 	}
 	
 	//method
@@ -275,7 +275,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getOriLayers().isEmpty();
+		return getStoredLayers().isEmpty();
 	}
 	
 	//method
@@ -423,7 +423,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	private void registerHtmlElementEventsAt(final LinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
-		for (final var c : getOriControls()) {
+		for (final var c : getStoredControls()) {
 			c.registerHtmlElementEventsAt(htmlElementEventRegistrations);
 		}
 	}

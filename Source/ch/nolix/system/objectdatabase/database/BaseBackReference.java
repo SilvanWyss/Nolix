@@ -60,7 +60,7 @@ implements IBaseBackReference<E> {
 	
 	//method
 	@Override
-	public final IContainer<IProperty> getOriBackReferencingProperties() {
+	public final IContainer<IProperty> getStoredBackReferencingProperties() {
 		return new ImmutableList<>();
 	}
 	
@@ -77,9 +77,9 @@ implements IBaseBackReference<E> {
 		property != null
 		&& belongsToEntity()
 		&& property.belongsToEntity()
-		&& getBackReferencedTableName().equals(property.getOriParentEntity().getParentTableName())
+		&& getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
 		&& getBackReferencedPropertyName().equals(property.getName())
-		&& referencesBackEntityWithId(property.getOriParentEntity().getId());
+		&& referencesBackEntityWithId(property.getStoredParentEntity().getId());
 	}
 	
 	//method
@@ -119,6 +119,6 @@ implements IBaseBackReference<E> {
 	private Table<E> loadBackReferencedTable() {
 		return
 		(Table<E>)
-		getOriParentEntity().getOriParentTable().getOriParentDatabase().getOriTableByName(getBackReferencedTableName());
+		getStoredParentEntity().getStoredParentTable().getStoredParentDatabase().getStoredTableByName(getBackReferencedTableName());
 	}
 }

@@ -68,10 +68,10 @@ public final class Node extends BaseNode<Node> {
 		}
 		
 		if (!node.hasHeader()) {
-			return withChildNodes(node.getOriChildNodes());
+			return withChildNodes(node.getStoredChildNodes());
 		}
 		
-		return withHeaderAndChildNodes(node.getHeader(), node.getOriChildNodes());
+		return withHeaderAndChildNodes(node.getHeader(), node.getStoredChildNodes());
 	}
 	
 	//static method
@@ -402,7 +402,7 @@ public final class Node extends BaseNode<Node> {
 	 */
 	@Override
 	public INode<?> asWithHeader(String header) {
-		return withHeaderAndChildNodes(header, getOriChildNodes());
+		return withHeaderAndChildNodes(header, getStoredChildNodes());
 	}
 	
 	//method
@@ -439,7 +439,7 @@ public final class Node extends BaseNode<Node> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<Node> getOriChildNodes() {
+	public IContainer<Node> getStoredChildNodes() {
 		return childNodes;
 	}
 	

@@ -22,7 +22,7 @@ public final class CachingContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriById() {
+	public void testCase_getStoredById() {
 		
 		//setup
 		final var testUnit = new CachingContainer<String>();
@@ -30,7 +30,7 @@ public final class CachingContainerTest extends Test {
 		final var garfieldId = testUnit.registerAndGetId(garfield);
 		
 		//execution
-		final var result = testUnit.getOriById(garfieldId);
+		final var result = testUnit.getStoredById(garfieldId);
 		
 		//verification
 		expect(result).is(garfield);
@@ -38,13 +38,13 @@ public final class CachingContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriById_whenForTheGivenIdAnElementIsNotRegistered() {
+	public void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
 		
 		//setup
 		final var testUnit = new CachingContainer<String>();
 		
 		//execution
-		expectRunning(() -> testUnit.getOriById("G")).throwsException().ofType(InvalidArgumentException.class);
+		expectRunning(() -> testUnit.getStoredById("G")).throwsException().ofType(InvalidArgumentException.class);
 	}
 	
 	//method

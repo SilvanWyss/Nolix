@@ -22,7 +22,7 @@ final class ColumnMutationExecutor {
 	public void setHeaderToColumn(final Column column, final String name) {
 		
 		final var oldName = column.getName();
-		final var backReferencingColumns = column.getOriBackReferencingColumns();
+		final var backReferencingColumns = column.getStoredBackReferencingColumns();
 		
 		column.setNameAttribute(name);
 		

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 public interface ICssRule<P extends ICssProperty> {
 	
 	//method declaration
-	IContainer<P> getOriProperties();
+	IContainer<P> getStoredProperties();
 	
 	//method declaration
 	IContainer<String> getSelectors();

@@ -8,30 +8,30 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 public final class ParametrizedPropertyTypeNodeSearcher {
 	
 	//method
-	public IMutableNode<?> getOriBackReferencedColumnIdNodeFromPropertyTypeNode(
+	public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
+		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
 	}
 	
 	//method
-	public IMutableNode<?> getOriDataTypeNodeFromParametriedPropertyTypeNode(
+	public IMutableNode<?> getStoredDataTypeNodeFromParametriedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATA_TYPE);
+		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATA_TYPE);
 	}
 	
 	//method
-	public IMutableNode<?> getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
+	public IMutableNode<?> getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PROPERTY_TYPE);
+		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PROPERTY_TYPE);
 	}
 	
 	//method
-	public IMutableNode<?> getOriReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+	public IMutableNode<?> getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
 		IMutableNode<?> parametrizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getOriFirstChildNodeWithHeader(SubNodeHeaderCatalogue.REFERENCED_TABLE_ID);
+		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.REFERENCED_TABLE_ID);
 	}
 }

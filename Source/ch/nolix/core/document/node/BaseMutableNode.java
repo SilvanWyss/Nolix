@@ -130,7 +130,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
 		}
 		
 		if (index > startIndex) {
-			this.setHeader(getOriginStringFromEscapeString(substring.substring(startIndex, index)));
+			this.setHeader(getStoredginStringFromEscapeString(substring.substring(startIndex, index)));
 		}
 		
 		if (index == substring.length()) {

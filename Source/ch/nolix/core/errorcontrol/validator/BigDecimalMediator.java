@@ -33,8 +33,8 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 		isNotNull();
 		
 		//Asserts that the argument of the current BigDecimalValidator is not negative.
-		if (getOriArgument().compareTo(BigDecimal.ZERO) < 0) {
-			throw NegativeArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
+		if (getStoredArgument().compareTo(BigDecimal.ZERO) < 0) {
+			throw NegativeArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
 		}
 	}
 	
@@ -45,8 +45,8 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 		isNotNull();
 		
 		//Asserts that the argument of the current BigDecimalValidator is not smaller than the given value.
-		if (getOriArgument().compareTo(value) < 0) {
-			throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), getOriArgument(), value);
+		if (getStoredArgument().compareTo(value) < 0) {
+			throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), getStoredArgument(), value);
 		}
 	}
 	
@@ -57,8 +57,8 @@ public class BigDecimalMediator extends ArgumentMediator<BigDecimal> {
 		isNotNull();
 		
 		//Asserts that the argument of the current BigDecimalValidator is positive.
-		if (getOriArgument().compareTo(BigDecimal.ZERO) <= 0) {
-			throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
+		if (getStoredArgument().compareTo(BigDecimal.ZERO) <= 0) {
+			throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
 		}
 	}
 }

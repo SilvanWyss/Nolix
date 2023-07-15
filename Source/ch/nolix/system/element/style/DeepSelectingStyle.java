@@ -36,7 +36,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 		final var attachingAttributes = new LinkedList<INode<?>>();
 		final var subStyles = new LinkedList<BaseSelectingStyle>();
 		
-		for (final var a : specification.getOriChildNodes()) {
+		for (final var a : specification.getStoredChildNodes()) {
 			switch (a.getHeader()) {
 				case SELECTOR_ID_HEADER:
 					selectorIdContainer = new SingleContainer<>(a.getSingleChildNodeHeader());
@@ -51,7 +51,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 					selectorTokens.addAtEnd(a.getSingleChildNodeHeader());
 					break;
 				case ATTACHING_ATTRIBUTE_HEADER:
-					attachingAttributes.addAtEnd(a.getOriSingleChildNode());
+					attachingAttributes.addAtEnd(a.getStoredSingleChildNode());
 					break;
 				case SelectingStyle.TYPE_NAME:
 					subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
@@ -135,7 +135,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
 	//method
 	private void styleChildElementsOfElement(final IStylableElement<?> element) {
 		
-		final var childElements = element.getOriChildStylableElements();
+		final var childElements = element.getStoredChildStylableElements();
 		
 		childElements.forEach(this::styleElement);
 	}

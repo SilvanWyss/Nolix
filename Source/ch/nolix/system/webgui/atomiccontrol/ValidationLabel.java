@@ -68,7 +68,7 @@ implements IValidationLabel {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
 	
@@ -141,6 +141,6 @@ implements IValidationLabel {
 		
 		clear();
 		
-		getOriStyle().setTextColorForState(ControlState.BASE, Color.RED);
+		getStoredStyle().setTextColorForState(ControlState.BASE, Color.RED);
 	}
 }

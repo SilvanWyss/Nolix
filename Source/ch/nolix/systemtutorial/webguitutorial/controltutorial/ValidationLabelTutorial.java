@@ -41,7 +41,7 @@ public final class ValidationLabelTutorial {
 		
 		@Override
 		protected void initialize() {
-			getOriGui().pushLayerWithRootControl(
+			getStoredGui().pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(
 					new Label().setText("Enter a positive number"),

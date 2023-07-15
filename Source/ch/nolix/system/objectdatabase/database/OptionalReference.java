@@ -59,14 +59,14 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 	
 	//method
 	@Override
-	public IContainer<IProperty> getOriBackReferencingProperties() {
+	public IContainer<IProperty> getStoredBackReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
 		}
 		
 		final var backReferencingProperty =
-		getReferencedEntity().technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
+		getReferencedEntity().technicalGetRefProperties().getStoredFirstOrNull(p -> p.referencesBackProperty(this));
 		
 		if (backReferencingProperty != null) {
 			return ImmutableList.withElement(backReferencingProperty);
@@ -78,7 +78,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 	//method
 	@Override
 	public E getReferencedEntity() {
-		return getReferencedTable().getOriEntityById(getReferencedEntityId());
+		return getReferencedTable().getStoredEntityById(getReferencedEntityId());
 	}
 	
 	//method
@@ -146,7 +146,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 	@Override
 	public void setEntityById(final String id) {
 		
-		final var entity = getReferencedTable().getOriEntityById(id);
+		final var entity = getReferencedTable().getStoredEntityById(id);
 		
 		setEntity(entity);
 	}
@@ -204,7 +204,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 	
 	//method
 	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-		return ENTITY_HELPER.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
+		return ENTITY_HELPER.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
 	}
 	
 	//method
@@ -239,7 +239,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 	//method
 	private void updateProbableBackReferencingPropertyForClearWhenIsNotEmpty() {
 		
-		final var backReferencingProperty = OPTIONAL_REFERENCE_HELPER.getOriBackReferencingPropertyOrNull(this);
+		final var backReferencingProperty = OPTIONAL_REFERENCE_HELPER.getStoredBackReferencingPropertyOrNull(this);
 		
 		if (backReferencingProperty != null) {
 			updateBackReferencingPropertyForClear(backReferencingProperty);
@@ -254,19 +254,19 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
 				final var baseBackReference = (BaseBackReference<?>)p;
 				
 				if (
-					baseBackReference.getBackReferencedTableName().equals(getOriParentEntity().getParentTableName())
+					baseBackReference.getBackReferencedTableName().equals(getStoredParentEntity().getParentTableName())
 					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
 				) {
 					
 					switch (baseBackReference.getType()) {
 						case BACK_REFERENCE:
 							final var backReference = (BackReference<?>)baseBackReference;
-							backReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
 							backReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case OPTIONAL_BACK_REFERENCE:
 							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
 							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:

@@ -271,7 +271,7 @@ public final class SocketEndPoint extends NetEndPoint {
 	}
 	
 	//method
-	InputStream getOriInputStream() {
+	InputStream getStoredInputStream() {
 		return socketInputStream;
 	}
 	

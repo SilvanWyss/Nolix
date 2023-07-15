@@ -50,7 +50,7 @@ final class DatabaseSaver {
 	//method
 	private void prepareChangesOfDatabase(final Database database) {
 		
-		final var entitiesInLocalData = DATABASE_HELPER.getOriEntitiesInLocalData(database);
+		final var entitiesInLocalData = DATABASE_HELPER.getStoredEntitiesInLocalData(database);
 		
 		for (final var e : entitiesInLocalData) {
 			ENTITY_SAVER.saveChangesOfEntity(e, database);

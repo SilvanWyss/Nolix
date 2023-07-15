@@ -35,7 +35,7 @@ public final class ButtonTutorial {
 		
 		@Override
 		protected void initialize() {
-			getOriGui().pushLayerWithRootControl(
+			getStoredGui().pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(
 					countLabel,

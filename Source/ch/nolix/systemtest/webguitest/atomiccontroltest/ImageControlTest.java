@@ -20,7 +20,7 @@ public final class ImageControlTest extends ControlTest<IImageControl> {
 	
 	//method
 	@TestCase
-	public void testCase_getOriImage_whenIsEmpty() {
+	public void testCase_getStoredImage_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = new ImageControl();
@@ -29,14 +29,14 @@ public final class ImageControlTest extends ControlTest<IImageControl> {
 		expect(testUnit.isEmpty());
 		
 		//execution & verification
-		expectRunning(testUnit::getOriImage)
+		expectRunning(testUnit::getStoredImage)
 		.throwsException()
 		.ofType(ArgumentDoesNotHaveAttributeException.class);
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getOriImage_whenContainsMutableImage() {
+	public void testCase_getStoredImage_whenContainsMutableImage() {
 		
 		//setup
 		final var mutableImage = MutableImage.withWidthAndHeightAndColor(16, 16, Color.WHITE);
@@ -44,7 +44,7 @@ public final class ImageControlTest extends ControlTest<IImageControl> {
 		testUnit.setImage(mutableImage);
 		
 		//execution
-		final var result = testUnit.getOriImage();
+		final var result = testUnit.getStoredImage();
 		
 		//verification
 		expect(result).is(mutableImage);

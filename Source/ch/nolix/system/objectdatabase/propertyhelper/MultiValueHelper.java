@@ -24,7 +24,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		return
 		multiValue != null
 		&& multiValue.belongsToEntity()
-		&& multiValue.getOriParentEntity().isOpen();
+		&& multiValue.getStoredParentEntity().isOpen();
 	}
 	
 	//method
@@ -42,7 +42,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		final V addedValue
 	) {
 		
-		final var parentEntity = multiValue.getOriParentEntity();
+		final var parentEntity = multiValue.getStoredParentEntity();
 		
 		return
 		new EntityUpdateDto(
@@ -56,7 +56,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 	@Override
 	public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
 		
-		final var parentEntity = multiValue.getOriParentEntity();
+		final var parentEntity = multiValue.getStoredParentEntity();
 		
 		return
 		new EntityUpdateDto(
@@ -71,7 +71,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
 		return
 		multiValue != null
 		&& multiValue.belongsToEntity()
-		&& multiValue.getOriParentEntity().isOpen();
+		&& multiValue.getStoredParentEntity().isOpen();
 	}
 	
 	//method

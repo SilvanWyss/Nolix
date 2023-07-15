@@ -39,28 +39,28 @@ public final class ColumnDefinitionMapper {
 	private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		return
 		getDataTypeFromParametrizedPropertyTypeNode(
-			COLUMN_NODE_SEARCHER.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode)
+			COLUMN_NODE_SEARCHER.getStoredParametrizedPropertyTypeNodeFromColumnNode(columnNode)
 		);
 	}
 	
 	//method
 	private String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
-		return COLUMN_NODE_SEARCHER.getOriIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
-		return COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
-		COLUMN_NODE_SEARCHER.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		COLUMN_NODE_SEARCHER.getStoredParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		final var propertyTypeNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -76,7 +76,7 @@ public final class ColumnDefinitionMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(IMutableNode<?> parametrizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
-			PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriDataTypeNodeFromParametriedPropertyTypeNode(
+			PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
 				parametrizedPropertyTypeNode
 			)
 		);

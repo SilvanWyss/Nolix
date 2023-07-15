@@ -66,7 +66,7 @@ public abstract class Mediator { //NOSONAR: Mediator does not have abstract meth
 	/**
 	 * @return the expectationErrorTaker of the current {@link Mediator}.
 	 */
-	protected final IElementTaker<String> getOriExpectationErrorTaker() {
+	protected final IElementTaker<String> getStoredExpectationErrorTaker() {
 		return expectationErrorTaker;
 	}
 }

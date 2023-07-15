@@ -30,7 +30,7 @@ public class PropertyValidator implements IPropertyValidator {
 	@Override
 	public final void assertDoesNotBelongToEntity(final IProperty property) {
 		if (property.belongsToEntity()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getOriParentEntity());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getStoredParentEntity());
 		}
 	}
 	

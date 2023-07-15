@@ -12,7 +12,7 @@ public interface IMultiReferenceEntry<
 extends IDatabaseObject {
 	
 	//method declaration
-	IProperty getOriBackReferencingPropertyOrNull();
+	IProperty getStoredBackReferencingPropertyOrNull();
 	
 	//method declaration
 	E getReferencedEntity();
@@ -21,5 +21,5 @@ extends IDatabaseObject {
 	String getReferencedEntityId();
 	
 	//method declaration
-	IMultiReference<E> getOriParentMultiReference();
+	IMultiReference<E> getStoredParentMultiReference();
 }

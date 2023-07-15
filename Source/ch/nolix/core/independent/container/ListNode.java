@@ -26,12 +26,12 @@ final class ListNode<E> {
 	}
 	
 	//method
-	public E getOriElement() {
+	public E getStoredElement() {
 		return element;
 	}
 	
 	//method
-	public ListNode<E> getOriNextNodeOrNull() {
+	public ListNode<E> getStoredNextNodeOrNull() {
 		return nextNode;
 	}
 	

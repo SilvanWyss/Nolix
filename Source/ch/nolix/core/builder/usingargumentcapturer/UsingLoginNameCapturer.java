@@ -24,6 +24,6 @@ public class UsingLoginNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//method
 	public final String getLoginName() {
-		return getOriArgument();
+		return getStoredArgument();
 	}
 }

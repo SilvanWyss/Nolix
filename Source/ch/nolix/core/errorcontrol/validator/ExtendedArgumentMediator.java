@@ -35,7 +35,7 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 	 * and for the argument of this extended generic argument mediator.
 	 */
 	public final ArgumentMediator<A> thatIsNamed(final Class<?> type) {
-		return new ArgumentMediator<>(type.getSimpleName(), getOriArgument());
+		return new ArgumentMediator<>(type.getSimpleName(), getStoredArgument());
 	}
 	
 	//method
@@ -47,6 +47,6 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 	 * @throws EmptyArgumentException if the given argument name is empty.
 	 */
 	public ArgumentMediator<A> thatIsNamed(final String argumentName) {
-		return new ArgumentMediator<>(argumentName, getOriArgument());
+		return new ArgumentMediator<>(argumentName, getStoredArgument());
 	}
 }

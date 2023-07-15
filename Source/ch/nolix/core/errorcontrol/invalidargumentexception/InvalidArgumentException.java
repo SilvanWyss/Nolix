@@ -285,7 +285,7 @@ public class InvalidArgumentException extends RuntimeException {
 	/**
 	 * @return the argument of the current {@link InvalidArgumentException}.
 	 */
-	public final Object getOriArgument() {
+	public final Object getStoredArgument() {
 		return argument;
 	}
 }

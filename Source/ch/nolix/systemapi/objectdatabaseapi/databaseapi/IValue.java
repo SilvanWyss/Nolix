@@ -9,7 +9,7 @@ public interface IValue<
 extends IBaseValue<V> {
 	
 	//method declaration
-	V getOriValue();
+	V getStoredValue();
 	
 	//method declaration
 	void setValue(V value);

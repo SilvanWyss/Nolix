@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface ISingleContainer extends IContainer<ISingleContainer, ISingleContainerStyle> {
 	
 	//method declaration
-	IControl<?, ?> getOriControl();
+	IControl<?, ?> getStoredControl();
 	
 	//method declaration
 	ISingleContainer setControl(IControl<?, ?> control);

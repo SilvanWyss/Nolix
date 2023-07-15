@@ -16,8 +16,8 @@ extends ArgumentCapturer<S, N> {
 	}
 	
 	//method
-	public final S getOriSchema() {
-		return getOriArgument();
+	public final S getStoredSchema() {
+		return getStoredArgument();
 	}
 	
 	//method

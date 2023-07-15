@@ -21,7 +21,7 @@ extends PropertyBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 		
 		dropdownMenu.addBlankItem();
 		
-		for (final var e : optionalReference.getReferencedTable().getOriEntities()) {
+		for (final var e : optionalReference.getReferencedTable().getStoredEntities()) {
 			dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
 		}
 	}
@@ -51,7 +51,7 @@ extends PropertyBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 			optionalReference.clear();
 		} else {
 			
-			final var selectedEntityId = dropdownMenu.getOriSelectedItem().getId();
+			final var selectedEntityId = dropdownMenu.getStoredSelectedItem().getId();
 			
 			optionalReference.setEntityById(selectedEntityId);
 		}

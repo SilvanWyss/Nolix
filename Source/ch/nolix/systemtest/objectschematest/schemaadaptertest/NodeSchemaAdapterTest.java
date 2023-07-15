@@ -30,7 +30,7 @@ public final class NodeSchemaAdapterTest extends Test {
 		//verification part 2
 		expect(database.getHeader()).isEqualTo("Database");
 		expect(database.getChildNodeCount()).isEqualTo(1);
-		expect(database.getOriChildNodeAt1BasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
+		expect(database.getStoredChildNodeAt1BasedIndex(1).getHeader()).isEqualTo("DatabaseProperties");
 	}
 	
 	//method
@@ -46,14 +46,14 @@ public final class NodeSchemaAdapterTest extends Test {
 		
 		//verification part 1
 		expect(testUnit.isChangeFree());
-		expect(testUnit.getOriTables().getElementCount()).isEqualTo(1);
-		expect(testUnit.getOriTables().containsOne(t -> t.hasName("MyTable")));
+		expect(testUnit.getStoredTables().getElementCount()).isEqualTo(1);
+		expect(testUnit.getStoredTables().containsOne(t -> t.hasName("MyTable")));
 		
 		//verification part 2
-		final var tableNodes = database.getOriChildNodesWithHeader("Table");
+		final var tableNodes = database.getStoredChildNodesWithHeader("Table");
 		expect(tableNodes.containsOne());
-		final var tableNode  = tableNodes.getOriFirst();
-		final var nameNode = tableNode.getOriFirstChildNodeWithHeader("Name");
+		final var tableNode  = tableNodes.getStoredFirst();
+		final var nameNode = tableNode.getStoredFirstChildNodeWithHeader("Name");
 		expect(nameNode.getSingleChildNodeHeader()).isEqualTo("MyTable");
 	}
 	

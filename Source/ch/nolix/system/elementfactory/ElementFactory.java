@@ -64,7 +64,7 @@ public class ElementFactory<E> {
 	
 	//method
 	private OneTypeElementFactory<?> getOneTypeElementFactoryFor(final String type) {
-		return oneTypeElementFactories.getOriFirst(otef -> otef.canCreateElementOf(type));
+		return oneTypeElementFactories.getStoredFirst(otef -> otef.canCreateElementOf(type));
 	}
 	
 	//method

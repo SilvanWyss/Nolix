@@ -89,7 +89,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 			return HtmlElement.withType(HtmlElementTypeCatalogue.TD);
 		}
 		
-		final var childControl = grid.getOriChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
+		final var childControl = grid.getStoredChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
 		final var childControlHtmlElement = childControl.toHtmlElement();
 		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHtmlElement);
 	}

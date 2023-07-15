@@ -47,13 +47,13 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	int getColumnCount(ITable table);
 	
 	//method declaration
-	IContainer<IColumn> getOriBackReferenceColumns(ITable table);
+	IContainer<IColumn> getStoredBackReferenceColumns(ITable table);
 	
 	//method declaration
-	 IContainer<IColumn> getOriBackReferencingColumns(ITable table);
+	 IContainer<IColumn> getStoredBackReferencingColumns(ITable table);
 	
 	//method declaration
-	 IContainer<IColumn> getOriReferencingColumns(ITable table);
+	 IContainer<IColumn> getStoredReferencingColumns(ITable table);
 	
 	//method declaration
 	boolean isReferenced(ITable table);

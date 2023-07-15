@@ -62,7 +62,7 @@ public final class ChainedNode implements IChainedNode {
 			chainedNode.setHeader(node.getHeader());
 		}
 		
-		chainedNode.addChildNodesFromNodes(node.getOriChildNodes());
+		chainedNode.addChildNodesFromNodes(node.getStoredChildNodes());
 				
 		return chainedNode;
 	}
@@ -104,7 +104,7 @@ public final class ChainedNode implements IChainedNode {
 	 * @param escapeString
 	 * @return an origin {@link String} from the given escapeString.
 	 */
-	public static String getOriginStringFromEscapeString(final String escapeString) {
+	public static String getStoredginStringFromEscapeString(final String escapeString) {
 			
 		return
 		escapeString
@@ -435,7 +435,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public ChainedNode getChildNodeAt1BasedIndex(final int index) {
-		return childNodes.getOriAt1BasedIndex(index);
+		return childNodes.getStoredAt1BasedIndex(index);
 	}
 
 	//method
@@ -497,7 +497,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public ChainedNode getFirstChildNodeWithHeader(final String header) {
-		return getChildNodes().getOriFirst(a -> a.hasHeader(header));
+		return getChildNodes().getStoredFirst(a -> a.hasHeader(header));
 	}
 	
 	//method
@@ -589,7 +589,7 @@ public final class ChainedNode implements IChainedNode {
 	 */
 	@Override
 	public ChainedNode getSingleChildNode() {
-		return childNodes.getOriOne();
+		return childNodes.getStoredOne();
 	}
 	
 	//method
@@ -1140,7 +1140,7 @@ public final class ChainedNode implements IChainedNode {
 	private void setProbableHeader(final String string, final int startIndex, final int headerLength) {
 		if (headerLength > 0) {
 			this.header =
-			getOriginStringFromEscapeString(
+			getStoredginStringFromEscapeString(
 				string.substring(startIndex, startIndex + headerLength)
 			);
 		}

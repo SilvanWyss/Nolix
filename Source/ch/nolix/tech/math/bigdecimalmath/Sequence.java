@@ -36,7 +36,7 @@ abstract class Sequence<V> implements ISequence<V> {
 		
 		calculateValuesAndSquaredMagnitudesToIndex(p1BasedIndex);
 		
-		return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getOriElement2();
+		return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getStoredElement2();
 	}
 	
 	//method
@@ -45,7 +45,7 @@ abstract class Sequence<V> implements ISequence<V> {
 		
 		calculateValuesAndSquaredMagnitudesToIndex(p1BasedIndex);
 		
-		return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getOriElement1();
+		return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getStoredElement1();
 	}
 	
 	//method declaration
@@ -56,7 +56,7 @@ abstract class Sequence<V> implements ISequence<V> {
 	
 	//method
 	protected V getValueAtIndexWhenCalculated(final int index) {
-		return valuesAndSquaredMagnitudes.get(index - 1).getOriElement1();
+		return valuesAndSquaredMagnitudes.get(index - 1).getStoredElement1();
 	}
 	
 	//method

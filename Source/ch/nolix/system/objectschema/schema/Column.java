@@ -191,13 +191,13 @@ public final class Column extends SchemaObject implements IColumn {
 	}
 	
 	//method
-	IContainer<IColumn> getOriBackReferencingColumns() {
+	IContainer<IColumn> getStoredBackReferencingColumns() {
 		
 		if (!COLUMN_HELPER.isAReferenceColumn(this)) {
 			return new LinkedList<>();
 		}
 		
-		return getOriBackReferencingColumnsWhenIsReferenceColumn();
+		return getStoredBackReferencingColumnsWhenIsReferenceColumn();
 	}
 	
 	//method
@@ -244,18 +244,18 @@ public final class Column extends SchemaObject implements IColumn {
 	}
 	
 	//method
-	private IContainer<IColumn> getOriBackReferencingColumnsWhenIsReferenceColumn() {
+	private IContainer<IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
 		
 		if (COLUMN_HELPER.belongsToDatabase(this)) {
 			return
 			COLUMN_HELPER
 			.getParentDatabase(this)
-			.getOriTables()
-			.toFromGroups(t -> t.getOriColumns().getOriSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
+			.getStoredTables()
+			.toFromGroups(t -> t.getStoredColumns().getStoredSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getOriColumns().getOriSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
+			return getParentTable().getStoredColumns().getStoredSelected(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
 		}
 		
 		return new LinkedList<>();
@@ -268,12 +268,12 @@ public final class Column extends SchemaObject implements IColumn {
 			return
 			COLUMN_HELPER
 			.getParentDatabase(this)
-			.getOriTables()
-			.containsAny(t -> t.getOriColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
+			.getStoredTables()
+			.containsAny(t -> t.getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this)));
 		}
 		
 		if (belongsToTable()) {
-			return getParentTable().getOriColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
+			return getParentTable().getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, this));
 		}
 		
 		return false;

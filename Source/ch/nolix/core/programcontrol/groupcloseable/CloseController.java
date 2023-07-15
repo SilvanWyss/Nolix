@@ -56,10 +56,10 @@ public final class CloseController implements ICloseController {
 	@Override
 	public void createCloseDependencyTo(final GroupCloseable element) {
 		
-		final var elementsToAdd = element.getOriCloseController().getParentClosePool().getOriElements();
+		final var elementsToAdd = element.getStoredCloseController().getParentClosePool().getStoredElements();
 		
 		for (final var e : elementsToAdd) {
-			e.getOriCloseController().setParentClosePool(parentClosePool);
+			e.getStoredCloseController().setParentClosePool(parentClosePool);
 		}
 		
 		parentClosePool.addElements(elementsToAdd);

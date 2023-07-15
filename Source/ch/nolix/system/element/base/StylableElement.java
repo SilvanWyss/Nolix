@@ -15,7 +15,7 @@ implements IStylableElement<SE> {
 		
 		resetStyle();
 		
-		getOriChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
+		getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
 	}
 	
 	//method declaration

@@ -74,7 +74,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void addColumn(final String tableName, final IColumnDto column) {
 		
 		final var tableNode =
-		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
 		tableNode.addChildNode(columnNodeMapper.createColumnNodeFrom(column));
 		
@@ -95,12 +95,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void deleteColumn(final String tableName, final String columnName) {
 		
 		final var tableNode =
-		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
 		tableNode.removeFirstChildNodeThat(
 			(final IMutableNode<?> a) ->
 			a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
-			&& COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(a).getOriSingleChildNode().hasHeader(columnName)
+			&& COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(a).getStoredSingleChildNode().hasHeader(columnName)
 		);
 		
 		hasChanges = true;
@@ -113,7 +113,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		editedDatabaseNode.removeFirstChildNodeThat(
 			(final IMutableNode<?> a) ->
 			a.hasHeader(SubNodeHeaderCatalogue.TABLE)
-			&&  TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(a).getOriSingleChildNode().hasHeader(tableName)
+			&&  TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(a).getStoredSingleChildNode().hasHeader(tableName)
 		);
 		
 		hasChanges = true;
@@ -121,7 +121,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public CloseController getOriCloseController() {
+	public CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
@@ -158,7 +158,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		try {
 			
 			setSchemaTimestamp(Time.ofNow());
-			databaseNode.setChildNodes(editedDatabaseNode.getOriChildNodes());
+			databaseNode.setChildNodes(editedDatabaseNode.getStoredChildNodes());
 			
 			saveCount++;
 		} finally {
@@ -171,10 +171,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 		
 		final var tableNode =
-		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
-		final var columnNode = TABLE_NODE_SEARCHER.getOriColumnNodeFromTableNodeByColumnName(tableNode, columnName);
-		final var headerNode = COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(columnNode);
+		final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
+		final var headerNode = COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode);
 		headerNode.setHeader(newColumnName);
 		
 		hasChanges = true;
@@ -187,7 +187,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		final IParametrizedPropertyTypeDto parametrizedPropertyType
 	) {
 		
-		final var columnNode = DATABASE_NODE_SEARCHER.getOriColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
+		final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 		
 		columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,
@@ -202,10 +202,10 @@ public final class SchemaWriter implements ISchemaWriter {
 	public void setTableName(final String tableName, final String newTableName) {
 		
 		final var tableNode =
-		DATABASE_NODE_SEARCHER.getOriTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
+		DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode, tableName);
 		
-		final var nameNode = TABLE_NODE_SEARCHER.getOriNameNodeFromTableNode(tableNode);
-		nameNode.getOriSingleChildNode().setHeader(newTableName);
+		final var nameNode = TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode);
+		nameNode.getStoredSingleChildNode().setHeader(newTableName);
 		
 		hasChanges = true;
 	}
@@ -214,12 +214,12 @@ public final class SchemaWriter implements ISchemaWriter {
 	private void setSchemaTimestamp(final ITime schemaTimestamp) {
 		
 		final var databasePropertiesNode =
-		DATABASE_NODE_SEARCHER.getOriDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
+		DATABASE_NODE_SEARCHER.getStoredDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
 		
 		final var schemaTimestampNode =
-		DATABASE_PROPERTIES_NODE_SEARCHER.getOriSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+		DATABASE_PROPERTIES_NODE_SEARCHER.getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
-		schemaTimestampNode.getOriSingleChildNode().setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
+		schemaTimestampNode.getStoredSingleChildNode().setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
 		
 		hasChanges = true;
 	}

@@ -274,7 +274,7 @@ public final class FileSystemAccessor {
 	public static IContainer<FileAccessor> getFileAccessors(final String path) {
 		return
 		ReadContainer.forArray(new File(path).listFiles())
-		.getOriSelected(File::isFile)
+		.getStoredSelected(File::isFile)
 		.to(f -> new FileAccessor(f.getAbsolutePath()));
 	}
 	
@@ -286,7 +286,7 @@ public final class FileSystemAccessor {
 	 * that have the given extension.
 	 */
 	public static IContainer<FileAccessor> getFileAccessors(final String path, final String extension) {
-		return getFileAccessors(path).getOriSelected(fa -> fa.hasExtension(extension));
+		return getFileAccessors(path).getStoredSelected(fa -> fa.hasExtension(extension));
 	}
 	
 	//static method

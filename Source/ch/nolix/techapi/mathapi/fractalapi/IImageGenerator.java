@@ -8,5 +8,5 @@ import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 public interface IImageGenerator extends IFuture {
 	
 	//method declaration
-	IMutableImage<?> getOriImage();
+	IMutableImage<?> getStoredImage();
 }

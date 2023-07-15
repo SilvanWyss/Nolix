@@ -115,11 +115,11 @@ public final class List<E> implements Iterable<E> {
 	}
 	
 	//method
-	public E getOriFirst() {
+	public E getStoredFirst() {
 		
 		assertIsNotEmpty();
 		
-		return beginNode.getOriElement();
+		return beginNode.getStoredElement();
 	}
 
 	//method
@@ -147,7 +147,7 @@ public final class List<E> implements Iterable<E> {
 			beginNode = null;
 			endNode = null;
 		} else {
-			beginNode = beginNode.getOriNextNodeOrNull();
+			beginNode = beginNode.getStoredNextNodeOrNull();
 		}
 		
 		elementCount--;
@@ -166,20 +166,20 @@ public final class List<E> implements Iterable<E> {
 			var iteratorNode = beginNode;
 			while (iteratorNode.hasNextNode()) {
 				
-				if (iteratorNode.getOriNextNodeOrNull().contains(element)) {
+				if (iteratorNode.getStoredNextNodeOrNull().contains(element)) {
 					
-					if (!iteratorNode.getOriNextNodeOrNull().hasNextNode()) {
+					if (!iteratorNode.getStoredNextNodeOrNull().hasNextNode()) {
 						iteratorNode.removeNextNode();
 						endNode = iteratorNode;
 					} else {
-						iteratorNode.setNextNode(iteratorNode.getOriNextNodeOrNull().getOriNextNodeOrNull());
+						iteratorNode.setNextNode(iteratorNode.getStoredNextNodeOrNull().getStoredNextNodeOrNull());
 					}
 					
 					elementCount--;
 					return;
 				}
 				
-				iteratorNode = iteratorNode.getOriNextNodeOrNull();
+				iteratorNode = iteratorNode.getStoredNextNodeOrNull();
 			}
 			
 			throw new NoSuchElementException("The current List does not contain the given element '" + element + "'.");

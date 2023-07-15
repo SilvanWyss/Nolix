@@ -36,7 +36,7 @@ FluentNameable<ITable> {
 	IDatabase getParentDatabase();
 	
 	//method declarations
-	IContainer<IColumn> getOriColumns();
+	IContainer<IColumn> getStoredColumns();
 	
 	//method declaration
 	ITableDto toDto();

@@ -16,7 +16,7 @@ public class WithIpOrAddressNameCapturer<N> extends ArgumentCapturer<String, N> 
 	
 	//method
 	public final String getIpOrAddressName() {
-		return getOriArgument();
+		return getStoredArgument();
 	}
 	
 	//method

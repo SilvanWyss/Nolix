@@ -35,16 +35,16 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	IImage getIcon();
 	
 	//method declaration
-	IControl<?, ?> getOriControlByInternalId(String fixedId);
+	IControl<?, ?> getStoredControlByInternalId(String fixedId);
 	
 	//method declaration
-	IContainer<IControl<?, ?>> getOriControls();
+	IContainer<IControl<?, ?>> getStoredControls();
 	
 	//method declaration
-	IContainer<ILayer<?>> getOriLayers();
+	IContainer<ILayer<?>> getStoredLayers();
 	
 	//method declaration
-	ILayer<?> getOriTopLayer();
+	ILayer<?> getStoredTopLayer();
 	
 	//method declaration
 	boolean hasRemoveLayerAction();

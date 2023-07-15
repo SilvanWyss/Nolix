@@ -58,7 +58,7 @@ implements FluentOptionalIdentifiable<E>, FluentMultiTokenable<E> {
 	//method
 	@Override
 	public final IContainer<String> getTokens() {
-		return tokens.getOriValues();
+		return tokens.getStoredValues();
 	}
 	
 	//method

@@ -52,7 +52,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 				LinkedList.withElements(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN,
-						floatContainer.getOriStyle().getChildControlMarginWhenHasState(state)
+						floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state)
 						+ CssUnitCatalogue.PX
 					)
 				)

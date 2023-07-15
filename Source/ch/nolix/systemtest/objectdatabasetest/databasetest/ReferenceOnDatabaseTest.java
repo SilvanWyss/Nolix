@@ -30,7 +30,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsNewAndContainsAny() {
+	public void testCase_getStoredEntity_whenIsNewAndContainsAny() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -52,7 +52,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsLoadedAndContainsAny() {
+	public void testCase_getStoredEntity_whenIsLoadedAndContainsAny() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
@@ -68,7 +68,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedJohn =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		
 		//execution
 		final var result = loadedJohn.pet.getReferencedEntity();
@@ -110,7 +110,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapterB =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var loadedGarfieldB =
-		nodeDatabaseAdapterB.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var johnB = new Person();
 		johnB.pet.setEntity(loadedGarfieldB);
 		nodeDatabaseAdapterB.insert(johnB);
@@ -119,7 +119,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabaseAdapterC =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var loadedGarfieldC =
-		nodeDatabaseAdapterC.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedGarfieldC.delete();
 		nodeDatabaseAdapterC.saveChangesAndReset();
 		

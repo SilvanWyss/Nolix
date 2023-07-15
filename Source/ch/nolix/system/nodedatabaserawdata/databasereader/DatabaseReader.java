@@ -35,7 +35,7 @@ public final class DatabaseReader implements IDatabaseReader {
 	
 	//method
 	@Override
-	public CloseController getOriCloseController() {
+	public CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
@@ -125,6 +125,6 @@ public final class DatabaseReader implements IDatabaseReader {
 	
 	//method
 	private ITableInfo getTableInfoByTableName(final String tableName) {
-		return tableInfos.getOriFirst(td -> td.getTableName().equals(tableName));
+		return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
 	}
 }

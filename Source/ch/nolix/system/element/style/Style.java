@@ -46,10 +46,10 @@ public final class Style extends BaseStyle implements IStyle {
 		final var attachingAttributes = new LinkedList<INode<?>>();
 		final var subStyles = new LinkedList<BaseSelectingStyle>();
 		
-		for (final var a : specification.getOriChildNodes()) {
+		for (final var a : specification.getStoredChildNodes()) {
 			switch (a.getHeader()) {
 				case ATTACHING_ATTRIBUTE_HEADER:
-					attachingAttributes.addAtEnd(a.getOriSingleChildNode());
+					attachingAttributes.addAtEnd(a.getStoredSingleChildNode());
 					break;
 				case SelectingStyle.TYPE_NAME:
 					subStyles.addAtEnd(SelectingStyle.fromSpecification(a));

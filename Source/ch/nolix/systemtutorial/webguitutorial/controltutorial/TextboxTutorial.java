@@ -38,11 +38,11 @@ public final class TextboxTutorial {
 						
 			//Configures the style of the Textbox.
 			textBox
-			.getOriStyle()
+			.getStoredStyle()
 			.setBorderThicknessForState(ControlState.BASE, 1);
 			
 			//Adds the Textbox to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(textBox);
+			getStoredGui().pushLayerWithRootControl(textBox);
 		}
 	}
 	

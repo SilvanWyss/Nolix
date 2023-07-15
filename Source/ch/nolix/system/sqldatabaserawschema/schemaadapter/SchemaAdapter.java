@@ -53,8 +53,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 			sqlSchemaAdapter
 		);
 		
-		getOriCloseController().createCloseDependencyTo(rawSchemaReader);
-		getOriCloseController().createCloseDependencyTo(rawSchemaWriter);
+		getStoredCloseController().createCloseDependencyTo(rawSchemaReader);
+		getStoredCloseController().createCloseDependencyTo(rawSchemaWriter);
 	}
 	
 	//method
@@ -89,7 +89,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 	
 	//method
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	

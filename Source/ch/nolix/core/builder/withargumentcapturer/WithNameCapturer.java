@@ -14,7 +14,7 @@ public class WithNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//method
 	public final String getName() {
-		return getOriArgument();
+		return getStoredArgument();
 	}
 	
 	//method

@@ -14,7 +14,7 @@ public interface IGrid extends IContainer<IGrid, IGridStyle> {
 	int getColumnCount();
 	
 	//method declaration
-	IControl<?, ?> getOriChildControlAt1BasedRowAndColumnIndex(int rowIndex, int columnIndex);
+	IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(int rowIndex, int columnIndex);
 	
 	//method declaration
 	int getRowCount();

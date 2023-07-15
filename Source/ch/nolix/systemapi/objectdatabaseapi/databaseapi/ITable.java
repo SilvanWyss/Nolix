@@ -23,19 +23,19 @@ extends IDatabaseObject, Identified, Named {
 	Class<E> getEntityType();
 	
 	//method declaration
-	IContainer<IColumn> getOriColumns();
+	IContainer<IColumn> getStoredColumns();
 	
 	//method declaration
-	IContainer<E> getOriEntities();
+	IContainer<E> getStoredEntities();
 	
 	//method declaration
-	E getOriEntityById(String id);
+	E getStoredEntityById(String id);
 	
 	//method declaration
-	E getOriEntityByIdOrNull(String id);
+	E getStoredEntityByIdOrNull(String id);
 	
 	//method declaration
-	IDatabase getOriParentDatabase();
+	IDatabase getStoredParentDatabase();
 	
 	//method declaration
 	ITable<E> insertEntity(E entity);

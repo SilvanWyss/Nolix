@@ -65,7 +65,7 @@ public final class LayerCssRuleCreator {
 			return 0;
 		}
 		
-		return layer.getOriParentGui().getOriLayers().get1BasedIndexOfFirstOccuranceOf(layer);
+		return layer.getStoredParentGui().getStoredLayers().get1BasedIndexOfFirstOccuranceOf(layer);
 	}
 	
 	//method

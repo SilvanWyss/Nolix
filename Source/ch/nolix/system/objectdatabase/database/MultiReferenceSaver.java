@@ -11,7 +11,7 @@ final class MultiReferenceSaver {
 	
 	//method
 	public void saveChangesOfMultiReference(final IMultiReference<?> multiReference, final Database database) {
-		for (final var le : multiReference.getOriLocalEntries()) {
+		for (final var le : multiReference.getStoredLocalEntries()) {
 			saveChangeOfMultiReferenceEntry(le, database);
 		}
 	}
@@ -48,12 +48,12 @@ final class MultiReferenceSaver {
 		final Database database
 	) {
 		
-		final var entity = multiReferenceEntry.getOriParentMultiReference().getOriParentEntity();
+		final var entity = multiReferenceEntry.getStoredParentMultiReference().getStoredParentEntity();
 		
 		database.internalGetRefDataAndSchemaAdapter().insertMultiReferenceEntry(
 			entity.getParentTableName(),
 			entity.getId(),
-			multiReferenceEntry.getOriParentMultiReference().getName(),
+			multiReferenceEntry.getStoredParentMultiReference().getName(),
 			multiReferenceEntry.getReferencedEntityId()
 		);
 	}
@@ -64,12 +64,12 @@ final class MultiReferenceSaver {
 		final Database database
 	) {
 		
-		final var entity = multiReferenceEntry.getOriParentMultiReference().getOriParentEntity();
+		final var entity = multiReferenceEntry.getStoredParentMultiReference().getStoredParentEntity();
 		
 		database.internalGetRefDataAndSchemaAdapter().deleteMultiReferenceEntry(
 			entity.getParentTableName(),
 			entity.getId(),
-			multiReferenceEntry.getOriParentMultiReference().getName(),
+			multiReferenceEntry.getStoredParentMultiReference().getName(),
 			multiReferenceEntry.getReferencedEntityId()
 		);
 	}

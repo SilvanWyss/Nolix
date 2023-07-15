@@ -54,7 +54,7 @@ AndPortCapturer<
 			next().getDatabaseName(),
 			next().next().getLoginName(),
 			next().next().next().getLoginPassword(),
-			next().next().next().next().getOriSchema()
+			next().next().next().next().getStoredSchema()
 		);
 	}
 }

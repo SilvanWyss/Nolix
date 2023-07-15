@@ -173,12 +173,12 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//method
 	public final List<String> getOneRecord(final String sqlQuery) {
-		return getRecords(sqlQuery).getOriOne();
+		return getRecords(sqlQuery).getStoredOne();
 	}
 	
 	//method
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	

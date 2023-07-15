@@ -15,7 +15,7 @@ final class PropertyFromTableExtractor {
 	public IContainer<Property> createPropertiesFromTable(
 		final ITable<IEntity> table
 	) {
-		return table.getOriColumns().to(this::createPropertyFromColumn);
+		return table.getStoredColumns().to(this::createPropertyFromColumn);
 	}
 	
 	//method
@@ -33,7 +33,7 @@ final class PropertyFromTableExtractor {
 				column
 				.getParametrizedPropertyType()
 				.asBaseParametrizedReferenceType()
-				.getOriencedTable()
+				.getStoredencedTable()
 				.getName();
 				
 				return Reference.forEntityWithTableName(referencedtableName);
@@ -43,7 +43,7 @@ final class PropertyFromTableExtractor {
 				column
 				.getParametrizedPropertyType()
 				.asBaseParametrizedReferenceType()
-				.getOriencedTable()
+				.getStoredencedTable()
 				.getName();
 				
 				return OptionalReference.forEntityWithTableName(referencedtableName2);
@@ -53,7 +53,7 @@ final class PropertyFromTableExtractor {
 				column
 				.getParametrizedPropertyType()
 				.asBaseParametrizedReferenceType()
-				.getOriencedTable()
+				.getStoredencedTable()
 				.getName();
 				
 				return MultiReference.forEntityWithTableName(referencedtableName3);

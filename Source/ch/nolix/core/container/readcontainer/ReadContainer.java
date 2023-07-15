@@ -153,8 +153,8 @@ public final class ReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getOriAt1BasedIndex(final int p1BasedIndex) {
-		return container.getOriAt1BasedIndex(p1BasedIndex);
+	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+		return container.getStoredAt1BasedIndex(p1BasedIndex);
 	}
 	
 	//method
@@ -162,8 +162,8 @@ public final class ReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getOriLast() {
-		return container.getOriLast();
+	public E getStoredLast() {
+		return container.getStoredLast();
 	}
 	
 	//method

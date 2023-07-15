@@ -24,6 +24,6 @@ public class AndDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
 	
 	//method
 	public final String getDatabaseName() {
-		return getOriArgument();
+		return getStoredArgument();
 	}
 }

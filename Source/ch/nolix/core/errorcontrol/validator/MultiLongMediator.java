@@ -46,7 +46,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 		
 		//Iterates through the arguments of this long container mediator.
 		var index = 1;
-		for (long a: getOriArguments()) {
+		for (long a: getStoredArguments()) {
 			
 			//Asserts that the current argument is positive.
 			if (a <= 0) {

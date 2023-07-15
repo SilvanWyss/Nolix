@@ -50,11 +50,11 @@ public final class GridTutorial {
 			
 			//Configures the style of the Grid.
 			grid
-			.getOriStyle()
+			.getStoredStyle()
 			.setTextSizeForState(ControlState.BASE, 50);
 			
 			//Adds the Grid to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(grid);
+			getStoredGui().pushLayerWithRootControl(grid);
 		}
 	}
 	

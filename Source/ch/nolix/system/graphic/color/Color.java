@@ -1404,7 +1404,7 @@ public final class Color extends Element implements IColor {
 	 */
 	public static Color fromString(final String string) {
 		
-		final var webColorAndName = WEB_COLORS_AND_NAMES.getOriFirstOrNull(p -> p.getOriElement1().equals(string));
+		final var webColorAndName = WEB_COLORS_AND_NAMES.getStoredFirstOrNull(p -> p.getStoredElement1().equals(string));
 		
 		//Handles the case that the given string is not a color name.
 		if (webColorAndName == null) {
@@ -1430,7 +1430,7 @@ public final class Color extends Element implements IColor {
 		}
 		
 		//Handles the case that the given value is a color name.
-		return webColorAndName.getOriElement2();
+		return webColorAndName.getStoredElement2();
 	}
 	
 	//static method
@@ -1654,11 +1654,11 @@ public final class Color extends Element implements IColor {
 	@Override
 	public String getColorNameOrHexadecimalString() {
 		
-		final var webColorAndName = WEB_COLORS_AND_NAMES.getOriFirstOrNull(wc -> wc.getOriElement2().equals(this));
+		final var webColorAndName = WEB_COLORS_AND_NAMES.getStoredFirstOrNull(wc -> wc.getStoredElement2().equals(this));
 		
 		//Handles the case that the current Color has a color name.
 		if (webColorAndName != null) {
-			return webColorAndName.getOriElement1();
+			return webColorAndName.getStoredElement1();
 		}
 		
 		return toHexadecimalString();

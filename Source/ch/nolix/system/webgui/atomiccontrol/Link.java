@@ -89,7 +89,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
 	
@@ -207,6 +207,6 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 		removeUrl();
 		
 		setCursorIcon(CursorIcon.HAND);
-		getOriStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
+		getStoredStyle().setTextColorForState(ControlState.BASE, Color.BLUE);
 	}
 }

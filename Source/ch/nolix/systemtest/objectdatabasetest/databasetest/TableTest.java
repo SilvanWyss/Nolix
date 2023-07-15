@@ -30,28 +30,28 @@ public final class TableTest extends Test {
 		
 		//method
 		public String getFirstName() {
-			return firstName.getOriValue();
+			return firstName.getStoredValue();
 		}
 		
 		//method
 		public String getLastName() {
-			return lastName.getOriValue();
+			return lastName.getStoredValue();
 		}
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getOriAllEntities_whenIsEmpty() {
+	public void testCase_getStoredAllEntities_whenIsEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
 		final var nodeDatabaseAdapter =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);	
-		final var testUnit = nodeDatabaseAdapter.getOriTableByEntityType(Person.class);
+		final var testUnit = nodeDatabaseAdapter.getStoredTableByEntityType(Person.class);
 		
 		//execution
-		final var result = testUnit.getOriEntities();
+		final var result = testUnit.getStoredEntities();
 		
 		//verification
 		expectNot(nodeDatabaseAdapter.hasChanges());
@@ -60,7 +60,7 @@ public final class TableTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriAllEntities() {
+	public void testCase_getStoredAllEntities() {
 		
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
@@ -75,14 +75,14 @@ public final class TableTest extends Test {
 		//setup part 2
 		final var nodeDatabaseAdapter2 =
 		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);		
-		final var testUnit = nodeDatabaseAdapter2.getOriTableByEntityType(Person.class);
+		final var testUnit = nodeDatabaseAdapter2.getStoredTableByEntityType(Person.class);
 		
 		//execution
-		final var result = testUnit.getOriEntities();
+		final var result = testUnit.getStoredEntities();
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(1);
-		final var loadedPerson = result.getOriAt1BasedIndex(1);
+		final var loadedPerson = result.getStoredAt1BasedIndex(1);
 		expect(loadedPerson.getId()).isEqualTo(person.getId());
 		expect(loadedPerson.getFirstName()).isEqualTo("Donald");
 		expect(loadedPerson.getLastName()).isEqualTo("Duck");

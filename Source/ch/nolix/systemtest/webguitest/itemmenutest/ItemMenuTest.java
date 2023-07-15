@@ -32,7 +32,7 @@ extends ControlTest<IM> {
 		.addItemWithIdAndText("my_id_3", "my_text_3");
 		
 		//verification
-		expect(testUnit.getOriItems()).containsExactlyEqualing(
+		expect(testUnit.getStoredItems()).containsExactlyEqualing(
 			ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
 			ItemMenuItem.withIdAndText("my_id_2", "my_text_2"),
 			ItemMenuItem.withIdAndText("my_id_3", "my_text_3")

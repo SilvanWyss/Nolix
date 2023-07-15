@@ -151,7 +151,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 					final var valueSpecification =
 					Node.withHeaderAndChildNode(
 						s.getQualifyingPrefix() + getName(),
-						specificationCreator.getOutput(stateProperty.getValue()).getOriSingleChildNode()
+						specificationCreator.getOutput(stateProperty.getValue()).getStoredSingleChildNode()
 					);
 					
 					list.addAtEnd(valueSpecification);
@@ -170,7 +170,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 	}
 	
 	//method
-	protected final StateProperty<V> getOriBaseStateProperty() {
+	protected final StateProperty<V> getStoredBaseStateProperty() {
 		return stateProperties[parent.getBaseStateObject().getIndex()];
 	}
 	

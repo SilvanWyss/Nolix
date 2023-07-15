@@ -112,7 +112,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean blankItemIsSelected() {
-		return (containsBlankItem() && getOriBlankItem().isSelected());
+		return (containsBlankItem() && getStoredBlankItem().isSelected());
 	}
 	
 	//method
@@ -124,55 +124,55 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean containsBlankItem() {
-		return getOriItems().containsAny(IItemMenuItem::isBlank);
+		return getStoredItems().containsAny(IItemMenuItem::isBlank);
 	}
 	
 	//method
 	@Override
 	public final boolean containsItemWithId(final String id) {
-		return getOriItems().containsAny(i -> i.hasId(id));
+		return getStoredItems().containsAny(i -> i.hasId(id));
 	}
 	
 	//method
 	@Override
 	public final boolean containsItemWithText(final String text) {
-		return getOriItems().containsAny(i -> i.getText().equals(text));
+		return getStoredItems().containsAny(i -> i.getText().equals(text));
 	}
 	
 	//method
 	@Override
 	public boolean containsSelectedItem() {
-		return getOriItems().containsAny(IItemMenuItem::isSelected);
+		return getStoredItems().containsAny(IItemMenuItem::isSelected);
 	}
 	
 	//method
 	@Override
 	public final String getIdByItemText(final String itemText) {
-		return getOriItemByText(itemText).getId();
+		return getStoredItemByText(itemText).getId();
 	}
 	
 	//method
 	@Override
-	public final IContainer<IControl<?, ?>> getOriChildControls() {
+	public final IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
 	
 	//method
 	@Override
-	public final IContainer<IItemMenuItem<?>> getOriItems() {
-		return items.getOriValues();
+	public final IContainer<IItemMenuItem<?>> getStoredItems() {
+		return items.getStoredValues();
 	}
 	
 	//method
 	@Override
-	public final IItemMenuItem<?> getOriSelectedItem() {
-		return getOriItems().getOriFirst(IItemMenuItem::isSelected);
+	public final IItemMenuItem<?> getStoredSelectedItem() {
+		return getStoredItems().getStoredFirst(IItemMenuItem::isSelected);
 	}
 	
 	//method
 	@Override
 	public final String getTextByItemId(final String itemId) {
-		return getOriItemById(itemId).getText();
+		return getStoredItemById(itemId).getText();
 	}
 	
 	//method
@@ -183,7 +183,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 			return StringCatalogue.EMPTY_STRING;
 		}
 		
-		return getOriItems().getOriFirst(IItemMenuItem::isSelected).getText();
+		return getStoredItems().getStoredFirst(IItemMenuItem::isSelected).getText();
 	}
 	
 	//method
@@ -195,7 +195,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	//method
 	@Override
 	public final boolean isEmpty() {
-		return getOriItems().isEmpty();
+		return getStoredItems().isEmpty();
 	}
 	
 	//method
@@ -214,7 +214,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectBlankItem() {
 		
-		getOriBlankItem().select();
+		getStoredBlankItem().select();
 				
 		return asConcrete();
 	}
@@ -223,7 +223,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectFirstItem() {
 		
-		getOriFirstItem().select();
+		getStoredFirstItem().select();
 		
 		return asConcrete();
 	}
@@ -232,7 +232,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectItemById(final String id) {
 		
-		getOriItemById(id).select();
+		getStoredItemById(id).select();
 		
 		return asConcrete();
 	}
@@ -241,7 +241,7 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	@Override
 	public final IM selectItemByText(final String text) {
 		
-		getOriItemByText(text).select();
+		getStoredItemByText(text).select();
 		
 		return asConcrete();
 	}
@@ -271,9 +271,9 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	public final IM setUserInput(final String userInput) {
 		
 		if (userInput.isEmpty()) {
-			getOriItems().forEach(IItemMenuItem::unselect);
+			getStoredItems().forEach(IItemMenuItem::unselect);
 		} else {
-			getOriItemByText(userInput).select();
+			getStoredItemByText(userInput).select();
 		}
 		
 		return asConcrete();
@@ -326,23 +326,23 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	}
 	
 	//method
-	private IItemMenuItem<?> getOriBlankItem() {
-		return getOriItems().getOriFirst(IItemMenuItem::isBlank);
+	private IItemMenuItem<?> getStoredBlankItem() {
+		return getStoredItems().getStoredFirst(IItemMenuItem::isBlank);
 	}
 	
 	//method
-	private IItemMenuItem<?> getOriFirstItem() {
-		return getOriItems().getOriFirst();
+	private IItemMenuItem<?> getStoredFirstItem() {
+		return getStoredItems().getStoredFirst();
 	}
 	
 	//method
-	private IItemMenuItem<?> getOriItemById(final String itemId) {
-		return getOriItems().getOriFirst(i -> i.hasId(itemId));
+	private IItemMenuItem<?> getStoredItemById(final String itemId) {
+		return getStoredItems().getStoredFirst(i -> i.hasId(itemId));
 	}
 	
 	//method
-	private IItemMenuItem<?> getOriItemByText(final String itemText) {
-		return getOriItems().getOriFirst(i -> i.getText().equals(itemText));
+	private IItemMenuItem<?> getStoredItemByText(final String itemText) {
+		return getStoredItems().getStoredFirst(i -> i.getText().equals(itemText));
 	}
 	
 	//method

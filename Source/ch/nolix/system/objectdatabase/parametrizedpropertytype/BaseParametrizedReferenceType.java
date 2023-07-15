@@ -49,13 +49,13 @@ implements IBaseParametrizedReferenceType<E> {
 	
 	//method
 	@Override
-	public final ITable<E> getOriencedTable() {
+	public final ITable<E> getStoredencedTable() {
 		return referencedTable;
 	}
 	
 	//method
 	@Override
 	public final boolean referencesTable(final ITable<?> table) {
-		return (getOriencedTable() == table);
+		return (getStoredencedTable() == table);
 	}
 }

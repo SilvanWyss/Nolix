@@ -40,10 +40,10 @@ public final class MultiValueOnDatabaseTest extends Test {
 		
 		//execution
 		final var loadedRound =
-		nodeDatabaseAdapter.getOriTableByEntityType(Round.class).getOriEntityById(round.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 		
 		//verification
-		expect(loadedRound.amounts.getOriValues().isEmpty());
+		expect(loadedRound.amounts.getStoredValues().isEmpty());
 	}
 	
 	//method
@@ -65,10 +65,10 @@ public final class MultiValueOnDatabaseTest extends Test {
 		
 		//execution
 		final var loadedRound =
-		nodeDatabaseAdapter.getOriTableByEntityType(Round.class).getOriEntityById(round.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 		
 		//verification
-		final var loadedValues = loadedRound.amounts.getOriValues();
+		final var loadedValues = loadedRound.amounts.getStoredValues();
 		expect(loadedValues.getElementCount()).isEqualTo(4);
 		expect(loadedValues.containsAll(10, 20, 30, 40));
 	}
@@ -92,13 +92,13 @@ public final class MultiValueOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedRound =
-		nodeDatabaseAdapter.getOriTableByEntityType(Round.class).getOriEntityById(round.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 		
 		//execution
 		loadedRound.amounts.removeValue(40);
 		
 		//verification
-		final var loadedValues = loadedRound.amounts.getOriValues();
+		final var loadedValues = loadedRound.amounts.getStoredValues();
 		expect(loadedValues.getElementCount()).isEqualTo(3);
 		expect(loadedValues.containsAll(10, 20, 30));
 	}

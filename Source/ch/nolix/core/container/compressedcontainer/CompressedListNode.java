@@ -47,12 +47,12 @@ final class CompressedListNode<E> {
 	}
 	
 	//method
-	public E getOriElement() {
+	public E getStoredElement() {
 		return element;
 	}
 	
 	//method
-	public CompressedListNode<E> getOriNextNode() {
+	public CompressedListNode<E> getStoredNextNode() {
 		
 		assertHasNextNode();
 		

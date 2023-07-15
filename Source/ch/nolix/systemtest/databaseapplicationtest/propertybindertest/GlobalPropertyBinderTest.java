@@ -24,31 +24,31 @@ public final class GlobalPropertyBinderTest extends Test {
 		final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 		
 		//verification part 1
-		expect(result.getOriProperty()).is(value);
-		expect(result.getOriControl()).isOfType(Textbox.class);
-		final var textBox = (ITextbox)result.getOriControl();
-		expect(value.getOriValue()).isEqualTo("");
+		expect(result.getStoredProperty()).is(value);
+		expect(result.getStoredControl()).isOfType(Textbox.class);
+		final var textBox = (ITextbox)result.getStoredControl();
+		expect(value.getStoredValue()).isEqualTo("");
 		expect(textBox.getText()).isEqualTo("");
 		
 		//verification part 2
 		value.setValue("");
 		textBox.emptyText();
 		value.setValue("zebra");
-		expect(value.getOriValue()).isEqualTo("zebra");
+		expect(value.getStoredValue()).isEqualTo("zebra");
 		expect(textBox.getText()).isEqualTo("zebra");
 		
 		//verification part 3
 		value.setValue("");
 		textBox.setText("");
 		textBox.setText("zebra");
-		expect(value.getOriValue()).isEqualTo("zebra");
+		expect(value.getStoredValue()).isEqualTo("zebra");
 		expect(textBox.getText()).isEqualTo("zebra");
 		
 		//verification part 4
 		value.setValue("zebra");
 		textBox.setText("zebra");
 		textBox.setText("");
-		expect(value.getOriValue()).isEqualTo("");
+		expect(value.getStoredValue()).isEqualTo("");
 		expect(textBox.getText()).isEqualTo("");
 	}
 	
@@ -66,9 +66,9 @@ public final class GlobalPropertyBinderTest extends Test {
 		final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 		
 		//verification
-		expect(result.getOriProperty()).is(value);
-		expect(result.getOriControl()).isOfType(Textbox.class);
-		final var textBox = (ITextbox)result.getOriControl();
+		expect(result.getStoredProperty()).is(value);
+		expect(result.getStoredControl()).isOfType(Textbox.class);
+		final var textBox = (ITextbox)result.getStoredControl();
 		expect(value.isEmpty());
 		expect(textBox.getText()).isEqualTo("");
 	}
@@ -85,10 +85,10 @@ public final class GlobalPropertyBinderTest extends Test {
 		final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 		
 		//verification
-		expect(result.getOriProperty()).is(value);
-		expect(result.getOriControl()).isOfType(Textbox.class);
-		final var textBox = (ITextbox)result.getOriControl();
-		expect(value.getOriValue()).isEqualTo("zebra");
+		expect(result.getStoredProperty()).is(value);
+		expect(result.getStoredControl()).isOfType(Textbox.class);
+		final var textBox = (ITextbox)result.getStoredControl();
+		expect(value.getStoredValue()).isEqualTo("zebra");
 		expect(textBox.getText()).isEqualTo("zebra");
 	}
 }

@@ -172,7 +172,7 @@ implements IControlCssRuleBuilder<C, CS> {
 		final LinkedList<ICssProperty> list
 	) {
 				
-		final var style = control.getOriStyle();
+		final var style = control.getStoredStyle();
 		
 		final var opacity = style.getOpacityWhenHasState(state);
 		if (opacity < 1.0) {
@@ -259,7 +259,7 @@ implements IControlCssRuleBuilder<C, CS> {
 	//method
 	private ICssProperty getFontWeightCssPropertyForControlAndState(final C control, final ControlState state) {
 		
-		final var style = control.getOriStyle();
+		final var style = control.getStoredStyle();
 		final var boldTextFlag = style.getBoldTextFlagWhenHasState(state);
 		
 		if (!boldTextFlag) {

@@ -16,6 +16,6 @@ public final class ExtendedBigDecimalMediator extends BigDecimalMediator {
 	
 	//method
 	public BigDecimalMediator thatIsNamed(final String argumentName) {
-		return new BigDecimalMediator(argumentName, getOriArgument());
+		return new BigDecimalMediator(argumentName, getStoredArgument());
 	}
 }

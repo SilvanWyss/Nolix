@@ -71,11 +71,11 @@ public class ArgumentMediator<A> extends Mediator {
 		}
 			
 		//Asserts that the argument of the current ArgumentMediator fulfills the given condition.
-		if (!condition.getOutput(getOriArgument())) {
+		if (!condition.getOutput(getStoredArgument())) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"does not fulfil the given condition"
 			);
 		}
@@ -90,7 +90,7 @@ public class ArgumentMediator<A> extends Mediator {
 	public final void isEqualTo(final A object) {
 		
 		//Asserts that the argument of the current ArgumentMediator equals the given object.
-		if (!Objects.equals(getOriArgument(), object)) {
+		if (!Objects.equals(getStoredArgument(), object)) {
 			throw UnequalArgumentException.forArgumentAndValue(argument, object);
 		}
 	}
@@ -107,7 +107,7 @@ public class ArgumentMediator<A> extends Mediator {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is the given object"
 			);
 		}
@@ -122,7 +122,7 @@ public class ArgumentMediator<A> extends Mediator {
 	public final void isNotEqualTo(final A object) {
 		
 		//Asserts that the argument of the current ArgumentMediator does not equal the given object.
-		if (Objects.equals(getOriArgument(), object)) {
+		if (Objects.equals(getStoredArgument(), object)) {
 			throw EqualArgumentException.forArgumentAndEqualValue(argument, object);
 		}
 	}
@@ -147,7 +147,7 @@ public class ArgumentMediator<A> extends Mediator {
 		
 		//Asserts that the argument of the current ArgumentMediator is (!) null.
 		if (argument != null) {
-			throw ArgumentIsNotNullException.forArgument(getOriArgument());
+			throw ArgumentIsNotNullException.forArgument(getStoredArgument());
 		}
 	}
 	
@@ -164,11 +164,11 @@ public class ArgumentMediator<A> extends Mediator {
 		isNotNull();
 		
 		//Asserts that the argument of the current ArgumentMediator is of the given type.
-		if (!getOriArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
+		if (!getStoredArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not a " + type
 			);
 		}
@@ -178,7 +178,7 @@ public class ArgumentMediator<A> extends Mediator {
 	/**
 	 * @return the argument of the current {@link ArgumentMediator}.
 	 */
-	protected A getOriArgument() {
+	protected A getStoredArgument() {
 		return argument;
 	}
 }

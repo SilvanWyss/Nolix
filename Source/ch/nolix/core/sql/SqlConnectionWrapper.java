@@ -29,7 +29,7 @@ final class SqlConnectionWrapper implements AutoCloseable {
 	}
 	
 	//method
-	public SqlConnection getOriSqlConnection() {
+	public SqlConnection getStoredSqlConnection() {
 		
 		assertIsAvailable();
 		

@@ -14,6 +14,6 @@ public final class ExtendedTimeMediator extends TimeMediator {
 	
 	//method
 	public TimeMediator thatIsNamed(final String argumentName) {
-		return new TimeMediator(argumentName, getOriArgument());
+		return new TimeMediator(argumentName, getStoredArgument());
 	}
 }

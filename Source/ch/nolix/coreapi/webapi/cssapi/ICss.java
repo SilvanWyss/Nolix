@@ -10,7 +10,7 @@ public interface ICss<
 > {
 	
 	//method declaration
-	IContainer<R> getOriRules();
+	IContainer<R> getStoredRules();
 	
 	//method declaration
 	String toStringWithoutEnclosingBrackets();

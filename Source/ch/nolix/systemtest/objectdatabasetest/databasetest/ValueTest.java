@@ -38,6 +38,6 @@ public final class ValueTest extends Test {
 		
 		//verification
 		expect(testUnit.containsAny());
-		expect(testUnit.getOriValue()).isEqualTo("LoremIpsum");
+		expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
 	}
 }

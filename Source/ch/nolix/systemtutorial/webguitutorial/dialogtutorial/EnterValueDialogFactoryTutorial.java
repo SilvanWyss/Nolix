@@ -43,7 +43,7 @@ public final class EnterValueDialogFactoryTutorial {
 			
 			final var nameLabel = new Label().setText("Mister ?");
 			
-			getOriGui().pushLayerWithRootControl(
+			getStoredGui().pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(
 					nameLabel,
@@ -51,7 +51,7 @@ public final class EnterValueDialogFactoryTutorial {
 					.setText("Edit your name")
 					.setLeftMouseButtonPressAction(
 						() ->
-						getOriGui().pushLayer(
+						getStoredGui().pushLayer(
 							ENTER_VALUE_DIALOG_FACTORY.createEnterValueDialogWithTextAndOriginalValueAndValueTaker(
 								"Enter your name",
 								nameLabel.getText(),

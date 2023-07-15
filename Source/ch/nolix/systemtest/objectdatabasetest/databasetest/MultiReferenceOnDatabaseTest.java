@@ -50,7 +50,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		
 		//execution
 		final var loadedJohn =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		
 		//verification
 		expect(loadedJohn.pets.isEmpty());
@@ -77,7 +77,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		
 		//execution
 		final var loadedJohn =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		
 		//verification
 		expect(loadedJohn.pets.getReferencedEntities().getElementCount()).isEqualTo(2);
@@ -106,7 +106,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		
 		//setup part 2: prepare changes
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		
 		//execution & verification
 		expectRunning(loadedGarfield::delete).throwsException();
@@ -134,15 +134,15 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		
 		//setup part 2: remove Entity from MultiReference
 		final var loadedJohn =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedJohn.pets.removeEntity(loadedGarfield);
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
 		//setup part 3: prepare deleting Entity
 		final var loadedGarfield2 =
-		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedGarfield2.delete();
 		
 		//execution & verification

@@ -234,7 +234,7 @@ public abstract class ContainerTest extends Test {
 		//verification
 		expect(list.getElementCount()).isEqualTo(6);
 		for (var i = 1; i <= 6; i++) {
-			expect(testUnit.getOriAt1BasedIndex(i)).isEqualTo(list.getOriAt1BasedIndex(i));
+			expect(testUnit.getStoredAt1BasedIndex(i)).isEqualTo(list.getStoredAt1BasedIndex(i));
 		}
 	}
 	
@@ -250,9 +250,9 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("xxxx");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("xxxxx");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("xxxxxx");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("xxxx");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xxxxx");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxxxxx");
 	}
 	
 	//method
@@ -543,13 +543,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriByMax_whenIsEmptyAndGivenNormIsInteger() {
+	public final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
-		expectRunning(() -> testUnit.getOriByMax(String::length))
+		expectRunning(() -> testUnit.getStoredByMax(String::length))
 		.throwsException()
 		.ofType(EmptyArgumentException.class)
 		.withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
@@ -557,13 +557,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriByMax_whenContainsSomeAndGivenNormIsDouble() {
+	public final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriByMax(e ->  1.0 / e.length());
+		final var result = testUnit.getStoredByMax(e ->  1.0 / e.length());
 		
 		//verification
 		expect(result).isEqualTo("x");
@@ -571,13 +571,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriByMax_whenContainsSomeAndGivenNormIsInteger() {
+	public final void testCase_getStoredByMax_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriByMax(String::length);
+		final var result = testUnit.getStoredByMax(String::length);
 		
 		//verification
 		expect(result).isEqualTo("xxxxxx");
@@ -585,13 +585,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriByMin_whenIsEmptyAndGivenNormIsInteger() {
+	public final void testCase_getStoredByMin_whenIsEmptyAndGivenNormIsInteger() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
-		expectRunning(() -> testUnit.getOriByMin(String::length))
+		expectRunning(() -> testUnit.getStoredByMin(String::length))
 		.throwsException()
 		.ofType(EmptyArgumentException.class)
 		.withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
@@ -599,13 +599,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriByMin_whenContainsSomeAndGivenNormIsDouble() {
+	public final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsDouble() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriByMin(e ->  1.0 / e.length());
+		final var result = testUnit.getStoredByMin(e ->  1.0 / e.length());
 		
 		//verification
 		expect(result).isEqualTo("xxxxxx");
@@ -613,13 +613,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriByMin_whenContainsSomeAndGivenNormIsInteger() {
+	public final void testCase_getStoredByMin_whenContainsSomeAndGivenNormIsInteger() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriByMin(String::length);
+		final var result = testUnit.getStoredByMin(String::length);
 		
 		//verification
 		expect(result).isEqualTo("x");
@@ -627,13 +627,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriFirst() {
+	public final void testCase_getStoredFirst() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriFirst();
+		final var result = testUnit.getStoredFirst();
 		
 		//verification
 		expect(result).isEqualTo("x");
@@ -641,13 +641,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriFirst_whenLinkedListIsEmpty() {
+	public final void testCase_getStoredFirst_whenLinkedListIsEmpty() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution & verification
-		expectRunning(testUnit::getOriFirst)
+		expectRunning(testUnit::getStoredFirst)
 		.throwsException()
 		.ofType(EmptyArgumentException.class)
 		.withMessage("The given " + testUnit.getClass().getSimpleName() +" is empty.");
@@ -655,13 +655,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriGroups_whenIsEmpty() {
+	public final void testCase_getStoredGroups_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(String.class);
 		
 		//execution
-		final var result = testUnit.getOriGroups(String::length);
+		final var result = testUnit.getStoredGroups(String::length);
 		
 		//verification
 		expect(result).isEmpty();
@@ -669,45 +669,45 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriGroups_1A() {
+	public final void testCase_getStoredGroups_1A() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "y", "x", "y", "x", "y");
 		
 		//execution
-		final var result = testUnit.getOriGroups(String::length);
+		final var result = testUnit.getStoredGroups(String::length);
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(1);
-		expect(result.getOriOne()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
+		expect(result.getStoredOne()).containsExactlyEqualing("x", "y", "x", "y", "x", "y");
 	}
 	
 	//method
 	@TestCase
-	public final void testCase_getOriGroups_1B() {
+	public final void testCase_getStoredGroups_1B() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 		
 		//execution
-		final var result = testUnit.getOriGroups(String::length);
+		final var result = testUnit.getStoredGroups(String::length);
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);
-		expect(result.getOriAt1BasedIndex(1)).containsExactlyEqualing("x", "y");
-		expect(result.getOriAt1BasedIndex(2)).containsExactlyEqualing("xx", "yy");
-		expect(result.getOriAt1BasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
+		expect(result.getStoredAt1BasedIndex(1)).containsExactlyEqualing("x", "y");
+		expect(result.getStoredAt1BasedIndex(2)).containsExactlyEqualing("xx", "yy");
+		expect(result.getStoredAt1BasedIndex(3)).containsExactlyEqualing("xxx", "yyy");
 	}
 	
 	//method
 	@TestCase
-	public final void testCase_getOriOne_whenDoesNotContainAMatchingElement() {
+	public final void testCase_getStoredOne_whenDoesNotContainAMatchingElement() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution & verification
-		expectRunning(() -> testUnit.getOriOne(e -> e.length() == 7))
+		expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 7))
 		.throwsException()
 		.ofType(InvalidArgumentException.class)
 		.withMessage(
@@ -719,13 +719,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriOne_whenContainsOneMatchingElement() {
+	public final void testCase_getStoredOne_whenContainsOneMatchingElement() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriOne(e -> e.length() == 3);
+		final var result = testUnit.getStoredOne(e -> e.length() == 3);
 		
 		//verification
 		expect(result).isEqualTo("xxx");
@@ -733,13 +733,13 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriOne_whenContainsSeveralMatchingElements() {
+	public final void testCase_getStoredOne_whenContainsSeveralMatchingElements() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "y", "xx", "yy", "xxx", "yyy");
 		
 		//execution & verification
-		expectRunning(() -> testUnit.getOriOne(e -> e.length() == 3))
+		expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 3))
 		.throwsException()
 		.ofType(InvalidArgumentException.class)
 		.withMessage(
@@ -751,30 +751,30 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriSelected_1A() {
+	public final void testCase_getStoredSelected_1A() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriSelected(e -> e.length() < 4);
+		final var result = testUnit.getStoredSelected(e -> e.length() < 4);
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(3);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("x");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("xx");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("xxx");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
 	}
 	
 	//method
 	@TestCase
-	public final void testCase_getOriSelected_1B() {
+	public final void testCase_getStoredSelected_1B() {
 		
 		//setup
 		final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 		
 		//execution
-		final var result = testUnit.getOriSelected(e -> e.length() > 6);
+		final var result = testUnit.getStoredSelected(e -> e.length() > 6);
 		
 		//verification
 		expect(result.isEmpty());
@@ -854,12 +854,12 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(6);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("x");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("xx");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("xxx");
-		expect(result.getOriAt1BasedIndex(4)).isEqualTo("xxxx");
-		expect(result.getOriAt1BasedIndex(5)).isEqualTo("xxxxx");
-		expect(result.getOriAt1BasedIndex(6)).isEqualTo("xxxxxx");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
+		expect(result.getStoredAt1BasedIndex(4)).isEqualTo("xxxx");
+		expect(result.getStoredAt1BasedIndex(5)).isEqualTo("xxxxx");
+		expect(result.getStoredAt1BasedIndex(6)).isEqualTo("xxxxxx");
 	}
 	
 	//method
@@ -874,12 +874,12 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(6);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("elephant");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("jaguar");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("lion");
-		expect(result.getOriAt1BasedIndex(4)).isEqualTo("python");
-		expect(result.getOriAt1BasedIndex(5)).isEqualTo("shark");
-		expect(result.getOriAt1BasedIndex(6)).isEqualTo("zebra");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("elephant");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("jaguar");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("lion");
+		expect(result.getStoredAt1BasedIndex(4)).isEqualTo("python");
+		expect(result.getStoredAt1BasedIndex(5)).isEqualTo("shark");
+		expect(result.getStoredAt1BasedIndex(6)).isEqualTo("zebra");
 	}
 	
 	//method
@@ -914,12 +914,12 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(6);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("10");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("20");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("30");
-		expect(result.getOriAt1BasedIndex(4)).isEqualTo("40");
-		expect(result.getOriAt1BasedIndex(5)).isEqualTo("50");
-		expect(result.getOriAt1BasedIndex(6)).isEqualTo("60");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("10");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("20");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("30");
+		expect(result.getStoredAt1BasedIndex(4)).isEqualTo("40");
+		expect(result.getStoredAt1BasedIndex(5)).isEqualTo("50");
+		expect(result.getStoredAt1BasedIndex(6)).isEqualTo("60");
 	}
 	
 	//method
@@ -948,11 +948,11 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(5);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("x");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("xx");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("xxx");
-		expect(result.getOriAt1BasedIndex(4)).isEqualTo("xxxx");
-		expect(result.getOriAt1BasedIndex(5)).isEqualTo("xxxxx");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("x");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xx");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxx");
+		expect(result.getStoredAt1BasedIndex(4)).isEqualTo("xxxx");
+		expect(result.getStoredAt1BasedIndex(5)).isEqualTo("xxxxx");
 	}
 	
 	//method
@@ -995,11 +995,11 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result.getElementCount()).isEqualTo(5);
-		expect(result.getOriAt1BasedIndex(1)).isEqualTo("xx");
-		expect(result.getOriAt1BasedIndex(2)).isEqualTo("xxx");
-		expect(result.getOriAt1BasedIndex(3)).isEqualTo("xxxx");
-		expect(result.getOriAt1BasedIndex(4)).isEqualTo("xxxxx");
-		expect(result.getOriAt1BasedIndex(5)).isEqualTo("xxxxxx");
+		expect(result.getStoredAt1BasedIndex(1)).isEqualTo("xx");
+		expect(result.getStoredAt1BasedIndex(2)).isEqualTo("xxx");
+		expect(result.getStoredAt1BasedIndex(3)).isEqualTo("xxxx");
+		expect(result.getStoredAt1BasedIndex(4)).isEqualTo("xxxxx");
+		expect(result.getStoredAt1BasedIndex(5)).isEqualTo("xxxxxx");
 	}
 	
 	//method declaration

@@ -17,10 +17,10 @@ public interface IHtmlElement<HE extends IHtmlElement<HE, A>, A extends IHtmlAtt
 	String getInnerText();
 	
 	//method declaration
-	IContainer<A> getOriAttributes();
+	IContainer<A> getStoredAttributes();
 	
 	//method declaration
-	IContainer<HE> getOriChildElements();
+	IContainer<HE> getStoredChildElements();
 	
 	//method declaration
 	String getType();

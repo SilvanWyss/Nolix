@@ -34,7 +34,7 @@ public final class GuiBackgroundColorGradientTutorial {
 		protected void initialize() {
 			
 			//Sets a background ColorGradient to the GUI of the current MainSession.
-			getOriGui().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
+			getStoredGui().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
 		}
 	}
 	

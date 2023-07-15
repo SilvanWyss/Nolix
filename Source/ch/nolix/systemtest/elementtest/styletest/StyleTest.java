@@ -60,8 +60,8 @@ public final class StyleTest extends Test {
 		expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing("p1(v1)", "p2(v2)");
 		final var subStyles = result.getSubStyles();
 		expect(subStyles).hasElementCount(2);
-		expect(subStyles.getOriAt1BasedIndex(1)).is(subStyle1);
-		expect(subStyles.getOriAt1BasedIndex(2)).is(subStyle2);
+		expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);
+		expect(subStyles.getStoredAt1BasedIndex(2)).is(subStyle2);
 	}
 	
 	//method
@@ -91,9 +91,9 @@ public final class StyleTest extends Test {
 		.containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
 		final var subStyles = result.getSubStyles();
 		expect(subStyles).hasElementCount(4);
-		expect(subStyles.getOriAt1BasedIndex(1)).is(subStyle1);
-		expect(subStyles.getOriAt1BasedIndex(2)).is(subStyle2);
-		expect(subStyles.getOriAt1BasedIndex(3)).is(subStyle3);
-		expect(subStyles.getOriAt1BasedIndex(4)).is(subStyle4);
+		expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);
+		expect(subStyles.getStoredAt1BasedIndex(2)).is(subStyle2);
+		expect(subStyles.getStoredAt1BasedIndex(3)).is(subStyle3);
+		expect(subStyles.getStoredAt1BasedIndex(4)).is(subStyle4);
 	}
 }

@@ -41,7 +41,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsNewAndEmpty() {
+	public void testCase_getStoredEntity_whenIsNewAndEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -57,7 +57,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsNewAndNotEmpty() {
+	public void testCase_getStoredEntity_whenIsNewAndNotEmpty() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -79,7 +79,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriEntity_whenIsLoaded() {
+	public void testCase_getStoredEntity_whenIsLoaded() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
@@ -95,7 +95,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		
 		//execution
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var result = loadedGarfield.owner.getBackReferencedEntity();
 		
 		//verification
@@ -136,7 +136,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		
 		//setup part 2
 		final var loadedJohn =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		loadedJohn.delete();
 		
 		//execution & verification
@@ -163,12 +163,12 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var bello = new Pet();
 		nodeDatabaseAdapter.insert(bello);
 		final var loadedJohn =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(john.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		loadedJohn.pet.setEntity(bello);
 		
 		//setup verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getOriTableByEntityType(Pet.class).getOriEntityById(garfield.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		expect(loadedGarfield.owner.isEmpty());
 		
 		//execution & verification

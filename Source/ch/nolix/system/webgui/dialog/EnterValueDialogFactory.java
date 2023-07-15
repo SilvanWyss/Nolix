@@ -48,7 +48,7 @@ public final class EnterValueDialogFactory {
 					new Button()
 					.setRole(ButtonRole.CANCEL_BUTTON)
 					.setText("Cancel")
-					.setLeftMouseButtonPressAction(b -> cancel(b.getOriParentLayer())),
+					.setLeftMouseButtonPressAction(b -> cancel(b.getStoredParentLayer())),
 					new Button()
 					.setRole(ButtonRole.CONFIRM_BUTTON)
 					.setText("Ok")
@@ -74,6 +74,6 @@ public final class EnterValueDialogFactory {
 		
 		valueTaker.run(newValue);
 		
-		confirmButton.getOriParentLayer().removeSelfFromGui();
+		confirmButton.getStoredParentLayer().removeSelfFromGui();
 	}
 }

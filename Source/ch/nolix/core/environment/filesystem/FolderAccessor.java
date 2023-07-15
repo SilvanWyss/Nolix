@@ -124,7 +124,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
 	public IContainer<FileAccessor> getFileAccessorsRecursively(final String extension) {
 		return
 		getFileAccessorsRecursively()
-		.getOriSelected(fa -> fa.hasExtension(extension));
+		.getStoredSelected(fa -> fa.hasExtension(extension));
 	}
 	
 	//method

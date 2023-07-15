@@ -75,10 +75,10 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 				
 				final var command = guiCommand.getNextNode();
 				final var internalControlId = guiCommand.getSingleChildNodeHeader();
-				final var session = (WebClientSession<AC>)getOriCurrentSession();
-				final var gui = session.getOriGui();
-				final var controls = gui.getOriControls();
-				final var control = controls.getOriFirstOrNull(c -> c.hasInternalId(internalControlId));
+				final var session = (WebClientSession<AC>)getStoredCurrentSession();
+				final var gui = session.getStoredGui();
+				final var controls = gui.getStoredControls();
+				final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
 				
 				//The control could be removed on the server in the meanwhile.
 				if (control != null) {
@@ -88,15 +88,15 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 				break;
 			case CommandProtocol.SET_USER_INPUTS:
 				
-				final var session2 = (WebClientSession<AC>)getOriCurrentSession();
-				final var gui2 = session2.getOriGui();
-				final var controls2 = gui2.getOriControls();
+				final var session2 = (WebClientSession<AC>)getStoredCurrentSession();
+				final var gui2 = session2.getStoredGui();
+				final var controls2 = gui2.getStoredControls();
 				
 				for (final var p : guiCommand.getChildNodes()) {
 					
 					final var internalControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
 					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-					final var control2 = controls2.getOriFirstOrNull(c -> c.hasInternalId(internalControlId2));
+					final var control2 = controls2.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId2));
 					
 					//The control could be removed on the server in the meanwhile.
 					if (control2 != null) {
@@ -121,7 +121,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	//method
 	private void updateCounterpartIfOpen() {
 		if (isOpen()) {
-			((WebClientSession<AC>)getOriCurrentSession()).updateCounterpart();
+			((WebClientSession<AC>)getStoredCurrentSession()).updateCounterpart();
 		}
 	}
 }

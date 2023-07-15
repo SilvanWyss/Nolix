@@ -31,6 +31,6 @@ public final class SingleContainerTest extends Test {
 		
 		//verification
 		expect(result.containsAny());
-		expect(result.getOriElement()).is(garfield);
+		expect(result.getStoredElement()).is(garfield);
 	}
 }

@@ -42,7 +42,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 			mutableNode.setHeader(node.getHeader());
 		}
 		
-		mutableNode.addChildNodes(node.getOriChildNodes());
+		mutableNode.addChildNodes(node.getStoredChildNodes());
 		
 		return mutableNode;
 	}
@@ -129,7 +129,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 */
 	@Override
 	public INode<?> asWithHeader(String header) {
-		return Node.withHeaderAndChildNodes(header, getOriChildNodes());
+		return Node.withHeaderAndChildNodes(header, getStoredChildNodes());
 	}
 	
 	//method
@@ -151,7 +151,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IContainer<MutableNode> getOriChildNodes() {
+	public IContainer<MutableNode> getStoredChildNodes() {
 		return childNodes;
 	}
 	

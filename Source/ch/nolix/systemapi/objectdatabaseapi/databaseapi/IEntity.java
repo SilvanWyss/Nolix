@@ -17,10 +17,10 @@ public interface IEntity extends Deletable, IDatabaseObject, Identified, ShortDe
 	String getParentTableName();
 	
 	//method declaration
-	IDatabase getOriParentDatabase();
+	IDatabase getStoredParentDatabase();
 	
 	//method declaration
-	ITable<IEntity> getOriParentTable();
+	ITable<IEntity> getStoredParentTable();
 	
 	//method declaration
 	String getSaveStamp();

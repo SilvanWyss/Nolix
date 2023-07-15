@@ -28,7 +28,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 		
 		mutableXmlNode.addAttributes(pXmlNode.getAttributes());
 		
-		for (final var cn : pXmlNode.getOriChildNodes()) {
+		for (final var cn : pXmlNode.getStoredChildNodes()) {
 			mutableXmlNode.addChildNode(fromXmlNode(cn));
 		}
 		
@@ -72,7 +72,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 		
 		if (mutableXmlNode.containsChildNodes()) {
 			
-			for (final var cn : mutableXmlNode.getOriChildNodes()) {
+			for (final var cn : mutableXmlNode.getStoredChildNodes()) {
 				stringBuilder
 				.append(CharacterCatalogue.NEW_LINE)
 				.append(toFormatedString(cn, leadingTabulatorCount + 1));
@@ -212,7 +212,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 	
 	//method
 	@Override
-	public IContainer<IMutableXmlNode> getOriChildNodes() {
+	public IContainer<IMutableXmlNode> getStoredChildNodes() {
 		return childNodes;
 	}
 	
@@ -339,7 +339,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
 		}
 		
 		if (containsChildNodes()) {
-			for (final var cn : getOriChildNodes()) {
+			for (final var cn : getStoredChildNodes()) {
 				stringBuilder
 				.append(cn.toString());
 			}

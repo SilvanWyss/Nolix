@@ -126,7 +126,7 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
 	 */
 	private E nextWhenHasNext() {
 		
-		final var element = parentMatrix.getOriAt1BasedIndex(nextElement1BasedIndex);
+		final var element = parentMatrix.getStoredAt1BasedIndex(nextElement1BasedIndex);
 		
 		nextElement1BasedIndex++;
 		

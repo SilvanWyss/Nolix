@@ -39,7 +39,7 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
 			htmlAttributes.addAtEnd(
 				HtmlAttribute.withNameAndValue(
 					HtmlAttributeNameCatalogue.SRC,
-					"data:image/jpeg;base64," + imageControl.getOriImage().toJPGString()
+					"data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString()
 				)
 			);
 		}

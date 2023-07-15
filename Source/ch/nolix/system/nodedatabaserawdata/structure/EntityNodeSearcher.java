@@ -10,16 +10,16 @@ public final class EntityNodeSearcher {
 	
 	//method
 	public String getEntitySaveStampFromEntityNode(final IMutableNode<?> entityNode) {
-		return getOriSaveStampNodeFromEntityNode(entityNode).getSingleChildNodeHeader();
+		return getStoredSaveStampNodeFromEntityNode(entityNode).getSingleChildNodeHeader();
 	}
 	
 	//method
-	public IMutableNode<?> getOriIdNodeFromEntityNode(final IMutableNode<?> entityNode) {
-		return entityNode.getOriChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
+	public IMutableNode<?> getStoredIdNodeFromEntityNode(final IMutableNode<?> entityNode) {
+		return entityNode.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
 	}
 	
 	//method
-	public IMutableNode<?> getOriSaveStampNodeFromEntityNode(final IMutableNode<?> entityNode) {
-		return entityNode.getOriChildNodeAt1BasedIndex(FieldIndexCatalogue.SAVE_STAMP_INDEX);
+	public IMutableNode<?> getStoredSaveStampNodeFromEntityNode(final IMutableNode<?> entityNode) {
+		return entityNode.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.SAVE_STAMP_INDEX);
 	}
 }

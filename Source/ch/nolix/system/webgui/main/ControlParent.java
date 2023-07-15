@@ -70,7 +70,7 @@ final class ControlParent {
 	}
 	
 	//method
-	public IControl<?, ?> getOriControl() {
+	public IControl<?, ?> getStoredControl() {
 		
 		assertIsControl();
 		
@@ -78,7 +78,7 @@ final class ControlParent {
 	}
 	
 	//method
-	public Object getOriElement() {
+	public Object getStoredElement() {
 		
 		if (isControl()) {
 			return control;
@@ -88,13 +88,13 @@ final class ControlParent {
 	}
 	
 	//method
-	public ILayer<?> getOriRootLayer() {
+	public ILayer<?> getStoredRootLayer() {
 		
 		if (isLayer()) {
 			return layer;
 		}
 		
-		return control.getOriParentLayer();
+		return control.getStoredParentLayer();
 	}
 	
 	//method

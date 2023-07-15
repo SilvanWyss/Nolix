@@ -65,7 +65,7 @@ public final class WebGuiCssCreator {
 		final IWebGui<?> webGui,
 		final LinkedList<ICssRule<?>> cssRules
 	) {
-		for (final var l : webGui.getOriLayers()) {
+		for (final var l : webGui.getStoredLayers()) {
 			fillUpCssRulesOfLayerIntoList(l, cssRules);
 		}
 	}
@@ -75,7 +75,7 @@ public final class WebGuiCssCreator {
 		
 		cssRules.addAtEnd(layer.getCssRule());
 		
-		for (final var c : layer.getOriControls()) {
+		for (final var c : layer.getStoredControls()) {
 			cssRules.addAtEnd(c.getCssRules());
 		}
 	}

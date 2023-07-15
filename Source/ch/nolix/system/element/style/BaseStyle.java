@@ -106,7 +106,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
 	 */
 	protected final void letSubStylesStyleChildElementsOfElement(final IStylableElement<?> element) {
 		
-		final var childElements = element.getOriChildStylableElements();
+		final var childElements = element.getStoredChildStylableElements();
 		
 		getSubStyles().forEach(ss -> childElements.forEach(ss::styleElement));
 	}

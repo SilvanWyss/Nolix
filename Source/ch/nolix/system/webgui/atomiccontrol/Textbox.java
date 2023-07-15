@@ -70,7 +70,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 		//Info: Reset is technically optional, but required to achieve a custom state on reset.
 		reset();
 		
-		getOriStyle()
+		getStoredStyle()
 		.setBorderThicknessForState(ControlState.BASE, 1)
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
@@ -91,7 +91,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
 	

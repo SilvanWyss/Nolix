@@ -33,15 +33,15 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 	//method
 	@Override
 	public IContainer<IWebApplicationSheet> getWebApplicationSheets() {
-		return getOriWebApplications().to(WebApplicationSheet::forWebApplication);
+		return getStoredWebApplications().to(WebApplicationSheet::forWebApplication);
 	}
 	
 	//method
-	private IContainer<Application<WebClient<?>, ?>> getOriWebApplications() {
+	private IContainer<Application<WebClient<?>, ?>> getStoredWebApplications() {
 		
 		final var webApplications = new LinkedList<Application<WebClient<?>, ?>>();
 		
-		for (final var a : server.getOriApplications()) {
+		for (final var a : server.getStoredApplications()) {
 			if (isWebApplication(a)) {
 				
 				@SuppressWarnings("unchecked")

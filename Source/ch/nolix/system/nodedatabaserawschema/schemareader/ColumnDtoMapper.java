@@ -29,19 +29,19 @@ final class ColumnDtoMapper {
 	
 	//method
 	private String getIdFromColumnNode(final IMutableNode<?> columnNode) {
-		return COLUMN_NODE_SEARCHER.getOriIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private String getNameFromColumnNode(final IMutableNode<?> columnNode) {
-		return COLUMN_NODE_SEARCHER.getOriNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
+		return COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
 	}
 	
 	//method
 	private ParametrizedPropertyTypeDto createParametrizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
 		final var parametrizedPropertyTypeNode =
-		COLUMN_NODE_SEARCHER.getOriParametrizedPropertyTypeNodeFromColumnNode(columnNode);
+		COLUMN_NODE_SEARCHER.getStoredParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		return
 		PARAMETRIZED_PROPERTY_TYPE_DTO_MAPPER.createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(

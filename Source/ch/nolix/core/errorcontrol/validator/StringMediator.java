@@ -70,11 +70,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator does not have the given length.
-		if (getOriArgument().length() != length) {
+		if (getStoredArgument().length() != length) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"does not have the length " + length
 			);
 		}
@@ -91,11 +91,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is blank.
-		if (!getOriArgument().isBlank()) {
+		if (!getStoredArgument().isBlank()) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not blank"
 			);
 		}
@@ -112,8 +112,8 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not empty.
-		if (!getOriArgument().isEmpty()) {
-			throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
+		if (!getStoredArgument().isEmpty()) {
+			throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
 		}
 	}
 
@@ -128,8 +128,8 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not empty.
-		if (getOriArgument().isEmpty()) {
-			throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
+		if (getStoredArgument().isEmpty()) {
+			throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
 		}
 	}
 	
@@ -144,11 +144,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the the argument of the current StringMediator is not blank.
-		if (getOriArgument().isBlank()) {
+		if (getStoredArgument().isBlank()) {
 			throw 
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is blank"
 			);
 		}
@@ -167,11 +167,11 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not longer than the given max length says.
-		if (getOriArgument().length() > maxLength) {
+		if (getStoredArgument().length() > maxLength) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is longer than " + maxLength
 			);
 		}
@@ -190,12 +190,12 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator is not shorter than the given min length says.
-		if (getOriArgument().length() < minLength) {
+		if (getStoredArgument().length() < minLength) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
-				"has the length " + getOriArgument().length() + " and is therefore shorter than " + minLength
+				getStoredArgument(),
+				"has the length " + getStoredArgument().length() + " and is therefore shorter than " + minLength
 			);
 		}
 	}
@@ -211,8 +211,8 @@ public class StringMediator extends ArgumentMediator<String> {
 		isNotNull();
 		
 		//Asserts that the argument of the current StringMediator matches the given regularExpression.
-		if (!getOriArgument().matches(regularExpression)) {
-			throw InvalidArgumentException.forArgumentNameAndArgument(getArgumentName(), getOriArgument());
+		if (!getStoredArgument().matches(regularExpression)) {
+			throw InvalidArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
 		}
 	}
 	

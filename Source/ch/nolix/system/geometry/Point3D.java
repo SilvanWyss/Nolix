@@ -38,12 +38,12 @@ public class Point3D extends Element {
 	 */
 	public static Point3D fromSpecification(final INode<?> specification) {
 		
-		final var attributes = specification.getOriChildNodes();
+		final var attributes = specification.getStoredChildNodes();
 		
 		return new Point3D(
-			attributes.getOriAt1BasedIndex(1).toDouble(),
-			attributes.getOriAt1BasedIndex(2).toDouble(),
-			attributes.getOriAt1BasedIndex(3).toDouble()
+			attributes.getStoredAt1BasedIndex(1).toDouble(),
+			attributes.getStoredAt1BasedIndex(2).toDouble(),
+			attributes.getStoredAt1BasedIndex(3).toDouble()
 		);
 	}
 	

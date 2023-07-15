@@ -18,7 +18,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
-		&& optionalReference.getOriParentEntity().isOpen();
+		&& optionalReference.getStoredParentEntity().isOpen();
 	}
 	
 	//method
@@ -35,7 +35,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	@Override
 	public IEntityUpdateDto createEntityUpdateDtoForClear(final IOptionalReference<?> optionalReference) {
 		
-		final var parentEntity = optionalReference.getOriParentEntity();
+		final var parentEntity = optionalReference.getStoredParentEntity();
 		
 		return new EntityUpdateDto(
 			parentEntity.getId(),
@@ -51,7 +51,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		final IEntity entity
 	) {
 		
-		final var parentEntity = optionalReference.getOriParentEntity();
+		final var parentEntity = optionalReference.getStoredParentEntity();
 		
 		return new EntityUpdateDto(
 			parentEntity.getId(),
@@ -62,14 +62,14 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 	
 	//method
 	@Override
-	public  IProperty getOriBackReferencingPropertyOrNull(
+	public  IProperty getStoredBackReferencingPropertyOrNull(
 		final IOptionalReference<?> optionalReference
 	) {
 		return
 		optionalReference
 		.getReferencedEntity()
 		.technicalGetRefProperties()
-		.getOriFirstOrNull(p -> p.referencesBackProperty(optionalReference));
+		.getStoredFirstOrNull(p -> p.referencesBackProperty(optionalReference));
 	}
 	
 	//method
@@ -77,6 +77,6 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
 		return
 		optionalReference != null
 		&& optionalReference.belongsToEntity()
-		&& optionalReference.getOriParentEntity().isOpen();
+		&& optionalReference.getStoredParentEntity().isOpen();
 	}
 }

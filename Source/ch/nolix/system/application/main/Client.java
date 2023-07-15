@@ -53,7 +53,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
@@ -92,7 +92,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return the name of the target {@link Application} of the current {@link Client}.
 	 */
 	public final String getTarget() {
-		return getOriEndPoint().getCustomTargetSlot();
+		return getStoredEndPoint().getCustomTargetSlot();
 	}
 	
 	//method
@@ -100,7 +100,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} has requested the connection.
 	 */
 	public final boolean hasRequestedConnection() {
-		return getOriEndPoint().isFrontendEndPoint();
+		return getStoredEndPoint().isFrontendEndPoint();
 	}
 	
 	//method
@@ -108,7 +108,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} has a target.
 	 */
 	public final boolean hasTarget() {
-		return getOriEndPoint().hasCustomTargetSlot();
+		return getStoredEndPoint().hasCustomTargetSlot();
 	}
 	
 	//method declaration
@@ -126,7 +126,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 		/*
 		 * The end point of the current Client can be requested only when the current Client is connected.
 		 */
-		return (isConnected() && getOriEndPoint().isClosed());
+		return (isConnected() && getStoredEndPoint().isClosed());
 	}
 	
 	//method declaration
@@ -140,7 +140,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} is a local {@link Client}.
 	 */
 	public final boolean isLocalClient() {
-		return getOriEndPoint().isLocalEndPoint();
+		return getStoredEndPoint().isLocalEndPoint();
 	}
 	
 	//method
@@ -148,7 +148,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return true if the current {@link Client} is a net {@link Client}.
 	 */
 	public final boolean isNetClient() {
-		return getOriEndPoint().isSocketEndPoint();
+		return getStoredEndPoint().isSocketEndPoint();
 	}
 	
 	//method
@@ -157,7 +157,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	public final boolean isWebClient() {
-		return getOriEndPoint().isWebSocketEndPoint();
+		return getStoredEndPoint().isWebSocketEndPoint();
 	}
 	
 	//method
@@ -190,7 +190,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final INode<?> getDataFromCounterpart(final IChainedNode request) {
-		return getOriEndPoint().getDataForRequest(request);
+		return getStoredEndPoint().getDataForRequest(request);
 	}
 	
 	//method declaration
@@ -224,7 +224,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void runOnCounterpart(final IChainedNode command) {
-		getOriEndPoint().runCommand(command);
+		getStoredEndPoint().runCommand(command);
 	}
 	
 	//method
@@ -236,7 +236,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void runOnCounterpart(final ChainedNode command, final ChainedNode... commands) {
-		getOriEndPoint().runCommands(command, commands);
+		getStoredEndPoint().runCommands(command, commands);
 	}
 	
 	//method
@@ -247,7 +247,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
 	protected final void runOnCounterpart(final Iterable<? extends IChainedNode> commands) {
-		getOriEndPoint().runCommands(commands);
+		getStoredEndPoint().runCommands(commands);
 	}
 	
 	//method
@@ -310,7 +310,7 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 	 * @return the {@link EndPoint} of the current {@link Client}.
 	 * @throws UnconnectedArgumentException if the current {@link Client} is not connected.
 	 */
-	private IEndPoint getOriEndPoint() {
+	private IEndPoint getStoredEndPoint() {
 		
 		assertIsConnected();
 		

@@ -15,7 +15,7 @@ public final class NodeDatabaseAdapterTutorial {
 		
 		@Override
 		public String toString() {
-			return (firstName.getOriValue() + " " + lastName.getOriValue());
+			return (firstName.getStoredValue() + " " + lastName.getStoredValue());
 		}
 	}
 	
@@ -36,7 +36,7 @@ public final class NodeDatabaseAdapterTutorial {
 		nodeDatabaseAdapter.saveChangesAndReset();
 		
 		final var loadedDonaldDuck =
-		nodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(donaldDuck.getId());
+		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());
 		
 		System.out.println(loadedDonaldDuck.toString());
 	}

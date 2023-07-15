@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
 	
 	//method declaration
-	IMutableImage<?> getOriImage();
+	IMutableImage<?> getStoredImage();
 	
 	//method declaration
 	boolean hasLeftMouseButtonPressAction();

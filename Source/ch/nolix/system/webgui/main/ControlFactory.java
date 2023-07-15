@@ -63,6 +63,6 @@ final class ControlFactory {
 	
 	//method
 	private Class<Control<?, ?>> getControlClassByName(final String name) {
-		return controlClasses.getOriFirst(cc -> cc.getSimpleName().equals(name));
+		return controlClasses.getStoredFirst(cc -> cc.getSimpleName().equals(name));
 	}
 }

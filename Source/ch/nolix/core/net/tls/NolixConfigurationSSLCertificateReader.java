@@ -42,7 +42,7 @@ public final class NolixConfigurationSSLCertificateReader {
 	private String getDefaultDomainFromDefaultCertificateConfiguration(final INode<?> defaultSSLCertificateConfiguration) {
 		return
 		defaultSSLCertificateConfiguration
-		.getOriFirstChildNodeWithHeader(DOMAIN_HEADER)
+		.getStoredFirstChildNodeWithHeader(DOMAIN_HEADER)
 		.getSingleChildNodeHeader();
 	}
 	
@@ -50,7 +50,7 @@ public final class NolixConfigurationSSLCertificateReader {
 	private String getDefaultDomainFromNolixConfiguration(final INode<?> nolixConfiguration) {
 		
 		final var defaultSSLCertificateConfiguration =
-		nolixConfiguration.getOriFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
+		nolixConfiguration.getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 		
 		return getDefaultDomainFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
 	}
@@ -62,12 +62,12 @@ public final class NolixConfigurationSSLCertificateReader {
 		
 		final var publicKeyPEMFilePath =
 		defaultSSLCertificateConfiguration
-		.getOriFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
+		.getStoredFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
 		.getSingleChildNodeHeader();
 		
 		final var privateKeyPEMFilePath =
 		defaultSSLCertificateConfiguration
-		.getOriFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
+		.getStoredFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
 		.getSingleChildNodeHeader();
 						
 		return new SSLCertificate(publicKeyPEMFilePath, privateKeyPEMFilePath);
@@ -77,7 +77,7 @@ public final class NolixConfigurationSSLCertificateReader {
 	private ISSLCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
 		
 		final var defaultSSLCertificateConfiguration =
-		nolixConfiguration.getOriFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
+		nolixConfiguration.getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 		
 		return getDefaultSSLCertificateFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
 	}

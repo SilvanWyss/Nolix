@@ -78,7 +78,7 @@ public final class TestRun {
 		
 		//main phase
 		final var testCaseResults = new List<TestCaseResult>();
-		for (final var tc : getOriTestCasesOrderedAlphabetically()) {
+		for (final var tc : getStoredTestCasesOrderedAlphabetically()) {
 			
 			final var testCaseResult = new TestCaseRun(parentTest, tc).runAndGetResult();
 			
@@ -95,8 +95,8 @@ public final class TestRun {
 	}
 	
 	//method
-	private List<Method> getOriTestCasesOrderedAlphabetically() {
-		return parentTest.getOriTestCasesOrderedAlphabetically();
+	private List<Method> getStoredTestCasesOrderedAlphabetically() {
+		return parentTest.getStoredTestCasesOrderedAlphabetically();
 	}
 	
 	//method

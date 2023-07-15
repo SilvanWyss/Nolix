@@ -43,7 +43,7 @@ public final class LinkTutorial {
 			.setUrl("https://nolix.ch");
 			
 			//Adds the Link to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(link);
+			getStoredGui().pushLayerWithRootControl(link);
 		}
 	}
 	

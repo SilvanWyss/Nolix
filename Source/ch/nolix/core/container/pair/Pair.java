@@ -53,7 +53,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E1 getOriElement1() {
+	public E1 getStoredElement1() {
 		return element1;
 	}
 	
@@ -62,7 +62,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E2 getOriElement2() {
+	public E2 getStoredElement2() {
 		return element2;
 	}
 	
@@ -90,6 +90,6 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
 	 */
 	@Override
 	public String toString() {
-		return ("(" + getOriElement1() + "," + getOriElement2() + ")");
+		return ("(" + getStoredElement1() + "," + getStoredElement2() + ")");
 	}
 }

@@ -61,16 +61,16 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 	
 	//method
 	@Override
-	public IProperty getOriBackReferencingPropertyOrNull() {
+	public IProperty getStoredBackReferencingPropertyOrNull() {
 		return
 		getReferencedEntity()
 		.technicalGetRefProperties()
-		.getOriFirstOrNull(p -> p.referencesBackProperty(getOriParentMultiReference()));
+		.getStoredFirstOrNull(p -> p.referencesBackProperty(getStoredParentMultiReference()));
 	}
 	
 	//method
 	@Override
-	public IMultiReference<E> getOriParentMultiReference() {
+	public IMultiReference<E> getStoredParentMultiReference() {
 		return parentMultiReference;
 	}
 	
@@ -78,7 +78,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 	@Override
 	public DatabaseObjectState getState() {
 		return
-		switch (getOriParentMultiReference().getState()) {
+		switch (getStoredParentMultiReference().getState()) {
 			case DELETED ->
 				DatabaseObjectState.DELETED;
 			case CLOSED ->
@@ -91,7 +91,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 	//method
 	@Override
 	public E getReferencedEntity() {
-		return getOriParentMultiReference().getReferencedTable().getOriEntityById(getReferencedEntityId());
+		return getStoredParentMultiReference().getReferencedTable().getStoredEntityById(getReferencedEntityId());
 	}
 	
 	//method
@@ -103,19 +103,19 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 	//method
 	@Override
 	public boolean isClosed() {
-		return getOriParentMultiReference().isClosed();
+		return getStoredParentMultiReference().isClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isDeleted() {
-		return getOriParentMultiReference().isDeleted();
+		return getStoredParentMultiReference().isDeleted();
 	}
 	
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return getOriParentMultiReference().isLinkedWithRealDatabase();
+		return getStoredParentMultiReference().isLinkedWithRealDatabase();
 	}
 	
 	//method

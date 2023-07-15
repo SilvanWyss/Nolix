@@ -54,7 +54,7 @@ public final class Background extends Element implements IBackground {
 	//static method
 	public static Background fromSpecification(final INode<?> specification) {
 		
-		final var childNode = specification.getOriFirstChildNode();
+		final var childNode = specification.getStoredFirstChildNode();
 		
 		return
 		switch (childNode.getHeader()) {
@@ -64,8 +64,8 @@ public final class Background extends Element implements IBackground {
 				withColorGradient(ColorGradient.fromSpecification(childNode));
 			case IMAGE_HEADER ->
 				withImageAndImageApplication(
-					Image.fromSpecification(specification.getOriChildNodeAt1BasedIndex(1)),
-					ImageApplication.fromSpecification(specification.getOriChildNodeAt1BasedIndex(2))
+					Image.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(1)),
+					ImageApplication.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(2))
 				);
 			case TRANSPARENCY_HEADER ->
 				TRANSPARENT_BACKGROUND;

@@ -36,12 +36,12 @@ public final class CookieTutorial {
 		@Override
 		protected void initialize() {
 			
-			final var input = getOriParentClient().getCookieValueByCookieNameOrNull("input");
+			final var input = getStoredParentClient().getCookieValueByCookieNameOrNull("input");
 			if (input != null) {
 				textbox.setText(input);
 			}
 			
-			getOriGui().pushLayerWithRootControl(
+			getStoredGui().pushLayerWithRootControl(
 				new HorizontalStack()
 				.addControl(
 					textbox,
@@ -54,7 +54,7 @@ public final class CookieTutorial {
 		
 		private void saveInputInCookie() {
 			
-			getOriParentClient().setOrAddCookieWithNameAndValue("input", textbox.getText());
+			getStoredParentClient().setOrAddCookieWithNameAndValue("input", textbox.getText());
 			
 			ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 		}

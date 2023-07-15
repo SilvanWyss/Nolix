@@ -58,7 +58,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		
 		//Iterates the arguments of this multi double mediator.
 		var i = 1;
-		for (final double a : getOriArguments()) {
+		for (final double a : getStoredArguments()) {
 			
 			//Asserts that the current argument is bigger than the given value.
 			if (a <= value) {
@@ -89,7 +89,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	
 		//Iterates the arguments of this multi double mediator.
 		var i = 1;
-		for (final double a : getOriArguments()) {
+		for (final double a : getStoredArguments()) {
 			
 			//Asserts that the current arguemnt is negative.
 			if (a > 0) {
@@ -115,7 +115,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		
 		//Iterates the arguments of this multi double mediator.
 		var i = 1;
-		for (final double a : getOriArguments()) {
+		for (final double a : getStoredArguments()) {
 			
 			//Asserts that the current argument is positive.
 			if (a <= 0) {
@@ -141,7 +141,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 		
 		//Iterates the arguments of this multi double mediator.
 		var i = 1;
-		for (final double a : getOriArguments()) {
+		for (final double a : getStoredArguments()) {
 			
 			//Asserts that the current argument is smaller than the given value.
 			if (a >= value) {

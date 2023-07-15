@@ -96,7 +96,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public CloseController getOriCloseController() {
+	public CloseController getStoredCloseController() {
 		return closeController;
 	}
 	

@@ -44,6 +44,6 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
 	
 	//method
 	public final int getPort() {
-		return getOriArgument();
+		return getStoredArgument();
 	}
 }

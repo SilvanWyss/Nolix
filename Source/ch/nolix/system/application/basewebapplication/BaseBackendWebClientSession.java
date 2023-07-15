@@ -15,11 +15,11 @@ extends Session<BBWC, AC> {
 	
 	//method
 	protected final IFrontEndReader createFrontendReader() {
-		return BaseBackendWebClientFrontendReader.forBackendWebClient(getOriParentClient());
+		return BaseBackendWebClientFrontendReader.forBackendWebClient(getStoredParentClient());
 	}
 	
 	//method
 	protected final IFrontEndWriter createFrontendWriter() {
-		return BaseBackendWebClientFrontendWriter.forBackendWebClient(getOriParentClient());
+		return BaseBackendWebClientFrontendWriter.forBackendWebClient(getStoredParentClient());
 	}
 }

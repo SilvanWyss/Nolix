@@ -189,6 +189,6 @@ public final class Fractal implements IFractal {
 		final var imageBuilder = startImageGeneration();
 		imageBuilder.waitUntilIsFinishedSuccessfully();
 		
-		return imageBuilder.getOriImage();
+		return imageBuilder.getStoredImage();
 	}
 }

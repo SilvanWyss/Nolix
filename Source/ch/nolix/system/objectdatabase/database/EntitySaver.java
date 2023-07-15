@@ -68,7 +68,7 @@ public final class EntitySaver {
 	//method
 	private void saveEntityDeletion(final IEntity deletedEntity, final Database database) {
 		database.internalGetRefDataAndSchemaAdapter().deleteEntity(
-			deletedEntity.getOriParentTable().getName(),
+			deletedEntity.getStoredParentTable().getName(),
 			ENTITY_HELPER.createEntityHeadDtoForEntity(deletedEntity)
 		);
 	}

@@ -162,7 +162,7 @@ public final class NetEndPoint extends EndPoint {
 		
 		final var requests = ImmutableList.withElement(request);
 		
-		return getDataForRequests(requests).getOriOne();
+		return getDataForRequests(requests).getStoredOne();
 	}
 	
 	//method
@@ -196,7 +196,7 @@ public final class NetEndPoint extends EndPoint {
 		return
 		switch (reply.getHeader()) {
 			case NetEndPointProtocol.MULTI_DATA_HEADER ->
-				reply.getOriChildNodes();
+				reply.getStoredChildNodes();
 			case NetEndPointProtocol.ERROR_HEADER ->
 				throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
 			default ->
@@ -307,7 +307,7 @@ public final class NetEndPoint extends EndPoint {
 	private String receiveAndGetReply(final ChainedNode message) {
 		
 		//Gets the receiver controller of the current NetEndPoint.
-		final var receiverController = getOriReceiverController();
+		final var receiverController = getStoredReceiverController();
 		
 		//Enumerates the header of the given message.
 		switch (message.getHeader()) {

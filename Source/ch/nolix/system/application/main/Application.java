@@ -70,7 +70,7 @@ implements IApplication<AC> {
 	@Override
 	public final IApplicationInstanceTarget asTarget() {
 		
-		final var serverTarget = getOriParentServer().asTarget();
+		final var serverTarget = getStoredParentServer().asTarget();
 		
 		return asTargetWithServerTarget(serverTarget);
 	}
@@ -124,7 +124,7 @@ implements IApplication<AC> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final AC getOriApplicationContext() {
+	public final AC getStoredApplicationContext() {
 		return applicationContext;
 	}
 	
@@ -132,7 +132,7 @@ implements IApplication<AC> {
 	/**
 	 * @return the {@link Client}s of the current {@link Application}.
 	 */
-	public final IContainer<BC> getOriClients() {
+	public final IContainer<BC> getStoredClients() {
 		
 		removeClosedClients();
 		
@@ -144,7 +144,7 @@ implements IApplication<AC> {
 	 * @return true if the current {@link Application} has a {@link Client} connected.
 	 */
 	public final boolean hasClientConnected() {
-		return getOriClients().containsAny();
+		return getStoredClients().containsAny();
 	}
 	
 	//method
@@ -257,7 +257,7 @@ implements IApplication<AC> {
 	 */
 	private void assertDoesNotBelongToServer() {
 		if (belongsToServer()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentServer());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentServer());
 		}
 	}
 	
@@ -325,7 +325,7 @@ implements IApplication<AC> {
 	 * @throws ArgumentDoesNotBelongToParentException if
 	 * the current {@link Application} does not belong to a {@link BaseServer}.
 	 */
-	private BaseServer getOriParentServer() {
+	private BaseServer getStoredParentServer() {
 		
 		assertBelongsToServer();
 		

@@ -14,7 +14,7 @@ public final class MsSqlDatabaseAdapterTutorial {
 		
 		@Override
 		public String toString() {
-			return (firstName.getOriValue() + " " + lastName.getOriValue());
+			return (firstName.getStoredValue() + " " + lastName.getStoredValue());
 		}
 	}
 	
@@ -39,7 +39,7 @@ public final class MsSqlDatabaseAdapterTutorial {
 		msSqlNodeDatabaseAdapter.saveChangesAndReset();
 		
 		final var loadedDonaldDuck =
-		msSqlNodeDatabaseAdapter.getOriTableByEntityType(Person.class).getOriEntityById(donaldDuck.getId());
+		msSqlNodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());
 		
 		System.out.println(loadedDonaldDuck.toString());
 	}

@@ -31,6 +31,6 @@ final class CachingContainerIterator<E> implements CopyableIterator<E> {
 	//method
 	@Override
 	public E next() {
-		return parentCachingContainerIterator.next().getOriElement2();
+		return parentCachingContainerIterator.next().getStoredElement2();
 	}
 }

@@ -24,7 +24,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
 		final Object value
 	) {
 		
-		final var parentEntity = optionalValue.getOriParentEntity();
+		final var parentEntity = optionalValue.getStoredParentEntity();
 		
 		return
 		new EntityUpdateDto(

@@ -53,7 +53,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 		final LinkedList<ICssProperty> list
 	) {
 		
-		var style = control.getOriStyle();
+		var style = control.getStoredStyle();
 		
 		list.addAtEnd(
 			CssProperty.withNameAndValue(
@@ -120,7 +120,7 @@ extends ControlCssRuleBuilder<EC, ECS> {
 		final LinkedList<ICssProperty> list
 	) {
 		
-		var style = control.getOriStyle();
+		var style = control.getStoredStyle();
 		
 		if (style.definesWidthForState(state)) {
 			list.addAtEnd(

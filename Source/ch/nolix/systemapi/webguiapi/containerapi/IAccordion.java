@@ -25,10 +25,10 @@ public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IC
 	ILinearContainerStyle<?> getHeaderStyle();
 	
 	//method declaration
-	IAccordionTab getOriTabByHeader(String header);
+	IAccordionTab getStoredTabByHeader(String header);
 	
 	//method declaration
-	IContainer<IAccordionTab> getOriTabs();
+	IContainer<IAccordionTab> getStoredTabs();
 	
 	//method declaration
 	int getTabCount();

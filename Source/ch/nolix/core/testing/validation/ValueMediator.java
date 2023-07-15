@@ -45,13 +45,13 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isEqualTo(final Object value) {
 		
-		if (getOriValue() == null && value != null) {
+		if (getStoredValue() == null && value != null) {
 			addCurrentTestCaseError("A value that equals '" + value + "' was expected, but null was received.");
 		}
 		
-		if (getOriValue() != null && !getOriValue().equals(value)) {
+		if (getStoredValue() != null && !getStoredValue().equals(value)) {
 			addCurrentTestCaseError(
-				"A value that equals '" + value + "' was expected, but '" + getOriValue() + "' was received."
+				"A value that equals '" + value + "' was expected, but '" + getStoredValue() + "' was received."
 			);
 		}
 	}
@@ -64,13 +64,13 @@ public class ValueMediator<V> extends Mediator {
 	 */
 	public final void isNotEqualTo(final Object value) {
 
-		if (getOriValue() == null && value == null) {
+		if (getStoredValue() == null && value == null) {
 			addCurrentTestCaseError("A value that is not null was expected, but null was received.");
 		}
 		
-		if (getOriValue() != null && getOriValue().equals(value)) {
+		if (getStoredValue() != null && getStoredValue().equals(value)) {
 			addCurrentTestCaseError(
-				"A value that does not equal '" + value + "' was expected, but " + getOriValue() + " was received."
+				"A value that does not equal '" + value + "' was expected, but " + getStoredValue() + " was received."
 			);
 		}
 	}
@@ -89,9 +89,9 @@ public class ValueMediator<V> extends Mediator {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
 		
-		if (!condition.getOutput(getOriValue())) {
+		if (!condition.getOutput(getStoredValue())) {
 			addCurrentTestCaseError(
-				"A value that fulfils the given condition was expected, but '" + getOriValue() + "' was received."
+				"A value that fulfils the given condition was expected, but '" + getStoredValue() + "' was received."
 			);
 		}
 	}
@@ -110,10 +110,10 @@ public class ValueMediator<V> extends Mediator {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
 		}
 		
-		if (condition.getOutput(getOriValue())) {
+		if (condition.getOutput(getStoredValue())) {
 			addCurrentTestCaseError(
 				"A value that does not fulfil the given condition was expected, but '"
-				+ getOriValue()
+				+ getStoredValue()
 				+ "' was received."
 			);
 		}
@@ -129,7 +129,7 @@ public class ValueMediator<V> extends Mediator {
 		
 		isNotNull();
 		
-		final var actualStringRepresentation = getOriValue().toString();
+		final var actualStringRepresentation = getStoredValue().toString();
 		
 		if (actualStringRepresentation == null && stringRepresentation == null) {
 			return;
@@ -161,12 +161,12 @@ public class ValueMediator<V> extends Mediator {
 		
 		isNotNull();
 		
-		if (!type.isAssignableFrom(getOriValue().getClass())) {
+		if (!type.isAssignableFrom(getStoredValue().getClass())) {
 			addCurrentTestCaseError(
 				"A "
 				+ type.getName()
 				+ " was expected, but a "
-				+ getOriValue().getClass().getName()
+				+ getStoredValue().getClass().getName()
 				+ " was received."
 			);
 		}
@@ -179,8 +179,8 @@ public class ValueMediator<V> extends Mediator {
 	 * @param value
 	 */
 	public final void is(final Object value) {
-		if (getOriValue() != value) {
-			addCurrentTestCaseError("'" + value + "' was expected, but '" + getOriValue() + "' was received.");
+		if (getStoredValue() != value) {
+			addCurrentTestCaseError("'" + value + "' was expected, but '" + getStoredValue() + "' was received.");
 		}
 	}
 	
@@ -189,7 +189,7 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator is null.
 	 */
 	public final void isNotNull() {
-		if (getOriValue() == null) {
+		if (getStoredValue() == null) {
 			addCurrentTestCaseError("An object was expected, but null was received.");
 		}
 	}
@@ -201,9 +201,9 @@ public class ValueMediator<V> extends Mediator {
 	 * @param value
 	 */
 	public final void isNot(final Object value) {
-		if (getOriValue() == value) {
+		if (getStoredValue() == value) {
 			addCurrentTestCaseError(
-				"An other value than '" + getOriValue() + "' was expected, but the same value was received."
+				"An other value than '" + getStoredValue() + "' was expected, but the same value was received."
 			);
 		}
 	}
@@ -213,8 +213,8 @@ public class ValueMediator<V> extends Mediator {
 	 * Generates an error if the value of this value mediator is not null.
 	 */
 	public final void isNull() {
-		if (getOriValue() != null) {
-			addCurrentTestCaseError("Null was expected, but '" + getOriValue() + "' was received.");
+		if (getStoredValue() != null) {
+			addCurrentTestCaseError("Null was expected, but '" + getStoredValue() + "' was received.");
 		}
 	}
 	
@@ -222,7 +222,7 @@ public class ValueMediator<V> extends Mediator {
 	/**
 	 * @return the value of this value mediator.
 	 */
-	protected final V getOriValue() {
+	protected final V getStoredValue() {
 		return value;
 	}
 }

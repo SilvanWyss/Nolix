@@ -104,7 +104,7 @@ final class WebSocketEndPoint extends NetEndPoint {
 	}
 	
 	//method
-	InputStream getOriInputStream() {
+	InputStream getStoredInputStream() {
 		return socketInputStream;
 	}
 	

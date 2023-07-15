@@ -46,17 +46,17 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 	
 	//method
 	@Override
-	public IContainer<? extends IMultiValueEntry<V>> getOriLocalEntries() {
+	public IContainer<? extends IMultiValueEntry<V>> getStoredLocalEntries() {
 		return localEntries;
 	}
 	
 	//method
 	@Override
-	public IContainer<V> getOriValues() {
+	public IContainer<V> getStoredValues() {
 		
 		extractValuesIfNeeded();
 		
-		return localEntries.to(IMultiValueEntry::getOriValue);
+		return localEntries.to(IMultiValueEntry::getStoredValue);
 	}
 	
 	//method
@@ -68,7 +68,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getOriValues().isEmpty();
+		return getStoredValues().isEmpty();
 	}
 	
 	//method
@@ -85,7 +85,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 		
 		extractValuesIfNeeded();
 		
-		localEntries.removeAndGetRefFirst(le -> le.getOriValue().equals(value)).internalSetDeleted();
+		localEntries.removeAndGetRefFirst(le -> le.getStoredValue().equals(value)).internalSetDeleted();
 	}
 	
 	//method
@@ -108,7 +108,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 	//method
 	private void clearWhenContainsAny() {
 		
-		getOriValues().forEach(this::removeValue);
+		getStoredValues().forEach(this::removeValue);
 		
 		setAsEditedAndRunProbableUpdateAction();
 	}
@@ -138,8 +138,8 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
 	private IContainer<MultiValueEntry<V>> loadEntries() {
 		return
 		internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
-			getOriParentEntity().getParentTableName(),
-			getOriParentEntity().getId(),
+			getStoredParentEntity().getParentTableName(),
+			getStoredParentEntity().getId(),
 			getName()
 		)
 		.to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V)mve));

@@ -53,7 +53,7 @@ public final class PartialRefreshTutorial {
 		@Override
 		protected void initialize() {
 			
-			getOriGui()
+			getStoredGui()
 			.pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(

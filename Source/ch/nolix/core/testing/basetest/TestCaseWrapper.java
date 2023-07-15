@@ -53,7 +53,7 @@ public final class TestCaseWrapper {
 	}
 	
 	//method
-	public Method getOriCleanup() {
+	public Method getStoredCleanup() {
 		
 		supposeHasCleanup();
 		
@@ -61,7 +61,7 @@ public final class TestCaseWrapper {
 	}
 	
 	//method
-	public Method getOriSetup() {
+	public Method getStoredSetup() {
 		
 		supposeHasSetup();
 		
@@ -69,7 +69,7 @@ public final class TestCaseWrapper {
 	}
 	
 	//method
-	public Method getOriTestCase() {
+	public Method getStoredTestCase() {
 		return testCase;
 	}
 	
@@ -85,7 +85,7 @@ public final class TestCaseWrapper {
 	
 	//method
 	public boolean testCaseHasTimeout() {
-		return !ReflectionHelper.elementHasAnnotation(getOriTestCase(), IgnoreTimeout.class);
+		return !ReflectionHelper.elementHasAnnotation(getStoredTestCase(), IgnoreTimeout.class);
 	}
 	
 	//method

@@ -17,7 +17,7 @@ public final class GlobalImplProvider {
 	}
 	
 	//static method
-	public static IImplProvider getOriInstance() {
+	public static IImplProvider getStoredInstance() {
 		return IMPL_PROVIDER;
 	}
 	

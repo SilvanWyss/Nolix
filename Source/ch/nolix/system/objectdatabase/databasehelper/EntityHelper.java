@@ -62,7 +62,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 		new EntityUpdateDto(
 			entity.getId(),
 			entity.getSaveStamp(),
-			getOriEditedProperties(entity).to(IProperty::technicalToContentField)
+			getStoredEditedProperties(entity).to(IProperty::technicalToContentField)
 		);
 	}
 	
@@ -81,20 +81,20 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 	
 	//method
 	@Override
-	public  IContainer<IProperty> getOriBackReferencingProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().toFromGroups(IProperty::getOriBackReferencingProperties);
+	public  IContainer<IProperty> getStoredBackReferencingProperties(final IEntity entity) {
+		return entity.technicalGetRefProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
 	}
 	
 	//method
 	@Override
-	public  IContainer<? extends IProperty> getOriEditedProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().getOriSelected(PROPERTY_HELPER::isEdited);
+	public  IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
+		return entity.technicalGetRefProperties().getStoredSelected(PROPERTY_HELPER::isEdited);
 	}
 	
 	//method
 	@Override
-	public  IContainer<? extends IProperty> getOriReferencingProperties(final IEntity entity) {
-		return entity.technicalGetRefProperties().toFromGroups(IProperty::getOriReferencingProperties);
+	public  IContainer<? extends IProperty> getStoredReferencingProperties(final IEntity entity) {
+		return entity.technicalGetRefProperties().toFromGroups(IProperty::getStoredReferencingProperties);
 	}
 	
 	//method
@@ -111,7 +111,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
 			return false;
 		}
 		
-		for (final var t : entity.getOriParentTable().getOriParentDatabase().getOriTables()) {
+		for (final var t : entity.getStoredParentTable().getStoredParentDatabase().getStoredTables()) {
 			if (t.technicalGetRefEntitiesInLocalData().containsAny(e -> referencesGivenEntity(e, entity))) {
 				return true;
 			}

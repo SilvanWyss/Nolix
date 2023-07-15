@@ -40,14 +40,14 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	new MultiValueExtractor<>(
 		CELL_HEADER,
 		this::addCell,
-		() -> cells.getOriSelected(GridCell::containsAny),
+		() -> cells.getStoredSelected(GridCell::containsAny),
 		GridCell::fromSpecification,
 		GridCell::getSpecification
 	);
 	
 	//constructor
 	public Grid() {
-		getOriStyle()
+		getStoredStyle()
 		.setGridThicknessForState(ControlState.BASE, 1)
 		.setChildControlMarginForState(ControlState.BASE, 10);
 	}
@@ -61,7 +61,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	//method
 	@Override
 	public boolean containsControlAt1BasedRowAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
-		return cells.getOriAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
+		return cells.getStoredAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
 	}
 	
 	//method
@@ -72,11 +72,11 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	
 	//method
 	@Override
-	public IControl<?, ?> getOriChildControlAt1BasedRowAndColumnIndex(
+	public IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(
 		final int p1BasedRowIndex,
 		final int p1BasedColumnIndex
 	) {
-		return cells.getOriAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getOriControl();
+		return cells.getStoredAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getStoredControl();
 	}
 	
 	//method
@@ -87,12 +87,12 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		
 		final var childControls = new LinkedList<IControl<?, ?>>();
 		for (final var c : cells) {
 			if (c.containsAny()) {
-				childControls.addAtEnd(c.getOriControl());
+				childControls.addAtEnd(c.getStoredControl());
 			}
 		}
 		
@@ -111,7 +111,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 		cell.setControl(control);
 		addCell(cell);
 		
-		cell.getOriControl().technicalSetParentControl(this);
+		cell.getStoredControl().technicalSetParentControl(this);
 		
 		return this;
 	}

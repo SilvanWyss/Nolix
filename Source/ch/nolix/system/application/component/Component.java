@@ -26,7 +26,7 @@ public abstract class Component<C extends Controller<AC>, AC> implements Refresh
 	}
 	
 	//method
-	public final IControl<?, ?> getOriControl() {
+	public final IControl<?, ?> getStoredControl() {
 		
 		refresh();
 		
@@ -41,14 +41,14 @@ public abstract class Component<C extends Controller<AC>, AC> implements Refresh
 		
 		rootControl.setControl(control);
 		
-		getOriSession().updateControlOnCounterpart(rootControl);
+		getStoredSession().updateControlOnCounterpart(rootControl);
 	}
 	
 	//method declaration
 	protected abstract IControlAssembler<C, AC> getControlAssembler();
 	
 	//method
-	private final WebClientSession<AC> getOriSession() {
-		return controller.getOriSession();
+	private final WebClientSession<AC> getStoredSession() {
+		return controller.getStoredSession();
 	}
 }

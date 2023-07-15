@@ -12,8 +12,8 @@ public interface IMultiValueEntry<
 extends IDatabaseObject {
 	
 	//method declaration
-	IMultiValue<V> getOriParentMultiValue();
+	IMultiValue<V> getStoredParentMultiValue();
 	
 	//method declaration
-	V getOriValue();
+	V getStoredValue();
 }

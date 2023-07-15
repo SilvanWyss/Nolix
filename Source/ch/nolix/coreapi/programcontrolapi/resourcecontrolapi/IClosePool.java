@@ -32,7 +32,7 @@ public interface IClosePool {
 	/**
 	 * @return the elements of the current {@link IClosePool}.
 	 */
-	IContainer<GroupCloseable> getOriElements();
+	IContainer<GroupCloseable> getStoredElements();
 	
 	//method declaration
 	/**

@@ -617,7 +617,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final <C extends Comparable<C>> C getMax(final IElementTakerElementGetter<E, C> norm) {
 		
-		var max = norm.getOutput(getOriFirst());
+		var max = norm.getOutput(getStoredFirst());
 		
 		for (final var e : this) {
 			
@@ -674,14 +674,14 @@ public abstract class Container<E> implements IContainer<E> {
 		if (valueCount % 2 == 0) {
 			
 			final var firstIndex = valueCount / 2;
-			final var preMedian = orderedValues.getOriAt1BasedIndex(firstIndex).doubleValue();
-			final var postMedian = orderedValues.getOriAt1BasedIndex(firstIndex + 1).doubleValue();
+			final var preMedian = orderedValues.getStoredAt1BasedIndex(firstIndex).doubleValue();
+			final var postMedian = orderedValues.getStoredAt1BasedIndex(firstIndex + 1).doubleValue();
 						
 			return 0.5 * (preMedian + postMedian);
 		}
 		
 		//Handles the case that the number of values is odd.
-		return orderedValues.getOriAt1BasedIndex((valueCount / 2) + 1).doubleValue();
+		return orderedValues.getStoredAt1BasedIndex((valueCount / 2) + 1).doubleValue();
 	}
 	
 	//method
@@ -693,7 +693,7 @@ public abstract class Container<E> implements IContainer<E> {
 	@Override
 	public final <C extends Comparable<C>> C getMin(final IElementTakerElementGetter<E, C> norm) {
 		
-		var min = norm.getOutput(getOriFirst());
+		var min = norm.getOutput(getStoredFirst());
 		
 		for (final var e : this) {
 			
@@ -732,7 +732,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriAny() {
+	public final E getStoredAny() {
 		
 		//Asserts that the current IContainer is not empty.
 		assertIsNotEmpty();
@@ -740,7 +740,7 @@ public abstract class Container<E> implements IContainer<E> {
 		//Calculates a random element index.
 		final var randomElementIndex = RANDOM.nextInt(getElementCount()) + 1;
 		
-		return getOriAt1BasedIndex(randomElementIndex);
+		return getStoredAt1BasedIndex(randomElementIndex);
 	}
 	
 	//method
@@ -750,9 +750,9 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final <C extends Comparable<C>> E getOriByMax(final IElementTakerElementGetter<E, C> norm) {
+	public final <C extends Comparable<C>> E getStoredByMax(final IElementTakerElementGetter<E, C> norm) {
 		
-		var max = getOriFirst();
+		var max = getStoredFirst();
 		var comparebleValueOfMax = norm.getOutput(max);
 		
 		for (var e : this) {
@@ -775,9 +775,9 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final <C extends Comparable<C>> E getOriByMin(final IElementTakerElementGetter<E, C> norm) {
+	public final <C extends Comparable<C>> E getStoredByMin(final IElementTakerElementGetter<E, C> norm) {
 		
-		var min = getOriFirst();
+		var min = getStoredFirst();
 		var comparebleValueOfMin = norm.getOutput(min);
 		
 		for (var e : this) {
@@ -800,7 +800,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriFirst() {
+	public final E getStoredFirst() {
 		
 		//Asserts that the current IContainer is not empty.
 		if (isEmpty()) {
@@ -817,7 +817,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriFirst(final IElementTakerBooleanGetter<? super E> selector) {
+	public final E getStoredFirst(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -838,7 +838,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriFirstOrNull() {
+	public final E getStoredFirstOrNull() {
 		
 		//Handles the case that this list is empty.
 		if (isEmpty()) {
@@ -846,7 +846,7 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		//Handles the case that this list is not empty.
-		return getOriFirst();
+		return getStoredFirst();
 	}
 	
 	//method
@@ -856,7 +856,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriFirstOrNull(final IElementTakerBooleanGetter<? super E> selector) {
+	public final E getStoredFirstOrNull(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Iterates the current IContainer.
 		for (final var e : this) {
@@ -877,7 +877,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<? extends IContainer<E>> getOriGroups(final IElementTakerElementGetter<E, ?> norm) {
+	public final IContainer<? extends IContainer<E>> getStoredGroups(final IElementTakerElementGetter<E, ?> norm) {
 		
 		final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 		
@@ -885,7 +885,7 @@ public abstract class Container<E> implements IContainer<E> {
 		for (final var e : this) {
 			
 			final var groupKey = norm.getOutput(e);
-			final var group = groups.getOriFirstOrNull(g -> g.containsAny(e2 -> norm.getOutput(e2).equals(groupKey)));
+			final var group = groups.getStoredFirstOrNull(g -> g.containsAny(e2 -> norm.getOutput(e2).equals(groupKey)));
 			
 			if (group == null) {
 				
@@ -909,8 +909,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public final <E2 extends E> IContainer<E2> getOriOfType(final Class<E2> type) {
-		return (IContainer<E2>)getOriSelected(e -> type.isAssignableFrom(e.getClass()));
+	public final <E2 extends E> IContainer<E2> getStoredOfType(final Class<E2> type) {
+		return (IContainer<E2>)getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
 	}
 	
 	//method
@@ -920,7 +920,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriOne() {
+	public final E getStoredOne() {
 		
 		//Enumerates the element count of the current Container.
 		return 
@@ -941,7 +941,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final E getOriOne(final IElementTakerBooleanGetter<? super E> selector) {
+	public final E getStoredOne(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Declares the selected element.
 		E selectedElement = null;
@@ -986,8 +986,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<E> getOriOther(final IElementTakerBooleanGetter<E> selector) {
-		return getOriSelected(e -> !selector.getOutput(e));
+	public final IContainer<E> getStoredOther(final IElementTakerBooleanGetter<E> selector) {
+		return getStoredSelected(e -> !selector.getOutput(e));
 	}
 	
 	//method
@@ -997,7 +997,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IContainer<E> getOriSelected(final IElementTakerBooleanGetter<? super E> selector) {
+	public final IContainer<E> getStoredSelected(final IElementTakerBooleanGetter<? super E> selector) {
 		
 		//Creates list.
 		final var list = createEmptyMutableList(new Marker<E>());
@@ -1367,7 +1367,7 @@ public abstract class Container<E> implements IContainer<E> {
 			case 0 ->
 				StringCatalogue.EMPTY_STRING;
 			case 1 ->
-				getOriFirst().toString();
+				getStoredFirst().toString();
 			default ->
 				toStringWhenContainsSeveralElements(separator);
 		};
@@ -1542,7 +1542,7 @@ public abstract class Container<E> implements IContainer<E> {
 		final var stringBuilder = new StringBuilder();
 		
 		//Appends the String representation of the first element to the StringBuilder.
-		stringBuilder.append(getOriFirst());
+		stringBuilder.append(getStoredFirst());
 		
 		//Iterates the elements of the current Container without the first element.
 		for (final var e : withoutFirst()) {

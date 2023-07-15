@@ -34,7 +34,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 	public final void addOrChangeAttribute(final INode<?> attribute) {
 		
 		//Iterates the properties of the current MutableElement.
-		for (final var p : getOriProperties()) {
+		for (final var p : getStoredProperties()) {
 			
 			//Handles the case that the current Property has added or changed the given attribute.
 			if (p.addedOrChangedAttribute(attribute)) {
@@ -69,7 +69,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 		final var attributes = new LinkedList<INode<?>>();
 		
 		//Iterates the properties of the current MutableElement.
-		for (final var p : getOriProperties()) {
+		for (final var p : getStoredProperties()) {
 			
 			//Fills up the attributes of the current Property.
 			p.fillUpAttributesInto(attributes);
@@ -187,7 +187,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 	/**
 	 * @return the {@link Property}s of the current {@link MutableElement}.
 	 */
-	private IContainer<Property> getOriProperties() {
+	private IContainer<Property> getStoredProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		

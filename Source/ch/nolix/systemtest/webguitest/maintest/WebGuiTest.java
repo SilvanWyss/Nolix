@@ -28,7 +28,7 @@ public final class WebGuiTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriControls_whenIsEmpty() {
+	public void testCase_getStoredControls_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = new WebGui();
@@ -37,7 +37,7 @@ public final class WebGuiTest extends Test {
 		expect(testUnit.isEmpty());
 		
 		//execution
-		final var result = testUnit.getOriControls();
+		final var result = testUnit.getStoredControls();
 		
 		//verification
 		expect(result).isEmpty();
@@ -45,7 +45,7 @@ public final class WebGuiTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriControls_whenContains1Control() {
+	public void testCase_getStoredControls_whenContains1Control() {
 		
 		//setup
 		final var testUnit = new WebGui();
@@ -53,7 +53,7 @@ public final class WebGuiTest extends Test {
 		testUnit.pushLayerWithRootControl(label);
 		
 		//execution
-		final var result = testUnit.getOriControls();
+		final var result = testUnit.getStoredControls();
 		
 		//verification
 		expect(result).containsExactlyInSameOrder(label);
@@ -61,7 +61,7 @@ public final class WebGuiTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_getOriControls_whenContains4Control() {
+	public void testCase_getStoredControls_whenContains4Control() {
 		
 		//setup
 		final var testUnit = new WebGui();
@@ -73,7 +73,7 @@ public final class WebGuiTest extends Test {
 		testUnit.pushLayerWithRootControl(verticalStack);
 		
 		//execution
-		final var result = testUnit.getOriControls();
+		final var result = testUnit.getStoredControls();
 		
 		//verification
 		expect(result).containsExactlyInSameOrder(verticalStack, label1, label2, label3);

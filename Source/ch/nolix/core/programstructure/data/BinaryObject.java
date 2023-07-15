@@ -34,7 +34,7 @@ public final class BinaryObject implements IBinaryObject{
 	
 	//method
 	@Override
-	public byte[] getOriBytes() {
+	public byte[] getStoredBytes() {
 		return bytes; //NOSONAR: A BinaryObject returns the original instance.
 	}
 	

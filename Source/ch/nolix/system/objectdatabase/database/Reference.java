@@ -46,14 +46,14 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 	
 	//method
 	@Override
-	public IContainer<IProperty> getOriBackReferencingProperties() {
+	public IContainer<IProperty> getStoredBackReferencingProperties() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
 		}
 		
 		final var backReferencingProperty =
-		getReferencedEntity().technicalGetRefProperties().getOriFirstOrNull(p -> p.referencesBackProperty(this));
+		getReferencedEntity().technicalGetRefProperties().getStoredFirstOrNull(p -> p.referencesBackProperty(this));
 		
 		if (backReferencingProperty != null) {
 			return ImmutableList.withElement(backReferencingProperty);
@@ -65,7 +65,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 	//method
 	@Override
 	public E getReferencedEntity() {
-		return getReferencedTable().getOriEntityById(getReferencedEntityId());
+		return getReferencedTable().getStoredEntityById(getReferencedEntityId());
 	}
 	
 	//method
@@ -133,7 +133,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 	@Override
 	public void setEntityById(final String id) {
 		
-		final var entity = getReferencedTable().getOriEntityById(id);
+		final var entity = getReferencedTable().getStoredEntityById(id);
 		
 		setEntity(entity);
 	}
@@ -206,12 +206,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 	
 	//method
 	private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
-		return ENTITY_HELPER.getOriReferencingProperties(entity).getOriFirstOrNull(rp -> rp.hasName(getName()));
+		return ENTITY_HELPER.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
 	}
 
 	//method
 	private void updateProbableBackReferencingPropertyForClear() {
-		for (final var brp : getOriBackReferencingProperties()) {
+		for (final var brp : getStoredBackReferencingProperties()) {
 			updateBackReferencingPropertyForClear(brp);
 		}
 	}
@@ -224,19 +224,19 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 				final var baseBackReference = (BaseBackReference<?>)p;
 				
 				if (
-					baseBackReference.getBackReferencedTableName().equals(getOriParentEntity().getParentTableName())
+					baseBackReference.getBackReferencedTableName().equals(getStoredParentEntity().getParentTableName())
 					&& baseBackReference.getBackReferencedPropertyName().equals(getName())
 				) {
 					
 					switch (baseBackReference.getType()) {
 						case BACK_REFERENCE:
 							final var backReference = (BackReference<?>)baseBackReference;
-							backReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
 							backReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case OPTIONAL_BACK_REFERENCE:
 							final var optionalBackReference = (OptionalBackReference<?>)baseBackReference;
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
 							optionalBackReference.setAsEditedAndRunProbableUpdateAction();
 							break;
 						case MULTI_BACK_REFERENCE:

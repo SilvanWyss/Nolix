@@ -19,7 +19,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	//method
 	@Override
 	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
-		return database.getOriTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
+		return database.getStoredTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
 	}
 	
 	//method
@@ -33,23 +33,23 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 	
 	//method
 	@Override
-	public  IContainer<IEntity> getOriEntitiesInLocalData(final IDatabase database) {
-		return database.getOriTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
+	public  IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
+		return database.getStoredTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity> ITable<E> getOriTableForGivenEntity(
+	public <E extends IEntity> ITable<E> getStoredTableForGivenEntity(
 		final IDatabase database,
 		final E entity
 	) {
-		return database.getOriTableByEntityType((Class<E>)entity.getClass());
+		return database.getStoredTableByEntityType((Class<E>)entity.getClass());
 	}
 	
 	//method
 	@Override
 	public boolean hasChanges(final IDatabase database) {
-		return database.getOriTables().containsAny(TABLE_HELPER::hasChanges);
+		return database.getStoredTables().containsAny(TABLE_HELPER::hasChanges);
 	}
 }

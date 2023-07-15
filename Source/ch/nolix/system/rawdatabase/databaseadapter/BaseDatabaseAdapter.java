@@ -35,8 +35,8 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		this.databaseReader = databaseReader;
 		this.databaseWriter = databaseWriter;
 		
-		getOriCloseController().createCloseDependencyTo(databaseReader);
-		getOriCloseController().createCloseDependencyTo(databaseWriter);
+		getStoredCloseController().createCloseDependencyTo(databaseReader);
+		getStoredCloseController().createCloseDependencyTo(databaseWriter);
 	}
 	
 	//method
@@ -101,7 +101,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	
 	//method
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	

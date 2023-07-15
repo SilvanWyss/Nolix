@@ -59,7 +59,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 			return stateProperty.getValue();
 		}
 		
-		final var baseStateProperty = getOriBaseStateProperty();
+		final var baseStateProperty = getStoredBaseStateProperty();
 		if (baseStateProperty.hasValueOrDefinesEmpty()) {
 			return baseStateProperty.getValue();
 		}
@@ -80,7 +80,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 			return stateProperty.hasValue();
 		}
 		
-		final var baseStateProperty = getOriBaseStateProperty();
+		final var baseStateProperty = getStoredBaseStateProperty();
 		if (baseStateProperty.hasValueOrDefinesEmpty()) {
 			return baseStateProperty.hasValue();
 		}

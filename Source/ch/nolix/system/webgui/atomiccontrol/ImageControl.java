@@ -71,13 +71,13 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
 	
 	//method
 	@Override
-	public MutableImage getOriImage() {
+	public MutableImage getStoredImage() {
 		return image.getValue();
 	}
 	

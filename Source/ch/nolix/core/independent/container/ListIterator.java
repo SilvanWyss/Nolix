@@ -54,9 +54,9 @@ public final class ListIterator<E> implements Iterator<E> {
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = nextNode.getOriElement();
+		final var element = nextNode.getStoredElement();
 		
-		nextNode = nextNode.getOriNextNodeOrNull();
+		nextNode = nextNode.getStoredNextNodeOrNull();
 		
 		return element;
 	}

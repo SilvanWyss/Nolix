@@ -282,7 +282,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 	//method
 	private void unselectItemsOfOptionalParentMenu() {
 		if (belongsToMenu()) {
-			parentMenu.getOriItems().forEach(IItemMenuItem::unselect);
+			parentMenu.getStoredItems().forEach(IItemMenuItem::unselect);
 		}
 	}
 }

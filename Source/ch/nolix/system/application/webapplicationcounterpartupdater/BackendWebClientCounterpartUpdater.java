@@ -172,7 +172,7 @@ public final class BackendWebClientCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
-		return createSetUserInputFunctionsCommandForControls(webGui.getOriControls());
+		return createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
 	}
 	
 	//method
@@ -184,7 +184,7 @@ public final class BackendWebClientCounterpartUpdater {
 			final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();
 			if (userInputFunction.containsAny()) {
 				userInputFunctions.addAtEnd(
-					createUserInputFunctionFromControlAndString(c, userInputFunction.getOriElement())
+					createUserInputFunctionFromControlAndString(c, userInputFunction.getStoredElement())
 				);
 			}
 		}

@@ -31,7 +31,7 @@ public final class GuiIconTutorial {
 		
 		@Override
 		protected void initialize() {
-			getOriGui().setIcon(Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/matterhorn.jpg"));
+			getStoredGui().setIcon(Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/matterhorn.jpg"));
 		}
 	}
 	

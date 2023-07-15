@@ -44,17 +44,17 @@ public final class PropertyBinding {
 	}
 	
 	//method
-	public ILabel getOriErrorLabel() {
+	public ILabel getStoredErrorLabel() {
 		return errorText;
 	}
 	
 	//method
-	public IProperty getOriProperty() {
+	public IProperty getStoredProperty() {
 		return property;
 	}
 	
 	//method
-	public IControl<?, ?> getOriControl() {
+	public IControl<?, ?> getStoredControl() {
 		return control;
 	}
 	

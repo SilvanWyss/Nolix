@@ -51,7 +51,7 @@ public final class CopyTextToClipboardTutorial {
 				new Button()
 				.setText("Copy text")
 				.setLeftMouseButtonPressAction(
-					() -> getOriGui().onFrontEnd().writeTextToClipboard(inputTextbox.getText())
+					() -> getStoredGui().onFrontEnd().writeTextToClipboard(inputTextbox.getText())
 				)
 			);
 			
@@ -62,7 +62,7 @@ public final class CopyTextToClipboardTutorial {
 			inputTextbox.editStyle(s -> s.setWidthForState(ControlState.BASE, 500));
 			
 			//Adds the rootControl to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(rootControl);
+			getStoredGui().pushLayerWithRootControl(rootControl);
 		}
 	}
 	

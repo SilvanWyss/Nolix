@@ -23,8 +23,8 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 		return
 		withTypeAndAttributesAndChildElements(
 			htmlElement.getType(),
-			htmlElement.getOriAttributes(),
-			htmlElement.getOriChildElements()
+			htmlElement.getStoredAttributes(),
+			htmlElement.getStoredChildElements()
 		);
 	}
 	
@@ -154,13 +154,13 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	//method
 	@Override
 	public boolean containsAttributes() {
-		return getOriAttributes().containsAny();
+		return getStoredAttributes().containsAny();
 	}
 	
 	//method
 	@Override
 	public boolean containsChildElements() {
-		return getOriChildElements().containsAny();
+		return getStoredChildElements().containsAny();
 	}
 	
 	//method
@@ -171,13 +171,13 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	
 	//method
 	@Override
-	public IContainer<HtmlAttribute> getOriAttributes() {
+	public IContainer<HtmlAttribute> getStoredAttributes() {
 		return attributes;
 	}
 	
 	//method
 	@Override
-	public IContainer<HtmlElement> getOriChildElements() {
+	public IContainer<HtmlElement> getStoredChildElements() {
 		return childElements;
 	}
 	
@@ -200,12 +200,12 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	
 	//method
 	private String getAttributesAsString() {
-		return getOriAttributes().toStringWithSeparator(" ");
+		return getStoredAttributes().toStringWithSeparator(" ");
 	}
 	
 	//method
 	private String getChildElementsAsString() {
-		return getOriChildElements().toStringWithSeparator("");
+		return getStoredChildElements().toStringWithSeparator("");
 	}
 	
 	//method

@@ -32,7 +32,7 @@ public final class DatabaseSaveValidator {
 	//method
 	public void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(final Database database) {
 		
-		final var entitiesInLocalData = DATABASE_HELPER.getOriEntitiesInLocalData(database);
+		final var entitiesInLocalData = DATABASE_HELPER.getStoredEntitiesInLocalData(database);
 		
 		for (final var e : entitiesInLocalData) {
 			addExpectionsThatNewlyReferencedEntitiesExistToDatabase(e, database);
@@ -102,7 +102,7 @@ public final class DatabaseSaveValidator {
 				final var multiReference = (MultiReference<?>)property;
 				final var referencedTableName = multiReference.getReferencedTableName();
 				
-				for (final var le : multiReference.getOriLocalEntries()) {
+				for (final var le : multiReference.getStoredLocalEntries()) {
 					if (MULTI_REFERENCE_ENTRY_HELPER.isNewOrEdited(le)) {
 						database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
 							referencedTableName,

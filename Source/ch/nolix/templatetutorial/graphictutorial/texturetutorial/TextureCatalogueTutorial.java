@@ -46,7 +46,7 @@ public final class TextureCatalogueTutorial {
 			final var whiteMarbleTexture = TextureCatalogue.WHITE_MARBLE_TEXTURE.toScaledImage(10);
 			
 			//Adds the textures to the GUI of the current MainSession.
-			getOriGui()
+			getStoredGui()
 			.setTitle("TextureCatalogue Tutorial")
 			.pushLayerWithRootControl(
 				new FloatContainer()

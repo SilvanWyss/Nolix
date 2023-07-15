@@ -30,7 +30,7 @@ WithNameCapturer<
 		new NodeDatabaseAdapter(
 			getName(),
 			nodeDatabase,
-			next().getOriSchema()
+			next().getStoredSchema()
 		);
 	}
 }

@@ -21,7 +21,7 @@ public final class WebSocketHandShakeRequest {
 	public WebSocketHandShakeRequest(final IContainer<String> lines) {
 		secWebSocketKey =
 		lines
-		.getOriFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
+		.getStoredFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
 		.substring(SEC_WEBSOCKET_KEY_HEADER.length() + 2);
 	}
 	

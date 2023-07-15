@@ -67,7 +67,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = null;
 		
 		//Lets the given target take the counterpart of this local duplex controller.
-		target.takeBackendEndPoint(getOriCounterpart());
+		target.takeBackendEndPoint(getStoredCounterpart());
 	}
 	
 	//constructor
@@ -138,7 +138,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public INode<?> getDataForRequest(final IChainedNode request) {
-		return counterpart.getOriReceiverController().getDataForRequest(request);
+		return counterpart.getStoredReceiverController().getDataForRequest(request);
 	}
 	
 	//method
@@ -147,7 +147,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
-		return counterpart.getOriReceiverController().getDataForRequests(request, requests);
+		return counterpart.getStoredReceiverController().getDataForRequests(request, requests);
 	}
 	
 	//method
@@ -156,14 +156,14 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
-		return counterpart.getOriReceiverController().getDataForRequests(requests);
+		return counterpart.getStoredReceiverController().getDataForRequests(requests);
 	}
 	
 	//method
 	/**
 	 * @return the counterpart of this local duplex controller.
 	 */
-	public LocalEndPoint getOriCounterpart() {
+	public LocalEndPoint getStoredCounterpart() {
 		return counterpart;
 	}
 	
@@ -222,7 +222,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that this local duplex controller is not aborted.
 		assertIsOpen();
 		
-		counterpart.getOriReceiverController().runCommand(command);
+		counterpart.getStoredReceiverController().runCommand(command);
 	}
 	
 	//method
@@ -235,7 +235,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that this local duplex controller is open.
 		assertIsOpen();
 		
-		final var counterpartReceiverController = counterpart.getOriReceiverController();
+		final var counterpartReceiverController = counterpart.getStoredReceiverController();
 		
 		commands.forEach(counterpartReceiverController::runCommand);
 	}

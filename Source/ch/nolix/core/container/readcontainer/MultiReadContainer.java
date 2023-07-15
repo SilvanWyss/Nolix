@@ -63,7 +63,7 @@ public final class MultiReadContainer<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getOriAt1BasedIndex(final int p1BasedIndex) {
+	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 		
 		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		
@@ -82,8 +82,8 @@ public final class MultiReadContainer<E> extends Container<E> {
 	
 	//method
 	@Override
-	public E getOriLast() {
-		return containers.getOriLast().getOriLast();
+	public E getStoredLast() {
+		return containers.getStoredLast().getStoredLast();
 	}
 	
 	//method

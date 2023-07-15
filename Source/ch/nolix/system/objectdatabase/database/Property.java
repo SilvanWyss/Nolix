@@ -49,11 +49,11 @@ public abstract class Property implements IProperty {
 	public final String getName() {
 		
 		if (knowsParentColumn()) {
-			return getOriParentColumn().getName();
+			return getStoredParentColumn().getName();
 		}
 		
 		if (belongsToEntity()) {
-			return GlobalReflectionHelper.getFieldName(getOriParentEntity(), this);
+			return GlobalReflectionHelper.getFieldName(getStoredParentEntity(), this);
 		}
 		
 		throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");
@@ -61,7 +61,7 @@ public abstract class Property implements IProperty {
 	
 	//method
 	@Override
-	public IColumn getOriParentColumn() {
+	public IColumn getStoredParentColumn() {
 		
 		PROPERTY_VALIDATOR.assertKnowsParentColumn(this);
 		
@@ -70,7 +70,7 @@ public abstract class Property implements IProperty {
 	
 	//method
 	@Override
-	public final IEntity getOriParentEntity() {
+	public final IEntity getStoredParentEntity() {
 		
 		PROPERTY_VALIDATOR.assertBelongsToEntity(this);
 		
@@ -96,7 +96,7 @@ public abstract class Property implements IProperty {
 			return false;
 		}
 		
-		return getOriParentEntity().isClosed();
+		return getStoredParentEntity().isClosed();
 	}
 	
 	//method
@@ -107,13 +107,13 @@ public abstract class Property implements IProperty {
 			return false;
 		}
 		
-		return getOriParentEntity().isDeleted();
+		return getStoredParentEntity().isDeleted();
 	}
 	
 	//method
 	@Override
 	public final boolean isLinkedWithRealDatabase() {
-		return (belongsToEntity() && getOriParentEntity().isLinkedWithRealDatabase());
+		return (belongsToEntity() && getStoredParentEntity().isLinkedWithRealDatabase());
 	}
 	
 	//method
@@ -135,7 +135,7 @@ public abstract class Property implements IProperty {
 	protected final void setAsEditedAndRunProbableUpdateAction() {
 		
 		if (belongsToEntity()) {
-			((BaseEntity)getOriParentEntity()).internalSetEdited();
+			((BaseEntity)getStoredParentEntity()).internalSetEdited();
 		}
 		
 		edited = true;
@@ -162,7 +162,7 @@ public abstract class Property implements IProperty {
 	//method
 	final void internalSetParentColumnFromParentTable() {
 		final var name = getName();
-		parentColumn = getOriParentEntity().getOriParentTable().getOriColumns().getOriFirst(c -> c.hasName(name));
+		parentColumn = getStoredParentEntity().getStoredParentTable().getStoredColumns().getStoredFirst(c -> c.hasName(name));
 	}
 	
 	//method
@@ -181,7 +181,7 @@ public abstract class Property implements IProperty {
 	//method
 	private DatabaseObjectState getStateWhenBelongsToEntity() {
 		
-		final var parentEntityState = getOriParentEntity().getState();
+		final var parentEntityState = getStoredParentEntity().getState();
 		
 		return
 		switch (parentEntityState) {
@@ -199,7 +199,7 @@ public abstract class Property implements IProperty {
 				throw
 				InvalidArgumentException.forArgumentNameAndArgument(
 					LowerCaseCatalogue.STATE,
-					getOriParentEntity().getState()
+					getStoredParentEntity().getState()
 				);
 		};
 	}

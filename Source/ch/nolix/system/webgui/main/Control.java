@@ -138,7 +138,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final boolean belongsToGui() {
-		return (belongsToLayer() && getOriParentLayer().belongsToGui());
+		return (belongsToLayer() && getStoredParentLayer().belongsToGui());
 	}
 	
 	//method
@@ -152,7 +152,7 @@ implements IControl<C, CS> {
 	@Override
 	public final C editStyle(final IElementTaker<CS> styleEditor) {
 		
-		styleEditor.run(getOriStyle());
+		styleEditor.run(getStoredStyle());
 		
 		return asConcrete();
 	}
@@ -207,31 +207,31 @@ implements IControl<C, CS> {
 		
 	//method
 	@Override
-	public final IContainer<? extends IStylableElement<?>> getOriChildStylableElements() {
-		return getOriChildControls();
+	public final IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
+		return getStoredChildControls();
 	}
 	
 	//method
 	@Override
-	public final IControl<?, ?> getOriParentControl() {
-		return getOriParent().getOriControl();
+	public final IControl<?, ?> getStoredParentControl() {
+		return getStoredParent().getStoredControl();
 	}
 	
 	//method
 	@Override
-	public final IWebGui<?> getOriParentGui() {
-		return getOriParentLayer().getOriParentGui();
+	public final IWebGui<?> getStoredParentGui() {
+		return getStoredParentLayer().getStoredParentGui();
 	}
 	
 	//method
 	@Override
-	public final ILayer<?> getOriParentLayer() {
-		return getOriParent().getOriRootLayer();
+	public final ILayer<?> getStoredParentLayer() {
+		return getStoredParent().getStoredRootLayer();
 	}
 	
 	//method
 	@Override
-	public final CS getOriStyle() {
+	public final CS getStoredStyle() {
 		return style.getExtensionElement();
 	}
 	
@@ -477,7 +477,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	protected final void resetStyle() {
-		getOriStyle().reset();
+		getStoredStyle().reset();
 	}
 	
 	//method
@@ -490,7 +490,7 @@ implements IControl<C, CS> {
 	//method
 	private void assertDoesNotBelongToParent() {
 		if (belongsToParent()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getOriElement());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredElement());
 		}
 	}
 	
@@ -500,7 +500,7 @@ implements IControl<C, CS> {
 	}
 	
 	//method
-	private ControlParent getOriParent() {
+	private ControlParent getStoredParent() {
 		
 		assertBelongsToParent();
 		
@@ -548,7 +548,7 @@ implements IControl<C, CS> {
 		this.parent = parent;
 		
 		if (parent.isControl()) {
-			parent.getOriControl().getOriStyle().addChild(getOriStyle());
+			parent.getStoredControl().getStoredStyle().addChild(getStoredStyle());
 		}
 	}
 	

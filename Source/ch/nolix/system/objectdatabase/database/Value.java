@@ -39,7 +39,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	
 	//method
 	@Override
-	public V getOriValue() {
+	public V getStoredValue() {
 		
 		VALUE_VALIDATOR.assertIsNotEmpty(this);
 		
@@ -92,7 +92,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 	//method
 	@Override
 	public IContentFieldDto technicalToContentField() {
-		return new ContentFieldDto(getName(), getOriValue().toString());
+		return new ContentFieldDto(getName(), getStoredValue().toString());
 	}
 	
 	//method

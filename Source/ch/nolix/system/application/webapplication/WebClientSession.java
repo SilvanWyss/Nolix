@@ -18,20 +18,20 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	private IControl<?, ?> controlToUpdate;
 	
 	//method
-	public final IWebGui<?> getOriGui() {
+	public final IWebGui<?> getStoredGui() {
 		return webGui;
 	}
 	
 	//method
 	public void updateControlOnCounterpart(final IControl<?, ?> control) {
-		getOriParentClient().internalUpdateControlOnCounterpart(control);
+		getStoredParentClient().internalUpdateControlOnCounterpart(control);
 	}
 	
 	//method
 	@Override
 	protected final void fullInitialize() {
 		
-		getOriGui()
+		getStoredGui()
 		.setTitle(getApplicationName())
 		.setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
 		
@@ -60,11 +60,11 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	protected final void updateCounterpartActually() {
 		if (restrictedNextUpdateToControl()) {
 			
-			getOriParentClient().internalUpdateControlOnCounterpart(controlToUpdate);
+			getStoredParentClient().internalUpdateControlOnCounterpart(controlToUpdate);
 			
 			controlToUpdate = null;
 		} else {
-			getOriParentClient().internalUpdateCounterpartFromWebGui(getOriGui());
+			getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());
 		}
 	}
 	

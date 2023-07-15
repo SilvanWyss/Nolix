@@ -36,7 +36,7 @@ public final class UnderConstructionPageTutorial {
 		
 		@Override
 		protected void initialize() {
-			getOriGui()
+			getStoredGui()
 			.pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(

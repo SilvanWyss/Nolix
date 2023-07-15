@@ -48,7 +48,7 @@ public final class ColorGradient extends Element implements IColorGradient {
 	 */
 	public static ColorGradient fromSpecification(final INode<?> specification) {
 		
-		final var attributes = specification.getOriChildNodes();
+		final var attributes = specification.getStoredChildNodes();
 		
 		return
 		switch (attributes.getElementCount()) {
@@ -70,8 +70,8 @@ public final class ColorGradient extends Element implements IColorGradient {
 	 */
 	private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
 		
-		final var color1Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(1));
-		final var color2Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(2));
+		final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
+		final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
 		
 		return
 		new ColorGradient(
@@ -88,9 +88,9 @@ public final class ColorGradient extends Element implements IColorGradient {
 	 */
 	private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
 		
-		final var directionSpecification = Node.withChildNode(attributes.getOriAt1BasedIndex(1));
-		final var color1Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(2));
-		final var color2Specification = Node.withChildNode(attributes.getOriAt1BasedIndex(3));
+		final var directionSpecification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
+		final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
+		final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
 		
 		return
 		new ColorGradient(

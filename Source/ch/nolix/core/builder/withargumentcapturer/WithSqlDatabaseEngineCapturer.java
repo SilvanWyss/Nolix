@@ -17,7 +17,7 @@ extends ArgumentCapturer<SqlDatabaseEngine, N> {
 	
 	//method
 	public final SqlDatabaseEngine getSqlDatabaseEngine() {
-		return getOriArgument();
+		return getStoredArgument();
 	}
 	
 	//method

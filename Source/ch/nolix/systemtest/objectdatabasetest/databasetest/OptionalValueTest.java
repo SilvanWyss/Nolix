@@ -53,6 +53,6 @@ public final class OptionalValueTest extends Test {
 		
 		//verification
 		expect(testUnit.containsAny());
-		expect(testUnit.getOriValue()).isEqualTo("LoremIpsum");
+		expect(testUnit.getStoredValue()).isEqualTo("LoremIpsum");
 	}
 }

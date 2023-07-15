@@ -37,32 +37,32 @@ public final class ParametrizedPropertyTypeMapper {
 			case REFERENCE:
 				return
 				new ParametrizedReferenceType(
-					getOriReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case OPTIONAL_REFERENCE:
 				return
 				new ParametrizedOptionalReferenceType(
-					getOriReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case MULTI_REFERENCE:
 				return
 				new ParametrizedMultiReferenceType(
-					getOriReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case BACK_REFERENCE:
 				return
 				new ParametrizedBackReferenceType(
-					getOriBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getStoredBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case OPTIONAL_BACK_REFERENCE:
 				return
 				new ParametrizedOptionalBackReferenceType(
-					getOriBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getStoredBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case MULTI_BACK_REFERENCE:
 				return
 				new ParametrizedMultiBackReferenceType(
-					getOriBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
+					getStoredBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			default:
 				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
@@ -70,7 +70,7 @@ public final class ParametrizedPropertyTypeMapper {
 	}
 	
 	//method
-	private Column getOriBackReferencedColumnFromParametrizedPropertyType(
+	private Column getStoredBackReferencedColumnFromParametrizedPropertyType(
 		final IParametrizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
@@ -79,17 +79,17 @@ public final class ParametrizedPropertyTypeMapper {
 		final var backReferencedColumnId = baseParametrizedBackReferenceType.getBackReferencedColumnId();
 		
 		return
-		(Column)tables.toFromGroups(ITable::getOriColumns).getOriFirst(c -> c.hasId(backReferencedColumnId));
+		(Column)tables.toFromGroups(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
 	}
 	
 	//method
-	private ITable getOriReferencedTableFromParametrizedPropertyType(
+	private ITable getStoredReferencedTableFromParametrizedPropertyType(
 		final IParametrizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		
 		final var baseParametrizedReferenceType = (IBaseParametrizedReferenceTypeDto)parametrizedPropertyType;
 		
-		return tables.getOriFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
+		return tables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
 	}
 }

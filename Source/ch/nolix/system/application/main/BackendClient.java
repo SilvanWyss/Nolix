@@ -34,15 +34,15 @@ public abstract class BackendClient<
 	 * @return the name of the parent {@link Application} of the current {@link BackendClient}.
 	 */
 	public final String getApplicationName() {
-		return getOriParentApplication().getInstanceName();
+		return getStoredParentApplication().getInstanceName();
 	}
 	
 	//method
 	/**
 	 * @return the context of the parent {@link Application} of the current {@link BackendClient}.
 	 */
-	public AC getOriApplicationContext() {
-		return getOriParentApplication().getOriApplicationContext();
+	public AC getStoredApplicationContext() {
+		return getStoredParentApplication().getStoredApplicationContext();
 	}
 	
 	//method
@@ -51,7 +51,7 @@ public abstract class BackendClient<
 	 * @throws InvalidArgumentException if
 	 * the current {@link BackendClient} does not reference its parent {@link Application}.
 	 */
-	public final Application<BC, AC> getOriParentApplication() {
+	public final Application<BC, AC> getStoredParentApplication() {
 		
 		assertReferencesParentApplication();
 		
@@ -93,8 +93,8 @@ public abstract class BackendClient<
 	 * @throws ArgumentDoesNotHaveAttributeException if
 	 * the current {@link BackendClient} does not have a current {@link Session}.
 	 */
-	protected final Session<BC, AC> getOriCurrentSession() {
-		return sessionManager.getOriCurrentSession();
+	protected final Session<BC, AC> getStoredCurrentSession() {
+		return sessionManager.getStoredCurrentSession();
 	}
 	
 	//method

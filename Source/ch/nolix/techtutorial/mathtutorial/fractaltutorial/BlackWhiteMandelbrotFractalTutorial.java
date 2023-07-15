@@ -39,7 +39,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 		@Override
 		protected void initialize() {
 		
-			getOriGui()
+			getStoredGui()
 			.pushLayerWithRootControl(
 				new ImageControl()
 				.setImage(
@@ -61,7 +61,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 					.setBigDecimalScale(10)
 					.build()
 					.startImageGeneration()
-					.getOriImage()
+					.getStoredImage()
 				)
 			);
 			

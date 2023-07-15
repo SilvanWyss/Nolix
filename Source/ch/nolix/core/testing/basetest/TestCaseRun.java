@@ -90,10 +90,10 @@ final class TestCaseRun {
 				testCaseRunner.stop(
 					new Error(
 						"Reached timeout.",
-						testCaseWrapper.getOriTestCase().getName(),
+						testCaseWrapper.getStoredTestCase().getName(),
 						STACK_TRACE_ELEMENT_FINDER
-						.getStackTraceElementsOfRunningMethod(testCaseWrapper.getOriTestCase())
-						.getOriFirst()
+						.getStackTraceElementsOfRunningMethod(testCaseWrapper.getStoredTestCase())
+						.getStoredFirst()
 						.getLineNumber()
 					)
 				);

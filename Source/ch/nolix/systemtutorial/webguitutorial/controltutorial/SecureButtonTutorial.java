@@ -36,7 +36,7 @@ public final class SecureButtonTutorial {
 		
 		@Override
 		protected void initialize() {
-			getOriGui().pushLayerWithRootControl(
+			getStoredGui().pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(
 					countLabel,

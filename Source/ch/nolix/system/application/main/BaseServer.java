@@ -265,15 +265,15 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link Application} with the given instanceName.
 	 */
-	public final Application<?, ?> getOriApplicationByInstanceName(final String instanceName) {
-		return applications.getOriFirst(a -> a.getInstanceName().equals(instanceName));
+	public final Application<?, ?> getStoredApplicationByInstanceName(final String instanceName) {
+		return applications.getStoredFirst(a -> a.getInstanceName().equals(instanceName));
 	}
 	
 	//method
 	/**
 	 * @return the {@link Application}s of the current {@link BaseServer}.
 	 */
-	public final IContainer<Application<?, ?>> getOriApplications() {
+	public final IContainer<Application<?, ?>> getStoredApplications() {
 		return applications;
 	}
 	
@@ -282,7 +282,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
@@ -292,7 +292,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link Application}.
 	 */
-	public final Application<?, ?> getOriDefaultApplication() {
+	public final Application<?, ?> getStoredDefaultApplication() {
 		
 		//Asserts that the current Server contains a default Application.
 		assertContainsDefaultApplication();
@@ -330,11 +330,11 @@ public abstract class BaseServer implements GroupCloseable {
 		
 		//Handles the case that the given client does not have a target.
 		if (!client.hasTarget()) {
-			getOriDefaultApplication().takeClient(client);
+			getStoredDefaultApplication().takeClient(client);
 			
 		//Handles the case that the given client has a target.
 		} else {
-			getOriApplicationByInstanceName(client.getTarget()).takeClient(client);
+			getStoredApplicationByInstanceName(client.getTarget()).takeClient(client);
 		}
 	}
 	
@@ -364,11 +364,11 @@ public abstract class BaseServer implements GroupCloseable {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
-			getOriDefaultApplication().takeEndPoint(endPoint);
+			getStoredDefaultApplication().takeEndPoint(endPoint);
 			
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getOriApplicationByInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
+			getStoredApplicationByInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
 		}
 	}
 	

@@ -12,7 +12,7 @@ public interface IColumn extends IDatabaseObject, Identified, Named {
 	IParametrizedPropertyType getParametrizedPropertyType();
 	
 	//method declaration
-	ITable<IEntity> getOriParentTable();
+	ITable<IEntity> getStoredParentTable();
 	
 	//method
 	boolean technicalContainsGivenValueInPersistedData(String value);

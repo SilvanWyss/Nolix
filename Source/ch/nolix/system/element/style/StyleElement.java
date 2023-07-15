@@ -42,7 +42,7 @@ implements IStyleElement<SE> {
 		//Handles the case that the current ConfigurationElement has a Configuration.
 		if (hasStyle()) {
 			resetStyleRecursively();
-			getOriConfiguration().styleElement(this);
+			getStoredConfiguration().styleElement(this);
 		}
 	}
 
@@ -100,7 +100,7 @@ implements IStyleElement<SE> {
 	/**
 	 * @return the {@link Style} of the current {@link StyleElement}.
 	 */
-	private IStyle getOriConfiguration() {
+	private IStyle getStoredConfiguration() {
 		return style.getValue();
 	}
 }

@@ -36,7 +36,7 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
 	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfFloatContainer(
 		final FloatContainer floatContainer
 	) {
-		return floatContainer.getOriChildControls().to(this::createHtmlElementsForChildControl);
+		return floatContainer.getStoredChildControls().to(this::createHtmlElementsForChildControl);
 	}
 	
 	//method

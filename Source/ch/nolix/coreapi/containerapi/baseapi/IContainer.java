@@ -300,7 +300,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	E getOriAny();
+	E getStoredAny();
 	
 	//method declaration declaration
 	/**
@@ -308,7 +308,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return the element at the given p1BasedIndex.
 	 * @throws RuntimeException if the current {@link IContainer} does not contain an element at the given p1BasedIndex.
 	 */
-	E getOriAt1BasedIndex(int p1BasedIndex);
+	E getStoredAt1BasedIndex(int p1BasedIndex);
 	
 	//method declaration
 	/**
@@ -318,7 +318,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * the biggest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<C extends Comparable<C>> E getOriByMax(IElementTakerElementGetter<E, C> norm);
+	<C extends Comparable<C>> E getStoredByMax(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
@@ -328,14 +328,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * the smallest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	<C extends Comparable<C>> E getOriByMin(IElementTakerElementGetter<E, C> norm);
+	<C extends Comparable<C>> E getStoredByMin(IElementTakerElementGetter<E, C> norm);
 	
 	//method declaration
 	/**
 	 * @return the first element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	E getOriFirst();
+	E getStoredFirst();
 	
 	//method declaration
 	/**
@@ -344,20 +344,20 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @throws RuntimeException if
 	 * the current {@link IContainer} does not contain an element the given selector selects.
 	 */
-	E getOriFirst(IElementTakerBooleanGetter<? super E> selector);
+	E getStoredFirst(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**
 	 * @return the first element of the current {@link IContainer} or null.
 	 */
-	E getOriFirstOrNull();
+	E getStoredFirstOrNull();
 	
 	//method declaration
 	/**
 	 * @param selector
 	 * @return the first element the given selector selects from the current {@link IContainer} or null.
 	 */
-	E getOriFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
+	E getStoredFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method
 	/**
@@ -365,14 +365,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * groups with the elements of the current {@link IContainer} grouped by the given norm.
 	 */
-	IContainer<? extends IContainer<E>> getOriGroups(IElementTakerElementGetter<E, ?> norm);
+	IContainer<? extends IContainer<E>> getStoredGroups(IElementTakerElementGetter<E, ?> norm);
 	
 	//method declaration
 	/**
 	 * @return the last element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
-	E getOriLast();
+	E getStoredLast();
 	
 	//method declaration
 	/**
@@ -381,7 +381,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * the elements from the current {@link IContainer} that are of the given type.
 	 */
-	<E2 extends E> IContainer<E2> getOriOfType(Class<E2> type);
+	<E2 extends E> IContainer<E2> getStoredOfType(Class<E2> type);
 	
 	//method declaration
 	/**
@@ -389,7 +389,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 * @throws RuntimeException if the current {@link IContainer} contains several elements.
 	 */
-	E getOriOne();
+	E getStoredOne();
 	
 	//method declaration
 	/**
@@ -398,7 +398,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @throws RuntimeException if
 	 * the given selector selects none or several elements from the current {@link IContainer}.
 	 */
-	E getOriOne(IElementTakerBooleanGetter<? super E> selector);
+	E getStoredOne(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**
@@ -406,7 +406,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * the elements from the current {@link IContainer} the given selector skips (!).
 	 */
-	IContainer<E> getOriOther(IElementTakerBooleanGetter<E> selector);
+	IContainer<E> getStoredOther(IElementTakerBooleanGetter<E> selector);
 	
 	//method declaration
 	/**
@@ -414,7 +414,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @return a new {@link IContainer} with
 	 * the elements the given selector selects from the current {@link IContainer}.
 	 */
-	IContainer<E> getOriSelected(IElementTakerBooleanGetter<? super E> selector);
+	IContainer<E> getStoredSelected(IElementTakerBooleanGetter<? super E> selector);
 	
 	//method declaration
 	/**

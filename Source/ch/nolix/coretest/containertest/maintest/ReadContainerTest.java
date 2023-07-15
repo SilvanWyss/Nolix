@@ -39,7 +39,7 @@ public final class ReadContainerTest extends ContainerTest {
 	
 	//method
 	@TestCase
-	public void testCase_getOriAt1BasedIndex() {
+	public void testCase_getStoredAt1BasedIndex() {
 		
 		//setup
 		final String[] array1 = {"apple", "banana", "cerish"};
@@ -50,20 +50,20 @@ public final class ReadContainerTest extends ContainerTest {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
-		expect(readContainer.getOriAt1BasedIndex(1)).isEqualTo("apple");
-		expect(readContainer.getOriAt1BasedIndex(2)).isEqualTo("banana");
-		expect(readContainer.getOriAt1BasedIndex(3)).isEqualTo("cerish");
-		expect(readContainer.getOriAt1BasedIndex(4)).isEqualTo("elephant");
-		expect(readContainer.getOriAt1BasedIndex(5)).isEqualTo("lion");
-		expect(readContainer.getOriAt1BasedIndex(6)).isEqualTo("monkey");
-		expect(readContainer.getOriAt1BasedIndex(7)).isEqualTo("flower");
-		expect(readContainer.getOriAt1BasedIndex(8)).isEqualTo("tree");
-		expect(readContainer.getOriAt1BasedIndex(9)).isEqualTo("palm");
+		expect(readContainer.getStoredAt1BasedIndex(1)).isEqualTo("apple");
+		expect(readContainer.getStoredAt1BasedIndex(2)).isEqualTo("banana");
+		expect(readContainer.getStoredAt1BasedIndex(3)).isEqualTo("cerish");
+		expect(readContainer.getStoredAt1BasedIndex(4)).isEqualTo("elephant");
+		expect(readContainer.getStoredAt1BasedIndex(5)).isEqualTo("lion");
+		expect(readContainer.getStoredAt1BasedIndex(6)).isEqualTo("monkey");
+		expect(readContainer.getStoredAt1BasedIndex(7)).isEqualTo("flower");
+		expect(readContainer.getStoredAt1BasedIndex(8)).isEqualTo("tree");
+		expect(readContainer.getStoredAt1BasedIndex(9)).isEqualTo("palm");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_getOriSelected() {
+	public void testCase_getStoredSelected() {
 		
 		//setup
 		final String[] array1 = { "A", "AA", "AAA" };
@@ -74,9 +74,9 @@ public final class ReadContainerTest extends ContainerTest {
 		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
 		
 		//verification
-		expect(readContainer.getOriSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
-		expect(readContainer.getOriSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
-		expect(readContainer.getOriSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
+		expect(readContainer.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
+		expect(readContainer.getStoredSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
+		expect(readContainer.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
 	}
 	
 	//method

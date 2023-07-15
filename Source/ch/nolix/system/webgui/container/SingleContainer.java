@@ -45,18 +45,18 @@ implements ISingleContainer {
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriChildControls() {
+	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		
 		if (isEmpty()) {
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(getOriControl());
+		return ImmutableList.withElements(getStoredControl());
 	}
 	
 	//method
 	@Override
-	public IControl<?, ?> getOriControl() {
+	public IControl<?, ?> getStoredControl() {
 		return control.getValue();
 	}
 	

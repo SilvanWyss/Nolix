@@ -93,17 +93,17 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 		
 		if (specification.containsChildNodeWithHeader(JPG_STRING)) {
 			
-			final var lJPGString = specification.getOriFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
+			final var lJPGString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
 			
 			return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
 		}
 		
 		final var image =
 		MutableImage.withWidthAndHeightAndWhiteColor(
-			specification.getOriFirstChildNodeWithHeader(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
-			specification.getOriFirstChildNodeWithHeader(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt()
+			specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
+			specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt()
 		);
-		image.setPixelArray(specification.getOriFirstChildNodeThat(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
+		image.setPixelArray(specification.getStoredFirstChildNodeThat(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 		
 		return image;
 	}
@@ -226,7 +226,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 	//method
 	@Override
 	public IColor getPixel(final int xPosition, final int yPosition) {
-		return pixels.getOriAt1BasedRowIndexAndColumnIndex(yPosition, xPosition);
+		return pixels.getStoredAt1BasedRowIndexAndColumnIndex(yPosition, xPosition);
 	}
 	
 	//method
@@ -313,7 +313,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 	//method
 	public void setPixelArray(final INode<?> pixelArray) {
 		
-		final var lPixelArray = pixelArray.getOriChildNodes();
+		final var lPixelArray = pixelArray.getStoredChildNodes();
 		
 		GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels").isEqualTo(getPixelCount());
 		
@@ -509,7 +509,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 		for (var y = 0; y < getHeight(); y++) {
 			for (var x = 0; x < getWidth(); x++) {
 				
-				final var pixel = pixels.getOriAt1BasedRowIndexAndColumnIndex(y + 1, x + 1);
+				final var pixel = pixels.getStoredAt1BasedRowIndexAndColumnIndex(y + 1, x + 1);
 				
 				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
 			}
@@ -525,7 +525,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 		for (var y = 0; y < getHeight(); y++) {
 			for (var x = 0; x < getWidth(); x++) {
 				
-				final var pixel = pixels.getOriAt1BasedRowIndexAndColumnIndex(y + 1, x + 1);
+				final var pixel = pixels.getStoredAt1BasedRowIndexAndColumnIndex(y + 1, x + 1);
 				
 				lBufferedImage.setRGB(x, y, pixel.toAlphaRedGreenBlueInt());
 			}

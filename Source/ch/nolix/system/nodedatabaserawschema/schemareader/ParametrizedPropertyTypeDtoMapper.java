@@ -94,7 +94,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	) {
 		
 		final var backReferencedColumnNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriBackReferencedColumnIdNodeFromPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -105,7 +105,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriDataTypeNodeFromParametriedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -118,7 +118,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	) {
 		
 		final var propertyTypeNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -131,7 +131,7 @@ public class ParametrizedPropertyTypeDtoMapper {
 	) {
 		
 		final var referencedTableIdNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getOriReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		

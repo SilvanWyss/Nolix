@@ -68,7 +68,7 @@ final class ServerSocketProcessor extends Worker {
 			if (netEndPoint.isEmpty()) {
 				closeSocket();
 			} else {
-				parentServer.internalTakeBackendEndPoint(netEndPoint.getOriElement());
+				parentServer.internalTakeBackendEndPoint(netEndPoint.getStoredElement());
 			}
 		} catch (final Throwable error) {
 			

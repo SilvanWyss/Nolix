@@ -21,7 +21,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 	//method
 	@Override
 	protected void initialize() {
-		getOriGui()
+		getStoredGui()
 		.pushLayerWithRootControl(
 			new VerticalStack()
 			.setRole(ContainerRole.OVERALL_CONTAINER)
@@ -43,9 +43,9 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 	//method
 	private IContainer<IWebApplicationSheet> getRelevantWebApplicationSheets() {
 		return
-		getOriApplicationContext()
+		getStoredApplicationContext()
 		.getWebApplicationSheets()
-		.getOriOther(
+		.getStoredOther(
 			as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName())
 		);
 	}

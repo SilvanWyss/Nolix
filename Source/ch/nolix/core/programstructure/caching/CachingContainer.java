@@ -31,7 +31,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	//method
 	@Override
 	public boolean containsWithId(final String id) {
-		return elements.containsAny(e -> e.getOriElement1().equals(id));
+		return elements.containsAny(e -> e.getStoredElement1().equals(id));
 	}
 	
 	//method
@@ -43,37 +43,37 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	//method
 	@Override
 	public String getIdOf(final E element) {
-		return elements.getOriFirst(e -> e.getOriElement2().equals(element)).getOriElement1();
+		return elements.getStoredFirst(e -> e.getStoredElement2().equals(element)).getStoredElement1();
 	}
 	
 	//method
 	public SingleContainer<String> getOptionalIdOf(final E element) {
 		
-		final var pair = elements.getOriFirstOrNull(e -> e.getOriElement2() == element);
+		final var pair = elements.getStoredFirstOrNull(e -> e.getStoredElement2() == element);
 		
 		if (pair == null) {
 			return new SingleContainer<>();
 		}
 		
-		return new SingleContainer<>(pair.getOriElement1());
+		return new SingleContainer<>(pair.getStoredElement1());
 	}
 	
 	//method
 	@Override
-	public E getOriAt1BasedIndex(final int p1BasedIndex) {
-		return elements.getOriAt1BasedIndex(p1BasedIndex).getOriElement2();
+	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+		return elements.getStoredAt1BasedIndex(p1BasedIndex).getStoredElement2();
 	}
 	
 	//method
 	@Override
-	public E getOriById(final String id) {
-		return elements.getOriFirst(e -> e.getOriElement1().equals(id)).getOriElement2();
+	public E getStoredById(final String id) {
+		return elements.getStoredFirst(e -> e.getStoredElement1().equals(id)).getStoredElement2();
 	}
 	
 	//method
 	@Override
-	public E getOriLast() {
-		return elements.getOriLast().getOriElement2();
+	public E getStoredLast() {
+		return elements.getStoredLast().getStoredElement2();
 	}
 	
 	//method
@@ -122,7 +122,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 	@Override
 	public String registerIfNotRegisteredAndGetId(final E element) {
 		
-		final var pair = elements.getOriFirstOrNull(e -> e.hasElement2(element));
+		final var pair = elements.getStoredFirstOrNull(e -> e.hasElement2(element));
 		
 		if (pair == null) {
 			
@@ -134,7 +134,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
 			return id;
 		}
 		
-		return pair.getOriElement1();
+		return pair.getStoredElement1();
 	}
 	
 	//method

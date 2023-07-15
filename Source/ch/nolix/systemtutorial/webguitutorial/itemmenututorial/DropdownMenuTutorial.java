@@ -45,7 +45,7 @@ public final class DropdownMenuTutorial {
 			);
 			
 			//Adds the DropdownMenu to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(dropdownMenu);
+			getStoredGui().pushLayerWithRootControl(dropdownMenu);
 		}
 	}
 	

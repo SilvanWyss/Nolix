@@ -35,12 +35,12 @@ public final class UrlParameterTutorial {
 		protected void initialize() {
 			
 			final var localUrlParameter1 =
-			getOriParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter1");
+			getStoredParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter1");
 			
 			final var localUrlParameter2 =
-			getOriParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter2");
+			getStoredParentClient().getUrlParameterValueByUrlParameterNameOrNull("parameter2");
 			
-			getOriGui()
+			getStoredGui()
 			.pushLayerWithRootControl(
 				new VerticalStack()
 				.addControl(

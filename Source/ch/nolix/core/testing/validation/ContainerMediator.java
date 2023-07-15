@@ -38,7 +38,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 		containsAsManyElementsAs(localElements);
 		
 		var index = 0;
-		for (final var e : getOriValue()) {
+		for (final var e : getStoredValue()) {
 			
 			if (e != localElements[index]) {
 				addCurrentTestCaseError(
@@ -66,7 +66,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 		containsAsManyElementsAs(elements);
 		
 		var index = 0;
-		for (final var e : getOriValue()) {
+		for (final var e : getStoredValue()) {
 			
 			if (!Objects.equals(e, elements[index])) {
 				addCurrentTestCaseError(
@@ -87,14 +87,14 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 			throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ELEMENT_COUNT, elementCount);
 		}
 				
-		if (getOriValue() == null) {
+		if (getStoredValue() == null) {
 			
 			addCurrentTestCaseError("A container with " + elementCount + " elements was expected, but null was received.");
 			
 			return false;
 		} else {
 			
-			final var actualElementCount = GlobalIterableHelper.getElementCount(getOriValue());
+			final var actualElementCount = GlobalIterableHelper.getElementCount(getStoredValue());
 			
 			if (actualElementCount != elementCount) {
 				
@@ -115,7 +115,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//method
 	public void isEmpty() {
-		if (getOriValue() == null) {
+		if (getStoredValue() == null) {
 			expectIsEmptyWhenIsNull();
 		} else {
 			expectIsEmptyWhenIsNotNull();
@@ -124,7 +124,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//method
 	public void isNotEmpty() {
-		if (getOriValue() == null) {
+		if (getStoredValue() == null) {
 			expectIsNotEmptyWhenIsNull();
 		} else {
 			expectIsNotEmptyWhenIsNotNull();
@@ -134,7 +134,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	//method
 	private void expectIsEmptyWhenIsNotNull() {
 		
-		final var elementCount = GlobalIterableHelper.getElementCount(getOriValue());
+		final var elementCount = GlobalIterableHelper.getElementCount(getStoredValue());
 		
 		if (elementCount > 0) {
 			addCurrentTestCaseError(
@@ -152,7 +152,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	
 	//method
 	private void expectIsNotEmptyWhenIsNotNull() {
-		if (GlobalIterableHelper.isEmpty(getOriValue())) {
+		if (GlobalIterableHelper.isEmpty(getStoredValue())) {
 			addCurrentTestCaseError("A non-empty container was expected, but an empty container received.");
 		}
 	}

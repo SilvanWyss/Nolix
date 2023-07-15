@@ -75,7 +75,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	
 	//method
 	@Override
-	public ITable<IEntity> getOriParentTable() {
+	public ITable<IEntity> getStoredParentTable() {
 		return parentTable;
 	}
 	
@@ -83,15 +83,15 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	@Override
 	public boolean technicalContainsGivenValueInPersistedData(final String value) {
 		return
-		getOriDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
-			getOriParentTable().getName(),
+		getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
+			getStoredParentTable().getName(),
 			getName(),
 			value
 		);
 	}
 	
 	//method
-	private IDataAndSchemaAdapter getOriDataAndSchemaAdapter() {
+	private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
 		return parentTable.internalGetRefDataAndSchemaAdapter();
 	}
 }

@@ -40,7 +40,7 @@ public final class EntityValidator implements IEntityValidator {
 	@Override
 	public void assertDoesNotBelongToTable(final IEntity entity) {
 		if (entity.belongsToTable()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getOriParentTable());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getStoredParentTable());
 		}
 	}
 	

@@ -50,7 +50,7 @@ public abstract class StatisticalModel {
 			forecasts.addAtEnd(calculateNextValue());
 		}
 		
-		return forecasts.getOriAt1BasedIndex(index);
+		return forecasts.getStoredAt1BasedIndex(index);
 	}
 	
 	//method declaration
@@ -75,6 +75,6 @@ public abstract class StatisticalModel {
 			return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];
 		}
 		
-		return forecasts.getOriAt1BasedIndex(forecasts.getElementCount() - index + 1);
+		return forecasts.getStoredAt1BasedIndex(forecasts.getElementCount() - index + 1);
 	}
 }

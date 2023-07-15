@@ -39,7 +39,7 @@ public final class MandelbrotFractalTutorial {
 		@Override
 		protected void initialize() {
 			
-			getOriGui()
+			getStoredGui()
 			.pushLayerWithRootControl(
 				new ImageControl()
 				.setImage(
@@ -63,7 +63,7 @@ public final class MandelbrotFractalTutorial {
 					.setBigDecimalScale(10)
 					.build()
 					.startImageGeneration()
-					.getOriImage()
+					.getStoredImage()
 				)
 			);
 			

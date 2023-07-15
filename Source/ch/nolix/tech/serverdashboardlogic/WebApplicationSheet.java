@@ -28,7 +28,7 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
 		
 		applicationInstanceTarget = webApplication.asTarget();
 		
-		final var applicationContext = webApplication.getOriApplicationContext();
+		final var applicationContext = webApplication.getStoredApplicationContext();
 						
 		if (applicationContext instanceof IWebApplicationContext webApplicationContext) {
 			applicationLogo = webApplicationContext.getApplicationLogo();

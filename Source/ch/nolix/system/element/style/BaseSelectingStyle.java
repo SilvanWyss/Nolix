@@ -59,7 +59,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 			selectorId = null;
 		} else {
 			
-			selectorId = selectorIdContainer.getOriElement();
+			selectorId = selectorIdContainer.getStoredElement();
 			
 			GlobalValidator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
 		}
@@ -68,7 +68,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 			selectorType = null;
 		} else {
 			
-			selectorType = selectorTypeContainer.getOriElement();
+			selectorType = selectorTypeContainer.getStoredElement();
 			
 			GlobalValidator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
 		}

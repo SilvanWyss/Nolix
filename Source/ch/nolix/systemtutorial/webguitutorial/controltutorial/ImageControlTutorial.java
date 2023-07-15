@@ -43,13 +43,13 @@ public final class ImageControlTutorial {
 			final var imageControl = new ImageControl().setImage(image);
 			
 			//Configures the style of the ImageControl.
-			imageControl.getOriStyle()
+			imageControl.getStoredStyle()
 			.setBorderThicknessForState(ControlState.BASE, 5)
 			.setBackgroundColorForState(ControlState.BASE, Color.LAVENDER)
 			.setPaddingForState(ControlState.BASE, 5);
 			
 			//Adds the ImageControl to the GUI of the current MainSession.
-			getOriGui().pushLayerWithRootControl(imageControl);
+			getStoredGui().pushLayerWithRootControl(imageControl);
 		}
 	}
 	

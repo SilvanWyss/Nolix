@@ -43,14 +43,14 @@ implements IMultiStateConfiguration<MSC, S> {
 		GlobalValidator.assertThat(baseState).thatIsNamed("base state").isNotNull();
 		
 		availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
-		this.baseState = availableStates.getOriFirst(s -> s.hasEnumValue(baseState));
+		this.baseState = availableStates.getStoredFirst(s -> s.hasEnumValue(baseState));
 	}
 	
 	//method
 	@Override
 	public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
-		for (final var p : getOriProperties()) {
+		for (final var p : getStoredProperties()) {
 			if (attribute.getHeader().endsWith(p.getName())) {
 				p.setValueFromSpecification(attribute);
 				return true;
@@ -84,7 +84,7 @@ implements IMultiStateConfiguration<MSC, S> {
 		
 		final var attributes = new LinkedList<INode<?>>();
 		
-		for (final var p : getOriProperties()) {
+		for (final var p : getStoredProperties()) {
 			p.fillUpValuesSpecificationInto(attributes);
 		}
 		
@@ -100,16 +100,16 @@ implements IMultiStateConfiguration<MSC, S> {
 	//method
 	@Override
 	public final void reset() {
-		getOriProperties().forEach(Property::setUndefined);
+		getStoredProperties().forEach(Property::setUndefined);
 	}
 	
 	//method
 	public final void setFrom(final MSC element) {
 		
 		@SuppressWarnings("unchecked")
-		final var iterator = ((MultiStateConfiguration<MSC, S>)element).getOriProperties().iterator();
+		final var iterator = ((MultiStateConfiguration<MSC, S>)element).getStoredProperties().iterator();
 		
-		for (final var p : getOriProperties()) {
+		for (final var p : getStoredProperties()) {
 			p.setFrom(iterator.next());
 		}
 	}
@@ -148,7 +148,7 @@ implements IMultiStateConfiguration<MSC, S> {
 	}
 	
 	//method
-	final IContainer<Property<S>> getOriProperties() {
+	final IContainer<Property<S>> getStoredProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
@@ -227,8 +227,8 @@ implements IMultiStateConfiguration<MSC, S> {
 	
 	//method
 	@SuppressWarnings("unchecked")
-	private IContainer<CascadingProperty<S, ?>> getOriCascadingProperties() {
-		return getOriProperties().getOriOfType(CascadingProperty.class);
+	private IContainer<CascadingProperty<S, ?>> getStoredCascadingProperties() {
+		return getStoredProperties().getStoredOfType(CascadingProperty.class);
 	}
 	
 	//method
@@ -238,7 +238,7 @@ implements IMultiStateConfiguration<MSC, S> {
 	
 	//method
 	private void setItselsAsParentToProperties() {
-		for (final var p : getOriProperties()) {
+		for (final var p : getStoredProperties()) {
 			p.setParent(this);
 		}
 	}
@@ -246,9 +246,9 @@ implements IMultiStateConfiguration<MSC, S> {
 	//method
 	private void setParent(final MultiStateConfiguration<?, S> parentElement) {
 		
-		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getOriCascadingProperties());
+		final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getStoredCascadingProperties());
 		
-		for (final var cp: getOriCascadingProperties()) {
+		for (final var cp: getStoredCascadingProperties()) {
 			cp.setParentProperty(parentCascadingProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(cp)));
 		}
 		

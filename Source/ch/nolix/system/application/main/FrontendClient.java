@@ -48,7 +48,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 		
 		internalSetEndPoint(endPoint);
 		
-		application.takeEndPoint(endPoint.getOriCounterpart());
+		application.takeEndPoint(endPoint.getStoredCounterpart());
 	}
 	
 	//method
@@ -64,7 +64,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 		
 		internalSetEndPoint(endPoint);
 		
-		server.getOriDefaultApplication().takeEndPoint(endPoint.getOriCounterpart());
+		server.getStoredDefaultApplication().takeEndPoint(endPoint.getStoredCounterpart());
 	}
 	
 	//method
@@ -113,7 +113,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 		
 		internalSetEndPoint(endPoint);
 		
-		baseServer.getOriApplicationByInstanceName(name).takeEndPoint(endPoint.getOriCounterpart());
+		baseServer.getStoredApplicationByInstanceName(name).takeEndPoint(endPoint.getStoredCounterpart());
 	}
 	
 	//method

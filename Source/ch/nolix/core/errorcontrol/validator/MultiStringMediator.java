@@ -56,7 +56,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 		
 		//Iterates the arguments of the current multi string mediator.
 		var index = 1;
-		for (final var a : getOriArguments()) {
+		for (final var a : getStoredArguments()) {
 						
 			//Asserts that the current argument is not blank.
 			if (a.isBlank()) {
@@ -80,7 +80,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
 		
 		//Iterates the arguments of this string container mediator.
 		var index = 1;
-		for (final String a : getOriArguments()) {
+		for (final String a : getStoredArguments()) {
 						
 			//Asserts that the current argument is not empty.
 			if (a.isEmpty()) {

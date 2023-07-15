@@ -67,7 +67,7 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
 	 * @throws EmptyArgumentException if the current {@link SingleContainer} is empty.
 	 */
 	@Override
-	public E getOriElement() {
+	public E getStoredElement() {
 		
 		if (element == null) {
 			throw EmptyArgumentException.forArgument(this);

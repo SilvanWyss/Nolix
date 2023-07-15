@@ -208,7 +208,7 @@ public final class NetEndPoint extends EndPoint {
 	/**
 	 * @return the internal end point of the current {@link NetEndPoint}.
 	 */
-	IEndPoint getOriInternalEndPoint() {
+	IEndPoint getStoredInternalEndPoint() {
 		return internalEndPoint;
 	}
 	
@@ -222,7 +222,7 @@ public final class NetEndPoint extends EndPoint {
 		receive(Package.createPackageFromString(message));
 	}
 	
-	LinkedList<Package> getOriReceivedPackages() {
+	LinkedList<Package> getStoredReceivedPackages() {
 		return receivedPackages;
 	}
 	
@@ -254,7 +254,7 @@ public final class NetEndPoint extends EndPoint {
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {
-					final String reply = getOriReplier().getOutput(pPackage.getOriContent());
+					final String reply = getStoredReplier().getOutput(pPackage.getStoredContent());
 					if (isOpen()) {
 						send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
 					}
@@ -265,7 +265,7 @@ public final class NetEndPoint extends EndPoint {
 				
 				break;
 			default:
-				getOriReceivedPackages().addAtEnd(pPackage);
+				getStoredReceivedPackages().addAtEnd(pPackage);
 		}
 	}
 	
@@ -278,7 +278,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @throws InvalidArgumentException if the current {@link NetEndPoint} has not received a package with the given index.
 	 */
 	private Package getAndRemoveReceivedPackage(final int index) {
-		return getOriReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
+		return getStoredReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
 	}
 	
 	//method
@@ -287,7 +287,7 @@ public final class NetEndPoint extends EndPoint {
 	 * @return true if the current {@link NetEndPoint} has received a package with the given index.
 	 */
 	private boolean receivedPackage(final int index) {
-		return getOriReceivedPackages().containsAny(rp -> rp.hasIndex(index));
+		return getStoredReceivedPackages().containsAny(rp -> rp.hasIndex(index));
 	}
 	
 	//method
@@ -322,9 +322,9 @@ public final class NetEndPoint extends EndPoint {
 		return
 		switch (response.getMessageRole()) {
 			case SUCCESS_RESPONSE ->
-				response.getOriContent();
+				response.getStoredContent();
 			case ERROR_RESPONSE ->
-				throw GeneralException.withErrorMessage(response.getOriContent());
+				throw GeneralException.withErrorMessage(response.getStoredContent());
 			default ->
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY,	response);
 		};

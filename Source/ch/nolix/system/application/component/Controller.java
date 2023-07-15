@@ -21,12 +21,12 @@ public abstract class Controller<AC> { //NOSONAR: This class is a base type that
 	}
 	
 	//method
-	protected final AC getOriApplicationContext() {
-		return getOriSession().getOriApplicationContext();
+	protected final AC getStoredApplicationContext() {
+		return getStoredSession().getStoredApplicationContext();
 	}
 	
 	//method
-	protected final WebClientSession<AC> getOriSession() {
+	protected final WebClientSession<AC> getStoredSession() {
 		return session;
 	}
 }

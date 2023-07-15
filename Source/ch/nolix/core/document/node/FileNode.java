@@ -145,7 +145,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 */
 	@Override
 	public INode<?> asWithHeader(String header) {
-		return Node.withHeaderAndChildNodes(header, getOriChildNodes());
+		return Node.withHeaderAndChildNodes(header, getStoredChildNodes());
 	}
 	
 	//method
@@ -176,11 +176,11 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ReadContainer<FileNode> getOriChildNodes() {
+	public ReadContainer<FileNode> getStoredChildNodes() {
 		return
 		ReadContainer.forIterable(
-			internalSpecification.getOriChildNodes().to(
-				a -> new FileNode(getOriRootFileNode(), a)
+			internalSpecification.getStoredChildNodes().to(
+				a -> new FileNode(getStoredRootFileNode(), a)
 			)
 		);
 	}
@@ -305,10 +305,10 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	/**
 	 * @return the root {@link FileNode} of the current {@link FileNode}.
 	 */
-	private FileNode getOriRootFileNode() {
+	private FileNode getStoredRootFileNode() {
 		
 		if (!isRootFileNode()) {
-			return parentFileNode.getOriRootFileNode();
+			return parentFileNode.getStoredRootFileNode();
 		}
 		
 		return this;

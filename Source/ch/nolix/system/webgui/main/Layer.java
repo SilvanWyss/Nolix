@@ -209,18 +209,18 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IContainer<IControl<?, ?>> getOriControls() {
+	public IContainer<IControl<?, ?>> getStoredControls() {
 		
 		if (isEmpty()) {
-			return getOriControlsWhenIsEmpty();
+			return getStoredControlsWhenIsEmpty();
 		}
 		
-		return getOriControlsWhenIsNotEmpty();
+		return getStoredControlsWhenIsNotEmpty();
 	}
 	
 	//method
 	@Override
-	public IWebGui<?> getOriParentGui() {
+	public IWebGui<?> getStoredParentGui() {
 		
 		assertBelongsToGui();
 		
@@ -229,7 +229,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IControl<?, ?> getOriRootControl() {
+	public IControl<?, ?> getStoredRootControl() {
 		return rootControl.getValue();
 	}
 	
@@ -241,12 +241,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public IContainer<? extends IStylableElement<?>> getOriChildStylableElements() {
+	public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
 		
 		final var childConfigurableElements = new LinkedList<IControl<?, ?>>();
 		
 		if (containsAny()) {
-			childConfigurableElements.addAtEnd(getOriRootControl());
+			childConfigurableElements.addAtEnd(getStoredRootControl());
 		}
 		
 		return childConfigurableElements;
@@ -296,7 +296,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public void removeSelfFromGui() {
-		getOriParentGui().removeLayer(this);
+		getStoredParentGui().removeLayer(this);
 		parentGui = null;
 	}
 	
@@ -416,7 +416,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	private void assertDoesNotBelongToGui() {
 		if (belongsToGui()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getOriParentGui());
+			throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentGui());
 		}
 	}
 	
@@ -431,7 +431,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		final LinkedList<IControl<?, ?>> list
 	) {
 		
-		final var childControls = control.getOriChildControls();
+		final var childControls = control.getStoredChildControls();
 		
 		list.addAtEnd(childControls);
 		childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
@@ -450,16 +450,16 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	}
 	
 	//method
-	private IContainer<IControl<?, ?>> getOriControlsWhenIsEmpty() {
+	private IContainer<IControl<?, ?>> getStoredControlsWhenIsEmpty() {
 		return new ImmutableList<>();
 	}
 	
 	//method
-	private IContainer<IControl<?, ?>> getOriControlsWhenIsNotEmpty() {
+	private IContainer<IControl<?, ?>> getStoredControlsWhenIsNotEmpty() {
 		
 		final var controls = new LinkedList<IControl<?, ?>>();
-		controls.addAtEnd(getOriRootControl());
-		fillUpChildControlsOfControlIntoListRecursively(getOriRootControl(), controls);
+		controls.addAtEnd(getStoredRootControl());
+		fillUpChildControlsOfControlIntoListRecursively(getStoredRootControl(), controls);
 		
 		return controls;
 	}

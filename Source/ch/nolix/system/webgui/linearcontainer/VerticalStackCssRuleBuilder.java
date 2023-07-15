@@ -33,7 +33,7 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 				LinkedList.withElements(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_BOTTOM,
-						verticalStack.getOriStyle().getChildControlMarginWhenHasState(state)
+						verticalStack.getStoredStyle().getChildControlMarginWhenHasState(state)
 						+ CssUnitCatalogue.PX
 					)
 				)

@@ -57,7 +57,7 @@ public abstract class Session<
 	 * @return the name of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
 	public final String getApplicationName() {
-		return getOriParentClient().getApplicationName();
+		return getStoredParentClient().getApplicationName();
 	}
 	
 	//method
@@ -65,8 +65,8 @@ public abstract class Session<
 	 * @return
 	 * the context of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
-	public AC getOriApplicationContext() {
-		return getOriParentApplication().getOriApplicationContext();
+	public AC getStoredApplicationContext() {
+		return getStoredParentApplication().getStoredApplicationContext();
 	}
 	
 	//method
@@ -74,7 +74,7 @@ public abstract class Session<
 	 * @return the parent client of the current {@link Session}.
 	 * @throws InvalidArgumentException if the current {@link Session} does not belong to a client.
 	 */
-	public final BC getOriParentClient() {
+	public final BC getStoredParentClient() {
 		
 		//Asserts that the current {@link Session} belonts to a client.
 		assertBelongsToClient();
@@ -84,7 +84,7 @@ public abstract class Session<
 	
 	//method
 	public boolean hasParentSession() {
-		return (getOriParentClient().internalGetSessionStackSize() > 1);
+		return (getStoredParentClient().internalGetSessionStackSize() > 1);
 	}
 	
 	//method
@@ -92,7 +92,7 @@ public abstract class Session<
 	 * Pops the current {@link Session} from its parent {@link Client}.
 	 */
 	public final void pop() {
-		getOriParentClient().internalPopCurrentSession();
+		getStoredParentClient().internalPopCurrentSession();
 	}
 	
 	//method
@@ -103,7 +103,7 @@ public abstract class Session<
 	 * @throws ArgumentIsNullException if the given result is null.
 	 */
 	public final void pop(final Object result) {
-		getOriParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
+		getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
 	}
 	
 	//method
@@ -114,7 +114,7 @@ public abstract class Session<
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final void push(final Session<BC, AC> session) {
-		getOriParentClient().internalPush(session);
+		getStoredParentClient().internalPush(session);
 	}
 	
 	//method
@@ -127,7 +127,7 @@ public abstract class Session<
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final <R> R pushAndGetResult(final Session<BC, AC> session) {
-		return getOriParentClient().internalPushAndGetResult(session);
+		return getStoredParentClient().internalPushAndGetResult(session);
 	}
 	
 	//method
@@ -140,7 +140,7 @@ public abstract class Session<
 	 * @throws ArgumentIsNullException if the given session is null.
 	 */
 	public final void setNext(final Session<BC, AC> session) {
-		getOriParentClient().internalSetCurrentSession(session);
+		getStoredParentClient().internalSetCurrentSession(session);
 	}
 	
 	//method
@@ -156,7 +156,7 @@ public abstract class Session<
 				
 				isUpdatingCounterpart = true;
 								
-				while (updateCounterpartIsRequired && getOriParentClient().isOpen()) {
+				while (updateCounterpartIsRequired && getStoredParentClient().isOpen()) {
 					
 					updateCounterpartIsRequired = false;
 					
@@ -186,7 +186,7 @@ public abstract class Session<
 	 */
 	protected abstract void updateCounterpartActually();
 	
-	final Object getOriResult() {
+	final Object getStoredResult() {
 		
 		if (result == null) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RESULT);
@@ -259,7 +259,7 @@ public abstract class Session<
 	/**
 	 * @return the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
-	private Application<BC, AC> getOriParentApplication() {
-		return getOriParentClient().getOriParentApplication();
+	private Application<BC, AC> getStoredParentApplication() {
+		return getStoredParentClient().getStoredParentApplication();
 	}
 }

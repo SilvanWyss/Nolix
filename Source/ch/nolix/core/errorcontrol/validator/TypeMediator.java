@@ -26,11 +26,11 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		isNotNull();
 		
-		if (!Modifier.isAbstract(getOriArgument().getModifiers())) {
+		if (!Modifier.isAbstract(getStoredArgument().getModifiers())) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not abstract"
 			);
 		}
@@ -42,14 +42,14 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		isNotNull();
 		
 		if (
-			getOriArgument().isInterface()
-			|| getOriArgument().isEnum()
-			|| getOriArgument().isArray()
+			getStoredArgument().isInterface()
+			|| getStoredArgument().isEnum()
+			|| getStoredArgument().isArray()
 		) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not a class"
 			);
 		}
@@ -60,11 +60,11 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		isNotNull();
 		
-		if (!getOriArgument().isEnum()) {
+		if (!getStoredArgument().isEnum()) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not an enum"
 			);
 		}
@@ -77,11 +77,11 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		isClass();
 		
-		if (!pInterface.isAssignableFrom(getOriArgument())) {
+		if (!pInterface.isAssignableFrom(getStoredArgument())) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"does not implement " + pInterface.getName()
 			);
 		}
@@ -92,11 +92,11 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		isNotNull();
 		
-		if (!getOriArgument().isInterface()) {
+		if (!getStoredArgument().isInterface()) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not an interface"
 			);
 		}
@@ -107,11 +107,11 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		
 		isNotNull();
 		
-		if (Modifier.isAbstract(getOriArgument().getModifiers())) {
+		if (Modifier.isAbstract(getStoredArgument().getModifiers())) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is abstract"
 			);
 		}
@@ -125,13 +125,13 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		isClass();
 		
 		if (
-			!pClass.isAssignableFrom(getOriArgument())
-			|| getOriArgument().isAssignableFrom(pClass)
+			!pClass.isAssignableFrom(getStoredArgument())
+			|| getStoredArgument().isAssignableFrom(pClass)
 		) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not a sub class of " + pClass.getName()
 			);
 		}
@@ -145,13 +145,13 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 		isClass();
 		
 		if (
-			!getOriArgument().isAssignableFrom(pClass)
-			|| pClass.isAssignableFrom(getOriArgument())
+			!getStoredArgument().isAssignableFrom(pClass)
+			|| pClass.isAssignableFrom(getStoredArgument())
 		) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
-				getOriArgument(),
+				getStoredArgument(),
 				"is not a super class of " + pClass.getName()
 			);
 		}

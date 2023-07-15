@@ -63,7 +63,7 @@ public final class LocalEndPoint extends EndPoint {
 		//Clears the target of this local end point.
 		this.target = null;
 		
-		target.takeBackendEndPoint(getOriCounterpart());
+		target.takeBackendEndPoint(getStoredCounterpart());
 	}
 	
 	//constructor
@@ -84,7 +84,7 @@ public final class LocalEndPoint extends EndPoint {
 		this.target = target;
 		
 		//Lets the given server take the counterpart of this lcoal end point.
-		baseServer.internalTakeBackendEndPoint(getOriCounterpart());
+		baseServer.internalTakeBackendEndPoint(getStoredCounterpart());
 	}
 	
 	//constructor
@@ -166,14 +166,14 @@ public final class LocalEndPoint extends EndPoint {
 		//Asserts that this local end point is open.
 		assertIsOpen();
 		
-		return getOriCounterpart().receiveAndGetReply(message);
+		return getStoredCounterpart().receiveAndGetReply(message);
 	}
 	
 	//method
 	/**
 	 * @return the counterpart of this local end point.
 	 */
-	public LocalEndPoint getOriCounterpart() {
+	public LocalEndPoint getStoredCounterpart() {
 		return counterpart;
 	}
 
@@ -202,7 +202,7 @@ public final class LocalEndPoint extends EndPoint {
 	 */
 	@Override
 	public String getReplyForRequest(final String message) {
-		return getOriCounterpart().receiveAndGetReply(message);
+		return getStoredCounterpart().receiveAndGetReply(message);
 	}
 	
 	//method
@@ -236,6 +236,6 @@ public final class LocalEndPoint extends EndPoint {
 	 * @return the reply to the given message.
 	 */
 	private String receiveAndGetReply(final String message) {
-		return getOriReplier().getOutput(message);
+		return getStoredReplier().getOutput(message);
 	}
 }

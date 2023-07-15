@@ -70,7 +70,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getOriAt1BasedIndex(final int p1BasedIndex) {
+	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 		
 		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
@@ -83,7 +83,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getOriLast() {
+	public E getStoredLast() {
 		return array[getElementCount() - 1];
 	}
 	

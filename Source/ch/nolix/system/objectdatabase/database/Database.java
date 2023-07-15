@@ -53,28 +53,28 @@ public final class Database implements IDatabase {
 	
 	//method
 	@Override
-	public <E extends IEntity> IContainer<E> getOriEntitiesByType(final Class<E> type) {
-		return getOriTableByEntityType(type).getOriEntities();
+	public <E extends IEntity> IContainer<E> getStoredEntitiesByType(final Class<E> type) {
+		return getStoredTableByEntityType(type).getStoredEntities();
 	}
 	
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public <E extends IEntity> ITable<E> getOriTableByEntityType(
+	public <E extends IEntity> ITable<E> getStoredTableByEntityType(
 		final Class<E> entityClass
 	) {
-		return (ITable<E>)getOriTableByName(entityClass.getSimpleName());		
+		return (ITable<E>)getStoredTableByName(entityClass.getSimpleName());		
 	}
 	
 	//method	
 	@Override
-	public ITable<IEntity> getOriTableByName(final String name) {
-		return tables.getOriFirst(t -> t.hasName(name));
+	public ITable<IEntity> getStoredTableByName(final String name) {
+		return tables.getStoredFirst(t -> t.hasName(name));
 	}
 	
 	//method
 	@Override
-	public IContainer<? extends ITable<IEntity>> getOriTables() {
+	public IContainer<? extends ITable<IEntity>> getStoredTables() {
 		return tables;
 	}
 	
@@ -104,7 +104,7 @@ public final class Database implements IDatabase {
 	@SuppressWarnings("unchecked")
 	public <E extends IEntity> IDatabase insertEntity(final E entity) {
 		
-		getOriTableByEntityType((Class<E>)entity.getClass()).insertEntity(entity);
+		getStoredTableByEntityType((Class<E>)entity.getClass()).insertEntity(entity);
 		
 		return this;
 	}
@@ -129,7 +129,7 @@ public final class Database implements IDatabase {
 	
 	//method
 	void internalClose() {
-		for (final var t : getOriTables()) {
+		for (final var t : getStoredTables()) {
 			((Table<?>)t).internalClose();
 		}
 	}
@@ -146,7 +146,7 @@ public final class Database implements IDatabase {
 	
 	//method
 	void internalReset() {
-		for (final var t : getOriTables()) {
+		for (final var t : getStoredTables()) {
 			((Table<?>)t).internalReset();
 		}
 	}

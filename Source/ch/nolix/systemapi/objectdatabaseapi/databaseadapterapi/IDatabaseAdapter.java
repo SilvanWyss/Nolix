@@ -11,7 +11,7 @@ public interface IDatabaseAdapter<DA extends IDatabaseAdapter<DA>>
 extends EmptyCopyable<DA>, IMultiTimeChangeSaver {
 	
 	//method declaration
-	<E extends IEntity> ITable<E> getOriTableByEntityType(final Class<E> entityType);
+	<E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType);
 	
 	//method declaration
 	<E extends IEntity> DA insert(E entity);

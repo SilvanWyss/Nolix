@@ -23,7 +23,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 		testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, Color.DARK_CYAN));
 		
 		//verification
-		final var actualBaseTextColor = testUnit.getOriStyle().getTextColorWhenHasState(ControlState.BASE);
+		final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);
 		expect(actualBaseTextColor).isEqualTo(Color.DARK_CYAN);
 	}
 	
@@ -62,13 +62,13 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getOriChildControls() {
+	public final void testCase_getStoredChildControls() {
 		
 		//setup
 		final var testUnit = createTestUnit();
 		
 		//execution
-		final var result = testUnit.getOriChildControls();
+		final var result = testUnit.getStoredChildControls();
 		
 		//verification
 		expect(result).isEmpty();

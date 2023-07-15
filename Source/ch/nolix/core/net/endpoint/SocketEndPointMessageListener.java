@@ -27,7 +27,7 @@ final class SocketEndPointMessageListener extends Worker {
 	protected void run() {
 		while (parentNetEndPoint.isOpen()) {
 			
-			final var line = GlobalInputStreamHelper.readLineFrom(parentNetEndPoint.getOriInputStream());
+			final var line = GlobalInputStreamHelper.readLineFrom(parentNetEndPoint.getStoredInputStream());
 			
 			if (line == null) {
 				parentNetEndPoint.close();

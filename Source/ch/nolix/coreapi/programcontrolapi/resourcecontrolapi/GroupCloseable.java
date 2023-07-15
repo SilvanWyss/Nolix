@@ -18,7 +18,7 @@ public interface GroupCloseable extends Closeable, CloseStateRequestable {
 	 */
 	@Override
 	default void close() {
-		getOriCloseController().close();
+		getStoredCloseController().close();
 	}
 	
 	//method
@@ -35,14 +35,14 @@ public interface GroupCloseable extends Closeable, CloseStateRequestable {
 	 * the current {@link GroupCloseable} has already a close dependency to the given element.
 	 */
 	default void createCloseDependencyTo(final GroupCloseable element) {
-		getOriCloseController().createCloseDependencyTo(element);
+		getStoredCloseController().createCloseDependencyTo(element);
 	}
 	
 	//method declaration
 	/**
 	 * @return the {@link ICloseController} of the current {@link GroupCloseable}.
 	 */
-	ICloseController getOriCloseController();
+	ICloseController getStoredCloseController();
 	
 	//method
 	/**
@@ -50,7 +50,7 @@ public interface GroupCloseable extends Closeable, CloseStateRequestable {
 	 */
 	@Override
 	default boolean isClosed() {
-		return getOriCloseController().hasClosed();
+		return getStoredCloseController().hasClosed();
 	}
 	
 	//method declaration

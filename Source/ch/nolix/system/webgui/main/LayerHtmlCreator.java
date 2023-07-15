@@ -44,6 +44,6 @@ public final class LayerHtmlCreator {
 	
 	//method
 	private IHtmlElement<?, ?> getContentHtmlElementForLayer(final ILayer<?> layer) {
-		return layer.getOriRootControl().toHtmlElement();
+		return layer.getStoredRootControl().toHtmlElement();
 	}
 }

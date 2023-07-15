@@ -21,7 +21,7 @@ extends Clearable, IBaseReference<E> {
 	IContainer<String> getReferencedEntityIds();
 	
 	//method declaration
-	IContainer<? extends IMultiReferenceEntry<E>> getOriLocalEntries();
+	IContainer<? extends IMultiReferenceEntry<E>> getStoredLocalEntries();
 	
 	//method declaration
 	void removeEntity(E entity);

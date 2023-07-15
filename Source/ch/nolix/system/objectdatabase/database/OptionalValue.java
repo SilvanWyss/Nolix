@@ -46,7 +46,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 	
 	//method
 	@Override
-	public V getOriValue() {
+	public V getStoredValue() {
 		
 		OPTIONAL_VALUE_VALIDATOR.assertHasValue(this);
 		
@@ -98,7 +98,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 			return new ContentFieldDto(getName());
 		}
 		
-		return new ContentFieldDto(getName(), getOriValue().toString());
+		return new ContentFieldDto(getName(), getStoredValue().toString());
 	}
 	
 	//method

@@ -374,8 +374,8 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * if the given index is bigger than the number of elements of the current {@link Matrix}.
 	 */
 	@Override
-	public E getOriAt1BasedIndex(final int p1BasedIndex) {
-		return getOriAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
+	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
+		return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
 	}
 	
 	//method
@@ -395,7 +395,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public E getOriAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
+	public E getStoredAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 		
 		//Asserts that the current matrix contains an element at the given row index and column index.
 		assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
@@ -410,7 +410,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public E getOriLast() {
+	public E getStoredLast() {
 		return (E)elements[getRowCount()][getColumnCount()];
 	}
 	

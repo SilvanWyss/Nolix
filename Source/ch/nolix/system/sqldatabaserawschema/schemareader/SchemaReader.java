@@ -77,7 +77,7 @@ public final class SchemaReader implements ISchemaReader {
 	
 	//method
 	@Override
-	public CloseController getOriCloseController() {
+	public CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
@@ -137,7 +137,7 @@ public final class SchemaReader implements ISchemaReader {
 	public Time loadSchemaTimestamp() {
 		return
 		Time.fromString(
-			sqlConnection.getRecords(QUERY_CREATOR.createQueryToLoadSchemaTimestamp()).getOriFirst().get(0)
+			sqlConnection.getRecords(QUERY_CREATOR.createQueryToLoadSchemaTimestamp()).getStoredFirst().get(0)
 		);
 	}
 	

@@ -37,6 +37,6 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(singleContainer.getOriControl().toHtmlElement());
+		return ImmutableList.withElements(singleContainer.getStoredControl().toHtmlElement());
 	}
 }

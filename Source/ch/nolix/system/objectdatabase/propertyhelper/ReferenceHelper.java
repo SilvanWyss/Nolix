@@ -29,7 +29,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		final IEntity entity
 	) {
 		
-		final var parentEntity = reference.getOriParentEntity();
+		final var parentEntity = reference.getStoredParentEntity();
 		
 		return new EntityUpdateDto(
 			parentEntity.getId(),
@@ -40,12 +40,12 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 	
 	//method
 	@Override
-	public  IProperty getOriBackReferencingPropertyOrNull(final IReference<?> reference) {
+	public  IProperty getStoredBackReferencingPropertyOrNull(final IReference<?> reference) {
 		return
 		reference
 		.getReferencedEntity()
 		.technicalGetRefProperties()
-		.getOriFirstOrNull(p -> p.referencesBackProperty(reference));
+		.getStoredFirstOrNull(p -> p.referencesBackProperty(reference));
 	}
 	
 	//method
@@ -53,6 +53,6 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 		return
 		reference != null
 		&& reference.belongsToEntity()
-		&& reference.getOriParentEntity().isOpen();
+		&& reference.getStoredParentEntity().isOpen();
 	}
 }

@@ -82,12 +82,12 @@ final class ContainerView<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getOriAt1BasedIndex(final int p1BasedIndex) {
+	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 		
 		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isNotBiggerThan(getElementCount());
 		
-		return container.getOriAt1BasedIndex(startIndex + p1BasedIndex - 1);
+		return container.getStoredAt1BasedIndex(startIndex + p1BasedIndex - 1);
 	}
 	
 	//method
@@ -95,8 +95,8 @@ final class ContainerView<E> extends Container<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public E getOriLast() {
-		return getOriAt1BasedIndex(getElementCount());
+	public E getStoredLast() {
+		return getStoredAt1BasedIndex(getElementCount());
 	}
 	
 	//method

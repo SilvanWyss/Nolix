@@ -45,7 +45,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 			name,
 			setter,
 			getter,
-			s -> s.getOriSingleChildNode().getHeaderOrEmptyString(),
+			s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
 			(final String s) -> {
 				
 				if (s.isEmpty()) {

@@ -22,7 +22,7 @@ public interface IApplication<AC> {
 	String getNameAddendum();
 	
 	//method declaration
-	AC getOriApplicationContext();
+	AC getStoredApplicationContext();
 	
 	//method declaration
 	boolean hasNameAddendum();

@@ -32,7 +32,7 @@ public final class ShowValueDialogFactory {
 				new Button()
 				.setRole(ButtonRole.CONFIRM_BUTTON)
 				.setText("Ok")
-				.setLeftMouseButtonPressAction(b -> cancel(b.getOriParentLayer()))
+				.setLeftMouseButtonPressAction(b -> cancel(b.getStoredParentLayer()))
 			)
 		);
 	}
@@ -63,7 +63,7 @@ public final class ShowValueDialogFactory {
 				new Button()
 				.setRole(ButtonRole.CONFIRM_BUTTON)
 				.setText("Ok")
-				.setLeftMouseButtonPressAction(b -> cancel(b.getOriParentLayer()))
+				.setLeftMouseButtonPressAction(b -> cancel(b.getStoredParentLayer()))
 			)
 		);
 	}

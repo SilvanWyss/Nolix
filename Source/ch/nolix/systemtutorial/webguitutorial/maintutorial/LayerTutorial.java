@@ -31,7 +31,7 @@ public final class LayerTutorial {
 		@Override
 		protected void initialize() {
 			
-			getOriGui().setTitle("Layer tutorial");
+			getStoredGui().setTitle("Layer tutorial");
 			
 			//Creates labelA.
 			final var labelA = new Label().setText("A");
@@ -40,20 +40,20 @@ public final class LayerTutorial {
 			final var labelB = new Label().setText("B");
 			
 			//Configures the style of labelA.
-			labelA.getOriStyle()
+			labelA.getStoredStyle()
 			.setTextSizeForState(ControlState.BASE, 200)
 			.setTextColorForState(ControlState.BASE, Color.GREY);
 			
 			//Configures the look of labelB.
-			labelB.getOriStyle()
+			labelB.getStoredStyle()
 			.setTextSizeForState(ControlState.BASE, 180)
 			.setTextColorForState(ControlState.BASE, Color.BLACK);
 			
 			//Adds a new layer with labelA to the Frame.
-			getOriGui().pushLayerWithRootControl(labelA);
+			getStoredGui().pushLayerWithRootControl(labelA);
 			
 			//Adds a new layer with labelB to the Frame.
-			getOriGui().pushLayerWithRootControl(labelB);
+			getStoredGui().pushLayerWithRootControl(labelB);
 		}
 	}
 	

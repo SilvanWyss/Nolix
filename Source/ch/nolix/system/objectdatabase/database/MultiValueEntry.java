@@ -58,13 +58,13 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 	
 	//method
 	@Override
-	public IMultiValue<V> getOriParentMultiValue() {
+	public IMultiValue<V> getStoredParentMultiValue() {
 		return parentMultiValue;
 	}
 	
 	//method
 	@Override
-	public V getOriValue() {
+	public V getStoredValue() {
 		return value;
 	}
 	
@@ -72,7 +72,7 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 	@Override
 	public DatabaseObjectState getState() {
 		return
-		switch (getOriParentMultiValue().getState()) {
+		switch (getStoredParentMultiValue().getState()) {
 			case DELETED ->
 				DatabaseObjectState.DELETED;
 			case CLOSED ->
@@ -85,19 +85,19 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 	//method
 	@Override
 	public boolean isClosed() {
-		return getOriParentMultiValue().isClosed();
+		return getStoredParentMultiValue().isClosed();
 	}
 	
 	//method
 	@Override
 	public boolean isDeleted() {
-		return getOriParentMultiValue().isDeleted();
+		return getStoredParentMultiValue().isDeleted();
 	}
 	
 	//method
 	@Override
 	public boolean isLinkedWithRealDatabase() {
-		return getOriParentMultiValue().isLinkedWithRealDatabase();
+		return getStoredParentMultiValue().isLinkedWithRealDatabase();
 	}
 	
 	//method

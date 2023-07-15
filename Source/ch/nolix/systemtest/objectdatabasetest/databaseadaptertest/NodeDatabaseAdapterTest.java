@@ -123,7 +123,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		//setup part 3: Edit the schema of the database.
 		final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
 		schemaAdapter
-		.getOriTableByName("Pet")
+		.getStoredTableByName("Pet")
 		.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
 		schemaAdapter.saveChangesAndReset();
 		

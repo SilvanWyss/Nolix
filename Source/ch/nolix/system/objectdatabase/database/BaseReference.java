@@ -45,7 +45,7 @@ implements IBaseReference<E> {
 	
 	//method
 	@Override
-	public final IContainer<IProperty> getOriReferencingProperties() {
+	public final IContainer<IProperty> getStoredReferencingProperties() {
 		return new ImmutableList<>();
 	}
 	
@@ -71,7 +71,7 @@ implements IBaseReference<E> {
 						final var backReference = (BackReference<?>)p;
 						
 						if (backReference.referencesBackProperty(this)) {
-							backReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
+							backReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
 						}
 						
 						break;
@@ -81,7 +81,7 @@ implements IBaseReference<E> {
 						final var optionalBackReference = (OptionalBackReference<?>)p;
 						
 						if (optionalBackReference.referencesBackProperty(this)) {
-							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getOriParentEntity().getId());
+							optionalBackReference.internalSetDirectlyBackReferencedEntityId(getStoredParentEntity().getId());
 						}
 						
 						break;
@@ -113,6 +113,6 @@ implements IBaseReference<E> {
 	@SuppressWarnings("unchecked")
 	private Table<E> loadReferencedTable() {
 		return
-		(Table<E>)getOriParentEntity().getOriParentTable().getOriParentDatabase().getOriTableByName(getReferencedTableName());
+		(Table<E>)getStoredParentEntity().getStoredParentTable().getStoredParentDatabase().getStoredTableByName(getReferencedTableName());
 	}
 }

@@ -91,13 +91,13 @@ public abstract class BaseEntity implements IEntity {
 	
 	//method
 	@Override
-	public final IDatabase getOriParentDatabase() {
-		return getOriParentTable().getOriParentDatabase();
+	public final IDatabase getStoredParentDatabase() {
+		return getStoredParentTable().getStoredParentDatabase();
 	}
 	
 	//method
 	@Override
-	public final ITable<IEntity> getOriParentTable() {
+	public final ITable<IEntity> getStoredParentTable() {
 		
 		ENTITY_VALIDATOR.assertBelongsToTable(this);
 		
@@ -148,7 +148,7 @@ public abstract class BaseEntity implements IEntity {
 	public final boolean isLinkedWithRealDatabase() {
 		return
 		belongsToTable()
-		&& getOriParentTable().isLinkedWithRealDatabase();
+		&& getStoredParentTable().isLinkedWithRealDatabase();
 	}
 	
 	//method
@@ -165,7 +165,7 @@ public abstract class BaseEntity implements IEntity {
 	//method
 	@Override
 	public final IContainer<? extends IProperty> technicalGetRefProperties() {
-		return getOriProperties();
+		return getStoredProperties();
 	}
 	
 	//method
@@ -194,12 +194,12 @@ public abstract class BaseEntity implements IEntity {
 	
 	//method
 	final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
-		return ((Table<?>)getOriParentTable()).internalGetRefDataAndSchemaAdapter();
+		return ((Table<?>)getStoredParentTable()).internalGetRefDataAndSchemaAdapter();
 	}
 	
 	//method
 	final Property internalGetRefPropertyByName(final String name) {
-		return getOriProperties().getOriFirst(p -> p.hasName(name));
+		return getStoredProperties().getStoredFirst(p -> p.hasName(name));
 	}
 	
 	//method declaration
@@ -250,7 +250,7 @@ public abstract class BaseEntity implements IEntity {
 		
 		this.parentTable = parentTable;
 		
-		getOriProperties().forEach(Property::internalSetParentColumnFromParentTable);
+		getStoredProperties().forEach(Property::internalSetParentColumnFromParentTable);
 	}
 	
 	//method
@@ -263,7 +263,7 @@ public abstract class BaseEntity implements IEntity {
 	
 	//method
 	final void internalUpdateProbableBackReferencesWhenIsNew() {
-		getOriProperties().forEach(Property::internalUpdateProbableBackReferencesWhenIsNew);
+		getStoredProperties().forEach(Property::internalUpdateProbableBackReferencesWhenIsNew);
 	}
 	
 	//method
@@ -287,7 +287,7 @@ public abstract class BaseEntity implements IEntity {
 	}
 	
 	//method
-	private IContainer<Property> getOriProperties() {
+	private IContainer<Property> getStoredProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
@@ -300,7 +300,7 @@ public abstract class BaseEntity implements IEntity {
 		final var lId = getId();
 		
 		return
-		((Table<?>)getOriParentTable())
+		((Table<?>)getStoredParentTable())
 		.internalGetColumnsThatReferencesCurrentTable()
 		.containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
 	}
@@ -325,7 +325,7 @@ public abstract class BaseEntity implements IEntity {
 	
 	//method
 	private void updateBackReferencingPropertiesForDeletion() {
-		ENTITY_HELPER.getOriBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
+		ENTITY_HELPER.getStoredBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
 	}
 	
 	//method

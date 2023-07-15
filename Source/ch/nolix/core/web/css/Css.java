@@ -25,7 +25,7 @@ public final class Css implements ICss<CssRule, CssProperty> {
 	
 	//method
 	@Override
-	public IContainer<CssRule> getOriRules() {
+	public IContainer<CssRule> getStoredRules() {
 		return rules;
 	}
 	
@@ -38,6 +38,6 @@ public final class Css implements ICss<CssRule, CssProperty> {
 	//method
 	@Override
 	public String toStringWithoutEnclosingBrackets() {
-		return getOriRules().toConcatenatedString();
+		return getStoredRules().toConcatenatedString();
 	}
 }

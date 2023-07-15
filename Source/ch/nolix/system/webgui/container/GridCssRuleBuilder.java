@@ -49,7 +49,7 @@ public final class GridCssRuleBuilder extends ExtendedControlCssRuleBuilder<IGri
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		
-		final var style = control.getOriStyle();
+		final var style = control.getStoredStyle();
 		final var gridThickness = style.getGridThicknessWhenHasState(state);
 		final var gridcolor = style.getGridColorWhenHasState(state);
 		final var childControlMargin = style.getChildControlMarginWhenHasState(state);

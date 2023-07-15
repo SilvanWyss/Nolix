@@ -11,7 +11,7 @@ public interface IOptionalValue<
 extends Clearable, IBaseValue<V> {
 	
 	//method declaration
-	V getOriValue();
+	V getStoredValue();
 	
 	//method declaration
 	void setValue(V value);

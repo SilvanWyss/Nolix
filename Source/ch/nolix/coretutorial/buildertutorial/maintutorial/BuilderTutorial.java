@@ -47,7 +47,7 @@ public class BuilderTutorial {
 		}
 		
 		public final String getName() {
-			return getOriArgument();
+			return getStoredArgument();
 		}
 		
 		public final N withName(final String name) {
@@ -62,7 +62,7 @@ public class BuilderTutorial {
 		}
 		
 		public final int getAgeInYears() {
-			return getOriArgument();
+			return getStoredArgument();
 		}
 		
 		public final N withAgeInYears(final int ageInYears) {
@@ -77,7 +77,7 @@ public class BuilderTutorial {
 		}
 		
 		public final int getWeightInKilogram() {
-			return getOriArgument();
+			return getStoredArgument();
 		}
 		
 		public final N withWeightInKilogram(final int ageInYears) {

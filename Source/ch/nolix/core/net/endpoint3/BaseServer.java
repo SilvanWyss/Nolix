@@ -75,7 +75,7 @@ public abstract class BaseServer implements IServer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
@@ -121,11 +121,11 @@ public abstract class BaseServer implements IServer {
 		
 		//Handles the case that the given endPoint does not have a target.
 		if (!endPoint.hasCustomTargetSlot()) {
-			getOriDefaultSlot().takeBackendEndPoint(endPoint);
+			getStoredDefaultSlot().takeBackendEndPoint(endPoint);
 		
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getOriSlotByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
+			getStoredSlotByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
 		}
 	}
 
@@ -193,7 +193,7 @@ public abstract class BaseServer implements IServer {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a default {@link IEndPointTaker}.
 	 */
-	private ISlot getOriDefaultSlot() {
+	private ISlot getStoredDefaultSlot() {
 		
 		assertContainsDefaultSlot();
 		
@@ -208,7 +208,7 @@ public abstract class BaseServer implements IServer {
 	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
 	 * a {@link IEndPointTaker} with the given name. 
 	 */
-	private ISlot getOriSlotByName(final String name) {
-		return slots.getOriFirst(ept -> ept.hasName(name));
+	private ISlot getStoredSlotByName(final String name) {
+		return slots.getStoredFirst(ept -> ept.hasName(name));
 	}
 }

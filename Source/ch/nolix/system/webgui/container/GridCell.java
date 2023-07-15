@@ -74,7 +74,7 @@ public final class GridCell extends MutableElement implements Clearable {
 	}
 
 	//method
-	public IControl<?, ?> getOriControl() {
+	public IControl<?, ?> getStoredControl() {
 		return control.getValue();
 	}
 	

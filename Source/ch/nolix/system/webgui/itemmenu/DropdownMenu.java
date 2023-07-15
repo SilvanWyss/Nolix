@@ -29,7 +29,7 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 		//Info: Reset is technically optional, but required to achieve a custom state on reset.
 		reset();
 		
-		getOriStyle()
+		getStoredStyle()
 		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
 		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
 		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);

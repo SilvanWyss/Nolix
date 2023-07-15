@@ -15,10 +15,10 @@ extends Clearable, IBaseValue<V> {
 	void addValue(V value);
 	
 	//method declaration
-	IContainer<? extends IMultiValueEntry<V>> getOriLocalEntries();
+	IContainer<? extends IMultiValueEntry<V>> getStoredLocalEntries();
 	
 	//method declaration
-	IContainer<V> getOriValues();
+	IContainer<V> getStoredValues();
 	
 	//method declaration
 	void removeValue(V value);

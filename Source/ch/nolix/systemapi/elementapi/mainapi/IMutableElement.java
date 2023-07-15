@@ -87,6 +87,6 @@ public interface IMutableElement extends Resettable, Specified {
 	 * @throws RuntimeException if the given specification is not valid.
 	 */
 	default void resetFromSpecification(final INode<?> specification) {
-		resetFromAttributes(specification.getOriChildNodes());
+		resetFromAttributes(specification.getStoredChildNodes());
 	}
 }

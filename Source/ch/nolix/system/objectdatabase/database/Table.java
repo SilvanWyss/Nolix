@@ -93,7 +93,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	//method
 	@Override
 	public int getEntityCount() {
-		return getOriEntities().getElementCount();
+		return getStoredEntities().getElementCount();
 	}
 	
 	//method
@@ -104,7 +104,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public IContainer<IColumn> getOriColumns() {
+	public IContainer<IColumn> getStoredColumns() {
 		return columns;
 	}
 	
@@ -122,7 +122,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public IContainer<E> getOriEntities() {
+	public IContainer<E> getStoredEntities() {
 		
 		loadAllEntitiesInLocalDataIfNotLoaded();
 		
@@ -131,15 +131,15 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public E getOriEntityById(final String id) {
+	public E getStoredEntityById(final String id) {
 		
-		final var entity = technicalGetRefEntitiesInLocalData().getOriFirstOrNull(e -> e.hasId(id));
+		final var entity = technicalGetRefEntitiesInLocalData().getStoredFirstOrNull(e -> e.hasId(id));
 		
 		if (entity == null) {
 			
 			addEntityWithIdWhenIsNotAdded(id);
 			
-			return getOriEntityByIdWhenIsInLocalData(id);
+			return getStoredEntityByIdWhenIsInLocalData(id);
 		}
 		
 		return entity;
@@ -147,9 +147,9 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public E getOriEntityByIdOrNull(final String id) {
+	public E getStoredEntityByIdOrNull(final String id) {
 		
-		final var entity = technicalGetRefEntitiesInLocalData().getOriFirstOrNull(e -> e.hasId(id));
+		final var entity = technicalGetRefEntitiesInLocalData().getStoredFirstOrNull(e -> e.hasId(id));
 		
 		if (entity == null) {
 			
@@ -157,7 +157,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 				
 				addEntityWithIdWhenIsNotAdded(id);
 				
-				return getOriEntityByIdWhenIsInLocalData(id);
+				return getStoredEntityByIdWhenIsInLocalData(id);
 			}
 			
 			return null;
@@ -168,7 +168,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	
 	//method
 	@Override
-	public IDatabase getOriParentDatabase() {
+	public IDatabase getStoredParentDatabase() {
 		return parentDatabase;
 	}
 	
@@ -268,8 +268,8 @@ public final class Table<E extends IEntity> implements ITable<E> {
 	}
 	
 	//method
-	private E getOriEntityByIdWhenIsInLocalData(final String id) {
-		return technicalGetRefEntitiesInLocalData().getOriFirst(e -> e.hasId(id));
+	private E getStoredEntityByIdWhenIsInLocalData(final String id) {
+		return technicalGetRefEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
 	}
 	
 	//method

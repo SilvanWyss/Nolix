@@ -47,7 +47,7 @@ public class IndexedPackage<C> implements Indexed {
 	/**
 	 * @return the content of the current {@link IndexedPackage}.
 	 */
-	public final C getOriContent() {
+	public final C getStoredContent() {
 		return content;
 	}
 	

@@ -42,7 +42,7 @@ public final class LoadedEntityDtoMapper {
 		final var contentFields = new LinkedList<ILoadedContentFieldDto>();
 		for (final var ci : tableInfo.getColumnInfos()) {
 			
-			final var contentFieldNode = entityNode.getOriChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
+			final var contentFieldNode = entityNode.getStoredChildNodeAt1BasedIndex(ci.getColumnIndexOnEntityNode());
 			
 			contentFields.addAtEnd(CONTENT_FIELD_DTO_MAPPER.createContentFieldDtoFromContentFieldNode(contentFieldNode, ci));
 		}
@@ -53,7 +53,7 @@ public final class LoadedEntityDtoMapper {
 	//method
 	private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
 		
-		final var idNode = ENTITY_NODE_SEARCHER.getOriIdNodeFromEntityNode(entityNode);
+		final var idNode = ENTITY_NODE_SEARCHER.getStoredIdNodeFromEntityNode(entityNode);
 		
 		return idNode.getHeader();
 	}
@@ -61,7 +61,7 @@ public final class LoadedEntityDtoMapper {
 	//method
 	private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
 		
-		final var saveStampNode = ENTITY_NODE_SEARCHER.getOriSaveStampNodeFromEntityNode(entityNode);
+		final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);
 		
 		return saveStampNode.getHeader();
 	}

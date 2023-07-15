@@ -30,7 +30,7 @@ IRootControlOwner<L> {
 	double getOpacity();
 	
 	//method declaration
-	IWebGui<?> getOriParentGui();
+	IWebGui<?> getStoredParentGui();
 	
 	//method declaration
 	LayerRole getRole();

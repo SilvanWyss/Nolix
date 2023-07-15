@@ -41,8 +41,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		this.databaseAdapter = databaseAdapter;
 		this.schemaReader = schemaReader;
 		
-		getOriCloseController().createCloseDependencyTo(databaseAdapter);
-		getOriCloseController().createCloseDependencyTo(schemaReader);
+		getStoredCloseController().createCloseDependencyTo(databaseAdapter);
+		getStoredCloseController().createCloseDependencyTo(schemaReader);
 	}
 	
 	//method
@@ -113,7 +113,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	
 	//method
 	@Override
-	public final CloseController getOriCloseController() {
+	public final CloseController getStoredCloseController() {
 		return closeController;
 	}
 	
