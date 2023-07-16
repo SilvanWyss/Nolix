@@ -83,7 +83,7 @@ public class ServerTarget implements IServerTarget {
 	private String toHttpsUrl() {
 		
 		if (getPort() == PortCatalogue.HTTPS) {
-			return getIpOrAddressName();
+			return String.format("https://%s", getIpOrAddressName());
 		}
 		
 		return String.format("https://%s:%s", getIpOrAddressName(), getPort());
