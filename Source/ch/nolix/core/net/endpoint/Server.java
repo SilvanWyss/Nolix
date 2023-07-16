@@ -53,6 +53,14 @@ public final class Server extends BaseServer {
 	
 	//static method
 	/**
+	 * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the HTTP port (80).
+	 */
+	public static Server forHttpPort() {
+		return new Server(PortCatalogue.HTTP, DEFAULT_HTTP_MESSAGE);
+	}
+	
+	//static method
+	/**
 	 * @param port
 	 * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
