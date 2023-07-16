@@ -50,7 +50,7 @@ public final class NetEndPointTest extends Test {
 		//parameter definition
 		final var port = 50000;
 		
-		try (final var server = new Server(port)) {
+		try (final var server = Server.forPort(50000)) {
 			
 			//setup
 			server.addDefaultSlot(new EndPointTaker());
@@ -74,7 +74,7 @@ public final class NetEndPointTest extends Test {
 		//parameter definition
 		final var port = 50000;
 				
-		try (final var server = new Server(port)) {
+		try (final var server = Server.forPort(50000)) {
 			
 			//setup
 			final var endPointTaker = new EndPointTaker();

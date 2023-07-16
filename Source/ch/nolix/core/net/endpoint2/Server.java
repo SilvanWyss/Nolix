@@ -20,6 +20,16 @@ public final class Server extends BaseServer {
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTP;
 	
+	//static method
+	/**
+	 * @param port
+	 * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 */
+	public static Server forPort(final int port) {
+		return new Server(port);
+	}
+	
 	//attribute
 	private final ch.nolix.core.net.endpoint.Server internalServer;
 	
@@ -30,7 +40,7 @@ public final class Server extends BaseServer {
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public Server(final int port) {
+	private Server(final int port) {
 		
 		//Creates the internal net server of the current net server.
 		internalServer = ch.nolix.core.net.endpoint.Server.forPort(port);
