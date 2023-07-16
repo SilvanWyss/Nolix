@@ -18,7 +18,7 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  * @author Silvan Wyss
  * @date 2016-12-01
  */
-public final class GlobalValidator {
+public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all validation methods.
 	
 	//static method
 	/**
