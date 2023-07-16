@@ -70,7 +70,7 @@ public final class SocketEndPoint extends NetEndPoint {
 	//constructor
 	/**
 	 * Creates a new {@link SocketEndPoint} that will connect to
-	 * the main target on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
+	 * the main target on the HTTP port (80) on the machine with the given ip.
 	 * 
 	 * @param ip
 	 */

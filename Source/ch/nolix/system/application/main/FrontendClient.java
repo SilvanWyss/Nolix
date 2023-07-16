@@ -119,7 +119,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 	//method
 	/**
 	 * Connects the current {@link FrontendClient} to
-	 * the default {@link Application} on the {@link Server#DEFAULT_PORT} on the computer with the given ip.
+	 * the default {@link Application} on the HTTP port (80) on the computer with the given ip.
 	 * 
 	 * @param ip
 	 * @throws InvalidArgumentException if the current {@link FrontendClient} is already connected.

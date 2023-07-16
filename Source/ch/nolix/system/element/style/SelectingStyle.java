@@ -14,7 +14,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 //class
 /**
  * @author Silvan Wyss
- * @month 2023-07-09
+ * @date 2023-07-09
  */
 public final class SelectingStyle extends BaseSelectingStyle {
 	

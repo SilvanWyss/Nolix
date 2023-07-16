@@ -24,7 +24,7 @@ public interface IStyle extends IBaseStyle {
 	 * @return a new {@link IStyle} from the current {@link IStyle} with additionally
 	 * the given attachingAttributes and selectingStyes.
 	 * @throws RuntimeException if the given attachingAttributes is null.
-	 * @throws attachingAttributes if one of the given attachingAttributes is blank.
+	 * @throws RuntimeException if one of the given attachingAttributes is blank.
 	 * @throws RuntimeException if the given subStyles is null.
 	 */
 	IStyle withAttachingAttributesAndSubStyles(

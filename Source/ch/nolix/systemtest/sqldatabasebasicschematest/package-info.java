@@ -1,6 +1,6 @@
 //package info
 /**
- * The {@link h.nolix.systemtest.sqldatabasebasicschematest} package defines
+ * The {@link ch.nolix.systemtest.sqldatabasebasicschematest} package defines
  * tests for the {@link ch.nolix.system.sqldatabasebasicschema} package.
  * 
  * @author Silvan Wyss

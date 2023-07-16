@@ -68,7 +68,7 @@ public final class NetEndPoint extends EndPoint {
 	//constructor
 	/**
 	 * Creates a new {@link NetEndPoint} that will connect to
-	 * the default target on the {@link Server#DEFAULT_PORT} on the machine with the given ip.
+	 * the default target on the HTTP port (80) on the machine with the given ip.
 	 * 
 	 * @param ip
 	 */

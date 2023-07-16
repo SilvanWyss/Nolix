@@ -24,7 +24,7 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
 	 * @param <E2> is the type of the given element.
 	 * @param element
 	 * @return a new {@link SingleContainer} with the given element if the given element is not null,
-	 * a new empty {@link SingeContainer} otherwise.
+	 * a new empty {@link SingleContainer} otherwise.
 	 */
 	public static <E2> SingleContainer<E2> withElementOrEmpty(final E2 element) {
 		
