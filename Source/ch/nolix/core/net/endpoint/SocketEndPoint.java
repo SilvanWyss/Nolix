@@ -75,7 +75,7 @@ public final class SocketEndPoint extends NetEndPoint {
 	 * @param ip
 	 */
 	public SocketEndPoint(final String ip) {
-		this(ip, Server.DEFAULT_PORT);
+		this(ip, PortCatalogue.HTTP);
 	}
 	
 	//constructor

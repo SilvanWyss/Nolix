@@ -30,9 +30,6 @@ import ch.nolix.core.net.constant.PortCatalogue;
 public final class Server extends BaseServer {
 	
 	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.HTTP;
-	
-	//constant
 	private static final String DEFAULT_HTTP_MESSAGE =
 	"""
 	HTTP/1.1 200 OK
@@ -66,7 +63,7 @@ public final class Server extends BaseServer {
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
 	public static Server forPort(final int port) {
-		return new Server(port);
+		return new Server(port, DEFAULT_HTTP_MESSAGE);
 	}
 	
 	//static method
@@ -92,29 +89,6 @@ public final class Server extends BaseServer {
 	
 	//attribute
 	private final ServerSocket serverSocket;
-	
-	//constructor
-	/**
-	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the default port.
-	 */
-	public Server() {
-		
-		//Calls other constructor.
-		this(DEFAULT_PORT, DEFAULT_HTTP_MESSAGE);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
-	 * 
-	 * @param port
-	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-	 */
-	private Server(final int port) {
-		
-		//Calls other constructor.
-		this(port, DEFAULT_HTTP_MESSAGE);
-	}
 	
 	//constructor
 	/**
@@ -157,23 +131,6 @@ public final class Server extends BaseServer {
 		
 		//Creates and starts a ServerListener for the current Server.
 		new ServerListener(this);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the default port.
-	 * 
-	 * When a web browser connects to the {@link Server},
-	 * the {@link Server} will send the given httpMessage and close the connection.
-	 * 
-	 * @param httpMessage
-	 * @throws ArgumentIsNullException if the given httpMessage is null.
-	 * @throws EmptyArgumentException if the given httpMessage is blank.
-	 */
-	public Server(final String httpMessage) {
-		
-		//Calls other constructor.
-		this(DEFAULT_PORT, httpMessage);
 	}
 	
 	//method
