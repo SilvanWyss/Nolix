@@ -51,6 +51,16 @@ public final class Server extends BaseServer {
 	</html>
 	""";
 	
+	//static method
+	/**
+	 * @param port
+	 * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the given port.
+	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+	 */
+	public static Server forPort(final int port) {
+		return new Server(port);
+	}
+	
 	//attribute
 	private final int port;
 	
@@ -77,7 +87,7 @@ public final class Server extends BaseServer {
 	 * @param port
 	 * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
 	 */
-	public Server(final int port) {
+	private Server(final int port) {
 		
 		//Calls other constructor.
 		this(port, DEFAULT_HTTP_MESSAGE);

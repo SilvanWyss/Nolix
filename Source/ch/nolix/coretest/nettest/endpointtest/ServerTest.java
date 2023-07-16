@@ -17,7 +17,7 @@ public final class ServerTest extends Test {
 		final var port = 50000;
 		
 		//setup
-		try (final var server = new Server(port)) {
+		try (final var server = Server.forPort(port)) {
 		
 			//setup verification
 			expect(server.getPort()).isEqualTo(port);

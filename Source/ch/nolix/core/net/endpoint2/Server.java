@@ -32,7 +32,7 @@ public final class Server extends BaseServer {
 	public Server(final int port) {
 		
 		//Creates the internal net server of the current net server.
-		internalServer = new ch.nolix.core.net.endpoint.Server(port);
+		internalServer = ch.nolix.core.net.endpoint.Server.forPort(port);
 		
 		//Creates a close dependency to the internal net server of the current net server.
 		createCloseDependencyTo(internalServer);
