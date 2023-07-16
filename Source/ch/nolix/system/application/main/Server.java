@@ -53,7 +53,7 @@ public final class Server extends BaseServer {
 		
 		//Creates the internalServer of the current Server.
 		internalServer =
-		new ch.nolix.core.net.endpoint3.Server(
+		ch.nolix.core.net.endpoint3.Server.forPortAndHttpMessage(
 			port,
 			new ServerHttpMessage(getIp(), port).toString()
 		);
