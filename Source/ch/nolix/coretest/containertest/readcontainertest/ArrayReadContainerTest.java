@@ -16,7 +16,7 @@ public final class ArrayReadContainerTest extends ContainerTest {
 		final E element,
 		final @SuppressWarnings("unchecked") E... elements
 	) {
-		return new ArrayReadContainer<>(GlobalArrayHelper.createArrayWithElements(element, elements));
+		return ArrayReadContainer.forArray(GlobalArrayHelper.createArrayWithElements(element, elements));
 	}
 	
 	//method

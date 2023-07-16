@@ -34,7 +34,7 @@ public final class ReadContainer<E> extends Container<E> {
 	 * @throws ArgumentIsNullException if the given array is null.
 	 */
 	public static <E2> ReadContainer<E2> forArray(final E2[] array) {
-		return new ReadContainer<>(new ArrayReadContainer<>(array));
+		return new ReadContainer<>(ArrayReadContainer.forArray(array));
 	}
 	
 	//static method
