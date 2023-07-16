@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.multiattributeapi.MultiTokened;
 
 //interface
 /**
-* A {@link FluentMultiTokenable} is a {@link FluentMultiTokened} whose tokens
+* A {@link FluentMultiTokenable} is a {@link MultiTokened} whose tokens
 * can be added and removed programmatically.
 * 
 * @author Silvan Wyss
