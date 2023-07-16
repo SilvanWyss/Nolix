@@ -5,7 +5,6 @@ package ch.nolix.core.net.endpoint3;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 
 //class
@@ -17,9 +16,6 @@ import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
  * @date 2016-11-01
  */
 public final class Server extends BaseServer {
-	
-	//constant
-	public static final int DEFAULT_PORT = PortCatalogue.HTTP;
 	
 	//static method
 	/**
