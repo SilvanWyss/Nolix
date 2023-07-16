@@ -47,7 +47,7 @@ public final class NetEndPointTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation() {
+	public void testCase_constructor() {
 		
 		//parameter definition
 		final var port = 50000;

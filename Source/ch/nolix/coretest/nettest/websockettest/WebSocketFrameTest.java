@@ -17,7 +17,7 @@ public final class WebSocketFrameTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
+	public void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 		
 		//setup
 		final var bytes =

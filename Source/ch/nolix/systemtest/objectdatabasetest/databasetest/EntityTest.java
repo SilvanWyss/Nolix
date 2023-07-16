@@ -15,7 +15,7 @@ public final class EntityTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation() {
+	public void testCase_constructor() {
 		
 		//execution
 		final var result = new Thing();

@@ -12,7 +12,7 @@ public final class QuadraticFunctionTest extends Test {
 
 	//method
 	@TestCase
-	public void testCase_creation() {
+	public void testCase_constructor() {
 		
 		//execution & verification
 		expectRunning(() -> new QuadraticFunction(0.0, 0.0, 0.0))

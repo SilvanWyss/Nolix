@@ -98,7 +98,7 @@ public final class ClosedIntervalTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_whenTheGivenMinIsNull() {
+	public void testCase_constructor_whenTheGivenMinIsNull() {
 		
 		//execution & verification
 		expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
@@ -109,7 +109,7 @@ public final class ClosedIntervalTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_whenTheGivenMaxIsNull() {
+	public void testCase_constructor_whenTheGivenMaxIsNull() {
 		
 		//execution & verification
 		expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))

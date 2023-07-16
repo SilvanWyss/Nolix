@@ -14,7 +14,7 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_1A() {
+	public void testCase_constructor_1A() {
 		
 		//execution
 		final var result = new ComplexNumber(0.0, 0.0);
@@ -26,7 +26,7 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_1B() {
+	public void testCase_constructor_1B() {
 		
 		//execution
 		final var result = new ComplexNumber(1.0, 0.0);
@@ -38,7 +38,7 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_1C() {
+	public void testCase_constructor_1C() {
 		
 		//execution
 		final var result = new ComplexNumber(0.0, 1.0);
@@ -50,7 +50,7 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_2A() {
+	public void testCase_constructor_2A() {
 		
 		//execution
 		final var realComponent = new BigDecimal("3.14159265359").setScale(5, RoundingMode.HALF_UP);
@@ -67,7 +67,7 @@ public final class ComplexNumberTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_2B() {
+	public void testCase_constructor_2B() {
 		
 		//execution
 		final var realComponent = new BigDecimal("3.14159265359").setScale(10, RoundingMode.HALF_UP);

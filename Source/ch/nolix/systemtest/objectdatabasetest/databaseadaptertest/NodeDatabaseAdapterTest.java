@@ -28,7 +28,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation() {
+	public void testCase_constructor() {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();

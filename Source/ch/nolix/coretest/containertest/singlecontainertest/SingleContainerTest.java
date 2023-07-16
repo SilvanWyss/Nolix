@@ -10,7 +10,7 @@ public final class SingleContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation() {
+	public void testCase_constructor() {
 		
 		//execution
 		final var result = new SingleContainer<String>();
@@ -21,7 +21,7 @@ public final class SingleContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation_whenThereIsGiven1Element() {
+	public void testCase_constructor_whenThereIsGiven1Element() {
 		
 		//setup
 		final var garfield = "Garfield";

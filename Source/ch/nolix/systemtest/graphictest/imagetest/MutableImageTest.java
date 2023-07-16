@@ -12,7 +12,7 @@ public final class MutableImageTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_creation() {
+	public void testCase_constructor() {
 		
 		//parameter definition
 		final var width = 100;

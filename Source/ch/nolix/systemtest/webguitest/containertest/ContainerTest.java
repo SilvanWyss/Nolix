@@ -11,7 +11,7 @@ public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlT
 	
 	//method
 	@TestCase
-	public final void testCase_creation() {
+	public final void testCase_constructor() {
 		
 		//execution
 		final var testUnit = createTestUnit();
