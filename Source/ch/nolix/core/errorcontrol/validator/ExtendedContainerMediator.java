@@ -14,18 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * @param <E> is the type of the elements of the argument of an extended container mediator.
  */
 public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
-
-	//constructor
-	/**
-	 * Creates a new extended container mediator for the given argument.
-	 * 
-	 * @param argument
-	 */
-	ExtendedContainerMediator(final E[] argument) {
-		
-		//Calls constructor of the base class.
-		super(argument);
-	}
 	
 	//constructor
 	/**

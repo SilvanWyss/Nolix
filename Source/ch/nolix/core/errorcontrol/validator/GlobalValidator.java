@@ -33,16 +33,6 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	//static method
 	/**
 	 * @param argument
-	 * @param <A> is the type of the elements of the given argument.
-	 * @return a new {@link ExtendedContainerMediator} for the given argument.
-	 */
-	public static <A> ExtendedContainerMediator<A> assertThat(final A[] argument) {
-		return new ExtendedContainerMediator<>(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
 	 * @return a new {@link ExtendedBigDecimalMediator} for the given argument.
 	 */
 	public static ExtendedBigDecimalMediator assertThat(final BigDecimal argument) {
@@ -172,15 +162,6 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	 */
 	public static ExtendedStringMediator assertThat(final String argument) {
 		return new ExtendedStringMediator(argument);
-	}
-	
-	//static method
-	/**
-	 * @param argument
-	 * @return a new {@link ExtendedContainerMediator} for the given argument.
-	 */
-	public static ExtendedContainerMediator<String> assertThat(final String[] argument) {
-		return new ExtendedContainerMediator<>(argument);
 	}
 	
 	//static method

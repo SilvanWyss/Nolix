@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
-import ch.nolix.core.independent.container.ArrayReadContainer;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
@@ -24,18 +23,6 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
  * @param <E> is the type of the elements of the argument of a container mediator.
  */
 public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
-
-	//constructor
-	/**
-	 * Creates a new container mediator for the given argument.
-	 * 
-	 * @param argument
-	 */
-	ContainerMediator(final E[] argument) {
-		
-		//Calls constructor of the base class.
-		super(new ArrayReadContainer<>(argument));
-	}
 	
 	//constructor
 	/**
@@ -47,24 +34,6 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Calls constructor of the base class.
 		super(argument);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new container mediator
-	 * for the given argument with the given argument name.
-	 * 
-	 * @param argumentName
-	 * @param argument
-	 * @throws ArgumentIsNullException if the given argument name is null.
-	 * @throws EmptyArgumentException if the given argument is empty.
-	 */
-	ContainerMediator(
-		final String argumentName,
-		final E[] argument) {
-		
-		//Calls constructor of the base class.
-		super(argumentName, new ArrayReadContainer<>(argument));
 	}
 	
 	//constructor
