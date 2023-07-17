@@ -59,10 +59,10 @@ public final class MultiReadContainer<E> extends Container<E> {
 	@SuppressWarnings("unchecked")
 	public MultiReadContainer(final Iterable<? extends E> container, final Iterable<? extends E>... containers) {
 		
-		this.containers.addAtEnd(new IterableReadContainer<>(container));
+		this.containers.addAtEnd(IterableReadContainer.forIterable(container));
 		
 		for (final var c : containers) {
-			this.containers.addAtEnd(new IterableReadContainer<>(c));
+			this.containers.addAtEnd(IterableReadContainer.forIterable(c));
 		}
 	}
 	

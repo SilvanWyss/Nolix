@@ -16,7 +16,7 @@ public final class IterableReadContainerTest extends ContainerTest {
 		final E element,
 		final @SuppressWarnings("unchecked") E... elements
 	) {
-		return new IterableReadContainer<>(LinkedList.withElements(element, elements));
+		return IterableReadContainer.forIterable(LinkedList.withElements(element, elements));
 	}
 	
 	//method

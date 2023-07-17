@@ -58,7 +58,7 @@ public final class ReadContainer<E> extends Container<E> {
 	 * @throws ArgumentIsNullException if the given object is null.
 	 */
 	public static <E2> ReadContainer<E2> forIterable(final Iterable<E2> object) {
-		return new ReadContainer<>(new IterableReadContainer<>(object));
+		return new ReadContainer<>(IterableReadContainer.forIterable(object));
 	}
 	
 	//static method
