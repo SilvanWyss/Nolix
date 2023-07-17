@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValue;
@@ -33,11 +34,12 @@ implements ILinearContainer<LC, LCS> {
 	
 	//method
 	@Override
-	public final LC addControl(final IControl<?, ?>... controls) {
+	public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
+		
+		addControl(control);
 		
 		for (final var c : controls) {
-			c.technicalSetParentControl(this);
-			this.childControls.add(c);
+			addControl(c);
 		}
 		
 		return asConcrete();
@@ -80,5 +82,11 @@ implements ILinearContainer<LC, LCS> {
 	@Override
 	public final void removeControl(final IControl<?, ?> control) {
 		childControls.remove(control);
+	}
+	
+	//method
+	private void addControl(final IControl<?, ?> c) {
+		c.technicalSetParentControl(this);
+		this.childControls.add(c);
 	}
 }

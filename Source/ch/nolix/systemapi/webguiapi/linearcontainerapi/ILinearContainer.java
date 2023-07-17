@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -12,7 +13,7 @@ public interface ILinearContainer<
 extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<LC, LCL> {
 	
 	//method declaration
-	LC addControl(IControl<?, ?>... controls);
+	LC addControl(IControl<?, ?> control, IControl<?, ?>... controls);
 	
 	//method declaration
 	LC addControls(IContainer<? extends IControl<?, ?>> controls);
