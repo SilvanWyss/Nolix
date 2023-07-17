@@ -121,7 +121,8 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
 	//method
 	private E nextWhenHasNext() {
 		
-		final var element = parentGapMatrix.getStoredAt1BasedRowIndexAndColumnIndex(nextElementRowIndex, nextElementColumnIndex);
+		final var element =
+		parentGapMatrix.getStoredAt1BasedRowIndexAndColumnIndex(nextElementRowIndex, nextElementColumnIndex);
 		
 		incrementNextElementRowAndColumnIndex();
 		

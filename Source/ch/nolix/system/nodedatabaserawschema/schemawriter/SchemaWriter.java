@@ -219,7 +219,9 @@ public final class SchemaWriter implements ISchemaWriter {
 		final var schemaTimestampNode =
 		DATABASE_PROPERTIES_NODE_SEARCHER.getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 		
-		schemaTimestampNode.getStoredSingleChildNode().setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
+		schemaTimestampNode
+		.getStoredSingleChildNode()
+		.setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
 		
 		hasChanges = true;
 	}

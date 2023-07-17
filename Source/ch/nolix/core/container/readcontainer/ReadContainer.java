@@ -74,7 +74,10 @@ public final class ReadContainer<E> extends Container<E> {
 	 * @throws ArgumentIsNullException if one of the given containers is null.
 	 */
 	@SafeVarargs
-	public static <E2> ReadContainer<E2> forContainer(Iterable<? extends E2> container, final Iterable<? extends E2>... containers) {
+	public static <E2> ReadContainer<E2> forContainer(
+		Iterable<? extends E2> container,
+		final Iterable<? extends E2>... containers
+	) {
 		return new ReadContainer<>(MultiReadContainer.forIterable(container, containers));
 	}
 	

@@ -113,6 +113,10 @@ implements IBaseReference<E> {
 	@SuppressWarnings("unchecked")
 	private Table<E> loadReferencedTable() {
 		return
-		(Table<E>)getStoredParentEntity().getStoredParentTable().getStoredParentDatabase().getStoredTableByName(getReferencedTableName());
+		(Table<E>)
+		getStoredParentEntity()
+		.getStoredParentTable()
+		.getStoredParentDatabase()
+		.getStoredTableByName(getReferencedTableName());
 	}
 }

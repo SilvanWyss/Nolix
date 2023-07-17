@@ -39,7 +39,11 @@ public class StringMediator extends ValueMediator<String> {
 	public void contains(final char character) {
 		if (getStoredValue() == null || !getStoredValue().contains(String.valueOf(character))) {
 			addCurrentTestCaseError(
-				"A string that contains the character '" + character + "' was expected, but '" + getStoredValue() + "' was received."
+				"A string that contains the character '"
+				+ character
+				+ "' was expected, but '"
+				+ getStoredValue()
+				+ "' was received."
 			);
 		}
 	}

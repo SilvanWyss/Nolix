@@ -22,7 +22,9 @@ public final class DatabaseNodeSearcher {
 		return
 		getStoredTableNodesFromDatabaseNode(databaseNode)
 		.toFromGroups(TABLE_NODE_SEARCHER::getStoredColumnNodesFromTableNode)
-		.getStoredFirst(cn -> COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(cn).getStoredSingleChildNode().hasHeader(columnId));
+		.getStoredFirst(
+			cn -> COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(cn).getStoredSingleChildNode().hasHeader(columnId)
+		);
 	}
 	
 	//method
@@ -48,7 +50,11 @@ public final class DatabaseNodeSearcher {
 	) {
 		return
 		getStoredTableNodesFromDatabaseNode(databaseNode).getStoredFirst(
-			tsn -> tsn.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME).getStoredSingleChildNode().hasHeader(tableName)
+			tsn ->
+			tsn
+			.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME)
+			.getStoredSingleChildNode()
+			.hasHeader(tableName)
 		);
 	}
 	

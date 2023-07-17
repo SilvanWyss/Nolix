@@ -11,7 +11,10 @@ public final class ParametrizedPropertyTypeNodeSearcher {
 	public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID);
+		return
+		parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(
+			SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID
+		);
 	}
 	
 	//method

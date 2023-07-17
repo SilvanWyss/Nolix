@@ -63,6 +63,7 @@ public final class CssRule implements ICssRule<CssProperty> {
 	@Override
 	public String toString() {
 		return
-		getSelectors().toStringWithSeparator(',') + GlobalStringHelper.getInBraces(getStoredProperties().toConcatenatedString());
+		getSelectors().toStringWithSeparator(',')
+		+ GlobalStringHelper.getInBraces(getStoredProperties().toConcatenatedString());
 	}
 }
