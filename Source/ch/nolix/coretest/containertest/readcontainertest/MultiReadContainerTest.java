@@ -2,7 +2,7 @@
 package ch.nolix.coretest.containertest.readcontainertest;
 
 //own imports
-import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.readcontainer.MultiReadContainer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -34,13 +34,9 @@ public final class MultiReadContainerTest extends ContainerTest {
 		final @SuppressWarnings("unchecked") E... elements
 	) {
 		
-		final var listOfLists = new LinkedList<IContainer<E>>();
-		listOfLists.addAtEnd(LinkedList.withElement(element));
-		for (final var e : elements) {
-			listOfLists.addAtEnd(LinkedList.withElement(e));
-		}
+		final var container = ImmutableList.withElements(element, elements);
 		
-		return new MultiReadContainer<>(listOfLists);
+		return MultiReadContainer.forIterable(container);
 	}
 	
 	//method

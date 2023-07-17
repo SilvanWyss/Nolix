@@ -18,7 +18,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 public final class MultiReadContainer<E> extends Container<E> {
 	
 	//attribute
-	private final LinkedList<IContainer<E>> containers = new LinkedList<>();
+	private final IterableReadContainer<IContainer<E>> containers;
 	
 	//static method
 	public static <E2> MultiReadContainer<E2> forArray(
@@ -37,25 +37,32 @@ public final class MultiReadContainer<E> extends Container<E> {
 		return new MultiReadContainer<>(containers);
 	}
 	
-	//constructor
-	public MultiReadContainer() {}
-	
-	//constructor
-	public MultiReadContainer(final IContainer<? extends IContainer<E>> containers) {
-		for (final var c : containers) {
-			this.containers.addAtEnd(c);
+	//static method
+	@SafeVarargs
+	public static <E2> MultiReadContainer<E2> forIterable(
+		final Iterable<? extends E2> iterable,
+		final Iterable<? extends E2>... iterables
+	) {
+		
+		final var containers = new LinkedList<IterableReadContainer<E2>>();
+		
+		containers.addAtEnd(IterableReadContainer.forIterable(iterable));
+		
+		for (final var i : iterables) {
+			containers.addAtEnd(IterableReadContainer.forIterable(i));
 		}
+		
+		return new MultiReadContainer<>(containers);
 	}
 	
 	//constructor
-	@SuppressWarnings("unchecked")
-	public MultiReadContainer(final Iterable<? extends E> container, final Iterable<? extends E>... containers) {
-		
-		this.containers.addAtEnd(IterableReadContainer.forIterable(container));
-		
-		for (final var c : containers) {
-			this.containers.addAtEnd(IterableReadContainer.forIterable(c));
-		}
+	public MultiReadContainer() {
+		containers = new IterableReadContainer<>();
+	}
+	
+	//constructor
+	private MultiReadContainer(final IContainer<? extends IContainer<E>> container) {
+		this.containers = IterableReadContainer.forIterable(container);
 	}
 	
 	//method
