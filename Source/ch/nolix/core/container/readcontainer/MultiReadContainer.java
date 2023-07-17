@@ -19,7 +19,24 @@ public final class MultiReadContainer<E> extends Container<E> {
 	
 	//attribute
 	private final LinkedList<IContainer<E>> containers = new LinkedList<>();
+	
+	//static method
+	public static <E2> MultiReadContainer<E2> forArray(
+		final E2[] array,
+		@SuppressWarnings("unchecked") final E2[]... arrays
+	) {
 		
+		final var containers = new LinkedList<ArrayReadContainer<E2>>();
+		
+		containers.addAtEnd(ArrayReadContainer.forArray(array));
+		
+		for (final var a : arrays) {
+			containers.addAtEnd(ArrayReadContainer.forArray(a));
+		}
+		
+		return new MultiReadContainer<>(containers);
+	}
+	
 	//constructor
 	public MultiReadContainer() {}
 	
