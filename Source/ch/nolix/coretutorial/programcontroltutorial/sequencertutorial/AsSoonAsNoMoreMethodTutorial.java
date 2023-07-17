@@ -7,7 +7,7 @@ public final class AsSoonAsNoMoreMethodTutorial {
 	
 	public static void main(String[] args) {
 		
-		final var cats = LinkedList.withElements("Garfield", "Simba", "Smokey");
+		final var cats = LinkedList.withElement("Garfield", "Simba", "Smokey");
 		
 		GlobalSequencer
 		.asSoonAsNoMore(cats::containsAny)

@@ -55,7 +55,7 @@ final class WebGuiContent implements IWebGuiContent {
 	
 	//method
 	private IContainer<? extends IHtmlAttribute> getHtmlAttributes() {
-		return LinkedList.withElements(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, ROOT_DIV_ID));
+		return LinkedList.withElement(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, ROOT_DIV_ID));
 	}
 	
 	//method

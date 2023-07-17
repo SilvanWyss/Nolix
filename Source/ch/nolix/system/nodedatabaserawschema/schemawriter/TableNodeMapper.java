@@ -16,7 +16,7 @@ public final class TableNodeMapper {
 	//method
 	public Node createTableNodeFrom(final ITableDto table) {
 		
-		final var childNodes = LinkedList.withElements(createIdNodeFrom(table), createNameNodeFrom(table));
+		final var childNodes = LinkedList.withElement(createIdNodeFrom(table), createNameNodeFrom(table));
 		childNodes.addAtEnd(createColumnNodesFrom(table));
 		
 		return Node.withHeaderAndChildNodes(SubNodeHeaderCatalogue.TABLE, childNodes);

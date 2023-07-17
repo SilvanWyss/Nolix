@@ -237,7 +237,7 @@ public final class NetEndPoint extends EndPoint {
 	 */
 	@Override
 	public void runCommand(final IChainedNode command) {
-		runCommands(LinkedList.withElements(command));
+		runCommands(LinkedList.withElement(command));
 	}
 	
 	//method

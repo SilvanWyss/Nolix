@@ -16,8 +16,8 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_addAtBegin() {
 		
 		//setup
-		final var testUnit = LinkedList.withElements("a1", "a2", "a3", "a4");
-		final var list = LinkedList.withElements("b1", "b2");
+		final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
+		final var list = LinkedList.withElement("b1", "b2");
 		
 		//execution
 		testUnit.addAtBegin(list);
@@ -37,7 +37,7 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_addAtBegin_whenGivenListIsEmpty() {
 		
 		//setup
-		final var testUnit = LinkedList.withElements("a1", "a2", "a3", "a4");
+		final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
 		final var list = new LinkedList<String>();
 		
 		//execution
@@ -57,7 +57,7 @@ public final class LinkedListTest extends ContainerTest {
 		
 		//setup
 		final var testUnit = new LinkedList<String>();
-		final var list = LinkedList.withElements("b1", "b2");
+		final var list = LinkedList.withElement("b1", "b2");
 		
 		//execution
 		testUnit.addAtBegin(list);
@@ -103,7 +103,7 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_clear() {
 		
 		//setup
-		final var testUnit = LinkedList.withElements("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
+		final var testUnit = LinkedList.withElement("x", "xx",	"xxx", "xxxx", "xxxxx",	"xxxxxx");
 		
 		//execution
 		testUnit.clear();
@@ -117,7 +117,7 @@ public final class LinkedListTest extends ContainerTest {
 	public void testCase_toString() {
 		
 		//setup
-		final var testUnit = LinkedList.withElements("elephant", "jaguar", "lion", "python", "shark", "zebra");
+		final var testUnit = LinkedList.withElement("elephant", "jaguar", "lion", "python", "shark", "zebra");
 		
 		//execution
 		final var result = testUnit.toString();
@@ -146,7 +146,7 @@ public final class LinkedListTest extends ContainerTest {
 		final E element,
 		final @SuppressWarnings("unchecked")E... elements
 	) {
-		return LinkedList.withElements(element, elements);
+		return LinkedList.withElement(element, elements);
 	}
 	
 	//method

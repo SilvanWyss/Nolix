@@ -65,21 +65,6 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//static method
 	/**
-	 * @param element
-	 * @param <E2> is the type of the given element.
-	 * @return a new {@link LinkedList} with the given element.
-	 * @throws ArgumentIsNullException if the given element is null.
-	 */
-	public static <E2> LinkedList<E2> withElement(final E2 element) {
-		
-		final var list = new LinkedList<E2>();
-		list.addAtEnd(element);
-		
-		return list;
-	}
-	
-	//static method
-	/**
 	 * @param firstElement
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
@@ -87,7 +72,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E2> LinkedList<E2> withElements(final E2 firstElement, final E2... elements) {
+	public static <E2> LinkedList<E2> withElement(final E2 firstElement, final E2... elements) {
 		
 		final var list = new LinkedList<E2>();
 		list.addAtEnd(firstElement, elements);
@@ -639,7 +624,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 		
 		//Handles the case when the sub list contains 1 element.
 		if (length == 1) {
-			return LinkedList.withElements(startNode.getElement());
+			return LinkedList.withElement(startNode.getElement());
 		}
 		
 		//Handles the case when the sub list contains 2 elements.

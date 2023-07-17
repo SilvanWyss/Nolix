@@ -315,7 +315,7 @@ public final class Time extends Element implements ITime {
 	@Override
 	public IContainer<INode<?>> getAttributes() {
 		return
-		LinkedList.withElements(
+		LinkedList.withElement(
 			Node.fromString(String.format(
 				"%04d-%02d-%02d-%02d-%02d-%02d-%03d",
 				getYearAsInt(),

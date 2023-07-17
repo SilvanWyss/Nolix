@@ -22,7 +22,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 		
 		super(name);
 		
-		this.materializedProperties = LinkedList.withElements(materializedProperty, materializedProperties);
+		this.materializedProperties = LinkedList.withElement(materializedProperty, materializedProperties);
 	}
 	
 	//constructor

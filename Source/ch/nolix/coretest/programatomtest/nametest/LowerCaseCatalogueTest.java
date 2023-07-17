@@ -17,7 +17,7 @@ public final class LowerCaseCatalogueTest extends Test {
 	public void testCase_constants() {
 		
 		//setup
-		final var exceptions = LinkedList.withElements(LowerCaseCatalogue.GUI, LowerCaseCatalogue.URL);
+		final var exceptions = LinkedList.withElement(LowerCaseCatalogue.GUI, LowerCaseCatalogue.URL);
 		
 		//verification
 		for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(LowerCaseCatalogue.class)) {

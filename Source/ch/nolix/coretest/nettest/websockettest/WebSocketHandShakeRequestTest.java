@@ -15,7 +15,7 @@ public final class WebSocketHandShakeRequestTest extends Test {
 		
 		//setup
 		final var webSocketHandShakeRequest =
-		new WebSocketHandShakeRequest(LinkedList.withElements("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));
+		new WebSocketHandShakeRequest(LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));
 		
 		//execution
 		final var result = webSocketHandShakeRequest.getSecWebSocketKey();

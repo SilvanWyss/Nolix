@@ -30,7 +30,7 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
 				getCssSelectorForControlAndAllStates(horizontalStack) + " > div",
-				LinkedList.withElements(
+				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
 						CssFloatCatalogue.LEFT
@@ -50,7 +50,7 @@ extends ExtendedControlCssRuleBuilder<IHorizontalStack, IHorizontalStackStyle> {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
 				getCssSelectorForControlAndAllStates(horizontalStack) + " > div",
-				LinkedList.withElements(
+				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_RIGHT,
 						horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state)

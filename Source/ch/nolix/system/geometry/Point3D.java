@@ -87,7 +87,7 @@ public class Point3D extends Element {
 	@Override
 	public IContainer<INode<?>> getAttributes() {
 		return
-		LinkedList.withElements(
+		LinkedList.withElement(
 			Node.withHeader(GlobalDoubleHelper.toString(getX())),
 			Node.withHeader(GlobalDoubleHelper.toString(getY())),
 			Node.withHeader(GlobalDoubleHelper.toString(getZ()))

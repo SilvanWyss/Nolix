@@ -56,7 +56,7 @@ public final class Discrete2DPoint extends Element {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		return LinkedList.withElements(Node.withHeader(x), Node.withHeader(y));
+		return LinkedList.withElement(Node.withHeader(x), Node.withHeader(y));
 	}
 	
 	//method

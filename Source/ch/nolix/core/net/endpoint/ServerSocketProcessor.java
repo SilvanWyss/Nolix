@@ -109,7 +109,7 @@ final class ServerSocketProcessor extends Worker {
 				);
 			case WEB_SOCKET_OR_HTTP:
 				
-				final var lines = LinkedList.withElements(firstReveivedLine);
+				final var lines = LinkedList.withElement(firstReveivedLine);
 				fillUpUntilEmptyLineFollows(lines, socketInputStream);
 				
 				if (WebSocketHandShakeRequest.canBe(lines)) {

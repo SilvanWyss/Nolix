@@ -54,7 +54,7 @@ public final class GlobalLicenseManagerTest extends Test {
 		
 		@Override
 		public IContainer<Class<?>> getAuthorizedLicenseTypes() {
-			return LinkedList.withElements(TestLicense.class);
+			return LinkedList.withElement(TestLicense.class);
 		}
 	}
 }

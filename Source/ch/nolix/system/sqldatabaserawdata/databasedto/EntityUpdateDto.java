@@ -51,7 +51,7 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
 		final String saveStamp,
 		final IContentFieldDto updatedContentField
 	) {
-		this(id, saveStamp, LinkedList.withElements(updatedContentField));
+		this(id, saveStamp, LinkedList.withElement(updatedContentField));
 	}
 	
 	//constructor

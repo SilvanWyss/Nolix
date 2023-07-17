@@ -88,7 +88,7 @@ public final class ReadContainer<E> extends Container<E> {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <E2> ReadContainer<E2> withElements(final E2 firstElement, final E2... elements) {
-		return new ReadContainer<>(LinkedList.withElements(firstElement, elements));
+		return new ReadContainer<>(LinkedList.withElement(firstElement, elements));
 	}
 	
 	//attribute

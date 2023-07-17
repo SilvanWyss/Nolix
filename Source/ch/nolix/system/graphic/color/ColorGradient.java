@@ -182,7 +182,7 @@ public final class ColorGradient extends Element implements IColorGradient {
 	@Override
 	public IContainer<INode<?>> getAttributes() {
 		return
-		LinkedList.withElements(
+		LinkedList.withElement(
 			Node.withHeader(getDirection().toString()),
 			Node.withHeader(getColor1().toHexadecimalString()),
 			Node.withHeader(getColor2().toHexadecimalString())

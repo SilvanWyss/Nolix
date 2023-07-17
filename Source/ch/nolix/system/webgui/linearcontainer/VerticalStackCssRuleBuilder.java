@@ -30,7 +30,7 @@ extends ExtendedControlCssRuleBuilder<IVerticalStack, IVerticalStackStyle> {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
 				getCssSelectorForControlAndAllStates(verticalStack) + " > div",
-				LinkedList.withElements(
+				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_BOTTOM,
 						verticalStack.getStoredStyle().getChildControlMarginWhenHasState(state)

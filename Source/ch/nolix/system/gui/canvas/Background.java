@@ -169,13 +169,13 @@ public final class Background extends Element implements IBackground {
 		return
 		switch (getType()) {
 			case COLOR ->
-				LinkedList.withElements(getColor().getSpecification());
+				LinkedList.withElement(getColor().getSpecification());
 			case COLOR_GRADIENT ->
-				LinkedList.withElements(getColorGradient().getSpecification());
+				LinkedList.withElement(getColorGradient().getSpecification());
 			case IMAGE ->
-				LinkedList.withElements(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
+				LinkedList.withElement(getImage().getSpecification(), Node.fromEnum(getImageApplication()));
 			case TRANSPARENCY ->
-				LinkedList.withElements(Node.withHeader(TRANSPARENCY_HEADER));
+				LinkedList.withElement(Node.withHeader(TRANSPARENCY_HEADER));
 			default ->
 				throw InvalidArgumentException.forArgument(this);
 		};

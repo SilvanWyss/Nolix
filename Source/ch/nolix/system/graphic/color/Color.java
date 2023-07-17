@@ -1626,7 +1626,7 @@ public final class Color extends Element implements IColor {
 	 */
 	@Override
 	public IContainer<INode<?>> getAttributes() {
-		return LinkedList.withElements(Node.withHeader(toHexadecimalString()));
+		return LinkedList.withElement(Node.withHeader(toHexadecimalString()));
 	}
 	
 	//method

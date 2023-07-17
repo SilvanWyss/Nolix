@@ -27,7 +27,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 				getCssSelectorForControlAndAllStates(floatContainer)
 				+ " ."
 				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
-				LinkedList.withElements(
+				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
 						CssFloatCatalogue.LEFT
@@ -49,7 +49,7 @@ extends ExtendedControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
 				getCssSelectorForControlAndAllStates(floatContainer)
 				+ " ."
 				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
-				LinkedList.withElements(
+				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN,
 						floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state)
