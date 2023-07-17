@@ -89,8 +89,9 @@ public final class GlobalExaminer {
 	public static StringMediator expect(final String value) {
 		return new StringMediator(GlobalExaminer::takteExpectationError, value);
 	}
+	
 	//static method
-	public static void expectNot(final boolean value) {
+	public static void expectNot(final boolean value) { //NOSONAR: This method validates the given value.
 		if (value) {
 			takteExpectationError("False was expected, but true was received.");
 		}
