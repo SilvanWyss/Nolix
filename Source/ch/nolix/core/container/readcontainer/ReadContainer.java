@@ -39,15 +39,17 @@ public final class ReadContainer<E> extends Container<E> {
 	
 	//static method
 	/**
+	 * @param array
 	 * @param arrays
-	 * @param <E2> is the type of the elements of the given arrays.
-	 * @return a new {@link ReadContainer} for the given array.
+	 * @param <E2> is the type of the elements of the given array and arrays.
+	 * @return a new {@link ReadContainer} for the given array and arrays.
+	 * @throws ArgumentIsNullException if the given array is null.
 	 * @throws ArgumentIsNullException if the given arrays is null.
 	 * @throws ArgumentIsNullException if one of the given arrays is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E2> ReadContainer<E2> forArrays(final E2[]... arrays) {
-		return new ReadContainer<>(new MultiReadContainer<>(arrays));
+	public static <E2> ReadContainer<E2> forArray(final E2[] array, final E2[]... arrays) {
+		return new ReadContainer<>(MultiReadContainer.forArray(array, arrays));
 	}
 	
 	//static method

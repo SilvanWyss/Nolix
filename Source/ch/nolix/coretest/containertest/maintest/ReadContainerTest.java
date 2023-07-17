@@ -20,7 +20,7 @@ public final class ReadContainerTest extends ContainerTest {
 		final String[] array3 = {"flower", "tree", "palm"};
 		
 		//execution
-		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
+		final var readContainer = ReadContainer.forArray(array1, array2, array3);
 		
 		//execution
 		expect(readContainer.containsEqualing("apple"));
@@ -47,7 +47,7 @@ public final class ReadContainerTest extends ContainerTest {
 		final String[] array3 = {"flower", "tree", "palm"};
 		
 		//execution
-		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
+		final var readContainer = ReadContainer.forArray(array1, array2, array3);
 		
 		//verification
 		expect(readContainer.getStoredAt1BasedIndex(1)).isEqualTo("apple");
@@ -71,7 +71,7 @@ public final class ReadContainerTest extends ContainerTest {
 		final String[] array3 = { "C", "CC", "CCC" };
 		
 		//execution
-		final var readContainer = ReadContainer.forArrays(array1, array2, array3);
+		final var readContainer = ReadContainer.forArray(array1, array2, array3);
 		
 		//verification
 		expect(readContainer.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");

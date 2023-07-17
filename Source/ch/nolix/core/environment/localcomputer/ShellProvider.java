@@ -83,7 +83,7 @@ public final class ShellProvider {
 		
 		final var preCommand = new String[] {"cmd.exe", "/c"};
 		
-		return ReadContainer.forArrays(preCommand, command).toStringArray();
+		return ReadContainer.forArray(preCommand, command).toStringArray();
 	}
 	
 	//static method

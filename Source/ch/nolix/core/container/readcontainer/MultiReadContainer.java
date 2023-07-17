@@ -41,14 +41,6 @@ public final class MultiReadContainer<E> extends Container<E> {
 	public MultiReadContainer() {}
 	
 	//constructor
-	@SuppressWarnings("unchecked")
-	public MultiReadContainer(final E[]... arrays) {
-		for (final var a : arrays) {
-			this.containers.addAtEnd(ArrayReadContainer.forArray(a));
-		}
-	}
-	
-	//constructor
 	public MultiReadContainer(final IContainer<? extends IContainer<E>> containers) {
 		for (final var c : containers) {
 			this.containers.addAtEnd(c);
