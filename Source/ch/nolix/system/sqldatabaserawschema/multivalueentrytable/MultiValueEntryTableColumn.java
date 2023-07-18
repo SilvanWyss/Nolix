@@ -10,7 +10,7 @@ import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
 
 //enum
 public enum MultiValueEntryTableColumn implements QualifiedNamed {
-	MULTI_VALUE_COLUMN_ID("MutliValueColumnId"),
+	MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
 	ENTITY_ID("EntityId"),
 	VALUE(PascalCaseCatalogue.VALUE);
 	
