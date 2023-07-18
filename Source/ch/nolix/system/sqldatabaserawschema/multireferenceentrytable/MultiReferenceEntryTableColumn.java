@@ -9,7 +9,7 @@ import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
 
 //enum
 public enum MultiReferenceEntryTableColumn implements QualifiedNamed {
-	MULTI_REFERENCE_COLUMN_ID("MutliReferenceColumnId"),
+	MULTI_REFERENCE_COLUMN_ID("MultiReferenceColumnId"),
 	ENTITY_ID("EntityId"),
 	REFERENCED_ENTITY_ID("ReferencedEntityId");
 	
