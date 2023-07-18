@@ -257,7 +257,7 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getAverageByDoube_whenIsEmpty() {
+	public final void testCase_getAverage_whenIsEmpty() {
 		
 		//setup
 		final var testUnit = createEmptyContainerForType(Double.class);
@@ -271,7 +271,7 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getAverageByDoube_whenContainsAny() {
+	public final void testCase_getAverage_whenContainsAny() {
 		
 		//setup
 		final var testUnit = createContainerWithElements(5.0, 10.0, 15.0, 20.0, 25.0, 30.0);
