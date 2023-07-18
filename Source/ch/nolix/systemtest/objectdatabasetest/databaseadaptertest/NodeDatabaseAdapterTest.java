@@ -28,6 +28,47 @@ public final class NodeDatabaseAdapterTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_close_whenIsOpen() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType();
+		@SuppressWarnings("resource") final var testUnit =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		
+		//setup verification
+		expect(testUnit.isOpen());
+		
+		//execution
+		testUnit.close();
+		
+		//verification
+		expect(testUnit.isClosed());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_close_whenIsClosed() {
+		
+		//setup
+		final var nodeDatabase = new MutableNode();
+		final var schema = Schema.withEntityType();
+		@SuppressWarnings("resource") final var testUnit =
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		testUnit.close();
+		
+		//setup verification
+		expect(testUnit.isClosed());
+		
+		//execution
+		testUnit.close();
+		
+		//verification
+		expect(testUnit.isClosed());
+	}
+	
+	//method
+	@TestCase
 	public void testCase_constructor() {
 		
 		//setup
