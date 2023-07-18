@@ -14,8 +14,8 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	
 	//static method
-	public static MsSqlDatabaseAdapterBuilder toIpOrAddress(final String ipOrAddressName) {
-		return new MsSqlDatabaseAdapterBuilder(ipOrAddressName);
+	public static MsSqlDatabaseAdapterBuilder toIpOrAddress(final String ipOrDomain) {
+		return new MsSqlDatabaseAdapterBuilder(ipOrDomain);
 	}
 	
 	//static method
@@ -28,7 +28,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	
 	//constructor
 	MsSqlDatabaseAdapter(
-		final String ipOrAddressName,
+		final String ipOrDomain,
 		final int port,
 		final String databaseName,
 		final String loginName,
@@ -39,7 +39,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 			databaseName,
 			schema,
 			SqlConnectionPool
-			.forIpOrAddressName(ipOrAddressName)
+			.forIpOrDomain(ipOrDomain)
 			.andPort(port)
 			.andDatabase(databaseName)
 			.withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)

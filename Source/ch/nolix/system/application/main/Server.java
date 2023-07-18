@@ -69,7 +69,7 @@ public final class Server extends BaseServer {
 	@Override
 	public IServerTarget asTarget() {
 		return
-		ServerTarget.forIpOrAddressNameAndPortAndSecurityLevelForConnections(
+		ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
 			getIp(),
 			getPort(),
 			SECURITY_LEVEL_FOR_CONNECTIONS

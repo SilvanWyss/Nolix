@@ -13,7 +13,7 @@ public final class SqlConnectionFactory {
 		switch (sqlDatabaseTarget.getSqlDatabaseEngine()) {
 			case MSSQL:
 				return new MsSqlConnection(
-					sqlDatabaseTarget.getIpOrAddressName(),
+					sqlDatabaseTarget.getIpOrDomain(),
 					sqlDatabaseTarget.getPort(),
 					sqlDatabaseTarget.getLoginName(),
 					sqlDatabaseTarget.getLoginPassword(),

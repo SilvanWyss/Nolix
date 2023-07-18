@@ -17,7 +17,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		
 		//setup
 		final var testUnit =
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget.forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 			"nolix.tech",
 			PortCatalogue.HTTP,
 			"Demo Application",
@@ -37,7 +37,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		
 		//setup
 		final var testUnit =
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget.forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 			"nolix.tech",
 			PortCatalogue.HTTPS,
 			"Demo Application",
@@ -57,7 +57,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		
 		//setup
 		final var testUnit =
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget.forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 			"nolix.tech",
 			50000,
 			"Demo Application",
@@ -77,7 +77,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		
 		//setup
 		final var testUnit =
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget.forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 			"nolix.tech",
 			50000,
 			"Demo Application",

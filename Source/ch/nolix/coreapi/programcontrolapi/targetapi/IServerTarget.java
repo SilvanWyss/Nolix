@@ -8,7 +8,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 public interface IServerTarget {
 	
 	//method declaration
-	String getIpOrAddressName();
+	String getIpOrDomain();
 	
 	//method declaration
 	int getPort();

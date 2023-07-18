@@ -288,8 +288,8 @@ implements IApplication<AC> {
 	 */
 	private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
 		return
-		ApplicationInstanceTarget.forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
-			serverTarget.getIpOrAddressName(),
+		ApplicationInstanceTarget.forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+			serverTarget.getIpOrDomain(),
 			serverTarget.getPort(),
 			getInstanceName(),
 			serverTarget.getSecurityLevelForConnections()

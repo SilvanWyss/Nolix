@@ -84,7 +84,7 @@ public final class SecureServer extends BaseServer {
 	@Override
 	public IServerTarget asTarget() {
 		return
-		ServerTarget.forIpOrAddressNameAndPortAndSecurityLevelForConnections(
+		ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
 			domain,
 			port,
 			SECURITY_LEVEL_FOR_CONNECTIONS

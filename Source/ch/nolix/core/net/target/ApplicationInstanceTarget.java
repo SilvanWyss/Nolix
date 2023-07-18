@@ -11,13 +11,13 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 	
 	//static method
 	public static ApplicationInstanceTarget
-	forIpOrAddressNameAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
-		final String ipOrAddressName,
+	forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+		final String ipOrDomain,
 		final int port,
 		final String applicationName,
 		final SecurityLevel securityLevelForConnections
 	) {
-		return new ApplicationInstanceTarget(ipOrAddressName, port, applicationName, securityLevelForConnections);
+		return new ApplicationInstanceTarget(ipOrDomain, port, applicationName, securityLevelForConnections);
 	}
 	
 	//attribute
@@ -25,13 +25,13 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 	
 	//constructor
 	protected ApplicationInstanceTarget(
-		final String ipOrAddressName,
+		final String ipOrDomain,
 		final int port,
 		final String applicationName,
 		final SecurityLevel securityLevelForConnections
 	) {
 		
-		super(ipOrAddressName, port, securityLevelForConnections);
+		super(ipOrDomain, port, securityLevelForConnections);
 		
 		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
 		

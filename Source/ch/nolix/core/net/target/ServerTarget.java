@@ -12,16 +12,16 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 public class ServerTarget implements IServerTarget {
 	
 	//static method
-	public static ServerTarget forIpOrAddressNameAndPortAndSecurityLevelForConnections(
-		final String ipOrAddressName,
+	public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
+		final String ipOrDomain,
 		final int port,
 		final SecurityLevel securityLevelForConnections
 	) {
-		return new ServerTarget(ipOrAddressName, port, securityLevelForConnections);
+		return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
 	}
 	
 	//attribute
-	private final String ipOrAddressName;
+	private final String ipOrDomain;
 	
 	//attribute
 	private final int port;
@@ -31,12 +31,12 @@ public class ServerTarget implements IServerTarget {
 	
 	//constructor
 	protected ServerTarget(
-		final String ipOrAddressName,
+		final String ipOrDomain,
 		final int port,
 		final SecurityLevel securityLevelForConnections
 	) {
 		
-		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
 		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
 		
 		GlobalValidator
@@ -44,15 +44,15 @@ public class ServerTarget implements IServerTarget {
 		.thatIsNamed("security level for connections")
 		.isNotNull();
 				
-		this.ipOrAddressName = ipOrAddressName;
+		this.ipOrDomain = ipOrDomain;
 		this.port = port;
 		this.securityLevelForConnections = securityLevelForConnections;
 	}
 	
 	//method
 	@Override
-	public final String getIpOrAddressName() {
-		return ipOrAddressName;
+	public final String getIpOrDomain() {
+		return ipOrDomain;
 	}
 	
 	//method
@@ -83,19 +83,19 @@ public class ServerTarget implements IServerTarget {
 	private String toHttpsUrl() {
 		
 		if (getPort() == PortCatalogue.HTTPS) {
-			return String.format("https://%s", getIpOrAddressName());
+			return String.format("https://%s", getIpOrDomain());
 		}
 		
-		return String.format("https://%s:%s", getIpOrAddressName(), getPort());
+		return String.format("https://%s:%s", getIpOrDomain(), getPort());
 	}
 	
 	//method
 	private String toHttpUrl() {
 		
 		if (getPort() == PortCatalogue.HTTP) {
-			return String.format("http://%s", getIpOrAddressName());
+			return String.format("http://%s", getIpOrDomain());
 		}
 		
-		return String.format("http://%s:%s", getIpOrAddressName(), getPort());
+		return String.format("http://%s:%s", getIpOrDomain(), getPort());
 	}
 }

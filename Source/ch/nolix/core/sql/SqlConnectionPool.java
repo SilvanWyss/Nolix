@@ -25,12 +25,12 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
 	
 	//static method
-	public static SqlConnectionPoolBuilder forIpOrAddressName(final String ipOrAddressName) {
-		return new SqlConnectionPoolBuilder(ipOrAddressName, DEFAULT_PORT);
+	public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
+		return new SqlConnectionPoolBuilder(ipOrDomain, DEFAULT_PORT);
 	}
 	
 	//attribute
-	private final String ipOrAddressName;
+	private final String ipOrDomain;
 	
 	//attribute
 	private final int port;
@@ -52,7 +52,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//constructor
 	SqlConnectionPool(
-		final String ipOrAddressName,
+		final String ipOrDomain,
 		final int port,
 		final String databaseName,
 		final SqlDatabaseEngine sqlDatabaseEngine,
@@ -60,12 +60,12 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 		final String loginPassword
 	) {
 		
-		GlobalValidator.assertThat(ipOrAddressName).thatIsNamed("ip or address name").isNotBlank();
+		GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
 		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
 		GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
 		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 				
-		this.ipOrAddressName = ipOrAddressName;
+		this.ipOrDomain = ipOrDomain;
 		this.port = port;
 		this.databaseName = databaseName;
 		this.sqlDatabaseEngine = sqlDatabaseEngine;
@@ -96,8 +96,8 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 	
 	//method
 	@Override
-	public String getIpOrAddressName() {
-		return ipOrAddressName;
+	public String getIpOrDomain() {
+		return ipOrDomain;
 	}
 	
 	//method

@@ -20,7 +20,7 @@ AndPortCapturer<
 > {
 	
 	//constructor
-	public MsSqlSchemaAdapterBuilder(final String ipOrAddressName, final int defaultPort) {
+	public MsSqlSchemaAdapterBuilder(final String ipOrDomain, final int defaultPort) {
 		
 		super(
 			defaultPort,
@@ -31,11 +31,11 @@ AndPortCapturer<
 			)
 		);
 		
-		setBuilder(() -> build(ipOrAddressName));
+		setBuilder(() -> build(ipOrDomain));
 	}
 	
 	//method
-	private MsSqlSchemaAdapter build(final String ipOrAddressName) {
+	private MsSqlSchemaAdapter build(final String ipOrDomain) {
 		return
 		new MsSqlSchemaAdapter(
 			next().getDatabaseName(),
@@ -43,7 +43,7 @@ AndPortCapturer<
 			.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 				next().getDatabaseName(),
 				SqlConnectionPool
-				.forIpOrAddressName(ipOrAddressName)
+				.forIpOrDomain(ipOrDomain)
 				.andPort(getPort())
 				.andDatabase(next().getDatabaseName())
 				.withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)

@@ -29,7 +29,7 @@ AndPortCapturer<
 	public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 	
 	//constructor
-	public MsSqlDatabaseAdapterBuilder(final String ipOrAddressName) {
+	public MsSqlDatabaseAdapterBuilder(final String ipOrDomain) {
 		
 		super(
 			DEFAULT_PORT,
@@ -42,14 +42,14 @@ AndPortCapturer<
 			)
 		);
 		
-		setBuilder(() -> build(ipOrAddressName));
+		setBuilder(() -> build(ipOrDomain));
 	}
 	
 	//method
-	private MsSqlDatabaseAdapter build(final String ipOrAddressName) {
+	private MsSqlDatabaseAdapter build(final String ipOrDomain) {
 		return		
 		new MsSqlDatabaseAdapter(
-			ipOrAddressName,
+			ipOrDomain,
 			getPort(),
 			next().getDatabaseName(),
 			next().next().getLoginName(),

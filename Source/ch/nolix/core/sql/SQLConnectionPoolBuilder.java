@@ -23,7 +23,7 @@ AndPortCapturer<
 > {
 	
 	//constructor
-	public SqlConnectionPoolBuilder(final String ipOrAddressName, final int defaultPort) {
+	public SqlConnectionPoolBuilder(final String ipOrDomain, final int defaultPort) {
 		
 		super(
 			defaultPort,
@@ -36,14 +36,14 @@ AndPortCapturer<
 			)
 		);
 		
-		setBuilder(() -> build(ipOrAddressName));
+		setBuilder(() -> build(ipOrDomain));
 	}
 	
 	//method
-	private SqlConnectionPool build(final String ipOrAddressName) {
+	private SqlConnectionPool build(final String ipOrDomain) {
 		return
 		new SqlConnectionPool(
-			ipOrAddressName,
+			ipOrDomain,
 			getPort(),
 			next().getDatabaseName(),
 			next().next().getSqlDatabaseEngine(),
