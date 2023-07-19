@@ -10,6 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
@@ -21,6 +22,23 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	}
 	
 	//method
+	public void contains(final E element) {
+		
+		isNotNull();
+		
+		for (final var e : getStoredValue()) {
+			if (e == element) {
+				return;
+			}
+		}
+		
+		addCurrentTestCaseError(
+			"A container that contains the given element was expected, "
+			+ "but the contains does not contain the given element."
+		);
+	}
+	
+	//method
 	public boolean containsAsManyElementsAs(final Object[] array) {
 		
 		if (array == null) {
@@ -28,6 +46,22 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 		}
 		
 		return hasElementCount(array.length);
+	}
+	
+	//method
+	public void containsExactly(final E element, @SuppressWarnings("unchecked") final E... elements) {
+		
+		if (elements == null) {
+			throw ArgumentIsNullException.forArgumentName(PluralLowerCaseCatalogue.ELEMENTS);
+		}
+		
+		hasElementCount(1 + elements.length);
+		
+		contains(element);
+		
+		for (final var e : elements) {
+			contains(e);
+		}
 	}
 	
 	//method
