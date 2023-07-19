@@ -14,7 +14,7 @@ public final class DatabaseTestPool extends TestPool {
 			EntityTest.class,
 			EntityOnDatabaseTest.class,
 			MultiReferenceOnDatabaseTest.class,
-			MultiReferenceWithBackReferenceTest.class,
+			MultiReferenceWithBackReferencesTest.class,
 			MultiValueOnDatabaseTest.class,
 			OptionalBackReferenceOnDatabaseTest.class,
 			OptionalReferenceOnDatabaseTest.class,
