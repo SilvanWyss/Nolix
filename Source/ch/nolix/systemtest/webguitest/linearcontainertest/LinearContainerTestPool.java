@@ -9,6 +9,6 @@ public final class LinearContainerTestPool extends TestPool {
 	
 	//constructor
 	public LinearContainerTestPool() {
-		super(HorizontalStackTest.class);
+		super(HorizontalStackHtmlBuilderTest.class, HorizontalStackTest.class);
 	}
 }
