@@ -9,6 +9,6 @@ public final class StyleTestPool extends TestPool {
 	
 	//constructor
 	public StyleTestPool() {
-		super(StyleTest.class);
+		super(SelectingStyleTest.class, StyleTest.class);
 	}
 }
