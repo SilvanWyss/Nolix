@@ -9,17 +9,17 @@ import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
-import ch.nolix.system.webgui.main.ControlCssRuleBuilder;
+import ch.nolix.system.webgui.main.BaseControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class ExtendedControlCssRuleBuilder<
+public abstract class ControlCssRuleBuilder<
 	EC extends IControl<EC, ECS>,
 	ECS extends IControlStyle<ECS>
 >
-extends ControlCssRuleBuilder<EC, ECS> {
+extends BaseControlCssRuleBuilder<EC, ECS> {
 	
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 

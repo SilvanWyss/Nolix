@@ -6,14 +6,14 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class SingleContainerCssRuleBuilder
-extends ExtendedControlCssRuleBuilder<ISingleContainer, ISingleContainerStyle> {
+extends ControlCssRuleBuilder<ISingleContainer, ISingleContainerStyle> {
 	
 	//method
 	@Override

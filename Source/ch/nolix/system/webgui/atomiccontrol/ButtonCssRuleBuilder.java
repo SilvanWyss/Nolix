@@ -6,13 +6,13 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButtonStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class ButtonCssRuleBuilder extends ExtendedControlCssRuleBuilder<IButton, IButtonStyle> {
+public final class ButtonCssRuleBuilder extends ControlCssRuleBuilder<IButton, IButtonStyle> {
 	
 	//method
 	@Override

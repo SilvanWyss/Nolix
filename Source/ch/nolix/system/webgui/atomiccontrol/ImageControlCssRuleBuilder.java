@@ -7,14 +7,14 @@ import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.controlstyle.ExtendedControlCssRuleBuilder;
+import ch.nolix.system.webgui.controlstyle.ControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class ImageControlCssRuleBuilder
-extends ExtendedControlCssRuleBuilder<IImageControl, IImageControlStyle> {
+extends ControlCssRuleBuilder<IImageControl, IImageControlStyle> {
 	
 	//method
 	@Override
