@@ -72,7 +72,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @param value
 	 * @return a new {@link ByteMediator} for the given value.
 	 */
-	public final ByteMediator expect(final byte value) {
+	protected final ByteMediator expect(final byte value) {
 		return new ByteMediator(this::addExpectationError, value);
 	}
 	
