@@ -49,7 +49,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * @param elements
 	 * @return true if the current {@link IContainer} contains all of the given elements.
 	 */
-	boolean containsAllOf(Iterable<?> elements);
+	boolean containsAll(Iterable<?> elements);
 	
 	//method declaration
 	/**

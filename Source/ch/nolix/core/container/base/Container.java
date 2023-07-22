@@ -99,7 +99,7 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAllOf(final Iterable<?> elements) {
+	public final boolean containsAll(final Iterable<?> elements) {
 		
 		//Iterates the given elements.
 		for (final var e : elements) {
