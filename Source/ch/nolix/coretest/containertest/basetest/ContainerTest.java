@@ -900,6 +900,34 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_toConcatenatedString_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution
+		final var result = testUnit.toConcatenatedString();
+		
+		//verification
+		expect(result).isEmpty();
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_toConcatenatedString_whenContainsAny() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "yy", "zzz", "pppp");
+		
+		//execution
+		final var result = testUnit.toConcatenatedString();
+		
+		//verification
+		expect(result).isEqualTo("xyyzzzpppp");
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_toOrderedList_1A() {
 		
 		//setup
