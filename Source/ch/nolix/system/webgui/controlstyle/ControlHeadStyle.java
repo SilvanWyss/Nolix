@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class BaseControlStyle<CS extends IControlHeadStyle<CS>>
+public abstract class ControlHeadStyle<CS extends IControlHeadStyle<CS>>
 extends MultiStateConfiguration<CS, ControlState>
 implements IControlHeadStyle<CS> {
 	
@@ -104,7 +104,7 @@ implements IControlHeadStyle<CS> {
 	);
 	
 	//constructor
-	protected BaseControlStyle() {
+	protected ControlHeadStyle() {
 		super(ControlState.BASE);
 	}
 	

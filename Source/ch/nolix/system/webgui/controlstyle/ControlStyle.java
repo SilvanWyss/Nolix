@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public abstract class ControlStyle<
 	ECS extends IControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>
 >
-extends BaseControlStyle<ECS>
+extends ControlHeadStyle<ECS>
 implements IControlStyle<ECS> {
 	
 	//constant
