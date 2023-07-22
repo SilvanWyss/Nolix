@@ -25,7 +25,7 @@ implements IHorizontalStack {
 	private static final HorizontalStackHtmlBuilder HTML_BUILDER = new HorizontalStackHtmlBuilder();
 	
 	//constant
-	private static final HorizontalStackCssRuleBuilder CSS_RULE_BUILDER = new HorizontalStackCssRuleBuilder();
+	private static final HorizontalStackCssBuilder CSS_RULE_BUILDER = new HorizontalStackCssBuilder();
 	
 	//attribute
 	private final MutableValue<VerticalContentAlignment> contentAlignment =

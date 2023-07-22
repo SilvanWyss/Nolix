@@ -41,7 +41,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	private static final LabelHtmlBuilder HTML_BUILDER = new LabelHtmlBuilder();
 	
 	//constant
-	private static final LabelCssRuleBuilder CSS_RULE_BUILDER = new LabelCssRuleBuilder();
+	private static final LabelCssBuilder CSS_RULE_BUILDER = new LabelCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<LabelRole> role =

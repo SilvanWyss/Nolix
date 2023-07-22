@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class GridCssRuleBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
+public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 	
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 

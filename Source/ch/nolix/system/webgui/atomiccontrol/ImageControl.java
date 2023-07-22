@@ -34,7 +34,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();
 	
 	//constant
-	private static final ImageControlCssRuleBuilder CSS_RULE_BUILDER = new ImageControlCssRuleBuilder();
+	private static final ImageControlCssBuilder CSS_RULE_BUILDER = new ImageControlCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<MutableImage> image =

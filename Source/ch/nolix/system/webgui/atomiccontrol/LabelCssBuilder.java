@@ -1,22 +1,32 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlcssbuilder.ControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextboxStyle;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class TextboxCssRuleBuilder extends ControlCssBuilder<ITextbox, ITextboxStyle> {
+public final class LabelCssBuilder extends ControlCssBuilder<ILabel, ILabelStyle> {
+	
+	//method
+	@Override
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
+		final ILabel control,
+		final LinkedList<CssProperty> list
+	) {
+		//Does nothing.
+	}
 	
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final ITextbox textbox,
+		final ILabel label,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -26,7 +36,7 @@ public final class TextboxCssRuleBuilder extends ControlCssBuilder<ITextbox, ITe
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final ITextbox textbox,	
+		final ILabel label,
 		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
@@ -34,17 +44,8 @@ public final class TextboxCssRuleBuilder extends ControlCssBuilder<ITextbox, ITe
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final ITextbox control,
-		final LinkedList<CssProperty> list
-	) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final ITextbox textbox,
+		final ILabel label,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {

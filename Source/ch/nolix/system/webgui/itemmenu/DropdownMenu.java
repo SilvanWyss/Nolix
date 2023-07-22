@@ -21,7 +21,7 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 	private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
 	
 	//constant
-	private static final DropdownMenuCssRuleBuilder CSS_RULE_BUILDER = new DropdownMenuCssRuleBuilder();
+	private static final DropdownMenuCssBuilder CSS_RULE_BUILDER = new DropdownMenuCssBuilder();
 	
 	//constructor
 	public DropdownMenu() {

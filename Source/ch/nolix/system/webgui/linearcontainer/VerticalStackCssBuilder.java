@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class VerticalStackCssRuleBuilder
+public final class VerticalStackCssBuilder
 extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
 	
 	//method

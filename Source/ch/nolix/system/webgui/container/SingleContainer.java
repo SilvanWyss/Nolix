@@ -26,7 +26,7 @@ implements ISingleContainer {
 	private static final SingleContainerHtmlBuilder HTML_BUILDER = new SingleContainerHtmlBuilder();
 	
 	//constant
-	private static final SingleContainerCssRuleBuilder CSS_RULE_BUILDER = new SingleContainerCssRuleBuilder();
+	private static final SingleContainerCssBuilder CSS_RULE_BUILDER = new SingleContainerCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<IControl<?, ?>> control =

@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class HorizontalStackCssRuleBuilder
+public final class HorizontalStackCssBuilder
 extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//method

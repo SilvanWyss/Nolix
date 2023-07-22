@@ -50,7 +50,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
 	
 	//constant
-	private static final ButtonCssRuleBuilder CSS_RULE_BUILDER = new ButtonCssRuleBuilder();
+	private static final ButtonCssBuilder CSS_RULE_BUILDER = new ButtonCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<ButtonRole> role =

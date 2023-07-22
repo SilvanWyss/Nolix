@@ -13,7 +13,7 @@ import ch.nolix.system.webgui.controlcssbuilder.ControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class FloatContainerCssRuleBuilder
+public final class FloatContainerCssBuilder
 extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method

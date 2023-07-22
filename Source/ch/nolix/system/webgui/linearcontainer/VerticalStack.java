@@ -25,7 +25,7 @@ implements IVerticalStack {
 	private static final VerticalStackHtmlBuilder HTML_BUILDER = new VerticalStackHtmlBuilder();
 	
 	//constant
-	private static final VerticalStackCssRuleBuilder CSS_RULE_BUILDER = new VerticalStackCssRuleBuilder();
+	private static final VerticalStackCssBuilder CSS_RULE_BUILDER = new VerticalStackCssBuilder();
 	
 	//attribute
 	private final MutableValue<HorizontalContentAlignment> contentAlignment =

@@ -29,7 +29,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
 	
 	//constant
-	private static final GridCssRuleBuilder CSS_RULE_BUILDER = new GridCssRuleBuilder();
+	private static final GridCssBuilder CSS_RULE_BUILDER = new GridCssBuilder();
 	
 	//multi-attribute
 	private Matrix<GridCell> cells = new Matrix<>();

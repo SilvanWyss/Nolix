@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class DropdownMenuCssRuleBuilder extends ItemMenuCssRuleBuilder<IDropdownMenu, IDropdownMenuStyle> {
+public final class DropdownMenuCssBuilder extends ItemMenuCssBuilder<IDropdownMenu, IDropdownMenuStyle> {
 	
 	//method
 	@Override

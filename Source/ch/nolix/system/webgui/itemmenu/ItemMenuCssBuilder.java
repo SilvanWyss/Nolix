@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ItemMenuCssRuleBuilder<
+public abstract class ItemMenuCssBuilder<
 	IM extends IItemMenu<IM, IMS>,
 	IMS extends IItemMenuStyle<IMS>
 >

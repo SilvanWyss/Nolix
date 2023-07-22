@@ -4,21 +4,23 @@ package ch.nolix.system.webgui.atomiccontrol;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
+import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlcssbuilder.ControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
-import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class LabelCssRuleBuilder extends ControlCssBuilder<ILabel, ILabelStyle> {
+public final class ImageControlCssBuilder
+extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final ILabel control,
-		final LinkedList<CssProperty> list
+	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
+		final IImageControl imageControl,
+		final LinkedList<? super ICssRule<?>> list
 	) {
 		//Does nothing.
 	}
@@ -26,7 +28,7 @@ public final class LabelCssRuleBuilder extends ControlCssBuilder<ILabel, ILabelS
 	//method
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final ILabel label,
+		final IImageControl imageControl,
 		final ControlState state,
 		final LinkedList<? super ICssRule<?>> list
 	) {
@@ -35,9 +37,9 @@ public final class LabelCssRuleBuilder extends ControlCssBuilder<ILabel, ILabelS
 	
 	//method
 	@Override
-	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final ILabel label,
-		final LinkedList<? super ICssRule<?>> list
+	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
+		final IImageControl control,
+		final LinkedList<CssProperty> list
 	) {
 		//Does nothing.
 	}
@@ -45,10 +47,10 @@ public final class LabelCssRuleBuilder extends ControlCssBuilder<ILabel, ILabelS
 	//method
 	@Override
 	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
-		final ILabel label,
+		final IImageControl imageControl,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
 	) {
-		//Does nothing.
+		list.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "block"));
 	}
 }
