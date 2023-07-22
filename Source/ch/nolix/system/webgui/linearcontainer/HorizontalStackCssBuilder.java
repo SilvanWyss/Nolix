@@ -76,7 +76,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final IHorizontalStack horizontalStack,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

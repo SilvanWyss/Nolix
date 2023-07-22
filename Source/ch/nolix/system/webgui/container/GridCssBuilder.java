@@ -33,7 +33,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final IGrid control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

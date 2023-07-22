@@ -71,7 +71,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

@@ -44,7 +44,7 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final ILink control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

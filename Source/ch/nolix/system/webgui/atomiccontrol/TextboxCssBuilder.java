@@ -43,7 +43,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final ITextbox textbox,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

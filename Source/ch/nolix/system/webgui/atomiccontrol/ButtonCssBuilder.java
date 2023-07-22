@@ -44,7 +44,7 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final IButton button,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

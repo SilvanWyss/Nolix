@@ -23,7 +23,7 @@ public final class DropdownMenuCssBuilder extends ItemMenuCssBuilder<IDropdownMe
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final IDropdownMenu dropdownMenu,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

@@ -44,7 +44,7 @@ public final class LabelCssBuilder extends ControlCssBuilder<ILabel, ILabelStyle
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final ILabel label,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

@@ -45,7 +45,7 @@ extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final ISingleContainer control,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

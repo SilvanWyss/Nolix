@@ -45,7 +45,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final IValidationLabel text,
 		final ControlState state,
 		final LinkedList<ICssProperty> list

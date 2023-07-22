@@ -46,7 +46,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 	
 	//method
 	@Override
-	protected void fillUpCssPropertiesForExtendedControlAndStateIntoList(
+	protected void fillUpCssPropertiesForControlAndStateIntoList(
 		final IImageControl imageControl,
 		final ControlState state,
 		final LinkedList<ICssProperty> list
