@@ -5,7 +5,7 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IBorderControlStyle<BCS extends IBorderControlStyle<BCS>> {
+public interface IBorderStyle<BCS extends IBorderStyle<BCS>> {
 	
 	//method declaration
 	IColor getBottomBorderColorWhenHasState(ControlState state);
