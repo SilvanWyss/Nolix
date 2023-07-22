@@ -5,7 +5,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
-final class BasicApplication<
+public final class BasicApplication<
 	BC extends BackendClient<BC, AC>,
 	AC
 >
