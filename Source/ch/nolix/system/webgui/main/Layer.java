@@ -69,7 +69,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private static final String ROOT_CONTROL_HEADER = "RootControl";
 	
 	//constant
-	private static final LayerHtmlCreator HTML_CREATOR = new LayerHtmlCreator();
+	private static final LayerHtmlBuilder HTML_CREATOR = new LayerHtmlBuilder();
 	
 	//constant
 	private static final LayerCssRuleCreator CSS_RULE_CREATOR = new LayerCssRuleCreator();

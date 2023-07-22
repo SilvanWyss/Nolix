@@ -12,7 +12,7 @@ import ch.nolix.system.webgui.layerhelper.LayerHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
-public final class LayerHtmlCreator {
+public final class LayerHtmlBuilder {
 	
 	//constant
 	private static final LayerHelper LAYER_HELPER = new LayerHelper();
