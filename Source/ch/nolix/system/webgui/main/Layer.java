@@ -72,7 +72,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private static final LayerHtmlBuilder HTML_CREATOR = new LayerHtmlBuilder();
 	
 	//constant
-	private static final LayerCssRuleCreator CSS_RULE_CREATOR = new LayerCssRuleCreator();
+	private static final LayerCssBuilder CSS_RULE_CREATOR = new LayerCssBuilder();
 	
 	//attribute
 	//An id works correctly for CSS only when it begins with a letter.

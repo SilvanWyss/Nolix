@@ -14,7 +14,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
-public final class LayerCssRuleCreator {
+public final class LayerCssBuilder {
 	
 	//method
 	public CssRule getCssRuleForLayer(final ILayer<?> layer) {
