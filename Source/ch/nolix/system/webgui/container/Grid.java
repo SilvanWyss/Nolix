@@ -13,7 +13,7 @@ import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -145,7 +145,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<IGrid, IGridStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IGrid, IGridStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	

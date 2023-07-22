@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
-public interface IControlCssRuleBuilder<
+public interface IControlCssBuilder<
 	C extends IControl<C, CS>,
 	CS extends IControlStyle<CS>
 > {

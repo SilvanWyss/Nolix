@@ -9,12 +9,12 @@ import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.controlstyle.ControlCssRuleBuilder;
+import ch.nolix.system.webgui.controlcssbuilder.ControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class FloatContainerCssRuleBuilder
-extends ControlCssRuleBuilder<FloatContainer, FloatContainerStyle> {
+extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	
 	//method
 	@Override

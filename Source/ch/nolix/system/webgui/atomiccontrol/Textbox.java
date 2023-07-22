@@ -21,7 +21,7 @@ import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextboxStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -191,7 +191,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<ITextbox, ITextboxStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<ITextbox, ITextboxStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	

@@ -6,13 +6,13 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.system.webgui.controlstyle.ControlCssRuleBuilder;
+import ch.nolix.system.webgui.controlcssbuilder.ControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class LabelCssRuleBuilder extends ControlCssRuleBuilder<ILabel, ILabelStyle> {
+public final class LabelCssRuleBuilder extends ControlCssBuilder<ILabel, ILabelStyle> {
 	
 	//method
 	@Override

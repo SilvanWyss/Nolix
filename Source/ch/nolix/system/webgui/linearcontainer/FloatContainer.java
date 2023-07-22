@@ -2,7 +2,7 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 
 //class
@@ -22,7 +22,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<FloatContainer, FloatContainerStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<FloatContainer, FloatContainerStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	

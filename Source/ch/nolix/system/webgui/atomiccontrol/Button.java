@@ -24,7 +24,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButtonStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
@@ -270,7 +270,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<IButton, IButtonStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IButton, IButtonStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	

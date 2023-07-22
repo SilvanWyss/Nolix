@@ -10,14 +10,14 @@ import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.system.webgui.controlcssbuilder.ControlCssBuilder;
 import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
-import ch.nolix.system.webgui.controlstyle.ControlCssRuleBuilder;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public final class GridCssRuleBuilder extends ControlCssRuleBuilder<IGrid, IGridStyle> {
+public final class GridCssRuleBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 	
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 

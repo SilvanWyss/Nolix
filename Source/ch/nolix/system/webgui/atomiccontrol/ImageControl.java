@@ -19,7 +19,7 @@ import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssRuleBuilder;
+import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
@@ -218,7 +218,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	
 	//method
 	@Override
-	protected IControlCssRuleBuilder<IImageControl, IImageControlStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IImageControl, IImageControlStyle> getCssRuleCreator() {
 		return CSS_RULE_BUILDER;
 	}
 	
