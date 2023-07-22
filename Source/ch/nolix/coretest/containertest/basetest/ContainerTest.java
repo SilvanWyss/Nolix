@@ -50,6 +50,62 @@ public abstract class ContainerTest extends Test {
 		expectNot(result);
 	}
 	
+	//method
+	@TestCase
+	public final void testCase_containsAll_whenContainsAllOfTheGivenElementsAndOtherElements() {
+		
+		//setup
+		final var element1 = "x";
+		final var element2 = "xx";
+		final var element3 = "xxx";
+		final var element4 = "xxxx";
+		final var container = createContainerWithElements(element1, element2, element3);
+		final var testUnit = createContainerWithElements(element1, element2, element3, element4);
+		
+		//execution
+		final var result = testUnit.containsAll(container);
+		
+		//verification
+		expect(result);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_containsAll_whenContainsNoneOfTheGivenElementsButOtherElements() {
+		
+		//setup
+		final var element1 = "x";
+		final var element2 = "xx";
+		final var element3 = "xxx";
+		final var element4 = "xxxx";
+		final var container = createContainerWithElements(element1, element2);
+		final var testUnit = createContainerWithElements(element3, element4);
+		
+		//execution
+		final var result = testUnit.containsAll(container);
+		
+		//verification
+		expectNot(result);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_containsAll_whenContainsOnlySomeOfTheGivenElementsButOtherElements() {
+		
+		//setup
+		final var element1 = "x";
+		final var element2 = "xx";
+		final var element3 = "xxx";
+		final var element4 = "xxxx";
+		final var container = createContainerWithElements(element1, element2, element3);
+		final var testUnit = createContainerWithElements(element2, element3, element4);
+		
+		//execution
+		final var result = testUnit.containsAll(container);
+		
+		//verification
+		expectNot(result);
+	}
 	
 	//method
 	@TestCase
