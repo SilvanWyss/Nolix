@@ -10,8 +10,9 @@ public final class AtomicControlTestPool extends TestPool {
 	//constructor
 	public AtomicControlTestPool() {
 		super(
-			ButtonTest.class,
+			ButtonCssBuilderTest.class,
 			ButtonHtmlBuilderTest.class,
+			ButtonTest.class,
 			ImageControlTest.class,
 			LinkTest.class,
 			LabelTest.class,
