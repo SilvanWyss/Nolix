@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ControlHeadStyle<CS extends IControlHeadStyle<CS>>
+abstract class ControlHeadStyle<CS extends IControlHeadStyle<CS>>
 extends MultiStateConfiguration<CS, ControlState>
 implements IControlHeadStyle<CS> {
 	
