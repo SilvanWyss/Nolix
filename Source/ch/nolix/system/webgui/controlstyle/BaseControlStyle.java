@@ -13,13 +13,13 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.guiapi.fontapi.Font;
-import ch.nolix.systemapi.webguiapi.controlstyleapi.IBaseControlStyle;
+import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlHeadStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class BaseControlStyle<CS extends IBaseControlStyle<CS>>
+public abstract class BaseControlStyle<CS extends IControlHeadStyle<CS>>
 extends MultiStateConfiguration<CS, ControlState>
-implements IBaseControlStyle<CS> {
+implements IControlHeadStyle<CS> {
 	
 	//constant
 	public static final double DEFAULT_OPACITY = 1.0;
@@ -111,7 +111,7 @@ implements IBaseControlStyle<CS> {
 	//method
 	@Override
 	@SuppressWarnings("unchecked")
-	public final <CS2 extends IBaseControlStyle<CS2>> void addChild(final CS2 controlStyle) {
+	public final <CS2 extends IControlHeadStyle<CS2>> void addChild(final CS2 controlStyle) {
 		internalAddChild((CS)controlStyle);
 	}
 	
