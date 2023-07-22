@@ -6,7 +6,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.webgui.itemmenu.ItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;
-import ch.nolix.systemtest.webguitest.atomiccontroltest.ControlTest;
+import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
 public abstract class ItemMenuTest<

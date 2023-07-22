@@ -7,6 +7,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
 public final class LabelTest extends ControlTest<ILabel> {

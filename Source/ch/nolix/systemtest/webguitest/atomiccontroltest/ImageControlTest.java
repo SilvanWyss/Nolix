@@ -8,6 +8,7 @@ import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControl;
+import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
 public final class ImageControlTest extends ControlTest<IImageControl> {

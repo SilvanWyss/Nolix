@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.webguitest.atomiccontroltest;
+package ch.nolix.systemtest.webguitest.maintest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;

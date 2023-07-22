@@ -5,6 +5,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
+import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
 public final class TextboxTest extends ControlTest<ITextbox> {
