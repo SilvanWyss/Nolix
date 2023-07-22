@@ -988,6 +988,38 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_toStringArray_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(Integer.class);
+		
+		//execution
+		final var result = testUnit.toStringArray();
+		
+		//verification
+		expect(result.length).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_toStringArray_whenContainsElements() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(10, 20, 30, 40);
+		
+		//execution
+		final var result = testUnit.toStringArray();
+		
+		//verification
+		expect(result.length).isEqualTo(4);
+		expect(result[0]).isEqualTo("10");
+		expect(result[1]).isEqualTo("20");
+		expect(result[2]).isEqualTo("30");
+		expect(result[3]).isEqualTo("40");
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_toStrings() {
 		
 		//setup
