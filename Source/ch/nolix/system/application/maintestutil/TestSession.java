@@ -15,7 +15,7 @@ extends Session<BC, AC> {
 	
 	//static method
 	public static <BC2 extends BackendClient<BC2, AC2>, AC2> TestSession<BC2, AC2> withClientClass(
-		final Class<?> clientClass
+		final Class<BC2> clientClass
 	) {
 		return new TestSession<>(clientClass);
 	}
