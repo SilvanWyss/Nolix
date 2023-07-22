@@ -9,7 +9,7 @@ import ch.nolix.systemapi.guiapi.canvasapi.IBackground;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
-public interface IBackgroundControlStyle<BCS extends IBackgroundControlStyle<BCS>> {
+public interface IBackgroundStyle<BCS extends IBackgroundStyle<BCS>> {
 	
 	//method declaration
 	IBackground getBackgroundWhenHasState(ControlState state);
