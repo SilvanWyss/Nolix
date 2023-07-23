@@ -27,46 +27,41 @@ public final class ParametrizedPropertyTypeMapper {
 		final IParametrizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
+		return
 		switch (parametrizedPropertyType.getPropertyType()) {
-			case VALUE:
-				return new ParametrizedValueType<>(parametrizedPropertyType.getDataType());
-			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType());
-			case MULTI_VALUE:
-				return new ParametrizedMultiValueType<>(parametrizedPropertyType.getDataType());
-			case REFERENCE:
-				return
+			case VALUE ->
+				new ParametrizedValueType<>(parametrizedPropertyType.getDataType());
+			case OPTIONAL_VALUE ->
+				new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType());
+			case MULTI_VALUE ->
+				new ParametrizedMultiValueType<>(parametrizedPropertyType.getDataType());
+			case REFERENCE ->
 				new ParametrizedReferenceType(
 					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
-			case OPTIONAL_REFERENCE:
-				return
+			case OPTIONAL_REFERENCE ->
 				new ParametrizedOptionalReferenceType(
 					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
-			case MULTI_REFERENCE:
-				return
+			case MULTI_REFERENCE ->
 				new ParametrizedMultiReferenceType(
 					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
-			case BACK_REFERENCE:
-				return
+			case BACK_REFERENCE ->
 				new ParametrizedBackReferenceType(
 					getStoredBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
-			case OPTIONAL_BACK_REFERENCE:
-				return
+			case OPTIONAL_BACK_REFERENCE ->
 				new ParametrizedOptionalBackReferenceType(
 					getStoredBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
-			case MULTI_BACK_REFERENCE:
-				return
+			case MULTI_BACK_REFERENCE ->
 				new ParametrizedMultiBackReferenceType(
 					getStoredBackReferencedColumnFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
-			default:
+			default ->
 				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
-		}
+		};
 	}
 	
 	//method
