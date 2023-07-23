@@ -231,16 +231,17 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 		final ITable table,
 		final IColumn column
 	) {
+		return
 		switch (COLUMN_HELPER.getBasePropertyType(column)) {
-			case BASE_VALUE:
-				return true;
-			case BASE_REFERENCE:
-				return canAddGivenTableBecauseOfGivenReferenceColumn(database, table, column);
-			case BASE_BACK_REFERENCE:
-				return true;
-			default:
-				return true;
-		}
+			case BASE_VALUE ->
+				true;
+			case BASE_REFERENCE ->
+				canAddGivenTableBecauseOfGivenReferenceColumn(database, table, column);
+			case BASE_BACK_REFERENCE ->
+				true;
+			default ->
+				true;
+		};
 	}
 	
 	//method
