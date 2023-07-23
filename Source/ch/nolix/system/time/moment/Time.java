@@ -87,43 +87,18 @@ public final class Time extends Element implements ITime {
 		return
 		switch (array.length) {
 			case 3 ->
-				withYearAndMonthOfYearAndDayOfMonth(
-					Integer.valueOf(array[0]),
-					Integer.valueOf(array[1]),
-					Integer.valueOf(array[2])
-				);
+				fromArrayWith3Values(array);
 			case 5 ->
-				withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
-					Integer.valueOf(array[0]),
-					Integer.valueOf(array[1]),
-					Integer.valueOf(array[2]),
-					Integer.valueOf(array[3]),
-					Integer.valueOf(array[4])
-				);
+				fromArrayWith5Values(array);
 			case 6 ->
-				withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
-					Integer.valueOf(array[0]),
-					Integer.valueOf(array[1]),
-					Integer.valueOf(array[2]),
-					Integer.valueOf(array[3]),
-					Integer.valueOf(array[4]),
-					Integer.valueOf(array[5])
-				);
+				fromArrayWith6Values(array);
 			case 7 ->
-				withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
-					Integer.valueOf(array[0]),
-					Integer.valueOf(array[1]),
-					Integer.valueOf(array[2]),
-					Integer.valueOf(array[3]),
-					Integer.valueOf(array[4]),
-					Integer.valueOf(array[5]),
-					Integer.valueOf(array[6])
-				);
+				fromArrayWith7Values(array);
 			default ->
 				throw UnrepresentingArgumentException.forArgumentAndType(string, Time.class);
 		};
 	}
-	
+
 	//static method
 	/**
 	 * @return a new {@link Time} that represents the current time on the local computer.
@@ -284,6 +259,67 @@ public final class Time extends Element implements ITime {
 			.withMinute(minuteOfHour)
 			.withSecond(secondOfMinute)
 			.withNano(1_000_000 * millisecondOfSecond)
+		);
+	}
+	
+	//static method
+	/**
+	 * @param array with 3 values
+	 * @return a new {@link Time} from the given array.
+	 */
+	private static Time fromArrayWith3Values(final String[] array) {
+		return withYearAndMonthOfYearAndDayOfMonth(
+			Integer.valueOf(array[0]),
+			Integer.valueOf(array[1]),
+			Integer.valueOf(array[2])
+		);
+	}
+	
+	//static method
+	/**
+	 * @param array with 5 values
+	 * @return a new {@link Time} from the given array.
+	 */
+	private static Time fromArrayWith5Values(final String[] array) {
+		return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
+			Integer.valueOf(array[0]),
+			Integer.valueOf(array[1]),
+			Integer.valueOf(array[2]),
+			Integer.valueOf(array[3]),
+			Integer.valueOf(array[4])
+		);
+	}
+	
+	//static method
+	/**
+	 * @param array with 6 values
+	 * @return a new {@link Time} from the given array.
+	 */
+	private static Time fromArrayWith6Values(final String[] array) {
+		return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
+			Integer.valueOf(array[0]),
+			Integer.valueOf(array[1]),
+			Integer.valueOf(array[2]),
+			Integer.valueOf(array[3]),
+			Integer.valueOf(array[4]),
+			Integer.valueOf(array[5])
+		);
+	}
+	
+	//static method
+	/**
+	 * @param array with 7 values
+	 * @return a new {@link Time} from the given array.
+	 */
+	private static Time fromArrayWith7Values(final String[] array) {
+		return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+			Integer.valueOf(array[0]),
+			Integer.valueOf(array[1]),
+			Integer.valueOf(array[2]),
+			Integer.valueOf(array[3]),
+			Integer.valueOf(array[4]),
+			Integer.valueOf(array[5]),
+			Integer.valueOf(array[6])
 		);
 	}
 	
