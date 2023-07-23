@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValue;
-import ch.nolix.system.webgui.container.Container;
+import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;

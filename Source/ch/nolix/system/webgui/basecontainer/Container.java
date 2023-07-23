@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.container;
+package ch.nolix.system.webgui.basecontainer;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;

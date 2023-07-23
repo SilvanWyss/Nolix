@@ -11,7 +11,7 @@ import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.Link;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
-import ch.nolix.system.webgui.container.Container;
+import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.container.Grid;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
