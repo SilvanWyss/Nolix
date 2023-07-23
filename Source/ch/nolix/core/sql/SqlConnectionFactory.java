@@ -10,19 +10,20 @@ public final class SqlConnectionFactory {
 	
 	//method
 	public SqlConnection createQslConnectionFor(final SqlConnectionPool sqlDatabaseTarget) {
+		return
 		switch (sqlDatabaseTarget.getSqlDatabaseEngine()) {
-			case MSSQL:
-				return new MsSqlConnection(
+			case MSSQL ->
+				new MsSqlConnection(
 					sqlDatabaseTarget.getIpOrDomain(),
 					sqlDatabaseTarget.getPort(),
 					sqlDatabaseTarget.getLoginName(),
 					sqlDatabaseTarget.getLoginPassword(),
 					sqlDatabaseTarget
 				);
-			case MYSQL, ORACLE:
+			case MYSQL, ORACLE ->
 				throw UnsupportedCaseException.forCase(sqlDatabaseTarget.getSqlDatabaseEngine());
-			default:
+			default ->
 				throw InvalidArgumentException.forArgument(sqlDatabaseTarget.getSqlDatabaseEngine());
-		}
+		};
 	}
 }
