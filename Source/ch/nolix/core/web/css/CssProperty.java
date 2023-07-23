@@ -50,7 +50,7 @@ public final class CssProperty implements ICssProperty {
 	private CssProperty(final String name, final String value) {
 		
 		if (name == null) {
-			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.KEY);
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
 		}
 		
 		if (value == null) {
