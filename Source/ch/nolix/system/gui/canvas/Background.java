@@ -219,7 +219,7 @@ public final class Background extends Element implements IBackground {
 	
 	//method
 	@Override
-	public BackgroundType getType() {
+	public BackgroundType getType() { //NOSONAR: The type of a Background is determined by all of its other attributes.
 		
 		if (isColor()) {
 			return BackgroundType.COLOR;
@@ -259,44 +259,21 @@ public final class Background extends Element implements IBackground {
 	//method
 	@Override
 	public IContainer<ICssProperty> toCssProperties() {
+		return
 		switch (getType()) {
-			case COLOR:
-				
-				final var colorCode = getColorCodeOfColor(color);
-				
-				return
-				ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, colorCode));
-			case COLOR_GRADIENT:
-				
-				final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
-				final var color1Code = getColorCodeOfColor(colorGradient.getColor1());
-				final var color2Code = getColorCodeOfColor(colorGradient.getColor2());
-				final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
-				
-				return
-				ImmutableList.withElements(
-					CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
-				);
-			case IMAGE:
-				
-				final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
-				
-				return
-				ImmutableList.withElements(		
-					CssProperty.withNameAndValue(
-						CssPropertyNameCatalogue.BACKGROUND_IMAGE,
-						"url('" + backgroundImage + "')"
-					),
-					CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
-				);
-			case TRANSPARENCY:
-				return
-				ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, "none"));
-			default:
+			case COLOR ->
+				toCssPropertiesWhenIsColor();
+			case COLOR_GRADIENT ->
+				toCssPropertiesWhenIsColorGradient();
+			case IMAGE ->
+				toCssPropertiesWhenIsImage();
+			case TRANSPARENCY ->
+				toCssPropertiesWhenIsTransparent();
+			default ->
 				throw InvalidArgumentException.forArgument(this);
-		}
+		};
 	}
-	
+
 	//method
 	private void assertIsColor() {
 		if (!isColor()) {
@@ -361,5 +338,46 @@ public final class Background extends Element implements IBackground {
 			default ->
 				throw InvalidArgumentException.forArgument(direction);
 		};
+	}
+	
+	//method
+	private IContainer<ICssProperty> toCssPropertiesWhenIsColor() {
+		final var colorCode = getColorCodeOfColor(color);
+		
+		return
+		ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, colorCode));
+	}
+	
+	//method
+	private IContainer<ICssProperty> toCssPropertiesWhenIsColorGradient() {
+		final var degreeCode = getDegreeCodeOfColorGradient(colorGradient);
+		final var color1Code = getColorCodeOfColor(colorGradient.getColor1());
+		final var color2Code = getColorCodeOfColor(colorGradient.getColor2());
+		final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
+		
+		return
+		ImmutableList.withElements(
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
+		);
+	}
+	
+	//method
+	private IContainer<ICssProperty> toCssPropertiesWhenIsImage() {
+		final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
+		
+		return
+		ImmutableList.withElements(		
+			CssProperty.withNameAndValue(
+				CssPropertyNameCatalogue.BACKGROUND_IMAGE,
+				"url('" + backgroundImage + "')"
+			),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%")
+		);
+	}
+	
+	//method
+	private IContainer<ICssProperty> toCssPropertiesWhenIsTransparent() {
+		return
+		ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND, "none"));
 	}
 }
