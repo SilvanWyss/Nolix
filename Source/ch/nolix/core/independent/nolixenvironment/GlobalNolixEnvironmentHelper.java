@@ -3,6 +3,7 @@ package ch.nolix.core.independent.nolixenvironment;
 
 //Java imports
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -41,11 +42,16 @@ public final class GlobalNolixEnvironmentHelper {
 		final var lPath = Path.of(path);
 		
 		if (!Files.exists(lPath)) {
-			try {
-				Files.createDirectory(lPath);
-			} catch (final IOException pIOException) {
-				throw new RuntimeException(pIOException);
-			}
+			createFolderWhenDoesNotExist(lPath);
+		}
+	}
+	
+	//method
+	private static void createFolderWhenDoesNotExist(final Path lPath) {
+		try {
+			Files.createDirectory(lPath);
+		} catch (final IOException ioException) {
+			throw new UncheckedIOException(ioException);
 		}
 	}
 	
