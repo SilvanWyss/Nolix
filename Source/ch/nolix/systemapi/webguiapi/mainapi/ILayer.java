@@ -24,7 +24,7 @@ IRootControlOwner<L> {
 	ContentAlignment getContentAlignment();
 	
 	//method declaration
-	ICssRule<?> getCssRule();
+	ICssRule getCssRule();
 	
 	//method declaration
 	double getOpacity();

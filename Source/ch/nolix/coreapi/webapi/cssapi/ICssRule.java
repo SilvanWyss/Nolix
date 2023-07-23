@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.coreapi.webapi.cssapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface ICssRule<P extends ICssProperty> {
+public interface ICssRule {
 	
 	//method declaration
-	IContainer<P> getStoredProperties();
+	IContainer<? extends ICssProperty> getProperties();
 	
 	//method declaration
 	IContainer<String> getSelectors();

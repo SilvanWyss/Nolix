@@ -19,7 +19,7 @@ public final class WebGuiCssCreator {
 	//method
 	public Css createCssForWebGui(final IWebGui<?> webGui) {
 		
-		final var cssRules = new LinkedList<ICssRule<?>>();
+		final var cssRules = new LinkedList<ICssRule>();
 		
 		fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
 		
@@ -29,7 +29,7 @@ public final class WebGuiCssCreator {
 	//method
 	private void fillUpCssRulesOfWebGuiIntoList(
 		final IWebGui<?> webGui,
-		final LinkedList<ICssRule<?>> cssRules
+		final LinkedList<ICssRule> cssRules
 	) {
 		
 		cssRules.addAtEnd(
@@ -63,7 +63,7 @@ public final class WebGuiCssCreator {
 	//method
 	private void fillUpCssRulesOfLayersOfWebGuiIntoList(
 		final IWebGui<?> webGui,
-		final LinkedList<ICssRule<?>> cssRules
+		final LinkedList<ICssRule> cssRules
 	) {
 		for (final var l : webGui.getStoredLayers()) {
 			fillUpCssRulesOfLayerIntoList(l, cssRules);
@@ -71,7 +71,7 @@ public final class WebGuiCssCreator {
 	}
 	
 	//method
-	private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule<?>> cssRules) {
+	private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule> cssRules) {
 		
 		cssRules.addAtEnd(layer.getCssRule());
 		

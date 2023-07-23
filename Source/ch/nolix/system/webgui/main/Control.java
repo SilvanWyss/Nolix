@@ -159,7 +159,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IContainer<ICssRule<?>> getCssRules() {
+	public final IContainer<ICssRule> getCssRules() {
 		return getCssRuleCreator().createCssRulesForControl(asConcrete());
 	}
 	

@@ -18,7 +18,7 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IButton button,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -28,7 +28,7 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IButton button,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

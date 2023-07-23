@@ -29,7 +29,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IValidationLabel text,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -38,7 +38,7 @@ extends ControlCssBuilder<IValidationLabel, IValidationLabelStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IValidationLabel text,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

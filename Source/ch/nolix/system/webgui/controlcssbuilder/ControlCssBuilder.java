@@ -33,9 +33,9 @@ implements IControlCssBuilder<C, CS> {
 	
 	//method
 	@Override
-	public final IContainer<ICssRule<?>> createCssRulesForControl(final C control) {
+	public final IContainer<ICssRule> createCssRulesForControl(final C control) {
 		
-		final var cssRules = new LinkedList<ICssRule<?>>();
+		final var cssRules = new LinkedList<ICssRule>();
 		
 		fillUpCssRulesForControlAndAllStatesIntoList(control, cssRules);
 		fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, cssRules);
@@ -48,14 +48,14 @@ implements IControlCssBuilder<C, CS> {
 	//method declaration
 	protected abstract void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		C control,
-		LinkedList<? super ICssRule<?>> list
+		LinkedList<? super ICssRule> list
 	);
 	
 	//method declaration
 	protected abstract void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		C control,
 		ControlState state,
-		LinkedList<? super ICssRule<?>> list
+		LinkedList<? super ICssRule> list
 	);
 	
 	//method declaration
@@ -94,7 +94,7 @@ implements IControlCssBuilder<C, CS> {
 	//method
 	private void fillUpCssRulesForControlAndAllStatesIntoList(
 		final C control,
-		final LinkedList<ICssRule<?>> list
+		final LinkedList<ICssRule> list
 	) {
 		
 		list.addAtEnd(getCssRuleForControlAndAllStates(control));
@@ -106,7 +106,7 @@ implements IControlCssBuilder<C, CS> {
 	private void fillUpCssRulesForControlAndStateIntoList(
 		final C control,
 		final ControlState state,
-		final LinkedList<ICssRule<?>> list
+		final LinkedList<ICssRule> list
 	) {
 		
 		list.addAtEnd(getCssRuleForControlAndState(control, state));
@@ -236,7 +236,7 @@ implements IControlCssBuilder<C, CS> {
 	}
 	
 	//method
-	private final ICssRule<?> getCssRuleForControlAndAllStates(final C control) {
+	private final ICssRule getCssRuleForControlAndAllStates(final C control) {
 		return
 		CssRule.withSelectorAndProperties(
 			getCssSelectorForControlAndAllStates(control),
@@ -245,7 +245,7 @@ implements IControlCssBuilder<C, CS> {
 	}
 	
 	//method
-	private final ICssRule<?> getCssRuleForControlAndState(final C control, final ControlState state) {
+	private final ICssRule getCssRuleForControlAndState(final C control, final ControlState state) {
 		return CssRule.withSelectorAndProperties(
 			getCssSelectorForControlAndState(control, state),
 			getCssPropertiesForControlAndState(control, state)

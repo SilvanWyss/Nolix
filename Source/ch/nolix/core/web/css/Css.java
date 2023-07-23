@@ -8,10 +8,10 @@ import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 //class
-public final class Css implements ICss<CssRule, CssProperty> {
+public final class Css implements ICss {
 	
 	//static method
-	public static Css withRules(final IContainer<ICssRule<?>> rules) {
+	public static Css withRules(final IContainer<ICssRule> rules) {
 		return new Css(rules);
 	}
 	
@@ -19,13 +19,13 @@ public final class Css implements ICss<CssRule, CssProperty> {
 	private final IContainer<CssRule> rules;
 	
 	//constructor
-	private Css(final IContainer<ICssRule<?>> rules) {
+	private Css(final IContainer<ICssRule> rules) {
 		this.rules = rules.to(CssRule::fromCssRule);
 	}
 	
 	//method
 	@Override
-	public IContainer<CssRule> getStoredRules() {
+	public IContainer<CssRule> getRules() {
 		return rules;
 	}
 	
@@ -38,6 +38,6 @@ public final class Css implements ICss<CssRule, CssProperty> {
 	//method
 	@Override
 	public String toStringWithoutEnclosingBrackets() {
-		return getStoredRules().toConcatenatedString();
+		return getRules().toConcatenatedString();
 	}
 }

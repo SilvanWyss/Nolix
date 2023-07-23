@@ -25,7 +25,7 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	IWebGuiContent getContent();
 	
 	//method declaration
-	ICss<?, ?> getCss();
+	ICss getCss();
 	
 	//method declaration
 	IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();

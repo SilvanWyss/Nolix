@@ -9,11 +9,11 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 //class
-public final class CssRule implements ICssRule<CssProperty> {
+public final class CssRule implements ICssRule {
 	
 	//static method
-	public static CssRule fromCssRule(final ICssRule<?> cssRule) {
-		return withSelectorsAndProperties(cssRule.getSelectors(), cssRule.getStoredProperties());
+	public static CssRule fromCssRule(final ICssRule cssRule) {
+		return withSelectorsAndProperties(cssRule.getSelectors(), cssRule.getProperties());
 	}
 	
 	//static method
@@ -49,7 +49,7 @@ public final class CssRule implements ICssRule<CssProperty> {
 	
 	//method
 	@Override
-	public IContainer<CssProperty> getStoredProperties() {
+	public IContainer<CssProperty> getProperties() {
 		return properties;
 	}
 	
@@ -64,6 +64,6 @@ public final class CssRule implements ICssRule<CssProperty> {
 	public String toString() {
 		return
 		getSelectors().toStringWithSeparator(',')
-		+ GlobalStringHelper.getInBraces(getStoredProperties().toConcatenatedString());
+		+ GlobalStringHelper.getInBraces(getProperties().toConcatenatedString());
 	}
 }

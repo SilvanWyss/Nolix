@@ -20,7 +20,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final FloatContainer floatContainer,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
@@ -42,7 +42,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final FloatContainer floatContainer,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(

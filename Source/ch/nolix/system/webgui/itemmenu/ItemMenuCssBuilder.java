@@ -20,7 +20,7 @@ extends ControlCssBuilder<IM, IMS> {
 	protected final void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IM itemMenu,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -29,7 +29,7 @@ extends ControlCssBuilder<IM, IMS> {
 	@Override
 	protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IM itemMenu,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

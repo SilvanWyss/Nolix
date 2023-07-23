@@ -30,7 +30,7 @@ extends Test {
 		expect(result).hasElementCount(4);
 		final var cssRuleForAllStates =
 		result.getStoredFirst(r -> r.getSelectors().containsEqualing("#" + controlInternalId));
-		expect(cssRuleForAllStates.getStoredProperties().containsAny(p -> p.hasName("cursor")));
+		expect(cssRuleForAllStates.getProperties().containsAny(p -> p.hasName("cursor")));
 		
 		//verification part 2
 		expect(result.containsAny(r -> r.getSelectors().containsEqualing("#" + controlInternalId + ":hover")));

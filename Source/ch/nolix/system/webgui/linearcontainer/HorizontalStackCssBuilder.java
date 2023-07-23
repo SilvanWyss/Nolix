@@ -25,7 +25,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IHorizontalStack horizontalStack,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
@@ -45,7 +45,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IHorizontalStack horizontalStack,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(

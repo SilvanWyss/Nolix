@@ -19,7 +19,7 @@ extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ISingleContainer control,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -29,7 +29,7 @@ extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ISingleContainer control,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

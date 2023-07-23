@@ -20,7 +20,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IImageControl imageControl,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -30,7 +30,7 @@ extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IImageControl imageControl,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

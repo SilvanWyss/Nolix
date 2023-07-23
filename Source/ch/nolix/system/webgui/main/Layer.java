@@ -191,7 +191,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public ICssRule<?> getCssRule() {
+	public ICssRule getCssRule() {
 		return CSS_RULE_CREATOR.getCssRuleForLayer(this);
 	}
 	

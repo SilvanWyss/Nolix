@@ -18,7 +18,7 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ILink control,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -28,7 +28,7 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ILink control,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

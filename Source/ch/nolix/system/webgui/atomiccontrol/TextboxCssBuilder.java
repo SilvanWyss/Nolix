@@ -18,7 +18,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ITextbox textbox,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -27,7 +27,7 @@ public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextbo
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ITextbox textbox,	
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

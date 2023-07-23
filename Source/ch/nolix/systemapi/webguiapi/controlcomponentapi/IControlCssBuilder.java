@@ -14,5 +14,5 @@ public interface IControlCssBuilder<
 > {
 	
 	//method declaration
-	IContainer<ICssRule<?>> createCssRulesForControl(C control);
+	IContainer<ICssRule> createCssRulesForControl(C control);
 }

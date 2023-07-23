@@ -46,7 +46,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final IGrid control,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		
 		final var style = control.getStoredStyle();
@@ -81,7 +81,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final IGrid control,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

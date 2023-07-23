@@ -28,7 +28,7 @@ public final class LabelCssBuilder extends ControlCssBuilder<ILabel, ILabelStyle
 	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
 		final ILabel label,
 		final ControlState state,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}
@@ -37,7 +37,7 @@ public final class LabelCssBuilder extends ControlCssBuilder<ILabel, ILabelStyle
 	@Override
 	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
 		final ILabel label,
-		final LinkedList<? super ICssRule<?>> list
+		final LinkedList<? super ICssRule> list
 	) {
 		//Does nothing.
 	}

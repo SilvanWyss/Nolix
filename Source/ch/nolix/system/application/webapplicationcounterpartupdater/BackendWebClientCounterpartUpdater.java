@@ -129,7 +129,7 @@ public final class BackendWebClientCounterpartUpdater {
 	}
 	
 	//method
-	private ChainedNode createSetCssCommandFromCss(final ICss<?, ?> css) {
+	private ChainedNode createSetCssCommandFromCss(final ICss css) {
 		return createSetCssCommandFromCss(css.toStringWithoutEnclosingBrackets());
 	}
 	
