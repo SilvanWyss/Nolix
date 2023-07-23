@@ -50,7 +50,7 @@ public final class QuadraticFunction {
 	public QuadraticFunction(final double a, final double b, final double c) {
 		
 		//Asserts that the given a is not 0.0.
-		GlobalValidator.assertThat(a).thatIsNamed("a").isNotZero();
+		GlobalValidator.assertThat(a).thatIsNamed("a").isNotEqualTo(0.0);
 		
 		this.a = a;
 		this.b = b;

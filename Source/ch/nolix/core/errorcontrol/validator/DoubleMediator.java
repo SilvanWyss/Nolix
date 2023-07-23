@@ -4,7 +4,6 @@ package ch.nolix.core.errorcontrol.validator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
@@ -191,17 +190,6 @@ public class DoubleMediator extends Mediator {
 		if (argument > value) {
 			throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), argument, value);
 		}
-	}
-	
-	//method
-	/**
-	 * @throws ArgumentIsZeroException
-	 * if the argument of this double mediator is 0.
-	 */
-	public void isNotZero() {
-		
-		//Asserts that the argument of this double mediator is not zero.
-		isNotEqualTo(0);
 	}
 	
 	//method
