@@ -117,18 +117,4 @@ public final class DoubleDeviationMediator extends Mediator {
 			);
 		}
 	}
-	
-	//method
-	/**
-	 * Generates an error if the value of this double deviation mediator
-	 * equals 0.0 with a deviation that is not bigger than the max deviation of this double deviation mediator.
-	 */
-	public void isNotZero() {
-		
-		/*
-		 *Asserts that the value of this double deviation mediator does not equal 0.0
-		 *with a deviation that is not bigger than the max deviation of this double deviation mediator.
-		 */
-		isNotEqualTo(0.0);
-	}
 }
