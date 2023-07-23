@@ -3,14 +3,11 @@ package ch.nolix.core.net.endpoint;
 
 //Netty imports
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import io.netty.handler.ssl.SslContext;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -62,20 +59,25 @@ final class SecureServerWorker extends Worker {
 	@Override
 	protected void run() {
 		
-		SslContext sslCtx = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
-		EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-		EventLoopGroup workerGroup = new NioEventLoopGroup();
+		final var sslContext = SECURE_SERVER_SSL_CONTEXT_CREATOR.createSSLContext(mSSLCertificate);
+		final var bossGroup = new NioEventLoopGroup(1);
+		final var workerGroup = new NioEventLoopGroup();
 		
 		try {
-			ServerBootstrap b = new ServerBootstrap();
-			b.childOption(ChannelOption.TCP_NODELAY, true);
-			b.group(bossGroup, workerGroup)
+			
+			final var serverBootstrab =
+			new ServerBootstrap()
+			.childOption(ChannelOption.TCP_NODELAY, true)
+			.group(bossGroup, workerGroup)
 			.channel(NioServerSocketChannel.class)
 			.handler(new LoggingHandler(LogLevel.INFO))
-			.childHandler(new SecureServerInitializer(parentWebSocketServer, htmlPage, sslCtx));
-			Channel ch = b.bind(port).sync().channel();
-			ch.closeFuture().sync();
-		} catch (InterruptedException interruptedException) {
+			.childHandler(new SecureServerInitializer(parentWebSocketServer, htmlPage, sslContext));
+			
+			final var channel = serverBootstrab.bind(port).sync().channel();
+			channel.closeFuture().sync();
+		} catch (
+			final InterruptedException interruptedException //NOSONAR: The Exception is rethrown wrapped in another Exception.
+		) {
 			throw WrapperException.forError(interruptedException);
 		} finally {
 			bossGroup.shutdownGracefully();
