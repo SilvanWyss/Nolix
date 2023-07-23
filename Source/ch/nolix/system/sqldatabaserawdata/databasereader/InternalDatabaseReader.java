@@ -116,22 +116,21 @@ final class InternalDatabaseReader {
 		final IColumnInfo columnInfo,
 		final String value
 	) {
+		return
 		switch (columnInfo.getColumnPropertyType()) {
-			case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE:
-				return
+			case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
 				tableContainsEntityWithGivenValueAtGivenSingleColumn(
 					tableName,
 					columnInfo.getColumnName(),
 					value
 				);
-			case MULTI_VALUE:
-				return multiValueEntryExistsForGivenColumnAndValue(columnInfo.getColumnId(), value);
-			case MULTI_REFERENCE:
-				return
+			case MULTI_VALUE ->
+				multiValueEntryExistsForGivenColumnAndValue(columnInfo.getColumnId(), value);
+			case MULTI_REFERENCE ->
 				multiReferenceEntryExistsForGivenColumnAndReferencedEntity(columnInfo.getColumnId(), value);
-			default:
+			default ->
 				throw InvalidArgumentException.forArgument(columnInfo.getColumnPropertyType());
-		}
+		};
 	}
 	
 	//method
