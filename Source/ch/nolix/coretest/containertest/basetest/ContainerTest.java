@@ -571,13 +571,41 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getMedian_whenContainsAny_1A() {
+	public final void testCase_getMedian_whenContainsAny() {
 		
 		//setup
 		final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
 		
 		//execution
 		final var result = testUnit.getMedian(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(4.0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMedianOrZero_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(Integer.class);
+		
+		//execution
+		final var result = testUnit.getMedianOrZero(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(0.0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMedianOrZero_whenContainsAny() {
+		
+		//setup
+		final var testUnit = createContainerWithElements(10, 1, 9, 2, 8, 3, 4);
+		
+		//execution
+		final var result = testUnit.getMedianOrZero(FunctionCatalogue::getSelf);
 		
 		//verification
 		expect(result).isEqualTo(4.0);

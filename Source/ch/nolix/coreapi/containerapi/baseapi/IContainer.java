@@ -272,6 +272,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	//method declaration
 	/**
 	 * @param norm
+	 * @return the median of the values the given norm returns from the elements of the current {@link IContainer} if
+	 * the current {@link IContainer} contains elements, 0.0 otherwise.
+	 */
+	double getMedianOrZero(IElementTakerElementGetter<E, Number> norm);
+	
+	//method declaration
+	/**
+	 * @param norm
 	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
 	 * @return the smallest {@link Comparable} the
 	 * given norm returns from the elements of the current {@link IContainer}.
