@@ -21,34 +21,35 @@ public enum Month {
 	
 	//static method
 	public static Month fromJavaMonth(final java.time.Month month) {
+		return
 		switch (month) {
-			case JANUARY:
-				return JANUARY;
-			case FEBRUARY:
-				return FEBRUARY;
-			case MARCH:
-				return MARCH;
-			case APRIL:
-				return APRIL;
-			case MAY:
-				return MAY;
-			case JUNE:
-				return JUNE;
-			case JULY:
-				return JULY;
-			case AUGUST:
-				return AUGUST;
-			case SEPTEMBER:
-				return SEPTEMBER;
-			case OCTOBER:
-				return OCTOBER;
-			case NOVEMBER:
-				return NOVEMBER;
-			case DECEMBER:
-				return DECEMBER;
-			default:
+			case JANUARY ->
+				JANUARY;
+			case FEBRUARY ->
+				FEBRUARY;
+			case MARCH ->
+				MARCH;
+			case APRIL ->
+				APRIL;
+			case MAY ->
+				MAY;
+			case JUNE ->
+				JUNE;
+			case JULY ->
+				JULY;
+			case AUGUST ->
+				AUGUST;
+			case SEPTEMBER ->
+				SEPTEMBER;
+			case OCTOBER ->
+				OCTOBER;
+			case NOVEMBER ->
+				NOVEMBER;
+			case DECEMBER ->
+				DECEMBER;
+			default ->
 				throw new IllegalArgumentException("The given month '" + month + "' is not valid.");
-		}
+		};
 	}
 	
 	//static method
