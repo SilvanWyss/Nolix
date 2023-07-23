@@ -201,14 +201,6 @@ public final class DoubleMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this double mediator is 0.0.
-	 */
-	public void isNotZero() {
-		isNotEqualTo(0.0);
-	}
-
-	//method
-	/**
 	 * Generates an error if the value of this double mediator is not positive.
 	 */
 	public void isPositive() {
