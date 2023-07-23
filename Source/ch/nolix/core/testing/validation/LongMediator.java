@@ -243,14 +243,6 @@ public final class LongMediator extends Mediator {
 	
 	//method
 	/**
-	 * Generates an error if the value of this long mediator is 0.0.
-	 */
-	public void isNotZero() {
-		isNotEqualTo(0);
-	}
-	
-	//method
-	/**
 	 * Generates an error if the value of this long mediator is not odd.
 	 */
 	public void isOdd() {
