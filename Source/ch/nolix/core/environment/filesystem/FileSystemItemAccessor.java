@@ -5,6 +5,7 @@ package ch.nolix.core.environment.filesystem;
 import java.io.File;
 
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.RegularExpressionPatternCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -51,7 +52,7 @@ public class FileSystemItemAccessor {
 	 */
 	public final String getExtension() {
 		
-		final var array = getName().split(".");
+		final var array = RegularExpressionPatternCatalogue.DOT_PATTERN.split(getName());
 		
 		return ("." + array[array.length - 1]);
 	}

@@ -11,6 +11,9 @@ package ch.nolix.core.commontype.commontypeconstant;
 public final class RegularExpressionStringPatternCatalogue {
 	
 	//constant
+	public static final String DOT_PATTERN = ".";
+	
+	//constant
 	public static final String DOUBLE_PATTERN = "\\d+.\\d+";
 	
 	//constructor

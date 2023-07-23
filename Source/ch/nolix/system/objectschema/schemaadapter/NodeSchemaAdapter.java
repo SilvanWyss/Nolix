@@ -2,6 +2,7 @@
 package ch.nolix.system.objectschema.schemaadapter;
 
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.RegularExpressionPatternCatalogue;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
@@ -17,7 +18,8 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
 	//static method
 	public static NodeSchemaAdapter forDatabaseNodeInFile(final String filePath) {
 		
-		final var databaseName = new FileAccessor(filePath).getName().split(".")[0];
+		final var fileName = new FileAccessor(filePath).getName();
+		final var databaseName = RegularExpressionPatternCatalogue.DOT_PATTERN.split(fileName)[0];
 		final var databaseNode = MutableNode.fromFile(filePath);
 		
 		return new NodeSchemaAdapter(databaseName, databaseNode);

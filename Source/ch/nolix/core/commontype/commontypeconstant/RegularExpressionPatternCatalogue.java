@@ -14,6 +14,9 @@ import java.util.regex.Pattern;
 public final class RegularExpressionPatternCatalogue {
 	
 	//constant
+	public static final Pattern DOT_PATTERN = Pattern.compile(RegularExpressionStringPatternCatalogue.DOT_PATTERN);
+	
+	//constant
 	public static final Pattern DOUBLE_PATTERN =
 	Pattern.compile(RegularExpressionStringPatternCatalogue.DOUBLE_PATTERN);
 	
