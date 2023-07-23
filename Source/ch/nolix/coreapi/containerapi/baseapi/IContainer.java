@@ -281,18 +281,6 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
-	 * @param norm
-	 * @param defaultValue
-	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
-	 * @return the smallest {@link Comparable} the
-	 * given norm returns from the elements of the current {@link IContainer} if
-	 * the current {@link IContainer} contains elements, otherwise the given defaultValue.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	<C extends Comparable<C>> C getMinOrDefaultValue(IElementTakerElementGetter<E, C> norm, C defaultValue);
-	
-	//method declaration
-	/**
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */
