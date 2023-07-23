@@ -264,18 +264,6 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	//method declaration
 	/**
 	 * @param norm
-	 * @param defaultValue
-	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
-	 * @return the biggest {@link Comparable} the
-	 * given norm returns from the elements of the current {@link IContainer} if
-	 * the current {@link IContainer} contains elements, otherwise the given defaultValue.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	<C extends Comparable<C>> C getMaxOrDefaultValue(IElementTakerElementGetter<E, C> norm, C defaultValue);
-	
-	//method declaration
-	/**
-	 * @param norm
 	 * @return the median of the values the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */

@@ -651,24 +651,6 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
-	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final <C extends Comparable<C>> C getMaxOrDefaultValue(IElementTakerElementGetter<E, C> norm, C defaultValue) {
-		
-		//Handles the case that the current IContainer is empty.
-		if (isEmpty()) {
-			return defaultValue;
-		}
-		
-		//Handles the case that the current IContainer contains elements.
-		return getMax(norm);
-	}
-	
-	//method
-	/**
 	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
 	 * 
 	 * {@inheritDoc}
