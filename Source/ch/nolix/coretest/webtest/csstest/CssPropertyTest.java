@@ -21,7 +21,7 @@ public final class CssPropertyTest extends Test {
 		final var result = testUnit.toString();
 		
 		//verification
-		expect(result).isEqualTo("width: 200px;");;
+		expect(result).isEqualTo("width: 200px;");
 	}
 	
 	//method
@@ -33,7 +33,7 @@ public final class CssPropertyTest extends Test {
 		
 		//verification
 		expect(result.getName()).isEqualTo("width");
-		expect(result.getValue()).isEqualTo("200px");;
+		expect(result.getValue()).isEqualTo("200px");
 	}
 	
 	//method
