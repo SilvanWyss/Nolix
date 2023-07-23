@@ -6,6 +6,7 @@ import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -83,23 +84,24 @@ public final class Time extends Element implements ITime {
 		final String[] array = string.split("-");
 		
 		//Enumerates the length of the array.
+		return
 		switch (array.length) {
-			case 3:
-				return withYearAndMonthOfYearAndDayOfMonth(
+			case 3 ->
+				withYearAndMonthOfYearAndDayOfMonth(
 					Integer.valueOf(array[0]),
 					Integer.valueOf(array[1]),
 					Integer.valueOf(array[2])
 				);
-			case 5:
-				return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
+			case 5 ->
+				withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
 					Integer.valueOf(array[0]),
 					Integer.valueOf(array[1]),
 					Integer.valueOf(array[2]),
 					Integer.valueOf(array[3]),
 					Integer.valueOf(array[4])
 				);
-			case 6:
-				return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
+			case 6 ->
+				withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
 					Integer.valueOf(array[0]),
 					Integer.valueOf(array[1]),
 					Integer.valueOf(array[2]),
@@ -107,8 +109,8 @@ public final class Time extends Element implements ITime {
 					Integer.valueOf(array[4]),
 					Integer.valueOf(array[5])
 				);
-			case 7:
-				return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+			case 7 ->
+				withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
 					Integer.valueOf(array[0]),
 					Integer.valueOf(array[1]),
 					Integer.valueOf(array[2]),
@@ -117,9 +119,9 @@ public final class Time extends Element implements ITime {
 					Integer.valueOf(array[5]),
 					Integer.valueOf(array[6])
 				);
-			default:
+			default ->
 				throw UnrepresentingArgumentException.forArgumentAndType(string, Time.class);
-		}
+		};
 	}
 	
 	//static method
