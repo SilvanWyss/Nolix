@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.containerapi;
+package ch.nolix.systemapi.webguiapi.basecontainerapi;
 
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;

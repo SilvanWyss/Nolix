@@ -7,7 +7,7 @@ import ch.nolix.systemapi.guiapi.processproperty.TabExpansionBehavior;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
 //interface
-public interface IAccordion extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<IAccordion, IAccordionStyle> {
+public interface IAccordion extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<IAccordion, IAccordionStyle> {
 	
 	//method declaration
 	IAccordion addTab(IAccordionTab... tabs);

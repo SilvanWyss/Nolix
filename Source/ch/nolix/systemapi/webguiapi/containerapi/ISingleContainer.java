@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 //own imports
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

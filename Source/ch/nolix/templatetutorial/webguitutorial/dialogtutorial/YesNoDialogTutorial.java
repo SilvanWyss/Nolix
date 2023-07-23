@@ -9,7 +9,7 @@ import ch.nolix.system.element.stylebuilder.StyleBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
-import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.template.webgui.dialog.YesNoDialogFactory;
 
 public final class YesNoDialogTutorial {

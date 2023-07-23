@@ -11,8 +11,8 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.webguiapi.containerapi.ContainerRole;
-import ch.nolix.systemapi.webguiapi.containerapi.IContainer;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //class

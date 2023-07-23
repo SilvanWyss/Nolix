@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.containerapi;
+package ch.nolix.systemapi.webguiapi.basecontainerapi;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

@@ -10,7 +10,7 @@ public interface ILinearContainer<
 	LC extends ILinearContainer<LC, LCL>,
 	LCL extends ILinearContainerStyle<LCL>
 >
-extends ch.nolix.systemapi.webguiapi.containerapi.IContainer<LC, LCL> {
+extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<LC, LCL> {
 	
 	//method declaration
 	LC addControl(IControl<?, ?> control, IControl<?, ?>... controls);
