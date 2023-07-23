@@ -199,6 +199,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
+	 * @param norm
+	 * @return the average of the values the given norm returns from the elements of the current {@link IContainer} if
+	 * the current {@link IContainer} contains elements, 0.0 otherwise.
+	 */
+	double getAverageOrZero(IElementTakerElementGetter<E, Number> norm);
+	
+	//method declaration
+	/**
 	 * @param selector
 	 * @return the number of elements the given selector selects from the current {@link IContainer}.
 	 */

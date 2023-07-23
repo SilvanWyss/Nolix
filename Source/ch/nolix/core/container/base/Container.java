@@ -494,6 +494,24 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public final double getAverageOrZero(final IElementTakerElementGetter<E, Number> norm) {
+		
+		//Handles the case that the current Container is empty.
+		if (isEmpty()) {
+			return 0.0;
+		}
+		
+		//Handles the case that the current Container contains elements.
+		return getAverage(norm);
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
 	public final int getCount(final IElementTakerBooleanGetter<E> selector) {
 		
 		var elementCount = 0;
