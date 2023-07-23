@@ -28,7 +28,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	//method
 	@Override
 	protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
-		switch (command.getHeader()) {
+		switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
 			case ObjectProtocol.GUI:
 				runGuiCommand(command.getNextNode());				
 				break;
@@ -58,7 +58,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	
 	//method
 	private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
-		switch (command.getHeader()) {
+		switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
 			case ControlCommandProtocol.RUN_HTML_EVENT:
 				runRunHtmlEventCommandOnControl(control, command);
 				updateCounterpartIfOpen();

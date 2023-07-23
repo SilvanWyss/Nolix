@@ -238,7 +238,7 @@ public final class NetEndPoint extends EndPoint {
 	void receive(final Package pPackage) {
 		
 		//Enumerates the message role of the given package.
-		switch (pPackage.getMessageRole()) {
+		switch (pPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
 			case RESPONSE_EXPECTING_MESSAGE:
 				
 				try {

@@ -23,7 +23,7 @@ final class PascalCaseCreator {
 		
 		final var firstCharacter = string.charAt(0);
 		final var firstCharacterType = CharacterType.fromCharacter(firstCharacter);
-		switch (firstCharacterType) {
+		switch (firstCharacterType) { //NOSONAR: A switch-statement allows to add probable additional cases.
 			case LOWER_CASE_LETTER:
 				stringBuilder.append(Character.toUpperCase(firstCharacter));
 				break;

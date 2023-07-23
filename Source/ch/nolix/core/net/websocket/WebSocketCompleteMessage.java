@@ -60,7 +60,7 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
 	
 	//method
 	private void addFrame(final WebSocketFrame frame, final IElementTaker<WebSocketFrame> controlFrameTaker) {
-		switch (frame.getFrameType()) {
+		switch (frame.getFrameType()) { //NOSONAR: A switch-statement allows to add probable additional cases.
 			case CONTROL_FRAME:
 				controlFrameTaker.run(frame);
 				break;
