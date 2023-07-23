@@ -15,7 +15,6 @@ import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
 /**
@@ -125,17 +124,6 @@ public final class NetEndPoint extends EndPoint {
 		this.internalEndPoint = internalEndPoint;
 		createCloseDependencyTo(internalEndPoint);
 		internalEndPoint.setReceiver(this::receive);		
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void createCloseDependencyTo(final GroupCloseable element) {
-		
-		//This implementation just ensures that it cannot be overwritten.
-		super.createCloseDependencyTo(element);
 	}
 	
 	//method
