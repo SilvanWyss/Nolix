@@ -15,16 +15,17 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	
 	//method
 	public Node createParametrizedPropertyTypeNodeFrom(final IParametrizedPropertyTypeDto parametrizedPropertyType) {
+		return
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
-			case BASE_VALUE:
-				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
-			case BASE_REFERENCE:
-				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedReferenceTypeDto)parametrizedPropertyType);
-			case BASE_BACK_REFERENCE:
-				return createParametrizedPropertyTypeNodeFrom((IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyType);
-			default:
+			case BASE_VALUE ->
+				createParametrizedPropertyTypeNodeFrom((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
+			case BASE_REFERENCE ->
+				createParametrizedPropertyTypeNodeFrom((IBaseParametrizedReferenceTypeDto)parametrizedPropertyType);
+			case BASE_BACK_REFERENCE ->
+				createParametrizedPropertyTypeNodeFrom((IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyType);
+			default ->
 				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
-		}
+		};
 	}
 	
 	//method
