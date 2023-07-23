@@ -46,19 +46,19 @@ abstract class SchemaObject implements IDatabaseObject {
 	
 	//method
 	final void internalSetDeleted() {
+		state =
 		switch (getState()) {
-			case NEW:
+			case NEW ->
 				throw NewArgumentException.forArgument(this);
-			case LOADED, EDITED:
-				state = DatabaseObjectState.DELETED;
-				break;
-			case DELETED:
+			case LOADED, EDITED ->
+				DatabaseObjectState.DELETED;
+			case DELETED ->
 				throw DeletedArgumentException.forArgument(this);
-			case CLOSED:
+			case CLOSED ->
 				throw ClosedArgumentException.forArgument(this);
-			default:
+			default ->
 				throw InvalidArgumentException.forArgument(getState());
-		}
+		};
 	}
 	
 	//method
@@ -80,18 +80,18 @@ abstract class SchemaObject implements IDatabaseObject {
 	
 	//method
 	final void internalSetLoaded() {
+		state =
 		switch (getState()) {
-			case NEW:
-				state = DatabaseObjectState.LOADED;
-				break;
-			case LOADED:
+			case NEW ->
+				DatabaseObjectState.LOADED;
+			case LOADED ->
 				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already loaded");
-			case EDITED:
+			case EDITED ->
 				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already edited");
-			case DELETED:
+			case DELETED ->
 				throw DeletedArgumentException.forArgument(this);
-			case CLOSED:
+			case CLOSED ->
 				throw ClosedArgumentException.forArgument(this);
-		}
+		};
 	}
 }
