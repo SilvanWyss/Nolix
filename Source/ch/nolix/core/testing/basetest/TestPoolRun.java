@@ -106,7 +106,7 @@ public final class TestPoolRun {
 		try {
 			return ReflectionHelper.getDefaultConstructor(testClass).newInstance();
 		} catch (
-			final
+			final //NOSONAR: The exception is logged.
 			IllegalAccessException
 			| InstantiationException
 			| InvocationTargetException
