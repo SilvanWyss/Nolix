@@ -209,7 +209,7 @@ public final class GlobalStringHelper {
 	 */
 	public static double toDouble(final String string) {
 		
-		if (!string.matches(RegularExpressionPatternCatalogue.DOUBLE_PATTERN)) {
+		if (!RegularExpressionPatternCatalogue.DOUBLE_PATTERN.matcher(string).matches()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(string, "does not represent a double");
 		}
 		

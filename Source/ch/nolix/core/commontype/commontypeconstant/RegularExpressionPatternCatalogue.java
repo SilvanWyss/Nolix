@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.commontype.commontypeconstant;
 
+//own imports
+import java.util.regex.Pattern;
+
 //class
 /**
  * Of the {@link RegularExpressionPatternCatalogue} an instance cannot be created.
@@ -11,7 +14,8 @@ package ch.nolix.core.commontype.commontypeconstant;
 public final class RegularExpressionPatternCatalogue {
 	
 	//constant
-	public static final String DOUBLE_PATTERN = "\\d+.\\d+";
+	public static final Pattern DOUBLE_PATTERN =
+	Pattern.compile(RegularExpressionStringPatternCatalogue.DOUBLE_PATTERN);
 	
 	//constructor
 	/**
