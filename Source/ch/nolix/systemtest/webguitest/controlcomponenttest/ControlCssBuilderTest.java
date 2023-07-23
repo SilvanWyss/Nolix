@@ -4,7 +4,7 @@ package ch.nolix.systemtest.webguitest.controlcomponenttest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class

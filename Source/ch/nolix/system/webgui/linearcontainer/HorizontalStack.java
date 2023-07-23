@@ -5,8 +5,8 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.element.mutableelement.MutableValue;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 

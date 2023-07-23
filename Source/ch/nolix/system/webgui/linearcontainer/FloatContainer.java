@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
-//own imports
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class FloatContainer extends LinearContainer<FloatContainer, FloatContainerStyle> {

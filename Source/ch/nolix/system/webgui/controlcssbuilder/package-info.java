@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.webgui.controlcssbuilder} package defines
- * a base {@link ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder} package.
+ * a base {@link ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder} package.
  * 
  * @author Silvan Wyss
  * @date 2022-07-25

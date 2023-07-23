@@ -17,8 +17,8 @@ import ch.nolix.system.webgui.main.Control;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IToggleButton;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IToggleButtonStyle;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlCssBuilder;
-import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
+import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 

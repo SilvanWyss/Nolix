@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.webguiapi.controlcomponentapi;
+package ch.nolix.systemapi.webguiapi.controlserviceapi;
 
 //own imports
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
