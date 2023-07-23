@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.controlcssbuilder;
+package ch.nolix.system.webgui.basecontrolservice;
 
 //Java imports
 import java.util.Locale;
