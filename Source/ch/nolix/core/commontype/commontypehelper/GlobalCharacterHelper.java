@@ -39,6 +39,7 @@ public final class GlobalCharacterHelper {
 		}
 		
 		//Enumerates the given letter.
+		return
 		switch (letter) {
 			case
 			'A',
@@ -50,11 +51,11 @@ public final class GlobalCharacterHelper {
 			'O',
 			'o',
 			'U',
-			'u':
-				return ARTICLE_AN;
-			default:
-				return ARTICLE_A;
-		}	
+			'u' ->
+				ARTICLE_AN;
+			default ->
+				ARTICLE_A;
+		};
 	}
 
 	//static method
