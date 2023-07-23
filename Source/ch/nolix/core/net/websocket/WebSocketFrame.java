@@ -198,22 +198,24 @@ public final class WebSocketFrame {
 	
 	//method
 	public boolean isControlFrame() {
+		return
 		switch (getOpcodeMeaning()) {
-			case CONNECTION_CLOSE, PING, PONG:
-				return true;
-			default:
-				return false;
-		}
+			case CONNECTION_CLOSE, PING, PONG ->
+				true;
+			default ->
+				false;
+		};
 	}
 	
 	//method
 	public boolean isDataFrame() {
+		return
 		switch (getOpcodeMeaning()) {
-			case TEXT_FRAME, BINARY_FRAME:
-				return true;
-			default:
-				return false;
-		}
+			case TEXT_FRAME, BINARY_FRAME ->
+				true;
+			default ->
+				false;
+		};
 	}
 	
 	//method
@@ -284,16 +286,17 @@ public final class WebSocketFrame {
 
 	//method
 	private WebSocketFramePayloadLength calculatePayloadLength(final InputStream inputStream) throws IOException {
+		return
 		switch (getPayloadLengthType()) {
-			case BITS_7:
-				return calculatePayloadLengthWhenPayloadLengthIs7Bits();
-			case BITS_16:
-				return calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
-			case BITS_64:
-				return calculatePayloadLengthWhenPayloadLengthIs64Bits(inputStream);
-			default:
+			case BITS_7 ->
+				calculatePayloadLengthWhenPayloadLengthIs7Bits();
+			case BITS_16 ->
+				calculatePayloadLengthWhenPayloadLengthIs16Bits(inputStream);
+			case BITS_64 ->
+				calculatePayloadLengthWhenPayloadLengthIs64Bits(inputStream);
+			default ->
 				throw InvalidArgumentException.forArgument(getPayloadLengthType());
-		}
+		};
 	}
 	
 	//method
