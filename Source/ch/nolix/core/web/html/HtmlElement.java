@@ -129,10 +129,10 @@ public final class HtmlElement implements IHtmlElement {
 	private final String innerText;
 	
 	//multi-attribute
-	private final IContainer<IHtmlAttribute> attributes;
+	private final IContainer<HtmlAttribute> attributes;
 	
 	//multi attribute
-	private final IContainer<IHtmlElement> childElements;
+	private final IContainer<HtmlElement> childElements;
 	
 	//constructor
 	private HtmlElement(
@@ -165,13 +165,13 @@ public final class HtmlElement implements IHtmlElement {
 	
 	//method
 	@Override
-	public IContainer<IHtmlAttribute> getAttributes() {
+	public IContainer<? extends IHtmlAttribute> getAttributes() {
 		return attributes;
 	}
 	
 	//method
 	@Override
-	public IContainer<IHtmlElement> getChildElements() {
+	public IContainer<? extends IHtmlElement> getChildElements() {
 		return childElements;
 	}
 	

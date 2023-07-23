@@ -14,10 +14,10 @@ public interface IHtmlElement {
 	boolean containsChildElements();
 	
 	//method declaration
-	IContainer<IHtmlAttribute> getAttributes();
+	IContainer<? extends IHtmlAttribute> getAttributes();
 	
 	//method declaration
-	IContainer<IHtmlElement> getChildElements();
+	IContainer<? extends IHtmlElement> getChildElements();
 	
 	//method declaration
 	String getInnerText();
