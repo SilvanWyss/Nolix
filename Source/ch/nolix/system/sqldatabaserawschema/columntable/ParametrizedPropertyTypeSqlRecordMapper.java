@@ -16,20 +16,19 @@ public final class ParametrizedPropertyTypeSqlRecordMapper {
 	public ParametrizedPropertyTypeSqlRecord createParametrizedPropertyTypeRecordFrom(
 		final IParametrizedPropertyTypeDto parametrizedPropertyType 
 	) {
+		return
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
-			case BASE_VALUE:
-				return createBaseParametrizedValueTypeRecord((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
-			case BASE_REFERENCE:
-				return
+			case BASE_VALUE ->
+				createBaseParametrizedValueTypeRecord((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
+			case BASE_REFERENCE ->
 				createBaseParametrizedReferenceTypeRecord((IBaseParametrizedReferenceTypeDto)parametrizedPropertyType);
-			case BASE_BACK_REFERENCE:
-				return
+			case BASE_BACK_REFERENCE ->
 				createBaseParametrizedBackReferenceRecord(
 					(IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyType
 				);
-			default:
+			default ->
 				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
-		}
+		};
 	}
 	
 	//method
