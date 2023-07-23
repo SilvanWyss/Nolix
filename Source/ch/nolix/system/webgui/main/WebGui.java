@@ -63,7 +63,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	private static final String LAYER_HEADER = PascalCaseCatalogue.LAYER;
 	
 	//constant
-	private static final WebGuiCssCreator WEB_GUI_CSS_CREATOR = new WebGuiCssCreator();
+	private static final WebGuiCssBuilder WEB_GUI_CSS_CREATOR = new WebGuiCssBuilder();
 	
 	//attribute
 	private final MutableValue<String> title =

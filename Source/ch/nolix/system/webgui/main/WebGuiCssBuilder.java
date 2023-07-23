@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public final class WebGuiCssCreator {
+public final class WebGuiCssBuilder {
 	
 	//method
 	public Css createCssForWebGui(final IWebGui<?> webGui) {
