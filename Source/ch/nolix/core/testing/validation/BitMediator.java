@@ -25,16 +25,15 @@ public final class BitMediator extends Mediator {
 		
 		super(expectationErrorTaker);
 		
+		this.bit =
 		switch (bit) {
-			case 0:
-				this.bit = false;
-				break;
-			case 1:
-				this.bit = true;
-				break;
-			default:
+			case 0 ->
+				false;
+			case 1 ->
+				true;
+			default ->
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.BIT, bit);
-		}
+		};
 	}
 	
 	//method
