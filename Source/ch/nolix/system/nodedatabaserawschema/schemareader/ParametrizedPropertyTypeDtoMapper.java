@@ -26,28 +26,26 @@ public class ParametrizedPropertyTypeDtoMapper {
 		
 		final var propertyType = getPropertyTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode);
 		
+		return
 		switch (propertyType.getBaseType()) {
-			case BASE_VALUE:
-				return
+			case BASE_VALUE ->
 				createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
-			case BASE_REFERENCE:
-				return
+			case BASE_REFERENCE ->
 				createBaseParametrizedReferenceTypeDtoFromParametrizedPropertyTypeNode(
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
-			case BASE_BACK_REFERENCE:
-				return
+			case BASE_BACK_REFERENCE ->
 				createBaseParametrizedBackReferenceTypeDtoFromParametrizedPropertyTypeNode(
 					parametrizedPropertyTypeNode,
 					propertyType
 				);
-			default:
+			default ->
 				throw InvalidArgumentException.forArgument(propertyType);
-		}
+		};
 	}
 	
 	//method
