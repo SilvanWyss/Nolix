@@ -8,9 +8,9 @@ import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
-import ch.nolix.system.webgui.dialog.EnterValueDialogFactory;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
+import ch.nolix.template.webgui.dialog.EnterValueDialogFactory;
 
 public final class EnterValueDialogFactoryTutorial {
 	

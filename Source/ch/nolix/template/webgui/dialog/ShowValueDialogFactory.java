@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.webgui.dialog;
+package ch.nolix.template.webgui.dialog;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
