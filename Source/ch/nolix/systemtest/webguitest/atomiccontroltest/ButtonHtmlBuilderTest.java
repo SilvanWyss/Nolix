@@ -25,7 +25,7 @@ public final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHt
 	
 	//method
 	@Override
-	protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement<?, ?> htmlElement) {
+	protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
 		expect(htmlElement.getType()).isEqualTo("button");
 		expect(htmlElement.getInnerText()).isEqualTo(Button.DEFAULT_TEXT);
 	}

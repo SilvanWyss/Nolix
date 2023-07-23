@@ -42,21 +42,21 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> createHtmlChildElementsForDropdownMenu(
+	private IContainer<IHtmlElement> createHtmlChildElementsForDropdownMenu(
 		final IDropdownMenu dropdownMenu
 	) {
 		return createHtmlElementsFromItems(dropdownMenu.getStoredItems());
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> createHtmlElementsFromItems(
+	private IContainer<IHtmlElement> createHtmlElementsFromItems(
 		final IContainer<? extends IItemMenuItem<?>> items
 	) {
 		return items.to(this::createHtmlElementForItem);
 	}
 	
 	//method
-	private IHtmlElement<?, ?> createHtmlElementForItem(final IItemMenuItem<?> item) {
+	private IHtmlElement createHtmlElementForItem(final IItemMenuItem<?> item) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.OPTION,

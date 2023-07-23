@@ -18,7 +18,7 @@ public final class LayerHtmlBuilder {
 	private static final LayerHelper LAYER_HELPER = new LayerHelper();
 	
 	//method
-	public IHtmlElement<?, ?> getHtmlElementForLayer(final ILayer<?> layer) {
+	public IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -33,7 +33,7 @@ public final class LayerHtmlBuilder {
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> getHtmlChildElementsForLayer(final ILayer<?> layer) {
+	private IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
 		
 		if (layer.isEmpty()) {
 			return new ImmutableList<>();
@@ -43,7 +43,7 @@ public final class LayerHtmlBuilder {
 	}
 	
 	//method
-	private IHtmlElement<?, ?> getContentHtmlElementForLayer(final ILayer<?> layer) {
+	private IHtmlElement getContentHtmlElementForLayer(final ILayer<?> layer) {
 		return layer.getStoredRootControl().toHtmlElement();
 	}
 }

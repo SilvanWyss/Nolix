@@ -438,7 +438,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final IHtmlElement<?, ?> toHtmlElement() {
+	public final IHtmlElement toHtmlElement() {
 		return getHtmlBuilder().createHtmlElementForControl(asConcrete());
 	}
 	

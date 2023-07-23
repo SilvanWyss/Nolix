@@ -30,7 +30,7 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 		
 		//verification
 		expect(result.getInnerText().isEmpty());
-		final var childElements = result.getStoredChildElements();
+		final var childElements = result.getChildElements();
 		expect(childElements).hasElementCount(3);
 		expect(childElements.getStoredAt1BasedIndex(1).getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
 		expect(childElements.getStoredAt1BasedIndex(2).getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
@@ -51,7 +51,7 @@ extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 	
 	//method
 	@Override
-	protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement<?, ?> htmlElement) {
+	protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
 		expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
 		expect(htmlElement.getInnerText()).isEmpty();
 		expectNot(htmlElement.containsChildElements());

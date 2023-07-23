@@ -18,7 +18,7 @@ public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final ILabel control) {
+	public IHtmlElement createHtmlElementForControl(final ILabel control) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,

@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.atomiccontrol;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.controlcomponentapi.IControlHtmlBuilder;
@@ -17,7 +18,7 @@ public final class ButtonHtmlBuilder implements IControlHtmlBuilder<IButton> {
 	
 	//method
 	@Override
-	public HtmlElement createHtmlElementForControl(final IButton button) {
+	public IHtmlElement createHtmlElementForControl(final IButton button) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.BUTTON,

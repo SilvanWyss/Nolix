@@ -63,7 +63,7 @@ public final class BackendWebClientPartialCounterpartUpdater {
 	//method
 	private ChainedNode createSetHtmlElementCommandFromHtmlElement(
 		final String htmlElementId,
-		final IHtmlElement<?, ?> htmlElement
+		final IHtmlElement htmlElement
 	) {
 		return
 		ChainedNode.withHeaderAndNextNode(

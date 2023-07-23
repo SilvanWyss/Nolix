@@ -5,7 +5,7 @@ package ch.nolix.coreapi.webapi.htmlapi;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IHtmlElement<HE extends IHtmlElement<HE, A>, A extends IHtmlAttribute> {
+public interface IHtmlElement {
 	
 	//method declaration
 	boolean containsAttributes();
@@ -14,13 +14,13 @@ public interface IHtmlElement<HE extends IHtmlElement<HE, A>, A extends IHtmlAtt
 	boolean containsChildElements();
 	
 	//method declaration
+	IContainer<IHtmlAttribute> getAttributes();
+	
+	//method declaration
+	IContainer<IHtmlElement> getChildElements();
+	
+	//method declaration
 	String getInnerText();
-	
-	//method declaration
-	IContainer<A> getStoredAttributes();
-	
-	//method declaration
-	IContainer<HE> getStoredChildElements();
 	
 	//method declaration
 	String getType();

@@ -20,7 +20,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final IGrid control) {
+	public IHtmlElement createHtmlElementForControl(final IGrid control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,

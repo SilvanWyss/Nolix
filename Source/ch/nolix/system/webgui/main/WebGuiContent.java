@@ -38,7 +38,7 @@ final class WebGuiContent implements IWebGuiContent {
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> toHtmlElement() {
+	public IHtmlElement toHtmlElement() {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -59,7 +59,7 @@ final class WebGuiContent implements IWebGuiContent {
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> getHtmlChildElements() {
+	private IContainer<IHtmlElement> getHtmlChildElements() {
 		return parentWebGui.getStoredLayers().to(ILayer::toHtmlElement);
 	}
 }

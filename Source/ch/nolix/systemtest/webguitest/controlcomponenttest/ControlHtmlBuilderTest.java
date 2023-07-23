@@ -27,7 +27,7 @@ extends Test{
 		final var result = testUnit.createHtmlElementForControl(control);
 		
 		//verification part 1
-		final var idAttribute = result.getStoredAttributes().getStoredOne(a -> a.hasName("id"));
+		final var idAttribute = result.getAttributes().getStoredOne(a -> a.hasName("id"));
 		expect(idAttribute.getValue()).isEqualTo(control.getInternalId());
 		
 		//verification part 2
@@ -41,5 +41,5 @@ extends Test{
 	protected abstract CHB createTestUnit();
 	
 	//method declaration
-	protected abstract void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(IHtmlElement<?, ?> htmlElement);
+	protected abstract void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(IHtmlElement htmlElement);
 }

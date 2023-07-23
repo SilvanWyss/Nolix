@@ -24,7 +24,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final ILink control) {
+	public IHtmlElement createHtmlElementForControl(final ILink control) {
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.A,

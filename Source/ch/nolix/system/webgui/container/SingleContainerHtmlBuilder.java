@@ -19,7 +19,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
 	
 	//method
 	@Override
-	public IHtmlElement<?, ?> createHtmlElementForControl(final ISingleContainer control) {
+	public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
@@ -29,7 +29,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
 	}
 	
 	//method
-	private IContainer<IHtmlElement<?, ?>> createHtmlElementsForChildControlsOfSingleContainer(
+	private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
 		final ISingleContainer singleContainer
 	) {
 		

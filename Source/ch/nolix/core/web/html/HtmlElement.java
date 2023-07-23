@@ -11,10 +11,10 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 
 //class
-public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribute> {
+public final class HtmlElement implements IHtmlElement {
 	
 	//static method
-	public static HtmlElement fromHtmlElement(final IHtmlElement<?, ?> htmlElement) {
+	public static HtmlElement fromHtmlElement(final IHtmlElement htmlElement) {
 		
 		if (htmlElement instanceof HtmlElement htmlAttribute) {
 			return htmlAttribute;
@@ -23,8 +23,8 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 		return
 		withTypeAndAttributesAndChildElements(
 			htmlElement.getType(),
-			htmlElement.getStoredAttributes(),
-			htmlElement.getStoredChildElements()
+			htmlElement.getAttributes(),
+			htmlElement.getChildElements()
 		);
 	}
 	
@@ -48,7 +48,7 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	public static HtmlElement withTypeAndAttributeAndChildElement(
 		final String type,
 		final IHtmlAttribute attribute,
-		final IHtmlElement<?, ?> childElement
+		final IHtmlElement childElement
 	) {
 		return
 		new HtmlElement(
@@ -71,10 +71,10 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	public static HtmlElement withTypeAndAttributesAndChildElement(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
-		final IHtmlElement<?, ?> childElement
+		final IHtmlElement childElement
 	) {
 		
-		final var childElements = new LinkedList<IHtmlElement<?, ?>>();
+		final var childElements = new LinkedList<IHtmlElement>();
 		childElements.addAtEnd(childElement);
 		
 		return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
@@ -84,7 +84,7 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	public static HtmlElement withTypeAndAttributesAndChildElements(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
-		final IContainer<? extends IHtmlElement<?, ?>> childElements
+		final IContainer<? extends IHtmlElement> childElements
 	) {
 		return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
 	}
@@ -99,7 +99,7 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	}
 	
 	//static method
-	public static HtmlElement withTypeAndChildElement(final String type, final IHtmlElement<?, ?> childElement) {
+	public static HtmlElement withTypeAndChildElement(final String type, final IHtmlElement childElement) {
 		return
 		new HtmlElement(
 			type,
@@ -112,7 +112,7 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	//static method
 	public static HtmlElement withTypeAndChildElements(
 		final String type,
-		final IContainer<? extends IHtmlElement<?, ?>> childElements
+		final IContainer<? extends IHtmlElement> childElements
 	) {
 		return new HtmlElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
 	}
@@ -129,17 +129,17 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	private final String innerText;
 	
 	//multi-attribute
-	private final IContainer<HtmlAttribute> attributes;
+	private final IContainer<IHtmlAttribute> attributes;
 	
 	//multi attribute
-	private final IContainer<HtmlElement> childElements;
+	private final IContainer<IHtmlElement> childElements;
 	
 	//constructor
 	private HtmlElement(
 		final String type,
 		final IContainer<? extends IHtmlAttribute> attributes,
 		final String innerText,
-		final IContainer<? extends IHtmlElement<?, ?>> childElements
+		final IContainer<? extends IHtmlElement> childElements
 	) {
 		
 		GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
@@ -154,31 +154,31 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	//method
 	@Override
 	public boolean containsAttributes() {
-		return getStoredAttributes().containsAny();
+		return getAttributes().containsAny();
 	}
 	
 	//method
 	@Override
 	public boolean containsChildElements() {
-		return getStoredChildElements().containsAny();
+		return getChildElements().containsAny();
+	}
+	
+	//method
+	@Override
+	public IContainer<IHtmlAttribute> getAttributes() {
+		return attributes;
+	}
+	
+	//method
+	@Override
+	public IContainer<IHtmlElement> getChildElements() {
+		return childElements;
 	}
 	
 	//method
 	@Override
 	public String getInnerText() {
 		return innerText;
-	}
-	
-	//method
-	@Override
-	public IContainer<HtmlAttribute> getStoredAttributes() {
-		return attributes;
-	}
-	
-	//method
-	@Override
-	public IContainer<HtmlElement> getStoredChildElements() {
-		return childElements;
 	}
 	
 	//method
@@ -200,12 +200,12 @@ public final class HtmlElement implements IHtmlElement<HtmlElement, HtmlAttribut
 	
 	//method
 	private String getAttributesAsString() {
-		return getStoredAttributes().toStringWithSeparator(" ");
+		return getAttributes().toStringWithSeparator(" ");
 	}
 	
 	//method
 	private String getChildElementsAsString() {
-		return getStoredChildElements().toStringWithSeparator("");
+		return getChildElements().toStringWithSeparator("");
 	}
 	
 	//method
