@@ -75,16 +75,17 @@ public final class LayerCssBuilder {
 	
 	//method
 	private CssProperty getJustifyContentCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
+		return
 		switch (contentAlignment) {
-			case TOP_LEFT, LEFT, BOTTOM_LEFT:
-				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.LEFT);
-			case TOP, CENTER, BOTTOM:
-				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.CENTER);
-			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT:
-				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.RIGHT);
-			default:
+			case TOP_LEFT, LEFT, BOTTOM_LEFT ->
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.LEFT);
+			case TOP, CENTER, BOTTOM ->
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.CENTER);
+			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT ->
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.RIGHT);
+			default ->
 				throw InvalidArgumentException.forArgument(contentAlignment);
-		}
+		};
 	}
 	
 	//method
@@ -94,15 +95,16 @@ public final class LayerCssBuilder {
 	
 	//method
 	private CssProperty getAlignItemsCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
+		return
 		switch (contentAlignment) {
-			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT:
-				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
-			case CENTER,LEFT, RIGHT:
-				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
-			case TOP, TOP_LEFT, TOP_RIGHT:
-				return CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
-			default:
+			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT ->
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
+			case CENTER,LEFT, RIGHT ->
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
+			case TOP, TOP_LEFT, TOP_RIGHT ->
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
+			default ->
 				throw InvalidArgumentException.forArgument(contentAlignment); 
-		}
+		};
 	}
 }
