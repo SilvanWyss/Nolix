@@ -90,7 +90,7 @@ public final class ReadContainer<E> extends Container<E> {
 	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E2> ReadContainer<E2> withElements(final E2 firstElement, final E2... elements) {
+	public static <E2> ReadContainer<E2> withElement(final E2 firstElement, final E2... elements) {
 		return new ReadContainer<>(LinkedList.withElement(firstElement, elements));
 	}
 	

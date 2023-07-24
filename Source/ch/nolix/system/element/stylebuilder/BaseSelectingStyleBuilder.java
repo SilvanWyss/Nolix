@@ -26,7 +26,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
 	//method
 	public final SSB addSelectorRole(final Enum<?> selectorRole, final Enum<?>... selectorRoles) {
 		
-		final var allSelectorRoles = ReadContainer.withElements(selectorRole, selectorRoles);
+		final var allSelectorRoles = ReadContainer.withElement(selectorRole, selectorRoles);
 		
 		return addSelectorRoles(allSelectorRoles);
 	}
@@ -44,7 +44,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
 	//method
 	public final SSB addSelectorToken(final String selectorToken, final String... selectorTokens) {
 		
-		final var allSelectorTokensAsNodes = ReadContainer.withElements(selectorToken, selectorTokens);
+		final var allSelectorTokensAsNodes = ReadContainer.withElement(selectorToken, selectorTokens);
 		
 		return addSelectorTokens(allSelectorTokensAsNodes);
 	}

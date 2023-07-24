@@ -163,7 +163,7 @@ public abstract class SqlConnection implements GroupCloseable {
 	
 	//method
 	public final SqlConnection execute(final String sqlStatement) {
-		return execute(ReadContainer.withElements(sqlStatement));
+		return execute(ReadContainer.withElement(sqlStatement));
 	}
 	
 	//method

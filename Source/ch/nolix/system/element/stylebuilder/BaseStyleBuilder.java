@@ -20,7 +20,7 @@ abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
 	//method
 	public final SB addAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
 		
-		final var allAttachingAttributesAsNodes = ReadContainer.withElements(attachingAttribute, attachingAttributes);
+		final var allAttachingAttributesAsNodes = ReadContainer.withElement(attachingAttribute, attachingAttributes);
 		
 		return addAttachingAttributes(allAttachingAttributesAsNodes);
 	}
@@ -38,7 +38,7 @@ abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
 	//method
 	public final SB addSubStyle(final BaseSelectingStyle subStyle, final BaseSelectingStyle... subStyles) {
 		
-		final var allSubStyles = ReadContainer.withElements(subStyle, subStyles);
+		final var allSubStyles = ReadContainer.withElement(subStyle, subStyles);
 		
 		return addSubStyles(allSubStyles);
 	}
