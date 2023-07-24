@@ -99,7 +99,7 @@ public final class Style extends BaseStyle implements IStyle {
 	@Override
 	public IContainer<INode<?>> getAttributes() {
 		return
-		ReadContainer.forContainer(
+		ReadContainer.forIterable(
 			getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
 			getSubStyles().to(ISelectingStyle::getSpecification)
 		);

@@ -29,17 +29,6 @@ public final class ReadContainer<E> extends Container<E> {
 	//static method
 	/**
 	 * @param array
-	 * @param <E2> is the type of the elements of the given array.
-	 * @return a new {@link ReadContainer} for the given array.
-	 * @throws ArgumentIsNullException if the given array is null.
-	 */
-	public static <E2> ReadContainer<E2> forArray(final E2[] array) {
-		return new ReadContainer<>(ArrayReadContainer.forArray(array));
-	}
-	
-	//static method
-	/**
-	 * @param array
 	 * @param arrays
 	 * @param <E2> is the type of the elements of the given array and arrays.
 	 * @return a new {@link ReadContainer} for the given array and arrays.
@@ -54,17 +43,6 @@ public final class ReadContainer<E> extends Container<E> {
 	
 	//static method
 	/**
-	 * @param object
-	 * @param <E2> is the type of the elements of the given iterable object.
-	 * @return a new {@link ReadContainer} for the given iterable object.
-	 * @throws ArgumentIsNullException if the given object is null.
-	 */
-	public static <E2> ReadContainer<E2> forIterable(final Iterable<E2> object) {
-		return new ReadContainer<>(IterableReadContainer.forIterable(object));
-	}
-	
-	//static method
-	/**
 	 * @param container
 	 * @param containers
 	 * @param <E2> is the type of the elements of the given container and containers.
@@ -74,7 +52,7 @@ public final class ReadContainer<E> extends Container<E> {
 	 * @throws ArgumentIsNullException if one of the given containers is null.
 	 */
 	@SafeVarargs
-	public static <E2> ReadContainer<E2> forContainer(
+	public static <E2> ReadContainer<E2> forIterable(
 		Iterable<? extends E2> container,
 		final Iterable<? extends E2>... containers
 	) {
