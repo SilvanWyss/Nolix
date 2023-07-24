@@ -6,9 +6,7 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -81,8 +79,6 @@ public final class MultiReadContainer<E> extends Container<E> {
 	@Override
 	public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 		
-		GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
-		
 		var i = 1;
 		for (final var e : this) {
 			
@@ -93,7 +89,13 @@ public final class MultiReadContainer<E> extends Container<E> {
 			i++;
 		}
 		
-		throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
+		throw
+		ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
+			"1-based index",
+			p1BasedIndex,
+			1,
+			getElementCount()
+		);
 	}
 	
 	//method
