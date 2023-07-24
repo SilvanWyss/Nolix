@@ -191,6 +191,27 @@ public final class HtmlElement implements IHtmlElement {
 	
 	//method
 	@Override
+	public boolean equals(final Object object) {
+		
+		if (object instanceof HtmlElement htmlElement) {
+			return
+			getType().equals(htmlElement.getType())
+			&& getAttributes().containsOnlyEqualingAndViceVersa(htmlElement.getAttributes())
+			&& getChildElements().containsOnlyEqualingAndViceVersa(htmlElement.getChildElements())
+			&& getInnerText().equals(htmlElement.getInnerText());
+		}
+		
+		return false;
+	}
+	
+	//method
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+	
+	//method
+	@Override
 	public String toString() {
 		
 		if (!containsChildElements()) {
