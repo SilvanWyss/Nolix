@@ -63,7 +63,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	private static final String LAYER_HEADER = PascalCaseCatalogue.LAYER;
 	
 	//constant
-	private static final WebGuiCssBuilder WEB_GUI_CSS_CREATOR = new WebGuiCssBuilder();
+	private static final WebGuiCssBuilder WEB_GUI_CSS_BUILDER = new WebGuiCssBuilder();
 	
 	//attribute
 	private final MutableValue<String> title =
@@ -179,7 +179,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public ICss getCss() {
-		return WEB_GUI_CSS_CREATOR.createCssForWebGui(this);
+		return WEB_GUI_CSS_BUILDER.createCssForWebGui(this);
 	}
 	
 	//method
