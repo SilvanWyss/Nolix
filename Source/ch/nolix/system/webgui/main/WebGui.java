@@ -37,7 +37,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
-import ch.nolix.systemapi.webguiapi.mainapi.IWebGuiContent;
 
 //class
 public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui> {
@@ -172,12 +171,6 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public BackgroundType getBackgroundType() {
 		return getBackground().getType();
-	}
-	
-	//method
-	@Override
-	public IWebGuiContent getContent() {
-		return WebGuiContent.forWebGui(this);
 	}
 	
 	//method

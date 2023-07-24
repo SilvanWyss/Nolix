@@ -23,9 +23,6 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	IFrontEndReader fromFrontEnd();
 	
 	//method declaration
-	IWebGuiContent getContent();
-	
-	//method declaration
 	ICss getCss();
 	
 	//method declaration
