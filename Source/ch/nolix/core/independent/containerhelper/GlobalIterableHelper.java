@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.independent.containerhelper;
 
+//Java imports
+import java.util.Objects;
+
 //class
 /**
  * The {@link GlobalIterableHelper} provides methods to handle {@link Iterable}s.
@@ -10,6 +13,23 @@ package ch.nolix.core.independent.containerhelper;
  * @date 2017-12-16
  */
 public final class GlobalIterableHelper {
+	
+	//static method
+	/**
+	 * @param container
+	 * @param object
+	 * @return true if the given container contains an element that equals the given object.
+	 */
+	public static boolean containsEqualing(final Iterable<?> container, final Object object) {
+		
+		for (final var e : container) {
+			if (Objects.equals(e, object)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 	
 	//static method
 	/**
