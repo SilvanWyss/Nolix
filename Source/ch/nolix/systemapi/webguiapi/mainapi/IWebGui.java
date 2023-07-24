@@ -6,6 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.canvasapi.ICanvas;
@@ -26,6 +27,9 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	
 	//method declaration
 	ICss getCss();
+	
+	//method declaration
+	IHtmlElement getHtml();
 	
 	//method declaration
 	IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();

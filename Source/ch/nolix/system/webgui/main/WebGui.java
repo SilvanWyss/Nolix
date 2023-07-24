@@ -13,6 +13,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableOptionalValue;
 import ch.nolix.system.element.mutableelement.MutableValue;
@@ -61,6 +62,9 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//constant
 	private static final String LAYER_HEADER = PascalCaseCatalogue.LAYER;
+	
+	//constant
+	private static final WebGuiHtmlBuilder WEB_GUI_HTML_BUILDER = new WebGuiHtmlBuilder();
 	
 	//constant
 	private static final WebGuiCssBuilder WEB_GUI_CSS_BUILDER = new WebGuiCssBuilder();
@@ -180,6 +184,12 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public ICss getCss() {
 		return WEB_GUI_CSS_BUILDER.createCssForWebGui(this);
+	}
+	
+	//method
+	@Override
+	public IHtmlElement getHtml() {
+		return WEB_GUI_HTML_BUILDER.createHtmlForWebGui(this);
 	}
 	
 	//method
