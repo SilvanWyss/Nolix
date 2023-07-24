@@ -168,6 +168,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
+	 * @param container
+	 * @return true if the current {@link IContainer} contains only elements that
+	 * equal an element in the given container and vice versa.
+	 */
+	boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container);
+	
+	//method declaration
+	/**
 	 * @param p1BasedStartIndex
 	 * @return a new sub {@link IContainer} of the current {@link IContainer} from the given p1BasedStartIndex.
 	 * @throws RuntimeException if the given p1BasedStartIndex is not positive.

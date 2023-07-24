@@ -449,6 +449,31 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(m*n) if
+	 * the current {@link Container} contains m elements and the container contains n elements.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container) {
+		
+		for (final var e : this) {
+			if (!GlobalIterableHelper.containsEqualing(container, e)) {
+				return false;
+			}
+		}
+		
+		for (final var e : container) {
+			if (!containsEqualing(e)) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(1).
 	 * 
 	 * {@inheritDoc}
