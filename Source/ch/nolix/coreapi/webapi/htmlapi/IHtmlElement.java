@@ -24,4 +24,7 @@ public interface IHtmlElement {
 	
 	//method declaration
 	String getType();
+	
+	//method declaration
+	IHtmlElement withAttribute(final IHtmlAttribute attribute, IHtmlAttribute... attributes);
 }

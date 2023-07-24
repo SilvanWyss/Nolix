@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.core.web.html;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -196,6 +198,20 @@ public final class HtmlElement implements IHtmlElement {
 		}
 		
 		return toStringWhenContainsChildElements();
+	}
+	
+	//method
+	@Override
+	public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
+		
+		final var allAttributes =
+		ReadContainer.forContainer(ReadContainer.withElements(attribute, attributes), getAttributes());
+		
+		if (containsChildElements()) {
+			withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());
+		}
+		
+		return withTypeAndAttributesAndInnerText(getType(), allAttributes, getInnerText());
 	}
 	
 	//method
