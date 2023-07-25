@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.web.css.Css;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
-import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
@@ -35,31 +36,27 @@ public final class WebGuiCssBuilder {
 		cssRules.addAtEnd(
 			CssRule.withSelectorAndProperties(
 				HtmlElementTypeCatalogue.BODY,
-				getBodyCssPropertiesFromWebGui(webGui)
-			)	
+				ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"))
+			)
 		);
+		
+		if (webGui.hasBackground()) {
+			cssRules.addAtEnd(
+				CssRule.withSelectorAndProperties(
+					"#root",
+					ReadContainer.forIterable(
+						ReadContainer.withElement(
+							CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")	
+						),
+						webGui.getBackground().toCssProperties()
+					)
+				)
+			);
+		}
 		
 		fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
 	}
 	
-	//method
-	private IContainer<ICssProperty> getBodyCssPropertiesFromWebGui(final IWebGui<?> webGui) {
-		
-		final var bodyCssProperties = new LinkedList<ICssProperty>();
-		
-		bodyCssProperties.addAtEnd(
-			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"),
-			CssProperty.withNameAndValue(CssPropertyNameCatalogue.WIDTH, "100vw"),
-			CssProperty.withNameAndValue(CssPropertyNameCatalogue.HEIGHT, "100vh")
-		);
-		
-		if (webGui.hasBackground()) {
-			bodyCssProperties.addAtEnd(webGui.getBackground().toCssProperties());
-		}
-		
-		return bodyCssProperties;
-	}
-
 	//method
 	private void fillUpCssRulesOfLayersOfWebGuiIntoList(
 		final IWebGui<?> webGui,

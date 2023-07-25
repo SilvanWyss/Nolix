@@ -39,8 +39,8 @@ public final class LayerCssBuilder {
 			CssProperty.withNameAndValue("position", "absolute"),
 			getZIndexCssPropertyForLayer(layer),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"),
-			CssProperty.withNameAndValue(CssPropertyNameCatalogue.WIDTH, "100vw"),
-			CssProperty.withNameAndValue(CssPropertyNameCatalogue.HEIGHT, "100vh"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_WIDTH, "100vw"),
+			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "flex"),
 			getJustifyContentCssPropertyForLayer(layer),
 			getAlignItemsCssPropertyForLayer(layer)
