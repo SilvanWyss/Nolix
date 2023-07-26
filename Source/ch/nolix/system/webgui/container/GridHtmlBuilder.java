@@ -90,7 +90,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 		}
 		
 		final var childControl = grid.getStoredChildControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex);
-		final var childControlHtmlElement = childControl.toHtmlElement();
+		final var childControlHtmlElement = childControl.getHtml();
 		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.TD, childControlHtmlElement);
 	}
 }

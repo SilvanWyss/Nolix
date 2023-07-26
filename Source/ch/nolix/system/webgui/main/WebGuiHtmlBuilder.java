@@ -27,6 +27,6 @@ public final class WebGuiHtmlBuilder {
 	
 	//method
 	private IContainer<? extends IHtmlElement> createLayerHtmlElementsForWebGui(final IWebGui<?> webGui) {
-		return webGui.getStoredLayers().to(ILayer::toHtmlElement);
+		return webGui.getStoredLayers().to(ILayer::getHtml);
 	}
 }

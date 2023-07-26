@@ -197,6 +197,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
+	public IHtmlElement getHtml() {
+		return HTML_CREATOR.getHtmlElementForLayer(this);
+	}
+	
+	//method
+	@Override
 	public String getInternalId() {
 		return fixedId;
 	}
@@ -380,19 +386,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		
 		this.parentGui = parentGui;
 	}
-	
-	//method
-	@Override
-	public IHtmlElement toHtmlElement() {
-		return HTML_CREATOR.getHtmlElementForLayer(this);
-	}
-	
-	//method
-	@Override
-	public String toHtmlString() {
-		return toHtmlElement().toString();
-	}
-	
+		
 	//method
 	@Override
 	protected void resetStylableElement() {

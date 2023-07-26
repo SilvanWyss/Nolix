@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.InternalIdentified;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
-import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTransformable;
+import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.guiapi.canvasapi.Dimensionable;
 import ch.nolix.systemapi.guiapi.presenceapi.PresenceSettable;
@@ -21,8 +22,8 @@ public interface IControl<
 >
 extends
 Dimensionable<C>,
+IHtmlGetter,
 InternalIdentified,
-HtmlElementTransformable,
 IStylableElement<C>,
 IUserInputCell<C>,
 PresenceSettable<C> {

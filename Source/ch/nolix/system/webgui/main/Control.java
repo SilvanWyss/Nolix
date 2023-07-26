@@ -171,6 +171,12 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public final IHtmlElement getHtml() {
+		return getHtmlBuilder().createHtmlElementForControl(asConcrete());
+	}
+		
+	//method
+	@Override
 	public final String getInternalId() {
 		return fixedId;
 	}
@@ -434,18 +440,6 @@ implements IControl<C, CS> {
 	@Override
 	public  final void technicalSetParentLayer(final ILayer<?> parentLayer) {
 		setParent(ControlParent.forLayer(parentLayer));		
-	}
-	
-	//method
-	@Override
-	public final IHtmlElement toHtmlElement() {
-		return getHtmlBuilder().createHtmlElementForControl(asConcrete());
-	}
-	
-	//method
-	@Override
-	public final String toHtmlString() {
-		return toHtmlElement().toString();
 	}
 	
 	//method declaration

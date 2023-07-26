@@ -57,7 +57,7 @@ public final class BackendWebClientPartialCounterpartUpdater {
 	
 	//method
 	private ChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
-		return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.toHtmlElement());
+		return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.getHtml());
 	}
 	
 	//method
