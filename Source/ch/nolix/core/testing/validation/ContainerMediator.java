@@ -67,7 +67,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	//method
 	public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked")E... elements) {
 		
-		final var localElements = GlobalArrayHelper.createArrayWithElements(element, elements);
+		final var localElements = GlobalArrayHelper.createArrayWithElement(element, elements);
 		
 		containsAsManyElementsAs(localElements);
 		
@@ -89,7 +89,7 @@ public final class ContainerMediator<E> extends ValueMediator<Iterable<E>> {
 	//method
 	public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked")E... elements) {
 		
-		final var localElements = GlobalArrayHelper.createArrayWithElements(firstElement, elements);
+		final var localElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
 		
 		containsExactlyEqualing(localElements);
 	}

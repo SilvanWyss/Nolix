@@ -16,18 +16,18 @@ public final class GlobalArrayHelper {
 	
 	//static method
 	/**
-	 * @param firstElement
+	 * @param element
 	 * @param elements
 	 * @param <E> is the type of the given firstElement and of the given elements.
 	 * @return a new array with the given firstElement and elements.
 	 */
-	public static <E> E[] createArrayWithElements(
-		final E firstElement,
-		final @SuppressWarnings("unchecked")E... elements
+	public static <E> E[] createArrayWithElement(
+		final E element,
+		final @SuppressWarnings("unchecked") E... elements
 	) {
 		
 		final @SuppressWarnings("unchecked")var array = (E[])new Object[elements.length + 1];
-		array[0] = firstElement;
+		array[0] = element;
 		System.arraycopy(elements, 0, array, 1, elements.length);
 		
 		return array;
