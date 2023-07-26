@@ -10,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.CssBorderStyleCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
@@ -126,7 +125,7 @@ implements IControlCssBuilder<C, CS> {
 		list.addAtEnd(
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_STYLE,
-				CssBorderStyleCatalogue.SOLID
+				"solid"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_LEFT_WIDTH,
