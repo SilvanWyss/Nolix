@@ -135,7 +135,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 			}
 			
 			for (var i = 1; i <= height; i++) {
-				pixels.addRow(row);
+				pixels.addRow(ReadContainer.forArray(row));
 			}
 		}
 		

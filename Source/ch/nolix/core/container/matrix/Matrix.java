@@ -62,6 +62,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * -The current {@link Matrix} contains m elements.
 	 * -n elements are given.
 	 * 
+	 * @param element
 	 * @param elements
 	 * @return the current {@link Matrix}.
 	 * @throws ArgumentIsNullException if the given elements is null.
@@ -71,10 +72,10 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * and if not as many elements are given as the number of rows of the current {@link Matrix}.
 	 */
 	@SuppressWarnings("unchecked")
-	public Matrix<E> addColumn(final E... elements) {
+	public Matrix<E> addColumn(final E element, final E... elements) {
 		
 		//Calls other method.
-		return addColumn(ReadContainer.forArray(elements));
+		return addColumn(ReadContainer.withElement(element, elements));
 	}
 	
 	//method
@@ -149,6 +150,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * -The current {@link Matrix} contains m rows.
 	 * -n elements are given.
 	 * 
+	 * @param element
 	 * @param elements
 	 * @return the current {@link Matrix}.
 	 * @throws ArgumentIsNullException if the given elements is null.
@@ -158,10 +160,10 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	 * and if not as many elements are given as the number of columns of the current {@link Matrix}.
 	 */
 	@SuppressWarnings("unchecked")
-	public Matrix<E> addRow(final E... elements) {
+	public Matrix<E> addRow(final E element, final E... elements) {
 		
 		//Calls other method.
-		return addRow(ReadContainer.forArray(elements));
+		return addRow(ReadContainer.withElement(element, elements));
 	}
 	
 	//method

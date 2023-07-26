@@ -2,7 +2,6 @@
 package ch.nolix.coretest.containertest.maintest;
 
 //own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -196,7 +195,7 @@ public final class MatrixTest extends ContainerTest {
 		
 		final var matrix = new Matrix<E>();
 		
-		matrix.addRow(GlobalArrayHelper.createArrayWithElement(element, elements));
+		matrix.addRow(element, elements);
 		
 		return matrix;
 	}
