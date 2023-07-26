@@ -8,6 +8,7 @@ import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.basecontrolservice.ControlCssBuilder;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
@@ -26,7 +27,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(horizontalStack) + " > div",
+				getCssSelectorForControlAndAllStates(horizontalStack) + " > " + HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
@@ -46,7 +47,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(horizontalStack) + " > div",
+				getCssSelectorForControlAndAllStates(horizontalStack) + " > " + HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_RIGHT,
