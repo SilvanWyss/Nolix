@@ -151,16 +151,22 @@ public class LongMediator extends Mediator {
 	
 	//method
 	/**
+	 * @param value
 	 * @param values
 	 * @throws InvalidArgumentException
 	 * if the argument of this long mediator does not equal one of the given values.
 	 */
-	public final void isEqualToAny(final long... values) {
+	public final void isEqualToAny(final long value, final long... values) {
+		
+		//Checks if the argument of the current LongMediator equals the given value.
+		if (argument == value) {
+			return;
+		}
 		
 		//Iterates the given values.
 		for (final long v : values) {
 			
-			//Asserts that the argument of this long mediator equals the current value.
+			//Checks if the argument of the current LongMediator equals the current value.
 			if (argument == v) {
 				return;
 			}
