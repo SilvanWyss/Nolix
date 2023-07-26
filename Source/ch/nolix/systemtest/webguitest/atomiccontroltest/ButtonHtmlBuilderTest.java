@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 //own imports
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Button;
@@ -26,7 +27,7 @@ public final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHt
 	//method
 	@Override
 	protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
-		expect(htmlElement.getType()).isEqualTo("button");
+		expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.BUTTON);
 		expect(htmlElement.getInnerText()).isEqualTo(Button.DEFAULT_TEXT);
 	}
 }

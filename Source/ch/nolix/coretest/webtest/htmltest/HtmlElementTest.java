@@ -6,6 +6,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 
 //class
 public final class HtmlElementTest extends Test {
@@ -21,7 +22,7 @@ public final class HtmlElementTest extends Test {
 		final var attribute4 = HtmlAttribute.withNameAndValue("n4", "v4");
 		final var testUnit =
 		HtmlElement.withTypeAndAttributesAndInnerText(
-			"div",
+			HtmlElementTypeCatalogue.DIV,
 			ImmutableList.withElements(attribute1, attribute2),
 			"my inner text"
 		);
@@ -33,14 +34,14 @@ public final class HtmlElementTest extends Test {
 		expect(testUnit)
 		.isEqualTo(
 			HtmlElement.withTypeAndAttributesAndInnerText(
-				"div",
+				HtmlElementTypeCatalogue.DIV,
 				ImmutableList.withElements(attribute1, attribute2),
 				"my inner text"
 			)	
 		);
 		expect(result).isEqualTo(
 			HtmlElement.withTypeAndAttributesAndInnerText(
-				"div",
+				HtmlElementTypeCatalogue.DIV,
 				ImmutableList.withElements(attribute1, attribute2, attribute3, attribute4),
 				"my inner text"
 			)
