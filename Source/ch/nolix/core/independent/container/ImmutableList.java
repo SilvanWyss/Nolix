@@ -17,17 +17,11 @@ public final class ImmutableList<E> implements Iterable<E> {
 	}
 	
 	//static method
-	@SuppressWarnings("unchecked")
-	public static <E2> ImmutableList<E2> withElement(final E2 element) {
-		return new ImmutableList<>((E2[])new Object[] {element});
-	}
-	
-	//static method
-	public static <E2> ImmutableList<E2> withElements(
-		final E2 firstElement,
-		final @SuppressWarnings("unchecked")E2... elements
+	public static <E2> ImmutableList<E2> withElement(
+		final E2 element,
+		final @SuppressWarnings("unchecked") E2... elements
 	) {
-		return new ImmutableList<>(firstElement, elements);
+		return new ImmutableList<>(element, elements);
 	}
 	
 	//static method
@@ -56,10 +50,10 @@ public final class ImmutableList<E> implements Iterable<E> {
 	}
 	
 	//constructor
-	private ImmutableList(final E firstElement, final E[] paramElements) {
+	private ImmutableList(final E element, final E[] paramElements) {
 		
 		elements = Arrays.copyOfRange(paramElements, 0, 1 + paramElements.length);
-		elements[paramElements.length] = firstElement;
+		elements[paramElements.length] = element;
 		
 		GlobalArrayValidator.assertDoesNotContainNull(paramElements);
 	}
