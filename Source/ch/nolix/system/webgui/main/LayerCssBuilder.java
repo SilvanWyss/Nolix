@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.CssJustifyContentCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
@@ -78,11 +77,11 @@ public final class LayerCssBuilder {
 		return
 		switch (contentAlignment) {
 			case TOP_LEFT, LEFT, BOTTOM_LEFT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.LEFT);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, "left");
 			case TOP, CENTER, BOTTOM ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.CENTER);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, "center");
 			case TOP_RIGHT, RIGHT, BOTTOM_RIGHT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, CssJustifyContentCatalogue.RIGHT);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.JUSTIFY_CONTENT, "right");
 			default ->
 				throw InvalidArgumentException.forArgument(contentAlignment);
 		};
