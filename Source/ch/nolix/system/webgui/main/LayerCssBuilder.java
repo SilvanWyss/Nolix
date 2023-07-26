@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.webapi.cssapi.CssAlignItemsCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssJustifyContentCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
@@ -98,11 +98,11 @@ public final class LayerCssBuilder {
 		return
 		switch (contentAlignment) {
 			case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "end");
 			case CENTER,LEFT, RIGHT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "center");
 			case TOP, TOP_LEFT, TOP_RIGHT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "start");
 			default ->
 				throw InvalidArgumentException.forArgument(contentAlignment); 
 		};

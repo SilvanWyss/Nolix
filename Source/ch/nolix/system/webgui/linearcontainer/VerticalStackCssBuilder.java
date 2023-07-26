@@ -5,7 +5,6 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
-import ch.nolix.coreapi.webapi.cssapi.CssAlignItemsCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
@@ -78,11 +77,11 @@ extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
 		return
 		switch (contentAlignment) {
 			case LEFT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.START);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "start");
 			case CENTER ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.CENTER);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "center");
 			case RIGHT ->
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, CssAlignItemsCatalogue.END);
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.ALIGN_ITEMS, "end");
 		};
 	}
 	
