@@ -16,7 +16,7 @@ public interface IItemMenu<
 extends Clearable, IControl<IM, IMS> {
 	
 	//method declaration
-	IM addItem(IItemMenuItem<?>... items);
+	IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items);
 	
 	//method declaration
 	IM addBlankItem();
@@ -31,7 +31,7 @@ extends Clearable, IControl<IM, IMS> {
 	IM addItemWithIdAndTextAndSelectAction(String id, String text, IElementTaker<IItemMenuItem<?>> selectAction);
 	
 	//method declaration
-	IM addItemWithText(String... texts);
+	IM addItemWithText(String text, String... texts);
 	
 	//method declaration
 	IM addItemWithTextAndSelectAction(String text, IAction selectAction);

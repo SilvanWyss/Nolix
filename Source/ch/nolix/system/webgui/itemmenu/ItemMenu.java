@@ -4,6 +4,7 @@ package ch.nolix.system.webgui.itemmenu;
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -48,9 +49,11 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
-	public final IM addItem(final IItemMenuItem<?>... items) {
+	public final IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items) {
 		
-		for (final var i : items) {
+		final var allItems = ReadContainer.withElement(item, items);
+		
+		for (final var i : allItems) {
 			
 			assertCanAddItem(i);
 			
@@ -85,9 +88,11 @@ extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 	
 	//method
 	@Override
-	public final IM addItemWithText(final String... texts) {
+	public final IM addItemWithText(final String text, final String... texts) {
 		
-		for (final var t : texts) {
+		final var allTexts = ReadContainer.withElement(text, texts);
+		
+		for (final var t : allTexts) {
 			addItem(ItemMenuItem.withText(t));
 		}
 		
