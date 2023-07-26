@@ -179,16 +179,6 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	 * @return a new {@link MultiDoubleMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiDoubleMediator assertThatTheDoubles(final double... arguments) {
-		return new MultiDoubleMediator(arguments);
-	}
-	
-	//static method
-	/**
-	 * @param arguments
-	 * @return a new {@link MultiDoubleMediator} for the given arguments.
-	 * @throws ArgumentIsNullException if the given arguments is null.
-	 */
 	public static MultiDoubleMediator assertThatTheDoubles(final Iterable<Double> arguments) {
 		return new MultiDoubleMediator(arguments);
 	}
@@ -221,28 +211,8 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	 * @return a new {@link MultiLongMediator} for the given arguments.
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	public static MultiLongMediator assertThatTheLongs(final long... arguments) {
-		return new MultiLongMediator(arguments);
-	}
-	
-	//static method
-	/**
-	 * @param arguments
-	 * @return a new {@link MultiLongMediator} for the given arguments.
-	 * @throws ArgumentIsNullException if the given arguments is null.
-	 */
 	public static MultiLongMediator assertThatTheLongs(final Iterable<Long> arguments) {
 		return new MultiLongMediator(arguments);
-	}
-	
-	//static method
-	/**
-	 * @param arguments
-	 * @return a new {@link MultiStringMediator} for the given arguments.
-	 * @throws ArgumentIsNullException if the given arguments is null.
-	 */
-	public static MultiStringMediator assertThatTheStrings(final String... arguments) {
-		return new MultiStringMediator(arguments);
 	}
 	
 	//static method
