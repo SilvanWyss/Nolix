@@ -104,11 +104,12 @@ public final class Node extends BaseNode<Node> {
 	
 	//static method
 	/**
+	 * @param childNode
 	 * @param childNodes
 	 * @return a new {@link Node} with the given childNodes.
 	 */
-	public static Node withChildNode(final INode<?>... childNodes) {
-		return new Node(childNodes);
+	public static Node withChildNode(final INode<?> childNode, final INode<?>... childNodes) {
+		return new Node(ReadContainer.withElement(childNode, childNodes));
 	}
 	
 	//static method
@@ -122,13 +123,14 @@ public final class Node extends BaseNode<Node> {
 	
 	//static method
 	/**
+	 * @param childNode
 	 * @param childNodes
 	 * @return a new {@link Node} with the given childNodes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withChildNode(final String... childNodes) {
-		return withChildNodes(ReadContainer.forArray(childNodes).to(Node::withHeader));
+	public static Node withChildNode(final String childNode, final String... childNodes) {
+		return withChildNodes(ReadContainer.withElement(childNode, childNodes).to(Node::withHeader));
 	}
 	
 	//static method
@@ -205,13 +207,18 @@ public final class Node extends BaseNode<Node> {
 	//static method
 	/**
 	 * @param header
+	 * @param childNode
 	 * @param childNodes
 	 * @return a new {@link Node} with the given header and childNodes.
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	public static Node withHeaderAndChildNode(final String header, final INode<?>... childNodes) {
-		return new Node(header, childNodes);
+	public static Node withHeaderAndChildNode(
+		final String header,
+		final INode<?> childNode,
+		final INode<?>... childNodes
+	) {
+		return new Node(header, childNode, childNodes);
 	}
 	
 	//static method
@@ -241,6 +248,7 @@ public final class Node extends BaseNode<Node> {
 	//static method
 	/**
 	 * @param header
+	 * @param childNode
 	 * @param childNodes
 	 * @return a new {@link Node} with the given header and childNodes.
 	 * @throws ArgumentIsNullException if the given header is null.
@@ -248,25 +256,8 @@ public final class Node extends BaseNode<Node> {
 	 * @throws ArgumentIsNullException if one of the given childNodes is null.
 	 * @throws InvalidArgumentException if one of the given childNodes is blank.
 	 */
-	public static Node withHeaderAndChildNode(final String header, final String... childNodes) {
-		return withHeaderAndChildNodes(header, ReadContainer.forArray(childNodes).to(Node::withHeader));
-	}
-	
-	//static method
-	/**
-	 * @param nodes
-	 * @return new {@link Node}s from the given nodes.
-	 * @throws RuntimeException if one of the given nodes is null.
-	 */
-	private static IContainer<Node> createNodesFromNodes(final INode<?>[] nodes) {
-		
-		final var lNodes = new LinkedList<Node>();
-		
-		for (final var n : nodes) {
-			lNodes.addAtEnd(fromNode(n));
-		}
-		
-		return lNodes;
+	public static Node withHeaderAndChildNode(final String header, final String childNode, final String... childNodes) {
+		return withHeaderAndChildNodes(header, ReadContainer.withElement(childNode, childNodes).to(Node::withHeader));
 	}
 	
 	//static method
@@ -329,19 +320,6 @@ public final class Node extends BaseNode<Node> {
 	 * 
 	 * @param childNodes
 	 */
-	private Node(final INode<?>[] childNodes) {
-		
-		header = null;
-		
-		this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Node} with the given childNodes.
-	 * 
-	 * @param childNodes
-	 */
 	private Node(final Iterable<? extends INode<?>> childNodes) {
 		
 		header = null;
@@ -369,15 +347,17 @@ public final class Node extends BaseNode<Node> {
 	 * Creates a new {@link Node} with the given header and childNodes.
 	 * 
 	 * @param header
+	 * @param childNode
 	 * @param childNodes
 	 * @throws ArgumentIsNullException if the given header is null.
 	 * @throws InvalidArgumentException if the given header is blank.
 	 */
-	private Node(final String header, final INode<?>[] childNodes) {
+	private Node(final String header, final INode<?> childNode, final INode<?>[] childNodes) {
 		
 		this.header = getValidHeaderFromHeader(header);
 		
-		this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
+		this.childNodes =
+		ImmutableList.forIterable(createNodesFromNodes(ReadContainer.withElement(childNode, childNodes)));
 	}
 	
 	//constructor
