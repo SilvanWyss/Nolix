@@ -28,15 +28,15 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
 	
 	//method declaration
 	/**
-	 * Adds the given firstElement and the given elements at the begin of the current {@link ILinkedList}.
+	 * Adds the given element and the given elements at the begin of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @throws RuntimeException if the given firstElement is null.
+	 * @throws RuntimeException if the given element is null.
 	 * @throws RuntimeException if one of the given elements is null.
 	 */
-	void addAtBegin(E firstElement, @SuppressWarnings("unchecked")E... elements);
+	void addAtBegin(E element, @SuppressWarnings("unchecked")E... elements);
 	
 	//method declaration
 	/**
@@ -69,15 +69,15 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
 	
 	//method declaration
 	/**
-	 * Adds the given firstElement and the given elements at the end of the current {@link ILinkedList}.
+	 * Adds the given element and the given elements at the end of the current {@link ILinkedList}.
 	 * The elements will be added in the given order.
 	 * 
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @throws RuntimeException if the given firstElement is null.
+	 * @throws RuntimeException if the given element is null.
 	 * @throws RuntimeException if one of the given elements is null.
 	 */
-	void addAtEnd(E firstElement, @SuppressWarnings("unchecked")E... elements);
+	void addAtEnd(E element, @SuppressWarnings("unchecked")E... elements);
 	
 	//method declaration
 	/**

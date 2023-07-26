@@ -65,17 +65,17 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	
 	//static method
 	/**
-	 * @param firstElement
+	 * @param element
 	 * @param elements
 	 * @param <E2> is the type of the given elements.
 	 * @return a new {@link LinkedList} with the given elements.
-	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
+	 * @throws ArgumentIsNullException if the given element or one of the given elements is null.
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E2> LinkedList<E2> withElement(final E2 firstElement, final E2... elements) {
+	public static <E2> LinkedList<E2> withElement(final E2 element, final E2... elements) {
 		
 		final var list = new LinkedList<E2>();
-		list.addAtEnd(firstElement, elements);
+		list.addAtEnd(element, elements);
 		
 		return list;
 	}
@@ -116,11 +116,11 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	@SafeVarargs
 	public final void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
-		final E firstElement,
+		final E element,
 		final E... elements
 	) { 
 		
-		addAtBegin(firstElement);
+		addAtBegin(element);
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
@@ -216,11 +216,11 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 	@Override
 	@SafeVarargs
 	public final void addAtEnd( //NOSONAR: final keyword is required for SaveVarargs annotation.
-		final E firstElement,
+		final E element,
 		final E... elements
 	) { 
 		
-		addAtEnd(firstElement);
+		addAtEnd(element);
 		
 		//Iterates the given elements.
 		for (final E e: elements) {
