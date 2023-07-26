@@ -25,9 +25,9 @@ public final class ClassWrapper<T> {
 	}
 	
 	//method
-	public T createInstance(final Object... arguments) {
+	public T createInstance() {
 		try {
-			return getConstructor(getParameterTypes(arguments)).newInstance(arguments);
+			return getConstructor().newInstance();
 		} catch (
 			final
 			InstantiationException
@@ -41,22 +41,11 @@ public final class ClassWrapper<T> {
 	}
 	
 	//method
-	public Constructor<T> getConstructor(final Class<?>... parameterTypes) {
+	public Constructor<T> getConstructor() {
 		try {
-			return mClass.getConstructor(parameterTypes);
+			return mClass.getConstructor();
 		} catch (final NoSuchMethodException | SecurityException exception) {
 			throw WrapperException.forError(exception);
 		}
-	}
-	
-	//method
-	private Class<?>[] getParameterTypes(final Object... arguments) {
-		
-		final var parameterTypes = new Class<?>[arguments.length];
-		for (var i = 0; i < arguments.length; i++) {
-			parameterTypes[i] = arguments[i].getClass();
-		}
-		
-		return parameterTypes;
 	}
 }
