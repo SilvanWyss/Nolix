@@ -71,10 +71,10 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAll(final Object firstElement, final Object... elements) {
+	public final boolean containsAll(final Object element, final Object... elements) {
 		
 		//Handles the case that the current Container does not contain the given firstElement.
-		if (!contains(firstElement)) {
+		if (!contains(element)) {
 			return false;
 		}
 		
@@ -154,10 +154,10 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsAny(final Object firstElement, final Object... elements) {
+	public final boolean containsAny(final Object element, final Object... elements) {
 		
 		//Handles the case that the current Container contains the given firstElement.
-		if (contains(firstElement)) {
+		if (contains(element)) {
 			return true;
 		}
 		
@@ -317,8 +317,8 @@ public abstract class Container<E> implements IContainer<E> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean containsNone(final Object firstElement, final Object... elements) {
-		return !containsAny(firstElement, elements);
+	public final boolean containsNone(final Object element, final Object... elements) {
+		return !containsAny(element, elements);
 	}
 	
 	//method

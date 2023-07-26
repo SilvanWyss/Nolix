@@ -38,11 +38,11 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains the given firstElement and all of the given elements.
+	 * @return true if the current {@link IContainer} contains the given element and all of the given elements.
 	 */
-	boolean containsAll(final Object firstElement, final Object... elements);
+	boolean containsAll(final Object element, final Object... elements);
 	
 	//method declaration
 	/**
@@ -60,11 +60,11 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @return true if the current {@link IContainer} contains the given firstElement or one of the given elements.
+	 * @return true if the current {@link IContainer} contains the given element or one of the given elements.
 	 */
-	boolean containsAny(Object firstElement, Object... elements);
+	boolean containsAny(Object element, Object... elements);
 	
 	//method declaration
 	/**
@@ -119,11 +119,11 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @return true if the current {@link IContainer} does not contain the given firstElement and none of the given elements.
+	 * @return true if the current {@link IContainer} does not contain the given element and none of the given elements.
 	 */
-	boolean containsNone(Object firstElement, Object... elements);
+	boolean containsNone(Object element, Object... elements);
 	
 	//method declaration
 	/**
