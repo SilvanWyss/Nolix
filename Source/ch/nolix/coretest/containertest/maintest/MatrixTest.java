@@ -196,7 +196,7 @@ public final class MatrixTest extends ContainerTest {
 		
 		final var matrix = new Matrix<E>();
 		
-		matrix.addRow(GlobalArrayHelper.createArrayWithElements(element, elements));
+		matrix.addRow(GlobalArrayHelper.createArrayWithElement(element, elements));
 		
 		return matrix;
 	}

@@ -119,7 +119,7 @@ public final class ImmutableList<E> extends Container<E> {
 	 */
 	private ImmutableList(final E firstElement, final E[] elements) {
 		
-		this.elements = GlobalArrayHelper.createArrayWithElements(firstElement, elements);
+		this.elements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
 		
 		GlobalValidator.assertThatTheElements(elements).areNotNull();
 	}
