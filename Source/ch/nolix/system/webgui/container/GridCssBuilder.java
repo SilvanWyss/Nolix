@@ -6,7 +6,6 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
-import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
@@ -59,7 +58,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 				getCssSelectorForControlAndState(control, state) + " table, th, td",
 				ImmutableList.withElements(
 					CssProperty.withNameAndValue("border-collapse", "collapse"),
-					CssProperty.withNameAndValue("border", "solid " + gridThickness + CssUnitCatalogue.PX),
+					CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
 					CssProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor))
 				)
 			)
@@ -71,7 +70,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 				+ " "
 				+ HtmlElementTypeCatalogue.TD,
 				ImmutableList.withElements(
-					CssProperty.withNameAndValue("padding", childControlMargin + CssUnitCatalogue.PX)
+					CssProperty.withNameAndValue("padding", childControlMargin + "px")
 				)
 			)
 		);

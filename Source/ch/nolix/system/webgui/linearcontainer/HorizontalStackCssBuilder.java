@@ -6,7 +6,6 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontrolservice.ControlCssBuilder;
@@ -51,8 +50,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_RIGHT,
-						horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state)
-						+ CssUnitCatalogue.PX
+						horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"
 					)
 				)
 			)

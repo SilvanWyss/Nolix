@@ -11,7 +11,6 @@ import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
-import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.controlhelper.ControlCssValueHelper;
@@ -129,7 +128,7 @@ implements IControlCssBuilder<C, CS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_LEFT_WIDTH,
-				String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getLeftBorderThicknessWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_LEFT_COLOR,
@@ -137,11 +136,11 @@ implements IControlCssBuilder<C, CS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_LEFT,
-				String.valueOf(style.getLeftPaddingWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getLeftPaddingWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_RIGHT_WIDTH,
-				String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getRightBorderThicknessWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_RIGHT_COLOR,
@@ -149,11 +148,11 @@ implements IControlCssBuilder<C, CS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_RIGHT,
-				String.valueOf(style.getRightPaddingWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getRightPaddingWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_TOP_WIDTH,
-				String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getTopBorderThicknessWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_TOP_COLOR,
@@ -161,11 +160,11 @@ implements IControlCssBuilder<C, CS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_TOP,
-				String.valueOf(style.getTopPaddingWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getTopPaddingWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_BOTTOM_WIDTH,
-				String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getBottomBorderThicknessWhenHasState(state)) + "px"
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BORDER_BOTTOM_COLOR,
@@ -173,7 +172,7 @@ implements IControlCssBuilder<C, CS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.PADDING_BOTTOM,
-				String.valueOf(style.getBottomPaddingWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getBottomPaddingWhenHasState(state)) + "px"
 			)
 		);
 		
@@ -195,7 +194,7 @@ implements IControlCssBuilder<C, CS> {
 					CssPropertyNameCatalogue.WIDTH,
 					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						style.getWidthForState(state),
-						CssUnitCatalogue.VW
+						"vw"
 					)
 				)
 			);
@@ -207,7 +206,7 @@ implements IControlCssBuilder<C, CS> {
 					CssPropertyNameCatalogue.HEIGHT,
 					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						style.getHeightForState(state),
-						CssUnitCatalogue.VH
+						"vh"
 					)
 				)
 			);
@@ -287,7 +286,7 @@ implements IControlCssBuilder<C, CS> {
 					CssPropertyNameCatalogue.MIN_WIDTH,
 					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						control.getMinWidth(),
-						CssUnitCatalogue.VW
+						"vw"
 					)
 				)
 			);
@@ -299,7 +298,7 @@ implements IControlCssBuilder<C, CS> {
 					CssPropertyNameCatalogue.MIN_HEIGHT,
 					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						control.getMinHeight(),
-						CssUnitCatalogue.VH
+						"vh"
 					)
 				)
 			);
@@ -311,7 +310,7 @@ implements IControlCssBuilder<C, CS> {
 					CssPropertyNameCatalogue.MAX_WIDTH,
 					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						control.getMaxWidth(),
-						CssUnitCatalogue.VW
+						"vw"
 					)
 				)
 			);
@@ -323,7 +322,7 @@ implements IControlCssBuilder<C, CS> {
 					CssPropertyNameCatalogue.MAX_HEIGHT,
 					CONTROL_CSS_VALUE_HELPER.getCssValueFromRelativeOrAbsoluteInt(
 						control.getMaxHeight(),
-						CssUnitCatalogue.VH
+						"vh"
 					)
 				)
 			);
@@ -369,7 +368,7 @@ implements IControlCssBuilder<C, CS> {
 			),
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.FONT_SIZE,
-				String.valueOf(style.getTextSizeWhenHasState(state)) + CssUnitCatalogue.PX
+				String.valueOf(style.getTextSizeWhenHasState(state)) + "px"
 			),
 			getFontWeightCssPropertyForControlAndState(control, state)
 		);
