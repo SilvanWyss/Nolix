@@ -11,7 +11,7 @@ extends IFluentOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXm
 	IMutableXmlNode addAttribute(IXmlAttribute attribute);
 	
 	//method declaration
-	IMutableXmlNode addAttributes(IXmlAttribute firstAttribute, IXmlAttribute... attributes);
+	IMutableXmlNode addAttributes(IXmlAttribute attribute, IXmlAttribute... attributes);
 	
 	//method declaration
 	IMutableXmlNode addAttributeWithNameAndValue(String name, String value);
@@ -20,5 +20,5 @@ extends IFluentOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXm
 	IMutableXmlNode addChildNode(IMutableXmlNode childNode);
 	
 	//method declaration
-	IMutableXmlNode addChildNodes(IMutableXmlNode firstChildNode, IMutableXmlNode... childNodes);
+	IMutableXmlNode addChildNodes(IMutableXmlNode childNode, IMutableXmlNode... childNodes);
 }

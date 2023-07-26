@@ -116,9 +116,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
 	
 	//method
 	@Override
-	public MutableXmlNode addAttributes(final IXmlAttribute firstAttribute, final IXmlAttribute... attributes) {
+	public MutableXmlNode addAttributes(final IXmlAttribute attribute, final IXmlAttribute... attributes) {
 		
-		addAttribute(firstAttribute);
+		addAttribute(attribute);
 		
 		return addAttributes(ReadContainer.forArray(attributes));
 	}
@@ -149,9 +149,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
 	
 	//method
 	@Override
-	public MutableXmlNode addChildNodes(final IMutableXmlNode firstChildNode, final IMutableXmlNode... childNodes) {
+	public MutableXmlNode addChildNodes(final IMutableXmlNode childNode, final IMutableXmlNode... childNodes) {
 		
-		addChildNode(firstChildNode);
+		addChildNode(childNode);
 		
 		return addChildNodes(ReadContainer.forArray(childNodes));
 	}
