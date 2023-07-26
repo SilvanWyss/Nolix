@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.webgui.linearcontainer;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
-import ch.nolix.coreapi.webapi.cssapi.CssFloatCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssUnitCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
@@ -30,7 +30,7 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
-						CssFloatCatalogue.LEFT
+						"left"
 					)
 				)
 			)
