@@ -18,21 +18,23 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
 	/**
 	 * Adds the given childNodes to the current {@link IMutableNode}.
 	 * 
+	 * @param childNode
 	 * @param childNodes
 	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if one of the given childNodes is null.
 	 */
-	MN addChildNode(INode<?>... childNodes);
+	MN addChildNode(INode<?> childNode, INode<?>... childNodes);
 	
 	//method declaration
 	/**
 	 * Adds the child {@link INode}s from the given strings the current {@link IMutableNode}.
 	 * 
+	 * @param string
 	 * @param strings
 	 * @return the current {@link IMutableNode}.
 	 * @throws RuntimeException if one of the given strings does not represent a {@link INode}.
 	 */
-	MN addChildNodeFromString(String... strings);
+	MN addChildNodeFromString(String string, String... strings);
 	
 	//method declaration
 	/**

@@ -92,9 +92,9 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FileNode addChildNode(final INode<?>... childNodes) {
+	public FileNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
 		
-		internalSpecification.addChildNode(childNodes);
+		internalSpecification.addChildNode(childNode, childNodes);
 		save();
 		
 		return this;
@@ -105,9 +105,9 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FileNode addChildNodeFromString(final String... strings) {
+	public FileNode addChildNodeFromString(final String string, final String... strings) {
 		
-		internalSpecification.addChildNodeFromString(strings);
+		internalSpecification.addChildNodeFromString(string, strings);
 		save();
 		
 		return this;

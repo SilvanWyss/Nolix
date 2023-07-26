@@ -72,10 +72,12 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public MutableNode addChildNode(final INode<?>... pChildNodes) {
+	public MutableNode addChildNode(final INode<?> childNode, final INode<?>... childNodes) {
 		
-		for (final var cn : pChildNodes) {
-			childNodes.addAtEnd(fromNode(cn));
+		this.childNodes.addAtEnd(fromNode(childNode));
+		
+		for (final var cn : childNodes) {
+			this.childNodes.addAtEnd(fromNode(cn));
 		}
 		
 		return this;
@@ -86,7 +88,9 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public MutableNode addChildNodeFromString(final String... strings) {
+	public MutableNode addChildNodeFromString(final String string, final String... strings) {
+		
+		addChildNode(fromString(string));
 		
 		for (final var s : strings) {
 			addChildNode(fromString(s));
