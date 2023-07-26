@@ -23,7 +23,7 @@ public final class HtmlElementTest extends Test {
 		final var testUnit =
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(attribute1, attribute2),
+			ImmutableList.withElement(attribute1, attribute2),
 			"my inner text"
 		);
 		
@@ -35,14 +35,14 @@ public final class HtmlElementTest extends Test {
 		.isEqualTo(
 			HtmlElement.withTypeAndAttributesAndInnerText(
 				HtmlElementTypeCatalogue.DIV,
-				ImmutableList.withElements(attribute1, attribute2),
+				ImmutableList.withElement(attribute1, attribute2),
 				"my inner text"
 			)	
 		);
 		expect(result).isEqualTo(
 			HtmlElement.withTypeAndAttributesAndInnerText(
 				HtmlElementTypeCatalogue.DIV,
-				ImmutableList.withElements(attribute1, attribute2, attribute3, attribute4),
+				ImmutableList.withElement(attribute1, attribute2, attribute3, attribute4),
 				"my inner text"
 			)
 		);

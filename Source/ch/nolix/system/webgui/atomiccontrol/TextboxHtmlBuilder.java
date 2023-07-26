@@ -23,7 +23,7 @@ public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
 		return
 		HtmlElement.withTypeAndAttributes(
 			HtmlElementTypeCatalogue.INPUT,
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				CONTROL_HELPER.createIdHtmlAttributeForControl(textbox),
 				HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.VALUE, textbox.getText())
 			)

@@ -22,7 +22,7 @@ public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IVa
 		return
 		HtmlElement.withTypeAndAttributesAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			getHtmlDivInnerTextForControl(control)
 		);
 	}

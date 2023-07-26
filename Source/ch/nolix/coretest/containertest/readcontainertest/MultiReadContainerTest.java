@@ -34,7 +34,7 @@ public final class MultiReadContainerTest extends ContainerTest {
 		final @SuppressWarnings("unchecked") E... elements
 	) {
 		
-		final var container = ImmutableList.withElements(element, elements);
+		final var container = ImmutableList.withElement(element, elements);
 		
 		return MultiReadContainer.forIterable(container);
 	}

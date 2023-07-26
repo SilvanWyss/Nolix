@@ -25,7 +25,7 @@ public final class StyleTest extends Test {
 		// setup part 2: create testUnit
 		final var testUnit =
 		new Style(
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				Node.fromString("Title(my_title)"),
 				Node.fromString("Background(Color(Blue))")
 			),
@@ -52,8 +52,8 @@ public final class StyleTest extends Test {
 		//execution
 		final var result =
 		testUnit.withAttachingAttributesAndSubStyles(
-			ImmutableList.withElements("p1(v1)", "p2(v2)"),
-			ImmutableList.withElements(subStyle1, subStyle2)
+			ImmutableList.withElement("p1(v1)", "p2(v2)"),
+			ImmutableList.withElement(subStyle1, subStyle2)
 		);
 		
 		//verification
@@ -82,8 +82,8 @@ public final class StyleTest extends Test {
 		//execution
 		final var result =
 		testUnit.withAttachingAttributesAndSubStyles(
-			ImmutableList.withElements("p3(v3)", "p4(v4)"),
-			ImmutableList.withElements(subStyle3, subStyle4)
+			ImmutableList.withElement("p3(v3)", "p4(v4)"),
+			ImmutableList.withElement(subStyle3, subStyle4)
 		);
 		
 		//verification

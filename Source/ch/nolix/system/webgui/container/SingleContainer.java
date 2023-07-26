@@ -52,7 +52,7 @@ implements ISingleContainer {
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(getStoredControl());
+		return ImmutableList.withElement(getStoredControl());
 	}
 	
 	//method

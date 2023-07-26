@@ -15,7 +15,7 @@ public final class ImmutableListTest extends ContainerTest {
 		final E element,
 		final @SuppressWarnings("unchecked")E... elements
 	) {
-		return ImmutableList.withElements(element, elements);
+		return ImmutableList.withElement(element, elements);
 	}
 	
 	//method

@@ -65,25 +65,19 @@ public final class ImmutableList<E> extends Container<E> {
 	}
 	
 	//static method
-	@SuppressWarnings("unchecked")
-	public static <E2> ImmutableList<E2> withElement(final E2 element) {
-		return new ImmutableList<>((E2[])new Object[] {element});
-	}
-	
-	//static method
 	/**
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @param <E2> is the type of the given firstElement and of the given elements.
-	 * @return a new {@link ImmutableList} with the given firstElement and elements.
-	 * @throws ArgumentIsNullException if the given firstElement is null.
+	 * @param <E2> is the type of the given element and of the given elements.
+	 * @return a new {@link ImmutableList} with the given element and elements.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	public static <E2> ImmutableList<E2> withElements(
-		final E2 firstElement,
+	public static <E2> ImmutableList<E2> withElement(
+		final E2 element,
 		final @SuppressWarnings("unchecked")E2... elements
 	) {
-		return new ImmutableList<>(firstElement, elements);
+		return new ImmutableList<>(element, elements);
 	}
 	
 	//multi-attribute
@@ -110,16 +104,16 @@ public final class ImmutableList<E> extends Container<E> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link ImmutableList} with the given firstElement and elements.
+	 * Creates a new {@link ImmutableList} with the given element and elements.
 	 * 
-	 * @param firstElement
+	 * @param element
 	 * @param elements
-	 * @throws ArgumentIsNullException if the given firstElement is null.
+	 * @throws ArgumentIsNullException if the given element is null.
 	 * @throws ArgumentIsNullException if one of the given elements is null.
 	 */
-	private ImmutableList(final E firstElement, final E[] elements) {
+	private ImmutableList(final E element, final E[] elements) {
 		
-		this.elements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
+		this.elements = GlobalArrayHelper.createArrayWithElement(element, elements);
 		
 		GlobalValidator.assertThatTheElements(elements).areNotNull();
 	}

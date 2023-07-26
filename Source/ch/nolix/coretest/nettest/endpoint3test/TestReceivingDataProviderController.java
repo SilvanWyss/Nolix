@@ -34,7 +34,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
 		final IChainedNode request,
 		final IChainedNode... requests
 	) {
-		return getDataForRequests(ImmutableList.withElements(request, requests));
+		return getDataForRequests(ImmutableList.withElement(request, requests));
 	}
 	
 	//method
@@ -62,7 +62,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
 	//method
 	@Override
 	public void runCommands(final IChainedNode command, final IChainedNode... commands) {
-		runCommands(ImmutableList.withElements(command, commands));
+		runCommands(ImmutableList.withElement(command, commands));
 	}
 	
 	//method

@@ -65,7 +65,7 @@ public final class BackendWebClientCounterpartUpdater {
 	//method
 	private IContainer<ChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
 		return
-		ImmutableList.withElements(
+		ImmutableList.withElement(
 			createSetTitleCommandFromWebGui(webGui),
 			createSetIconCommandFromWebGui(webGui),
 			createSetRootHtmlElementCommandFromWebGui(webGui),

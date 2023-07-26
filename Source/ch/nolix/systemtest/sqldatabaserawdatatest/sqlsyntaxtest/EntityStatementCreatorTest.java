@@ -58,7 +58,7 @@ public final class EntityStatementCreatorTest extends Test {
 		final var newEntityDto =
 		new NewEntityDto(
 			"my_id",
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				new ContentFieldDto("MyColumn1", "my_value1"),
 				new ContentFieldDto("MyColumn2", "my_value2"),
 				new ContentFieldDto("MyColumn3", "my_value3")
@@ -85,7 +85,7 @@ public final class EntityStatementCreatorTest extends Test {
 		new EntityUpdateDto(
 			"my_id",
 			"100",
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				new ContentFieldDto("MyColumn1", "my_value1"),
 				new ContentFieldDto("MyColumn2", "my_value2"),
 				new ContentFieldDto("MyColumn3", "my_value3")

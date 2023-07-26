@@ -173,7 +173,7 @@ public final class NetEndPoint extends EndPoint {
 	public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
 		
 		//Concatenates the given requests.
-		final var concatenatedRequests = ImmutableList.withElements(request, requests);
+		final var concatenatedRequests = ImmutableList.withElement(request, requests);
 		
 		//Calls other method.
 		return getDataForRequests(concatenatedRequests);

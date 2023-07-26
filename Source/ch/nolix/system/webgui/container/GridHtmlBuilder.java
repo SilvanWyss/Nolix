@@ -24,7 +24,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 		return
 		HtmlElement.withTypeAndAttributesAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			createHtmlElementForTableOfGrid(control)
 		);
 	}

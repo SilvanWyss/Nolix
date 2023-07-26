@@ -23,7 +23,7 @@ public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHo
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(horizontalStack)),
+			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(horizontalStack)),
 			createHtmlElementsForChildControlsOfHorizontalStack(horizontalStack)
 		);
 	}

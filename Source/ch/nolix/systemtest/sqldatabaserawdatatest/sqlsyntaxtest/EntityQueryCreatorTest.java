@@ -40,7 +40,7 @@ public final class EntityQueryCreatorTest extends Test {
 		new TableInfo(
 			"ttttttt1",
 			"Cat",
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
 				new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)
 			)
@@ -64,7 +64,7 @@ public final class EntityQueryCreatorTest extends Test {
 		new TableInfo(
 			"ttttttt1",
 			"Cat",
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
 				new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)
 			)

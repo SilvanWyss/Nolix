@@ -23,7 +23,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
 		return
 		HtmlElement.withTypeAndAttributesAndChildElements(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElements(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
+			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			createHtmlElementsForChildControlsOfSingleContainer(control)
 		);
 	}
@@ -37,6 +37,6 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
 			return new ImmutableList<>();
 		}
 		
-		return ImmutableList.withElements(singleContainer.getStoredControl().getHtml());
+		return ImmutableList.withElement(singleContainer.getStoredControl().getHtml());
 	}
 }

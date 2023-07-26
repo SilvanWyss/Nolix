@@ -59,7 +59,7 @@ final class BaseBackendWebClientCommandCreator {
 		return
 		ChainedNode.withHeaderAndChildNodes(
 			CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE,
-			ImmutableList.withElements(
+			ImmutableList.withElement(
 				ChainedNode.withHeader(name),
 				ChainedNode.withHeader(value)
 			)

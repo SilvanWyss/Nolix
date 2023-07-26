@@ -356,7 +356,7 @@ public final class Background extends Element implements IBackground {
 		final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
 		
 		return
-		ImmutableList.withElements(
+		ImmutableList.withElement(
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode)
 		);
 	}
@@ -366,7 +366,7 @@ public final class Background extends Element implements IBackground {
 		final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
 		
 		return
-		ImmutableList.withElements(		
+		ImmutableList.withElement(		
 			CssProperty.withNameAndValue(
 				CssPropertyNameCatalogue.BACKGROUND_IMAGE,
 				"url('" + backgroundImage + "')"

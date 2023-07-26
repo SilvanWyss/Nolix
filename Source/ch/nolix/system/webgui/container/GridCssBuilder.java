@@ -56,7 +56,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
 				getCssSelectorForControlAndState(control, state) + " table, th, td",
-				ImmutableList.withElements(
+				ImmutableList.withElement(
 					CssProperty.withNameAndValue("border-collapse", "collapse"),
 					CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
 					CssProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor))
@@ -69,7 +69,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 				getCssSelectorForControlAndAllStates(control)
 				+ " "
 				+ HtmlElementTypeCatalogue.TD,
-				ImmutableList.withElements(
+				ImmutableList.withElement(
 					CssProperty.withNameAndValue("padding", childControlMargin + "px")
 				)
 			)
