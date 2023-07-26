@@ -53,7 +53,7 @@ public final class ReadContainer<E> extends Container<E> {
 	 */
 	@SafeVarargs
 	public static <E2> ReadContainer<E2> forIterable(
-		Iterable<? extends E2> container,
+		final Iterable<? extends E2> container,
 		final Iterable<? extends E2>... containers
 	) {
 		return new ReadContainer<>(MultiReadContainer.forIterable(container, containers));
