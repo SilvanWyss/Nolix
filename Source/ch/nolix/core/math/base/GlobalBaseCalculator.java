@@ -70,16 +70,16 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentException if the given values is empty.
 	 */
-	public static double getAverage(final double... values) {
+	public static double getAverage(final double value, final double... values) {
 		
-		//Asserts that the given values is not empty.
-		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		final var sum  =getSum(value, values);
+		final var valueCount = 1 + values.length;
 		
-		return (getSum(values) / values.length);
+		return (sum / valueCount);
 	}
 	
 	//method
@@ -106,40 +106,41 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentException if the given values is empty.
 	 */
-	public static int getAverage(final int... values) {
+	public static int getAverage(final int value, final int... values) {
 		
-		//Asserts that the given values is not empty.
-		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		final var sum = getSum(value, values);
+		final var valueCount = 1 + values.length;
 		
-		return (getSum(values) / values.length);
+		return (sum / valueCount);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentException if the given values is empty.
 	 */
-	public static long getAverage(final long... values) {
+	public static long getAverage(final long value, final long... values) {
 		
-		//Asserts that the given values is not empty.
-		GlobalValidator.assertThat(values).thatIsNamed(PluralLowerCaseCatalogue.VALUES).isNotEmpty();
+		final var sum = getSum(value, values);
+		final var valueCount = 1 + values.length;
 		
-		return (getSum(values) / values.length);
+		return (sum / valueCount);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the biggest value of the given values.
 	 */
-	public static double getMax(final double...values) {
+	public static double getMax(final double value, final double...values) {
 		
-		var max = values[0];	
+		var max = value;	
 		for (final var v : values) {
 			if (v > max) {
 				max = v;
@@ -151,12 +152,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the biggest value of the given values.
 	 */
-	public static int getMax(final int...values) {
+	public static int getMax(final int value, final int...values) {
 		
-		var max = values[0];	
+		var max = value;	
 		for (final var v : values) {
 			if (v > max) {
 				max = v;
@@ -168,12 +170,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the biggest value of the given values.
 	 */
-	public static long getMax(final long...values) {
+	public static long getMax(final long value, final long...values) {
 		
-		var max = values[0];
+		var max = value;
 		for (final var v : values) {
 			if (v > max) {
 				max = v;
@@ -185,12 +188,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the smallest value of the given values.
 	 */
-	public static double getMin(final double... values) {
+	public static double getMin(final double value, final double... values) {
 			
-		var min = values[0];
+		var min = value;
 		for (final var v : values) {
 			if (v < min) {
 				min = v;
@@ -202,12 +206,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the smallest value of the given values.
 	 */
-	public static int getMin(final int... values) {
+	public static int getMin(final int value, final int... values) {
 		
-		var min = values[0];	
+		var min = value;	
 		for (final var v : values) {
 			if (v < min) {
 				min = v;
@@ -219,12 +224,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the smallest value of the given values.
 	 */
-	public static long getMin(final long... values) {
+	public static long getMin(final long value, final long... values) {
 		
-		var min = values[0];
+		var min = value;
 		for (final var v : values) {
 			if (v < min) {
 				min = v;
@@ -263,12 +269,14 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the sum of the given values.
 	 */
-	public static double getSum(final double... values) {
+	public static double getSum(final double value, final double... values) {
 		
-		var sum = 0.0;
+		var sum = value;
+		
 		for (final var v : values) {
 			sum += v;
 		}
@@ -278,12 +286,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the sum of the given values.
 	 */
-	public static int getSum(final int... values) {
+	public static int getSum(final int value, final int... values) {
 		
-		var sum = 0;
+		var sum = value;
 		for (final var v : values) {
 			sum += v;
 		}
@@ -309,12 +318,13 @@ public final class GlobalBaseCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the sum of the given values.
 	 */
-	public static long getSum(final long... values) {
+	public static long getSum(final long value, final long... values) {
 		
-		var sum = 0L;
+		var sum = value;
 		for (final var v : values) {
 			sum += v;
 		}

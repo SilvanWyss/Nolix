@@ -144,12 +144,12 @@ public final class GlobalCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentException if the given values is empty.
 	 */
-	public static double getAverage(final double... values) {
-		return GlobalBaseCalculator.getAverage(values);
+	public static double getAverage(final double value, final double... values) {
+		return GlobalBaseCalculator.getAverage(value, values);
 	}
 	
 	//method
@@ -164,22 +164,23 @@ public final class GlobalCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the average of the given values.
-	 * @throws EmptyArgumentException if the given values is empty.
 	 */
-	public static int getAverage(final int... values) {
-		return GlobalBaseCalculator.getAverage(values);
+	public static int getAverage(final int value, final int... values) {
+		return GlobalBaseCalculator.getAverage(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the average of the given values.
 	 * @throws EmptyArgumentException if the given values is empty.
 	 */
-	public static long getAverage(final long... values) {
-		return GlobalBaseCalculator.getAverage(values);
+	public static long getAverage(final long value, final long... values) {
+		return GlobalBaseCalculator.getAverage(value, values);
 	}
 	
 	//static method
@@ -233,56 +234,62 @@ public final class GlobalCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the biggest value of the given values.
 	 */
-	public static double getMax(final double...values) {
-		return GlobalBaseCalculator.getMax(values);
+	public static double getMax(final double value, final double...values) {
+		return GlobalBaseCalculator.getMax(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the biggest value of the given values.
 	 */
-	public static int getMax(final int...values) {
-		return GlobalBaseCalculator.getMax(values);
+	public static int getMax(final int value, final int...values) {
+		return GlobalBaseCalculator.getMax(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the biggest value of the given values.
 	 */
-	public static long getMax(final long...values) {
-		return GlobalBaseCalculator.getMax(values);
+	public static long getMax(final long value, final long...values) {
+		return GlobalBaseCalculator.getMax(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the smallest value of the given values.
 	 */
-	public static double getMin(final double... values) {
-		return GlobalBaseCalculator.getMin(values);
+	public static double getMin(final double value, final double... values) {
+		return GlobalBaseCalculator.getMin(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the smallest value of the given values.
 	 */
-	public static int getMin(final int... values) {
-		return GlobalBaseCalculator.getMin(values);
+	public static int getMin(final int value, final int... values) {
+		return GlobalBaseCalculator.getMin(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the smallest value of the given values.
 	 */
-	public static long getMin(final long... values) {
-		return GlobalBaseCalculator.getMin(values);
+	public static long getMin(final long value, final long... values) {
+		return GlobalBaseCalculator.getMin(value, values);
 	}
 	
 	//static method
@@ -314,20 +321,22 @@ public final class GlobalCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the sum of the given values.
 	 */
-	public static double getSum(final double... values) {
-		return GlobalBaseCalculator.getSum(values);
+	public static double getSum(final double value, final double... values) {
+		return GlobalBaseCalculator.getSum(value, values);
 	}
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the sum of the given values.
 	 */
-	public static int getSum(final int... values) {
-		return GlobalBaseCalculator.getSum(values);
+	public static int getSum(final int value, final int... values) {
+		return GlobalBaseCalculator.getSum(value, values);
 	}
 	
 	
@@ -342,11 +351,12 @@ public final class GlobalCalculator {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return the sum of the given values.
 	 */
-	public static long getSum(final long... values) {
-		return GlobalBaseCalculator.getSum(values);
+	public static long getSum(final long value, final long... values) {
+		return GlobalBaseCalculator.getSum(value, values);
 	}
 	
 	//static method
