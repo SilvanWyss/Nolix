@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
-//Java imports
-import java.util.ArrayList;
-
 //own imports
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
@@ -44,17 +41,22 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	/**
 	 * Generates an error for all of the given values that are false.
 	 * 
+	 * @param value
 	 * @param values
 	 */
-	protected final void expect(final boolean... values) {
+	protected final void expect(final boolean value, final boolean... values) {
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
 			addExpectationError("True values were expected, but null was received.");
 		}
 		
+		if (!value) {
+			addExpectationError("True values were expected, but the 1th value is false.");
+		}
+		
 		//Handles the case that the given values is not null.
-		var index = 1;
+		var index = 2;
 		for (final boolean b: values) {
 			
 			//Handles the case that the current value is false.
@@ -177,17 +179,23 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	/**
 	 * Generates an error for all of the given values that are true.
 	 * 
+	 * @param value
 	 * @param values
 	 */
-	protected final void expectNot(final boolean... values) {
+	protected final void expectNot(final boolean value, final boolean... values) {
 		
 		//Handles the case that the given values is null.
 		if (values == null) {
 			addExpectationError("False values were expected, but null was received.");
 		}
 		
+		//Handles the case that the given value is false.
+		if (value) {
+			addExpectationError("False values were expected, but the 1th value is true.");
+		}
+		
 		//Handles the case that the given values is not null.
-		var index = 1;
+		var index = 2;
 		for (final boolean v: values) {
 			
 			//Handles the case that the current value is false.
@@ -265,17 +273,11 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	
 	//method
 	/**
+	 * @param value
 	 * @param values
 	 * @return a new long container mediator that belongs to this test and has the given values.
 	 */
-	protected final MultiLongMediator expectTheLongs(final long... values) {
-		
-		//Creates long vector.
-		final var longArrayList = new ArrayList<Long>();
-		for (long v: values) {
-			longArrayList.add(v);
-		}
-		
-		return expectTheLongs(longArrayList);
+	protected final MultiLongMediator expectTheLongs(final long value, final long... values) {
+		return expectTheLongs(value, values);
 	}
 }
