@@ -18,16 +18,20 @@ public final class GlobalExaminer {
 	}
 	
 	//static method
-	public static void expect(final boolean... values) {
+	public static void expect(final boolean value, final boolean... values) {
 		
 		if (values == null) {
 			takteExpectationError("True values were expected, but null was received.");
 		}
 		
-		var index = 1;
-		for (final var b: values) {
+		if (!value) {
+			takteExpectationError("True values were expected, but the 1th value is false.");
+		}
+		
+		var index = 2;
+		for (final var v: values) {
 			
-			if (!b) {
+			if (!v) {
 				takteExpectationError("True values were expected, but the " + index + "th value is false.");
 			}
 			
@@ -98,13 +102,17 @@ public final class GlobalExaminer {
 	}
 	
 	//static method
-	public static void expectNot(final boolean... values) {
+	public static void expectNot(final boolean value, final boolean... values) {
 		
 		if (values == null) {
 			takteExpectationError("False values were expected, but null was received.");
 		}
 		
-		var index = 1;
+		if (value) {
+			takteExpectationError("False values were expected, but the 1th value is true.");
+		}
+		
+		var index = 2;
 		for (final var v: values) {
 			
 			if (v) {
@@ -136,8 +144,15 @@ public final class GlobalExaminer {
 	}
 	
 	//static method
-	public static MultiLongMediator expectTheInts(final int... values) {
-		return new MultiLongMediator(GlobalExaminer::takteExpectationError, values);
+	public static MultiLongMediator expectTheInts(final int value, final int... values) {
+		
+		final var intArrayList = new ArrayList<Long>();
+		intArrayList.add((long)value);
+		for (final var v: values) {
+			intArrayList.add((long)v);
+		}
+		
+		return expectTheLongs(intArrayList);
 	}
 	
 	//static method
@@ -146,9 +161,10 @@ public final class GlobalExaminer {
 	}
 	
 	//static method
-	public static MultiLongMediator expectTheLongs(final long... values) {
+	public static MultiLongMediator expectTheLongs(final long value, final long... values) {
 		
 		final var longArrayList = new ArrayList<Long>();
+		longArrayList.add(value);
 		for (final var v: values) {
 			longArrayList.add(v);
 		}
