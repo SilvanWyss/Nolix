@@ -285,6 +285,17 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
 	
 	//method
 	/**
+	 * @param urlInstanceName
+	 * @return the {@link Application} with the given urlInstanceName from the current {@link BaseServer}.
+	 * @throws ArgumentDoesNotHaveAttributeException if the current {@link BaseServer} does not contain
+	 * a {@link Application} with the given urlInstanceName.
+	 */
+	public final Application<?, ?> getStoredApplicationByUrlInstanceName(final String urlInstanceName) {
+		return applications.getStoredFirst(a -> a.getUrlInstanceName().equals(urlInstanceName));
+	}
+	
+	//method
+	/**
 	 * @return the {@link Application}s of the current {@link BaseServer}.
 	 */
 	public final IContainer<Application<?, ?>> getStoredApplications() {
@@ -348,7 +359,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
 			
 		//Handles the case that the given client has a target.
 		} else {
-			getStoredApplicationByInstanceName(client.getTarget()).takeClient(client);
+			getStoredApplicationByUrlInstanceName(client.getTarget()).takeClient(client);
 		}
 	}
 	
@@ -388,7 +399,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
 			
 		//Handles the case that the given endPoint has a target.
 		} else {
-			getStoredApplicationByInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
+			getStoredApplicationByUrlInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
 		}
 	}
 	

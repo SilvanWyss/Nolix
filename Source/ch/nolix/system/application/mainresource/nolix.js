@@ -2548,15 +2548,14 @@ define("System/Application/WebApplicationProtocol/RequestProtocol", ["require", 
     RequestProtocol.GET_URL_PARAMETER_VALUE_BY_URL_PARAMETER_NAME = 'GetURLParameterValueByURLParameterName';
     exports.RequestProtocol = RequestProtocol;
 });
-define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/CommonType/CommonTypeHelper/GlobalStringHelper", "Core/Container/SingleContainer/SingleContainer", "Core/Web/URLLineReader"], function (require, exports, GlobalStringHelper_1, SingleContainer_2, URLLineReader_1) {
+define("System/Application/WebApplication/TargetApplicationExtractor", ["require", "exports", "Core/Container/SingleContainer/SingleContainer", "Core/Web/URLLineReader"], function (require, exports, SingleContainer_2, URLLineReader_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class TargetApplicationExtractor {
         getOptionalTargetApplicationFromURL() {
             const appContainer = URLLineReader_1.URLLineReader.INSTANCE.getOptionalValueOfURLParameterByName('app');
             if (appContainer.containsAny()) {
-                const app = appContainer.getRefElement();
-                const targetApplication = GlobalStringHelper_1.GlobalStringHelper.createStringWithReplacedParts(app, '_', ' ');
+                const targetApplication = appContainer.getRefElement();
                 return SingleContainer_2.SingleContainer.withElement(targetApplication);
             }
             return SingleContainer_2.SingleContainer.withoutElement();

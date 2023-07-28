@@ -67,6 +67,6 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 	//method
 	@Override
 	public String toUrl() {
-		return (super.toUrl() + "?app=" + getApplicationInstanceName().replace(" ", "_"));
+		return (super.toUrl() + "?app=" + getApplicationUrlInstanceName());
 	}
 }

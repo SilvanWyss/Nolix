@@ -99,21 +99,21 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 	//method
 	/**
 	 * Connects the current {@link FrontendClient} to
-	 * the {@link Application} with the given name on the given server.
+	 * the {@link Application} with the given instanceName on the given server.
 	 * 
-	 * @param baseServer
-	 * @param name
-	 * @throws ArgumentIsNullException if the given name is null.
-	 * @throws EmptyArgumentException if the given name is blank.
+	 * @param server
+	 * @param instanceName
+	 * @throws ArgumentIsNullException if the given instanceName is null.
+	 * @throws EmptyArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link FrontendClient} is already connected.
 	 */
-	protected final void connectTo(final BaseServer<?> baseServer, final String name) {
+	protected final void connectTo(final BaseServer<?> server, final String instanceName) {
 		
 		final var endPoint = new LocalEndPoint();
 		
 		internalSetEndPoint(endPoint);
 		
-		baseServer.getStoredApplicationByInstanceName(name).takeEndPoint(endPoint.getStoredCounterpart());
+		server.getStoredApplicationByInstanceName(instanceName).takeEndPoint(endPoint.getStoredCounterpart());
 	}
 	
 	//method
