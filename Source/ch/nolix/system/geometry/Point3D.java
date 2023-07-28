@@ -120,7 +120,7 @@ public class Point3D extends Element {
 	 * @return the position vector of this 3D point.
 	 */
 	public Vector getPositionVector() {
-		return Vector.withValues(getX(), getY(), getZ());
+		return Vector.withValue(getX(), getY(), getZ());
 	}
 	
 	//method

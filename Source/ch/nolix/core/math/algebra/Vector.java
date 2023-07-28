@@ -8,6 +8,7 @@ import java.util.Arrays;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
@@ -18,6 +19,9 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  * @date 2016-02-01
  */
 public final class Vector {
+	
+	//constant
+	public static final Vector EMPTY_VECTOR = new Vector();
 	
 	//static method
 	/**
@@ -30,15 +34,33 @@ public final class Vector {
 	
 	//static method
 	/**
+	 * @param value
 	 * @param values
 	 * @return a new {@link Vector} with the given values.
 	 */
-	public static Vector withValues(final double... values) {
+	public static Vector withValue(final double value, final double... values) {
+		return new Vector(GlobalArrayHelper.createArrayWithValue(value, values));
+	}
+	
+	//static method
+	/**
+	 * @param values
+	 * @return a new {@link Vector} with the given values.
+	 */
+	public static Vector withValues(final double[] values) {
 		return new Vector(values);
 	}
 	
 	//multi-attribute
 	private final double[] values;
+	
+	//constructor
+	/**
+	 * Creates a new empty {@link Vector}.
+	 */
+	private Vector() {
+		values = new double[0];
+	}
 	
 	//constructor
 	/**
