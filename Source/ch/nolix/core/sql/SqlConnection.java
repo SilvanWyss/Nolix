@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -167,8 +168,8 @@ public abstract class SqlConnection implements GroupCloseable {
 	}
 	
 	//method
-	public final SqlConnection execute(final String... sqlStatements) {
-		return execute(ReadContainer.forArray(sqlStatements));
+	public final SqlConnection execute(final String sqlStatement, final String... sqlStatements) {
+		return execute(ReadContainer.withElement(sqlStatement, sqlStatements));
 	}
 	
 	//method
