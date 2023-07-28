@@ -2,36 +2,51 @@
 package ch.nolix.system.objectdatabase.schema;
 
 //own imports
-import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class Schema implements ISchema {
 	
+	//constant
+	public static final Schema EMPTY_SCHEMA = new Schema(new ImmutableList<>());
+	
 	//static method
 	@SuppressWarnings("unchecked")
-	public static Schema withEntityType(final Class<?>... entityTypesInOrder) {
-		return new Schema(ReadContainer.forArray((Class<? extends Entity>[])entityTypesInOrder));
+	public static Schema withEntityType(
+		final Class<?> entityType,
+		final Class<?>... entityTypes
+	) {
+		
+		final var allEntityTypes = new LinkedList<Class<? extends IEntity>>();
+		
+		allEntityTypes.addAtEnd((Class<IEntity>)entityType);
+		
+		for (final var et : entityTypes) {
+			allEntityTypes.addAtEnd((Class<IEntity>)et);
+		}
+						
+		return new Schema(allEntityTypes);
 	}
 	
 	//static method
-	public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypesInOrder) {
-		return new Schema(entityTypesInOrder);
+	public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
+		return new Schema(entityTypes);
 	}
 	
 	//multi-attribute
-	private final IContainer<Class<? extends IEntity>> entityTypesInOrder;
+	private final IContainer<Class<? extends IEntity>> entityTypes;
 	
 	//constructor
-	private Schema(final IContainer<Class<? extends IEntity>> entityTypesInOrder) {
+	private Schema(final IContainer<Class<? extends IEntity>> entityTypes) {
 		
-		assertContainsDifferentEntityTypesOnly(entityTypesInOrder);
+		assertContainsDifferentEntityTypesOnly(entityTypes);
 		
-		this.entityTypesInOrder = entityTypesInOrder;
+		this.entityTypes = entityTypes;
 	}
 	
 	//method
@@ -43,7 +58,7 @@ public final class Schema implements ISchema {
 	//method	
 	@Override
 	public IContainer<Class<? extends IEntity>> getEntityTypes() {
-		return entityTypesInOrder;
+		return entityTypes;
 	}
 	
 	//method

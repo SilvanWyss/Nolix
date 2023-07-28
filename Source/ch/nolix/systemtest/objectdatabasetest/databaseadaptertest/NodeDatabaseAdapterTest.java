@@ -32,9 +32,8 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
-		final var schema = Schema.withEntityType();
 		@SuppressWarnings("resource") final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
 		
 		//setup verification
 		expect(testUnit.isOpen());
@@ -52,9 +51,8 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
-		final var schema = Schema.withEntityType();
 		@SuppressWarnings("resource") final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
 		testUnit.close();
 		
 		//setup verification
@@ -73,11 +71,10 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//setup
 		final var nodeDatabase = new MutableNode();
-		final var schema = Schema.withEntityType();
 		
 		//execution
 		final var result =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
 		
 		//verification
 		expect(result.getSaveCount()).isEqualTo(0);
