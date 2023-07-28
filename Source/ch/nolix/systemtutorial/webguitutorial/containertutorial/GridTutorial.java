@@ -25,8 +25,11 @@ public final class GridTutorial {
 		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 		
 		//Closes the Server as soon as it does not have a client connected any more.
-		GlobalSequencer.waitForSeconds(2);
-		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+		GlobalSequencer
+		.waitForSeconds(2)
+		.andThen()
+		.asSoonAsNoMore(server::hasClientConnected)
+		.runInBackground(server::close);
 	}
 	
 	private static final class MainSession extends WebClientSession<Object> {

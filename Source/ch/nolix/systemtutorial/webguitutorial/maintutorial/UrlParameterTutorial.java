@@ -25,8 +25,11 @@ public final class UrlParameterTutorial {
 		ShellProvider.startDefaultWebBrowserOpeningUrl("http://127.0.0.1/?parameter1=5000&parameter2=60000");
 		
 		//Closes the Server as soon as it does not have a client connected any more.
-		GlobalSequencer.waitForSeconds(2);
-		GlobalSequencer.asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+		GlobalSequencer
+		.waitForSeconds(2)
+		.andThen()
+		.asSoonAsNoMore(server::hasClientConnected)
+		.runInBackground(server::close);
 	}
 	
 	public static final class MainSession extends WebClientSession<Object> {
