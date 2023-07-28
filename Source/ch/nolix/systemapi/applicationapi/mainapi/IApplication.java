@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.applicationapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 
 //interface
@@ -23,6 +24,9 @@ public interface IApplication<AC> {
 	
 	//method declaration
 	AC getStoredApplicationContext();
+	
+	//method declaration
+	String getUrlInstanceName();
 	
 	//method declaration
 	boolean hasNameAddendum();
