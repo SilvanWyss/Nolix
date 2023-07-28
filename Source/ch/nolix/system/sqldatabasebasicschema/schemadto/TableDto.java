@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabasebasicschema.schemadto;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -19,8 +20,8 @@ public final class TableDto implements ITableDto {
 	private final IContainer<IColumnDto> columns;
 	
 	//constructor
-	public TableDto(final String name, final IColumnDto... columns) {
-		this(name, ReadContainer.forArray(columns));
+	public TableDto(final String name, final IColumnDto column, final IColumnDto... columns) {
+		this(name, ReadContainer.withElement(column, columns));
 	}
 	
 	//constructor
