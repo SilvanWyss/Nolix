@@ -1,13 +1,15 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //class
-final class ControlFactory {
+public final class ControlFactory {
 	
 	//multi-attribute
 	private final LinkedList<Class<Control<?, ?>>> controlClasses = new LinkedList<>();
@@ -36,8 +38,14 @@ final class ControlFactory {
 	}
 	
 	//method
-	public void registerControlClass(@SuppressWarnings("unchecked") final Class<Control<?, ?>>... controlClasses) {
-		for (final var cc : controlClasses) {
+	public void registerControlClass(
+		final Class<Control<?, ?>> controlClass,	
+		final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses
+	) {
+		
+		final var allControlClasses = ReadContainer.withElement(controlClass, controlClasses);
+		
+		for (final var cc : allControlClasses) {
 			
 			assertDoesNotContainControlClassWithName(cc.getSimpleName());
 			

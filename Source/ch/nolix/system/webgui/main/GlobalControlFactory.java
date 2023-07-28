@@ -26,8 +26,11 @@ public final class GlobalControlFactory {
 	}
 	
 	//static method
-	public static void registerControlClass(@SuppressWarnings("unchecked") final Class<Control<?, ?>>... controlClasses) {
-		CONTROL_FACTORY.registerControlClass(controlClasses);
+	public static void registerControlClass(
+		final Class<Control<?, ?>> controlClass,	
+		final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses
+	) {
+		CONTROL_FACTORY.registerControlClass(controlClass, controlClasses);
 	}
 	
 	//constructor
