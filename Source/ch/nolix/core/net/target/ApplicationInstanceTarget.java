@@ -14,10 +14,10 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 	forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
 		final String ipOrDomain,
 		final int port,
-		final String applicationName,
+		final String applicationInstanceName,
 		final SecurityLevel securityLevelForConnections
 	) {
-		return new ApplicationInstanceTarget(ipOrDomain, port, applicationName, securityLevelForConnections);
+		return new ApplicationInstanceTarget(ipOrDomain, port, applicationInstanceName, securityLevelForConnections);
 	}
 	
 	//attribute
@@ -27,15 +27,15 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 	protected ApplicationInstanceTarget(
 		final String ipOrDomain,
 		final int port,
-		final String applicationName,
+		final String applicationInstanceName,
 		final SecurityLevel securityLevelForConnections
 	) {
 		
 		super(ipOrDomain, port, securityLevelForConnections);
 		
-		GlobalValidator.assertThat(applicationName).thatIsNamed("application name").isNotBlank();
+		GlobalValidator.assertThat(applicationInstanceName).thatIsNamed("application instance name").isNotBlank();
 		
-		this.applicationInstanceName = applicationName;
+		this.applicationInstanceName = applicationInstanceName;
 	}
 	
 	//method
