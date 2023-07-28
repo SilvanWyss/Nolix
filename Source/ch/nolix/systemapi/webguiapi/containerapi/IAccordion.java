@@ -1,16 +1,18 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.processproperty.TabExpansionBehavior;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
 //interface
-public interface IAccordion extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<IAccordion, IAccordionStyle> {
+public interface IAccordion
+extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<IAccordion, IAccordionStyle> {
 	
 	//method declaration
-	IAccordion addTab(IAccordionTab... tabs);
+	IAccordion addTab(IAccordionTab tab, IAccordionTab... tabs);
 	
 	//method declaration
 	IAccordion addTabs(IContainer<IAccordionTab> tabs);
