@@ -14,6 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -243,19 +244,21 @@ public final class Matrix {
 	/**
 	 * Appends a new row with the given row values on the bottom of the current {@link Matrix}.
 	 * 
+	 * @param rowValue
 	 * @param rowValues
 	 * @return the current {@link Matrix}.
 	 * @throws InvalidArgumentException
 	 * if not as many row values are given than the number of columns of the current {@link Matrix}.
 	 */
-	public Matrix appendRowAtBottom(double... rowValues) {
+	public Matrix appendRowAtBottom(final double rowValue, final double... rowValues) {
 		
 		//Asserts that as many row values are given than the number of columns of the current Matrix.
-		GlobalValidator.assertThat(rowValues).thatIsNamed("row values").hasElementCount(getColumnCount());
+		final var rowValueCount = rowValues.length + 1;
+		GlobalValidator.assertThat(rowValueCount).thatIsNamed("number of row value").isEqualTo(getColumnCount());
 		
 		var oldValues = values;
 		values = Arrays.copyOf(values, oldValues.length + 1);
-		values[getRowCount() - 1] = Arrays.copyOf(rowValues, getColumnCount());
+		values[getRowCount() - 1] = GlobalArrayHelper.createArrayWithValue(rowValue, rowValues);
 		
 		return this;
 	}
@@ -806,11 +809,44 @@ public final class Matrix {
 	/**
 	 * Sets the values of the current {@link Matrix}.
 	 * 
+	 * @param value
 	 * @param values
 	 * @return the current {@link Matrix}.
 	 * @throws InvalidArgumentException if not as many values are given as the current {@link Matrix} contains.
 	 */
-	public Matrix setValues(final double... values) {
+	public Matrix setValues(final double value, final double... values) {
+		
+		//Asserts that as many values are given as the current Matrix contains.
+		final var valueCount = 1 + values.length;
+		GlobalValidator.assertThat(valueCount).isEqualTo(getColumnCount() * getRowCount());
+		
+		this.values[0][0] = value;
+		
+		for (var j = 1; j < getColumnCount(); j++) {
+			this.values[0][j] = values[j - 1];
+		}
+		
+		//Iterates the rows of the current Matrix.
+		for (var i = 1; i < getRowCount(); i++) {
+			
+			//Iterates the cells of the current row.
+			for (var j = 0; j < getColumnCount(); j++) {
+				this.values[i][j] = values[i * getColumnCount() + j - 1];
+			}
+		}
+		
+		return this;
+	}
+	
+	//method
+	/**
+	 * Sets the values of the current {@link Matrix}.
+	 * 
+	 * @param values
+	 * @return the current {@link Matrix}.
+	 * @throws InvalidArgumentException if not as many values are given as the current {@link Matrix} contains.
+	 */
+	public Matrix setValues(final double[] values) {
 		
 		//Asserts that as many values are given as the current Matrix contains.
 		GlobalValidator.assertThat(values).hasElementCount(getColumnCount() * getRowCount());
@@ -821,12 +857,13 @@ public final class Matrix {
 			//Iterates the cells of the current row.
 			for (var j = 0; j < getColumnCount(); j++) {
 				this.values[i][j] = values[i * getColumnCount() + j];
+				this.values[i][j] = values[i * getColumnCount() + j - 1];
 			}
 		}
 		
 		return this;
 	}
-
+	
 	//method
 	/**
 	 * Sets the diagonal values of the current {@link Matrix} to the given value.
