@@ -5,13 +5,14 @@ package ch.nolix.core.programcontrol.sequencer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
 //class
 public final class JobMerger {
 	
 	//method
-	public IAction createMergedJobForJobs(final IAction... jobs) {
+	public IAction createMergedJobForJobs(IContainer<IAction> jobs) {
 		
 		GlobalValidator.assertThat(jobs).thatIsNamed(PluralLowerCaseCatalogue.JOBS).isNotNull();
 		
@@ -19,14 +20,14 @@ public final class JobMerger {
 	}
 	
 	//method
-	private void runJobs(final IAction... jobs) {
-		for (var i = 0; i < jobs.length; i++) {
+	private void runJobs(IContainer<IAction> jobs) {
+		for (var i = 1; i <= jobs.getElementCount(); i++) {
 			try {
-				jobs[i].run();
+				jobs.getStoredAt1BasedIndex(i).run();
 			} catch (final Throwable error) {
 				throw
 				WrapperException.forErrorMessageAndError(
-					"An error occured by running the " + (i + 1) + "th job of the given " + jobs.length + " jobs.",
+					"An error occured by running the " + i + "th job of the given " + jobs.getElementCount() + " jobs.",
 					error
 				);
 			}

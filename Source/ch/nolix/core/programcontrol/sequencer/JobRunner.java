@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
@@ -22,7 +23,7 @@ final class JobRunner extends Thread {
 	private static final JobMerger JOB_MERGER = new JobMerger();
 	
 	//static method
-	public static JobRunner forJobs(final IAction... jobs) {
+	public static JobRunner forJobs(final IContainer<IAction> jobs) {
 		return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
 	}
 	

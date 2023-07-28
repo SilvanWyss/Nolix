@@ -2,6 +2,7 @@
 package ch.nolix.core.programcontrol.sequencer;
 
 //own imports
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -117,11 +118,12 @@ public final class GlobalSequencer {
 	/**
 	 * Runs the given jobs in background in the given order.
 	 * 
+	 * @param job
 	 * @param jobs
 	 * @return a new {@link IFuture} for the running of the given jobs.
 	 */
-	public static IFuture runInBackgroundAndOrder(final IAction... jobs) {
-		return new Future(JobRunner.forJobs(jobs));
+	public static IFuture runInBackgroundAndOrder(final IAction job, final IAction... jobs) {
+		return new Future(JobRunner.forJobs(ReadContainer.withElement(job, jobs)));
 	}
 	
 	//static method
