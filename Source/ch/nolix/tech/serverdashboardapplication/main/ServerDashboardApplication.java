@@ -16,7 +16,7 @@ extends Application<WebClient<IServerDashboardContext>, IServerDashboardContext>
 	public static final String APPLICATION_NAME = "Server Dashboard";
 	
 	//static method
-	public static ServerDashboardApplication forServer(final BaseServer server) {
+	public static ServerDashboardApplication forServer(final BaseServer<?> server) {
 		return new ServerDashboardApplication(ServerDashboardContext.forServer(server));
 	}
 	

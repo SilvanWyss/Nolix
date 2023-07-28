@@ -58,7 +58,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 	 * @param server
 	 * @throws InvalidArgumentException if the current {@link FrontendClient} is already connected.
 	 */
-	protected final void connectTo(final BaseServer server) {
+	protected final void connectTo(final BaseServer<?> server) {
 		
 		final var endPoint = new LocalEndPoint();
 		
@@ -107,7 +107,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
 	 * @throws EmptyArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link FrontendClient} is already connected.
 	 */
-	protected final void connectTo(final BaseServer baseServer, final String name) {
+	protected final void connectTo(final BaseServer<?> baseServer, final String name) {
 		
 		final var endPoint = new LocalEndPoint();
 		

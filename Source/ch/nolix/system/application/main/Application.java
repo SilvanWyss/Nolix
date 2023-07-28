@@ -44,7 +44,7 @@ implements IApplication<AC> {
 	private String nameAddendum;
 	
 	//optional attribute
-	private BaseServer parentServer;
+	private BaseServer<?> parentServer;
 	
 	//multi-attribute
 	private final LinkedList<BC> clients = new LinkedList<>();
@@ -232,7 +232,7 @@ implements IApplication<AC> {
 	 * @throws ArgumentBelongsToParentException if
 	 * the current {@link Application} belongs already to a {@link BaseServer}.
 	 */
-	final void internalSetParentServer(final BaseServer parentServer) {
+	final void internalSetParentServer(final BaseServer<?> parentServer) {
 		
 		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 		assertDoesNotBelongToServer();
@@ -325,7 +325,7 @@ implements IApplication<AC> {
 	 * @throws ArgumentDoesNotBelongToParentException if
 	 * the current {@link Application} does not belong to a {@link BaseServer}.
 	 */
-	private BaseServer getStoredParentServer() {
+	private BaseServer<?> getStoredParentServer() {
 		
 		assertBelongsToServer();
 		

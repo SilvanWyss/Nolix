@@ -10,7 +10,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
-public final class SecureServer extends BaseServer {
+public final class SecureServer extends BaseServer<SecureServer> {
 	
 	//constant
 	public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
@@ -89,6 +89,15 @@ public final class SecureServer extends BaseServer {
 			port,
 			SECURITY_LEVEL_FOR_CONNECTIONS
 		);
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected SecureServer asConcrete() {
+		return this;
 	}
 	
 	//method

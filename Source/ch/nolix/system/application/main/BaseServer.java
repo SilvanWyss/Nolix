@@ -19,10 +19,11 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  * A {@link BaseServer} can contain {@link Application}s.
  * A {@link BaseServer} is closable.
  * 
+ * @param <SR> is the type of a {@link BaseServer}.
  * @author Silvan Wyss
  * @date 2016-11-01
  */
-public abstract class BaseServer implements GroupCloseable {
+public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupCloseable {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
@@ -38,18 +39,21 @@ public abstract class BaseServer implements GroupCloseable {
 	 * Adds the given application to the current {@link BaseServer}.
 	 * 
 	 * @param application
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws ArgumentIsNullException if the given instanceName is null
 	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the given instanceName.
 	 */
-	public final void addApplication(final Application<?, ?> application) {
+	public final SR addApplication(final Application<?, ?> application) {
 		
 		application.internalSetParentServer(this);
 		
 		addApplicationToList(application);
 		noteAddedApplication(application);
+		
+		return asConcrete();
 	}
 	
 	//method
@@ -58,6 +62,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * 
 	 * @param application
 	 * @param nameAddendum
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given application is null.
 	 * @throws ArgumentBelongsToParentException if the given application belongs already to a {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given instanceName is null
@@ -65,13 +70,15 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the given instanceName.
 	 */
-	public final void addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
+	public final SR addApplicationWithNameAddendum(final Application<?, ?> application, final String nameAddendum) {
 		
 		application.internalSetParentServer(this);
 		application.internalSetNameAddendum(nameAddendum);
 		
 		addApplicationToList(application);
 		noteAddedApplication(application);
+		
+		return asConcrete();
 	}
 	
 	//method
@@ -85,13 +92,14 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param <S> is the type of the given initialSessionClass.
 	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
 	 * @param <AC> is the type of the given applicationContext.
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given instanceName is null.
 	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with the given instanceName.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void
+	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR
 	addApplicationWithNameAndInitialSessionClassAndContext(
 		final String applicationName,
 		final Class<S> initialSessionClass,
@@ -107,7 +115,7 @@ public abstract class BaseServer implements GroupCloseable {
 		);
 		
 		//Calls other method.
-		addApplication(application);
+		return addApplication(application);
 	}
 	
 	//method
@@ -119,13 +127,14 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param initialSessionClass
 	 * @param <S> is the type of the given initialSessionClass.
 	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with an instanceName that equals the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> void
+	public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR
 	addApplicationWithNameAndInitialSessionClassAndVoidContext(
 		final String name,
 		final Class<S> initialSessionClass
@@ -140,7 +149,7 @@ public abstract class BaseServer implements GroupCloseable {
 		);
 		
 		//Calls other method.
-		addApplication(application);
+		return addApplication(application);
 	}
 	
 	//method
@@ -151,9 +160,10 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param defaultApplication
 	 * @param <BC> is the type of the {@link BackendClient} of the given defaultApplication.
 	 * @param <AC> is the type of the context of the given defaultApplication.
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given defaultApplication is null.
 	 */
-	public final <BC extends BackendClient<BC, AC>, AC> void addDefaultApplication(
+	public final <BC extends BackendClient<BC, AC>, AC> SR addDefaultApplication(
 		final Application<BC, AC> defaultApplication
 	) {
 		
@@ -163,6 +173,8 @@ public abstract class BaseServer implements GroupCloseable {
 		this.defaultApplication = defaultApplication;
 		
 		noteAddedDefaultApplication(defaultApplication);
+		
+		return asConcrete();
 	}
 	
 	/**
@@ -175,6 +187,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param <S> is the type of the given initialSessionClass.
 	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
 	 * @param <AC> is the type of the given applicationContext.
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given instanceName is null.
 	 * @throws InvalidArgumentException if the given instanceName is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
@@ -183,7 +196,7 @@ public abstract class BaseServer implements GroupCloseable {
 	 * a {@link Application} with the given instanceName.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> void
+	public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR
 	addDefaultApplicationWithNameAndInitialSessionClassAndContext(
 		final String applicationName,
 		final Class<S> initialSessionClass,
@@ -199,7 +212,7 @@ public abstract class BaseServer implements GroupCloseable {
 		);
 		
 		//Calls other method.
-		addDefaultApplication(localDefaultApplication);
+		return addDefaultApplication(localDefaultApplication);
 	}
 	
 	//method
@@ -211,13 +224,14 @@ public abstract class BaseServer implements GroupCloseable {
 	 * @param initialSessionClass
 	 * @param <S> is the type of the given initialSessionClass.
 	 * @param <BC> is the type of the {@link BackendClient} of the given initialSessionClass.
+	 * @return the current {@link BaseServer}.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws InvalidArgumentException if the current {@link BaseServer} contains already
 	 * a {@link Application} with an instanceName that equals the given name.
 	 * @throws ArgumentIsNullException if the given initialSessionClass is null.
 	 */
-	public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> void
+	public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR
 	addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
 		final String name,
 		final Class<S> initialSessionClass
@@ -232,7 +246,7 @@ public abstract class BaseServer implements GroupCloseable {
 		);
 		
 		//Calls other method.
-		addDefaultApplication(localDefaultApplication);
+		return addDefaultApplication(localDefaultApplication);
 	}
 	
 	//method
@@ -337,6 +351,12 @@ public abstract class BaseServer implements GroupCloseable {
 			getStoredApplicationByInstanceName(client.getTarget()).takeClient(client);
 		}
 	}
+	
+	//method declaration
+	/**
+	 * @return the current {@link BaseServer}.
+	 */
+	protected abstract SR asConcrete();
 	
 	//method declaration
 	/**

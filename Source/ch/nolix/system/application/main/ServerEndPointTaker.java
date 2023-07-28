@@ -20,7 +20,7 @@ final class ServerEndPointTaker implements ISlot {
 	private final String name;
 	
 	//attribute
-	private final BaseServer parentServer;
+	private final BaseServer<?> parentServer;
 	
 	//constructor
 	/**
@@ -32,7 +32,7 @@ final class ServerEndPointTaker implements ISlot {
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given parentServer is null.
 	 */
-	public ServerEndPointTaker(final String name, final BaseServer parentServer) {
+	public ServerEndPointTaker(final String name, final BaseServer<?> parentServer) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();

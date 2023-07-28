@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  * @author Silvan Wyss
  * @date 2017-09-10
  */
-public final class Server extends BaseServer {
+public final class Server extends BaseServer<Server> {
 	
 	//constant
 	private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
@@ -90,6 +90,15 @@ public final class Server extends BaseServer {
 	 */
 	public int getPort() {
 		return internalServer.getPort();
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Server asConcrete() {
+		return this;
 	}
 	
 	//method
