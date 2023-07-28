@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
@@ -10,7 +11,7 @@ public interface ITabContainer
 extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<ITabContainer, ITabContainerStyle> {
 	
 	//method declaration
-	ITabContainer addTab(ITabContainerTab... tabs);
+	ITabContainer addTab(ITabContainerTab tab, ITabContainerTab... tabs);
 	
 	//method declaration
 	ITabContainer addTabs(IContainer<ITabContainerTab> tabs);
