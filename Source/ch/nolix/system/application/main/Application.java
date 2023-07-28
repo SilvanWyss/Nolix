@@ -300,10 +300,12 @@ implements IApplication<AC> {
 	 */
 	private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
 		return
-		ApplicationInstanceTarget.forIpOrDomainAndPortAndApplicationInstanceNameAndSecurityLevelForConnections(
+		ApplicationInstanceTarget
+		.forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
 			serverTarget.getIpOrDomain(),
 			serverTarget.getPort(),
 			getInstanceName(),
+			getUrlInstanceName(),
 			serverTarget.getSecurityLevelForConnections()
 		);
 	}
