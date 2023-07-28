@@ -37,13 +37,16 @@ public abstract class TestPool implements Runnable {
 	/**
 	 * Creates a new {@link TestPool} with the given test {@link Class}s.
 	 * 
+	 * @param testClass
 	 * @param testClasses
 	 * @throws ArgumentIsNullException if one of the given testClasses is null.
 	 * @throws InvalidArgumentException if one of the given testClasses is not a actually not a test {@link Class}.
 	 * @throws InvalidArgumentException if one of the given testClasses is abstract.
 	 * @throws InvalidArgumentException if one of the given testClasses does not contain a default constructor.
 	 */
-	protected TestPool(final Class<?>... testClasses) {
+	protected TestPool(final Class<?> testClass, final Class<?>... testClasses) {
+		
+		addTestClass(testClass);
 		
 		//Iterates the given testClasses.
 		for (final var tc : testClasses) {
@@ -55,10 +58,13 @@ public abstract class TestPool implements Runnable {
 	/**
 	 * Creates a new {@link TestPool} with the given {@link TestPool}s.
 	 * 
+	 * @param testPool
 	 * @param testPools
 	 * @throws ArgumentIsNullException if one of the the given testPools is null.
 	 */
-	protected TestPool(final TestPool... testPools) {
+	protected TestPool(final TestPool testPool, final TestPool... testPools) {
+		
+		addTestPool(testPool);
 		
 		//Iterates the given testPools.
 		for (final var tp : testPools) {
