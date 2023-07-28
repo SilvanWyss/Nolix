@@ -51,10 +51,15 @@ public abstract class MutableElement extends Element implements IMutableElement 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void addOrChangeAttribute(final String... attributes) {
+	public final void addOrChangeAttribute(final String attribte, final String... attributes) {
+		
+		//Calls other method.
+		addOrChangeAttribute(Node.fromString(attribte));
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
+			
+			//Calls other method.
 			addOrChangeAttribute(Node.fromString(a));
 		}
 	}

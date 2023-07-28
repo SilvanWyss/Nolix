@@ -62,10 +62,15 @@ implements IMultiStateConfiguration<MSC, S> {
 	
 	//method
 	@Override
-	public final void addOrChangeAttribute(final String... attributes) {
+	public final void addOrChangeAttribute(final String attribtue, final String... attributes) {
+		
+		//Calls other method.
+		addOrChangeAttribute(Node.fromString(attribtue));
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
+			
+			//Calls other method.
 			addOrChangeAttribute(Node.fromString(a));
 		}
 	}

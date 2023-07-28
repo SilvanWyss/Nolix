@@ -30,13 +30,19 @@ public interface IMutableElement extends Resettable, Specified {
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * 
+	 * @param attribute
 	 * @param attributes
 	 * @throws RuntimeException if one of the given attributes is not valid.
 	 */
-	default void addOrChangeAttribute(final INode<?>... attributes) {
+	default void addOrChangeAttribute(final INode<?> attribute, final INode<?>... attributes) {
+		
+		//Calls other method.
+		addOrChangeAttribute(attribute);
 		
 		//Iterates the given attributes.
 		for (final var a : attributes) {
+			
+			//Calls other method.
 			addOrChangeAttribute(a);
 		}
 	}
@@ -45,10 +51,11 @@ public interface IMutableElement extends Resettable, Specified {
 	/**
 	 * Adds or changes the given attributes to the current {@link IMutableElement}.
 	 * 
+	 * @param attribute
 	 * @param attributes
 	 * @throws RuntimeException if one of the given attributes is not valid.
 	 */
-	void addOrChangeAttribute(final String... attributes);
+	void addOrChangeAttribute(String attribute, String... attributes);
 	
 	//method
 	/**
