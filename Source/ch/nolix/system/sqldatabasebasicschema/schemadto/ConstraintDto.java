@@ -12,8 +12,8 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
 public record ConstraintDto(ConstraintType type, ImmutableList<String> parameters) implements IConstraintDto {
 	
 	//constructor
-	public ConstraintDto(final ConstraintType type, final String... parameters) {
-		this(type, ImmutableList.forArray(parameters));
+	public ConstraintDto(final ConstraintType type, final String parameter, final String... parameters) {
+		this(type, ImmutableList.withElement(parameter, parameters));
 	}
 	
 	//constructor
