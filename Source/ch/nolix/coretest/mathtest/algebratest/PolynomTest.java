@@ -13,7 +13,7 @@ public final class PolynomTest extends Test {
 	public void testCase_constructor_1A() {
 		
 		//execution
-		final var polynom = Polynom.withCoefficients();
+		final var polynom = Polynom.EMPTY_POLYNOM;
 		
 		//verification
 		expect(polynom.getDegree()).isEqualTo(-1);
@@ -24,7 +24,7 @@ public final class PolynomTest extends Test {
 	public void testCase_constructor_1B() {
 		
 		//execution
-		final var polynom = Polynom.withCoefficients(1.0);
+		final var polynom = Polynom.withCoefficient(1.0);
 		
 		//verification
 		expect(polynom.getDegree()).isEqualTo(0);
@@ -36,7 +36,7 @@ public final class PolynomTest extends Test {
 	public void testCase_constructor_1C() {
 		
 		//execution
-		final var polynom = Polynom.withCoefficients(2.0, 1.0);
+		final var polynom = Polynom.withCoefficient(2.0, 1.0);
 		
 		//verification
 		expect(polynom.getDegree()).isEqualTo(1);
@@ -49,7 +49,7 @@ public final class PolynomTest extends Test {
 	public void testCase_constructor_1D() {
 		
 		//execution
-		final var polynom = Polynom.withCoefficients(3.0, 2.0, 1.0);
+		final var polynom = Polynom.withCoefficient(3.0, 2.0, 1.0);
 		
 		//verification
 		expect(polynom.getDegree()).isEqualTo(2);
@@ -63,7 +63,7 @@ public final class PolynomTest extends Test {
 	public void testCase_integrate_1A() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficients(3.0, 0.0, 0.0);
+		final var polynom = Polynom.withCoefficient(3.0, 0.0, 0.0);
 		
 		//setup verification
 		expect(polynom.toString()).isEqualTo("x->3x^2");
@@ -80,7 +80,7 @@ public final class PolynomTest extends Test {
 	public void testCase_integrate_1B() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficients(3.0, 2.0, 1.0);
+		final var polynom = Polynom.withCoefficient(3.0, 2.0, 1.0);
 		
 		//setup verification
 		expect(polynom.toString()).isEqualTo("x->3x^2+2x+1");
@@ -97,7 +97,7 @@ public final class PolynomTest extends Test {
 	public void testCase_toString_1A() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficients();
+		final var polynom = Polynom.EMPTY_POLYNOM;
 			
 		//execution & verification
 		expect(polynom.toString()).isEqualTo("x->0.0");
@@ -108,7 +108,7 @@ public final class PolynomTest extends Test {
 	public void testCase_toString_1B() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficients(1.0);
+		final var polynom = Polynom.withCoefficient(1.0);
 			
 		//execution & verification
 		expect(polynom.toString()).isEqualTo("x->1");
@@ -119,7 +119,7 @@ public final class PolynomTest extends Test {
 	public void testCase_toString_1C() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficients(2.0, 1.0);
+		final var polynom = Polynom.withCoefficient(2.0, 1.0);
 			
 		//execution & verification
 		expect(polynom.toString()).isEqualTo("x->2x+1");
@@ -130,7 +130,7 @@ public final class PolynomTest extends Test {
 	public void testCase_toString_1D() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficients(3.0, 2.0, 1.0);
+		final var polynom = Polynom.withCoefficient(3.0, 2.0, 1.0);
 			
 		//execution & verification
 		expect(polynom.toString()).isEqualTo("x->3x^2+2x+1");

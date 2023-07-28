@@ -201,7 +201,7 @@ public final class QuadraticFunction {
 	 * @return a new {@link Polynom} representation of the current {@link QuadraticFunction}.
 	 */
 	public Polynom toPolynom() {
-		return Polynom.withCoefficients(a, b, c);
+		return Polynom.withCoefficient(a, b, c);
 	}
 	
 	//method

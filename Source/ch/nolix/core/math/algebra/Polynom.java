@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.math.algebra;
 
-//Java imports
-import java.util.Arrays;
-
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -11,6 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -28,11 +26,19 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public final class Polynom {
 	
 	//constant
+	public static final Polynom EMPTY_POLYNOM  = new Polynom();
+	
+	//constant
 	public static final String DEFAULT_PARAMTER_SYMBOL = "x";
 	
 	//static method
-	public static Polynom withCoefficients(final double... coefficients) {
-		return new Polynom(Arrays.copyOf(coefficients, coefficients.length));
+	public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
+		return new Polynom(GlobalArrayHelper.createArrayWithValue(coefficient, coefficients));
+	}
+	
+	//static method
+	public static Polynom withCoefficients(final double[] coefficients) {
+		return new Polynom(coefficients);
 	}
 	
 	//optional attribute
@@ -40,6 +46,14 @@ public final class Polynom {
 	
 	//multi-attribute
 	private final double[] coefficients;
+	
+	//constructor
+	/**
+	 * Creates a new empty {@link Polynom}.
+	 */
+	private Polynom() {
+		coefficients = new double[0];
+	}
 	
 	//constructor
 	/**
