@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawdata.databasedto;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -58,9 +59,10 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
 	public EntityUpdateDto(
 		final String id,
 		final String saveStamp,
+		final IContentFieldDto updatedContentField,
 		final IContentFieldDto... updatedContentFields
 	) {
-		this(id, saveStamp, ReadContainer.forArray(updatedContentFields));
+		this(id, saveStamp, ReadContainer.withElement(updatedContentField, updatedContentFields));
 	}
 	
 	//method
