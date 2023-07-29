@@ -14,6 +14,22 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 public final class NonCascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 	
 	//static method
+	public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
+		final String name,
+		final Class<S2> stateClass,
+		final I2ElementTaker<S2, Integer> setterMethod
+	) {
+		return
+		new NonCascadingProperty<>(
+			name,
+			stateClass,
+			INode::getSingleChildNodeAsInt,
+			Node::withChildNode,
+			setterMethod
+		);
+	}
+	
+	//static method
 	public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>
 	forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		final String name,
