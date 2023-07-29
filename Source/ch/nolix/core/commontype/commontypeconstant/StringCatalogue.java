@@ -68,6 +68,9 @@ public final class StringCatalogue {
 	public static final String INFINITY = "\u221E";
 	
 	//constant
+	public static final String LONG_LEFT_ARROW = "\u27F5";
+	
+	//constant
 	public static final String LONG_LEFT_RIGHT_ARROW = "\u27F7";
 	
 	//constant

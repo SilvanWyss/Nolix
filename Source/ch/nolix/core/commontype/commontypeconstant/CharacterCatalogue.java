@@ -56,6 +56,9 @@ public final class CharacterCatalogue {
 	public static final char INFINITY = '\u221E';
 	
 	//constant
+	public static final char LONG_LEFT_ARROW = '\u27F5';
+	
+	//constant
 	public static final char LONG_LEFT_RIGHT_ARROW = '\u27F7';
 	
 	//constant
