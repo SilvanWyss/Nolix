@@ -12,15 +12,11 @@ import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILink;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
-	
-	//constant
-	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 	
 	//method
 	@Override
@@ -38,7 +34,6 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
 		
 		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
 		
-		htmlAttribtues.addAtEnd(CONTROL_HELPER.createIdHtmlAttributeForControl(control));
 		htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
 		
 		if (control.hasUrl()) {

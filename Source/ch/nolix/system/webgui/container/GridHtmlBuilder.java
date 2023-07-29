@@ -2,29 +2,23 @@
 package ch.nolix.system.webgui.container;
 
 //own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 	
-	//constant
-	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
-	
 	//method
 	@Override
 	public IHtmlElement createHtmlElementForControl(final IGrid control) {
 		return
-		HtmlElement.withTypeAndAttributesAndChildElement(
+		HtmlElement.withTypeAndChildElement(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			createHtmlElementForTableOfGrid(control)
 		);
 	}

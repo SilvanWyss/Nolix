@@ -2,27 +2,21 @@
 package ch.nolix.system.webgui.atomiccontrol;
 
 //own imports
-import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
-import ch.nolix.system.webgui.controlhelper.ControlHelper;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IValidationLabel> {
 	
-	//constant
-	private static final ControlHelper CONTROL_HELPER = new ControlHelper();
-	
 	//method
 	@Override
 	public IHtmlElement createHtmlElementForControl(final IValidationLabel control) {
 		return
-		HtmlElement.withTypeAndAttributesAndInnerText(
+		HtmlElement.withTypeAndInnerText(
 			HtmlElementTypeCatalogue.DIV,
-			ImmutableList.withElement(CONTROL_HELPER.createIdHtmlAttributeForControl(control)),
 			getHtmlDivInnerTextForControl(control)
 		);
 	}

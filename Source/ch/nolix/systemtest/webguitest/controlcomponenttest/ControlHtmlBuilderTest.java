@@ -27,8 +27,7 @@ extends Test{
 		final var result = testUnit.createHtmlElementForControl(control);
 		
 		//verification part 1
-		final var idAttribute = result.getAttributes().getStoredOne(a -> a.hasName("id"));
-		expect(idAttribute.getValue()).isEqualTo(control.getInternalId());
+		expect(result.getAttributes().containsNone(a -> a.hasName("id")));
 		
 		//verification part 2
 		expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(result);
