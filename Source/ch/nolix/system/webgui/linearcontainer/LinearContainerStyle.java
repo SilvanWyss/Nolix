@@ -2,9 +2,7 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
@@ -26,11 +24,9 @@ implements ILinearContainerStyle<LCS> {
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> childControlMargin =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		CHILD_CONTROL_MARGIN_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setChildControlMarginForState,
 		DEFAULT_CHILD_CONTROL_MARGIN
 	);

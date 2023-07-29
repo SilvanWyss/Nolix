@@ -4,7 +4,6 @@ package ch.nolix.system.webgui.container;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlstyle.ControlStyle;
@@ -53,11 +52,9 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> gridThickness =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		GRID_THICKNESS_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setGridThicknessForState,
 		DEFAULT_GRID_THICKNESS
 	);
@@ -75,11 +72,9 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> childControlMargin =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		CHILD_CONTROL_MARGIN_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setChildControlMarginForState,
 		DEFAULT_CHILD_CONTROL_MARGIN
 	);

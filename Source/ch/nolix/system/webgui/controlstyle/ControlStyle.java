@@ -1,11 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.controlstyle;
 
-//own imports
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
@@ -121,44 +118,36 @@ implements IControlStyle<ECS> {
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> leftBorderThickness =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		LEFT_BORDER_THICKNESS_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setLeftBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> rightBorderThickness =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		RIGHT_BORDER_THICKNESS_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setRightBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> topBorderThickness =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		TOP_BORDER_THICKNESS_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setTopBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> bottomBorderThickness =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		BOTTOM_BORDER_THICKNESS_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setBottomBorderThicknessForState,
 		DEFAULT_BORDER_THICKNESS
 	);
@@ -215,44 +204,36 @@ implements IControlStyle<ECS> {
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> leftPadding =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		LEFT_PADDING_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setLeftPaddingForState,
 		DEFAULT_PADDING
 	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> rightPadding =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		RIGHT_PADDING_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setRightPaddingForState,
 		DEFAULT_PADDING
 	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> topPadding =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		TOP_PADDING_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setTopPaddingForState,
 		DEFAULT_PADDING
 	);
 	
 	//attribute
 	private final NonCascadingProperty<ControlState, Integer> bottomPadding =
-	new NonCascadingProperty<>(
+	NonCascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		BOTTOM_PADDING_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setBottomPaddingForState,
 		DEFAULT_PADDING
 	);

@@ -2,6 +2,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -11,6 +12,25 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 
 //class
 public final class NonCascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
+	
+	//static method
+	public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>
+	forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+		final String name,
+		final Class<S2> stateClass,
+		final I2ElementTaker<S2, Integer> setterMethod,
+		final int defaultValue
+	) {
+		return
+		new NonCascadingProperty<>(
+			name,
+			stateClass,
+			INode::getSingleChildNodeAsInt,
+			Node::withChildNode,
+			setterMethod,
+			defaultValue
+		);
+	}
 	
 	//optional attribute
 	private final V defaultValue;
