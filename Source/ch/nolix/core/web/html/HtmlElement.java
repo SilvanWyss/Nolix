@@ -229,7 +229,7 @@ public final class HtmlElement implements IHtmlElement {
 		ReadContainer.forIterable(ReadContainer.withElement(attribute, attributes), getAttributes());
 		
 		if (containsChildElements()) {
-			withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());
+			return withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());
 		}
 		
 		return withTypeAndAttributesAndInnerText(getType(), allAttributes, getInnerText());
