@@ -24,7 +24,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 	private static final String DEFAULT_VALUE_NAME = LowerCaseCatalogue.VALUE;
 	
 	//constant
-	private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.LONG_LEFT_RIGHT_ARROW;
+	private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;
 	
 	//attribute
 	private String valueName = DEFAULT_VALUE_NAME;
@@ -49,7 +49,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 			.setRole(ContainerRole.DIALOG_CONTAINER)
 			.addControl(
 				new Label()
-				.setText(getValueName()),
+				.setText(getValueName() + ":"),
 				new HorizontalStack()
 				.addControl(
 					new Label()
@@ -131,6 +131,6 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 	
 	//method
 	private boolean hasValueCopier() {
-		return (getValueCopier() != null);
+		return (valueCopier != null);
 	}
 }
