@@ -259,7 +259,7 @@ implements IControlStyle<ECS> {
 	
 	//attribute
 	private final ForwardingProperty<ControlState, Integer> borderThickness =
-	new ForwardingProperty<>(
+	ForwardingProperty.withNameAndForProperty(
 		BORDER_THICKNESS_HEADER,
 		leftBorderThickness,
 		rightBorderThickness,
@@ -269,7 +269,7 @@ implements IControlStyle<ECS> {
 	
 	//attribute
 	private final ForwardingProperty<ControlState, IColor> borderColor =
-	new ForwardingProperty<>(
+	ForwardingProperty.withNameAndForProperty(
 		BORDER_COLOR_HEADER,
 		leftBorderColor,
 		rightBorderColor,
@@ -279,7 +279,7 @@ implements IControlStyle<ECS> {
 	
 	//attribute
 	private final ForwardingProperty<ControlState, Integer> padding =
-	new ForwardingProperty<>(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
+	ForwardingProperty.withNameAndForProperty(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 	
 	//method
 	@Override

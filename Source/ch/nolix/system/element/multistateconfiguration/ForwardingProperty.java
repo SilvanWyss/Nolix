@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
+//own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -9,24 +11,31 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S>{
 	
+	//static method
+	@SafeVarargs
+	public static <S2 extends Enum<S2>, V2> ForwardingProperty<S2, V2> withNameAndForProperty(
+		final String name,
+		final MaterializedProperty<S2, V2> materializedProperty,
+		final MaterializedProperty<S2, V2>... materializedProperties
+	) {
+		return new ForwardingProperty<>(name, materializedProperty, materializedProperties);
+	}
+	
 	//multi-attribute
 	private final IContainer<MaterializedProperty<S, V>> materializedProperties;
 	
 	//constructor
 	@SafeVarargs
-	public ForwardingProperty(
+	private ForwardingProperty(
 		final String name,
 		final MaterializedProperty<S, V> materializedProperty,
 		final MaterializedProperty<S, V>... materializedProperties
 	) {
-		
-		super(name);
-		
-		this.materializedProperties = LinkedList.withElement(materializedProperty, materializedProperties);
+		this(name, ImmutableList.withElement(materializedProperty, materializedProperties));
 	}
 	
 	//constructor
-	public ForwardingProperty(final String name, final IContainer<MaterializedProperty<S, V>> materializedProperties) {
+	private ForwardingProperty(final String name, final IContainer<MaterializedProperty<S, V>> materializedProperties) {
 		
 		super(name);
 		
