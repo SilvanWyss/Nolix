@@ -30,7 +30,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		final var result = testUnit.toUrl();
 		
 		//verification
-		expect(result).isEqualTo("http://nolix.tech?app=Demo_Application");
+		expect(result).isEqualTo("http://nolix.tech?app=demo_application");
 	}
 	
 	//method
@@ -52,7 +52,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		final var result = testUnit.toUrl();
 		
 		//verification
-		expect(result).isEqualTo("https://nolix.tech?app=Demo_Application");
+		expect(result).isEqualTo("https://nolix.tech?app=demo_application");
 	}
 	
 	//method
@@ -74,7 +74,7 @@ public final class ApplicationInstanceTargetTest extends Test {
 		final var result = testUnit.toUrl();
 		
 		//verification
-		expect(result).isEqualTo("http://nolix.tech:50000?app=Demo_Application");
+		expect(result).isEqualTo("http://nolix.tech:50000?app=demo_application");
 	}
 	
 	//method
@@ -96,6 +96,6 @@ public final class ApplicationInstanceTargetTest extends Test {
 		final var result = testUnit.toUrl();
 		
 		//verification
-		expect(result).isEqualTo("https://nolix.tech:50000?app=Demo_Application");
+		expect(result).isEqualTo("https://nolix.tech:50000?app=demo_application");
 	}
 }
