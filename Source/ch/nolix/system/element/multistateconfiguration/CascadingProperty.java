@@ -2,6 +2,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -10,6 +11,22 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGette
 
 //class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
+	
+	//static method
+	public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
+		final String name,
+		final Class<S2> stateClass,
+		final boolean defaultValue
+	) {
+		return
+		new CascadingProperty<>(
+			name,
+			stateClass,
+			INode::getSingleChildNodeAsBoolean,
+			Node::withChildNode,
+			defaultValue
+		);
+	}
 	
 	//attribute
 	private final V defaultValue;

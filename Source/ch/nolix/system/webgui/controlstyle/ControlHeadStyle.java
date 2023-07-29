@@ -74,11 +74,9 @@ implements IControlHeadStyle<CS> {
 	
 	//attribute
 	private final CascadingProperty<ControlState, Boolean> boldTextFlag =
-	new CascadingProperty<>(
+	CascadingProperty.forBooleanWithNameAndStateClassAndDefaultValue(
 		BOLD_TEXT_FLAG_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsBoolean,
-		Node::withChildNode,
 		DEFAULT_BOLD_TEXT_FLAG
 	);
 	
