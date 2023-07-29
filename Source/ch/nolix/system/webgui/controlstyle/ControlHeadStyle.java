@@ -6,7 +6,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.multistateconfiguration.CascadingProperty;
 import ch.nolix.system.element.multistateconfiguration.MultiStateConfiguration;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
@@ -82,11 +81,9 @@ implements IControlHeadStyle<CS> {
 	
 	//attribute
 	private final CascadingProperty<ControlState, Integer> textSize =
-	new CascadingProperty<>(
+	CascadingProperty.forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
 		TEXT_SIZE_HEADER,
 		ControlState.class,
-		INode::getSingleChildNodeAsInt,
-		Node::withChildNode,
 		this::setTextSizeForState,
 		DEAULT_TEXT_SIZE
 	);
