@@ -36,7 +36,7 @@ public final class BlackWhiteJuliaFractalTutorial {
 		.runInBackground(server::close);
 	}
 	
-	private static final class MainSession //NOSONAR: A 1-file-tutorial is allowed to have a long static class.
+	private static final class MainSession //NOSONAR: A single-file-tutorial is allowed to have a long static class.
 	extends WebClientSession<Object> {
 		
 		@Override
