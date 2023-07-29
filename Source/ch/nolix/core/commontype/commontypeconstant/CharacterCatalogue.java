@@ -103,6 +103,9 @@ public final class CharacterCatalogue {
 	//constant
 	public static final char UPPERCASE_DELTA = '\u0394';
 	
+	//constant
+	public static final char ZERO = '0';
+	
 	//constructor
 	/**
 	 * Prevents that an instance of the {@link CharacterCatalogue} can be created.

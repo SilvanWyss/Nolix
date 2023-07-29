@@ -121,6 +121,9 @@ public final class StringCatalogue {
 	//constant
 	public static final String UPPERCASE_DELTA = "\u0394";
 	
+	//constant
+	public static final String ZERO = "0";
+	
 	//constructor
 	/**
 	 * Prevents that an instance of the {@link StringCatalogue} can be created.
