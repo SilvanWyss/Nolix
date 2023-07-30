@@ -3,6 +3,7 @@ package ch.nolix.core.container.linkedlist;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -11,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
@@ -154,7 +154,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 		GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
 		
 		//Handles the case that the given elements is not empty.
-		if (!GlobalIterableHelper.isEmpty(elements)) {
+		if (GlobalIterableHelper.containsAny(elements)) {
 			
 			final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
 			
