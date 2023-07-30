@@ -24,7 +24,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * @param arguments
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	MultiDoubleMediator(final Iterable<Double> arguments) {
+	public MultiDoubleMediator(final Iterable<Double> arguments) {
 		
 		//Calls constructor of the base class.
 		super(arguments);
@@ -37,7 +37,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 	 * @param arguments
 	 * @throws ArgumentIsNullException if the given arguments is null.
 	 */
-	MultiDoubleMediator(final double[] arguments) {
+	public MultiDoubleMediator(final double[] arguments) {
 		
 		//Calls constructor of the base class.
 		super(GlobalArrayHelper.createIterable(arguments));
