@@ -3,6 +3,7 @@ package ch.nolix.core.testing.test;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.ArgumentMediator;
+import ch.nolix.core.errorcontrol.validator.ByteMediator;
 import ch.nolix.core.errorcontrol.validator.ContainerMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
@@ -11,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.BaseTest;
 import ch.nolix.core.testing.validation.BitMediator;
-import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
@@ -76,7 +76,7 @@ public abstract class Test extends BaseTest {
 	 * @return a new {@link ByteMediator} for the given value.
 	 */
 	protected final ByteMediator expect(final byte value) {
-		return new ByteMediator(this::addExpectationError, value);
+		return new ByteMediator(value);
 	}
 	
 	//method
