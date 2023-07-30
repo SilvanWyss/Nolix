@@ -3,6 +3,7 @@ package ch.nolix.core.testing.validation;
 
 //own imports
 import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
+import ch.nolix.core.testing.test.Mediator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class

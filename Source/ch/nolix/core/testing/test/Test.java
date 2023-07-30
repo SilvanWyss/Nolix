@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.BaseTest;
 import ch.nolix.core.testing.validation.BitMediator;
-import ch.nolix.core.testing.validation.ClosureMediator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
 //class

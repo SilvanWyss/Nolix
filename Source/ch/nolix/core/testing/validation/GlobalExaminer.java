@@ -4,6 +4,7 @@ package ch.nolix.core.testing.validation;
 //Java imports
 import java.util.ArrayList;
 
+import ch.nolix.core.testing.test.ClosureMediator;
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 

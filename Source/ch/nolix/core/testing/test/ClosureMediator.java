@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.validation;
+package ch.nolix.core.testing.test;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

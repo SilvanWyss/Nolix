@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.validation;
+package ch.nolix.core.testing.test;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
@@ -23,7 +23,7 @@ public abstract class Mediator { //NOSONAR: Mediator does not have abstract meth
 	 * @param expectationErrorTaker
 	 * @throws ArgumentIsNullException if the given expectationErrorTaker is null.
 	 */
-	Mediator(final IElementTaker<String> expectationErrorTaker) {
+	public Mediator(final IElementTaker<String> expectationErrorTaker) {
 		
 		//Asserts that the given expectationErrorTaker is not null.
 		if (expectationErrorTaker == null) {
