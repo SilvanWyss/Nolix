@@ -58,7 +58,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	//constructor
 	public Label() {
 		
-		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		//Info: Reset is technically optional, but required to achieve a well-defined initial state.
 		reset();
 	}
 	

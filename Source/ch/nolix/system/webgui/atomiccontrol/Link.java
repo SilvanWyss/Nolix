@@ -71,7 +71,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	//constructor
 	public Link() {
 		
-		//Info: Reset is technically optional, but required to achieve a custom state on reset.
+		//Info: Reset is technically optional, but required to achieve a well-defined initial state.
 		reset();
 	}
 	
