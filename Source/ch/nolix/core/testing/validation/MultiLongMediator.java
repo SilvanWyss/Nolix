@@ -333,7 +333,7 @@ public final class MultiLongMediator extends Mediator {
 				
 				//Asserts that the current value is positive.
 				if (v <= 0) {
-					addCurrentTestCaseError("Positive values were expected, but the " + i + "th value is not.");
+					addCurrentTestCaseError("Positive values were expected, but the " + i + "th value is not positive.");
 				}
 				
 				//Increments the index.
