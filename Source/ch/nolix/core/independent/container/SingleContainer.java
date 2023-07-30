@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.core.independent.container;
 
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
-
 //class
 /**
  * A {@link SingleContainer} is empty or stores 1 element.
@@ -31,7 +28,7 @@ public final class SingleContainer<E> {
 	 * Creates a new {@link SingleContainer} with the given element.
 	 * 
 	 * @param element
-	 * @throws ArgumentIsNullException if the given element is null.
+	 * @throws IllegalArgumentException if the given element is null.
 	 */
 	public SingleContainer(final E element) {
 		
@@ -47,7 +44,7 @@ public final class SingleContainer<E> {
 	//method
 	/**
 	 * @return the element of the current {@link SingleContainer}.
-	 * @throws EmptyArgumentException if the current {@link SingleContainer} is empty.
+	 * @throws IllegalStateException if the current {@link SingleContainer} is empty.
 	 */
 	public E getStoredElement() {
 		
