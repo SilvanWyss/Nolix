@@ -33,7 +33,7 @@ public class DoubleMediator extends Mediator {
 	 * 
 	 * @param argument
 	 */
-	DoubleMediator(double argument) {
+	public DoubleMediator(double argument) {
 		
 		//Sets the argument of this double mediator.
 		this.argument = argument;
@@ -221,6 +221,11 @@ public class DoubleMediator extends Mediator {
 				"is not smaller than " + value
 			);
 		}
+	}
+	
+	//method
+	public DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
+		return new DoubleDeviationMediator(getArgumentName(), getArgument(), maxDeviation);
 	}
 	
 	//method
