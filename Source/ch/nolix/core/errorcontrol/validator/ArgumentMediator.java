@@ -32,7 +32,7 @@ public class ArgumentMediator<A> extends Mediator {
 	 * 
 	 * @param argument
 	 */
-	protected ArgumentMediator(final A argument) {
+	public ArgumentMediator(final A argument) {
 		
 		//Calls other constructor.
 		this(DEFAULT_ARGUMENT_NAME, argument);
@@ -83,11 +83,34 @@ public class ArgumentMediator<A> extends Mediator {
 	
 	//method
 	/**
+	 * @param stringRepresentation
+	 * @throws InvalidArgumentException if
+	 * the argument of the current {@link ArgumentMediator} does not have the given stringRepresentation.
+	 */
+	public final void hasStringRepresentation(final String stringRepresentation) {
+		
+		isNotNull();
+		
+		final var actualStringRepresentation = getStoredArgument().toString();
+		
+		if (!Objects.equals(actualStringRepresentation, stringRepresentation)) {
+			throw
+			InvalidArgumentException
+			.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getStoredArgument(),
+				"does not have the String representation '" + stringRepresentation + "'"
+			);
+		}
+	}
+	
+	//method
+	/**
 	 * @param object
 	 * @throws InvalidArgumentException
 	 * if the argument of the current {@link ArgumentMediator} does not equal the given object.
 	 */
-	public final void isEqualTo(final A object) {
+	public final void isEqualTo(final Object object) {
 		
 		//Asserts that the argument of the current ArgumentMediator equals the given object.
 		if (!Objects.equals(getStoredArgument(), object)) {
