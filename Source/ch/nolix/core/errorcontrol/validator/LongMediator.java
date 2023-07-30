@@ -39,7 +39,7 @@ public class LongMediator extends Mediator {
 	 * 
 	 * @param argument
 	 */
-	LongMediator(final long argument) {
+	public LongMediator(final long argument) {
 		
 		//Sets the argument of this long mediator.
 		this.argument = argument;
