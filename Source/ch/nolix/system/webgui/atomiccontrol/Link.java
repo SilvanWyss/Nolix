@@ -73,6 +73,8 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 		
 		//Info: Reset is technically optional, but required to achieve a well-defined initial state.
 		reset();
+		
+		getStoredStyle().setBackgroundColorForState(ControlState.BASE, Color.BLUE);
 	}
 	
 	//method
