@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
-import ch.nolix.core.math.base.GlobalBaseCalculator;
+import ch.nolix.core.math.base.GlobalBasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
@@ -37,7 +37,7 @@ public final class GlobalCalculator {
 	 * @throws InvalidArgumentException if the count of the given yValues does not equal the count of the given xValues.
 	 */
 	public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
-		return GlobalBaseCalculator.createFPNPairs(xValues, yValues);
+		return GlobalBasicCalculator.createFPNPairs(xValues, yValues);
 	}
 	
 	//static method
@@ -48,7 +48,7 @@ public final class GlobalCalculator {
 	 * with a deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
 	 */
 	public static boolean equalsApproximatively(final double value1, final double value2) {
-		return GlobalBaseCalculator.equalsApproximatively(value1, value2);
+		return GlobalBasicCalculator.equalsApproximatively(value1, value2);
 	}
 	
 	//static method
@@ -61,7 +61,7 @@ public final class GlobalCalculator {
 	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
-		return GlobalBaseCalculator.equalsApproximatively(value1, value2, maxDeviation);
+		return GlobalBasicCalculator.equalsApproximatively(value1, value2, maxDeviation);
 	}
 	
 	//static method
@@ -149,7 +149,7 @@ public final class GlobalCalculator {
 	 * @return the average of the given values.
 	 */
 	public static double getAverage(final double value, final double... values) {
-		return GlobalBaseCalculator.getAverage(value, values);
+		return GlobalBasicCalculator.getAverage(value, values);
 	}
 	
 	//method
@@ -159,7 +159,7 @@ public final class GlobalCalculator {
 	 * @throws EmptyArgumentException if the given values is empty.
 	 */
 	public static double getAverage(final Iterable<Double> values) {
-		return GlobalBaseCalculator.getAverage(values);
+		return GlobalBasicCalculator.getAverage(values);
 	}
 	
 	//static method
@@ -169,7 +169,7 @@ public final class GlobalCalculator {
 	 * @return the average of the given values.
 	 */
 	public static int getAverage(final int value, final int... values) {
-		return GlobalBaseCalculator.getAverage(value, values);
+		return GlobalBasicCalculator.getAverage(value, values);
 	}
 	
 	//static method
@@ -180,7 +180,7 @@ public final class GlobalCalculator {
 	 * @throws EmptyArgumentException if the given values is empty.
 	 */
 	public static long getAverage(final long value, final long... values) {
-		return GlobalBaseCalculator.getAverage(value, values);
+		return GlobalBasicCalculator.getAverage(value, values);
 	}
 	
 	//static method
@@ -239,7 +239,7 @@ public final class GlobalCalculator {
 	 * @return the biggest value of the given values.
 	 */
 	public static double getMax(final double value, final double...values) {
-		return GlobalBaseCalculator.getMax(value, values);
+		return GlobalBasicCalculator.getMax(value, values);
 	}
 	
 	//static method
@@ -249,7 +249,7 @@ public final class GlobalCalculator {
 	 * @return the biggest value of the given values.
 	 */
 	public static int getMax(final int value, final int...values) {
-		return GlobalBaseCalculator.getMax(value, values);
+		return GlobalBasicCalculator.getMax(value, values);
 	}
 	
 	//static method
@@ -259,7 +259,7 @@ public final class GlobalCalculator {
 	 * @return the biggest value of the given values.
 	 */
 	public static long getMax(final long value, final long...values) {
-		return GlobalBaseCalculator.getMax(value, values);
+		return GlobalBasicCalculator.getMax(value, values);
 	}
 	
 	//static method
@@ -269,7 +269,7 @@ public final class GlobalCalculator {
 	 * @return the smallest value of the given values.
 	 */
 	public static double getMin(final double value, final double... values) {
-		return GlobalBaseCalculator.getMin(value, values);
+		return GlobalBasicCalculator.getMin(value, values);
 	}
 	
 	//static method
@@ -279,7 +279,7 @@ public final class GlobalCalculator {
 	 * @return the smallest value of the given values.
 	 */
 	public static int getMin(final int value, final int... values) {
-		return GlobalBaseCalculator.getMin(value, values);
+		return GlobalBasicCalculator.getMin(value, values);
 	}
 	
 	//static method
@@ -289,7 +289,7 @@ public final class GlobalCalculator {
 	 * @return the smallest value of the given values.
 	 */
 	public static long getMin(final long value, final long... values) {
-		return GlobalBaseCalculator.getMin(value, values);
+		return GlobalBasicCalculator.getMin(value, values);
 	}
 	
 	//static method
@@ -298,7 +298,7 @@ public final class GlobalCalculator {
 	 * @return the square of the given value.
 	 */
 	public static double getSquare(final double value) {
-		return GlobalBaseCalculator.getSquare(value);
+		return GlobalBasicCalculator.getSquare(value);
 	}
 	
 	//static method
@@ -307,7 +307,7 @@ public final class GlobalCalculator {
 	 * @return the square of the given value.
 	 */
 	public static double getSquare(final int value) {
-		return GlobalBaseCalculator.getSquare(value);
+		return GlobalBasicCalculator.getSquare(value);
 	}
 	
 	//static method
@@ -316,7 +316,7 @@ public final class GlobalCalculator {
 	 * @return the square of the given value.
 	 */
 	public static double getSquare(final long value) {
-		return GlobalBaseCalculator.getSquare(value);
+		return GlobalBasicCalculator.getSquare(value);
 	}
 	
 	//static method
@@ -326,7 +326,7 @@ public final class GlobalCalculator {
 	 * @return the sum of the given values.
 	 */
 	public static double getSum(final double value, final double... values) {
-		return GlobalBaseCalculator.getSum(value, values);
+		return GlobalBasicCalculator.getSum(value, values);
 	}
 	
 	//static method
@@ -336,7 +336,7 @@ public final class GlobalCalculator {
 	 * @return the sum of the given values.
 	 */
 	public static int getSum(final int value, final int... values) {
-		return GlobalBaseCalculator.getSum(value, values);
+		return GlobalBasicCalculator.getSum(value, values);
 	}
 	
 	
@@ -346,7 +346,7 @@ public final class GlobalCalculator {
 	 * @return the sum of the given values.
 	 */
 	public static double getSum(final Iterable<Double> values) {
-		return GlobalBaseCalculator.getSum(values);
+		return GlobalBasicCalculator.getSum(values);
 	}
 	
 	//static method
@@ -356,7 +356,7 @@ public final class GlobalCalculator {
 	 * @return the sum of the given values.
 	 */
 	public static long getSum(final long value, final long... values) {
-		return GlobalBaseCalculator.getSum(value, values);
+		return GlobalBasicCalculator.getSum(value, values);
 	}
 	
 	//static method
@@ -366,7 +366,7 @@ public final class GlobalCalculator {
 	 * with a deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
 	 */
 	public static boolean isApproximatelyOne(final double value) {
-		return GlobalBaseCalculator.isApproximatelyOne(value);
+		return GlobalBasicCalculator.isApproximatelyOne(value);
 	}
 	
 	//static method
@@ -378,7 +378,7 @@ public final class GlobalCalculator {
 	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
-		return GlobalBaseCalculator.isApproximatelyOne(value, maxDeviation);
+		return GlobalBasicCalculator.isApproximatelyOne(value, maxDeviation);
 	}
 	
 	//static method
@@ -388,7 +388,7 @@ public final class GlobalCalculator {
 	 * with a deviation that is not bigger than {@value #DEFAULT_MAX_DEVIATION}.
 	 */
 	public static boolean isApproximatelyZero(final double value) {
-		return GlobalBaseCalculator.isApproximatelyZero(value);
+		return GlobalBasicCalculator.isApproximatelyZero(value);
 	}
 	
 	//static method
@@ -400,7 +400,7 @@ public final class GlobalCalculator {
 	 * @throws NegativeArgumentException if the given maxDeviation is negative.
 	 */
 	public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
-		return GlobalBaseCalculator.isApproximatelyZero(value, maxDeviation);
+		return GlobalBasicCalculator.isApproximatelyZero(value, maxDeviation);
 	}
 	
 

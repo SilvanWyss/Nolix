@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 
 //class
-public final class GlobalBaseCalculator {
+public final class GlobalBasicCalculator {
 	
 	//constant
 	/**
@@ -399,7 +399,7 @@ public final class GlobalBaseCalculator {
 	
 	//constructor
 	/**
-	 * Prevents that an instance of the {@link GlobalBaseCalculator} can be created.
+	 * Prevents that an instance of the {@link GlobalBasicCalculator} can be created.
 	 */
-	private GlobalBaseCalculator() {}	
+	private GlobalBasicCalculator() {}	
 }
