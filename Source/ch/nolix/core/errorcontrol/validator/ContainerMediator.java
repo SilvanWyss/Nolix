@@ -3,6 +3,7 @@ package ch.nolix.core.errorcontrol.validator;
 
 //Java imports
 import java.util.Iterator;
+import java.util.Objects;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -10,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
+import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
@@ -30,7 +32,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	 * 
 	 * @param argument
 	 */
-	ContainerMediator(final Iterable<E> argument) {
+	public ContainerMediator(final Iterable<E> argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
@@ -89,6 +91,68 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 				getStoredArgument(),
 				"does not contain element that fulfils the given condition"
 			);
+		}
+	}
+	
+	//method
+	public void containsAsManyElementsAs(final Object[] array) {
+		
+		if (array == null) {
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ARRAY);
+		}
+		
+		hasElementCount(array.length);
+	}
+	
+	//method
+	public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked")E... elements) {
+		
+		final var localElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
+		
+		containsExactlyEqualing(localElements);
+	}
+	
+	//method
+	public void containsExactlyEqualing(final E[] elements) {
+		
+		containsAsManyElementsAs(elements);
+		
+		var index = 0;
+		for (final var e : getStoredArgument()) {
+			
+			if (!Objects.equals(e, elements[index])) {
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					(index + 1) + "th element",
+					e,
+					"does not equal the element '" + elements[index] + "'"
+				);
+			}
+			
+			index++;
+		}
+	}
+	
+	//method
+	public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked")E... elements) {
+		
+		final var localElements = GlobalArrayHelper.createArrayWithElement(element, elements);
+		
+		containsAsManyElementsAs(localElements);
+		
+		var index = 0;
+		for (final var e : getStoredArgument()) {
+			
+			if (e != localElements[index]) {
+				throw
+				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+					(index + 1) + "th element",
+					e,
+					"is not the same as the element '" + elements[index] + "'"
+				);
+			}
+			
+			index++;
 		}
 	}
 	

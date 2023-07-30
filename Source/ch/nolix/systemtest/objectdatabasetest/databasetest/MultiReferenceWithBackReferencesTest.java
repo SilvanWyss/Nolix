@@ -72,7 +72,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
 		final var loadedOdie =
 		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
-		expect(loadedJohn.pets.getReferencedEntities()).containsExactly(loadedGarfield, loadedSimba, loadedOdie);
+		expect(loadedJohn.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield, loadedSimba, loadedOdie);
 		expect(loadedGarfield.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedSimba.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
@@ -121,6 +121,6 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var loadedSimba2 =
 		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
-		expect(loadedJohn2.pets.getReferencedEntities()).containsExactly(loadedGarfield2, loadedSimba2);
+		expect(loadedJohn2.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield2, loadedSimba2);
 	}
 }

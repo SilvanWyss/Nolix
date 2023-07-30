@@ -2,13 +2,13 @@
 package ch.nolix.core.testing.test;
 
 //own imports
+import ch.nolix.core.errorcontrol.validator.ContainerMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;
-import ch.nolix.core.testing.validation.ContainerMediator;
 import ch.nolix.core.testing.validation.MultiDoubleMediator;
 import ch.nolix.core.testing.validation.MultiLongMediator;
 import ch.nolix.core.testing.validation.ValueMediator;
@@ -121,7 +121,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new container mediator that belongs to this test and is for the given container.
 	 */
 	protected final <E> ContainerMediator<E> expect(final Iterable<E> container) {
-		return new ContainerMediator<>(this::addExpectationError, container);
+		return new ContainerMediator<>(container);
 	}
 	
 	//method
