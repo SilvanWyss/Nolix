@@ -248,7 +248,7 @@ public final class VectorTest extends Test {
 		final var result = testUnit.toString();
 		
 		//verification
-		expect(result).hasStringRepresentation("(2.0,5.0,10.0,-3.0,-8.0,0.0)");
+		expect(result).isEqualTo("(2.0,5.0,10.0,-3.0,-8.0,0.0)");
 	}
 	
 	//method
@@ -262,6 +262,6 @@ public final class VectorTest extends Test {
 		final var result = testUnit.toString();
 		
 		//verification
-		expect(result).hasStringRepresentation("()");
+		expect(result).isEqualTo("()");
 	}
 }

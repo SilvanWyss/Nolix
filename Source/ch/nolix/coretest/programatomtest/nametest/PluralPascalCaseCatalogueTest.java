@@ -26,7 +26,7 @@ public final class PluralPascalCaseCatalogueTest extends Test {
 			
 			final var stringValue = c.toString();
 			if (!exceptions.containsEqualing(stringValue)) {
-				expect(stringValue).fulfils(GlobalStringHelper::isPascalCase);
+				expect(stringValue).fulfills(GlobalStringHelper::isPascalCase);
 			}
 		}
 	}

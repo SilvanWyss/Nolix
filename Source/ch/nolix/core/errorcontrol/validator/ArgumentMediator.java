@@ -98,6 +98,24 @@ public class ArgumentMediator<A> extends Mediator {
 	//method
 	/**
 	 * @param object
+	 * @throws InvalidArgumentException if the argument of the current {@link ArgumentMediator} is not (!) the given object.
+	 */
+	public final void is(final Object object) {
+		
+		//Asserts that the argument of the current ArgumentMediator is the given object.
+		if (argument != object) {
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getStoredArgument(),
+				"is not the given object"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @param object
 	 * @throws InvalidArgumentException if the argument of the current {@link ArgumentMediator} is the given object.
 	 */
 	public final void isNot(final Object object) {

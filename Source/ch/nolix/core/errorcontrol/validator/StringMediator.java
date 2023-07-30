@@ -30,7 +30,7 @@ public class StringMediator extends ArgumentMediator<String> {
 	 * 
 	 * @param argument
 	 */
-	StringMediator(final String argument) {
+	public StringMediator(final String argument) {
 		
 		//Calls constructor of the base class.
 		super(argument);
@@ -247,6 +247,33 @@ public class StringMediator extends ArgumentMediator<String> {
 			InvalidArgumentException.forArgumentAndErrorPredicate(
 				directory,
 				"is not a probable directory on the local machine"
+			);
+		}
+	}
+	
+	//method
+	/**
+	 * @param sequence
+	 * @throws ArgumentIsNullException if the given sequence is null.
+	 * @throws ArgumentIsNullException if the argument of the current {@link StringMediator} is null.
+	 * @throws InvalidArgumentException if
+	 * the argument of the current {@link StringMediator} does not starts with the givne sequence.
+	 */
+	public void startsWith(final String sequence) {
+		
+		//Asserts that the given sequence is not null.
+		if (sequence == null) {
+			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SEQUENCE);
+		}
+		
+		isNotNull();
+		
+		if (!getStoredArgument().startsWith(sequence)) {
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getStoredArgument(),
+				"does not start with the sequence '" + sequence + "'"
 			);
 		}
 	}
