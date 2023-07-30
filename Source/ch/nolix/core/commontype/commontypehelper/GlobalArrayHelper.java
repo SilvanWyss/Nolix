@@ -22,6 +22,16 @@ public final class GlobalArrayHelper {
 	}
 	
 	//static method
+	public static double[] createArrayWithValue(final double value, final double... values) {
+		
+		final var array = new double[1 + values.length];
+		array[0] = value;
+		System.arraycopy(values, 0, array, 1, values.length);
+		
+		return array;
+	}
+	
+	//static method
 	public static double[] createCopyOfArray(final double[] array) {
 		
 		GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();

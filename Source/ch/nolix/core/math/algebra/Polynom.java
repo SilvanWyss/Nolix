@@ -2,13 +2,13 @@
 package ch.nolix.core.math.algebra;
 
 //own imports
+import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
