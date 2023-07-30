@@ -57,6 +57,23 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 		return new UnequalArgumentException(argumentName, argument, value);
 	}
 	
+	//static method
+	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param value
+	 * @return a new {@link UnequalArgumentException} for the given argumentName, argument and value.
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	public static UnequalArgumentException forArgumentNameAndArgumentAndValue(
+		final String argumentName,
+		final String argument,
+		final String value
+	) {
+		return new UnequalArgumentException(argumentName, argument, value);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new {@link UnequalArgumentException} for the given argument and value.
@@ -98,6 +115,22 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 	 * @throws IllegalArgumentException if the given argumentName is blank.
 	 */
 	private UnequalArgumentException(final String argumentName, final long argument, final long value) {
+		
+		//Calls constructor of the base class.
+		super(argumentName,	argument, "does not equal " + value);
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link UnequalArgumentException} for the given argumentName, argument and value.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @param value
+	 * @throws IllegalArgumentException if the given argumentName is null.
+	 * @throws IllegalArgumentException if the given argumentName is blank.
+	 */
+	private UnequalArgumentException(final String argumentName, final String argument, final String value) {
 		
 		//Calls constructor of the base class.
 		super(argumentName,	argument, "does not equal " + value);

@@ -42,6 +42,15 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	//static method
 	/**
 	 * @param argument
+	 * @return a new {@link ExtendedByteMediator} for the given argument.
+	 */
+	public static ExtendedByteMediator assertThat(final byte argument) {
+		return new ExtendedByteMediator(argument);
+	}
+	
+	//static method
+	/**
+	 * @param argument
 	 * @return a new {@link ExtendedContainerMediator} for the given argument.
 	 */
 	public static ExtendedContainerMediator<Byte> assertThat(final byte[] argument) {
