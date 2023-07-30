@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
+import ch.nolix.core.testing.basetest.BaseTest;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;
@@ -21,7 +22,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
+public abstract class Test extends BaseTest {
 	
 	//method
 	/**
