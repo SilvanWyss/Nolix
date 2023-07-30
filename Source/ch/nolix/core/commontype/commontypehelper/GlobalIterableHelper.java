@@ -9,11 +9,17 @@ public final class GlobalIterableHelper {
 	
 	//static method
 	public static boolean containsAny(final Iterable<?> iterable) {
-		return iterable.iterator().hasNext();
+		return
+		iterable != null		
+		&& iterable.iterator().hasNext();
 	}
 	
 	//static method
 	public static boolean containsEqualing(final Iterable<?> iterable, final Object object) {
+		
+		if (iterable == null) {
+			return false;
+		}
 		
 		for (final var e : iterable) {
 			if (Objects.equals(e, object)) {
