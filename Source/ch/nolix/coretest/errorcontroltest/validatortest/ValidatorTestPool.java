@@ -13,8 +13,7 @@ public class ValidatorTestPool extends TestPool {
 			GlobalValidatorForDoubleTest.class,
 			GlobalValidatorForIntTest.class,
 			GlobalValidatorForObjectTest.class,
-			GlobalValidatorForStringTest.class,
-			MultiLongMediatorTest.class
+			GlobalValidatorForStringTest.class
 		);
 	}
 }

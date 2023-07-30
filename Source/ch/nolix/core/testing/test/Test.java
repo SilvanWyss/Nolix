@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.BaseTest;
-import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
 //class
@@ -215,24 +214,6 @@ public abstract class Test extends BaseTest {
 	 */
 	protected final ClosureMediator expectRunning(final IAction closure) {
 		return new ClosureMediator(this::addExpectationError, closure);
-	}
-	
-	//method
-	/**
-	 * @param bit
-	 * @return a new {@link BitMediator} that belongs to the current {@link Test} and is for the given bit.
-	 */
-	protected final BitMediator expectTheBit(final boolean bit) {
-		return new BitMediator(this::addExpectationError, bit);
-	}
-	
-	//method
-	/**
-	 * @param bit
-	 * @return a new {@link BitMediator} that belongs to the current {@link Test} and is for the given bit.
-	 */
-	protected final BitMediator expectTheBit(final int bit) {
-		return new BitMediator(this::addExpectationError, bit);
 	}
 	
 	//method
