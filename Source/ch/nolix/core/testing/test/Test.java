@@ -5,12 +5,12 @@ package ch.nolix.core.testing.test;
 import ch.nolix.core.errorcontrol.validator.ContainerMediator;
 import ch.nolix.core.errorcontrol.validator.DoubleMediator;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
+import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.validation.BitMediator;
 import ch.nolix.core.testing.validation.ByteMediator;
 import ch.nolix.core.testing.validation.ClosureMediator;
 import ch.nolix.core.testing.validation.MultiDoubleMediator;
-import ch.nolix.core.testing.validation.MultiLongMediator;
 import ch.nolix.core.testing.validation.ValueMediator;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
@@ -255,11 +255,12 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	
 	//method
 	/**
+	 * @param value
 	 * @param values
 	 * @return a new multi long mediator that belongs to this test and is for the given values.
 	 */
-	protected final MultiLongMediator expectTheInts(final int... values) {
-		return new MultiLongMediator(this::addExpectationError, values);
+	protected final MultiLongMediator expectTheInts(final int value, final int... values) {
+		return MultiLongMediator.forValue(value, values);
 	}
 	
 	//method
@@ -268,7 +269,7 @@ public abstract class Test extends ch.nolix.core.testing.basetest.BaseTest {
 	 * @return a new long container mediator that belongs to this test and has the given values.
 	 */
 	protected final MultiLongMediator expectTheLongs(final Iterable<Long> values) {
-		return new MultiLongMediator(this::addExpectationError, values);
+		return new MultiLongMediator(values);
 	}
 	
 	//method
