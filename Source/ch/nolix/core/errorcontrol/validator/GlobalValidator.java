@@ -99,7 +99,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	 * @return a new {@link ExtendedLongMediator} for the given argument.
 	 */
 	public static ExtendedLongMediator assertThat(final int argument) {
-		return new ExtendedLongMediator(argument);
+		return ExtendedLongMediator.forArgument(argument);
 	}
 	
 	//static method
@@ -135,7 +135,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	 * @return a new {@link ExtendedLongMediator} for the given argument.
 	 */
 	public static ExtendedLongMediator assertThat(final long argument) {
-		return new ExtendedLongMediator(argument);
+		return ExtendedLongMediator.forArgument(argument);
 	}
 	
 	//static method

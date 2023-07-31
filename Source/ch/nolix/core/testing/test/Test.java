@@ -101,7 +101,7 @@ public abstract class Test extends BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final int value) {
-		return new LongMediator(value);
+		return LongMediator.forArgument(value);
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public abstract class Test extends BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final Integer value) {
-		return new LongMediator(value);
+		return LongMediator.forArgument(value);
 	}
 	
 	//method
@@ -129,7 +129,7 @@ public abstract class Test extends BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final long value) {
-		return new LongMediator(value);
+		return LongMediator.forArgument(value);
 	}
 	
 	//method
@@ -138,7 +138,7 @@ public abstract class Test extends BaseTest {
 	 * @return a new long mediator that belongs to this test and is for the given value.
 	 */
 	protected final LongMediator expect(final Long value) {
-		return new LongMediator(value);
+		return LongMediator.forArgument(value);
 	}
 	
 	//method
