@@ -5,7 +5,7 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public class ValidatorTestPool extends TestPool {
+public final class ValidatorTestPool extends TestPool {
 	
 	//constructor
 	public ValidatorTestPool() {
@@ -13,7 +13,8 @@ public class ValidatorTestPool extends TestPool {
 			GlobalValidatorForDoubleTest.class,
 			GlobalValidatorForIntTest.class,
 			GlobalValidatorForObjectTest.class,
-			GlobalValidatorForStringTest.class
+			GlobalValidatorForStringTest.class,
+			LongMediatorTest.class
 		);
 	}
 }
