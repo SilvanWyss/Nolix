@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.webguitest.controlcomponenttest;
+package ch.nolix.systemtest.webguitest.basecontrolservicetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;

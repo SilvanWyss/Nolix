@@ -7,7 +7,7 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ButtonHtmlBuilder;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
-import ch.nolix.systemtest.webguitest.controlcomponenttest.ControlHtmlBuilderTest;
+import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlHtmlBuilderTest;
 
 //class
 public final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHtmlBuilder, IButton> {
