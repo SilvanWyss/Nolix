@@ -2,11 +2,13 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -36,11 +38,25 @@ implements ILinearContainer<LC, LCS> {
 	@Override
 	public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 		
-		addControl(control);
+		final var allControls = ReadContainer.withElement(control, controls);
 		
-		for (final var c : controls) {
-			addControl(c);
-		}
+		return addControls(allControls);
+	}
+	
+	//method
+	@Override
+	public final LC addComponent(final IControlGetter component, final IControlGetter... components) {
+		
+		final var allComponents = ReadContainer.withElement(component, components);
+		
+		return addComponents(allComponents);
+	}
+	
+	//method
+	@Override
+	public final LC addComponents(IContainer<IControlGetter> components) {
+		
+		components.forEach(this::addComponent);
 		
 		return asConcrete();
 	}
@@ -85,8 +101,18 @@ implements ILinearContainer<LC, LCS> {
 	}
 	
 	//method
-	private void addControl(final IControl<?, ?> c) {
-		c.technicalSetParentControl(this);
-		this.childControls.add(c);
+	private void addComponent(final IControlGetter component) {
+		
+		final var control = component.getStoredControl();
+		
+		addControl(control);
+	}
+	
+	//method
+	private void addControl(final IControl<?, ?> control) {
+		
+		control.technicalSetParentControl(this);
+		
+		this.childControls.add(control);
 	}
 }
