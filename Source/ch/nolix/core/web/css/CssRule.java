@@ -61,4 +61,15 @@ public final class CssRule implements ICssRule {
 		getSelector()
 		+ GlobalStringHelper.getInBraces(getProperties().toConcatenatedString());
 	}
+	
+	//method
+	@Override
+	public ICssRule withPrefixedSelector(final String selectorPrefix) {
+		
+		GlobalValidator.assertThat(selectorPrefix).thatIsNamed("selector prefix").isNotNull();
+		
+		final var prefixedSelector = selectorPrefix + getSelector();
+		
+		return withSelectorAndProperties(prefixedSelector, getProperties());
+	}
 }

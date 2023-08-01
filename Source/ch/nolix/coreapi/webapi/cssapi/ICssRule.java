@@ -12,4 +12,7 @@ public interface ICssRule {
 	
 	//method declaration
 	String getSelector();
+	
+	//method declaration
+	ICssRule withPrefixedSelector(final String selectorPrefix);
 }
