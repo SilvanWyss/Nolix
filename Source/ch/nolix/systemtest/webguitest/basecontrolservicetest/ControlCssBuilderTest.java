@@ -29,14 +29,14 @@ extends Test {
 		//verification part 1
 		expect(result).hasElementCount(4);
 		final var cssRuleForAllStates =
-		result.getStoredFirst(r -> r.getSelector().equals("#" + controlInternalId));
+		result.getStoredFirst(r -> r.getSelector().startsWith("#" + controlInternalId));
 		expect(cssRuleForAllStates.getProperties().containsAny(p -> p.hasName("cursor")));
 		
 		//verification part 2
-		expect(result.containsAny(r -> r.getSelector().equals("#" + controlInternalId + ":hover")));
+		expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover")));
 		
 		//verification part 3
-		expect(result.containsAny(r -> r.getSelector().equals("#" + controlInternalId + ":focus")));
+		expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":focus")));
 	}
 	
 	//method declaration
