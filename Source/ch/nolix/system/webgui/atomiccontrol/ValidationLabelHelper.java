@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.system.webgui.controlhelper;
+package ch.nolix.system.webgui.atomiccontrol;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
-import ch.nolix.systemapi.webguiapi.controlhelperapi.IValidationLabelHelper;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
