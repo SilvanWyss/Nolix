@@ -17,13 +17,13 @@ extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<LC, LCL> {
 	LC addComponent(IControlGetter component, IControlGetter... components);
 	
 	//method declaration
-	LC addControl(IControl<?, ?> control, IControl<?, ?>... controls);
-		
-	//method declaration
-	LC addControls(IContainer<? extends IControl<?, ?>> controls);
+	LC addComponents(IContainer<? extends IControlGetter> components);
 	
 	//method declaration
-	LC addComponents(IContainer<IControlGetter> components);
+	LC addControl(IControl<?, ?> control, IControl<?, ?>... controls);
+	
+	//method declaration
+	LC addControls(IContainer<? extends IControl<?, ?>> controls);
 	
 	//method declaration
 	void removeControl(IControl<?, ?> control);

@@ -54,7 +54,7 @@ implements ILinearContainer<LC, LCS> {
 	
 	//method
 	@Override
-	public final LC addComponents(IContainer<IControlGetter> components) {
+	public final LC addComponents(IContainer<? extends IControlGetter> components) {
 		
 		components.forEach(this::addComponent);
 		
