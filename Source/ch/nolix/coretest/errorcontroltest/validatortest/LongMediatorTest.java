@@ -5,12 +5,38 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class LongMediatorTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_isEqualTo_whenTheGivenArgumentDoesNotEqualTheGivenValue() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", 10);
+		
+		//execution & verification
+		expectRunning(() -> testUnit.isEqualTo(9))
+		.throwsException()
+		.ofType(UnequalArgumentException.class)
+		.withMessage("The given amount '10' does not equal the Integer '9'.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isEqualTo_whenTheGivenArgumentEqualsTheGivenValue() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", 10);
+		
+		//execution & verification
+		expectRunning(() -> testUnit.isEqualTo(10)).doesNotThrowException();
+	}
 	
 	//method
 	@TestCase
