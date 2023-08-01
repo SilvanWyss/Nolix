@@ -11,5 +11,5 @@ public interface ICssRule {
 	IContainer<? extends ICssProperty> getProperties();
 	
 	//method declaration
-	IContainer<String> getSelectors();
+	String getSelector();
 }

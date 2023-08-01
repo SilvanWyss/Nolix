@@ -3,7 +3,7 @@ package ch.nolix.core.web.css;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
@@ -13,7 +13,7 @@ public final class CssRule implements ICssRule {
 	
 	//static method
 	public static CssRule fromCssRule(final ICssRule cssRule) {
-		return withSelectorsAndProperties(cssRule.getSelectors(), cssRule.getProperties());
+		return withSelectorAndProperties(cssRule.getSelector(), cssRule.getProperties());
 	}
 	
 	//static method
@@ -21,30 +21,25 @@ public final class CssRule implements ICssRule {
 		final String selector,
 		final IContainer<? extends ICssProperty> properties
 	) {
-		return new CssRule(ImmutableList.withElement(selector), properties);
-	}
-	
-	//static method
-	public static CssRule withSelectorsAndProperties(
-		final IContainer<String> selectors,
-		final IContainer<? extends ICssProperty> properties
-	) {
-		return new CssRule(selectors, properties);
+		return new CssRule(selector, properties);
 	}
 	
 	//multi-attribute
-	private final IContainer<String> selectors;
+	private final String selector;
 	
 	//multi-attribute
 	private final IContainer<CssProperty> properties;
 	
 	//constructor
 	private CssRule(
-		final IContainer<String> selectors,
+		final String selector,
 		final IContainer<? extends ICssProperty> properties
 	) {
+		
+		GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+		
 		this.properties = properties.to(CssProperty::fromCssProperty);
-		this.selectors = ImmutableList.forIterable(selectors);
+		this.selector = selector;
 	}
 	
 	//method
@@ -55,15 +50,15 @@ public final class CssRule implements ICssRule {
 	
 	//method
 	@Override
-	public IContainer<String> getSelectors() {
-		return selectors;
+	public String getSelector() {
+		return selector;
 	}
 	
 	//method
 	@Override
 	public String toString() {
 		return
-		getSelectors().toStringWithSeparator(',')
+		getSelector()
 		+ GlobalStringHelper.getInBraces(getProperties().toConcatenatedString());
 	}
 }
