@@ -23,13 +23,12 @@ public abstract class Component<C extends Controller<AC>, AC> implements Refresh
 		GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 		
 		this.controller = controller;
+		
+		fillUpRootControl();
 	}
 	
 	//method
 	public final IControl<?, ?> getStoredControl() {
-		
-		refresh();
-		
 		return rootControl;
 	}
 	
@@ -37,15 +36,21 @@ public abstract class Component<C extends Controller<AC>, AC> implements Refresh
 	@Override
 	public final void refresh() {
 		
-		final var control = getControlAssembler().createControl(controller);
-		
-		rootControl.setControl(control);
+		fillUpRootControl();
 		
 		getStoredSession().updateControlOnCounterpart(rootControl);
 	}
 	
 	//method declaration
 	protected abstract IControlAssembler<C, AC> getControlAssembler();
+	
+	//method
+	private void fillUpRootControl() {
+		
+		final var control = getControlAssembler().createControl(controller);
+		
+		rootControl.setControl(control);
+	}
 	
 	//method
 	private final WebClientSession<AC> getStoredSession() {
