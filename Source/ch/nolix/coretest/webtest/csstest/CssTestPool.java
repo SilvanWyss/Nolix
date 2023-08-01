@@ -9,6 +9,6 @@ public final class CssTestPool extends TestPool {
 	
 	//constructor
 	public CssTestPool() {
-		super(CssPropertyTest.class);
+		super(CssPropertyTest.class, CssRuleTest.class);
 	}
 }
