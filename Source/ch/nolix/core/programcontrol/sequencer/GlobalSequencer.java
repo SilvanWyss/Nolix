@@ -123,7 +123,7 @@ public final class GlobalSequencer {
 	 * @return a new {@link IFuture} for the running of the given jobs.
 	 */
 	public static IFuture runInBackgroundAndOrder(final IAction job, final IAction... jobs) {
-		return new Future(JobRunner.forJobs(ReadContainer.withElement(job, jobs)));
+		return new Future(JobRunner.forJobs(ReadContainer.forElement(job, jobs)));
 	}
 	
 	//static method

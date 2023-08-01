@@ -226,7 +226,7 @@ public final class HtmlElement implements IHtmlElement {
 	public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
 		
 		final var allAttributes =
-		ReadContainer.forIterable(ReadContainer.withElement(attribute, attributes), getAttributes());
+		ReadContainer.forIterable(ReadContainer.forElement(attribute, attributes), getAttributes());
 		
 		if (containsChildElements()) {
 			return withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());

@@ -85,7 +85,7 @@ public final class ReadContainerTest extends ContainerTest {
 		final E element,
 		final @SuppressWarnings("unchecked")E... elements
 	) {
-		return ReadContainer.withElement(element, elements);
+		return ReadContainer.forElement(element, elements);
 	}
 	
 	//method

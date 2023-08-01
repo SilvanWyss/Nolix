@@ -14,7 +14,7 @@ public final class ValueClassCatalogue {
 	
 	//constant
 	public static final IContainer<Class<?>> VALUE_CLASSES =
-	ReadContainer.withElement(BigDecimal.class, Boolean.class, Double.class, Integer.class, Node.class, String.class);
+	ReadContainer.forElement(BigDecimal.class, Boolean.class, Double.class, Integer.class, Node.class, String.class);
 	
 	//constructor
 	private ValueClassCatalogue() {}

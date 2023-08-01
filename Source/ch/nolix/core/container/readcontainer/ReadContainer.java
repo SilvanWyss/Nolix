@@ -43,6 +43,19 @@ public final class ReadContainer<E> extends Container<E> {
 	
 	//static method
 	/**
+	 * @param firstElement
+	 * @param elements
+	 * @param <E2> is the type of the given elements.
+	 * @return a new {@link ReadContainer} with the given elements.
+	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
+	 */
+	@SuppressWarnings("unchecked")
+	public static <E2> ReadContainer<E2> forElement(final E2 firstElement, final E2... elements) {
+		return new ReadContainer<>(LinkedList.withElement(firstElement, elements));
+	}
+	
+	//static method
+	/**
 	 * @param container
 	 * @param containers
 	 * @param <E2> is the type of the elements of the given container and containers.
@@ -57,19 +70,6 @@ public final class ReadContainer<E> extends Container<E> {
 		final Iterable<? extends E2>... containers
 	) {
 		return new ReadContainer<>(MultiReadContainer.forIterable(container, containers));
-	}
-	
-	//static method
-	/**
-	 * @param firstElement
-	 * @param elements
-	 * @param <E2> is the type of the given elements.
-	 * @return a new {@link ReadContainer} with the given elements.
-	 * @throws ArgumentIsNullException if the given firstElement or one of the given elements is null.
-	 */
-	@SuppressWarnings("unchecked")
-	public static <E2> ReadContainer<E2> withElement(final E2 firstElement, final E2... elements) {
-		return new ReadContainer<>(LinkedList.withElement(firstElement, elements));
 	}
 	
 	//attribute

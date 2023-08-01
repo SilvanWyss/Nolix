@@ -75,7 +75,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	public Matrix<E> addColumn(final E element, final E... elements) {
 		
 		//Calls other method.
-		return addColumn(ReadContainer.withElement(element, elements));
+		return addColumn(ReadContainer.forElement(element, elements));
 	}
 	
 	//method
@@ -163,7 +163,7 @@ public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<
 	public Matrix<E> addRow(final E element, final E... elements) {
 		
 		//Calls other method.
-		return addRow(ReadContainer.withElement(element, elements));
+		return addRow(ReadContainer.forElement(element, elements));
 	}
 	
 	//method

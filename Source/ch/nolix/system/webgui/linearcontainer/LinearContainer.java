@@ -38,7 +38,7 @@ implements ILinearContainer<LC, LCS> {
 	@Override
 	public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 		
-		final var allControls = ReadContainer.withElement(control, controls);
+		final var allControls = ReadContainer.forElement(control, controls);
 		
 		return addControls(allControls);
 	}
@@ -47,7 +47,7 @@ implements ILinearContainer<LC, LCS> {
 	@Override
 	public final LC addComponent(final IControlGetter component, final IControlGetter... components) {
 		
-		final var allComponents = ReadContainer.withElement(component, components);
+		final var allComponents = ReadContainer.forElement(component, components);
 		
 		return addComponents(allComponents);
 	}

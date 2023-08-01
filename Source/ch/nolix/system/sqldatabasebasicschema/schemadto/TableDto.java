@@ -21,7 +21,7 @@ public final class TableDto implements ITableDto {
 	
 	//constructor
 	public TableDto(final String name, final IColumnDto column, final IColumnDto... columns) {
-		this(name, ReadContainer.withElement(column, columns));
+		this(name, ReadContainer.forElement(column, columns));
 	}
 	
 	//constructor
