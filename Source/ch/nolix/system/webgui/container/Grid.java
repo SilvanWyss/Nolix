@@ -12,6 +12,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.mutableelement.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.basecontainer.Container;
+import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 import ch.nolix.systemapi.webguiapi.containerapi.IGrid;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
@@ -98,6 +99,19 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 		}
 		
 		return childControls;
+	}
+	
+	//method
+	@Override
+	public IGrid insertComponentAtRowAndColumn(
+		final int param1BasedRowIndex,
+		final int param1BasedColumnIndex,
+		final IControlGetter component
+	) {
+		
+		final var control = component.getStoredControl();
+		
+		return insertControlAtRowAndColumn(param1BasedRowIndex, param1BasedColumnIndex, control);
 	}
 	
 	//method
