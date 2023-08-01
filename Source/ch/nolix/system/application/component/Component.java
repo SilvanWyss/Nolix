@@ -3,13 +3,13 @@ package ch.nolix.system.application.component;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programcontrolapi.triggerapi.Refreshable;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.container.SingleContainer;
+import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class Component<C extends Controller<AC>, AC> implements Refreshable {
+public abstract class Component<C extends Controller<AC>, AC> implements IComponent {
 	
 	//attribute
 	private final SingleContainer rootControl = new SingleContainer();
@@ -28,6 +28,7 @@ public abstract class Component<C extends Controller<AC>, AC> implements Refresh
 	}
 	
 	//method
+	@Override
 	public final IControl<?, ?> getStoredControl() {
 		return rootControl;
 	}
