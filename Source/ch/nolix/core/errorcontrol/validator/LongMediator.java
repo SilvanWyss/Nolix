@@ -15,7 +15,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentEx
 import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.net.constant.PortCatalogue;
 
@@ -322,22 +321,6 @@ public class LongMediator extends Mediator {
 	public final void isSmallerThanOrEquals(final long value) {
 		if (argument > value) {
 			throw BiggerArgumentException.forArgumentNameAndArgumentAndMax(getArgumentName(), argument, value);
-		}
-	}
-	
-	//method
-	/**
-	 *  @throws UnrepresentingArgumentException if
-	 *  the argument of the current {@link LongMediator} does not represent a boolean.
-	 */
-	public final void representsBoolean() {
-		if (argument != 0 && argument != 1) {
-			throw
-			UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-				getArgumentName(),
-				getArgument(),
-				Boolean.class
-			);
 		}
 	}
 	
