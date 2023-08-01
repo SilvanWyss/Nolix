@@ -42,12 +42,12 @@ public abstract class Component<C extends Controller<AC>, AC> implements Refresh
 	}
 	
 	//method declaration
-	protected abstract IControlAssembler<C, AC> getControlAssembler();
+	protected abstract IControl<?, ?> createControl(C controller);
 	
 	//method
 	private void fillUpRootControl() {
 		
-		final var control = getControlAssembler().createControl(controller);
+		final var control = createControl(controller);
 		
 		rootControl.setControl(control);
 	}
