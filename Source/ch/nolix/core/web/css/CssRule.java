@@ -3,6 +3,7 @@ package ch.nolix.core.web.css;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
@@ -22,6 +23,15 @@ public final class CssRule implements ICssRule {
 		final IContainer<? extends ICssProperty> properties
 	) {
 		return new CssRule(selector, properties);
+	}
+	
+	//static method
+	public static CssRule withSelectorAndProperty(
+		final String selector,
+		final ICssProperty property,
+		final ICssProperty... properties
+	) {
+		return new CssRule(selector, ReadContainer.forElement(property, properties));
 	}
 	
 	//multi-attribute
