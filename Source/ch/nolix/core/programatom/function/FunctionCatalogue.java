@@ -130,7 +130,7 @@ public final class FunctionCatalogue {
 	
 	//static method
 	/**
-	 * @throws a new {@link GeneralException}.
+	 * @throws GeneralException
 	 */
 	public static void throwException() {
 		throw GeneralException.withErrorMessage("An error was provoked.");
