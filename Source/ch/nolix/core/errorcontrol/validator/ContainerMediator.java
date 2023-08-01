@@ -6,12 +6,14 @@ import java.util.Iterator;
 import java.util.Objects;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
+import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
@@ -54,6 +56,23 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		
 		//Calls constructor of the base class.
 		super(argumentName, argument);
+	}
+	
+	//method
+	/**
+	 * @param element
+	 * @throws ArgumentDoesNotContainElementException if
+	 * the argument of the current {@link ContainerMediator} does not contain the given element.
+	 */
+	public void contains(final Object element) {
+		if (!GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
+			throw
+			ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
+				getArgumentName(),
+				getStoredArgument(),
+				element
+			);
+		}
 	}
 	
 	//method
