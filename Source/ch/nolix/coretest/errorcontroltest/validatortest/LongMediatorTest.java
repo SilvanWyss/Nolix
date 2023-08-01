@@ -3,12 +3,89 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;
 import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class LongMediatorTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_isNotNegative_whenTheGivenArgumentIsNegative() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", -1);
+		
+		//execution & verification
+		expectRunning(testUnit::isNotNegative)
+		.throwsException()
+		.ofType(NegativeArgumentException.class)
+		.withMessage("The given amount '-1' is negative.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotNegative_whenTheGivenArgumentIsZero() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", 0);
+		
+		//execution & verification
+		expectRunning(testUnit::isNotNegative).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotNegative_whenTheGivenArgumentIsPositive() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", 1);
+		
+		//execution & verification
+		expectRunning(testUnit::isNotNegative).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPositive_whenTheGivenArgumentIsNegative() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", -1);
+		
+		//execution & verification
+		expectRunning(testUnit::isPositive)
+		.throwsException()
+		.ofType(NonPositiveArgumentException.class)
+		.withMessage("The given amount '-1' is not positive.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPositive_whenTheGivenArgumentIsZero() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", 0);
+		
+		//execution & verification
+		expectRunning(testUnit::isPositive)
+		.throwsException()
+		.ofType(NonPositiveArgumentException.class)
+		.withMessage("The given amount '0' is not positive.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isPositive_whenTheGivenArgumentIsPositive() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("amount", 1);
+		
+		//execution & verification
+		expectRunning(testUnit::isPositive).doesNotThrowException();
+	}
 	
 	//method
 	@TestCase
