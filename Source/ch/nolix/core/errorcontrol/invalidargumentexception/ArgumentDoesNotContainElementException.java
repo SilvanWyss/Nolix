@@ -39,10 +39,25 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
 	
 	//static method
 	/**
+	 * @param argumentName
+	 * @param argument
+	 * @param element
+	 *@return a new {@link ArgumentDoesNotContainElementException} for the given argumentName, argument and element.
+	 */
+	public static ArgumentDoesNotContainElementException forArgumentNameAndArgumentAndElement(
+		final String argumentName,
+		final Object argument,
+		final Object element
+	) {
+		return new ArgumentDoesNotContainElementException(argumentName, argument, element);
+	}
+	
+	//static method
+	/**
 	 * @param element
 	 * @return the name of the given element.
 	 */
-	private static String getNameOfElement(final Object element) {
+	private static String getNameForElement(final Object element) {
 		
 		//Handles the case that the given element is null.
 		if (element == null) {
@@ -71,6 +86,22 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
 	 * @param element
 	 */
 	private ArgumentDoesNotContainElementException(final Object argument, final Object element) {
-		super(argument, "does not contain the given " + getNameOfElement(element));
+		super(argument, "does not contain the given " + getNameForElement(element));
+	}
+	
+	//constructor
+	/**
+	 * Creates a new {@link ArgumentDoesNotContainElementException} for the given argumentName, argument and element.
+	 * 
+	 * @param argumentName
+	 * @param argument
+	 * @param element
+	 */
+	private ArgumentDoesNotContainElementException(
+		final String argumentName,
+		final Object argument,
+		final Object element
+	) {
+		super(argumentName, argument, "does not contain the given " + getNameForElement(element));
 	}
 }
