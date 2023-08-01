@@ -10,7 +10,6 @@ public final class ValidatorTestPool extends TestPool {
 	//constructor
 	public ValidatorTestPool() {
 		super(
-			GlobalValidatorForDoubleTest.class,
 			GlobalValidatorForIntTest.class,
 			GlobalValidatorForObjectTest.class,
 			GlobalValidatorForStringTest.class,
