@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.serverdashboardapplication.view;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -8,15 +9,14 @@ import ch.nolix.system.webgui.linearcontainer.FloatContainer;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
+import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationComponent;
+import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationController;
 import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 
 //class
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
-	
-	//constant
-	private static final WebApplicationControlFactory WEB_APPLICATION_CONTROL_FACTORY =
-	new WebApplicationControlFactory();
 	
 	//method
 	@Override
@@ -31,17 +31,21 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 				.setText(getApplicationName()),
 				new FloatContainer()
 				.setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-				.addControls(
-					getRelevantWebApplicationSheets()
-					.to(WEB_APPLICATION_CONTROL_FACTORY::createWebApplicationControl)
-				)
+				.addControls(createApplicationControls())
 			)
 		)
 		.setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
 	}
 	
 	//method
-	private IContainer<IWebApplicationSheet> getRelevantWebApplicationSheets() {
+	private IContainer<IControl<?, ?>> createApplicationControls() {
+		return
+		getWebApplicationSheets()
+		.to(was -> new WebApplicationComponent(new WebApplicationController(was, this)).getStoredControl());
+	}
+	
+	//method
+	private IContainer<IWebApplicationSheet> getWebApplicationSheets() {
 		return
 		getStoredApplicationContext()
 		.getWebApplicationSheets()
