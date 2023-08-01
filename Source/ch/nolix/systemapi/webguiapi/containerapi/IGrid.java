@@ -21,8 +21,8 @@ public interface IGrid extends IContainer<IGrid, IGridStyle> {
 	int getRowCount();
 	
 	//method declaration
-	IGrid insertControlAtRowAndColumn(int rowIndex, int columnIndex, IControl<?, ?> control);
+	IGrid insertControlAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, IControl<?, ?> control);
 	
 	//method declaration
-	IGrid insertTextAtRowAndColumn(int rowIndex, int columnIndex, String text);
+	IGrid insertTextAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, String text);
 }

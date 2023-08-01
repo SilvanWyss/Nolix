@@ -103,12 +103,12 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	//method
 	@Override
 	public IGrid insertControlAtRowAndColumn(
-		final int rowIndex,
-		final int columnIndex,
+		final int param1BasedRowIndex,
+		final int param1BasedColumnIndex,
 		final IControl<?, ?> control
 	) {
 		
-		final var cell = GridCell.withRowIndexAndColumnIndex(rowIndex, columnIndex);
+		final var cell = GridCell.with1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex);
 		cell.setControl(control);
 		addCell(cell);
 		
@@ -182,7 +182,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 		GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
 		
 		if (cells.isEmpty()) {
-			cells.addRow(GridCell.withRowIndexAndColumnIndex(1, 1));
+			cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
 		}
 		
 		for (var ci = getColumnCount() + 1; ci <= columnIndex; ci++) {
@@ -190,7 +190,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 			final var column = new LinkedList<GridCell>();
 			
 			for (var ri = 1; ri <= getRowCount(); ri++) {
-				column.addAtEnd(GridCell.withRowIndexAndColumnIndex(ri, ci));
+				column.addAtEnd(GridCell.with1BasedRowIndexAndColumnIndex(ri, ci));
 			}
 			
 			cells.addColumn(column);
@@ -203,7 +203,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 		GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();
 		
 		if (cells.isEmpty()) {
-			cells.addRow(GridCell.withRowIndexAndColumnIndex(1, 1));
+			cells.addRow(GridCell.with1BasedRowIndexAndColumnIndex(1, 1));
 		}
 		
 		for (var ri = getRowCount() + 1; ri <= rowIndex; ri++) {
@@ -211,7 +211,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 			final var row = new LinkedList<GridCell>();
 			
 			for (var ci = 1; ci <= getColumnCount(); ci++) {
-				row.addAtEnd(GridCell.withRowIndexAndColumnIndex(ri, ci));
+				row.addAtEnd(GridCell.with1BasedRowIndexAndColumnIndex(ri, ci));
 			}
 			
 			cells.addRow(row);

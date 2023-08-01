@@ -35,7 +35,7 @@ public final class GridCell extends MutableElement implements Clearable {
 	}
 	
 	//static method
-	public static GridCell withRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
+	public static GridCell with1BasedRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
 		
 		final var cell = new GridCell();
 		cell.setRowIndex(rowIndex);
