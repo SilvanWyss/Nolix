@@ -16,6 +16,21 @@ public final class GlobalIterableHelper {
 	
 	//static method
 	/**
+	 * @param iterable
+	 * @param element
+	 * @return true if the given container contains the given element, false otherwise.
+	 */
+	public static boolean containsElement(final Iterable<?> iterable, final Object element) {
+		
+		if (iterable == null) {
+			return false;
+		}
+		
+		return containsElementWhenIsNotNull(iterable, element);
+	}
+
+	//static method
+	/**
 	 * @param container
 	 * @param object
 	 * @return true if the given container contains an element that equals the given object.
@@ -55,6 +70,24 @@ public final class GlobalIterableHelper {
 	 */
 	public static boolean isEmpty(final Iterable<?> container) {
 		return !container.iterator().hasNext();
+	}
+	
+	//static method
+	/**
+	 * @param iterable
+	 * @param element
+	 * @return true if the given container contains the given element, false otherwise, for the case that
+	 * the given iterable is not null.
+	 */
+	private static boolean containsElementWhenIsNotNull(final Iterable<?> iterable, final Object element) {
+		
+		for (final var e : iterable) {
+			if (e == element) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	//constructor
