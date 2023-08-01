@@ -55,7 +55,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 		
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndState(control, state) + " table, th, td",
+				"table, th, td",
 				ImmutableList.withElement(
 					CssProperty.withNameAndValue("border-collapse", "collapse"),
 					CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
@@ -66,9 +66,7 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 		
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(control)
-				+ " "
-				+ HtmlElementTypeCatalogue.TD,
+				HtmlElementTypeCatalogue.TD,
 				ImmutableList.withElement(
 					CssProperty.withNameAndValue("padding", childControlMargin + "px")
 				)

@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.basecontrolservice;
 import java.util.Locale;
 
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.web.css.CssProperty;
@@ -29,18 +30,42 @@ implements IControlCssBuilder<C, CS> {
 	//constant
 	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
 	
+	//TODO: Refactor this method.
 	//method
 	@Override
 	public final IContainer<ICssRule> createCssRulesForControl(final C control) {
 		
-		final var cssRules = new LinkedList<ICssRule>();
+		final var selectorPrefixedCssRules = new LinkedList<ICssRule>();
 		
-		fillUpCssRulesForControlAndAllStatesIntoList(control, cssRules);
-		fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, cssRules);
-		fillUpCssRulesForControlAndStateIntoList(control, ControlState.HOVER, cssRules);
-		fillUpCssRulesForControlAndStateIntoList(control, ControlState.FOCUS, cssRules);
+		final var allStateSelectorPrefix = getCssSelectorForControlAndAllStates(control);
+		final var allStateCssRules = new LinkedList<ICssRule>();
+		fillUpCssRulesForControlAndAllStatesIntoList(control, allStateCssRules);
+		for (final var r : allStateCssRules) {
+			selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(allStateSelectorPrefix + StringCatalogue.SPACE));
+		}
 		
-		return cssRules;
+		final var baseSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.BASE);		
+		final var baseCssRules = new LinkedList<ICssRule>();
+		fillUpCssRulesForControlAndStateIntoList(control, ControlState.BASE, baseCssRules);
+		for (final var r : baseCssRules) {
+			selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(baseSelectorPrefix + StringCatalogue.SPACE));
+		}
+		
+		final var hoverSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.HOVER);		
+		final var hoverCssRules = new LinkedList<ICssRule>();
+		fillUpCssRulesForControlAndStateIntoList(control, ControlState.HOVER, hoverCssRules);
+		for (final var r : hoverCssRules) {
+			selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(hoverSelectorPrefix + StringCatalogue.SPACE));
+		}
+		
+		final var focusSelectorPrefix = getCssSelectorForControlAndState(control, ControlState.FOCUS);		
+		final var focusCssRules = new LinkedList<ICssRule>();
+		fillUpCssRulesForControlAndStateIntoList(control, ControlState.FOCUS, focusCssRules);
+		for (final var r : focusCssRules) {
+			selectorPrefixedCssRules.addAtEnd(r.withPrefixedSelector(focusSelectorPrefix + StringCatalogue.SPACE));
+		}
+			
+		return selectorPrefixedCssRules;
 	}
 	
 	//method declaration
@@ -63,12 +88,12 @@ implements IControlCssBuilder<C, CS> {
 	);
 	
 	//method
-	protected final String getCssSelectorForControlAndAllStates(final C control) {
+	private String getCssSelectorForControlAndAllStates(final C control) {
 		return ("#" + control.getInternalId());
 	}
 	
 	//method
-	protected final String getCssSelectorForControlAndState(final C control, final ControlState state) {
+	private String getCssSelectorForControlAndState(final C control, final ControlState state) {
 		return
 		switch (state) {
 			case BASE ->
@@ -237,7 +262,7 @@ implements IControlCssBuilder<C, CS> {
 	private final ICssRule getCssRuleForControlAndAllStates(final C control) {
 		return
 		CssRule.withSelectorAndProperties(
-			getCssSelectorForControlAndAllStates(control),
+			StringCatalogue.EMPTY_STRING,
 			getCssPropertiesForControlAndAllStates(control)
 		);
 	}
@@ -245,7 +270,7 @@ implements IControlCssBuilder<C, CS> {
 	//method
 	private final ICssRule getCssRuleForControlAndState(final C control, final ControlState state) {
 		return CssRule.withSelectorAndProperties(
-			getCssSelectorForControlAndState(control, state),
+			StringCatalogue.EMPTY_STRING,
 			getCssPropertiesForControlAndState(control, state)
 		);
 	}

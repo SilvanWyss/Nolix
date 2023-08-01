@@ -27,7 +27,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(horizontalStack) + " > " + HtmlElementTypeCatalogue.DIV,
+				"> " + HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
@@ -47,7 +47,7 @@ extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(horizontalStack) + " > " + HtmlElementTypeCatalogue.DIV,
+				"> " + HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_RIGHT,

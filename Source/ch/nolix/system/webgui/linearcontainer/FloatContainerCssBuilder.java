@@ -8,6 +8,7 @@ import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
+import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.system.webgui.basecontrolservice.ControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
@@ -23,9 +24,8 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(floatContainer)
-				+ " ."
-				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				"> "
+				+ HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.FLOAT,
@@ -45,9 +45,8 @@ extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(floatContainer)
-				+ " ."
-				+ FloatContainerHtmlBuilder.CHILD_CONTROL_CSS_CLASS_NAME,
+				"> "
+				+ HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN,

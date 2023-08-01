@@ -28,7 +28,7 @@ extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
 	) {
 		list.addAtEnd(
 			CssRule.withSelectorAndProperties(
-				getCssSelectorForControlAndAllStates(verticalStack) + " > " + HtmlElementTypeCatalogue.DIV,
+				"> " + HtmlElementTypeCatalogue.DIV,
 				LinkedList.withElement(
 					CssProperty.withNameAndValue(
 						CssPropertyNameCatalogue.MARGIN_BOTTOM,
