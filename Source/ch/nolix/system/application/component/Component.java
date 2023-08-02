@@ -35,6 +35,12 @@ public abstract class Component<C extends Controller<AC>, AC> implements ICompon
 	
 	//method
 	@Override
+	public final boolean isAlive() {
+		return controller.getStoredSession().isAlive();
+	}
+	
+	//method
+	@Override
 	public final void refresh() {
 		
 		fillUpRootControl();
