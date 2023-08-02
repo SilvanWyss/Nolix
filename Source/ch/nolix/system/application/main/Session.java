@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.functionapi.requestapi.AlivenessRequestable;
 
 //class
 /**
@@ -21,7 +22,8 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public abstract class Session<
 	BC extends BackendClient<BC, AC>,
 	AC
-> {
+>
+implements AlivenessRequestable {
 	
 	//attribute
 	private BC parentClient;
@@ -41,15 +43,6 @@ public abstract class Session<
 	 */
 	public final boolean belongsToClient() {
 		return (parentClient != null);
-	}
-	
-	//method
-	//For a better performance, this implementation does not use all comfortable methods.
-	/**
-	 * @return true if the current {@link Session} belongs to a {@link Client} that is open.
-	 */
-	public final boolean belongsToOpenClient() {
-		return ((parentClient != null) && parentClient.isOpen());
 	}
 	
 	//method
@@ -85,6 +78,18 @@ public abstract class Session<
 	//method
 	public final boolean hasParentSession() {
 		return (getStoredParentClient().internalGetSessionStackSize() > 1);
+	}
+	
+	//method
+	//For a better performance, this implementation does not use all comfortable methods.
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final boolean isAlive() {
+		return
+		parentClient != null
+		&& parentClient.isOpen();
 	}
 	
 	//method
