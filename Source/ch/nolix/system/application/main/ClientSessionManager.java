@@ -81,7 +81,7 @@ final class ClientSessionManager<
 	
 	//method
 	public void popCurrentSessionAndForwardGivenResult(final Object result) {
-		getStoredCurrentSession().setResult(result);
+		getStoredCurrentSession().internalSetResult(result);
 		popCurrentSessionFromStack();
 	}
 	
@@ -92,7 +92,7 @@ final class ClientSessionManager<
 		GlobalValidator.assertThat(session).isOfType(Session.class);
 		
 		//Sets the given session to the Client of the current ClientSessionManager.
-		session.setParentClient(parentClient.asConcrete());
+		session.internalSetParentClient(parentClient.asConcrete());
 		
 		//Pushes the given session to the current ClientSessionManager.
 		sessionStack.addAtEnd(session);
@@ -112,7 +112,7 @@ final class ClientSessionManager<
 		
 		parentClient.internalAssertIsOpen();
 		
-		return (R)session.getStoredResult();
+		return (R)session.internalGetStoredResult();
 	}
 	
 	//method
@@ -197,7 +197,7 @@ final class ClientSessionManager<
 	//method
 	private void popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession() {
 		final var topSession = sessionStack.removeAndGetRefLast();
-		topSession.removeParentClient();
+		topSession.internalRemoveParentClient();
 	}
 	
 	//method

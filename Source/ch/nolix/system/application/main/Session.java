@@ -65,7 +65,7 @@ public abstract class Session<
 	 * @return
 	 * the context of the parent {@link Application} of the parent {@link Client} of the current {@link Session}.
 	 */
-	public AC getStoredApplicationContext() {
+	public final AC getStoredApplicationContext() {
 		return getStoredParentApplication().getStoredApplicationContext();
 	}
 	
@@ -83,7 +83,7 @@ public abstract class Session<
 	}
 	
 	//method
-	public boolean hasParentSession() {
+	public final boolean hasParentSession() {
 		return (getStoredParentClient().internalGetSessionStackSize() > 1);
 	}
 	
@@ -186,7 +186,8 @@ public abstract class Session<
 	 */
 	protected abstract void updateCounterpartActually();
 	
-	final Object getStoredResult() {
+	//method
+	final Object internalGetStoredResult() {
 		
 		if (result == null) {
 			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RESULT);
@@ -199,7 +200,7 @@ public abstract class Session<
 	/**
 	 * Removes the parent client of the current {@link Session}.
 	 */
-	final void removeParentClient() {
+	final void internalRemoveParentClient() {
 		parentClient = null;
 	}
 	
@@ -211,7 +212,7 @@ public abstract class Session<
 	 * @throws ArgumentIsNullException if the given parent client is null.
 	 * @throws InvalidArgumentException if the current {@link Session} belongs to a client.
 	 */
-	final void setParentClient(BC parentClient) {
+	final void internalSetParentClient(BC parentClient) {
 		
 		//Asserts that the given client is not null.
 		GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
@@ -224,7 +225,7 @@ public abstract class Session<
 	}
 	
 	//method
-	final void setResult(final Object result) {
+	final void internalSetResult(final Object result) {
 		
 		GlobalValidator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
 		
