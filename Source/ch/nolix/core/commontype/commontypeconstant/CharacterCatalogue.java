@@ -62,6 +62,15 @@ public final class CharacterCatalogue {
 	public static final char LONG_LEFT_RIGHT_ARROW = '\u27F7';
 	
 	//constant
+	public static final char LOWER_CASE_AE = '\u00E4';
+	
+	//constant
+	public static final char LOWER_CASE_OE = '\u00F6';
+	
+	//constant
+	public static final char LOWER_CASE_UE = '\u00FC';
+	
+	//constant
 	public static final char MINUS = '-';
 	
 	//constant
@@ -104,7 +113,16 @@ public final class CharacterCatalogue {
 	public static final char UNDERSCORE = '_';
 	
 	//constant
+	public static final char UPPERCASE_AE = '\u00C4';
+		
+	//constant
 	public static final char UPPERCASE_DELTA = '\u0394';
+	
+	//constant
+	public static final char UPPERCASE_OE = '\u00D6';
+	
+	//constant
+	public static final char UPPERCASE_UE = '\u00DC';
 	
 	//constant
 	public static final char ZERO = '0';

@@ -74,6 +74,15 @@ public final class StringCatalogue {
 	public static final String LONG_LEFT_RIGHT_ARROW = "\u27F7";
 	
 	//constant
+	public static final String LOWER_CASE_AE = "\u00E4";
+	
+	//constant
+	public static final String LOWER_CASE_OE = "\u00F6";
+	
+	//constant
+	public static final String LOWER_CASE_UE = "\u00FC";
+	
+	//constant
 	public static final String NEW_LINE = "\n";
 	
 	//constant
@@ -122,7 +131,16 @@ public final class StringCatalogue {
 	public static final String UNDERSCORE = "_";
 	
 	//constant
+	public static final String UPPERCASE_AE = "\u00C4";
+	
+	//constant
 	public static final String UPPERCASE_DELTA = "\u0394";
+	
+	//constant
+	public static final String UPPERCASE_OE = "\u00D6";
+	
+	//constant
+	public static final String UPPERCASE_UE = "\u00DC";
 	
 	//constant
 	public static final String ZERO = "0";
