@@ -4,7 +4,6 @@ package ch.nolix.system.webgui.main;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.web.css.Css;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
@@ -40,20 +39,22 @@ public final class WebGuiCssBuilder {
 			)
 		);
 		
+		cssRules.addAtEnd(
+			CssRule.withSelectorAndProperty(
+				"#root",
+				CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")
+			)
+		);
+		
 		if (webGui.hasBackground()) {
 			cssRules.addAtEnd(
 				CssRule.withSelectorAndProperties(
 					"#root",
-					ReadContainer.forIterable(
-						ReadContainer.forElement(
-							CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")	
-						),
-						webGui.getBackground().toCssProperties()
-					)
+					webGui.getBackground().toCssProperties()
 				)
 			);
 		}
-		
+				
 		fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
 	}
 	
