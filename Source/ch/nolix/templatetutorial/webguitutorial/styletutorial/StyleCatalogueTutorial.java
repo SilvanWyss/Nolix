@@ -5,7 +5,9 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
+import ch.nolix.system.graphic.image.Image;
 import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.atomiccontrol.Link;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
@@ -59,7 +61,10 @@ public final class StyleCatalogueTutorial {
 						.setText("Select style:"),
 						new DropdownMenu()
 						.addItemWithTextAndSelectAction("none", () -> getStoredGui().removeStyle())
-						.addItemWithTextAndSelectAction("Dark mode", () -> getStoredGui().setStyle(StyleCatalogue.DARK_MODE_STYLE))
+						.addItemWithTextAndSelectAction(
+							"Dark mode",
+							() -> getStoredGui().setStyle(StyleCatalogue.DARK_MODE_STYLE)
+						)
 					),
 					new Grid()
 					.insertTextAtRowAndColumn(1, 1, "Button")
@@ -67,7 +72,22 @@ public final class StyleCatalogueTutorial {
 					.insertTextAtRowAndColumn(2, 1, "Textbox")
 					.insertControlAtRowAndColumn(2, 2, new Textbox())
 					.insertTextAtRowAndColumn(3, 1, "Link")
-					.insertControlAtRowAndColumn(3, 2, new Link().setDisplayText("nolix.ch").setUrl("https://nolix.ch"))
+					.insertControlAtRowAndColumn(
+						3,
+						2,
+						new Link()
+						.setDisplayText("nolix.ch")
+						.setUrl("https://nolix.ch")
+					)
+					.insertTextAtRowAndColumn(4, 1, "ImageControl")
+					.insertControlAtRowAndColumn(
+						4,
+						2,
+						new ImageControl()
+						.setImage(
+							Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/singer_building.jpg")
+						)
+					)
 				)
 			)
 			.resetStyleRecursively();
