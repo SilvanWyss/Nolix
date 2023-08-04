@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
+//own imports
+import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+
 //enum
 enum CharacterType {
 	UPPER_CASE_LETTER,
@@ -39,9 +42,9 @@ enum CharacterType {
 			'X',
 			'Y',
 			'Z',
-			'Ä',
-			'Ö',
-			'Ü' ->
+			CharacterCatalogue.UPPERCASE_AE,
+			CharacterCatalogue.UPPERCASE_OE,
+			CharacterCatalogue.UPPERCASE_UE ->
 				CharacterType.UPPER_CASE_LETTER;
 			case
 			'a',
@@ -70,9 +73,9 @@ enum CharacterType {
 			'x',
 			'y',
 			'z',
-			'ä',
-			'ö',
-			'ü' ->
+			CharacterCatalogue.LOWER_CASE_AE,
+			CharacterCatalogue.LOWER_CASE_OE,
+			CharacterCatalogue.LOWER_CASE_UE ->
 				CharacterType.LOWER_CASE_LETTER;
 			case '_' ->
 				CharacterType.UNDERSCORE;
