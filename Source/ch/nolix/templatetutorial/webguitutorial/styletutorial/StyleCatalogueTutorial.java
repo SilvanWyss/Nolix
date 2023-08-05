@@ -16,6 +16,7 @@ import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
+import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 import ch.nolix.template.webgui.style.StyleCatalogue;
 
 public final class StyleCatalogueTutorial {
@@ -86,6 +87,15 @@ public final class StyleCatalogueTutorial {
 						new ImageControl()
 						.setImage(
 							Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/singer_building.jpg")
+						)
+					)
+					.insertTextAtRowAndColumn(5, 1, "Open show value dialog")
+					.insertControlAtRowAndColumn(
+						5,
+						2,
+						new Button()
+						.setLeftMouseButtonPressAction(
+							() -> getStoredGui().pushLayer(new ShowValueDialogBuilder().build())
 						)
 					)
 				)
