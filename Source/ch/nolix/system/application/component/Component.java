@@ -9,7 +9,10 @@ import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
-public abstract class Component<C extends Controller<AC>, AC> implements IComponent {
+public abstract class Component<
+	C extends Controller<AC>,
+	AC
+> implements IComponent {
 	
 	//attribute
 	private final SingleContainer rootControl = new SingleContainer();
@@ -36,7 +39,7 @@ public abstract class Component<C extends Controller<AC>, AC> implements ICompon
 	//method
 	@Override
 	public final boolean isAlive() {
-		return controller.getStoredSession().isAlive();
+		return getStoredSession().isAlive();
 	}
 	
 	//method
