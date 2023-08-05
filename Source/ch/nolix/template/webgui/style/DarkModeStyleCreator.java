@@ -30,8 +30,8 @@ final class DarkModeStyleCreator {
 	public Style createDarkModeStyle() {
 		return
 		new StyleBuilder()
-		.addAttachingAttribute("Background(Color(0x202020))")
 		.addSubStyle(
+			createLayerStyle(),
 			createControlStyle(),
 			createLinearContainerStyle(),
 			createGridStyle(),
@@ -49,6 +49,15 @@ final class DarkModeStyleCreator {
 			createDialogLayerStyle(),
 			createDialogContainerStyle()
 		)
+		.build();
+	}
+	
+	//method
+	private DeepSelectingStyle createLayerStyle() {
+		return
+		new DeepSelectingStyleBuilder()
+		.setSelectorType(Layer.class)
+		.addAttachingAttribute("Background(Color(0x202020))")
 		.build();
 	}
 	
