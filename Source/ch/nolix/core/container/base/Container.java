@@ -676,6 +676,8 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -764,6 +766,22 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		return min;
+	}
+	
+	//method
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final double getMinOrZero(IElementTakerElementGetter<E, Number> norm) {
+		
+		//Handles the case that the current Container is empty.
+		if (isEmpty()) {
+			return 0.0;
+		}
+		
+		//Handles the case that the current Container contains elements.
+		return getMinWhenContainsAny(norm);
 	}
 	
 	//method
@@ -1526,6 +1544,8 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
 	 * @param norm
 	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer} for
 	 * the case that the current {@link IContainer} contains elements.
@@ -1548,6 +1568,34 @@ public abstract class Container<E> implements IContainer<E> {
 		}
 		
 		return max;
+	}
+	
+	//method
+	/**
+	 * The complexity of this implementation is O(n) if the current {@link Container} contains n elements.
+	 * 
+	 * @param norm
+	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer} for
+	 * the case that the current {@link IContainer} contains elements.
+	 */
+	private double getMinWhenContainsAny(final IElementTakerElementGetter<E, Number> norm) {
+		
+		//Declares min.
+		var min = norm.getOutput(getStoredFirst()).doubleValue();
+		
+		//Iterates the current Container.
+		for (final var e : this) {
+			
+			//Extracts the current number.
+			final var number = norm.getOutput(e).doubleValue();
+			
+			//Handles the case that the current number is smaller than min.
+			if (number < min) {
+				min = number;
+			}
+		}
+		
+		return min;
 	}
 	
 	//method

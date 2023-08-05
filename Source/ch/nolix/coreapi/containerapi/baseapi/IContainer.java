@@ -305,6 +305,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	
 	//method declaration
 	/**
+	 * @param norm
+	 * @return the smallest value the given norm returns from the elements of the current {@link IContainer} if
+	 * the current {@link IContainer} contains elements, 0.0 otherwise.
+	 */
+	double getMinOrZero(IElementTakerElementGetter<E, Number> norm);
+	
+	//method declaration
+	/**
 	 * @return a randomly selected element of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */

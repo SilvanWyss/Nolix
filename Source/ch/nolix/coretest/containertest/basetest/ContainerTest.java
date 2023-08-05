@@ -691,6 +691,40 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_getMinOrZero_whenIsEmptyContainerForBigDecimals() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(BigDecimal.class);
+		
+		//execution
+		final var result = testUnit.getMinOrZero(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(0.0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMinOrZero_whenContainsBigDecimals() {
+		
+		//setup
+		final var testUnit =
+		createContainerWithElements(
+			BigDecimal.valueOf(10.0),
+			BigDecimal.valueOf(10.0),
+			BigDecimal.valueOf(11.5),
+			BigDecimal.valueOf(9.5)
+		);
+		
+		//execution
+		final var result = testUnit.getMinOrZero(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(9.5);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
 		
 		//setup
