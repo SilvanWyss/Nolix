@@ -98,6 +98,9 @@ public final class CssPropertyNameCatalogue {
 	public static final String OPACITY = "opacity";
 	
 	//constant
+	public static final String OVERFLOW = "overflow";
+	
+	//constant
 	public static final String PADDING_BOTTOM = "padding-bottom";
 	
 	//constant
