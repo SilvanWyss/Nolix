@@ -676,6 +676,22 @@ public abstract class Container<E> implements IContainer<E> {
 	
 	//method
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final double getMaxOrZero(IElementTakerElementGetter<E, Number> norm) {
+		
+		//Handles the case that the current Container is empty.
+		if (isEmpty()) {
+			return 0.0;
+		}
+		
+		//Handles the case that the current Container contains elements.
+		return getMaxWhenContainsAny(norm);
+	}
+	
+	//method
+	/**
 	 * The complexity of this implementation is O(n*log(n)) if the current {@link Container} contains n elements.
 	 * 
 	 * {@inheritDoc}
@@ -1506,6 +1522,32 @@ public abstract class Container<E> implements IContainer<E> {
 		if (isEmpty()) {
 			throw EmptyArgumentException.forArgument(this);
 		}
+	}
+	
+	//method
+	/**
+	 * @param norm
+	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer} for
+	 * the case that the current {@link IContainer} contains elements.
+	 */
+	private double getMaxWhenContainsAny(final IElementTakerElementGetter<E, Number> norm) {
+		
+		//Declares max.
+		var max = norm.getOutput(getStoredFirst()).doubleValue();
+		
+		//Iterates the current Container.
+		for (final var e : this) {
+			
+			//Extracts the current number.
+			final var number = norm.getOutput(e).doubleValue();
+			
+			//Handles the case that the current number is bigger than max.
+			if (number > max) {
+				max = number;
+			}
+		}
+		
+		return max;
 	}
 	
 	//method

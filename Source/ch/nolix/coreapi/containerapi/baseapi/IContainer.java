@@ -272,6 +272,14 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	//method declaration
 	/**
 	 * @param norm
+	 * @return the biggest value the given norm returns from the elements of the current {@link IContainer} if
+	 * the current {@link IContainer} contains elements, 0.0 otherwise.
+	 */
+	double getMaxOrZero(IElementTakerElementGetter<E, Number> norm);
+	
+	//method declaration
+	/**
+	 * @param norm
 	 * @return the median of the values the given norm returns from the elements of the current {@link IContainer}.
 	 * @throws RuntimeException if the current {@link IContainer} is empty.
 	 */

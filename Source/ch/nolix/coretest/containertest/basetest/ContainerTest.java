@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.containertest.basetest;
 
+import java.math.BigDecimal;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -554,6 +556,40 @@ public abstract class ContainerTest extends Test {
 		
 		//verification
 		expect(result).isEqualTo(6);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMaxOrZero_whenIsEmptyContainerForBigDecimals() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(BigDecimal.class);
+		
+		//execution
+		final var result = testUnit.getMaxOrZero(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(0.0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_getMaxOrZero_whenContainsBigDecimals() {
+		
+		//setup
+		final var testUnit =
+		createContainerWithElements(
+			BigDecimal.valueOf(10.0),
+			BigDecimal.valueOf(10.0),
+			BigDecimal.valueOf(11.5),
+			BigDecimal.valueOf(9.5)
+		);
+		
+		//execution
+		final var result = testUnit.getMaxOrZero(FunctionCatalogue::getSelf);
+		
+		//verification
+		expect(result).isEqualTo(11.5);
 	}
 	
 	//method
