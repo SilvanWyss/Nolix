@@ -48,7 +48,7 @@ public final class SecureButtonTutorial {
 		private void incrementCount() {
 			count++;
 			countLabel.setText(String.valueOf(count));
-			updateCounterpart();
+			refresh();
 		}
 	}
 	

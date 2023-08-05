@@ -71,7 +71,7 @@ public final class BlackWhiteMandelbrotFractalTutorial {
 			GlobalSequencer
 			.asLongAs(this::isAlive)
 			.afterEverySecond()
-			.runInBackground(this::updateCounterpart);
+			.runInBackground(this::refresh);
 		}
 	}
 	

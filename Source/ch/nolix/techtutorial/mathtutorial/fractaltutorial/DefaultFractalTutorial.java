@@ -46,7 +46,7 @@ public final class DefaultFractalTutorial {
 			GlobalSequencer
 			.asLongAs(this::isAlive)
 			.afterEverySecond()
-			.runInBackground(this::updateCounterpart);
+			.runInBackground(this::refresh);
 		}
 	}
 	

@@ -73,7 +73,7 @@ public final class CustomFractalTutorial {
 			GlobalSequencer
 			.asLongAs(this::isAlive)
 			.afterEverySecond()
-			.runInBackground(this::updateCounterpart);
+			.runInBackground(this::refresh);
 		}
 	}
 	

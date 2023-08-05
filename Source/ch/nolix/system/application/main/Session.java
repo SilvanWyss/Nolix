@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.requestapi.AlivenessRequestable;
+import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 
 //class
 /**
@@ -23,7 +23,7 @@ public abstract class Session<
 	BC extends BackendClient<BC, AC>,
 	AC
 >
-implements AlivenessRequestable {
+implements IRefreshableSubscriber {
 	
 	//attribute
 	private BC parentClient;
@@ -152,7 +152,8 @@ implements AlivenessRequestable {
 	/**
 	 * Updates the counterpart of the {@link Client} of the current {@link Session}.
 	 */
-	public final synchronized void updateCounterpart() {
+	@Override
+	public final synchronized void refresh() {
 		
 		updateCounterpartIsRequired = true;
 		

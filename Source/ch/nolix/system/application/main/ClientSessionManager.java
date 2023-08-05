@@ -176,7 +176,7 @@ final class ClientSessionManager<
 		 * it could be popped from the Client by the fullInitialize method.
 		 */
 		if (parentClient.isOpen() && session.belongsToClient()) {
-			session.updateCounterpart();
+			session.refresh();
 		}
 	}
 	

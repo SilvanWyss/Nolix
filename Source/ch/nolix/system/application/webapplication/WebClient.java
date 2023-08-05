@@ -121,7 +121,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	//method
 	private void updateCounterpartIfOpen() {
 		if (isOpen()) {
-			((WebClientSession<AC>)getStoredCurrentSession()).updateCounterpart();
+			((WebClientSession<AC>)getStoredCurrentSession()).refresh();
 		}
 	}
 }

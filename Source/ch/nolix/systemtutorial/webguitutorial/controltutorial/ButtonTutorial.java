@@ -50,7 +50,7 @@ public final class ButtonTutorial {
 		private void incrementCount() {
 			count++;
 			countLabel.setText(String.valueOf(count));
-			updateCounterpart();
+			refresh();
 		}
 	}
 	
