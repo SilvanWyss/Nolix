@@ -30,12 +30,17 @@ public final class LayerCssBuilder {
 		
 		final var cssProperties = new LinkedList<ICssProperty>();
 		
+		if (layer.getStoredParentGui().getStoredTopLayer() == layer) {
+			cssProperties.addAtEnd(CssProperty.withNameAndValue("position", "absolute"));
+		} else {
+			cssProperties.addAtEnd(CssProperty.withNameAndValue("position", "fixed"));
+		}
+		
 		if (layer.getOpacity() != 1.0) {
 			cssProperties.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.OPACITY, layer.getOpacity()));
 		}
 		
 		cssProperties.addAtEnd(
-			CssProperty.withNameAndValue("position", "absolute"),
 			getZIndexCssPropertyForLayer(layer),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_WIDTH, "100vw"),
 			CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh"),
