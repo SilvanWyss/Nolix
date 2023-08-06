@@ -48,10 +48,15 @@ implements IComponent {
 	//method
 	@Override
 	public final void refresh() {
-		
-		fillUpRootControl();
-		
-		getStoredSession().updateControlOnCounterpart(rootControl);
+		if (
+			rootControl.belongsToGui()
+			&& rootControl.getStoredParentLayer() == rootControl.getStoredParentGui().getStoredTopLayer()
+		) {
+			
+			fillUpRootControl();
+			
+			getStoredSession().updateControlOnCounterpart(rootControl);
+		}
 	}
 	
 	//method declaration
