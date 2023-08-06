@@ -28,6 +28,8 @@ public abstract class Component<
 		this.controller = controller;
 		
 		fillUpRootControl();
+		
+		doRegistrations(controller);
 	}
 	
 	//method
@@ -58,6 +60,9 @@ public abstract class Component<
 	
 	//method declaration
 	protected abstract IControl<?, ?> createControl(C controller);
+	
+	//method declaration
+	protected abstract void doRegistrations(C controller);
 	
 	//method
 	private void fillUpRootControl() {

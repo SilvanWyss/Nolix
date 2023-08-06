@@ -58,6 +58,11 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
 		);
 	}
 	
+	@Override
+	protected void doRegistrations(final WebApplicationController controller) {
+		//Does nothing.
+	}
+	
 	//method
 	private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationSheet webApplicationSheet) {
 		
