@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.databaseandschemaadapter;
 //own imports
 import ch.nolix.core.document.node.FileNode;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.nodedatabaserawdata.databaseadapter.DatabaseAdapter;
+import ch.nolix.system.nodedatabaserawdata.dataadapter.DataAdapter;
 import ch.nolix.system.nodedatabaserawschema.schemaadapter.SchemaAdapter;
 import ch.nolix.system.rawdatabase.databaseandschemaadapter.BaseDataAndSchemaAdapter;
 
@@ -23,6 +23,6 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//constructor
 	private DataAndSchemaAdapter(final IMutableNode<?> nodeDatabase) {
-		super(DatabaseAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
+		super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
 	}
 }

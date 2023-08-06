@@ -7,12 +7,12 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataReader;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
-public final class DatabaseReader implements IDatabaseReader {
+public final class DatabaseReader implements IDataReader {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);

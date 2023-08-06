@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabaserawdata.databaseadapter;
+package ch.nolix.system.sqldatabaserawdata.dataadapter;
 
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
@@ -7,18 +7,18 @@ import ch.nolix.system.sqldatabaserawdata.sqlsyntax.SqlSyntaxProvider;
 import ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter;
 
 //class
-public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
+public final class MsSqlDataAdapter extends DataAdapter {
 	
 	//static method
-	public static MsSqlDatabaseAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+	public static MsSqlDataAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool
 	) {
-		return new MsSqlDatabaseAdapter(databaseName, sqlConnectionPool);
+		return new MsSqlDataAdapter(databaseName, sqlConnectionPool);
 	}
 	
 	//constructor
-	private MsSqlDatabaseAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
+	private MsSqlDataAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
 		super(
 			databaseName,
 			sqlConnectionPool,

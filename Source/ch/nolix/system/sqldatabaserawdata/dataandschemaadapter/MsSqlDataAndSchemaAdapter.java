@@ -4,29 +4,29 @@ package ch.nolix.system.sqldatabaserawdata.dataandschemaadapter;
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.rawdatabase.databaseandschemaadapter.BaseDataAndSchemaAdapter;
-import ch.nolix.system.sqldatabaserawdata.databaseadapter.MsSqlDatabaseAdapter;
+import ch.nolix.system.sqldatabaserawdata.dataadapter.MsSqlDataAdapter;
 import ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter;
 
 //class
-public final class MsSqlDatabaseAndSchemaAdapter extends BaseDataAndSchemaAdapter {
+public final class MsSqlDataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 	
 	//static method
-	public static MsSqlDatabaseAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+	public static MsSqlDataAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool
 	) {
 		return
-		new MsSqlDatabaseAndSchemaAdapter(
-			MsSqlDatabaseAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
+		new MsSqlDataAndSchemaAdapter(
+			MsSqlDataAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
 			MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool)
 		);
 	}
 		
 	//constructor
-	private MsSqlDatabaseAndSchemaAdapter(
-		final MsSqlDatabaseAdapter msSqlDatabaseAdapter,
+	private MsSqlDataAndSchemaAdapter(
+		final MsSqlDataAdapter msSqlDataAdapter,
 		final MsSqlSchemaAdapter msSqlSchemaAdapter
 	) {
-		super(msSqlDatabaseAdapter, msSqlSchemaAdapter);
+		super(msSqlDataAdapter, msSqlSchemaAdapter);
 	}
 }

@@ -35,17 +35,17 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var john = new Person();
-		nodeDatabaseAdapter.insert(john);
+		nodeDataAdapter.insert(john);
 		
 		//execution
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.saveChanges();
 		
 		//verification
 		final var loadedJohn =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		expect(loadedJohn.pet.isEmpty());
 	}
 	
@@ -56,13 +56,13 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
+		nodeDataAdapter.insert(garfield);
 		final var john = new Person();
 		john.pet.setEntity(garfield);
-		nodeDatabaseAdapter.insert(john);
+		nodeDataAdapter.insert(john);
 		
 		//execution
 		final var result = john.pet.getReferencedEntity();
@@ -78,18 +78,18 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
+		nodeDataAdapter.insert(garfield);
 		final var john = new Person();
 		john.pet.setEntity(garfield);
-		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(john);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedJohn =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		
 		//execution
 		final var result = loadedJohn.pet.getReferencedEntity();
@@ -105,30 +105,30 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
 		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(garfield);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2: Prepares a change.
-		final var nodeDatabaseAdapterB =
+		final var nodeDataAdapterB =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var loadedGarfieldB =
-		nodeDatabaseAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+		nodeDataAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var johnB = new Person();
 		johnB.pet.setEntity(loadedGarfieldB);
-		nodeDatabaseAdapterB.insert(johnB);
+		nodeDataAdapterB.insert(johnB);
 		
 		//setup part 3: Deletes the referenced Entity.
-		final var nodeDatabaseAdapterC =
+		final var nodeDataAdapterC =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var loadedGarfieldC =
-		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+		nodeDataAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedGarfieldC.delete();
-		nodeDatabaseAdapterC.saveChanges();
+		nodeDataAdapterC.saveChanges();
 				
 		//execution & verification: Tries to save when the referenced Entity was deleted.
-		expectRunning(nodeDatabaseAdapterB::saveChanges).throwsException();
+		expectRunning(nodeDataAdapterB::saveChanges).throwsException();
 	}
 }

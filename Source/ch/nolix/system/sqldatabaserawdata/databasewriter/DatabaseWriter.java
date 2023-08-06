@@ -7,7 +7,7 @@ import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class DatabaseWriter implements IDatabaseWriter {
+public final class DatabaseWriter implements IDataWriter {
 	
 	//static method
 	public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(

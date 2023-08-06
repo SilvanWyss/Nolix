@@ -47,17 +47,17 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
+		nodeDataAdapter.insert(garfield);
 		
 		//execution
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.saveChanges();
 		
 		//verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		expectNot(loadedGarfield.hasName());
 	}
 	
@@ -68,11 +68,11 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		garfield.setName("Garfield");
-		nodeDatabaseAdapter.insert(garfield);
+		nodeDataAdapter.insert(garfield);
 				
 		//execution
 		final var result = garfield.getName();
@@ -88,16 +88,16 @@ public final class OptionalValueOnDatabaseTest extends Test {
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		garfield.setName("Garfield");
-		nodeDatabaseAdapter.insert(garfield);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(garfield);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		
 		//execution
 		final var result = loadedGarfield.getName();

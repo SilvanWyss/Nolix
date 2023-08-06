@@ -1,11 +1,12 @@
 package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
-import ch.nolix.system.objectdatabase.dataadapter.MsSqlDataAdapter;
+import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
-public final class MsSqlDatabaseAdapterTutorial {
+public final class NodeDataAdapterTutorial {
 	
 	private static final class Person extends Entity {
 		
@@ -20,29 +21,25 @@ public final class MsSqlDatabaseAdapterTutorial {
 	
 	public static void main(String[] args) {
 		
+		final var nodeDatabase = new MutableNode();
+		
 		final var schema = Schema.withEntityType(Person.class);
 		
-		final var msSqlNodeDatabaseAdapter =
-		MsSqlDataAdapter
-		.toLocalHost()
-		.andDefaultPort()
-		.toDatabase("TestDB")
-		.usingLoginName("sa")
-		.andLoginPassword("sa1234")
-		.andSchema(schema);
+		final var nodeDataAdapter =
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("TestDB").usingSchema(schema);
 		
 		final var donaldDuck = new Person();
 		donaldDuck.firstName.setValue("Donald");
 		donaldDuck.lastName.setValue("Duck");
-		msSqlNodeDatabaseAdapter.insert(donaldDuck);
+		nodeDataAdapter.insert(donaldDuck);
 		
-		msSqlNodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.saveChanges();
 		
 		final var loadedDonaldDuck =
-		msSqlNodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());
 		
 		System.out.println(loadedDonaldDuck.toString());
 	}
 	
-	private MsSqlDatabaseAdapterTutorial() {}
+	private NodeDataAdapterTutorial() {}
 }

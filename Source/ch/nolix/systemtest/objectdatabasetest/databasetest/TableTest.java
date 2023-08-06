@@ -46,15 +46,15 @@ public final class TableTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);	
-		final var testUnit = nodeDatabaseAdapter.getStoredTableByEntityType(Person.class);
+		final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Person.class);
 		
 		//execution
 		final var result = testUnit.getStoredEntities();
 		
 		//verification
-		expectNot(nodeDatabaseAdapter.hasChanges());
+		expectNot(nodeDataAdapter.hasChanges());
 		expect(result).isEmpty();
 	}
 	
@@ -65,17 +65,17 @@ public final class TableTest extends Test {
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var person = new Person();
 		person.setFirstNameAndLastName("Donald", "Duck");
-		nodeDatabaseAdapter.insert(person);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(person);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2
-		final var nodeDatabaseAdapter2 =
+		final var nodeDataAdapter2 =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);		
-		final var testUnit = nodeDatabaseAdapter2.getStoredTableByEntityType(Person.class);
+		final var testUnit = nodeDataAdapter2.getStoredTableByEntityType(Person.class);
 		
 		//execution
 		final var result = testUnit.getStoredEntities();

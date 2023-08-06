@@ -32,15 +32,15 @@ public final class MultiValueOnDatabaseTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Round.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var round = new Round();
-		nodeDatabaseAdapter.insert(round);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(round);
+		nodeDataAdapter.saveChanges();
 		
 		//execution
 		final var loadedRound =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 		
 		//verification
 		expect(loadedRound.amounts.getStoredValues().isEmpty());
@@ -53,19 +53,19 @@ public final class MultiValueOnDatabaseTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Round.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var round = new Round();
 		round.amounts.addValue(10);
 		round.amounts.addValue(20);
 		round.amounts.addValue(30);
 		round.amounts.addValue(40);
-		nodeDatabaseAdapter.insert(round);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(round);
+		nodeDataAdapter.saveChanges();
 		
 		//execution
 		final var loadedRound =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 		
 		//verification
 		final var loadedValues = loadedRound.amounts.getStoredValues();
@@ -80,19 +80,19 @@ public final class MultiValueOnDatabaseTest extends Test {
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Round.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var round = new Round();
 		round.amounts.addValue(10);
 		round.amounts.addValue(20);
 		round.amounts.addValue(30);
 		round.amounts.addValue(40);
-		nodeDatabaseAdapter.insert(round);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(round);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedRound =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 		
 		//execution
 		loadedRound.amounts.removeValue(40);

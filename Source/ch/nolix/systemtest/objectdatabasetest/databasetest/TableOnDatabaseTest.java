@@ -28,12 +28,12 @@ public final class TableOnDatabaseTest extends Test {
 		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Thing.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var thing = new Thing();
 		
 		//setup part 2: Gains test unit.
-		final var testUnit = nodeDatabaseAdapter.getStoredTableByEntityType(Thing.class);
+		final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 		
 		//execution
 		final var result = testUnit.containsEntityWithId(thing.getId());
@@ -49,14 +49,14 @@ public final class TableOnDatabaseTest extends Test {
 		//setup part 1: Initializes database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Thing.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var thing = new Thing();
-		nodeDatabaseAdapter.insert(thing);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(thing);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2: Gains test unit.
-		final var testUnit = nodeDatabaseAdapter.getStoredTableByEntityType(Thing.class);
+		final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 		
 		//execution
 		final var result = testUnit.containsEntityWithId(thing.getId());

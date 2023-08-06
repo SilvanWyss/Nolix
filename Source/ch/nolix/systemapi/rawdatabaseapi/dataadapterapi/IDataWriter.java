@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
+package ch.nolix.systemapi.rawdatabaseapi.dataadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
@@ -12,7 +12,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
  * @author Silvan Wyss
  * @date 2021-09-19
  */
-public interface IDatabaseWriter extends IResettableChangeSaver {
+public interface IDataWriter extends IResettableChangeSaver {
 	
 	//method declaration
 	/**

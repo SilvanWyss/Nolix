@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
@@ -14,7 +14,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public final class DatabaseWriter implements IDatabaseWriter {
+public final class DatabaseWriter implements IDataWriter {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);

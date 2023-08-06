@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi;
+package ch.nolix.systemapi.rawdatabaseapi.dataadapterapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
@@ -7,7 +7,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
-public interface IDatabaseReader extends GroupCloseable {
+public interface IDataReader extends GroupCloseable {
 	
 	//method
 	ITime getSchemaTimestamp();

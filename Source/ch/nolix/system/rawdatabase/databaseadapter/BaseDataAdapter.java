@@ -5,9 +5,9 @@ package ch.nolix.system.rawdatabase.databaseadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseAdapter;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseReader;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseWriter;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataReader;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
@@ -15,28 +15,28 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //class
-public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
+public abstract class BaseDataAdapter implements IDataAdapter {
 	
 	//attribute
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final IDatabaseReader databaseReader;
+	private final IDataReader dataReader;
 	
 	//attribute
-	private final IDatabaseWriter databaseWriter;
+	private final IDataWriter dataWriter;
 	
 	//constructor
-	protected BaseDatabaseAdapter(final IDatabaseReader databaseReader, final IDatabaseWriter databaseWriter) {
+	protected BaseDataAdapter(final IDataReader dataReader, final IDataWriter dataWriter) {
 		
-		GlobalValidator.assertThat(databaseReader).thatIsNamed(IDatabaseReader.class).isNotNull();
-		GlobalValidator.assertThat(databaseWriter).thatIsNamed(IDatabaseWriter.class).isNotNull();
+		GlobalValidator.assertThat(dataReader).thatIsNamed(IDataReader.class).isNotNull();
+		GlobalValidator.assertThat(dataWriter).thatIsNamed(IDataWriter.class).isNotNull();
 		
-		this.databaseReader = databaseReader;
-		this.databaseWriter = databaseWriter;
+		this.dataReader = dataReader;
+		this.dataWriter = dataWriter;
 		
-		getStoredCloseController().createCloseDependencyTo(databaseReader);
-		getStoredCloseController().createCloseDependencyTo(databaseWriter);
+		getStoredCloseController().createCloseDependencyTo(dataReader);
+		getStoredCloseController().createCloseDependencyTo(dataWriter);
 	}
 	
 	//method
@@ -46,7 +46,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		databaseWriter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
+		dataWriter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -56,7 +56,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String entityId,
 		final String multiFieldColumn
 	) {
-		databaseWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
+		dataWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
 	}
 	
 	//method
@@ -67,7 +67,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String multiRefereceColumnName,
 		final String referencedEntityId
 	) {
-		databaseWriter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
+		dataWriter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
 	}
 	
 	//method
@@ -78,25 +78,25 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String multiFieldColumn,
 		final String entry
 	) {
-		databaseWriter.deleteMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
+		dataWriter.deleteMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
 	}
 	
 	//method
 	@Override
 	public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-		databaseWriter.deleteEntity(tableName, entity);
+		dataWriter.deleteEntity(tableName, entity);
 	}
 	
 	//method
 	@Override
 	public final void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
-		databaseWriter.expectGivenSchemaTimestamp(schemaTimestamp);
+		dataWriter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	@Override
 	public final void expectTableContainsEntity(final String tableName, final String entityId) {
-		databaseWriter.expectTableContainsEntity(tableName, entityId);
+		dataWriter.expectTableContainsEntity(tableName, entityId);
 	}
 	
 	//method
@@ -108,19 +108,19 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	//method
 	@Override
 	public final int getSaveCount() {
-		return databaseWriter.getSaveCount();
+		return dataWriter.getSaveCount();
 	}
 	
 	//method
 	@Override
 	public final ITime getSchemaTimestamp() {
-		return databaseReader.getSchemaTimestamp();
+		return dataReader.getSchemaTimestamp();
 	}
 	
 	//method
 	@Override
 	public final boolean hasChanges() {
-		return databaseWriter.hasChanges();
+		return dataWriter.hasChanges();
 	}
 	
 	//method
@@ -131,7 +131,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String multiReferenceColumnName,
 		final String referencedEntityId
 	) {
-		databaseWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+		dataWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
 	}
 	
 	//method
@@ -142,13 +142,13 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String multiFieldColumn,
 		final String entry
 	) {
-		databaseWriter.insertMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
+		dataWriter.insertMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
 	}
 	
 	//method
 	@Override
 	public final void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
-		databaseWriter.insertNewEntity(tableName, newEntity);
+		dataWriter.insertNewEntity(tableName, newEntity);
 	}
 	
 	@Override
@@ -157,7 +157,7 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return databaseReader.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
+		return dataReader.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -167,19 +167,19 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return databaseReader.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
+		return dataReader.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	
 	@Override
 	public final IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
-		return databaseReader.loadEntitiesOfTable(tableName);
+		return dataReader.loadEntitiesOfTable(tableName);
 	}
 	
 	//method
 	@Override
 	public final ILoadedEntityDto loadEntity(final String tableName, final String id) {
-		return databaseReader.loadEntity(tableName, id);
+		return dataReader.loadEntity(tableName, id);
 	}
 	
 	//method
@@ -189,19 +189,19 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 	//method
 	@Override
 	public final void reset() {
-		databaseWriter.reset();
+		dataWriter.reset();
 	}
 	
 	//method
 	@Override
 	public final void saveChanges() {
-		databaseWriter.saveChanges();
+		dataWriter.saveChanges();
 	}
 	
 	//method
 	@Override
 	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-		databaseWriter.setEntityAsUpdated(tableName, entity);
+		dataWriter.setEntityAsUpdated(tableName, entity);
 	}
 	
 	//method
@@ -211,18 +211,18 @@ public abstract class BaseDatabaseAdapter implements IDatabaseAdapter {
 		final String columnName,
 		final String value
 	) {
-		return databaseReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
+		return dataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
 	}
 	
 	//method
 	@Override
 	public final boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
-		return databaseReader.tableContainsEntityWithGivenId(tableName, id);
+		return dataReader.tableContainsEntityWithGivenId(tableName, id);
 	}
 	
 	//method
 	@Override
 	public final void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
-		databaseWriter.updateEntity(tableName, entityUpdate);
+		dataWriter.updateEntity(tableName, entityUpdate);
 	}
 }

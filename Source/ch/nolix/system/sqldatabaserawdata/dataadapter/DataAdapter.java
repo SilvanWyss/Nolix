@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.system.sqldatabaserawdata.databaseadapter;
+package ch.nolix.system.sqldatabaserawdata.dataadapter;
 
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.rawdatabase.databaseadapter.BaseDatabaseAdapter;
+import ch.nolix.system.rawdatabase.databaseadapter.BaseDataAdapter;
 import ch.nolix.system.sqldatabaserawdata.databaseinspector.DatabaseInspector;
 import ch.nolix.system.sqldatabaserawdata.databasereader.DatabaseReader;
 import ch.nolix.system.sqldatabaserawdata.databasewriter.DatabaseWriter;
@@ -13,13 +13,13 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
-public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
+public abstract class DataAdapter extends BaseDataAdapter {
 	
 	//constant
 	private static final DatabaseInspector DATABASE_INSPECTOR = new DatabaseInspector();
 		
 	//constructor
-	protected DatabaseAdapter(
+	protected DataAdapter(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool,
 		final ISchemaAdapter schemaAdapter,
@@ -37,7 +37,7 @@ public abstract class DatabaseAdapter extends BaseDatabaseAdapter {
 	}
 	
 	//constructor
-	private DatabaseAdapter(
+	private DataAdapter(
 		final String databaseName,
 		final SqlConnectionPool sqlConnectionPool,
 		final IContainer<ITableInfo> tableInfos,

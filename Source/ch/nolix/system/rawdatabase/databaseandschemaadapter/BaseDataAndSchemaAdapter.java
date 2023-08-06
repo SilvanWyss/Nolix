@@ -5,7 +5,7 @@ package ch.nolix.system.rawdatabase.databaseandschemaadapter;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.rawdatabaseapi.databaseadapterapi.IDatabaseAdapter;
+import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
@@ -24,24 +24,24 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//attribute
-	private final IDatabaseAdapter databaseAdapter;
+	private final IDataAdapter dataAdapter;
 	
 	//attribute
 	private final ISchemaReader schemaReader;
 	
 	//constructor
 	protected BaseDataAndSchemaAdapter(
-		final IDatabaseAdapter databaseAdapter,
+		final IDataAdapter dataAdapter,
 		final ISchemaReader schemaReader
 	) {
 		
-		GlobalValidator.assertThat(databaseAdapter).thatIsNamed(IDatabaseAdapter.class).isNotNull();
+		GlobalValidator.assertThat(dataAdapter).thatIsNamed(IDataAdapter.class).isNotNull();
 		GlobalValidator.assertThat(schemaReader).thatIsNamed(ISchemaReader.class).isNotNull();
 		
-		this.databaseAdapter = databaseAdapter;
+		this.dataAdapter = dataAdapter;
 		this.schemaReader = schemaReader;
 		
-		getStoredCloseController().createCloseDependencyTo(databaseAdapter);
+		getStoredCloseController().createCloseDependencyTo(dataAdapter);
 		getStoredCloseController().createCloseDependencyTo(schemaReader);
 	}
 	
@@ -58,7 +58,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		databaseAdapter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
+		dataAdapter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -68,7 +68,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String entityId,
 		final String multiValueColumnName
 	) {
-		databaseAdapter.deleteMultiValueEntries(tableName, entityId, multiValueColumnName);
+		dataAdapter.deleteMultiValueEntries(tableName, entityId, multiValueColumnName);
 	}
 	
 	//method
@@ -79,7 +79,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String multiRefereceColumnName,
 		final String referencedEntityId
 	) {
-		databaseAdapter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
+		dataAdapter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
 	}
 	
 	//method
@@ -90,25 +90,25 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String multiValueColumnName,
 		final String entry
 	) {
-		databaseAdapter.deleteMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
+		dataAdapter.deleteMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
 	}
 	
 	//method
 	@Override
 	public final void deleteEntity(final String tableName, final IEntityHeadDto entity) {
-		databaseAdapter.deleteEntity(tableName, entity);
+		dataAdapter.deleteEntity(tableName, entity);
 	}
 	
 	//method
 	@Override
 	public final void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
-		databaseAdapter.expectGivenSchemaTimestamp(schemaTimestamp);
+		dataAdapter.expectGivenSchemaTimestamp(schemaTimestamp);
 	}
 	
 	//method
 	@Override
 	public final void expectTableContainsEntity(final String tableName, final String entityId) {
-		databaseAdapter.expectTableContainsEntity(tableName, entityId);
+		dataAdapter.expectTableContainsEntity(tableName, entityId);
 	}
 	
 	//method
@@ -120,13 +120,13 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	//method
 	@Override
 	public final int getSaveCount() {
-		return databaseAdapter.getSaveCount();
+		return dataAdapter.getSaveCount();
 	}
 	
 	//method
 	@Override
 	public final ITime getSchemaTimestamp() {
-		return databaseAdapter.getSchemaTimestamp();
+		return dataAdapter.getSchemaTimestamp();
 	}
 	
 	//method
@@ -138,7 +138,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	//method
 	@Override
 	public final boolean hasChanges() {
-		return databaseAdapter.hasChanges();
+		return dataAdapter.hasChanges();
 	}
 	
 	//method
@@ -149,7 +149,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String multiReferenceColumnName,
 		final String referencedEntityId
 	) {
-		databaseAdapter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
+		dataAdapter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
 	}
 	
 	//method
@@ -160,13 +160,13 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String multiValueColumnName,
 		final String entry
 	) {
-		databaseAdapter.insertMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
+		dataAdapter.insertMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
 	}
 	
 	//method
 	@Override
 	public final void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
-		databaseAdapter.insertNewEntity(tableName, newEntity);
+		dataAdapter.insertNewEntity(tableName, newEntity);
 	}
 	
 	//method
@@ -176,7 +176,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String entityId,
 		final String multiReferenceColumnName
 	) {
-		return databaseAdapter.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
+		return dataAdapter.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
 	}
 	
 	//method
@@ -186,13 +186,13 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String entityId,
 		final String multiFieldColumnName
 	) {
-		return databaseAdapter.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
+		return dataAdapter.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
 	}
 	
 	//method	
 	@Override
 	public final IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
-		return databaseAdapter.loadEntitiesOfTable(tableName);
+		return dataAdapter.loadEntitiesOfTable(tableName);
 	}
 	
 	//method
@@ -228,7 +228,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	//method
 	@Override
 	public final ILoadedEntityDto loadEntity(final String tableName, final String id) {
-		return databaseAdapter.loadEntity(tableName, id);
+		return dataAdapter.loadEntity(tableName, id);
 	}
 	
 	//method
@@ -262,19 +262,19 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 	//method
 	@Override
 	public final void reset() {
-		databaseAdapter.reset();
+		dataAdapter.reset();
 	}
 	
 	//method
 	@Override
 	public final void saveChanges() {
-		databaseAdapter.saveChanges();
+		dataAdapter.saveChanges();
 	}
 	
 	//method
 	@Override
 	public final void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
-		databaseAdapter.setEntityAsUpdated(tableName, entity);
+		dataAdapter.setEntityAsUpdated(tableName, entity);
 	}
 	
 	//method
@@ -284,18 +284,18 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 		final String columnName,
 		final String value
 	) {
-		return databaseAdapter.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
+		return dataAdapter.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
 	}
 	
 	//method
 	@Override
 	public final boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
-		return databaseAdapter.tableContainsEntityWithGivenId(tableName, id);
+		return dataAdapter.tableContainsEntityWithGivenId(tableName, id);
 	}
 	
 	//method
 	@Override
 	public final void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
-		databaseAdapter.updateEntity(tableName, entityUpdate);
+		dataAdapter.updateEntity(tableName, entityUpdate);
 	}
 }

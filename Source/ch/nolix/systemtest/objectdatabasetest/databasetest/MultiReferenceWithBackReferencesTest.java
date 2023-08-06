@@ -46,32 +46,32 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
+		nodeDataAdapter.insert(garfield);
 		final var simba = new Pet();
-		nodeDatabaseAdapter.insert(simba);
+		nodeDataAdapter.insert(simba);
 		final var odie = new Pet();
-		nodeDatabaseAdapter.insert(odie);
+		nodeDataAdapter.insert(odie);
 		final var john = new Person();
 		john.pets.addEntity(garfield);
 		john.pets.addEntity(simba);
 		john.pets.addEntity(odie);
-		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(john);
+		nodeDataAdapter.saveChanges();
 		
 		//execution
 		final var loadedJohn =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		
 		//verification
 		final var loadedGarfield =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var loadedSimba =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
 		final var loadedOdie =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
 		expect(loadedJohn.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield, loadedSimba, loadedOdie);
 		expect(loadedGarfield.owner.getBackReferencedEntity()).is(loadedJohn);
 		expect(loadedSimba.owner.getBackReferencedEntity()).is(loadedJohn);
@@ -85,42 +85,42 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		//setup part 1
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
-		final var nodeDatabaseAdapter =
+		final var nodeDataAdapter =
 		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
-		nodeDatabaseAdapter.insert(garfield);
+		nodeDataAdapter.insert(garfield);
 		final var simba = new Pet();
-		nodeDatabaseAdapter.insert(simba);
+		nodeDataAdapter.insert(simba);
 		final var odie = new Pet();
-		nodeDatabaseAdapter.insert(odie);
+		nodeDataAdapter.insert(odie);
 		final var john = new Person();
 		john.pets.addEntity(garfield);
 		john.pets.addEntity(simba);
 		john.pets.addEntity(odie);
-		nodeDatabaseAdapter.insert(john);
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.insert(john);
+		nodeDataAdapter.saveChanges();
 		
 		//setup part 2
 		final var loadedJohn1 =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		final var loadedOdie1 =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
 		
 		//execution
 		loadedJohn1.pets.removeEntity(loadedOdie1);
 		loadedOdie1.delete();
-		nodeDatabaseAdapter.saveChanges();
+		nodeDataAdapter.saveChanges();
 		
 		//verification part 1
 		expectNot(loadedJohn1.pets.referencesEntity(loadedOdie1));
 		
 		//verification part 2
 		final var loadedJohn2 =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 		final var loadedGarfield2 =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var loadedSimba2 =
-		nodeDatabaseAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
+		nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
 		expect(loadedJohn2.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield2, loadedSimba2);
 	}
 }
