@@ -7,9 +7,9 @@ import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileExce
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
-import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
 //class
@@ -39,7 +39,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var testUnit = new Pet();
 		testUnit.ageInYears.setValue(0);
 		testUnit.setInsertAction_(() -> testUnit.ageInYears.setValue(1));
@@ -62,7 +62,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		garfield.ageInYears.setValue(5);
 		nodeDatabaseAdapter.insert(garfield);
@@ -82,7 +82,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapterA =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldA = new Pet();
 		garfieldA.ageInYears.setValue(5);
 		nodeDatabaseAdapterA.insert(garfieldA);
@@ -90,14 +90,14 @@ public final class EntityOnDatabaseTest extends Test {
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldB =
 		nodeDatabaseAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
 		garfieldB.ageInYears.setValue(6);
 		
 		//setup part 3: Makes a change.
 		final var nodeDatabaseAdapterC =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldC =
 		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
 		garfieldC.ageInYears.setValue(6);
@@ -118,7 +118,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapterA =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldA = new Pet();
 		garfieldA.ageInYears.setValue(5);
 		nodeDatabaseAdapterA.insert(garfieldA);
@@ -126,14 +126,14 @@ public final class EntityOnDatabaseTest extends Test {
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldB =
 		nodeDatabaseAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
 		garfieldB.ageInYears.setValue(6);
 		
 		//setup part 3: Deletes the Entity.
 		final var nodeDatabaseAdapterC =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfieldC =
 		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfieldA.getId());
 		garfieldC.delete();
@@ -154,7 +154,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		garfield.ageInYears.setValue(5);
 		nodeDatabaseAdapter.insert(garfield);
@@ -191,7 +191,7 @@ public final class EntityOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		garfield.ageInYears.setValue(5);
 		nodeDatabaseAdapter.insert(garfield);

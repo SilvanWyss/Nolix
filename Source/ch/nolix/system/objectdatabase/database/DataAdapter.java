@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
-import ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi.IDatabaseAdapter;
+import ch.nolix.systemapi.objectdatabaseapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaadapterapi.ISchemaAdapter;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
 //class
-public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapter> {
+public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 	
 	//constant
 	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
@@ -42,7 +42,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	private final CloseController closeController = CloseController.forElement(this);
 	
 	//constructor
-	protected DatabaseAdapter(
+	protected DataAdapter(
 		final String databaseName,
 		final ISchemaAdapter schemaAdapter,
 		final ISchema schema,
@@ -93,7 +93,7 @@ public abstract class DatabaseAdapter implements IDatabaseAdapter<DatabaseAdapte
 	
 	//method
 	@Override
-	public final <E extends IEntity> DatabaseAdapter insert(final E entity) {
+	public final <E extends IEntity> DataAdapter insert(final E entity) {
 		
 		database.insertEntity(entity);
 		

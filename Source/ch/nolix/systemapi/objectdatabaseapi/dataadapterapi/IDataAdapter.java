@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.objectdatabaseapi.databaseadapterapi;
+package ch.nolix.systemapi.objectdatabaseapi.dataadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.coreapi.programstructureapi.factoryapi.EmptyCopyable;
@@ -7,7 +7,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //interface
-public interface IDatabaseAdapter<DA extends IDatabaseAdapter<DA>>
+public interface IDataAdapter<DA extends IDataAdapter<DA>>
 extends EmptyCopyable<DA>, IResettableChangeSaver {
 	
 	//method declaration

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdatabase.databaseadapter;
+package ch.nolix.system.objectdatabase.dataadapter;
 
 import ch.nolix.core.builder.usingargumentcapturer.UsingSchemaCapturer;
 import ch.nolix.core.builder.withargumentcapturer.WithNameCapturer;
@@ -7,17 +7,17 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
-public final class NodeDatabaseAdapterBuilder
+public final class NodeDataAdapterBuilder
 extends
 WithNameCapturer<
 	UsingSchemaCapturer<
 		ISchema,
-		NodeDatabaseAdapter
+		NodeDataAdapter
 	>
 > {
 	
 	//constructor
-	public NodeDatabaseAdapterBuilder(final IMutableNode<?> nodeDatabase) {
+	public NodeDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
 		
 		super(new UsingSchemaCapturer<>(null));
 		
@@ -25,9 +25,9 @@ WithNameCapturer<
 	}
 	
 	//method
-	private NodeDatabaseAdapter build(final IMutableNode<?> nodeDatabase) {
+	private NodeDataAdapter build(final IMutableNode<?> nodeDatabase) {
 		return		
-		new NodeDatabaseAdapter(
+		new NodeDataAdapter(
 			getName(),
 			nodeDatabase,
 			next().getStoredSchema()

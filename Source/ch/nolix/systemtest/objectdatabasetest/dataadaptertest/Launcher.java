@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.systemtest.objectdatabasetest.databaseadaptertest;
+package ch.nolix.systemtest.objectdatabasetest.dataadaptertest;
 
 //class
 public final class Launcher {
 	
 	//main method
 	public static void main(String[] args) {
-		new DatabaseAdapterTestPool().run();
+		new DataAdapterTestPool().run();
 	}
 	
 	//constructor

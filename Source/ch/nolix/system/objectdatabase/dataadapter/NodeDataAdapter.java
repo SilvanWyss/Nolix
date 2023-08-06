@@ -1,26 +1,26 @@
 //package declaration
-package ch.nolix.system.objectdatabase.databaseadapter;
+package ch.nolix.system.objectdatabase.dataadapter;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawdata.databaseandschemaadapter.DataAndSchemaAdapter;
-import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
+import ch.nolix.system.objectdatabase.database.DataAdapter;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
-public final class NodeDatabaseAdapter extends DatabaseAdapter {
+public final class NodeDataAdapter extends DataAdapter {
 		
 	//static method
-	public static NodeDatabaseAdapterBuilder forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-		return new NodeDatabaseAdapterBuilder(nodeDatabase);
+	public static NodeDataAdapterBuilder forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+		return new NodeDataAdapterBuilder(nodeDatabase);
 	}
 	
 	//attribute
 	private final IMutableNode<?> nodeDatabase;
 	
 	//constructor
-	NodeDatabaseAdapter(
+	NodeDataAdapter(
 		final String databaseName,
 		final IMutableNode<?> nodeDatabase, 
 		final ISchema schema
@@ -38,7 +38,7 @@ public final class NodeDatabaseAdapter extends DatabaseAdapter {
 	
 	//method
 	@Override
-	public DatabaseAdapter getEmptyCopy() {
+	public DataAdapter getEmptyCopy() {
 		return forNodeDatabase(nodeDatabase).withName(getDatabaseName()).usingSchema(getSchema());
 	}
 }

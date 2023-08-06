@@ -5,9 +5,9 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Reference;
-import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
 //class
@@ -36,7 +36,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var john = new Person();
@@ -58,7 +58,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var john = new Person();
@@ -85,7 +85,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var john = new Person();
 		nodeDatabaseAdapter.insert(john);
 		
@@ -101,14 +101,14 @@ public final class ReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		nodeDatabaseAdapter.saveChanges();
 		
 		//setup part 2: Prepares a change.
 		final var nodeDatabaseAdapterB =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var loadedGarfieldB =
 		nodeDatabaseAdapterB.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		final var johnB = new Person();
@@ -117,7 +117,7 @@ public final class ReferenceOnDatabaseTest extends Test {
 		
 		//setup part 3: Deletes the referenced Entity.
 		final var nodeDatabaseAdapterC =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var loadedGarfieldC =
 		nodeDatabaseAdapterC.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
 		loadedGarfieldC.delete();

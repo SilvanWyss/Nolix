@@ -6,9 +6,9 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.basetest.IgnoreTimeout;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.MultiReference;
-import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
 //class
@@ -43,7 +43,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var john = new Person();
 		nodeDatabaseAdapter.insert(john);
 		nodeDatabaseAdapter.saveChanges();
@@ -64,7 +64,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		final var odie = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
@@ -93,7 +93,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		final var odie = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
@@ -121,7 +121,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		final var garfield = new Pet();
 		final var odie = new Pet();
 		nodeDatabaseAdapter.insert(garfield);

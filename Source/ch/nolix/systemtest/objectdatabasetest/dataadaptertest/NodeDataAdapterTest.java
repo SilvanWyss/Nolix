@@ -1,13 +1,13 @@
 //package declaration
-package ch.nolix.systemtest.objectdatabasetest.databaseadaptertest;
+package ch.nolix.systemtest.objectdatabasetest.dataadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
-import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.system.objectschema.schema.Column;
@@ -15,7 +15,7 @@ import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 //class
-public final class NodeDatabaseAdapterTest extends Test {
+public final class NodeDataAdapterTest extends Test {
 	
 	//static class
 	private static final class Pet extends Entity {
@@ -33,7 +33,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		@SuppressWarnings("resource") final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
 		
 		//setup verification
 		expect(testUnit.isOpen());
@@ -52,7 +52,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		//setup
 		final var nodeDatabase = new MutableNode();
 		@SuppressWarnings("resource") final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
 		testUnit.close();
 		
 		//setup verification
@@ -74,7 +74,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//execution
 		final var result =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(Schema.EMPTY_SCHEMA);
 		
 		//verification
 		expect(result.getSaveCount()).isEqualTo(0);
@@ -89,7 +89,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		testUnit.insert(new Pet());
 		
 		//setup verification
@@ -111,7 +111,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		
 		//execution
 		testUnit.saveChanges();
@@ -129,7 +129,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
 		final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		testUnit.insert(new Pet());
 		
 		//execution
@@ -147,7 +147,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		//setup part 1: Creates a database.
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class);
-		NodeDatabaseAdapter
+		NodeDataAdapter
 		.forNodeDatabase(nodeDatabase)
 		.withName("my_database")
 		.usingSchema(schema)
@@ -155,7 +155,7 @@ public final class NodeDatabaseAdapterTest extends Test {
 		
 		//setup part 2: Prepare changes for the database.
 		final var testUnit =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
 		testUnit.insert(new Pet());
 		
 		//setup part 3: Edit the schema of the database.

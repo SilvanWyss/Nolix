@@ -1,33 +1,33 @@
 //package declaration
-package ch.nolix.system.objectdatabase.databaseadapter;
+package ch.nolix.system.objectdatabase.dataadapter;
 
 //own imports
 import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.core.sql.SqlDatabaseEngine;
-import ch.nolix.system.objectdatabase.database.DatabaseAdapter;
+import ch.nolix.system.objectdatabase.database.DataAdapter;
 import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqldatabaserawdata.dataandschemaadapter.MsSqlDatabaseAndSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
-public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
+public final class MsSqlDataAdapter extends DataAdapter {
 	
 	//static method
-	public static MsSqlDatabaseAdapterBuilder toIpOrAddress(final String ipOrDomain) {
-		return new MsSqlDatabaseAdapterBuilder(ipOrDomain);
+	public static MsSqlDataAdapterBuilder toIpOrAddress(final String ipOrDomain) {
+		return new MsSqlDataAdapterBuilder(ipOrDomain);
 	}
 	
 	//static method
-	public static MsSqlDatabaseAdapterBuilder toLocalHost() {
-		return new MsSqlDatabaseAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
+	public static MsSqlDataAdapterBuilder toLocalHost() {
+		return new MsSqlDataAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
 	}
 	
 	//attribute
 	private final SqlConnectionPool sqlConnectionPool; 
 	
 	//constructor
-	MsSqlDatabaseAdapter(
+	MsSqlDataAdapter(
 		final String ipOrDomain,
 		final int port,
 		final String databaseName,
@@ -49,7 +49,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	}
 	
 	//constructor
-	private MsSqlDatabaseAdapter(
+	private MsSqlDataAdapter(
 		final String databaseName,
 		final ISchema schema,
 		final SqlConnectionPool sqlConnectionPool
@@ -71,7 +71,7 @@ public final class MsSqlDatabaseAdapter extends DatabaseAdapter {
 	
 	//method
 	@Override
-	public DatabaseAdapter getEmptyCopy() {
-		return new MsSqlDatabaseAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);
+	public DataAdapter getEmptyCopy() {
+		return new MsSqlDataAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);
 	}
 }

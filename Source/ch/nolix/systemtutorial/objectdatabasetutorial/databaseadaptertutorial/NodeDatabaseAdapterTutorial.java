@@ -1,9 +1,9 @@
 package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
-import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
 public final class NodeDatabaseAdapterTutorial {
@@ -26,7 +26,7 @@ public final class NodeDatabaseAdapterTutorial {
 		final var schema = Schema.withEntityType(Person.class);
 		
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("TestDB").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("TestDB").usingSchema(schema);
 		
 		final var donaldDuck = new Person();
 		donaldDuck.firstName.setValue("Donald");

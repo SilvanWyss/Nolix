@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdatabase.databaseadapter;
+package ch.nolix.system.objectdatabase.dataadapter;
 
 import ch.nolix.core.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.builder.andargumentcapturer.AndPortCapturer;
@@ -10,7 +10,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
-public final class MsSqlDatabaseAdapterBuilder
+public final class MsSqlDataAdapterBuilder
 extends
 AndPortCapturer<
 	ToDatabaseNameCapturer<
@@ -18,7 +18,7 @@ AndPortCapturer<
 			AndLoginPasswordCapturer<
 				AndSchemaCapturer<
 					ISchema,
-					MsSqlDatabaseAdapter
+					MsSqlDataAdapter
 				>
 			>
 		>
@@ -29,7 +29,7 @@ AndPortCapturer<
 	public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 	
 	//constructor
-	public MsSqlDatabaseAdapterBuilder(final String ipOrDomain) {
+	public MsSqlDataAdapterBuilder(final String ipOrDomain) {
 		
 		super(
 			DEFAULT_PORT,
@@ -46,9 +46,9 @@ AndPortCapturer<
 	}
 	
 	//method
-	private MsSqlDatabaseAdapter build(final String ipOrDomain) {
+	private MsSqlDataAdapter build(final String ipOrDomain) {
 		return		
-		new MsSqlDatabaseAdapter(
+		new MsSqlDataAdapter(
 			ipOrDomain,
 			getPort(),
 			next().getDatabaseName(),

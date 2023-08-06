@@ -5,10 +5,10 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.MultiReference;
-import ch.nolix.system.objectdatabase.databaseadapter.NodeDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
 //class
@@ -47,7 +47,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var simba = new Pet();
@@ -86,7 +86,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDatabaseAdapter =
-		NodeDatabaseAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
 		final var garfield = new Pet();
 		nodeDatabaseAdapter.insert(garfield);
 		final var simba = new Pet();

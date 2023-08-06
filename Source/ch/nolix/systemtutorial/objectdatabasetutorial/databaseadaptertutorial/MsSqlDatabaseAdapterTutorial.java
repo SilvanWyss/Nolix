@@ -1,8 +1,8 @@
 package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
+import ch.nolix.system.objectdatabase.dataadapter.MsSqlDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
-import ch.nolix.system.objectdatabase.databaseadapter.MsSqlDatabaseAdapter;
 import ch.nolix.system.objectdatabase.schema.Schema;
 
 public final class MsSqlDatabaseAdapterTutorial {
@@ -23,7 +23,7 @@ public final class MsSqlDatabaseAdapterTutorial {
 		final var schema = Schema.withEntityType(Person.class);
 		
 		final var msSqlNodeDatabaseAdapter =
-		MsSqlDatabaseAdapter
+		MsSqlDataAdapter
 		.toLocalHost()
 		.andDefaultPort()
 		.toDatabase("TestDB")
