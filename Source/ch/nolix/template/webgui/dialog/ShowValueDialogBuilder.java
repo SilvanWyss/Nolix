@@ -13,6 +13,7 @@ import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
@@ -57,7 +58,12 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 					new Button()
 					.setVisibility(hasValueCopier())
 					.setText("Copy")
-					.setLeftMouseButtonPressAction(() -> getValueCopier().run(value))
+					.setLeftMouseButtonPressAction(
+						(IButton button) -> {
+							getValueCopier().run(value);
+							button.getStoredParentLayer().removeSelfFromGui();
+						}
+					)
 				),
 				new Button()
 				.setRole(ButtonRole.CONFIRM_BUTTON)
