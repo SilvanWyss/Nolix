@@ -31,6 +31,8 @@ implements IComponent {
 		this.controller = controller;
 		
 		fillUpRootControl(initialDataAdapter);
+		
+		doRegistrations(controller);
 	}
 	
 	//method
@@ -61,6 +63,9 @@ implements IComponent {
 	
 	//method declaration
 	protected abstract IControl<?, ?> createControl(C controller, DA dataAdapter);
+	
+	//method declaration
+	protected abstract void doRegistrations(C controller);
 	
 	//method
 	private DA createDataAdapter() {
