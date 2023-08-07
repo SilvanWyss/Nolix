@@ -53,7 +53,8 @@ implements IComponent {
 		
 		fillUpRootControl();
 		
-		getStoredSession().updateControlOnCounterpart(rootControl);
+		//TODO: Lets a Component update the web client with the required CSS.
+		//getStoredSession().updateControlOnCounterpart(rootControl);
 	}
 	
 	//method declaration
