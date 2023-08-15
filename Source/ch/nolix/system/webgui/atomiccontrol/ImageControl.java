@@ -5,6 +5,7 @@ package ch.nolix.system.webgui.atomiccontrol;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -204,10 +205,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	//method
 	@Override
 	public IImageControl setUserInput(final String userInput) {
-		
-		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
-		
-		return null;
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
 	}
 	
 	//method
