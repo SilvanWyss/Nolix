@@ -6,6 +6,7 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -108,7 +109,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	//method
 	@Override
 	public String getUserInput() {
-		return getText();
+		return StringCatalogue.EMPTY_STRING;
 	}
 	
 	//method
@@ -258,7 +259,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	//method
 	@Override
 	public IButton setUserInput(final String userInput) {
-		return setText(userInput);
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
 	}
 	
 	//method
