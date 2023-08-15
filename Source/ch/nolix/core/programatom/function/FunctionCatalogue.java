@@ -43,16 +43,6 @@ public final class FunctionCatalogue {
 	
 	//static method
 	/**
-	 * Does nothing.
-	 * 
-	 * @param object
-	 */
-	public static void doNothing(final Object object) {
-		//Does nothing.
-	}
-	
-	//static method
-	/**
 	 * @return false.
 	 */
 	public static boolean getFalse() {
@@ -136,6 +126,16 @@ public final class FunctionCatalogue {
 	 */
 	public static long getZero() {
 		return ZERO;
+	}
+	
+	//static method
+	/**
+	 * Does nothing.
+	 * 
+	 * @param object
+	 */
+	public static void takeObjectAndDoNothing(final Object object) {
+		//Does nothing.
 	}
 	
 	//static method
