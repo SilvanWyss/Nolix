@@ -9,5 +9,5 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IUploader extends IControl<IUploader, IUploaderStyle> {
 	
 	//method declaration
-	IUploader setFileTaker(IElementTaker<Byte[]> file);
+	IUploader setFileTaker(IElementTaker<Byte[]> fileTaker);
 }
