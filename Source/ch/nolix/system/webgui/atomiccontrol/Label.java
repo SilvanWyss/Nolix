@@ -41,7 +41,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	private static final LabelHtmlBuilder HTML_BUILDER = new LabelHtmlBuilder();
 	
 	//constant
-	private static final LabelCssBuilder CSS_RULE_BUILDER = new LabelCssBuilder();
+	private static final LabelCssBuilder CSS_BUILDER = new LabelCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<LabelRole> role =
@@ -160,7 +160,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	//method
 	@Override
 	protected IControlCssBuilder<ILabel, ILabelStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 	
 	//method

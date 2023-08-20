@@ -21,7 +21,7 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 	private static final DropdownMenuHtmlBuilder HTML_BUILDER = new DropdownMenuHtmlBuilder();
 	
 	//constant
-	private static final DropdownMenuCssBuilder CSS_RULE_BUILDER = new DropdownMenuCssBuilder();
+	private static final DropdownMenuCssBuilder CSS_BUILDER = new DropdownMenuCssBuilder();
 	
 	//constructor
 	public DropdownMenu() {
@@ -64,6 +64,6 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 	//method
 	@Override
 	protected IControlCssBuilder<IDropdownMenu, IDropdownMenuStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 }

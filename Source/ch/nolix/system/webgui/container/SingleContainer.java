@@ -28,7 +28,7 @@ implements ISingleContainer {
 	private static final SingleContainerHtmlBuilder HTML_BUILDER = new SingleContainerHtmlBuilder();
 	
 	//constant
-	private static final SingleContainerCssBuilder CSS_RULE_BUILDER = new SingleContainerCssBuilder();
+	private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<IControl<?, ?>> control =
@@ -102,7 +102,7 @@ implements ISingleContainer {
 	//method
 	@Override
 	protected IControlCssBuilder<ISingleContainer, ISingleContainerStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 	
 	//method

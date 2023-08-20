@@ -46,7 +46,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	private static final TextboxHtmlBuilder HTML_BUILDER = new TextboxHtmlBuilder();
 	
 	//constant
-	private static final TextboxCssBuilder CSS_RULE_BUILDER = new TextboxCssBuilder();
+	private static final TextboxCssBuilder CSS_BUILDER = new TextboxCssBuilder();
 	
 	//attribute
 	private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
@@ -192,7 +192,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 	//method
 	@Override
 	protected IControlCssBuilder<ITextbox, ITextboxStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 	
 	//method

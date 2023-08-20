@@ -50,7 +50,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	private static final ButtonHtmlBuilder HTML_BUILDER = new ButtonHtmlBuilder();
 	
 	//constant
-	private static final ButtonCssBuilder CSS_RULE_BUILDER = new ButtonCssBuilder();
+	private static final ButtonCssBuilder CSS_BUILDER = new ButtonCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<ButtonRole> role =
@@ -271,7 +271,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	//method
 	@Override
 	protected IControlCssBuilder<IButton, IButtonStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 	
 	//method

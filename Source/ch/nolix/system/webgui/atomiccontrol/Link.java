@@ -49,7 +49,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
 	
 	//constant
-	private static final LinkCssBuilder LINK_CSS_RULE_BUILDER = new LinkCssBuilder();
+	private static final LinkCssBuilder LINK_CSS_BUILDER = new LinkCssBuilder();
 	
 	//attribute
 	private final MutableValue<String> displayText =
@@ -192,7 +192,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	//method
 	@Override
 	protected IControlCssBuilder<ILink, ILinkStyle> getCssBuilder() {
-		return LINK_CSS_RULE_BUILDER;
+		return LINK_CSS_BUILDER;
 	}
 	
 	//method

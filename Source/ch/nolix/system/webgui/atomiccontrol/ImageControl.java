@@ -35,7 +35,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	private static final ImageControlHtmlBuilder HTML_BUILDER = new ImageControlHtmlBuilder();
 	
 	//constant
-	private static final ImageControlCssBuilder CSS_RULE_BUILDER = new ImageControlCssBuilder();
+	private static final ImageControlCssBuilder CSS_BUILDER = new ImageControlCssBuilder();
 	
 	//attribute
 	private final MutableOptionalValue<MutableImage> image =
@@ -217,7 +217,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	//method
 	@Override
 	protected IControlCssBuilder<IImageControl, IImageControlStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 	
 	//method

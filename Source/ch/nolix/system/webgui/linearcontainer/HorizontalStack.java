@@ -25,7 +25,7 @@ implements IHorizontalStack {
 	private static final HorizontalStackHtmlBuilder HTML_BUILDER = new HorizontalStackHtmlBuilder();
 	
 	//constant
-	private static final HorizontalStackCssBuilder CSS_RULE_BUILDER = new HorizontalStackCssBuilder();
+	private static final HorizontalStackCssBuilder CSS_BUILDER = new HorizontalStackCssBuilder();
 	
 	//attribute
 	private final MutableValue<VerticalContentAlignment> contentAlignment =
@@ -61,7 +61,7 @@ implements IHorizontalStack {
 	//method
 	@Override
 	protected IControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> getCssBuilder() {
-		return CSS_RULE_BUILDER;
+		return CSS_BUILDER;
 	}
 	
 	//method
