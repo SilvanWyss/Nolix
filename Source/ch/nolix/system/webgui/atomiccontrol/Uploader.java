@@ -25,6 +25,9 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//constant
 	private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
 	
+	//constant
+	private static final UploaderCssBuilder CSS_BUILDER = new UploaderCssBuilder();
+	
 	//optional attribute
 	private byte[] file;
 	
@@ -96,8 +99,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//method
 	@Override
 	protected IControlCssBuilder<IUploader, IUploaderStyle> getCssBuilder() {
-		//TODO: Implement.
-		return null;
+		return CSS_BUILDER;
 	}
 	
 	//method
