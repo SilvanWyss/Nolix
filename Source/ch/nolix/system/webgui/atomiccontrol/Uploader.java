@@ -5,12 +5,12 @@ package ch.nolix.system.webgui.atomiccontrol;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploaderStyle;
@@ -23,13 +23,18 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 public final class Uploader extends Control<IUploader, IUploaderStyle> implements IUploader {
 	
 	//constant
-	public static final IElementTaker<Byte[]> DEFAULT_FILE_TAKER = FunctionCatalogue::takeObjectAndDoNothing;
-	
-	//constant
 	private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
 	
-	//attribute
-	private IElementTaker<Byte[]> fileTaker = DEFAULT_FILE_TAKER;
+	//optional attribute
+	private byte[] file;
+	
+	@Override
+	public byte[] getFile() {
+		
+		assertHasFile();
+		
+		return file.clone();
+	}
 	
 	//method
 	@Override
@@ -42,11 +47,17 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	public IContainer<IControl<?, ?>> getStoredChildControls() {
 		return new ImmutableList<>();
 	}
-	
+			
 	//method
 	@Override
 	public String getUserInput() {
 		return StringCatalogue.EMPTY_STRING;
+	}
+	
+	//method
+	@Override
+	public boolean hasFile() {
+		return (file != null);
 	}
 	
 	//method
@@ -65,17 +76,6 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	@Override
 	public void runHtmlEvent(final String htmlEvent) {
 		//TODO: Implement.
-	}
-	
-	//method
-	@Override
-	public IUploader setFileTaker(final IElementTaker<Byte[]> fileTaker) {
-		
-		GlobalValidator.assertThat(fileTaker).thatIsNamed("file taker").isNotNull();
-		
-		this.fileTaker = fileTaker;
-		
-		return this;
 	}
 	
 	//method
@@ -109,6 +109,18 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//method
 	@Override
 	protected void resetControl() {
-		setFileTaker(DEFAULT_FILE_TAKER);
+		deleteFile();
+	}
+	
+	//method
+	private void assertHasFile() {
+		if (!hasFile()) {
+			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.FILE);
+		}
+	}
+	
+	//method
+	private void deleteFile() {
+		file = null;
 	}
 }
