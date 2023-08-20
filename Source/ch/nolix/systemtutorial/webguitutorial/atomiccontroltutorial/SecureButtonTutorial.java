@@ -1,4 +1,4 @@
-package ch.nolix.systemtutorial.webguitutorial.controltutorial;
+package ch.nolix.systemtutorial.webguitutorial.atomiccontroltutorial;
 
 import ch.nolix.system.application.main.SecureServer;
 import ch.nolix.system.application.webapplication.WebClientSession;

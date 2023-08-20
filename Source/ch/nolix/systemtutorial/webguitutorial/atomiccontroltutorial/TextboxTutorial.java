@@ -1,14 +1,13 @@
-package ch.nolix.systemtutorial.webguitutorial.controltutorial;
+package ch.nolix.systemtutorial.webguitutorial.atomiccontroltutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
-import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.atomiccontrol.Link;
+import ch.nolix.system.webgui.atomiccontrol.Textbox;
+import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
-public final class LinkTutorial {
+public final class TextboxTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -16,10 +15,9 @@ public final class LinkTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-			"Link tutorial",
-			MainSession.class,
-			new VoidObject()
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+			"Textbox tutorial",
+			MainSession.class
 		);
 		
 		//Starts a web browser that will connect to the Server.
@@ -38,17 +36,18 @@ public final class LinkTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Creates a Link.
-			final var link =
-			new Link()
-			.setDisplayText("Nolix")
-			.setTarget(LinkTarget.NEW_TAB)
-			.setUrl("https://nolix.ch");
+			//Creates a Textbox.
+			final var textBox = new Textbox();
+						
+			//Configures the style of the Textbox.
+			textBox
+			.getStoredStyle()
+			.setBorderThicknessForState(ControlState.BASE, 1);
 			
-			//Adds the Link to the GUI of the current MainSession.
-			getStoredGui().pushLayerWithRootControl(link);
+			//Adds the Textbox to the GUI of the current MainSession.
+			getStoredGui().pushLayerWithRootControl(textBox);
 		}
 	}
 	
-	private LinkTutorial() {}
+	private TextboxTutorial() {}
 }

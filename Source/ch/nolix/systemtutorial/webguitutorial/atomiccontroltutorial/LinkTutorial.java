@@ -1,13 +1,14 @@
-package ch.nolix.systemtutorial.webguitutorial.controltutorial;
+package ch.nolix.systemtutorial.webguitutorial.atomiccontroltutorial;
 
 import ch.nolix.core.environment.localcomputer.ShellProvider;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.webapi.webproperty.LinkTarget;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.atomiccontrol.Textbox;
-import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
+import ch.nolix.system.webgui.atomiccontrol.Link;
 
-public final class TextboxTutorial {
+public final class LinkTutorial {
 	
 	public static void main(String[] args) {
 		
@@ -15,9 +16,10 @@ public final class TextboxTutorial {
 		final var server = Server.forHttpPort();
 		
 		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-			"Textbox tutorial",
-			MainSession.class
+		server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
+			"Link tutorial",
+			MainSession.class,
+			new VoidObject()
 		);
 		
 		//Starts a web browser that will connect to the Server.
@@ -36,18 +38,17 @@ public final class TextboxTutorial {
 		@Override
 		protected void initialize() {
 			
-			//Creates a Textbox.
-			final var textBox = new Textbox();
-						
-			//Configures the style of the Textbox.
-			textBox
-			.getStoredStyle()
-			.setBorderThicknessForState(ControlState.BASE, 1);
+			//Creates a Link.
+			final var link =
+			new Link()
+			.setDisplayText("Nolix")
+			.setTarget(LinkTarget.NEW_TAB)
+			.setUrl("https://nolix.ch");
 			
-			//Adds the Textbox to the GUI of the current MainSession.
-			getStoredGui().pushLayerWithRootControl(textBox);
+			//Adds the Link to the GUI of the current MainSession.
+			getStoredGui().pushLayerWithRootControl(link);
 		}
 	}
 	
-	private TextboxTutorial() {}
+	private LinkTutorial() {}
 }

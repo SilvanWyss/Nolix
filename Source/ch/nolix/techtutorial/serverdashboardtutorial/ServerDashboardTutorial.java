@@ -5,7 +5,7 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.system.application.main.Server;
 import ch.nolix.system.application.webapplication.WebApplicationContext;
 import ch.nolix.system.gui.iconresource.IconCatalogue;
-import ch.nolix.systemtutorial.webguitutorial.controltutorial.ImageControlTutorial;
+import ch.nolix.systemtutorial.webguitutorial.atomiccontroltutorial.ImageControlTutorial;
 import ch.nolix.systemtutorial.webguitutorial.maintutorial.HelloWorldGuiTutorial;
 import ch.nolix.systemtutorial.webguitutorial.maintutorial.PartialRefreshTutorial;
 import ch.nolix.tech.serverdashboardapplication.main.ServerDashboardApplication;
