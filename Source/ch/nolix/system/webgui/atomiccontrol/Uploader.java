@@ -72,22 +72,31 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//method
 	@Override
 	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-		//TODO: Implement.
+		//Does nothing.
 	}
 	
 	//method
 	@Override
 	public void runHtmlEvent(final String htmlEvent) {
-		//TODO: Implement.
+		//Does nothing.
 	}
 	
 	//method
 	@Override
 	public IUploader setUserInput(final String userInput) {
 		
-		GlobalValidator.assertThat(userInput).thatIsNamed("user input").isEmpty();
+		//Does nothing.
 		
 		return this;
+	}
+	
+	//method
+	@Override
+	public void technicalSetFile(final byte[] file) {
+		
+		GlobalValidator.assertThat(file).thatIsNamed(LowerCaseCatalogue.FILE).isNotNull();
+		
+		this.file = file; //NOSONAR: A Uploader operates on the original input.
 	}
 	
 	//method
@@ -111,7 +120,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//method
 	@Override
 	protected void resetControl() {
-		deleteFile();
+		removeFile();
 	}
 	
 	//method
@@ -122,7 +131,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	}
 	
 	//method
-	private void deleteFile() {
+	private void removeFile() {
 		file = null;
 	}
 }

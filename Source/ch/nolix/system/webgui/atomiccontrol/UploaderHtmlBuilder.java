@@ -23,7 +23,7 @@ public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader>
 			ImmutableList.withElement(
 				HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.TYPE, "file"),
 				HtmlAttribute.withNameAndValue("multiple", "none"),
-				HtmlAttribute.withNameAndValue("innerText", "Select file")
+				HtmlAttribute.withNameAndValue("data-uploader", "any")
 			)
 		);
 	}

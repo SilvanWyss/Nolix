@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.application.webapplication;
 
+//Java imports
+import java.util.Base64;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
@@ -13,6 +16,7 @@ import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebCl
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
+import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
@@ -62,6 +66,18 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 			case ControlCommandProtocol.RUN_HTML_EVENT:
 				runRunHtmlEventCommandOnControl(control, command);
 				updateCounterpartIfOpen();
+				break;
+			case ControlCommandProtocol.SET_FILE:
+				
+				final var uploader = (IUploader)control;
+				
+				final var fileString = command.getSingleChildNodeHeader();
+				
+				//Important: The received fileString is a Base 64 encoded string.
+				final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
+				
+				uploader.technicalSetFile(bytes);
+				
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.COMMAND, command);

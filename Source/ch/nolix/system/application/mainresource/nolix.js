@@ -916,6 +916,13 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             chainedNode.attributes.addAtEnd(attribute);
             return chainedNode;
         }
+        static withHeaderAndAttributeAndNextNode(header, attribute, nextNode) {
+            const chainedNode = new ChainedNode();
+            chainedNode.setHeader(header);
+            chainedNode.attributes.addAtEnd(attribute);
+            chainedNode.setNextNode(nextNode);
+            return chainedNode;
+        }
         static withHeaderAndAttributeFromNode(header, attribute) {
             const chainedNode = new ChainedNode();
             chainedNode.setHeader(header);
@@ -2009,6 +2016,7 @@ define("System/Application/WebApplicationProtocol/CommandProtocol", ["require", 
     CommandProtocol.REDIRECT = "Redirect";
     CommandProtocol.SET_CSS = "SetCSS";
     CommandProtocol.SET_EVENT_FUNCTIONS = 'SetEventFunctions';
+    CommandProtocol.SET_FILE = 'SetFile';
     CommandProtocol.SET_HTML_ELEMENT = "SetHTMLElement";
     CommandProtocol.SET_ICON = 'SetIcon';
     CommandProtocol.SET_OR_ADD_COOKIE_WITH_NAME_AND_VALUE = 'SetOrAddCookieWithNameAndValue';
@@ -2175,13 +2183,19 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebGUI {
-        constructor(eventTaker, window) {
+        constructor(eventTaker, fileTaker, window) {
             this.userInputFunctions = new LinkedList_9.LinkedList();
             if (eventTaker === null) {
                 throw new Error('The given event taker is null.');
             }
             if (eventTaker === undefined) {
                 throw new Error('The given event taker is undefined.');
+            }
+            if (fileTaker === null) {
+                throw new Error('The given file taker is null.');
+            }
+            if (fileTaker === undefined) {
+                throw new Error('The given file taker is undefined.');
             }
             if (window === null) {
                 throw new Error('The given window is null.');
@@ -2190,12 +2204,13 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
                 throw new Error('The given window is undefined.');
             }
             this.eventTaker = eventTaker;
+            this.fileTaker = fileTaker;
             this.window = window;
             this.style = this.window.document.createElement('style');
             this.window.document.head.appendChild(this.style);
         }
-        static withEventTakerAndWindow(eventTaker, window) {
-            return new FrontendWebGUI(eventTaker, window);
+        static withEventTakerAndFileTakerAndWindow(eventTaker, fileTaker, window) {
+            return new FrontendWebGUI(eventTaker, fileTaker, window);
         }
         getIcon() {
             return this.icon;
@@ -2231,6 +2246,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
                     lHTMLElement[ef.getHTMLEventName()] = () => this.takeEvent(command);
                 }
             }
+            this.setupAsyncEventFunctions();
         }
         setHTMLElementFromString(paramHTMLElementId, paramHTMLElementAsString) {
             const localHTMLElement = this.getOriHTMLElementById(paramHTMLElementId);
@@ -2284,8 +2300,36 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             }
             return rootElement;
         }
+        setupAsyncEventFunctions() {
+            for (const e of this.window.document.children) {
+                this.setupAsyncEventFunctionsOfElement(e);
+            }
+        }
+        setupAsyncEventFunctionsOfElement(element) {
+            if (element.hasAttribute('data-uploader')) {
+                const uploader = element;
+                uploader.onchange = () => {
+                    if (uploader.files.length > 0) {
+                        const file = uploader.files[0];
+                        const fileReader = new FileReader();
+                        fileReader.readAsDataURL(file);
+                        fileReader.onloadend = () => {
+                            if (fileReader.readyState === FileReader.DONE) {
+                                this.takeFile(element.id, fileReader.result);
+                            }
+                        };
+                    }
+                };
+            }
+            for (const e of element.children) {
+                this.setupAsyncEventFunctionsOfElement(e);
+            }
+        }
         takeEvent(command) {
             this.eventTaker(command);
+        }
+        takeFile(controlFixedId, file) {
+            this.fileTaker(controlFixedId, file);
         }
     }
     exports.FrontendWebGUI = FrontendWebGUI;
@@ -2442,11 +2486,11 @@ define("System/Application/WebApplication/FrontendWebClientGUIManager", ["requir
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class FrontendWebClientGUIManager {
-        static withEventTakerAndWindow(eventTaker, window) {
-            return new FrontendWebClientGUIManager(eventTaker, window);
+        static withEventTakerAndFileTakerAndWindow(eventTaker, fileTaker, window) {
+            return new FrontendWebClientGUIManager(eventTaker, fileTaker, window);
         }
-        constructor(eventTaker, window) {
-            this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withEventTakerAndWindow(eventTaker, window);
+        constructor(eventTaker, fileTaker, window) {
+            this.mFrontendWebGUI = FrontendWebGUI_1.FrontendWebGUI.withEventTakerAndFileTakerAndWindow(eventTaker, fileTaker, window);
         }
         getUserInputs() {
             return this.mFrontendWebGUI.getUserInputs();
@@ -2498,6 +2542,7 @@ define("System/Application/WebApplicationProtocol/ObjectProtocol", ["require", "
     Object.defineProperty(exports, "__esModule", { value: true });
     class ObjectProtocol {
     }
+    ObjectProtocol.CONTROL = 'Control';
     ObjectProtocol.GUI = 'GUI';
     ObjectProtocol.URL = 'URL';
     exports.ObjectProtocol = ObjectProtocol;
@@ -2587,9 +2632,12 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             return new FrontendWebClient(ip, port, TargetApplicationExtractor_1.TargetApplicationExtractor.INSTANCE.getOptionalTargetApplicationFromURL(), WebSocketType_2.WebSocketType.SECURE_WEB_SOCKET);
         }
         constructor(ip, port, optionalTarget, webSocketType) {
-            this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTakerAndWindow((command) => this.takeEvent(command), window);
+            this.mGUIManager = FrontendWebClientGUIManager_1.FrontendWebClientGUIManager.withEventTakerAndFileTakerAndWindow((command) => this.takeEvent(command), (controlFixedId, file) => this.takeFile(controlFixedId, file), window);
             this.endPoint = new NetEndPoint3_1.NetEndPoint3(ip, port, optionalTarget, webSocketType);
             this.endPoint.setReceiverController(new ReceiverController_1.ReceiverController(c => this.run(c), r => this.getData(r)));
+        }
+        createSetFileCommand(controlFixedId, file) {
+            return ChainedNode_3.ChainedNode.withHeaderAndNextNode(ObjectProtocol_1.ObjectProtocol.GUI, ChainedNode_3.ChainedNode.withHeaderAndAttributeAndNextNode('ControlByFixedId', ChainedNode_3.ChainedNode.withHeader(controlFixedId), ChainedNode_3.ChainedNode.withHeaderAndAttribute(CommandProtocol_2.CommandProtocol.SET_FILE, ChainedNode_3.ChainedNode.withHeader(file))));
         }
         createSetUserInputsCommand() {
             var userInputs = this.mGUIManager.getUserInputs();
@@ -2673,6 +2721,10 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
             commands.addAtEnd(this.createSetUserInputsCommand());
             commands.addAtEnd(command);
             this.endPoint.runCommands(commands);
+        }
+        takeFile(controlFixedId, file) {
+            const setFileCommand = this.createSetFileCommand(controlFixedId, file);
+            this.endPoint.run(setFileCommand);
         }
         writeTextToClipboard(text) {
             window.navigator['clipboard'].writeText(text);
