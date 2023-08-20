@@ -233,6 +233,9 @@ public final class PluralLowerCaseCatalogue {
 	public static final String FEATURES = "features";
 	
 	//constant
+	public static final String FILES = "files";
+	
+	//constant
 	public static final String FILE_NAMES = "file names";
 	
 	//constant

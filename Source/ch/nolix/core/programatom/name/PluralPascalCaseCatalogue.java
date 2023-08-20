@@ -233,6 +233,9 @@ public final class PluralPascalCaseCatalogue {
 	public static final String FEATURES = "Features";
 	
 	//constant
+	public static final String FILES = "Files";
+	
+	//constant
 	public static final String FILE_NAMES = "FileNames";
 	
 	//constant
