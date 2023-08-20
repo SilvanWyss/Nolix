@@ -216,7 +216,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IImageControl, IImageControlStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IImageControl, IImageControlStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

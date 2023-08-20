@@ -125,7 +125,7 @@ implements IValidationLabel {
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IValidationLabel, IValidationLabelStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IValidationLabel, IValidationLabelStyle> getCssBuilder() {
 		return new ValidationLabelCssBuilder();
 	}
 	

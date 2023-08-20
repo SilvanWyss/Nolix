@@ -191,7 +191,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	
 	//method
 	@Override
-	protected IControlCssBuilder<ILink, ILinkStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<ILink, ILinkStyle> getCssBuilder() {
 		return LINK_CSS_RULE_BUILDER;
 	}
 	

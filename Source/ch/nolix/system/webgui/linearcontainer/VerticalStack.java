@@ -60,7 +60,7 @@ implements IVerticalStack {
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IVerticalStack, IVerticalStackStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IVerticalStack, IVerticalStackStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

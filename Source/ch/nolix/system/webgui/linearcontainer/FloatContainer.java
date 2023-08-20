@@ -21,7 +21,7 @@ public final class FloatContainer extends LinearContainer<FloatContainer, FloatC
 	
 	//method
 	@Override
-	protected IControlCssBuilder<FloatContainer, FloatContainerStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<FloatContainer, FloatContainerStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

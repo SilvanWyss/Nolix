@@ -159,7 +159,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	
 	//method
 	@Override
-	protected IControlCssBuilder<ILabel, ILabelStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<ILabel, ILabelStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

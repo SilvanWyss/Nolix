@@ -63,7 +63,7 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IDropdownMenu, IDropdownMenuStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IDropdownMenu, IDropdownMenuStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 }

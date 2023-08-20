@@ -95,7 +95,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IUploader, IUploaderStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IUploader, IUploaderStyle> getCssBuilder() {
 		//TODO: Implement.
 		return null;
 	}

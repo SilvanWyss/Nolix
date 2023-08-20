@@ -60,7 +60,7 @@ implements IHorizontalStack {
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

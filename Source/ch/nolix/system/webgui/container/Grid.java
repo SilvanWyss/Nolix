@@ -160,7 +160,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IGrid, IGridStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IGrid, IGridStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

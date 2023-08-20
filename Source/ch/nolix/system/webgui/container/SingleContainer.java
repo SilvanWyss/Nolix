@@ -101,7 +101,7 @@ implements ISingleContainer {
 	
 	//method
 	@Override
-	protected IControlCssBuilder<ISingleContainer, ISingleContainerStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<ISingleContainer, ISingleContainerStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	

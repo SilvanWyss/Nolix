@@ -270,7 +270,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	
 	//method
 	@Override
-	protected IControlCssBuilder<IButton, IButtonStyle> getCssRuleCreator() {
+	protected IControlCssBuilder<IButton, IButtonStyle> getCssBuilder() {
 		return CSS_RULE_BUILDER;
 	}
 	
