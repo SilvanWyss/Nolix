@@ -38,9 +38,8 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 	//method
 	@Override
 	public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
-		return new SingleContainer<>(
-			"if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;"
-		);
+		return
+		new SingleContainer<>("if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;");
 	}
 	
 	//method
