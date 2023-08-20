@@ -25,6 +25,9 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//constant
 	public static final IElementTaker<Byte[]> DEFAULT_FILE_TAKER = FunctionCatalogue::takeObjectAndDoNothing;
 	
+	//constant
+	private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
+	
 	//attribute
 	private IElementTaker<Byte[]> fileTaker = DEFAULT_FILE_TAKER;
 	
@@ -100,8 +103,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
 	//method
 	@Override
 	protected IControlHtmlBuilder<IUploader> getHtmlBuilder() {
-		//TODO: Implement.
-		return null;
+		return HTML_BUILDER;
 	}
 	
 	//method
