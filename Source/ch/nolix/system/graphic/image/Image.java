@@ -30,6 +30,14 @@ public final class Image extends Element implements IImage {
 	}
 	
 	//static method
+	public static Image fromBytes(final byte[] bytes) {
+		
+		final var mutableImage = MutableImage.fromBytes(bytes);
+		
+		return fromAnyImage(mutableImage);
+	}
+	
+	//static method
 	public static Image fromFile(final String filePath) {
 		return new Image(MutableImage.fromFile(filePath));
 	}
