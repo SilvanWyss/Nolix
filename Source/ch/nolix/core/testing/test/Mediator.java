@@ -23,7 +23,7 @@ public abstract class Mediator { //NOSONAR: Mediator does not have abstract meth
 	 * @param expectationErrorTaker
 	 * @throws ArgumentIsNullException if the given expectationErrorTaker is null.
 	 */
-	public Mediator(final IElementTaker<String> expectationErrorTaker) {
+	protected Mediator(final IElementTaker<String> expectationErrorTaker) {
 		
 		//Asserts that the given expectationErrorTaker is not null.
 		if (expectationErrorTaker == null) {
