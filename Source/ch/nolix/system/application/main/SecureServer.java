@@ -103,12 +103,12 @@ public final class SecureServer extends BaseServer<SecureServer> {
 	//method
 	@Override
 	protected void noteAddedApplication(final Application<?, ?> application) {
-		internalWebSocketServer.addSlot(new ServerEndPointTaker(application.getInstanceName(), this));
+		internalWebSocketServer.addSlot(new ServerEndPointTaker(application.getUrlInstanceName(), this));
 	}
 	
 	//method
 	@Override
 	protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
-		internalWebSocketServer.addDefaultSlot(new ServerEndPointTaker(defaultApplication.getInstanceName(), this));
+		internalWebSocketServer.addDefaultSlot(new ServerEndPointTaker(defaultApplication.getUrlInstanceName(), this));
 	}
 }
