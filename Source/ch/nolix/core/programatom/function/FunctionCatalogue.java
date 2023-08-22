@@ -134,7 +134,7 @@ public final class FunctionCatalogue {
 	 * 
 	 * @param object
 	 */
-	public static void takeObjectAndDoNothing(final Object object) {
+	public static void takeObjectAndDoNothing(final Object object) { //NOSONAR: The parameter is necessary.
 		//Does nothing.
 	}
 	
