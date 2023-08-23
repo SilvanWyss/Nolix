@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.databaseapi.cardinalityapi;
+package ch.nolix.coreapi.datamodelapi.cardinalityapi;
 
 //enum
 public enum BaseCardinality {
