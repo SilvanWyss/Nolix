@@ -6,23 +6,23 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link MandatoryRequestable} can be asked if it is mandatory.
+ * A {@link MandatorynessRequestable} can be asked if it is mandatory.
  * 
  * @author Silvan Wyss
  * @date 2021-12-26
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface MandatoryRequestable {
+public interface MandatorynessRequestable {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link MandatoryRequestable} is mandatory.
+	 * @return true if the current {@link MandatorynessRequestable} is mandatory.
 	 */
 	boolean isMandatory();
 	
 	//method
 	/**
-	 * @return true if the current {@link MandatoryRequestable} is optional.
+	 * @return true if the current {@link MandatorynessRequestable} is optional.
 	 */
 	default boolean isOptional() {
 		return !isMandatory();
