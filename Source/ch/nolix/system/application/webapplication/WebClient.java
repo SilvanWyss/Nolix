@@ -85,41 +85,29 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	}
 	
 	//method
+	private void runControlCommand(final IChainedNode guiCommand) {
+		
+		final var command = guiCommand.getNextNode();
+		final var internalControlId = guiCommand.getSingleChildNodeHeader();
+		final var session = (WebClientSession<AC>)getStoredCurrentSession();
+		final var gui = session.getStoredGui();
+		final var controls = gui.getStoredControls();
+		final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
+		
+		//The Control could be removed on the server in the meanwhile.
+		if (control != null) {
+			runCommandOnControl(control, command);
+		}
+	}
+	
+	//method
 	private void runGuiCommand(final IChainedNode guiCommand) {
 		switch (guiCommand.getHeader()) {
 			case ObjectProtocol.CONTROL_BY_FIXED_ID:
-				
-				final var command = guiCommand.getNextNode();
-				final var internalControlId = guiCommand.getSingleChildNodeHeader();
-				final var session = (WebClientSession<AC>)getStoredCurrentSession();
-				final var gui = session.getStoredGui();
-				final var controls = gui.getStoredControls();
-				final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
-				
-				//The control could be removed on the server in the meanwhile.
-				if (control != null) {
-					runCommandOnControl(control, command);
-				}
-				
+				runControlCommand(guiCommand);
 				break;
 			case CommandProtocol.SET_USER_INPUTS:
-				
-				final var session2 = (WebClientSession<AC>)getStoredCurrentSession();
-				final var gui2 = session2.getStoredGui();
-				final var controls2 = gui2.getStoredControls();
-				
-				for (final var p : guiCommand.getChildNodes()) {
-					
-					final var internalControlId2 = p.getChildNodeAt1BasedIndex(1).getHeader();
-					final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
-					final var control2 = controls2.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId2));
-					
-					//The control could be removed on the server in the meanwhile.
-					if (control2 != null) {
-						control2.setUserInput(userInput);
-					}
-				}
-				
+				runSetUserInputsCommand(guiCommand);
 				break;
 			default:
 				throw InvalidArgumentException.forArgumentNameAndArgument("GUI command", guiCommand);
@@ -132,6 +120,26 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 		final var htmlEvent = runHtmlEventCommand.getSingleChildNodeHeader();
 		
 		control.runHtmlEvent(htmlEvent);
+	}
+	
+	//method
+	private void runSetUserInputsCommand(final IChainedNode guiCommand) {
+		
+		final var session = (WebClientSession<AC>)getStoredCurrentSession();
+		final var gui = session.getStoredGui();
+		final var controls = gui.getStoredControls();
+		
+		for (final var p : guiCommand.getChildNodes()) {
+			
+			final var internalControlId = p.getChildNodeAt1BasedIndex(1).getHeader();
+			final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
+			final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
+			
+			//The Control could be removed on the server in the meanwhile.
+			if (control != null) {
+				control.setUserInput(userInput);
+			}
+		}
 	}
 	
 	//method
