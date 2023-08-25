@@ -17,7 +17,15 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {
-		
+	
+	//method
+	@Override
+	public boolean belongsToEntity(final IProperty property) {
+		return
+		property != null
+		&& property.belongsToEntity();
+	}
+	
 	//method
 	@Override
 	public final boolean belongsToLoadedEntity(final IProperty property) {

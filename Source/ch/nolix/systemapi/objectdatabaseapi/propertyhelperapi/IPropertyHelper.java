@@ -7,7 +7,10 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 
 //interface
 public interface IPropertyHelper extends IDatabaseObjectHelper {
-			
+	
+	//method
+	boolean belongsToEntity(IProperty property);
+	
 	//method declaration
 	boolean belongsToLoadedEntity(IProperty property);
 	
