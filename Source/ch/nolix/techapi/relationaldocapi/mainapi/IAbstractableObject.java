@@ -10,5 +10,8 @@ import ch.nolix.coreapi.datamodelapi.entityrequestapi.AbstractnessRequestable;
 public interface IAbstractableObject extends AbstractnessRequestable, FluentNameable<IAbstractableObject> {
 	
 	//method declaration
+	IContainer<IAbstractableField> getFields();
+	
+	//method declaration
 	IContainer<IAbstractableObject> getTypes();
 }
