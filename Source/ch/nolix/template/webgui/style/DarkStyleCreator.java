@@ -24,10 +24,10 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
 //class
-final class DarkModeStyleCreator {
+final class DarkStyleCreator {
 	
 	//method
-	public Style createDarkModeStyle() {
+	public Style createDarkStyle() {
 		return
 		new StyleBuilder()
 		.addSubStyle(

@@ -24,11 +24,11 @@ public final class StyleCatalogueTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_DarkMode() {
+	public void testCase_DarkStyle() {
 		
 		//setup
 		final var webGuiWithVariousContent = createWebGuiWithVariousContent();
-		final var testUnit = StyleCatalogue.DARK_MODE_STYLE;
+		final var testUnit = StyleCatalogue.DARK_STYLE;
 		
 		//execution & verification
 		expectRunning(() -> testUnit.styleElement(webGuiWithVariousContent)).doesNotThrowException();

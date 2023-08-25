@@ -8,7 +8,7 @@ import ch.nolix.system.element.style.Style;
 public final class StyleCatalogue {
 	
 	//constant
-	public static final Style DARK_MODE_STYLE = new DarkModeStyleCreator().createDarkModeStyle();
+	public static final Style DARK_STYLE = new DarkStyleCreator().createDarkStyle();
 	
 	//constructor
 	private StyleCatalogue() {}

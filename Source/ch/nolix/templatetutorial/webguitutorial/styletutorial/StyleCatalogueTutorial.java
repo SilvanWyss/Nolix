@@ -64,7 +64,7 @@ public final class StyleCatalogueTutorial {
 						.addItemWithTextAndSelectAction("none", () -> getStoredGui().removeStyle())
 						.addItemWithTextAndSelectAction(
 							"Dark mode",
-							() -> getStoredGui().setStyle(StyleCatalogue.DARK_MODE_STYLE)
+							() -> getStoredGui().setStyle(StyleCatalogue.DARK_STYLE)
 						)
 					),
 					new Grid()
