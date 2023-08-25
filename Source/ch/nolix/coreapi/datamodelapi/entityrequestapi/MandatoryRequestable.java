@@ -1,6 +1,7 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.requestapi;
+package ch.nolix.coreapi.datamodelapi.entityrequestapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
