@@ -10,8 +10,8 @@ import ch.nolix.techapi.relationaldocapi.baseapi.Abstractable;
 public interface IAbstractableObject extends Abstractable<IAbstractableObject>, FluentNameable<IAbstractableObject> {
 	
 	//method declaration
-	IContainer<IAbstractableField> getFields();
+	IContainer<IAbstractableField> getStoredFields();
 	
 	//method declaration
-	IContainer<IAbstractableObject> getTypes();
+	IContainer<IAbstractableObject> getStoredTypes();
 }
