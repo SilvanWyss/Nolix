@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.datamodelapi.fieldproperty;
+package ch.nolix.coreapi.datamodelapi.entityproperty;
 
 //enum
 public enum Mandatoryness {
