@@ -11,4 +11,14 @@ public interface IAbstractableField
 extends
 Abstractable<IAbstractableField>,
 FluentNameable<IAbstractableField>,
-IFluentMutableCardinalityHolder<IAbstractableField> {}
+IFluentMutableCardinalityHolder<IAbstractableField> {
+	
+	//method declaration
+	IContentBox getStoredContentBox();
+	
+	//method declaration
+	boolean inheritsFromBaseField();
+	
+	//method declaration
+	IAbstractableField setContentBox(IContentBox contentBox);
+}
