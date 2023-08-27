@@ -20,7 +20,7 @@ final class PropertyFromTableExtractor {
 	
 	//method
 	private Property createEmptyPropertyFromColumn(final IColumn column) {
-		switch (column.getParametrizedPropertyType().getPropertyType()) {
+		switch (column.getParameterizedPropertyType().getPropertyType()) {
 			case VALUE:
 				return new Value<>();
 			case OPTIONAL_VALUE:
@@ -31,8 +31,8 @@ final class PropertyFromTableExtractor {
 				
 				final var referencedtableName =
 				column
-				.getParametrizedPropertyType()
-				.asBaseParametrizedReferenceType()
+				.getParameterizedPropertyType()
+				.asBaseParameterizedReferenceType()
 				.getStoredencedTable()
 				.getName();
 				
@@ -41,8 +41,8 @@ final class PropertyFromTableExtractor {
 				
 				final var referencedtableName2 =
 				column
-				.getParametrizedPropertyType()
-				.asBaseParametrizedReferenceType()
+				.getParameterizedPropertyType()
+				.asBaseParameterizedReferenceType()
 				.getStoredencedTable()
 				.getName();
 				
@@ -51,8 +51,8 @@ final class PropertyFromTableExtractor {
 				
 				final var referencedtableName3 =
 				column
-				.getParametrizedPropertyType()
-				.asBaseParametrizedReferenceType()
+				.getParameterizedPropertyType()
+				.asBaseParameterizedReferenceType()
 				.getStoredencedTable()
 				.getName();
 				

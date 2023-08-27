@@ -31,19 +31,19 @@ implements IBaseParameterizedValueType<V> {
 	
 	//method
 	@Override
-	public final IBaseParameterizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
+	public final IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedReferenceType<?> asBaseParametrizedReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
+	public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
 		return this;
 	}
 	

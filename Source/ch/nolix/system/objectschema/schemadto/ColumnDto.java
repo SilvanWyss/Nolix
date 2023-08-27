@@ -58,7 +58,7 @@ public final class ColumnDto implements IColumnDto {
 	
 	//method
 	@Override
-	public IParameterizedPropertyTypeDto getParametrizedPropertyType() {
+	public IParameterizedPropertyTypeDto getParameterizedPropertyType() {
 		return parameterizedPropertyTypeDto;
 	}
 }

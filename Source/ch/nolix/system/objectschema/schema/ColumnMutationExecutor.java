@@ -31,24 +31,24 @@ final class ColumnMutationExecutor {
 		}
 		
 		for (final var brc : backReferencingColumns) {
-			((Column)brc).setParametrizedPropertyTypeToDatabase();
+			((Column)brc).setParameterizedPropertyTypeToDatabase();
 		}
 		
 		column.internalSetEdited();
 	}
 	
 	//method
-	public void setParametrizedPropertyTypeToColumn(
+	public void setParameterizedPropertyTypeToColumn(
 		final Column column,
 		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		
-		column.setParametrizedPropertyTypeAttribute(parameterizedPropertyType);
+		column.setParameterizedPropertyTypeAttribute(parameterizedPropertyType);
 		
 		if (column.isLinkedWithRealDatabase()) {
 			column
 			.internalGetRefRawSchemaAdapter()
-			.setColumnParametrizedPropertyType(column, parameterizedPropertyType);
+			.setColumnParameterizedPropertyType(column, parameterizedPropertyType);
 		}
 		
 		column.internalSetEdited();

@@ -30,8 +30,8 @@ final class SystemDataWriterSqlStatementCreator {
 	public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 		
 		final var parametrezidPropertyTypeRecord =
-		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParametrizedPropertyTypeRecordFrom(
-			column.getParametrizedPropertyType()
+		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParameterizedPropertyTypeRecordFrom(
+			column.getParameterizedPropertyType()
 		);
 		
 		return
@@ -137,13 +137,13 @@ final class SystemDataWriterSqlStatementCreator {
 	}
 	
 	//method
-	public String createStatementToSetColumnParametrizedPropertyType(
+	public String createStatementToSetColumnParameterizedPropertyType(
 		final String columnID,
 		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
 		
 		final var parametrezidPropertyTypeRecord =
-		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParametrizedPropertyTypeRecordFrom(parameterizedPropertyType);
+		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);
 		
 		return
 		"UPDATE "

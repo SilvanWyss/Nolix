@@ -20,26 +20,26 @@ public class ParameterizedPropertyTypeDtoMapper {
 	new ParameterizedPropertyTypeNodeSearcher();
 	
 	//method
-	public ParameterizedPropertyTypeDto createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(
+	public ParameterizedPropertyTypeDto createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		
-		final var propertyType = getPropertyTypeFromParametrizedPropertyTypeNode(parameterizedPropertyTypeNode);
+		final var propertyType = getPropertyTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode);
 		
 		return
 		switch (propertyType.getBaseType()) {
 			case BASE_VALUE ->
-				createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
+				createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
 					parameterizedPropertyTypeNode,
 					propertyType
 				);
 			case BASE_REFERENCE ->
-				createBaseParametrizedReferenceTypeDtoFromParametrizedPropertyTypeNode(
+				createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
 					parameterizedPropertyTypeNode,
 					propertyType
 				);
 			case BASE_BACK_REFERENCE ->
-				createBaseParametrizedBackReferenceTypeDtoFromParametrizedPropertyTypeNode(
+				createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
 					parameterizedPropertyTypeNode,
 					propertyType
 				);
@@ -49,45 +49,45 @@ public class ParameterizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private ParameterizedPropertyTypeDto createBaseParametrizedBackReferenceTypeDtoFromParametrizedPropertyTypeNode(
+	private ParameterizedPropertyTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
 		new BaseParameterizedBackReferenceTypeDto(
 			propertyType,
-			getDataTypeFromParametrizedPropertyTypeNode(parameterizedPropertyTypeNode),
-			getBackReferencedColumnIdFromParametrizedPropertyTypeNode(parameterizedPropertyTypeNode)
+			getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode),
+			getBackReferencedColumnIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode)
 		);
 	}
 	
 	//method
-	private ParameterizedPropertyTypeDto createBaseParametrizedReferenceTypeDtoFromParametrizedPropertyTypeNode(
+	private ParameterizedPropertyTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
 		new BaseParameterizedReferenceTypeDto(
 			propertyType,
-			getDataTypeFromParametrizedPropertyTypeNode(parameterizedPropertyTypeNode),
-			getReferencedTableIdFromParametrizedPropertyTypeNode(parameterizedPropertyTypeNode)
+			getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode),
+			getReferencedTableIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode)
 		);
 	}
 	
 	//method
-	private BaseParameterizedValueTypeDto createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
+	private BaseParameterizedValueTypeDto createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
 		new BaseParameterizedValueTypeDto(
 			propertyType,
-			getDataTypeFromParametrizedPropertyTypeNode(parameterizedPropertyTypeNode)
+			getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode)
 		);
 	}
 	
 	//method
-	private String getBackReferencedColumnIdFromParametrizedPropertyTypeNode(
+	private String getBackReferencedColumnIdFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		
@@ -100,7 +100,7 @@ public class ParameterizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private DataType getDataTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parameterizedPropertyTypeNode) {
+	private DataType getDataTypeFromParameterizedPropertyTypeNode(final IMutableNode<?> parameterizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
 		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
@@ -111,12 +111,12 @@ public class ParameterizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private PropertyType getPropertyTypeFromParametrizedPropertyTypeNode(
+	private PropertyType getPropertyTypeFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		
 		final var propertyTypeNode =
-		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
 			parameterizedPropertyTypeNode
 		);
 		
@@ -124,12 +124,12 @@ public class ParameterizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private String getReferencedTableIdFromParametrizedPropertyTypeNode(
+	private String getReferencedTableIdFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		
 		final var referencedTableIdNode =
-		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredReferencedTableIdNodeFromParameterizedPropertyTypeNode(
 			parameterizedPropertyTypeNode
 		);
 		

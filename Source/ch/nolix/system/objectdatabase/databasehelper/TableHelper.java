@@ -57,7 +57,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
 		final var columns = new LinkedList<IColumn>();
 		for (final var t : table.getStoredParentDatabase().getStoredTables()) {
 			for (final var c : t.getStoredColumns()) {
-				if (c.getParametrizedPropertyType().referencesTable(table)) {
+				if (c.getParameterizedPropertyType().referencesTable(table)) {
 					columns.addAtEnd(c);
 				}
 			}

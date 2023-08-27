@@ -52,7 +52,7 @@ final class ColumnMutationValidator {
 	}
 	
 	//method
-	public void assertCanSetParametrizedPropertyTypeToColumn(
+	public void assertCanSetParameterizedPropertyTypeToColumn(
 		final Column column,
 		final IParameterizedPropertyType parameterizedPropertyType
 	) {
@@ -65,8 +65,8 @@ final class ColumnMutationValidator {
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			
-			final var baseParametrizedReferenceType = (BaseParameterizedReferenceType)parameterizedPropertyType;
-			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
+			final var baseParameterizedReferenceType = (BaseParameterizedReferenceType)parameterizedPropertyType;
+			final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
 			
 			DATABASE_HELPER.assertContainsGivenTable(COLUMN_HELPER.getParentDatabase(column), referencedTable);
 		}
@@ -80,8 +80,8 @@ final class ColumnMutationValidator {
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			
-			final var baseParametrizedBackReferenceType = (BaseParameterizedBackReferenceType)parameterizedPropertyType;
-			final var backReferencedColumn = baseParametrizedBackReferenceType.getBackReferencedColumn();
+			final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType)parameterizedPropertyType;
+			final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 			
 			DATABASE_HELPER.assertContainsTableWithGivenColumn(
 				COLUMN_HELPER.getParentDatabase(column),

@@ -8,7 +8,7 @@ import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 public interface IConcreteValueContent extends IValueContent {
 	
 	//method declaration
-	IConcreteParameterizedValueContent<?> getStoredConcreteParametrizedValueContent();
+	IConcreteParameterizedValueContent<?> getStoredConcreteParameterizedValueContent();
 	
 	//method declaration
 	IConcreteValueContent setDataType(DataType dataType);

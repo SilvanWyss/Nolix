@@ -23,7 +23,7 @@ public final class ColumnNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getStoredParametrizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
+	public IMutableNode<?> getStoredParameterizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
 		return columnNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE);
 	}
 }

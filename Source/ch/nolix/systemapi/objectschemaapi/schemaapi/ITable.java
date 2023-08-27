@@ -24,7 +24,7 @@ FluentNameable<ITable> {
 	boolean belongsToDatabase();
 	
 	//method declaration
-	ITable createColumnWithNameAndParametrizedPropertyType(
+	ITable createColumnWithNameAndParameterizedPropertyType(
 		String name,
 		IParameterizedPropertyType parameterizedPropertyType
 	);

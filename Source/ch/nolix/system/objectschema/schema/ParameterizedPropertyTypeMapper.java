@@ -23,7 +23,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public final class ParameterizedPropertyTypeMapper {
 	
 	//method
-	public ParameterizedPropertyType createParametrizedPropertyTypeFromDto(
+	public ParameterizedPropertyType createParameterizedPropertyTypeFromDto(
 		final IParameterizedPropertyTypeDto parameterizedPropertyType,
 		final IContainer<ITable> tables
 	) {
@@ -37,27 +37,27 @@ public final class ParameterizedPropertyTypeMapper {
 				new ParameterizedMultiValueType<>(parameterizedPropertyType.getDataType());
 			case REFERENCE ->
 				new ParameterizedReferenceType(
-					getStoredReferencedTableFromParametrizedPropertyType(parameterizedPropertyType, tables)
+					getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables)
 				);
 			case OPTIONAL_REFERENCE ->
 				new ParameterizedOptionalReferenceType(
-					getStoredReferencedTableFromParametrizedPropertyType(parameterizedPropertyType, tables)
+					getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables)
 				);
 			case MULTI_REFERENCE ->
 				new ParameterizedMultiReferenceType(
-					getStoredReferencedTableFromParametrizedPropertyType(parameterizedPropertyType, tables)
+					getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables)
 				);
 			case BACK_REFERENCE ->
 				new ParameterizedBackReferenceType(
-					getStoredBackReferencedColumnFromParametrizedPropertyType(parameterizedPropertyType, tables)
+					getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables)
 				);
 			case OPTIONAL_BACK_REFERENCE ->
 				new ParameterizedOptionalBackReferenceType(
-					getStoredBackReferencedColumnFromParametrizedPropertyType(parameterizedPropertyType, tables)
+					getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables)
 				);
 			case MULTI_BACK_REFERENCE ->
 				new ParameterizedMultiBackReferenceType(
-					getStoredBackReferencedColumnFromParametrizedPropertyType(parameterizedPropertyType, tables)
+					getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables)
 				);
 			default ->
 				throw InvalidArgumentException.forArgument(parameterizedPropertyType);
@@ -65,26 +65,26 @@ public final class ParameterizedPropertyTypeMapper {
 	}
 	
 	//method
-	private Column getStoredBackReferencedColumnFromParametrizedPropertyType(
+	private Column getStoredBackReferencedColumnFromParameterizedPropertyType(
 		final IParameterizedPropertyTypeDto parameterizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		
-		final var baseParametrizedBackReferenceType = (IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyType;
-		final var backReferencedColumnId = baseParametrizedBackReferenceType.getBackReferencedColumnId();
+		final var baseParameterizedBackReferenceType = (IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyType;
+		final var backReferencedColumnId = baseParameterizedBackReferenceType.getBackReferencedColumnId();
 		
 		return
 		(Column)tables.toFromGroups(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
 	}
 	
 	//method
-	private ITable getStoredReferencedTableFromParametrizedPropertyType(
+	private ITable getStoredReferencedTableFromParameterizedPropertyType(
 		final IParameterizedPropertyTypeDto parameterizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		
-		final var baseParametrizedReferenceType = (IBaseParameterizedReferenceTypeDto)parameterizedPropertyType;
+		final var baseParameterizedReferenceType = (IBaseParameterizedReferenceTypeDto)parameterizedPropertyType;
 		
-		return tables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceType.getReferencedTableId()));
+		return tables.getStoredFirst(t -> t.hasId(baseParameterizedReferenceType.getReferencedTableId()));
 	}
 }

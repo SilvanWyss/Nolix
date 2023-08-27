@@ -30,7 +30,7 @@ public final class ColumnMapper implements IColumnMapper {
 		return
 		new Column(
 			property.getName(),
-			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
+			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
 				property,
 				referencableTables
 			)

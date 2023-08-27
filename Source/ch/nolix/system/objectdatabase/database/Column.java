@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 public final class Column extends ImmutableDatabaseObject implements IColumn {
 	
 	//static method
-	static Column withNameAndIdAndParametrizedPropertyTypeAndParentTable(
+	static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
 		final String name,
 		final String id,
 		final IParameterizedPropertyType parameterizedPropertyType,
@@ -69,7 +69,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	
 	//method
 	@Override
-	public IParameterizedPropertyType getParametrizedPropertyType() {
+	public IParameterizedPropertyType getParameterizedPropertyType() {
 		return parameterizedPropertyType;
 	}
 	

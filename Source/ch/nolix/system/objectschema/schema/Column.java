@@ -50,8 +50,8 @@ public final class Column extends SchemaObject implements IColumn {
 		new Column(
 			columnDto.getId(),
 			columnDto.getName(),
-			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromDto(
-				columnDto.getParametrizedPropertyType(),
+			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+				columnDto.getParameterizedPropertyType(),
 				tables
 			)
 		);
@@ -88,7 +88,7 @@ public final class Column extends SchemaObject implements IColumn {
 		
 		this.id = id;
 		setName(name);
-		setParametrizedPropertyType(parameterizedPropertyType);
+		setParameterizedPropertyType(parameterizedPropertyType);
 	}
 	
 	//method
@@ -118,7 +118,7 @@ public final class Column extends SchemaObject implements IColumn {
 	
 	//method
 	@Override
-	public IParameterizedPropertyType getParametrizedPropertyType() {
+	public IParameterizedPropertyType getParameterizedPropertyType() {
 		return parameterizedPropertyType;
 	}
 		
@@ -160,12 +160,12 @@ public final class Column extends SchemaObject implements IColumn {
 	
 	//method
 	@Override
-	public Column setParametrizedPropertyType(
+	public Column setParameterizedPropertyType(
 		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		
-		MUTATION_VALIDATOR.assertCanSetParametrizedPropertyTypeToColumn(this, parameterizedPropertyType);
-		MUTATION_EXECUTOR.setParametrizedPropertyTypeToColumn(this, parameterizedPropertyType);
+		MUTATION_VALIDATOR.assertCanSetParameterizedPropertyTypeToColumn(this, parameterizedPropertyType);
+		MUTATION_EXECUTOR.setParameterizedPropertyTypeToColumn(this, parameterizedPropertyType);
 		
 		return this;
 	}
@@ -173,7 +173,7 @@ public final class Column extends SchemaObject implements IColumn {
 	//method
 	@Override
 	public ColumnDto toDto() {
-		return new ColumnDto(getId(), getName(), getParametrizedPropertyType().toDto());
+		return new ColumnDto(getId(), getName(), getParameterizedPropertyType().toDto());
 	}
 	
 	//method
@@ -221,15 +221,15 @@ public final class Column extends SchemaObject implements IColumn {
 	}
 	
 	//method
-	void setParametrizedPropertyTypeAttribute(
+	void setParameterizedPropertyTypeAttribute(
 		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		this.parameterizedPropertyType = parameterizedPropertyType;
 	}
 	
 	//method
-	void setParametrizedPropertyTypeToDatabase() {
-		internalGetRefRawSchemaAdapter().setColumnParametrizedPropertyType(this, parameterizedPropertyType);
+	void setParameterizedPropertyTypeToDatabase() {
+		internalGetRefRawSchemaAdapter().setColumnParameterizedPropertyType(this, parameterizedPropertyType);
 	}
 	
 	//method

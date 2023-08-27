@@ -182,7 +182,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	
 	//method
 	@Override
-	public void setColumnParametrizedPropertyType(
+	public void setColumnParameterizedPropertyType(
 		final String columnId,
 		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
@@ -191,7 +191,7 @@ public final class SchemaWriter implements ISchemaWriter {
 		
 		columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
 			SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
-			parameterizedPropertyTypeNodeMapper.createParametrizedPropertyTypeNodeFrom(parameterizedPropertyType)
+			parameterizedPropertyTypeNodeMapper.createParameterizedPropertyTypeNodeFrom(parameterizedPropertyType)
 		);
 		
 		hasChanges = true;

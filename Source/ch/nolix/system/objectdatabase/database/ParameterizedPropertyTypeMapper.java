@@ -23,7 +23,7 @@ final class ParameterizedPropertyTypeMapper {
 	
 	//method
 	public IParameterizedPropertyType
-	createParametrizedPropertyTypeFromDtoUsingGivenReferencableTables(
+	createParameterizedPropertyTypeFromDtoUsingGivenReferencableTables(
 		final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
@@ -45,62 +45,62 @@ final class ParameterizedPropertyTypeMapper {
 				return new ParameterizedMultiValueType<>(valueType3);
 			case REFERENCE:
 				
-				final var baseParametrizedReferenceTypeDto =
+				final var baseParameterizedReferenceTypeDto =
 				(IBaseParameterizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable =
-				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto.getReferencedTableId()));
+				referencableTables.getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto.getReferencedTableId()));
 				
 				return new ParameterizedReferenceType<>(referencedTable);
 			case OPTIONAL_REFERENCE:
 				
-				final var baseParametrizedReferenceTypeDto2 =
+				final var baseParameterizedReferenceTypeDto2 =
 				(IBaseParameterizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable2 =
-				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto2.getReferencedTableId()));
+				referencableTables.getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto2.getReferencedTableId()));
 				
 				return new ParameterizedOptionalReferenceType<>(referencedTable2);
 			case MULTI_REFERENCE:
 				
-				final var baseParametrizedReferenceTypeDto3 =
+				final var baseParameterizedReferenceTypeDto3 =
 				(IBaseParameterizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable3 =
-				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto3.getReferencedTableId()));
+				referencableTables.getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto3.getReferencedTableId()));
 				
 				return new ParameterizedMultiReferenceType<>(referencedTable3);
 			case BACK_REFERENCE:
 				
-				final var baseParametrizedBackRefenceTypeDto =
+				final var baseParameterizedBackRefenceTypeDto =
 				(IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn =
 				referencableTables
 				.toFromGroups(ITable::getStoredColumns)
-				.getStoredFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDto.getBackReferencedColumnId()));
+				.getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto.getBackReferencedColumnId()));
 				
 				return new ParameterizedBackReferenceType<>(backReferencedColumn);
 			case OPTIONAL_BACK_REFERENCE:
 				
-				final var baseParametrizedBackRefenceTypeDto2 =
+				final var baseParameterizedBackRefenceTypeDto2 =
 				(IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn2 =
 				referencableTables
 				.toFromGroups(ITable::getStoredColumns)
-				.getStoredFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDto2.getBackReferencedColumnId()));
+				.getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto2.getBackReferencedColumnId()));
 				
 				return new ParameterizedBackReferenceType<>(backReferencedColumn2);
 			case MULTI_BACK_REFERENCE:
 				
-				final var baseParametrizedBackRefenceTypeDto3 =
+				final var baseParameterizedBackRefenceTypeDto3 =
 				(IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn3 =
 				referencableTables
 				.toFromGroups(ITable::getStoredColumns)
-				.getStoredFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDto3.getBackReferencedColumnId()));
+				.getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto3.getBackReferencedColumnId()));
 				
 				return new ParameterizedBackReferenceType<>(backReferencedColumn3);
 			default:

@@ -25,14 +25,14 @@ public final class ParameterizedPropertyTypeNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
+	public IMutableNode<?> getStoredPropertyTypeNodeFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PROPERTY_TYPE);
 	}
 	
 	//method
-	public IMutableNode<?> getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+	public IMutableNode<?> getStoredReferencedTableIdNodeFromParameterizedPropertyTypeNode(
 		IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.REFERENCED_TABLE_ID);

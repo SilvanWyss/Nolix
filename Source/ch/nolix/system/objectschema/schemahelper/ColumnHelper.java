@@ -74,25 +74,25 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	//method
 	@Override
 	public PropertyType getPropertyType(final IColumn column) {
-		return column.getParametrizedPropertyType().getPropertyType();
+		return column.getParameterizedPropertyType().getPropertyType();
 	}
 	
 	//method
 	@Override
 	public boolean isABackReferenceColumn(final IColumn column) {
-		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(column.getParametrizedPropertyType());
+		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(column.getParameterizedPropertyType());
 	}
 	
 	//method
 	@Override
 	public boolean isAReferenceColumn(final IColumn column) {
-		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(column.getParametrizedPropertyType());
+		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(column.getParameterizedPropertyType());
 	}
 	
 	//method
 	@Override
 	public boolean isAValueColumn(final IColumn column) {
-		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseValueType(column.getParametrizedPropertyType());
+		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseValueType(column.getParameterizedPropertyType());
 	}
 	
 	//method
@@ -103,14 +103,14 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 			return false;
 		}
 		
-		final var parameterizedPropertyType = column.getParametrizedPropertyType();
+		final var parameterizedPropertyType = column.getParameterizedPropertyType();
 		
 		final var backReferencedColumn =
-		parameterizedPropertyType.asBaseParametrizedBackReferenceType().getBackReferencedColumn();
+		parameterizedPropertyType.asBaseParameterizedBackReferenceType().getBackReferencedColumn();
 		
-		final var backReferencedColumnParametrizedPropertyType = backReferencedColumn.getParametrizedPropertyType();
+		final var backReferencedColumnParameterizedPropertyType = backReferencedColumn.getParameterizedPropertyType();
 		
-		if (!PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(backReferencedColumnParametrizedPropertyType)) {
+		if (!PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(backReferencedColumnParameterizedPropertyType)) {
 			return false;
 		}
 		
@@ -123,12 +123,12 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 		final IColumn column,
 		final IColumn probableBackReferencedColumn
 	) {
-		return column.getParametrizedPropertyType().referencesBackColumn(probableBackReferencedColumn);
+		return column.getParameterizedPropertyType().referencesBackColumn(probableBackReferencedColumn);
 	}
 	
 	//method
 	@Override
 	public boolean referencesGivenTable(final IColumn column, final ITable table) {
-		return column.getParametrizedPropertyType().referencesTable(table);
+		return column.getParameterizedPropertyType().referencesTable(table);
 	}
 }

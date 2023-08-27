@@ -33,20 +33,20 @@ implements IBaseParameterizedBackReferenceType {
 	
 	//method
 	@Override
-	public final IBaseParameterizedBackReferenceType asBaseParametrizedBackReferenceType() {
+	public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedReferenceType asBaseParametrizedReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
+	public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
+	public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
 	}
 	
 	//method
@@ -93,7 +93,7 @@ implements IBaseParameterizedBackReferenceType {
 	//method
 	private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
 		return
-		backReferencedColumn.getParametrizedPropertyType().getPropertyType().getBaseType() ==
+		backReferencedColumn.getParameterizedPropertyType().getPropertyType().getBaseType() ==
 		BasePropertyType.BASE_REFERENCE;
 	}
 }

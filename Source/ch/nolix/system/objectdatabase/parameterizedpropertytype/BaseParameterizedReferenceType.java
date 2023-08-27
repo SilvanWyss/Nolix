@@ -31,20 +31,20 @@ implements IBaseParameterizedReferenceType<E> {
 	
 	//method
 	@Override
-	public final IBaseParameterizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
+	public final IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedReferenceType<?> asBaseParametrizedReferenceType() {
+	public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
+	public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
 	}
 	
 	//method

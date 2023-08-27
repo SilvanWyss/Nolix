@@ -21,11 +21,11 @@ final class ColumnMapper {
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
 		return
-		Column.withNameAndIdAndParametrizedPropertyTypeAndParentTable(
+		Column.withNameAndIdAndParameterizedPropertyTypeAndParentTable(
 			columnDto.getName(),
 			columnDto.getId(),
-			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromDtoUsingGivenReferencableTables(
-				columnDto.getParametrizedPropertyType(),
+			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDtoUsingGivenReferencableTables(
+				columnDto.getParameterizedPropertyType(),
 				referencableTables
 			),
 			parentTable
