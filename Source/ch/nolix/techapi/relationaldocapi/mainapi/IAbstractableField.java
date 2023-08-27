@@ -17,11 +17,11 @@ IFluentMutableCardinalityHolder<IAbstractableField> {
 	IAbstractableField getStoredBaseFieldAssumingInheritsFromBaseField();
 	
 	//method declaration
-	IContentBox getStoredContentBox();
+	IContent getStoredContent();
 	
 	//method declaration
 	boolean inheritsFromBaseField();
 	
 	//method declaration
-	IAbstractableField setContentBox(IContentBox contentBox);
+	IAbstractableField setContent(IContent content);
 }

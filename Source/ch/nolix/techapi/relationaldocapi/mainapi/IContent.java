@@ -2,4 +2,4 @@
 package ch.nolix.techapi.relationaldocapi.mainapi;
 
 //interface
-public interface IContentBox {}
+public interface IContent {}
