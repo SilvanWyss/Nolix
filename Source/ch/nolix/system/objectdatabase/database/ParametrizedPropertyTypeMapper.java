@@ -12,7 +12,7 @@ import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedOpti
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
@@ -22,7 +22,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 final class ParametrizedPropertyTypeMapper {
 	
 	//method
-	public IParametrizedPropertyType
+	public IParameterizedPropertyType
 	createParametrizedPropertyTypeFromDtoUsingGivenReferencableTables(
 		final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto,
 		final IContainer<? extends ITable<IEntity>> referencableTables

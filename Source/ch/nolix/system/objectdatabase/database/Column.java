@@ -7,7 +7,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSchemaAdapter;
 
@@ -18,10 +18,10 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	static Column withNameAndIdAndParametrizedPropertyTypeAndParentTable(
 		final String name,
 		final String id,
-		final IParametrizedPropertyType parametrizedPropertyType,
+		final IParameterizedPropertyType parameterizedPropertyType,
 		final Table<IEntity> parentTable
 	) {
-		return new Column(name, id, parametrizedPropertyType, parentTable);
+		return new Column(name, id, parameterizedPropertyType, parentTable);
 	}
 	
 	//attribute
@@ -31,7 +31,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	private final String id;
 	
 	//attribute
-	private final IParametrizedPropertyType parametrizedPropertyType;
+	private final IParameterizedPropertyType parameterizedPropertyType;
 	
 	//attribute
 	private final Table<IEntity> parentTable;
@@ -40,18 +40,18 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	private Column(
 		final String name,
 		final String id,
-		final IParametrizedPropertyType parametrizedPropertyType,
+		final IParameterizedPropertyType parameterizedPropertyType,
 		final Table<IEntity> parentTable
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
-		GlobalValidator.assertThat(parametrizedPropertyType).thatIsNamed(ParameterizedPropertyType.class).isNotNull();
+		GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(ParameterizedPropertyType.class).isNotNull();
 		GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
 		this.name = name;
 		this.id = id;
-		this.parametrizedPropertyType = parametrizedPropertyType;
+		this.parameterizedPropertyType = parameterizedPropertyType;
 		this.parentTable = parentTable;
 	}
 	
@@ -69,8 +69,8 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 	
 	//method
 	@Override
-	public IParametrizedPropertyType getParametrizedPropertyType() {
-		return parametrizedPropertyType;
+	public IParameterizedPropertyType getParametrizedPropertyType() {
+		return parameterizedPropertyType;
 	}
 	
 	//method

@@ -6,7 +6,7 @@ public interface IBaseParametrizedReferenceType<
 
 	E extends IEntity
 >
-extends IParametrizedPropertyType {
+extends IParameterizedPropertyType {
 	
 	//method declaration
 	ITable<E> getStoredencedTable();

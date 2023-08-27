@@ -9,7 +9,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 public interface IColumn extends IDatabaseObject, Identified, Named {
 	
 	//method declaration
-	IParametrizedPropertyType getParametrizedPropertyType();
+	IParameterizedPropertyType getParametrizedPropertyType();
 	
 	//method declaration
 	ITable<IEntity> getStoredParentTable();

@@ -5,7 +5,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
-public interface IParametrizedPropertyType {
+public interface IParameterizedPropertyType {
 	
 	//method declaration
 	IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType();
