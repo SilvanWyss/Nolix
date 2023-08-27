@@ -7,7 +7,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -75,12 +75,12 @@ public class ParameterizedPropertyTypeDtoMapper {
 	}
 	
 	//method
-	private BaseParametrizedValueTypeDto createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
+	private BaseParameterizedValueTypeDto createBaseParametrizedValueTypeDtoFromParametrizedPropertyTypeNode(
 		final IMutableNode<?> parametrizedPropertyTypeNode,
 		final PropertyType propertyType
 	) {
 		return
-		new BaseParametrizedValueTypeDto(
+		new BaseParameterizedValueTypeDto(
 			propertyType,
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
 		);

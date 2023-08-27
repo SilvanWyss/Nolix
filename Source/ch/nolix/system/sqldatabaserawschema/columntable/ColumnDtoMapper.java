@@ -8,7 +8,7 @@ import java.util.List;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -69,7 +69,7 @@ public final class ColumnDtoMapper {
 		new ColumnDto(
 			columnSystemTableSqlRecord.get(0),
 			columnSystemTableSqlRecord.get(1),
-			new BaseParametrizedValueTypeDto(
+			new BaseParameterizedValueTypeDto(
 				PropertyType.valueOf(columnSystemTableSqlRecord.get(3)),
 				DataType.valueOf(columnSystemTableSqlRecord.get(4))
 			)
