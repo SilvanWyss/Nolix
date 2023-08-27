@@ -8,7 +8,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParameterizedBa
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParameterizedReferenceType;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
-import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
+import ch.nolix.system.objectschema.schemahelper.ParameterizedPropertyTypeHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
@@ -30,7 +30,7 @@ final class ColumnMutationValidator {
 	
 	//constant
 	private static final IParameterizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
-	new ParametrizedPropertyTypeHelper();
+	new ParameterizedPropertyTypeHelper();
 	
 	//method
 	public void assertCanDeleteColumn(final Column column) {			

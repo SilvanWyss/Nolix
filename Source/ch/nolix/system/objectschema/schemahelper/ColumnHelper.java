@@ -19,7 +19,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	
 	//constant
 	private static final IParameterizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
-	new ParametrizedPropertyTypeHelper();
+	new ParameterizedPropertyTypeHelper();
 	
 	//method
 	@Override

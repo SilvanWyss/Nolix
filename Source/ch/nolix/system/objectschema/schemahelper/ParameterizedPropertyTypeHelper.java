@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedPropertyTypeHelper;
 
 //class
-public final class ParametrizedPropertyTypeHelper extends DatabaseObjectHelper
+public final class ParameterizedPropertyTypeHelper extends DatabaseObjectHelper
 implements IParameterizedPropertyTypeHelper {
 	
 	//method
