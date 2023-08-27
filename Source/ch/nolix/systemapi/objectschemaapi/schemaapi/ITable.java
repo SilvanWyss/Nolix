@@ -26,7 +26,7 @@ FluentNameable<ITable> {
 	//method declaration
 	ITable createColumnWithNameAndParametrizedPropertyType(
 		String name,
-		IParametrizedPropertyType parametrizedPropertyType
+		IParameterizedPropertyType parameterizedPropertyType
 	);
 	
 	//method declaration

@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
@@ -54,33 +54,33 @@ final class ColumnMutationValidator {
 	//method
 	public void assertCanSetParametrizedPropertyTypeToColumn(
 		final Column column,
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		
 		COLUMN_HELPER.assertIsOpen(column);
 		column.assertIsEmpty();
 		
 		if (
-			PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parametrizedPropertyType)
+			PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			
-			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parametrizedPropertyType;
+			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parameterizedPropertyType;
 			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
 			
 			DATABASE_HELPER.assertContainsGivenTable(COLUMN_HELPER.getParentDatabase(column), referencedTable);
 		}
 		
-		if (!PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parametrizedPropertyType)) {
+		if (!PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)) {
 			column.assertIsNotBackReferenced();
 		}
 		
 		if (
-			PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(parametrizedPropertyType)
+			PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(parameterizedPropertyType)
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			
-			final var baseParametrizedBackReferenceType = (BaseParametrizedBackReferenceType)parametrizedPropertyType;
+			final var baseParametrizedBackReferenceType = (BaseParametrizedBackReferenceType)parameterizedPropertyType;
 			final var backReferencedColumn = baseParametrizedBackReferenceType.getBackReferencedColumn();
 			
 			DATABASE_HELPER.assertContainsTableWithGivenColumn(

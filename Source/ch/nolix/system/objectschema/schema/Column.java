@@ -16,7 +16,7 @@ import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
@@ -64,7 +64,7 @@ public final class Column extends SchemaObject implements IColumn {
 	private String name = INITIAL_HEADER;
 	
 	//attribute
-	private IParametrizedPropertyType parametrizedPropertyType = INITIAL_PROPERTY_TYPE;
+	private IParameterizedPropertyType parameterizedPropertyType = INITIAL_PROPERTY_TYPE;
 	
 	//optional attribute
 	private Table parentTable;
@@ -72,23 +72,23 @@ public final class Column extends SchemaObject implements IColumn {
 	//constructor
 	public Column(
 		final String name,
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
-		this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parametrizedPropertyType);
+		this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parameterizedPropertyType);
 	}
 	
 	//constructor
 	private Column(
 		final String id,
 		final String name,
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
 		
 		this.id = id;
 		setName(name);
-		setParametrizedPropertyType(parametrizedPropertyType);
+		setParametrizedPropertyType(parameterizedPropertyType);
 	}
 	
 	//method
@@ -118,8 +118,8 @@ public final class Column extends SchemaObject implements IColumn {
 	
 	//method
 	@Override
-	public IParametrizedPropertyType getParametrizedPropertyType() {
-		return parametrizedPropertyType;
+	public IParameterizedPropertyType getParametrizedPropertyType() {
+		return parameterizedPropertyType;
 	}
 		
 	//method
@@ -161,11 +161,11 @@ public final class Column extends SchemaObject implements IColumn {
 	//method
 	@Override
 	public Column setParametrizedPropertyType(
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		
-		MUTATION_VALIDATOR.assertCanSetParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
-		MUTATION_EXECUTOR.setParametrizedPropertyTypeToColumn(this, parametrizedPropertyType);
+		MUTATION_VALIDATOR.assertCanSetParametrizedPropertyTypeToColumn(this, parameterizedPropertyType);
+		MUTATION_EXECUTOR.setParametrizedPropertyTypeToColumn(this, parameterizedPropertyType);
 		
 		return this;
 	}
@@ -222,14 +222,14 @@ public final class Column extends SchemaObject implements IColumn {
 	
 	//method
 	void setParametrizedPropertyTypeAttribute(
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
-		this.parametrizedPropertyType = parametrizedPropertyType;
+		this.parameterizedPropertyType = parameterizedPropertyType;
 	}
 	
 	//method
 	void setParametrizedPropertyTypeToDatabase() {
-		internalGetRefRawSchemaAdapter().setColumnParametrizedPropertyType(this, parametrizedPropertyType);
+		internalGetRefRawSchemaAdapter().setColumnParametrizedPropertyType(this, parameterizedPropertyType);
 	}
 	
 	//method

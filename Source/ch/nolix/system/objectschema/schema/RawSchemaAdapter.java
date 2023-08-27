@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -87,11 +87,11 @@ final class RawSchemaAdapter {
 	
 	public void setColumnParametrizedPropertyType(
 		final IColumn column,
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
 		internalRawSchemaAdapter.setColumnParametrizedPropertyType(
 			column.getId(),
-			parametrizedPropertyType.toDto()
+			parameterizedPropertyType.toDto()
 		);
 	}
 		

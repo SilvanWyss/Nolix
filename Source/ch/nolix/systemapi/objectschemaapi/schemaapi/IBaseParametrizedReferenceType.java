@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
 //interface
-public interface IBaseParametrizedReferenceType extends IParametrizedPropertyType {
+public interface IBaseParametrizedReferenceType extends IParameterizedPropertyType {
 	
 	//method declaration
 	ITable getReferencedTable();

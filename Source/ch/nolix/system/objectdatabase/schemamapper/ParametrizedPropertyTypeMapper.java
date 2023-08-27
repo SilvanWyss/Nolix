@@ -24,7 +24,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IParametrizedPropertyTypeMapper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
@@ -35,7 +35,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 	
 	//method
 	@Override
-	public IParametrizedPropertyType
+	public IParameterizedPropertyType
 	createParametrizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
 		final IProperty property,
 		final IContainer<ITable> referencableTables

@@ -3,17 +3,17 @@ package ch.nolix.systemapi.objectschemaapi.schemahelperapi;
 
 //own imports
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 
 //interface
 public interface IParametrizedPropertyTypeHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
-	boolean isABaseBackReferenceType(IParametrizedPropertyType parametrizedPropertyType);
+	boolean isABaseBackReferenceType(IParameterizedPropertyType parameterizedPropertyType);
 	
 	//method declaration
-	boolean isABaseReferenceType(IParametrizedPropertyType parametrizedPropertyType);
+	boolean isABaseReferenceType(IParameterizedPropertyType parameterizedPropertyType);
 	
 	//method declaration
-	boolean isABaseValueType(IParametrizedPropertyType parametrizedPropertyType);
+	boolean isABaseValueType(IParameterizedPropertyType parameterizedPropertyType);
 }

@@ -4,10 +4,10 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType implements IParametrizedPropertyType {
+public abstract class ParametrizedPropertyType implements IParameterizedPropertyType {
 	
 	//attribute
 	private final DataType dataType;

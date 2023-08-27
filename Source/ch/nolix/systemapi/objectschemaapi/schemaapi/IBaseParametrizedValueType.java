@@ -2,4 +2,4 @@
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
 //interface
-public interface IBaseParametrizedValueType<DT> extends IParametrizedPropertyType {}
+public interface IBaseParametrizedValueType<DT> extends IParameterizedPropertyType {}

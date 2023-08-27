@@ -13,7 +13,7 @@ import ch.nolix.system.objectschema.schemadto.SaveStampConfigurationDto;
 import ch.nolix.system.objectschema.schemadto.TableDto;
 import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IParametrizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
@@ -90,9 +90,9 @@ public final class Table extends SchemaObject implements ITable {
 	@Override
 	public Table createColumnWithNameAndParametrizedPropertyType( 
 		final String name,
-		final IParametrizedPropertyType parametrizedPropertyType
+		final IParameterizedPropertyType parameterizedPropertyType
 	) {
-		return addColumn(new Column(name, parametrizedPropertyType));
+		return addColumn(new Column(name, parameterizedPropertyType));
 	}
 	
 	//method
