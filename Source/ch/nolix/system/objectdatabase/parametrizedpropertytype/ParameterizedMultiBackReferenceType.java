@@ -10,7 +10,7 @@ public final class ParameterizedMultiBackReferenceType<
 
 	C extends IColumn
 >
-extends BaseParametrizedBackReferenceType<C> {
+extends BaseParameterizedBackReferenceType<C> {
 	
 	//constructor
 	public ParameterizedMultiBackReferenceType(final C backReferencedColumn) {

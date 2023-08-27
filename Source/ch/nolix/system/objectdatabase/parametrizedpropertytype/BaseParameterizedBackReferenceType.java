@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseParametrizedBackReferenceType<
+public abstract class BaseParameterizedBackReferenceType<
 
 	C extends IColumn
 >
@@ -22,7 +22,7 @@ implements IBaseParametrizedBackReferenceType<C>{
 	private final C backReferencedColumn;
 	
 	//constructor
-	protected BaseParametrizedBackReferenceType(final C backReferencedColumn) {
+	protected BaseParameterizedBackReferenceType(final C backReferencedColumn) {
 		
 		GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 		

@@ -10,7 +10,7 @@ public final class ParameterizedOptionalBackReferenceType<
 
 	C extends IColumn
 >
-extends BaseParametrizedBackReferenceType<C> {
+extends BaseParameterizedBackReferenceType<C> {
 	
 	//constructor
 	public ParameterizedOptionalBackReferenceType(final C backReferencedColumn) {
