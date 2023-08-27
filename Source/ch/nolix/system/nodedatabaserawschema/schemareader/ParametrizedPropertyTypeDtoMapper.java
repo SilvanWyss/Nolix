@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawschema.schemareader;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.nodedatabaserawschema.structure.ParametrizedPropertyTypeNodeSearcher;
+import ch.nolix.system.nodedatabaserawschema.structure.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDto;
@@ -16,8 +16,8 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 public class ParametrizedPropertyTypeDtoMapper {
 	
 	//constant
-	private static final ParametrizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
-	new ParametrizedPropertyTypeNodeSearcher();
+	private static final ParameterizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
+	new ParameterizedPropertyTypeNodeSearcher();
 	
 	//method
 	public ParametrizedPropertyTypeDto createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(

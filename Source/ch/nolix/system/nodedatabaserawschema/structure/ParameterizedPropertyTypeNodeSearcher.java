@@ -5,7 +5,7 @@ package ch.nolix.system.nodedatabaserawschema.structure;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //class
-public final class ParametrizedPropertyTypeNodeSearcher {
+public final class ParameterizedPropertyTypeNodeSearcher {
 	
 	//method
 	public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(

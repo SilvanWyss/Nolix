@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawdata.databasereader;
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
-import ch.nolix.system.nodedatabaserawschema.structure.ParametrizedPropertyTypeNodeSearcher;
+import ch.nolix.system.nodedatabaserawschema.structure.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.sqldatabaserawdata.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -17,8 +17,8 @@ public final class ColumnDefinitionMapper {
 	private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 	
 	//constant
-	private static final ParametrizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
-	new ParametrizedPropertyTypeNodeSearcher();
+	private static final ParameterizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
+	new ParameterizedPropertyTypeNodeSearcher();
 	
 	//method
 	public IColumnInfo createColumnDefinitionFromColumnNode(
