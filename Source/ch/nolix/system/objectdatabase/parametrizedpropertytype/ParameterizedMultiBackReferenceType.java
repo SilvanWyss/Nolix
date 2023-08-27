@@ -6,14 +6,14 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 
 //class
-public final class ParametrizedMultiBackReferenceType<
+public final class ParameterizedMultiBackReferenceType<
 
 	C extends IColumn
 >
 extends BaseParametrizedBackReferenceType<C> {
 	
 	//constructor
-	public ParametrizedMultiBackReferenceType(final C backReferencedColumn) {
+	public ParameterizedMultiBackReferenceType(final C backReferencedColumn) {
 		super(backReferencedColumn);
 	}
 	
