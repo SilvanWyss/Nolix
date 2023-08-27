@@ -8,14 +8,14 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 
 //class
-public final class BaseParametrizedReferenceTypeDto extends ParametrizedPropertyTypeDto
+public final class BaseParameterizedReferenceTypeDto extends ParametrizedPropertyTypeDto
 implements IBaseParameterizedReferenceTypeDto {
 	
 	//attribute
 	private final String referencedTableId;
 	
 	//constructor
-	public BaseParametrizedReferenceTypeDto(
+	public BaseParameterizedReferenceTypeDto(
 		final PropertyType propertyType,
 		final DataType dataType,
 		final String referencedTableId

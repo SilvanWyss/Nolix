@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ParameterizedPropertyTypeNodeSearcher;
 import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDto;
 import ch.nolix.system.objectschema.schemadto.ParametrizedPropertyTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -67,7 +67,7 @@ public class ParameterizedPropertyTypeDtoMapper {
 		final PropertyType propertyType
 	) {
 		return
-		new BaseParametrizedReferenceTypeDto(
+		new BaseParameterizedReferenceTypeDto(
 			propertyType,
 			getDataTypeFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode),
 			getReferencedTableIdFromParametrizedPropertyTypeNode(parametrizedPropertyTypeNode)
