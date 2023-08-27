@@ -8,7 +8,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class ParametrizedPropertyTypeDto implements IParameterizedPropertyTypeDto {
+public abstract class ParameterizedPropertyTypeDto implements IParameterizedPropertyTypeDto {
 	
 	//attribute
 	private final PropertyType propertyType;
@@ -18,7 +18,7 @@ public abstract class ParametrizedPropertyTypeDto implements IParameterizedPrope
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	protected ParametrizedPropertyTypeDto(final PropertyType propertyType, final DataType dataType) {
+	protected ParameterizedPropertyTypeDto(final PropertyType propertyType, final DataType dataType) {
 		
 		if (propertyType == null) {
 			throw ArgumentIsNullException.forArgumentType(PropertyType.class);

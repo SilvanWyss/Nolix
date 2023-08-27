@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 
 //class
-public final class BaseParameterizedBackReferenceTypeDto extends ParametrizedPropertyTypeDto
+public final class BaseParameterizedBackReferenceTypeDto extends ParameterizedPropertyTypeDto
 implements IBaseParameterizedBackReferenceTypeDto {
 	
 	//attribute
