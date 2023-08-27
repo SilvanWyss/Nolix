@@ -20,7 +20,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceT
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public final class ParametrizedPropertyTypeMapper {
+public final class ParameterizedPropertyTypeMapper {
 	
 	//method
 	public ParameterizedPropertyType createParametrizedPropertyTypeFromDto(

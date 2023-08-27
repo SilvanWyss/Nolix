@@ -32,8 +32,8 @@ public final class Column extends SchemaObject implements IColumn {
 	new ParameterizedValueType<>(DataType.INTEGER_4BYTE);
 	
 	//constant
-	private static final ParametrizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
-	new ParametrizedPropertyTypeMapper();
+	private static final ParameterizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
+	new ParameterizedPropertyTypeMapper();
 	
 	//constant
 	private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
