@@ -16,7 +16,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 public class ParameterizedPropertyTypeDtoMapper {
 	
 	//constant
-	private static final ParameterizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
+	private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER =
 	new ParameterizedPropertyTypeNodeSearcher();
 	
 	//method
@@ -92,7 +92,7 @@ public class ParameterizedPropertyTypeDtoMapper {
 	) {
 		
 		final var backReferencedColumnNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -103,7 +103,7 @@ public class ParameterizedPropertyTypeDtoMapper {
 	private DataType getDataTypeFromParametrizedPropertyTypeNode(final IMutableNode<?> parametrizedPropertyTypeNode) {
 		
 		final var dataTypeNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -116,7 +116,7 @@ public class ParameterizedPropertyTypeDtoMapper {
 	) {
 		
 		final var propertyTypeNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		
@@ -129,7 +129,7 @@ public class ParameterizedPropertyTypeDtoMapper {
 	) {
 		
 		final var referencedTableIdNode =
-		PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 		

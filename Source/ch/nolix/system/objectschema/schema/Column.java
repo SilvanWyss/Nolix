@@ -32,7 +32,7 @@ public final class Column extends SchemaObject implements IColumn {
 	new ParameterizedValueType<>(DataType.INTEGER_4BYTE);
 	
 	//constant
-	private static final ParameterizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
+	private static final ParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER =
 	new ParameterizedPropertyTypeMapper();
 	
 	//constant
@@ -50,7 +50,7 @@ public final class Column extends SchemaObject implements IColumn {
 		new Column(
 			columnDto.getId(),
 			columnDto.getName(),
-			PARAMETRIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromDto(
+			PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParametrizedPropertyTypeFromDto(
 				columnDto.getParametrizedPropertyType(),
 				tables
 			)

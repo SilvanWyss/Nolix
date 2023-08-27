@@ -18,7 +18,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedProperty
 public final class ColumnHelper extends DatabaseObjectHelper implements IColumnHelper {
 	
 	//constant
-	private static final IParameterizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
+	private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER =
 	new ParameterizedPropertyTypeHelper();
 	
 	//method
@@ -80,19 +80,19 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 	//method
 	@Override
 	public boolean isABackReferenceColumn(final IColumn column) {
-		return PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(column.getParametrizedPropertyType());
+		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(column.getParametrizedPropertyType());
 	}
 	
 	//method
 	@Override
 	public boolean isAReferenceColumn(final IColumn column) {
-		return PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(column.getParametrizedPropertyType());
+		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(column.getParametrizedPropertyType());
 	}
 	
 	//method
 	@Override
 	public boolean isAValueColumn(final IColumn column) {
-		return PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseValueType(column.getParametrizedPropertyType());
+		return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseValueType(column.getParametrizedPropertyType());
 	}
 	
 	//method
@@ -110,7 +110,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 		
 		final var backReferencedColumnParametrizedPropertyType = backReferencedColumn.getParametrizedPropertyType();
 		
-		if (!PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(backReferencedColumnParametrizedPropertyType)) {
+		if (!PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(backReferencedColumnParametrizedPropertyType)) {
 			return false;
 		}
 		

@@ -24,6 +24,6 @@ public final class ColumnNodeSearcher {
 	
 	//method
 	public IMutableNode<?> getStoredParametrizedPropertyTypeNodeFromColumnNode(final IMutableNode<?> columnNode) {
-		return columnNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE);
+		return columnNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE);
 	}
 }

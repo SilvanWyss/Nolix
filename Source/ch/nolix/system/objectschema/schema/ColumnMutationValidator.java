@@ -29,7 +29,7 @@ final class ColumnMutationValidator {
 	private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 	
 	//constant
-	private static final IParameterizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
+	private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER =
 	new ParameterizedPropertyTypeHelper();
 	
 	//method
@@ -61,7 +61,7 @@ final class ColumnMutationValidator {
 		column.assertIsEmpty();
 		
 		if (
-			PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)
+			PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			
@@ -71,12 +71,12 @@ final class ColumnMutationValidator {
 			DATABASE_HELPER.assertContainsGivenTable(COLUMN_HELPER.getParentDatabase(column), referencedTable);
 		}
 		
-		if (!PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)) {
+		if (!PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)) {
 			column.assertIsNotBackReferenced();
 		}
 		
 		if (
-			PARAMETRIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(parameterizedPropertyType)
+			PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(parameterizedPropertyType)
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			

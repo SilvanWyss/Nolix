@@ -26,7 +26,7 @@ public final class SubNodeHeaderCatalogue {
 	public static final String COLUMN = PascalCaseCatalogue.COLUMN;
 	
 	//constant
-	public static final String PARAMETRIZED_PROPERTY_TYPE = "ParametrizedPropertyType";
+	public static final String PARAMETERIZED_PROPERTY_TYPE = "ParametrizedPropertyType";
 	
 	//constant
 	public static final String PROPERTY_TYPE = "PropertyType";

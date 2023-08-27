@@ -14,7 +14,7 @@ final class ColumnDtoMapper {
 	private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 	
 	//constant
-	private static final ParameterizedPropertyTypeDtoMapper PARAMETRIZED_PROPERTY_TYPE_DTO_MAPPER =
+	private static final ParameterizedPropertyTypeDtoMapper PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER =
 	new ParameterizedPropertyTypeDtoMapper();
 	
 	//method
@@ -44,7 +44,7 @@ final class ColumnDtoMapper {
 		COLUMN_NODE_SEARCHER.getStoredParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		return
-		PARAMETRIZED_PROPERTY_TYPE_DTO_MAPPER.createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(
+		PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER.createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(
 			parametrizedPropertyTypeNode
 		);
 	}
