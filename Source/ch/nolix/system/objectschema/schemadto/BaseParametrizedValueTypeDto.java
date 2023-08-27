@@ -4,11 +4,11 @@ package ch.nolix.system.objectschema.schemadto;
 //own imports
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
 
 //class
 public final class BaseParametrizedValueTypeDto extends ParametrizedPropertyTypeDto
-implements IBaseParametrizedValueTypeDto {
+implements IBaseParameterizedValueTypeDto {
 	
 	//constructor
 	public BaseParametrizedValueTypeDto(final PropertyType propertyType, final DataType dataType) {

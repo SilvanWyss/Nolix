@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.sql.SqlSyntaxCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
@@ -19,7 +19,7 @@ public final class ParametrizedPropertyTypeSqlRecordMapper {
 		return
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
 			case BASE_VALUE ->
-				createBaseParametrizedValueTypeRecord((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
+				createBaseParametrizedValueTypeRecord((IBaseParameterizedValueTypeDto)parametrizedPropertyType);
 			case BASE_REFERENCE ->
 				createBaseParametrizedReferenceTypeRecord((IBaseParameterizedReferenceTypeDto)parametrizedPropertyType);
 			case BASE_BACK_REFERENCE ->
@@ -59,7 +59,7 @@ public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	private ParametrizedPropertyTypeSqlRecord createBaseParametrizedValueTypeRecord(
-		final IBaseParametrizedValueTypeDto baseParametrizedPropertyType
+		final IBaseParameterizedValueTypeDto baseParametrizedPropertyType
 	) {
 		return
 		new ParametrizedPropertyTypeSqlRecord(
