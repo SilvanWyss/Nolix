@@ -10,13 +10,19 @@ import ch.nolix.techapi.relationaldocapi.baseapi.Abstractable;
 public interface IAbstractableObject extends Abstractable<IAbstractableObject>, FluentNameable<IAbstractableObject> {
 	
 	//method declaration
+	IAbstractableObject addBaseType(IAbstractableObject baseType);
+		
+	//method declaration
 	IAbstractableObject addField(IAbstractableField field);
+	
+	//method declaration
+	IContainer<IAbstractableObject> getStoredBaseTypes();
 	
 	//method declaration
 	IContainer<IAbstractableField> getStoredFields();
 	
 	//method declaration
-	IContainer<IAbstractableObject> getStoredTypes();
+	void removeBaseType(IAbstractableObject baseType);
 	
 	//method declaration
 	void removeField(IAbstractableField field);
