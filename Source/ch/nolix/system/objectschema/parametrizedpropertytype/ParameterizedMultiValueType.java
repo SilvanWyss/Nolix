@@ -6,10 +6,10 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
-public final class ParametrizedMultiValueType<V> extends BaseParameterizedValueType<V> {
+public final class ParameterizedMultiValueType<V> extends BaseParameterizedValueType<V> {
 	
 	//constructor
-	public ParametrizedMultiValueType(final DataType dataType) {
+	public ParameterizedMultiValueType(final DataType dataType) {
 		super(dataType);
 	}
 	
