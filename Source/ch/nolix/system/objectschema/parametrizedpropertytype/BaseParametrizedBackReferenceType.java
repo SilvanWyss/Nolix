@@ -8,7 +8,7 @@ import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeD
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -39,7 +39,7 @@ implements IBaseParameterizedBackReferenceType {
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
+	public final IBaseParameterizedReferenceType asBaseParametrizedReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	

@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedReferenceTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType
-implements IBaseParametrizedReferenceType {
+implements IBaseParameterizedReferenceType {
 	
 	//attribute
 	private final ITable referencedTable;
@@ -38,7 +38,7 @@ implements IBaseParametrizedReferenceType {
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType asBaseParametrizedReferenceType() {
+	public final IBaseParameterizedReferenceType asBaseParametrizedReferenceType() {
 		return this;
 	}
 	

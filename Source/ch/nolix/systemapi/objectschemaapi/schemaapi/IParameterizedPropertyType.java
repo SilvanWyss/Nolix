@@ -13,7 +13,7 @@ public interface IParameterizedPropertyType {
 	IBaseParameterizedBackReferenceType asBaseParametrizedBackReferenceType();
 	
 	//method declaration
-	IBaseParametrizedReferenceType asBaseParametrizedReferenceType();
+	IBaseParameterizedReferenceType asBaseParametrizedReferenceType();
 	
 	//method declaration
 	IBaseParameterizedValueType<?> asBaseParametrizedValueType();
