@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMultiValueType;
-import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedOptionalReferenceType;
+import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedValueType;
@@ -60,7 +60,7 @@ final class ParametrizedPropertyTypeMapper {
 				final var referencedTable2 =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto2.getReferencedTableId()));
 				
-				return new ParametrizedOptionalReferenceType<>(referencedTable2);
+				return new ParameterizedOptionalReferenceType<>(referencedTable2);
 			case MULTI_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto3 =

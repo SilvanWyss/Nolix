@@ -7,14 +7,14 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public final class ParametrizedOptionalReferenceType<
+public final class ParameterizedOptionalReferenceType<
 
 	E extends IEntity
 >
 extends BaseParametrizedReferenceType<E> {
 	
 	//constructor
-	public ParametrizedOptionalReferenceType(final ITable<E> referencedTable) {
+	public ParameterizedOptionalReferenceType(final ITable<E> referencedTable) {
 		super(referencedTable);
 	}
 	
