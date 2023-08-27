@@ -142,7 +142,7 @@ final class SystemDataWriterSqlStatementCreator {
 		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
 		
-		final var parametrezidPropertyTypeRecord =
+		final var parameterizedPropertyTypeRecord =
 		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);
 		
 		return
@@ -151,15 +151,15 @@ final class SystemDataWriterSqlStatementCreator {
 		+ " SET "
 		+ ColumnTableColumn.DATA_TYPE
 		+ " = "
-		+ parametrezidPropertyTypeRecord.getDataTypeValue()
+		+ parameterizedPropertyTypeRecord.getDataTypeValue()
 		+ ", "
 		+ ColumnTableColumn.REFERENCED_TABLE_ID
 		+ " = "
-		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
+		+ parameterizedPropertyTypeRecord.getReferencedTableIdValue()
 		+ ", "
 		+ ColumnTableColumn.BACK_REFERENCED_COLUM_ID
 		+ " = "
-		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
+		+ parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ "WHERE"
 		+ ColumnTableColumn.ID
 		+ " = '"
