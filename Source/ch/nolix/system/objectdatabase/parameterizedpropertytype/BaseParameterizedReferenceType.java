@@ -1,32 +1,32 @@
 //package declaration
-package ch.nolix.system.objectdatabase.parametrizedpropertytype;
+package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseParameterizedValueType<
+public abstract class BaseParameterizedReferenceType<
 
-	V
+	E extends IEntity
 >
 extends ParameterizedPropertyType
-implements IBaseParameterizedValueType<V> {
+implements IBaseParameterizedReferenceType<E> {
 	
 	//attribute
-	private final Class<V> valueType;
+	private final ITable<E> referencedTable;
 	
 	//constructor
-	protected BaseParameterizedValueType(final Class<V> valueType) {
+	protected BaseParameterizedReferenceType(final ITable<E> referencedTable) {
 		
-		GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseCatalogue.VALUE_TYPE).isNotNull();
+		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		
-		this.valueType = valueType;
+		this.referencedTable = referencedTable;
 	}
 	
 	//method
@@ -38,24 +38,24 @@ implements IBaseParameterizedValueType<V> {
 	//method
 	@Override
 	public final IBaseParameterizedReferenceType<?> asBaseParametrizedReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
 		return this;
 	}
 	
 	//method
 	@Override
-	public final Class<V> getValueType() {
-		return valueType;
+	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
+	}
+	
+	//method
+	@Override
+	public final ITable<E> getStoredencedTable() {
+		return referencedTable;
 	}
 	
 	//method
 	@Override
 	public final boolean referencesTable(final ITable<?> table) {
-		return false;
+		return (getStoredencedTable() == table);
 	}
 }

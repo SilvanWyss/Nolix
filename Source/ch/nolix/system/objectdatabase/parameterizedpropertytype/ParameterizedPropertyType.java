@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdatabase.parametrizedpropertytype;
+package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType;
 

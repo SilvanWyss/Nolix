@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdatabase.parametrizedpropertytype;
+package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
@@ -7,38 +7,38 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseParameterizedReferenceType<
+public abstract class BaseParameterizedBackReferenceType<
 
-	E extends IEntity
+	C extends IColumn
 >
 extends ParameterizedPropertyType
-implements IBaseParameterizedReferenceType<E> {
+implements IBaseParameterizedBackReferenceType<C>{
 	
 	//attribute
-	private final ITable<E> referencedTable;
+	private final C backReferencedColumn;
 	
 	//constructor
-	protected BaseParameterizedReferenceType(final ITable<E> referencedTable) {
+	protected BaseParameterizedBackReferenceType(final C backReferencedColumn) {
 		
-		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
+		GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
 		
-		this.referencedTable = referencedTable;
+		this.backReferencedColumn = backReferencedColumn;
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
+	public final IBaseParameterizedBackReferenceType<C> asBaseParametrizedBackReferenceType() {
+		return this;
 	}
 	
 	//method
 	@Override
 	public final IBaseParameterizedReferenceType<?> asBaseParametrizedReferenceType() {
-		return this;
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
@@ -49,13 +49,13 @@ implements IBaseParameterizedReferenceType<E> {
 	
 	//method
 	@Override
-	public final ITable<E> getStoredencedTable() {
-		return referencedTable;
+	public final C getBackReferencedColumn() {
+		return backReferencedColumn;
 	}
 	
 	//method
 	@Override
 	public final boolean referencesTable(final ITable<?> table) {
-		return (getStoredencedTable() == table);
+		return false;
 	}
 }

@@ -1,38 +1,38 @@
 //package declaration
-package ch.nolix.system.objectdatabase.parametrizedpropertytype;
+package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseParameterizedBackReferenceType<
+public abstract class BaseParameterizedValueType<
 
-	C extends IColumn
+	V
 >
 extends ParameterizedPropertyType
-implements IBaseParameterizedBackReferenceType<C>{
+implements IBaseParameterizedValueType<V> {
 	
 	//attribute
-	private final C backReferencedColumn;
+	private final Class<V> valueType;
 	
 	//constructor
-	protected BaseParameterizedBackReferenceType(final C backReferencedColumn) {
+	protected BaseParameterizedValueType(final Class<V> valueType) {
 		
-		GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
+		GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseCatalogue.VALUE_TYPE).isNotNull();
 		
-		this.backReferencedColumn = backReferencedColumn;
+		this.valueType = valueType;
 	}
 	
 	//method
 	@Override
-	public final IBaseParameterizedBackReferenceType<C> asBaseParametrizedBackReferenceType() {
-		return this;
+	public final IBaseParameterizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
 	//method
@@ -44,13 +44,13 @@ implements IBaseParameterizedBackReferenceType<C>{
 	//method
 	@Override
 	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
+		return this;
 	}
 	
 	//method
 	@Override
-	public final C getBackReferencedColumn() {
-		return backReferencedColumn;
+	public final Class<V> getValueType() {
+		return valueType;
 	}
 	
 	//method
