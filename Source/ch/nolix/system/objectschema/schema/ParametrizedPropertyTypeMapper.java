@@ -12,7 +12,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOption
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedPropertyType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
@@ -36,7 +36,7 @@ public final class ParametrizedPropertyTypeMapper {
 			case MULTI_VALUE ->
 				new ParameterizedMultiValueType<>(parametrizedPropertyType.getDataType());
 			case REFERENCE ->
-				new ParametrizedReferenceType(
+				new ParameterizedReferenceType(
 					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case OPTIONAL_REFERENCE ->
