@@ -29,7 +29,7 @@ final class SystemDataWriterSqlStatementCreator {
 	//method
 	public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 		
-		final var parametrezidPropertyTypeRecord =
+		final var parameterizedPropertyTypeRecord =
 		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParameterizedPropertyTypeRecordFrom(
 			column.getParameterizedPropertyType()
 		);
@@ -58,13 +58,13 @@ final class SystemDataWriterSqlStatementCreator {
 		+ ", '"
 		+ column.getName()
 		+ "', "
-		+ parametrezidPropertyTypeRecord.getPropertyTypeValue()
+		+ parameterizedPropertyTypeRecord.getPropertyTypeValue()
 		+ ", "
-		+ parametrezidPropertyTypeRecord.getDataTypeValue()
+		+ parameterizedPropertyTypeRecord.getDataTypeValue()
 		+ ", "
-		+ parametrezidPropertyTypeRecord.getReferencedTableIdValue()
+		+ parameterizedPropertyTypeRecord.getReferencedTableIdValue()
 		+ ", "
-		+ parametrezidPropertyTypeRecord.getBackReferencedColumnIdValue()
+		+ parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
 		+ " FROM "
 		+ SystemDataTable.TABLE.getQualifiedName()
 		+ " WHERE "
