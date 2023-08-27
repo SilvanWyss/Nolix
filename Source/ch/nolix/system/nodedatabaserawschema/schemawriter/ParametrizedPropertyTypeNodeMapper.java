@@ -6,7 +6,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.system.nodedatabaserawschema.structure.SubNodeHeaderCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
@@ -20,7 +20,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 			case BASE_VALUE ->
 				createParametrizedPropertyTypeNodeFrom((IBaseParametrizedValueTypeDto)parametrizedPropertyType);
 			case BASE_REFERENCE ->
-				createParametrizedPropertyTypeNodeFrom((IBaseParametrizedReferenceTypeDto)parametrizedPropertyType);
+				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedReferenceTypeDto)parametrizedPropertyType);
 			case BASE_BACK_REFERENCE ->
 				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto)parametrizedPropertyType);
 			default ->
@@ -51,7 +51,7 @@ public final class ParametrizedPropertyTypeNodeMapper {
 	}
 	
 	//method
-	private Node createParametrizedPropertyTypeNodeFrom(IBaseParametrizedReferenceTypeDto baseParametrizedReferenceType) {
+	private Node createParametrizedPropertyTypeNodeFrom(IBaseParameterizedReferenceTypeDto baseParametrizedReferenceType) {
 		return
 		Node.withHeaderAndChildNode(
 			SubNodeHeaderCatalogue.PARAMETRIZED_PROPERTY_TYPE,

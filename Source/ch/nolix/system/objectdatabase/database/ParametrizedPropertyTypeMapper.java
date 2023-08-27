@@ -15,7 +15,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
@@ -46,7 +46,7 @@ final class ParametrizedPropertyTypeMapper {
 			case REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto =
-				(IBaseParametrizedReferenceTypeDto)parameterizedPropertyTypeDto;
+				(IBaseParameterizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto.getReferencedTableId()));
@@ -55,7 +55,7 @@ final class ParametrizedPropertyTypeMapper {
 			case OPTIONAL_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto2 =
-				(IBaseParametrizedReferenceTypeDto)parameterizedPropertyTypeDto;
+				(IBaseParameterizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable2 =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto2.getReferencedTableId()));
@@ -64,7 +64,7 @@ final class ParametrizedPropertyTypeMapper {
 			case MULTI_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto3 =
-				(IBaseParametrizedReferenceTypeDto)parameterizedPropertyTypeDto;
+				(IBaseParameterizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable3 =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto3.getReferencedTableId()));
