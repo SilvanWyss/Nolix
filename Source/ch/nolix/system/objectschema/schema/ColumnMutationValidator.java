@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.schema;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParameterizedBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParametrizedReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParameterizedReferenceType;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.ParametrizedPropertyTypeHelper;
@@ -65,7 +65,7 @@ final class ColumnMutationValidator {
 			&& COLUMN_HELPER.belongsToDatabase(column)
 		) {
 			
-			final var baseParametrizedReferenceType = (BaseParametrizedReferenceType)parameterizedPropertyType;
+			final var baseParametrizedReferenceType = (BaseParameterizedReferenceType)parameterizedPropertyType;
 			final var referencedTable = baseParametrizedReferenceType.getReferencedTable();
 			
 			DATABASE_HELPER.assertContainsGivenTable(COLUMN_HELPER.getParentDatabase(column), referencedTable);

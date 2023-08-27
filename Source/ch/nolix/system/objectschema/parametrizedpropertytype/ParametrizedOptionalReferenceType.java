@@ -6,7 +6,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParametrizedOptionalReferenceType extends BaseParametrizedReferenceType {
+public final class ParametrizedOptionalReferenceType extends BaseParameterizedReferenceType {
 	
 	//constructor
 	public ParametrizedOptionalReferenceType(final ITable referencedTable) {

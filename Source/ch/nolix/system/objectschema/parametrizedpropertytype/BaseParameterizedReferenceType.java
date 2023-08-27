@@ -14,14 +14,14 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class BaseParametrizedReferenceType extends ParametrizedPropertyType
+public abstract class BaseParameterizedReferenceType extends ParametrizedPropertyType
 implements IBaseParameterizedReferenceType {
 	
 	//attribute
 	private final ITable referencedTable;
 	
 	//constructor
-	protected BaseParametrizedReferenceType(final ITable referencedTable) {
+	protected BaseParameterizedReferenceType(final ITable referencedTable) {
 		
 		super(DataType.STRING);
 		
