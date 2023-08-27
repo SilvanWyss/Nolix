@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.relationaldocapi.mainapi;
+package ch.nolix.techapi.relationaldocapi.datamodelapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.FluentNameable;
