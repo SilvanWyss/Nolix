@@ -8,7 +8,6 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
-import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.guiapi.canvasapi.ICanvas;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
@@ -19,10 +18,6 @@ public interface IWebGui<WG extends IWebGui<WG>>
 extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	
 	//method declaration
-	@Override
-	IFrontEndReader fromFrontEnd();
-	
-	//method declaration
 	ICss getCss();
 	
 	//method declaration
@@ -30,10 +25,6 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	
 	//method declaration
 	IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
-	
-	//method declaration
-	@Override
-	IImage getIcon();
 	
 	//method declaration
 	IControl<?, ?> getStoredControlByInternalId(String fixedId);
@@ -51,10 +42,6 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	boolean hasRemoveLayerAction();
 	
 	//method declaration
-	@Override
-	IFrontEndWriter onFrontEnd();
-	
-	//method declaration
 	WG pushLayer(ILayer<?> layer);
 	
 	//method declaration
@@ -65,10 +52,6 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	
 	//method declaration
 	WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
-	
-	//method declaration
-	@Override
-	WG setIcon(IImage icon);
 	
 	//method declaration
 	WG setRemoveLayerAction(IAction removeLayerAction);
