@@ -7,13 +7,13 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 
 //class
-public abstract class ParametrizedPropertyType implements IParameterizedPropertyType {
+public abstract class ParameterizedPropertyType implements IParameterizedPropertyType {
 	
 	//attribute
 	private final DataType dataType;
 	
 	//constructor
-	protected ParametrizedPropertyType(final DataType dataTye) {
+	protected ParameterizedPropertyType(final DataType dataTye) {
 		
 		GlobalValidator.assertThat(dataTye).thatIsNamed(DataType.class).isNotNull();
 		

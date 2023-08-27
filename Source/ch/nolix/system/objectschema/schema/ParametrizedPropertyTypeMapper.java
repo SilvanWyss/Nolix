@@ -11,7 +11,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiV
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalValueType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -23,7 +23,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public final class ParametrizedPropertyTypeMapper {
 	
 	//method
-	public ParametrizedPropertyType createParametrizedPropertyTypeFromDto(
+	public ParameterizedPropertyType createParametrizedPropertyTypeFromDto(
 		final IParameterizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {

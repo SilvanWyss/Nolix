@@ -10,7 +10,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
@@ -28,7 +28,7 @@ public final class Column extends SchemaObject implements IColumn {
 	private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 	
 	//constant
-	private static final ParametrizedPropertyType INITIAL_PROPERTY_TYPE =
+	private static final ParameterizedPropertyType INITIAL_PROPERTY_TYPE =
 	new ParameterizedValueType<>(DataType.INTEGER_4BYTE);
 	
 	//constant
