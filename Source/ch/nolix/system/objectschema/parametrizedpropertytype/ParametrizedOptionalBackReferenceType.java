@@ -6,7 +6,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 
 //class
-public final class ParametrizedOptionalBackReferenceType extends BaseParametrizedBackReferenceType {
+public final class ParametrizedOptionalBackReferenceType extends BaseParameterizedBackReferenceType {
 	
 	//constructor
 	public ParametrizedOptionalBackReferenceType(final IColumn backReferencedColumn) {

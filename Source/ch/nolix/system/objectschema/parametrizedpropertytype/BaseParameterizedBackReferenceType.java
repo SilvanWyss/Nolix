@@ -15,14 +15,14 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType
+public abstract class BaseParameterizedBackReferenceType extends ParametrizedPropertyType
 implements IBaseParameterizedBackReferenceType {
 	
 	//attribute
 	private final IColumn backReferencedColumn;
 	
 	//constructor
-	protected BaseParametrizedBackReferenceType(final IColumn backReferencedColumn) {
+	protected BaseParameterizedBackReferenceType(final IColumn backReferencedColumn) {
 		
 		super(DataType.STRING);
 		
