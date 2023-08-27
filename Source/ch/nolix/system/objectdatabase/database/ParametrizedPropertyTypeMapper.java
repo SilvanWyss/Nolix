@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedBackReferenceType;
+import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedMultiValueType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedOptionalReferenceType;
@@ -80,7 +80,7 @@ final class ParametrizedPropertyTypeMapper {
 				.toFromGroups(ITable::getStoredColumns)
 				.getStoredFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDto.getBackReferencedColumnId()));
 				
-				return new ParametrizedBackReferenceType<>(backReferencedColumn);
+				return new ParameterizedBackReferenceType<>(backReferencedColumn);
 			case OPTIONAL_BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto2 =
@@ -91,7 +91,7 @@ final class ParametrizedPropertyTypeMapper {
 				.toFromGroups(ITable::getStoredColumns)
 				.getStoredFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDto2.getBackReferencedColumnId()));
 				
-				return new ParametrizedBackReferenceType<>(backReferencedColumn2);
+				return new ParameterizedBackReferenceType<>(backReferencedColumn2);
 			case MULTI_BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto3 =
@@ -102,7 +102,7 @@ final class ParametrizedPropertyTypeMapper {
 				.toFromGroups(ITable::getStoredColumns)
 				.getStoredFirst(c -> c.hasId(baseParametrizedBackRefenceTypeDto3.getBackReferencedColumnId()));
 				
-				return new ParametrizedBackReferenceType<>(backReferencedColumn3);
+				return new ParameterizedBackReferenceType<>(backReferencedColumn3);
 			default:
 				throw InvalidArgumentException.forArgument(parameterizedPropertyTypeDto);
 		}
