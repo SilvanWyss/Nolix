@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiB
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
@@ -60,7 +60,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				final var optionalReference = (IOptionalReference<?>)property;
 				
 				return
-				new ParametrizedOptionalReferenceType(
+				new ParameterizedOptionalReferenceType(
 					referencableTables.getStoredFirst(t -> t.hasName(optionalReference.getReferencedTableName()))
 				);
 			case MULTI_REFERENCE:

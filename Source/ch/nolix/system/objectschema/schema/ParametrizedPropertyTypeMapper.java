@@ -9,7 +9,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiB
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
@@ -40,7 +40,7 @@ public final class ParametrizedPropertyTypeMapper {
 					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case OPTIONAL_REFERENCE ->
-				new ParametrizedOptionalReferenceType(
+				new ParameterizedOptionalReferenceType(
 					getStoredReferencedTableFromParametrizedPropertyType(parametrizedPropertyType, tables)
 				);
 			case MULTI_REFERENCE ->
