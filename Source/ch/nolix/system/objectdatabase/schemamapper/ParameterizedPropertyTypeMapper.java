@@ -28,7 +28,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParametrizedPropertyTypeMapper implements IParameterizedPropertyTypeMapper {
+public final class ParameterizedPropertyTypeMapper implements IParameterizedPropertyTypeMapper {
 	
 	//constant
 	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();

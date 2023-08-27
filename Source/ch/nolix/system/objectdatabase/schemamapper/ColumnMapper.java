@@ -19,7 +19,7 @@ public final class ColumnMapper implements IColumnMapper {
 	
 	//constant
 	private static final IParameterizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
-	new ParametrizedPropertyTypeMapper();
+	new ParameterizedPropertyTypeMapper();
 	
 	//method
 	@Override
