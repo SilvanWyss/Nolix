@@ -7,7 +7,7 @@ import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IColumnMapper;
-import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IParametrizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IParameterizedPropertyTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
@@ -18,7 +18,7 @@ public final class ColumnMapper implements IColumnMapper {
 	private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 	
 	//constant
-	private static final IParametrizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
+	private static final IParameterizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =
 	new ParametrizedPropertyTypeMapper();
 	
 	//method

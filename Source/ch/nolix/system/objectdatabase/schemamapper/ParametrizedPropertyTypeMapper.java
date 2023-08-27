@@ -23,12 +23,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
-import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IParametrizedPropertyTypeMapper;
+import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IParameterizedPropertyTypeMapper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParametrizedPropertyTypeMapper implements IParametrizedPropertyTypeMapper {
+public final class ParametrizedPropertyTypeMapper implements IParameterizedPropertyTypeMapper {
 	
 	//constant
 	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
