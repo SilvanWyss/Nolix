@@ -5,7 +5,7 @@ package ch.nolix.system.objectdatabase.schemamapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedBackReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
@@ -76,7 +76,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				final var backReference = (IBackReference<?>)property;
 				
 				return
-				new ParametrizedBackReferenceType(
+				new ParameterizedBackReferenceType(
 					referencableTables
 					.getStoredFirst(t -> t.hasName(backReference.getBackReferencedTableName()))
 					.getStoredColumns()
