@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabaserawschema.schemawriter;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.system.sqldatabaserawschema.columntable.ColumnTableColumn;
-import ch.nolix.system.sqldatabaserawschema.columntable.ParametrizedPropertyTypeSqlRecordMapper;
+import ch.nolix.system.sqldatabaserawschema.columntable.ParameterizedPropertyTypeSqlRecordMapper;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqldatabaserawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
@@ -19,8 +19,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriterSqlStatementCreator {
 	
 	//constant
-	private static final ParametrizedPropertyTypeSqlRecordMapper PARAMETRIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER =
-	new ParametrizedPropertyTypeSqlRecordMapper();
+	private static final ParameterizedPropertyTypeSqlRecordMapper PARAMETRIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER =
+	new ParameterizedPropertyTypeSqlRecordMapper();
 	
 	//constant
 	private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER =
