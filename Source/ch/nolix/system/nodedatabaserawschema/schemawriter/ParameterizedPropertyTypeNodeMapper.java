@@ -14,17 +14,17 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public final class ParameterizedPropertyTypeNodeMapper {
 	
 	//method
-	public Node createParametrizedPropertyTypeNodeFrom(final IParameterizedPropertyTypeDto parametrizedPropertyType) {
+	public Node createParametrizedPropertyTypeNodeFrom(final IParameterizedPropertyTypeDto parameterizedPropertyType) {
 		return
-		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {
+		switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
 			case BASE_VALUE ->
-				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedValueTypeDto)parametrizedPropertyType);
+				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedValueTypeDto)parameterizedPropertyType);
 			case BASE_REFERENCE ->
-				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedReferenceTypeDto)parametrizedPropertyType);
+				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedReferenceTypeDto)parameterizedPropertyType);
 			case BASE_BACK_REFERENCE ->
-				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto)parametrizedPropertyType);
+				createParametrizedPropertyTypeNodeFrom((IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyType);
 			default ->
-				throw InvalidArgumentException.forArgument(parametrizedPropertyType);
+				throw InvalidArgumentException.forArgument(parameterizedPropertyType);
 		};
 	}
 	

@@ -189,9 +189,9 @@ public final class SchemaAdapter implements ISchemaAdapter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParameterizedPropertyTypeDto parametrizedPropertyType
+		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
-		schemaWriter.setColumnParametrizedPropertyType(columnId, parametrizedPropertyType);
+		schemaWriter.setColumnParametrizedPropertyType(columnId, parameterizedPropertyType);
 	}
 	
 	//method

@@ -40,12 +40,12 @@ final class ColumnDtoMapper {
 	//method
 	private ParameterizedPropertyTypeDto createParametrizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
-		final var parametrizedPropertyTypeNode =
+		final var parameterizedPropertyTypeNode =
 		COLUMN_NODE_SEARCHER.getStoredParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		return
 		PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER.createParametrizedProeprtyTypeDtoFromParametrizedPropertyTypeNode(
-			parametrizedPropertyTypeNode
+			parameterizedPropertyTypeNode
 		);
 	}
 }

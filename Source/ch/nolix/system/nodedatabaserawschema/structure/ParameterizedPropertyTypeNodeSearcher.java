@@ -9,32 +9,32 @@ public final class ParameterizedPropertyTypeNodeSearcher {
 	
 	//method
 	public IMutableNode<?> getStoredBackReferencedColumnIdNodeFromPropertyTypeNode(
-		final IMutableNode<?> parametrizedPropertyTypeNode
+		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		return
-		parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(
+		parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(
 			SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID
 		);
 	}
 	
 	//method
 	public IMutableNode<?> getStoredDataTypeNodeFromParametriedPropertyTypeNode(
-		final IMutableNode<?> parametrizedPropertyTypeNode
+		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATA_TYPE);
+		return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATA_TYPE);
 	}
 	
 	//method
 	public IMutableNode<?> getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
-		final IMutableNode<?> parametrizedPropertyTypeNode
+		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PROPERTY_TYPE);
+		return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.PROPERTY_TYPE);
 	}
 	
 	//method
 	public IMutableNode<?> getStoredReferencedTableIdNodeFromParametrizedPropertyTypeNode(
-		IMutableNode<?> parametrizedPropertyTypeNode
+		IMutableNode<?> parameterizedPropertyTypeNode
 	) {
-		return parametrizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.REFERENCED_TABLE_ID);
+		return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.REFERENCED_TABLE_ID);
 	}
 }

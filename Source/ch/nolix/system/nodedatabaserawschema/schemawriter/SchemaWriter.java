@@ -184,14 +184,14 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParameterizedPropertyTypeDto parametrizedPropertyType
+		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
 		
 		final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 		
 		columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
 			SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
-			parameterizedPropertyTypeNodeMapper.createParametrizedPropertyTypeNodeFrom(parametrizedPropertyType)
+			parameterizedPropertyTypeNodeMapper.createParametrizedPropertyTypeNodeFrom(parameterizedPropertyType)
 		);
 		
 		hasChanges = true;

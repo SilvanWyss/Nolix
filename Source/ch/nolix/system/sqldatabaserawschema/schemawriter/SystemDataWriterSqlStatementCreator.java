@@ -139,11 +139,11 @@ final class SystemDataWriterSqlStatementCreator {
 	//method
 	public String createStatementToSetColumnParametrizedPropertyType(
 		final String columnID,
-		final IParameterizedPropertyTypeDto parametrizedPropertyType
+		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
 		
 		final var parametrezidPropertyTypeRecord =
-		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParametrizedPropertyTypeRecordFrom(parametrizedPropertyType);
+		PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER.createParametrizedPropertyTypeRecordFrom(parameterizedPropertyType);
 		
 		return
 		"UPDATE "

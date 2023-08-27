@@ -56,12 +56,12 @@ public final class ColumnDefinitionMapper {
 	//method
 	private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 		
-		final var parametrizedPropertyTypeNode =
+		final var parameterizedPropertyTypeNode =
 		COLUMN_NODE_SEARCHER.getStoredParametrizedPropertyTypeNodeFromColumnNode(columnNode);
 		
 		final var propertyTypeNode =
 		PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredPropertyTypeNodeFromParametrizedPropertyTypeNode(
-			parametrizedPropertyTypeNode
+			parameterizedPropertyTypeNode
 		);
 		
 		return PropertyType.fromSpecification(propertyTypeNode);
@@ -73,11 +73,11 @@ public final class ColumnDefinitionMapper {
 	}
 	
 	//method
-	private DataType getDataTypeFromParametrizedPropertyTypeNode(IMutableNode<?> parametrizedPropertyTypeNode) {
+	private DataType getDataTypeFromParametrizedPropertyTypeNode(IMutableNode<?> parameterizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
 			PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
-				parametrizedPropertyTypeNode
+				parameterizedPropertyTypeNode
 			)
 		);
 	}

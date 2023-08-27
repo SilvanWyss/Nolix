@@ -103,10 +103,10 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 			return false;
 		}
 		
-		final var parametrizedPropertyType = column.getParametrizedPropertyType();
+		final var parameterizedPropertyType = column.getParametrizedPropertyType();
 		
 		final var backReferencedColumn =
-		parametrizedPropertyType.asBaseParametrizedBackReferenceType().getBackReferencedColumn();
+		parameterizedPropertyType.asBaseParametrizedBackReferenceType().getBackReferencedColumn();
 		
 		final var backReferencedColumnParametrizedPropertyType = backReferencedColumn.getParametrizedPropertyType();
 		

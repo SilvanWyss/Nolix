@@ -27,7 +27,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 	//method declaration
 	void setColumnParametrizedPropertyType(
 		String columnId,
-		IParameterizedPropertyTypeDto parametrizedPropertyType
+		IParameterizedPropertyTypeDto parameterizedPropertyType
 	);
 	
 	//method declaration

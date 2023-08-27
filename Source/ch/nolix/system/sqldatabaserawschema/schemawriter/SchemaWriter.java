@@ -151,9 +151,9 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParameterizedPropertyTypeDto parametrizedPropertyType
+		final IParameterizedPropertyTypeDto parameterizedPropertyType
 	) {
-		systemDataWriter.setColumnParametrizedPropertyType(columnId, parametrizedPropertyType);
+		systemDataWriter.setColumnParametrizedPropertyType(columnId, parameterizedPropertyType);
 	}
 	
 	//method
