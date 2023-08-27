@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseParametrizedReferenceType<
+public abstract class BaseParameterizedReferenceType<
 
 	E extends IEntity
 >
@@ -22,7 +22,7 @@ implements IBaseParametrizedReferenceType<E> {
 	private final ITable<E> referencedTable;
 	
 	//constructor
-	protected BaseParametrizedReferenceType(final ITable<E> referencedTable) {
+	protected BaseParameterizedReferenceType(final ITable<E> referencedTable) {
 		
 		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
 		

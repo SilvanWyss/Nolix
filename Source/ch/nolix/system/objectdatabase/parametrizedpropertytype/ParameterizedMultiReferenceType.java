@@ -11,7 +11,7 @@ public final class ParameterizedMultiReferenceType<
 
 	E extends IEntity
 >
-extends BaseParametrizedReferenceType<E> {
+extends BaseParameterizedReferenceType<E> {
 	
 	//constructor
 	public ParameterizedMultiReferenceType(final ITable<E> referencedTable) {
