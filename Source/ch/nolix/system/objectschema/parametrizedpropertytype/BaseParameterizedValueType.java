@@ -13,11 +13,11 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType
+public abstract class BaseParameterizedValueType<V> extends ParametrizedPropertyType
 implements IBaseParameterizedValueType<V> {
 	
 	//constructor
-	protected BaseParametrizedValueType(final DataType dataType) {
+	protected BaseParameterizedValueType(final DataType dataType) {
 		super(dataType);
 	}
 	
