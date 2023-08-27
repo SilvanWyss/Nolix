@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
-public interface IBaseParametrizedValueType<
+public interface IBaseParameterizedValueType<
 
 	V
 >

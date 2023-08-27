@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSuppor
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
@@ -43,7 +43,7 @@ implements IBaseParameterizedBackReferenceType<C>{
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
 	}
 	

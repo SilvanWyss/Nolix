@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
@@ -16,7 +16,7 @@ public abstract class BaseParameterizedValueType<
 	V
 >
 extends ParameterizedPropertyType
-implements IBaseParametrizedValueType<V> {
+implements IBaseParameterizedValueType<V> {
 	
 	//attribute
 	private final Class<V> valueType;
@@ -43,7 +43,7 @@ implements IBaseParametrizedValueType<V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
 		return this;
 	}
 	
