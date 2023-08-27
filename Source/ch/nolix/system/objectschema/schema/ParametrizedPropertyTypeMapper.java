@@ -10,7 +10,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiR
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
@@ -32,7 +32,7 @@ public final class ParametrizedPropertyTypeMapper {
 			case VALUE ->
 				new ParameterizedValueType<>(parametrizedPropertyType.getDataType());
 			case OPTIONAL_VALUE ->
-				new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType());
+				new ParameterizedOptionalValueType<>(parametrizedPropertyType.getDataType());
 			case MULTI_VALUE ->
 				new ParameterizedMultiValueType<>(parametrizedPropertyType.getDataType());
 			case REFERENCE ->

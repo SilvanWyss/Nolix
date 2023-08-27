@@ -11,7 +11,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiR
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -44,7 +44,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 			case VALUE:
 				return new ParameterizedValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
 			case OPTIONAL_VALUE:
-				return new ParametrizedOptionalValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
+				return new ParameterizedOptionalValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
 			case MULTI_VALUE:
 				return new ParameterizedMultiValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
 			case REFERENCE:
