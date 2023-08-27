@@ -13,7 +13,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
-public class ParametrizedPropertyTypeDtoMapper {
+public class ParameterizedPropertyTypeDtoMapper {
 	
 	//constant
 	private static final ParameterizedPropertyTypeNodeSearcher PARAMETRIZED_PROPERTY_TYPE_NODE_SEARCHER =
