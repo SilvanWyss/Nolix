@@ -9,7 +9,7 @@ import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMult
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedOptionalValueType;
-import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedReferenceType;
+import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
@@ -51,7 +51,7 @@ final class ParametrizedPropertyTypeMapper {
 				final var referencedTable =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto.getReferencedTableId()));
 				
-				return new ParametrizedReferenceType<>(referencedTable);
+				return new ParameterizedReferenceType<>(referencedTable);
 			case OPTIONAL_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto2 =
