@@ -11,7 +11,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schemadto.ColumnDto;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -29,7 +29,7 @@ public final class Column extends SchemaObject implements IColumn {
 	
 	//constant
 	private static final ParametrizedPropertyType INITIAL_PROPERTY_TYPE =
-	new ParametrizedValueType<>(DataType.INTEGER_4BYTE);
+	new ParameterizedValueType<>(DataType.INTEGER_4BYTE);
 	
 	//constant
 	private static final ParametrizedPropertyTypeMapper PARAMETRIZED_PROPERTY_TYPE_MAPPER =

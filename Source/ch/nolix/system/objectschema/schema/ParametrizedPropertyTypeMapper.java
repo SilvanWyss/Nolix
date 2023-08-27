@@ -13,7 +13,7 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptiona
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedPropertyType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
@@ -30,7 +30,7 @@ public final class ParametrizedPropertyTypeMapper {
 		return
 		switch (parametrizedPropertyType.getPropertyType()) {
 			case VALUE ->
-				new ParametrizedValueType<>(parametrizedPropertyType.getDataType());
+				new ParameterizedValueType<>(parametrizedPropertyType.getDataType());
 			case OPTIONAL_VALUE ->
 				new ParametrizedOptionalValueType<>(parametrizedPropertyType.getDataType());
 			case MULTI_VALUE ->

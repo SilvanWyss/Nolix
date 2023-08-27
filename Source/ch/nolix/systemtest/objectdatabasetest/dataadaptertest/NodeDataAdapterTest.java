@@ -9,7 +9,7 @@ import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.schema.Schema;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
@@ -162,7 +162,7 @@ public final class NodeDataAdapterTest extends Test {
 		final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
 		schemaAdapter
 		.getStoredTableByName("Pet")
-		.addColumn(new Column("Name", new ParametrizedValueType<>(DataType.STRING)));
+		.addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
 		schemaAdapter.saveChanges();
 		
 		//execution & verification: Try to save the the changes to the database.
