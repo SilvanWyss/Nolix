@@ -12,6 +12,6 @@ public final class AbstractableObjectEvaluator {
 	public boolean canBeSetAsConcrete(final IAbstractableObject abstractableObject) {
 		return
 		abstractableObject != null		
-		&& abstractableObject.getStoredNonInheritedFields().containsNone(IAbstractableField::isAbstract);
+		&& abstractableObject.getStoredFields().containsNone(IAbstractableField::isAbstract);
 	}
 }
