@@ -9,7 +9,7 @@ public final class ParameterizedMultiValueType<
 
 	V
 >
-extends BaseParametrizedValueType<V> {
+extends BaseParameterizedValueType<V> {
 	
 	//constructor
 	public ParameterizedMultiValueType(final Class<V> valueType) {

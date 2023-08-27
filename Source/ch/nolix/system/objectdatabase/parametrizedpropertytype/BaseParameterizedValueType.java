@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueTy
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public abstract class BaseParametrizedValueType<
+public abstract class BaseParameterizedValueType<
 
 	V
 >
@@ -22,7 +22,7 @@ implements IBaseParametrizedValueType<V> {
 	private final Class<V> valueType;
 	
 	//constructor
-	protected BaseParametrizedValueType(final Class<V> valueType) {
+	protected BaseParameterizedValueType(final Class<V> valueType) {
 		
 		GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseCatalogue.VALUE_TYPE).isNotNull();
 		
