@@ -4,7 +4,7 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
@@ -71,7 +71,7 @@ implements IBaseParameterizedBackReferenceType {
 	@Override
 	public final IParameterizedPropertyTypeDto toDto() {
 		return
-		new BaseParametrizedBackReferenceTypeDto(
+		new BaseParameterizedBackReferenceTypeDto(
 			getPropertyType(),
 			getDataType(),
 			getBackReferencedColumn().getId()

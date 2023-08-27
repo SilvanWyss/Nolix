@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 
 //class
-public final class BaseParametrizedBackReferenceTypeDto extends ParametrizedPropertyTypeDto
+public final class BaseParameterizedBackReferenceTypeDto extends ParametrizedPropertyTypeDto
 implements IBaseParameterizedBackReferenceTypeDto {
 	
 	//attribute
@@ -18,7 +18,7 @@ implements IBaseParameterizedBackReferenceTypeDto {
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
-	public BaseParametrizedBackReferenceTypeDto(
+	public BaseParameterizedBackReferenceTypeDto(
 		final PropertyType propertyType,
 		final DataType dataType,
 		final String backReferencedColumnId
