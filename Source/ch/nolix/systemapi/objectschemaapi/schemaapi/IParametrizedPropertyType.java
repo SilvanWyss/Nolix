@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 //own imports
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //interface
 public interface IParametrizedPropertyType {
@@ -31,5 +31,5 @@ public interface IParametrizedPropertyType {
 	boolean referencesBackColumn(IColumn column);
 	
 	//method declaration
-	IParametrizedPropertyTypeDto toDto();
+	IParameterizedPropertyTypeDto toDto();
 }

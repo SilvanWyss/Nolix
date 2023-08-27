@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 public final class ColumnDto implements IColumnDto {
@@ -17,14 +17,14 @@ public final class ColumnDto implements IColumnDto {
 	private final String name;
 	
 	//attribute
-	private final IParametrizedPropertyTypeDto parametrizedPropertyTypeDto;
+	private final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto;
 	
 	//constructor
 	//For a better performance, this implementation does not use all comfortable methods.
 	public ColumnDto(
 		final String id,
 		final String name,
-		final IParametrizedPropertyTypeDto parametrizedPropertyTypeDto
+		final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto
 	) {
 		
 		if (id == null) {
@@ -35,13 +35,13 @@ public final class ColumnDto implements IColumnDto {
 			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.HEADER);
 		}
 		
-		if (parametrizedPropertyTypeDto == null) {
-			throw ArgumentIsNullException.forArgumentType(IParametrizedPropertyTypeDto.class);
+		if (parameterizedPropertyTypeDto == null) {
+			throw ArgumentIsNullException.forArgumentType(IParameterizedPropertyTypeDto.class);
 		}
 		
 		this.id = id;
 		this.name = name;
-		this.parametrizedPropertyTypeDto = parametrizedPropertyTypeDto;
+		this.parameterizedPropertyTypeDto = parameterizedPropertyTypeDto;
 	}
 	
 	//method
@@ -58,7 +58,7 @@ public final class ColumnDto implements IColumnDto {
 	
 	//method
 	@Override
-	public IParametrizedPropertyTypeDto getParametrizedPropertyType() {
-		return parametrizedPropertyTypeDto;
+	public IParameterizedPropertyTypeDto getParametrizedPropertyType() {
+		return parameterizedPropertyTypeDto;
 	}
 }

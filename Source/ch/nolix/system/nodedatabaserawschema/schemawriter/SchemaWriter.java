@@ -14,7 +14,7 @@ import ch.nolix.system.nodedatabaserawschema.structure.TableNodeSearcher;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -184,7 +184,7 @@ public final class SchemaWriter implements ISchemaWriter {
 	@Override
 	public void setColumnParametrizedPropertyType(
 		final String columnId,
-		final IParametrizedPropertyTypeDto parametrizedPropertyType
+		final IParameterizedPropertyTypeDto parametrizedPropertyType
 	) {
 		
 		final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);

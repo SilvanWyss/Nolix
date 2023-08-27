@@ -7,14 +7,14 @@ import ch.nolix.core.sql.SqlSyntaxCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedValueTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 public final class ParametrizedPropertyTypeSqlRecordMapper {
 	
 	//method
 	public ParametrizedPropertyTypeSqlRecord createParametrizedPropertyTypeRecordFrom(
-		final IParametrizedPropertyTypeDto parametrizedPropertyType 
+		final IParameterizedPropertyTypeDto parametrizedPropertyType 
 	) {
 		return
 		switch (parametrizedPropertyType.getPropertyType().getBaseType()) {

@@ -11,7 +11,7 @@ import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
@@ -139,7 +139,7 @@ final class SystemDataWriterSqlStatementCreator {
 	//method
 	public String createStatementToSetColumnParametrizedPropertyType(
 		final String columnID,
-		final IParametrizedPropertyTypeDto parametrizedPropertyType
+		final IParameterizedPropertyTypeDto parametrizedPropertyType
 	) {
 		
 		final var parametrezidPropertyTypeRecord =

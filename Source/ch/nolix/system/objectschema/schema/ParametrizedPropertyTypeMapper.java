@@ -17,14 +17,14 @@ import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedValueTy
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 public final class ParametrizedPropertyTypeMapper {
 	
 	//method
 	public ParametrizedPropertyType createParametrizedPropertyTypeFromDto(
-		final IParametrizedPropertyTypeDto parametrizedPropertyType,
+		final IParameterizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		return
@@ -66,7 +66,7 @@ public final class ParametrizedPropertyTypeMapper {
 	
 	//method
 	private Column getStoredBackReferencedColumnFromParametrizedPropertyType(
-		final IParametrizedPropertyTypeDto parametrizedPropertyType,
+		final IParameterizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		
@@ -79,7 +79,7 @@ public final class ParametrizedPropertyTypeMapper {
 	
 	//method
 	private ITable getStoredReferencedTableFromParametrizedPropertyType(
-		final IParametrizedPropertyTypeDto parametrizedPropertyType,
+		final IParameterizedPropertyTypeDto parametrizedPropertyType,
 		final IContainer<ITable> tables
 	) {
 		

@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 
 //interface
-public interface IBaseParametrizedReferenceTypeDto extends IParametrizedPropertyTypeDto {
+public interface IBaseParametrizedReferenceTypeDto extends IParameterizedPropertyTypeDto {
 	
 	//method declaration
 	String getReferencedTableId();

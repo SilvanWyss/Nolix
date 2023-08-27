@@ -2,4 +2,4 @@
 package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 
 //interface
-public interface IBaseParametrizedValueTypeDto extends IParametrizedPropertyTypeDto {}
+public interface IBaseParametrizedValueTypeDto extends IParameterizedPropertyTypeDto {}

@@ -16,7 +16,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyTyp
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 final class ParametrizedPropertyTypeMapper {
@@ -24,29 +24,29 @@ final class ParametrizedPropertyTypeMapper {
 	//method
 	public IParametrizedPropertyType
 	createParametrizedPropertyTypeFromDtoUsingGivenReferencableTables(
-		final IParametrizedPropertyTypeDto parametrizedPropertyTypeDto,
+		final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto,
 		final IContainer<? extends ITable<IEntity>> referencableTables
 	) {
-		switch (parametrizedPropertyTypeDto.getPropertyType()) {
+		switch (parameterizedPropertyTypeDto.getPropertyType()) {
 			case VALUE:
 				
-				final var valueType = parametrizedPropertyTypeDto.getDataType().getDataTypeClass();
+				final var valueType = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 				
 				return new ParametrizedValueType<>(valueType);
 			case OPTIONAL_VALUE:
 				
-				final var valueType2 = parametrizedPropertyTypeDto.getDataType().getDataTypeClass();
+				final var valueType2 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 				
 				return new ParametrizedOptionalValueType<>(valueType2);
 			case MULTI_VALUE:
 				
-				final var valueType3 = parametrizedPropertyTypeDto.getDataType().getDataTypeClass();
+				final var valueType3 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 				
 				return new ParametrizedMultiValueType<>(valueType3);
 			case REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto =
-				(IBaseParametrizedReferenceTypeDto)parametrizedPropertyTypeDto;
+				(IBaseParametrizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto.getReferencedTableId()));
@@ -55,7 +55,7 @@ final class ParametrizedPropertyTypeMapper {
 			case OPTIONAL_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto2 =
-				(IBaseParametrizedReferenceTypeDto)parametrizedPropertyTypeDto;
+				(IBaseParametrizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable2 =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto2.getReferencedTableId()));
@@ -64,7 +64,7 @@ final class ParametrizedPropertyTypeMapper {
 			case MULTI_REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto3 =
-				(IBaseParametrizedReferenceTypeDto)parametrizedPropertyTypeDto;
+				(IBaseParametrizedReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var referencedTable3 =
 				referencableTables.getStoredFirst(t -> t.hasId(baseParametrizedReferenceTypeDto3.getReferencedTableId()));
@@ -73,7 +73,7 @@ final class ParametrizedPropertyTypeMapper {
 			case BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto =
-				(IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyTypeDto;
+				(IBaseParametrizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn =
 				referencableTables
@@ -84,7 +84,7 @@ final class ParametrizedPropertyTypeMapper {
 			case OPTIONAL_BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto2 =
-				(IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyTypeDto;
+				(IBaseParametrizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn2 =
 				referencableTables
@@ -95,7 +95,7 @@ final class ParametrizedPropertyTypeMapper {
 			case MULTI_BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto3 =
-				(IBaseParametrizedBackReferenceTypeDto)parametrizedPropertyTypeDto;
+				(IBaseParametrizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn3 =
 				referencableTables
@@ -104,7 +104,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				return new ParametrizedBackReferenceType<>(backReferencedColumn3);
 			default:
-				throw InvalidArgumentException.forArgument(parametrizedPropertyTypeDto);
+				throw InvalidArgumentException.forArgument(parameterizedPropertyTypeDto);
 		}
 	}
 }

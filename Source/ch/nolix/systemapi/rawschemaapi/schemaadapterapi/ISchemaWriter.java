@@ -3,7 +3,7 @@ package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //interface
@@ -27,7 +27,7 @@ public interface ISchemaWriter extends IResettableChangeSaver {
 	//method declaration
 	void setColumnParametrizedPropertyType(
 		String columnId,
-		IParametrizedPropertyTypeDto parametrizedPropertyType
+		IParameterizedPropertyTypeDto parametrizedPropertyType
 	);
 	
 	//method declaration

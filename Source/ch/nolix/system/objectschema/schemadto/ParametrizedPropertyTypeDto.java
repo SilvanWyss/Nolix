@@ -5,10 +5,10 @@ package ch.nolix.system.objectschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParametrizedPropertyTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class ParametrizedPropertyTypeDto implements IParametrizedPropertyTypeDto {
+public abstract class ParametrizedPropertyTypeDto implements IParameterizedPropertyTypeDto {
 	
 	//attribute
 	private final PropertyType propertyType;
