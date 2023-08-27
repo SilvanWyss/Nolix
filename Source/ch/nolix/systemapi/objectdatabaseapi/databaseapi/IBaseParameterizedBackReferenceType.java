@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
-public interface IBaseParametrizedBackReferenceType<
+public interface IBaseParameterizedBackReferenceType<
 
 	C extends IColumn
 >

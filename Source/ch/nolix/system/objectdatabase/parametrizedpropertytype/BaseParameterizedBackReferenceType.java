@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.parametrizedpropertytype;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
@@ -16,7 +16,7 @@ public abstract class BaseParameterizedBackReferenceType<
 	C extends IColumn
 >
 extends ParameterizedPropertyType
-implements IBaseParametrizedBackReferenceType<C>{
+implements IBaseParameterizedBackReferenceType<C>{
 	
 	//attribute
 	private final C backReferencedColumn;
@@ -31,7 +31,7 @@ implements IBaseParametrizedBackReferenceType<C>{
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<C> asBaseParametrizedBackReferenceType() {
+	public final IBaseParameterizedBackReferenceType<C> asBaseParametrizedBackReferenceType() {
 		return this;
 	}
 	

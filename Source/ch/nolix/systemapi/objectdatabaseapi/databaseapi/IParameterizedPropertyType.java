@@ -8,7 +8,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 public interface IParameterizedPropertyType {
 	
 	//method declaration
-	IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType();
+	IBaseParameterizedBackReferenceType<?> asBaseParametrizedBackReferenceType();
 	
 	//method declaration
 	IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType();

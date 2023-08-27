@@ -5,7 +5,7 @@ package ch.nolix.system.objectdatabase.parametrizedpropertytype;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -31,7 +31,7 @@ implements IBaseParametrizedValueType<V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
+	public final IBaseParameterizedBackReferenceType<?> asBaseParametrizedBackReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	
