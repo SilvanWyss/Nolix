@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMultiReferenceType;
-import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedMultiValueType;
+import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedOptionalReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedOptionalValueType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedReferenceType;
@@ -42,7 +42,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var valueType3 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 				
-				return new ParametrizedMultiValueType<>(valueType3);
+				return new ParameterizedMultiValueType<>(valueType3);
 			case REFERENCE:
 				
 				final var baseParametrizedReferenceTypeDto =

@@ -5,14 +5,14 @@ package ch.nolix.system.objectdatabase.parametrizedpropertytype;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //class
-public final class ParametrizedMultiValueType<
+public final class ParameterizedMultiValueType<
 
 	V
 >
 extends BaseParametrizedValueType<V> {
 	
 	//constructor
-	public ParametrizedMultiValueType(final Class<V> valueType) {
+	public ParameterizedMultiValueType(final Class<V> valueType) {
 		super(valueType);
 	}
 	
