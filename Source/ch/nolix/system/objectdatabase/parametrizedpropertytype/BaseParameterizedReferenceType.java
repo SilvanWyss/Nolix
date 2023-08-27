@@ -5,7 +5,7 @@ package ch.nolix.system.objectdatabase.parametrizedpropertytype;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedBackReferenceType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParametrizedReferenceType;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -16,7 +16,7 @@ public abstract class BaseParameterizedReferenceType<
 	E extends IEntity
 >
 extends ParameterizedPropertyType
-implements IBaseParametrizedReferenceType<E> {
+implements IBaseParameterizedReferenceType<E> {
 	
 	//attribute
 	private final ITable<E> referencedTable;
@@ -37,7 +37,7 @@ implements IBaseParametrizedReferenceType<E> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedReferenceType<?> asBaseParametrizedReferenceType() {
+	public final IBaseParameterizedReferenceType<?> asBaseParametrizedReferenceType() {
 		return this;
 	}
 	
