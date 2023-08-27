@@ -7,14 +7,14 @@ import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedValueType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 public abstract class BaseParametrizedValueType<V> extends ParametrizedPropertyType
-implements IBaseParametrizedValueType<V> {
+implements IBaseParameterizedValueType<V> {
 	
 	//constructor
 	protected BaseParametrizedValueType(final DataType dataType) {
@@ -35,7 +35,7 @@ implements IBaseParametrizedValueType<V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedValueType<?> asBaseParametrizedValueType() {
+	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
 		return this;
 	}
 	

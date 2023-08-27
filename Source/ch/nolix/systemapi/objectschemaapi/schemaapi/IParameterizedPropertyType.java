@@ -16,7 +16,7 @@ public interface IParameterizedPropertyType {
 	IBaseParametrizedReferenceType asBaseParametrizedReferenceType();
 	
 	//method declaration
-	IBaseParametrizedValueType<?> asBaseParametrizedValueType();
+	IBaseParameterizedValueType<?> asBaseParametrizedValueType();
 	
 	//method declaration
 	DataType getDataType();
