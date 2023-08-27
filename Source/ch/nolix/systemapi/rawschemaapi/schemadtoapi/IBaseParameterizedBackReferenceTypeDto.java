@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 
 //interface
-public interface IBaseParametrizedBackReferenceTypeDto extends IParameterizedPropertyTypeDto {
+public interface IBaseParameterizedBackReferenceTypeDto extends IParameterizedPropertyTypeDto {
 	
 	//method declaration
 	String getBackReferencedColumnId();

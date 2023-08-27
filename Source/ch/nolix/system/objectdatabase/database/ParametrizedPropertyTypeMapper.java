@@ -14,7 +14,7 @@ import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedValue
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
@@ -73,7 +73,7 @@ final class ParametrizedPropertyTypeMapper {
 			case BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto =
-				(IBaseParametrizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
+				(IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn =
 				referencableTables
@@ -84,7 +84,7 @@ final class ParametrizedPropertyTypeMapper {
 			case OPTIONAL_BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto2 =
-				(IBaseParametrizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
+				(IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn2 =
 				referencableTables
@@ -95,7 +95,7 @@ final class ParametrizedPropertyTypeMapper {
 			case MULTI_BACK_REFERENCE:
 				
 				final var baseParametrizedBackRefenceTypeDto3 =
-				(IBaseParametrizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
+				(IBaseParameterizedBackReferenceTypeDto)parameterizedPropertyTypeDto;
 				
 				final var backReferencedColumn3 =
 				referencableTables

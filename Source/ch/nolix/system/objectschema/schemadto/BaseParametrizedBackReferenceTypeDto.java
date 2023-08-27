@@ -7,11 +7,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
-import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParametrizedBackReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 
 //class
 public final class BaseParametrizedBackReferenceTypeDto extends ParametrizedPropertyTypeDto
-implements IBaseParametrizedBackReferenceTypeDto {
+implements IBaseParameterizedBackReferenceTypeDto {
 	
 	//attribute
 	private final String backReferencedColumnId;
