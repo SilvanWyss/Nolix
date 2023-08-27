@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public interface IParameterizedPropertyType {
 	
 	//method declaration
-	IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType();
+	IBaseParameterizedBackReferenceType asBaseParametrizedBackReferenceType();
 	
 	//method declaration
 	IBaseParametrizedReferenceType asBaseParametrizedReferenceType();

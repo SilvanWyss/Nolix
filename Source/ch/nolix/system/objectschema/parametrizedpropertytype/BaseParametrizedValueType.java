@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.parametrizedpropertytype;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedValueTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -23,7 +23,7 @@ implements IBaseParameterizedValueType<V> {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
+	public final IBaseParameterizedBackReferenceType asBaseParametrizedBackReferenceType() {
 		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedBackReferenceType");
 	}
 	

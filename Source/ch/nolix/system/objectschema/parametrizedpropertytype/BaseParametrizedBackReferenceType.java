@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.system.objectschema.schemadto.BaseParametrizedBackReferenceTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
-import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedBackReferenceType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParametrizedReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedValueType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParametrizedBackReferenceType extends ParametrizedPropertyType
-implements IBaseParametrizedBackReferenceType {
+implements IBaseParameterizedBackReferenceType {
 	
 	//attribute
 	private final IColumn backReferencedColumn;
@@ -33,7 +33,7 @@ implements IBaseParametrizedBackReferenceType {
 	
 	//method
 	@Override
-	public final IBaseParametrizedBackReferenceType asBaseParametrizedBackReferenceType() {
+	public final IBaseParameterizedBackReferenceType asBaseParametrizedBackReferenceType() {
 		return this;
 	}
 	
