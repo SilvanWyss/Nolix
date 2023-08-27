@@ -7,7 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiValueType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalBackReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedOptionalReferenceType;
@@ -68,7 +68,7 @@ public final class ParametrizedPropertyTypeMapper implements IParametrizedProper
 				final var multiReference = (IMultiReference<?>)property;
 				
 				return
-				new ParametrizedMultiReferenceType(
+				new ParameterizedMultiReferenceType(
 					referencableTables.getStoredFirst(t -> t.hasName(multiReference.getReferencedTableName()))
 				);
 			case BACK_REFERENCE:

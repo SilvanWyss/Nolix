@@ -3,7 +3,7 @@ package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParametrizedMultiReferenceType;
+import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schema.Table;
@@ -26,7 +26,7 @@ public final class NodeSchemaAdapterTutorial {
 			final var countryTable = 
 			new Table("Country").addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
 				
-			final var citiesColumn = new Column("Cities", new ParametrizedMultiReferenceType(cityTable));
+			final var citiesColumn = new Column("Cities", new ParameterizedMultiReferenceType(cityTable));
 			countryTable.addColumn(citiesColumn);
 			cityTable.addColumn(new Column("Country", new ParameterizedBackReferenceType(citiesColumn)));
 			
