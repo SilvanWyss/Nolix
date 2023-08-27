@@ -76,7 +76,7 @@ public final class ColumnDefinitionMapper {
 	private DataType getDataTypeFromParameterizedPropertyTypeNode(IMutableNode<?> parameterizedPropertyTypeNode) {
 		return
 		getDataTypeFromDataTypeNode(
-			PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParametriedPropertyTypeNode(
+			PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedPropertyTypeNode(
 				parameterizedPropertyTypeNode
 			)
 		);

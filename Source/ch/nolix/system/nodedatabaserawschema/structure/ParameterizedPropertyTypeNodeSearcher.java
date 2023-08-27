@@ -18,7 +18,7 @@ public final class ParameterizedPropertyTypeNodeSearcher {
 	}
 	
 	//method
-	public IMutableNode<?> getStoredDataTypeNodeFromParametriedPropertyTypeNode(
+	public IMutableNode<?> getStoredDataTypeNodeFromParameterizedPropertyTypeNode(
 		final IMutableNode<?> parameterizedPropertyTypeNode
 	) {
 		return parameterizedPropertyTypeNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATA_TYPE);
