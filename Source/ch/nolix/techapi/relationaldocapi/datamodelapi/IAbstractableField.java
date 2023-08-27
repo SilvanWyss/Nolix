@@ -14,7 +14,7 @@ FluentNameable<IAbstractableField>,
 IFluentMutableCardinalityHolder<IAbstractableField> {
 	
 	//method declaration
-	IAbstractableField getStoredBaseFieldAssumingInheritsFromBaseField();
+	IAbstractableField getStoredBaseField();
 	
 	//method declaration
 	IContent getStoredContent();
