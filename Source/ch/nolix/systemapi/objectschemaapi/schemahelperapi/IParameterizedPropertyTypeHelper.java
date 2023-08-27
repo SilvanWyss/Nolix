@@ -6,7 +6,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHel
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 
 //interface
-public interface IParametrizedPropertyTypeHelper extends IDatabaseObjectHelper {
+public interface IParameterizedPropertyTypeHelper extends IDatabaseObjectHelper {
 	
 	//method declaration
 	boolean isABaseBackReferenceType(IParameterizedPropertyType parameterizedPropertyType);

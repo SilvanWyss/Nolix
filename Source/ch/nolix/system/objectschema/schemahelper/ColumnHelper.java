@@ -12,13 +12,13 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabase;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedPropertyTypeHelper;
 
 //class
 public final class ColumnHelper extends DatabaseObjectHelper implements IColumnHelper {
 	
 	//constant
-	private static final IParametrizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
+	private static final IParameterizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
 	new ParametrizedPropertyTypeHelper();
 	
 	//method

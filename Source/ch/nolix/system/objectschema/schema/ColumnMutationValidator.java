@@ -13,7 +13,7 @@ import ch.nolix.system.objectschema.schemahelper.TableHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IColumnHelper;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
-import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParametrizedPropertyTypeHelper;
+import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedPropertyTypeHelper;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 
 //class
@@ -29,7 +29,7 @@ final class ColumnMutationValidator {
 	private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 	
 	//constant
-	private static final IParametrizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
+	private static final IParameterizedPropertyTypeHelper PARAMETRIZED_PROPERTY_TYPE_HELPER =
 	new ParametrizedPropertyTypeHelper();
 	
 	//method
