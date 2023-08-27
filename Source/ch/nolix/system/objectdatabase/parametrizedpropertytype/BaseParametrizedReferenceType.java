@@ -15,7 +15,7 @@ public abstract class BaseParametrizedReferenceType<
 
 	E extends IEntity
 >
-extends ParametrizedPropertyType
+extends ParameterizedPropertyType
 implements IBaseParametrizedReferenceType<E> {
 	
 	//attribute

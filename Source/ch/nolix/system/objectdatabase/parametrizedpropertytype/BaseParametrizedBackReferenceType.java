@@ -15,7 +15,7 @@ public abstract class BaseParametrizedBackReferenceType<
 
 	C extends IColumn
 >
-extends ParametrizedPropertyType
+extends ParameterizedPropertyType
 implements IBaseParametrizedBackReferenceType<C>{
 	
 	//attribute
