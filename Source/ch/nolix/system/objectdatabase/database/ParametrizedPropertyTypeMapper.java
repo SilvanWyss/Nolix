@@ -10,7 +10,7 @@ import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedMult
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedReferenceType;
-import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParametrizedValueType;
+import ch.nolix.system.objectdatabase.parametrizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParametrizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
@@ -32,7 +32,7 @@ final class ParametrizedPropertyTypeMapper {
 				
 				final var valueType = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 				
-				return new ParametrizedValueType<>(valueType);
+				return new ParameterizedValueType<>(valueType);
 			case OPTIONAL_VALUE:
 				
 				final var valueType2 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
