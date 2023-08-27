@@ -1,21 +1,21 @@
 //package declaration
-package ch.nolix.system.objectschema.parametrizedpropertytype;
+package ch.nolix.system.objectschema.parameterizedpropertytype;
 
 //own imports
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
-public final class ParameterizedReferenceType extends BaseParameterizedReferenceType {
+public final class ParameterizedMultiReferenceType extends BaseParameterizedReferenceType {
 	
 	//constructor
-	public ParameterizedReferenceType(final ITable referencedTable) {
+	public ParameterizedMultiReferenceType(final ITable referencedTable) {
 		super(referencedTable);
 	}
 	
 	//method
 	@Override
 	public PropertyType getPropertyType() {
-		return PropertyType.REFERENCE;
+		return PropertyType.MULTI_REFERENCE;
 	}
 }

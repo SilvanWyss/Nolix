@@ -2,9 +2,9 @@ package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedMultiReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.ParameterizedValueType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedBackReferenceType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedMultiReferenceType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;

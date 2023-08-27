@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectschema.parametrizedpropertytype;
+package ch.nolix.system.objectschema.parameterizedpropertytype;
 
 //interface
 public interface IEntitySet {}

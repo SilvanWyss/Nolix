@@ -4,8 +4,8 @@ package ch.nolix.system.objectschema.schema;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParameterizedBackReferenceType;
-import ch.nolix.system.objectschema.parametrizedpropertytype.BaseParameterizedReferenceType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedBackReferenceType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.BaseParameterizedReferenceType;
 import ch.nolix.system.objectschema.schemahelper.ColumnHelper;
 import ch.nolix.system.objectschema.schemahelper.DatabaseHelper;
 import ch.nolix.system.objectschema.schemahelper.ParameterizedPropertyTypeHelper;

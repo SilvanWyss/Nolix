@@ -1,10 +1,9 @@
 //package declaration
-package ch.nolix.system.objectschema.parametrizedpropertytype;
+package ch.nolix.system.objectschema.parameterizedpropertytype;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.system.objectschema.schemadto.BaseParameterizedReferenceTypeDto;
+import ch.nolix.system.objectschema.schemadto.BaseParameterizedValueTypeDto;
 import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedBackReferenceType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IBaseParameterizedReferenceType;
@@ -14,20 +13,12 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public abstract class BaseParameterizedReferenceType extends ParameterizedPropertyType
-implements IBaseParameterizedReferenceType {
-	
-	//attribute
-	private final ITable referencedTable;
+public abstract class BaseParameterizedValueType<V> extends ParameterizedPropertyType
+implements IBaseParameterizedValueType<V> {
 	
 	//constructor
-	protected BaseParameterizedReferenceType(final ITable referencedTable) {
-		
-		super(DataType.STRING);
-		
-		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
-		
-		this.referencedTable = referencedTable;
+	protected BaseParameterizedValueType(final DataType dataType) {
+		super(dataType);
 	}
 	
 	//method
@@ -39,25 +30,19 @@ implements IBaseParameterizedReferenceType {
 	//method
 	@Override
 	public final IBaseParameterizedReferenceType asBaseParametrizedReferenceType() {
-		return this;
+		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedReferenceType");
 	}
 	
 	//method
 	@Override
 	public final IBaseParameterizedValueType<?> asBaseParametrizedValueType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParametrizedValueType");
-	}
-	
-	//method
-	@Override
-	public ITable getReferencedTable() {
-		return referencedTable;
+		return this;
 	}
 	
 	//method
 	@Override
 	public final boolean referencesTable(final ITable table) {
-		return (getReferencedTable() == table);
+		return false;
 	}
 	
 	//method
@@ -69,11 +54,6 @@ implements IBaseParameterizedReferenceType {
 	//method
 	@Override
 	public final IParameterizedPropertyTypeDto toDto() {
-		return
-		new BaseParameterizedReferenceTypeDto(
-			getPropertyType(),
-			getDataType(),
-			getReferencedTable().getId()
-		);
+		return new BaseParameterizedValueTypeDto(getPropertyType(), getDataType());
 	}
 }
