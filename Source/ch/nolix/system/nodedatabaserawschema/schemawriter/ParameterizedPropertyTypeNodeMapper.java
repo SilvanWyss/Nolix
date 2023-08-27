@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeD
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-public final class ParametrizedPropertyTypeNodeMapper {
+public final class ParameterizedPropertyTypeNodeMapper {
 	
 	//method
 	public Node createParametrizedPropertyTypeNodeFrom(final IParameterizedPropertyTypeDto parametrizedPropertyType) {
