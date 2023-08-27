@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.resourcecontrolapi;
 
+//own imports
 import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
@@ -10,7 +11,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * @date 2020-07-05
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface GroupCloseable extends Closeable, CloseStateRequestable {
+public interface GroupCloseable extends AutoCloseable, CloseStateRequestable {
 	
 	//method
 	/**
