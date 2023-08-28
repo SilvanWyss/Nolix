@@ -11,7 +11,7 @@ public interface IAbstractableObject extends Abstractable<IAbstractableObject>, 
 	
 	//method declaration
 	IAbstractableObject addBaseType(IAbstractableObject baseType);
-		
+	
 	//method declaration
 	IAbstractableObject addField(IAbstractableField field);
 	
@@ -22,10 +22,16 @@ public interface IAbstractableObject extends Abstractable<IAbstractableObject>, 
 	IContainer<IAbstractableObject> getStoredDirectBaseTypes();
 	
 	//method declaration
+	IContainer<IAbstractableObject> getStoredDirectSubTypes();
+	
+	//method declaration
 	IContainer<IAbstractableField> getStoredFields();
 	
 	//method declaration
 	IContainer<IAbstractableField> getStoredNonInheritedFields();
+	
+	//method declaration
+	IContainer<IAbstractableObject> getStoredSubTypes();
 	
 	//method declaration
 	void removeBaseType(IAbstractableObject baseType);
