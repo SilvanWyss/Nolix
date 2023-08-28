@@ -14,4 +14,20 @@ public final class AbstractableObjectEvaluator {
 		abstractableObject != null		
 		&& abstractableObject.getStoredFields().containsNone(IAbstractableField::isAbstract);
 	}
+	
+	//method
+	public boolean canSetName(final IAbstractableObject abstractableObject, final String name) {
+		return
+		canSetName(name)
+		&& abstractableObject != null
+		&& abstractableObject.getStoredBaseTypes().containsNone(ao -> ao.hasName(name))
+		&& abstractableObject.getStoredSubTypes().containsNone(ao -> ao.hasName(name));
+	}
+	
+	//method
+	private boolean canSetName(final String name) {
+		return
+		name != null
+		&& !name.isBlank();
+	}
 }
