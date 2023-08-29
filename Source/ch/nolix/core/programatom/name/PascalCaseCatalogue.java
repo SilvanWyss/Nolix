@@ -233,6 +233,9 @@ public final class PascalCaseCatalogue {
 	public static final String FEATURE = "Feature";
 	
 	//constant
+	public static final String FIELD = "Field";
+	
+	//constant
 	public static final String FILE = "File";
 	
 	//constant

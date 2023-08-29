@@ -233,6 +233,9 @@ public final class LowerCaseCatalogue {
 	public static final String FEATURE = "feature";
 	
 	//constant
+	public static final String FIELD = "field";
+	
+	//constant
 	public static final String FILE = "file";
 	
 	//constant
