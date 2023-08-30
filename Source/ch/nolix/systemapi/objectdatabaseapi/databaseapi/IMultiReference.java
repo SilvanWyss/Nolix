@@ -12,7 +12,7 @@ public interface IMultiReference<
 extends Clearable, IBaseReference<E> {
 	
 	//method declaration
-	void addEntity(E entity);
+	void addEntity(Object entity);
 	
 	//method declaration
 	IContainer<E> getReferencedEntities();

@@ -52,15 +52,12 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 	
 	//method
 	@Override
-	public void addEntity(final E entity) {
+	@SuppressWarnings("unchecked")
+	public void addEntity(final Object entity) {
 		
-		assertCanAddEntity(entity);
+		final var entityOfConcreteType = (E)entity;
 		
-		updateStateForAddEntity(entity);
-		
-		updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
-		
-		setAsEditedAndRunProbableUpdateAction();
+		addEntityOfConcreteType(entityOfConcreteType);
 	}
 	
 	//method
@@ -182,6 +179,18 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
 				updateProbableBackReferenceForSetOrAddedEntity(e);
 			}
 		}
+	}
+	
+	//method
+	private void addEntityOfConcreteType(final E entity) {
+		
+		assertCanAddEntity(entity);
+		
+		updateStateForAddEntity(entity);
+		
+		updateProbableBackReferencingPropertyForSetOrAddedEntity(entity);
+		
+		setAsEditedAndRunProbableUpdateAction();
 	}
 	
 	//method

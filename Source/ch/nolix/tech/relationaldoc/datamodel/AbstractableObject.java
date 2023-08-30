@@ -36,7 +36,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 		
 		ABSTRACTABLE_OBJECT_VALIDATOR.assertCanAddBaseType(this, baseType);
 		
-		directBaseTypes.addEntity((AbstractableObject)baseType);
+		directBaseTypes.addEntity(baseType);
 		
 		return this;
 	}
