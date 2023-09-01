@@ -26,7 +26,7 @@ public final class NodeDataAdapterTutorial {
 		final var schema = Schema.withEntityType(Person.class);
 		
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("TestDB").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("TestDB").andSchema(schema);
 		
 		final var donaldDuck = new Person();
 		donaldDuck.firstName.setValue("Donald");

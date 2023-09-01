@@ -47,7 +47,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		final var simba = new Pet();
@@ -86,7 +86,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		final var simba = new Pet();

@@ -47,7 +47,7 @@ public final class TableTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);	
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);	
 		final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Person.class);
 		
 		//execution
@@ -66,7 +66,7 @@ public final class TableTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var person = new Person();
 		person.setFirstNameAndLastName("Donald", "Duck");
 		nodeDataAdapter.insert(person);
@@ -74,7 +74,7 @@ public final class TableTest extends Test {
 		
 		//setup part 2
 		final var nodeDataAdapter2 =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);		
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);		
 		final var testUnit = nodeDataAdapter2.getStoredTableByEntityType(Person.class);
 		
 		//execution

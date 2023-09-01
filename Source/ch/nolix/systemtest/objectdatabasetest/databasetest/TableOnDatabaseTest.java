@@ -29,7 +29,7 @@ public final class TableOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Thing.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var thing = new Thing();
 		
 		//setup part 2: Gains test unit.
@@ -50,7 +50,7 @@ public final class TableOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Thing.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var thing = new Thing();
 		nodeDataAdapter.insert(thing);
 		nodeDataAdapter.saveChanges();

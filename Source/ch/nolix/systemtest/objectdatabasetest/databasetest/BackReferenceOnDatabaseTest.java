@@ -47,7 +47,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		
@@ -63,7 +63,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		final var john = new Person();
@@ -85,7 +85,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		final var john = new Person();
@@ -110,7 +110,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		
@@ -126,7 +126,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		final var john = new Person();
@@ -151,7 +151,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Person.class, Pet.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		nodeDataAdapter.insert(garfield);
 		final var john = new Person();

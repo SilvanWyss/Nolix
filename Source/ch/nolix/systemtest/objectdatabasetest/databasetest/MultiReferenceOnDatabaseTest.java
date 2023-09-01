@@ -43,7 +43,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var john = new Person();
 		nodeDataAdapter.insert(john);
 		nodeDataAdapter.saveChanges();
@@ -64,7 +64,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		final var odie = new Pet();
 		nodeDataAdapter.insert(garfield);
@@ -93,7 +93,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		final var odie = new Pet();
 		nodeDataAdapter.insert(garfield);
@@ -121,7 +121,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 		final var nodeDatabase = new MutableNode();
 		final var schema = Schema.withEntityType(Pet.class, Person.class);
 		final var nodeDataAdapter =
-		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").usingSchema(schema);
+		NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 		final var garfield = new Pet();
 		final var odie = new Pet();
 		nodeDataAdapter.insert(garfield);

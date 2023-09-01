@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.system.objectdatabase.dataadapter;
 
-import ch.nolix.core.builder.usingargumentcapturer.UsingSchemaCapturer;
+//own imports
+import ch.nolix.core.builder.andargumentcapturer.AndSchemaCapturer;
 import ch.nolix.core.builder.withargumentcapturer.WithNameCapturer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
@@ -10,7 +11,7 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 public final class NodeDataAdapterBuilder
 extends
 WithNameCapturer<
-	UsingSchemaCapturer<
+	AndSchemaCapturer<
 		ISchema,
 		NodeDataAdapter
 	>
@@ -19,7 +20,7 @@ WithNameCapturer<
 	//constructor
 	public NodeDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
 		
-		super(new UsingSchemaCapturer<>(null));
+		super(new AndSchemaCapturer<>(null));
 		
 		setBuilder(() -> build(nodeDatabase));
 	}
