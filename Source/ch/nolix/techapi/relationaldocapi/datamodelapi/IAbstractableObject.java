@@ -19,6 +19,9 @@ public interface IAbstractableObject extends Abstractable<IAbstractableObject>, 
 	IContainer<? extends IAbstractableObject> getStoredBaseTypes();
 	
 	//method declaration
+	IContainer<? extends IAbstractableObject> getStoredConcreteSubTypes();
+	
+	//method declaration
 	IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes();
 	
 	//method declaration

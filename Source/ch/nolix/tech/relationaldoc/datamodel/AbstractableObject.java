@@ -70,6 +70,12 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 	
 	//method
 	@Override
+	public IContainer<? extends IAbstractableObject> getStoredConcreteSubTypes() {
+		return getStoredSubTypes().getStoredSelected(IAbstractableObject::isConcrete);
+	}
+	
+	//method
+	@Override
 	public IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes() {
 		return directBaseTypes.getReferencedEntities();
 
