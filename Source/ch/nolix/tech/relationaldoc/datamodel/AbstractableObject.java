@@ -34,6 +34,11 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 	private final MultiReference<AbstractableField> nonInheritedFields =
 	MultiReference.forEntity(AbstractableField.class);
 	
+	//constructor
+	public AbstractableObject() {
+		initialize();
+	}
+	
 	//method
 	@Override
 	public IAbstractableObject addBaseType(final IAbstractableObject baseType) {
