@@ -28,7 +28,31 @@ public final class GlobalIterableHelper {
 		
 		return containsElementWhenIsNotNull(iterable, element);
 	}
-
+	
+	//static method
+	/**
+	 * @param iterable
+	 * @param element
+	 * @return true if the given iterable contains the given element exactly 1 time, false otherwise.
+	 */
+	public static boolean containsElementOnce(final Iterable<?> iterable, final Object element) {
+		
+		var found = false;
+		
+		for (final var e : iterable) {
+			if (e == element) {
+				
+				if (found) {
+					return false;
+				}
+				
+				found = true;
+			}
+		}
+		
+		return found;
+	}
+	
 	//static method
 	/**
 	 * @param container
