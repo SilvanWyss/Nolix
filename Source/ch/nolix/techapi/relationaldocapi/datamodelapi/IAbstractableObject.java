@@ -22,6 +22,9 @@ public interface IAbstractableObject extends Abstractable<IAbstractableObject>, 
 	IContainer<? extends IAbstractableObject> getStoredConcreteSubTypes();
 	
 	//method declaration
+	IContainer<? extends IAbstractableField> getStoredDeclaredFields();
+	
+	//method declaration
 	IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes();
 	
 	//method declaration
@@ -29,9 +32,6 @@ public interface IAbstractableObject extends Abstractable<IAbstractableObject>, 
 	
 	//method declaration
 	IContainer<? extends IAbstractableField> getStoredFields();
-	
-	//method declaration
-	IContainer<? extends IAbstractableField> getStoredNonInheritedFields();
 	
 	//method declaration
 	IContainer<? extends IAbstractableObject> getStoredSubTypes();

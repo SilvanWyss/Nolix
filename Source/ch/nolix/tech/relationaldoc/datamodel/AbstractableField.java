@@ -25,7 +25,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//attribute
 	private final BackReference<AbstractableObject> parentObject =
-	BackReference.forEntityAndBackReferencedPropertyName(AbstractableObject.class, "nonInheritedFields");
+	BackReference.forEntityAndBackReferencedPropertyName(AbstractableObject.class, "declaredFields");
 	
 	//attribute
 	private final Value<String> name = new Value<>();

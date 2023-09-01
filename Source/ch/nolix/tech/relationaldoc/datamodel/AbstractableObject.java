@@ -31,7 +31,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 	MultiReference.forEntity(AbstractableObject.class); 
 	
 	//multi-attribute
-	private final MultiReference<AbstractableField> nonInheritedFields =
+	private final MultiReference<AbstractableField> declaredFields =
 	MultiReference.forEntity(AbstractableField.class);
 	
 	//constructor
@@ -56,7 +56,9 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 		
 		ABSTRACTABLE_OBJECT_VALIDATOR.assertCanAddField(this, field);
 		
-		nonInheritedFields.addEntity(field);
+		declaredFields.addEntity(field);
+		
+		//TODO: Add realisations of the given field to the sub types of the current AbstractableObject if the given field is abstract.
 		
 		return this;
 	}
@@ -86,6 +88,12 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 	
 	//method
 	@Override
+	public IContainer<? extends IAbstractableField> getStoredDeclaredFields() {
+		return declaredFields.getReferencedEntities();
+	}
+	
+	//method
+	@Override
 	public IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes() {
 		return directBaseTypes.getReferencedEntities();
 	}
@@ -107,15 +115,9 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 	public IContainer<? extends IAbstractableField> getStoredFields() {
 		return
 		ReadContainer.forIterable(
-			getStoredNonInheritedFields().getStoredOther(IAbstractableField::inheritsFromBaseField),
+			getStoredDeclaredFields().getStoredOther(IAbstractableField::inheritsFromBaseField),
 			getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields)
 		);
-	}
-	
-	//method
-	@Override
-	public IContainer<? extends IAbstractableField> getStoredNonInheritedFields() {
-		return nonInheritedFields.getReferencedEntities();
 	}
 	
 	//method
