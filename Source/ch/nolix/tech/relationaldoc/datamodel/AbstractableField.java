@@ -39,6 +39,11 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	//method
 	@Override
 	public String getName() {
+		
+		if (inheritsFromBaseField()) {
+			return getStoredBaseField().getName();
+		}
+		
 		return name.getStoredValue();
 	}
 	
