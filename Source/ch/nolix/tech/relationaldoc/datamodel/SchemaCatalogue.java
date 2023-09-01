@@ -10,7 +10,7 @@ public final class SchemaCatalogue {
 	
 	//constant
 	public static final ISchema RELATIONAL_DOC_SCHEMA =
-	Schema.withEntityType(AbstractableObject.class, AbstractableField.class);
+	Schema.withEntityType(AbstractableObject.class, AbstractableField.class, AbstractValueContent.class);
 	
 	//constructor
 	private SchemaCatalogue() {}

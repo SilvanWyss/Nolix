@@ -5,6 +5,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
+import ch.nolix.system.objectdatabase.database.OptionalReference;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableFieldValidator;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
@@ -35,6 +36,11 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//attribute
 	private final Value<String> cardinality = Value.withInitialValue(DEFAULT_CARDINALITY.toString());
+	
+	//TODO: Make Reference able to reference base types.
+	//attribute
+	private final OptionalReference<AbstractValueContent> abstractValueContent =
+	OptionalReference.forEntity(AbstractValueContent.class);
 	
 	//method
 	@Override
