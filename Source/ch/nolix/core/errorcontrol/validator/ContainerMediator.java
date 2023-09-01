@@ -15,6 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentExcep
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
@@ -114,6 +115,28 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	}
 	
 	//method
+	public void containsAll(final Object[] elements) {
+		
+		if (elements == null) {
+			throw ArgumentIsNullException.forArgumentName(PluralLowerCaseCatalogue.ELEMENTS);
+		}
+		
+		for (final var e : elements) {
+			contains(e);
+		}
+	}
+	
+	//method
+	public void containsAll(final Iterable<Object> elements) {
+		
+		if (elements == null) {
+			throw ArgumentIsNullException.forArgumentName(PluralLowerCaseCatalogue.ELEMENTS);
+		}
+		
+		elements.forEach(this::contains);
+	}
+	
+	//method
 	public void containsAsManyElementsAs(final Object[] array) {
 		
 		if (array == null) {
@@ -121,6 +144,16 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 		}
 		
 		hasElementCount(array.length);
+	}
+	
+	//method
+	public void containsExactly(final Object firstElement, final Object... elements) {
+		
+		final var allElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
+		
+		hasElementCount(allElements.length);
+		
+		containsAll(allElements);
 	}
 	
 	//method
