@@ -46,6 +46,6 @@ public final class AbstractableFieldEvaluator {
 		return
 		abstractableField != null
 		&&
-		abstractableField.getStoredParentObject().getStoredConcreteSubTypes().containsNone(cst -> cst.hasName(name));
+		abstractableField.getStoredParentObject().getStoredSubTypes().containsNone(cst -> cst.hasName(name));
 	}
 }
