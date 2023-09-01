@@ -49,7 +49,7 @@ public final class AbstractableObjectValidator {
 	//method
 	public void assertCanSetName(final IAbstractableObject abstractableObject, final String name) {
 		if (!ABSTRACTABLE_OBJECT_EVALUATOR.canSetName(abstractableObject, name)) {
-			throw InvalidArgumentException.forArgumentNameAndArgument(name, LowerCaseCatalogue.NAME);
+			throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.NAME, name);
 		}
 	}
 }
