@@ -3,6 +3,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableFieldValidator;
@@ -23,6 +24,10 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	private static final AbstractableFieldValidator ABSTRACTABLE_FIELD_VALIDATOR = new AbstractableFieldValidator();
 	
 	//attribute
+	private final BackReference<AbstractableObject> parentObject =
+	BackReference.forEntityAndBackReferencedPropertyName(AbstractableObject.class, "nonInheritedFields");
+	
+	//attribute
 	private final Value<String> name = new Value<>();
 	
 	//attribute
@@ -34,6 +39,11 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	//method
 	@Override
 	public Cardinality getCardinality() {
+		
+		if (inheritsFromBaseField()) {
+			return getStoredBaseField().getCardinality();
+		}
+		
 		return Cardinality.valueOf(cardinality.getStoredValue());
 	}
 	
@@ -67,9 +77,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	//method
 	@Override
 	public IAbstractableObject getStoredParentObject() {
-		
-		//TODO: Implement.
-		return null;
+		return parentObject.getBackReferencedEntity();
 	}
 	
 	//method
