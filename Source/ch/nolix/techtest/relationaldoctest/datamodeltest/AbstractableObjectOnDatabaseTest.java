@@ -24,7 +24,7 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 		NodeDataAdapter
 		.forNodeDatabase(database)
 		.withName("test_database")
-		.usingSchema(SchemaCatalogue.RELATIONAL_DOC_SCHMEA);
+		.usingSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 		
 		//setup testUnit
 		final var testUnit = new AbstractableObject();
