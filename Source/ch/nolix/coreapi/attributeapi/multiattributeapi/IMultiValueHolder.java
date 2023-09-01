@@ -16,7 +16,7 @@ public interface IMultiValueHolder<V> {
 	
 	//method declaration
 	/**
-	 * @return the values of the current {@link MultiValueed}.
+	 * @return the values of the current {@link IMultiValueHolder}.
 	 */
 	IContainer<V> getStoredValues();
 }
