@@ -11,6 +11,7 @@ public class UsingSchemaCapturer<
 >
 extends ArgumentCapturer<S, N> {
 	
+	//constructor
 	public UsingSchemaCapturer(final N nextArgumentCapturer) {
 		super(nextArgumentCapturer);
 	}
