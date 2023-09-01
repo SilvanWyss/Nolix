@@ -7,6 +7,7 @@ import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableFieldValidator;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
+import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 
 //class
@@ -58,6 +59,14 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	//method
 	@Override
 	public IContent getStoredContent() {
+		
+		//TODO: Implement.
+		return null;
+	}
+	
+	//method
+	@Override
+	public IAbstractableObject getStoredParentObject() {
 		
 		//TODO: Implement.
 		return null;

@@ -17,6 +17,9 @@ IFluentMutableCardinalityHolder<IAbstractableField> {
 	IAbstractableField getStoredBaseField();
 	
 	//method declaration
+	IAbstractableObject getStoredParentObject();
+	
+	//method declaration
 	IContent getStoredContent();
 	
 	//method declaration
