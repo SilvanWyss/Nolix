@@ -210,6 +210,24 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 	
 	//method
 	/**
+	 * @param element
+	 * @throws InvalidArgumentException if
+	 * the argument of the current {@link ContainerMediator} does not contain the given element or
+	 * contains the given element for several times.
+	 */
+	public void containsOnce(final Object element) {
+		if (!GlobalIterableHelper.containsElementOnce(getStoredArgument(), element)) {
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				getStoredArgument(),
+				"does not contain the the given element once"
+			);
+		}
+	}
+	
+	//method
+	/**
 	 * @param elementCount
 	 * @throws NegativeArgumentException if the given element count is negative.
 	 * @throws InvalidArgumentException if the argument of this container mediator
