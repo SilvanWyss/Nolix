@@ -116,9 +116,14 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setName(final String name) {
 		
-		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetName(this, name);
-		
-		this.name.setValue(name);
+		if (inheritsFromBaseField()) {
+			getStoredBaseField().setName(name);
+		} else {
+			
+			ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetName(this, name);
+			
+			this.name.setValue(name);
+		}
 		
 		return this;
 	}
