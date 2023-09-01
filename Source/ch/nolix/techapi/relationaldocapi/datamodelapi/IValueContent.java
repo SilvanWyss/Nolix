@@ -9,7 +9,4 @@ public interface IValueContent extends IContent {
 	
 	//method declaration
 	DataType getDataType();
-	
-	//method declaration
-	IAbstractableField getStoredParentField();
 }
