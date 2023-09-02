@@ -10,7 +10,6 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractParameterizedValu
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
-import ch.nolix.techapi.relationaldocapi.datamodelapi.IValueContent;
 
 //class
 public final class AbstractValueContent extends ValueContent implements IAbstractValueContent {
@@ -37,12 +36,6 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	//method
 	@Override
 	public DataType getDataType() {
-		
-		final var parentField = getStoredParentField();
-		if (parentField.inheritsFromBaseField()) {
-			return ((IValueContent)parentField.getStoredBaseField().getStoredContent()).getDataType();
-		}
-		
 		return DataType.valueOf(dataType.getStoredValue());
 	}
 	
@@ -72,21 +65,6 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	}
 	
 	//method
-	private void setDataTypeIfWillChange(final DataType dataType) {
-		if (getDataType() != dataType) {
-			setDataTypeWhenWillChange(dataType);
-		}
-	}
-	
-	//method
-	private void setDataTypeWhenWillChange(final DataType dataType) {
-		
-		this.dataType.setValue(dataType.toString());
-		
-		clearRealisingFields();
-	}
-	
-	//method
 	private void clearRealisingFields() {
 		
 		final var localParentField = getStoredParentField();
@@ -101,5 +79,20 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 				concreteValueContent.getStoredConcreteParameterizedValueContent().removeValues();
 			}
 		}
+	}
+	
+	//method
+	private void setDataTypeIfWillChange(final DataType dataType) {
+		if (getDataType() != dataType) {
+			setDataTypeWhenWillChange(dataType);
+		}
+	}
+	
+	//method
+	private void setDataTypeWhenWillChange(final DataType dataType) {
+		
+		this.dataType.setValue(dataType.toString());
+		
+		clearRealisingFields();
 	}
 }
