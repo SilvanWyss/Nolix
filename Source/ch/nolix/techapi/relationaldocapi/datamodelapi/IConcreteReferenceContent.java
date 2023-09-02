@@ -8,5 +8,5 @@ public interface IConcreteReferenceContent extends IReferenceContent {
 	IConcreteParameterizedReferenceContent<IAbstractableObject> getStoredConcreteParameterizedReferenceContent();
 	
 	//method declaration
-	IConcreteReferenceContent setReferencedType(Class<IAbstractableObject> referencedType);
+	IConcreteReferenceContent setReferencedType(IAbstractableObject referencedType);
 }

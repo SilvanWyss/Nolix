@@ -8,5 +8,5 @@ public interface IAbstractReferenceContent extends IReferenceContent {
 	IAbstractParameterizedReferenceContent<?> getStoredAbstractParameterizedReferenceContent();
 	
 	//method declaration
-	IAbstractReferenceContent setReferencedType(Class<IAbstractableObject> referenceType);
+	IAbstractReferenceContent setReferencedType(IAbstractableObject referenceType);
 }

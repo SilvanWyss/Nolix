@@ -5,5 +5,5 @@ package ch.nolix.techapi.relationaldocapi.datamodelapi;
 public interface IReferenceContent extends IContent {
 	
 	//method declaration
-	Class<IAbstractableObject> getReferencedType();
+	IAbstractableObject getReferencedType();
 }
