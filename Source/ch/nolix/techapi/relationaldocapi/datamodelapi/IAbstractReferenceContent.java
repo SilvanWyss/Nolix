@@ -11,9 +11,6 @@ public interface IAbstractReferenceContent extends IReferenceContent {
 	IAbstractReferenceContent addConstraint(IConstraint<IAbstractableObject> constraint);
 	
 	//method declaration
-	IAbstractReferenceContent getStoredParentAbstractReferenceContent();
-	
-	//method declaration
 	void removeConstraint(IConstraint<IAbstractableObject> constraint);
 	
 	//method declaration

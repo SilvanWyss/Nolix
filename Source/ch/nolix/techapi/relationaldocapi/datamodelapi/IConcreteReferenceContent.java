@@ -8,9 +8,6 @@ public interface IConcreteReferenceContent extends IReferenceContent {
 	IConcreteReferenceContent addObject(IAbstractableObject object);
 	
 	//method declaration
-	IConcreteReferenceContent getStoredParentConcreteReferenceContent();
-	
-	//method declaration
 	void removeObject(IAbstractableObject object);
 	
 	//method declaration
