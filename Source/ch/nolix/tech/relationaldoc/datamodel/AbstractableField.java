@@ -52,6 +52,11 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	private final OptionalReference<AbstractReferenceContent> abstractReferenceContent =
 	OptionalReference.forEntity(AbstractReferenceContent.class);
 	
+	//TODO: Make Reference able to reference base types.
+	//attribute
+	private final OptionalReference<ConcreteReferenceContent> concreteReferenceContent =
+	OptionalReference.forEntity(ConcreteReferenceContent.class);
+	
 	//method
 	@Override
 	public Cardinality getCardinality() {

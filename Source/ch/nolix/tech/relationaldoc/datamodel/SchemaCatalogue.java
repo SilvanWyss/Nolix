@@ -14,6 +14,7 @@ public final class SchemaCatalogue {
 		AbstractableObject.class,
 		AbstractableField.class,
 		AbstractReferenceContent.class,
+		ConcreteReferenceContent.class,
 		AbstractValueContent.class,
 		ConcreteValueContent.class
 	);
