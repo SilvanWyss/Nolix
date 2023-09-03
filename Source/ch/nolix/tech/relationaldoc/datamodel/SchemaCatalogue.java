@@ -13,6 +13,7 @@ public final class SchemaCatalogue {
 	Schema.withEntityType(
 		AbstractableObject.class,
 		AbstractableField.class,
+		AbstractReferenceContent.class,
 		AbstractValueContent.class,
 		ConcreteValueContent.class
 	);
