@@ -37,6 +37,9 @@ public interface IAbstractableObject extends Abstractable<IAbstractableObject>, 
 	IContainer<? extends IAbstractableObject> getStoredSubTypes();
 	
 	//method declaration
+	boolean isSubTypeOfObject(IAbstractableObject object);
+	
+	//method declaration
 	void removeDirectBaseType(IAbstractableObject directBaseType);
 	
 	//method declaration

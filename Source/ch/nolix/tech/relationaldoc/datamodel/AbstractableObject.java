@@ -140,6 +140,14 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 	
 	//method
 	@Override
+	public boolean isSubTypeOfObject(final IAbstractableObject object) {
+		return
+		object != null
+		&& isSubTypeOfObjectWhenObjectIsNotNull(object);
+	}
+	
+	//method
+	@Override
 	public void removeDirectBaseType(final IAbstractableObject directBaseType) {
 		directBaseTypes.removeEntity((AbstractableObject)directBaseType);
 	}
@@ -179,5 +187,17 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 		this.name.setValue(name);
 		
 		return this;
+	}
+	
+	//method
+	private boolean isSubTypeOfObjectWhenObjectIsNotNull(final IAbstractableObject object) {
+		
+		for (final var dbt : getStoredDirectBaseTypes()) {
+			if (dbt == object || dbt.getStoredDirectBaseTypes().containsAny(dbt2 -> dbt2.isSubTypeOfObject(object))) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }
