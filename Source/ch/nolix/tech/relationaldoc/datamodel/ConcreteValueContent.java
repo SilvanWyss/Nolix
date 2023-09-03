@@ -33,7 +33,9 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 			return DataType.valueOf(dataType.getStoredValue());
 		}
 		
-		return ((IValueContent)getStoredParentField().getStoredBaseField().getStoredContent()).getDataType();
+		final var baseField = getStoredParentField().getStoredBaseField();
+		final var valueContent = (IValueContent)baseField.getStoredContent();
+		return valueContent.getDataType();
 	}
 	
 	//method
