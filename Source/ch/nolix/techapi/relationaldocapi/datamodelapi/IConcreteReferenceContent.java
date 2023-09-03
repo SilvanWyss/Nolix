@@ -18,7 +18,4 @@ public interface IConcreteReferenceContent extends IReferenceContent {
 	
 	//method declaration
 	void removeObjects();
-	
-	//method declaration
-	IConcreteReferenceContent setReferencedType(IAbstractableObject referencedType);
 }
