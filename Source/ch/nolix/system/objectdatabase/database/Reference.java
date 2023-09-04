@@ -27,7 +27,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 	private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 	
 	//static method
-	public static <E2 extends Entity> Reference<E2> forEntity(final Class<E2> type) {
+	public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
 		return new Reference<>(type.getSimpleName());
 	}
 	
