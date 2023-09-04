@@ -5,6 +5,7 @@ package ch.nolix.tech.relationaldoc.datavalidator;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
+import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 
@@ -19,6 +20,14 @@ public final class AbstractableFieldValidator {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetAsAbstract(abstractableField)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set as abstract");
+		}
+	}
+	
+	//method
+	public void assertCanSetAsConcrete(AbstractableField abstractableField) {
+		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetAsConcrete(abstractableField)) {
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set as concrete");
 		}
 	}
 	

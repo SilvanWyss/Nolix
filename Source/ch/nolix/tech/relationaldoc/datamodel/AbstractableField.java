@@ -144,6 +144,8 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsAbstract(this);
 		
+		//TODO: Update content.
+		
 		abstractFlag.setValue(true);
 		
 		return this;
@@ -153,7 +155,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setAsConcrete() {
 		
-		//TODO: Implement.
+		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsConcrete(this);
+		
+		//TODO: Update content.
+		
+		abstractFlag.setValue(false);
+		
 		return this;
 	}
 	

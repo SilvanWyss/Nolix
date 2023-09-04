@@ -24,6 +24,13 @@ public final class AbstractableFieldEvaluator {
 	}
 	
 	//method
+	public boolean canBeSetAsConcrete(final IAbstractableField abstractableField) {
+		return
+		abstractableField != null
+		&& getStoredRealisingFields(abstractableField).isEmpty();
+	}
+	
+	//method
 	public boolean canSetContent(final IAbstractableField abstractableField, final IContent content) {
 		
 		if (abstractableField == null) {
