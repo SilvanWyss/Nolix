@@ -11,8 +11,9 @@ public final class SchemaCatalogue {
 	//constant
 	public static final ISchema RELATIONAL_DOC_SCHEMA =
 	Schema.withEntityType(
-		AbstractableObject.class,
 		AbstractableField.class,
+		AbstractableObject.class,
+		AbstractParameterizedValueContent.class,
 		AbstractReferenceContent.class,
 		ConcreteReferenceContent.class,
 		AbstractValueContent.class,

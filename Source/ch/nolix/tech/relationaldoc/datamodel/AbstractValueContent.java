@@ -3,6 +3,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.system.objectdatabase.database.BackReference;
+import ch.nolix.system.objectdatabase.database.Reference;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractValueContentValidator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
@@ -28,6 +29,10 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	//attribute
 	private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());
 	
+	//attribute
+	private final Reference<AbstractParameterizedValueContent<?>> abstractParameterizedValueContent =
+	Reference.forEntity(AbstractParameterizedValueContent.class);
+	
 	//constructor
 	public AbstractValueContent() {
 		initialize();
@@ -42,9 +47,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	//method
 	@Override
 	public IAbstractParameterizedValueContent<?> getStoredAbstractParameterizedValueContent() {
-		
-		//TODO: Implement.
-		return null;
+		return abstractParameterizedValueContent.getReferencedEntity();
 	}
 	
 	//method
