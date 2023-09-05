@@ -19,9 +19,6 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 public final class AbstractableField extends Entity implements IAbstractableField {
 	
 	//constant
-	public static final boolean DEFAULT_ABSTRACT_FLAG = false;
-	
-	//constant
 	public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
 	
 	//constant
@@ -36,9 +33,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//attribute
 	private final Value<String> name = new Value<>();
-	
-	//attribute
-	private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
 	
 	//attribute
 	private final Value<String> cardinality = Value.withInitialValue(DEFAULT_CARDINALITY.toString());
@@ -121,6 +115,10 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 			return concreteValueContent.getReferencedEntity();
 		}
 		
+		if (concreteReferenceContent.isEmpty()) {
+			concreteReferenceContent.setEntity(new ConcreteReferenceContent());
+		}
+		
 		return concreteReferenceContent.getReferencedEntity();
 	}
 	
@@ -144,7 +142,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	//method
 	@Override
 	public boolean isAbstract() {
-		return abstractFlag.getStoredValue();
+		return getStoredContent().isAbstract();
 	}
 	
 	//method
@@ -154,8 +152,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsAbstract(this);
 		
 		//TODO: Update content.
-		
-		abstractFlag.setValue(true);
 		
 		return this;
 	}
@@ -167,8 +163,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsConcrete(this);
 		
 		//TODO: Update content.
-		
-		abstractFlag.setValue(false);
 		
 		return this;
 	}
