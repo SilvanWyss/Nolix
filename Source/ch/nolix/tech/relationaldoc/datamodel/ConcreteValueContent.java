@@ -54,6 +54,12 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	
 	//method
 	@Override
+	public boolean isAbstract() {
+		return false;
+	}
+	
+	//method
+	@Override
 	public IConcreteValueContent setDataType(final DataType dataType) {
 		
 		CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanSetDataType(this, dataType);
