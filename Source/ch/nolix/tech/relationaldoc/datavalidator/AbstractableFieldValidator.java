@@ -4,6 +4,7 @@ package ch.nolix.tech.relationaldoc.datavalidator;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
@@ -28,6 +29,13 @@ public final class AbstractableFieldValidator {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetAsConcrete(abstractableField)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set as concrete");
+		}
+	}
+	
+	//method
+	public void assertCanSetCardinality(final AbstractableField abstractableField, final Cardinality cardinality) {
+		if (!ABSTRACTABLE_FIELD_EVALUATOR.canSetCardinality(abstractableField, cardinality)) {
+			throw InvalidArgumentException.forArgument(cardinality);
 		}
 	}
 	

@@ -169,7 +169,10 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setCardinality(final Cardinality cardinality) {
 		
-		//TODO: Implement.
+		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetCardinality(this, cardinality);
+		
+		this.cardinality.setValue(cardinality.toString());
+		
 		return this;
 	}
 	

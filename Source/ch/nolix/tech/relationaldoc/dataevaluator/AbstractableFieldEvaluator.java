@@ -5,6 +5,7 @@ package ch.nolix.tech.relationaldoc.dataevaluator;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
+import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractReferenceContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
@@ -28,6 +29,27 @@ public final class AbstractableFieldEvaluator {
 		return
 		abstractableField != null
 		&& getStoredRealisingFields(abstractableField).isEmpty();
+	}
+	
+	//method
+	public boolean canSetCardinality(final AbstractableField abstractableField, final Cardinality cardinality) {
+		
+		if (abstractableField != null && cardinality != null) {
+			
+			if (abstractableField.getCardinality() == cardinality || cardinality == Cardinality.TO_MANY) {
+				return true;
+			}
+			
+			if (abstractableField.isAbstract()) {
+				final var realisingFields = getStoredRealisingFields(abstractableField);
+				
+				if (realisingFields.isEmpty()) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
 	}
 	
 	//method
