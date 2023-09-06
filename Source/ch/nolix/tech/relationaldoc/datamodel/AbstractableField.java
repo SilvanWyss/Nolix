@@ -71,9 +71,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	//method
 	@Override
 	public ContentType getContentType() {
-		
-		//TODO: Implement.
-		return null;
+		return getStoredContent().getType();
 	}
 	
 	//method
