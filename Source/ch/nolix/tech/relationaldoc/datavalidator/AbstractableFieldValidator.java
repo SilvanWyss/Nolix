@@ -8,7 +8,6 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
-import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 
 //class
 public final class AbstractableFieldValidator {
@@ -36,13 +35,6 @@ public final class AbstractableFieldValidator {
 	public void assertCanSetCardinality(final AbstractableField abstractableField, final Cardinality cardinality) {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canSetCardinality(abstractableField, cardinality)) {
 			throw InvalidArgumentException.forArgument(cardinality);
-		}
-	}
-	
-	//method
-	public void assertCanSetContent(final IAbstractableField abstractableField, final IContent content) {
-		if (!ABSTRACTABLE_FIELD_EVALUATOR.canSetContent(abstractableField, content)) {
-			throw InvalidArgumentException.forArgument(content);
 		}
 	}
 	

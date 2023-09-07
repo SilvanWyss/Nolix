@@ -8,9 +8,7 @@ import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.OptionalReference;
 import ch.nolix.system.objectdatabase.database.Value;
-import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractableFieldValidator;
-import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
@@ -20,9 +18,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//constant
 	public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
-	
-	//constant
-	private static final AbstractableFieldEvaluator ABSTRACTABLE_FIELD_EVALUATOR = new AbstractableFieldEvaluator();
 	
 	//constant
 	private static final AbstractableFieldValidator ABSTRACTABLE_FIELD_VALIDATOR = new AbstractableFieldValidator();
@@ -178,19 +173,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//method
 	@Override
-	public IAbstractableField setContent(final IContent content) {
-		
-		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetContent(this, content);
-		
-		updateContentOfRealisingFields(content);
-		
-		this.setContent(content);
-		
-		return this;
-	}
-
-	//method
-	@Override
 	public IAbstractableField setName(final String name) {
 		
 		if (inheritsFromBaseField()) {
@@ -203,21 +185,5 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		}
 		
 		return this;
-	}
-	
-	//method
-	private void updateContentOfRealisingFields(final IContent content) {
-		
-		final var isAbstractValueContent = content instanceof IAbstractValueContent;
-		
-		final var realisingFields = ABSTRACTABLE_FIELD_EVALUATOR.getStoredRealisingFields(this);
-		
-		for (final var rf : realisingFields) {
-			if (isAbstractValueContent) {
-				rf.setContent(new ConcreteValueContent());
-			} else {
-				rf.setContent(new ConcreteReferenceContent());
-			}
-		}
 	}
 }

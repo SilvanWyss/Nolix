@@ -28,7 +28,4 @@ IFluentMutableCardinalityHolder<IAbstractableField> {
 	
 	//method declaration
 	boolean inheritsFromBaseField();
-	
-	//method declaration
-	IAbstractableField setContent(IContent content);
 }
