@@ -149,7 +149,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsAbstract(this);
 		
-		//TODO: Update content.
+		setAsAbstractIfIsConcreteAndWhenPossible();
 		
 		return this;
 	}
@@ -160,7 +160,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsConcrete(this);
 		
-		//TODO: Update content.
+		setAsConcreteIfItIsAbstractAndWhenPossible();
 		
 		return this;
 	}
@@ -206,5 +206,77 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		}
 		
 		return this;
+	}
+	
+	//method
+	private void removeContent() {
+		abstractValueContent.clear();
+		abstractReferenceContent.clear();
+		concreteValueContent.clear();
+		concreteReferenceContent.clear();
+	}
+	
+	//method
+	private void setAsAbstractIfIsConcreteAndWhenPossible() {
+		if (isConcrete()) {
+			setAsAbstractWhenIsConcreteAndPossible();
+		}
+	}
+	
+	//method
+	private void setAsAbstractWhenIsConcreteAndForReferencesAndPossible() {
+		
+		removeContent();
+		
+		abstractReferenceContent.setEntity(new AbstractReferenceContent());
+	}
+	
+	//method
+	private void setAsAbstractWhenIsConcreteAndForValuesAndPossible() {
+		
+		removeContent();
+		
+		abstractValueContent.setEntity(new AbstractValueContent());
+	}
+	
+	//mehtod
+	private void setAsAbstractWhenIsConcreteAndPossible() {
+		if (isForValues()) {
+			setAsAbstractWhenIsConcreteAndForValuesAndPossible();
+		} else {
+			setAsAbstractWhenIsConcreteAndForReferencesAndPossible();
+		}
+	}
+	
+	//method
+	private void setAsConcreteIfItIsAbstractAndWhenPossible() {
+		if (isAbstract()) {
+			setAsConcreteWhenIsAbstractAndPossible();
+		}
+	}
+	
+	//method
+	private void setAsConcreteWhenIsAbstractAndForReferencesAndPossible() {
+		
+		removeContent();
+		
+		concreteReferenceContent.setEntity(new ConcreteReferenceContent());
+	}
+	
+	//method
+	private void setAsConcreteWhenIsAbstractAndForValuesAndPossible() {
+		
+		removeContent();
+		
+		concreteValueContent.setEntity(new ConcreteValueContent());		
+	}
+	
+	//method
+	private void setAsConcreteWhenIsAbstractAndPossible() {
+		if (isForValues()) {
+			setAsConcreteWhenIsAbstractAndForValuesAndPossible();
+		} else {
+			setAsConcreteWhenIsAbstractAndForReferencesAndPossible();
+		}
 	}
 }
