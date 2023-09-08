@@ -32,12 +32,12 @@ extends IMultiValueHolder<V> {
 	
 	//method declaration
 	/**
-	 * Removes the value that equals the given value from the current {@link IFluentMutableMultiValueHolder} if
-	 * the current {@link IFluentMutableMultiValueHolder} contains such a value.
+	 * Removes the given value from the current {@link IFluentMutableMultiValueHolder}.
 	 * 
 	 * @param value
+	 * @throws RuntimeException if the current {@link IFluentMutableMultiValueHolder} does not contain the given value.
 	 */
-	void removeValueIfContainsEqualing(V value);
+	void removeValue(V value);
 	
 	//method declaration
 	/**

@@ -6,6 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
+import ch.nolix.system.objectdatabase.database.MultiValue;
 import ch.nolix.system.objectdatabase.database.OptionalValue;
 import ch.nolix.tech.relationaldoc.datavalidator.ConcreteValueContentValidator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
@@ -26,13 +27,19 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	BackReference.forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteValueContent");
 	
 	//attribute
-	private final OptionalValue<String> dataType = new OptionalValue<String>();
+	private final OptionalValue<String> dataType = new OptionalValue<>();
+	
+	//attribute
+	private final MultiValue<String> values = new MultiValue<>();
 	
 	//method
 	@Override
 	public IConcreteValueContent addValue(final String value) {
 		
-		//TODO: Implement.
+		CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanAddValue(this, value);
+		
+		values.addValue(value);
+		
 		return this;
 	}
 	
@@ -69,9 +76,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	//method
 	@Override
 	public IContainer<String> getStoredValues() {
-		
-		//TODO: Implement.
-		return null;
+		return values.getStoredValues();
 	}
 	
 	//method
@@ -83,21 +88,29 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	//method
 	@Override
 	public boolean isEmpty() {
-		
-		//TODO: Implement.
-		return false;
+		return values.isEmpty();
 	}
 	
 	//method
 	@Override
-	public void removeValueIfContainsEqualing(final String value) {
-		//TODO: Implement.
+	public void removeValue(final String value) {
+		
+		CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanRemoveValue(this);
+		
+		values.removeValue(value);
+		final var equalingValue = values.getStoredValues().getStoredFirstOrNull(v -> v.equals(value));
+		if (equalingValue != null) {
+			values.removeValue(equalingValue);
+		}
 	}
 	
 	//method
 	@Override
 	public void removeValues() {
-		//TODO: Implement.
+		
+		CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanRemoveValues(this);
+		
+		values.clear();
 	}
 	
 	//method
@@ -129,9 +142,6 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	
 	//method
 	private void setDataTypeWhenWillChange(final DataType dataType) {
-		
 		this.dataType.setValue(dataType.toString());
-		
-		//TODO: Update parameterizedConcreteValue.
 	}
 }

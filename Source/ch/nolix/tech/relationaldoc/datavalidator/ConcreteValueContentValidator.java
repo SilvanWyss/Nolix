@@ -3,6 +3,7 @@ package ch.nolix.tech.relationaldoc.datavalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.tech.relationaldoc.dataevaluator.ConcreteValueContentEvaluator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
@@ -13,6 +14,27 @@ public final class ConcreteValueContentValidator {
 	//constant
 	private static final ConcreteValueContentEvaluator CONCRETE_VALUE_CONTENT_EVALUATOR =
 	new ConcreteValueContentEvaluator();
+	
+	//method
+	public void assertCanAddValue(final IConcreteValueContent concreteValueContent, final String value) {
+		if (!CONCRETE_VALUE_CONTENT_EVALUATOR.canAddValue(concreteValueContent, value)) {
+			throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.VALUE, value);
+		}
+	}
+	
+	//method
+	public void assertCanRemoveValue(final IConcreteValueContent concreteValueContent) {
+		if (!CONCRETE_VALUE_CONTENT_EVALUATOR.canRemoveValue(concreteValueContent)) {
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(concreteValueContent, "cannot remove value");
+		}
+	}
+	
+	//method
+	public void assertCanRemoveValues(final IConcreteValueContent concreteValueContent) {
+		if (!CONCRETE_VALUE_CONTENT_EVALUATOR.canRemoveValues(concreteValueContent)) {
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(concreteValueContent, "cannot remove values");
+		}
+	}
 	
 	//method
 	public void assertCanSetDataType(final IConcreteValueContent concreteValueContent, final DataType dataType) {
