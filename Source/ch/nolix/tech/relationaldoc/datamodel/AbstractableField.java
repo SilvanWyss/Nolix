@@ -178,6 +178,22 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//method
 	@Override
+	public IAbstractableField setForReferences() {
+		
+		//TODO: Implement.
+		return this;
+	}
+	
+	//method
+	@Override
+	public IAbstractableField setForValues() {
+		
+		//TODO: Implement.
+		return this;
+	}
+	
+	//method
+	@Override
 	public IAbstractableField setName(final String name) {
 		
 		if (inheritsFromBaseField()) {
