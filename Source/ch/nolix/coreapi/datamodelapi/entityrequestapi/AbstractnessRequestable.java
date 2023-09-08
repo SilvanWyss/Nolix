@@ -16,13 +16,13 @@ public interface AbstractnessRequestable {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link AbstractnessRequestable} is abstract.
+	 * @return true if the current {@link AbstractnessRequestable} is abstract, false otherwise.
 	 */
 	boolean isAbstract();
 	
 	//method
 	/**
-	 * @return true if the current {@link AbstractnessRequestable} is concreate.
+	 * @return true if the current {@link AbstractnessRequestable} is concreate, false otherwise.
 	 */
 	default boolean isConcrete() {
 		return !isAbstract();
