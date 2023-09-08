@@ -2,6 +2,7 @@
 package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
+import ch.nolix.core.programatom.name.PluralPascalCaseCatalogue;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
@@ -16,6 +17,9 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IContent;
 public final class AbstractableField extends Entity implements IAbstractableField {
 	
 	//constant
+	public static final String DEFAULT_NAME = PluralPascalCaseCatalogue.FIELD;
+	
+	//constant
 	public static final Cardinality DEFAULT_CARDINALITY = Cardinality.TO_ONE;
 	
 	//constant
@@ -26,7 +30,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	BackReference.forEntityAndBackReferencedPropertyName(AbstractableObject.class, "declaredFields");
 	
 	//attribute
-	private final Value<String> name = new Value<>();
+	private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 	
 	//attribute
 	private final Value<String> cardinality = Value.withInitialValue(DEFAULT_CARDINALITY.toString());
@@ -106,11 +110,15 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 			return concreteValueContent.getReferencedEntity();
 		}
 		
-		if (concreteReferenceContent.isEmpty()) {
-			concreteReferenceContent.setEntity(new ConcreteReferenceContent());
+		if (concreteReferenceContent.containsAny()) {
+			concreteReferenceContent.getReferencedEntity();
 		}
 		
-		return concreteReferenceContent.getReferencedEntity();
+		final var initialContent = new ConcreteValueContent();
+		getStoredParentDatabase().insertEntity(initialContent);
+		concreteValueContent.setEntity(initialContent);
+		
+		return concreteValueContent.getReferencedEntity();
 	}
 	
 	//method
