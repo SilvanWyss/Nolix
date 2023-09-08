@@ -2,12 +2,11 @@
 package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
+import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
-import ch.nolix.system.objectdatabase.database.Reference;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractValueContentValidator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
-import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractParameterizedValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
@@ -29,15 +28,19 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	//attribute
 	private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());
 	
-	//attribute
-	private final Reference<AbstractParameterizedValueContent<?>> abstractParameterizedValueContent =
-	Reference.forEntity(AbstractParameterizedValueContent.class);
-	
 	//constructor
 	public AbstractValueContent() {
 		initialize();
 	}
 	
+	//method
+	@Override
+	public IAbstractValueContent addConstraint(final IConstraint<String> constraint) {
+		
+		//TODO: Implement.
+		return this;
+	}
+
 	//method
 	@Override
 	public DataType getDataType() {
@@ -46,8 +49,10 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	
 	//method
 	@Override
-	public IAbstractParameterizedValueContent<?> getStoredAbstractParameterizedValueContent() {
-		return abstractParameterizedValueContent.getReferencedEntity();
+	public IAbstractValueContent getStoredParentAbstractValueContent() {
+		
+		//TODO: Implement.
+		return this;
 	}
 	
 	//method
@@ -66,6 +71,18 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	@Override
 	public boolean isEmpty() {
 		return true;
+	}
+	
+	//method
+	@Override
+	public void removeConstraint(final IConstraint<String> constraint) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void removeConstraints() {
+		//TODO: Implement.
 	}
 	
 	//method
