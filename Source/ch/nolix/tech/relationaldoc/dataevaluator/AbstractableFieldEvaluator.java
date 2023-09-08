@@ -5,7 +5,6 @@ package ch.nolix.tech.relationaldoc.dataevaluator;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 
 //class
@@ -23,11 +22,37 @@ public final class AbstractableFieldEvaluator {
 	public boolean canBeSetAsConcrete(final IAbstractableField abstractableField) {
 		return
 		abstractableField != null
-		&& getStoredRealisingFields(abstractableField).isEmpty();
+		&& canBeSetAsConcreteWhenIsNotNull(abstractableField);
 	}
 	
 	//method
-	public boolean canSetCardinality(final AbstractableField abstractableField, final Cardinality cardinality) {
+	public boolean canBeSetForReferences(final IAbstractableField abstractableField) {
+		
+		if (abstractableField != null) {
+			
+			if (abstractableField.isForReferences()) {
+				return true;
+			}
+			
+			final var realisingFields = getStoredRealisingFields(abstractableField);
+			
+			if (realisingFields.isEmpty()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	//method
+	public boolean canBeSetForValues(final IAbstractableField abstractableField) {
+		return
+		abstractableField != null
+		&& canBeSetForValuesWhenIsNotNull(abstractableField);
+	}
+	
+	//method
+	public boolean canSetCardinality(final IAbstractableField abstractableField, final Cardinality cardinality) {
 		
 		if (abstractableField != null && cardinality != null) {
 			
@@ -46,7 +71,7 @@ public final class AbstractableFieldEvaluator {
 		
 		return false;
 	}
-		
+	
 	//method
 	public boolean canSetName(final IAbstractableField abstractableField, final String name) {
 		return
@@ -72,7 +97,55 @@ public final class AbstractableFieldEvaluator {
 		abstractableField != null
 		&& abstractableField.getStoredParentObject().isAbstract();
 	}
+	
+	//method
+	private boolean canBeSetAsConcreteWhenIsNotNull(final IAbstractableField abstractableField) {
 		
+		final var realisingFields = getStoredRealisingFields(abstractableField);
+		
+		//TODO: return realisingFields.containsOnly(IAbstractableField::isEmpty);
+		return true;
+	}
+	
+	//method
+	private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final IAbstractableField abstractableField) {
+		
+		final var realisingFields = getStoredRealisingFields(abstractableField);
+		
+		//TODO: return realisingFields.containsOnly(IAbstractableField::isEmpty);
+		return true;
+	}
+
+	//method
+	private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final IAbstractableField abstractableField) {
+		return !abstractableField.inheritsFromBaseField();
+	}
+	
+	//method
+	private boolean canBeSetForValuesWhenIsForReferences(final IAbstractableField abstractableField) {
+		
+		if (abstractableField.isAbstract()) {
+			return canBeSetForValuesWhenIsAbstractAndForReferences(abstractableField);
+		}
+		
+		return canBeSetForValuesWhenIsConcreteAndForReferences(abstractableField);
+	}
+	
+	//method
+	private boolean canBeSetForValuesWhenIsForValues(final IAbstractableField abstractableField) {
+		return true;
+	}
+	
+	//method
+	private boolean canBeSetForValuesWhenIsNotNull(final IAbstractableField abstractableField) {
+		
+		if (abstractableField.isForValues()) {
+			return canBeSetForValuesWhenIsForValues(abstractableField);
+		}
+		
+		return canBeSetForValuesWhenIsForReferences(abstractableField);
+	}
+	
 	//method
 	private boolean canSetName(final String name) {
 		return

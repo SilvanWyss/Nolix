@@ -149,7 +149,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsAbstract(this);
 		
-		setAsAbstractIfIsConcreteAndWhenPossible();
+		setAsAbstractIfIsConcreteAndWhenAllowed();
 		
 		return this;
 	}
@@ -160,7 +160,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsConcrete(this);
 		
-		setAsConcreteIfItIsAbstractAndWhenPossible();
+		setAsConcreteIfItIsAbstractAndWhenAllowed();
 		
 		return this;
 	}
@@ -180,7 +180,10 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setForReferences() {
 		
-		//TODO: Implement.
+		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetForReferences(this);
+		
+		setForReferencesWhenAllowed();
+		
 		return this;
 	}
 	
@@ -188,7 +191,10 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setForValues() {
 		
-		//TODO: Implement.
+		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetForValues(this);
+		
+		setForValuesWhenAllowed();
+		
 		return this;
 	}
 	
@@ -217,14 +223,14 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	}
 	
 	//method
-	private void setAsAbstractIfIsConcreteAndWhenPossible() {
+	private void setAsAbstractIfIsConcreteAndWhenAllowed() {
 		if (isConcrete()) {
-			setAsAbstractWhenIsConcreteAndPossible();
+			setAsAbstractWhenIsConcreteAndAllowed();
 		}
 	}
 	
 	//method
-	private void setAsAbstractWhenIsConcreteAndForReferencesAndPossible() {
+	private void setAsAbstractWhenIsConcreteAndForReferencesAndAllowed() {
 		
 		removeContent();
 		
@@ -232,7 +238,14 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	}
 	
 	//method
-	private void setAsAbstractWhenIsConcreteAndForValuesAndPossible() {
+	private void setAsConcreteIfItIsAbstractAndWhenAllowed() {
+		if (isAbstract()) {
+			setAsConcreteWhenIsAbstractAndAllowed();
+		}
+	}
+	
+	//method
+	private void setAsAbstractWhenIsConcreteAndForValuesAndAllowed() {
 		
 		removeContent();
 		
@@ -240,23 +253,25 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	}
 	
 	//mehtod
-	private void setAsAbstractWhenIsConcreteAndPossible() {
+	private void setAsAbstractWhenIsConcreteAndAllowed() {
 		if (isForValues()) {
-			setAsAbstractWhenIsConcreteAndForValuesAndPossible();
+			setAsAbstractWhenIsConcreteAndForValuesAndAllowed();
 		} else {
-			setAsAbstractWhenIsConcreteAndForReferencesAndPossible();
+			setAsAbstractWhenIsConcreteAndForReferencesAndAllowed();
 		}
 	}
 	
 	//method
-	private void setAsConcreteIfItIsAbstractAndWhenPossible() {
-		if (isAbstract()) {
-			setAsConcreteWhenIsAbstractAndPossible();
+	private void setAsConcreteWhenIsAbstractAndAllowed() {
+		if (isForValues()) {
+			setAsConcreteWhenIsAbstractAndForValuesAndAllowed();
+		} else {
+			setAsConcreteWhenIsAbstractAndForReferencesAndAllowed();
 		}
 	}
 	
 	//method
-	private void setAsConcreteWhenIsAbstractAndForReferencesAndPossible() {
+	private void setAsConcreteWhenIsAbstractAndForReferencesAndAllowed() {
 		
 		removeContent();
 		
@@ -264,7 +279,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	}
 	
 	//method
-	private void setAsConcreteWhenIsAbstractAndForValuesAndPossible() {
+	private void setAsConcreteWhenIsAbstractAndForValuesAndAllowed() {
 		
 		removeContent();
 		
@@ -272,11 +287,66 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	}
 	
 	//method
-	private void setAsConcreteWhenIsAbstractAndPossible() {
-		if (isForValues()) {
-			setAsConcreteWhenIsAbstractAndForValuesAndPossible();
+	private void setForReferencesIfIsForRerencesAndWhenAllowed() {
+		if (isAbstract()) {
+			setForReferencesWhenIsAbstractAndForValuesAndAllowed();
 		} else {
-			setAsConcreteWhenIsAbstractAndForReferencesAndPossible();
+			setForReferencesWhenIsConcreteAndForValuesAndAllowed();
+		}
+	}
+	
+	//method
+	private void setForReferencesWhenAllowed() {
+		if (isForValues()) {
+			setForReferencesIfIsForRerencesAndWhenAllowed();
+		}
+	}
+	
+	//method
+	private void setForReferencesWhenIsAbstractAndForValuesAndAllowed() {
+		
+		removeContent();
+		
+		abstractReferenceContent.setEntity(new AbstractReferenceContent());
+	}
+	
+	//method
+	private void setForReferencesWhenIsConcreteAndForValuesAndAllowed() {
+		
+		removeContent();
+		
+		concreteReferenceContent.setEntity(new ConcreteReferenceContent());
+	}
+	
+	//method
+	private void setForValuesWhenAllowed() {
+		if (isForReferences()) {
+			setForValuesWhenIsForReferencesAndAllowed();
+		}
+	}
+	
+	//method
+	private void setForValuesWhenIsAbstractAndForReferencesAndAllowed() {
+		
+		removeContent();
+		
+		abstractValueContent.setEntity(new AbstractValueContent());
+	}
+	
+	//method
+	private void setForValuesWhenIsConcreteAndForReferencesAndAllowed() {
+		
+		removeContent();
+		
+		concreteValueContent.setEntity(new ConcreteValueContent());
+	}
+	
+	//method
+	private void setForValuesWhenIsForReferencesAndAllowed() {
+		if (isAbstract()) {
+			setForValuesWhenIsAbstractAndForReferencesAndAllowed();
+		} else {
+			setForValuesWhenIsConcreteAndForReferencesAndAllowed();
 		}
 	}
 }

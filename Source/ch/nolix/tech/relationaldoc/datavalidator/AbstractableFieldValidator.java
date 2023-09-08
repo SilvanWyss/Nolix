@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableFieldEvaluator;
-import ch.nolix.tech.relationaldoc.datamodel.AbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 
 //class
@@ -24,7 +23,7 @@ public final class AbstractableFieldValidator {
 	}
 	
 	//method
-	public void assertCanBeSetAsConcrete(AbstractableField abstractableField) {
+	public void assertCanBeSetAsConcrete(IAbstractableField abstractableField) {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetAsConcrete(abstractableField)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set as concrete");
@@ -32,7 +31,23 @@ public final class AbstractableFieldValidator {
 	}
 	
 	//method
-	public void assertCanSetCardinality(final AbstractableField abstractableField, final Cardinality cardinality) {
+	public void assertCanBeSetForReferences(final IAbstractableField abstractableField) {
+		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetForReferences(abstractableField)) {
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set for references");
+		}
+	}
+	
+	//method
+	public void assertCanBeSetForValues(final IAbstractableField abstractableField) {
+		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetForValues(abstractableField)) {
+			throw
+			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set for values");
+		}
+	}
+	
+	//method
+	public void assertCanSetCardinality(final IAbstractableField abstractableField, final Cardinality cardinality) {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canSetCardinality(abstractableField, cardinality)) {
 			throw InvalidArgumentException.forArgument(cardinality);
 		}
