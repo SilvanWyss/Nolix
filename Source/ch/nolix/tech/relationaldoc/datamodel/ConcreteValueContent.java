@@ -60,6 +60,12 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	
 	//method
 	@Override
+	public boolean isEmpty() {
+		return getStoredConcreteParameterizedValueContent().isEmpty();
+	}
+	
+	//method
+	@Override
 	public IConcreteValueContent setDataType(final DataType dataType) {
 		
 		CONCRETE_VALUE_CONTENT_VALIDATOR.assertCanSetDataType(this, dataType);

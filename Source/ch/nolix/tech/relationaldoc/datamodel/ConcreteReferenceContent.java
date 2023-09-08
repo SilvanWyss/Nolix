@@ -61,6 +61,12 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 	
 	//method
 	@Override
+	public boolean isEmpty() {
+		return referencedObjects.isEmpty();
+	}
+	
+	//method
+	@Override
 	public void removeObject(final IAbstractableObject object) {
 		
 		CONCRETE_REFERENCE_CONTENT_VALIDATOR.assertCanRemoveOneObject(this);

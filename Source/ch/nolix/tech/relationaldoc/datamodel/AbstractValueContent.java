@@ -64,6 +64,12 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	
 	//method
 	@Override
+	public boolean isEmpty() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public IAbstractValueContent setDataType(final DataType dataType) {
 		
 		ABSTRACT_VALUE_CONTENT_VALIDATOR.assertCanSetDataType(this, dataType);

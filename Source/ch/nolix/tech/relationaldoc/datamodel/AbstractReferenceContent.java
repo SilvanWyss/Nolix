@@ -62,6 +62,12 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
 	
 	//method
 	@Override
+	public boolean isEmpty() {
+		return true;
+	}
+	
+	//method
+	@Override
 	public void removeConstraint(final IConstraint<IAbstractableObject> constraint) {
 		//TODO: Implement.
 	}
