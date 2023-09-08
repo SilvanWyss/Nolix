@@ -2,12 +2,12 @@
 package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.OptionalValue;
 import ch.nolix.tech.relationaldoc.datavalidator.ConcreteValueContentValidator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
-import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteParameterizedValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IValueContent;
 
@@ -24,6 +24,14 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	
 	//attribute
 	private final OptionalValue<String> dataType = new OptionalValue<String>();
+	
+	//method
+	@Override
+	public IConcreteValueContent addValue(final String value) {
+		
+		//TODO: Implement.
+		return this;
+	}
 	
 	//method
 	@Override
@@ -46,7 +54,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	
 	//method
 	@Override
-	public IConcreteParameterizedValueContent<?> getStoredConcreteParameterizedValueContent() {
+	public IContainer<String> getStoredValues() {
 		
 		//TODO: Implement.
 		return null;
@@ -61,7 +69,21 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getStoredConcreteParameterizedValueContent().isEmpty();
+		
+		//TODO: Implement.
+		return false;
+	}
+	
+	//method
+	@Override
+	public void removeValueIfContainsEqualing(final String value) {
+		//TODO: Implement.
+	}
+	
+	//method
+	@Override
+	public void removeValues() {
+		//TODO: Implement.
 	}
 	
 	//method

@@ -90,8 +90,10 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 			final var field = sb.getStoredFields().getStoredFirstOrNull(f -> f.hasSameNameAs(localParentField));
 			
 			if (field != null) {
+				
 				final var concreteValueContent = (IConcreteValueContent)field.getStoredContent();
-				concreteValueContent.getStoredConcreteParameterizedValueContent().removeValues();
+				
+				concreteValueContent.removeValues();
 			}
 		}
 	}
