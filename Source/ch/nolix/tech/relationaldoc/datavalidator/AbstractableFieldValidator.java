@@ -16,7 +16,7 @@ public final class AbstractableFieldValidator {
 	private static final AbstractableFieldEvaluator ABSTRACTABLE_FIELD_EVALUATOR = new AbstractableFieldEvaluator();
 	
 	//method
-	public void assertCanSetAsAbstract(final IAbstractableField abstractableField) {
+	public void assertCanBeSetAsAbstract(final IAbstractableField abstractableField) {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetAsAbstract(abstractableField)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set as abstract");
@@ -24,7 +24,7 @@ public final class AbstractableFieldValidator {
 	}
 	
 	//method
-	public void assertCanSetAsConcrete(AbstractableField abstractableField) {
+	public void assertCanBeSetAsConcrete(AbstractableField abstractableField) {
 		if (!ABSTRACTABLE_FIELD_EVALUATOR.canBeSetAsConcrete(abstractableField)) {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(abstractableField, "cannot be set as concrete");

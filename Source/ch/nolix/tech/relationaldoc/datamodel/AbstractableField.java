@@ -147,7 +147,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setAsAbstract() {
 		
-		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsAbstract(this);
+		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsAbstract(this);
 		
 		//TODO: Update content.
 		
@@ -158,7 +158,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	@Override
 	public IAbstractableField setAsConcrete() {
 		
-		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsConcrete(this);
+		ABSTRACTABLE_FIELD_VALIDATOR.assertCanBeSetAsConcrete(this);
 		
 		//TODO: Update content.
 		
