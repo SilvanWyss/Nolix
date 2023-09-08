@@ -3,7 +3,6 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
-import ch.nolix.coreapi.datamodelapi.entityproperty.ContentType;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.OptionalReference;
@@ -61,12 +60,6 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		}
 		
 		return Cardinality.valueOf(cardinality.getStoredValue());
-	}
-	
-	//method
-	@Override
-	public ContentType getContentType() {
-		return getStoredContent().getType();
 	}
 	
 	//method

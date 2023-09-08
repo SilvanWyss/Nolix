@@ -2,15 +2,12 @@
 package ch.nolix.techapi.relationaldocapi.datamodelapi;
 
 //own imports
-import ch.nolix.coreapi.datamodelapi.entityproperty.ContentType;
 import ch.nolix.coreapi.datamodelapi.entityrequestapi.AbstractnessRequestable;
+import ch.nolix.coreapi.datamodelapi.entityrequestapi.ContentTypeRequestable;
 
 //interface
-public interface IContent extends AbstractnessRequestable {
+public interface IContent extends AbstractnessRequestable, ContentTypeRequestable {
 	
 	//method declaration
 	IAbstractableField getStoredParentField();
-	
-	//method declaration
-	ContentType getType();
 }
