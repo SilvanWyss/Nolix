@@ -16,13 +16,13 @@ public interface MandatorynessRequestable {
 	
 	//method declaration
 	/**
-	 * @return true if the current {@link MandatorynessRequestable} is mandatory.
+	 * @return true if the current {@link MandatorynessRequestable} is mandatory, false otherweise.
 	 */
 	boolean isMandatory();
 	
 	//method
 	/**
-	 * @return true if the current {@link MandatorynessRequestable} is optional.
+	 * @return true if the current {@link MandatorynessRequestable} is optional, false otherweise.
 	 */
 	default boolean isOptional() {
 		return !isMandatory();
