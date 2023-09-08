@@ -139,6 +139,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//method
 	@Override
+	public boolean isMandatory() {
+		return (getCardinality() == Cardinality.TO_ONE);
+	}
+	
+	//method
+	@Override
 	public IAbstractableField setAsAbstract() {
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsAbstract(this);
