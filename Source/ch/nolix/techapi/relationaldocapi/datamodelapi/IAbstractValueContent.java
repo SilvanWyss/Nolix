@@ -12,9 +12,6 @@ public interface IAbstractValueContent extends IValueContent {
 	IAbstractValueContent addConstraint(IConstraint<String> constraint);
 	
 	//method declaration
-	IAbstractValueContent getStoredParentAbstractValueContent();
-	
-	//method declaration
 	void removeConstraint(IConstraint<String> constraint);
 	
 	//method declaration

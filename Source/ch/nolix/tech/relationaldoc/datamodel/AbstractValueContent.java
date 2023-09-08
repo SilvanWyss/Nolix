@@ -59,14 +59,6 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 	
 	//method
 	@Override
-	public IAbstractValueContent getStoredParentAbstractValueContent() {
-		
-		//TODO: Implement.
-		return this;
-	}
-	
-	//method
-	@Override
 	public IAbstractableField getStoredParentField() {
 		return parentField.getBackReferencedEntity();
 	}
