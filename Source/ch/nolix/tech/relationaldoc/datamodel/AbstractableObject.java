@@ -3,6 +3,7 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
+import ch.nolix.core.programatom.name.PluralPascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.MultiReference;
@@ -15,13 +16,16 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 public final class AbstractableObject extends Entity implements IAbstractableObject {
 	
 	//constant
+	public static final String DEFAULT_NAME = PluralPascalCaseCatalogue.FIELD;
+	
+	//constant
 	public static final boolean DEFAULT_ABSTRACT_FLAG = false;
 	
 	//constant
 	private static final AbstractableObjectValidator ABSTRACTABLE_OBJECT_VALIDATOR = new AbstractableObjectValidator();
 	
 	//attribute
-	private final Value<String> name = new Value<>();
+	private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 	
 	//attribute
 	private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
