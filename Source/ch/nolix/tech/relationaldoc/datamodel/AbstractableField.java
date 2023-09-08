@@ -133,6 +133,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//method
 	@Override
+	public boolean isForValues() {
+		return getStoredContent().isForValues();
+	}
+	
+	//method
+	@Override
 	public IAbstractableField setAsAbstract() {
 		
 		ABSTRACTABLE_FIELD_VALIDATOR.assertCanSetAsAbstract(this);
