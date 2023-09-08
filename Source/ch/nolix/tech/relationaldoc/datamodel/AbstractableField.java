@@ -133,6 +133,12 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 	
 	//method
 	@Override
+	public boolean isEmpty() {
+		return getStoredContent().isEmpty();
+	}
+	
+	//method
+	@Override
 	public boolean isForValues() {
 		return getStoredContent().isForValues();
 	}

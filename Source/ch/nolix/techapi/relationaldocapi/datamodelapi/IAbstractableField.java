@@ -5,6 +5,7 @@ package ch.nolix.techapi.relationaldocapi.datamodelapi;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.FluentNameable;
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableCardinalityHolder;
 import ch.nolix.coreapi.datamodelapi.entityrequestapi.MandatorynessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.techapi.relationaldocapi.baseapi.Abstractable;
 import ch.nolix.techapi.relationaldocapi.baseapi.ContentTypeAssignable;
 
@@ -13,6 +14,7 @@ public interface IAbstractableField
 extends
 Abstractable<IAbstractableField>,
 ContentTypeAssignable<IAbstractableField>,
+EmptinessRequestable,
 FluentNameable<IAbstractableField>,
 IFluentMutableCardinalityHolder<IAbstractableField>,
 MandatorynessRequestable {

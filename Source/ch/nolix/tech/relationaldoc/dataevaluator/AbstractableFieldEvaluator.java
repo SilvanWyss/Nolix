@@ -103,8 +103,7 @@ public final class AbstractableFieldEvaluator {
 		
 		final var realisingFields = getStoredRealisingFields(abstractableField);
 		
-		//TODO: return realisingFields.containsOnly(IAbstractableField::isEmpty);
-		return true;
+		return realisingFields.containsOnly(IAbstractableField::isEmpty);
 	}
 	
 	//method
@@ -112,10 +111,9 @@ public final class AbstractableFieldEvaluator {
 		
 		final var realisingFields = getStoredRealisingFields(abstractableField);
 		
-		//TODO: return realisingFields.containsOnly(IAbstractableField::isEmpty);
-		return true;
+		return realisingFields.containsOnly(IAbstractableField::isEmpty);
 	}
-
+	
 	//method
 	private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final IAbstractableField abstractableField) {
 		return !abstractableField.inheritsFromBaseField();
