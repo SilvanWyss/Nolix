@@ -128,6 +128,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 	private IContainer<IConstraint<String>> getConstraintsWhenInheritsFromBaseField() {
 		
 		final var baseField = getStoredParentField().getStoredBaseField();
+		
 		final var abstractValueContent = (IAbstractValueContent)baseField.getStoredContent();
 		
 		return abstractValueContent.getConstraints();
