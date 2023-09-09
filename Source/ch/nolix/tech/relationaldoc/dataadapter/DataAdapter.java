@@ -70,6 +70,12 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
+	public IDataAdapter getEmptyCopy() {
+		return new DataAdapter(internalDataAdapter.getEmptyCopy());
+	}
+	
+	//method
+	@Override
 	public IContainer<? extends IAbstractableObject> getStoredTopLevelObjects() {
 		
 		final var table = internalDataAdapter.getStoredTableByEntityType(AbstractableObject.class);
