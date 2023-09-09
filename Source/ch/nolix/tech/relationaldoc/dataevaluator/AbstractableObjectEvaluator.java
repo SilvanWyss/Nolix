@@ -58,6 +58,13 @@ public final class AbstractableObjectEvaluator {
 	}
 	
 	//method
+	public boolean hasBaseTypes(final IAbstractableObject abstractableObject) {
+		return
+		abstractableObject != null
+		&& abstractableObject.getStoredDirectBaseTypes().containsAny();
+	}
+	
+	//method
 	private boolean canAddBaseTypeBecauseOfBaseTypes(
 		final IAbstractableObject abstractableObject,
 		final IAbstractableObject baseType
