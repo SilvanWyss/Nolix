@@ -253,7 +253,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		abstractReferenceContent.setEntity(new AbstractReferenceContent());
+		final var newAbstractReferenceContent = new AbstractReferenceContent();
+		getStoredParentDatabase().insertEntity(newAbstractReferenceContent);
+		abstractReferenceContent.setEntity(newAbstractReferenceContent);
 	}
 	
 	//method
@@ -268,7 +270,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		abstractValueContent.setEntity(new AbstractValueContent());
+		final var newAbstractValueContent = new AbstractValueContent();
+		getStoredParentDatabase().insertEntity(newAbstractValueContent);
+		abstractValueContent.setEntity(newAbstractValueContent);
 	}
 	
 	//mehtod
@@ -294,7 +298,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		concreteReferenceContent.setEntity(new ConcreteReferenceContent());
+		final var newConcreteReferenceContent = new ConcreteReferenceContent();
+		getStoredParentDatabase().insertEntity(newConcreteReferenceContent);
+		concreteReferenceContent.setEntity(newConcreteReferenceContent);
 	}
 	
 	//method
@@ -302,7 +308,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		concreteValueContent.setEntity(new ConcreteValueContent());		
+		final var newConcreteValueContent = new ConcreteValueContent();
+		getStoredParentDatabase().insertEntity(newConcreteValueContent);
+		concreteValueContent.setEntity(newConcreteValueContent);		
 	}
 	
 	//method
@@ -326,7 +334,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		abstractReferenceContent.setEntity(new AbstractReferenceContent());
+		final var newAbstractReferenceContent = new AbstractReferenceContent();
+		getStoredParentDatabase().insertEntity(newAbstractReferenceContent);
+		abstractReferenceContent.setEntity(newAbstractReferenceContent);
 	}
 	
 	//method
@@ -334,7 +344,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		concreteReferenceContent.setEntity(new ConcreteReferenceContent());
+		final var newConcreteReferenceContent = new ConcreteReferenceContent();
+		getStoredParentDatabase().insertEntity(newConcreteReferenceContent);
+		concreteReferenceContent.setEntity(newConcreteReferenceContent);
 	}
 	
 	//method
@@ -349,7 +361,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		abstractValueContent.setEntity(new AbstractValueContent());
+		final var newAbstractValueContent = new AbstractValueContent();
+		getStoredParentDatabase().insertEntity(newAbstractValueContent);
+		abstractValueContent.setEntity(newAbstractValueContent);
 	}
 	
 	//method
@@ -357,7 +371,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 		
 		removeContent();
 		
-		concreteValueContent.setEntity(new ConcreteValueContent());
+		final var newConcreteValueContent = new ConcreteValueContent();
+		getStoredParentDatabase().insertEntity(newConcreteValueContent);
+		concreteValueContent.setEntity(newConcreteValueContent);
 	}
 	
 	//method
