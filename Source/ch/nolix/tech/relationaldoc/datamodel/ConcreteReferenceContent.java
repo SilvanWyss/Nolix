@@ -1,11 +1,14 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.MultiReference;
 import ch.nolix.tech.relationaldoc.datavalidator.ConcreteReferenceContentValidator;
+import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractReferenceContent;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
@@ -43,6 +46,17 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 	
 	//method
 	@Override
+	public IContainer<? extends IConstraint<IAbstractableObject>> getConstraints() {
+		
+		if (getStoredParentField().inheritsFromBaseField()) {
+			return getConstraintsWhenInheritsFromBaseField();
+		}
+		
+		return new ImmutableList<>();
+	}
+
+	//method
+	@Override
 	public IAbstractableField getStoredParentField() {
 		return parentField.getBackReferencedEntity();
 	}
@@ -51,6 +65,17 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 	@Override
 	public IContainer<? extends IAbstractableObject> getStoredReferencedObjects() {
 		return referencedObjects.getReferencedEntities();
+	}
+	
+	//method
+	@Override
+	public IAbstractableObject getStoredReferencedType() {
+		
+		final var baseField = getStoredParentField().getStoredBaseField();
+		
+		final var abstractReferenceContent = (IAbstractReferenceContent)baseField.getStoredContent();
+		
+		return abstractReferenceContent.getStoredReferencedType();
 	}
 	
 	//method
@@ -81,5 +106,15 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 		CONCRETE_REFERENCE_CONTENT_VALIDATOR.assertCanRemoveObjects(this);
 		
 		referencedObjects.clear();
+	}
+	
+	//method
+	private IContainer<? extends IConstraint<IAbstractableObject>> getConstraintsWhenInheritsFromBaseField() {
+		
+		final var baseField = getStoredParentField().getStoredBaseField();
+		
+		final var abstractReferenceContent = (IAbstractReferenceContent)baseField.getStoredContent();
+		
+		return abstractReferenceContent.getConstraints();
 	}
 }

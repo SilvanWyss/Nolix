@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //own imports
 import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
@@ -40,6 +42,13 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
 		
 		//TODO: Implement.
 		return this;
+	}
+	
+	@Override
+	public IContainer<? extends IConstraint<IAbstractableObject>> getConstraints() {
+		
+		//TODO: Implement.
+		return new ImmutableList<>();
 	}
 	
 	//method
