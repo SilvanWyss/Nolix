@@ -47,7 +47,7 @@ public final class DataAdapter implements IDataAdapter {
 	
 	//method
 	@Override
-	public void close() throws Exception {
+	public void close() {
 		internalDataAdapter.close();
 	}
 	
