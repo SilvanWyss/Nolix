@@ -12,7 +12,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class Component<
 	C extends Controller<AC>,
 	AC
-> implements IComponent {
+>
+implements IComponent {
 	
 	//attribute
 	private final SingleContainer rootControl = new SingleContainer();
