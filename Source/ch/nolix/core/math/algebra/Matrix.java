@@ -1154,7 +1154,9 @@ public final class Matrix {
 				if (!GlobalCalculator.isApproximatelyZero(values[lineIndex - 1][j])) {
 					return false;
 				}
-			} else if (!GlobalCalculator.isApproximatelyOne(values[lineIndex - 1][j])) {
+			} else if ( //NOSONAR: The else-case is continuing the loop.
+				!GlobalCalculator.isApproximatelyOne(values[lineIndex - 1][j])
+			) {
 				return false;
 			}
 		}
