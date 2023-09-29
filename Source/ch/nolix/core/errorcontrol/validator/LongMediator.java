@@ -127,7 +127,7 @@ public class LongMediator extends Mediator {
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
 				argument,
-				"is not bigger than the given min " + value
+				"is not bigger than " + value
 			);
 		}
 	}
