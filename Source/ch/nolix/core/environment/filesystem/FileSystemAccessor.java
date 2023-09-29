@@ -303,6 +303,8 @@ public final class FileSystemAccessor {
 				fileAccessors.addAtEnd(new FileAccessor(f.getPath()));
 			} else if (f.isDirectory()) {
 				fileAccessors.addAtEnd(new FolderAccessor(f.getPath()).getFileAccessorsRecursively());
+			} else {
+				throw InvalidArgumentException.forArgument(f);
 			}
 		}
 		
