@@ -77,7 +77,46 @@ public final class LongMediatorTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_isEqualTo_whenTheGivenArgumentDoesNotEqualTheGivenValue() {
+	public void testCase_isBiggerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
+		
+		//verification & execution
+		expectRunning(() -> testUnit.isBiggerThan(100))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage("The given value '20' is not bigger than 100.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isBiggerThan_whenTheGivenArgumentEqualsTheGivenValue() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
+		
+		//verification & execution
+		expectRunning(() -> testUnit.isBiggerThan(100))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage("The given value '100' is not bigger than 100.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isBiggerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
+		
+		//setup
+		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
+		
+		//verification & execution
+		expectRunning(() -> testUnit.isBiggerThan(100)).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isEqualTo_whenTheGivenArgumenIsBiggerThanTheGivenValue() {
 		
 		//setup
 		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
@@ -180,10 +219,10 @@ public final class LongMediatorTest extends Test {
 	public void testCase_isSmallerThan_whenTheGivenArgumentIsSmallerThanTheGivenValue() {
 		
 		//setup
-		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
+		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 20);
 		
 		//verification & execution
-		expectRunning(() -> testUnit.isSmallerThan(20)).doesNotThrowException();
+		expectRunning(() -> testUnit.isSmallerThan(100)).doesNotThrowException();
 	}
 	
 	//method
@@ -191,13 +230,13 @@ public final class LongMediatorTest extends Test {
 	public void testCase_isSmallerThan_whenTheGivenArgumentEqualsTheGivenValue() {
 		
 		//setup
-		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
+		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 100);
 		
 		//verification & execution
-		expectRunning(() -> testUnit.isSmallerThan(10))
+		expectRunning(() -> testUnit.isSmallerThan(100))
 		.throwsException()
 		.ofType(InvalidArgumentException.class)
-		.withMessage("The given value '10' is not smaller than 10.");
+		.withMessage("The given value '100' is not smaller than 100.");
 	}
 	
 	//method
@@ -205,12 +244,12 @@ public final class LongMediatorTest extends Test {
 	public void testCase_isSmallerThan_whenTheGivenArgumentIsBiggerThanTheGivenValue() {
 		
 		//setup
-		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 10);
+		final var testUnit = LongMediator.forArgumentNameAndArgument("value", 120);
 		
 		//verification & execution
-		expectRunning(() -> testUnit.isSmallerThan(5))
+		expectRunning(() -> testUnit.isSmallerThan(100))
 		.throwsException()
 		.ofType(InvalidArgumentException.class)
-		.withMessage("The given value '10' is not smaller than 5.");
+		.withMessage("The given value '120' is not smaller than 100.");
 	}
 }
