@@ -140,7 +140,12 @@ public class LongMediator extends Mediator {
 	 */
 	public final void isBiggerThanOrEquals(final long value) {
 		if (argument < value) {
-			throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), argument, value);
+			throw
+			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+				getArgumentName(),
+				argument,
+				"is not bigger than or equal to " + value
+			);
 		}
 	}
 	
