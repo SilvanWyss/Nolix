@@ -112,6 +112,8 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
 			attributes.addAtEnd(Node.withHeader(getAbsoluteValue()));
 		} else if (isRelative()) {
 			attributes.addAtEnd(Node.withHeader(new DecimalFormat("0.#").format(100.0 * getPercentage()) + "%"));
+		} else {
+			throw InvalidArgumentException.forArgument(this);
 		}
 		
 		return attributes;
