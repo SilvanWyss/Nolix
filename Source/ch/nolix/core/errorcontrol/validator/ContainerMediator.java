@@ -109,7 +109,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 			throw
 			InvalidArgumentException.forArgumentAndErrorPredicate(
 				getStoredArgument(),
-				"does not contain element that fulfils the given condition"
+				"does not contain an element that fulfils the given condition"
 			);
 		}
 	}
