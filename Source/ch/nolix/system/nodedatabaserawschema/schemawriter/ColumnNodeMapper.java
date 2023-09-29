@@ -37,6 +37,8 @@ public final class ColumnNodeMapper {
 	//method
 	private Node createParameterizedPropertyTypeNodeFrom(final IColumnDto column) {
 		return
-		PARAMETERIZED_PROPERTY_TYPE_NODE_MAPPER.createParameterizedPropertyTypeNodeFrom(column.getParameterizedPropertyType());
+		PARAMETERIZED_PROPERTY_TYPE_NODE_MAPPER.createParameterizedPropertyTypeNodeFrom(
+			column.getParameterizedPropertyType()
+		);
 	}
 }

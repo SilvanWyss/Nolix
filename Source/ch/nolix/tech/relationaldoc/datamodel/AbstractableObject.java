@@ -62,7 +62,10 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 		
 		declaredFields.addEntity(field);
 		
-		//TODO: Add realisations of the given field to the sub types of the current AbstractableObject if the given field is abstract.
+		/*
+		 * TODO: Add realisations of the given field to the sub types of the current AbstractableObject if
+		 * the given field is abstract.
+		 */
 		
 		return this;
 	}
