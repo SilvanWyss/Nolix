@@ -11,9 +11,9 @@ public final class ConcreteValueContentEvaluator {
 	
 	//method
 	public boolean canAddValue(final IConcreteValueContent concreteValueContent, final String value) {
-		
-		//TODO: Implement.
-		return true;
+		return
+		canAddValueBecauseOfCardinality(concreteValueContent)
+		&& canAddValueBecauseOfConstraints(concreteValueContent, value);
 	}
 	
 	//method
@@ -39,5 +39,23 @@ public final class ConcreteValueContentEvaluator {
 		concreteValueContent != null
 		&& !concreteValueContent.getStoredParentField().inheritsFromBaseField()
 		&& dataType != null;
+	}
+	
+	//method
+	private boolean canAddValueBecauseOfCardinality(final IConcreteValueContent concreteValueContent) {
+		return
+		concreteValueContent != null
+		&& (
+			concreteValueContent.isEmpty()
+			|| concreteValueContent.getStoredParentField().getCardinality() == Cardinality.TO_MANY
+		);
+	}
+	
+	//method
+	private boolean canAddValueBecauseOfConstraints(
+		final IConcreteValueContent concreteValueContent,
+		final String value
+	) {
+		return concreteValueContent.getConstraints().containsOnly(c -> c.acceptsEntry(value));
 	}
 }
