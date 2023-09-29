@@ -4,7 +4,6 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType;
@@ -46,7 +45,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
-		GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(ParameterizedPropertyType.class).isNotNull();
+		GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(IParameterizedPropertyType.class).isNotNull();
 		GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
 		
 		this.name = name;

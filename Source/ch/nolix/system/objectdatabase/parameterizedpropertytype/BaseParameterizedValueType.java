@@ -15,7 +15,6 @@ public abstract class BaseParameterizedValueType<
 
 	V
 >
-extends ParameterizedPropertyType
 implements IBaseParameterizedValueType<V> {
 	
 	//attribute
