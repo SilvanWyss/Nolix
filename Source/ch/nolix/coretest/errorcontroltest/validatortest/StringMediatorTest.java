@@ -12,6 +12,43 @@ public final class StringMediatorTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_isNotBlank_whenTheGivenArgumentIsEmpty() {
+		
+		//setup
+		final var testUnit = new StringMediator("");
+		
+		//execution & verification
+		expectRunning(testUnit::isNotBlank)
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotBlank_whenTheGivenArgumentConsistsOfASpace() {
+		
+		//setup
+		final var testUnit = new StringMediator(" ");
+		
+		//execution & verification
+		expectRunning(testUnit::isNotBlank)
+		.throwsException()
+		.ofType(InvalidArgumentException.class);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotBlank_whenTheGivenArgumentConsistsOfALetter() {
+		
+		//setup
+		final var testUnit = new StringMediator("a");
+		
+		//execution & verification
+		expectRunning(testUnit::isNotBlank).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
 	public void testCase_isNotLongerThan_whenTheArgumentIsShorterThanTheMaxLength() {
 		
 		//setup
