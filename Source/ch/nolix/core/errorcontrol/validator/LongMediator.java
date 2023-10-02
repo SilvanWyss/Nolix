@@ -78,24 +78,6 @@ public class LongMediator extends Mediator {
 		this.argument = argument;
 	}
 	
-	/**
-	 * @param min
-	 * @param max
-	 * @throws ArgumentIsOutOfRangeException if
-	 * the argument of the current {@link LongMediator} is not between the given min and max.
-	 */
-	public final void isBetween(final int min, final int max) {
-		if (argument < min || argument > max) {
-			throw
-			ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-				getArgumentName(),
-				argument,
-				min,
-				max
-			);
-		}
-	}
-	
 	//method
 	/**
 	 * @param min
@@ -155,18 +137,6 @@ public class LongMediator extends Mediator {
 	 * @throws UnequalArgumentException if
 	 * the argument of the current {@link LongMediator} does not equal the given value.
 	 */
-	public final void isEqualTo(final int value) {
-		if (argument != value) {
-			throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
-		}
-	}
-	
-	//method
-	/**
-	 * @param value
-	 * @throws UnequalArgumentException if
-	 * the argument of the current {@link LongMediator} does not equal the given value.
-	 */
 	public final void isEqualTo(final long value) {
 		if (argument != value) {
 			throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
@@ -216,7 +186,7 @@ public class LongMediator extends Mediator {
 	 * @throws InvalidArgumentException if
 	 * the argument of the current {@link LongMediator} is between the given min and max.
 	 */
-	public final void isNotBetween(final int min, final int max) {
+	public final void isNotBetween(final long min, final long max) {
 		if (argument >= min && argument <= max) {
 			throw ArgumentIsInRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
 				getArgumentName(),
@@ -236,16 +206,6 @@ public class LongMediator extends Mediator {
 		if (argument == value) {
 			throw EqualArgumentException.forArgumentNameAndArgumentAndEqualValue(getArgumentName(), argument, value);
 		}
-	}
-	
-	//method
-	/**
-	 * @param value
-	 * @throws BiggerArgumentException if
-	 * the argument of the current {@link LongMediator} is bigger than the given value.
-	 */
-	public final void isNotBiggerThan(final int value) {
-		isNotBiggerThan((long)value);
 	}
 	
 	//method

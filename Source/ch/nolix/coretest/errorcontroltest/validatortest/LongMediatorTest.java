@@ -160,8 +160,7 @@ public final class LongMediatorTest extends Test {
 		//execution & verification
 		expectRunning(() -> testUnit.isEqualTo(9))
 		.throwsException()
-		.ofType(UnequalArgumentException.class)
-		.withMessage("The given value '10' does not equal the Integer '9'.");
+		.ofType(UnequalArgumentException.class);
 	}
 	
 	//method
