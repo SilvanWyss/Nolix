@@ -2,6 +2,8 @@
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -9,6 +11,70 @@ import ch.nolix.core.testing.test.Test;
 
 //class
 public final class StringMediatorTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_isNotEmpty_whenTheGivenArgumentIsNull() {
+		
+		//setup
+		final var testUnit = new StringMediator(null);
+		
+		//execution & verification
+		expectRunning(testUnit::isNotEmpty)
+		.throwsException()
+		.ofType(ArgumentIsNullException.class)
+		.withMessage("The given argument is null.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotEmpty_whenTheGivenArgumentIsEmpty() {
+		
+		//setup
+		final var testUnit = new StringMediator("");
+		
+		//execution & verification
+		expectRunning(testUnit::isNotEmpty)
+		.throwsException()
+		.ofType(EmptyArgumentException.class)
+		.withMessage("The given argument is empty.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfASpace() {
+		
+		//setup
+		final var testUnit = new StringMediator(" ");
+		
+		//execution & verification
+		expectRunning(testUnit::isNotEmpty).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfALetter() {
+		
+		//setup
+		final var testUnit = new StringMediator("a");
+		
+		//execution & verification
+		expectRunning(testUnit::isNotEmpty).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_isNotBlank_whenTheGivenArgumentIsNull() {
+		
+		//setup
+		final var testUnit = new StringMediator(null);
+		
+		//execution & verification
+		expectRunning(testUnit::isNotBlank)
+		.throwsException()
+		.ofType(ArgumentIsNullException.class)
+		.withMessage("The given argument is null.");
+	}
 	
 	//method
 	@TestCase
