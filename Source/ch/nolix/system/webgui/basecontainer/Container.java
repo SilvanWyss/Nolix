@@ -55,7 +55,7 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
 	//method
 	@Override
 	public final boolean hasRole() {
-		return role.hasValue();
+		return role.containsAny();
 	}
 	
 	//method

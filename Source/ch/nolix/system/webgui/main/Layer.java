@@ -261,7 +261,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public boolean hasBackground() {
-		return background.hasValue();
+		return background.containsAny();
 	}
 	
 	//method
@@ -273,7 +273,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public boolean hasRole() {
-		return role.hasValue();
+		return role.containsAny();
 	}
 	
 	//method

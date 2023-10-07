@@ -52,7 +52,7 @@ implements IStyleElement<SE> {
 	 */
 	@Override
 	public final boolean hasStyle() {
-		return style.hasValue();
+		return style.containsAny();
 	}
 	
 	//method

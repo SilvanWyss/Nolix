@@ -95,7 +95,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 	//method
 	@Override
 	public boolean hasRole() {
-		return role.hasValue();
+		return role.containsAny();
 	}
 	
 	//method

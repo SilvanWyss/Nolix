@@ -257,25 +257,25 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final boolean hasMaxHeight() {
-		return maxHeight.hasValue();
+		return maxHeight.containsAny();
 	}
 	
 	//method
 	@Override
 	public final boolean hasMaxWidth() {
-		return maxWidth.hasValue();
+		return maxWidth.containsAny();
 	}
 	
 	//method
 	@Override
 	public final boolean hasMinHeight() {
-		return minHeight.hasValue();
+		return minHeight.containsAny();
 	}
 	
 	//method
 	@Override
 	public final boolean hasMinWidth() {
-		return minWidth.hasValue();
+		return minWidth.containsAny();
 	}
 	
 	//method

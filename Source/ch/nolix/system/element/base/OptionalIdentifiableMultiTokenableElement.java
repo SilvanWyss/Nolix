@@ -64,7 +64,7 @@ implements FluentOptionalIdentifiable<E>, FluentMultiTokenable<E> {
 	//method
 	@Override
 	public final boolean hasId() {
-		return id.hasValue();
+		return id.containsAny();
 	}
 	
 	//method

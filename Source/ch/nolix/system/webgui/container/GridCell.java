@@ -86,7 +86,7 @@ public final class GridCell extends MutableElement implements Clearable {
 	//method
 	@Override
 	public boolean isEmpty() {
-		return !control.hasValue();
+		return control.isEmpty();
 	}
 	
 	//method

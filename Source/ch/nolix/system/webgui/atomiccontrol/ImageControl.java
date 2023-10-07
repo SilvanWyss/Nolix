@@ -61,7 +61,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 	//method
 	@Override
 	public boolean isEmpty() {
-		return !image.hasValue();
+		return image.isEmpty();
 	}
 	
 	//method

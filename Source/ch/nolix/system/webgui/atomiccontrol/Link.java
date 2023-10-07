@@ -122,7 +122,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 	//method
 	@Override
 	public boolean hasUrl() {
-		return url.hasValue();
+		return url.containsAny();
 	}
 	
 	//method

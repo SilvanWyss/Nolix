@@ -19,7 +19,7 @@ public final class ValueTest extends Test {
 		
 		//verification
 		expect(result.getName()).isEqualTo("amount");
-		expectNot(result.hasValue());
+		expectNot(result.containsAny());
 	}
 	
 	//method

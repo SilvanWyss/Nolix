@@ -121,7 +121,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 	//method
 	@Override
 	public boolean hasRole() {
-		return role.hasValue();
+		return role.containsAny();
 	}
 	
 	//method

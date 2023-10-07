@@ -87,7 +87,7 @@ implements IValidationLabel {
 	//method
 	@Override
 	public boolean isEmpty() {
-		return !error.hasValue();
+		return error.isEmpty();
 	}
 	
 	//method

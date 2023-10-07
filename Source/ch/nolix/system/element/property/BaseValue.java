@@ -10,6 +10,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.requestapi.MutabilityRequestable;
+import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
 
 //class
 /**
@@ -17,7 +18,7 @@ import ch.nolix.coreapi.functionapi.requestapi.MutabilityRequestable;
  * @date 2017-10-29
  * @param <V> is the type of the values of a {@link BaseValue}.
  */
-public abstract class BaseValue<V> extends Property implements MutabilityRequestable, Named {
+public abstract class BaseValue<V> extends Property implements IBaseValue, MutabilityRequestable, Named {
 	
 	//attribute
 	private final String name;

@@ -65,7 +65,7 @@ implements ISingleContainer {
 	//method
 	@Override
 	public boolean isEmpty() {
-		return !control.hasValue();
+		return !control.containsAny();
 	}
 	
 	//method

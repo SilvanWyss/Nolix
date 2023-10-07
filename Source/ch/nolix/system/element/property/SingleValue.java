@@ -90,10 +90,11 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	
 	//method
 	/**
-	 * @return true if the current {@link SingleValue} does not have a value.
+	 * {@inheritDoc}
 	 */
-	public final boolean hasValue() {
-		return (value != null);
+	@Override
+	public final boolean isEmpty() {
+		return (value == null);
 	}
 	
 	//method
@@ -110,7 +111,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 		GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 		
 		//Asserts that the current SingleProperty is mutable or does not have already a value.
-		if (!isMutable() && hasValue()) {
+		if (!isMutable() && containsAny()) {
 			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not mutable and has already a value");
 		}
 		
@@ -133,7 +134,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	public final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		
 		//Handles the case that the current SingleValue has a value.
-		if (hasValue()) {
+		if (containsAny()) {
 			
 			//Adds the specification of the current SingleValue to the given list.
 			list.addAtEnd(getSpecification());

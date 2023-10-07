@@ -260,7 +260,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public boolean hasBackground() {
-		return background.hasValue();
+		return background.containsAny();
 	}
 	
 	//method
