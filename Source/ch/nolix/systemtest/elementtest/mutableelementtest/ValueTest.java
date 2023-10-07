@@ -2,6 +2,7 @@
 package ch.nolix.systemtest.elementtest.mutableelementtest;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -19,7 +20,7 @@ public final class ValueTest extends Test {
 		
 		//verification
 		expect(result.getName()).isEqualTo("amount");
-		expectNot(result.containsAny());
+		expect(result.isEmpty());
 	}
 	
 	//method
@@ -35,5 +36,40 @@ public final class ValueTest extends Test {
 		
 		//verification
 		expect(result).hasStringRepresentation("amount(500)");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_setValue_whenTheGivenValueIsNull() {
+		
+		//setup
+		final var testUnit = Value.forString("name", FunctionCatalogue::takeObjectAndDoNothing);
+		
+		//setup verification
+		expect(testUnit.isEmpty());
+				
+		//execution & verification
+		expectRunning(() -> testUnit.setValue(null))
+		.throwsException()
+		.ofType(ArgumentIsNullException.class)
+		.withMessage("The given value is null.");
+		
+		//verification
+		expect(testUnit.isEmpty());
+	}
+	
+	//method
+	@TestCase
+	public void testCase_setValue_whenTheGivenValueIsValid() {
+		
+		//setup
+		final var testUnit = Value.forString("name", FunctionCatalogue::takeObjectAndDoNothing);
+				
+		//execution
+		testUnit.setValue("Garfield");
+		
+		//verification
+		expect(testUnit.containsAny());
+		expect(testUnit.getValue()).isEqualTo("Garfield");
 	}
 }
