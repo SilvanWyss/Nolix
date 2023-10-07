@@ -205,7 +205,7 @@ public class ArgumentMediator<A> extends Mediator {
 		isNotNull();
 		
 		//Asserts that the argument of the current ArgumentMediator is of the given type.
-		if (!getStoredArgument().getClass().getClass().isAssignableFrom(type.getClass())) {
+		if (!type.isAssignableFrom(getStoredArgument().getClass())) {
 			throw
 			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
 				getArgumentName(),
