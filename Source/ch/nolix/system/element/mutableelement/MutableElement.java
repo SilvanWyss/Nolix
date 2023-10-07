@@ -11,9 +11,9 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
-import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.Property;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
 /**
@@ -182,7 +182,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 			final var property = (Property)(field.get(this));
 			
 			//Asserts that the corresponding Property is not null.
-			GlobalValidator.assertThat(property).isOfType(MutableValue.class);
+			GlobalValidator.assertThat(property).isOfType(IProperty.class);
 			
 			properties.addAtEnd(property);
 		} catch (final IllegalAccessException illegalAccessException) {
