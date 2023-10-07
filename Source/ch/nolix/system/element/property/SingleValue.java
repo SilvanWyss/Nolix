@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -130,7 +130,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+	public final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		
 		//Handles the case that the current SingleValue has a value.
 		if (hasValue()) {

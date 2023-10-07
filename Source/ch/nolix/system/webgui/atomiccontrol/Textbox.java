@@ -14,7 +14,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.processproperty.TextMode;

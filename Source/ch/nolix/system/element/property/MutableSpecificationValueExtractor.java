@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -44,7 +44,7 @@ public final class MutableSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
+	public boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			setter.run(attribute);
@@ -56,7 +56,7 @@ public final class MutableSpecificationValueExtractor extends Property {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		list.addAtEnd(getter.getOutput());
 	}
 }

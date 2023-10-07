@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -71,7 +71,7 @@ public abstract class BaseValue<V> extends Property implements MutabilityRequest
 	 * @param attribute
 	 */
 	@Override
-	protected final boolean addedOrChangedAttribute(final INode<?> attribute) {
+	public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
 			addOrChangeValue(valueCreator.getOutput(attribute));

@@ -9,9 +9,9 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.FluentMultiTokenable;
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalIdentifiable;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.element.mutableelement.MultiValue;
 import ch.nolix.system.element.mutableelement.MutableElement;
-import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.property.MultiValue;
+import ch.nolix.system.element.property.MutableOptionalValue;
 
 //class
 abstract class OptionalIdentifiableMultiTokenableElement<

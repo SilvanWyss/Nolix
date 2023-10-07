@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -181,7 +181,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		
 		//Iterates the values of the current MultiProperty.
 		for (final var v : getStoredValues()) {

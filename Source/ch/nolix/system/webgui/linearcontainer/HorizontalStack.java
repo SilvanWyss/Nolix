@@ -3,7 +3,7 @@ package ch.nolix.system.webgui.linearcontainer;
 
 //own imports
 import ch.nolix.core.document.node.Node;
-import ch.nolix.system.element.mutableelement.MutableValue;
+import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;

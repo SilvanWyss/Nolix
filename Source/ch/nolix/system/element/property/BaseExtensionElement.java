@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -29,13 +29,13 @@ public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E
 	
 	//method
 	@Override
-	protected final boolean addedOrChangedAttribute(final INode<?> attribute) {
+	public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		return internalExtensionElement.addedOrChangedAttribute(attribute);
 	}
 	
 	//method
 	@Override
-	protected final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
+	public final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
 		list.addAtEnd(internalExtensionElement.getAttributes());
 	}
 	

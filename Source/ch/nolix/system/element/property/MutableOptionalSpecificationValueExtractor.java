@@ -1,7 +1,8 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
+import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
@@ -9,52 +10,39 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
-public final class MutableOptionalValueExtractor<V> extends Property {
+public final class MutableOptionalSpecificationValueExtractor extends Property {
 	
 	//attribute
 	private final String name;
 	
 	//attribute
-	private final IElementTaker<V> setter;
+	private final IElementTaker<INode<?>> setter;
 	
 	//attribute
 	private final IBooleanGetter valuePresenceChecker;
 	
 	//attribute
-	private final IElementGetter<V> getter;
-	
-	//attribute
-	private final IElementTakerElementGetter<INode<?>, V> valueCreator;
-	
-	//attribute
-	private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
+	private final IElementGetter<Node> getter;
 	
 	//constructor
-	public MutableOptionalValueExtractor(
+	public MutableOptionalSpecificationValueExtractor(
 		final String name,
-		final IElementTaker<V> setter,
+		final IElementTaker<INode<?>> setter,
 		final IBooleanGetter valuePresenceChecker,
-		final IElementGetter<V> getter,
-		final IElementTakerElementGetter<INode<?>, V> valueCreator,
-		final IElementTakerElementGetter<V, INode<?>> specificationCreator
+		final IElementGetter<Node> getter
 	) {
 		
 		GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
 		GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
 		GlobalValidator.assertThat(valuePresenceChecker).thatIsNamed("value presence checker").isNotNull();
 		GlobalValidator.assertThat(getter).thatIsNamed("getter").isNotNull();
-		GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
-		GlobalValidator.assertThat(specificationCreator).thatIsNamed("specification creator").isNotNull();
 		
 		this.name = name;
 		this.setter = setter;
 		this.valuePresenceChecker = valuePresenceChecker;
 		this.getter = getter;
-		this.valueCreator = valueCreator;
-		this.specificationCreator = specificationCreator;
 	}
 	
 	//method
@@ -64,10 +52,10 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(final INode<?> attribute) {
+	public boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader(getName())) {
-			setter.run(valueCreator.getOutput(attribute));
+			setter.run(attribute);
 			return true;
 		}
 		
@@ -76,9 +64,9 @@ public final class MutableOptionalValueExtractor<V> extends Property {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		if (valuePresenceChecker.getOutput()) {
-			list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
+			list.addAtEnd(getter.getOutput());
 		}
 	}
 }

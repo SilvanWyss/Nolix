@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -8,65 +8,77 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //class
 /**
  * @author Silvan Wyss
- * @date 2018-03-01
- * @param <V> is the type of the value of a {@link OptionalValue}.
+ * @date 2017-11-01
+ * @param <V> is the type of the value of a {@link MutableOptionalValue}.
  */
-public final class OptionalValue<V> extends SingleValue<V> {
+public final class MutableOptionalValue<V> extends SingleValue<V> {
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link Boolean} and have the given name and setterMethod.
+	 * @return a new {@link MutableOptionalValue}
+	 * that will store a {@link Boolean} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
-	public static OptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
+	public static MutableOptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+		return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
 	}
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link Double} and have the given name and setterMethod.
+	 * @param valueCreator
+	 * @param <E> is the type of the value of the created {@link MutableOptionalValue}.
+	 * @return a new {@link MutableOptionalValue} that will
+	 * store a {@link Specified} and have the given name, setterMethod and valueCreator.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
+	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 */
-	public static OptionalValue<Double> forDouble(final String name, final IElementTaker<Double> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
+	public static <E extends Specified> MutableOptionalValue<E> forElement(
+		final String name,
+		final IElementTaker<E> setterMethod,
+		final IElementTakerElementGetter<INode<?>, E> valueCreator
+	) {
+		return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
 	}
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link Integer} and have the given name and setterMethod.
+	 * @return a new {@link MutableOptionalValue}
+	 * that will store a {@link Integer} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
-	public static OptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
-		return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
+	public static MutableOptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
+		return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
 	}
 	
 	//static method
 	/**
 	 * @param name
 	 * @param setterMethod
-	 * @return a new {@link OptionalValue} that will store a {@link String} and have the given name and setterMethod.
+	 * @return a new {@link MutableOptionalValue}
+	 * that will store a {@link String} and have the given name and setterMethod.
 	 * @throws ArgumentIsNullException if the given name is null.
 	 * @throws InvalidArgumentException if the given name is blank.
 	 * @throws ArgumentIsNullException if the given setterMethod is null.
 	 */
-	public static OptionalValue<String> forString(final String name, final IElementTaker<String> setterMethod) {
-		return new OptionalValue<>(
+	public static MutableOptionalValue<String> forString(final String name,	final IElementTaker<String> setterMethod) {
+		return new MutableOptionalValue<>(
 			name,
 			setterMethod,
 			s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
@@ -83,7 +95,8 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	
 	//constructor
 	/**
-	 * Creates a new {@link OptionalValue} with the given name, setterMethod, valueCreator and specificationCreator.
+	 * Creates a new {@link MutableOptionalValue}
+	 * with the given name, setterMethod, valueCreator and specificationCreator.
 	 * 
 	 * @param name
 	 * @param setterMethod
@@ -94,7 +107,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	 * @throws ArgumentIsNullException if the given valueCreator is null.
 	 * @throws ArgumentIsNullException if the given specificationCreator is null.
 	 */
-	public OptionalValue(
+	public MutableOptionalValue(
 		final String name,
 		final IElementTaker<V> setterMethod,
 		final IElementTakerElementGetter<INode<?>, V> valueCreator,
@@ -107,10 +120,18 @@ public final class OptionalValue<V> extends SingleValue<V> {
 	
 	//method
 	/**
+	 * Removes the value of the current {@link SingleValue}.
+	 */
+	public void clear() {
+		internalClear();
+	}
+	
+	//method
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isMutable() {
-		return false;
+		return true;
 	}
 }

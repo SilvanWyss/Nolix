@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -11,8 +11,8 @@ public abstract class Property {
 	protected Property() {}
 	
 	//method declaration
-	protected abstract boolean addedOrChangedAttribute(final INode<?> attribute);
+	public abstract boolean addedOrChangedAttribute(final INode<?> attribute);
 	
 	//method declaration
-	protected abstract void fillUpAttributesInto(ILinkedList<INode<?>> list);
+	public abstract void fillUpAttributesInto(ILinkedList<INode<?>> list);
 }

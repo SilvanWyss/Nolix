@@ -11,9 +11,9 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableElement;
-import ch.nolix.system.element.mutableelement.MutableValue;
-import ch.nolix.system.element.mutableelement.OptionalValue;
-import ch.nolix.system.element.mutableelement.Value;
+import ch.nolix.system.element.property.MutableValue;
+import ch.nolix.system.element.property.OptionalValue;
+import ch.nolix.system.element.property.Value;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 

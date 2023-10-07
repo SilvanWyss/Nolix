@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -45,7 +45,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> extends Propert
 	
 	//method
 	@Override
-	protected final boolean addedOrChangedAttribute(final INode<?> attribute) {
+	public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 		
 		if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
 			
@@ -64,7 +64,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> extends Propert
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		for (final var a : internalSubElement.getAttributes()) {
 			list.addAtEnd(
 				Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getStoredChildNodes())

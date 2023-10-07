@@ -9,7 +9,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.system.element.mutableelement.MultiValueExtractor;
+import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;

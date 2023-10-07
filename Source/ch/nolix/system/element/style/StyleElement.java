@@ -4,7 +4,7 @@ package ch.nolix.system.element.style;
 //own imports
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.base.StylableElement;
-import ch.nolix.system.element.mutableelement.MutableOptionalValue;
+import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.styleapi.IStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
 

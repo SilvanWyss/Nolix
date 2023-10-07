@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.property;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -102,7 +102,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 	
 	//method
 	@Override
-	protected boolean addedOrChangedAttribute(INode<?> attribute) {
+	public boolean addedOrChangedAttribute(INode<?> attribute) {
 		
 		if (hasName(attribute.getHeader())) {
 			setter.run(valueCreator.getOutput(attribute));
@@ -114,7 +114,7 @@ public final class ForwardingMutableValue<V> extends Property implements Named {
 	
 	//method
 	@Override
-	protected void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
+	public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 		list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
 	}
 }
