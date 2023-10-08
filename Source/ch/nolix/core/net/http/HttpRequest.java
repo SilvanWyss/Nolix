@@ -30,7 +30,7 @@ public record HttpRequest(String content) {
 	}
 	
 	//constructor
-	public HttpRequest(final String content) {
+	public HttpRequest(final String content) { //NOSONAR: This constructor does more than the default one.
 		
 		GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotBlank();
 		

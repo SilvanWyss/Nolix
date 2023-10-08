@@ -17,7 +17,10 @@ record SecureServerHtmlPage(String serverDomain, int serverPort) {
 	private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 	
 	//constructor
-	public SecureServerHtmlPage(final String serverDomain, final int serverPort) {
+	public SecureServerHtmlPage( //NOSONAR: This constructor does more than the default one.
+		final String serverDomain,
+		final int serverPort
+	) {
 		
 		GlobalValidator.assertThat(serverDomain).thatIsNamed("server domain").isNotBlank();
 		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isPort();

@@ -14,7 +14,10 @@ public record HtmlElementEvent(String htmlElementId, String htmlEvent) implement
 	}
 	
 	//constructor
-	public HtmlElementEvent(final String htmlElementId, final String htmlEvent) {
+	public HtmlElementEvent( //NOSONAR: This constructor does more than the default one.
+		final String htmlElementId,
+		final String htmlEvent
+	) {
 		
 		GlobalValidator.assertThat(htmlElementId).thatIsNamed("HTML element id").isNotBlank();
 		GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isNotBlank();

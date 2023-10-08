@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 record HeaderLengthAndTaskAfterHeaderParameter(int headerLength, TaskAfterHeader taskAfterHeader) {
 	
 	//constructor
-	public HeaderLengthAndTaskAfterHeaderParameter(
+	public HeaderLengthAndTaskAfterHeaderParameter( //NOSONAR: This constructor does more than the default one.
 		final int headerLength,
 		final TaskAfterHeader taskAfterHeader
 	) {

@@ -16,7 +16,10 @@ record ServerHttpMessage(String serverIP,  int serverPort) {
 	private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 	
 	//constructor
-	public ServerHttpMessage(final String serverIP, final int serverPort) {
+	public ServerHttpMessage( //NOSONAR: This constructor does more than the default one.
+		final String serverIP,
+		final int serverPort
+	) {
 		
 		GlobalValidator.assertThat(serverIP).thatIsNamed("server IP").isNotBlank();
 		GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isBetween(0, 65535);
