@@ -14,13 +14,22 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  */
 public class ExtendedStringMediator extends StringMediator {
 	
+	//static method
+	/**
+	 * @param argument
+	 * @return a new {@link ExtendedStringMediator} for the given argument.
+	 */
+	public static ExtendedStringMediator forArgument(final String argument) {
+		return new ExtendedStringMediator(argument);
+	}
+	
 	//constructor
 	/**
 	 * Creates a new extended string mediator for the given argument.
 	 * 
 	 * @param value
 	 */
-	ExtendedStringMediator(final String value) {
+	private ExtendedStringMediator(final String value) {
 		
 		//Calls constructor of the base class.
 		super(value);

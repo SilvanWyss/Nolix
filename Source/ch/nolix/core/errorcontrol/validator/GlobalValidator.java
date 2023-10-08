@@ -170,7 +170,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
 	 * @return a new {@link ExtendedStringMediator} for the given argument.
 	 */
 	public static ExtendedStringMediator assertThat(final String argument) {
-		return new ExtendedStringMediator(argument);
+		return ExtendedStringMediator.forArgument(argument);
 	}
 	
 	//static method
