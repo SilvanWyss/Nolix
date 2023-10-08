@@ -5,12 +5,80 @@ package ch.nolix.coretest.errorcontroltest.validatortest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class StringMediatorTest extends Test {
+	
+	//method
+	@TestCase
+	public void testCase_hasLength_whenTheGivenLengthIsNegative() {
+		
+		//setup
+		final var testUnit = new StringMediator("aaa");
+		
+		//execution & verification
+		expectRunning(() -> testUnit.hasLength(-1))
+		.throwsException()
+		.ofType(NegativeArgumentException.class)
+		.withMessage("The given length '-1' is negative.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_hasLength_whenTheGivenArgumentIsNull() {
+		
+		//setup
+		final var testUnit = new StringMediator(null);
+		
+		//execution & verification
+		expectRunning(() -> testUnit.hasLength(4))
+		.throwsException()
+		.ofType(ArgumentIsNullException.class)
+		.withMessage("The given argument is null.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_hasLength_whenTheGivenArgumentIsShorterThanTheGivenLength() {
+		
+		//setup
+		final var testUnit = new StringMediator("aaa");
+		
+		//execution & verification
+		expectRunning(() -> testUnit.hasLength(4))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage("The given argument 'aaa' does not have the length 4.");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_hasLength_whenTheGivenArgumentHasTheGivenLength() {
+		
+		//setup
+		final var testUnit = new StringMediator("aaaa");
+		
+		//execution & verification
+		expectRunning(() -> testUnit.hasLength(4)).doesNotThrowException();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_hasLength_whenTheGivenArgumentIsLongerThanTheGivenLength() {
+		
+		//setup
+		final var testUnit = new StringMediator("aaaaa");
+		
+		//execution & verification
+		expectRunning(() -> testUnit.hasLength(4))
+		.throwsException()
+		.ofType(InvalidArgumentException.class)
+		.withMessage("The given argument 'aaaaa' does not have the length 4.");
+	}
 	
 	//method
 	@TestCase
