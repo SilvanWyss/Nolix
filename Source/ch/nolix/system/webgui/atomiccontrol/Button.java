@@ -77,9 +77,11 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 		reset();
 		
 		getStoredStyle()
-		.setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
-		.setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
-		.setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
+		.setBorderThicknessForState(ControlState.BASE, 1)
+		.setLeftPaddingForState(ControlState.BASE, 20)
+		.setRightPaddingForState(ControlState.BASE, 20)
+		.setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY)
+		.setBackgroundColorForState(ControlState.FOCUS, Color.LIGHT_GREY);
 	}
 	
 	//method
@@ -134,14 +136,18 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 			);
 		}
 	}
-
+	
 	//method
 	@Override
 	public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-		list.addAtEnd(
-			HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"),
-			HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup")
-		);
+		
+		if (hasLeftMouseButtonPressAction()) {
+			list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmousedown"));
+		}
+		
+		if (hasLeftMouseButtonReleaseAction()) {
+			list.addAtEnd(HtmlElementEvent.withHtmlElementIdAndHtmlEvent(getInternalId(), "onmouseup"));
+		}
 	}
 	
 	//method
