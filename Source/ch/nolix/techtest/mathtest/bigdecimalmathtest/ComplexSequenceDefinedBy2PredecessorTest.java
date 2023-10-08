@@ -5,6 +5,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy2Predecessor;
+import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 //class
 public final class ComplexSequenceDefinedBy2PredecessorTest extends Test {
@@ -18,7 +19,7 @@ public final class ComplexSequenceDefinedBy2PredecessorTest extends Test {
 		new ComplexSequenceDefinedBy2Predecessor(
 			new ComplexNumber(1.0, 0.0, 20),
 			new ComplexNumber(0.0, 2.0, 20),
-			(z1, z2) -> z1.getSum(z2)
+			IComplexNumber::getSum
 		);
 		
 		//execution & verification
