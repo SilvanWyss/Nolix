@@ -386,12 +386,11 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 		
 		this.parentGui = parentGui;
 	}
-		
+	
 	//method
 	@Override
 	protected void resetStylableElement() {
 		removeRole();
-		setContentAlignment(DEFAULT_CONTENT_POSITION);
 		clear();
 	}
 	
@@ -400,6 +399,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	protected void resetStyle() {
 		setOpacity(DEFAULT_OPACITY);
 		removeBackground();
+		setContentAlignment(DEFAULT_CONTENT_POSITION);
 	}
 	
 	//method
