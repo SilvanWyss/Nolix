@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.systemapi.databaseapi.propertytypeapi;
 
-import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 //own imports
+import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //enum
