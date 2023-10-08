@@ -85,6 +85,17 @@ public class LongMediator extends Mediator {
 	 * @throws ArgumentIsOutOfRangeException if
 	 * the argument of the current {@link LongMediator} is not between the given min and max.
 	 */
+	public final void isBetween(final int min, final int max) {
+		isBetween((long)min, (long)max);
+	}
+	
+	//method
+	/**
+	 * @param min
+	 * @param max
+	 * @throws ArgumentIsOutOfRangeException if
+	 * the argument of the current {@link LongMediator} is not between the given min and max.
+	 */
 	public final void isBetween(final long min, final long max) {
 		if (argument < min || argument > max) {
 			throw
