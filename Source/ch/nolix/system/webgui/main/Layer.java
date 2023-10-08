@@ -285,7 +285,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public boolean isEmpty() {
-		return (rootControl == null);
+		return rootControl.isEmpty();
 	}
 	
 	//method
@@ -391,12 +391,14 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	@Override
 	protected void resetStylableElement() {
 		removeRole();
+		setContentAlignment(DEFAULT_CONTENT_POSITION);
 		clear();
 	}
 	
 	//method
 	@Override
 	protected void resetStyle() {
+		setOpacity(DEFAULT_OPACITY);
 		removeBackground();
 	}
 	
