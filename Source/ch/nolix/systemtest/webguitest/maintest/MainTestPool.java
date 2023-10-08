@@ -9,6 +9,6 @@ public final class MainTestPool extends TestPool {
 	
 	//constructor
 	public MainTestPool() {
-		super(WebGuiTest.class);
+		super(LayerTest.class, WebGuiTest.class);
 	}
 }
