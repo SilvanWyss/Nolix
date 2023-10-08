@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -132,6 +134,9 @@ implements IControl<C, CS> {
 	//optional attribute
 	private ControlParent parent;
 	
+	//optional attribute
+	private Object linkedObject;
+	
 	//method
 	//For a better performance, this implementation does not use all comfortable methods.
 	@Override
@@ -226,6 +231,17 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public IContainer<Object> getStoredLinkedObjects() {
+		
+		if (!isLinkedToAnObject()) {
+			return new ImmutableList<>();
+		}
+		
+		return ImmutableList.withElement(linkedObject);
+	}
+	
+	//method
+	@Override
 	public final IControl<?, ?> getStoredParentControl() {
 		return getStoredParent().getStoredControl();
 	}
@@ -292,8 +308,30 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
+	public boolean isLinkedTo(final Object object) {
+		return isLinkedToAnObject() && (linkedObject == object);
+	}
+	
+	//method
+	@Override
+	public final boolean isLinkedToAnObject() {
+		return (linkedObject != null);
+	}
+	
+	//method
+	@Override
 	public final boolean isVisible() {
 		return (getPresence() == Presence.VISIBLE);
+	}
+	
+	//method
+	@Override
+	public final void linkTo(final Object object) {
+		
+		GlobalValidator.assertThat(object).thatIsNamed(Object.class).isNotNull();
+		assertIsNotLinkedAnObject();
+		
+		linkedObject = object;
 	}
 	
 	//method
@@ -322,7 +360,7 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public C setCollapsed() {
+	public final C setCollapsed() {
 		
 		setPresence(Presence.COLLAPSED);
 		
@@ -492,6 +530,13 @@ implements IControl<C, CS> {
 	private void assertDoesNotBelongToParent() {
 		if (belongsToParent()) {
 			throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredElement());
+		}
+	}
+	
+	//method
+	private void assertIsNotLinkedAnObject() {
+		if (isLinkedToAnObject()) {
+			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is alreay linked to an object");
 		}
 	}
 	

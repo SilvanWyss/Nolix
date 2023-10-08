@@ -7,6 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.programstructureapi.linkingapi.Linkable;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -26,6 +27,7 @@ IHtmlGetter,
 InternalIdentified,
 IStylableElement<C>,
 IUserInputCell<C>,
+Linkable,
 PresenceSettable<C> {
 	
 	//method declaration
