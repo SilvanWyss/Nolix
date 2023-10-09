@@ -51,11 +51,18 @@ implements IComponent {
 	//method
 	@Override
 	public final void refresh() {
-		
-		fillUpRootControl();
-		
-		//TODO: Lets a Component update the web client with the required CSS.
-		//getStoredSession().updateControlOnCounterpart(rootControl);
+		switch (getRefreshBehavior()) {
+			case REFRESH_GUI:
+				fillUpRootControl();
+				getStoredSession().refresh();
+				break;
+			case REFRESH_SELF:
+				fillUpRootControl();
+				getStoredSession().updateControlOnCounterpart(rootControl);
+				break;
+			case DO_NOT_REFRESH_ANYTHING:
+				break;
+		}
 	}
 	
 	//method declaration
