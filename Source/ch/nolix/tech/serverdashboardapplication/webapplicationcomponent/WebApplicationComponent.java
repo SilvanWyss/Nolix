@@ -8,6 +8,7 @@ import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -39,6 +40,12 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
 		final WebClientSession<IServerDashboardContext> session
 	) {
 		super(webApplicationController, session);
+	}
+	
+	//method
+	@Override
+	public RefreshBehavior getRefreshBehavior() {
+		return RefreshBehavior.REFRESH_SELF;
 	}
 	
 	//method
