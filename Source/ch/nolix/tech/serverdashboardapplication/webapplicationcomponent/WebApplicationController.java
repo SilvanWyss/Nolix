@@ -4,7 +4,6 @@ package ch.nolix.tech.serverdashboardapplication.webapplicationcomponent;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.component.Controller;
-import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 
@@ -15,12 +14,7 @@ public  class WebApplicationController extends Controller<IServerDashboardContex
 	private final IWebApplicationSheet webApplicationSheet;
 	
 	//constructor
-	public WebApplicationController(
-		final IWebApplicationSheet webApplicationSheet,
-		final WebClientSession<IServerDashboardContext> webClientSession
-	) {
-		
-		super(webClientSession);
+	public WebApplicationController(final IWebApplicationSheet webApplicationSheet) {
 		
 		GlobalValidator.assertThat(webApplicationSheet).thatIsNamed(IWebApplicationSheet.class).isNotNull();
 		

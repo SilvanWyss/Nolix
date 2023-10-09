@@ -3,6 +3,7 @@ package ch.nolix.tech.serverdashboardapplication.webapplicationcomponent;
 
 //own imports
 import ch.nolix.system.application.component.Component;
+import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -33,8 +34,11 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
 	.withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
 	
 	//constructor
-	public WebApplicationComponent(final WebApplicationController webApplicationController) {
-		super(webApplicationController);
+	public WebApplicationComponent(
+		final WebApplicationController webApplicationController,
+		final WebClientSession<IServerDashboardContext> session
+	) {
+		super(webApplicationController, session);
 	}
 	
 	//method

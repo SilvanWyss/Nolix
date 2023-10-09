@@ -24,11 +24,12 @@ implements IComponent {
 	private final C controller;
 	
 	//constructor
-	protected ComponentWithDataAdapter(final C controller, final DA initialDataAdapter) {
+	protected ComponentWithDataAdapter(final C controller, final DA initialDataAdapter, final WebClientSession<AC> session) {
 		
 		GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 		
 		this.controller = controller;
+		this.controller.internalSetSession(session);
 		
 		rootControl.linkTo(this);
 		

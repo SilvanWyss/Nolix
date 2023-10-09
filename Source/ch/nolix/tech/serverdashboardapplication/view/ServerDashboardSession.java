@@ -41,7 +41,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
 	private IContainer<IComponent> createApplicationComponents() {
 		return
 		getWebApplicationSheets()
-		.to(was -> new WebApplicationComponent(new WebApplicationController(was, this)));
+		.to(was -> new WebApplicationComponent(new WebApplicationController(was), this));
 	}
 	
 	//method

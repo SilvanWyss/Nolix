@@ -22,11 +22,12 @@ implements IComponent {
 	private final C controller;
 	
 	//constructor
-	protected Component(final C controller) {
+	protected Component(final C controller, final WebClientSession<AC> session) {
 		
 		GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 		
 		this.controller = controller;
+		this.controller.internalSetSession(session);
 		
 		rootControl.linkTo(this);
 		
