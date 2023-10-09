@@ -30,6 +30,8 @@ implements IComponent {
 		
 		this.controller = controller;
 		
+		rootControl.linkTo(this);
+		
 		fillUpRootControl(initialDataAdapter);
 		
 		doRegistrations(controller);

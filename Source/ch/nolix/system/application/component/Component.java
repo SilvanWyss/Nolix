@@ -28,6 +28,8 @@ implements IComponent {
 		
 		this.controller = controller;
 		
+		rootControl.linkTo(this);
+		
 		fillUpRootControl();
 		
 		doRegistrations(controller);
