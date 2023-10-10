@@ -21,14 +21,14 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public final class BackendWebClientCounterpartUpdater {
+public final class WebClientCounterpartUpdater {
 	
 	//static method
-	public static BackendWebClientCounterpartUpdater forCounterpartRunner(
+	public static WebClientCounterpartUpdater forCounterpartRunner(
 		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
 		final IBooleanGetter openStateRequester
 	) {
-		return new BackendWebClientCounterpartUpdater(counterpartRunner, openStateRequester);
+		return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
 	}
 	
 	//attribute
@@ -38,7 +38,7 @@ public final class BackendWebClientCounterpartUpdater {
 	private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
 	
 	//constructor
-	private BackendWebClientCounterpartUpdater(
+	private WebClientCounterpartUpdater(
 		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
 		final IBooleanGetter openStateRequester
 	) {

@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
-import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebClientCounterpartUpdater;
+import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientCounterpartUpdater;
 import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebClientPartialCounterpartUpdater;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
@@ -50,7 +50,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	
 	//method
 	void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui) {
-		BackendWebClientCounterpartUpdater
+		WebClientCounterpartUpdater
 		.forCounterpartRunner(this::runOnCounterpart, this::isOpen)
 		.updateCounterpartFromWebGui(webGui);
 	}
