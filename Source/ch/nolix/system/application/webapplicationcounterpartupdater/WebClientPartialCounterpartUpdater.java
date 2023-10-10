@@ -19,20 +19,20 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public final class BackendWebClientPartialCounterpartUpdater {
+public final class WebClientPartialCounterpartUpdater {
 	
 	//static method
-	public static BackendWebClientPartialCounterpartUpdater forCounterpartRunner(
+	public static WebClientPartialCounterpartUpdater forCounterpartRunner(
 		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner
 	) {
-		return new BackendWebClientPartialCounterpartUpdater(counterpartRunner);
+		return new WebClientPartialCounterpartUpdater(counterpartRunner);
 	}
 	
 	//attribute
 	private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
 	
 	//constructor
-	private BackendWebClientPartialCounterpartUpdater(
+	private WebClientPartialCounterpartUpdater(
 		final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner
 	) {
 		

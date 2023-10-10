@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
 import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientCounterpartUpdater;
-import ch.nolix.system.application.webapplicationcounterpartupdater.BackendWebClientPartialCounterpartUpdater;
+import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPartialCounterpartUpdater;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
@@ -43,7 +43,7 @@ public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC>
 	
 	//method
 	void internalUpdateControlOnCounterpart(final IControl<?, ?> control) {
-		BackendWebClientPartialCounterpartUpdater
+		WebClientPartialCounterpartUpdater
 		.forCounterpartRunner(this::runOnCounterpart)
 		.updateControlOnCounterpart(control);
 	}
