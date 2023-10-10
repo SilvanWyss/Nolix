@@ -10,6 +10,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
+import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
@@ -28,8 +29,44 @@ public final class UpdateCommandCreator {
 	}
 	
 	//method
+	public ChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetIconCommandForIcon(webGui.getIcon());
+	}
+	
+	//method
+	public ChainedNode createSetIconCommandForIcon(final IImage icon) {
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification())
+		);
+	}
+	
+	//method
 	public ChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
 		return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.getHtml());
+	}
+	
+	//method
+	public ChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetRootHtmlElementCommandFromHtmlElement(webGui.getHtml());
+	}
+	
+	//method
+	public ChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetTitleCommandForTitle(webGui.getTitle());
+	}
+	
+	//method
+	public ChainedNode createSetTitleCommandForTitle(final String title) {
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNodesFromNodes(
+				CommandProtocol.SET_TITLE,
+				Node.withHeader(title)
+			)
+		);
 	}
 	
 	//method
@@ -86,6 +123,18 @@ public final class UpdateCommandCreator {
 			ChainedNode.withHeaderAndChildNodesFromNodes(
 				CommandProtocol.SET_EVENT_FUNCTIONS,
 				eventFunctions
+			)
+		);
+	}
+	
+	//method
+	private ChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement htmlElement) {
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNode(
+				CommandProtocol.SET_ROOT_HTML_ELEMENT,
+				ChainedNode.withHeader(htmlElement.toString())
 			)
 		);
 	}
