@@ -37,12 +37,6 @@ public final class WebClientPartialCounterpartUpdater {
 	}
 	
 	//method
-	/**
-	 * Updates the given control on the counterpart of the client of the web GUI of the given control.
-	 * Updates only the content, not the look and the functions on the control.
-	 * 
-	 * @param control
-	 */
 	public void updateControlOnCounterpart(final IControl<?, ?> control) {
 		
 		final var updateCommands = createUpdateCommandsFromControl(control);
@@ -53,14 +47,14 @@ public final class WebClientPartialCounterpartUpdater {
 	//method
 	private IContainer<ChainedNode> createUpdateCommandsFromControl(final IControl<?, ?> control) {
 		
-		final var gui = control.getStoredParentGui();
+		final var webGui = control.getStoredParentGui();
 		
 		return
 		ImmutableList.withElement(
 			UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromControl(control),
-			UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(gui),
-			UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(gui),
-			UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(gui)
+			UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
+			UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
+			UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui)
 		);
 	}
 }
