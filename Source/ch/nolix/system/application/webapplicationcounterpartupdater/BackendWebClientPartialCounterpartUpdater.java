@@ -8,10 +8,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
+import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public final class BackendWebClientPartialCounterpartUpdater {
@@ -52,7 +54,11 @@ public final class BackendWebClientPartialCounterpartUpdater {
 	
 	//method
 	private IContainer<ChainedNode> createUpdateCommandsFromControl(final IControl<?, ?> control) {
-		return ImmutableList.withElement(createSetRootHtmlElementCommandFromControl(control));
+		return
+		ImmutableList.withElement(
+			createSetRootHtmlElementCommandFromControl(control),
+			createSetCssCommandFromWebGui(control.getStoredParentGui())
+		);
 	}
 	
 	//method
@@ -72,6 +78,28 @@ public final class BackendWebClientPartialCounterpartUpdater {
 				CommandProtocol.SET_HTML_ELEMENT,
 				ChainedNode.withHeader(htmlElementId),
 				ChainedNode.withHeader(htmlElement.toString())
+			)
+		);
+	}
+	
+	//method
+	private ChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
+		return createSetCssCommandFromCss(webGui.getCss());
+	}
+	
+	//method
+	private ChainedNode createSetCssCommandFromCss(final ICss css) {
+		return createSetCssCommandFromCss(css.toStringWithoutEnclosingBrackets());
+	}
+	
+	//method
+	private ChainedNode createSetCssCommandFromCss(final String css) {
+		return
+		ChainedNode.withHeaderAndNextNode(
+			ObjectProtocol.GUI,
+			ChainedNode.withHeaderAndChildNode(
+				CommandProtocol.SET_CSS,
+				ChainedNode.withHeader(css)
 			)
 		);
 	}
