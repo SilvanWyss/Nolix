@@ -2,7 +2,6 @@
 package ch.nolix.system.application.webapplication;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.basewebapplication.BaseBackendWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -13,9 +12,6 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	
 	//attribute
 	private final IWebGui<?> webGui = new WebGui();
-	
-	//optional attribute
-	private IControl<?, ?> controlToUpdate;
 	
 	//method
 	public final IWebGui<?> getStoredGui() {
@@ -48,28 +44,13 @@ public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<W
 	}
 	
 	//method
-	protected final void restrictNextCounterpartUpdateToControl(final IControl<?, ?> control) {
-		
-		GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
-		
-		controlToUpdate = control;
+	protected final void refreshControl(final IControl<?, ?> control) {
+		getStoredParentClient().internalUpdateControlOnCounterpart(control);
 	}
 	
 	//method
 	@Override
 	protected final void updateCounterpartActually() {
-		if (restrictedNextUpdateToControl()) {
-			
-			getStoredParentClient().internalUpdateControlOnCounterpart(controlToUpdate);
-			
-			controlToUpdate = null;
-		} else {
-			getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());
-		}
-	}
-	
-	//method
-	private boolean restrictedNextUpdateToControl() {
-		return (controlToUpdate != null);
+		getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());
 	}
 }
