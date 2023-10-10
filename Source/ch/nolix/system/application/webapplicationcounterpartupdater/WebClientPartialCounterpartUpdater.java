@@ -39,6 +39,9 @@ public final class WebClientPartialCounterpartUpdater {
 	//method
 	public void updateControlOnCounterpart(final IControl<?, ?> control) {
 		
+		final var webGui = control.getStoredParentGui();
+		webGui.applyStyleIfHasStyle();
+		
 		final var updateCommands = createUpdateCommandsFromControl(control);
 		
 		counterpartRunner.run(updateCommands);
