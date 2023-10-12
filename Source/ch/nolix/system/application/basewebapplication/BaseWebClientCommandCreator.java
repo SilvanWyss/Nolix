@@ -13,7 +13,7 @@ import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.basewebapplicationprotocol.ObjectProtocol;
 
 //class
-final class BaseBackendWebClientCommandCreator {
+final class BaseWebClientCommandCreator {
 	
 	//method
 	public ChainedNode createDeleteCookieByNameCommand(final String cookieName) {

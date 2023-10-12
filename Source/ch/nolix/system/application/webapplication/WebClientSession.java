@@ -2,13 +2,13 @@
 package ch.nolix.system.application.webapplication;
 
 //own imports
-import ch.nolix.system.application.basewebapplication.BaseBackendWebClientSession;
+import ch.nolix.system.application.basewebapplication.BaseWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public abstract class WebClientSession<AC> extends BaseBackendWebClientSession<WebClient<AC>, AC> {
+public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClient<AC>, AC> {
 	
 	//attribute
 	private final IWebGui<?> webGui = new WebGui();

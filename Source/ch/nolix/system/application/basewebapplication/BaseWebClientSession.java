@@ -7,19 +7,19 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class
-public abstract class BaseBackendWebClientSession<
-	BBWC extends BaseBackendWebClient<BBWC, AC>,
+public abstract class BaseWebClientSession<
+	BBWC extends BaseWebClient<BBWC, AC>,
 	AC
 >
 extends Session<BBWC, AC> {
 	
 	//method
 	protected final IFrontEndReader createFrontendReader() {
-		return BaseBackendWebClientFrontendReader.forBackendWebClient(getStoredParentClient());
+		return BaseWebClientFrontendReader.forBackendWebClient(getStoredParentClient());
 	}
 	
 	//method
 	protected final IFrontEndWriter createFrontendWriter() {
-		return BaseBackendWebClientFrontendWriter.forBackendWebClient(getStoredParentClient());
+		return BaseWebClientFrontendWriter.forBackendWebClient(getStoredParentClient());
 	}
 }

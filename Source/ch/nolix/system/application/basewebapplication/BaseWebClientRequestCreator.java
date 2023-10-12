@@ -6,7 +6,7 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.system.application.basewebapplicationprotocol.RequestProtocol;
 
 //class
-final class BaseBackendWebClientRequestCreator {
+final class BaseWebClientRequestCreator {
 	
 	//method
 	public ChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {

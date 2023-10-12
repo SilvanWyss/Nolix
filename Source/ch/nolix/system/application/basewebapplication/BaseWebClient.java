@@ -14,23 +14,23 @@ import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.main.BackendClient;
 
 //class
-public abstract class BaseBackendWebClient<
-	BBWC extends BaseBackendWebClient<BBWC, AC>,
+public abstract class BaseWebClient<
+	BBWC extends BaseWebClient<BBWC, AC>,
 	AC
 >
 extends BackendClient<BBWC, AC>
 implements ICookieManager {
 	
 	//constant
-	private static final BaseBackendWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR =
-	new BaseBackendWebClientCommandCreator();
+	private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR =
+	new BaseWebClientCommandCreator();
 	
 	//constant
-	private static final BaseBackendWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR =
-	new BaseBackendWebClientRequestCreator();
+	private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR =
+	new BaseWebClientRequestCreator();
 	
 	//attribute
-	private final BaseBackendWebClientFileReader fileReader = BaseBackendWebClientFileReader.forBackendWebClient(this);
+	private final BaseWebClientFileReader fileReader = BaseWebClientFileReader.forBackendWebClient(this);
 	
 	//method
 	@Override

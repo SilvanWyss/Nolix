@@ -10,7 +10,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.application.basewebapplication.BaseBackendWebClient;
+import ch.nolix.system.application.basewebapplication.BaseWebClient;
 import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientCounterpartUpdater;
 import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPartialCounterpartUpdater;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public final class WebClient<AC> extends BaseBackendWebClient<WebClient<AC>, AC> {
+public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 	
 	//method
 	@Override

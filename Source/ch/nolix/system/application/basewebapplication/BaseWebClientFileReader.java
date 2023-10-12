@@ -13,20 +13,20 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 
 //class
-final class BaseBackendWebClientFileReader {
+final class BaseWebClientFileReader {
 	
 	//constant
 	private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 	
 	//static method
-	public static BaseBackendWebClientFileReader forBackendWebClient(
-		final BaseBackendWebClient<?, ?> backendWebClient
+	public static BaseWebClientFileReader forBackendWebClient(
+		final BaseWebClient<?, ?> backendWebClient
 	) {
-		return new BaseBackendWebClientFileReader(backendWebClient);
+		return new BaseWebClientFileReader(backendWebClient);
 	}
 	
 	//attribute
-	private final BaseBackendWebClient<?, ?> parentBackendWebClient;
+	private final BaseWebClient<?, ?> parentBackendWebClient;
 	
 	//attribute
 	private boolean isWaitingForFileFromCounterpart;
@@ -35,7 +35,7 @@ final class BaseBackendWebClientFileReader {
 	private SingleContainer<byte[]> latestOptionalFileFromCounterpart;
 	
 	//constructor
-	private BaseBackendWebClientFileReader(final BaseBackendWebClient<?, ?> parentBackendWebClient) {
+	private BaseWebClientFileReader(final BaseWebClient<?, ?> parentBackendWebClient) {
 		
 		GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 		

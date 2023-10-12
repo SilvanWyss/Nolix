@@ -8,20 +8,20 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 //class
-final class BaseBackendWebClientFrontendReader implements IFrontEndReader {
+final class BaseWebClientFrontendReader implements IFrontEndReader {
 	
 	//static method
-	public static BaseBackendWebClientFrontendReader forBackendWebClient(
-		final BaseBackendWebClient<?, ?> backendWebClient
+	public static BaseWebClientFrontendReader forBackendWebClient(
+		final BaseWebClient<?, ?> backendWebClient
 	) {
-		return new BaseBackendWebClientFrontendReader(backendWebClient);
+		return new BaseWebClientFrontendReader(backendWebClient);
 	}
 	
 	//attribute
-	private final BaseBackendWebClient<?, ?> parentBackendWebClient;
+	private final BaseWebClient<?, ?> parentBackendWebClient;
 	
 	//constructor
-	private BaseBackendWebClientFrontendReader(final BaseBackendWebClient<?, ?> parentBackendWebClient) {
+	private BaseWebClientFrontendReader(final BaseWebClient<?, ?> parentBackendWebClient) {
 		
 		GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 		
