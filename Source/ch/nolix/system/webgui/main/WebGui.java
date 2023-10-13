@@ -5,7 +5,6 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -207,25 +206,6 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
 		return getStoredLayers();
-	}
-	
-	//method
-	@Override
-	public IControl<?, ?> getStoredControlByInternalId(final String internalId) {
-		
-		for (final var l : getStoredLayers()) {
-			for (final var c : l.getStoredControls()) {
-				if (c.hasInternalId(internalId)) {
-					return c;
-				}
-			}
-		}
-		
-		throw
-		InvalidArgumentException.forArgumentAndErrorPredicate(
-			this,
-			"does not contain a control with the given fixed id '" + internalId + "'"
-		);
 	}
 	
 	//method
