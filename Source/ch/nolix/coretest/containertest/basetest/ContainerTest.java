@@ -1054,6 +1054,40 @@ public abstract class ContainerTest extends Test {
 	
 	//method
 	@TestCase
+	public final void testCase_toDoubleArray_whenIsEmpty() {
+		
+		//setup
+		final var testUnit = createEmptyContainerForType(String.class);
+		
+		//execution
+		final var result = testUnit.toDoubleArray(String::length);
+		
+		//verification
+		expect(result.length).isEqualTo(0);
+	}
+	
+	//method
+	@TestCase
+	public final void testCase_toDoubleArray_whenContainsAny() {
+		
+		//setup
+		final var testUnit = createContainerWithElements("x", "x", "xx", "xx", "xxx", "xxx");
+		
+		//execution
+		final var result = testUnit.toDoubleArray(String::length);
+		
+		//verification
+		expect(result.length).isEqualTo(6);
+		expect(result[0]).isEqualTo(1.0);
+		expect(result[1]).isEqualTo(1.0);
+		expect(result[2]).isEqualTo(2.0);
+		expect(result[3]).isEqualTo(2.0);
+		expect(result[4]).isEqualTo(3.0);
+		expect(result[5]).isEqualTo(3.0);
+	}
+	
+	//method
+	@TestCase
 	public final void testCase_toOrderedList_1A() {
 		
 		//setup
