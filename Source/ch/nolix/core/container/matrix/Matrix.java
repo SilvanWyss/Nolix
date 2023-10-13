@@ -21,8 +21,8 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
+import ch.nolix.coreapi.containerapi.matrixapi.IMutableMatrix;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //class
 /**
@@ -33,7 +33,7 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
  * @date 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> extends Container<E> implements Clearable, IMatrix<E> {
+public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 	
 	//static method
 	/**
