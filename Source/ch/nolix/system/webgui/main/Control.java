@@ -74,7 +74,7 @@ implements IControl<C, CS> {
 	
 	//attribute
 	//An id works correctly for CSS only when it begins with a letter.
-	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	private final String internalId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
 	private final MutableValue<Presence> presence =
@@ -190,7 +190,7 @@ implements IControl<C, CS> {
 	//method
 	@Override
 	public final String getInternalId() {
-		return fixedId;
+		return internalId;
 	}
 	
 	//method
@@ -266,8 +266,8 @@ implements IControl<C, CS> {
 	
 	//method
 	@Override
-	public final boolean hasInternalId(final String fixedId) {
-		return getInternalId().equals(fixedId);
+	public final boolean hasInternalId(final String internalId) {
+		return getInternalId().equals(internalId);
 	}
 	
 	//method
