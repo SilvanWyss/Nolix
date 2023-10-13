@@ -103,7 +103,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 	//method
 	private void runGuiCommand(final IChainedNode guiCommand) {
 		switch (guiCommand.getHeader()) {
-			case ObjectProtocol.CONTROL_BY_FIXED_ID:
+			case ObjectProtocol.CONTROL_BY_INTERNAL_ID:
 				runControlCommand(guiCommand);
 				break;
 			case CommandProtocol.SET_USER_INPUTS:

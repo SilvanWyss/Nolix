@@ -5,7 +5,7 @@ package ch.nolix.system.application.webapplicationprotocol;
 public final class ObjectProtocol {
 	
 	//constant
-	public static final String CONTROL_BY_FIXED_ID = "ControlByFixedId";
+	public static final String CONTROL_BY_INTERNAL_ID = "ControlByFixedId";
 	
 	//constant
 	public static final String GUI = "GUI";
