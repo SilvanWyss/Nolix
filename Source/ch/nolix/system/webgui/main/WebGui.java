@@ -229,6 +229,22 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	@Override
+	public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
+		
+		for (final var l : getStoredLayers()) {
+			
+			final var control = l.getStoredControlOrNullByInternalId(internalId);
+			
+			if (control != null) {
+				return control;
+			}
+		}
+		
+		return null;
+	}
+	
+	//method
+	@Override
 	public IContainer<IControl<?, ?>> getStoredControls() {
 		return getStoredLayers().toFromGroups(ILayer::getStoredControls);
 	}

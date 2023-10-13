@@ -215,6 +215,22 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
+	public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
+		
+		if (isEmpty()) {
+			return null;
+		}
+		
+		final var localRootControl = getStoredRootControl();
+		if (localRootControl.hasInternalId(internalId)) {
+			return localRootControl;
+		}
+		
+		return localRootControl.getStoredChildControlOrNullByInternalId(internalId);
+	}
+	
+	//method
+	@Override
 	public IContainer<IControl<?, ?>> getStoredControls() {
 		
 		if (isEmpty()) {

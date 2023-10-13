@@ -222,6 +222,12 @@ implements IControl<C, CS> {
 	public final Presence getPresence() {
 		return presence.getValue();
 	}
+	
+	//method
+	@Override
+	public final IControl<?, ?> getStoredChildControlOrNullByInternalId(final String internalId) {
+		return getStoredChildControls().getStoredFirstOrNull(cs -> cs.hasInternalId(internalId));
+	}
 		
 	//method
 	@Override
