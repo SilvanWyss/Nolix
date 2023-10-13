@@ -14,7 +14,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
-import ch.nolix.system.element.property.MultiValue;
+import ch.nolix.system.element.property.MultiValueExtractor;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
@@ -36,6 +36,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
+import ch.nolix.systemapi.webguiapi.mainapi.ILayerStack;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
@@ -98,22 +99,24 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	);
 	
 	//attribute
-	private final MultiValue<ILayer<?>> layers =
-	new MultiValue<>(
+	@SuppressWarnings("unused")
+	private final MultiValueExtractor<ILayer<?>> layerExtractor =
+	new MultiValueExtractor<>(
 		LAYER_HEADER,
 		this::pushLayer,
+		this::getStoredLayers,
 		Layer::fromSpecification,
 		ILayer::getSpecification
 	);
+	
+	//attribute
+	private final ILayerStack layerStack = LayerStack.forWebGui(this);
 	
 	//attribute
 	private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 	
 	//attribute
 	private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
-	
-	//optional attribute
-	private IAction removeLayerAction;
 	
 	//constructor
 	public WebGui() {
@@ -126,9 +129,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public void clear() {
-		while (containsAny()) {
-			removeLayer(getStoredTopLayer());
-		}
+		layerStack.clear();
 	}
 	
 	//method
@@ -230,35 +231,25 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
-		
-		for (final var l : getStoredLayers()) {
-			
-			final var control = l.getStoredControlOrNullByInternalId(internalId);
-			
-			if (control != null) {
-				return control;
-			}
-		}
-		
-		return null;
+		return layerStack.getStoredControlOrNullByInternalId(internalId);
 	}
 	
 	//method
 	@Override
 	public IContainer<IControl<?, ?>> getStoredControls() {
-		return getStoredLayers().toFromGroups(ILayer::getStoredControls);
+		return layerStack.getStoredControls();
 	}
 	
 	//method
 	@Override
 	public IContainer<ILayer<?>> getStoredLayers() {
-		return layers.getStoredValues();
+		return layerStack.getStoredLayers();
 	}
 	
 	//method
 	@Override
 	public ILayer<?> getStoredTopLayer() {
-		return getStoredLayers().getStoredLast();
+		return layerStack.getStoredTopLayer();
 	}
 	
 	//method
@@ -282,7 +273,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public boolean hasRemoveLayerAction() {
-		return (removeLayerAction != null);
+		return layerStack.hasRemoveLayerAction();
 	}
 	
 	//method
@@ -294,7 +285,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public boolean isEmpty() {
-		return getStoredLayers().isEmpty();
+		return layerStack.isEmpty();
 	}
 	
 	//method
@@ -313,9 +304,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public WebGui pushLayer(final ILayer<?> layer) {
 		
-		layer.technicalSetParentGui(this);
-		
-		layers.add(layer);
+		layerStack.pushLayer(layer);
 		
 		return this;
 	}
@@ -323,7 +312,10 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public WebGui pushLayerWithRootControl(final IControl<?, ?> rootControl) {
-		return pushLayer(new Layer().setRootControl(rootControl));
+		
+		layerStack.pushLayerWithRootControl(rootControl);
+		
+		return this;
 	}
 	
 	//method
@@ -335,10 +327,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	//method
 	@Override
 	public void removeLayer(final ILayer<?> layer) {
-		
-		layers.remove(layer);
-		
-		runProbableRemoveLayerAction();
+		layerStack.removeLayer(layer);
 	}
 	
 	//method
@@ -402,9 +391,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	@Override
 	public WebGui setRemoveLayerAction(IAction removeLayerAction) {
 		
-		GlobalValidator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
-		
-		this.removeLayerAction = removeLayerAction;
+		layerStack.setRemoveLayerAction(removeLayerAction);
 		
 		return this;
 	}
@@ -444,13 +431,6 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	private void registerHtmlElementEventsAt(final LinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
 		for (final var c : getStoredControls()) {
 			c.registerHtmlElementEventsAt(htmlElementEventRegistrations);
-		}
-	}
-	
-	//method
-	private void runProbableRemoveLayerAction() {
-		if (hasRemoveLayerAction()) {
-			removeLayerAction.run();
 		}
 	}
 }
