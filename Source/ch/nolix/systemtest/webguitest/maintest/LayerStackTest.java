@@ -14,6 +14,40 @@ public final class LayerStackTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_getStoredControlOrNullByInternalId_whenIsEmpty() {
+		
+		//setup
+		final var control = new Label();
+		final var testUnit = LayerStack.forWebGui(new WebGui());
+		
+		//setup verification
+		expect(testUnit.isEmpty());
+		
+		//execution
+		final var result = testUnit.getStoredControlOrNullByInternalId(control.getInternalId());
+		
+		//verification
+		expect(result).isNull();
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getStoredControlOrNullByInternalId_whenContainsSuchAControl() {
+		
+		//setup
+		final var control = new Label();
+		final var testUnit = LayerStack.forWebGui(new WebGui());
+		testUnit.pushLayerWithRootControl(control);
+		
+		//execution
+		final var result = testUnit.getStoredControlOrNullByInternalId(control.getInternalId());
+		
+		//verification
+		expect(result).is(control);
+	}
+	
+	//method
+	@TestCase
 	public void testCase_getStoredControls_whenIsEmpty() {
 		
 		//setup
