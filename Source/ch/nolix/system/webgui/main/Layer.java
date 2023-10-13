@@ -75,8 +75,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	private static final LayerCssBuilder CSS_RULE_CREATOR = new LayerCssBuilder();
 	
 	//attribute
-	//An id works correctly for CSS only when it begins with a letter.
-	private final String fixedId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
+	//For CSS an id works only when it begins with a letter.
+	private final String internalId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 	
 	//attribute
 	private final MutableOptionalValue<LayerRole> role =
@@ -204,7 +204,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	//method
 	@Override
 	public String getInternalId() {
-		return fixedId;
+		return internalId;
 	}
 	
 	//method
@@ -266,8 +266,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 	
 	//method
 	@Override
-	public boolean hasInternalId(final String fixedId) {
-		return getInternalId().equals(fixedId);
+	public boolean hasInternalId(final String internalId) {
+		return getInternalId().equals(internalId);
 	}
 	
 	//method
