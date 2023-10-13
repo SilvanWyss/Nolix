@@ -27,7 +27,7 @@ extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
 	
 	//method declaration
-	IControl<?, ?> getStoredControlByInternalId(String fixedId);
+	IControl<?, ?> getStoredControlByInternalId(String internalId);
 	
 	//method declaration
 	IContainer<IControl<?, ?>> getStoredControls();

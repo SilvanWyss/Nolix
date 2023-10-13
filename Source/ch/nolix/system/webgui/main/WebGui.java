@@ -210,11 +210,11 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 	
 	//method
 	@Override
-	public IControl<?, ?> getStoredControlByInternalId(final String fixedId) {
+	public IControl<?, ?> getStoredControlByInternalId(final String internalId) {
 		
 		for (final var l : getStoredLayers()) {
 			for (final var c : l.getStoredControls()) {
-				if (c.hasInternalId(fixedId)) {
+				if (c.hasInternalId(internalId)) {
 					return c;
 				}
 			}
@@ -223,7 +223,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 		throw
 		InvalidArgumentException.forArgumentAndErrorPredicate(
 			this,
-			"does not contain a control with the given fixed id '" + fixedId + "'"
+			"does not contain a control with the given fixed id '" + internalId + "'"
 		);
 	}
 	
