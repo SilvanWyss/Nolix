@@ -14,8 +14,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 import ch.nolix.systemapi.guiapi.mainapi.IGui;
 
 //interface
-public interface IWebGui<WG extends IWebGui<WG>>
-extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
+public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 	
 	//method declaration
 	ICss getCss();
