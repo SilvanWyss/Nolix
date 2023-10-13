@@ -29,7 +29,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getFixedId() {
+	public final void testCase_getInternalId() {
 		
 		//setup
 		final var testUnit = createTestUnit();
@@ -44,11 +44,11 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 	
 	//method
 	@TestCase
-	public final void testCase_getFixedId_whenMethodIsCalledSeveralTimes() {
+	public final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
 		
 		//setup
 		final var testUnit = createTestUnit();
-		final var fixedId = testUnit.getInternalId();
+		final var internalId = testUnit.getInternalId();
 		
 		for (var i = 1; i <= 10_000; i++) {
 			
@@ -56,7 +56,7 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 			final var result = testUnit.getInternalId();
 			
 			//verification
-			expect(result).isEqualTo(fixedId);
+			expect(result).isEqualTo(internalId);
 		}
 	}
 	
