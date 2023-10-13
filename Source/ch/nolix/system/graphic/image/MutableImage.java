@@ -8,12 +8,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 
+//Javax imports
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 //own imports
+import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalBufferedImageHelper;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.readcontainer.ReadContainer;
