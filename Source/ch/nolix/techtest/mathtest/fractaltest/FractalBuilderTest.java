@@ -32,7 +32,7 @@ public final class FractalBuilderTest extends Test {
 		expect(result.getHeightInPixel()).isEqualTo(800);
 		expect(result.getRealComponentInterval()).isEqualTo(new ClosedInterval(-1.0, 1.0, 30));
 		expect(result.getImaginaryComponentInterval()).isEqualTo(new ClosedInterval(0.5, 2.5, 30));
-		expect(result.getMaxIterationCount()).isEqualTo(150);;
+		expect(result.getMaxIterationCount()).isEqualTo(150);
 		expect(result.getBigDecimalScale()).isEqualTo(30);
 	}
 }
