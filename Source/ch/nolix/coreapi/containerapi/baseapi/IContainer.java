@@ -27,7 +27,7 @@ import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
  * @param <E> is the type of the elements a {@link IContainer}.
  */
 public interface IContainer<E>
-extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRequestable {
+extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRequestable, ISearchableContainer<E> {
 	
 	//method declaration
 	/**
@@ -310,128 +310,7 @@ extends EmptinessRequestable, IterableWithCopyableIterator<E>, MaterializationRe
 	 * the current {@link IContainer} contains elements, 0.0 otherwise.
 	 */
 	double getMinOrZero(IElementTakerElementGetter<E, Number> norm);
-	
-	//method declaration
-	/**
-	 * @return a randomly selected element of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getStoredAny();
-	
-	//method declaration declaration
-	/**
-	 * @param p1BasedIndex
-	 * @return the element at the given p1BasedIndex.
-	 * @throws RuntimeException if the current {@link IContainer} does not contain an element at the given p1BasedIndex.
-	 */
-	E getStoredAt1BasedIndex(int p1BasedIndex);
-	
-	//method declaration
-	/**
-	 * @param norm
-	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
-	 * @return the element with
-	 * the biggest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	<C extends Comparable<C>> E getStoredByMax(IElementTakerElementGetter<E, C> norm);
-	
-	//method declaration
-	/**
-	 * @param norm
-	 * @param <C> is the type of the {@link Comparable}s the given norm returns.
-	 * @return the element with
-	 * the smallest {@link Comparable} the given norm returns from the elements of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	<C extends Comparable<C>> E getStoredByMin(IElementTakerElementGetter<E, C> norm);
-	
-	//method declaration
-	/**
-	 * @return the first element of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getStoredFirst();
-	
-	//method declaration
-	/**
-	 * @param selector
-	 * @return the first element the given selector selects from the current {@link IContainer}.
-	 * @throws RuntimeException if
-	 * the current {@link IContainer} does not contain an element the given selector selects.
-	 */
-	E getStoredFirst(IElementTakerBooleanGetter<? super E> selector);
-	
-	//method declaration
-	/**
-	 * @return the first element of the current {@link IContainer} or null.
-	 */
-	E getStoredFirstOrNull();
-	
-	//method declaration
-	/**
-	 * @param selector
-	 * @return the first element the given selector selects from the current {@link IContainer} or null.
-	 */
-	E getStoredFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
-	
-	//method
-	/**
-	 * @param norm
-	 * @return a new {@link IContainer} with
-	 * groups with the elements of the current {@link IContainer} grouped by the given norm.
-	 */
-	IContainer<? extends IContainer<E>> getStoredGroups(IElementTakerElementGetter<E, ?> norm);
-	
-	//method declaration
-	/**
-	 * @return the last element of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 */
-	E getStoredLast();
-	
-	//method declaration
-	/**
-	 * @param type
-	 * @param <E2> is the type of the elements of the returned {@link IContainer}.
-	 * @return a new {@link IContainer} with
-	 * the elements from the current {@link IContainer} that are of the given type.
-	 */
-	<E2 extends E> IContainer<E2> getStoredOfType(Class<E2> type);
-	
-	//method declaration
-	/**
-	 * @return the one element of the current {@link IContainer}.
-	 * @throws RuntimeException if the current {@link IContainer} is empty.
-	 * @throws RuntimeException if the current {@link IContainer} contains several elements.
-	 */
-	E getStoredOne();
-	
-	//method declaration
-	/**
-	 * @param selector
-	 * @return the one element the given selector selects from the current {@link IContainer}.
-	 * @throws RuntimeException if
-	 * the given selector selects none or several elements from the current {@link IContainer}.
-	 */
-	E getStoredOne(IElementTakerBooleanGetter<? super E> selector);
-	
-	//method declaration
-	/**
-	 * @param selector
-	 * @return a new {@link IContainer} with
-	 * the elements from the current {@link IContainer} the given selector skips (!).
-	 */
-	IContainer<E> getStoredOther(IElementTakerBooleanGetter<E> selector);
-	
-	//method declaration
-	/**
-	 * @param selector
-	 * @return a new {@link IContainer} with
-	 * the elements the given selector selects from the current {@link IContainer}.
-	 */
-	IContainer<E> getStoredSelected(IElementTakerBooleanGetter<? super E> selector);
-	
+
 	//method declaration
 	/**
 	 * @param norm
