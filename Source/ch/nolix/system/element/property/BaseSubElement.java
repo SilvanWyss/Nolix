@@ -8,9 +8,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public abstract class BaseSubElement<ME extends IMutableElement> extends Property {
+public abstract class BaseSubElement<ME extends IMutableElement> implements IProperty {
 	
 	//attribute
 	private final String attributePrefix;

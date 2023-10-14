@@ -11,9 +11,10 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public final class ForwardingMutableValue<V> extends Property implements Named {
+public final class ForwardingMutableValue<V> implements IProperty, Named {
 	
 	//static method
 	public static ForwardingMutableValue<Boolean> forBoolean(

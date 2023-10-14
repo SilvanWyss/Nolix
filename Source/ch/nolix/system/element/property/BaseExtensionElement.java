@@ -7,9 +7,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E>> extends Property {
+public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
 	
 	//attribute
 	private E internalExtensionElement;

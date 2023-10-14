@@ -9,9 +9,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public final class CatchingProperty<V> extends Property implements Named {
+public final class CatchingProperty<V> implements IProperty, Named {
 	
 	//attribute
 	private final String name;

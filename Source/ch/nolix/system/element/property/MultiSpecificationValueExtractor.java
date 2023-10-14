@@ -9,9 +9,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public final class MultiSpecificationValueExtractor extends Property {
+public final class MultiSpecificationValueExtractor implements IProperty {
 	
 	//attribute
 	private final String name;

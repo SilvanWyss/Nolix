@@ -10,9 +10,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
+import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public final class MutableOptionalValueExtractor<V> extends Property {
+public final class MutableOptionalValueExtractor<V> implements IProperty {
 	
 	//attribute
 	private final String name;

@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.main.Element;
-import ch.nolix.system.element.property.Property;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
@@ -23,7 +22,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 public abstract class MutableElement extends Element implements IMutableElement {
 	
 	//multi-attribute
-	private LinkedList<Property> properties;
+	private LinkedList<IProperty> properties;
 	
 	//method
 	/**
@@ -122,7 +121,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 	private void extractPotentialPropertyFrom(final Field field) {
 		
 		//Handles the case that the given field is a Property.
-		if (Property.class.isAssignableFrom(field.getType())) {
+		if (IProperty.class.isAssignableFrom(field.getType())) {
 			extractPropertyFrom(field);
 		}
 	}
@@ -179,7 +178,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 			
 			field.setAccessible(true);
 			
-			final var property = (Property)(field.get(this));
+			final var property = (IProperty)(field.get(this));
 			
 			//Asserts that the corresponding Property is not null.
 			GlobalValidator.assertThat(property).isOfType(IProperty.class);
@@ -194,7 +193,7 @@ public abstract class MutableElement extends Element implements IMutableElement 
 	/**
 	 * @return the {@link Property}s of the current {@link MutableElement}.
 	 */
-	private IContainer<Property> getStoredProperties() {
+	private IContainer<IProperty> getStoredProperties() {
 		
 		extractPropertiesIfNotExtracted();
 		
