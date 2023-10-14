@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  * @author Silvan Wyss
  * @date 2017-11-12
  */
-public class ExtendedStringMediator extends StringMediator {
+public final class ExtendedStringMediator extends StringMediator {
 	
 	//static method
 	/**
@@ -40,7 +40,7 @@ public class ExtendedStringMediator extends StringMediator {
 	 * @param type
 	 * @return a new {@link StringMediator} for the argument of the current {@link ExtendedStringMediator}.
 	 */
-	public final StringMediator thatIsNamed(final Class<?> type) {
+	public StringMediator thatIsNamed(final Class<?> type) {
 		return new StringMediator(type.getSimpleName(), getStoredArgument());
 	}
 	
