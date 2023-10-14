@@ -225,6 +225,16 @@ public class LongMediator extends Mediator {
 	 * @throws BiggerArgumentException if
 	 * the argument of the current {@link LongMediator} is bigger than the given value.
 	 */
+	public final void isNotBiggerThan(final int value) {
+		isNotBiggerThan((long)value);
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws BiggerArgumentException if
+	 * the argument of the current {@link LongMediator} is bigger than the given value.
+	 */
 	public final void isNotBiggerThan(final long value) {
 		if (argument > value) {
 			throw BiggerArgumentException.forArgumentNameAndArgumentAndMax(getArgumentName(), argument, value);
