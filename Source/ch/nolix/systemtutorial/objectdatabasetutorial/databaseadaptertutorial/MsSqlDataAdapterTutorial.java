@@ -1,5 +1,6 @@
 package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.system.objectdatabase.dataadapter.MsSqlDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
@@ -41,7 +42,7 @@ public final class MsSqlDataAdapterTutorial {
 		final var loadedDonaldDuck =
 		msSqlDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());
 		
-		System.out.println(loadedDonaldDuck.toString());
+		GlobalLogger.logInfo(loadedDonaldDuck.toString());
 	}
 	
 	private MsSqlDataAdapterTutorial() {}

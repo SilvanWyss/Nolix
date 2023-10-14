@@ -1,5 +1,6 @@
 package ch.nolix.coretutorial.programcontroltutorial.sequencertutorial;
 
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.programcontrol.sequencer.ResultFuture;
@@ -24,12 +25,12 @@ public final class ResultFutureTutorial {
 		
 		final var resultFuture = GlobalSequencer.runInBackground(matrix::getRank);
 		
-		System.out.println("Calculations are done in background.");
-		System.out.println("...");
+		GlobalLogger.logInfo("Calculations are done in background.");
+		GlobalLogger.logInfo("...");
 		
 		resultFuture.waitUntilIsFinished();
 		
-		System.out.println("rank: " + resultFuture.getResult());
+		GlobalLogger.logInfo("rank: " + resultFuture.getResult());
 	}
 	
 	/**

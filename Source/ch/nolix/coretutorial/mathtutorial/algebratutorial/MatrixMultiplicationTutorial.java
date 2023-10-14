@@ -1,5 +1,6 @@
 package ch.nolix.coretutorial.mathtutorial.algebratutorial;
 
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.math.algebra.Matrix;
 
 public final class MatrixMultiplicationTutorial {
@@ -19,8 +20,8 @@ public final class MatrixMultiplicationTutorial {
 		//Calculates the product of matrix1 and matrix2.
 		final var product = matrix1.getProduct(matrix2);
 		
-		//Prints out to the console matrix1, matrix2 and the product.
-		System.out.println(
+		//Logs the console matrix1, matrix2 and the product.
+		GlobalLogger.logInfo(
 			matrix1.toString()
 			+ " * "
 			+ matrix2.toString()

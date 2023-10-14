@@ -1,6 +1,7 @@
 package ch.nolix.coretutorial.buildertutorial.maintutorial;
 
 import ch.nolix.core.builder.main.ArgumentCapturer;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 
 public class BuilderTutorial {
 	
@@ -8,7 +9,7 @@ public class BuilderTutorial {
 		
 		final var garfield = Pet.build().withName("Garfield").withAgeInYears(10).withWeightInKilogram(20);
 		
-		System.out.println(garfield);
+		GlobalLogger.logInfo(garfield.toString());
 	}
 	
 	private static record Pet(String name, int ageInYears, int weightInKilogram) {

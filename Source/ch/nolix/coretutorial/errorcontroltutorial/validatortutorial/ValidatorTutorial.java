@@ -4,6 +4,7 @@ package ch.nolix.coretutorial.errorcontroltutorial.validatortutorial;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 /**
@@ -38,7 +39,7 @@ public final class ValidatorTutorial {
 		//Asserts that the given amount is not negative.
 		GlobalValidator.assertThat(amount).thatIsNamed("amount").isNotNegative();
 		
-		System.out.println(productName + ": " + amount + " pieces");
+		GlobalLogger.logInfo(productName + ": " + amount + " pieces");
 	}
 	
 	/**

@@ -1,5 +1,6 @@
 package ch.nolix.coretutorial.providertutorial.implprovidertutorial;
 
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 //own imports
 import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 
@@ -42,8 +43,8 @@ public final class GlobalImplProviderTutorial {
 		final var london = GlobalImplProvider.ofInterface(ICity.class).createInstance("London", 8_100_000);
 		
 		//Prints out to the console the data of the instances.
-		System.out.println(paris.getName() + ", population: " + paris.getPopulation());
-		System.out.println(london.getName() + ", population: " + london.getPopulation());
+		GlobalLogger.logInfo(paris.getName() + ", population: " + paris.getPopulation());
+		GlobalLogger.logInfo(london.getName() + ", population: " + london.getPopulation());
 	}
 	
 	private GlobalImplProviderTutorial() {}

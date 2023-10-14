@@ -1,6 +1,7 @@
 package ch.nolix.coretutorial.programcontroltutorial.sequencertutorial;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 public final class AsSoonAsNoMoreMethodTutorial {
@@ -11,7 +12,7 @@ public final class AsSoonAsNoMoreMethodTutorial {
 		
 		GlobalSequencer
 		.asSoonAsNoMore(cats::containsAny)
-		.runInBackground(() -> System.out.println("Couch is not scratched anymore!"));
+		.runInBackground(() -> GlobalLogger.logInfo("Couch is not scratched anymore!"));
 		
 		cats.clear();
 	}

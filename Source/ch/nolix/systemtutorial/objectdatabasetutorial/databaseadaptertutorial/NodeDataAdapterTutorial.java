@@ -1,6 +1,7 @@
 package ch.nolix.systemtutorial.objectdatabasetutorial.databaseadaptertutorial;
 
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
@@ -38,7 +39,7 @@ public final class NodeDataAdapterTutorial {
 		final var loadedDonaldDuck =
 		nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(donaldDuck.getId());
 		
-		System.out.println(loadedDonaldDuck.toString());
+		GlobalLogger.logInfo(loadedDonaldDuck.toString());
 	}
 	
 	private NodeDataAdapterTutorial() {}

@@ -2,6 +2,7 @@ package ch.nolix.systemtutorial.objectschematutorial.schemaadaptertutorial;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
@@ -32,7 +33,7 @@ public final class NodeSchemaAdapterTutorial {
 			
 			nodeDatabaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChanges();
 			
-			System.out.println(database.toFormattedString());
+			GlobalLogger.logInfo(database.toFormattedString());
 		}
 	}
 	

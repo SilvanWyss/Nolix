@@ -1,5 +1,6 @@
 package ch.nolix.techtutorial.mathtutorial.bigdecimalmathtutorial;
 
+import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTaker;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
@@ -15,7 +16,7 @@ public final class ComplexSequenceTutorial {
 		);
 		
 		final IIntTaker printFunction =
-		(int i) -> System.out.println("a(" + i + ") = " + complexSequence.getValueAt1BasedIndex(i));
+		(int i) -> GlobalLogger.logInfo("a(" + i + ") = " + complexSequence.getValueAt1BasedIndex(i));
 		
 		printFunction.run(1);
 		printFunction.run(2);
