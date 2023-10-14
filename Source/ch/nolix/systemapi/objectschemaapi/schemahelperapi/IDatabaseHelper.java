@@ -69,7 +69,7 @@ public interface IDatabaseHelper extends IDatabaseObjectHelper {
 	IContainer<IColumn> getStoredAllBackReferenceColumns(IDatabase database);
 	
 	//method declaration
-	 ITable getStoredTableWithGivenName(IDatabase database, String name);
+	ITable getStoredTableWithGivenName(IDatabase database, String name);
 	
 	//method declaration
 	int getTableCount(IDatabase database);

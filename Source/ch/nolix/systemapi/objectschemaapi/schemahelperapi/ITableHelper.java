@@ -50,7 +50,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
 	IContainer<IColumn> getStoredBackReferenceColumns(ITable table);
 	
 	//method declaration
-	 IContainer<IColumn> getStoredBackReferencingColumns(ITable table);
+	IContainer<IColumn> getStoredBackReferencingColumns(ITable table);
 	
 	//method declaration
 	 IContainer<IColumn> getStoredReferencingColumns(ITable table);
