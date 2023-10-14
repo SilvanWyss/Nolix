@@ -65,7 +65,7 @@ public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 		
 		try {
 			FunctionCatalogue.throwException();
-		} catch (final Exception exception) {
+		} catch (final GeneralException exception) {
 			return exception;
 		}
 		
