@@ -24,7 +24,7 @@ public final class JobMerger {
 		for (var i = 1; i <= jobs.getElementCount(); i++) {
 			try {
 				jobs.getStoredAt1BasedIndex(i).run();
-			} catch (final Throwable error) {
+			} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 				throw
 				WrapperException.forErrorMessageAndError(
 					"An error occured by running the " + i + "th job of the given " + jobs.getElementCount() + " jobs.",

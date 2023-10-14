@@ -70,7 +70,7 @@ final class ServerSocketProcessor extends Worker {
 			} else {
 				parentServer.internalTakeBackendEndPoint(netEndPoint.getStoredElement());
 			}
-		} catch (final Throwable error) {
+		} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 			
 			closeSocket();
 			

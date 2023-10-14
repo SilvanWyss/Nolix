@@ -31,7 +31,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 		try {
 			action.run();
 			clearNearestValidationLabelOfControl(control);
-		} catch (final Throwable error) {
+		} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 			showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
 		}
 	}
@@ -45,7 +45,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
 		try {
 			action.run(control);
 			clearNearestValidationLabelOfControl(control);
-		} catch (final Throwable error) {
+		} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 			showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
 		}
 	}

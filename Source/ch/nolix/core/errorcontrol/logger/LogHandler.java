@@ -49,7 +49,7 @@ public abstract class LogHandler {
 	private void logSafely(final LogEntry logEntry) {
 		try {
 			log(logEntry);
-		} catch (final Throwable error) {
+		} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 			System.err.println("An error occured by writing a log entry."); //NOSONAR: This is a logger.
 		}
 	}

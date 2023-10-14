@@ -122,7 +122,7 @@ final class ResultJobRunner<R> extends Thread {
 	public void run() {
 		try {
 			result = resultJob.getOutput();
-		} catch (final Throwable lError) {
+		} catch (final Throwable lError) { //NOSONAR: All Throwables must be caught here.
 			error = lError;
 			GlobalLogger.logError(lError);
 		} finally {

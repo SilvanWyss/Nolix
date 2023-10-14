@@ -140,7 +140,7 @@ final class ClosePool implements IClosePool {
 	private void letNoteClose(final GroupCloseable element) {
 		try {
 			element.noteClose();
-		} catch (final Throwable exception) {
+		} catch (final Throwable exception) { //NOSONAR: All Throwables must be caught here.
 			GlobalLogger.logError(exception);
 		}
 	}

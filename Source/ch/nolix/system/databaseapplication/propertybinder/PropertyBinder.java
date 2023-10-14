@@ -62,7 +62,7 @@ public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, 
 		try {
 			updatePropertyFromControl(property, control);
 			propertyBinding.removeCurrentError();
-		} catch (final Throwable error) {
+		} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 			propertyBinding.setCurrentError(error);
 		}
 	}

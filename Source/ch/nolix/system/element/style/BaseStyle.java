@@ -82,7 +82,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
 		for (final var aa : getAttachingAttributes()) {
 			try {
 				element.addOrChangeAttribute(aa);
-			} catch (final Throwable error) {
+			} catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 				
 				final var invalidArgumentException =
 				InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
