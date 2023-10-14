@@ -11,6 +11,57 @@ public final class PolynomTest extends Test {
 	
 	//method
 	@TestCase
+	public void testCase_getDerived_1A() {
+		
+		//setup
+		final var testUnit = Polynom.withCoefficient(3.0, 0.0, 0.0);
+		
+		//setup verification
+		expect(testUnit).hasStringRepresentation("x->3x^2");
+		
+		//execution
+		final var result = testUnit.getDerived();
+		
+		//verification
+		expect(result).hasStringRepresentation("x->6x");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getDerived_1B() {
+		
+		//setup
+		final var testUnit = Polynom.withCoefficient(3.0, 3.0, 3.0);
+		
+		//setup verification
+		expect(testUnit).hasStringRepresentation("x->3x^2+3x+3");
+		
+		//execution
+		final var result = testUnit.getDerived();
+		
+		//verification
+		expect(result).hasStringRepresentation("x->6x+3");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_getDerived_1C() {
+		
+		//setup
+		final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
+		
+		//setup verification
+		expect(testUnit).hasStringRepresentation("x->3x^2+2x+1");
+		
+		//execution
+		final var result = testUnit.getDerived();
+		
+		//verification
+		expect(result).hasStringRepresentation("x->6x+2");
+	}
+	
+	//method
+	@TestCase
 	public void testCase_getIntegrated_1A() {
 		
 		//setup
