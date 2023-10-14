@@ -23,6 +23,12 @@ public final class FunctionCatalogue {
 	//constant
 	private static final long ONE = 1L;
 	
+	//constant
+	private static final boolean FALSE = false;
+	
+	//constant
+	private static final boolean TRUE = true;
+	
 	//static method
 	/**
 	 * @param object1
@@ -46,7 +52,7 @@ public final class FunctionCatalogue {
 	 * @return false.
 	 */
 	public static boolean getFalse() {
-		return false;
+		return FALSE;
 	}
 	
 	//static method
@@ -108,7 +114,7 @@ public final class FunctionCatalogue {
 	 * @return true.
 	 */
 	public static boolean getTrue() {
-		return true;
+		return TRUE;
 	}
 	
 	//static method
