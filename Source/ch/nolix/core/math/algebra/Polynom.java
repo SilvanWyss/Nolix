@@ -276,26 +276,25 @@ public final class Polynom {
 	//method
 	private Polynom calculateDerived(final int deriveCount) {
 		
-		//Asserts that the given derviceCount is not negative.
 		GlobalValidator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
+		
+		if (deriveCount == 0) {
+			return this;
+		}
 		
 		final var degree = getDegree();
 		final var derivedDegree = GlobalCalculator.getMax(0, degree - deriveCount);
+		final var derivedCoefficients = new double[derivedDegree + 1];
 		
-		final var derivedCoefficients = new double[derivedDegree];
-		for (var i = 0; i < derivedDegree; i++) {
-			if (coefficients[i] == 0.0) {
-				derivedCoefficients[i] = 0.0;
-			} else {
-				
-				var derivedCoefficient = coefficients[i];
-				
-				for (var j = degree - i; j > derivedDegree - i; j--) {
-					derivedCoefficient *= j;
-				}
-				
-				derivedCoefficients[i] = derivedCoefficient;
+		for (var derivedCoefficientIndex = 0; derivedCoefficientIndex <= derivedDegree; derivedCoefficientIndex++) {
+		
+			var derivedCoefficient = coefficients[derivedCoefficientIndex];
+			
+			for (var j = degree - derivedCoefficientIndex; j > derivedDegree - derivedCoefficientIndex; j--) {
+				derivedCoefficient *= j;
 			}
+			
+			derivedCoefficients[derivedCoefficientIndex] = derivedCoefficient;
 		}
 		
 		return new Polynom(derivedCoefficients);
