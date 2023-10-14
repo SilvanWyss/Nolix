@@ -24,7 +24,11 @@ implements IComponent {
 	private final C controller;
 	
 	//constructor
-	protected ComponentWithDataAdapter(final C controller, final DA initialDataAdapter, final WebClientSession<AC> session) {
+	protected ComponentWithDataAdapter(
+		final C controller,
+		final DA initialDataAdapter,
+		final WebClientSession<AC> session
+	) {
 		
 		GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 		
