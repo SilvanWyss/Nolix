@@ -68,7 +68,7 @@ final class TestCaseRun {
 		while (!testCaseRunner.isFinished()) {
 			
 			//This statement, which is theoretically unnecessary, makes that the current loop is not optimized away.
-			System.err.flush();
+			System.err.flush(); //NOSONAR: This statement is used to keep the loop.
 		}
 		
 		return testCaseRunner.getResult();
@@ -84,7 +84,7 @@ final class TestCaseRun {
 		while (!testCaseRunner.isFinished()) {
 			
 			//This statement, which is theoretically unnecessary, makes that the current loop is not optimized away.
-			System.err.flush();
+			System.err.flush(); //NOSONAR: This statement is used to keep the loop.
 			
 			if (testCaseRunner.getRuntimeInMilliseconds() > MAX_DURATION_IN_MILLISECONDS) {
 				testCaseRunner.stop(

@@ -20,8 +20,8 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	 */
 	@Override
 	public void printEmptyLine() {
-		System.out.println();
-		System.out.flush();
+		System.out.println(); //NOSONAR: This is a logger.
+		System.out.flush(); //NOSONAR: This is a logger.
 	}
 	
 	//method
@@ -30,8 +30,8 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	 */
 	@Override
 	public void printErrorLine(final String errorLine) {
-		System.out.println(errorLine);
-		System.out.flush();
+		System.out.println(errorLine); //NOSONAR: This is a logger.
+		System.out.flush(); //NOSONAR: This is a logger.
 	}
 	
 	//method
@@ -49,8 +49,8 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
 	 */
 	@Override
 	public void printInfoLine(final String infoLine) {
-		System.out.println(infoLine);
-		System.out.flush();
+		System.out.println(infoLine); //NOSONAR: This is a logger.
+		System.out.flush(); //NOSONAR: This is a logger.
 	}
 	
 	//method

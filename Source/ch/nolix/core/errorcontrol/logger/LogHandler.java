@@ -50,7 +50,7 @@ public abstract class LogHandler {
 		try {
 			log(logEntry);
 		} catch (final Throwable error) {
-			System.err.println("An error occured by writing a log entry.");
+			System.err.println("An error occured by writing a log entry."); //NOSONAR: This is a logger.
 		}
 	}
 }

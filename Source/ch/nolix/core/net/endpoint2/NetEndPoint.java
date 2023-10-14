@@ -337,7 +337,7 @@ public final class NetEndPoint extends EndPoint {
 			}
 			
 			//This statement, which is theoretically unnecessary, makes that the current loop is not optimized away.
-			System.err.flush();
+			System.err.flush(); //NOSONAR: This statement is used to keep the loop.
 		}
 		
 		return getAndRemoveReceivedPackage(index);
