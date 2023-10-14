@@ -148,6 +148,16 @@ public class LongMediator extends Mediator {
 	 * @throws UnequalArgumentException if
 	 * the argument of the current {@link LongMediator} does not equal the given value.
 	 */
+	public final void isEqualTo(final int value) {
+		isEqualTo((long)value);
+	}
+	
+	//method
+	/**
+	 * @param value
+	 * @throws UnequalArgumentException if
+	 * the argument of the current {@link LongMediator} does not equal the given value.
+	 */
 	public final void isEqualTo(final long value) {
 		if (argument != value) {
 			throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
