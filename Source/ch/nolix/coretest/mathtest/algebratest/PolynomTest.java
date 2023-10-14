@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.mathtest.algebratest;
 
+//own imports
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -10,129 +11,130 @@ public final class PolynomTest extends Test {
 	
 	//method
 	@TestCase
-	public void testCase_constructor_1A() {
-		
-		//execution
-		final var polynom = Polynom.EMPTY_POLYNOM;
-		
-		//verification
-		expect(polynom.getDegree()).isEqualTo(-1);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_constructor_1B() {
-		
-		//execution
-		final var polynom = Polynom.withCoefficient(1.0);
-		
-		//verification
-		expect(polynom.getDegree()).isEqualTo(0);
-		expect(polynom.getCoefficientForDegree(0)).isEqualTo(1.0);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_constructor_1C() {
-		
-		//execution
-		final var polynom = Polynom.withCoefficient(2.0, 1.0);
-		
-		//verification
-		expect(polynom.getDegree()).isEqualTo(1);
-		expect(polynom.getCoefficientForDegree(0)).isEqualTo(1.0);
-		expect(polynom.getCoefficientForDegree(1)).isEqualTo(2.0);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_constructor_1D() {
-		
-		//execution
-		final var polynom = Polynom.withCoefficient(3.0, 2.0, 1.0);
-		
-		//verification
-		expect(polynom.getDegree()).isEqualTo(2);
-		expect(polynom.getCoefficientForDegree(0)).isEqualTo(1.0);
-		expect(polynom.getCoefficientForDegree(1)).isEqualTo(2.0);
-		expect(polynom.getCoefficientForDegree(2)).isEqualTo(3.0);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_integrate_1A() {
+	public void testCase_getIntegrated_1A() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficient(3.0, 0.0, 0.0);
+		final var testUnit = Polynom.withCoefficient(3.0, 0.0, 0.0);
 		
 		//setup verification
-		expect(polynom.toString()).isEqualTo("x->3x^2");
+		expect(testUnit).hasStringRepresentation("x->3x^2");
 		
 		//execution
-		final var result = polynom.getIntegrated();
+		final var result = testUnit.getIntegrated();
 		
 		//verification
-		expect(result.toString()).isEqualTo("x->x^3");
+		expect(result).hasStringRepresentation("x->x^3");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_integrate_1B() {
+	public void testCase_getIntegrated_1B() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficient(3.0, 2.0, 1.0);
+		final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
 		
 		//setup verification
-		expect(polynom.toString()).isEqualTo("x->3x^2+2x+1");
+		expect(testUnit).hasStringRepresentation("x->3x^2+2x+1");
 		
 		//execution
-		final var result = polynom.getIntegrated();
+		final var result = testUnit.getIntegrated();
 		
 		//verification
-		expect(result.toString()).isEqualTo("x->x^3+x^2+1x");
+		expect(result).hasStringRepresentation("x->x^3+x^2+1x");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_1A() {
+	public void testCase_toString_whenIsEmpty() {
 		
 		//setup
-		final var polynom = Polynom.EMPTY_POLYNOM;
+		final var testUnit = Polynom.EMPTY_POLYNOM;
 			
-		//execution & verification
-		expect(polynom.toString()).isEqualTo("x->0.0");
+		//execution
+		final var result = testUnit.toString();
+		
+		//verification
+		expect(result).isEqualTo("x->0.0");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_1B() {
+	public void testCase_toString_whenThereIsGiven1Coefficient() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficient(1.0);
+		final var testUnit = Polynom.withCoefficient(1.0);
+		
+		//execution
+		final var result = testUnit.toString();
 			
-		//execution & verification
-		expect(polynom.toString()).isEqualTo("x->1");
+		//execution
+		expect(result).isEqualTo("x->1");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_1C() {
+	public void testCase_toString_whenThereAreGiven2Coefficients() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficient(2.0, 1.0);
+		final var testUnit = Polynom.withCoefficient(2.0, 1.0);
+		
+		//execution
+		final var result = testUnit.toString();
 			
-		//execution & verification
-		expect(polynom.toString()).isEqualTo("x->2x+1");
+		//execution
+		expect(result).isEqualTo("x->2x+1");
 	}
 	
 	//method
 	@TestCase
-	public void testCase_toString_1D() {
+	public void testCase_toString_whenThereAreGiven3Coefficients() {
 		
 		//setup
-		final var polynom = Polynom.withCoefficient(3.0, 2.0, 1.0);
-			
-		//execution & verification
-		expect(polynom.toString()).isEqualTo("x->3x^2+2x+1");
+		final var testUnit = Polynom.withCoefficient(3.0, 2.0, 1.0);
+		
+		//execution
+		final var result = testUnit.toString();
+		
+		//execution
+		expect(result).isEqualTo("x->3x^2+2x+1");
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withCoefficient_whenThereIsGiven1Coefficient() {
+		
+		//execution
+		final var result = Polynom.withCoefficient(1.0);
+		
+		//verification
+		expect(result.getDegree()).isEqualTo(0);
+		expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withCoefficient_whenThereAreGiven2Coefficients() {
+		
+		//execution
+		final var result = Polynom.withCoefficient(2.0, 1.0);
+		
+		//verification
+		expect(result.getDegree()).isEqualTo(1);
+		expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
+		expect(result.getCoefficientForDegree(1)).isEqualTo(2.0);
+	}
+	
+	//method
+	@TestCase
+	public void testCase_withCoefficient_whenThereAreGiven3Coefficients() {
+		
+		//execution
+		final var result = Polynom.withCoefficient(3.0, 2.0, 1.0);
+		
+		//verification
+		expect(result.getDegree()).isEqualTo(2);
+		expect(result.getCoefficientForDegree(0)).isEqualTo(1.0);
+		expect(result.getCoefficientForDegree(1)).isEqualTo(2.0);
+		expect(result.getCoefficientForDegree(2)).isEqualTo(3.0);
 	}
 }
