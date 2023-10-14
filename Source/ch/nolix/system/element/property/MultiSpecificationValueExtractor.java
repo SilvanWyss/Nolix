@@ -4,6 +4,7 @@ package ch.nolix.system.element.property;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
@@ -12,7 +13,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
-public final class MultiSpecificationValueExtractor implements IProperty {
+public final class MultiSpecificationValueExtractor implements IProperty, Named {
 	
 	//attribute
 	private final String name;
@@ -40,6 +41,7 @@ public final class MultiSpecificationValueExtractor implements IProperty {
 	}
 	
 	//method
+	@Override
 	public String getName() {
 		return name;
 	}
