@@ -7,12 +7,8 @@ import java.math.BigInteger;
 
 //own imports
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
 
@@ -31,6 +27,7 @@ extends
 EmptinessRequestable,
 IterableWithCopyableIterator<E>,
 ISearchableContainer<E>,
+IMappableContainer<E>,
 MaterializationRequestable,
 StoringRequestable<E> {
 	
@@ -202,75 +199,7 @@ StoringRequestable<E> {
 	 */
 	double getVariance(IElementTakerElementGetter<E, Number> norm);
 	
-	//method declaration
-	/**
-	 * @param extractor
-	 * @param <E2> is the type of the elements the given extractor returns.
-	 * @return a new {@link IContainer} with
-	 * the elements the given extractor extracts from the elements of the current {@link IContainer}.
-	 */
-	<E2> IContainer<E2> to(IElementTakerElementGetter<E, E2> extractor);
-	
-	//method declaration
-	/**
-	 * @return a new array with the elements of the current {@link IContainer}.
-	 */
-	Object[] toArray();
-	
-	//method declaration
-	/**
-	 * @param byteGetter
-	 * @return a new array with
-	 * the bytes the given byteGetter returns from the elements of the current {@link IContainer}.
-	 */
-	byte[] toByteArray(IElementTakerByteGetter<E> byteGetter);
-	
-	//method declaration
-	/**
-	 * @param charGetter
-	 * @return a new array with
-	 * the chars the given charGetter returns from the elements of the current {@link IContainer}.
-	 */
-	char[] toCharArray(IElementTakerCharGetter<E> charGetter);
-	
-	//method declaration
-	/**
-	 * @return a concatenated {@link String} representation of the current {@link IContainer}.
-	 */
-	String toConcatenatedString();
-	
-	//method declaration
-	/**
-	 * @param doubleGetter
-	 * @return a new array with
-	 * the doubles the given doubleGetter returns from the elements of the current {@link IContainer}.
-	 */
-	double[] toDoubleArray(IElementTakerDoubleGetter<E> doubleGetter);
-	
-	//method declaration
-	/**
-	 * @param extractor
-	 * @param <E2> is the type of the elements of the {@link IContainer}s the given extractor returns.
-	 * @return a new {@link IContainer} with the elements of the {@link IContainer}s the given extractor extracts from
-	 * the elements of the current {@link IContainer}.
-	 */
-	<E2> IContainer<E2> toFromGroups(IElementTakerElementGetter<E, IContainer<E2>> extractor);
-	
-	//method declaration
-	/**
-	 * @param intGetter
-	 * @return a new array with
-	 * the ints the given intGetter returns from the elements of the current {@link IContainer}.
-	 */
-	int[] toIntArray(IElementTakerIntGetter<E> intGetter);
-	
-	//method declaration
-	/**
-	 * @param longGetter
-	 * @return a new array with
-	 * the longs the given longGetter returns from the elements of the current {@link IContainer}.
-	 */
-	long[] toLongArray(IElementTakerLongGetter<E> longGetter);
+
 	
 	//method declaration
 	/**
