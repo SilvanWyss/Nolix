@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.template.webgui.dialog;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -37,7 +38,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   private String confirmButtonText = DEFAULT_CONFIRM_BUTTON_TEXT;
 
   // optional attribute
-  private IElementTaker<String> valueCopier;
+  private Consumer<String> valueCopier;
 
   // method
   @Override
@@ -59,7 +60,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
                                 .setText("Copy")
                                 .setLeftMouseButtonPressAction(
                                     (IButton button) -> {
-                                      getValueCopier().run(value);
+                                      getValueCopier().accept(value);
                                       button.getStoredParentLayer().removeSelfFromGui();
                                     })),
                     new Button()
@@ -85,7 +86,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   // method
-  public ShowValueDialogBuilder setValueCopier(final IElementTaker<String> valueCopier) {
+  public ShowValueDialogBuilder setValueCopier(final Consumer<String> valueCopier) {
 
     this.valueCopier = valueCopier;
 
@@ -118,7 +119,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   // method
-  private IElementTaker<String> getValueCopier() {
+  private Consumer<String> getValueCopier() {
 
     assertHasValueCopier();
 

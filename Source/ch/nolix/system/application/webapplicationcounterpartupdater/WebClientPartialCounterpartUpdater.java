@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
@@ -18,16 +19,16 @@ public final class WebClientPartialCounterpartUpdater {
 
   // static method
   public static WebClientPartialCounterpartUpdater forCounterpartRunner(
-      final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner) {
+      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner);
   }
 
   // attribute
-  private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
   // constructor
   private WebClientPartialCounterpartUpdater(
-      final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner) {
+      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
 
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
@@ -42,7 +43,7 @@ public final class WebClientPartialCounterpartUpdater {
 
     final var updateCommands = createUpdateCommandsFromControl(control);
 
-    counterpartRunner.run(updateCommands);
+    counterpartRunner.accept(updateCommands);
   }
 
   // method

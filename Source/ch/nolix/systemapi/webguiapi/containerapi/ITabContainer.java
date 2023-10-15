@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
 
 //interface
@@ -35,7 +36,7 @@ public interface ITabContainer
   int getTabCount();
 
   // method declaration
-  ITabContainer onHeaderStyle(IElementTaker<ILabelStyle> headerStyleEditor);
+  ITabContainer onHeaderStyle(Consumer<ILabelStyle> headerStyleEditor);
 
   // method declaration
   void selectFirstTab();

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 //own imports
@@ -10,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -20,7 +20,7 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
   private final String name;
 
   // attribute
-  private final IElementTaker<INode<?>> adder;
+  private final Consumer<INode<?>> adder;
 
   // attribute
   private final Supplier<IContainer<INode<?>>> getter;
@@ -28,7 +28,7 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
   // constructor
   public MultiSpecificationValueExtractor(
       final String name,
-      final IElementTaker<INode<?>> adder,
+      final Consumer<INode<?>> adder,
       final Supplier<IContainer<INode<?>>> getter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
@@ -51,7 +51,7 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
     if (attribute.hasHeader(getName())) {
-      adder.run(attribute);
+      adder.accept(attribute);
       return true;
     }
 

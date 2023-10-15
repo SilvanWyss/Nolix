@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.InternalIdentified;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.programstructureapi.linkingapi.Linkable;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
@@ -37,7 +38,7 @@ public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS
   boolean belongsToLayer();
 
   // method declaration
-  C editStyle(IElementTaker<CS> styleEditor);
+  C editStyle(Consumer<CS> styleEditor);
 
   // method declaration
   IContainer<ICssRule> getCssRules();

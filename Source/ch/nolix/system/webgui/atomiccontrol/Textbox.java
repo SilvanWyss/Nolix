@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -12,7 +14,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.Control;
@@ -59,7 +60,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
       Node::fromEnum);
 
   // optional attribute
-  private IElementTaker<String> updateTextAction;
+  private Consumer<String> updateTextAction;
 
   // constructor
   public Textbox() {
@@ -166,7 +167,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   // method
   @Override
-  public Textbox setUpdateTextAction(final IElementTaker<String> updateTextAction) {
+  public Textbox setUpdateTextAction(final Consumer<String> updateTextAction) {
 
     GlobalValidator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 
@@ -218,7 +219,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
   // method
   private void runOptionalUpdateTextActionForText(final String text) {
     if (hasUpdateTextAction()) {
-      updateTextAction.run(text);
+      updateTextAction.accept(text);
     }
   }
 }

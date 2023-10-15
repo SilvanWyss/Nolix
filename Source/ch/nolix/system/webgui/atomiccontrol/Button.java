@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -13,7 +15,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
@@ -62,10 +63,10 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
   // optional attribute
-  private IElementTaker<IButton> leftMouseButtonPressAction;
+  private Consumer<IButton> leftMouseButtonPressAction;
 
   // optional attribute
-  private IElementTaker<IButton> leftMouseButtonReleaseAction;
+  private Consumer<IButton> leftMouseButtonReleaseAction;
 
   // constructor
   public Button() {
@@ -202,7 +203,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   // method
   @Override
-  public IButton setLeftMouseButtonPressAction(final IElementTaker<IButton> leftMouseButtonPressAction) {
+  public IButton setLeftMouseButtonPressAction(final Consumer<IButton> leftMouseButtonPressAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonPressAction)
@@ -228,7 +229,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   // method
   @Override
-  public IButton setLeftMouseButtonRelaseAction(final IElementTaker<IButton> leftMouseButtonReleaseAction) {
+  public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonReleaseAction)

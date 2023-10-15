@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -9,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
@@ -33,7 +34,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
       IItemMenuItem::getSpecification);
 
   // optional attribute
-  private IElementTaker<IItemMenuItem<?>> selectAction;
+  private Consumer<IItemMenuItem<?>> selectAction;
 
   // method
   @Override
@@ -75,7 +76,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   public final IM addItemWithIdAndTextAndSelectAction(
       final String id,
       final String text,
-      final IElementTaker<IItemMenuItem<?>> selectAction) {
+      final Consumer<IItemMenuItem<?>> selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
@@ -102,7 +103,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   @Override
   public final IM addItemWithTextAndSelectAction(
       final String text,
-      final IElementTaker<IItemMenuItem<?>> selectAction) {
+      final Consumer<IItemMenuItem<?>> selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
@@ -254,7 +255,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
 
   // method
   @Override
-  public final IM setSelectAction(final IElementTaker<IItemMenuItem<?>> selectAction) {
+  public final IM setSelectAction(final Consumer<IItemMenuItem<?>> selectAction) {
 
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
@@ -280,7 +281,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   @Override
   public final void technicalRunOptionalSelectActionForItem(final IItemMenuItem<?> item) {
     if (hasSelectAction()) {
-      selectAction.run(item);
+      selectAction.accept(item);
     }
   }
 

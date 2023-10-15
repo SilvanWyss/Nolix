@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
 /**
@@ -23,7 +24,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * @param expectationErrorTaker
    * @throws ArgumentIsNullException if the given test is null.
    */
-  ExtendedThrownExceptionMediator(final IElementTaker<String> expectationErrorTaker) {
+  ExtendedThrownExceptionMediator(final Consumer<String> expectationErrorTaker) {
 
     // Calls constructor of the base class.
     super(expectationErrorTaker);
@@ -39,7 +40,7 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    * @throws ArgumentIsNullException if the given test is null.
    * @throws ArgumentIsNullException if the given exception is null.
    */
-  ExtendedThrownExceptionMediator(final IElementTaker<String> expectationErrorTaker, final Throwable exception) {
+  ExtendedThrownExceptionMediator(final Consumer<String> expectationErrorTaker, final Throwable exception) {
 
     // Calls constructor of the base class.
     super(expectationErrorTaker, exception);

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.netapi.endpointapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
+import java.util.function.Consumer;
+
 import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 
 //interface
@@ -15,5 +15,5 @@ public interface IEndPoint extends IBaseEndPoint {
   void sendMessage(String message);
 
   // method declaration
-  void setReceiver(IElementTaker<String> receiver);
+  void setReceiver(Consumer<String> receiver);
 }

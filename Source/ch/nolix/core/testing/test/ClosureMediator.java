@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
 /**
@@ -27,7 +28,7 @@ public final class ClosureMediator extends Mediator {
    * @throws ArgumentIsNullException if the given test is null.
    * @throws ArgumentIsNullException if the given closure is null.
    */
-  public ClosureMediator(final IElementTaker<String> expectationErrorTaker, final Runnable closure) {
+  public ClosureMediator(final Consumer<String> expectationErrorTaker, final Runnable closure) {
 
     // Calls constructor of the base class.
     super(expectationErrorTaker);

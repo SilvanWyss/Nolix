@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.core.testing.test;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
 /**
@@ -14,7 +15,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 public abstract class Mediator { // NOSONAR: Mediator does not have abstract methods.
 
   // attribute
-  private final IElementTaker<String> expectationErrorTaker;
+  private final Consumer<String> expectationErrorTaker;
 
   // constructor
   /**
@@ -23,7 +24,7 @@ public abstract class Mediator { // NOSONAR: Mediator does not have abstract met
    * @param expectationErrorTaker
    * @throws ArgumentIsNullException if the given expectationErrorTaker is null.
    */
-  protected Mediator(final IElementTaker<String> expectationErrorTaker) {
+  protected Mediator(final Consumer<String> expectationErrorTaker) {
 
     // Asserts that the given expectationErrorTaker is not null.
     if (expectationErrorTaker == null) {
@@ -57,14 +58,14 @@ public abstract class Mediator { // NOSONAR: Mediator does not have abstract met
    * @param error
    */
   protected final void addCurrentTestCaseError(final String error) {
-    expectationErrorTaker.run(error);
+    expectationErrorTaker.accept(error);
   }
 
   // method
   /**
    * @return the expectationErrorTaker of the current {@link Mediator}.
    */
-  protected final IElementTaker<String> getStoredExpectationErrorTaker() {
+  protected final Consumer<String> getStoredExpectationErrorTaker() {
     return expectationErrorTaker;
   }
 }

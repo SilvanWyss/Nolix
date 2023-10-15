@@ -2,6 +2,7 @@
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
 import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -9,7 +10,6 @@ import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
@@ -20,7 +20,7 @@ public final class WebClientCounterpartUpdater {
 
   // static method
   public static WebClientCounterpartUpdater forCounterpartRunner(
-      final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
+      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
       final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }
@@ -29,11 +29,11 @@ public final class WebClientCounterpartUpdater {
   private final BooleanSupplier openStateRequester;
 
   // attribute
-  private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
+  private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
   // constructor
   private WebClientCounterpartUpdater(
-      final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
+      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
       final BooleanSupplier openStateRequester) {
 
     GlobalValidator.assertThat(openStateRequester).thatIsNamed("open state requester").isNotNull();
@@ -51,7 +51,7 @@ public final class WebClientCounterpartUpdater {
     final var updateCommands = createUpdateCommandsFromWebGui(webGui);
 
     if (openStateRequester.getAsBoolean()) {
-      counterpartRunner.run(updateCommands);
+      counterpartRunner.accept(updateCommands);
     }
   }
 

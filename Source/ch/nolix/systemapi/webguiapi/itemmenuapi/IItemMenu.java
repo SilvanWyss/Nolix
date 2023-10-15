@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
+import java.util.function.Consumer;
+
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -24,7 +25,7 @@ public interface IItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuS
   IM addItemWithIdAndTextAndSelectAction(String id, String text, Runnable selectAction);
 
   // method declaration
-  IM addItemWithIdAndTextAndSelectAction(String id, String text, IElementTaker<IItemMenuItem<?>> selectAction);
+  IM addItemWithIdAndTextAndSelectAction(String id, String text, Consumer<IItemMenuItem<?>> selectAction);
 
   // method declaration
   IM addItemWithText(String text, String... texts);
@@ -33,7 +34,7 @@ public interface IItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuS
   IM addItemWithTextAndSelectAction(String text, Runnable selectAction);
 
   // method declaration
-  IM addItemWithTextAndSelectAction(String text, IElementTaker<IItemMenuItem<?>> selectAction);
+  IM addItemWithTextAndSelectAction(String text, Consumer<IItemMenuItem<?>> selectAction);
 
   // method declaration
   boolean blankItemIsSelected();
@@ -81,7 +82,7 @@ public interface IItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuS
   IM setSelectAction(Runnable selectAction);
 
   // method declaration
-  IM setSelectAction(IElementTaker<IItemMenuItem<?>> selectAction);
+  IM setSelectAction(Consumer<IItemMenuItem<?>> selectAction);
 
   // method declaration
   void technicalRunOptionalSelectActionForItem(IItemMenuItem<?> item);

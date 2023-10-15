@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.containerapi;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.processproperty.TabExpansionBehavior;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
@@ -39,7 +40,7 @@ public interface IAccordion
   TabExpansionBehavior getTabExpansionBehavior();
 
   // method declaration
-  ILinearContainerStyle<?> onHeaderStyle(IElementTaker<ILinearContainerStyle<?>> headerStyleEditor);
+  ILinearContainerStyle<?> onHeaderStyle(Consumer<ILinearContainerStyle<?>> headerStyleEditor);
 
   // method declaration
   IAccordion setTabExpansionBehaviour(TabExpansionBehavior tabExpansionBehavior);

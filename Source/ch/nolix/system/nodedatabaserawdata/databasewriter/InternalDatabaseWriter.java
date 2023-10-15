@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.nodedatabaserawdata.databasewriter;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
@@ -27,7 +28,7 @@ final class InternalDatabaseWriter {
   private final IMutableNode<?> nodeDatabase;
 
   // multi-attribute
-  private final LinkedList<IElementTaker<IMutableNode<?>>> changeActions = new LinkedList<>();
+  private final LinkedList<Consumer<IMutableNode<?>>> changeActions = new LinkedList<>();
 
   // constructor
   public InternalDatabaseWriter(final IMutableNode<?> nodeDatabase) {
@@ -161,7 +162,7 @@ final class InternalDatabaseWriter {
   }
 
   // method
-  private void addChangeAction(final IElementTaker<IMutableNode<?>> changeAction) {
+  private void addChangeAction(final Consumer<IMutableNode<?>> changeAction) {
     changeActions.addAtEnd(changeAction);
   }
 
@@ -170,7 +171,7 @@ final class InternalDatabaseWriter {
 
     final var newNodeDatabase = MutableNode.fromNode(nodeDatabase);
     for (final var ca : changeActions) {
-      ca.run(newNodeDatabase);
+      ca.accept(newNodeDatabase);
     }
 
     return newNodeDatabase;

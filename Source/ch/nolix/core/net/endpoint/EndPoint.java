@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -10,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 
@@ -31,7 +32,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   private String target;
 
   // optional attribute
-  private IElementTaker<String> receiver;
+  private Consumer<String> receiver;
 
   // method
   // For a better performance, this implementation does not use all comfortable
@@ -81,7 +82,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
    */
   @Override
-  public final void setReceiver(final IElementTaker<String> receiver) {
+  public final void setReceiver(final Consumer<String> receiver) {
 
     // Asserts that the given receiver is not null.
     GlobalValidator.assertThat(receiver).thatIsNamed(LowerCaseCatalogue.RECEIVER).isNotNull();
@@ -109,7 +110,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
    *                                               does not have a receiver.
    */
-  protected final IElementTaker<String> getStoredReceiver() {
+  protected final Consumer<String> getStoredReceiver() {
 
     if (hasReceiver()) {
       return receiver;

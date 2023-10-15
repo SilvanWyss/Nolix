@@ -174,6 +174,6 @@ public final class LocalEndPoint extends EndPoint {
    * @param message
    */
   private void receiveRawMessage(final String message) {
-    getStoredReceiver().run(message);
+    getStoredReceiver().accept(message);
   }
 }

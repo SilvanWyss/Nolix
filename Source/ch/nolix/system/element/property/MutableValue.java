@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -31,7 +32,7 @@ public final class MutableValue<V> extends SingleValue<V> {
   public static MutableValue<Boolean> forBoolean(
       final String name,
       final boolean defaultValue,
-      final IElementTaker<Boolean> setterMethod) {
+      final Consumer<Boolean> setterMethod) {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsBoolean,
         Node::withChildNode);
   }
@@ -50,7 +51,7 @@ public final class MutableValue<V> extends SingleValue<V> {
   public static MutableValue<Double> forDouble(
       final String name,
       final double defaultValue,
-      final IElementTaker<Double> setterMethod) {
+      final Consumer<Double> setterMethod) {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
@@ -68,7 +69,7 @@ public final class MutableValue<V> extends SingleValue<V> {
   public static MutableValue<Integer> forInt(
       final String name,
       final int defaultValue,
-      final IElementTaker<Integer> setterMethod) {
+      final Consumer<Integer> setterMethod) {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
@@ -86,7 +87,7 @@ public final class MutableValue<V> extends SingleValue<V> {
   public static MutableValue<String> forString(
       final String name,
       final String defaultValue,
-      final IElementTaker<String> setterMethod) {
+      final Consumer<String> setterMethod) {
     return new MutableValue<>(
         name,
         defaultValue,
@@ -122,7 +123,7 @@ public final class MutableValue<V> extends SingleValue<V> {
   public MutableValue(
       final String name,
       final V defaultValue,
-      final IElementTaker<V> setterMethod,
+      final Consumer<V> setterMethod,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
 

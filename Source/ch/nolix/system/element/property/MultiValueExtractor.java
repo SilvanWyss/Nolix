@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 //own imports
@@ -10,7 +11,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
@@ -21,7 +21,7 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
   private final String name;
 
   // attribute
-  private final IElementTaker<V> adder;
+  private final Consumer<V> adder;
 
   // attribute
   private final Supplier<IContainer<V>> getter;
@@ -35,7 +35,7 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
   // constructor
   public MultiValueExtractor(
       final String name,
-      final IElementTaker<V> adder,
+      final Consumer<V> adder,
       final Supplier<IContainer<V>> getter,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
@@ -64,7 +64,7 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
     if (attribute.hasHeader(getName())) {
-      adder.run(valueCreator.getOutput(attribute));
+      adder.accept(valueCreator.getOutput(attribute));
       return true;
     }
 

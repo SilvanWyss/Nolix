@@ -5,10 +5,10 @@ package ch.nolix.core.net.websocket;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.requestapi.CompletenessRequestable;
 
 //class
@@ -24,7 +24,7 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   public WebSocketCompleteMessage(
       final BooleanSupplier isOpenFunction,
       final InputStream inputStream,
-      final IElementTaker<WebSocketFrame> controlFrameTaker) {
+      final Consumer<WebSocketFrame> controlFrameTaker) {
     while (isOpenFunction.getAsBoolean() && isIncomplete()) {
 
       final var frame = new WebSocketFrame(inputStream);
@@ -58,10 +58,10 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
   }
 
   // method
-  private void addFrame(final WebSocketFrame frame, final IElementTaker<WebSocketFrame> controlFrameTaker) {
+  private void addFrame(final WebSocketFrame frame, final Consumer<WebSocketFrame> controlFrameTaker) {
     switch (frame.getFrameType()) { // NOSONAR: A switch-statement allows to add probable additional cases.
       case CONTROL_FRAME:
-        controlFrameTaker.run(frame);
+        controlFrameTaker.accept(frame);
         break;
       case DATA_FRAME:
 

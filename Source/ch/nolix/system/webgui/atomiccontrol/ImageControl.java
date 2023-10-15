@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -11,7 +13,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.main.Control;
@@ -44,10 +45,10 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
       MutableImage::getSpecification);
 
   // optional attribute
-  private IElementTaker<IImageControl> leftMouseButtonPressAction;
+  private Consumer<IImageControl> leftMouseButtonPressAction;
 
   // optional attribute
-  private IElementTaker<IImageControl> leftMouseButtonReleaseAction;
+  private Consumer<IImageControl> leftMouseButtonReleaseAction;
 
   // method
   @Override
@@ -128,7 +129,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
     GlobalValidator.assertThat(htmlEvent).thatIsNamed("HTML event").isEqualTo("onclick");
 
     if (hasLeftMouseButtonPressAction()) {
-      leftMouseButtonPressAction.run(this);
+      leftMouseButtonPressAction.accept(this);
     }
   }
 
@@ -159,7 +160,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   // method
   @Override
-  public IImageControl setLeftMouseButtonPressAction(final IElementTaker<IImageControl> leftMouseButtonPressAction) {
+  public IImageControl setLeftMouseButtonPressAction(final Consumer<IImageControl> leftMouseButtonPressAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonPressAction)
@@ -186,7 +187,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   // method
   @Override
   public IImageControl setLeftMouseButtonRelaseAction(
-      final IElementTaker<IImageControl> leftMouseButtonReleaseAction) {
+      final Consumer<IImageControl> leftMouseButtonReleaseAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonReleaseAction)

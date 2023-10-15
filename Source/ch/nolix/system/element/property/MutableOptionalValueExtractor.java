@@ -2,6 +2,7 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 //own imports
@@ -10,7 +11,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
@@ -21,7 +21,7 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
   private final String name;
 
   // attribute
-  private final IElementTaker<V> setter;
+  private final Consumer<V> setter;
 
   // attribute
   private final BooleanSupplier valuePresenceChecker;
@@ -38,7 +38,7 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
   // constructor
   public MutableOptionalValueExtractor(
       final String name,
-      final IElementTaker<V> setter,
+      final Consumer<V> setter,
       final BooleanSupplier valuePresenceChecker,
       final Supplier<V> getter,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
@@ -70,7 +70,7 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
     if (attribute.hasHeader(getName())) {
-      setter.run(valueCreator.getOutput(attribute));
+      setter.accept(valueCreator.getOutput(attribute));
       return true;
     }
 

@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.template.webgui.dialog;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
@@ -36,7 +37,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   private static final String DEFAULT_CANCEL_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;
 
   // constant
-  private static final IElementTaker<String> DEFAULT_VALUE_TAKER = (String value) -> {
+  private static final Consumer<String> DEFAULT_VALUE_TAKER = (String value) -> {
   };
 
   // attribute
@@ -52,7 +53,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   private String confirmButtonText = DEFAULT_CONFIRM_BUTTON_TEXT;
 
   // attribute
-  private IElementTaker<String> valueTaker = DEFAULT_VALUE_TAKER;
+  private Consumer<String> valueTaker = DEFAULT_VALUE_TAKER;
 
   // method
   @Override
@@ -117,7 +118,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   // method
-  public EnterValueDialogBuilder setValueTaker(final IElementTaker<String> valueTaker) {
+  public EnterValueDialogBuilder setValueTaker(final Consumer<String> valueTaker) {
 
     this.valueTaker = valueTaker;
 
@@ -128,11 +129,11 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
   private void confirmNewValue(
       final IButton confirmButton,
       final ITextbox valueTextbox,
-      final IElementTaker<String> valueTaker) {
+      final Consumer<String> valueTaker) {
 
     final var newValue = valueTextbox.getText();
 
-    valueTaker.run(newValue);
+    valueTaker.accept(newValue);
 
     confirmButton.getStoredParentLayer().removeSelfFromGui();
   }

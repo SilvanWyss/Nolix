@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+import java.util.function.Consumer;
+
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -8,7 +10,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.property.OptionalValue;
@@ -74,7 +75,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   public static ItemMenuItem withIdAndTextAndSelectAction(
       final String id,
       final String text,
-      final IElementTaker<IItemMenuItem<?>> selectAction) {
+      final Consumer<IItemMenuItem<?>> selectAction) {
 
     final var item = new ItemMenuItem(selectAction);
     item.setId(id);
@@ -109,7 +110,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   // static method
   public static ItemMenuItem withTextAndSelectAction(
       final String text,
-      final IElementTaker<IItemMenuItem<?>> selectAction) {
+      final Consumer<IItemMenuItem<?>> selectAction) {
 
     final var item = new ItemMenuItem(selectAction);
     item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
@@ -144,7 +145,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   private IItemMenu<?, ?> parentMenu;
 
   // optional attribute
-  private final IElementTaker<IItemMenuItem<?>> selectAction;
+  private final Consumer<IItemMenuItem<?>> selectAction;
 
   // constructor
   private ItemMenuItem() {
@@ -152,7 +153,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   }
 
   // constructor
-  private ItemMenuItem(final IElementTaker<IItemMenuItem<?>> selectAction) {
+  private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
 
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 
@@ -226,7 +227,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   // method
   private void runOptionalSelectAction() {
     if (hasSelectAction()) {
-      selectAction.run(this);
+      selectAction.accept(this);
     }
   }
 

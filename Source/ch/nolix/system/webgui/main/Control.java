@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
+import java.util.function.Consumer;
+
 import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -12,7 +14,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.base.StylableElement;
@@ -146,9 +147,9 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
 
   // method
   @Override
-  public final C editStyle(final IElementTaker<CS> styleEditor) {
+  public final C editStyle(final Consumer<CS> styleEditor) {
 
-    styleEditor.run(getStoredStyle());
+    styleEditor.accept(getStoredStyle());
 
     return asConcrete();
   }

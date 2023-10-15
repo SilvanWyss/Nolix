@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Consumer;
+
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -10,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
@@ -32,7 +33,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given adderMethod is null.
    */
-  public static MultiValue<Integer> forInts(final String name, final IElementTaker<Integer> adderMethod) {
+  public static MultiValue<Integer> forInts(final String name, final Consumer<Integer> adderMethod) {
     return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
   }
 
@@ -46,12 +47,12 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given adderMethod is null.
    */
-  public static MultiValue<String> forStrings(final String name, final IElementTaker<String> adderMethod) {
+  public static MultiValue<String> forStrings(final String name, final Consumer<String> adderMethod) {
     return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
   }
 
   // attribute
-  private final IElementTaker<V> adderMethod;
+  private final Consumer<V> adderMethod;
 
   // multi-attribute
   private final LinkedList<V> values = new LinkedList<>();
@@ -73,7 +74,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    */
   public MultiValue(
       final String name,
-      final IElementTaker<V> adderMethod,
+      final Consumer<V> adderMethod,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
 
@@ -176,7 +177,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    */
   @Override
   protected void addOrChangeValue(final V value) {
-    adderMethod.run(value);
+    adderMethod.accept(value);
   }
 
   // method

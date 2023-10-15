@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
@@ -28,7 +29,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
-  public static MutableOptionalValue<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+  public static MutableOptionalValue<Boolean> forBoolean(final String name, final Consumer<Boolean> setterMethod) {
     return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
@@ -49,7 +50,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    */
   public static <E extends Specified> MutableOptionalValue<E> forElement(
       final String name,
-      final IElementTaker<E> setterMethod,
+      final Consumer<E> setterMethod,
       final IElementTakerElementGetter<INode<?>, E> valueCreator) {
     return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
   }
@@ -64,7 +65,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
-  public static MutableOptionalValue<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
+  public static MutableOptionalValue<Integer> forInt(final String name, final Consumer<Integer> setterMethod) {
     return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
@@ -78,7 +79,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
-  public static MutableOptionalValue<String> forString(final String name, final IElementTaker<String> setterMethod) {
+  public static MutableOptionalValue<String> forString(final String name, final Consumer<String> setterMethod) {
     return new MutableOptionalValue<>(
         name,
         setterMethod,
@@ -109,7 +110,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    */
   public MutableOptionalValue(
       final String name,
-      final IElementTaker<V> setterMethod,
+      final Consumer<V> setterMethod,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
 

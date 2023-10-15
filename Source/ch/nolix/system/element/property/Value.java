@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Consumer;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -27,7 +28,7 @@ public final class Value<V> extends SingleValue<V> {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
-  public static Value<Boolean> forBoolean(final String name, final IElementTaker<Boolean> setterMethod) {
+  public static Value<Boolean> forBoolean(final String name, final Consumer<Boolean> setterMethod) {
     return new Value<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
@@ -41,7 +42,7 @@ public final class Value<V> extends SingleValue<V> {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
-  public static Value<Integer> forInt(final String name, final IElementTaker<Integer> setterMethod) {
+  public static Value<Integer> forInt(final String name, final Consumer<Integer> setterMethod) {
     return new Value<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
@@ -55,7 +56,7 @@ public final class Value<V> extends SingleValue<V> {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
-  public static Value<String> forString(final String name, final IElementTaker<String> setterMethod) {
+  public static Value<String> forString(final String name, final Consumer<String> setterMethod) {
     return new Value<>(
         name,
         setterMethod,
@@ -96,7 +97,7 @@ public final class Value<V> extends SingleValue<V> {
    */
   public Value(
       final String name,
-      final IElementTaker<V> setterMethod,
+      final Consumer<V> setterMethod,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
 
