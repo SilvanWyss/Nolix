@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
+import java.util.function.BiConsumer;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -18,7 +19,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
           final String name,
           final Class<S2> stateClass,
-          final I2ElementTaker<S2, Double> setterMethod,
+          final BiConsumer<S2, Double> setterMethod,
           final double defaultValue) {
     return new NonCascadingProperty<>(
         name,
@@ -33,7 +34,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
       final String name,
       final Class<S2> stateClass,
-      final I2ElementTaker<S2, Integer> setterMethod) {
+      final BiConsumer<S2, Integer> setterMethod) {
     return new NonCascadingProperty<>(
         name,
         stateClass,
@@ -47,7 +48,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           final String name,
           final Class<S2> stateClass,
-          final I2ElementTaker<S2, Integer> setterMethod,
+          final BiConsumer<S2, Integer> setterMethod,
           final int defaultValue) {
     return new NonCascadingProperty<>(
         name,
@@ -94,7 +95,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       final Class<S> stateClass,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator,
-      final I2ElementTaker<S, V> setterMethod) {
+      final BiConsumer<S, V> setterMethod) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
@@ -107,7 +108,7 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
       final Class<S> stateClass,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator,
-      final I2ElementTaker<S, V> setterMethod,
+      final BiConsumer<S, V> setterMethod,
       final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);

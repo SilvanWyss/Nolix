@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
+import java.util.function.BiConsumer;
+
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
@@ -10,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
@@ -27,7 +28,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
 
   // optional attribute
-  private final I2ElementTaker<S, V> setterMethod;
+  private final BiConsumer<S, V> setterMethod;
 
   // multi-attribute
   protected final StateProperty<V>[] stateProperties;
@@ -60,7 +61,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
       final Class<S> stateClass,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator,
-      final I2ElementTaker<S, V> setterMethod) {
+      final BiConsumer<S, V> setterMethod) {
 
     super(name);
 
@@ -232,7 +233,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     if (setterMethod == null) {
       setValueForState(state, value);
     } else {
-      setterMethod.run(state, value);
+      setterMethod.accept(state, value);
     }
   }
 

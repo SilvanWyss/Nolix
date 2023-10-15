@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
+import java.util.function.BiConsumer;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -30,7 +31,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
       forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           final String name,
           final Class<S2> stateClass,
-          final I2ElementTaker<S2, Integer> setterMethod,
+          final BiConsumer<S2, Integer> setterMethod,
           final int defaultValue) {
     return new CascadingProperty<>(
         name,
@@ -68,7 +69,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
       final Class<S> stateClass,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator,
-      final I2ElementTaker<S, V> setterMethod,
+      final BiConsumer<S, V> setterMethod,
       final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
