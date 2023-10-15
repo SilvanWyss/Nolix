@@ -50,7 +50,7 @@ public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClien
 
   // method
   @Override
-  protected final void updateCounterpartActually() {
+  protected final void updateCounterpart() {
     getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());
   }
 }

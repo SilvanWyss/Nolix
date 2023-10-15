@@ -26,10 +26,10 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
   private BC parentClient;
 
   // attribute
-  private boolean isUpdatingCounterpart;
+  private boolean isRefreshing;
 
   // attribute
-  private boolean updateCounterpartIsRequired;
+  private boolean refreshIsRequired;
 
   // optional attribute
   private Object result;
@@ -139,6 +139,20 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
 
   // method
   /**
+   * Updates the counterpart of the {@link Client} of the current {@link Session}.
+   */
+  @Override
+  public final synchronized void refresh() {
+
+    setRefreshAsRequired();
+
+    if (!isRefreshing()) {
+      refreshAsLongAsRequired();
+    }
+  }
+
+  // method
+  /**
    * Sets the next session of the parent {@link Client} of the current
    * {@link Session}. That means the current {@link Session} will be popped from
    * its parent {@link Client} and the given session is pushed to the parent
@@ -149,32 +163,6 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
    */
   public final void setNext(final Session<BC, AC> session) {
     getStoredParentClient().internalSetCurrentSession(session);
-  }
-
-  // method
-  /**
-   * Updates the counterpart of the {@link Client} of the current {@link Session}.
-   */
-  @Override
-  public final synchronized void refresh() {
-
-    updateCounterpartIsRequired = true;
-
-    if (!isUpdatingCounterpart) {
-      try {
-
-        isUpdatingCounterpart = true;
-
-        while (updateCounterpartIsRequired && getStoredParentClient().isOpen()) {
-
-          updateCounterpartIsRequired = false;
-
-          updateCounterpartActually();
-        }
-      } finally {
-        isUpdatingCounterpart = false;
-      }
-    }
   }
 
   // method declaration
@@ -194,7 +182,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
    * Updates the counterpart of the {@link Client} of the current {@link Session}
    * actually.
    */
-  protected abstract void updateCounterpartActually();
+  protected abstract void updateCounterpart();
 
   // method
   final Object internalGetStoredResult() {
@@ -276,5 +264,73 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
    */
   private Application<BC, AC> getStoredParentApplication() {
     return getStoredParentClient().getStoredParentApplication();
+  }
+
+  // method
+  /**
+   * @return true if the current {@link Session} is refreshing.
+   */
+  private boolean isRefreshing() {
+    return isRefreshing;
+  }
+
+  // method
+  /**
+   * Refreshes the current {@link Session} as long as required.
+   */
+  private void refreshAsLongAsRequired() {
+    try {
+      setAsRefreshing();
+
+      while (refreshIsRequired()) {
+
+        setRefreshAsUnrequired();
+
+        updateCounterpart();
+      }
+    } finally {
+      setAsFinishedRefreshing();
+    }
+  }
+
+  // method
+  /**
+   * @return true if a refresh is required for the current {@link Session}.
+   */
+  private boolean refreshIsRequired() {
+    return (isAlive() && refreshIsRequired);
+  }
+
+  // method
+  /**
+   * Sets the current {@link Session} as finished refreshing.
+   */
+  private void setAsFinishedRefreshing() {
+    isRefreshing = false;
+
+  }
+
+  // method
+  /**
+   * Sets the current {@link Session} as refreshing.
+   */
+  private void setAsRefreshing() {
+    isRefreshing = true;
+  }
+
+  // method
+  /**
+   * Sets a refresh required for the current {@link Session}.
+   */
+  private void setRefreshAsRequired() {
+    refreshIsRequired = true;
+  }
+
+  // method
+  /**
+   * Sets a refresh as unrequired for the current {@link Session}.
+   */
+  private void setRefreshAsUnrequired() {
+    refreshIsRequired = false;
   }
 }

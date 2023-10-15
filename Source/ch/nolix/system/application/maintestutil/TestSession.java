@@ -41,7 +41,7 @@ public final class TestSession<BC extends BackendClient<BC, AC>, AC>
 
   // method
   @Override
-  protected void updateCounterpartActually() {
+  protected void updateCounterpart() {
     // Does nothing.
   }
 }
