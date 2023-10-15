@@ -2,8 +2,8 @@
 package ch.nolix.coreapi.containerapi.baseapi;
 
 import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
@@ -62,7 +62,7 @@ public interface IMappableContainer<E> {
    * @return a new array with the doubles the given doubleGetter returns from the
    *         elements of the current {@link IMappableContainer}.
    */
-  double[] toDoubleArray(IElementTakerDoubleGetter<E> doubleGetter);
+  double[] toDoubleArray(ToDoubleFunction<E> doubleGetter);
 
   // method declaration
   /**

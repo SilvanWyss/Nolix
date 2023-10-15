@@ -8,6 +8,7 @@ import java.math.MathContext;
 import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.ToDoubleFunction;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
@@ -24,7 +25,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
@@ -1301,7 +1301,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double[] toDoubleArray(final IElementTakerDoubleGetter<E> doubleNorm) {
+  public final double[] toDoubleArray(final ToDoubleFunction<E> doubleNorm) {
 
     // Creates array.
     final var array = new double[getElementCount()];
@@ -1309,7 +1309,7 @@ public abstract class Container<E> implements IContainer<E> {
     // Fills up the array.
     var i = 0;
     for (final var e : this) {
-      array[i] = doubleNorm.getOutput(e);
+      array[i] = doubleNorm.applyAsDouble(e);
       i++;
     }
 
