@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.main.Control;
@@ -67,7 +66,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
 
   // method
   @Override
-  public final IM addItemWithIdAndTextAndSelectAction(final String id, String text, final IAction selectAction) {
+  public final IM addItemWithIdAndTextAndSelectAction(final String id, String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
@@ -95,7 +94,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
 
   // method
   @Override
-  public final IM addItemWithTextAndSelectAction(final String text, final IAction selectAction) {
+  public final IM addItemWithTextAndSelectAction(final String text, final Runnable selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
@@ -246,7 +245,7 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
 
   // method
   @Override
-  public final IM setSelectAction(final IAction selectAction) {
+  public final IM setSelectAction(final Runnable selectAction) {
 
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
 

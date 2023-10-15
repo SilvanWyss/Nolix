@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
@@ -23,12 +22,12 @@ final class JobRunner extends Thread {
   private static final JobMerger JOB_MERGER = new JobMerger();
 
   // static method
-  public static JobRunner forJobs(final IContainer<IAction> jobs) {
+  public static JobRunner forJobs(final IContainer<Runnable> jobs) {
     return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
   }
 
   // attribute
-  private final IAction job;
+  private final Runnable job;
 
   // attribute
   private int finishedJobCount;
@@ -56,7 +55,7 @@ final class JobRunner extends Thread {
    * @param job
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public JobRunner(final IAction job) {
+  public JobRunner(final Runnable job) {
 
     // Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -79,7 +78,7 @@ final class JobRunner extends Thread {
    * @throws ArgumentIsNullException if the given job is null.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public JobRunner(final IAction job, final IBooleanGetter condition) {
+  public JobRunner(final Runnable job, final IBooleanGetter condition) {
 
     // Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -109,7 +108,7 @@ final class JobRunner extends Thread {
    *                                   negative.
    */
   public JobRunner(
-      final IAction job,
+      final Runnable job,
       final IBooleanGetter condition,
       final int timeIntervalInMilliseconds) {
     // Asserts that the given job is not null.
@@ -141,7 +140,7 @@ final class JobRunner extends Thread {
    * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
   public JobRunner(
-      final IAction job,
+      final Runnable job,
       final int maxRunCount) {
 
     // Asserts that the given job is not null.
@@ -171,7 +170,7 @@ final class JobRunner extends Thread {
    * @throws ArgumentIsNullException   if the given condition is null.
    */
   public JobRunner(
-      final IAction job,
+      final Runnable job,
       final int maxRunCount,
       final IBooleanGetter condition) {
 
@@ -209,7 +208,7 @@ final class JobRunner extends Thread {
    *                                   negative.
    */
   public JobRunner(
-      final IAction job,
+      final Runnable job,
       final int maxRunCount,
       final IBooleanGetter condition,
       final int timeIntervalInMilliseconds) {
@@ -247,7 +246,7 @@ final class JobRunner extends Thread {
    *                                   negative.
    */
   public JobRunner(
-      final IAction job,
+      final Runnable job,
       final int maxRunCount,
       final int timeIntervalInMilliseconds) {
 

@@ -4,7 +4,6 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.datamodelapi.entityrequestapi.MandatorynessRequestable;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
@@ -47,7 +46,7 @@ public interface IProperty extends EmptinessRequestable, IDatabaseObject, Mandat
   boolean referencesUninsertedEntity();
 
   // method declaration
-  void setUpdateAction(IAction updateAction);
+  void setUpdateAction(Runnable updateAction);
 
   // method declaration
   IContentFieldDto technicalToContentField();

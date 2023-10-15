@@ -4,7 +4,6 @@ package ch.nolix.template.webgui.dialog;
 //own imports
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
@@ -18,16 +17,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
 
   // constant
-  private static final IAction DEFAULT_JOB = FunctionCatalogue::doNothing;
+  private static final Runnable DEFAULT_JOB = FunctionCatalogue::doNothing;
 
   // constant
-  private static final IAction DEFAULT_TERMINAL_ACTION = FunctionCatalogue::doNothing;
+  private static final Runnable DEFAULT_TERMINAL_ACTION = FunctionCatalogue::doNothing;
 
   // attribute
-  private IAction job = DEFAULT_JOB;
+  private Runnable job = DEFAULT_JOB;
 
   // attribute
-  private IAction terminalAction = DEFAULT_TERMINAL_ACTION;
+  private Runnable terminalAction = DEFAULT_TERMINAL_ACTION;
 
   // method
   @Override
@@ -49,7 +48,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   // method
-  public WaitDialogBuilder setJob(final IAction job) {
+  public WaitDialogBuilder setJob(final Runnable job) {
 
     this.job = job;
 
@@ -57,7 +56,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   // method
-  public WaitDialogBuilder setTerminalAction(final IAction terminalAction) {
+  public WaitDialogBuilder setTerminalAction(final Runnable terminalAction) {
 
     this.terminalAction = terminalAction;
 
@@ -65,12 +64,12 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
   }
 
   // method
-  private IAction getJob() {
+  private Runnable getJob() {
     return job;
   }
 
   // method
-  private IAction getTerminalAction() {
+  private Runnable getTerminalAction() {
     return terminalAction;
   }
 }

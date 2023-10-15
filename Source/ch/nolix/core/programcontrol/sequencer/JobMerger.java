@@ -6,13 +6,12 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
 //class
 public final class JobMerger {
 
   // method
-  public IAction createMergedJobForJobs(IContainer<IAction> jobs) {
+  public Runnable createMergedJobForJobs(IContainer<Runnable> jobs) {
 
     GlobalValidator.assertThat(jobs).thatIsNamed(PluralLowerCaseCatalogue.JOBS).isNotNull();
 
@@ -20,7 +19,7 @@ public final class JobMerger {
   }
 
   // method
-  private void runJobs(IContainer<IAction> jobs) {
+  private void runJobs(IContainer<Runnable> jobs) {
     for (var i = 1; i <= jobs.getElementCount(); i++) {
       try {
         jobs.getStoredAt1BasedIndex(i).run();

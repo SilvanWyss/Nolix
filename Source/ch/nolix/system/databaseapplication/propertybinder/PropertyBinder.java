@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -32,7 +30,7 @@ public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, 
   protected abstract W createControl();
 
   // method declaration
-  protected abstract void setNoteUpdateActionToControl(W control, IAction noteUpdateAction);
+  protected abstract void setNoteUpdateActionToControl(W control, Runnable noteUpdateAction);
 
   // method declaration
   protected abstract void updatePropertyFromControl(P property, W control);

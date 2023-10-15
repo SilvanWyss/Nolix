@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
@@ -24,7 +22,7 @@ public final class ValueBinder extends PropertyBinder<IValue<?>, ITextbox> {
 
   // method
   @Override
-  protected void setNoteUpdateActionToControl(final ITextbox textBox, final IAction noteUpdateAction) {
+  protected void setNoteUpdateActionToControl(final ITextbox textBox, final Runnable noteUpdateAction) {
     textBox.setUpdateTextAction(noteUpdateAction);
   }
 

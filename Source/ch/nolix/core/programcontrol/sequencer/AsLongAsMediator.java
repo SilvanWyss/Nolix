@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.time.TimeUnitCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
@@ -73,7 +72,7 @@ public final class AsLongAsMediator {
    * 
    * @param job
    */
-  public void run(final IAction job) {
+  public void run(final Runnable job) {
 
     // Handles the case that this as long as mediator does not have a max run count.
     if (!hasMaxRunCount()) {
@@ -101,7 +100,7 @@ public final class AsLongAsMediator {
    * @return a new future.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public Future runInBackground(final IAction job) {
+  public Future runInBackground(final Runnable job) {
 
     // Handles the case that this as long as mediator does not have a max run count.
     if (!hasMaxRunCount()) {

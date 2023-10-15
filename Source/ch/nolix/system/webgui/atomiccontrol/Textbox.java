@@ -12,7 +12,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
@@ -158,7 +157,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   // method
   @Override
-  public Textbox setUpdateTextAction(final IAction updateTextAction) {
+  public Textbox setUpdateTextAction(final Runnable updateTextAction) {
 
     GlobalValidator.assertThat(updateTextAction).thatIsNamed("update text action").isNotNull();
 

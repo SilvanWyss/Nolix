@@ -11,7 +11,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -148,7 +147,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   // method
   @Override
-  public IImageControl setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
+  public IImageControl setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonPressAction)
@@ -174,7 +173,7 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   // method
   @Override
-  public IImageControl setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
+  public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonReleaseAction)

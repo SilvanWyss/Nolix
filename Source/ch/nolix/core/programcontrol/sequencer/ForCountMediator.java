@@ -4,7 +4,6 @@ package ch.nolix.core.programcontrol.sequencer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTaker;
 
 //class
@@ -41,7 +40,7 @@ public final class ForCountMediator {
    * 
    * @param job
    */
-  public void run(final IAction job) {
+  public void run(final Runnable job) {
     for (var i = 1; i <= maxRunCount; i++) {
       job.run();
     }
@@ -66,7 +65,7 @@ public final class ForCountMediator {
    * @param job
    * @return a new future.
    */
-  public Future runInBackground(final IAction job) {
+  public Future runInBackground(final Runnable job) {
     return new Future(new JobRunner(job, maxRunCount));
   }
 }

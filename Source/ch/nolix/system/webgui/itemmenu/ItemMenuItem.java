@@ -8,7 +8,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableValue;
@@ -62,7 +61,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   public static ItemMenuItem withIdAndTextAndSelectAction(
       final String id,
       final String text,
-      final IAction selectAction) {
+      final Runnable selectAction) {
 
     final var item = new ItemMenuItem(i -> selectAction.run());
     item.setId(id);
@@ -98,7 +97,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   // static method
   public static ItemMenuItem withTextAndSelectAction(
       final String text,
-      final IAction selectAction) {
+      final Runnable selectAction) {
 
     final var item = new ItemMenuItem(i -> selectAction.run());
     item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());

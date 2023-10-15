@@ -6,7 +6,6 @@ import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.exception.ResourceWasChangedInTheMeanwhileException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
@@ -26,7 +25,7 @@ public final class EntityOnDatabaseTest extends Test {
       initialize();
     }
 
-    public void setInsertAction_(final IAction insertAction) {
+    public void setInsertAction_(final Runnable insertAction) {
       setInsertAction(insertAction);
     }
   }

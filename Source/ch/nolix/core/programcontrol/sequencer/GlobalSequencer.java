@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
@@ -69,7 +68,7 @@ public final class GlobalSequencer {
    * @return a {@link IFuture} for the given job.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public static IFuture enqueue(final IAction job) {
+  public static IFuture enqueue(final Runnable job) {
     return JOB_POOL.enqueue(job);
   }
 
@@ -115,7 +114,7 @@ public final class GlobalSequencer {
    * @return a new {@link Future}.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public static Future runInBackground(final IAction job) {
+  public static Future runInBackground(final Runnable job) {
     return new Future(new JobRunner(job, 1));
   }
 
@@ -127,7 +126,7 @@ public final class GlobalSequencer {
    * @param jobs
    * @return a new {@link IFuture} for the running of the given jobs.
    */
-  public static IFuture runInBackgroundAndOrder(final IAction job, final IAction... jobs) {
+  public static IFuture runInBackgroundAndOrder(final Runnable job, final Runnable... jobs) {
     return new Future(JobRunner.forJobs(ReadContainer.forElement(job, jobs)));
   }
 

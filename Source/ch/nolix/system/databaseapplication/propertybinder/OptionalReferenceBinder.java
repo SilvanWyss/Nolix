@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
@@ -35,7 +33,7 @@ public final class OptionalReferenceBinder
   @Override
   protected void setNoteUpdateActionToControl(
       final IDropdownMenu dropdownMenu,
-      final IAction noteUpdateAction) {
+      final Runnable noteUpdateAction) {
     dropdownMenu.setSelectAction(noteUpdateAction);
   }
 

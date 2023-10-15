@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.MultiDoubleMediator;
 import ch.nolix.core.errorcontrol.validator.MultiLongMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.BaseTest;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 
 //class
 /**
@@ -222,7 +221,7 @@ public abstract class Test extends BaseTest {
    * @return a new closure mediator that belongs to this test and is for the given
    *         closure.
    */
-  protected final ClosureMediator expectRunning(final IAction closure) {
+  protected final ClosureMediator expectRunning(final Runnable closure) {
     return new ClosureMediator(this::addExpectationError, closure);
   }
 

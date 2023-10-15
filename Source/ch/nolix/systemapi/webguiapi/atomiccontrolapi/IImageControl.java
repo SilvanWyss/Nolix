@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
@@ -31,13 +29,13 @@ public interface IImageControl extends Clearable, IControl<IImageControl, IImage
   IImageControl setImage(IImage image);
 
   // method declaration
-  IImageControl setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
+  IImageControl setLeftMouseButtonPressAction(Runnable leftMouseButtonPressAction);
 
   // method declaration
   IImageControl setLeftMouseButtonPressAction(IElementTaker<IImageControl> leftMouseButtonPressAction);
 
   // method declaration
-  IImageControl setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
+  IImageControl setLeftMouseButtonRelaseAction(Runnable leftMouseButtonReleaseAction);
 
   // method declaration
   IImageControl setLeftMouseButtonRelaseAction(IElementTaker<IImageControl> leftMouseButtonReleaseAction);

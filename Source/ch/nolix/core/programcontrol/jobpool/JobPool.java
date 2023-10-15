@@ -6,7 +6,6 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
@@ -36,7 +35,7 @@ public final class JobPool {
    * @return a {@link IFuture} for the given job.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public IFuture enqueue(final IAction job) {
+  public IFuture enqueue(final Runnable job) {
 
     final var jobWrapper = new JobWrapper(job);
     jobWrappers.addAtEnd(jobWrapper);

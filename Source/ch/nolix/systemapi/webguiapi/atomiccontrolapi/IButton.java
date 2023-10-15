@@ -3,7 +3,6 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
 //own imports
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTextHolder;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
@@ -32,13 +31,13 @@ public interface IButton extends IControl<IButton, IButtonStyle>, IFluentMutable
   void removeRole();
 
   // method declaration
-  IButton setLeftMouseButtonPressAction(IAction leftMouseButtonPressAction);
+  IButton setLeftMouseButtonPressAction(Runnable leftMouseButtonPressAction);
 
   // method declaration
   IButton setLeftMouseButtonPressAction(IElementTaker<IButton> leftMouseButtonPressAction);
 
   // method declaration
-  IButton setLeftMouseButtonRelaseAction(IAction leftMouseButtonReleaseAction);
+  IButton setLeftMouseButtonRelaseAction(Runnable leftMouseButtonReleaseAction);
 
   // method declaration
   IButton setLeftMouseButtonRelaseAction(IElementTaker<IButton> leftMouseButtonReleaseAction);

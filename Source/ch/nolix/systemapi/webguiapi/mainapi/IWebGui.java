@@ -3,7 +3,6 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
@@ -53,5 +52,5 @@ public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>,
   WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
 
   // method declaration
-  WG setRemoveLayerAction(IAction removeLayerAction);
+  WG setRemoveLayerAction(Runnable removeLayerAction);
 }

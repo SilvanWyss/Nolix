@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelHelper;
@@ -26,7 +24,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
   @Override
   public void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
       final IControl<?, ?> control,
-      final IAction action) {
+      final Runnable action) {
     try {
       action.run();
       clearNearestValidationLabelOfControl(control);

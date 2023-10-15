@@ -4,7 +4,6 @@ package ch.nolix.core.programcontrol.sequencer;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
@@ -55,7 +54,7 @@ public final class SequencerMediator {
    * @return a {@link IFuture} for the given job.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public IFuture enqueue(final IAction job) {
+  public IFuture enqueue(final Runnable job) {
     return GlobalSequencer.enqueue(job);
   }
 
@@ -101,7 +100,7 @@ public final class SequencerMediator {
    * @return a new {@link Future}.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public Future runInBackground(final IAction job) {
+  public Future runInBackground(final Runnable job) {
     return GlobalSequencer.runInBackground(job);
   }
 

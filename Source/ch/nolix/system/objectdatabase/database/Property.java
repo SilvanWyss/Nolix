@@ -6,7 +6,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.reflection.GlobalReflectionHelper;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.system.objectdatabase.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyflyweight.VoidPropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;
@@ -124,7 +123,7 @@ public abstract class Property implements IProperty {
 
   // method
   @Override
-  public final void setUpdateAction(final IAction updateAction) {
+  public final void setUpdateAction(final Runnable updateAction) {
 
     setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid();
 

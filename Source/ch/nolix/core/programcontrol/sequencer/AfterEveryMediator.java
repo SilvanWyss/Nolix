@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
@@ -82,7 +81,7 @@ public final class AfterEveryMediator {
    * 
    * @param job
    */
-  public void run(final IAction job) {
+  public void run(final Runnable job) {
 
     // Handles the case that the current AfterAllMediator does not have a max run
     // count.
@@ -103,7 +102,7 @@ public final class AfterEveryMediator {
    * @return a new {@link Future}.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  public Future runInBackground(final IAction job) {
+  public Future runInBackground(final Runnable job) {
 
     // Handles the case that the current AfterAllMediator does not have a max count.
     if (!hasMaxRunCount()) {
@@ -152,7 +151,7 @@ public final class AfterEveryMediator {
    * @return a new {@link Future}.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final IAction job) {
+  private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable job) {
 
     // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
@@ -172,7 +171,7 @@ public final class AfterEveryMediator {
    * @return a new {@link Future}.
    * @throws ArgumentIsNullException if the given job is null.
    */
-  private Future runInBackgroundWhenHasMaxRunConunt(final IAction job) {
+  private Future runInBackgroundWhenHasMaxRunConunt(final Runnable job) {
 
     // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
@@ -193,7 +192,7 @@ public final class AfterEveryMediator {
    *                                               {@link AfterEveryMediator} does
    *                                               not have condition.
    */
-  private void runWhenDoesNotHaveMaxRunCount(IAction job) {
+  private void runWhenDoesNotHaveMaxRunCount(final Runnable job) {
 
     assertHasCondition();
 
@@ -210,7 +209,7 @@ public final class AfterEveryMediator {
    * 
    * @param job
    */
-  private void runWhenHasMaxRunCount(IAction job) {
+  private void runWhenHasMaxRunCount(final Runnable job) {
 
     // Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {

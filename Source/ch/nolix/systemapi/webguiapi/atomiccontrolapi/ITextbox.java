@@ -2,7 +2,6 @@
 package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTextHolder;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -23,7 +22,7 @@ public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, IFluentMuta
   ITextbox setTextMode(TextMode textMode);
 
   // method declaration
-  ITextbox setUpdateTextAction(IAction updateTextAction);
+  ITextbox setUpdateTextAction(Runnable updateTextAction);
 
   // method declaration
   ITextbox setUpdateTextAction(IElementTaker<String> updateTextAction);

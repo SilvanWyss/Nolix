@@ -3,7 +3,6 @@ package ch.nolix.system.objectdatabase.propertyflyweight;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWeight;
 
 //class
@@ -23,7 +22,7 @@ public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 
   // method
   @Override
-  public void setUpdateAction(final IAction updateAction) {
+  public void setUpdateAction(final Runnable updateAction) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUpdateAction");
   }
 }

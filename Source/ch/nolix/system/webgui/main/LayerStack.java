@@ -6,7 +6,6 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayerStack;
@@ -24,7 +23,7 @@ public final class LayerStack implements ILayerStack {
   private final IWebGui<?> parentGui;
 
   // optional attribute
-  private IAction removeLayerAction;
+  private Runnable removeLayerAction;
 
   // multi-atribute
   private final ILinkedList<ILayer<?>> layers = new LinkedList<>();
@@ -119,7 +118,7 @@ public final class LayerStack implements ILayerStack {
 
   // mehod
   @Override
-  public ILayerStack setRemoveLayerAction(IAction removeLayerAction) {
+  public ILayerStack setRemoveLayerAction(Runnable removeLayerAction) {
 
     GlobalValidator.assertThat(removeLayerAction).thatIsNamed("remove layer action").isNotNull();
 

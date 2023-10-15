@@ -7,8 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
-import ch.nolix.coreapi.functionapi.mutationapi.Runnable;
 
 //class
 final class JobWrapper implements Runnable {
@@ -20,13 +18,13 @@ final class JobWrapper implements Runnable {
   private boolean running;
 
   // attribute
-  private final IAction job;
+  private final Runnable job;
 
   // optional attribute
   private Throwable error;
 
   // constructor
-  public JobWrapper(final IAction job) {
+  public JobWrapper(final Runnable job) {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 

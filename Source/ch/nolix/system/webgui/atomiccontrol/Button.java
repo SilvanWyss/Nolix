@@ -13,7 +13,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
@@ -191,7 +190,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   // method
   @Override
-  public IButton setLeftMouseButtonPressAction(final IAction leftMouseButtonPressAction) {
+  public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonPressAction)
@@ -217,7 +216,7 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   // method
   @Override
-  public IButton setLeftMouseButtonRelaseAction(final IAction leftMouseButtonReleaseAction) {
+  public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
 
     GlobalValidator
         .assertThat(leftMouseButtonReleaseAction)

@@ -3,7 +3,6 @@ package ch.nolix.core.testing.test;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 
 //class
@@ -16,7 +15,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 public final class ClosureMediator extends Mediator {
 
   // attribute
-  private final IAction closure;
+  private final Runnable closure;
 
   // constructor
   /**
@@ -28,7 +27,7 @@ public final class ClosureMediator extends Mediator {
    * @throws ArgumentIsNullException if the given test is null.
    * @throws ArgumentIsNullException if the given closure is null.
    */
-  public ClosureMediator(final IElementTaker<String> expectationErrorTaker, final IAction closure) {
+  public ClosureMediator(final IElementTaker<String> expectationErrorTaker, final Runnable closure) {
 
     // Calls constructor of the base class.
     super(expectationErrorTaker);

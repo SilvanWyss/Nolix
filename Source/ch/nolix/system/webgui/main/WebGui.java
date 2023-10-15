@@ -10,7 +10,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IAction;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.element.property.MultiValueExtractor;
@@ -360,7 +359,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 
   // method
   @Override
-  public WebGui setRemoveLayerAction(IAction removeLayerAction) {
+  public WebGui setRemoveLayerAction(Runnable removeLayerAction) {
 
     layerStack.setRemoveLayerAction(removeLayerAction);
 
