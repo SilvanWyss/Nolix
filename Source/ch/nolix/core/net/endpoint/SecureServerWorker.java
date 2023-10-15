@@ -1,6 +1,12 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+//own imports
+import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programcontrol.worker.Worker;
+import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 //Netty imports
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelOption;
@@ -9,18 +15,12 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
-//own imports
-import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programcontrol.worker.Worker;
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
-
 //class
 final class SecureServerWorker extends Worker {
 
   // constant
-  private static final SecureServerSSLContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = new SecureServerSSLContextCreator();
+  private static final SecureServerSSLContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
+      new SecureServerSSLContextCreator();
 
   // attribute
   private final SecureServer parentWebSocketServer;

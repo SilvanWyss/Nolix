@@ -12,7 +12,9 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class MsSqlDataAdapterBuilder
     extends
-    AndPortCapturer<ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCapturer<AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>> {
+    AndPortCapturer<//
+        ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCapturer<AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>//
+> {
 
   // constant
   public static final int DEFAULT_PORT = PortCatalogue.MSSQL;

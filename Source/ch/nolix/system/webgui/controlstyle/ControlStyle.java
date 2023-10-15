@@ -91,7 +91,8 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
   private static final String PADDING_HEADER = "Padding";
 
   // constant
-  private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = new AbsoluteOrRelativeIntValidator();
+  private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
+      new AbsoluteOrRelativeIntValidator();
 
   // attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = new NonCascadingProperty<>(

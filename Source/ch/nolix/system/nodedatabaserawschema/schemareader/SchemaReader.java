@@ -26,7 +26,8 @@ public final class SchemaReader implements ISchemaReader {
   private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   // constant
-  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = new DatabasePropertiesNodeSearcher();
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+      new DatabasePropertiesNodeSearcher();
 
   // constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();

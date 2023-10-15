@@ -10,7 +10,8 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 public final class SecureServer extends BaseServer {
 
   // constant
-  private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = new NolixConfigurationSSLCertificateReader();
+  private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
+      new NolixConfigurationSSLCertificateReader();
 
   // static method
   public SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(

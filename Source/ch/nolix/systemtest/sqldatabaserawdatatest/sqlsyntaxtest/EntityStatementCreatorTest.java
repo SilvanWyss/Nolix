@@ -42,8 +42,11 @@ public final class EntityStatementCreatorTest extends Test {
     final var result = testUnit.createStatementToExpectTableContainsEntity("MyTable", "my_id");
 
     // verification
-    final var expectedResult = "SELECT Id FROM EMyTable WHERE Id = 'my_id'; "
-        + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The database does not contain a MyTable with the id my_id.', 0) END;";
+    final var expectedResult = //
+        "SELECT Id FROM EMyTable WHERE Id = 'my_id'; "
+            + "IF @@RowCount = 0 BEGIN "
+            + "THROW error(100000, 'The database does not contain a MyTable with the id my_id.', 0)"
+            + " END;";
     expect(result).isEqualTo(expectedResult);
   }
 

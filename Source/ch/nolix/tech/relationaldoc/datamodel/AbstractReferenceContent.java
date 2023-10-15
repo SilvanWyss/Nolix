@@ -21,7 +21,8 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
   private static final AbstractableFieldEvaluator ABSTRACTABLE_FIELD_EVALUATOR = new AbstractableFieldEvaluator();
 
   // constant
-  private static final AbstractReferenceContentValidator ABSTRACT_REFERENCE_CONTENT_VALIDATOR = new AbstractReferenceContentValidator();
+  private static final AbstractReferenceContentValidator ABSTRACT_REFERENCE_CONTENT_VALIDATOR = //
+      new AbstractReferenceContentValidator();
 
   // attribute
   private final BackReference<AbstractableField> parentField = BackReference

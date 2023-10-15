@@ -66,7 +66,8 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
   private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 
   // constant
-  private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = new AbsoluteOrRelativeIntValidator();
+  private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
+      new AbsoluteOrRelativeIntValidator();
 
   // attribute
   // An id works correctly for CSS only when it begins with a letter.

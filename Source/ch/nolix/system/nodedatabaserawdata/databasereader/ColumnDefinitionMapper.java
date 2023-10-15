@@ -17,7 +17,8 @@ public final class ColumnDefinitionMapper {
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
   // constant
-  private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = new ParameterizedPropertyTypeNodeSearcher();
+  private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
+      new ParameterizedPropertyTypeNodeSearcher();
 
   // method
   public IColumnInfo createColumnDefinitionFromColumnNode(

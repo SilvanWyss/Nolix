@@ -17,7 +17,8 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 public final class ConcreteReferenceContent extends ReferenceContent implements IConcreteReferenceContent {
 
   // constant
-  private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = new ConcreteReferenceContentValidator();
+  private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = //
+      new ConcreteReferenceContentValidator();
 
   // attribute
   private final BackReference<AbstractableField> parentField = BackReference

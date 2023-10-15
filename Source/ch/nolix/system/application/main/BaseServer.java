@@ -106,10 +106,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR addApplicationWithNameAndInitialSessionClassAndContext(
-      final String applicationName,
-      final Class<S> initialSessionClass,
-      final AC applicationContext) {
+  public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR//
+      addApplicationWithNameAndInitialSessionClassAndContext(
+          final String applicationName,
+          final Class<S> initialSessionClass,
+          final AC applicationContext) {
 
     // Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -139,9 +140,10 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    *                                  instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR addApplicationWithNameAndInitialSessionClassAndVoidContext(
-      final String name,
-      final Class<S> initialSessionClass) {
+  public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR //
+      addApplicationWithNameAndInitialSessionClassAndVoidContext(
+          final String name,
+          final Class<S> initialSessionClass) {
 
     // Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -201,10 +203,11 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    *                                  instanceName.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-      final String applicationName,
-      final Class<S> initialSessionClass,
-      final AC applicationContext) {
+  public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR //
+      addDefaultApplicationWithNameAndInitialSessionClassAndContext(
+          final String applicationName,
+          final Class<S> initialSessionClass,
+          final AC applicationContext) {
 
     // Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
@@ -234,9 +237,10 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    *                                  instanceName that equals the given name.
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
-  public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-      final String name,
-      final Class<S> initialSessionClass) {
+  public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR//
+      addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+          final String name,
+          final Class<S> initialSessionClass) {
 
     // Creates a default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(

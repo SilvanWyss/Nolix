@@ -29,7 +29,8 @@ public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
   private static final IMultiReferenceQueryCreator MULTI_REFERENCE_QUERY_CREATOR = new MultiReferenceQueryCreator();
 
   // constant
-  private static final IMultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR = new MultiReferenceStatementCreator();
+  private static final IMultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR = //
+      new MultiReferenceStatementCreator();
 
   // method
   @Override

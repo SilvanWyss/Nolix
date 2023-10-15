@@ -25,7 +25,8 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
   public static final int APPLICATION_LOGO_IMAGE_HEIGHT = 200;
 
   // constant
-  private static final String DEFAULT_APPLICATION_LOGO_RESOURCE_PATH = "ch/nolix/tech/serverdashboardapplication/resource/default_application_logo.jpg";
+  private static final String DEFAULT_APPLICATION_LOGO_RESOURCE_PATH = //
+      "ch/nolix/tech/serverdashboardapplication/resource/default_application_logo.jpg";
 
   // constant
   public static final IImage DEFAULT_APPLICATION_LOGO = MutableImage

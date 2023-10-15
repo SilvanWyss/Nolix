@@ -31,8 +31,9 @@ public final class FractalBuilder implements IFractalBuilder {
   public static final int DEFAULT_HEIGHT_IN_PIXEL = DEFAULT_WIDHT_IN_PIXEL;
 
   // constant
-  public static final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = z -> new ComplexSequenceDefinedBy1Predecessor(
-      z, p -> p.getPower2().getSum(z));
+  public static final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = //
+      z -> new ComplexSequenceDefinedBy1Predecessor(
+          z, p -> p.getPower2().getSum(z));
 
   // constant
   public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 10.0;
@@ -60,7 +61,8 @@ public final class FractalBuilder implements IFractalBuilder {
   private int heightInPixel = DEFAULT_HEIGHT_IN_PIXEL;
 
   // attribute
-  private IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator = DEFAULT_SEQUENCE_CREATOR;
+  private IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator = //
+      DEFAULT_SEQUENCE_CREATOR;
 
   // attribute
   private BigDecimal sequencesMinDivergenceMagnitude = BigDecimal.valueOf(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);

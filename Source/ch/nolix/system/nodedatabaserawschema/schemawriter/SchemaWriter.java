@@ -25,7 +25,8 @@ public final class SchemaWriter implements ISchemaWriter {
   private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
   // constant
-  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = new DatabasePropertiesNodeSearcher();
+  private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
+      new DatabasePropertiesNodeSearcher();
 
   // constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
@@ -40,7 +41,8 @@ public final class SchemaWriter implements ISchemaWriter {
   private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
 
   // constant
-  private static final ParameterizedPropertyTypeNodeMapper parameterizedPropertyTypeNodeMapper = new ParameterizedPropertyTypeNodeMapper();
+  private static final ParameterizedPropertyTypeNodeMapper parameterizedPropertyTypeNodeMapper = //
+      new ParameterizedPropertyTypeNodeMapper();
 
   // attribute
   private final CloseController closeController = CloseController.forElement(this);

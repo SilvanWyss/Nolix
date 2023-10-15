@@ -26,11 +26,12 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
   }
 
   // static method
-  public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-      final String name,
-      final Class<S2> stateClass,
-      final I2ElementTaker<S2, Integer> setterMethod,
-      final int defaultValue) {
+  public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
+      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+          final String name,
+          final Class<S2> stateClass,
+          final I2ElementTaker<S2, Integer> setterMethod,
+          final int defaultValue) {
     return new CascadingProperty<>(
         name,
         stateClass,

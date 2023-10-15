@@ -12,7 +12,8 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 public final class ConcreteReferenceContentValidator {
 
   // constant
-  private static final ConcreteReferenceContentEvaluator CONCRETE_REFERENCE_CONTENT_EVALUATOR = new ConcreteReferenceContentEvaluator();
+  private static final ConcreteReferenceContentEvaluator CONCRETE_REFERENCE_CONTENT_EVALUATOR = //
+      new ConcreteReferenceContentEvaluator();
 
   public void assertCanAddObject(ConcreteReferenceContent concreteReferenceContent, IAbstractableObject object) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canAddObject(concreteReferenceContent, object)) {

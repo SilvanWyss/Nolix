@@ -10,7 +10,9 @@ import ch.nolix.core.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
 //class
 public final class SqlConnectionPoolBuilder
     extends
-    AndPortCapturer<AndDatabaseNameCapturer<WithSqlDatabaseEngineCapturer<UsingLoginNameCapturer<AndLoginPasswordCapturer<SqlConnectionPool>>>>> {
+    AndPortCapturer<AndDatabaseNameCapturer<WithSqlDatabaseEngineCapturer<//
+        UsingLoginNameCapturer<AndLoginPasswordCapturer<SqlConnectionPool>>>>//
+> {
 
   // constructor
   public SqlConnectionPoolBuilder(final String ipOrDomain, final int defaultPort) {

@@ -10,7 +10,8 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 public final class ColumnNodeMapper {
 
   // constant
-  private static final ParameterizedPropertyTypeNodeMapper PARAMETERIZED_PROPERTY_TYPE_NODE_MAPPER = new ParameterizedPropertyTypeNodeMapper();
+  private static final ParameterizedPropertyTypeNodeMapper PARAMETERIZED_PROPERTY_TYPE_NODE_MAPPER = //
+      new ParameterizedPropertyTypeNodeMapper();
 
   // method
   public Node createColumnNodeFrom(final IColumnDto column) {

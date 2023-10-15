@@ -19,7 +19,8 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IValueContent;
 public final class ConcreteValueContent extends ValueContent implements IConcreteValueContent {
 
   // constant
-  private static final ConcreteValueContentValidator CONCRETE_VALUE_CONTENT_VALIDATOR = new ConcreteValueContentValidator();
+  private static final ConcreteValueContentValidator CONCRETE_VALUE_CONTENT_VALIDATOR = //
+      new ConcreteValueContentValidator();
 
   // attribute
   private final BackReference<AbstractableField> parentField = BackReference

@@ -16,7 +16,8 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 public class ParameterizedPropertyTypeDtoMapper {
 
   // constant
-  private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = new ParameterizedPropertyTypeNodeSearcher();
+  private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
+      new ParameterizedPropertyTypeNodeSearcher();
 
   // method
   public ParameterizedPropertyTypeDto createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(

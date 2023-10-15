@@ -14,7 +14,9 @@ import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 
 //class
-abstract class OptionalIdentifiableMultiTokenableElement<E extends FluentOptionalIdentifiable<E> & FluentMultiTokenable<E>>
+abstract class OptionalIdentifiableMultiTokenableElement< //
+    E extends FluentOptionalIdentifiable<E> & FluentMultiTokenable<E> //
+>
     extends MutableElement
     implements FluentOptionalIdentifiable<E>, FluentMultiTokenable<E> {
 

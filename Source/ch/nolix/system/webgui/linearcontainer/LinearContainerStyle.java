@@ -10,7 +10,9 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class LinearContainerStyle<LCS extends ILinearContainerStyle<LCS> & IMultiStateConfiguration<LCS, ControlState>>
+public abstract class LinearContainerStyle< //
+    LCS extends ILinearContainerStyle<LCS> & IMultiStateConfiguration<LCS, ControlState> //
+>
     extends ControlStyle<LCS>
     implements ILinearContainerStyle<LCS> {
 

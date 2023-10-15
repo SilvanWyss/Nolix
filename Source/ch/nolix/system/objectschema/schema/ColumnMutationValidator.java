@@ -29,7 +29,8 @@ final class ColumnMutationValidator {
   private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 
   // constant
-  private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = new ParameterizedPropertyTypeHelper();
+  private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = //
+      new ParameterizedPropertyTypeHelper();
 
   // method
   public void assertCanDeleteColumn(final Column column) {

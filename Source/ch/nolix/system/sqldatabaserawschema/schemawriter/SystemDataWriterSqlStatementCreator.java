@@ -19,7 +19,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriterSqlStatementCreator {
 
   // constant
-  private static final ParameterizedPropertyTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = new ParameterizedPropertyTypeSqlRecordMapper();
+  private static final ParameterizedPropertyTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = //
+      new ParameterizedPropertyTypeSqlRecordMapper();
 
   // constant
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();

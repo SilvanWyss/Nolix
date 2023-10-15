@@ -15,10 +15,11 @@ public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
   private final Class<?> initialSessionClass;
 
   // static method
-  public static <BC2 extends BackendClient<BC2, AC2>, S extends Session<BC2, AC2>, AC2> BasicApplication<BC2, AC2> withNameAndInitialSessionClassAndContext(
-      final String applicationName,
-      final Class<S> initialSessionClass,
-      final AC2 applicationContext) {
+  public static <BC2 extends BackendClient<BC2, AC2>, S extends Session<BC2, AC2>, AC2> BasicApplication<BC2, AC2> //
+      withNameAndInitialSessionClassAndContext(
+          final String applicationName,
+          final Class<S> initialSessionClass,
+          final AC2 applicationContext) {
     return new BasicApplication<>(applicationName, initialSessionClass, applicationContext);
   }
 

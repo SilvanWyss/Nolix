@@ -14,7 +14,8 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 final class SystemDataWriter implements ChangeRequestable {
 
   // constant
-  private static final SystemDataWriterSqlStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = new SystemDataWriterSqlStatementCreator();
+  private static final SystemDataWriterSqlStatementCreator SYSTEM_DATA_WRITER_SQL_STATEMENT_CREATOR = //
+      new SystemDataWriterSqlStatementCreator();
 
   // attribute
   private final SqlCollector sqlCollector;

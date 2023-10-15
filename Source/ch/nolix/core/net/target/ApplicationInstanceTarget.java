@@ -10,12 +10,13 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 
   // static method
-  public static ApplicationInstanceTarget forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-      final String ipOrDomain,
-      final int port,
-      final String applicationInstanceName,
-      final String applicationUrlInstanceName,
-      final SecurityLevel securityLevelForConnections) {
+  public static ApplicationInstanceTarget//
+      forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+          final String ipOrDomain,
+          final int port,
+          final String applicationInstanceName,
+          final String applicationUrlInstanceName,
+          final SecurityLevel securityLevelForConnections) {
     return new ApplicationInstanceTarget(
         ipOrDomain,
         port,

@@ -20,7 +20,8 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
   public static final DataType DEFAULT_DATA_TYPE = DataType.TEXT;
 
   // constant
-  private static final AbstractValueContentValidator ABSTRACT_VALUE_CONTENT_VALIDATOR = new AbstractValueContentValidator();
+  private static final AbstractValueContentValidator ABSTRACT_VALUE_CONTENT_VALIDATOR = //
+      new AbstractValueContentValidator();
 
   // attribute
   private final BackReference<AbstractableField> parentField = BackReference

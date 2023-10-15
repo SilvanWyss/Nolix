@@ -18,7 +18,8 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedProperty
 public final class ColumnHelper extends DatabaseObjectHelper implements IColumnHelper {
 
   // constant
-  private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = new ParameterizedPropertyTypeHelper();
+  private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = //
+      new ParameterizedPropertyTypeHelper();
 
   // method
   @Override

@@ -178,7 +178,8 @@ public abstract class ContainerTest extends Test {
 
   // method
   @TestCase
-  public final void testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
+  public final void //
+      testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
 
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -193,7 +194,8 @@ public abstract class ContainerTest extends Test {
 
   // method
   @TestCase
-  public final void testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
+  public final void //
+      testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
 
     // setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");

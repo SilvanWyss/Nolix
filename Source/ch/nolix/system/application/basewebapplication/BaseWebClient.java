@@ -19,10 +19,12 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     implements ICookieManager {
 
   // constant
-  private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = new BaseWebClientCommandCreator();
+  private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
+      new BaseWebClientCommandCreator();
 
   // constant
-  private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = new BaseWebClientRequestCreator();
+  private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
+      new BaseWebClientRequestCreator();
 
   // attribute
   private final BaseWebClientFileReader fileReader = BaseWebClientFileReader.forBackendWebClient(this);
