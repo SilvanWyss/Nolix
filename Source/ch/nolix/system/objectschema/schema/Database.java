@@ -13,152 +13,153 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class Database extends SchemaObject implements IDatabase {
-	
-	//constant
-	private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
-	
-	//constant
-	private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
-	
-	//attribute
-	private final String name;
-	
-	//attribute
-	private boolean loadedTablesFromDatabase;
-	
-	//optional attribute
-	private RawSchemaAdapter rawSchemaAdapter;
-	
-	//multi-attribute
-	private LinkedList<ITable> tables = new LinkedList<>();
-	
-	//constructor
-	public Database(final String name) {
-		
-		DATABASE_HELPER.assertCanSetGivenNameToDatabase(name);
-		
-		this.name = name;
-	}
-	
-	//method
-	@Override
-	public Database addTable(final ITable table) {
-		
-		DATABASE_HELPER.assertCanAddGivenTable(this, table);
-		MUTATION_EXECUTOR.addTableToDatabase(this, (Table)table);
-		
-		return this;
-	}
-	
-	//method
-	@Override
-	public Database createTableWithName(final String name) {
-		return addTable(new Table(name));
-	}
-	
-	//method
-	@Override
-	public String getName() {
-		return name;
-	}
-	
-	//method
-	@Override
-	public IContainer<ITable> getStoredTables() {
-		
-		loadTablesFromDatabaseIfNeeded();
-		
-		return tables;
-	}
-	
-	//method
-	@Override
-	public int getTableCount() {
-		
-		if (!isLinkedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
-			return tables.getElementCount();
-		}
-		
-		return rawSchemaAdapter.getTableCount();
-	}
-	
-	//method
-	@Override
-	public boolean isLinkedWithRealDatabase() {
-		return (rawSchemaAdapter != null);
-	}
-	
-	//method
-	@Override
-	public void setRawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
-		setRawSchemaAdapter(new RawSchemaAdapter(rawSchemaAdapter));
-	}
-	
-	//method
-	@Override
-	protected void noteClose() {
-		
-		//Does not call getStoredTables method to avoid that the tables need to be loaded from the database.
-		for (final var t : tables) {
-			((Table)t).internalClose();
-		}
-	}
-	
-	//method
-	void addTableAttribute(final ITable table) {
-		tables.addAtEnd(table);
-	}
-	
-	//method
-	RawSchemaAdapter internalGetRefRawSchemaAdapter() {
-		
-		DATABASE_HELPER.assertIsLinkedWithRealDatabase(this);
-		
-		return rawSchemaAdapter;
-	}
-	
-	//method
-	void removeTableAttribute(final Table table) {
-		tables.removeFirstOccurrenceOf(table);
-	}
-	
-	//method
-	private boolean hasLoadedTablesFromDatabase() {
-		return loadedTablesFromDatabase;
-	}
-	
-	//method
-	private void loadTablesFromDatabase() {
-		
-		tables = LinkedList.fromIterable(internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
-		for (final var t : tables) {
-			final var table = (Table)t;
-			table.internalSetLoaded();
-			table.setParentDatabase(this);
-		}
-		
-		loadedTablesFromDatabase = true;		
-	}
-	
-	//method
-	private void loadTablesFromDatabaseIfNeeded() {
-		if (needsToLoadTablesFromDatabase()) {
-			loadTablesFromDatabase();
-		}
-	}
-	
-	//method
-	private boolean needsToLoadTablesFromDatabase() {
-		return (DATABASE_HELPER.isLoaded(this) && !hasLoadedTablesFromDatabase());
-	}
-	
-	//method
-	private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
-		
-		GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
-		DATABASE_HELPER.assertIsNotLinkedWithRealDatabase(this);
-		
-		internalSetLoaded();
-		this.rawSchemaAdapter = rawSchemaAdapter;
-	}
+
+  // constant
+  private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
+
+  // constant
+  private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
+
+  // attribute
+  private final String name;
+
+  // attribute
+  private boolean loadedTablesFromDatabase;
+
+  // optional attribute
+  private RawSchemaAdapter rawSchemaAdapter;
+
+  // multi-attribute
+  private LinkedList<ITable> tables = new LinkedList<>();
+
+  // constructor
+  public Database(final String name) {
+
+    DATABASE_HELPER.assertCanSetGivenNameToDatabase(name);
+
+    this.name = name;
+  }
+
+  // method
+  @Override
+  public Database addTable(final ITable table) {
+
+    DATABASE_HELPER.assertCanAddGivenTable(this, table);
+    MUTATION_EXECUTOR.addTableToDatabase(this, (Table) table);
+
+    return this;
+  }
+
+  // method
+  @Override
+  public Database createTableWithName(final String name) {
+    return addTable(new Table(name));
+  }
+
+  // method
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  // method
+  @Override
+  public IContainer<ITable> getStoredTables() {
+
+    loadTablesFromDatabaseIfNeeded();
+
+    return tables;
+  }
+
+  // method
+  @Override
+  public int getTableCount() {
+
+    if (!isLinkedWithRealDatabase() || hasLoadedTablesFromDatabase()) {
+      return tables.getElementCount();
+    }
+
+    return rawSchemaAdapter.getTableCount();
+  }
+
+  // method
+  @Override
+  public boolean isLinkedWithRealDatabase() {
+    return (rawSchemaAdapter != null);
+  }
+
+  // method
+  @Override
+  public void setRawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
+    setRawSchemaAdapter(new RawSchemaAdapter(rawSchemaAdapter));
+  }
+
+  // method
+  @Override
+  protected void noteClose() {
+
+    // Does not call getStoredTables method to avoid that the tables need to be
+    // loaded from the database.
+    for (final var t : tables) {
+      ((Table) t).internalClose();
+    }
+  }
+
+  // method
+  void addTableAttribute(final ITable table) {
+    tables.addAtEnd(table);
+  }
+
+  // method
+  RawSchemaAdapter internalGetRefRawSchemaAdapter() {
+
+    DATABASE_HELPER.assertIsLinkedWithRealDatabase(this);
+
+    return rawSchemaAdapter;
+  }
+
+  // method
+  void removeTableAttribute(final Table table) {
+    tables.removeFirstOccurrenceOf(table);
+  }
+
+  // method
+  private boolean hasLoadedTablesFromDatabase() {
+    return loadedTablesFromDatabase;
+  }
+
+  // method
+  private void loadTablesFromDatabase() {
+
+    tables = LinkedList.fromIterable(internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
+    for (final var t : tables) {
+      final var table = (Table) t;
+      table.internalSetLoaded();
+      table.setParentDatabase(this);
+    }
+
+    loadedTablesFromDatabase = true;
+  }
+
+  // method
+  private void loadTablesFromDatabaseIfNeeded() {
+    if (needsToLoadTablesFromDatabase()) {
+      loadTablesFromDatabase();
+    }
+  }
+
+  // method
+  private boolean needsToLoadTablesFromDatabase() {
+    return (DATABASE_HELPER.isLoaded(this) && !hasLoadedTablesFromDatabase());
+  }
+
+  // method
+  private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
+
+    GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();
+    DATABASE_HELPER.assertIsNotLinkedWithRealDatabase(this);
+
+    internalSetLoaded();
+    this.rawSchemaAdapter = rawSchemaAdapter;
+  }
 }

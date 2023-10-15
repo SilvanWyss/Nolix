@@ -10,12 +10,12 @@ import ch.nolix.core.testing.basetest.TestPool;
  * @date 2017-03-01
  */
 public final class NodeTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link NodeTestPool}.
-	 */
-	public NodeTestPool() {
-		super(NodeTest.class, FileNodeTest.class, MutableNodeTest.class);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link NodeTestPool}.
+   */
+  public NodeTestPool() {
+    super(NodeTest.class, FileNodeTest.class, MutableNodeTest.class);
+  }
 }

@@ -8,15 +8,15 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
 public final class TableDefinitionLoader {
-	
-	//constant
-	private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
-	
-	//method
-	public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final IMutableNode<?> databaseNode) {
-		
-		final var tableNodes = databaseNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
-		
-		return tableNodes.to(TABLE_DEFINITION_MAPPER::createTableDefinitionFromTableNode);
-	}
+
+  // constant
+  private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
+
+  // method
+  public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final IMutableNode<?> databaseNode) {
+
+    final var tableNodes = databaseNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
+
+    return tableNodes.to(TABLE_DEFINITION_MAPPER::createTableDefinitionFromTableNode);
+  }
 }

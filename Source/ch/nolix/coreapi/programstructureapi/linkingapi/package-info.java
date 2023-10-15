@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi.programstructureapi.linkingapi} package declares types that provide a linking mechanism.
+ * The {@link ch.nolix.coreapi.programstructureapi.linkingapi} package declares
+ * types that provide a linking mechanism.
  * 
  * @author Silvan Wyss
  * @date 2023-10-08

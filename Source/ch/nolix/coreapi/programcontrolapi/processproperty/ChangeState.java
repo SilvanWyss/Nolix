@@ -9,6 +9,6 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * @date 2020-07-30
  */
 public enum ChangeState {
-	UNCHANGED,
-	CHANGED;
+  UNCHANGED,
+  CHANGED;
 }

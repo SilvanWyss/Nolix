@@ -7,10 +7,10 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
 public final class ButtonTest extends ControlTest<IButton> {
-	
-	//method
-	@Override
-	protected Button createTestUnit() {
-		return new Button();
-	}
+
+  // method
+  @Override
+  protected Button createTestUnit() {
+    return new Button();
+  }
 }

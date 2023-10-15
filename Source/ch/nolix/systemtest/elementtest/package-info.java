@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.elementtest} package defines tests for the {@link ch.nolix.system.element} package.
+ * The {@link ch.nolix.systemtest.elementtest} package defines tests for the
+ * {@link ch.nolix.system.element} package.
  * 
  * @author Silvan Wyss
  * @date 2022-11-04

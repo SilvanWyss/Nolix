@@ -5,4 +5,5 @@ package ch.nolix.system.objectdatabase.propertyhelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IBackReferenceHelper;
 
 //class
-public final class BackReferenceHelper extends PropertyHelper implements IBackReferenceHelper {}
+public final class BackReferenceHelper extends PropertyHelper implements IBackReferenceHelper {
+}

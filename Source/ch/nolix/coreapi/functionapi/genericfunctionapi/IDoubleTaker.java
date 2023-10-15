@@ -10,12 +10,12 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IDoubleTaker {
-	
-	//method declaration
-	/**
-	 * Takes the given value.
-	 * 
-	 * @param value
-	 */
-	void run(double value);
+
+  // method declaration
+  /**
+   * Takes the given value.
+   * 
+   * @param value
+   */
+  void run(double value);
 }

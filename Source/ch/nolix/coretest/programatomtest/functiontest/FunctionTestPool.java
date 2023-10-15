@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class FunctionTestPool extends TestPool {
-	
-	//constructor
-	public FunctionTestPool() {
-		super(FunctionCatalogueTest.class, GlobalFunctionHelperTest.class);
-	}
+
+  // constructor
+  public FunctionTestPool() {
+    super(FunctionCatalogueTest.class, GlobalFunctionHelperTest.class);
+  }
 }

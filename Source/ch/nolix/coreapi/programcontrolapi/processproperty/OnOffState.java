@@ -9,6 +9,6 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * @date 2023-02-05
  */
 public enum OnOffState {
-	ON,
-	OFF
+  ON,
+  OFF
 }

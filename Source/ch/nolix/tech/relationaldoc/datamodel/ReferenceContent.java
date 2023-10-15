@@ -6,10 +6,10 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IReferenceContent;
 
 //class
 public abstract class ReferenceContent extends Content implements IReferenceContent {
-	
-	//method
-	@Override
-	public final boolean isForValues() {
-		return false;
-	}
+
+  // method
+  @Override
+  public final boolean isForValues() {
+    return false;
+  }
 }

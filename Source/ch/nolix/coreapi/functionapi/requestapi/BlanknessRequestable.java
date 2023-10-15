@@ -9,10 +9,10 @@ package ch.nolix.coreapi.functionapi.requestapi;
  * @date 2022-07-17
  */
 public interface BlanknessRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if {@link BlanknessRequestable} is blank.
-	 */
-	boolean isBlank();
+
+  // method declaration
+  /**
+   * @return true if {@link BlanknessRequestable} is blank.
+   */
+  boolean isBlank();
 }

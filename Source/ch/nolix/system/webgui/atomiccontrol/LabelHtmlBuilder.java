@@ -10,14 +10,12 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
-	
-	//method
-	@Override
-	public IHtmlElement createHtmlElementForControl(final ILabel control) {
-		return
-		HtmlElement.withTypeAndInnerText(
-			HtmlElementTypeCatalogue.DIV,
-			control.getText()
-		);
-	}
+
+  // method
+  @Override
+  public IHtmlElement createHtmlElementForControl(final ILabel control) {
+    return HtmlElement.withTypeAndInnerText(
+        HtmlElementTypeCatalogue.DIV,
+        control.getText());
+  }
 }

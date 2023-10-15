@@ -10,12 +10,12 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IIntTaker {
-	
-	//method declaration
-	/**
-	 * Takes the given value.
-	 * 
-	 * @param value
-	 */
-	void run(int value);
+
+  // method declaration
+  /**
+   * Takes the given value.
+   * 
+   * @param value
+   */
+  void run(int value);
 }

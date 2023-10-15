@@ -12,18 +12,18 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface VoidnessRequestable {
-	
-	//method
-	/**
-	 * @return true if the current {@link VoidnessRequestable} is not void.
-	 */
-	default boolean isEffectual() {
-		return !isVoid();
-	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link VoidnessRequestable} is void.
-	 */
-	boolean isVoid();
+
+  // method
+  /**
+   * @return true if the current {@link VoidnessRequestable} is not void.
+   */
+  default boolean isEffectual() {
+    return !isVoid();
+  }
+
+  // method declaration
+  /**
+   * @return true if the current {@link VoidnessRequestable} is void.
+   */
+  boolean isVoid();
 }

@@ -13,18 +13,20 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface CompletenessRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link CompletenessRequestable} is complete, false otherwise.
-	 */
-	boolean isComplete();
-	
-	//method
-	/**
-	 * @return true if the current {@link CompletenessRequestable} is not complete, false otherwise.
-	 */
-	default boolean isIncomplete() {
-		return !isComplete();
-	}
+
+  // method declaration
+  /**
+   * @return true if the current {@link CompletenessRequestable} is complete,
+   *         false otherwise.
+   */
+  boolean isComplete();
+
+  // method
+  /**
+   * @return true if the current {@link CompletenessRequestable} is not complete,
+   *         false otherwise.
+   */
+  default boolean isIncomplete() {
+    return !isComplete();
+  }
 }

@@ -1,7 +1,8 @@
 //package info
 /**
- * The {@link ch.nolix.techapitest.relationaldocapitest.baseapitest} package defines
- * tests for the {@link ch.nolix.techapi.relationaldocapi.baseapi} package.
+ * The {@link ch.nolix.techapitest.relationaldocapitest.baseapitest} package
+ * defines tests for the {@link ch.nolix.techapi.relationaldocapi.baseapi}
+ * package.
  * 
  * @author Silvan Wyss
  * @date 2023-10-03

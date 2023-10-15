@@ -5,4 +5,5 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface IImageControlStyle extends IControlStyle<IImageControlStyle> {}
+public interface IImageControlStyle extends IControlStyle<IImageControlStyle> {
+}

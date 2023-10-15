@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.objectdatabase.parameterizedpropertytype} packages defines
+ * The {@link ch.nolix.system.objectdatabase.parameterizedpropertytype} packages
+ * defines
  * {@link ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType}s.
  * 
  * @author Silvan Wyss

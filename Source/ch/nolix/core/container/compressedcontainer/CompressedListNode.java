@@ -10,84 +10,85 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 final class CompressedListNode<E> {
-	
-	//static method
-	public static <E2> CompressedListNode<E2> forElement(final E2 element) {
-		return new CompressedListNode<>(element, 1);
-	}
-	
-	//attribute
-	private final E element;
-	
-	//attribute
-	private int elementCount;
-	
-	//optional attribute
-	private CompressedListNode<E> nextNode;
-	
-	//constructor
-	//For a better performance, this implementation does not use all comfortable methods.
-	private CompressedListNode(final E element, final int elementCount) {
-		
-		if (element == null) {
-			throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
-		}
-		
-		if (elementCount < 1) {
-			throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ELEMENT_COUNT, elementCount);
-		}
-		
-		this.element = element;
-		this.elementCount = elementCount;
-	}
-	
-	//method
-	public int getElementCount() {
-		return elementCount;
-	}
-	
-	//method
-	public E getStoredElement() {
-		return element;
-	}
-	
-	//method
-	public CompressedListNode<E> getStoredNextNode() {
-		
-		assertHasNextNode();
-		
-		return nextNode;
-	}
-	
-	//method
-	public boolean hasNextNode() {
-		return (nextNode != null);
-	}
-	
-	//method
-	public void incrementElementCount() {
-		elementCount++;
-	}
-	
-	//method
-	public void setNextNode(final CompressedListNode<E> nextNode) {
-		
-		assertDoesNotHaveNextNode();
-		
-		this.nextNode = nextNode;
-	}
-	
-	//method
-	private void assertDoesNotHaveNextNode() {
-		if (hasNextNode()) {
-			throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "next node");
-		}
-	}
-	
-	//method
-	private void assertHasNextNode() {
-		if (!hasNextNode()) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
-		}
-	}
+
+  // static method
+  public static <E2> CompressedListNode<E2> forElement(final E2 element) {
+    return new CompressedListNode<>(element, 1);
+  }
+
+  // attribute
+  private final E element;
+
+  // attribute
+  private int elementCount;
+
+  // optional attribute
+  private CompressedListNode<E> nextNode;
+
+  // constructor
+  // For a better performance, this implementation does not use all comfortable
+  // methods.
+  private CompressedListNode(final E element, final int elementCount) {
+
+    if (element == null) {
+      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ELEMENT);
+    }
+
+    if (elementCount < 1) {
+      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.ELEMENT_COUNT, elementCount);
+    }
+
+    this.element = element;
+    this.elementCount = elementCount;
+  }
+
+  // method
+  public int getElementCount() {
+    return elementCount;
+  }
+
+  // method
+  public E getStoredElement() {
+    return element;
+  }
+
+  // method
+  public CompressedListNode<E> getStoredNextNode() {
+
+    assertHasNextNode();
+
+    return nextNode;
+  }
+
+  // method
+  public boolean hasNextNode() {
+    return (nextNode != null);
+  }
+
+  // method
+  public void incrementElementCount() {
+    elementCount++;
+  }
+
+  // method
+  public void setNextNode(final CompressedListNode<E> nextNode) {
+
+    assertDoesNotHaveNextNode();
+
+    this.nextNode = nextNode;
+  }
+
+  // method
+  private void assertDoesNotHaveNextNode() {
+    if (hasNextNode()) {
+      throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "next node");
+    }
+  }
+
+  // method
+  private void assertHasNextNode() {
+    if (!hasNextNode()) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
+    }
+  }
 }

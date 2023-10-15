@@ -7,13 +7,13 @@ import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 
 //interface
 public interface IEndPoint extends IBaseEndPoint {
-	
-	//method declaration
-	boolean hasReceiver();
-	
-	//method declaration
-	void sendMessage(String message);
-	
-	//method declaration
-	void setReceiver(IElementTaker<String> receiver);
+
+  // method declaration
+  boolean hasReceiver();
+
+  // method declaration
+  void sendMessage(String message);
+
+  // method declaration
+  void setReceiver(IElementTaker<String> receiver);
 }

@@ -7,16 +7,15 @@ import ch.nolix.coretest.containertest.singlecontainertest.SingleContainerTest;
 
 //class
 public final class MainTestPool extends TestPool {
-	
-	//constructor
-	public MainTestPool() {
-		super(
-			GapMatrixTest.class,
-			ImmutableListTest.class,
-			LinkedListTest.class,
-			MatrixTest.class,
-			ReadContainerTest.class,
-			SingleContainerTest.class
-		);
-	}
+
+  // constructor
+  public MainTestPool() {
+    super(
+        GapMatrixTest.class,
+        ImmutableListTest.class,
+        LinkedListTest.class,
+        MatrixTest.class,
+        ReadContainerTest.class,
+        SingleContainerTest.class);
+  }
 }

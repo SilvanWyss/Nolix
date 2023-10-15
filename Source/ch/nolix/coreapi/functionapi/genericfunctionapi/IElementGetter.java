@@ -11,10 +11,10 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IElementGetter<E> {
-	
-	//method declaration
-	/**
-	 * @return an element.
-	 */
-	E getOutput();
+
+  // method declaration
+  /**
+   * @return an element.
+   */
+  E getOutput();
 }

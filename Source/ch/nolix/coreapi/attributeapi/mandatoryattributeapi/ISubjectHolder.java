@@ -9,16 +9,16 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * @date 2021-06-15
  */
 public interface ISubjectHolder {
-	
-	//method declaration
-	/**
-	 * @return the subject of the current {@link ISubjectHolder}.
-	 */
-	String getSubject();
-	
-	//method declaration
-	/**
-	 * @return the subject of the current {@link ISubjectHolder} in quotes.
-	 */
-	String getSubjectInQuotes();
+
+  // method declaration
+  /**
+   * @return the subject of the current {@link ISubjectHolder}.
+   */
+  String getSubject();
+
+  // method declaration
+  /**
+   * @return the subject of the current {@link ISubjectHolder} in quotes.
+   */
+  String getSubjectInQuotes();
 }

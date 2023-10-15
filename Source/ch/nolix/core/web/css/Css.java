@@ -9,35 +9,35 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 
 //class
 public final class Css implements ICss {
-	
-	//static method
-	public static Css withRules(final IContainer<ICssRule> rules) {
-		return new Css(rules);
-	}
-	
-	//multi-attribute
-	private final IContainer<CssRule> rules;
-	
-	//constructor
-	private Css(final IContainer<ICssRule> rules) {
-		this.rules = rules.to(CssRule::fromCssRule);
-	}
-	
-	//method
-	@Override
-	public IContainer<CssRule> getRules() {
-		return rules;
-	}
-	
-	//method
-	@Override
-	public String toString() {
-		return GlobalStringHelper.getInBraces(toStringWithoutEnclosingBrackets());
-	}
-	
-	//method
-	@Override
-	public String toStringWithoutEnclosingBrackets() {
-		return getRules().toConcatenatedString();
-	}
+
+  // static method
+  public static Css withRules(final IContainer<ICssRule> rules) {
+    return new Css(rules);
+  }
+
+  // multi-attribute
+  private final IContainer<CssRule> rules;
+
+  // constructor
+  private Css(final IContainer<ICssRule> rules) {
+    this.rules = rules.to(CssRule::fromCssRule);
+  }
+
+  // method
+  @Override
+  public IContainer<CssRule> getRules() {
+    return rules;
+  }
+
+  // method
+  @Override
+  public String toString() {
+    return GlobalStringHelper.getInBraces(toStringWithoutEnclosingBrackets());
+  }
+
+  // method
+  @Override
+  public String toStringWithoutEnclosingBrackets() {
+    return getRules().toConcatenatedString();
+  }
 }

@@ -12,74 +12,71 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWrit
 
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
-	
-	//constant
-	private static final SchemaDtoMapper SCHEMA_DTO_MAPPER = new SchemaDtoMapper();
-	
-	//attribute
-	private final ISchemaWriter sqlSchemaWriter;
-		
-	//constructor
-	public InternalSchemaWriter(final ISchemaWriter sqlSchemaWriter) {
-		
-		GlobalValidator.assertThat(sqlSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
-		
-		this.sqlSchemaWriter = sqlSchemaWriter;
-	}
-	
-	//method
-	public void addColumn(final String tableName, final IColumnDto column) {
-		sqlSchemaWriter.addColumn(
-			TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-			SCHEMA_DTO_MAPPER.createQslColumnDtoFrom(column)
-		);
-	}
-	
-	//method
-	public void addTable(final ITableDto table) {
-		sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.createQslTableDtoFrom(table));
-	}
-	
-	//method
-	public void deleteColumn(final String tableName, final String columnName) {
-		sqlSchemaWriter.deleteColumn(TableType.ENTITY_TABLE.getNamePrefix() + tableName, columnName);
-	}
-	
-	//method
-	public void deleteTable(final String tableName) {
-		sqlSchemaWriter.deleteTable(TableType.ENTITY_TABLE.getNamePrefix() + tableName);
-	}
-	
-	//method
-	public IContainer<String> getSqlStatements() {
-		return sqlSchemaWriter.getSqlStatements();
-	}
-	
-	//method
-	@Override
-	public boolean hasChanges() {
-		return sqlSchemaWriter.hasChanges();
-	}
-	
-	//method
-	public void reset() {
-		sqlSchemaWriter.reset();
-	}
-	
-	//method
-	public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
-		sqlSchemaWriter.renameColumn(
-			TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-			columnName,
-			newColumnName
-		);
-	}
-	
-	//method
-	public void setTableName(final String tableName, final String newTableName) {
-		sqlSchemaWriter.renameTable(
-			TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-			TableType.ENTITY_TABLE.getNamePrefix() + newTableName
-		);
-	}
+
+  // constant
+  private static final SchemaDtoMapper SCHEMA_DTO_MAPPER = new SchemaDtoMapper();
+
+  // attribute
+  private final ISchemaWriter sqlSchemaWriter;
+
+  // constructor
+  public InternalSchemaWriter(final ISchemaWriter sqlSchemaWriter) {
+
+    GlobalValidator.assertThat(sqlSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
+
+    this.sqlSchemaWriter = sqlSchemaWriter;
+  }
+
+  // method
+  public void addColumn(final String tableName, final IColumnDto column) {
+    sqlSchemaWriter.addColumn(
+        TableType.ENTITY_TABLE.getNamePrefix() + tableName,
+        SCHEMA_DTO_MAPPER.createQslColumnDtoFrom(column));
+  }
+
+  // method
+  public void addTable(final ITableDto table) {
+    sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.createQslTableDtoFrom(table));
+  }
+
+  // method
+  public void deleteColumn(final String tableName, final String columnName) {
+    sqlSchemaWriter.deleteColumn(TableType.ENTITY_TABLE.getNamePrefix() + tableName, columnName);
+  }
+
+  // method
+  public void deleteTable(final String tableName) {
+    sqlSchemaWriter.deleteTable(TableType.ENTITY_TABLE.getNamePrefix() + tableName);
+  }
+
+  // method
+  public IContainer<String> getSqlStatements() {
+    return sqlSchemaWriter.getSqlStatements();
+  }
+
+  // method
+  @Override
+  public boolean hasChanges() {
+    return sqlSchemaWriter.hasChanges();
+  }
+
+  // method
+  public void reset() {
+    sqlSchemaWriter.reset();
+  }
+
+  // method
+  public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
+    sqlSchemaWriter.renameColumn(
+        TableType.ENTITY_TABLE.getNamePrefix() + tableName,
+        columnName,
+        newColumnName);
+  }
+
+  // method
+  public void setTableName(final String tableName, final String newTableName) {
+    sqlSchemaWriter.renameTable(
+        TableType.ENTITY_TABLE.getNamePrefix() + tableName,
+        TableType.ENTITY_TABLE.getNamePrefix() + newTableName);
+  }
 }

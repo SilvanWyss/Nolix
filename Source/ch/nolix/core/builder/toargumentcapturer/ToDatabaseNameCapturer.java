@@ -8,22 +8,22 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public class ToDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
-	
-	//constructor
-	public ToDatabaseNameCapturer(final N nextArgumentCapturer) {
-		super(nextArgumentCapturer);
-	}
-	
-	//method
-	public final String getDatabaseName() {
-		return getStoredArgument();
-	}
-	
-	//method
-	public final N toDatabase(final String databaseName) {
-		
-		GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
-		
-		return setArgumentAndGetNext(databaseName);
-	}
+
+  // constructor
+  public ToDatabaseNameCapturer(final N nextArgumentCapturer) {
+    super(nextArgumentCapturer);
+  }
+
+  // method
+  public final String getDatabaseName() {
+    return getStoredArgument();
+  }
+
+  // method
+  public final N toDatabase(final String databaseName) {
+
+    GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();
+
+    return setArgumentAndGetNext(databaseName);
+  }
 }

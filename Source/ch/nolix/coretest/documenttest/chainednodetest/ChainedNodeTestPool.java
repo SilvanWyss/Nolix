@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class ChainedNodeTestPool extends TestPool {
-	
-	//constructor
-	public ChainedNodeTestPool() {
-		super(ChainedNodeCreationTest.class, ChainedNodeTest.class);
-	}
+
+  // constructor
+  public ChainedNodeTestPool() {
+    super(ChainedNodeCreationTest.class, ChainedNodeTest.class);
+  }
 }

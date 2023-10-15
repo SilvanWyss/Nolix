@@ -9,6 +9,6 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * @date 2023-05-26
  */
 public enum SecurityLevel {
-	UNSECURE,
-	SECURE
+  UNSECURE,
+  SECURE
 }

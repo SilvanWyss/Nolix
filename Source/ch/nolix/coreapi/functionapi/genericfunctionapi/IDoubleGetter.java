@@ -10,10 +10,10 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IDoubleGetter {
-	
-	//method declaration
-	/**
-	 * @return a double.
-	 */
-	double getOutput();
+
+  // method declaration
+  /**
+   * @return a double.
+   */
+  double getOutput();
 }

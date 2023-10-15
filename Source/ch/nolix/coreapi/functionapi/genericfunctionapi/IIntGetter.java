@@ -10,10 +10,10 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IIntGetter {
-	
-	//method declaration
-	/**
-	 * @return an int.
-	 */
-	int getOutput();
+
+  // method declaration
+  /**
+   * @return an int.
+   */
+  int getOutput();
 }

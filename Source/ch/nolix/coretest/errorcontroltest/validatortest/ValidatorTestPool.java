@@ -6,15 +6,14 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class ValidatorTestPool extends TestPool {
-	
-	//constructor
-	public ValidatorTestPool() {
-		super(
-			ContainerMediatorTest.class,
-			ExtendedStringMediatorTest.class,
-			GlobalValidatorTest.class,
-			LongMediatorTest.class,
-			StringMediatorTest.class
-		);
-	}
+
+  // constructor
+  public ValidatorTestPool() {
+    super(
+        ContainerMediatorTest.class,
+        ExtendedStringMediatorTest.class,
+        GlobalValidatorTest.class,
+        LongMediatorTest.class,
+        StringMediatorTest.class);
+  }
 }

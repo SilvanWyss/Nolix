@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.applicationapi.mainapi} package declares applications and back-end clients.
+ * The {@link ch.nolix.systemapi.applicationapi.mainapi} package declares
+ * applications and back-end clients.
  * 
  * @author Silvan Wyss
  * @date 2023-01-13

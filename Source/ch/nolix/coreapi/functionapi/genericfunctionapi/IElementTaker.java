@@ -11,12 +11,12 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IElementTaker<E> {
-	
-	//method declaration
-	/**
-	 * Takes the given element.
-	 * 
-	 * @param element
-	 */
-	void run(E element);
+
+  // method declaration
+  /**
+   * Takes the given element.
+   * 
+   * @param element
+   */
+  void run(E element);
 }

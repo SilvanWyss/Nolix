@@ -11,87 +11,85 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //class
 abstract class SchemaObject implements IDatabaseObject {
-	
-	//attribute
-	private DatabaseObjectState state = DatabaseObjectState.NEW;
-	
-	//method
-	@Override
-	public final DatabaseObjectState getState() {
-		return state;
-	}
-	
-	//method
-	@Override
-	public final boolean isClosed() {
-		return (getState() == DatabaseObjectState.CLOSED);
-	}
-	
-	//method
-	@Override
-	public final boolean isDeleted() {
-		return (getState() == DatabaseObjectState.DELETED);
-	}
-	
-	//method declaration
-	protected abstract void noteClose();
-	
-	//method
-	final void internalClose() {
-		
-		state = DatabaseObjectState.CLOSED;
-		
-		noteClose();
-	}
-	
-	//method
-	final void internalSetDeleted() {
-		state =
-		switch (getState()) {
-			case NEW ->
-				throw NewArgumentException.forArgument(this);
-			case LOADED, EDITED ->
-				DatabaseObjectState.DELETED;
-			case DELETED ->
-				throw DeletedArgumentException.forArgument(this);
-			case CLOSED ->
-				throw ClosedArgumentException.forArgument(this);
-			default ->
-				throw InvalidArgumentException.forArgument(getState());
-		};
-	}
-	
-	//method
-	final void internalSetEdited() {
-		switch (getState()) {
-			case NEW:
-				break;
-			case LOADED:
-				state = DatabaseObjectState.EDITED;
-				break;
-			case EDITED:
-				break;
-			case DELETED:
-				throw DeletedArgumentException.forArgument(this);
-			case CLOSED:
-				throw ClosedArgumentException.forArgument(this);
-		}
-	}
-	
-	//method
-	final void internalSetLoaded() {
-		state =
-		switch (getState()) {
-			case NEW ->
-				DatabaseObjectState.LOADED;
-			case LOADED ->
-				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already loaded");
-			case EDITED ->
-				throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already edited");
-			case DELETED ->
-				throw DeletedArgumentException.forArgument(this);
-			case CLOSED ->
-				throw ClosedArgumentException.forArgument(this);
-		};
-	}
+
+  // attribute
+  private DatabaseObjectState state = DatabaseObjectState.NEW;
+
+  // method
+  @Override
+  public final DatabaseObjectState getState() {
+    return state;
+  }
+
+  // method
+  @Override
+  public final boolean isClosed() {
+    return (getState() == DatabaseObjectState.CLOSED);
+  }
+
+  // method
+  @Override
+  public final boolean isDeleted() {
+    return (getState() == DatabaseObjectState.DELETED);
+  }
+
+  // method declaration
+  protected abstract void noteClose();
+
+  // method
+  final void internalClose() {
+
+    state = DatabaseObjectState.CLOSED;
+
+    noteClose();
+  }
+
+  // method
+  final void internalSetDeleted() {
+    state = switch (getState()) {
+      case NEW ->
+        throw NewArgumentException.forArgument(this);
+      case LOADED, EDITED ->
+        DatabaseObjectState.DELETED;
+      case DELETED ->
+        throw DeletedArgumentException.forArgument(this);
+      case CLOSED ->
+        throw ClosedArgumentException.forArgument(this);
+      default ->
+        throw InvalidArgumentException.forArgument(getState());
+    };
+  }
+
+  // method
+  final void internalSetEdited() {
+    switch (getState()) {
+      case NEW:
+        break;
+      case LOADED:
+        state = DatabaseObjectState.EDITED;
+        break;
+      case EDITED:
+        break;
+      case DELETED:
+        throw DeletedArgumentException.forArgument(this);
+      case CLOSED:
+        throw ClosedArgumentException.forArgument(this);
+    }
+  }
+
+  // method
+  final void internalSetLoaded() {
+    state = switch (getState()) {
+      case NEW ->
+        DatabaseObjectState.LOADED;
+      case LOADED ->
+        throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already loaded");
+      case EDITED ->
+        throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already edited");
+      case DELETED ->
+        throw DeletedArgumentException.forArgument(this);
+      case CLOSED ->
+        throw ClosedArgumentException.forArgument(this);
+    };
+  }
 }

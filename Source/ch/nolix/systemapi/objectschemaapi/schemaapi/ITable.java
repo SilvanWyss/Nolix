@@ -11,33 +11,32 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ITable
-extends
-Deletable,
-IDatabaseObject,
-Identified,
-FluentNameable<ITable> {
-	
-	//method declaration
-	ITable addColumn(IColumn column);
-	
-	//method declaration
-	boolean belongsToDatabase();
-	
-	//method declaration
-	ITable createColumnWithNameAndParameterizedPropertyType(
-		String name,
-		IParameterizedPropertyType parameterizedPropertyType
-	);
-	
-	//method declaration
-	IFlatTableDto getFlatDto();
-	
-	//method declaration
-	IDatabase getParentDatabase();
-	
-	//method declarations
-	IContainer<IColumn> getStoredColumns();
-	
-	//method declaration
-	ITableDto toDto();
+    extends
+    Deletable,
+    IDatabaseObject,
+    Identified,
+    FluentNameable<ITable> {
+
+  // method declaration
+  ITable addColumn(IColumn column);
+
+  // method declaration
+  boolean belongsToDatabase();
+
+  // method declaration
+  ITable createColumnWithNameAndParameterizedPropertyType(
+      String name,
+      IParameterizedPropertyType parameterizedPropertyType);
+
+  // method declaration
+  IFlatTableDto getFlatDto();
+
+  // method declaration
+  IDatabase getParentDatabase();
+
+  // method declarations
+  IContainer<IColumn> getStoredColumns();
+
+  // method declaration
+  ITableDto toDto();
 }

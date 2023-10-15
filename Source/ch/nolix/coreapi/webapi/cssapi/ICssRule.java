@@ -6,13 +6,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
 public interface ICssRule {
-	
-	//method declaration
-	IContainer<? extends ICssProperty> getProperties();
-	
-	//method declaration
-	String getSelector();
-	
-	//method declaration
-	ICssRule withPrefixedSelector(final String selectorPrefix);
+
+  // method declaration
+  IContainer<? extends ICssProperty> getProperties();
+
+  // method declaration
+  String getSelector();
+
+  // method declaration
+  ICssRule withPrefixedSelector(final String selectorPrefix);
 }

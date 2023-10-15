@@ -8,7 +8,7 @@ import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 
 //interface
 public interface IContent extends AbstractnessRequestable, ContentTypeRequestable, EmptinessRequestable {
-	
-	//method declaration
-	IAbstractableField getStoredParentField();
+
+  // method declaration
+  IAbstractableField getStoredParentField();
 }

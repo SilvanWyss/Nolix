@@ -12,42 +12,38 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class TextboxCssBuilder extends ControlCssBuilder<ITextbox, ITextboxStyle> {
-	
-	//method
-	@Override
-	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final ITextbox textbox,
-		final ControlState state,
-		final LinkedList<? super ICssRule> list
-	) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final ITextbox textbox,	
-		final LinkedList<? super ICssRule> list
-	) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final ITextbox control,
-		final LinkedList<CssProperty> list
-	) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	protected void fillUpCssPropertiesForControlAndStateIntoList(
-		final ITextbox textbox,
-		final ControlState state,
-		final LinkedList<ICssProperty> list
-	) {
-		//Does nothing.
-	}
+
+  // method
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
+      final ITextbox textbox,
+      final ControlState state,
+      final LinkedList<? super ICssRule> list) {
+    // Does nothing.
+  }
+
+  // method
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
+      final ITextbox textbox,
+      final LinkedList<? super ICssRule> list) {
+    // Does nothing.
+  }
+
+  // method
+  @Override
+  protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
+      final ITextbox control,
+      final LinkedList<CssProperty> list) {
+    // Does nothing.
+  }
+
+  // method
+  @Override
+  protected void fillUpCssPropertiesForControlAndStateIntoList(
+      final ITextbox textbox,
+      final ControlState state,
+      final LinkedList<ICssProperty> list) {
+    // Does nothing.
+  }
 }

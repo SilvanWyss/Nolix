@@ -26,171 +26,160 @@ import ch.nolix.techapi.mathapi.fractalapi.IImageGenerator;
 
 //class
 public final class ImageGenerator extends BaseFuture implements IImageGenerator {
-	
-	//constant
-	private static final int IMAGE_ROWS_PER_THREAD = 10;
-	
-	//constant
-	private static final IFractalHelper FRACTAL_HELPER = new FractalHelper();
-	
-	//attribute
-	private final IFractal fractal;
-	
-	//attribute
-	private final BigDecimal squaredMinMagnitudeForDivergence;
-	
-	//attribute
-	private final MutableImage image;
-	
-	//multi-attribute
-	private final IContainer<IFuture> futures;
-	
-	//constructor
-	public ImageGenerator(final IFractal fractal) {
-		
-		GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();		
-		
-		this.fractal = fractal;
-		
-		squaredMinMagnitudeForDivergence = FRACTAL_HELPER.getSquaredMinMagnitudeForDivergenceOf(fractal);
-		
-		image =
-		MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
-		
-		futures = startFillImageAndGetFutures();
-	}
-	
-	//method
-	@Override
-	public boolean caughtError() {
-		return futures.containsAny(IFuture::caughtError);
-	}
-	
-	//method
-	@Override
-	public Throwable getError() {
-		
-		final var futureWithError = futures.getStoredFirstOrNull(IFuture::caughtError);
-		
-		if (futureWithError == null) {
-			throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
-		}
-		
-		return futureWithError.getError();
-	}
-	
-	//method
-	@Override
-	public MutableImage getStoredImage() {
-		return image;
-	}
-	
-	//method
-	@Override
-	public boolean isFinished() {
-		return futures.containsOnly(IFuture::isFinished);
-	}
-	
-	//method
-	@Override
-	public void waitUntilIsFinished() {
-		futures.forEach(IFuture::waitUntilIsFinished);
-	}
-	
-	//method
-	@Override
-	public void waitUntilIsFinished(final int timeoutInMilliseconds) {
-		
-		final var startTimeInMilliseconds = System.currentTimeMillis();
-		
-		GlobalSequencer.waitAsLongAs(
-			() -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
-			&& isRunning()
-		);
-		
-		if (!isFinished()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");
-		}
-	}
-	
-	//method
-	private void fillImageRow(final int y) {
-		for (var x = 1; x <= image.getWidth(); x++) {
-			fillImagePixel(x, y);
-		}
-	}
-	
-	//method
-	private void fillImageRows(final int startImageRow, final int endImageRow) {
-		for (var y = startImageRow; y <= endImageRow; y++) {
-			fillImageRow(y);
-		}
-	}
-	
-	//method
-	private void fillImagePixel(final int x, final int y) {
-		
-		final var color =
-		Color.createAverageFrom(
-			getColorOfPixel(x - 0.75, y - 0.75),
-			getColorOfPixel(x - 0.75, y - 0.25),
-			getColorOfPixel(x - 0.25, y - 0.75),
-			getColorOfPixel(x - 0.25, y - 0.25)
-		);
-		
-		image.setPixel(x, y, color);
-	}
-	
-	//method
-	private IColor getColorOfPixel(final double x, final double y) {
-		
-		final var z = getComplexNumberOfPixel(x, y);
-		
-		final var iterationCount =
-		getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(z);
-		
-		return fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(iterationCount);
-	}
-	
-	//method
-	private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
-		return
-		new ComplexNumber(
-			FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
-			FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y))
-		);
-	}
-	
-	//method
-	private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-		final IComplexNumber complexNumber
-	) {
-		return
-		FRACTAL_HELPER.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-			fractal,
-			complexNumber,
-			squaredMinMagnitudeForDivergence
-		);
-	}
-	
-	//method
-	private LinkedList<IFuture> startFillImageAndGetFutures() {
-		
-		final var lFutures = new LinkedList<IFuture>();
-		
-		final var jobPool = new JobPool();
-		
-		final var heightInpixel = fractal.getHeightInPixel();		
-		for (var y = 1; y < heightInpixel; y += IMAGE_ROWS_PER_THREAD) {
-			
-			final var startImageRow = y;
-			final var endImageRow = GlobalCalculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
-			
-			lFutures.addAtEnd(
-				jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow))
-			);
-		}
-		
-		return lFutures;
-	}
+
+  // constant
+  private static final int IMAGE_ROWS_PER_THREAD = 10;
+
+  // constant
+  private static final IFractalHelper FRACTAL_HELPER = new FractalHelper();
+
+  // attribute
+  private final IFractal fractal;
+
+  // attribute
+  private final BigDecimal squaredMinMagnitudeForDivergence;
+
+  // attribute
+  private final MutableImage image;
+
+  // multi-attribute
+  private final IContainer<IFuture> futures;
+
+  // constructor
+  public ImageGenerator(final IFractal fractal) {
+
+    GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
+
+    this.fractal = fractal;
+
+    squaredMinMagnitudeForDivergence = FRACTAL_HELPER.getSquaredMinMagnitudeForDivergenceOf(fractal);
+
+    image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
+
+    futures = startFillImageAndGetFutures();
+  }
+
+  // method
+  @Override
+  public boolean caughtError() {
+    return futures.containsAny(IFuture::caughtError);
+  }
+
+  // method
+  @Override
+  public Throwable getError() {
+
+    final var futureWithError = futures.getStoredFirstOrNull(IFuture::caughtError);
+
+    if (futureWithError == null) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
+    }
+
+    return futureWithError.getError();
+  }
+
+  // method
+  @Override
+  public MutableImage getStoredImage() {
+    return image;
+  }
+
+  // method
+  @Override
+  public boolean isFinished() {
+    return futures.containsOnly(IFuture::isFinished);
+  }
+
+  // method
+  @Override
+  public void waitUntilIsFinished() {
+    futures.forEach(IFuture::waitUntilIsFinished);
+  }
+
+  // method
+  @Override
+  public void waitUntilIsFinished(final int timeoutInMilliseconds) {
+
+    final var startTimeInMilliseconds = System.currentTimeMillis();
+
+    GlobalSequencer.waitAsLongAs(
+        () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+            && isRunning());
+
+    if (!isFinished()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");
+    }
+  }
+
+  // method
+  private void fillImageRow(final int y) {
+    for (var x = 1; x <= image.getWidth(); x++) {
+      fillImagePixel(x, y);
+    }
+  }
+
+  // method
+  private void fillImageRows(final int startImageRow, final int endImageRow) {
+    for (var y = startImageRow; y <= endImageRow; y++) {
+      fillImageRow(y);
+    }
+  }
+
+  // method
+  private void fillImagePixel(final int x, final int y) {
+
+    final var color = Color.createAverageFrom(
+        getColorOfPixel(x - 0.75, y - 0.75),
+        getColorOfPixel(x - 0.75, y - 0.25),
+        getColorOfPixel(x - 0.25, y - 0.75),
+        getColorOfPixel(x - 0.25, y - 0.25));
+
+    image.setPixel(x, y, color);
+  }
+
+  // method
+  private IColor getColorOfPixel(final double x, final double y) {
+
+    final var z = getComplexNumberOfPixel(x, y);
+
+    final var iterationCount = getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(z);
+
+    return fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(iterationCount);
+  }
+
+  // method
+  private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
+    return new ComplexNumber(
+        FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
+        FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
+  }
+
+  // method
+  private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+      final IComplexNumber complexNumber) {
+    return FRACTAL_HELPER.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+        fractal,
+        complexNumber,
+        squaredMinMagnitudeForDivergence);
+  }
+
+  // method
+  private LinkedList<IFuture> startFillImageAndGetFutures() {
+
+    final var lFutures = new LinkedList<IFuture>();
+
+    final var jobPool = new JobPool();
+
+    final var heightInpixel = fractal.getHeightInPixel();
+    for (var y = 1; y < heightInpixel; y += IMAGE_ROWS_PER_THREAD) {
+
+      final var startImageRow = y;
+      final var endImageRow = GlobalCalculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
+
+      lFutures.addAtEnd(
+          jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow)));
+    }
+
+    return lFutures;
+  }
 }

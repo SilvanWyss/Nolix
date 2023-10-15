@@ -7,11 +7,11 @@ import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 
 //class
 public final class SingleContainerStyle
-extends ControlStyle<ISingleContainerStyle>
-implements ISingleContainerStyle {
-	
-	//constructor
-	public SingleContainerStyle() {
-		initialize();
-	}
+    extends ControlStyle<ISingleContainerStyle>
+    implements ISingleContainerStyle {
+
+  // constructor
+  public SingleContainerStyle() {
+    initialize();
+  }
 }

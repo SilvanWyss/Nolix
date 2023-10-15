@@ -14,49 +14,49 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 
 //class
 final class SecureServerEndPoint extends NetEndPoint {
-	
-	private final ChannelHandlerContext channelHandlerContext;
-	
-	//constructor
-	public SecureServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
-		
-		super(TargetInfoState.WAITS_TO_TARGET_INFO);
-		
-		GlobalValidator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();
-		
-		this.channelHandlerContext = channelHandlerContext;
-	}
-	
-	//method
-	@Override
-	public ConnectionType getConnectionType() {
-		return ConnectionType.WEB_SOCKET;
-	}
-	
-	//method
-	@Override
-	public PeerType getPeerType() {
-		return PeerType.BACKEND;
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public SecurityLevel getConnectionSecurityLevel() {
-		return SecurityLevel.SECURE;
-	}
-	
-	//method
-	@Override
-	public void noteClose() {
-		channelHandlerContext.close();
-	}
-	
-	//method
-	@Override
-	protected void sendRawMessage(final String rawMessage) {
-		channelHandlerContext.channel().writeAndFlush(new TextWebSocketFrame(rawMessage + "\r\n"));
-	}
+
+  private final ChannelHandlerContext channelHandlerContext;
+
+  // constructor
+  public SecureServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
+
+    super(TargetInfoState.WAITS_TO_TARGET_INFO);
+
+    GlobalValidator.assertThat(channelHandlerContext).thatIsNamed(ChannelHandlerContext.class).isNotNull();
+
+    this.channelHandlerContext = channelHandlerContext;
+  }
+
+  // method
+  @Override
+  public ConnectionType getConnectionType() {
+    return ConnectionType.WEB_SOCKET;
+  }
+
+  // method
+  @Override
+  public PeerType getPeerType() {
+    return PeerType.BACKEND;
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public SecurityLevel getConnectionSecurityLevel() {
+    return SecurityLevel.SECURE;
+  }
+
+  // method
+  @Override
+  public void noteClose() {
+    channelHandlerContext.close();
+  }
+
+  // method
+  @Override
+  protected void sendRawMessage(final String rawMessage) {
+    channelHandlerContext.channel().writeAndFlush(new TextWebSocketFrame(rawMessage + "\r\n"));
+  }
 }

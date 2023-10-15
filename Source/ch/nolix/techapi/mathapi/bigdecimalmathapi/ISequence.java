@@ -6,13 +6,13 @@ import java.math.BigDecimal;
 
 //interface
 public interface ISequence<V> {
-	
-	//method declaration
-	int getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(BigDecimal limit, int maxIndex);
-	
-	//method declaration
-	BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(int p1BasedIndex);
-	
-	//method declaration
-	V getValueAt1BasedIndex(int p1BasedIndex);
+
+  // method declaration
+  int getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(BigDecimal limit, int maxIndex);
+
+  // method declaration
+  BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(int p1BasedIndex);
+
+  // method declaration
+  V getValueAt1BasedIndex(int p1BasedIndex);
 }

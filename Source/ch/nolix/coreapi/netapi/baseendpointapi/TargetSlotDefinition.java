@@ -3,6 +3,6 @@ package ch.nolix.coreapi.netapi.baseendpointapi;
 
 //enum
 public enum TargetSlotDefinition {
-	DEFAULT,
-	CUSTOM
+  DEFAULT,
+  CUSTOM
 }

@@ -6,7 +6,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
 public interface IControlGetter {
-	
-	//method decleration
-	IControl<?, ?> getStoredControl();
+
+  // method decleration
+  IControl<?, ?> getStoredControl();
 }

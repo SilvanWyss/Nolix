@@ -9,13 +9,13 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 
 //interface
 public interface IDataAdapter extends EmptyCopyable<IDataAdapter>, IChangeSaver {
-	
-	//method declaration
-	IAbstractableObject createObject();
-	
-	//method declaration
-	void deleteObject(IAbstractableObject object);
-	
-	//method declaration
-	IContainer<? extends IAbstractableObject> getStoredTopLevelObjects();
+
+  // method declaration
+  IAbstractableObject createObject();
+
+  // method declaration
+  void deleteObject(IAbstractableObject object);
+
+  // method declaration
+  IContainer<? extends IAbstractableObject> getStoredTopLevelObjects();
 }

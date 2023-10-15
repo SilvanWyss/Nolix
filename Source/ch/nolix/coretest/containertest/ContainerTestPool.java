@@ -13,16 +13,15 @@ import ch.nolix.coretest.containertest.singlecontainertest.SingleContainerTestPo
  * @date 2016-09-01
  */
 public final class ContainerTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link ContainerTestPool}.
-	 */
-	public ContainerTestPool() {
-		super(
-			new MainTestPool(),
-			new ReadContainerTestPool(),
-			new SingleContainerTestPool()
-		);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link ContainerTestPool}.
+   */
+  public ContainerTestPool() {
+    super(
+        new MainTestPool(),
+        new ReadContainerTestPool(),
+        new SingleContainerTestPool());
+  }
 }

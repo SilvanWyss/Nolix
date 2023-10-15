@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coretest.nettest.targettest} package defines
- * tests for the {@link ch.nolix.core.net.target} package.
+ * The {@link ch.nolix.coretest.nettest.targettest} package defines tests for
+ * the {@link ch.nolix.core.net.target} package.
  * 
  * @author Silvan Wyss
  * @date 2023-07-18

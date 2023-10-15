@@ -14,47 +14,47 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValida
 
 //class
 public class PropertyValidator implements IPropertyValidator {
-	
-	//constant
-	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
-	
-	//method
-	@Override
-	public final void assertBelongsToEntity(final IProperty property) {
-		if (!property.belongsToEntity()) {
-			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(property, IEntity.class);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertDoesNotBelongToEntity(final IProperty property) {
-		if (property.belongsToEntity()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getStoredParentEntity());
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertIsNotEmpty(final IProperty property) {
-		if (property.isEmpty()) {
-			throw EmptyArgumentException.forArgument(property);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertIsNotMandatoryAndEmptyBoth(final IProperty property) {
-		if (PROPERTY_HELPER.isMandatoryAndEmptyBoth(property)) {
-			throw EmptyArgumentException.forArgument(property);
-		}
-	}
-	
-	//method
-	@Override
-	public final void assertKnowsParentColumn(final IProperty property) {
-		if (!property.knowsParentColumn()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "does not know its parent column");
-		}
-	}
+
+  // constant
+  private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
+
+  // method
+  @Override
+  public final void assertBelongsToEntity(final IProperty property) {
+    if (!property.belongsToEntity()) {
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(property, IEntity.class);
+    }
+  }
+
+  // method
+  @Override
+  public final void assertDoesNotBelongToEntity(final IProperty property) {
+    if (property.belongsToEntity()) {
+      throw ArgumentBelongsToParentException.forArgumentAndParent(property, property.getStoredParentEntity());
+    }
+  }
+
+  // method
+  @Override
+  public final void assertIsNotEmpty(final IProperty property) {
+    if (property.isEmpty()) {
+      throw EmptyArgumentException.forArgument(property);
+    }
+  }
+
+  // method
+  @Override
+  public final void assertIsNotMandatoryAndEmptyBoth(final IProperty property) {
+    if (PROPERTY_HELPER.isMandatoryAndEmptyBoth(property)) {
+      throw EmptyArgumentException.forArgument(property);
+    }
+  }
+
+  // method
+  @Override
+  public final void assertKnowsParentColumn(final IProperty property) {
+    if (!property.knowsParentColumn()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(property, "does not know its parent column");
+    }
+  }
 }

@@ -10,10 +10,10 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IAction {
-	
-	//method declaration
-	/**
-	 * Does something.
-	 */
-	void run();
+
+  // method declaration
+  /**
+   * Does something.
+   */
+  void run();
 }

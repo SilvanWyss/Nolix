@@ -23,26 +23,25 @@ import ch.nolix.coretest.webtest.WebTestPool;
  * @date 2016-09-10
  */
 public final class CoreTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link CoreTestPool}.
-	 */
-	public CoreTestPool() {
-		super(
-			new CommonTypeTestPool(),
-			new ContainerTestPool(),
-			new DocumentTestPool(),
-			new EnvironmentTestPool(),
-			new ErrorControlTestPool(),
-			new LicenseTestPool(),
-			new MathTestPool(),
-			new NetTestPool(),
-			new ProgramAtomTestPool(),
-			new ProgramControlTestPool(),
-			new ProgramStructureTestPool(),
-			new ProviderTestPool(),
-			new WebTestPool()
-		);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link CoreTestPool}.
+   */
+  public CoreTestPool() {
+    super(
+        new CommonTypeTestPool(),
+        new ContainerTestPool(),
+        new DocumentTestPool(),
+        new EnvironmentTestPool(),
+        new ErrorControlTestPool(),
+        new LicenseTestPool(),
+        new MathTestPool(),
+        new NetTestPool(),
+        new ProgramAtomTestPool(),
+        new ProgramControlTestPool(),
+        new ProgramStructureTestPool(),
+        new ProviderTestPool(),
+        new WebTestPool());
+  }
 }

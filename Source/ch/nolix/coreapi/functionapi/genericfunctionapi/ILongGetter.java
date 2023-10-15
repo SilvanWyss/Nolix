@@ -10,10 +10,10 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface ILongGetter {
-	
-	//method declaration
-	/**
-	 * @return a long.
-	 */
-	long getOutput();
+
+  // method declaration
+  /**
+   * @return a long.
+   */
+  long getOutput();
 }

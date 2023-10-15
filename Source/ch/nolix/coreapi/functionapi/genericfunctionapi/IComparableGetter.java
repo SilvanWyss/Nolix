@@ -7,15 +7,15 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  * 
  * @author Silvan Wyss
  * @date 2016-10-01
- * @param <E> is the type of the elements
- * the {@link Comparable}, a {@link IComparableGetter} returns, compares.
+ * @param <E> is the type of the elements the {@link Comparable}, a
+ *            {@link IComparableGetter} returns, compares.
  */
 @FunctionalInterface
 public interface IComparableGetter<E> {
-	
-	//method declaration
-	/**
-	 * @return a {@link Comparable}.
-	 */
-	Comparable<E> getOutput();
+
+  // method declaration
+  /**
+   * @return a {@link Comparable}.
+   */
+  Comparable<E> getOutput();
 }

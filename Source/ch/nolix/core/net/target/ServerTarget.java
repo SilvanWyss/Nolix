@@ -10,92 +10,89 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
 public class ServerTarget implements IServerTarget {
-	
-	//static method
-	public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
-		final String ipOrDomain,
-		final int port,
-		final SecurityLevel securityLevelForConnections
-	) {
-		return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
-	}
-	
-	//attribute
-	private final String ipOrDomain;
-	
-	//attribute
-	private final int port;
-	
-	//attribute
-	private final SecurityLevel securityLevelForConnections;
-	
-	//constructor
-	protected ServerTarget(
-		final String ipOrDomain,
-		final int port,
-		final SecurityLevel securityLevelForConnections
-	) {
-		
-		GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
-		GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
-		
-		GlobalValidator
-		.assertThat(securityLevelForConnections)
-		.thatIsNamed("security level for connections")
-		.isNotNull();
-				
-		this.ipOrDomain = ipOrDomain;
-		this.port = port;
-		this.securityLevelForConnections = securityLevelForConnections;
-	}
-	
-	//method
-	@Override
-	public final String getIpOrDomain() {
-		return ipOrDomain;
-	}
-	
-	//method
-	@Override
-	public final int getPort() {
-		return port;
-	}
-	
-	//method
-	@Override
-	public final SecurityLevel getSecurityLevelForConnections() {
-		return securityLevelForConnections;
-	}
-	
-	//method
-	@Override
-	public String toUrl() {
-		return
-		switch (getSecurityLevelForConnections()) {
-			case UNSECURE ->
-				toHttpUrl();
-			case SECURE ->
-				toHttpsUrl();
-		};
-	}
-	
-	//method
-	private String toHttpsUrl() {
-		
-		if (getPort() == PortCatalogue.HTTPS) {
-			return String.format("https://%s", getIpOrDomain());
-		}
-		
-		return String.format("https://%s:%s", getIpOrDomain(), getPort());
-	}
-	
-	//method
-	private String toHttpUrl() {
-		
-		if (getPort() == PortCatalogue.HTTP) {
-			return String.format("http://%s", getIpOrDomain());
-		}
-		
-		return String.format("http://%s:%s", getIpOrDomain(), getPort());
-	}
+
+  // static method
+  public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
+      final String ipOrDomain,
+      final int port,
+      final SecurityLevel securityLevelForConnections) {
+    return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
+  }
+
+  // attribute
+  private final String ipOrDomain;
+
+  // attribute
+  private final int port;
+
+  // attribute
+  private final SecurityLevel securityLevelForConnections;
+
+  // constructor
+  protected ServerTarget(
+      final String ipOrDomain,
+      final int port,
+      final SecurityLevel securityLevelForConnections) {
+
+    GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
+    GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
+
+    GlobalValidator
+        .assertThat(securityLevelForConnections)
+        .thatIsNamed("security level for connections")
+        .isNotNull();
+
+    this.ipOrDomain = ipOrDomain;
+    this.port = port;
+    this.securityLevelForConnections = securityLevelForConnections;
+  }
+
+  // method
+  @Override
+  public final String getIpOrDomain() {
+    return ipOrDomain;
+  }
+
+  // method
+  @Override
+  public final int getPort() {
+    return port;
+  }
+
+  // method
+  @Override
+  public final SecurityLevel getSecurityLevelForConnections() {
+    return securityLevelForConnections;
+  }
+
+  // method
+  @Override
+  public String toUrl() {
+    return switch (getSecurityLevelForConnections()) {
+      case UNSECURE ->
+        toHttpUrl();
+      case SECURE ->
+        toHttpsUrl();
+    };
+  }
+
+  // method
+  private String toHttpsUrl() {
+
+    if (getPort() == PortCatalogue.HTTPS) {
+      return String.format("https://%s", getIpOrDomain());
+    }
+
+    return String.format("https://%s:%s", getIpOrDomain(), getPort());
+  }
+
+  // method
+  private String toHttpUrl() {
+
+    if (getPort() == PortCatalogue.HTTP) {
+      return String.format("http://%s", getIpOrDomain());
+    }
+
+    return String.format("http://%s:%s", getIpOrDomain(), getPort());
+  }
 }

@@ -8,10 +8,10 @@ import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 
 //interface
 public interface IValueContent extends IContent {
-	
-	//method declaration
-	IContainer<IConstraint<String>> getConstraints();
-	
-	//method declaration
-	DataType getDataType();
+
+  // method declaration
+  IContainer<IConstraint<String>> getConstraints();
+
+  // method declaration
+  DataType getDataType();
 }

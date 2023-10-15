@@ -7,9 +7,9 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 
 //class
 final class EntityCreator {
-	
-	//method
-	public <E extends IEntity> E createEmptyEntityOf(final Class<E> entityType) {
-		return GlobalClassHelper.createInstanceFromDefaultConstructorOf(entityType);
-	}
+
+  // method
+  public <E extends IEntity> E createEmptyEntityOf(final Class<E> entityType) {
+    return GlobalClassHelper.createInstanceFromDefaultConstructorOf(entityType);
+  }
 }

@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.objectschemaapi.schemaapi} package declares schema types for databases.
+ * The {@link ch.nolix.systemapi.objectschemaapi.schemaapi} package declares
+ * schema types for databases.
  * 
  * @author Silvan Wyss
  * @date 2021-07-02

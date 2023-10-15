@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.net.baseendpoint} package defines
- * a {@link ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint}.
+ * The {@link ch.nolix.core.net.baseendpoint} package defines a
+ * {@link ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint}.
  * 
  * @author Silvan Wyss
  * @date 2023-03-10

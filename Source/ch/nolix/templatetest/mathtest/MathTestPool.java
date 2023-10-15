@@ -7,9 +7,9 @@ import ch.nolix.templatetest.mathtest.sequencetest.SequenceTestPool;
 
 //class
 public final class MathTestPool extends TestPool {
-	
-	//constructor
-	public MathTestPool() {
-		super(new SequenceTestPool());
-	}
+
+  // constructor
+  public MathTestPool() {
+    super(new SequenceTestPool());
+  }
 }

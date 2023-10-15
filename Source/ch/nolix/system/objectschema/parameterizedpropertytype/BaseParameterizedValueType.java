@@ -14,46 +14,46 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParameterizedValueType<V> extends ParameterizedPropertyType
-implements IBaseParameterizedValueType<V> {
-	
-	//constructor
-	protected BaseParameterizedValueType(final DataType dataType) {
-		super(dataType);
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
-		return this;
-	}
-	
-	//method
-	@Override
-	public final boolean referencesTable(final ITable table) {
-		return false;
-	}
-	
-	//method
-	@Override
-	public final boolean referencesBackColumn(final IColumn column) {
-		return false;
-	}
-	
-	//method
-	@Override
-	public final IParameterizedPropertyTypeDto toDto() {
-		return new BaseParameterizedValueTypeDto(getPropertyType(), getDataType());
-	}
+    implements IBaseParameterizedValueType<V> {
+
+  // constructor
+  protected BaseParameterizedValueType(final DataType dataType) {
+    super(dataType);
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+    return this;
+  }
+
+  // method
+  @Override
+  public final boolean referencesTable(final ITable table) {
+    return false;
+  }
+
+  // method
+  @Override
+  public final boolean referencesBackColumn(final IColumn column) {
+    return false;
+  }
+
+  // method
+  @Override
+  public final IParameterizedPropertyTypeDto toDto() {
+    return new BaseParameterizedValueTypeDto(getPropertyType(), getDataType());
+  }
 }

@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.tech.serverdashboardapplication.webapplicationcomponent} package defines
- * a {@link ch.nolix.system.application.component.Component} for
+ * The {@link ch.nolix.tech.serverdashboardapplication.webapplicationcomponent}
+ * package defines a {@link ch.nolix.system.application.component.Component} for
  * web {@link ch.nolix.systemapi.applicationapi.mainapi.IApplication}s.
  * 
  * @author Silvan Wyss

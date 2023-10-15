@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.webguitest.maintest} package defines
- * tests for the {@link ch.nolix.system.webgui.main} package.
+ * The {@link ch.nolix.systemtest.webguitest.maintest} package defines tests for
+ * the {@link ch.nolix.system.webgui.main} package.
  * 
  * @author Silvan Wyss
  * @date 2023-05-19

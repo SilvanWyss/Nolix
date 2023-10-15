@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.techtest.mathtest} package defines tests for the {@link ch.nolix.tech.math} package.
+ * The {@link ch.nolix.techtest.mathtest} package defines tests for the
+ * {@link ch.nolix.tech.math} package.
  * 
  * @author Silvan Wyss
  * @date 2023-01-22

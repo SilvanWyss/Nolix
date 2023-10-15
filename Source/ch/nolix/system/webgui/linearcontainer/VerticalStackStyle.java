@@ -6,11 +6,11 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 
 //class
 public final class VerticalStackStyle
-extends LinearContainerStyle<IVerticalStackStyle>
-implements IVerticalStackStyle {
-	
-	//constructor
-	public VerticalStackStyle() {
-		initialize();
-	}
+    extends LinearContainerStyle<IVerticalStackStyle>
+    implements IVerticalStackStyle {
+
+  // constructor
+  public VerticalStackStyle() {
+    initialize();
+  }
 }

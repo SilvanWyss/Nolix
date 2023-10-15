@@ -9,23 +9,23 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedProperty
 
 //class
 public final class ParameterizedPropertyTypeHelper extends DatabaseObjectHelper
-implements IParameterizedPropertyTypeHelper {
-	
-	//method
-	@Override
-	public boolean isABaseBackReferenceType(final IParameterizedPropertyType parameterizedPropertyType) {
-		return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
-	}
-	
-	//method
-	@Override
-	public boolean isABaseReferenceType(IParameterizedPropertyType parameterizedPropertyType) {
-		return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_REFERENCE);
-	}
-	
-	//method
-	@Override
-	public boolean isABaseValueType(IParameterizedPropertyType parameterizedPropertyType) {
-		return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_VALUE);
-	}
+    implements IParameterizedPropertyTypeHelper {
+
+  // method
+  @Override
+  public boolean isABaseBackReferenceType(final IParameterizedPropertyType parameterizedPropertyType) {
+    return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
+  }
+
+  // method
+  @Override
+  public boolean isABaseReferenceType(IParameterizedPropertyType parameterizedPropertyType) {
+    return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_REFERENCE);
+  }
+
+  // method
+  @Override
+  public boolean isABaseValueType(IParameterizedPropertyType parameterizedPropertyType) {
+    return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_VALUE);
+  }
 }

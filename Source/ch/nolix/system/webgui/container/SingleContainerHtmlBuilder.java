@@ -12,26 +12,23 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
-	
-	//method
-	@Override
-	public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
-		return
-		HtmlElement.withTypeAndChildElements(
-			HtmlElementTypeCatalogue.DIV,
-			createHtmlElementsForChildControlsOfSingleContainer(control)
-		);
-	}
-	
-	//method
-	private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
-		final ISingleContainer singleContainer
-	) {
-		
-		if (singleContainer.isEmpty()) {
-			return new ImmutableList<>();
-		}
-		
-		return ImmutableList.withElement(singleContainer.getStoredControl().getHtml());
-	}
+
+  // method
+  @Override
+  public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
+    return HtmlElement.withTypeAndChildElements(
+        HtmlElementTypeCatalogue.DIV,
+        createHtmlElementsForChildControlsOfSingleContainer(control));
+  }
+
+  // method
+  private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
+      final ISingleContainer singleContainer) {
+
+    if (singleContainer.isEmpty()) {
+      return new ImmutableList<>();
+    }
+
+    return ImmutableList.withElement(singleContainer.getStoredControl().getHtml());
+  }
 }

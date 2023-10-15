@@ -8,35 +8,35 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWei
 
 //class
 public final class PropertyFlyWeight implements IPropertyFlyWeight {
-	
-	//optional attribute
-	private IAction updateAction;
-	
-	//method
-	@Override
-	public boolean isVoid() {
-		return false;
-	}
-	
-	//method
-	@Override
-	public void noteUpdate() {
-		if (hasUpdateAction()) {
-			updateAction.run();
-		}
-	}
-	
-	//method
-	@Override
-	public void setUpdateAction(final IAction updateAction) {
-		
-		GlobalValidator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
-		
-		this.updateAction = updateAction;
-	}
-	
-	//method
-	private boolean hasUpdateAction() {
-		return (updateAction != null);
-	}
+
+  // optional attribute
+  private IAction updateAction;
+
+  // method
+  @Override
+  public boolean isVoid() {
+    return false;
+  }
+
+  // method
+  @Override
+  public void noteUpdate() {
+    if (hasUpdateAction()) {
+      updateAction.run();
+    }
+  }
+
+  // method
+  @Override
+  public void setUpdateAction(final IAction updateAction) {
+
+    GlobalValidator.assertThat(updateAction).thatIsNamed("update action").isNotNull();
+
+    this.updateAction = updateAction;
+  }
+
+  // method
+  private boolean hasUpdateAction() {
+    return (updateAction != null);
+  }
 }

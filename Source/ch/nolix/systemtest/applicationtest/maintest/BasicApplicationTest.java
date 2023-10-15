@@ -11,27 +11,25 @@ import ch.nolix.system.application.webapplication.WebClient;
 
 //class
 public final class BasicApplicationTest extends Test {
-		
-	//method
-	@TestCase
-	public void testCase_withNameAndInitialSessionClassAndContext() {
-		
-		//setup
-		final var applicationContext = new VoidObject();
-		
-		//execution
-		@SuppressWarnings("unchecked")
-		final var result =
-		BasicApplication.withNameAndInitialSessionClassAndContext(
-			"My application",
-			TestSession.withClientClass(WebClient.class).getClass(),
-			applicationContext				
-		);
-		
-		//verification
-		expect(result.getApplicationName()).isEqualTo("My application");
-		expectNot(result.hasNameAddendum());
-		expect(result.getStoredApplicationContext()).is(applicationContext);
-		expectNot(result.hasClientConnected());
-	}
+
+  // method
+  @TestCase
+  public void testCase_withNameAndInitialSessionClassAndContext() {
+
+    // setup
+    final var applicationContext = new VoidObject();
+
+    // execution
+    @SuppressWarnings("unchecked")
+    final var result = BasicApplication.withNameAndInitialSessionClassAndContext(
+        "My application",
+        TestSession.withClientClass(WebClient.class).getClass(),
+        applicationContext);
+
+    // verification
+    expect(result.getApplicationName()).isEqualTo("My application");
+    expectNot(result.hasNameAddendum());
+    expect(result.getStoredApplicationContext()).is(applicationContext);
+    expectNot(result.hasClientConnected());
+  }
 }

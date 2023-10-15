@@ -1,7 +1,8 @@
 //package info
 /**
  * The {@link ch.nolix.coreapi.containerapi.sequencesearchapi} package declares
- * types to search for specific sequences in {@link ch.nolix.coreapi.containerapi.baseapi.IContainer}s.
+ * types to search for specific sequences in
+ * {@link ch.nolix.coreapi.containerapi.baseapi.IContainer}s.
  * 
  * @author Silvan Wyss
  * @date 2023-02-13

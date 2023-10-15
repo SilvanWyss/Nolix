@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.math.stochastic} package defines types for stochastic.
+ * The {@link ch.nolix.core.math.stochastic} package defines types for
+ * stochastic.
  * 
  * @author Silvan Wyss
  * @date 2022-11-13

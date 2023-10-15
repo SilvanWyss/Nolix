@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coretest.errorcontroltest.validatortest} package defines tests for the {@link ch.nolix.core.errorcontrol.validator} package.
+ * The {@link ch.nolix.coretest.errorcontroltest.validatortest} package defines
+ * tests for the {@link ch.nolix.core.errorcontrol.validator} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

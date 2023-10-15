@@ -10,4 +10,5 @@ import java.lang.annotation.Target;
 //annotation
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface IgnoreTimeout {}
+public @interface IgnoreTimeout {
+}

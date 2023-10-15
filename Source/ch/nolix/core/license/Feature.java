@@ -12,19 +12,19 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @date 2019-11-16
  */
 public abstract class Feature implements Named {
-	
-	//method declaration
-	/**
-	 * @return the authorized {@link License} types of the current {@link Feature}.
-	 */
-	public abstract IContainer<Class<?>> getAuthorizedLicenseTypes();
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public final String getName() {
-		return getClass().getName();
-	}
+
+  // method declaration
+  /**
+   * @return the authorized {@link License} types of the current {@link Feature}.
+   */
+  public abstract IContainer<Class<?>> getAuthorizedLicenseTypes();
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final String getName() {
+    return getClass().getName();
+  }
 }

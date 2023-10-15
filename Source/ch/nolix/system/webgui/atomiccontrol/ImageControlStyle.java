@@ -7,9 +7,9 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IImageControlStyle;
 
 //class
 public final class ImageControlStyle extends ControlStyle<IImageControlStyle> implements IImageControlStyle {
-	
-	//constructor
-	public ImageControlStyle() {
-		initialize();
-	}
+
+  // constructor
+  public ImageControlStyle() {
+    initialize();
+  }
 }

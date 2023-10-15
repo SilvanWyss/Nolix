@@ -8,14 +8,14 @@ import ch.nolix.core.testing.test.Test;
 
 //class
 public final class StringCatalogueTest extends Test {
-	
-	//method
-	@TestCase
-	public void testCase_constants() {
-		
-		//verification
-		for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(StringCatalogue.class)) {
-			expect(c).isOfType(String.class);
-		}
-	}
+
+  // method
+  @TestCase
+  public void testCase_constants() {
+
+    // verification
+    for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(StringCatalogue.class)) {
+      expect(c).isOfType(String.class);
+    }
+  }
 }

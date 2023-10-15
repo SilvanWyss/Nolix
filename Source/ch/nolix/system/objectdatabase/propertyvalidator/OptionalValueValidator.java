@@ -11,23 +11,23 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalValueV
 
 //class
 public final class OptionalValueValidator extends PropertyValidator implements IOptionalValueValidator {
-	
-	//constant
-	private static final IOptionalValueHelper OPTIONAL_VALUE_HELPER = new OptionalValueHelper();
-	
-	//method
-	@Override
-	public <V> void assertCanSetGivenValue(final IOptionalValue<V> optionalValue, final V value) {
-		if (!OPTIONAL_VALUE_HELPER.canSetGivenValue(optionalValue, value)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
-		}
-	}
-	
-	//method
-	@Override
-	public void assertHasValue(final IOptionalValue<?> optionalValue) {
-		if (optionalValue.isEmpty()) {
-			throw EmptyArgumentException.forArgument(optionalValue);
-		}
-	}
+
+  // constant
+  private static final IOptionalValueHelper OPTIONAL_VALUE_HELPER = new OptionalValueHelper();
+
+  // method
+  @Override
+  public <V> void assertCanSetGivenValue(final IOptionalValue<V> optionalValue, final V value) {
+    if (!OPTIONAL_VALUE_HELPER.canSetGivenValue(optionalValue, value)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(optionalValue, "cannot set the given value");
+    }
+  }
+
+  // method
+  @Override
+  public void assertHasValue(final IOptionalValue<?> optionalValue) {
+    if (optionalValue.isEmpty()) {
+      throw EmptyArgumentException.forArgument(optionalValue);
+    }
+  }
 }

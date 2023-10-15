@@ -9,40 +9,39 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 //class
 final class BaseWebClientFrontendReader implements IFrontEndReader {
-	
-	//static method
-	public static BaseWebClientFrontendReader forBackendWebClient(
-		final BaseWebClient<?, ?> backendWebClient
-	) {
-		return new BaseWebClientFrontendReader(backendWebClient);
-	}
-	
-	//attribute
-	private final BaseWebClient<?, ?> parentBackendWebClient;
-	
-	//constructor
-	private BaseWebClientFrontendReader(final BaseWebClient<?, ?> parentBackendWebClient) {
-		
-		GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
-		
-		this.parentBackendWebClient = parentBackendWebClient;
-	}
-	
-	//method
-	@Override
-	public IContainer<byte[]> getFilesFromClipboard() {
-		return parentBackendWebClient.internalGetFilesFromClipboardOfCounterpart();
-	}
-	
-	//method
-	@Override
-	public String getTextFromClipboard() {
-		return parentBackendWebClient.internalGetTextFromClipboardOfCounterpart();
-	}
-	
-	//method
-	@Override
-	public ISingleContainer<byte[]> readFileToBytes() {
-		return parentBackendWebClient.internalReadOptionalFileFromCounterpart();
-	}
+
+  // static method
+  public static BaseWebClientFrontendReader forBackendWebClient(
+      final BaseWebClient<?, ?> backendWebClient) {
+    return new BaseWebClientFrontendReader(backendWebClient);
+  }
+
+  // attribute
+  private final BaseWebClient<?, ?> parentBackendWebClient;
+
+  // constructor
+  private BaseWebClientFrontendReader(final BaseWebClient<?, ?> parentBackendWebClient) {
+
+    GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
+
+    this.parentBackendWebClient = parentBackendWebClient;
+  }
+
+  // method
+  @Override
+  public IContainer<byte[]> getFilesFromClipboard() {
+    return parentBackendWebClient.internalGetFilesFromClipboardOfCounterpart();
+  }
+
+  // method
+  @Override
+  public String getTextFromClipboard() {
+    return parentBackendWebClient.internalGetTextFromClipboardOfCounterpart();
+  }
+
+  // method
+  @Override
+  public ISingleContainer<byte[]> readFileToBytes() {
+    return parentBackendWebClient.internalReadOptionalFileFromCounterpart();
+  }
 }

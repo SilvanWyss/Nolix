@@ -7,10 +7,10 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
 public interface ITableMapper {
-	
-	//method declaration
-	IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema);
-	
-	//method declaration
-	IContainer<ITable> createTablesFrom(ISchema schema);
+
+  // method declaration
+  IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema);
+
+  // method declaration
+  IContainer<ITable> createTablesFrom(ISchema schema);
 }

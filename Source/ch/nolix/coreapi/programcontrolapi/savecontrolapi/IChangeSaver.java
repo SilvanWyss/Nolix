@@ -12,10 +12,10 @@ import ch.nolix.coreapi.functionapi.mutationapi.Closeable;
  * @date 2018-04-09
  */
 public interface IChangeSaver extends Closeable, ChangeRequestable {
-	
-	//method declaration
-	/**
-	 * Saves the changes of the current {@link IChangeSaver}.
-	 */
-	void saveChanges();
+
+  // method declaration
+  /**
+   * Saves the changes of the current {@link IChangeSaver}.
+   */
+  void saveChanges();
 }

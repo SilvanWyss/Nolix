@@ -6,7 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
 public interface IServerDashboardContext {
-	
-	//method declaration
-	IContainer<IWebApplicationSheet> getWebApplicationSheets();
+
+  // method declaration
+  IContainer<IWebApplicationSheet> getWebApplicationSheets();
 }

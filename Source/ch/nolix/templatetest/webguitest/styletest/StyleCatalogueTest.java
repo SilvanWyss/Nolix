@@ -21,41 +21,37 @@ import ch.nolix.template.webgui.style.StyleCatalogue;
 
 //class
 public final class StyleCatalogueTest extends Test {
-	
-	//method
-	@TestCase
-	public void testCase_DarkStyle() {
-		
-		//setup
-		final var webGuiWithVariousContent = createWebGuiWithVariousContent();
-		final var testUnit = StyleCatalogue.DARK_STYLE;
-		
-		//execution & verification
-		expectRunning(() -> testUnit.styleElement(webGuiWithVariousContent)).doesNotThrowException();
-	}
-	
-	//method
-	private WebGui createWebGuiWithVariousContent() {
-		return
-		new WebGui()
-		.pushLayer(
-			new Layer()
-			.setRootControl(
-				new VerticalStack()
-				.addControl(
-					new Button(),
-					new DropdownMenu(),
-					new FloatContainer(),
-					new HorizontalStack(),
-					new ImageControl(),
-					new Label(),
-					new Link(),
-					new SingleContainer(),
-					new Textbox(),
-					new ValidationLabel(),
-					new VerticalStack()
-				)
-			)
-		);
-	}
+
+  // method
+  @TestCase
+  public void testCase_DarkStyle() {
+
+    // setup
+    final var webGuiWithVariousContent = createWebGuiWithVariousContent();
+    final var testUnit = StyleCatalogue.DARK_STYLE;
+
+    // execution & verification
+    expectRunning(() -> testUnit.styleElement(webGuiWithVariousContent)).doesNotThrowException();
+  }
+
+  // method
+  private WebGui createWebGuiWithVariousContent() {
+    return new WebGui()
+        .pushLayer(
+            new Layer()
+                .setRootControl(
+                    new VerticalStack()
+                        .addControl(
+                            new Button(),
+                            new DropdownMenu(),
+                            new FloatContainer(),
+                            new HorizontalStack(),
+                            new ImageControl(),
+                            new Label(),
+                            new Link(),
+                            new SingleContainer(),
+                            new Textbox(),
+                            new ValidationLabel(),
+                            new VerticalStack())));
+  }
 }

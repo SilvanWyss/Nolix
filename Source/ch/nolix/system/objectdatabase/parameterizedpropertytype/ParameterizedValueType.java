@@ -7,18 +7,17 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 //class
 public final class ParameterizedValueType<
 
-	V
->
-extends BaseParameterizedValueType<V> {
-	
-	//constructor
-	public ParameterizedValueType(final Class<V> valueType) {
-		super(valueType);
-	}
-	
-	//method
-	@Override
-	public PropertyType getPropertyType() {
-		return PropertyType.VALUE;
-	}
+    V>
+    extends BaseParameterizedValueType<V> {
+
+  // constructor
+  public ParameterizedValueType(final Class<V> valueType) {
+    super(valueType);
+  }
+
+  // method
+  @Override
+  public PropertyType getPropertyType() {
+    return PropertyType.VALUE;
+  }
 }

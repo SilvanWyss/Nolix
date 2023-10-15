@@ -6,12 +6,11 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class MultiStateConfigurationTestPool extends TestPool {
-	
-	//constructor
-	public MultiStateConfigurationTestPool() {
-		super(
-			CascadingPropertyInMultiStateConfigurationTest.class,
-			MultiStateConfigurationWithNonCascadingPropertyTest.class
-		);
-	}
+
+  // constructor
+  public MultiStateConfigurationTestPool() {
+    super(
+        CascadingPropertyInMultiStateConfigurationTest.class,
+        MultiStateConfigurationWithNonCascadingPropertyTest.class);
+  }
 }

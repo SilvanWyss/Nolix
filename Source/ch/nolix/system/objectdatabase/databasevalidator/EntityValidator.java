@@ -16,48 +16,47 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IEntityValidato
 
 //class
 public final class EntityValidator implements IEntityValidator {
-	
-	//constant
-	private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
-	
-	//method
-	@Override
-	public void assertBelongsToTable(final IEntity entity) {
-		if (!entity.belongsToTable()) {
-			throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(entity, ITable.class);
-		}
-	}
-	
-	//method
-	@Override
-	public void assertCanBeDeleted(final IEntity entity) {
-		if (!ENTITY_HELPER.canBeDeleted(entity)) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be deleted");
-		}
-	}
-	
-	//method
-	@Override
-	public void assertDoesNotBelongToTable(final IEntity entity) {
-		if (entity.belongsToTable()) {
-			throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getStoredParentTable());
-		}
-	}
-	
-	//method
-	@Override
-	public void assertHasSaveStamp(final IEntity entity) {
-		if (!entity.hasSaveStamp()) {
-			throw
-			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseCatalogue.SAVE_STAMP);
-		}
-	}
-	
-	//method
-	@Override
-	public void assertIsNotReferenced(final IEntity entity) {
-		if (ENTITY_HELPER.isReferenced(entity)) {
-			throw ReferencedArgumentException.forArgument(entity);
-		}
-	}
+
+  // constant
+  private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
+
+  // method
+  @Override
+  public void assertBelongsToTable(final IEntity entity) {
+    if (!entity.belongsToTable()) {
+      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(entity, ITable.class);
+    }
+  }
+
+  // method
+  @Override
+  public void assertCanBeDeleted(final IEntity entity) {
+    if (!ENTITY_HELPER.canBeDeleted(entity)) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(entity, "cannot be deleted");
+    }
+  }
+
+  // method
+  @Override
+  public void assertDoesNotBelongToTable(final IEntity entity) {
+    if (entity.belongsToTable()) {
+      throw ArgumentBelongsToParentException.forArgumentAndParent(entity, entity.getStoredParentTable());
+    }
+  }
+
+  // method
+  @Override
+  public void assertHasSaveStamp(final IEntity entity) {
+    if (!entity.hasSaveStamp()) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseCatalogue.SAVE_STAMP);
+    }
+  }
+
+  // method
+  @Override
+  public void assertIsNotReferenced(final IEntity entity) {
+    if (ENTITY_HELPER.isReferenced(entity)) {
+      throw ReferencedArgumentException.forArgument(entity);
+    }
+  }
 }

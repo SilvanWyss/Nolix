@@ -5,7 +5,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 
 //interface
 public interface ISlot extends Named {
-	
-	//method declaration
-	void takeBackendEndPoint(IEndPoint backendEndPoint);
+
+  // method declaration
+  void takeBackendEndPoint(IEndPoint backendEndPoint);
 }

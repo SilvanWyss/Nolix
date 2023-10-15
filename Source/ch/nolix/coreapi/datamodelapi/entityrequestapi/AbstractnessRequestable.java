@@ -6,25 +6,28 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link AbstractnessRequestable} can be asked if it is either abstract or concrete.
+ * A {@link AbstractnessRequestable} can be asked if it is either abstract or
+ * concrete.
  * 
  * @author Silvan Wyss
  * @date 2023-08-25
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface AbstractnessRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link AbstractnessRequestable} is abstract, false otherwise.
-	 */
-	boolean isAbstract();
-	
-	//method
-	/**
-	 * @return true if the current {@link AbstractnessRequestable} is concreate, false otherwise.
-	 */
-	default boolean isConcrete() {
-		return !isAbstract();
-	}
+
+  // method declaration
+  /**
+   * @return true if the current {@link AbstractnessRequestable} is abstract,
+   *         false otherwise.
+   */
+  boolean isAbstract();
+
+  // method
+  /**
+   * @return true if the current {@link AbstractnessRequestable} is concreate,
+   *         false otherwise.
+   */
+  default boolean isConcrete() {
+    return !isAbstract();
+  }
 }

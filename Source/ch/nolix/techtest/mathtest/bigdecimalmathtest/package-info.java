@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.techtest.mathtest.bigdecimalmathtest} package
- * defines tests for the {@link ch.nolix.tech.math.bigdecimalmath} package.
+ * The {@link ch.nolix.techtest.mathtest.bigdecimalmathtest} package defines
+ * tests for the {@link ch.nolix.tech.math.bigdecimalmath} package.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

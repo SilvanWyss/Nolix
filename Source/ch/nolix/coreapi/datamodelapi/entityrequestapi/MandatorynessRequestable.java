@@ -13,18 +13,20 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface MandatorynessRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link MandatorynessRequestable} is mandatory, false otherweise.
-	 */
-	boolean isMandatory();
-	
-	//method
-	/**
-	 * @return true if the current {@link MandatorynessRequestable} is optional, false otherweise.
-	 */
-	default boolean isOptional() {
-		return !isMandatory();
-	}
+
+  // method declaration
+  /**
+   * @return true if the current {@link MandatorynessRequestable} is mandatory,
+   *         false otherweise.
+   */
+  boolean isMandatory();
+
+  // method
+  /**
+   * @return true if the current {@link MandatorynessRequestable} is optional,
+   *         false otherweise.
+   */
+  default boolean isOptional() {
+    return !isMandatory();
+  }
 }

@@ -10,10 +10,10 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IBooleanGetter {
-	
-	//method declaration
-	/**
-	 * @return a boolean.
-	 */
-	boolean getOutput();
+
+  // method declaration
+  /**
+   * @return a boolean.
+   */
+  boolean getOutput();
 }

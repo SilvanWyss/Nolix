@@ -7,15 +7,15 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public final class ParameterizedReferenceType extends BaseParameterizedReferenceType {
-	
-	//constructor
-	public ParameterizedReferenceType(final ITable referencedTable) {
-		super(referencedTable);
-	}
-	
-	//method
-	@Override
-	public PropertyType getPropertyType() {
-		return PropertyType.REFERENCE;
-	}
+
+  // constructor
+  public ParameterizedReferenceType(final ITable referencedTable) {
+    super(referencedTable);
+  }
+
+  // method
+  @Override
+  public PropertyType getPropertyType() {
+    return PropertyType.REFERENCE;
+  }
 }

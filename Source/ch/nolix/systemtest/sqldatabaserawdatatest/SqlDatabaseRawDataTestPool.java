@@ -7,9 +7,9 @@ import ch.nolix.systemtest.sqldatabaserawdatatest.sqlsyntaxtest.SqlSyntaxTestPoo
 
 //class
 public class SqlDatabaseRawDataTestPool extends TestPool {
-	
-	//constructor
-	public SqlDatabaseRawDataTestPool() {
-		super(new SqlSyntaxTestPool());
-	}
+
+  // constructor
+  public SqlDatabaseRawDataTestPool() {
+    super(new SqlSyntaxTestPool());
+  }
 }

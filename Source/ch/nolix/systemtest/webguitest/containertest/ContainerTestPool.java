@@ -6,11 +6,10 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class ContainerTestPool extends TestPool {
-	
-	//constructor
-	public ContainerTestPool() {
-		super(
-			SingleContainerTest.class
-		);
-	}
+
+  // constructor
+  public ContainerTestPool() {
+    super(
+        SingleContainerTest.class);
+  }
 }

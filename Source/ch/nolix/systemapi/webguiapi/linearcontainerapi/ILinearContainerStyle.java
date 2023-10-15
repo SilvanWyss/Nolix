@@ -7,13 +7,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
 public interface ILinearContainerStyle<LCL extends ILinearContainerStyle<LCL>> extends IControlStyle<LCL> {
-	
-	//method declaration
-	int getChildControlMarginWhenHasState(ControlState state);
-	
-	//method declaration
-	void removeCustomChildControlMargins();
-	
-	//method declaration
-	LCL setChildControlMarginForState(ControlState state, int childControlMargin);
+
+  // method declaration
+  int getChildControlMarginWhenHasState(ControlState state);
+
+  // method declaration
+  void removeCustomChildControlMargins();
+
+  // method declaration
+  LCL setChildControlMarginForState(ControlState state, int childControlMargin);
 }

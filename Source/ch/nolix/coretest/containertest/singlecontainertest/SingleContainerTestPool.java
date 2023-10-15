@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class SingleContainerTestPool extends TestPool {
-	
-	//constructor
-	public SingleContainerTestPool() {
-		super(SingleContainerTest.class);
-	}
+
+  // constructor
+  public SingleContainerTestPool() {
+    super(SingleContainerTest.class);
+  }
 }

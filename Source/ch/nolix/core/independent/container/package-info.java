@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.independent.container} package defines containers that do not have a dependency.
+ * The {@link ch.nolix.core.independent.container} package defines containers
+ * that do not have a dependency.
  * 
  * @author Silvan Wyss
  * @date 2019-08-01

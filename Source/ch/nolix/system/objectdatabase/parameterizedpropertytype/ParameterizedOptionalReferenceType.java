@@ -9,18 +9,17 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //class
 public final class ParameterizedOptionalReferenceType<
 
-	E extends IEntity
->
-extends BaseParameterizedReferenceType<E> {
-	
-	//constructor
-	public ParameterizedOptionalReferenceType(final ITable<E> referencedTable) {
-		super(referencedTable);
-	}
-	
-	//method
-	@Override
-	public PropertyType getPropertyType() {
-		return PropertyType.OPTIONAL_REFERENCE;
-	}
+    E extends IEntity>
+    extends BaseParameterizedReferenceType<E> {
+
+  // constructor
+  public ParameterizedOptionalReferenceType(final ITable<E> referencedTable) {
+    super(referencedTable);
+  }
+
+  // method
+  @Override
+  public PropertyType getPropertyType() {
+    return PropertyType.OPTIONAL_REFERENCE;
+  }
 }

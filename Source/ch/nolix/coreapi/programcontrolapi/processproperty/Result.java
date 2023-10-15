@@ -9,6 +9,6 @@ package ch.nolix.coreapi.programcontrolapi.processproperty;
  * @date 2020-03-28
  */
 public enum Result {
-	SUCCESS,
-	FAILURE
+  SUCCESS,
+  FAILURE
 }

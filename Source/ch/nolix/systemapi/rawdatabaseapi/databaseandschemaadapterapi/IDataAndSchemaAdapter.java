@@ -6,4 +6,5 @@ import ch.nolix.systemapi.rawdatabaseapi.dataadapterapi.IDataWriter;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader;
 
 //interface
-public interface IDataAndSchemaAdapter extends IDataReader, IDataWriter, ISchemaReader {}
+public interface IDataAndSchemaAdapter extends IDataReader, IDataWriter, ISchemaReader {
+}

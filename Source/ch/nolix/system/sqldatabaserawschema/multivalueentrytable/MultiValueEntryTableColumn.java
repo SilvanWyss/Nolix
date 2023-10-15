@@ -10,33 +10,34 @@ import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
 
 //enum
 public enum MultiValueEntryTableColumn implements QualifiedNamed {
-	MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
-	ENTITY_ID("EntityId"),
-	VALUE(PascalCaseCatalogue.VALUE);
-	
-	//constant
-	private static final String NAME_PREFIX = MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName() + StringCatalogue.DOT;
-	
-	//attribute
-	private final String name;
-	
-	//constructor
-	MultiValueEntryTableColumn(final String name) {
-		
-		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		
-		this.name = name;
-	}
-	
-	//method
-	@Override
-	public final String getName() {
-		return name;
-	}
-	
-	//method
-	@Override
-	public String getQualifyingPrefix() {
-		return NAME_PREFIX;
-	}
+  MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
+  ENTITY_ID("EntityId"),
+  VALUE(PascalCaseCatalogue.VALUE);
+
+  // constant
+  private static final String NAME_PREFIX = MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
+      + StringCatalogue.DOT;
+
+  // attribute
+  private final String name;
+
+  // constructor
+  MultiValueEntryTableColumn(final String name) {
+
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+
+    this.name = name;
+  }
+
+  // method
+  @Override
+  public final String getName() {
+    return name;
+  }
+
+  // method
+  @Override
+  public String getQualifyingPrefix() {
+    return NAME_PREFIX;
+  }
 }

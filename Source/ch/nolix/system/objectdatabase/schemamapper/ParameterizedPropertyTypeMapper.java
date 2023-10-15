@@ -29,83 +29,69 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public final class ParameterizedPropertyTypeMapper implements IParameterizedPropertyTypeMapper {
-	
-	//constant
-	private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
-	
-	//method
-	@Override
-	public IParameterizedPropertyType
-	createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
-		final IProperty property,
-		final IContainer<ITable> referencableTables
-	) {
-		switch (property.getType()) {
-			case VALUE:
-				return new ParameterizedValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
-			case OPTIONAL_VALUE:
-				return new ParameterizedOptionalValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
-			case MULTI_VALUE:
-				return new ParameterizedMultiValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
-			case REFERENCE:
-										
-				final var reference = (IReference<?>)property;
-				
-				return
-				new ParameterizedReferenceType(
-					referencableTables.getStoredFirst(t -> t.hasName(reference.getReferencedTableName()))
-				);
-			case OPTIONAL_REFERENCE:
-				
-				final var optionalReference = (IOptionalReference<?>)property;
-				
-				return
-				new ParameterizedOptionalReferenceType(
-					referencableTables.getStoredFirst(t -> t.hasName(optionalReference.getReferencedTableName()))
-				);
-			case MULTI_REFERENCE:
-				
-				final var multiReference = (IMultiReference<?>)property;
-				
-				return
-				new ParameterizedMultiReferenceType(
-					referencableTables.getStoredFirst(t -> t.hasName(multiReference.getReferencedTableName()))
-				);
-			case BACK_REFERENCE:
-				
-				final var backReference = (IBackReference<?>)property;
-				
-				return
-				new ParameterizedBackReferenceType(
-					referencableTables
-					.getStoredFirst(t -> t.hasName(backReference.getBackReferencedTableName()))
-					.getStoredColumns()
-					.getStoredFirst(c -> c.hasName(backReference.getBackReferencedPropertyName()))
-				);
-			case OPTIONAL_BACK_REFERENCE:
-				
-				final var optionalBackReference = (IOptionalBackReference<?>)property;
-				
-				return
-				new ParameterizedOptionalBackReferenceType(
-					referencableTables
-					.getStoredFirst(t -> t.hasName(optionalBackReference.getBackReferencedTableName()))
-					.getStoredColumns()
-					.getStoredFirst(c -> c.hasName(optionalBackReference.getBackReferencedPropertyName()))
-				);
-			case MULTI_BACK_REFERENCE:
-				
-				final var multiBackReference = (IMultiBackReference<?>)property;
-				
-				return
-				new ParameterizedMultiBackReferenceType(
-					referencableTables
-					.getStoredFirst(t -> t.hasName(multiBackReference.getBackReferencedTableName()))
-					.getStoredColumns()
-					.getStoredFirst(c -> c.hasName(multiBackReference.getBackReferencedPropertyName()))
-				);
-			default:
-				throw InvalidArgumentException.forArgument(property);
-		}
-	}
+
+  // constant
+  private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
+
+  // method
+  @Override
+  public IParameterizedPropertyType createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
+      final IProperty property,
+      final IContainer<ITable> referencableTables) {
+    switch (property.getType()) {
+      case VALUE:
+        return new ParameterizedValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
+      case OPTIONAL_VALUE:
+        return new ParameterizedOptionalValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
+      case MULTI_VALUE:
+        return new ParameterizedMultiValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
+      case REFERENCE:
+
+        final var reference = (IReference<?>) property;
+
+        return new ParameterizedReferenceType(
+            referencableTables.getStoredFirst(t -> t.hasName(reference.getReferencedTableName())));
+      case OPTIONAL_REFERENCE:
+
+        final var optionalReference = (IOptionalReference<?>) property;
+
+        return new ParameterizedOptionalReferenceType(
+            referencableTables.getStoredFirst(t -> t.hasName(optionalReference.getReferencedTableName())));
+      case MULTI_REFERENCE:
+
+        final var multiReference = (IMultiReference<?>) property;
+
+        return new ParameterizedMultiReferenceType(
+            referencableTables.getStoredFirst(t -> t.hasName(multiReference.getReferencedTableName())));
+      case BACK_REFERENCE:
+
+        final var backReference = (IBackReference<?>) property;
+
+        return new ParameterizedBackReferenceType(
+            referencableTables
+                .getStoredFirst(t -> t.hasName(backReference.getBackReferencedTableName()))
+                .getStoredColumns()
+                .getStoredFirst(c -> c.hasName(backReference.getBackReferencedPropertyName())));
+      case OPTIONAL_BACK_REFERENCE:
+
+        final var optionalBackReference = (IOptionalBackReference<?>) property;
+
+        return new ParameterizedOptionalBackReferenceType(
+            referencableTables
+                .getStoredFirst(t -> t.hasName(optionalBackReference.getBackReferencedTableName()))
+                .getStoredColumns()
+                .getStoredFirst(c -> c.hasName(optionalBackReference.getBackReferencedPropertyName())));
+      case MULTI_BACK_REFERENCE:
+
+        final var multiBackReference = (IMultiBackReference<?>) property;
+
+        return new ParameterizedMultiBackReferenceType(
+            referencableTables
+                .getStoredFirst(t -> t.hasName(multiBackReference.getBackReferencedTableName()))
+                .getStoredColumns()
+                .getStoredFirst(c -> c.hasName(multiBackReference.getBackReferencedPropertyName())));
+      default:
+        throw InvalidArgumentException.forArgument(property);
+    }
+  }
 }

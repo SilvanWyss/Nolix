@@ -8,21 +8,21 @@ import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
 import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 
 //class
-public  class WebApplicationController extends Controller<IServerDashboardContext> {
-	
-	//attribute
-	private final IWebApplicationSheet webApplicationSheet;
-	
-	//constructor
-	public WebApplicationController(final IWebApplicationSheet webApplicationSheet) {
-		
-		GlobalValidator.assertThat(webApplicationSheet).thatIsNamed(IWebApplicationSheet.class).isNotNull();
-		
-		this.webApplicationSheet = webApplicationSheet;
-	}
-	
-	//method
-	public IWebApplicationSheet getWebApplicationSheet() {
-		return webApplicationSheet;
-	}
+public class WebApplicationController extends Controller<IServerDashboardContext> {
+
+  // attribute
+  private final IWebApplicationSheet webApplicationSheet;
+
+  // constructor
+  public WebApplicationController(final IWebApplicationSheet webApplicationSheet) {
+
+    GlobalValidator.assertThat(webApplicationSheet).thatIsNamed(IWebApplicationSheet.class).isNotNull();
+
+    this.webApplicationSheet = webApplicationSheet;
+  }
+
+  // method
+  public IWebApplicationSheet getWebApplicationSheet() {
+    return webApplicationSheet;
+  }
 }

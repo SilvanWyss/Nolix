@@ -12,43 +12,43 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //interface
 public interface IProperty extends EmptinessRequestable, IDatabaseObject, MandatorynessRequestable, Named {
-	
-	//method declaration
-	boolean belongsToEntity();
-	
-	//method declaration
-	IContainer<IProperty> getStoredBackReferencingProperties();
-	
-	//method
-	IColumn getStoredParentColumn();
-	
-	//method declaration
-	IEntity getStoredParentEntity();
-	
-	//method declaration
-	IContainer<IProperty> getStoredReferencingProperties();
-	
-	//method declaration
-	PropertyType getType();
-	
-	//method declaration
-	boolean knowsParentColumn();
-	
-	//method declaration
-	boolean referencesBackEntity(IEntity entity);
-	
-	//method declaration
-	boolean referencesBackProperty(IProperty property);
-	
-	//method declaration
-	boolean referencesEntity(IEntity entity);
-	
-	//method declaration
-	boolean referencesUninsertedEntity();
-	
-	//method declaration
-	void setUpdateAction(IAction updateAction);
-	
-	//method declaration
-	IContentFieldDto technicalToContentField();
+
+  // method declaration
+  boolean belongsToEntity();
+
+  // method declaration
+  IContainer<IProperty> getStoredBackReferencingProperties();
+
+  // method
+  IColumn getStoredParentColumn();
+
+  // method declaration
+  IEntity getStoredParentEntity();
+
+  // method declaration
+  IContainer<IProperty> getStoredReferencingProperties();
+
+  // method declaration
+  PropertyType getType();
+
+  // method declaration
+  boolean knowsParentColumn();
+
+  // method declaration
+  boolean referencesBackEntity(IEntity entity);
+
+  // method declaration
+  boolean referencesBackProperty(IProperty property);
+
+  // method declaration
+  boolean referencesEntity(IEntity entity);
+
+  // method declaration
+  boolean referencesUninsertedEntity();
+
+  // method declaration
+  void setUpdateAction(IAction updateAction);
+
+  // method declaration
+  IContentFieldDto technicalToContentField();
 }

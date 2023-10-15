@@ -10,12 +10,12 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface ILongTaker {
-	
-	//method declaration
-	/**
-	 * Takes the given value.
-	 * 
-	 * @param value
-	 */
-	void run(long value);
+
+  // method declaration
+  /**
+   * Takes the given value.
+   * 
+   * @param value
+   */
+  void run(long value);
 }

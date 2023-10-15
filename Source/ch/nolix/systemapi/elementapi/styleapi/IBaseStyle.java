@@ -8,26 +8,26 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //interface
 /**
- * A {@link IBaseStyle} can style {@link IStylableElement}s.
- * A {@link IBaseStyle} can distinguish if it would
- * style also the child elements of a given {@link IStylableElement}.
+ * A {@link IBaseStyle} can style {@link IStylableElement}s. A
+ * {@link IBaseStyle} can distinguish if it would style also the child elements
+ * of a given {@link IStylableElement}.
  * 
  * @author Silvan Wyss
  * @date 2023-07-09
  */
 public interface IBaseStyle extends Specified {
-	
-	//method declaration
-	/**
-	 * @return the attaching attributes of the current {@link IBaseStyle}.
-	 */
-	IContainer<? extends INode<?>> getAttachingAttributes();
-	
-	//method declaration
-	/**
-	 * Lets the current {@link IBaseStyle} style the given element.
-	 * 
-	 * @param element
-	 */
-	void styleElement(IStylableElement<?> element);
+
+  // method declaration
+  /**
+   * @return the attaching attributes of the current {@link IBaseStyle}.
+   */
+  IContainer<? extends INode<?>> getAttachingAttributes();
+
+  // method declaration
+  /**
+   * Lets the current {@link IBaseStyle} style the given element.
+   * 
+   * @param element
+   */
+  void styleElement(IStylableElement<?> element);
 }

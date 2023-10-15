@@ -15,35 +15,36 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  * @date 2017-05-14
  */
 public final class ValidatorTutorial {
-	
-	public static void main(String[] args) {
-		printAmount("apple", 5);
-		printAmount("banana", 10);
-		printAmount("cake", 2);
-	}
-	
-	/**
-	 * Prints out to the console the amount of the product with given productName.
-	 * 
-	 * @param productName
-	 * @param amount
-	 * @throws ArgumentIsNullException if the given productName is null.
-	 * @throws EmptyArgumentException if the given productName is empty.
-	 * @throws NegativeArgumentException if the given amount is negative.
-	 */
-	private static void printAmount(final String productName, final int amount) {
-		
-		//Asserts that the given productName is not null or empty.
-		GlobalValidator.assertThat(productName).thatIsNamed("product name").isNotEmpty();
-		
-		//Asserts that the given amount is not negative.
-		GlobalValidator.assertThat(amount).thatIsNamed("amount").isNotNegative();
-		
-		GlobalLogger.logInfo(productName + ": " + amount + " pieces");
-	}
-	
-	/**
-	 * Prevents that an instance of the {@link ValidatorTutorial} can be created.
-	 */
-	private ValidatorTutorial() {}
+
+  public static void main(String[] args) {
+    printAmount("apple", 5);
+    printAmount("banana", 10);
+    printAmount("cake", 2);
+  }
+
+  /**
+   * Prints out to the console the amount of the product with given productName.
+   * 
+   * @param productName
+   * @param amount
+   * @throws ArgumentIsNullException   if the given productName is null.
+   * @throws EmptyArgumentException    if the given productName is empty.
+   * @throws NegativeArgumentException if the given amount is negative.
+   */
+  private static void printAmount(final String productName, final int amount) {
+
+    // Asserts that the given productName is not null or empty.
+    GlobalValidator.assertThat(productName).thatIsNamed("product name").isNotEmpty();
+
+    // Asserts that the given amount is not negative.
+    GlobalValidator.assertThat(amount).thatIsNamed("amount").isNotNegative();
+
+    GlobalLogger.logInfo(productName + ": " + amount + " pieces");
+  }
+
+  /**
+   * Prevents that an instance of the {@link ValidatorTutorial} can be created.
+   */
+  private ValidatorTutorial() {
+  }
 }

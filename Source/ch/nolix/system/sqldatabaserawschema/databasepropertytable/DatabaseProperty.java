@@ -8,22 +8,22 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Labeled;
 
 //class
 public enum DatabaseProperty implements Labeled {
-	SCHEMA_TIMESTAMP("SchemaTimestamp");
-	
-	//attribute
-	private final String label;
-	
-	//constructor
-	DatabaseProperty(final String label) {
-		
-		GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
-		
-		this.label = label;
-	}
-	
-	//method
-	@Override
-	public final String getLabel() {
-		return label;
-	}
+  SCHEMA_TIMESTAMP("SchemaTimestamp");
+
+  // attribute
+  private final String label;
+
+  // constructor
+  DatabaseProperty(final String label) {
+
+    GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
+
+    this.label = label;
+  }
+
+  // method
+  @Override
+  public final String getLabel() {
+    return label;
+  }
 }

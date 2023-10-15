@@ -10,49 +10,48 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 
 public final class ButtonTutorial {
-	
-	public static void main(String[] args) {
-		
-		//Creates a Server.
-		final var server = Server.forHttpPort();
-		
-		//Adds a default Application to the Server.
-		server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext("Button tutorial", MainSession.class);
-		
-		//Starts a web browser that will connect to the Server.
-		ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
-		
-		//Closes the Server as soon as it does not have a client connected any more.
-		GlobalSequencer
-		.waitForSeconds(2)
-		.andThen()
-		.asSoonAsNoMore(server::hasClientConnected)
-		.runInBackground(server::close);
-	}
-	
-	private static final class MainSession extends WebClientSession<Object> {
-		
-		private int count;
-		
-		private final ILabel countLabel = new Label().setText(String.valueOf(count));
-		
-		@Override
-		protected void initialize() {
-			getStoredGui().pushLayerWithRootControl(
-				new VerticalStack()
-				.addControl(
-					countLabel,
-					new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)
-				)
-			);
-		}
-		
-		private void incrementCount() {
-			count++;
-			countLabel.setText(String.valueOf(count));
-			refresh();
-		}
-	}
-	
-	private ButtonTutorial() {}
+
+  public static void main(String[] args) {
+
+    // Creates a Server.
+    final var server = Server.forHttpPort();
+
+    // Adds a default Application to the Server.
+    server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext("Button tutorial", MainSession.class);
+
+    // Starts a web browser that will connect to the Server.
+    ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
+
+    // Closes the Server as soon as it does not have a client connected any more.
+    GlobalSequencer
+        .waitForSeconds(2)
+        .andThen()
+        .asSoonAsNoMore(server::hasClientConnected)
+        .runInBackground(server::close);
+  }
+
+  private static final class MainSession extends WebClientSession<Object> {
+
+    private int count;
+
+    private final ILabel countLabel = new Label().setText(String.valueOf(count));
+
+    @Override
+    protected void initialize() {
+      getStoredGui().pushLayerWithRootControl(
+          new VerticalStack()
+              .addControl(
+                  countLabel,
+                  new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)));
+    }
+
+    private void incrementCount() {
+      count++;
+      countLabel.setText(String.valueOf(count));
+      refresh();
+    }
+  }
+
+  private ButtonTutorial() {
+  }
 }

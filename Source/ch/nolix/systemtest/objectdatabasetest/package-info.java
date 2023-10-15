@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.objectdatabasetest} package defines
- * tests for the {@link ch.nolix.system.objectdatabase} package.
+ * The {@link ch.nolix.systemtest.objectdatabasetest} package defines tests for
+ * the {@link ch.nolix.system.objectdatabase} package.
  * 
  * @author Silvan Wyss
  * @date 2021-12-26

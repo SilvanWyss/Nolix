@@ -11,12 +11,12 @@ import ch.nolix.systemtest.timetest.momenttest.MomentTestPool;
  * @date 2017-11-14
  */
 public final class TimeTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link TimeTestPool}.
-	 */
-	public TimeTestPool() {
-		super(new MomentTestPool());
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link TimeTestPool}.
+   */
+  public TimeTestPool() {
+    super(new MomentTestPool());
+  }
 }

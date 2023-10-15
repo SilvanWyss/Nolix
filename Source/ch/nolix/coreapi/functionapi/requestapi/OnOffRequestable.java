@@ -9,17 +9,17 @@ package ch.nolix.coreapi.functionapi.requestapi;
  * @date 2023-02-05
  */
 public interface OnOffRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link OnOffRequestable} is off, false otherwise.
-	 */
-	boolean isOff();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link OnOffRequestable} is on, false otherwise.
-	 */
-	boolean isOn();
-	
+
+  // method declaration
+  /**
+   * @return true if the current {@link OnOffRequestable} is off, false otherwise.
+   */
+  boolean isOff();
+
+  // method declaration
+  /**
+   * @return true if the current {@link OnOffRequestable} is on, false otherwise.
+   */
+  boolean isOn();
+
 }

@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.container.arraycontrol} package defines types to control arrays.
+ * The {@link ch.nolix.core.container.arraycontrol} package defines types to
+ * control arrays.
  * 
  * @author Silvan Wyss
  * @date 2023-01-02

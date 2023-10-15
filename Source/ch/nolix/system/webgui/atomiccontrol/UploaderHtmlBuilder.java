@@ -13,18 +13,15 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader> {
-	
-	//method
-	@Override
-	public IHtmlElement createHtmlElementForControl(final IUploader control) {
-		return
-		HtmlElement.withTypeAndAttributes(
-			HtmlElementTypeCatalogue.INPUT,
-			ImmutableList.withElement(
-				HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.TYPE, "file"),
-				HtmlAttribute.withNameAndValue("multiple", "none"),
-				HtmlAttribute.withNameAndValue("data-uploader", "any")
-			)
-		);
-	}
+
+  // method
+  @Override
+  public IHtmlElement createHtmlElementForControl(final IUploader control) {
+    return HtmlElement.withTypeAndAttributes(
+        HtmlElementTypeCatalogue.INPUT,
+        ImmutableList.withElement(
+            HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.TYPE, "file"),
+            HtmlAttribute.withNameAndValue("multiple", "none"),
+            HtmlAttribute.withNameAndValue("data-uploader", "any")));
+  }
 }

@@ -12,13 +12,13 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface I2ElementTaker<E1, E2> {
-	
-	//method declaration
-	/**
-	 * Lets the current {@link I2ElementTaker} take the given element1 and element2.
-	 * 
-	 * @param element1
-	 * @param element2
-	 */
-	void run(E1 element1, E2 element2);
+
+  // method declaration
+  /**
+   * Lets the current {@link I2ElementTaker} take the given element1 and element2.
+   * 
+   * @param element1
+   * @param element2
+   */
+  void run(E1 element1, E2 element2);
 }

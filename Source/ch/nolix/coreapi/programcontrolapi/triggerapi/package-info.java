@@ -2,7 +2,7 @@
 /**
  * The {@link ch.nolix.coreapi.programcontrolapi.triggerapi} package declares
  * types to subscribe and trigger.
- *  
+ * 
  * @author Silvan Wyss
  * @date 2023-01-11
  */

@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class SaveControlApiTestPool extends TestPool {
-	
-	//constructor
-	public SaveControlApiTestPool() {
-		super(ChangeRequestableTest.class);
-	}
+
+  // constructor
+  public SaveControlApiTestPool() {
+    super(ChangeRequestableTest.class);
+  }
 }

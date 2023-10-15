@@ -12,18 +12,18 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ExpansionRequestable {
-	
-	//method
-	/**
-	 * @return true if the current {@link ExpansionRequestable} is collapsed.
-	 */
-	default boolean isCollapsed() {
-		return !isExpanded();
-	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link ExpansionRequestable} is expanded.
-	 */
-	boolean isExpanded();
+
+  // method
+  /**
+   * @return true if the current {@link ExpansionRequestable} is collapsed.
+   */
+  default boolean isCollapsed() {
+    return !isExpanded();
+  }
+
+  // method declaration
+  /**
+   * @return true if the current {@link ExpansionRequestable} is expanded.
+   */
+  boolean isExpanded();
 }

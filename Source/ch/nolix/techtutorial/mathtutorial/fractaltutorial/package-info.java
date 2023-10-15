@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.techtutorial.mathtutorial.fractaltutorial} package defines
- * tutorials for the {@link ch.nolix.tech.math.fractal} package.
+ * The {@link ch.nolix.techtutorial.mathtutorial.fractaltutorial} package
+ * defines tutorials for the {@link ch.nolix.tech.math.fractal} package.
  * 
  * @author Silvan Wyss
  * @date 2023-01-22

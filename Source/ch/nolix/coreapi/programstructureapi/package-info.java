@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi.programstructureapi} package declares types for program structure.
+ * The {@link ch.nolix.coreapi.programstructureapi} package declares types for
+ * program structure.
  * 
  * @author Silvan Wyss
  * @date 2022-07-20

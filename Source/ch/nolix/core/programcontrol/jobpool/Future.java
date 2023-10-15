@@ -8,45 +8,45 @@ import ch.nolix.core.programcontrol.future.BaseFuture;
 
 //class
 final class Future extends BaseFuture {
-	
-	//attribute
-	private final JobWrapper jobWrapper;
-	
-	//constructor
-	public Future(final JobWrapper jobWrapper) {
-		
-		GlobalValidator.assertThat(jobWrapper).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
-		
-		this.jobWrapper = jobWrapper;
-	}
-	
-	//method
-	@Override
-	public boolean caughtError() {
-		return jobWrapper.caughtError();
-	}
-	
-	//method
-	@Override
-	public Throwable getError() {
-		return jobWrapper.getError();
-	}
-	
-	//method
-	@Override
-	public boolean isFinished() {
-		return jobWrapper.isFinished();
-	}
-	
-	//method
-	@Override
-	public void waitUntilIsFinished() {
-		jobWrapper.waitUntilIsFinished();
-	}
-	
-	//method
-	@Override
-	public void waitUntilIsFinished(final int timeoutInMilliseconds) {
-		jobWrapper.waitUntilIsFinished(timeoutInMilliseconds);
-	}
+
+  // attribute
+  private final JobWrapper jobWrapper;
+
+  // constructor
+  public Future(final JobWrapper jobWrapper) {
+
+    GlobalValidator.assertThat(jobWrapper).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+
+    this.jobWrapper = jobWrapper;
+  }
+
+  // method
+  @Override
+  public boolean caughtError() {
+    return jobWrapper.caughtError();
+  }
+
+  // method
+  @Override
+  public Throwable getError() {
+    return jobWrapper.getError();
+  }
+
+  // method
+  @Override
+  public boolean isFinished() {
+    return jobWrapper.isFinished();
+  }
+
+  // method
+  @Override
+  public void waitUntilIsFinished() {
+    jobWrapper.waitUntilIsFinished();
+  }
+
+  // method
+  @Override
+  public void waitUntilIsFinished(final int timeoutInMilliseconds) {
+    jobWrapper.waitUntilIsFinished(timeoutInMilliseconds);
+  }
 }

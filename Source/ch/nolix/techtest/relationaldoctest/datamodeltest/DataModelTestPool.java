@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class DataModelTestPool extends TestPool {
-	
-	//constructor
-	public DataModelTestPool() {
-		super(AbstractableObjectOnDatabaseTest.class);
-	}
+
+  // constructor
+  public DataModelTestPool() {
+    super(AbstractableObjectOnDatabaseTest.class);
+  }
 }

@@ -5,4 +5,5 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface ITextboxStyle extends IControlStyle<ITextboxStyle> {}
+public interface ITextboxStyle extends IControlStyle<ITextboxStyle> {
+}

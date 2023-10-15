@@ -12,77 +12,76 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 
 //class
 final class MatrixColumnIterator<E> implements CopyableIterator<E> {
-	
-	//static method
-	public static <E2> MatrixColumnIterator<E2> forMatrixColumn(final MatrixColumn<E2> matrixColumn) {
-		return new MatrixColumnIterator<>(matrixColumn);
-	}
-	
-	//attribute
-	private final MatrixColumn<E> parentMatrixColumn;
-	
-	//attribute
-	private int nextElement1BasedRowIndex = 1;
-	
-	//constructor
-	private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
-		
-		GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
-		
-		this.parentMatrixColumn = parentMatrixColumn;
-	}
-	
-	//constructor
-	private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn, final int nextElement1BasedRowIndex) {
-		
-		GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
-		
-		GlobalValidator
-		.assertThat(nextElement1BasedRowIndex)
-		.thatIsNamed("next element 1-based row index")
-		.isPositive();
-		
-		this.parentMatrixColumn = parentMatrixColumn;
-		this.nextElement1BasedRowIndex = nextElement1BasedRowIndex;
-	}
-		
-	//method
-	@Override
-	public CopyableIterator<E> getCopy() {
-		return new MatrixColumnIterator<>(parentMatrixColumn, nextElement1BasedRowIndex);
-	}
-	
-	//method
-	@Override
-	public boolean hasNext() {
-		return (nextElement1BasedRowIndex <= parentMatrixColumn.getElementCount());
-	}
-	
-	//method
-	@Override
-	public E next() {
-		
-		assertHasNext();
-		
-		return nextWhenHasNext();
-	}
-	
-	//method
-	private void assertHasNext() throws NoSuchElementException {
-		if (!hasNext()) {
-			throw
-			ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
-			.toNoSuchElementException();
-		}
-	}
-	
-	//method
-	private E nextWhenHasNext() {
-		
-		final var element = parentMatrixColumn.getStoredAt1BasedIndex(nextElement1BasedRowIndex);
-		
-		nextElement1BasedRowIndex++;
-		
-		return element;
-	}
+
+  // static method
+  public static <E2> MatrixColumnIterator<E2> forMatrixColumn(final MatrixColumn<E2> matrixColumn) {
+    return new MatrixColumnIterator<>(matrixColumn);
+  }
+
+  // attribute
+  private final MatrixColumn<E> parentMatrixColumn;
+
+  // attribute
+  private int nextElement1BasedRowIndex = 1;
+
+  // constructor
+  private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
+
+    GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
+
+    this.parentMatrixColumn = parentMatrixColumn;
+  }
+
+  // constructor
+  private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn, final int nextElement1BasedRowIndex) {
+
+    GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
+
+    GlobalValidator
+        .assertThat(nextElement1BasedRowIndex)
+        .thatIsNamed("next element 1-based row index")
+        .isPositive();
+
+    this.parentMatrixColumn = parentMatrixColumn;
+    this.nextElement1BasedRowIndex = nextElement1BasedRowIndex;
+  }
+
+  // method
+  @Override
+  public CopyableIterator<E> getCopy() {
+    return new MatrixColumnIterator<>(parentMatrixColumn, nextElement1BasedRowIndex);
+  }
+
+  // method
+  @Override
+  public boolean hasNext() {
+    return (nextElement1BasedRowIndex <= parentMatrixColumn.getElementCount());
+  }
+
+  // method
+  @Override
+  public E next() {
+
+    assertHasNext();
+
+    return nextWhenHasNext();
+  }
+
+  // method
+  private void assertHasNext() throws NoSuchElementException {
+    if (!hasNext()) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
+          .toNoSuchElementException();
+    }
+  }
+
+  // method
+  private E nextWhenHasNext() {
+
+    final var element = parentMatrixColumn.getStoredAt1BasedIndex(nextElement1BasedRowIndex);
+
+    nextElement1BasedRowIndex++;
+
+    return element;
+  }
 }

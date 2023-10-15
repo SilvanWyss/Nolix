@@ -18,22 +18,21 @@ import ch.nolix.systemtest.webguitest.WebGuiTestPool;
 
 //class
 public final class SystemTestPool extends TestPool {
-	
-	//constructor
-	public SystemTestPool() {
-		super(
-			new ApplicationTestPool(),
-			new DatabaseApplicationTestPool(),
-			new ElementTestPool(),
-			new GraphicTestPool(),
-			new GuiTestPool(),
-			new ObjectDatabaseTestPool(),
-			new ObjectSchemaTestPool(),
-			new SqlDatabaseBasicSchemaTestPool(),
-			new SqlDatabaseRawDataTestPool(),
-			new StructureTestPool(),
-			new TimeTestPool(),
-			new WebGuiTestPool()
-		);
-	}
+
+  // constructor
+  public SystemTestPool() {
+    super(
+        new ApplicationTestPool(),
+        new DatabaseApplicationTestPool(),
+        new ElementTestPool(),
+        new GraphicTestPool(),
+        new GuiTestPool(),
+        new ObjectDatabaseTestPool(),
+        new ObjectSchemaTestPool(),
+        new SqlDatabaseBasicSchemaTestPool(),
+        new SqlDatabaseRawDataTestPool(),
+        new StructureTestPool(),
+        new TimeTestPool(),
+        new WebGuiTestPool());
+  }
 }

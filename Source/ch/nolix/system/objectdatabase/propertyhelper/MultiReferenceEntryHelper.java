@@ -6,4 +6,5 @@ import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceEntryHelper;
 
 //class
-public final class MultiReferenceEntryHelper extends DatabaseObjectHelper implements IMultiReferenceEntryHelper {}
+public final class MultiReferenceEntryHelper extends DatabaseObjectHelper implements IMultiReferenceEntryHelper {
+}

@@ -17,50 +17,47 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
-	
-	//method
-	@Override
-	public IHtmlElement createHtmlElementForControl(final ILink control) {
-		return
-		HtmlElement.withTypeAndAttributesAndInnerText(
-			HtmlElementTypeCatalogue.A,
-			createHtmlAttributesForControl(control),
-			control.getDisplayText()
-		);
-	}
-	
-	//method
-	private IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
-		
-		final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
-		
-		htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
-		
-		if (control.hasUrl()) {
-			htmlAttribtues.addAtEnd(HtmlAttribute.withNameAndValue("href", control.getUrl()));
-		}
-		
-		return htmlAttribtues;
-	}
-	
-	//method
-	private HtmlAttribute createTargetHtmlAttributeForControl(final ILink control) {
-		
-		final var target = control.getTarget();
-		
-		return createTargetHtmlAttributeForTarget(target);
-	}
-	
-	//method
-	private HtmlAttribute createTargetHtmlAttributeForTarget(final LinkTarget target) {
-		return
-		switch (target) {
-			case CURRENT_TAB ->
-				HtmlAttribute.withNameAndValue("target", "_self");
-			case NEW_TAB ->
-				HtmlAttribute.withNameAndValue("target", "_blank");
-			default ->
-				throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.TARGET, target);
-		};
-	}
+
+  // method
+  @Override
+  public IHtmlElement createHtmlElementForControl(final ILink control) {
+    return HtmlElement.withTypeAndAttributesAndInnerText(
+        HtmlElementTypeCatalogue.A,
+        createHtmlAttributesForControl(control),
+        control.getDisplayText());
+  }
+
+  // method
+  private IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
+
+    final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
+
+    htmlAttribtues.addAtEnd(createTargetHtmlAttributeForControl(control));
+
+    if (control.hasUrl()) {
+      htmlAttribtues.addAtEnd(HtmlAttribute.withNameAndValue("href", control.getUrl()));
+    }
+
+    return htmlAttribtues;
+  }
+
+  // method
+  private HtmlAttribute createTargetHtmlAttributeForControl(final ILink control) {
+
+    final var target = control.getTarget();
+
+    return createTargetHtmlAttributeForTarget(target);
+  }
+
+  // method
+  private HtmlAttribute createTargetHtmlAttributeForTarget(final LinkTarget target) {
+    return switch (target) {
+      case CURRENT_TAB ->
+        HtmlAttribute.withNameAndValue("target", "_self");
+      case NEW_TAB ->
+        HtmlAttribute.withNameAndValue("target", "_blank");
+      default ->
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.TARGET, target);
+    };
+  }
 }

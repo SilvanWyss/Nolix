@@ -7,10 +7,10 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 
 //interface
 public interface IProperty {
-	
-	//method declaration
-	boolean addedOrChangedAttribute(INode<?> attribute);
-	
-	//method declaration
-	void fillUpAttributesInto(ILinkedList<INode<?>> list);
+
+  // method declaration
+  boolean addedOrChangedAttribute(INode<?> attribute);
+
+  // method declaration
+  void fillUpAttributesInto(ILinkedList<INode<?>> list);
 }

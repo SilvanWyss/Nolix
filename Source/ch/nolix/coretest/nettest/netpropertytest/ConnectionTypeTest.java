@@ -9,46 +9,46 @@ import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 
 //class
 public final class ConnectionTypeTest extends Test {
-	
-	//method
-	@TestCase
-	public void testCase_getBaseType_whenIsLocal() {
-		
-		//setup
-		final var testUnit = ConnectionType.LOCAL;
-		
-		//execution
-		final var result = testUnit.getBaseType();
-		
-		//verification
-		expect(result).is(BaseConnectionType.LOCAL);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getBaseType_whenIsSocket() {
-		
-		//setup
-		final var testUnit = ConnectionType.SOCKET;
-		
-		//execution
-		final var result = testUnit.getBaseType();
-		
-		//verification
-		expect(result).is(BaseConnectionType.NET);
-	}
-	
-	//method
-	@TestCase
-	public void testCase_getBaseType_whenIsWebSocket() {
-		
-		//setup
-		final var testUnit = ConnectionType.WEB_SOCKET;
-		
-		//execution
-		final var result = testUnit.getBaseType();
-		
-		//verification
-		expect(result).is(BaseConnectionType.NET);
-	}
+
+  // method
+  @TestCase
+  public void testCase_getBaseType_whenIsLocal() {
+
+    // setup
+    final var testUnit = ConnectionType.LOCAL;
+
+    // execution
+    final var result = testUnit.getBaseType();
+
+    // verification
+    expect(result).is(BaseConnectionType.LOCAL);
+  }
+
+  // method
+  @TestCase
+  public void testCase_getBaseType_whenIsSocket() {
+
+    // setup
+    final var testUnit = ConnectionType.SOCKET;
+
+    // execution
+    final var result = testUnit.getBaseType();
+
+    // verification
+    expect(result).is(BaseConnectionType.NET);
+  }
+
+  // method
+  @TestCase
+  public void testCase_getBaseType_whenIsWebSocket() {
+
+    // setup
+    final var testUnit = ConnectionType.WEB_SOCKET;
+
+    // execution
+    final var result = testUnit.getBaseType();
+
+    // verification
+    expect(result).is(BaseConnectionType.NET);
+  }
 }

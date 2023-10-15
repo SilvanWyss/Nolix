@@ -19,132 +19,126 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  * @date 2016-02-01
  */
 public final class Style extends BaseStyle implements IStyle {
-	
-	//static method
-	/**
-	 * @param filePath
-	 * @return a new standard specification from the file with the given file path.
-	 * @throws InvalidArgumentException if the given file path is not valid.
-	 * @throws InvalidArgumentException
-	 * if the file with the given file path does not represent a standard configuration.
-	 */
-	public static Style fromFile(final String filePath) {
-		
-		final var specification = Node.fromFile(filePath);
-		
-		return fromSpecification(specification);
-	}
-	
-	//static method
-	/**
-	 * @param specification
-	 * @return a new {@link Style} from the given specification.
-	 * @throws InvalidArgumentException if the given specification is not valid.
-	 */
-	public static Style fromSpecification(final INode<?> specification) {
-				
-		final var attachingAttributes = new LinkedList<INode<?>>();
-		final var subStyles = new LinkedList<BaseSelectingStyle>();
-		
-		for (final var a : specification.getStoredChildNodes()) {
-			switch (a.getHeader()) {
-				case ATTACHING_ATTRIBUTE_HEADER:
-					attachingAttributes.addAtEnd(a.getStoredSingleChildNode());
-					break;
-				case SelectingStyle.TYPE_NAME:
-					subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
-					break;
-				case DeepSelectingStyle.TYPE_NAME:
-					subStyles.addAtEnd(DeepSelectingStyle.fromSpecification(a));
-					break;
-				default:
-					throw
-					InvalidArgumentException.forArgumentNameAndArgument(
-						LowerCaseCatalogue.SPECIFICATION,
-						specification
-					);
-			}
-		}
-		
-		return new Style(attachingAttributes, subStyles);
-	}
-	
-	//method
-	/**
-	 * @param selectingStyle
-	 * @return a {@link BaseSelectingStyle} from the current selectingStyle.
-	 */
-	private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyle selectingStyle) {
-		return (BaseSelectingStyle)selectingStyle;
-	}
-	
-	//constructor
-	/**
-	 * Creates a new {@link Style}.
-	 * 
-	 * @param attachingAttributes
-	 * @param subStyles
-	 */
-	public Style(
-		final IContainer<? extends INode<?>> attachingAttributes,
-		final IContainer<BaseSelectingStyle> subStyles
-	) {
-		super(attachingAttributes, subStyles);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IContainer<INode<?>> getAttributes() {
-		return
-		ReadContainer.forIterable(
-			getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
-			getSubStyles().to(ISelectingStyle::getSpecification)
-		);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void styleElement(final IStylableElement<?> element) {
-		setAttachingAttributesToElement(element);
-		letSubStylesStyleChildElementsOfElement(element);
-	}
-	
-	//method
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IStyle withAttachingAttributesAndSubStyles(
-		final IContainer<String> attachingAttributes,
-		final IContainer<ISelectingStyle> subStyles
-	) {
-		
-		final var allAttachingAttributes = new LinkedList<Node>();
-		
-		for (final var aa : getAttachingAttributes()) {
-			allAttachingAttributes.addAtEnd(Node.fromNode(aa));
-		}
-		
-		for (final var aa : attachingAttributes) {
-			allAttachingAttributes.addAtEnd(Node.fromString(aa));
-		}
-		
-		final var allSubStyles = new LinkedList<BaseSelectingStyle>();
-		
-		for (final var ss : getSubStyles()) {
-			allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
-		}
-		
-		for (final var ss : subStyles) {
-			allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
-		}
-		
-		return new Style(allAttachingAttributes, allSubStyles);		
-	}
+
+  // static method
+  /**
+   * @param filePath
+   * @return a new standard specification from the file with the given file path.
+   * @throws InvalidArgumentException if the given file path is not valid.
+   * @throws InvalidArgumentException if the file with the given file path does
+   *                                  not represent a standard configuration.
+   */
+  public static Style fromFile(final String filePath) {
+
+    final var specification = Node.fromFile(filePath);
+
+    return fromSpecification(specification);
+  }
+
+  // static method
+  /**
+   * @param specification
+   * @return a new {@link Style} from the given specification.
+   * @throws InvalidArgumentException if the given specification is not valid.
+   */
+  public static Style fromSpecification(final INode<?> specification) {
+
+    final var attachingAttributes = new LinkedList<INode<?>>();
+    final var subStyles = new LinkedList<BaseSelectingStyle>();
+
+    for (final var a : specification.getStoredChildNodes()) {
+      switch (a.getHeader()) {
+        case ATTACHING_ATTRIBUTE_HEADER:
+          attachingAttributes.addAtEnd(a.getStoredSingleChildNode());
+          break;
+        case SelectingStyle.TYPE_NAME:
+          subStyles.addAtEnd(SelectingStyle.fromSpecification(a));
+          break;
+        case DeepSelectingStyle.TYPE_NAME:
+          subStyles.addAtEnd(DeepSelectingStyle.fromSpecification(a));
+          break;
+        default:
+          throw InvalidArgumentException.forArgumentNameAndArgument(
+              LowerCaseCatalogue.SPECIFICATION,
+              specification);
+      }
+    }
+
+    return new Style(attachingAttributes, subStyles);
+  }
+
+  // method
+  /**
+   * @param selectingStyle
+   * @return a {@link BaseSelectingStyle} from the current selectingStyle.
+   */
+  private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyle selectingStyle) {
+    return (BaseSelectingStyle) selectingStyle;
+  }
+
+  // constructor
+  /**
+   * Creates a new {@link Style}.
+   * 
+   * @param attachingAttributes
+   * @param subStyles
+   */
+  public Style(
+      final IContainer<? extends INode<?>> attachingAttributes,
+      final IContainer<BaseSelectingStyle> subStyles) {
+    super(attachingAttributes, subStyles);
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IContainer<INode<?>> getAttributes() {
+    return ReadContainer.forIterable(
+        getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
+        getSubStyles().to(ISelectingStyle::getSpecification));
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void styleElement(final IStylableElement<?> element) {
+    setAttachingAttributesToElement(element);
+    letSubStylesStyleChildElementsOfElement(element);
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public IStyle withAttachingAttributesAndSubStyles(
+      final IContainer<String> attachingAttributes,
+      final IContainer<ISelectingStyle> subStyles) {
+
+    final var allAttachingAttributes = new LinkedList<Node>();
+
+    for (final var aa : getAttachingAttributes()) {
+      allAttachingAttributes.addAtEnd(Node.fromNode(aa));
+    }
+
+    for (final var aa : attachingAttributes) {
+      allAttachingAttributes.addAtEnd(Node.fromString(aa));
+    }
+
+    final var allSubStyles = new LinkedList<BaseSelectingStyle>();
+
+    for (final var ss : getSubStyles()) {
+      allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
+    }
+
+    for (final var ss : subStyles) {
+      allSubStyles.addAtEnd(toBaseSelectingStyle(ss));
+    }
+
+    return new Style(allAttachingAttributes, allSubStyles);
+  }
 }

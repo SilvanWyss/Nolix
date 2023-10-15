@@ -10,10 +10,10 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * @param <V> is the type of the value of a {@link IValueHolder}.
  */
 public interface IValueHolder<V> {
-	
-	//method declaration
-	/**
-	 * @return the value of the current {@link IValueHolder}.
-	 */
-	V getValue();
+
+  // method declaration
+  /**
+   * @return the value of the current {@link IValueHolder}.
+   */
+  V getValue();
 }

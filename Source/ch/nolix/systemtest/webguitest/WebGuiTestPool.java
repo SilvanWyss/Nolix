@@ -11,15 +11,14 @@ import ch.nolix.systemtest.webguitest.maintest.MainTestPool;
 
 //class
 public final class WebGuiTestPool extends TestPool {
-	
-	//constructor
-	public WebGuiTestPool() {
-		super(
-			new ContainerTestPool(),
-			new AtomicControlTestPool(),
-			new ItemMenuTestPool(),
-			new MainTestPool(),
-			new LinearContainerTestPool()
-		);
-	}
+
+  // constructor
+  public WebGuiTestPool() {
+    super(
+        new ContainerTestPool(),
+        new AtomicControlTestPool(),
+        new ItemMenuTestPool(),
+        new MainTestPool(),
+        new LinearContainerTestPool());
+  }
 }

@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi.attributeapi.optionalattributeapi} package declares
- * types with a certain optional attribute.
+ * The {@link ch.nolix.coreapi.attributeapi.optionalattributeapi} package
+ * declares types with a certain optional attribute.
  * 
  * @author Silvan Wyss
  * @date 2020-04-01

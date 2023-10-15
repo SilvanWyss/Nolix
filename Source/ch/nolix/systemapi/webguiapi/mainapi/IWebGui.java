@@ -15,43 +15,43 @@ import ch.nolix.systemapi.guiapi.mainapi.IGui;
 
 //interface
 public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
-	
-	//method declaration
-	ICss getCss();
-	
-	//method declaration
-	IHtmlElement getHtml();
-	
-	//method declaration
-	IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
-	
-	//method declaration
-	IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
-	
-	//method declaration
-	IContainer<IControl<?, ?>> getStoredControls();
-	
-	//method declaration
-	IContainer<ILayer<?>> getStoredLayers();
-	
-	//method declaration
-	ILayer<?> getStoredTopLayer();
-	
-	//method declaration
-	boolean hasRemoveLayerAction();
-	
-	//method declaration
-	WG pushLayer(ILayer<?> layer);
-	
-	//method declaration
-	WG pushLayerWithRootControl(IControl<?, ?> rootControl);
-	
-	//method declaration
-	void removeLayer(ILayer<?> layer);
-	
-	//method declaration
-	WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
-	
-	//method declaration
-	WG setRemoveLayerAction(IAction removeLayerAction);
+
+  // method declaration
+  ICss getCss();
+
+  // method declaration
+  IHtmlElement getHtml();
+
+  // method declaration
+  IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
+
+  // method declaration
+  IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
+
+  // method declaration
+  IContainer<IControl<?, ?>> getStoredControls();
+
+  // method declaration
+  IContainer<ILayer<?>> getStoredLayers();
+
+  // method declaration
+  ILayer<?> getStoredTopLayer();
+
+  // method declaration
+  boolean hasRemoveLayerAction();
+
+  // method declaration
+  WG pushLayer(ILayer<?> layer);
+
+  // method declaration
+  WG pushLayerWithRootControl(IControl<?, ?> rootControl);
+
+  // method declaration
+  void removeLayer(ILayer<?> layer);
+
+  // method declaration
+  WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
+
+  // method declaration
+  WG setRemoveLayerAction(IAction removeLayerAction);
 }

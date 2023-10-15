@@ -13,31 +13,27 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
-	
-	//method
-	@Override
-	public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
-		return
-		HtmlElement.withTypeAndAttributes(
-			HtmlElementTypeCatalogue.IMG,
-			createHtmlAttributesFromImageControl(imageControl)
-		);
-	}
-	
-	//method
-	private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
-		
-		final var htmlAttributes = new LinkedList<HtmlAttribute>();
-		
-		if (imageControl.containsAny()) {
-			htmlAttributes.addAtEnd(
-				HtmlAttribute.withNameAndValue(
-					HtmlAttributeNameCatalogue.SRC,
-					"data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString()
-				)
-			);
-		}
-		
-		return htmlAttributes;
-	}
+
+  // method
+  @Override
+  public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
+    return HtmlElement.withTypeAndAttributes(
+        HtmlElementTypeCatalogue.IMG,
+        createHtmlAttributesFromImageControl(imageControl));
+  }
+
+  // method
+  private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
+
+    final var htmlAttributes = new LinkedList<HtmlAttribute>();
+
+    if (imageControl.containsAny()) {
+      htmlAttributes.addAtEnd(
+          HtmlAttribute.withNameAndValue(
+              HtmlAttributeNameCatalogue.SRC,
+              "data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString()));
+    }
+
+    return htmlAttributes;
+  }
 }

@@ -11,44 +11,44 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
 public abstract class BaseExtensionElement<E extends IRespondingMutableElement<E>> implements IProperty {
-	
-	//attribute
-	private E internalExtensionElement;
-	
-	//constructor
-	protected BaseExtensionElement(final E internalExtensionElement) {
-		internalSetExtensionElement(internalExtensionElement);
-	}
-	
-	//method
-	public final E getExtensionElement() {
-		return internalExtensionElement;
-	}
-	
-	//method
-	public abstract boolean isExchangable();
-	
-	//method
-	@Override
-	public final boolean addedOrChangedAttribute(final INode<?> attribute) {
-		return internalExtensionElement.addedOrChangedAttribute(attribute);
-	}
-	
-	//method
-	@Override
-	public final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
-		list.addAtEnd(internalExtensionElement.getAttributes());
-	}
-	
-	//method
-	protected final void internalSetExtensionElement(final E internalExtensionElement) {
-		
-		GlobalValidator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
-		
-		if (this.internalExtensionElement != null && !isExchangable()) {
-			throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");
-		}
-		
-		this.internalExtensionElement = internalExtensionElement;
-	}
+
+  // attribute
+  private E internalExtensionElement;
+
+  // constructor
+  protected BaseExtensionElement(final E internalExtensionElement) {
+    internalSetExtensionElement(internalExtensionElement);
+  }
+
+  // method
+  public final E getExtensionElement() {
+    return internalExtensionElement;
+  }
+
+  // method
+  public abstract boolean isExchangable();
+
+  // method
+  @Override
+  public final boolean addedOrChangedAttribute(final INode<?> attribute) {
+    return internalExtensionElement.addedOrChangedAttribute(attribute);
+  }
+
+  // method
+  @Override
+  public final void fillUpAttributesInto(ILinkedList<INode<?>> list) {
+    list.addAtEnd(internalExtensionElement.getAttributes());
+  }
+
+  // method
+  protected final void internalSetExtensionElement(final E internalExtensionElement) {
+
+    GlobalValidator.assertThat(internalExtensionElement).thatIsNamed("extension element").isNotNull();
+
+    if (this.internalExtensionElement != null && !isExchangable()) {
+      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not exchangable");
+    }
+
+    this.internalExtensionElement = internalExtensionElement;
+  }
 }

@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi.containerapi.baseapi} package declares a base container.
+ * The {@link ch.nolix.coreapi.containerapi.baseapi} package declares a base
+ * container.
  * 
  * @author Silvan Wyss
  * @date 2023-01-29

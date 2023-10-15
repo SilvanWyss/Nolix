@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.elementfactory} package defines an element factory.
+ * The {@link ch.nolix.system.elementfactory} package defines an element
+ * factory.
  * 
  * @author Silvan Wyss
  * @date 2020-06-01

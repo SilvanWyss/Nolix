@@ -17,69 +17,60 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
-	
-	//constant
-	private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper(); 
-	
-	//method
-	@Override
-	protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-		final IGrid control,
-		final LinkedList<CssProperty> list
-	) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	protected void fillUpCssPropertiesForControlAndStateIntoList(
-		final IGrid control,
-		final ControlState state,
-		final LinkedList<ICssProperty> list
-	) {
-		//Does nothing.
-	}
-	
-	//method
-	@Override
-	protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-		final IGrid control,
-		final ControlState state,
-		final LinkedList<? super ICssRule> list
-	) {
-		
-		final var style = control.getStoredStyle();
-		final var gridThickness = style.getGridThicknessWhenHasState(state);
-		final var gridcolor = style.getGridColorWhenHasState(state);
-		final var childControlMargin = style.getChildControlMarginWhenHasState(state);
-		
-		list.addAtEnd(
-			CssRule.withSelectorAndProperties(
-				"table, th, td",
-				ImmutableList.withElement(
-					CssProperty.withNameAndValue("border-collapse", "collapse"),
-					CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
-					CssProperty.withNameAndValue("border-color", CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor))
-				)
-			)
-		);
-		
-		list.addAtEnd(
-			CssRule.withSelectorAndProperties(
-				HtmlElementTypeCatalogue.TD,
-				ImmutableList.withElement(
-					CssProperty.withNameAndValue("padding", childControlMargin + "px")
-				)
-			)
-		);
-	}
-	
-	//method
-	@Override
-	protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-		final IGrid control,
-		final LinkedList<? super ICssRule> list
-	) {
-		//Does nothing.
-	}
+
+  // constant
+  private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper();
+
+  // method
+  @Override
+  protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
+      final IGrid control,
+      final LinkedList<CssProperty> list) {
+    // Does nothing.
+  }
+
+  // method
+  @Override
+  protected void fillUpCssPropertiesForControlAndStateIntoList(
+      final IGrid control,
+      final ControlState state,
+      final LinkedList<ICssProperty> list) {
+    // Does nothing.
+  }
+
+  // method
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
+      final IGrid control,
+      final ControlState state,
+      final LinkedList<? super ICssRule> list) {
+
+    final var style = control.getStoredStyle();
+    final var gridThickness = style.getGridThicknessWhenHasState(state);
+    final var gridcolor = style.getGridColorWhenHasState(state);
+    final var childControlMargin = style.getChildControlMarginWhenHasState(state);
+
+    list.addAtEnd(
+        CssRule.withSelectorAndProperties(
+            "table, th, td",
+            ImmutableList.withElement(
+                CssProperty.withNameAndValue("border-collapse", "collapse"),
+                CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
+                CssProperty.withNameAndValue("border-color",
+                    CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor)))));
+
+    list.addAtEnd(
+        CssRule.withSelectorAndProperties(
+            HtmlElementTypeCatalogue.TD,
+            ImmutableList.withElement(
+                CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
+  }
+
+  // method
+  @Override
+  protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
+      final IGrid control,
+      final LinkedList<? super ICssRule> list) {
+    // Does nothing.
+  }
 }

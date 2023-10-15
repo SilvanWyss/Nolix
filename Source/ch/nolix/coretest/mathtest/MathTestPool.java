@@ -13,16 +13,15 @@ import ch.nolix.coretest.mathtest.stochastictest.StochasticTestPool;
  * @date 2016-09-01
  */
 public final class MathTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link MathTestPool}.
-	 */
-	public MathTestPool() {
-		super(
-			new AlgebraTestPool(),
-			new MainTestPool(),
-			new StochasticTestPool()
-		);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link MathTestPool}.
+   */
+  public MathTestPool() {
+    super(
+        new AlgebraTestPool(),
+        new MainTestPool(),
+        new StochasticTestPool());
+  }
 }

@@ -10,4 +10,5 @@ import java.lang.annotation.Target;
 //interface
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
-public @interface ImplementedWithoutUseOfCurrentInterface {}
+public @interface ImplementedWithoutUseOfCurrentInterface {
+}

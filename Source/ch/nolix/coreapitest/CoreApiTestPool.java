@@ -7,9 +7,9 @@ import ch.nolix.coreapitest.programcontrolapitest.ProgramControlApiTestPool;
 
 //class
 public final class CoreApiTestPool extends TestPool {
-	
-	//constructor
-	public CoreApiTestPool() {
-		super(new ProgramControlApiTestPool());
-	}
+
+  // constructor
+  public CoreApiTestPool() {
+    super(new ProgramControlApiTestPool());
+  }
 }

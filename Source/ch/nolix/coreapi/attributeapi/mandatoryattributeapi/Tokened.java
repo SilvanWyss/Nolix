@@ -9,17 +9,17 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * @date 2023-02-06
  */
 public interface Tokened {
-	
-	//method declaration
-	/**
-	 * @return the token of the current {@link Tokened}.
-	 */
-	String getToken();
-	
-	//method
-	/**
-	 * @param token
-	 * @return true if the current {@link Tokened} has the given token.
-	 */
-	boolean hasToken(String token);
+
+  // method declaration
+  /**
+   * @return the token of the current {@link Tokened}.
+   */
+  String getToken();
+
+  // method
+  /**
+   * @param token
+   * @return true if the current {@link Tokened} has the given token.
+   */
+  boolean hasToken(String token);
 }

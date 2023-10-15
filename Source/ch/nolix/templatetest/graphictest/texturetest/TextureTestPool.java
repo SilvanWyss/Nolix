@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class TextureTestPool extends TestPool {
-	
-	//constructor
-	public TextureTestPool() {
-		super(TextureCatalogueTest.class);
-	}
+
+  // constructor
+  public TextureTestPool() {
+    super(TextureCatalogueTest.class);
+  }
 }

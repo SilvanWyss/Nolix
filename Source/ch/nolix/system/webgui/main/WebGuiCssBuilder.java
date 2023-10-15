@@ -15,66 +15,58 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public final class WebGuiCssBuilder {
-	
-	//method
-	public Css createCssForWebGui(final IWebGui<?> webGui) {
-		
-		final var cssRules = new LinkedList<ICssRule>();
-		
-		fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
-		
-		return Css.withRules(cssRules);
-	}
-	
-	//method
-	private void fillUpCssRulesOfWebGuiIntoList(
-		final IWebGui<?> webGui,
-		final LinkedList<ICssRule> cssRules
-	) {
-		
-		cssRules.addAtEnd(
-			CssRule.withSelectorAndProperties(
-				HtmlElementTypeCatalogue.BODY,
-				ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"))
-			)
-		);
-		
-		cssRules.addAtEnd(
-			CssRule.withSelectorAndProperty(
-				"#root",
-				CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")
-			)
-		);
-		
-		if (webGui.hasBackground()) {
-			cssRules.addAtEnd(
-				CssRule.withSelectorAndProperties(
-					"#root",
-					webGui.getBackground().toCssProperties()
-				)
-			);
-		}
-				
-		fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
-	}
-	
-	//method
-	private void fillUpCssRulesOfLayersOfWebGuiIntoList(
-		final IWebGui<?> webGui,
-		final LinkedList<ICssRule> cssRules
-	) {
-		for (final var l : webGui.getStoredLayers()) {
-			fillUpCssRulesOfLayerIntoList(l, cssRules);
-		}
-	}
-	
-	//method
-	private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule> cssRules) {
-		
-		cssRules.addAtEnd(layer.getCssRule());
-		
-		for (final var c : layer.getStoredControls()) {
-			cssRules.addAtEnd(c.getCssRules());
-		}
-	}
+
+  // method
+  public Css createCssForWebGui(final IWebGui<?> webGui) {
+
+    final var cssRules = new LinkedList<ICssRule>();
+
+    fillUpCssRulesOfWebGuiIntoList(webGui, cssRules);
+
+    return Css.withRules(cssRules);
+  }
+
+  // method
+  private void fillUpCssRulesOfWebGuiIntoList(
+      final IWebGui<?> webGui,
+      final LinkedList<ICssRule> cssRules) {
+
+    cssRules.addAtEnd(
+        CssRule.withSelectorAndProperties(
+            HtmlElementTypeCatalogue.BODY,
+            ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"))));
+
+    cssRules.addAtEnd(
+        CssRule.withSelectorAndProperty(
+            "#root",
+            CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")));
+
+    if (webGui.hasBackground()) {
+      cssRules.addAtEnd(
+          CssRule.withSelectorAndProperties(
+              "#root",
+              webGui.getBackground().toCssProperties()));
+    }
+
+    fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
+  }
+
+  // method
+  private void fillUpCssRulesOfLayersOfWebGuiIntoList(
+      final IWebGui<?> webGui,
+      final LinkedList<ICssRule> cssRules) {
+    for (final var l : webGui.getStoredLayers()) {
+      fillUpCssRulesOfLayerIntoList(l, cssRules);
+    }
+  }
+
+  // method
+  private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule> cssRules) {
+
+    cssRules.addAtEnd(layer.getCssRule());
+
+    for (final var c : layer.getStoredControls()) {
+      cssRules.addAtEnd(c.getCssRules());
+    }
+  }
 }

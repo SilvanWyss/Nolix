@@ -8,10 +8,9 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //interface
 public interface IParameterizedPropertyTypeMapper {
-	
-	//method declaration
-	IParameterizedPropertyType createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
-		IProperty property,
-		IContainer<ITable> referencableTables
-	);
+
+  // method declaration
+  IParameterizedPropertyType createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
+      IProperty property,
+      IContainer<ITable> referencableTables);
 }

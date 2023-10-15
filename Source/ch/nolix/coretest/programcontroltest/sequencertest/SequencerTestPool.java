@@ -11,11 +11,11 @@ import ch.nolix.core.testing.basetest.TestPool;
  */
 public final class SequencerTestPool extends TestPool {
 
-	//constructor
-	/**
-	 * Creates a new {@link SequencerTestPool}.
-	 */
-	public SequencerTestPool() {
-		super(GlobalSequencerTest.class);
-	}
+  // constructor
+  /**
+   * Creates a new {@link SequencerTestPool}.
+   */
+  public SequencerTestPool() {
+    super(GlobalSequencerTest.class);
+  }
 }

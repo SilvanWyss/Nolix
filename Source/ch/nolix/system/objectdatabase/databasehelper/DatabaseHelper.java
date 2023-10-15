@@ -12,44 +12,42 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper {
-	
-	//constant
-	private static final ITableHelper TABLE_HELPER = new TableHelper();
-	
-	//method
-	@Override
-	public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
-		return database.getStoredTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
-	}
-	
-	//method
-	@Override
-	public boolean canSaveChanges(final IDatabase database) {
-		return
-		database.isOpen()
-		&& database.isLinkedWithRealDatabase()
-		&& allNewAndEditedMandatoryPropertiesAreSet(database);
-	}
-	
-	//method
-	@Override
-	public  IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
-		return database.getStoredTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
-	}
-	
-	//method
-	@Override
-	@SuppressWarnings("unchecked")
-	public <E extends IEntity> ITable<E> getStoredTableForGivenEntity(
-		final IDatabase database,
-		final E entity
-	) {
-		return database.getStoredTableByEntityType((Class<E>)entity.getClass());
-	}
-	
-	//method
-	@Override
-	public boolean hasChanges(final IDatabase database) {
-		return database.getStoredTables().containsAny(TABLE_HELPER::hasChanges);
-	}
+
+  // constant
+  private static final ITableHelper TABLE_HELPER = new TableHelper();
+
+  // method
+  @Override
+  public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
+    return database.getStoredTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
+  }
+
+  // method
+  @Override
+  public boolean canSaveChanges(final IDatabase database) {
+    return database.isOpen()
+        && database.isLinkedWithRealDatabase()
+        && allNewAndEditedMandatoryPropertiesAreSet(database);
+  }
+
+  // method
+  @Override
+  public IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
+    return database.getStoredTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
+  }
+
+  // method
+  @Override
+  @SuppressWarnings("unchecked")
+  public <E extends IEntity> ITable<E> getStoredTableForGivenEntity(
+      final IDatabase database,
+      final E entity) {
+    return database.getStoredTableByEntityType((Class<E>) entity.getClass());
+  }
+
+  // method
+  @Override
+  public boolean hasChanges(final IDatabase database) {
+    return database.getStoredTables().containsAny(TABLE_HELPER::hasChanges);
+  }
 }

@@ -7,22 +7,23 @@ import java.lang.reflect.Modifier;
 
 //class
 public final class GlobalMemberHelper {
-	
-	//static method
-	public static boolean isPrivate(final Member member) {
-		return Modifier.isPrivate(member.getModifiers());
-	}
-	
-	//static method
-	public static boolean isProtected(final Member member) {
-		return Modifier.isProtected(member.getModifiers());
-	}
-	
-	//static method
-	public static boolean isPublic(final Member member) {
-		return Modifier.isPublic(member.getModifiers());
-	}
-	
-	//constructor
-	private GlobalMemberHelper() {}
+
+  // static method
+  public static boolean isPrivate(final Member member) {
+    return Modifier.isPrivate(member.getModifiers());
+  }
+
+  // static method
+  public static boolean isProtected(final Member member) {
+    return Modifier.isProtected(member.getModifiers());
+  }
+
+  // static method
+  public static boolean isPublic(final Member member) {
+    return Modifier.isPublic(member.getModifiers());
+  }
+
+  // constructor
+  private GlobalMemberHelper() {
+  }
 }

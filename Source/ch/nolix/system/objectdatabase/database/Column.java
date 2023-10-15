@@ -12,85 +12,81 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn {
-	
-	//static method
-	static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
-		final String name,
-		final String id,
-		final IParameterizedPropertyType parameterizedPropertyType,
-		final Table<IEntity> parentTable
-	) {
-		return new Column(name, id, parameterizedPropertyType, parentTable);
-	}
-	
-	//attribute
-	private final String name;
-	
-	//attribute
-	private final String id;
-	
-	//attribute
-	private final IParameterizedPropertyType parameterizedPropertyType;
-	
-	//attribute
-	private final Table<IEntity> parentTable;
-	
-	//constructor
-	private Column(
-		final String name,
-		final String id,
-		final IParameterizedPropertyType parameterizedPropertyType,
-		final Table<IEntity> parentTable
-	) {
-		
-		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
-		GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
-		GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(IParameterizedPropertyType.class).isNotNull();
-		GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
-		
-		this.name = name;
-		this.id = id;
-		this.parameterizedPropertyType = parameterizedPropertyType;
-		this.parentTable = parentTable;
-	}
-	
-	//method
-	@Override
-	public String getId() {
-		return id;
-	}
-	
-	//method
-	@Override
-	public String getName() {
-		return name;
-	}
-	
-	//method
-	@Override
-	public IParameterizedPropertyType getParameterizedPropertyType() {
-		return parameterizedPropertyType;
-	}
-	
-	//method
-	@Override
-	public ITable<IEntity> getStoredParentTable() {
-		return parentTable;
-	}
-	
-	//method
-	@Override
-	public boolean technicalContainsGivenValueInPersistedData(final String value) {
-		return
-		getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
-			getStoredParentTable().getName(),
-			getName(),
-			value
-		);
-	}
-	
-	//method
-	private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
-		return parentTable.internalGetRefDataAndSchemaAdapter();
-	}
+
+  // static method
+  static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
+      final String name,
+      final String id,
+      final IParameterizedPropertyType parameterizedPropertyType,
+      final Table<IEntity> parentTable) {
+    return new Column(name, id, parameterizedPropertyType, parentTable);
+  }
+
+  // attribute
+  private final String name;
+
+  // attribute
+  private final String id;
+
+  // attribute
+  private final IParameterizedPropertyType parameterizedPropertyType;
+
+  // attribute
+  private final Table<IEntity> parentTable;
+
+  // constructor
+  private Column(
+      final String name,
+      final String id,
+      final IParameterizedPropertyType parameterizedPropertyType,
+      final Table<IEntity> parentTable) {
+
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
+    GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
+    GlobalValidator.assertThat(parameterizedPropertyType).thatIsNamed(IParameterizedPropertyType.class).isNotNull();
+    GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
+
+    this.name = name;
+    this.id = id;
+    this.parameterizedPropertyType = parameterizedPropertyType;
+    this.parentTable = parentTable;
+  }
+
+  // method
+  @Override
+  public String getId() {
+    return id;
+  }
+
+  // method
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  // method
+  @Override
+  public IParameterizedPropertyType getParameterizedPropertyType() {
+    return parameterizedPropertyType;
+  }
+
+  // method
+  @Override
+  public ITable<IEntity> getStoredParentTable() {
+    return parentTable;
+  }
+
+  // method
+  @Override
+  public boolean technicalContainsGivenValueInPersistedData(final String value) {
+    return getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
+        getStoredParentTable().getName(),
+        getName(),
+        value);
+  }
+
+  // method
+  private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
+    return parentTable.internalGetRefDataAndSchemaAdapter();
+  }
 }

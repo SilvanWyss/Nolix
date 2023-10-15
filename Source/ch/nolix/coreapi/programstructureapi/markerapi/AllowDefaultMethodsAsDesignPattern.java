@@ -10,4 +10,5 @@ import java.lang.annotation.Target;
 //annotation
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface AllowDefaultMethodsAsDesignPattern {}
+public @interface AllowDefaultMethodsAsDesignPattern {
+}

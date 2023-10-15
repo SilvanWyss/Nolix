@@ -1,7 +1,8 @@
 //package info
 /**
  * The {@link ch.nolix.system.sqldatabasebasicschema.sqlsyntax} package defines
- * the types that are declared in the {@link ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi} package.
+ * the types that are declared in the
+ * {@link ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi} package.
  * 
  * @author Silvan Wyss
  * @date 2021-07-31

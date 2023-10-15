@@ -9,30 +9,29 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceT
 
 //class
 public final class BaseParameterizedReferenceTypeDto extends ParameterizedPropertyTypeDto
-implements IBaseParameterizedReferenceTypeDto {
-	
-	//attribute
-	private final String referencedTableId;
-	
-	//constructor
-	public BaseParameterizedReferenceTypeDto(
-		final PropertyType propertyType,
-		final DataType dataType,
-		final String referencedTableId
-	) {
-		
-		super(propertyType, dataType);
-		
-		if (referencedTableId == null) {
-			throw ArgumentIsNullException.forArgumentName("referenced table id");
-		}
-		
-		this.referencedTableId = referencedTableId;
-	}
-	
-	//method
-	@Override
-	public String getReferencedTableId() {
-		return referencedTableId;
-	}
+    implements IBaseParameterizedReferenceTypeDto {
+
+  // attribute
+  private final String referencedTableId;
+
+  // constructor
+  public BaseParameterizedReferenceTypeDto(
+      final PropertyType propertyType,
+      final DataType dataType,
+      final String referencedTableId) {
+
+    super(propertyType, dataType);
+
+    if (referencedTableId == null) {
+      throw ArgumentIsNullException.forArgumentName("referenced table id");
+    }
+
+    this.referencedTableId = referencedTableId;
+  }
+
+  // method
+  @Override
+  public String getReferencedTableId() {
+    return referencedTableId;
+  }
 }

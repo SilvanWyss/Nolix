@@ -15,59 +15,61 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  * @date 2017-01-01
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
-	
-	//static method
-	public static MultiLongMediator forValue(final int value, final int[] values) {
-		
-		final var allValues = new List<Long>();
-		allValues.addAtEnd((long)value);
-		for (final var v : values) {
-			allValues.addAtEnd((long)v);
-		}
-		
-		return new MultiLongMediator(allValues);
-	}
-	
-	//constructor
-	/**
-	 * Creates a new long container mediator with the given arguments.
-	 * 
-	 * @param arguments
-	 * @throws ArgumentIsNullException if the given argument container is null.
-	 */
-	public MultiLongMediator(final Iterable<Long> arguments) {
-		
-		//Calls constructor of the base class.
-		super(arguments);
-	}
-	
-	public MultiLongMediator(final long[] arguments) {
-		
-		//Calls constructor if the base class.
-		super(GlobalArrayHelper.createIterable(arguments));
-	}
 
-	//method
-	/**
-	 * @throws ArgumentIsNullException if one of the arguments of this long container mediator is null.
-	 * @throws NonPositiveArgumentException if one of the arguments of this long container mediator is not positive.
-	 */
-	public void arePositive() {
-	
-		//Asserts that the arguments of this long container mediator are not null.
-		areNotNull();
-		
-		//Iterates through the arguments of this long container mediator.
-		var index = 1;
-		for (long a: getStoredArguments()) {
-			
-			//Asserts that the current argument is positive.
-			if (a <= 0) {
-				throw NonPositiveArgumentException.forArgumentNameAndArgument(index + "th", a);
-			}
-			
-			//Increments the index.
-			index++;
-		}
-	}
+  // static method
+  public static MultiLongMediator forValue(final int value, final int[] values) {
+
+    final var allValues = new List<Long>();
+    allValues.addAtEnd((long) value);
+    for (final var v : values) {
+      allValues.addAtEnd((long) v);
+    }
+
+    return new MultiLongMediator(allValues);
+  }
+
+  // constructor
+  /**
+   * Creates a new long container mediator with the given arguments.
+   * 
+   * @param arguments
+   * @throws ArgumentIsNullException if the given argument container is null.
+   */
+  public MultiLongMediator(final Iterable<Long> arguments) {
+
+    // Calls constructor of the base class.
+    super(arguments);
+  }
+
+  public MultiLongMediator(final long[] arguments) {
+
+    // Calls constructor if the base class.
+    super(GlobalArrayHelper.createIterable(arguments));
+  }
+
+  // method
+  /**
+   * @throws ArgumentIsNullException      if one of the arguments of this long
+   *                                      container mediator is null.
+   * @throws NonPositiveArgumentException if one of the arguments of this long
+   *                                      container mediator is not positive.
+   */
+  public void arePositive() {
+
+    // Asserts that the arguments of this long container mediator are not null.
+    areNotNull();
+
+    // Iterates through the arguments of this long container mediator.
+    var index = 1;
+    for (long a : getStoredArguments()) {
+
+      // Asserts that the current argument is positive.
+      if (a <= 0) {
+        throw NonPositiveArgumentException.forArgumentNameAndArgument(index + "th", a);
+      }
+
+      // Increments the index.
+      index++;
+    }
+  }
 }

@@ -9,26 +9,26 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Labeled;
 
 //class
 public enum DatabasePropertySystemTableColumn implements Labeled {
-	
-	//'Key' is a reserved word in MSSQL databases.
-	KEY("ValueKey"),
-	
-	VALUE(PascalCaseCatalogue.VALUE);
-	
-	//attribute
-	private final String label;
-	
-	//constructor
-	DatabasePropertySystemTableColumn(final String label) {
-		
-		GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
-		
-		this.label = label;
-	}
-	
-	//method
-	@Override
-	public final String getLabel() {
-		return label;
-	}
+
+  // 'Key' is a reserved word in MSSQL databases.
+  KEY("ValueKey"),
+
+  VALUE(PascalCaseCatalogue.VALUE);
+
+  // attribute
+  private final String label;
+
+  // constructor
+  DatabasePropertySystemTableColumn(final String label) {
+
+    GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
+
+    this.label = label;
+  }
+
+  // method
+  @Override
+  public final String getLabel() {
+    return label;
+  }
 }

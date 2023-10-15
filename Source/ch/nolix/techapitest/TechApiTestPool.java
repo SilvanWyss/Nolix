@@ -7,9 +7,9 @@ import ch.nolix.techapitest.relationaldocapitest.RelationalDocApiTestPool;
 
 //class
 public final class TechApiTestPool extends TestPool {
-	
-	//constructor
-	public TechApiTestPool() {
-		super(new RelationalDocApiTestPool());
-	}
+
+  // constructor
+  public TechApiTestPool() {
+    super(new RelationalDocApiTestPool());
+  }
 }

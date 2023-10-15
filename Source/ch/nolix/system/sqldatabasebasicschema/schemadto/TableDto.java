@@ -12,37 +12,37 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 
 //class
 public final class TableDto implements ITableDto {
-	
-	//attribute
-	private final String name;
-	
-	//mutli-attribute
-	private final IContainer<IColumnDto> columns;
-	
-	//constructor
-	public TableDto(final String name, final IColumnDto column, final IColumnDto... columns) {
-		this(name, ReadContainer.forElement(column, columns));
-	}
-	
-	//constructor
-	public TableDto(final String name, final IContainer<IColumnDto> columns) {
-		
-		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
-		
-		this.name = name;
-		
-		this.columns = LinkedList.fromIterable(columns);
-	}
-	
-	//method
-	@Override
-	public IContainer<IColumnDto> getColumns() {
-		return columns;
-	}
-	
-	//method
-	@Override
-	public String getName() {
-		return name;
-	}
+
+  // attribute
+  private final String name;
+
+  // mutli-attribute
+  private final IContainer<IColumnDto> columns;
+
+  // constructor
+  public TableDto(final String name, final IColumnDto column, final IColumnDto... columns) {
+    this(name, ReadContainer.forElement(column, columns));
+  }
+
+  // constructor
+  public TableDto(final String name, final IContainer<IColumnDto> columns) {
+
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
+
+    this.name = name;
+
+    this.columns = LinkedList.fromIterable(columns);
+  }
+
+  // method
+  @Override
+  public IContainer<IColumnDto> getColumns() {
+    return columns;
+  }
+
+  // method
+  @Override
+  public String getName() {
+    return name;
+  }
 }

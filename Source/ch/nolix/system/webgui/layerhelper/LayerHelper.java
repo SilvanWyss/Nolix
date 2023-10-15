@@ -8,9 +8,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class
 public final class LayerHelper {
-	
-	//method
-	public HtmlAttribute createIdHtmlAttributeForLayer(final ILayer<?> layer) {
-		return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, layer.getInternalId());
-	}
+
+  // method
+  public HtmlAttribute createIdHtmlAttributeForLayer(final ILayer<?> layer) {
+    return HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, layer.getInternalId());
+  }
 }

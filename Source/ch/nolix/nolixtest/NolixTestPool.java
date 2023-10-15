@@ -18,19 +18,18 @@ import ch.nolix.templatetest.TemplateTestPool;
  * @date 2017-11-17
  */
 public final class NolixTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link NolixTestPool}.
-	 */
-	public NolixTestPool() {
-		super(
-			new CoreApiTestPool(),
-			new CoreTestPool(),
-			new SystemTestPool(),
-			new TechApiTestPool(),
-			new TechTestPool(),
-			new TemplateTestPool()
-		);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link NolixTestPool}.
+   */
+  public NolixTestPool() {
+    super(
+        new CoreApiTestPool(),
+        new CoreTestPool(),
+        new SystemTestPool(),
+        new TechApiTestPool(),
+        new TechTestPool(),
+        new TemplateTestPool());
+  }
 }

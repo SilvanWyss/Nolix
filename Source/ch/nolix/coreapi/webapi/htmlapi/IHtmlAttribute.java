@@ -5,7 +5,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 
 //interface
 public interface IHtmlAttribute extends Named {
-	
-	//method declaration
-	String getValue();
+
+  // method declaration
+  String getValue();
 }

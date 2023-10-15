@@ -9,16 +9,16 @@ package ch.nolix.coreapi.containerapi.pairapi;
  * @date 2022-07-03
  */
 public interface IIntPair {
-	
-	//method
-	/**
-	 * @return value1 of the current {@link IIntPair}.
-	 */
-	int getValue1();
-	
-	//method
-	/**
-	 * @return value2 of the current {@link IIntPair}.
-	 */
-	int getValue2();
+
+  // method
+  /**
+   * @return value1 of the current {@link IIntPair}.
+   */
+  int getValue1();
+
+  // method
+  /**
+   * @return value2 of the current {@link IIntPair}.
+   */
+  int getValue2();
 }

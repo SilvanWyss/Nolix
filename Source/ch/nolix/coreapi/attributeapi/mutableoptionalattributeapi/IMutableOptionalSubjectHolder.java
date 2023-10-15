@@ -12,20 +12,20 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISubjectHolder;
  * @date 2023-02-09
  */
 public interface IMutableOptionalSubjectHolder extends ISubjectHolder {
-	
-	//method declaration
-	/**
-	 * Removes the subject of the current {@link IMutableOptionalSubjectHolder}.
-	 */
-	void removeSubject();
-	
-	//method declaration
-	/**
-	 * Sets the subject of the current {@link IMutableOptionalSubjectHolder}.
-	 * 
-	 * @param subject
-	 * @throws RuntimeException if the given subject is null.
-	 * @throws RuntimeException if the given subject is blank.
-	 */
-	void setSubject(String subject);
+
+  // method declaration
+  /**
+   * Removes the subject of the current {@link IMutableOptionalSubjectHolder}.
+   */
+  void removeSubject();
+
+  // method declaration
+  /**
+   * Sets the subject of the current {@link IMutableOptionalSubjectHolder}.
+   * 
+   * @param subject
+   * @throws RuntimeException if the given subject is null.
+   * @throws RuntimeException if the given subject is blank.
+   */
+  void setSubject(String subject);
 }

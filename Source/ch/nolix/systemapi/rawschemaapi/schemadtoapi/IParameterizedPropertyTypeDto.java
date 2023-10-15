@@ -7,10 +7,10 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 
 //interface
 public interface IParameterizedPropertyTypeDto {
-	
-	//method declaration
-	DataType getDataType();
-	
-	//method declaration
-	PropertyType getPropertyType();
+
+  // method declaration
+  DataType getDataType();
+
+  // method declaration
+  PropertyType getPropertyType();
 }

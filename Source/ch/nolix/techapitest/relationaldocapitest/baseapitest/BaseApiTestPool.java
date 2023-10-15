@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class BaseApiTestPool extends TestPool {
-	
-	//constructor
-	public BaseApiTestPool() {
-		super(DataTypeTest.class);
-	}
+
+  // constructor
+  public BaseApiTestPool() {
+    super(DataTypeTest.class);
+  }
 }

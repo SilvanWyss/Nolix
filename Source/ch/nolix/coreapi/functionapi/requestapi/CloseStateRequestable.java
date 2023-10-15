@@ -12,18 +12,18 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface CloseStateRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link CloseStateRequestable} is closed.
-	 */
-	boolean isClosed();
-	
-	//method
-	/**
-	 * @return true if the current {@link CloseStateRequestable} is not closed.
-	 */
-	default boolean isOpen() {
-		return !isClosed();
-	}
+
+  // method declaration
+  /**
+   * @return true if the current {@link CloseStateRequestable} is closed.
+   */
+  boolean isClosed();
+
+  // method
+  /**
+   * @return true if the current {@link CloseStateRequestable} is not closed.
+   */
+  default boolean isOpen() {
+    return !isClosed();
+  }
 }

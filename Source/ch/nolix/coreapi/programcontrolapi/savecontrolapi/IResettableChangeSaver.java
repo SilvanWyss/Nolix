@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //interface
 public interface IResettableChangeSaver extends GroupCloseable, IChangeSaver, Resettable {
-	
-	//method declaration
-	int getSaveCount();
+
+  // method declaration
+  int getSaveCount();
 }

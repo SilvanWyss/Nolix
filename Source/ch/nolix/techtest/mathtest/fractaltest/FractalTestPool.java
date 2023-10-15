@@ -6,9 +6,9 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class FractalTestPool extends TestPool {
-	
-	//constructor
-	public FractalTestPool() {
-		super(FractalBuilderTest.class);
-	}
+
+  // constructor
+  public FractalTestPool() {
+    super(FractalBuilderTest.class);
+  }
 }

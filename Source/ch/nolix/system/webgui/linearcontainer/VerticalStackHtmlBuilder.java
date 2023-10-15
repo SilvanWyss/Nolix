@@ -11,24 +11,23 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVerticalStack> {
-	
-	//method
-	@Override
-	public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {
-		return
-		HtmlElement.withTypeAndChildElements(
-			HtmlElementTypeCatalogue.DIV,
-			createHtmlElementsForChildControlsOfVerticalStack(verticalStack)
-		);
-	}
-	
-	//method
-	private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(final IVerticalStack verticalStack) {
-		return verticalStack.getStoredChildControls().to(this::createHtmlElementsForChildControl);
-	}
-	
-	//method
-	private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
-		return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.getHtml());
-	}
+
+  // method
+  @Override
+  public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {
+    return HtmlElement.withTypeAndChildElements(
+        HtmlElementTypeCatalogue.DIV,
+        createHtmlElementsForChildControlsOfVerticalStack(verticalStack));
+  }
+
+  // method
+  private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(
+      final IVerticalStack verticalStack) {
+    return verticalStack.getStoredChildControls().to(this::createHtmlElementsForChildControl);
+  }
+
+  // method
+  private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
+    return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.getHtml());
+  }
 }

@@ -8,18 +8,18 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatDataba
 
 //class
 public record FlatDatabaseDto(String name) implements IFlatDatabaseDto {
-	
-	//constructor
-	public FlatDatabaseDto(final String name) { //NOSONAR: This implementations checks the given arguments.
-		
-		GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
-		
-		this.name = name;
-	}
-	
-	//method
-	@Override
-	public String getName() {
-		return name;
-	}
+
+  // constructor
+  public FlatDatabaseDto(final String name) { // NOSONAR: This implementations checks the given arguments.
+
+    GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
+
+    this.name = name;
+  }
+
+  // method
+  @Override
+  public String getName() {
+    return name;
+  }
 }

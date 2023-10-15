@@ -6,13 +6,11 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //class
 public final class TableTableRecordMapper {
-	
-	//method
-	public TableTableRecord createTableSystemTableRecordFrom(final ITableDto table) {
-		return
-		new TableTableRecord(
-			"'" + table.getId() + "'",
-			"'" + table.getName() + "'"
-		);
-	}
+
+  // method
+  public TableTableRecord createTableSystemTableRecordFrom(final ITableDto table) {
+    return new TableTableRecord(
+        "'" + table.getId() + "'",
+        "'" + table.getName() + "'");
+  }
 }

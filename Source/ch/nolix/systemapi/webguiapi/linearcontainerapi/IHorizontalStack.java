@@ -5,11 +5,11 @@ package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 
 //interface
-public interface IHorizontalStack extends ILinearContainer<IHorizontalStack, IHorizontalStackStyle>{
-	
-	//method declaration
-	VerticalContentAlignment getContentAlignment();
-	
-	//method declaration
-	IHorizontalStack setContentAlignment(VerticalContentAlignment contentAlignment);
+public interface IHorizontalStack extends ILinearContainer<IHorizontalStack, IHorizontalStackStyle> {
+
+  // method declaration
+  VerticalContentAlignment getContentAlignment();
+
+  // method declaration
+  IHorizontalStack setContentAlignment(VerticalContentAlignment contentAlignment);
 }

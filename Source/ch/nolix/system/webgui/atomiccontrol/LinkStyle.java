@@ -7,9 +7,9 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILinkStyle;
 
 //class
 public final class LinkStyle extends ControlStyle<ILinkStyle> implements ILinkStyle {
-	
-	//constructor
-	public LinkStyle() {
-		initialize();
-	}
+
+  // constructor
+  public LinkStyle() {
+    initialize();
+  }
 }

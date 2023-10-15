@@ -2,4 +2,5 @@
 package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
 //interface
-public interface IBackReferenceHelper extends IPropertyHelper {}
+public interface IBackReferenceHelper extends IPropertyHelper {
+}

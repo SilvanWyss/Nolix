@@ -10,14 +10,12 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
 public final class ButtonHtmlBuilder implements IControlHtmlBuilder<IButton> {
-	
-	//method
-	@Override
-	public IHtmlElement createHtmlElementForControl(final IButton button) {
-		return
-		HtmlElement.withTypeAndInnerText(
-			HtmlElementTypeCatalogue.BUTTON,
-			button.getText()
-		);
-	}
+
+  // method
+  @Override
+  public IHtmlElement createHtmlElementForControl(final IButton button) {
+    return HtmlElement.withTypeAndInnerText(
+        HtmlElementTypeCatalogue.BUTTON,
+        button.getText());
+  }
 }

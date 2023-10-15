@@ -10,12 +10,12 @@ import ch.nolix.core.testing.basetest.TestPool;
  * @date 2017-11-14
  */
 public final class ColorTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link ColorTestPool}.
-	 */
-	public ColorTestPool() {
-		super(ColorTest.class);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link ColorTestPool}.
+   */
+  public ColorTestPool() {
+    super(ColorTest.class);
+  }
 }

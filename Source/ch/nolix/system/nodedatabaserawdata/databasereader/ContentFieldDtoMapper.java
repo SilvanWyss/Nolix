@@ -10,28 +10,25 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 
 //class
 public final class ContentFieldDtoMapper {
-	
-	//constant
-	private static final ValueMapper VALUE_MAPPER = new ValueMapper();
-	
-	//method
-	public ILoadedContentFieldDto createContentFieldDtoFromContentFieldNode(
-		final IMutableNode<?> contentFieldNode,
-		final IColumnInfo columnInfo
-	) {
-		
-		if (contentFieldNode.containsChildNodes()) {
-			return new LoadedContentFieldDto(columnInfo.getColumnName());
-		}
-		
-		if (!contentFieldNode.hasHeader()) {
-			return new LoadedContentFieldDto(columnInfo.getColumnName());
-		}
-		
-		return
-		new LoadedContentFieldDto(
-			columnInfo.getColumnName(),
-			VALUE_MAPPER.createValueFromString(contentFieldNode.getHeader(), columnInfo)
-		);
-	}
+
+  // constant
+  private static final ValueMapper VALUE_MAPPER = new ValueMapper();
+
+  // method
+  public ILoadedContentFieldDto createContentFieldDtoFromContentFieldNode(
+      final IMutableNode<?> contentFieldNode,
+      final IColumnInfo columnInfo) {
+
+    if (contentFieldNode.containsChildNodes()) {
+      return new LoadedContentFieldDto(columnInfo.getColumnName());
+    }
+
+    if (!contentFieldNode.hasHeader()) {
+      return new LoadedContentFieldDto(columnInfo.getColumnName());
+    }
+
+    return new LoadedContentFieldDto(
+        columnInfo.getColumnName(),
+        VALUE_MAPPER.createValueFromString(contentFieldNode.getHeader(), columnInfo));
+  }
 }

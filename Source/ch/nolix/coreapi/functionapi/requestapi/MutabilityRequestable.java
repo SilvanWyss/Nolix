@@ -12,18 +12,18 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface MutabilityRequestable {
-	
-	//method
-	/**
-	 * @return true if the current {@link MutabilityRequestable} is not mutable.
-	 */
-	default boolean isImmutable() {
-		return !isMutable();
-	}
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link MutabilityRequestable} is mutable.
-	 */
-	boolean isMutable();
+
+  // method
+  /**
+   * @return true if the current {@link MutabilityRequestable} is not mutable.
+   */
+  default boolean isImmutable() {
+    return !isMutable();
+  }
+
+  // method declaration
+  /**
+   * @return true if the current {@link MutabilityRequestable} is mutable.
+   */
+  boolean isMutable();
 }

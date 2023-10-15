@@ -1,7 +1,8 @@
 //package info
 /**
  * The {@link ch.nolix.systemapi.rawschemaapi.flatschemadtoapi} package declares
- * flat (!) DTOs for the types of the {@link ch.nolix.systemapi.objectschemaapi.schemaapi} package.
+ * flat (!) DTOs for the types of the
+ * {@link ch.nolix.systemapi.objectschemaapi.schemaapi} package.
  * 
  * @author Silvan Wyss
  * @date 2021-07-04

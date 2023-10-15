@@ -9,20 +9,21 @@ package ch.nolix.coretest.documenttest.nodetest;
  * @date 2017-02-06
  */
 public final class Launcher {
-	
-	//main method
-	/**
-	 * Creates a new {@link NodeTestPool} and runs it.
-	 * 
-	 * @param arguments
-	 */
-	public static void main(final String[] arguments) {
-		new NodeTestPool().run();
-	}
-	
-	//constructor
-	/**
-	 * Prevents that an instance of the {@link Launcher} can be created.
-	 */
-	private Launcher() {}
+
+  // main method
+  /**
+   * Creates a new {@link NodeTestPool} and runs it.
+   * 
+   * @param arguments
+   */
+  public static void main(final String[] arguments) {
+    new NodeTestPool().run();
+  }
+
+  // constructor
+  /**
+   * Prevents that an instance of the {@link Launcher} can be created.
+   */
+  private Launcher() {
+  }
 }

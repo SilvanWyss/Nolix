@@ -9,9 +9,9 @@ import ch.nolix.coretest.commontypetest.constanttest.ConstantTestPool;
 
 //class
 public final class CommonTypeTestPool extends TestPool {
-	
-	//constructor
-	public CommonTypeTestPool() {
-		super(new CommonTypeHelperTestPool(), new CommonTypeWrapperTestPool(), new ConstantTestPool());
-	}
+
+  // constructor
+  public CommonTypeTestPool() {
+    super(new CommonTypeHelperTestPool(), new CommonTypeWrapperTestPool(), new ConstantTestPool());
+  }
 }

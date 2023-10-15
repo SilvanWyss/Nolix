@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coreapi.programstructureapi.markerapi} package defines markers.
+ * The {@link ch.nolix.coreapi.programstructureapi.markerapi} package defines
+ * markers.
  * 
  * @author Silvan Wyss
  * @date 2022-06-18

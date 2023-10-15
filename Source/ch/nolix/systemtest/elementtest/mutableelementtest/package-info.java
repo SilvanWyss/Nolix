@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemtest.elementtest.mutableelementtest} package defines
- * tests for the {@link ch.nolix.system.element.mutableelement} package.
+ * The {@link ch.nolix.systemtest.elementtest.mutableelementtest} package
+ * defines tests for the {@link ch.nolix.system.element.mutableelement} package.
  * 
  * @author Silvan Wyss
  * @date 2023-10-06

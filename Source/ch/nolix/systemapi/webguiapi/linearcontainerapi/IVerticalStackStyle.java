@@ -2,4 +2,5 @@
 package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
 //interface
-public interface IVerticalStackStyle extends ILinearContainerStyle<IVerticalStackStyle> {}
+public interface IVerticalStackStyle extends ILinearContainerStyle<IVerticalStackStyle> {
+}

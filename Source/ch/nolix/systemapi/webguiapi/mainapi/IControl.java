@@ -17,70 +17,67 @@ import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface IControl<
-	C extends IControl<C, CS>,
-	CS extends IControlStyle<CS>
->
-extends
-Dimensionable<C>,
-IHtmlGetter,
-InternalIdentified,
-IStylableElement<C>,
-IUserInputCell<C>,
-Linkable,
-PresenceSettable<C> {
-	
-	//method declaration
-	boolean belongsToControl();
-	
-	//method declaration
-	boolean belongsToGui();
-	
-	//method declaration
-	boolean belongsToLayer();
-	
-	//method declaration
-	C editStyle(IElementTaker<CS> styleEditor);
-	
-	//method declaration
-	IContainer<ICssRule> getCssRules();
-	
-	//method declaration
-	CursorIcon getCursorIcon();
-	
-	//method declaration
-	ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
-	
-	//method declaration
-	IControl<?, ?> getStoredChildControlOrNullByInternalId(String internalId);
-	
-	//method declaration
-	IContainer<IControl<?, ?>> getStoredChildControls();
-	
-	//method declaration
-	IControl<?, ?> getStoredParentControl();
-	
-	//method declaration
-	IWebGui<?> getStoredParentGui();
-	
-	//method declaration
-	ILayer<?> getStoredParentLayer();
-	
-	//method declaration
-	CS getStoredStyle();
-	
-	//method declaration
-	void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
-	
-	//method declaration
-	void runHtmlEvent(String htmlEvent);
-	
-	//method declaration
-	C setCursorIcon(CursorIcon cursorIcon);
-	
-	//method declaration
-	void technicalSetParentControl(IControl<?, ?> parentControl);
-	
-	//method declaration
-	void technicalSetParentLayer(ILayer<?> parentLayer);
+public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
+    extends
+    Dimensionable<C>,
+    IHtmlGetter,
+    InternalIdentified,
+    IStylableElement<C>,
+    IUserInputCell<C>,
+    Linkable,
+    PresenceSettable<C> {
+
+  // method declaration
+  boolean belongsToControl();
+
+  // method declaration
+  boolean belongsToGui();
+
+  // method declaration
+  boolean belongsToLayer();
+
+  // method declaration
+  C editStyle(IElementTaker<CS> styleEditor);
+
+  // method declaration
+  IContainer<ICssRule> getCssRules();
+
+  // method declaration
+  CursorIcon getCursorIcon();
+
+  // method declaration
+  ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
+
+  // method declaration
+  IControl<?, ?> getStoredChildControlOrNullByInternalId(String internalId);
+
+  // method declaration
+  IContainer<IControl<?, ?>> getStoredChildControls();
+
+  // method declaration
+  IControl<?, ?> getStoredParentControl();
+
+  // method declaration
+  IWebGui<?> getStoredParentGui();
+
+  // method declaration
+  ILayer<?> getStoredParentLayer();
+
+  // method declaration
+  CS getStoredStyle();
+
+  // method declaration
+  void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
+
+  // method declaration
+  void runHtmlEvent(String htmlEvent);
+
+  // method declaration
+  C setCursorIcon(CursorIcon cursorIcon);
+
+  // method declaration
+  void technicalSetParentControl(IControl<?, ?> parentControl);
+
+  // method declaration
+  void technicalSetParentLayer(ILayer<?> parentLayer);
 }

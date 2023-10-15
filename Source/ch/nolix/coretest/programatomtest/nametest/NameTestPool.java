@@ -6,14 +6,13 @@ import ch.nolix.core.testing.basetest.TestPool;
 
 //class
 public final class NameTestPool extends TestPool {
-	
-	//constructor
-	public NameTestPool() {
-		super(
-			LowerCaseCatalogueTest.class,
-			PascalCaseCatalogueTest.class,
-			PluralLowerCaseCatalogueTest.class,
-			PluralPascalCaseCatalogueTest.class
-		);
-	}
+
+  // constructor
+  public NameTestPool() {
+    super(
+        LowerCaseCatalogueTest.class,
+        PascalCaseCatalogueTest.class,
+        PluralLowerCaseCatalogueTest.class,
+        PluralPascalCaseCatalogueTest.class);
+  }
 }

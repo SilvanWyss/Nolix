@@ -16,84 +16,79 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParameterizedBackReferenceType extends ParameterizedPropertyType
-implements IBaseParameterizedBackReferenceType {
-	
-	//attribute
-	private final IColumn backReferencedColumn;
-	
-	//constructor
-	protected BaseParameterizedBackReferenceType(final IColumn backReferencedColumn) {
-		
-		super(DataType.STRING);
-		
-		assertIsAnyReferenceColumn(backReferencedColumn);
-		
-		this.backReferencedColumn = backReferencedColumn;
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
-		return this;
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
-	}
-	
-	//method
-	@Override
-	public IColumn getBackReferencedColumn() {
-		return backReferencedColumn;
-	}
-	
-	//method
-	@Override
-	public final boolean referencesTable(final ITable table) {
-		return false;
-	}
-	
-	//method
-	@Override
-	public final boolean referencesBackColumn(final IColumn column) {
-		return (getBackReferencedColumn() == column);
-	}
-	
-	//method
-	@Override
-	public final IParameterizedPropertyTypeDto toDto() {
-		return
-		new BaseParameterizedBackReferenceTypeDto(
-			getPropertyType(),
-			getDataType(),
-			getBackReferencedColumn().getId()
-		);
-	}
-	
-	//method
-	private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
-		if (!isAnyReferenceColumn(backReferencedColumn)) {
-			throw
-			InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-				"back referenced column",
-				backReferencedColumn,
-				"is not any refence column"
-			);
-		}
-	}
-	
-	//method
-	private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
-		return
-		backReferencedColumn.getParameterizedPropertyType().getPropertyType().getBaseType() ==
-		BasePropertyType.BASE_REFERENCE;
-	}
+    implements IBaseParameterizedBackReferenceType {
+
+  // attribute
+  private final IColumn backReferencedColumn;
+
+  // constructor
+  protected BaseParameterizedBackReferenceType(final IColumn backReferencedColumn) {
+
+    super(DataType.STRING);
+
+    assertIsAnyReferenceColumn(backReferencedColumn);
+
+    this.backReferencedColumn = backReferencedColumn;
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
+    return this;
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
+  }
+
+  // method
+  @Override
+  public IColumn getBackReferencedColumn() {
+    return backReferencedColumn;
+  }
+
+  // method
+  @Override
+  public final boolean referencesTable(final ITable table) {
+    return false;
+  }
+
+  // method
+  @Override
+  public final boolean referencesBackColumn(final IColumn column) {
+    return (getBackReferencedColumn() == column);
+  }
+
+  // method
+  @Override
+  public final IParameterizedPropertyTypeDto toDto() {
+    return new BaseParameterizedBackReferenceTypeDto(
+        getPropertyType(),
+        getDataType(),
+        getBackReferencedColumn().getId());
+  }
+
+  // method
+  private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
+    if (!isAnyReferenceColumn(backReferencedColumn)) {
+      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+          "back referenced column",
+          backReferencedColumn,
+          "is not any refence column");
+    }
+  }
+
+  // method
+  private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
+    return backReferencedColumn.getParameterizedPropertyType().getPropertyType()
+        .getBaseType() == BasePropertyType.BASE_REFERENCE;
+  }
 }

@@ -13,18 +13,19 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface ChangeRequestable {
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link ChangeRequestable} has uncomitted changes.
-	 */
-	boolean hasChanges();
-	
-	//method
-	/**
-	 * @return true if the current {@link ChangeRequestable} does not have uncommitted changes. 
-	 */
-	default boolean isChangeFree() {
-		return !hasChanges();
-	}
+
+  // method declaration
+  /**
+   * @return true if the current {@link ChangeRequestable} has uncomitted changes.
+   */
+  boolean hasChanges();
+
+  // method
+  /**
+   * @return true if the current {@link ChangeRequestable} does not have
+   *         uncommitted changes.
+   */
+  default boolean isChangeFree() {
+    return !hasChanges();
+  }
 }

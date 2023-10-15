@@ -1,7 +1,8 @@
 //package info
 /**
- * The {@link ch.nolix.system.sqldatabaserawdata} package defines
- * the types that are declared in the {@link ch.nolix.systemapi.rawdatabaseapi} package for SQL databases.
+ * The {@link ch.nolix.system.sqldatabaserawdata} package defines the types that
+ * are declared in the {@link ch.nolix.systemapi.rawdatabaseapi} package for SQL
+ * databases.
  * 
  * @author Silvan Wyss
  * @date 2021-08-10

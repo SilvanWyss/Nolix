@@ -5,4 +5,5 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
-public interface ICheckboxStyle extends IControlStyle<ICheckboxStyle> {}
+public interface ICheckboxStyle extends IControlStyle<ICheckboxStyle> {
+}

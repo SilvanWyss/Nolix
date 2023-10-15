@@ -7,9 +7,9 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextboxStyle;
 
 //class
 public final class TextboxStyle extends ControlStyle<ITextboxStyle> implements ITextboxStyle {
-	
-	//constructor
-	public TextboxStyle() {
-		initialize();
-	}
+
+  // constructor
+  public TextboxStyle() {
+    initialize();
+  }
 }

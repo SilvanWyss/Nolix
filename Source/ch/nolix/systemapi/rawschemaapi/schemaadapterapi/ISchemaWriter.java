@@ -8,28 +8,27 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ISchemaWriter extends IResettableChangeSaver {
-	
-	//method declaration
-	void addColumn(String tableName, IColumnDto column);
-	
-	//method declaration
-	void addTable(ITableDto table);
-	
-	//method declaration
-	void deleteColumn(String tableName, String columnName);
-	
-	//method declaration
-	void deleteTable(String tableName);
-	
-	//method declaration
-	void setColumnName(String tableName, String columnName, String newColumnName);
-	
-	//method declaration
-	void setColumnParameterizedPropertyType(
-		String columnId,
-		IParameterizedPropertyTypeDto parameterizedPropertyType
-	);
-	
-	//method declaration
-	void setTableName(String tableName, String newTableName);
+
+  // method declaration
+  void addColumn(String tableName, IColumnDto column);
+
+  // method declaration
+  void addTable(ITableDto table);
+
+  // method declaration
+  void deleteColumn(String tableName, String columnName);
+
+  // method declaration
+  void deleteTable(String tableName);
+
+  // method declaration
+  void setColumnName(String tableName, String columnName, String newColumnName);
+
+  // method declaration
+  void setColumnParameterizedPropertyType(
+      String columnId,
+      IParameterizedPropertyTypeDto parameterizedPropertyType);
+
+  // method declaration
+  void setTableName(String tableName, String newTableName);
 }

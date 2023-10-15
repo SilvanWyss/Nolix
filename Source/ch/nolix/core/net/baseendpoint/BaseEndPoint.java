@@ -11,55 +11,55 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
 
 //class
 public abstract class BaseEndPoint implements IBaseEndPoint {
-	
-	//attribute
-	private final CloseController closeController = CloseController.forElement(this);
-	
-	//method
-	@Override
-	public final ICloseController getStoredCloseController() {
-		return closeController;
-	}
-	
-	//method
-	@Override
-	public final boolean hasCustomTargetSlot() {
-		return (getTargetSlotDefinition() == TargetSlotDefinition.CUSTOM);
-	}
-	
-	//method
-	@Override
-	public final boolean hasDefaultTargetSlot() {
-		return (getTargetSlotDefinition() == TargetSlotDefinition.DEFAULT);
-	}
-	
-	//method
-	@Override
-	public final boolean isBackendEndPoint() {
-		return (getPeerType() == PeerType.BACKEND);
-	}
-	
-	//method
-	@Override
-	public final boolean isFrontendEndPoint() {
-		return (getPeerType() == PeerType.FRONTEND);
-	}
-	
-	//method
-	@Override
-	public final boolean isLocalEndPoint() {
-		return (getConnectionType() == ConnectionType.LOCAL);
-	}
-	
-	//method
-	@Override
-	public final boolean isSocketEndPoint() {
-		return (getConnectionType() == ConnectionType.SOCKET);
-	}
-	
-	//method
-	@Override
-	public final boolean isWebSocketEndPoint() {
-		return (getConnectionType() == ConnectionType.WEB_SOCKET);
-	}
+
+  // attribute
+  private final CloseController closeController = CloseController.forElement(this);
+
+  // method
+  @Override
+  public final ICloseController getStoredCloseController() {
+    return closeController;
+  }
+
+  // method
+  @Override
+  public final boolean hasCustomTargetSlot() {
+    return (getTargetSlotDefinition() == TargetSlotDefinition.CUSTOM);
+  }
+
+  // method
+  @Override
+  public final boolean hasDefaultTargetSlot() {
+    return (getTargetSlotDefinition() == TargetSlotDefinition.DEFAULT);
+  }
+
+  // method
+  @Override
+  public final boolean isBackendEndPoint() {
+    return (getPeerType() == PeerType.BACKEND);
+  }
+
+  // method
+  @Override
+  public final boolean isFrontendEndPoint() {
+    return (getPeerType() == PeerType.FRONTEND);
+  }
+
+  // method
+  @Override
+  public final boolean isLocalEndPoint() {
+    return (getConnectionType() == ConnectionType.LOCAL);
+  }
+
+  // method
+  @Override
+  public final boolean isSocketEndPoint() {
+    return (getConnectionType() == ConnectionType.SOCKET);
+  }
+
+  // method
+  @Override
+  public final boolean isWebSocketEndPoint() {
+    return (getConnectionType() == ConnectionType.WEB_SOCKET);
+  }
 }

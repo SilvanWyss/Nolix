@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.coretest.mathtest.maintest} package defines
- * tests for the {@link ch.nolix.core.math.main} package.
+ * The {@link ch.nolix.coretest.mathtest.maintest} package defines tests for the
+ * {@link ch.nolix.core.math.main} package.
  * 
  * @author Silvan Wyss
  * @date 2022-11-13

@@ -9,19 +9,19 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ISchemaReader extends GroupCloseable {
-	
-	//method declaration
-	boolean columnsIsEmpty(String tableName, String columnName);
-	
-	//method declaration
-	IContainer<IColumnDto> loadColumns(String tableName);
-	
-	//method declaration
-	IContainer<IFlatTableDto> loadFlatTables();
-	
-	//method declaration
-	IContainer<ITableDto> loadTables();
-	
-	//method declaration
-	boolean tableExists(String tableName);
+
+  // method declaration
+  boolean columnsIsEmpty(String tableName, String columnName);
+
+  // method declaration
+  IContainer<IColumnDto> loadColumns(String tableName);
+
+  // method declaration
+  IContainer<IFlatTableDto> loadFlatTables();
+
+  // method declaration
+  IContainer<ITableDto> loadTables();
+
+  // method declaration
+  boolean tableExists(String tableName);
 }

@@ -6,10 +6,10 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 
 //interface
 public interface ISchema {
-	
-	//method declaration
-	Class<? extends IEntity> getEntityTypeByName(String name);
-	
-	//method declaration
-	IContainer<Class<? extends IEntity>> getEntityTypes();
+
+  // method declaration
+  Class<? extends IEntity> getEntityTypeByName(String name);
+
+  // method declaration
+  IContainer<Class<? extends IEntity>> getEntityTypes();
 }

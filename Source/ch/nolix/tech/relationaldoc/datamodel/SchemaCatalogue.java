@@ -7,18 +7,17 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class SchemaCatalogue {
-	
-	//constant
-	public static final ISchema RELATIONAL_DOC_SCHEMA =
-	Schema.withEntityType(
-		AbstractableField.class,
-		AbstractableObject.class,
-		AbstractReferenceContent.class,
-		AbstractValueContent.class,
-		ConcreteReferenceContent.class,
-		ConcreteValueContent.class
-	);
-	
-	//constructor
-	private SchemaCatalogue() {}
+
+  // constant
+  public static final ISchema RELATIONAL_DOC_SCHEMA = Schema.withEntityType(
+      AbstractableField.class,
+      AbstractableObject.class,
+      AbstractReferenceContent.class,
+      AbstractValueContent.class,
+      ConcreteReferenceContent.class,
+      ConcreteValueContent.class);
+
+  // constructor
+  private SchemaCatalogue() {
+  }
 }

@@ -10,16 +10,15 @@ import ch.nolix.core.testing.basetest.TestPool;
  * @date 2018-09-01
  */
 public final class CommonTypeHelperTestPool extends TestPool {
-	
-	//constructor
-	/**
-	 * Creates a new {@link CommonTypeHelperTestPool}.
-	 */
-	public CommonTypeHelperTestPool() {
-		super(
-			GlobalCharacterHelperTest.class,
-			GlobalIterableHelperTest.class,
-			GlobalStringHelperTest.class
-		);
-	}
+
+  // constructor
+  /**
+   * Creates a new {@link CommonTypeHelperTestPool}.
+   */
+  public CommonTypeHelperTestPool() {
+    super(
+        GlobalCharacterHelperTest.class,
+        GlobalIterableHelperTest.class,
+        GlobalStringHelperTest.class);
+  }
 }

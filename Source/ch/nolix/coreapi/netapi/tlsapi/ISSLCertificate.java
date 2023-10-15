@@ -3,10 +3,10 @@ package ch.nolix.coreapi.netapi.tlsapi;
 
 //interface
 public interface ISSLCertificate {
-	
-	//method declaration
-	String getPrivateKeyPEMFilePath();
-	
-	//method declaration
-	String getPublicKeyPEMFilePath();
+
+  // method declaration
+  String getPrivateKeyPEMFilePath();
+
+  // method declaration
+  String getPublicKeyPEMFilePath();
 }

@@ -15,65 +15,63 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParameterizedReferenceType extends ParameterizedPropertyType
-implements IBaseParameterizedReferenceType {
-	
-	//attribute
-	private final ITable referencedTable;
-	
-	//constructor
-	protected BaseParameterizedReferenceType(final ITable referencedTable) {
-		
-		super(DataType.STRING);
-		
-		GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
-		
-		this.referencedTable = referencedTable;
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
-		return this;
-	}
-	
-	//method
-	@Override
-	public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
-		throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
-	}
-	
-	//method
-	@Override
-	public ITable getReferencedTable() {
-		return referencedTable;
-	}
-	
-	//method
-	@Override
-	public final boolean referencesTable(final ITable table) {
-		return (getReferencedTable() == table);
-	}
-	
-	//method
-	@Override
-	public final boolean referencesBackColumn(final IColumn column) {
-		return false;
-	}
-	
-	//method
-	@Override
-	public final IParameterizedPropertyTypeDto toDto() {
-		return
-		new BaseParameterizedReferenceTypeDto(
-			getPropertyType(),
-			getDataType(),
-			getReferencedTable().getId()
-		);
-	}
+    implements IBaseParameterizedReferenceType {
+
+  // attribute
+  private final ITable referencedTable;
+
+  // constructor
+  protected BaseParameterizedReferenceType(final ITable referencedTable) {
+
+    super(DataType.STRING);
+
+    GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
+
+    this.referencedTable = referencedTable;
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
+    return this;
+  }
+
+  // method
+  @Override
+  public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
+  }
+
+  // method
+  @Override
+  public ITable getReferencedTable() {
+    return referencedTable;
+  }
+
+  // method
+  @Override
+  public final boolean referencesTable(final ITable table) {
+    return (getReferencedTable() == table);
+  }
+
+  // method
+  @Override
+  public final boolean referencesBackColumn(final IColumn column) {
+    return false;
+  }
+
+  // method
+  @Override
+  public final IParameterizedPropertyTypeDto toDto() {
+    return new BaseParameterizedReferenceTypeDto(
+        getPropertyType(),
+        getDataType(),
+        getReferencedTable().getId());
+  }
 }

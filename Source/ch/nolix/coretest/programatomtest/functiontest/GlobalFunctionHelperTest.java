@@ -10,37 +10,37 @@ import ch.nolix.core.testing.test.Test;
 
 //class
 public final class GlobalFunctionHelperTest extends Test {
-	
-	//method
-	@TestCase
-	public void testCase_createNegatorFor_whenTrueFunctionIsGiven() {
-		
-		//execution
-		final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getTrue);
-		
-		//verification
-		expectNot(result.getOutput());
-	}
-	
-	//method
-	@TestCase
-	public void testCase_createNegatorFor_whenFalseFunctionIsGiven() {
-		
-		//execution
-		final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getFalse);
-		
-		//verification
-		expect(result.getOutput());
-	}
-	
-	//method
-	@TestCase
-	public void testCase_createNegatorFor_whenNullIsGiven() {
-		
-		//execution & verification
-		expectRunning(() -> GlobalFunctionHelper.createNegatorFor(null))
-		.throwsException()
-		.ofType(ArgumentIsNullException.class)
-		.withMessage("The given condition is null.");
-	}
+
+  // method
+  @TestCase
+  public void testCase_createNegatorFor_whenTrueFunctionIsGiven() {
+
+    // execution
+    final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getTrue);
+
+    // verification
+    expectNot(result.getOutput());
+  }
+
+  // method
+  @TestCase
+  public void testCase_createNegatorFor_whenFalseFunctionIsGiven() {
+
+    // execution
+    final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getFalse);
+
+    // verification
+    expect(result.getOutput());
+  }
+
+  // method
+  @TestCase
+  public void testCase_createNegatorFor_whenNullIsGiven() {
+
+    // execution & verification
+    expectRunning(() -> GlobalFunctionHelper.createNegatorFor(null))
+        .throwsException()
+        .ofType(ArgumentIsNullException.class)
+        .withMessage("The given condition is null.");
+  }
 }

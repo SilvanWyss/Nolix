@@ -3,10 +3,10 @@ package ch.nolix.coreapi.programstructureapi.dataapi;
 
 //interface
 public interface IBinaryObject {
-	
-	//method declaration
-	byte[] getStoredBytes();
-	
-	//method declaration
-	int getSize();
+
+  // method declaration
+  byte[] getStoredBytes();
+
+  // method declaration
+  int getSize();
 }

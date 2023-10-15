@@ -6,7 +6,7 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //interface
 public interface IMutableMatrix<E> extends Clearable, IMatrix<E> {
-	
-	//method declaration
-	void setAt1BasedRowIndexAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex, E element);
+
+  // method declaration
+  void setAt1BasedRowIndexAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex, E element);
 }

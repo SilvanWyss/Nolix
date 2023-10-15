@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.errorcontrol.exception} package defines some general {@link java.lang.Exception}s.
+ * The {@link ch.nolix.core.errorcontrol.exception} package defines some general
+ * {@link java.lang.Exception}s.
  * 
  * @author Silvan Wyss
  * @date 2020-05-01

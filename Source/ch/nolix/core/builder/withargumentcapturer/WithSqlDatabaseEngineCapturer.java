@@ -8,23 +8,23 @@ import ch.nolix.core.sql.SqlDatabaseEngine;
 
 //class
 public class WithSqlDatabaseEngineCapturer<N>
-extends ArgumentCapturer<SqlDatabaseEngine, N> {
-	
-	//constructor
-	public WithSqlDatabaseEngineCapturer(final N nextArgumentCapturer) {
-		super(nextArgumentCapturer);
-	}
-	
-	//method
-	public final SqlDatabaseEngine getSqlDatabaseEngine() {
-		return getStoredArgument();
-	}
-	
-	//method
-	public final N withSqlDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine) {
-		
-		GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
-		
-		return setArgumentAndGetNext(sqlDatabaseEngine);
-	}
+    extends ArgumentCapturer<SqlDatabaseEngine, N> {
+
+  // constructor
+  public WithSqlDatabaseEngineCapturer(final N nextArgumentCapturer) {
+    super(nextArgumentCapturer);
+  }
+
+  // method
+  public final SqlDatabaseEngine getSqlDatabaseEngine() {
+    return getStoredArgument();
+  }
+
+  // method
+  public final N withSqlDatabaseEngine(final SqlDatabaseEngine sqlDatabaseEngine) {
+
+    GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
+
+    return setArgumentAndGetNext(sqlDatabaseEngine);
+  }
 }

@@ -7,13 +7,13 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IColumn extends IDatabaseObject, Identified, Named {
-	
-	//method declaration
-	IParameterizedPropertyType getParameterizedPropertyType();
-	
-	//method declaration
-	ITable<IEntity> getStoredParentTable();
-	
-	//method
-	boolean technicalContainsGivenValueInPersistedData(String value);
+
+  // method declaration
+  IParameterizedPropertyType getParameterizedPropertyType();
+
+  // method declaration
+  ITable<IEntity> getStoredParentTable();
+
+  // method
+  boolean technicalContainsGivenValueInPersistedData(String value);
 }

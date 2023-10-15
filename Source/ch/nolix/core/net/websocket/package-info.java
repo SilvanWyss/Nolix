@@ -1,6 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.core.net.websocket} package defines types that support a WebSocket server.
+ * The {@link ch.nolix.core.net.websocket} package defines types that support a
+ * WebSocket server.
  * 
  * @author Silvan Wyss
  * @date 2019-09-01

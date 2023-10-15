@@ -9,19 +9,18 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class
 public final class IterableReadContainerTest extends ContainerTest {
-	
-	//method
-	@Override
-	protected <E> IContainer<E> createContainerWithElements(
-		final E element,
-		final @SuppressWarnings("unchecked") E... elements
-	) {
-		return IterableReadContainer.forIterable(LinkedList.withElement(element, elements));
-	}
-	
-	//method
-	@Override
-	protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
-		return new IterableReadContainer<>();
-	}
+
+  // method
+  @Override
+  protected <E> IContainer<E> createContainerWithElements(
+      final E element,
+      final @SuppressWarnings("unchecked") E... elements) {
+    return IterableReadContainer.forIterable(LinkedList.withElement(element, elements));
+  }
+
+  // method
+  @Override
+  protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
+    return new IterableReadContainer<>();
+  }
 }

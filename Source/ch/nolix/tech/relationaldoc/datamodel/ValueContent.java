@@ -6,10 +6,10 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IValueContent;
 
 //class
 public abstract class ValueContent extends Content implements IValueContent {
-	
-	//method
-	@Override
-	public final boolean isForValues() {
-		return true;
-	}
+
+  // method
+  @Override
+  public final boolean isForValues() {
+    return true;
+  }
 }

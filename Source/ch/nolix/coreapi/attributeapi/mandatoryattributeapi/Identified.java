@@ -12,27 +12,27 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface Identified {
-	
-	//method declaration
-	/**
-	 * @return the id of the current {@link Identified}.
-	 */
-	String getId();
-	
-	//method
-	/**
-	 * @return the id of the current {@link Identified} in quotes.
-	 */
-	default String getIdInQuotes() {
-		return ("'" + getId() + "'");
-	}
-	
-	//method
-	/**
-	 * @param id
-	 * @return true if the current {@link Identified} has the given id. 
-	 */
-	default boolean hasId(final String id) {
-		return getId().equals(id);
-	}
+
+  // method declaration
+  /**
+   * @return the id of the current {@link Identified}.
+   */
+  String getId();
+
+  // method
+  /**
+   * @return the id of the current {@link Identified} in quotes.
+   */
+  default String getIdInQuotes() {
+    return ("'" + getId() + "'");
+  }
+
+  // method
+  /**
+   * @param id
+   * @return true if the current {@link Identified} has the given id.
+   */
+  default boolean hasId(final String id) {
+    return getId().equals(id);
+  }
 }

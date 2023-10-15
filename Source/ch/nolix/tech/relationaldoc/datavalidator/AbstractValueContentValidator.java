@@ -10,15 +10,14 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;
 
 //class
 public final class AbstractValueContentValidator {
-	
-	//constant
-	private static final AbstractValueContentEvaluator ABSTRACT_VALUE_CONTENT_EVALUATOR =
-	new AbstractValueContentEvaluator();
-	
-	//method
-	public void assertCanSetDataType(final IAbstractValueContent abstractValueContent, final DataType dataType) {
-		if (!ABSTRACT_VALUE_CONTENT_EVALUATOR.canSetDataType(abstractValueContent, dataType)) {
-			throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.DATA_TYPE, dataType);
-		}
-	}
+
+  // constant
+  private static final AbstractValueContentEvaluator ABSTRACT_VALUE_CONTENT_EVALUATOR = new AbstractValueContentEvaluator();
+
+  // method
+  public void assertCanSetDataType(final IAbstractValueContent abstractValueContent, final DataType dataType) {
+    if (!ABSTRACT_VALUE_CONTENT_EVALUATOR.canSetDataType(abstractValueContent, dataType)) {
+      throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.DATA_TYPE, dataType);
+    }
+  }
 }

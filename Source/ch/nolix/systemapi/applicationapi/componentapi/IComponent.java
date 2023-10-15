@@ -7,7 +7,7 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 
 //interface
 public interface IComponent extends IControlGetter, IRefreshableSubscriber {
-	
-	//method declaration
-	RefreshBehavior getRefreshBehavior();
+
+  // method declaration
+  RefreshBehavior getRefreshBehavior();
 }

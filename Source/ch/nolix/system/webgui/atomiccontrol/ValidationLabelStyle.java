@@ -7,11 +7,11 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelStyle;
 
 //class
 public final class ValidationLabelStyle
-extends ControlStyle<IValidationLabelStyle>
-implements IValidationLabelStyle {
-	
-	//constructor
-	public ValidationLabelStyle() {
-		initialize();
-	}
+    extends ControlStyle<IValidationLabelStyle>
+    implements IValidationLabelStyle {
+
+  // constructor
+  public ValidationLabelStyle() {
+    initialize();
+  }
 }

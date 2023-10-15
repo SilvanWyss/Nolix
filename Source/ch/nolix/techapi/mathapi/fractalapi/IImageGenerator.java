@@ -6,7 +6,7 @@ import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 
 //interface
 public interface IImageGenerator extends IFuture {
-	
-	//method declaration
-	IMutableImage<?> getStoredImage();
+
+  // method declaration
+  IMutableImage<?> getStoredImage();
 }

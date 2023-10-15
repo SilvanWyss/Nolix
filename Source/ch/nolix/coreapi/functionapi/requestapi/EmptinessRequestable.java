@@ -6,25 +6,27 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link EmptinessRequestable} can be asked if it is empty or contains elements.
+ * A {@link EmptinessRequestable} can be asked if it is empty or contains
+ * elements.
  * 
  * @author Silvan Wyss
  * @date 2020-06-11
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {
-	
-	//method
-	/**
-	 * @return true if the current {@link EmptinessRequestable} contains one or several elements.
-	 */
-	default boolean containsAny() {
-		return !isEmpty();
-	}
-	
-	//method declaration
-	/**
-	 * @return true if {@link EmptinessRequestable} does not contain an element.
-	 */
-	boolean isEmpty();
+
+  // method
+  /**
+   * @return true if the current {@link EmptinessRequestable} contains one or
+   *         several elements.
+   */
+  default boolean containsAny() {
+    return !isEmpty();
+  }
+
+  // method declaration
+  /**
+   * @return true if {@link EmptinessRequestable} does not contain an element.
+   */
+  boolean isEmpty();
 }

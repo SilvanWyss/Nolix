@@ -10,17 +10,18 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * @param <V> is the type of the value of a {@link IOptionalValueHolder}.
  */
 public interface IOptionalValueHolder<V> {
-	
-	//method declaration
-	/**
-	 * @return the value of the current {@link IOptionalValueHolder}.
-	 * @throws RuntimeException if the current {@link IOptionalValueHolder} does not have a value.
-	 */
-	V getValue();
-	
-	//method declaration
-	/**
-	 * @return true if the current {@link IOptionalValueHolder} has a value.
-	 */
-	boolean hasValue();
+
+  // method declaration
+  /**
+   * @return the value of the current {@link IOptionalValueHolder}.
+   * @throws RuntimeException if the current {@link IOptionalValueHolder} does not
+   *                          have a value.
+   */
+  V getValue();
+
+  // method declaration
+  /**
+   * @return true if the current {@link IOptionalValueHolder} has a value.
+   */
+  boolean hasValue();
 }

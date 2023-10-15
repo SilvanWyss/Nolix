@@ -30,69 +30,68 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
 final class SecureServerSSLContextCreator {
-	
-	//method
-	public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {
-		try {
-									
-			final var password = "my_password";
-			X509Certificate cert = getCert(paramSSLCertificate);
-			
-			final var key = getPrivateKey(paramSSLCertificate);
-			
-			final var keystore = KeyStore.getInstance("JKS");
-			keystore.load(null, "my_password".toCharArray());
-			keystore.setCertificateEntry("cert-alias", cert);
-			keystore.setKeyEntry("key-alias", key, password.toCharArray(), new Certificate[]{cert});
-			
-			final var keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-			keyManagerFactory.init(keystore, "my_password".toCharArray());
-			
-			final var sslContext = SSLContext.getInstance("TLS");
-			sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
-			
-			final var sslContextBuilder = SslContextBuilder.forServer(keyManagerFactory);
-			
-			return sslContextBuilder.build();
-		} catch (final Exception exception) {
-			throw WrapperException.forError(exception);
-		}
-	}
-	
-	//method
-	private X509Certificate getCert(final ISSLCertificate paramSSLCertificate) throws Exception {
-		
-		String filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
-		
-		return
-		(X509Certificate)CertificateFactory
-		.getInstance("X509")
-		.generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
-	}
-	
-	private PrivateKey getPrivateKey(final ISSLCertificate paramSSLCertificate)
-	throws Exception { //NOSONAR: This method can throw several different Exceptions.
-		
-		final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
-		
-		@SuppressWarnings("resource")
-		final var reader = new BufferedReader(new FileReader(filePath, Charset.defaultCharset()));
-		final var privateKeyBuilder = new StringBuilder();
-		String line;
-		
-		while ((line = reader.readLine()) != null) {
-			if (line.startsWith("-----BEGIN PRIVATE KEY-----")) {
-				continue;
-			}
-			if (line.startsWith("-----END PRIVATE KEY-----")) {
-				break;
-			}
-			privateKeyBuilder.append(line.trim());
-		}
-		
-		byte[] privateKeyBytes = Base64.getDecoder().decode(privateKeyBuilder.toString());
-		final var spec = new PKCS8EncodedKeySpec(privateKeyBytes);
-		final var keyFactory = KeyFactory.getInstance("EC");
-		return keyFactory.generatePrivate(spec);
-	}
+
+  // method
+  public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {
+    try {
+
+      final var password = "my_password";
+      X509Certificate cert = getCert(paramSSLCertificate);
+
+      final var key = getPrivateKey(paramSSLCertificate);
+
+      final var keystore = KeyStore.getInstance("JKS");
+      keystore.load(null, "my_password".toCharArray());
+      keystore.setCertificateEntry("cert-alias", cert);
+      keystore.setKeyEntry("key-alias", key, password.toCharArray(), new Certificate[] { cert });
+
+      final var keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+      keyManagerFactory.init(keystore, "my_password".toCharArray());
+
+      final var sslContext = SSLContext.getInstance("TLS");
+      sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
+
+      final var sslContextBuilder = SslContextBuilder.forServer(keyManagerFactory);
+
+      return sslContextBuilder.build();
+    } catch (final Exception exception) {
+      throw WrapperException.forError(exception);
+    }
+  }
+
+  // method
+  private X509Certificate getCert(final ISSLCertificate paramSSLCertificate) throws Exception {
+
+    String filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
+
+    return (X509Certificate) CertificateFactory
+        .getInstance("X509")
+        .generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
+  }
+
+  private PrivateKey getPrivateKey(final ISSLCertificate paramSSLCertificate)
+      throws Exception { // NOSONAR: This method can throw several different Exceptions.
+
+    final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
+
+    @SuppressWarnings("resource")
+    final var reader = new BufferedReader(new FileReader(filePath, Charset.defaultCharset()));
+    final var privateKeyBuilder = new StringBuilder();
+    String line;
+
+    while ((line = reader.readLine()) != null) {
+      if (line.startsWith("-----BEGIN PRIVATE KEY-----")) {
+        continue;
+      }
+      if (line.startsWith("-----END PRIVATE KEY-----")) {
+        break;
+      }
+      privateKeyBuilder.append(line.trim());
+    }
+
+    byte[] privateKeyBytes = Base64.getDecoder().decode(privateKeyBuilder.toString());
+    final var spec = new PKCS8EncodedKeySpec(privateKeyBytes);
+    final var keyFactory = KeyFactory.getInstance("EC");
+    return keyFactory.generatePrivate(spec);
+  }
 }

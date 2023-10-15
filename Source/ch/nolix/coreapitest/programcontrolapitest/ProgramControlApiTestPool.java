@@ -7,9 +7,9 @@ import ch.nolix.coreapitest.programcontrolapitest.savecontrolapitest.SaveControl
 
 //class
 public final class ProgramControlApiTestPool extends TestPool {
-	
-	//constructor
-	public ProgramControlApiTestPool() {
-		super(new SaveControlApiTestPool());
-	}
+
+  // constructor
+  public ProgramControlApiTestPool() {
+    super(new SaveControlApiTestPool());
+  }
 }

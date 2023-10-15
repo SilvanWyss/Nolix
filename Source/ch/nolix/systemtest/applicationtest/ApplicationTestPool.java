@@ -8,9 +8,9 @@ import ch.nolix.systemtest.applicationtest.webapplicationcounterpartupdatertest.
 
 //class
 public final class ApplicationTestPool extends TestPool {
-	
-	//constructor
-	public ApplicationTestPool() {
-		super(new MainTestPool(), new WebApplicationCounterpartUpdaterTestPool());
-	}
+
+  // constructor
+  public ApplicationTestPool() {
+    super(new MainTestPool(), new WebApplicationCounterpartUpdaterTestPool());
+  }
 }

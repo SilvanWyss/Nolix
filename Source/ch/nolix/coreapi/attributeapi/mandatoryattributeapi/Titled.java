@@ -12,16 +12,16 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  */
 @AllowDefaultMethodsAsDesignPattern
 public interface Titled {
-	
-	//method declaration
-	/**
-	 * @return the title of the current {@link Titled}.
-	 */
-	String getTitle();
-	
-	//method
-	/**
-	 * @return the title of the current {@link Titled} in quotes.
-	 */
-	String getTitleInQuotes();
+
+  // method declaration
+  /**
+   * @return the title of the current {@link Titled}.
+   */
+  String getTitle();
+
+  // method
+  /**
+   * @return the title of the current {@link Titled} in quotes.
+   */
+  String getTitleInQuotes();
 }

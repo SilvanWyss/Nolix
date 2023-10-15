@@ -10,12 +10,12 @@ package ch.nolix.coreapi.functionapi.genericfunctionapi;
  */
 @FunctionalInterface
 public interface IBooleanTaker {
-	
-	//method declaration
-	/**
-	 * Takes the given value.
-	 * 
-	 * @param value
-	 */
-	void run(boolean value);
+
+  // method declaration
+  /**
+   * Takes the given value.
+   * 
+   * @param value
+   */
+  void run(boolean value);
 }

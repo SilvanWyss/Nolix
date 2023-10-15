@@ -12,10 +12,10 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
  * @date 2023-08-25
  */
 public interface ICardinalityHolder {
-	
-	//method declaration
-	/**
-	 * @return the {@link Cardinality} of the current {@link ICardinalityHolder}.
-	 */
-	Cardinality getCardinality();
+
+  // method declaration
+  /**
+   * @return the {@link Cardinality} of the current {@link ICardinalityHolder}.
+   */
+  Cardinality getCardinality();
 }

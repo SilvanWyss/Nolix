@@ -7,10 +7,10 @@ import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 
 //class
 public final class SingleContainerTest extends ContainerTest<ISingleContainer> {
-	
-	//method
-	@Override
-	protected ISingleContainer createTestUnit() {
-		return new SingleContainer();
-	}
+
+  // method
+  @Override
+  protected ISingleContainer createTestUnit() {
+    return new SingleContainer();
+  }
 }

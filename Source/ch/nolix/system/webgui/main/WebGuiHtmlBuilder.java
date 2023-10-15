@@ -14,19 +14,17 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public final class WebGuiHtmlBuilder {
-	
-	//method
-	public IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
-		return
-		HtmlElement.withTypeAndAttributesAndChildElements(
-			HtmlElementTypeCatalogue.DIV,
-			ReadContainer.forElement(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, "root")),
-			createLayerHtmlElementsForWebGui(webGui)
-		);
-	}
-	
-	//method
-	private IContainer<? extends IHtmlElement> createLayerHtmlElementsForWebGui(final IWebGui<?> webGui) {
-		return webGui.getStoredLayers().to(ILayer::getHtml);
-	}
+
+  // method
+  public IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
+    return HtmlElement.withTypeAndAttributesAndChildElements(
+        HtmlElementTypeCatalogue.DIV,
+        ReadContainer.forElement(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, "root")),
+        createLayerHtmlElementsForWebGui(webGui));
+  }
+
+  // method
+  private IContainer<? extends IHtmlElement> createLayerHtmlElementsForWebGui(final IWebGui<?> webGui) {
+    return webGui.getStoredLayers().to(ILayer::getHtml);
+  }
 }

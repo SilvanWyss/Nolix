@@ -11,46 +11,46 @@ import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
 
 //interface
 public interface ILayer<L extends ILayer<L>>
-extends
-IHtmlGetter,
-InternalIdentified,
-ICanvas<L>,
-IStylableElement<L>,
-IRootControlOwner<L> {
-	
-	//method declaration
-	boolean belongsToGui();
-	
-	//method declaration
-	ContentAlignment getContentAlignment();
-	
-	//method declaration
-	ICssRule getCssRule();
-	
-	//method declaration
-	double getOpacity();
-	
-	//method declaration
-	IWebGui<?> getStoredParentGui();
-	
-	//method declaration
-	LayerRole getRole();
-	
-	//method declaration
-	boolean hasRole();
-	
-	//method declaration
-	void removeSelfFromGui();
-	
-	//method declaration
-	L setContentAlignment(ContentAlignment contentAlignment);
-	
-	//method declaration
-	L setRole(LayerRole role);
-	
-	//method declaration
-	L setOpacity(double opacity);
-	
-	//method declaration
-	void technicalSetParentGui(IWebGui<?> parentGui);
+    extends
+    IHtmlGetter,
+    InternalIdentified,
+    ICanvas<L>,
+    IStylableElement<L>,
+    IRootControlOwner<L> {
+
+  // method declaration
+  boolean belongsToGui();
+
+  // method declaration
+  ContentAlignment getContentAlignment();
+
+  // method declaration
+  ICssRule getCssRule();
+
+  // method declaration
+  double getOpacity();
+
+  // method declaration
+  IWebGui<?> getStoredParentGui();
+
+  // method declaration
+  LayerRole getRole();
+
+  // method declaration
+  boolean hasRole();
+
+  // method declaration
+  void removeSelfFromGui();
+
+  // method declaration
+  L setContentAlignment(ContentAlignment contentAlignment);
+
+  // method declaration
+  L setRole(LayerRole role);
+
+  // method declaration
+  L setOpacity(double opacity);
+
+  // method declaration
+  void technicalSetParentGui(IWebGui<?> parentGui);
 }

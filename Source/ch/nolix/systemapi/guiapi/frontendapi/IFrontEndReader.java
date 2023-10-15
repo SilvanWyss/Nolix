@@ -6,13 +6,13 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 
 //interface
 public interface IFrontEndReader {
-	
-	//method declaration
-	IContainer<byte[]> getFilesFromClipboard();
-	
-	//method declaration
-	String getTextFromClipboard();
-	
-	//method declaration
-	ISingleContainer<byte[]> readFileToBytes();
+
+  // method declaration
+  IContainer<byte[]> getFilesFromClipboard();
+
+  // method declaration
+  String getTextFromClipboard();
+
+  // method declaration
+  ISingleContainer<byte[]> readFileToBytes();
 }

@@ -5,4 +5,5 @@ package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHelper;
 
 //interface
-public interface IMultiReferenceEntryHelper extends IDatabaseObjectHelper {}
+public interface IMultiReferenceEntryHelper extends IDatabaseObjectHelper {
+}

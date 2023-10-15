@@ -7,13 +7,13 @@ import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 
 //interface
 public interface IEndPoint extends IBaseEndPoint {
-	
-	//method declaration
-	String getReplyForRequest(String request);
-	
-	//method declaration
-	boolean hasReplier();
-	
-	//method declaration
-	void setReplier(IElementTakerElementGetter<String, String> replier);
+
+  // method declaration
+  String getReplyForRequest(String request);
+
+  // method declaration
+  boolean hasReplier();
+
+  // method declaration
+  void setReplier(IElementTakerElementGetter<String, String> replier);
 }

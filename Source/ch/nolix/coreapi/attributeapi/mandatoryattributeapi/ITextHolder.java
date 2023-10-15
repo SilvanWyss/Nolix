@@ -9,10 +9,10 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  * @date 2021-06-19
  */
 public interface ITextHolder {
-	
-	//method declaration
-	/**
-	 * @return the text of the current {@link ITextHolder}.
-	 */
-	String getText();
+
+  // method declaration
+  /**
+   * @return the text of the current {@link ITextHolder}.
+   */
+  String getText();
 }

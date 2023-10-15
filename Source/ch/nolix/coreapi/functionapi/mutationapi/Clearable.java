@@ -12,10 +12,10 @@ import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
  * @date 2016-03-01
  */
 public interface Clearable extends EmptinessRequestable {
-	
-	//method declaration
-	/**
-	 * Removes the elements of the current {@link Clearable}.
-	 */
-	void clear();
+
+  // method declaration
+  /**
+   * Removes the elements of the current {@link Clearable}.
+   */
+  void clear();
 }

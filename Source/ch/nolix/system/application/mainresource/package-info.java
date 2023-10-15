@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.application.mainresource} package contains
- * the resources for the {@link ch.nolix.system.application.main} package.
+ * The {@link ch.nolix.system.application.mainresource} package contains the
+ * resources for the {@link ch.nolix.system.application.main} package.
  * 
  * @author Silvan Wyss
  * @date 2020-02-01
