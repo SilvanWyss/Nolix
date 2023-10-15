@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
  * @author Silvan Wyss
  * @date 2017-10-29
  */
-public abstract class MutableElement extends Element implements IMutableElement {
+public abstract class MutableElement implements IMutableElement {
 
   // multi-attribute
   private LinkedList<IProperty> properties;
@@ -71,6 +71,17 @@ public abstract class MutableElement extends Element implements IMutableElement 
    * {@inheritDoc}
    */
   @Override
+  public final boolean equals(final Object object) {
+    return object != null
+        && getClass() == object.getClass()
+        && hasSameSpecificationAs((Specified) object);
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final IContainer<INode<?>> getAttributes() {
 
     final var attributes = new LinkedList<INode<?>>();
@@ -87,6 +98,24 @@ public abstract class MutableElement extends Element implements IMutableElement 
 
   // method
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final Node getSpecification() {
+    return Node.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final int hashCode() {
+    return getSpecification().hashCode();
+  }
+
+  // method
+  /**
    * Resets the current {@link MutableElement} from the file with the given
    * filePath.
    * 
@@ -95,6 +124,15 @@ public abstract class MutableElement extends Element implements IMutableElement 
    */
   public final void resetFromFileWithFilePath(final String filePath) {
     resetFromSpecification(Node.fromFile(filePath));
+  }
+
+  // method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final String toString() {
+    return getSpecification().toString();
   }
 
   // method
@@ -213,5 +251,15 @@ public abstract class MutableElement extends Element implements IMutableElement 
    */
   private boolean hasExtractedProperties() {
     return (properties != null);
+  }
+
+  // method
+  /**
+   * @param element
+   * @return true if the current {@link MutableElement} has the same specification
+   *         as the given element.
+   */
+  private boolean hasSameSpecificationAs(final Specified element) {
+    return getSpecification().equals(element.getSpecification());
   }
 }
