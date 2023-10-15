@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+import java.util.function.Supplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.groupcloseable.CloseController;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
@@ -46,7 +47,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
       final String databaseName,
       final ISchemaAdapter schemaAdapter,
       final ISchema schema,
-      final IElementGetter<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator) {
+      final Supplier<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator) {
 
     GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     GlobalValidator.assertThat(schema).thatIsNamed("schema").isNotNull();
@@ -58,7 +59,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
     this.schema = schema;
     this.databaseName = databaseName;
-    final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.getOutput();
+    final var dataAndSchemaAdapter = dataAndSchemaAdapterCreator.get();
     database = Database.withDataAndSchemaAdapterAndSchema(dataAndSchemaAdapter, schema);
     getStoredCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
   }

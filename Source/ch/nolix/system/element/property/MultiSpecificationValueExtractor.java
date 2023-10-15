@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Supplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -8,7 +10,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
@@ -22,13 +23,13 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
   private final IElementTaker<INode<?>> adder;
 
   // attribute
-  private final IElementGetter<IContainer<INode<?>>> getter;
+  private final Supplier<IContainer<INode<?>>> getter;
 
   // constructor
   public MultiSpecificationValueExtractor(
       final String name,
       final IElementTaker<INode<?>> adder,
-      final IElementGetter<IContainer<INode<?>>> getter) {
+      final Supplier<IContainer<INode<?>>> getter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();
@@ -60,6 +61,6 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
   // method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
-    list.addAtEnd(getter.getOutput());
+    list.addAtEnd(getter.get());
   }
 }

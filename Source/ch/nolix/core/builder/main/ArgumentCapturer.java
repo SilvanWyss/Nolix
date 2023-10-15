@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.core.builder.main;
 
+import java.util.function.Supplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
 public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not have abstract methods.
@@ -21,7 +22,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
   private final N nextArgumentCapturer;
 
   // optional attribute
-  private IElementGetter<N> builder;
+  private Supplier<N> builder;
 
   // constructor
   protected ArgumentCapturer(final N nextArgumentCapturer) {
@@ -46,14 +47,14 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
 
   // method
   @SuppressWarnings("unchecked")
-  protected final void setBuilder(final IElementGetter<?> builder) {
+  protected final void setBuilder(final Supplier<?> builder) {
     if (hasNextArgumentCapturer()) {
       ((ArgumentCapturer<?, ?>) nextArgumentCapturer).setBuilder(builder);
     } else {
 
       GlobalValidator.assertThat(builder).thatIsNamed(LowerCaseCatalogue.BUILDER).isNotNull();
 
-      this.builder = (IElementGetter<N>) builder;
+      this.builder = (Supplier<N>) builder;
     }
   }
 
@@ -88,7 +89,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
 
   // method
   private N build() {
-    return getStoredBuilder().getOutput();
+    return getStoredBuilder().get();
   }
 
   // method
@@ -102,7 +103,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
   }
 
   // method
-  private IElementGetter<N> getStoredBuilder() {
+  private Supplier<N> getStoredBuilder() {
 
     assertHasBuilder();
 

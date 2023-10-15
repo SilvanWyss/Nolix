@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.Supplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -8,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
 /**
@@ -20,7 +21,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 final class ResultJobRunner<R> extends Thread {
 
   // attribute
-  private final IElementGetter<R> resultJob;
+  private final Supplier<R> resultJob;
   private R result;
   private boolean running = true;
 
@@ -35,7 +36,7 @@ final class ResultJobRunner<R> extends Thread {
    * @param resultJob
    * @throws ArgumentIsNullException if the given resultJob is null.
    */
-  public ResultJobRunner(final IElementGetter<R> resultJob) {
+  public ResultJobRunner(final Supplier<R> resultJob) {
 
     // Asserts that the given resultJob is not null.
     GlobalValidator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
@@ -126,7 +127,7 @@ final class ResultJobRunner<R> extends Thread {
   @Override
   public void run() {
     try {
-      result = resultJob.getOutput();
+      result = resultJob.get();
     } catch (final Throwable lError) { // NOSONAR: All Throwables must be caught here.
       error = lError;
       GlobalLogger.logError(lError);

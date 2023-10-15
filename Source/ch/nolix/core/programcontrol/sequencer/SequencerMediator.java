@@ -2,11 +2,11 @@
 package ch.nolix.core.programcontrol.sequencer;
 
 import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
@@ -115,7 +115,7 @@ public final class SequencerMediator {
    * @return a new {@link ResultFuture}.
    * @throws ArgumentIsNullException if the given result job is null.
    */
-  public <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
+  public <R> ResultFuture<R> runInBackground(final Supplier<R> resultJob) {
     return GlobalSequencer.runInBackground(resultJob);
   }
 

@@ -2,6 +2,7 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -10,7 +11,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
@@ -27,14 +27,14 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
   private final BooleanSupplier valuePresenceChecker;
 
   // attribute
-  private final IElementGetter<Node> getter;
+  private final Supplier<Node> getter;
 
   // constructor
   public MutableOptionalSpecificationValueExtractor(
       final String name,
       final IElementTaker<INode<?>> setter,
       final BooleanSupplier valuePresenceChecker,
-      final IElementGetter<Node> getter) {
+      final Supplier<Node> getter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
@@ -69,7 +69,7 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     if (valuePresenceChecker.getAsBoolean()) {
-      list.addAtEnd(getter.getOutput());
+      list.addAtEnd(getter.get());
     }
   }
 }

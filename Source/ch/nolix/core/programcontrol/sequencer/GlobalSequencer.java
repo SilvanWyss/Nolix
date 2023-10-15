@@ -2,6 +2,7 @@
 package ch.nolix.core.programcontrol.sequencer;
 
 import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -11,7 +12,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
@@ -141,7 +141,7 @@ public final class GlobalSequencer {
    * @return a new {@link ResultFuture}.
    * @throws ArgumentIsNullException if the given result job is null.
    */
-  public static <R> ResultFuture<R> runInBackground(final IElementGetter<R> resultJob) {
+  public static <R> ResultFuture<R> runInBackground(final Supplier<R> resultJob) {
     return new ResultFuture<>(new ResultJobRunner<>(resultJob));
   }
 

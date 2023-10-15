@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Supplier;
+
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -8,7 +10,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
@@ -20,7 +21,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
   public static ForwardingMutableValue<Boolean> forBoolean(
       final String name,
       final IElementTaker<Boolean> setter,
-      final IElementGetter<Boolean> getter) {
+      final Supplier<Boolean> getter) {
     return new ForwardingMutableValue<>(name, setter, getter, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
@@ -28,7 +29,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
   public static ForwardingMutableValue<Integer> forInt(
       final String name,
       final IElementTaker<Integer> setter,
-      final IElementGetter<Integer> getter) {
+      final Supplier<Integer> getter) {
     return new ForwardingMutableValue<>(name, setter, getter, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
@@ -36,7 +37,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
   public static ForwardingMutableValue<String> forString(
       final String name,
       final IElementTaker<String> setter,
-      final IElementGetter<String> getter) {
+      final Supplier<String> getter) {
     return new ForwardingMutableValue<>(
         name,
         setter,
@@ -59,7 +60,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
   private final IElementTaker<V> setter;
 
   // attribute
-  private final IElementGetter<V> getter;
+  private final Supplier<V> getter;
 
   // attribute
   private final IElementTakerElementGetter<INode<?>, V> valueCreator;
@@ -71,7 +72,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
   public ForwardingMutableValue(
       final String name,
       final IElementTaker<V> setter,
-      final IElementGetter<V> getter,
+      final Supplier<V> getter,
       final IElementTakerElementGetter<INode<?>, V> valueCreator,
       final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
 
@@ -109,6 +110,6 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
   // method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
-    list.addAtEnd(specificationCreator.getOutput(getter.getOutput()));
+    list.addAtEnd(specificationCreator.getOutput(getter.get()));
   }
 }
