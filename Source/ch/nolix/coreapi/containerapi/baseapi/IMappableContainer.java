@@ -3,8 +3,8 @@ package ch.nolix.coreapi.containerapi.baseapi;
 
 import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 
 //interface
@@ -80,7 +80,7 @@ public interface IMappableContainer<E> {
    * @return a new array with the ints the given intGetter returns from the
    *         elements of the current {@link IMappableContainer}.
    */
-  int[] toIntArray(IElementTakerIntGetter<E> intGetter);
+  int[] toIntArray(ToIntFunction<E> intGetter);
 
   // method declaration
   /**
