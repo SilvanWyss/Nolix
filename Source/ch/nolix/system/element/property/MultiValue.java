@@ -2,6 +2,7 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
@@ -12,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //class
@@ -75,8 +75,8 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
   public MultiValue(
       final String name,
       final Consumer<V> adderMethod,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     // Calls constructor of the base class
     super(name, valueCreator, specificationCreator);
@@ -192,7 +192,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 
       // Creates a specification from the current value.
       final var specification = Node.withHeaderAndChildNodes(getName(),
-          specificationCreator.getOutput(v).getStoredChildNodes());
+          specificationCreator.apply(v).getStoredChildNodes());
 
       // Adds the specification to the given list.
       list.addAtEnd(specification);

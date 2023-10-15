@@ -2,6 +2,7 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -9,7 +10,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -22,13 +22,13 @@ public final class CatchingProperty<V> implements IProperty, Named {
   private final Consumer<V> setter;
 
   // attribute
-  private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+  private final Function<INode<?>, V> valueCreator;
 
   // constructor
   public CatchingProperty(
       final String name,
       final Consumer<V> setter,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator) {
+      final Function<INode<?>, V> valueCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
@@ -50,7 +50,7 @@ public final class CatchingProperty<V> implements IProperty, Named {
   public boolean addedOrChangedAttribute(INode<?> attribute) {
 
     if (hasName(attribute.getHeader())) {
-      setter.accept(valueCreator.getOutput(attribute));
+      setter.accept(valueCreator.apply(attribute));
       return true;
     }
 

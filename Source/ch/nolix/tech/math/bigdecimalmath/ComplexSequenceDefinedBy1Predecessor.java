@@ -2,9 +2,9 @@
 package ch.nolix.tech.math.bigdecimalmath;
 
 import java.math.BigDecimal;
+import java.util.function.Function;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
 
@@ -17,12 +17,12 @@ public final class ComplexSequenceDefinedBy1Predecessor
   private final IComplexNumber firstValue;
 
   // attribute
-  private final IElementTakerElementGetter<IComplexNumber, IComplexNumber> nextValueFunction;
+  private final Function<IComplexNumber, IComplexNumber> nextValueFunction;
 
   // constructor
   public ComplexSequenceDefinedBy1Predecessor(
       final IComplexNumber firstValue,
-      final IElementTakerElementGetter<IComplexNumber, IComplexNumber> nextValueFunction) {
+      final Function<IComplexNumber, IComplexNumber> nextValueFunction) {
 
     GlobalValidator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
     GlobalValidator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
@@ -53,6 +53,6 @@ public final class ComplexSequenceDefinedBy1Predecessor
 
     final var predecessor = getValueAtIndexWhenCalculated(index - 1);
 
-    return nextValueFunction.getOutput(predecessor);
+    return nextValueFunction.apply(predecessor);
   }
 }

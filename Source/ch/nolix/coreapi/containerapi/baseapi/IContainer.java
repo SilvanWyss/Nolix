@@ -4,10 +4,10 @@ package ch.nolix.coreapi.containerapi.baseapi;
 //Java imports
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
 
@@ -63,7 +63,7 @@ public interface IContainer<E>
    *         the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} is empty.
    */
-  double getAverage(IElementTakerElementGetter<E, Number> norm);
+  double getAverage(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -72,7 +72,7 @@ public interface IContainer<E>
    *         the current {@link IContainer} if the current {@link IContainer}
    *         contains elements, 0.0 otherwise.
    */
-  double getAverageOrZero(IElementTakerElementGetter<E, Number> norm);
+  double getAverageOrZero(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -134,7 +134,7 @@ public interface IContainer<E>
    *         elements of the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} is empty.
    */
-  <C extends Comparable<C>> C getMax(IElementTakerElementGetter<E, C> norm);
+  <C extends Comparable<C>> C getMax(Function<E, C> norm);
 
   // method declaration
   /**
@@ -143,7 +143,7 @@ public interface IContainer<E>
    *         current {@link IContainer} if the current {@link IContainer} contains
    *         elements, 0.0 otherwise.
    */
-  double getMaxOrZero(IElementTakerElementGetter<E, Number> norm);
+  double getMaxOrZero(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -152,7 +152,7 @@ public interface IContainer<E>
    *         the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} is empty.
    */
-  double getMedian(IElementTakerElementGetter<E, Number> norm);
+  double getMedian(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -161,7 +161,7 @@ public interface IContainer<E>
    *         the current {@link IContainer} if the current {@link IContainer}
    *         contains elements, 0.0 otherwise.
    */
-  double getMedianOrZero(IElementTakerElementGetter<E, Number> norm);
+  double getMedianOrZero(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -171,7 +171,7 @@ public interface IContainer<E>
    *         elements of the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} is empty.
    */
-  <C extends Comparable<C>> C getMin(IElementTakerElementGetter<E, C> norm);
+  <C extends Comparable<C>> C getMin(Function<E, C> norm);
 
   // method declaration
   /**
@@ -180,7 +180,7 @@ public interface IContainer<E>
    *         current {@link IContainer} if the current {@link IContainer} contains
    *         elements, 0.0 otherwise.
    */
-  double getMinOrZero(IElementTakerElementGetter<E, Number> norm);
+  double getMinOrZero(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -189,7 +189,7 @@ public interface IContainer<E>
    *         elements of the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} is empty.
    */
-  double getStandardDeviation(IElementTakerElementGetter<E, Number> norm);
+  double getStandardDeviation(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -197,7 +197,7 @@ public interface IContainer<E>
    * @return the sum of the values the given norm returns from the elements of the
    *         current {@link IContainer}.
    */
-  BigDecimal getSum(IElementTakerElementGetter<E, Number> norm);
+  BigDecimal getSum(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -205,7 +205,7 @@ public interface IContainer<E>
    * @return the sum of the integers the given norm returns from the elements of
    *         the current {@link IContainer}.
    */
-  BigInteger getSumOfIntegers(IElementTakerIntGetter<E> norm);
+  BigInteger getSumOfIntegers(ToIntFunction<E> norm);
 
   // method declaration
   /**
@@ -214,7 +214,7 @@ public interface IContainer<E>
    *         of the current {@link IContainer}.
    * @throws RuntimeException if the current {@link IContainer} is empty.
    */
-  double getVariance(IElementTakerElementGetter<E, Number> norm);
+  double getVariance(Function<E, Number> norm);
 
   // method declaration
   /**
@@ -224,7 +224,7 @@ public interface IContainer<E>
    *         {@link IContainer} ordered from the smallest to the biggest element
    *         according to the given norm.
    */
-  <C extends Comparable<C>> IContainer<E> toOrderedList(IElementTakerElementGetter<E, C> norm);
+  <C extends Comparable<C>> IContainer<E> toOrderedList(Function<E, C> norm);
 
   // method declaration
   /**

@@ -3,8 +3,8 @@ package ch.nolix.tech.math.fractal;
 
 //Java imports
 import java.math.BigDecimal;
+import java.util.function.Function;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
@@ -31,7 +31,7 @@ public final class FractalBuilder implements IFractalBuilder {
   public static final int DEFAULT_HEIGHT_IN_PIXEL = DEFAULT_WIDHT_IN_PIXEL;
 
   // constant
-  public static final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = //
+  public static final Function<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = //
       z -> new ComplexSequenceDefinedBy1Predecessor(
           z, p -> p.getPower2().getSum(z));
 
@@ -61,7 +61,7 @@ public final class FractalBuilder implements IFractalBuilder {
   private int heightInPixel = DEFAULT_HEIGHT_IN_PIXEL;
 
   // attribute
-  private IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator = //
+  private Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator = //
       DEFAULT_SEQUENCE_CREATOR;
 
   // attribute
@@ -181,7 +181,7 @@ public final class FractalBuilder implements IFractalBuilder {
   // method
   @Override
   public IFractalBuilder setSequenceCreator(
-      final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
+      final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
 
     this.sequenceCreator = sequenceCreator;
 

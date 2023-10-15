@@ -3,9 +3,8 @@ package ch.nolix.techapi.mathapi.fractalapi;
 
 //Java imports
 import java.math.BigDecimal;
+import java.util.function.Function;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
@@ -53,7 +52,7 @@ public interface IFractalBuilder {
 
   // method declaration
   IFractalBuilder setSequenceCreator(
-      IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator);
+      Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator);
 
   // method declaration
   IFractalBuilder setWidthInPixel(int widthInPixel);

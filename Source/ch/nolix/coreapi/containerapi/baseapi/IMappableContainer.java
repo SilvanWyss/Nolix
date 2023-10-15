@@ -4,7 +4,6 @@ package ch.nolix.coreapi.containerapi.baseapi;
 import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 
@@ -24,7 +23,7 @@ public interface IMappableContainer<E> {
    *         extractor extracts from the elements of the current
    *         {@link IMappableContainer}.
    */
-  <E2> IContainer<E2> to(IElementTakerElementGetter<E, E2> extractor);
+  <E2> IContainer<E2> to(Function<E, E2> extractor);
 
   // method declaration
   /**
@@ -73,7 +72,7 @@ public interface IMappableContainer<E> {
    *         {@link IMappableContainer}s the given extractor extracts from the
    *         elements of the current {@link IMappableContainer}.
    */
-  <E2> IContainer<E2> toFromGroups(IElementTakerElementGetter<E, IContainer<E2>> extractor);
+  <E2> IContainer<E2> toFromGroups(Function<E, IContainer<E2>> extractor);
 
   // method declaration
   /**

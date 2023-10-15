@@ -2,6 +2,7 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 //own imports
@@ -11,7 +12,6 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -27,18 +27,18 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
   private final Supplier<IContainer<V>> getter;
 
   // attribute
-  private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+  private final Function<INode<?>, V> valueCreator;
 
   // attribute
-  private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
+  private final Function<V, INode<?>> specificationCreator;
 
   // constructor
   public MultiValueExtractor(
       final String name,
       final Consumer<V> adder,
       final Supplier<IContainer<V>> getter,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();
@@ -64,7 +64,7 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
     if (attribute.hasHeader(getName())) {
-      adder.accept(valueCreator.getOutput(attribute));
+      adder.accept(valueCreator.apply(attribute));
       return true;
     }
 
@@ -75,7 +75,7 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var v : getter.get()) {
-      list.addAtEnd(specificationCreator.getOutput(v));
+      list.addAtEnd(specificationCreator.apply(v));
     }
   }
 }

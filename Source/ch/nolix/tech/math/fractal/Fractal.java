@@ -3,9 +3,9 @@ package ch.nolix.tech.math.fractal;
 
 //Java imports
 import java.math.BigDecimal;
+import java.util.function.Function;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
@@ -34,7 +34,7 @@ public final class Fractal implements IFractal {
   private final int heightInPixel;
 
   // attribute
-  private final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator;
+  private final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator;
 
   // attribute
   private final BigDecimal sequencesMinDivergenceMagnitude;
@@ -55,7 +55,7 @@ public final class Fractal implements IFractal {
       final IClosedInterval imaginaryComponentInterval,
       final int widthInPixel,
       final int heightInPixel,
-      final IElementTakerElementGetter<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
+      final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
       final BigDecimal sequencesMinDivergenceMagnitude,
       final int sequencesMaxIterationCount,
       final IIntTakerElementGetter<IColor> colorFunction,
@@ -120,7 +120,7 @@ public final class Fractal implements IFractal {
   // method
   @Override
   public ISequence<IComplexNumber> createSequenceFor(final IComplexNumber complexNumber) {
-    return sequenceCreator.getOutput(complexNumber);
+    return sequenceCreator.apply(complexNumber);
   }
 
   // method

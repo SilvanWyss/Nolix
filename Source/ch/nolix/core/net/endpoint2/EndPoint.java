@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
+import java.util.function.Function;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.BaseEndPoint;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.netapi.endpoint2api.IEndPoint;
 
 //class
@@ -20,7 +21,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   private static final long REPLIER_GETTING_DELAY_IN_MILLISECONDS = 5000;
 
   // optional attribute
-  private IElementTakerElementGetter<String, String> replier;
+  private Function<String, String> replier;
 
   // method
   /**
@@ -44,7 +45,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public void setReplier(final IElementTakerElementGetter<String, String> replier) {
+  public void setReplier(final Function<String, String> replier) {
 
     // Asserts that the given replier is not null.
     GlobalValidator.assertThat(replier).thatIsNamed("replier").isNotNull();
@@ -69,7 +70,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    * @throws ArgumentDoesNotHaveAttributeException if this end point does not have
    *                                               a replier.
    */
-  protected final IElementTakerElementGetter<String, String> getStoredReplier() {
+  protected final Function<String, String> getStoredReplier() {
 
     final long startTimeInMilliseconds = System.currentTimeMillis();
 

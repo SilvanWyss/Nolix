@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.system.elementfactory;
 
+import java.util.function.Function;
+
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 
 //class
@@ -21,7 +22,7 @@ public final class MutableElementFactory<E> extends ElementFactory<E> {
   // method
   public MutableElementFactory<E> registerElementClass(
       final Class<E> elementClass,
-      final IElementTakerElementGetter<INode<?>, E> creator) {
+      final Function<INode<?>, E> creator) {
 
     registerElementClass_(elementClass, creator);
 

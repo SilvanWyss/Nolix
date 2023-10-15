@@ -3,6 +3,7 @@ package ch.nolix.core.container.matrix;
 
 //Java imports
 import java.util.Arrays;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
@@ -22,7 +23,6 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.containerapi.matrixapi.IMutableMatrix;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**
@@ -597,7 +597,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    *         the elements of the current {@link Matrix}.
    */
   @SuppressWarnings("unchecked")
-  public <O> Matrix<O> toMatrix(final IElementTakerElementGetter<E, O> transformer) {
+  public <O> Matrix<O> toMatrix(final Function<E, O> transformer) {
 
     // Creates matrix.
     final var matrix = new Matrix<O>();
@@ -608,7 +608,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
       // Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
-        matrix.elements[i][j] = transformer.getOutput((E) elements[i][j]);
+        matrix.elements[i][j] = transformer.apply((E) elements[i][j]);
       }
     }
 
@@ -651,7 +651,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    * {@inheritDoc}
    */
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
+  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 

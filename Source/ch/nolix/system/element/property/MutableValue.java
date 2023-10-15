@@ -2,13 +2,13 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**
@@ -124,8 +124,8 @@ public final class MutableValue<V> extends SingleValue<V> {
       final String name,
       final V defaultValue,
       final Consumer<V> setterMethod,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     // Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);

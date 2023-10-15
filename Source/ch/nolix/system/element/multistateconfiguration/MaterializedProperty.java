@@ -2,6 +2,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
@@ -12,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringState;
 
 //class
@@ -22,10 +22,10 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   private static final String NONE_HEADER = "None";
 
   // attribute
-  private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+  private final Function<INode<?>, V> valueCreator;
 
   // attribute
-  private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
+  private final Function<V, INode<?>> specificationCreator;
 
   // optional attribute
   private final BiConsumer<S, V> setterMethod;
@@ -38,8 +38,8 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   protected MaterializedProperty(
       final String name,
       final Class<S> stateClass,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     super(name);
 
@@ -59,8 +59,8 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   protected MaterializedProperty(
       final String name,
       final Class<S> stateClass,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator,
       final BiConsumer<S, V> setterMethod) {
 
     super(name);
@@ -149,7 +149,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
 
           final var valueSpecification = Node.withHeaderAndChildNode(
               s.getQualifyingPrefix() + getName(),
-              specificationCreator.getOutput(stateProperty.getValue()).getStoredSingleChildNode());
+              specificationCreator.apply(stateProperty.getValue()).getStoredSingleChildNode());
 
           list.addAtEnd(valueSpecification);
 
@@ -242,7 +242,7 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
     if (specification.getSingleChildNodeHeader().equals(NONE_HEADER)) {
       stateProperties[state.getIndex()].setEmpty();
     } else {
-      setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.getOutput(specification));
+      setValueForStateUsingSetterMethod(state.getEnumValue(), valueCreator.apply(specification));
     }
   }
 }

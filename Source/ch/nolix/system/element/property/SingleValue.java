@@ -2,6 +2,7 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -12,7 +13,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**
@@ -46,8 +46,8 @@ abstract class SingleValue<V> extends BaseValue<V> {
   protected SingleValue(
       final String name,
       final Consumer<V> setterMethod,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     // Calls constructor of the base class.
     super(name, valueCreator, specificationCreator);
@@ -67,7 +67,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
    *                                               have a value
    */
   public final Node getSpecification() {
-    return Node.withHeaderAndChildNodes(getName(), specificationCreator.getOutput(getValue()).getStoredChildNodes());
+    return Node.withHeaderAndChildNodes(getName(), specificationCreator.apply(getValue()).getStoredChildNodes());
   }
 
   // method

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
-
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //interface
 /**
@@ -41,7 +40,7 @@ public interface ISearchableContainer<E> {
    * @throws RuntimeException if the current {@link ISearchableContainer} is
    *                          empty.
    */
-  <C extends Comparable<C>> E getStoredByMax(IElementTakerElementGetter<E, C> norm);
+  <C extends Comparable<C>> E getStoredByMax(Function<E, C> norm);
 
   // method declaration
   /**
@@ -53,7 +52,7 @@ public interface ISearchableContainer<E> {
    * @throws RuntimeException if the current {@link ISearchableContainer} is
    *                          empty.
    */
-  <C extends Comparable<C>> E getStoredByMin(IElementTakerElementGetter<E, C> norm);
+  <C extends Comparable<C>> E getStoredByMin(Function<E, C> norm);
 
   // method declaration
   /**
@@ -94,7 +93,7 @@ public interface ISearchableContainer<E> {
    * @return a new {@link ISearchableContainer} with groups with the elements of
    *         the current {@link ISearchableContainer} grouped by the given norm.
    */
-  IContainer<? extends IContainer<E>> getStoredGroups(IElementTakerElementGetter<E, ?> norm);
+  IContainer<? extends IContainer<E>> getStoredGroups(Function<E, ?> norm);
 
   // method declaration
   /**

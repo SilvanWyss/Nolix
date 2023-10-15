@@ -3,6 +3,7 @@ package ch.nolix.system.elementfactory;
 
 //Java imports
 import java.lang.reflect.InvocationTargetException;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.document.node.BaseNode;
@@ -10,7 +11,6 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 
 //class
@@ -33,7 +33,7 @@ final class OneTypeElementFactory<E> {
   private final Class<E> elementClass;
 
   // attribute
-  private final IElementTakerElementGetter<INode<?>, E> creator;
+  private final Function<INode<?>, E> creator;
 
   // constructor
   @SuppressWarnings("unchecked")
@@ -50,7 +50,7 @@ final class OneTypeElementFactory<E> {
   }
 
   // constructor
-  public OneTypeElementFactory(final Class<E> elementClass, final IElementTakerElementGetter<INode<?>, E> creator) {
+  public OneTypeElementFactory(final Class<E> elementClass, final Function<INode<?>, E> creator) {
 
     GlobalValidator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
     GlobalValidator.assertThat(creator).thatIsNamed(LowerCaseCatalogue.CREATOR).isNotNull();
@@ -76,7 +76,7 @@ final class OneTypeElementFactory<E> {
 
   // method
   public E createElementFrom(final BaseNode<?> specification) {
-    return creator.getOutput(specification);
+    return creator.apply(specification);
   }
 
   // method

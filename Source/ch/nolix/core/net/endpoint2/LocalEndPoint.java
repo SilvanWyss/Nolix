@@ -238,6 +238,6 @@ public final class LocalEndPoint extends EndPoint {
    * @return the reply to the given message.
    */
   private String receiveAndGetReply(final String message) {
-    return getStoredReplier().getOutput(message);
+    return getStoredReplier().apply(message);
   }
 }

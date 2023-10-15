@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.container.linkedlist;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 //own imports
@@ -19,7 +20,6 @@ import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**
@@ -585,7 +585,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
+  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return getOrderedSubList(1, getElementCount(), norm);
   }
 
@@ -624,7 +624,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   private <C extends Comparable<C>> LinkedList<E> getOrderedSubList(
       final int startIndex,
       final int endIndex,
-      final IElementTakerElementGetter<E, C> norm) {
+      final Function<E, C> norm) {
 
     // Searches for the start node.
     var startNode = firstNode;
@@ -645,8 +645,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
       final var list = new LinkedList<E>();
 
-      final Comparable element1Value = norm.getOutput(startNode.getElement());
-      final Comparable element2Value = norm.getOutput(startNode.getNextNode().getElement());
+      final Comparable element1Value = norm.apply(startNode.getElement());
+      final Comparable element2Value = norm.apply(startNode.getNextNode().getElement());
       if (element1Value.compareTo(element2Value) > 0) {
         list.addAtEnd(startNode.getNextNode().getElement());
         list.addAtEnd(startNode.getElement());
@@ -672,8 +672,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
         subList1.removeFirst();
 
       } else {
-        final Comparable value1 = norm.getOutput(subList1.getStoredFirst());
-        final Comparable value2 = norm.getOutput(subList2.getStoredFirst());
+        final Comparable value1 = norm.apply(subList1.getStoredFirst());
+        final Comparable value2 = norm.apply(subList2.getStoredFirst());
         if (value1.compareTo(value2) > 0) {
           list.addAtEnd(subList2.getStoredFirst());
           subList2.removeFirst();

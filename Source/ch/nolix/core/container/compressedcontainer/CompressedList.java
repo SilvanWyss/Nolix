@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.container.compressedcontainer;
 
+import java.util.function.Function;
+
 //own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
@@ -13,7 +15,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 public final class CompressedList<E> extends Container<E> {
@@ -114,7 +115,7 @@ public final class CompressedList<E> extends Container<E> {
 
   // method
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
+  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 

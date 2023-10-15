@@ -2,13 +2,13 @@
 package ch.nolix.system.element.property;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //class
@@ -51,7 +51,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
   public static <E extends Specified> MutableOptionalValue<E> forElement(
       final String name,
       final Consumer<E> setterMethod,
-      final IElementTakerElementGetter<INode<?>, E> valueCreator) {
+      final Function<INode<?>, E> valueCreator) {
     return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
   }
 
@@ -111,8 +111,8 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
   public MutableOptionalValue(
       final String name,
       final Consumer<V> setterMethod,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     // Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);

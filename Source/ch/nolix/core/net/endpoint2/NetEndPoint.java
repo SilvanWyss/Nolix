@@ -248,7 +248,7 @@ public final class NetEndPoint extends EndPoint {
       case RESPONSE_EXPECTING_MESSAGE:
 
         try {
-          final String reply = getStoredReplier().getOutput(pPackage.getStoredContent());
+          final String reply = getStoredReplier().apply(pPackage.getStoredContent());
           if (isOpen()) {
             send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
           }

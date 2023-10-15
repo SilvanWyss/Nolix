@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.container.immutablelist;
 
+import java.util.function.Function;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
@@ -15,7 +17,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 /**
@@ -173,7 +174,7 @@ public final class ImmutableList<E> extends Container<E> {
    * {@inheritDoc}
    */
   @Override
-  public <C extends Comparable<C>> IContainer<E> toOrderedList(final IElementTakerElementGetter<E, C> norm) {
+  public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return ReadContainer.forIterable(this).toOrderedList(norm);
   }
 

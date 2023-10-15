@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+import java.util.function.Function;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -8,7 +10,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.requestapi.MutabilityRequestable;
 import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
 
@@ -24,10 +25,10 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
   private final String name;
 
   // attribute
-  private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+  private final Function<INode<?>, V> valueCreator;
 
   // attribute
-  protected final IElementTakerElementGetter<V, INode<?>> specificationCreator;
+  protected final Function<V, INode<?>> specificationCreator;
 
   // constructor
   /**
@@ -44,8 +45,8 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
    */
   BaseValue(
       final String name,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -76,7 +77,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 
     if (attribute.hasHeader(getName())) {
-      addOrChangeValue(valueCreator.getOutput(attribute));
+      addOrChangeValue(valueCreator.apply(attribute));
       return true;
     }
 

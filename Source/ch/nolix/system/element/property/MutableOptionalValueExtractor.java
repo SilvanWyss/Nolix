@@ -3,6 +3,7 @@ package ch.nolix.system.element.property;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 //own imports
@@ -11,7 +12,6 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class
@@ -30,10 +30,10 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
   private final Supplier<V> getter;
 
   // attribute
-  private final IElementTakerElementGetter<INode<?>, V> valueCreator;
+  private final Function<INode<?>, V> valueCreator;
 
   // attribute
-  private final IElementTakerElementGetter<V, INode<?>> specificationCreator;
+  private final Function<V, INode<?>> specificationCreator;
 
   // constructor
   public MutableOptionalValueExtractor(
@@ -41,8 +41,8 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
       final Consumer<V> setter,
       final BooleanSupplier valuePresenceChecker,
       final Supplier<V> getter,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
@@ -70,7 +70,7 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
     if (attribute.hasHeader(getName())) {
-      setter.accept(valueCreator.getOutput(attribute));
+      setter.accept(valueCreator.apply(attribute));
       return true;
     }
 
@@ -81,7 +81,7 @@ public final class MutableOptionalValueExtractor<V> implements IProperty, Named 
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     if (valuePresenceChecker.getAsBoolean()) {
-      list.addAtEnd(specificationCreator.getOutput(getter.get()));
+      list.addAtEnd(specificationCreator.apply(getter.get()));
     }
   }
 }

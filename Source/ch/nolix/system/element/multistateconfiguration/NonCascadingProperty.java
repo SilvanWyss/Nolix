@@ -2,6 +2,7 @@
 package ch.nolix.system.element.multistateconfiguration;
 
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.document.node.Node;
@@ -9,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
 public final class NonCascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
@@ -66,8 +66,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
   public NonCascadingProperty(
       final String name,
       final Class<S> stateClass,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator) {
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
 
     super(name, stateClass, valueCreator, specificationCreator);
 
@@ -78,8 +78,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
   public NonCascadingProperty(
       final String name,
       final Class<S> stateClass,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator,
       final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator);
@@ -93,8 +93,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
   public NonCascadingProperty(
       final String name,
       final Class<S> stateClass,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator,
       final BiConsumer<S, V> setterMethod) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
@@ -106,8 +106,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
   public NonCascadingProperty(
       final String name,
       final Class<S> stateClass,
-      final IElementTakerElementGetter<INode<?>, V> valueCreator,
-      final IElementTakerElementGetter<V, INode<?>> specificationCreator,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator,
       final BiConsumer<S, V> setterMethod,
       final V defaultValue) {
 

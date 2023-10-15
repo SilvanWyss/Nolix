@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
@@ -25,7 +26,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 
@@ -505,7 +505,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getAverage(final IElementTakerElementGetter<E, Number> norm) {
+  public final double getAverage(final Function<E, Number> norm) {
 
     assertIsNotEmpty();
 
@@ -524,7 +524,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getAverageOrZero(final IElementTakerElementGetter<E, Number> norm) {
+  public final double getAverageOrZero(final Function<E, Number> norm) {
 
     // Handles the case that the current Container is empty.
     if (isEmpty()) {
@@ -669,13 +669,13 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> C getMax(final IElementTakerElementGetter<E, C> norm) {
+  public final <C extends Comparable<C>> C getMax(final Function<E, C> norm) {
 
-    var max = norm.getOutput(getStoredFirst());
+    var max = norm.apply(getStoredFirst());
 
     for (final var e : this) {
 
-      final var comparableValueOfElement = norm.getOutput(e);
+      final var comparableValueOfElement = norm.apply(e);
 
       if (comparableValueOfElement.compareTo(max) > 0) {
         max = comparableValueOfElement;
@@ -693,7 +693,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMaxOrZero(IElementTakerElementGetter<E, Number> norm) {
+  public final double getMaxOrZero(Function<E, Number> norm) {
 
     // Handles the case that the current Container is empty.
     if (isEmpty()) {
@@ -712,14 +712,14 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMedian(final IElementTakerElementGetter<E, Number> norm) {
+  public final double getMedian(final Function<E, Number> norm) {
 
     // Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
     // Calculates the values the given norm returns from the elements of the current
     // Container.
-    final var values = to(norm::getOutput);
+    final var values = to(norm::apply);
 
     // Orders the values by an ascending order.
     final var orderedValues = values.toOrderedList(Number::doubleValue);
@@ -749,7 +749,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMedianOrZero(IElementTakerElementGetter<E, Number> norm) {
+  public final double getMedianOrZero(Function<E, Number> norm) {
 
     // Handles the case that the current Container is empty.
     if (isEmpty()) {
@@ -768,13 +768,13 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> C getMin(final IElementTakerElementGetter<E, C> norm) {
+  public final <C extends Comparable<C>> C getMin(final Function<E, C> norm) {
 
-    var min = norm.getOutput(getStoredFirst());
+    var min = norm.apply(getStoredFirst());
 
     for (final var e : this) {
 
-      final var comparableValueOfElement = norm.getOutput(e);
+      final var comparableValueOfElement = norm.apply(e);
 
       if (comparableValueOfElement.compareTo(min) < 0) {
         min = comparableValueOfElement;
@@ -789,7 +789,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getMinOrZero(IElementTakerElementGetter<E, Number> norm) {
+  public final double getMinOrZero(Function<E, Number> norm) {
 
     // Handles the case that the current Container is empty.
     if (isEmpty()) {
@@ -826,18 +826,18 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> E getStoredByMax(final IElementTakerElementGetter<E, C> norm) {
+  public final <C extends Comparable<C>> E getStoredByMax(final Function<E, C> norm) {
 
     var max = getStoredFirst();
-    var comparebleValueOfMax = norm.getOutput(max);
+    var comparebleValueOfMax = norm.apply(max);
 
     for (var e : this) {
 
-      final var comparableValueOfElement = norm.getOutput(e);
+      final var comparableValueOfElement = norm.apply(e);
 
       if (comparableValueOfElement.compareTo(comparebleValueOfMax) > 0) {
         max = e;
-        comparebleValueOfMax = norm.getOutput(max);
+        comparebleValueOfMax = norm.apply(max);
       }
     }
 
@@ -852,18 +852,18 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <C extends Comparable<C>> E getStoredByMin(final IElementTakerElementGetter<E, C> norm) {
+  public final <C extends Comparable<C>> E getStoredByMin(final Function<E, C> norm) {
 
     var min = getStoredFirst();
-    var comparebleValueOfMin = norm.getOutput(min);
+    var comparebleValueOfMin = norm.apply(min);
 
     for (var e : this) {
 
-      final var comparableValueOfElement = norm.getOutput(e);
+      final var comparableValueOfElement = norm.apply(e);
 
       if (comparableValueOfElement.compareTo(comparebleValueOfMin) < 0) {
         min = e;
-        comparebleValueOfMin = norm.getOutput(min);
+        comparebleValueOfMin = norm.apply(min);
       }
     }
 
@@ -956,15 +956,15 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<? extends IContainer<E>> getStoredGroups(final IElementTakerElementGetter<E, ?> norm) {
+  public final IContainer<? extends IContainer<E>> getStoredGroups(final Function<E, ?> norm) {
 
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 
     // Iterates the current list.
     for (final var e : this) {
 
-      final var groupKey = norm.getOutput(e);
-      final var group = groups.getStoredFirstOrNull(g -> g.containsAny(e2 -> norm.getOutput(e2).equals(groupKey)));
+      final var groupKey = norm.apply(e);
+      final var group = groups.getStoredFirstOrNull(g -> g.containsAny(e2 -> norm.apply(e2).equals(groupKey)));
 
       if (group == null) {
 
@@ -1101,7 +1101,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getStandardDeviation(final IElementTakerElementGetter<E, Number> norm) {
+  public final double getStandardDeviation(final Function<E, Number> norm) {
     return Math.sqrt(getVariance(norm));
   }
 
@@ -1113,12 +1113,12 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final BigDecimal getSum(final IElementTakerElementGetter<E, Number> norm) {
+  public final BigDecimal getSum(final Function<E, Number> norm) {
 
     var sum = BigDecimal.ZERO;
 
     for (final var e : this) {
-      sum = sum.add(BigDecimal.valueOf(norm.getOutput(e).doubleValue()));
+      sum = sum.add(BigDecimal.valueOf(norm.apply(e).doubleValue()));
     }
 
     return sum;
@@ -1132,12 +1132,12 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final BigInteger getSumOfIntegers(final IElementTakerIntGetter<E> norm) {
+  public final BigInteger getSumOfIntegers(final ToIntFunction<E> norm) {
 
     var sum = BigInteger.ZERO;
 
     for (final var e : this) {
-      sum = sum.add(BigInteger.valueOf(norm.getOutput(e)));
+      sum = sum.add(BigInteger.valueOf(norm.applyAsInt(e)));
     }
 
     return sum;
@@ -1151,14 +1151,14 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final double getVariance(final IElementTakerElementGetter<E, Number> norm) {
+  public final double getVariance(final Function<E, Number> norm) {
 
     final var average = getAverage(norm);
 
     var sumOfSquaredDeviationsAsBigDecimal = BigDecimal.ZERO;
     for (final var e : this) {
 
-      final var deviation = norm.getOutput(e).doubleValue() - average;
+      final var deviation = norm.apply(e).doubleValue() - average;
       final var squaredDevication = Math.pow(deviation, 2);
 
       sumOfSquaredDeviationsAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal
@@ -1192,14 +1192,14 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> to(final IElementTakerElementGetter<E, E2> extractor) {
+  public final <E2> IContainer<E2> to(final Function<E, E2> extractor) {
 
     // Creates a list.
     final var list = createEmptyMutableList(new Marker<E2>());
 
     // Iterates the current Container.
     for (final var e : this) {
-      list.addAtEnd(extractor.getOutput(e));
+      list.addAtEnd(extractor.apply(e));
     }
 
     return list;
@@ -1324,12 +1324,12 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final <E2> IContainer<E2> toFromGroups(final IElementTakerElementGetter<E, IContainer<E2>> extractor) {
+  public final <E2> IContainer<E2> toFromGroups(final Function<E, IContainer<E2>> extractor) {
 
     final var list = createEmptyMutableList(new Marker<E2>());
 
     for (final var e : this) {
-      list.addAtEnd(extractor.getOutput(e));
+      list.addAtEnd(extractor.apply(e));
     }
 
     return list;
@@ -1590,16 +1590,16 @@ public abstract class Container<E> implements IContainer<E> {
    *         current {@link IContainer} for the case that the current
    *         {@link IContainer} contains elements.
    */
-  private double getMaxWhenContainsAny(final IElementTakerElementGetter<E, Number> norm) {
+  private double getMaxWhenContainsAny(final Function<E, Number> norm) {
 
     // Declares max.
-    var max = norm.getOutput(getStoredFirst()).doubleValue();
+    var max = norm.apply(getStoredFirst()).doubleValue();
 
     // Iterates the current Container.
     for (final var e : this) {
 
       // Extracts the current number.
-      final var number = norm.getOutput(e).doubleValue();
+      final var number = norm.apply(e).doubleValue();
 
       // Handles the case that the current number is bigger than max.
       if (number > max) {
@@ -1620,16 +1620,16 @@ public abstract class Container<E> implements IContainer<E> {
    *         current {@link IContainer} for the case that the current
    *         {@link IContainer} contains elements.
    */
-  private double getMinWhenContainsAny(final IElementTakerElementGetter<E, Number> norm) {
+  private double getMinWhenContainsAny(final Function<E, Number> norm) {
 
     // Declares min.
-    var min = norm.getOutput(getStoredFirst()).doubleValue();
+    var min = norm.apply(getStoredFirst()).doubleValue();
 
     // Iterates the current Container.
     for (final var e : this) {
 
       // Extracts the current number.
-      final var number = norm.getOutput(e).doubleValue();
+      final var number = norm.apply(e).doubleValue();
 
       // Handles the case that the current number is smaller than min.
       if (number < min) {
