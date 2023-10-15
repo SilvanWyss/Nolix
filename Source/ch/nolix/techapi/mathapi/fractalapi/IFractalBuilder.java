@@ -4,8 +4,8 @@ package ch.nolix.techapi.mathapi.fractalapi;
 //Java imports
 import java.math.BigDecimal;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
@@ -24,7 +24,7 @@ public interface IFractalBuilder {
   IFractalBuilder setBigDecimalScale(int bigDecumalScale);
 
   // method declaration
-  IFractalBuilder setColorFunction(IIntTakerElementGetter<IColor> colorFunction);
+  IFractalBuilder setColorFunction(IntFunction<IColor> colorFunction);
 
   // method declaration
   IFractalBuilder setHeightInPixel(final int heightInPixel);

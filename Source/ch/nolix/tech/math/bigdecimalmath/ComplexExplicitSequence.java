@@ -3,19 +3,19 @@ package ch.nolix.tech.math.bigdecimalmath;
 
 //Java imports
 import java.math.BigDecimal;
+import java.util.function.IntFunction;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 //class
 public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
 
   // attribute
-  private final IIntTakerElementGetter<IComplexNumber> valueFunction;
+  private final IntFunction<IComplexNumber> valueFunction;
 
   // constructor
-  public ComplexExplicitSequence(final IIntTakerElementGetter<IComplexNumber> valueFunction) {
+  public ComplexExplicitSequence(final IntFunction<IComplexNumber> valueFunction) {
 
     GlobalValidator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
 
@@ -31,6 +31,6 @@ public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
   // method
   @Override
   protected IComplexNumber calculateValue(final int index) {
-    return valueFunction.getOutput(index);
+    return valueFunction.apply(index);
   }
 }

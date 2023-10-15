@@ -4,8 +4,8 @@ package ch.nolix.tech.math.fractal;
 //Java imports
 import java.math.BigDecimal;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
@@ -42,7 +42,7 @@ public final class FractalBuilder implements IFractalBuilder {
   public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 50;
 
   // constant
-  public static final IIntTakerElementGetter<IColor> DEFAULT_COLOR_FUNCTION = i -> Color
+  public static final IntFunction<IColor> DEFAULT_COLOR_FUNCTION = i -> Color
       .withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
 
   // constant
@@ -71,7 +71,7 @@ public final class FractalBuilder implements IFractalBuilder {
   private int sequencesMaxIterationCount = DEFAULT_SEQUENCE_MAX_ITERATION_COUNT;
 
   // attribute
-  private IIntTakerElementGetter<IColor> colorFunction = DEFAULT_COLOR_FUNCTION;
+  private IntFunction<IColor> colorFunction = DEFAULT_COLOR_FUNCTION;
 
   // attribute
   private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
@@ -108,7 +108,7 @@ public final class FractalBuilder implements IFractalBuilder {
 
   // method
   @Override
-  public IFractalBuilder setColorFunction(final IIntTakerElementGetter<IColor> colorFunction) {
+  public IFractalBuilder setColorFunction(final IntFunction<IColor> colorFunction) {
 
     this.colorFunction = colorFunction;
 

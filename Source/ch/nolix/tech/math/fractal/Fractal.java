@@ -4,9 +4,9 @@ package ch.nolix.tech.math.fractal;
 //Java imports
 import java.math.BigDecimal;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTakerElementGetter;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
@@ -43,7 +43,7 @@ public final class Fractal implements IFractal {
   private final int sequencesMaxIterationCount;
 
   // attribute
-  private final IIntTakerElementGetter<IColor> colorFunction;
+  private final IntFunction<IColor> colorFunction;
 
   // attribute
   private final int bigDecimalScale;
@@ -58,7 +58,7 @@ public final class Fractal implements IFractal {
       final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
       final BigDecimal sequencesMinDivergenceMagnitude,
       final int sequencesMaxIterationCount,
-      final IIntTakerElementGetter<IColor> colorFunction,
+      final IntFunction<IColor> colorFunction,
       final int bigDecimalScale) {
 
     GlobalValidator
@@ -137,7 +137,7 @@ public final class Fractal implements IFractal {
       return CONVERGENCE_COLOR;
     }
 
-    return colorFunction.getOutput(iterationCount);
+    return colorFunction.apply(iterationCount);
   }
 
   // method
