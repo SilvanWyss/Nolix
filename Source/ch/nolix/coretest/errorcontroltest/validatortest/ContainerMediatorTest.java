@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -8,7 +10,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.ContainerMediator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 public final class ContainerMediatorTest extends Test {
@@ -19,7 +20,7 @@ public final class ContainerMediatorTest extends Test {
 
     // setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
-    final IElementTakerBooleanGetter<String> condition = null;
+    final Predicate<String> condition = null;
     final var testUnit = new ContainerMediator<>(list);
 
     // execution & verification

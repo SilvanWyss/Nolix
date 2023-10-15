@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import java.util.function.Predicate;
+
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //interface
@@ -71,7 +71,7 @@ public interface ISearchableContainer<E> {
    * @throws RuntimeException if the current {@link ISearchableContainer} does not
    *                          contain an element the given selector selects.
    */
-  E getStoredFirst(IElementTakerBooleanGetter<? super E> selector);
+  E getStoredFirst(Predicate<? super E> selector);
 
   // method declaration
   /**
@@ -86,7 +86,7 @@ public interface ISearchableContainer<E> {
    * @return the first element the given selector selects from the current
    *         {@link ISearchableContainer} or null.
    */
-  E getStoredFirstOrNull(IElementTakerBooleanGetter<? super E> selector);
+  E getStoredFirstOrNull(Predicate<? super E> selector);
 
   // method
   /**
@@ -133,7 +133,7 @@ public interface ISearchableContainer<E> {
    *                          elements from the current
    *                          {@link ISearchableContainer}.
    */
-  E getStoredOne(IElementTakerBooleanGetter<? super E> selector);
+  E getStoredOne(Predicate<? super E> selector);
 
   // method declaration
   /**
@@ -141,7 +141,7 @@ public interface ISearchableContainer<E> {
    * @return a new {@link ISearchableContainer} with the elements from the current
    *         {@link ISearchableContainer} the given selector skips (!).
    */
-  IContainer<E> getStoredOther(IElementTakerBooleanGetter<E> selector);
+  IContainer<E> getStoredOther(Predicate<E> selector);
 
   // method declaration
   /**
@@ -149,5 +149,5 @@ public interface ISearchableContainer<E> {
    * @return a new {@link ISearchableContainer} with the elements the given
    *         selector selects from the current {@link ISearchableContainer}.
    */
-  IContainer<E> getStoredSelected(IElementTakerBooleanGetter<? super E> selector);
+  IContainer<E> getStoredSelected(Predicate<? super E> selector);
 }

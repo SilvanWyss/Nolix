@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.listapi;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.functionapi.skillapi.Copyable;
 
@@ -107,7 +108,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * 
    * @param selector
    */
-  void removeAll(IElementTakerBooleanGetter<E> selector);
+  void removeAll(Predicate<E> selector);
 
   // method declaration
   /**
@@ -129,7 +130,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * @throws RuntimeException if the current {@link ILinkedList} does not contain
    *                          an element the given selector selects.
    */
-  E removeAndGetRefFirst(IElementTakerBooleanGetter<E> selector);
+  E removeAndGetRefFirst(Predicate<E> selector);
 
   // method declaration
   /**
@@ -153,7 +154,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * 
    * @param selector
    */
-  void removeFirst(IElementTakerBooleanGetter<E> selector);
+  void removeFirst(Predicate<E> selector);
 
   // method declaration
   /**
@@ -179,5 +180,5 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * @param element
    * @throws RuntimeException if the given element is null.
    */
-  void replaceFirst(IElementTakerBooleanGetter<E> selector, E element);
+  void replaceFirst(Predicate<E> selector, E element);
 }

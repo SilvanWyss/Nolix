@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
+import ch.nolix.core.net.endpoint.Server;
 //own imports
 import ch.nolix.core.net.endpoint.SocketEndPoint;
-import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

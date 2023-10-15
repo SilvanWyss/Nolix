@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import java.util.function.Predicate;
+
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
 
@@ -33,7 +33,7 @@ public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuild
    * @return the current {@link ISequencePatternBuilder}.
    * @throws RuntimeException if the given condition is null.
    */
-  ISequencePatternBuilder<E> addConditionForNext(IElementTakerBooleanGetter<E> condition);
+  ISequencePatternBuilder<E> addConditionForNext(Predicate<E> condition);
 
   // method declaration
   /**

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+import java.util.function.Predicate;
+
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -9,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 public final class MutableNode extends BaseMutableNode<MutableNode> {
@@ -206,8 +207,8 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-    return childNodes.removeAndGetRefFirst(selector::getOutput);
+  public MutableNode removeAndGetRefFirstChildNodeThat(final Predicate<INode<?>> selector) {
+    return childNodes.removeAndGetRefFirst(selector::test);
   }
 
   // method
@@ -215,7 +216,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<? extends INode<?>> selector) {
+  public void removeFirstChildNodeThat(final Predicate<? extends INode<?>> selector) {
     childNodes.removeFirstOccurrenceOf(selector);
   }
 

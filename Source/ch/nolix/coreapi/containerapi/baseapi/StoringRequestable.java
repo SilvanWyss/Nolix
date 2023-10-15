@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import java.util.function.Predicate;
 
 //interface
 /**
@@ -43,7 +42,7 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} contains an element
    *         the given selector selects.
    */
-  boolean containsAny(IElementTakerBooleanGetter<E> selector);
+  boolean containsAny(Predicate<E> selector);
 
   // method declaration
   /**
@@ -108,7 +107,7 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} does not contain an
    *         element the given selector selects.
    */
-  boolean containsNone(IElementTakerBooleanGetter<E> selector);
+  boolean containsNone(Predicate<E> selector);
 
   // method declaration
   /**
@@ -148,7 +147,7 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} contains exactly 1
    *         element the given selector selects.
    */
-  boolean containsOne(IElementTakerBooleanGetter<E> selector);
+  boolean containsOne(Predicate<E> selector);
 
   // method declaration
   /**
@@ -164,7 +163,7 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} contains only elements
    *         the given selector selects.
    */
-  boolean containsOnly(IElementTakerBooleanGetter<E> selector);
+  boolean containsOnly(Predicate<E> selector);
 
   // method declaration
   /**

@@ -4,7 +4,6 @@ package ch.nolix.core.net.endpoint;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-
 //Netty imports
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

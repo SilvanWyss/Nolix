@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
+import java.util.function.Predicate;
+
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.requestapi.BlanknessRequestable;
 
 //interface
@@ -46,7 +47,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    * @return true if the current {@link INode} contains a child {@link INode} the
    *         given selector selects.
    */
-  boolean containsChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+  boolean containsChildNodeThat(Predicate<INode<?>> selector);
 
   // method declaration
   /**
@@ -99,7 +100,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    * @return the child {@link INode}s the given selector selects from the current
    *         {@link INode}.
    */
-  IContainer<N> getStoredChildNodesThat(IElementTakerBooleanGetter<INode<?>> selector);
+  IContainer<N> getStoredChildNodesThat(Predicate<INode<?>> selector);
 
   // method declaration
   /**
@@ -125,7 +126,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    * @throws RuntimeException if the current {@link INode} does not contain a
    *                          child {@link INode} the given selector selects.
    */
-  N getStoredFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+  N getStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
   // method declaration
   /**
@@ -135,7 +136,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    *         {@link INode} of the current {@link INode}. Otherwise null is
    *         returned.
    */
-  N getStoredFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector);
+  N getStoredFirstChildNodeThatOrNull(Predicate<INode<?>> selector);
 
   // method declaration
   /**

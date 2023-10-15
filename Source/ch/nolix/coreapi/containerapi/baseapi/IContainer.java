@@ -4,9 +4,8 @@ package ch.nolix.coreapi.containerapi.baseapi;
 //Java imports
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.function.Predicate;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
@@ -81,7 +80,7 @@ public interface IContainer<E>
    * @return the number of elements the given selector selects from the current
    *         {@link IContainer}.
    */
-  int getCount(IElementTakerBooleanGetter<E> selector);
+  int getCount(Predicate<E> selector);
 
   // method declaration
   /**
@@ -105,7 +104,7 @@ public interface IContainer<E>
    * @throws RuntimeException if the current {@link IContainer} does not contain
    *                          an element the given selector selects.
    */
-  int get1BasedIndexOfFirst(IElementTakerBooleanGetter<E> selector);
+  int get1BasedIndexOfFirst(Predicate<E> selector);
 
   // method declaration
   /**

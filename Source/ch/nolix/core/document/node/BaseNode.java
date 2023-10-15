@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
@@ -14,7 +16,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //class
@@ -98,8 +99,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
-    return getStoredChildNodes().containsAny(selector::getOutput);
+  public final boolean containsChildNodeThat(final Predicate<INode<?>> selector) {
+    return getStoredChildNodes().containsAny(selector::test);
   }
 
   // method
@@ -193,7 +194,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<BN> getStoredChildNodesThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+  public final IContainer<BN> getStoredChildNodesThat(final Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 
@@ -220,7 +221,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector) {
+  public final BN getStoredFirstChildNodeThat(Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 
@@ -229,7 +230,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final BN getStoredFirstChildNodeThatOrNull(IElementTakerBooleanGetter<INode<?>> selector) {
+  public final BN getStoredFirstChildNodeThatOrNull(Predicate<INode<?>> selector) {
     return getStoredChildNodes().getStoredFirstOrNull(selector);
   }
 

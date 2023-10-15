@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
+import java.util.function.Predicate;
 
 //interface
 /**
@@ -36,5 +35,5 @@ public interface INextMediator<E> {
    *         {@link INextMediator}.
    * @throws RuntimeException if the given condition is null.
    */
-  ISequencePatternBuilder<E> addCondition(IElementTakerBooleanGetter<E> condition);
+  ISequencePatternBuilder<E> addCondition(Predicate<E> condition);
 }

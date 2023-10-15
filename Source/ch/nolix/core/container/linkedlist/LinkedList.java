@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.container.linkedlist;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
@@ -17,7 +19,6 @@ import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 
 //class
@@ -423,7 +424,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public void removeAll(final IElementTakerBooleanGetter<E> selector) {
+  public void removeAll(final Predicate<E> selector) {
 
     final var remainingElements = getStoredOther(selector);
 
@@ -456,7 +457,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public E removeAndGetRefFirst(final IElementTakerBooleanGetter<E> selector) {
+  public E removeAndGetRefFirst(final Predicate<E> selector) {
 
     final var element = getStoredFirst(selector);
 
@@ -511,7 +512,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public void removeFirst(final IElementTakerBooleanGetter<E> selector) {
+  public void removeFirst(final Predicate<E> selector) {
 
     // Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
@@ -558,11 +559,11 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public void replaceFirst(final IElementTakerBooleanGetter<E> selector, final E element) {
+  public void replaceFirst(final Predicate<E> selector, final E element) {
     var iterator = firstNode;
     while (iterator != null) {
 
-      if (selector.getOutput(iterator.getElement())) {
+      if (selector.test(iterator.getElement())) {
         iterator.setElement(element);
         break;
       }
@@ -724,8 +725,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * 
    * @param selector
    */
-  private void removeFirstWhenContainsAny(final IElementTakerBooleanGetter<E> selector) {
-    if (selector.getOutput(getStoredFirst())) {
+  private void removeFirstWhenContainsAny(final Predicate<E> selector) {
+    if (selector.test(getStoredFirst())) {
       removeFirst();
     } else {
       var iterator = firstNode;
@@ -733,7 +734,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
         final LinkedListNode<E> nextNode = iterator.getNextNode();
 
-        if (selector.getOutput(nextNode.getElement())) {
+        if (selector.test(nextNode.getElement())) {
           removeNextNode(iterator);
           break;
         }

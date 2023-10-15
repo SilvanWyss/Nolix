@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.Random;
+import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
@@ -22,7 +23,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
@@ -134,13 +134,13 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsAny(final IElementTakerBooleanGetter<E> selector) {
+  public final boolean containsAny(final Predicate<E> selector) {
 
     // Iterates the current IContainer.
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
         return true;
       }
     }
@@ -307,8 +307,8 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsNone(final IElementTakerBooleanGetter<E> selector) {
-    return !containsAny(selector::getOutput);
+  public final boolean containsNone(final Predicate<E> selector) {
+    return !containsAny(selector::test);
   }
 
   // method
@@ -394,7 +394,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOne(final IElementTakerBooleanGetter<E> selector) {
+  public final boolean containsOne(final Predicate<E> selector) {
 
     var found = false;
 
@@ -402,7 +402,7 @@ public abstract class Container<E> implements IContainer<E> {
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
 
         // Handles the case that an element the given selector selects was already
         // found.
@@ -437,13 +437,13 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean containsOnly(final IElementTakerBooleanGetter<E> selector) {
+  public final boolean containsOnly(final Predicate<E> selector) {
 
     // Iterates the current IContainer.
     for (final var e : this) {
 
       // Handles the case that the given selector does not select the current element.
-      if (!selector.getOutput(e)) {
+      if (!selector.test(e)) {
         return false;
       }
     }
@@ -544,7 +544,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int getCount(final IElementTakerBooleanGetter<E> selector) {
+  public final int getCount(final Predicate<E> selector) {
 
     var elementCount = 0;
 
@@ -552,7 +552,7 @@ public abstract class Container<E> implements IContainer<E> {
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
         elementCount++;
       }
     }
@@ -592,14 +592,14 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final int get1BasedIndexOfFirst(final IElementTakerBooleanGetter<E> selector) {
+  public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
 
     // Iterates the current Container.
     var l1BasedIndex = 1;
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
         return l1BasedIndex;
       }
 
@@ -896,13 +896,13 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredFirst(final IElementTakerBooleanGetter<? super E> selector) {
+  public final E getStoredFirst(final Predicate<? super E> selector) {
 
     // Iterates the current IContainer.
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
         return e;
       }
     }
@@ -935,13 +935,13 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredFirstOrNull(final IElementTakerBooleanGetter<? super E> selector) {
+  public final E getStoredFirstOrNull(final Predicate<? super E> selector) {
 
     // Iterates the current IContainer.
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
         return e;
       }
     }
@@ -1022,7 +1022,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredOne(final IElementTakerBooleanGetter<? super E> selector) {
+  public final E getStoredOne(final Predicate<? super E> selector) {
 
     // Declares the selected element.
     E selectedElement = null;
@@ -1031,7 +1031,7 @@ public abstract class Container<E> implements IContainer<E> {
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
 
         // Handles the case that the given selector selected already an element.
         if (selectedElement != null) {
@@ -1064,8 +1064,8 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getStoredOther(final IElementTakerBooleanGetter<E> selector) {
-    return getStoredSelected(e -> !selector.getOutput(e));
+  public final IContainer<E> getStoredOther(final Predicate<E> selector) {
+    return getStoredSelected(e -> !selector.test(e));
   }
 
   // method
@@ -1076,7 +1076,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final IContainer<E> getStoredSelected(final IElementTakerBooleanGetter<? super E> selector) {
+  public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
 
     // Creates list.
     final var list = createEmptyMutableList(new Marker<E>());
@@ -1086,7 +1086,7 @@ public abstract class Container<E> implements IContainer<E> {
     for (final var e : this) {
 
       // Handles the case that the given selector selects the current element.
-      if (selector.getOutput(e)) {
+      if (selector.test(e)) {
         list.addAtEnd(e);
       }
     }

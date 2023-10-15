@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.core.container.sequencesearch;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -74,7 +75,7 @@ public final class SequencePatternNextMediator<E> {
    *         {@link SequencePatternNextMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public SequencePattern<E> addCondition(final IElementTakerBooleanGetter<E> condition) {
+  public SequencePattern<E> addCondition(final Predicate<E> condition) {
 
     GlobalSequencer.forCount(count).run(() -> sequencePattern.addConditionForNext(condition));
 

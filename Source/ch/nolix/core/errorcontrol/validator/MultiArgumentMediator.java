@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.core.errorcontrol.validator;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -80,14 +81,14 @@ public class MultiArgumentMediator<A> {
    * @throws InvalidArgumentException if an argument of this argument container
    *                                  does not fulfill the given condition.
    */
-  public final void fulfill(final IElementTakerBooleanGetter<A> condition) {
+  public final void fulfill(final Predicate<A> condition) {
 
     // Iterates the arguments of this multi argument mediator.
     var index = 1;
     for (final A a : getStoredArguments()) {
 
       // Asserts that the current argument fulfills the given condition.
-      if (!condition.getOutput(a)) {
+      if (!condition.test(a)) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
             index + "th argument",
             a,

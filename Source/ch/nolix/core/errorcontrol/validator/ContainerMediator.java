@@ -4,6 +4,7 @@ package ch.nolix.core.errorcontrol.validator;
 //Java imports
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
@@ -16,7 +17,6 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
 import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -86,7 +86,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  does not contain an element that fulfills
    *                                  the given condition.
    */
-  public void contains(final IElementTakerBooleanGetter<E> condition) {
+  public void contains(final Predicate<E> condition) {
 
     // Asserts that the given condition is not null.
     if (condition == null) {
@@ -98,7 +98,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     for (final E e : getStoredArgument()) {
 
       // Handles the case that the current element fulfills the given condition.
-      if (condition.getOutput(e)) {
+      if (condition.test(e)) {
         found = true;
         break;
       }

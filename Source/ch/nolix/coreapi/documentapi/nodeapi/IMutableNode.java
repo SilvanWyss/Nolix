@@ -1,8 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.nodeapi;
 
+import java.util.function.Predicate;
+
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalHeaderable;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //interface
 /**
@@ -100,7 +101,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
    *                          a child {@link INode} the given selector selects.
    */
-  MN removeAndGetRefFirstChildNodeThat(IElementTakerBooleanGetter<INode<?>> selector);
+  MN removeAndGetRefFirstChildNodeThat(Predicate<INode<?>> selector);
 
   // method declaration
   /**
@@ -117,7 +118,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
    *                          a child {@link INode} the given selector selects.
    */
-  void removeFirstChildNodeThat(IElementTakerBooleanGetter<? extends INode<?>> selector);
+  void removeFirstChildNodeThat(Predicate<? extends INode<?>> selector);
 
   // method declaration
   /**

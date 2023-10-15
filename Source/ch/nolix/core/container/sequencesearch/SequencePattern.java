@@ -3,6 +3,7 @@ package ch.nolix.core.container.sequencesearch;
 
 //Java imports
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -11,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentExcep
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -30,10 +30,10 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGette
 public final class SequencePattern<E> implements ISequencePattern<E> {
 
   // multi-attribute
-  private final LinkedList<IElementTakerBooleanGetter<E>> elementConditions = new LinkedList<>();
+  private final LinkedList<Predicate<E>> elementConditions = new LinkedList<>();
 
   // multi-attribute
-  private final LinkedList<IElementTakerBooleanGetter<LinkedList<E>>> sequenceConditions = new LinkedList<>();
+  private final LinkedList<Predicate<LinkedList<E>>> sequenceConditions = new LinkedList<>();
 
   // method
   /**
@@ -58,7 +58,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * @return the current {@link SequencePattern}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public SequencePattern<E> addConditionForNext(final IElementTakerBooleanGetter<E> condition) {
+  public SequencePattern<E> addConditionForNext(final Predicate<E> condition) {
 
     elementConditions.addAtEnd(condition);
 
@@ -77,7 +77,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * 
    */
   public SequencePattern<E> addSequenceCondition(
-      final IElementTakerBooleanGetter<LinkedList<E>> sequenceCondition) {
+      final Predicate<LinkedList<E>> sequenceCondition) {
 
     sequenceConditions.addAtEnd(sequenceCondition);
 
@@ -114,11 +114,11 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       // current SequencePattern.
       var sequenceFulfillsElementConditions = true;
       final var iterator2 = iterator.getCopy();
-      for (final IElementTakerBooleanGetter<E> c : elementConditions) {
+      for (final Predicate<E> c : elementConditions) {
 
         final var element = iterator2.next();
 
-        if (!c.getOutput(element)) {
+        if (!c.test(element)) {
           sequenceFulfillsElementConditions = false;
           break;
         }
@@ -132,7 +132,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
         // Asserts that the current sequence fulfills the sequence conditions of the
         // current SequencePattern.
-        if (sequenceConditions.containsOnly(sc -> sc.getOutput(sequence))) {
+        if (sequenceConditions.containsOnly(sc -> sc.test(sequence))) {
           sequences.addAtEnd(sequence);
         }
       }
@@ -169,15 +169,15 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     // Asserts that the elements of the given list
     // fulfill the according element conditions the current SequencePattern
     // requires.
-    final Iterator<IElementTakerBooleanGetter<E>> iterator = elementConditions.iterator();
+    final Iterator<Predicate<E>> iterator = elementConditions.iterator();
     for (final E e : list) {
-      if (!iterator.next().getOutput(e)) {
+      if (!iterator.next().test(e)) {
         return false;
       }
     }
 
     // Asserts that the given list fulfils the sequence conditions of the current
     // SequencePattern.
-    return sequenceConditions.containsOnly(sc -> sc.getOutput(list));
+    return sequenceConditions.containsOnly(sc -> sc.test(list));
   }
 }

@@ -19,14 +19,13 @@ import java.util.Base64;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 
-//Netty imports
-import io.netty.handler.ssl.SslContext;
-import io.netty.handler.ssl.SslContextBuilder;
-
 //own imports
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+//Netty imports
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
 
 //class
 final class SecureServerSSLContextCreator {

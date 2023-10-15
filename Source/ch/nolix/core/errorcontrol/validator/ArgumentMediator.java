@@ -3,6 +3,7 @@ package ch.nolix.core.errorcontrol.validator;
 
 //Java imports
 import java.util.Objects;
+import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNotNullException;
@@ -11,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentExceptio
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -65,7 +65,7 @@ public class ArgumentMediator<A> extends Mediator {
    *                                  {@link ArgumentMediator} does not fulfill
    *                                  the given condition.
    */
-  public final void fulfills(IElementTakerBooleanGetter<A> condition) {
+  public final void fulfills(Predicate<A> condition) {
 
     // Asserts that the given condition is not null.
     if (condition == null) {
@@ -74,7 +74,7 @@ public class ArgumentMediator<A> extends Mediator {
 
     // Asserts that the argument of the current ArgumentMediator fulfills the given
     // condition.
-    if (!condition.getOutput(getStoredArgument())) {
+    if (!condition.test(getStoredArgument())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
           getStoredArgument(),

@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.document.node;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
@@ -9,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -206,9 +207,9 @@ public final class FileNode extends BaseMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode removeAndGetRefFirstChildNodeThat(final IElementTakerBooleanGetter<INode<?>> selector) {
+  public FileNode removeAndGetRefFirstChildNodeThat(final Predicate<INode<?>> selector) {
 
-    final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::getOutput);
+    final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::test);
     save();
 
     return new FileNode(this, attribute);
@@ -219,7 +220,7 @@ public final class FileNode extends BaseMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public void removeFirstChildNodeThat(final IElementTakerBooleanGetter<? extends INode<?>> selector) {
+  public void removeFirstChildNodeThat(final Predicate<? extends INode<?>> selector) {
     internalSpecification.removeFirstChildNodeThat(selector);
     save();
   }

@@ -1,6 +1,12 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
+import static io.netty.handler.codec.http.HttpMethod.GET;
+import static io.netty.handler.codec.http.HttpResponseStatus.BAD_REQUEST;
+import static io.netty.handler.codec.http.HttpResponseStatus.FORBIDDEN;
+import static io.netty.handler.codec.http.HttpResponseStatus.OK;
+
 //Netty imports
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
@@ -15,9 +21,6 @@ import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.CharsetUtil;
-import static io.netty.handler.codec.http.HttpHeaderNames.*;
-import static io.netty.handler.codec.http.HttpMethod.*;
-import static io.netty.handler.codec.http.HttpResponseStatus.*;
 
 //class
 final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {

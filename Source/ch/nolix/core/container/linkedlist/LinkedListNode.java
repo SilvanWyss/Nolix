@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.core.container.linkedlist;
 
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerBooleanGetter;
 
 //class
 /**
@@ -42,8 +43,8 @@ final class LinkedListNode<E> {
    * @return true if the current {@link LinkedListNode} contains an element the
    *         given selector selects.
    */
-  public boolean contains(final IElementTakerBooleanGetter<E> selector) {
-    return selector.getOutput(getElement());
+  public boolean contains(final Predicate<E> selector) {
+    return selector.test(getElement());
   }
 
   // method

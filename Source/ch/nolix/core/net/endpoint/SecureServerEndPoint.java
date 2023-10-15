@@ -1,16 +1,15 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
-//Netty imports
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
+//Netty imports
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
 //class
 final class SecureServerEndPoint extends NetEndPoint {
