@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.IntConsumer;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IIntTaker;
 
 //class
 /**
@@ -52,9 +53,9 @@ public final class ForCountMediator {
    * 
    * @param job
    */
-  public void run(final IIntTaker job) {
+  public void run(final IntConsumer job) {
     for (var i = 1; i <= maxRunCount; i++) {
-      job.run(i);
+      job.accept(i);
     }
   }
 
