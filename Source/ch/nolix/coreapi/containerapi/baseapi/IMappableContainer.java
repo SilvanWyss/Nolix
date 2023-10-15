@@ -4,8 +4,7 @@ package ch.nolix.coreapi.containerapi.baseapi;
 import java.util.function.Function;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
-
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
+import java.util.function.ToLongFunction;
 
 //interface
 /**
@@ -88,5 +87,5 @@ public interface IMappableContainer<E> {
    * @return a new array with the longs the given longGetter returns from the
    *         elements of the current {@link IMappableContainer}.
    */
-  long[] toLongArray(IElementTakerLongGetter<E> longGetter);
+  long[] toLongArray(ToLongFunction<E> longGetter);
 }

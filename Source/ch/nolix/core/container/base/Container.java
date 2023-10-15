@@ -10,6 +10,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
@@ -26,7 +27,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerLongGetter;
 
 //interface
 /**
@@ -1365,7 +1365,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final long[] toLongArray(final IElementTakerLongGetter<E> longNorm) {
+  public final long[] toLongArray(final ToLongFunction<E> longNorm) {
 
     // Creates the array.
     final var array = new long[getElementCount()];
@@ -1373,7 +1373,7 @@ public abstract class Container<E> implements IContainer<E> {
     // Fills up the array.
     var i = 0;
     for (final var e : this) {
-      array[i] = longNorm.getOutput(e);
+      array[i] = longNorm.applyAsLong(e);
       i++;
     }
 
