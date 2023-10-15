@@ -19,7 +19,7 @@ public final class GlobalFunctionHelperTest extends Test {
     final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getTrue);
 
     // verification
-    expectNot(result.getOutput());
+    expectNot(result.getAsBoolean());
   }
 
   // method
@@ -30,7 +30,7 @@ public final class GlobalFunctionHelperTest extends Test {
     final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getFalse);
 
     // verification
-    expect(result.getOutput());
+    expect(result.getAsBoolean());
   }
 
   // method

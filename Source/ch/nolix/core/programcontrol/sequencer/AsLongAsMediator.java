@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.time.TimeUnitCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**
@@ -18,7 +19,7 @@ import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 public final class AsLongAsMediator {
 
   // attribute
-  private final IBooleanGetter condition;
+  private final java.util.function.BooleanSupplier condition;
 
   // optional attribute
   private final Integer maxRunCount;
@@ -30,7 +31,7 @@ public final class AsLongAsMediator {
    * @param condition
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  AsLongAsMediator(final IBooleanGetter condition) {
+  AsLongAsMediator(final BooleanSupplier condition) {
 
     // Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
@@ -76,7 +77,7 @@ public final class AsLongAsMediator {
 
     // Handles the case that this as long as mediator does not have a max run count.
     if (!hasMaxRunCount()) {
-      while (condition.getOutput()) {
+      while (condition.getAsBoolean()) {
         job.run();
       }
 
@@ -84,7 +85,7 @@ public final class AsLongAsMediator {
     } else {
       for (var i = 1; i <= maxRunCount; i++) {
 
-        if (!condition.getOutput()) {
+        if (!condition.getAsBoolean()) {
           break;
         }
 

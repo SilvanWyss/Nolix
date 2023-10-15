@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -9,7 +11,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.jobpool.JobPool;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
@@ -35,7 +36,7 @@ public final class GlobalSequencer {
    * @return a new {@link AsLongAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsLongAsMediator asLongAs(final IBooleanGetter condition) {
+  public static AsLongAsMediator asLongAs(final BooleanSupplier condition) {
     return new AsLongAsMediator(condition);
   }
 
@@ -45,7 +46,7 @@ public final class GlobalSequencer {
    * @return a new {@link AsSoonAsMediator} with the given condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsSoonAsMediator asSoonAs(final IBooleanGetter condition) {
+  public static AsSoonAsMediator asSoonAs(final BooleanSupplier condition) {
     return new AsSoonAsMediator(condition);
   }
 
@@ -56,7 +57,7 @@ public final class GlobalSequencer {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsSoonAsMediator asSoonAsNoMore(final IBooleanGetter condition) {
+  public static AsSoonAsMediator asSoonAsNoMore(final BooleanSupplier condition) {
     return new AsSoonAsMediator(GlobalFunctionHelper.createNegatorFor(condition));
   }
 
@@ -151,7 +152,7 @@ public final class GlobalSequencer {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static AsLongAsMediator until(final IBooleanGetter condition) {
+  public static AsLongAsMediator until(final BooleanSupplier condition) {
     return new AsLongAsMediator(GlobalFunctionHelper.createNegatorFor(condition));
   }
 
@@ -163,13 +164,13 @@ public final class GlobalSequencer {
    * @return a {@link ActionMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static ActionMediator waitAsLongAs(final IBooleanGetter condition) {
+  public static ActionMediator waitAsLongAs(final BooleanSupplier condition) {
 
     // Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 
     var i = 1;
-    while (condition.getOutput()) {
+    while (condition.getAsBoolean()) {
 
       if (i < 100) {
         waitForMilliseconds(10);
@@ -221,9 +222,9 @@ public final class GlobalSequencer {
    * @return a {@link ActionMediator}.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public static ActionMediator waitUntil(final IBooleanGetter condition) {
+  public static ActionMediator waitUntil(final BooleanSupplier condition) {
 
-    waitAsLongAs(() -> !condition.getOutput());
+    waitAsLongAs(() -> !condition.getAsBoolean());
 
     return ACTION_MEDIATOR;
   }

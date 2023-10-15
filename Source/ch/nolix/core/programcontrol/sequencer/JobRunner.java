@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -9,7 +11,6 @@ import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**
@@ -39,7 +40,7 @@ final class JobRunner extends Thread {
   private final Integer maxRunCount;
 
   // optional attribute
-  private final IBooleanGetter condition;
+  private final BooleanSupplier condition;
 
   // optional attribute
   private final Integer timeIntervalInMilliseconds;
@@ -78,7 +79,7 @@ final class JobRunner extends Thread {
    * @throws ArgumentIsNullException if the given job is null.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public JobRunner(final Runnable job, final IBooleanGetter condition) {
+  public JobRunner(final Runnable job, final BooleanSupplier condition) {
 
     // Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -109,7 +110,7 @@ final class JobRunner extends Thread {
    */
   public JobRunner(
       final Runnable job,
-      final IBooleanGetter condition,
+      final BooleanSupplier condition,
       final int timeIntervalInMilliseconds) {
     // Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -172,7 +173,7 @@ final class JobRunner extends Thread {
   public JobRunner(
       final Runnable job,
       final int maxRunCount,
-      final IBooleanGetter condition) {
+      final BooleanSupplier condition) {
 
     // Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -210,7 +211,7 @@ final class JobRunner extends Thread {
   public JobRunner(
       final Runnable job,
       final int maxRunCount,
-      final IBooleanGetter condition,
+      final BooleanSupplier condition,
       final int timeIntervalInMilliseconds) {
     // Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -388,7 +389,7 @@ final class JobRunner extends Thread {
    *         it.
    */
   private boolean violatesProbableCondition() {
-    return (hasCondition() && !condition.getOutput());
+    return (hasCondition() && !condition.getAsBoolean());
   }
 
   // method

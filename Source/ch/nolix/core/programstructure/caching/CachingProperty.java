@@ -1,9 +1,10 @@
 //package declaration
 package ch.nolix.core.programstructure.caching;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementGetter;
 
 //class
@@ -13,7 +14,7 @@ public final class CachingProperty<V> {
   private final IElementGetter<V> valueCreator;
 
   // optional attribute
-  private final IBooleanGetter needToRefreshFunction;
+  private final BooleanSupplier needToRefreshFunction;
 
   // optional attribute
   private V value;
@@ -28,7 +29,8 @@ public final class CachingProperty<V> {
   }
 
   // constructor
-  public CachingProperty(final IElementGetter<V> valueCreator, final IBooleanGetter needToRefreshFunction) {
+  public CachingProperty(final IElementGetter<V> valueCreator,
+      final java.util.function.BooleanSupplier needToRefreshFunction) {
 
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
     GlobalValidator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
@@ -59,6 +61,6 @@ public final class CachingProperty<V> {
 
   // method
   private boolean refreshIsNeeded() {
-    return (value == null || (needToRefreshFunction != null && needToRefreshFunction.getOutput()));
+    return (value == null || (needToRefreshFunction != null && needToRefreshFunction.getAsBoolean()));
   }
 }

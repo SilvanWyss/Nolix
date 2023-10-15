@@ -1,19 +1,20 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 public final class AsSoonAsMediator {
 
   // attribute
-  private final IBooleanGetter condition;
+  private final BooleanSupplier condition;
 
   // constructor
-  AsSoonAsMediator(final IBooleanGetter condition) {
+  AsSoonAsMediator(final BooleanSupplier condition) {
 
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 

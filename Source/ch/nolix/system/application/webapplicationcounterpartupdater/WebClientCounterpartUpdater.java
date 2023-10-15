@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
@@ -20,12 +21,12 @@ public final class WebClientCounterpartUpdater {
   // static method
   public static WebClientCounterpartUpdater forCounterpartRunner(
       final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
-      final IBooleanGetter openStateRequester) {
+      final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
   // attribute
-  private final IBooleanGetter openStateRequester;
+  private final BooleanSupplier openStateRequester;
 
   // attribute
   private final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner;
@@ -33,7 +34,7 @@ public final class WebClientCounterpartUpdater {
   // constructor
   private WebClientCounterpartUpdater(
       final IElementTaker<IContainer<? extends IChainedNode>> counterpartRunner,
-      final IBooleanGetter openStateRequester) {
+      final BooleanSupplier openStateRequester) {
 
     GlobalValidator.assertThat(openStateRequester).thatIsNamed("open state requester").isNotNull();
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -49,7 +50,7 @@ public final class WebClientCounterpartUpdater {
 
     final var updateCommands = createUpdateCommandsFromWebGui(webGui);
 
-    if (openStateRequester.getOutput()) {
+    if (openStateRequester.getAsBoolean()) {
       counterpartRunner.run(updateCommands);
     }
   }

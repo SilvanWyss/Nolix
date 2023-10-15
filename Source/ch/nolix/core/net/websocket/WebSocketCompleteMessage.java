@@ -4,10 +4,10 @@ package ch.nolix.core.net.websocket;
 //Java imports
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.function.BooleanSupplier;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTaker;
 import ch.nolix.coreapi.functionapi.requestapi.CompletenessRequestable;
 
@@ -22,10 +22,10 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
 
   // constructor
   public WebSocketCompleteMessage(
-      final IBooleanGetter isOpenFunction,
+      final BooleanSupplier isOpenFunction,
       final InputStream inputStream,
       final IElementTaker<WebSocketFrame> controlFrameTaker) {
-    while (isOpenFunction.getOutput() && isIncomplete()) {
+    while (isOpenFunction.getAsBoolean() && isIncomplete()) {
 
       final var frame = new WebSocketFrame(inputStream);
 

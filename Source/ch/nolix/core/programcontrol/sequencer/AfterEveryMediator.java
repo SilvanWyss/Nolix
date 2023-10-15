@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**
@@ -25,7 +26,7 @@ public final class AfterEveryMediator {
   private final Integer maxRunCount;
 
   // optional attribute
-  private final IBooleanGetter condition;
+  private final BooleanSupplier condition;
 
   // constructor
   /**
@@ -38,7 +39,7 @@ public final class AfterEveryMediator {
    * @throws NegativeArgumentException if the given timeIntervalInMilliseconds is
    *                                   negative.
    */
-  AfterEveryMediator(final IBooleanGetter condition, final int timeIntervalInMilliseconds) {
+  AfterEveryMediator(final BooleanSupplier condition, final int timeIntervalInMilliseconds) {
 
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
@@ -63,7 +64,7 @@ public final class AfterEveryMediator {
    */
   AfterEveryMediator(
       final int maxRunCount,
-      final IBooleanGetter condition,
+      final BooleanSupplier condition,
       final int timeIntervalInMilliseconds) {
 
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
@@ -196,7 +197,7 @@ public final class AfterEveryMediator {
 
     assertHasCondition();
 
-    while (condition.getOutput()) {
+    while (condition.getAsBoolean()) {
       job.run();
       Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
     }
@@ -226,7 +227,7 @@ public final class AfterEveryMediator {
 
         Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
 
-        if (!condition.getOutput()) {
+        if (!condition.getAsBoolean()) {
           break;
         }
 

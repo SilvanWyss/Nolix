@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+import java.util.function.BooleanSupplier;
+
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.GlobalFunctionHelper;
 import ch.nolix.core.time.TimeUnitCatalogue;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IBooleanGetter;
 
 //class
 /**
@@ -80,7 +81,7 @@ public final class ForMaxMillisecondsMediator {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AsLongAsMediator asLongAs(final IBooleanGetter condition) {
+  public AsLongAsMediator asLongAs(final BooleanSupplier condition) {
 
     // Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
@@ -88,7 +89,7 @@ public final class ForMaxMillisecondsMediator {
     final var startTimeInMilliseconds = System.currentTimeMillis();
     final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 
-    return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getOutput());
+    return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getAsBoolean());
   }
 
   // method
@@ -99,7 +100,7 @@ public final class ForMaxMillisecondsMediator {
    *         condition.
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public AsLongAsMediator until(final IBooleanGetter condition) {
+  public AsLongAsMediator until(final BooleanSupplier condition) {
 
     // Calls other method.
     return asLongAs(GlobalFunctionHelper.createNegatorFor(condition));
@@ -114,12 +115,12 @@ public final class ForMaxMillisecondsMediator {
    * @param condition
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public void waitAsLongAs(final IBooleanGetter condition) {
+  public void waitAsLongAs(final BooleanSupplier condition) {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
     final var endTimeInMilliseconds = startTimeInMilliseconds + maxDurationInMilliseconds;
 
-    GlobalSequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getOutput());
+    GlobalSequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getAsBoolean());
   }
 
   // method
@@ -131,7 +132,7 @@ public final class ForMaxMillisecondsMediator {
    * @param condition
    * @throws ArgumentIsNullException if the given condition is null.
    */
-  public void waitUntil(final IBooleanGetter condition) {
+  public void waitUntil(final BooleanSupplier condition) {
 
     // Calls other method.
     waitAsLongAs(GlobalFunctionHelper.createNegatorFor(condition));
