@@ -3,9 +3,9 @@ package ch.nolix.tech.math.bigdecimalmath;
 
 //Java imports
 import java.math.BigDecimal;
+import java.util.function.BiFunction;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.I2ElementTakerElementGetter;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy2Predecessor;
 
@@ -21,13 +21,13 @@ public final class ComplexSequenceDefinedBy2Predecessor
   private final IComplexNumber secondValue;
 
   // attribute
-  private final I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction;
+  private final BiFunction<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction;
 
   // constructor
   public ComplexSequenceDefinedBy2Predecessor(
       final IComplexNumber firstValue,
       final IComplexNumber secondValue,
-      I2ElementTakerElementGetter<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction) {
+      BiFunction<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction) {
 
     GlobalValidator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
     GlobalValidator.assertThat(secondValue).thatIsNamed("second value").isNotNull();
@@ -68,6 +68,6 @@ public final class ComplexSequenceDefinedBy2Predecessor
       return getSecondValue();
     }
 
-    return nextValueFunction.getOutput(getValueAt1BasedIndex(index - 2), getValueAt1BasedIndex(index - 1));
+    return nextValueFunction.apply(getValueAt1BasedIndex(index - 2), getValueAt1BasedIndex(index - 1));
   }
 }
