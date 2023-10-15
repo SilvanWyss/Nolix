@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.util.Random;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 //own imports
@@ -23,7 +24,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -1237,7 +1237,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final byte[] toByteArray(final IElementTakerByteGetter<E> byteNorm) {
+  public final byte[] toByteArray(final Function<E, Byte> byteNorm) {
 
     // Creates array.
     final var array = new byte[getElementCount()];
@@ -1245,7 +1245,7 @@ public abstract class Container<E> implements IContainer<E> {
     // Fills up the array.
     var i = 0;
     for (final var e : this) {
-      array[i] = byteNorm.getOutput(e);
+      array[i] = byteNorm.apply(e);
       i++;
     }
 

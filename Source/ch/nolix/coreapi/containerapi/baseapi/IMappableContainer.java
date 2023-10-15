@@ -1,7 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerByteGetter;
+import java.util.function.Function;
+
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
@@ -39,7 +40,7 @@ public interface IMappableContainer<E> {
    * @return a new array with the bytes the given byteGetter returns from the
    *         elements of the current {@link IMappableContainer}.
    */
-  byte[] toByteArray(IElementTakerByteGetter<E> byteGetter);
+  byte[] toByteArray(Function<E, Byte> byteGetter);
 
   // method declaration
   /**
