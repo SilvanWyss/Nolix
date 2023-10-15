@@ -3,7 +3,6 @@ package ch.nolix.coreapi.containerapi.baseapi;
 
 import java.util.function.Function;
 
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
@@ -48,7 +47,7 @@ public interface IMappableContainer<E> {
    * @return a new array with the chars the given charGetter returns from the
    *         elements of the current {@link IMappableContainer}.
    */
-  char[] toCharArray(IElementTakerCharGetter<E> charGetter);
+  char[] toCharArray(Function<E, Character> charGetter);
 
   // method declaration
   /**

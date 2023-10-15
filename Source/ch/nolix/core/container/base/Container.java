@@ -24,7 +24,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerCharGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerDoubleGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerElementGetter;
 import ch.nolix.coreapi.functionapi.genericfunctionapi.IElementTakerIntGetter;
@@ -1260,7 +1259,7 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final char[] toCharArray(final IElementTakerCharGetter<E> charNorm) {
+  public final char[] toCharArray(final Function<E, Character> charNorm) {
 
     // Creates array.
     final var array = new char[getElementCount()];
@@ -1268,7 +1267,7 @@ public abstract class Container<E> implements IContainer<E> {
     // Fills up the array.
     var i = 0;
     for (final var e : this) {
-      array[i] = charNorm.getOutput(e);
+      array[i] = charNorm.apply(e);
       i++;
     }
 
