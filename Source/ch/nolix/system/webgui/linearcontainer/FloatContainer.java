@@ -5,7 +5,8 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
-public final class FloatContainer extends LinearContainer<FloatContainer, FloatContainerStyle> {
+public final class FloatContainer // NOSONAR: A FloatContainer is a LinearContainer.
+    extends LinearContainer<FloatContainer, FloatContainerStyle> {
 
   // constant
   private static final FloatContainerHtmlBuilder HTML_BUILDER = new FloatContainerHtmlBuilder();

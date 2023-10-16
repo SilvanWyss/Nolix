@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 
 //class
-public final class VerticalStack
+public final class VerticalStack // NOSONAR: A VerticalStack is a LinearContainer.
     extends LinearContainer<IVerticalStack, IVerticalStackStyle>
     implements IVerticalStack {
 

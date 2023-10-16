@@ -5,7 +5,7 @@ package ch.nolix.system.webgui.linearcontainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 
 //class
-public final class HorizontalStackStyle
+public final class HorizontalStackStyle // NOSONAR: A HorizontalStackStyle is a LinearContainerStyle.
     extends LinearContainerStyle<IHorizontalStackStyle>
     implements IHorizontalStackStyle {
 

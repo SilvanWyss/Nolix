@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IHorizontalStackStyle;
 
 //class
-public final class HorizontalStack
+public final class HorizontalStack // NOSONAR: A HorizontalStack is a LinearContainer.
     extends LinearContainer<IHorizontalStack, IHorizontalStackStyle>
     implements IHorizontalStack {
 

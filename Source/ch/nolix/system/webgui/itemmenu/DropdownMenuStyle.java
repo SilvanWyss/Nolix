@@ -5,7 +5,9 @@ package ch.nolix.system.webgui.itemmenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 
 //class
-public final class DropdownMenuStyle extends ItemMenuStyle<IDropdownMenuStyle> implements IDropdownMenuStyle {
+public final class DropdownMenuStyle // NOSONAR: A DropdownMenuStyle is a ItemMenuStyle.
+    extends ItemMenuStyle<IDropdownMenuStyle>
+    implements IDropdownMenuStyle {
 
   // constructor
   public DropdownMenuStyle() {
