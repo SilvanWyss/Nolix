@@ -4,9 +4,9 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 //interface
 public interface IUserInputCell<UIC extends IUserInputCell<UIC>> {
 
-  // method declaration
+  //method declaration
   String getUserInput();
 
-  // method declaration
+  //method declaration
   UIC setUserInput(String userInput);
 }

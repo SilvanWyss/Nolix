@@ -33,10 +33,10 @@ public final class ValidatorTutorial {
    */
   private static void printAmount(final String productName, final int amount) {
 
-    // Asserts that the given productName is not null or empty.
+    //Asserts that the given productName is not null or empty.
     GlobalValidator.assertThat(productName).thatIsNamed("product name").isNotEmpty();
 
-    // Asserts that the given amount is not negative.
+    //Asserts that the given amount is not negative.
     GlobalValidator.assertThat(amount).thatIsNamed("amount").isNotNegative();
 
     GlobalLogger.logInfo(productName + ": " + amount + " pieces");

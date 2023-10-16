@@ -10,13 +10,13 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  */
 public interface InternalIdentified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the internal id of the current {@link InternalIdentified}.
    */
   String getInternalId();
 
-  // method declaration
+  //method declaration
   /**
    * @param internalId
    * @return true if the current {@link InternalIdentified} has the given

@@ -21,18 +21,18 @@ public final class PartialRefreshTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
         "Partial refresh tutorial",
         MainSession.class);
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -40,7 +40,7 @@ public final class PartialRefreshTutorial {
         .runInBackground(server::close);
   }
 
-  public static final class MainSession // NOSONAR: A single-file-tutorial is allowed to have a long static class.
+  public static final class MainSession //NOSONAR: A single-file-tutorial is allowed to have a long static class.
       extends WebClientSession<Object> {
 
     private final ILabel timeLabel = new Label()
@@ -63,7 +63,7 @@ public final class PartialRefreshTutorial {
           .runInBackground(
               () -> {
 
-                // We must wait until the client has received the first version of the page.
+                //We must wait until the client has received the first version of the page.
                 GlobalSequencer.waitForMilliseconds(1000);
 
                 GlobalSequencer

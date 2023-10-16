@@ -15,23 +15,23 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebClientCounterpartUpdater {
 
-  // constant
+  //constant
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
-  // static method
+  //static method
   public static WebClientCounterpartUpdater forCounterpartRunner(
       final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
       final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
-  // attribute
+  //attribute
   private final BooleanSupplier openStateRequester;
 
-  // attribute
+  //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
-  // constructor
+  //constructor
   private WebClientCounterpartUpdater(
       final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
       final BooleanSupplier openStateRequester) {
@@ -43,7 +43,7 @@ public final class WebClientCounterpartUpdater {
     this.counterpartRunner = counterpartRunner;
   }
 
-  // method
+  //method
   public void updateCounterpartFromWebGui(final IWebGui<?> webGui) {
 
     webGui.applyStyleIfHasStyle();
@@ -55,7 +55,7 @@ public final class WebClientCounterpartUpdater {
     }
   }
 
-  // method
+  //method
   private IContainer<ChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
     return ImmutableList.withElement(
         UPDATE_COMMAND_CREATOR.createSetTitleCommandFromWebGui(webGui),

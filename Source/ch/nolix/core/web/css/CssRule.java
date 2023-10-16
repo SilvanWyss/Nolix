@@ -12,19 +12,19 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 //class
 public final class CssRule implements ICssRule {
 
-  // static method
+  //static method
   public static CssRule fromCssRule(final ICssRule cssRule) {
     return withSelectorAndProperties(cssRule.getSelector(), cssRule.getProperties());
   }
 
-  // static method
+  //static method
   public static CssRule withSelectorAndProperties(
       final String selector,
       final IContainer<? extends ICssProperty> properties) {
     return new CssRule(selector, properties);
   }
 
-  // static method
+  //static method
   public static CssRule withSelectorAndProperty(
       final String selector,
       final ICssProperty property,
@@ -32,13 +32,13 @@ public final class CssRule implements ICssRule {
     return new CssRule(selector, ReadContainer.forElement(property, properties));
   }
 
-  // multi-attribute
+  //multi-attribute
   private final String selector;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<CssProperty> properties;
 
-  // constructor
+  //constructor
   private CssRule(
       final String selector,
       final IContainer<? extends ICssProperty> properties) {
@@ -49,26 +49,26 @@ public final class CssRule implements ICssRule {
     this.selector = selector;
   }
 
-  // method
+  //method
   @Override
   public IContainer<CssProperty> getProperties() {
     return properties;
   }
 
-  // method
+  //method
   @Override
   public String getSelector() {
     return selector;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return getSelector()
         + GlobalStringHelper.getInBraces(getProperties().toConcatenatedString());
   }
 
-  // method
+  //method
   @Override
   public ICssRule withPrefixedSelector(final String selectorPrefix) {
 

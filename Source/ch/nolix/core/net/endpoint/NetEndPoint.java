@@ -20,13 +20,13 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
  */
 public abstract class NetEndPoint extends EndPoint {
 
-  // constant
+  //constant
   private static final String RAW_MESSAGE_VARIABLE_NAME = "raw message";
 
-  // attribute
+  //attribute
   private boolean hasTargetInfo;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given connectionOrigin and
    * connectionOrigin.
@@ -38,7 +38,7 @@ public abstract class NetEndPoint extends EndPoint {
    */
   NetEndPoint(final TargetInfoState targetInfoState) {
 
-    // Asserts that the given targetInfoState is not null.
+    //Asserts that the given targetInfoState is not null.
     GlobalValidator.assertThat(targetInfoState).thatIsNamed(TargetInfoState.class).isNotNull();
 
     if (targetInfoState == TargetInfoState.RECEIVED_TARGET_INFO) {
@@ -46,7 +46,7 @@ public abstract class NetEndPoint extends EndPoint {
     }
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given connectionOrigin and target.
    * 
@@ -58,13 +58,13 @@ public abstract class NetEndPoint extends EndPoint {
    */
   NetEndPoint(final String target) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     setTarget(target);
 
     confirmReceivedTargetInfo();
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} send the given message.
    * 
@@ -75,7 +75,7 @@ public abstract class NetEndPoint extends EndPoint {
     sendRawMessage(NetEndPointProtocol.MESSAGE_PREFIX + message);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link NetEndPoint} has a target info.
    */
@@ -83,7 +83,7 @@ public abstract class NetEndPoint extends EndPoint {
     return hasTargetInfo;
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} send the given rawMessage.
    * 
@@ -91,11 +91,11 @@ public abstract class NetEndPoint extends EndPoint {
    */
   protected final void sendRawMessage(final char rawMessage) {
 
-    // Calls other method.
+    //Calls other method.
     sendRawMessage(String.valueOf(rawMessage));
   }
 
-  // method declaration
+  //method declaration
   /**
    * Lets the current {@link NetEndPoint} send the given rawMessage.
    * 
@@ -103,7 +103,7 @@ public abstract class NetEndPoint extends EndPoint {
    */
   protected abstract void sendRawMessage(String rawMessage);
 
-  // method
+  //method
   /**
    * Sends the target message of the current {@link NetEndPoint} to the
    * counterpart of the current {@link NetEndPoint}.
@@ -112,7 +112,7 @@ public abstract class NetEndPoint extends EndPoint {
     sendRawMessage(getTargetMessage());
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given rawMessage
    * asynchronously.
@@ -123,7 +123,7 @@ public abstract class NetEndPoint extends EndPoint {
     GlobalSequencer.runInBackground(() -> receiveRawMessage(rawMessage));
   }
 
-  // method
+  //method
   /**
    * Confirms that the current {@link NetEndPoint} has a target info.
    * 
@@ -132,7 +132,7 @@ public abstract class NetEndPoint extends EndPoint {
    */
   private void confirmReceivedTargetInfo() {
 
-    // Asserts that the current BaseNetEndPoint has already a target info.
+    //Asserts that the current BaseNetEndPoint has already a target info.
     if (hasTargetInfo()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has already a target info");
     }
@@ -140,22 +140,22 @@ public abstract class NetEndPoint extends EndPoint {
     hasTargetInfo = true;
   }
 
-  // method
+  //method
   /**
    * @return the target message of the current {@link NetEndPoint}.
    */
   private String getTargetMessage() {
 
-    // Handles the case that the current BaseNetEndPoint has a target.
+    //Handles the case that the current BaseNetEndPoint has a target.
     if (!hasCustomTargetSlot()) {
       return String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX);
     }
 
-    // Handles the case that the current BaseNetEndPoint does not have a target.
+    //Handles the case that the current BaseNetEndPoint does not have a target.
     return (NetEndPointProtocol.TARGET_PREFIX + getCustomTargetSlot());
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message.
    * 
@@ -164,13 +164,13 @@ public abstract class NetEndPoint extends EndPoint {
    */
   private void receiveMessage(final String message) {
 
-    // Asserts that the current NetEndPoint is open.
+    //Asserts that the current NetEndPoint is open.
     assertIsOpen();
 
     getStoredReceiver().accept(message);
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given rawMessage.
    * 
@@ -179,7 +179,7 @@ public abstract class NetEndPoint extends EndPoint {
    */
   void receiveRawMessage(final String rawMessage) {
 
-    // Enumerates the first character of the given rawMessage.
+    //Enumerates the first character of the given rawMessage.
     switch (rawMessage.charAt(0)) {
       case NetEndPointProtocol.MAIN_TARGET_PREFIX:
 

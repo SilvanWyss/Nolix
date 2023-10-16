@@ -11,19 +11,19 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class PropertyBinding {
 
-  // attribute
+  //attribute
   private final IProperty property;
 
-  // attribute
+  //attribute
   private final IControl<?, ?> control;
 
-  // attribute
+  //attribute
   private final ILabel errorText = new Label().setInvisible();
 
-  // optional attribute
+  //optional attribute
   private Throwable currentError;
 
-  // constructors
+  //constructors
   public PropertyBinding(final IProperty property, final IControl<?, ?> control) {
 
     GlobalValidator.assertThat(property).thatIsNamed(IProperty.class).isNotNull();
@@ -33,7 +33,7 @@ public final class PropertyBinding {
     this.control = control;
   }
 
-  // method
+  //method
   public SingleContainer<Throwable> getOptionalCurrentError() {
 
     if (!hasCurrentError()) {
@@ -43,27 +43,27 @@ public final class PropertyBinding {
     return new SingleContainer<>(currentError);
   }
 
-  // method
+  //method
   public ILabel getStoredErrorLabel() {
     return errorText;
   }
 
-  // method
+  //method
   public IProperty getStoredProperty() {
     return property;
   }
 
-  // method
+  //method
   public IControl<?, ?> getStoredControl() {
     return control;
   }
 
-  // method
+  //method
   public boolean hasCurrentError() {
     return (currentError != null);
   }
 
-  // method
+  //method
   void removeCurrentError() {
 
     currentError = null;
@@ -73,7 +73,7 @@ public final class PropertyBinding {
         .setText(Label.DEFAULT_TEXT);
   }
 
-  // method
+  //method
   void setCurrentError(final Throwable currentError) {
 
     GlobalValidator.assertThat(currentError).thatIsNamed("current error").isNotNull();
@@ -82,12 +82,12 @@ public final class PropertyBinding {
     updateErrorLabelFrom(currentError);
   }
 
-  // method
+  //method
   private String getDefaultErrorMessage() {
     return ("The " + property.getName() + " is not valid.");
   }
 
-  // method
+  //method
   private String getErrorMessageFrom(final Throwable error) {
 
     final var errorMessage = error.getMessage();
@@ -99,7 +99,7 @@ public final class PropertyBinding {
     return errorMessage;
   }
 
-  // method
+  //method
   private void updateErrorLabelFrom(final Throwable error) {
     errorText
         .setVisible()

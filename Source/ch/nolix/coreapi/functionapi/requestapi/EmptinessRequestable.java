@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface EmptinessRequestable {
 
-  // method
+  //method
   /**
    * @return true if the current {@link EmptinessRequestable} contains one or
    *         several elements.
@@ -24,7 +24,7 @@ public interface EmptinessRequestable {
     return !isEmpty();
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return true if {@link EmptinessRequestable} does not contain an element.
    */

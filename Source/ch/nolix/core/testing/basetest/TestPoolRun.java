@@ -13,19 +13,19 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestPoolRun {
 
-  // attribute
+  //attribute
   private final TestPool parentTestPool;
 
-  // attribute
+  //attribute
   private final ILinePrinter linePrinter;
 
-  // attribute
+  //attribute
   private boolean started;
 
-  // attribute
+  //attribute
   private int runtimeInMilliseconds = -1;
 
-  // constructor
+  //constructor
   public TestPoolRun(final TestPool parentTestPool, final ILinePrinter linePrinter) {
 
     if (parentTestPool == null) {
@@ -40,17 +40,17 @@ public final class TestPoolRun {
     this.linePrinter = linePrinter;
   }
 
-  // method
+  //method
   public String getRuntimeAndUnitAsString() {
     return (String.valueOf(getRuntimeInMilliseconds()) + " ms");
   }
 
-  // method
+  //method
   public String getRuntimeAndUnitAsStringInBrackets() {
     return ("(" + getRuntimeAndUnitAsString() + ")");
   }
 
-  // method
+  //method
   public int getRuntimeInMilliseconds() {
 
     supposeIsFinished();
@@ -58,24 +58,24 @@ public final class TestPoolRun {
     return runtimeInMilliseconds;
   }
 
-  // method
+  //method
   public boolean hasStarted() {
     return started;
   }
 
-  // method
+  //method
   public boolean isFinished() {
     return (runtimeInMilliseconds > -1);
   }
 
-  // method
+  //method
   public TestPoolResult runAndGetResult() {
 
-    // setup phase
+    //setup phase
     setStarted();
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
-    // main phase part 1
+    //main phase part 1
     final var testPoolResults = new List<TestPoolResult>();
     for (final var tp : parentTestPool.internalGetTestPools()) {
 
@@ -84,7 +84,7 @@ public final class TestPoolRun {
       testPoolResults.addAtEnd(result);
     }
 
-    // main phase part 2
+    //main phase part 2
     final var testResults = new List<TestResult>();
     for (final var tc : parentTestPool.internalGetTestClasses()) {
 
@@ -93,7 +93,7 @@ public final class TestPoolRun {
       testResults.addAtEnd(testResult);
     }
 
-    // result phase
+    //result phase
     final var testPoolResult = TestPoolResult.forTestPoolResultsAndTestResults(testPoolResults, testResults);
     setFinished((int) (System.currentTimeMillis() - startTimeInMilliseconds));
     printSummaryOfTestPoolResult(testPoolResult);
@@ -101,11 +101,11 @@ public final class TestPoolRun {
     return testPoolResult;
   }
 
-  // method
+  //method
   private <BT extends BaseTest> BT createTestOrNull(final Class<BT> testClass) {
     try {
       return ReflectionHelper.getDefaultConstructor(testClass).newInstance();
-    } catch (final // NOSONAR: The exception is logged.
+    } catch (final //NOSONAR: The exception is logged.
         IllegalAccessException
         | InstantiationException
         | InvocationTargetException exception) {
@@ -114,7 +114,7 @@ public final class TestPoolRun {
     }
   }
 
-  // method
+  //method
   private void printSummaryOfTestPoolResult(final TestPoolResult testPoolResult) {
 
     linePrinter.printInfoLine(
@@ -130,7 +130,7 @@ public final class TestPoolRun {
     linePrinter.printEmptyLine();
   }
 
-  // method
+  //method
   private <BT extends BaseTest> TestResult runTestAndGetResult(final Class<BT> testClass) {
 
     final var test = createTestOrNull(testClass);
@@ -142,7 +142,7 @@ public final class TestPoolRun {
     return TestResult.forTestCaseResults(new List<>());
   }
 
-  // method
+  //method
   private void setFinished(final int runtimeInMilliseconds) {
 
     if (runtimeInMilliseconds < 0) {
@@ -154,7 +154,7 @@ public final class TestPoolRun {
     this.runtimeInMilliseconds = runtimeInMilliseconds;
   }
 
-  // method
+  //method
   private void setStarted() {
 
     supposeHasNotStarted();
@@ -164,21 +164,21 @@ public final class TestPoolRun {
     linePrinter.printEmptyLine();
   }
 
-  // method
+  //method
   private void supposeHasNotStarted() {
     if (hasStarted()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has started already");
     }
   }
 
-  // method
+  //method
   private void supposeIsFinished() {
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
     }
   }
 
-  // method
+  //method
   private void supposeIsNotFinished() {
     if (isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already finished");

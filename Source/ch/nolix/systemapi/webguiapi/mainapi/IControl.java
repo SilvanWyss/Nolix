@@ -28,57 +28,57 @@ public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS
     Linkable,
     PresenceSettable<C> {
 
-  // method declaration
+  //method declaration
   boolean belongsToControl();
 
-  // method declaration
+  //method declaration
   boolean belongsToGui();
 
-  // method declaration
+  //method declaration
   boolean belongsToLayer();
 
-  // method declaration
+  //method declaration
   C editStyle(Consumer<CS> styleEditor);
 
-  // method declaration
+  //method declaration
   IContainer<ICssRule> getCssRules();
 
-  // method declaration
+  //method declaration
   CursorIcon getCursorIcon();
 
-  // method declaration
+  //method declaration
   ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
 
-  // method declaration
+  //method declaration
   IControl<?, ?> getStoredChildControlOrNullByInternalId(String internalId);
 
-  // method declaration
+  //method declaration
   IContainer<IControl<?, ?>> getStoredChildControls();
 
-  // method declaration
+  //method declaration
   IControl<?, ?> getStoredParentControl();
 
-  // method declaration
+  //method declaration
   IWebGui<?> getStoredParentGui();
 
-  // method declaration
+  //method declaration
   ILayer<?> getStoredParentLayer();
 
-  // method declaration
+  //method declaration
   CS getStoredStyle();
 
-  // method declaration
+  //method declaration
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);
 
-  // method declaration
+  //method declaration
   void runHtmlEvent(String htmlEvent);
 
-  // method declaration
+  //method declaration
   C setCursorIcon(CursorIcon cursorIcon);
 
-  // method declaration
+  //method declaration
   void technicalSetParentControl(IControl<?, ?> parentControl);
 
-  // method declaration
+  //method declaration
   void technicalSetParentLayer(ILayer<?> parentLayer);
 }

@@ -15,7 +15,7 @@ public enum WebSocketFrameOpcodeMeaning {
   PONG,
   RESERVED;
 
-  // static method
+  //static method
   public static WebSocketFrameOpcodeMeaning fromNumber(final int number) {
     return switch (number) {
       case 0x0 ->
@@ -39,7 +39,7 @@ public enum WebSocketFrameOpcodeMeaning {
     };
   }
 
-  // method
+  //method
   public int toNumber() {
     return switch (this) {
       case CONTINUATION_FRAME ->

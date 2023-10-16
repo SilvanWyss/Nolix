@@ -4,12 +4,12 @@ package ch.nolix.coretest.programcontroltest.sequencertest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new SequencerTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

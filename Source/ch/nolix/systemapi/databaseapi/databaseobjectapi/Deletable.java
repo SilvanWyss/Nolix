@@ -4,6 +4,6 @@ package ch.nolix.systemapi.databaseapi.databaseobjectapi;
 //interface
 public interface Deletable extends DeletionRequestable {
 
-  // method declaration
+  //method declaration
   void delete();
 }

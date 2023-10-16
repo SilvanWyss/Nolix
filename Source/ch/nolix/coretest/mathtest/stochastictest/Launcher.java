@@ -4,12 +4,12 @@ package ch.nolix.coretest.mathtest.stochastictest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(final String[] arguments) {
     new StochasticTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

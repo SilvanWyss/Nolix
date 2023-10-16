@@ -20,10 +20,10 @@ import ch.nolix.core.programcontrol.worker.Worker;
  */
 final class ServerListener extends Worker {
 
-  // attribute
+  //attribute
   private final Server parentServer;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ServerListener} that will belong to the given
    * parentServer.
@@ -33,16 +33,16 @@ final class ServerListener extends Worker {
    */
   public ServerListener(final Server parentServer) {
 
-    // Asserts that the given parentServer is not null.
+    //Asserts that the given parentServer is not null.
     GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
 
-    // Sets the parentServer of the current ServerListener.
+    //Sets the parentServer of the current ServerListener.
     this.parentServer = parentServer;
 
     start();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ServerListener} is open.
    */
@@ -50,7 +50,7 @@ final class ServerListener extends Worker {
     return parentServer.isOpen();
   }
 
-  // method
+  //method
   /**
    * Runs the current {@link ServerListener}. Will close the {@link Server}, the
    * current {@link ServerListener} belongs to, when an error occurs.
@@ -67,7 +67,7 @@ final class ServerListener extends Worker {
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link ServerListener} take the given socket.
    * 

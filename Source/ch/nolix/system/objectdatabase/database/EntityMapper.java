@@ -10,10 +10,10 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 //class
 final class EntityMapper {
 
-  // constant
+  //constant
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   public <E extends IEntity> E createLoadedEntityFromDto(
       final ILoadedEntityDto loadedEntityDto,
@@ -29,19 +29,19 @@ final class EntityMapper {
     return loadedEntity;
   }
 
-  // method
+  //method
   private void addDataFromContentFieldToEntity(final ILoadedContentFieldDto contentField, final BaseEntity entity) {
     addDataFromContentFieldToProperty(
         contentField,
         entity.internalGetRefPropertyByName(contentField.getColumnName()));
   }
 
-  // method
+  //method
   private void addDataFromContentFieldToProperty(final ILoadedContentFieldDto contentField, final Property property) {
     property.internalSetOrClearDirectlyFromContent(contentField.getValueOrNull());
   }
 
-  // method
+  //method
   private void addDataToEntityFromLoadedEntityDto(final ILoadedEntityDto loadedEntityDto, final BaseEntity entity) {
 
     entity.internalSetId(loadedEntityDto.getId());

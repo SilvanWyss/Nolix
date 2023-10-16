@@ -10,16 +10,16 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IImplRegistratorMediator;
 //class
 public final class ImplRegistratorMediator<IN> implements IImplRegistratorMediator<IN> {
 
-  // attribute
+  //attribute
   private final ImplProvider implProvider;
 
-  // attribute
+  //attribute
   private final Class<IN> mInterface;
 
-  // attribute
+  //attribute
   private final WriteMode writeMode;
 
-  // constructor
+  //constructor
   ImplRegistratorMediator(final ImplProvider implProvider, final Class<IN> pInterface, WriteMode writeMode) {
 
     GlobalValidator.assertThat(implProvider).thatIsNamed(ImplProvider.class).isNotNull();
@@ -31,13 +31,13 @@ public final class ImplRegistratorMediator<IN> implements IImplRegistratorMediat
     this.writeMode = writeMode;
   }
 
-  // method
+  //method
   @Override
   public boolean containsImplementation() {
     return implProvider.containsImplementationFor(mInterface);
   }
 
-  // method
+  //method
   @Override
   public <IM extends IN> void registerImplementation(final Class<IM> implementation) {
     implProvider.registerImplementation(mInterface, implementation, writeMode);

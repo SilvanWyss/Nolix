@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
  */
 public interface OptionalHeaderable extends OptionalHeadered {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the header of the current {@link OptionalHeaderable}.
    */
   void removeHeader();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the header of the current {@link OptionalHeaderable}.
    * 

@@ -11,266 +11,266 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class ChainedNodeCreationTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_fromNode_whenNodeIsBlank() {
 
-    // setup
+    //setup
     final var node = Node.EMPTY_NODE;
 
-    // setup verification
+    //setup verification
     expect(node.isBlank());
 
-    // execution
+    //execution
     final var result = ChainedNode.fromNode(node);
 
-    // verification
+    //verification
     expect(result).hasStringRepresentation("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromNode_whenNodeHasHeaderOnly() {
 
-    // setup
+    //setup
     final var node = Node.withHeader("a");
 
-    // execution
+    //execution
     final var result = ChainedNode.fromNode(node);
 
-    // verification
+    //verification
     expect(result).hasStringRepresentation("a");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_A1() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("");
 
-    // verification
+    //verification
     expectNot(result.hasHeader());
     expectNot(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_A2() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expectNot(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_A3() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_B1() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a.b");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expectNot(result.containsChildNodes());
     expect(result.hasNextNode());
     expect(result.toString()).isEqualTo("a.b");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_B2() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b).c");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expect(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b).c");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_B3() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a.b(c)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expectNot(result.containsChildNodes());
     expect(result.hasNextNode());
     expect(result.toString()).isEqualTo("a.b(c)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_B4() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("(a.b).c");
 
-    // verification
+    //verification
     expectNot(result.hasHeader());
     expect(result.containsChildNodes());
     expect(result.hasNextNode());
     expect(result.toString()).isEqualTo("(a.b).c");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_B5() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a.(b.c)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expectNot(result.containsChildNodes());
     expect(result.hasNextNode());
     expect(result.toString()).isEqualTo("a.(b.c)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_B6() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a.b.c");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expectNot(result.containsChildNodes());
     expect(result.hasNextNode());
     expect(result.toString()).isEqualTo("a.b.c");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_C1() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b,c,d)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b,c,d)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_C2() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b(c),d(e),f(g))");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b(c),d(e),f(g))");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_C3() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b.c,d.e,f.g)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b.c,d.e,f.g)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_C4() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b(c).d,e(f).g,h(i).j)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b(c).d,e(f).g,h(i).j)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_C5() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b.c(d),e.(f.g),h.(i,j))");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b.c(d),e.(f.g),h.(i,j))");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_C6() {
 
-    // execution
+    //execution
     final var result = ChainedNode.fromString("a(b.c.d,e.f.g,h.i.j)");
 
-    // verification
+    //verification
     expect(result.hasHeader());
     expect(result.containsChildNodes());
     expectNot(result.hasNextNode());
     expect(result.toString()).isEqualTo("a(b.c.d,e.f.g,h.i.j)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withHeader_whenNullHeaderIsGiven() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> ChainedNode.withHeader(null))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given header is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withHeader_whenHeaderIsGiven() {
 
-    // execution
+    //execution
     final var result = ChainedNode.withHeader("a");
 
-    // verification
+    //verification
     expect(result).hasStringRepresentation("a");
   }
 }

@@ -10,39 +10,39 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 //interface
 public interface IBaseEndPoint extends GroupCloseable {
 
-  // method declaration
+  //method declaration
   ConnectionType getConnectionType();
 
-  // method declaration
+  //method declaration
   SecurityLevel getConnectionSecurityLevel();
 
-  // method declaration
+  //method declaration
   String getCustomTargetSlot();
 
-  // method declaration
+  //method declaration
   PeerType getPeerType();
 
-  // method declaration
+  //method declaration
   TargetSlotDefinition getTargetSlotDefinition();
 
-  // method declaration
+  //method declaration
   boolean hasCustomTargetSlot();
 
-  // method declaration
+  //method declaration
   boolean hasDefaultTargetSlot();
 
-  // method declaration
+  //method declaration
   boolean isBackendEndPoint();
 
-  // method declaration
+  //method declaration
   boolean isFrontendEndPoint();
 
-  // method declaration
+  //method declaration
   boolean isLocalEndPoint();
 
-  // method declaration
+  //method declaration
   boolean isSocketEndPoint();
 
-  // method declaration
+  //method declaration
   boolean isWebSocketEndPoint();
 }

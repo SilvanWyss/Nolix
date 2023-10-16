@@ -14,19 +14,19 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class WebClientPartialCounterpartUpdater {
 
-  // constant
+  //constant
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
-  // static method
+  //static method
   public static WebClientPartialCounterpartUpdater forCounterpartRunner(
       final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner);
   }
 
-  // attribute
+  //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
-  // constructor
+  //constructor
   private WebClientPartialCounterpartUpdater(
       final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
 
@@ -35,7 +35,7 @@ public final class WebClientPartialCounterpartUpdater {
     this.counterpartRunner = counterpartRunner;
   }
 
-  // method
+  //method
   public void updateControlOnCounterpart(final IControl<?, ?> control) {
 
     final var webGui = control.getStoredParentGui();
@@ -46,7 +46,7 @@ public final class WebClientPartialCounterpartUpdater {
     counterpartRunner.accept(updateCommands);
   }
 
-  // method
+  //method
   private IContainer<ChainedNode> createUpdateCommandsFromControl(final IControl<?, ?> control) {
 
     final var webGui = control.getStoredParentGui();

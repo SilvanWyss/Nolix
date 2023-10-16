@@ -9,24 +9,24 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class ServerTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_close() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
-    // setup
+    //setup
     try (final var server = Server.forPort(port)) {
 
-      // setup verification
+      //setup verification
       expect(server.getPort()).isEqualTo(port);
       expect(server.isOpen());
 
-      // execution & verification
+      //execution & verification
       expectRunning(server::close).doesNotThrowException();
 
-      // verification
+      //verification
       expect(server.isClosed());
     }
   }

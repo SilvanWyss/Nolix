@@ -9,7 +9,7 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 //class
 public final class CssProperty implements ICssProperty {
 
-  // static method
+  //static method
   public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
 
     if (cssProperty instanceof CssProperty localCssProperty) {
@@ -19,35 +19,35 @@ public final class CssProperty implements ICssProperty {
     return withNameAndValue(cssProperty.getName(), cssProperty.getValue());
   }
 
-  // static method
+  //static method
   public static CssProperty withNameAndValue(final String name, final double value) {
     return new CssProperty(name, String.valueOf(value));
   }
 
-  // static method
+  //static method
   public static CssProperty withNameAndValue(final String name, final Enum<?> value) {
     return new CssProperty(name, value.toString());
   }
 
-  // static method
+  //static method
   public static CssProperty withNameAndValue(final String name, final int value) {
     return new CssProperty(name, String.valueOf(value));
   }
 
-  // static method
+  //static method
   public static CssProperty withNameAndValue(final String name, final String value) {
     return new CssProperty(name, value);
   }
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final String value;
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   private CssProperty(final String name, final String value) {
 
     if (name == null) {
@@ -62,19 +62,19 @@ public final class CssProperty implements ICssProperty {
     this.value = value;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getValue() {
     return value;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return (getName() + ": " + getValue() + ";");

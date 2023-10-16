@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class OptionalValue<V> extends SingleValue<V> {
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -32,7 +32,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -46,7 +46,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -60,7 +60,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
     return new OptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -85,7 +85,7 @@ public final class OptionalValue<V> extends SingleValue<V> {
         });
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link OptionalValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
@@ -105,11 +105,11 @@ public final class OptionalValue<V> extends SingleValue<V> {
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

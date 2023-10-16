@@ -8,18 +8,18 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface IXmlNode<N extends IXmlNode<N>> extends FluentOptionalNameable<N>, IOptionalValueHolder<String> {
 
-  // method declaration
+  //method declaration
   IContainer<IXmlAttribute> getAttributes();
 
-  // method declaration
+  //method declaration
   boolean containsAttributes();
 
-  // method declaration
+  //method declaration
   boolean containsChildNodes();
 
-  // method declaration
+  //method declaration
   IContainer<N> getStoredChildNodes();
 
-  // method declaration
+  //method declaration
   boolean hasMixedContent();
 }

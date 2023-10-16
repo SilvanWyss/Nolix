@@ -12,52 +12,52 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.ICloseController;
 //class
 public abstract class BaseEndPoint implements IBaseEndPoint {
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // method
+  //method
   @Override
   public final ICloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public final boolean hasCustomTargetSlot() {
     return (getTargetSlotDefinition() == TargetSlotDefinition.CUSTOM);
   }
 
-  // method
+  //method
   @Override
   public final boolean hasDefaultTargetSlot() {
     return (getTargetSlotDefinition() == TargetSlotDefinition.DEFAULT);
   }
 
-  // method
+  //method
   @Override
   public final boolean isBackendEndPoint() {
     return (getPeerType() == PeerType.BACKEND);
   }
 
-  // method
+  //method
   @Override
   public final boolean isFrontendEndPoint() {
     return (getPeerType() == PeerType.FRONTEND);
   }
 
-  // method
+  //method
   @Override
   public final boolean isLocalEndPoint() {
     return (getConnectionType() == ConnectionType.LOCAL);
   }
 
-  // method
+  //method
   @Override
   public final boolean isSocketEndPoint() {
     return (getConnectionType() == ConnectionType.SOCKET);
   }
 
-  // method
+  //method
   @Override
   public final boolean isWebSocketEndPoint() {
     return (getConnectionType() == ConnectionType.WEB_SOCKET);

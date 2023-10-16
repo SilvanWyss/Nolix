@@ -14,33 +14,33 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 public final class TestCaseRunner extends Thread {
 
-  // constant
+  //constant
   private static final ErrorCreator ERROR_CREATOR = new ErrorCreator();
 
-  // attribute
+  //attribute
   private final TestCaseWrapper testCaseWrapper;
 
-  // attribute
+  //attribute
   private final BaseTest testInstance;
 
-  // attribute
+  //attribute
   private TestCaseResult result;
 
-  // attribute
+  //attribute
   private long startTime;
 
-  // attribute
+  //attribute
   private int runtimeInMilliseconds;
 
-  // optional attribute
+  //optional attribute
   private Error exceptionError;
 
-  // constructor
+  //constructor
   public TestCaseRunner(final BaseTest parentTest, final Method testCase) {
     this(new TestCaseWrapper(parentTest, testCase));
   }
 
-  // constructor
+  //constructor
   public TestCaseRunner(final TestCaseWrapper testCaseWrapper) {
 
     if (testCaseWrapper == null) {
@@ -53,7 +53,7 @@ public final class TestCaseRunner extends Thread {
     start();
   }
 
-  // method
+  //method
   public Error getExceptionError() {
 
     if (!hasExceptionError()) {
@@ -63,7 +63,7 @@ public final class TestCaseRunner extends Thread {
     return exceptionError;
   }
 
-  // method
+  //method
   public TestCaseResult getResult() {
 
     assertIsFinished();
@@ -71,7 +71,7 @@ public final class TestCaseRunner extends Thread {
     return result;
   }
 
-  // method
+  //method
   public int getRuntimeInMilliseconds() {
 
     if (!isFinished()) {
@@ -86,36 +86,36 @@ public final class TestCaseRunner extends Thread {
     return runtimeInMilliseconds;
   }
 
-  // method
+  //method
   public boolean hasExceptionError() {
     return (exceptionError != null);
   }
 
-  // method
+  //method
   public boolean isFinished() {
     return (result != null);
   }
 
-  // method
+  //method
   @Override
   public void run() {
 
-    // setup phase
+    //setup phase
     setStarted();
     runOptionalSetup();
 
-    // main phase
+    //main phase
     runTestCase();
 
-    // cleanup phase
+    //cleanup phase
     runOptionalCleanup();
     closeCloseableElements();
 
-    // result phase
+    //result phase
     result = createResult();
   }
 
-  // method
+  //method
   public void stop(final Error stopReason) {
 
     if (stopReason == null) {
@@ -129,35 +129,35 @@ public final class TestCaseRunner extends Thread {
     result = createResult();
   }
 
-  // method
+  //method
   private void assertHasNotStarted() {
     if (hasStarted()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has started already");
     }
   }
 
-  // method
+  //method
   private void assertIsFinished() {
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
     }
   }
 
-  // method
+  //method
   private void assertIsNotFinished() {
     if (isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is finished already");
     }
   }
 
-  // method
+  //method
   private void closeCloseableElements() {
     for (final var ce : testInstance.getStoredClosableElements()) {
       closeCloseableElement(ce);
     }
   }
 
-  // method
+  //method
   private void closeCloseableElement(final AutoCloseable closeableElement) {
     try {
       closeableElement.close();
@@ -168,7 +168,7 @@ public final class TestCaseRunner extends Thread {
     }
   }
 
-  // method
+  //method
   private TestCaseResult createResult() {
 
     if (!hasExceptionError()) {
@@ -185,12 +185,12 @@ public final class TestCaseRunner extends Thread {
         getExceptionError());
   }
 
-  // method
+  //method
   private boolean hasStarted() {
     return (startTime != 0);
   }
 
-  // method
+  //method
   private void runCleanup() {
     try {
       testCaseWrapper.getStoredCleanup().invoke(testInstance);
@@ -204,21 +204,21 @@ public final class TestCaseRunner extends Thread {
     }
   }
 
-  // method
+  //method
   private void runOptionalCleanup() {
     if (testCaseWrapper.hasCleanup()) {
       runCleanup();
     }
   }
 
-  // method
+  //method
   private void runOptionalSetup() {
     if (testCaseWrapper.hasSetup()) {
       runSetup();
     }
   }
 
-  // method
+  //method
   private void runSetup() {
     try {
       testCaseWrapper.getStoredSetup().invoke(testInstance);
@@ -232,7 +232,7 @@ public final class TestCaseRunner extends Thread {
     }
   }
 
-  // method
+  //method
   private void runTestCase() {
     try {
       testCaseWrapper.getStoredTestCase().invoke(testInstance, (Object[]) new Class[0]);
@@ -246,7 +246,7 @@ public final class TestCaseRunner extends Thread {
     }
   }
 
-  // method
+  //method
   private void setStarted() {
     assertHasNotStarted();
     startTime = System.currentTimeMillis();

@@ -12,36 +12,36 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 public interface IAccordion
     extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<IAccordion, IAccordionStyle> {
 
-  // method declaration
+  //method declaration
   IAccordion addTab(IAccordionTab tab, IAccordionTab... tabs);
 
-  // method declaration
+  //method declaration
   IAccordion addTabs(IContainer<IAccordionTab> tabs);
 
-  // method declaration
+  //method declaration
   void expandFirstTab();
 
-  // method declaration
+  //method declaration
   void expandTabByHeader(String header);
 
-  // method declaration
+  //method declaration
   ILinearContainerStyle<?> getHeaderStyle();
 
-  // method declaration
+  //method declaration
   IAccordionTab getStoredTabByHeader(String header);
 
-  // method declaration
+  //method declaration
   IContainer<IAccordionTab> getStoredTabs();
 
-  // method declaration
+  //method declaration
   int getTabCount();
 
-  // method declaration
+  //method declaration
   TabExpansionBehavior getTabExpansionBehavior();
 
-  // method declaration
+  //method declaration
   ILinearContainerStyle<?> onHeaderStyle(Consumer<ILinearContainerStyle<?>> headerStyleEditor);
 
-  // method declaration
+  //method declaration
   IAccordion setTabExpansionBehaviour(TabExpansionBehavior tabExpansionBehavior);
 }

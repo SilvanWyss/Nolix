@@ -10,10 +10,10 @@ package ch.nolix.core.net.constant;
  */
 public final class IPv4Catalogue {
 
-  // constant
+  //constant
   public static final String LOOP_BACK_ADDRESS = "127.0.0.1";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link IPv4Catalogue} can be created.
    */

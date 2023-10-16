@@ -7,9 +7,9 @@ public interface IBaseReference<
     E extends IEntity>
     extends IProperty {
 
-  // method declaration
+  //method declaration
   ITable<E> getReferencedTable();
 
-  // method declaration
+  //method declaration
   String getReferencedTableName();
 }

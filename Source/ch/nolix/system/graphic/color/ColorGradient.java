@@ -23,24 +23,24 @@ import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
  */
 public final class ColorGradient extends Element implements IColorGradient {
 
-  // constant
+  //constant
   public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT = new ColorGradient(
       DirectionInRectangle.VERTICAL, Color.BLACK, Color.WHITE);
 
-  // constant
+  //constant
   public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT = new ColorGradient(DirectionInRectangle.VERTICAL,
       Color.RED, Color.WHITE);
 
-  // constant
+  //constant
   public static final DirectionInRectangle DEFAULT_DIRECTION = DirectionInRectangle.VERTICAL;
 
-  // constant
+  //constant
   public static final Color DEFAULT_COLOR1 = Color.BLACK;
 
-  // constant
+  //constant
   public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link ColorGradient} from the given specification.
@@ -60,7 +60,7 @@ public final class ColorGradient extends Element implements IColorGradient {
     };
   }
 
-  // static method
+  //static method
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
@@ -76,7 +76,7 @@ public final class ColorGradient extends Element implements IColorGradient {
         Color.fromSpecification(color2Specification));
   }
 
-  // static method
+  //static method
   /**
    * @param attributes
    * @return a new {@link ColorGradient} from the given attributes.
@@ -94,26 +94,26 @@ public final class ColorGradient extends Element implements IColorGradient {
         Color.fromSpecification(color2Specification));
   }
 
-  // attribute
+  //attribute
   private final DirectionInRectangle direction;
 
-  // attribute
+  //attribute
   private final Color color1;
 
-  // attribute
+  //attribute
   private final Color color2;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ColorGradient}.
    */
   public ColorGradient() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_DIRECTION, DEFAULT_COLOR1, DEFAULT_COLOR2);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ColorGradient} with the given color1 and color2.
    * 
@@ -125,11 +125,11 @@ public final class ColorGradient extends Element implements IColorGradient {
    */
   public ColorGradient(final Color color1, final Color color2) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_DIRECTION, color1, color2);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ColorGradient} with the given direction.
    * 
@@ -138,11 +138,11 @@ public final class ColorGradient extends Element implements IColorGradient {
    */
   public ColorGradient(final DirectionInRectangle direction) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(direction, DEFAULT_COLOR1, DEFAULT_COLOR2);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ColorGradient} with the given direction, color 1 and
    * color 2.
@@ -156,13 +156,13 @@ public final class ColorGradient extends Element implements IColorGradient {
    */
   public ColorGradient(final DirectionInRectangle direction, final Color color1, final Color color2) {
 
-    // Asserts that the given direction is not null.
+    //Asserts that the given direction is not null.
     GlobalValidator.assertThat(direction).thatIsNamed("direction").isNotNull();
 
-    // Asserts that the given color1 is not null.
+    //Asserts that the given color1 is not null.
     GlobalValidator.assertThat(color1).thatIsNamed("color1").isNotNull();
 
-    // Asserts that the given color2 is not null.
+    //Asserts that the given color2 is not null.
     GlobalValidator.assertThat(color2).thatIsNamed("color2").isNotNull();
 
     this.direction = direction;
@@ -170,7 +170,7 @@ public final class ColorGradient extends Element implements IColorGradient {
     this.color2 = color2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -182,7 +182,7 @@ public final class ColorGradient extends Element implements IColorGradient {
         Node.withHeader(getColor2().toHexadecimalString()));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -191,7 +191,7 @@ public final class ColorGradient extends Element implements IColorGradient {
     return color1;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -200,7 +200,7 @@ public final class ColorGradient extends Element implements IColorGradient {
     return color2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

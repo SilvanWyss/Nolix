@@ -7,42 +7,42 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //interface
 public interface IDatabaseObjectHelper {
 
-  // method declaration
+  //method declaration
   void assertIsLinkedWithRealDatabase(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   void assertIsLoaded(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   void assertIsNew(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   void assertIsNotDeleted(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   void assertIsNotLinkedWithRealDatabase(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   void assertIsNotNew(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   void assertIsOpen(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   boolean isDeleted(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   boolean isEdited(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   boolean isLoaded(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   boolean isNew(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   boolean isNewOrEdited(IDatabaseObject databaseObject);
 
-  // method declaration
+  //method declaration
   boolean isNewOrLoaded(IDatabaseObject databaseObject);
 }

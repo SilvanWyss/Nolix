@@ -8,20 +8,20 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IValidationLabelHelper {
 
-  // method declaration
+  //method declaration
   void clearNearestValidationLabelOfControl(IControl<?, ?> control);
 
-  // method declaration
+  //method declaration
   void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(IControl<?, ?> control, Runnable action);
 
-  // method declaration
+  //method declaration
   <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
       C control,
       Consumer<? super C> action);
 
-  // method declaration
+  //method declaration
   IValidationLabel getStoredNearestValidationLabelOfControlOrNull(IControl<?, ?> control);
 
-  // method declaration
+  //method declaration
   void showErrorInNearestValidationLabelOfControlOrSwallowError(IControl<?, ?> control, Throwable error);
 }

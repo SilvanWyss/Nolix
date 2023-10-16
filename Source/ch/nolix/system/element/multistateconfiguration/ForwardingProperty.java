@@ -11,7 +11,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> {
 
-  // static method
+  //static method
   @SafeVarargs
   public static <S2 extends Enum<S2>, V2> ForwardingProperty<S2, V2> withNameAndForProperty(
       final String name,
@@ -20,10 +20,10 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
     return new ForwardingProperty<>(name, materializedProperty, materializedProperties);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<MaterializedProperty<S, V>> materializedProperties;
 
-  // constructor
+  //constructor
   @SafeVarargs
   private ForwardingProperty(
       final String name,
@@ -32,7 +32,7 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
     this(name, ImmutableList.withElement(materializedProperty, materializedProperties));
   }
 
-  // constructor
+  //constructor
   private ForwardingProperty(final String name, final IContainer<MaterializedProperty<S, V>> materializedProperties) {
 
     super(name);
@@ -40,29 +40,29 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
     this.materializedProperties = LinkedList.fromIterable(materializedProperties);
   }
 
-  // method
+  //method
   @Override
   public void setUndefined() {
     materializedProperties.forEach(MaterializedProperty::setUndefined);
   }
 
-  // method
+  //method
   public void setValueForState(final S state, final V value) {
     for (final var mp : materializedProperties) {
       mp.setValueForState(state, value);
     }
   }
 
-  // method
+  //method
   @Override
   protected void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void setFrom(Property<S> property) {
-    // Does nothing.
+    //Does nothing.
   }
 
   @Override

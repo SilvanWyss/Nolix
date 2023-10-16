@@ -18,13 +18,13 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
  */
 public final class SequencePatternNextMediator<E> {
 
-  // attribute
+  //attribute
   private final SequencePattern<E> sequencePattern;
 
-  // attribute
+  //attribute
   private final int count;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SequencePatternNextMediator} for the given
    * sequencePattern and with the given count.
@@ -36,19 +36,19 @@ public final class SequencePatternNextMediator<E> {
    */
   SequencePatternNextMediator(final SequencePattern<E> sequencePattern, final int count) {
 
-    // Asserts that the given sequencePattern is not null.
+    //Asserts that the given sequencePattern is not null.
     GlobalValidator.assertThat(sequencePattern).thatIsNamed(SequencePattern.class).isNotNull();
 
-    // Asserts that the given count is not negative.
+    //Asserts that the given count is not negative.
     GlobalValidator.assertThat(count).thatIsNamed("count").isNotNegative();
 
-    // Sets the sequencePattern and the count of the current
-    // SequencePatternNextMediator.
+    //Sets the sequencePattern and the count of the current
+    //SequencePatternNextMediator.
     this.sequencePattern = sequencePattern;
     this.count = count;
   }
 
-  // method
+  //method
   /**
    * Adds a blank condition for the next elements of the sequences of the
    * {@link SequencePattern} of the current {@link SequencePatternNextMediator}.
@@ -65,7 +65,7 @@ public final class SequencePatternNextMediator<E> {
     return sequencePattern;
   }
 
-  // method
+  //method
   /**
    * Adds the given condition for the next elements of the sequences of the
    * {@link SequencePattern} of the current {@link SequencePatternNextMediator}.

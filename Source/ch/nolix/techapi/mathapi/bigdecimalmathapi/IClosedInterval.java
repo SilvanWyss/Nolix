@@ -10,30 +10,30 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
 //interface
 public interface IClosedInterval {
 
-  // method declaration
+  //method declaration
   boolean containsValue(BigDecimal value);
 
-  // method declaration
+  //method declaration
   int getBigDecimalScale();
 
-  // method declaration
+  //method declaration
   IPair<IClosedInterval, IClosedInterval> getHalfs();
 
-  // method declaration
+  //method declaration
   BigDecimal getLength();
 
-  // method declaration
+  //method declaration
   BigDecimal getMax();
 
-  // method declaration
+  //method declaration
   BigDecimal getMidPoint();
 
-  // method declaration
+  //method declaration
   BigDecimal getMin();
 
-  // method declaration
+  //method declaration
   IClosedInterval inBigDecimalScale(int bigDecimalScale);
 
-  // method declaration
+  //method declaration
   boolean intersectsWith(IClosedInterval closedInterval);
 }

@@ -15,10 +15,10 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  */
 public final class Future extends BaseFuture {
 
-  // attribute
+  //attribute
   private final JobRunner jobRunner;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Future} with the given jobRunner.
    * 
@@ -27,14 +27,14 @@ public final class Future extends BaseFuture {
    */
   Future(final JobRunner jobRunner) {
 
-    // Asserts that the given jobRunner is not null.
+    //Asserts that the given jobRunner is not null.
     GlobalValidator.assertThat(jobRunner).isOfType(JobRunner.class);
 
-    // Sets the jobRunner of the current Future.
+    //Sets the jobRunner of the current Future.
     this.jobRunner = jobRunner;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -43,7 +43,7 @@ public final class Future extends BaseFuture {
     return jobRunner.caughtError();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -52,7 +52,7 @@ public final class Future extends BaseFuture {
     return jobRunner.getError();
   }
 
-  // method
+  //method
   /**
    * @return the number of finished jobs of the current {@link IFuture}.
    */
@@ -60,7 +60,7 @@ public final class Future extends BaseFuture {
     return jobRunner.getFinishedJobCount();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -69,7 +69,7 @@ public final class Future extends BaseFuture {
     return jobRunner.isFinished();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -78,7 +78,7 @@ public final class Future extends BaseFuture {
     GlobalSequencer.waitUntil(this::isFinished);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

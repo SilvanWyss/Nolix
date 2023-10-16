@@ -4,6 +4,6 @@ package ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi;
 //interface
 public interface IFlatTableDto {
 
-  // method declaration
+  //method declaration
   String getName();
 }

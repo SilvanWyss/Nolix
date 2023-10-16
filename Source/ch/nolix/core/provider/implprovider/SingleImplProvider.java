@@ -13,10 +13,10 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IImplProviderMediator;
 //class
 public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
 
-  // attribute
+  //attribute
   private final Class<IM> implementation;
 
-  // constructor
+  //constructor
   SingleImplProvider(final Class<IM> implementation) {
 
     GlobalValidator.assertThat(implementation).thatIsNamed("implementation").isNotNull();
@@ -24,7 +24,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
     this.implementation = implementation;
   }
 
-  // method
+  //method
   @Override
   public IM createInstance() {
     try {
@@ -37,7 +37,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
     }
   }
 
-  // method
+  //method
   @Override
   public IM createInstance(final Object... arguments) {
     try {
@@ -50,7 +50,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
     }
   }
 
-  // method
+  //method
   private Constructor<IM> getConstructorFor(final Object... arguments) {
     try {
 
@@ -63,7 +63,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
     }
   }
 
-  // method
+  //method
   private Constructor<IM> getDefaultConstructor() {
     try {
 
@@ -76,7 +76,7 @@ public final class SingleImplProvider<IM> implements IImplProviderMediator<IM> {
     }
   }
 
-  // method
+  //method
   private Class<?>[] getParameterTypes(final Object[] objects) {
 
     final var parameterTypes = new Class<?>[objects.length];

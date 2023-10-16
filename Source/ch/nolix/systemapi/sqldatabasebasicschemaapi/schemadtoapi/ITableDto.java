@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface ITableDto {
 
-  // method declaration
+  //method declaration
   IContainer<IColumnDto> getColumns();
 
-  // method declaration
+  //method declaration
   String getName();
 }

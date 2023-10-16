@@ -8,10 +8,10 @@ public class SecurePartialRefreshTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a SecureServer.
+    //Creates a SecureServer.
     final var secureServer = SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 
-    // Adds a default Application to the SecureServer.
+    //Adds a default Application to the SecureServer.
     secureServer.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
         "Secure partial refresh tutorial",
         MainSession.class,

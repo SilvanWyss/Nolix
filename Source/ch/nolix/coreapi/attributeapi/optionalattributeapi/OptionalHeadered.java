@@ -10,33 +10,33 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalHeadered {
 
-  // method declaration
+  //method declaration
   /**
    * @return the header of the current {@link OptionalHeadered}.
    */
   String getHeader();
 
-  // method
+  //method
   /**
    * @return the header of the current {@link OptionalHeadered} if it has a
    *         header, otherwise an empty {@link String}.
    */
   String getHeaderOrEmptyString();
 
-  // method declaration
+  //method declaration
   /**
    * @return the header of the current {@link OptionalHeadered} if the current
    *         {@link OptionalHeadered} has a header, null otherwise.
    */
   String getHeaderOrNull();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalHeadered} has a header.
    */
   boolean hasHeader();
 
-  // method
+  //method
   /**
    * @param header
    * @return true if the current {@link OptionalHeadered} has the given header.

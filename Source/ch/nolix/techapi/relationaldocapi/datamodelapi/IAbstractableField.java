@@ -19,15 +19,15 @@ public interface IAbstractableField
     IFluentMutableCardinalityHolder<IAbstractableField>,
     MandatorynessRequestable {
 
-  // method declaration
+  //method declaration
   IAbstractableField getStoredBaseField();
 
-  // method declaration
+  //method declaration
   IAbstractableObject getStoredParentObject();
 
-  // method declaration
+  //method declaration
   IContent getStoredContent();
 
-  // method declaration
+  //method declaration
   boolean inheritsFromBaseField();
 }

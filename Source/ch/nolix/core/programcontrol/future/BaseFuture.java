@@ -12,7 +12,7 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  */
 public abstract class BaseFuture implements IFuture {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -21,7 +21,7 @@ public abstract class BaseFuture implements IFuture {
     return (isFinished() && !caughtError());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -30,7 +30,7 @@ public abstract class BaseFuture implements IFuture {
     return (isFinished() && caughtError());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -42,7 +42,7 @@ public abstract class BaseFuture implements IFuture {
     handleProbableError();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +54,7 @@ public abstract class BaseFuture implements IFuture {
     handleProbableError();
   }
 
-  // method
+  //method
   private void handleError() {
 
     if (getError().getMessage() == null || getError().getMessage().isBlank()) {
@@ -68,7 +68,7 @@ public abstract class BaseFuture implements IFuture {
         "has caught the error '" + getError().getClass().getName() + ": " + getError().getMessage() + "'");
   }
 
-  // method
+  //method
   private void handleProbableError() {
     if (caughtError()) {
       handleError();

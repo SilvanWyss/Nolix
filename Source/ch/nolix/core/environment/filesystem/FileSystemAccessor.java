@@ -29,7 +29,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
  */
 public final class FileSystemAccessor {
 
-  // static method
+  //static method
   /**
    * @return a new {@link FolderAccessor} to the folder of the running jar file.
    */
@@ -37,7 +37,7 @@ public final class FileSystemAccessor {
     return new FolderAccessor(getFolderPathOfRunningJarFile());
   }
 
-  // static method
+  //static method
   /**
    * @return the path of the folder of the running jar file.
    */
@@ -49,7 +49,7 @@ public final class FileSystemAccessor {
     }
   }
 
-  // static method
+  //static method
   /**
    * Opens the folder with the given path in a new file explorer.
    * 
@@ -63,7 +63,7 @@ public final class FileSystemAccessor {
     }
   }
 
-  // static method
+  //static method
   /**
    * Opens the folder of the running jar file in a new file explorer.
    */
@@ -71,7 +71,7 @@ public final class FileSystemAccessor {
     openInFileExplorer(getFolderPathOfRunningJarFile());
   }
 
-  // static method
+  //static method
   /**
    * Creates a new empty file with the given path.
    * 
@@ -84,11 +84,11 @@ public final class FileSystemAccessor {
    */
   public static FileAccessor createFile(final String path) {
 
-    // Calls other method.
+    //Calls other method.
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
-  // static method
+  //static method
   /**
    * Creates a new empty file with the given path.
    * 
@@ -104,10 +104,10 @@ public final class FileSystemAccessor {
    */
   public static FileAccessor createFile(final String path, final WriteMode writeMode) {
 
-    // Asserts that the if given path is not null or empty.
+    //Asserts that the if given path is not null or empty.
     GlobalValidator.assertThat(path).thatIsNamed(LowerCaseCatalogue.PATH).isNotBlank();
 
-    // Creates file.
+    //Creates file.
     try {
 
       if (!new File(path).createNewFile()) {
@@ -131,7 +131,7 @@ public final class FileSystemAccessor {
     }
   }
 
-  // static method
+  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -156,7 +156,7 @@ public final class FileSystemAccessor {
     return fileAccessor;
   }
 
-  // static method
+  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -181,7 +181,7 @@ public final class FileSystemAccessor {
     return fileAccessor;
   }
 
-  // static method
+  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -202,7 +202,7 @@ public final class FileSystemAccessor {
     return fileAccessor;
   }
 
-  // static method
+  //static method
   /**
    * Creates a new file with the given path. The file will have the given content.
    * 
@@ -216,11 +216,11 @@ public final class FileSystemAccessor {
    */
   public static FileAccessor createFile(final String path, final String content) {
 
-    // Calls other method.
+    //Calls other method.
     return createFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY, content);
   }
 
-  // static method
+  //static method
   /**
    * Creates a new empty folder with the given path.
    * 
@@ -231,8 +231,8 @@ public final class FileSystemAccessor {
    */
   public static FolderAccessor createFolder(final String path) {
 
-    // Asserts that there does not exist already a file system item with the given
-    // path.
+    //Asserts that there does not exist already a file system item with the given
+    //path.
     if (exists(path)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           "file system item",
@@ -240,14 +240,14 @@ public final class FileSystemAccessor {
           "exists already");
     }
 
-    // Creates folder.
+    //Creates folder.
     new File(path).mkdirs();
 
-    // Creates and returns a FolderAccessor to the folder.
+    //Creates and returns a FolderAccessor to the folder.
     return new FolderAccessor(path);
   }
 
-  // static method
+  //static method
   /**
    * Deletes the file system item with the given path if it exists.
    * 
@@ -261,7 +261,7 @@ public final class FileSystemAccessor {
     }
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @return true if there exists a file system item with given path.
@@ -270,7 +270,7 @@ public final class FileSystemAccessor {
     return new File(path).exists();
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @return new {@link FileAccessor}s for the files in the folder with the given
@@ -282,7 +282,7 @@ public final class FileSystemAccessor {
         .to(f -> new FileAccessor(f.getAbsolutePath()));
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @param extension
@@ -293,7 +293,7 @@ public final class FileSystemAccessor {
     return getFileAccessors(path).getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @return new {@link FileAccessor}s for the files in the folder with the given
@@ -316,7 +316,7 @@ public final class FileSystemAccessor {
     return fileAccessors;
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @return new {@link FileSystemItemAccessor}s for the file system items in the
@@ -327,7 +327,7 @@ public final class FileSystemAccessor {
         .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @return true if there exists a file with the given path.
@@ -336,7 +336,7 @@ public final class FileSystemAccessor {
     return new File(path).isFile();
   }
 
-  // static method
+  //static method
   /**
    * @param path
    * @return true if there exists a folder with the given path.
@@ -345,15 +345,15 @@ public final class FileSystemAccessor {
     return new File(path).isDirectory();
   }
 
-  // static method
+  //static method
   public static void overwriteFile(final String path, final byte[] content) {
 
-    // Asserts that there does not exist a folder with the given path.
+    //Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
     }
 
-    // Handles the case that there does not exist a file with the given path.
+    //Handles the case that there does not exist a file with the given path.
     if (!isFile(path)) {
       createFile(path);
     }
@@ -361,7 +361,7 @@ public final class FileSystemAccessor {
     new FileAccessor(path).overwriteFile(content);
   }
 
-  // static method
+  //static method
   /**
    * Overwrites the file with the given path. Creates a new file with the given
    * path if it does not exists. The file will get the given content.
@@ -373,12 +373,12 @@ public final class FileSystemAccessor {
    */
   public static void overwriteFile(final String path, final String content) {
 
-    // Asserts that there does not exist a folder with the given path.
+    //Asserts that there does not exist a folder with the given path.
     if (isFolder(path)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(path, "is a folder");
     }
 
-    // Handles the case that there does not exist a file with the given path.
+    //Handles the case that there does not exist a file with the given path.
     if (!isFile(path)) {
       createFile(path);
     }
@@ -386,7 +386,7 @@ public final class FileSystemAccessor {
     new FileAccessor(path).overwriteFile(content);
   }
 
-  // static method
+  //static method
   /**
    * Reads the content of the file with the given filePath to bytes.
    * 
@@ -400,7 +400,7 @@ public final class FileSystemAccessor {
     return new FileAccessor(filePath).readFileToBytes();
   }
 
-  // static method
+  //static method
   /**
    * Reads the content of the file with the given path to lines.
    * 
@@ -413,7 +413,7 @@ public final class FileSystemAccessor {
     return new FileAccessor(path).readFileToLines();
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link FileSystemAccessor} can be created.
    */

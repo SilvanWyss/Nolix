@@ -16,7 +16,7 @@ import java.util.Locale;
  */
 public final class GlobalDoubleHelper {
 
-  // static method
+  //static method
   /**
    * @param value
    * @return a {@link String} representation of the given value. The
@@ -33,7 +33,7 @@ public final class GlobalDoubleHelper {
     return decimalFormat.format(value);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalDoubleHelper} can be created.
    */

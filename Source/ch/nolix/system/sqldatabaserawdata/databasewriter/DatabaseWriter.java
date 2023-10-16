@@ -19,7 +19,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class DatabaseWriter implements IDataWriter {
 
-  // static method
+  //static method
   public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
       final String databaseName,
       final SqlConnectionPool sqlConnectionPool,
@@ -28,16 +28,16 @@ public final class DatabaseWriter implements IDataWriter {
     return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
   }
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // attribute
+  //attribute
   private final InternalDatabaseWriter internalDatabaseWriter;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<ITableInfo> tableInfos;
 
-  // constructor
+  //constructor
   private DatabaseWriter(
       final String databaseName,
       final SqlConnection sqlConnection,
@@ -52,7 +52,7 @@ public final class DatabaseWriter implements IDataWriter {
     createCloseDependencyTo(sqlConnection);
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiReferenceEntries(
       final String tableName,
@@ -63,7 +63,7 @@ public final class DatabaseWriter implements IDataWriter {
         getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId());
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiValueEntries(
       final String tableName,
@@ -74,7 +74,7 @@ public final class DatabaseWriter implements IDataWriter {
         getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId());
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiReferenceEntry(
       final String tableName,
@@ -87,7 +87,7 @@ public final class DatabaseWriter implements IDataWriter {
         referencedEntityId);
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiValueEntry(
       final String tableName,
@@ -100,43 +100,43 @@ public final class DatabaseWriter implements IDataWriter {
         entry);
   }
 
-  // method
+  //method
   @Override
   public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
     internalDatabaseWriter.deleteEntity(tableName, entity);
   }
 
-  // method
+  //method
   @Override
   public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     internalDatabaseWriter.expectGivenSchemaTimestamp(schemaTimestamp);
   }
 
-  // method
+  //method
   @Override
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     internalDatabaseWriter.expectTableContainsEntity(tableName, entityId);
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public int getSaveCount() {
     return internalDatabaseWriter.getSaveCount();
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges() {
     return internalDatabaseWriter.hasChanges();
   }
 
-  // method
+  //method
   @Override
   public void insertMultiReferenceEntry(
       final String tableName,
@@ -149,7 +149,7 @@ public final class DatabaseWriter implements IDataWriter {
         referencedEntityId);
   }
 
-  // method
+  //method
   @Override
   public void insertMultiValueEntry(
       final String tableName,
@@ -162,50 +162,50 @@ public final class DatabaseWriter implements IDataWriter {
         entry);
   }
 
-  // method
+  //method
   @Override
   public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
     internalDatabaseWriter.insertNewEntity(tableName, newEntity);
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void reset() {
     internalDatabaseWriter.reset();
   }
 
-  // method
+  //method
   @Override
   public void saveChanges() {
     internalDatabaseWriter.saveChangesAndReset();
   }
 
-  // method
+  //method
   @Override
   public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     internalDatabaseWriter.setEntityAsUpdated(tableName, entity);
   }
 
-  // method
+  //method
   @Override
   public void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
     internalDatabaseWriter.updateEntityOnTable(tableName, entityUpdate);
   }
 
-  // method
+  //method
   private IColumnInfo getColumnDefinitionByTableNameAndColumnName(
       final String tableName,
       final String columnName) {
     return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
   }
 
-  // method
+  //method
   private ITableInfo getTableDefinitionByTableName(final String tableName) {
     return tableInfos.getStoredFirstOrNull(td -> td.getTableName().equals(tableName));
   }

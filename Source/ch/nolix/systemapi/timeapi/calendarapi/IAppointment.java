@@ -7,9 +7,9 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //interface
 public interface IAppointment<A extends IAppointment<A>> extends ISubjectHolder {
 
-  // method declaration
+  //method declaration
   ITime getEndTime();
 
-  // method declaration
+  //method declaration
   ITime getStartTime();
 }

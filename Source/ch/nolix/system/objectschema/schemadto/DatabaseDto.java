@@ -13,16 +13,16 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implements IDatabaseDto {
 
-  // constructor
+  //constructor
   public DatabaseDto(final String name, final IContainer<ITableDto> tables) {
     this(name, ImmutableList.forIterable(tables));
   }
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
-  public DatabaseDto(final String name, final ImmutableList<ITableDto> tables) { // NOSONAR: This implementations checks
-                                                                                 // the given arguments.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
+  public DatabaseDto(final String name, final ImmutableList<ITableDto> tables) { //NOSONAR: This implementations checks
+                                                                                 //the given arguments.
 
     if (name == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.NAME);
@@ -36,13 +36,13 @@ public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implemen
     this.tables = tables;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public IContainer<ITableDto> getTables() {
     return tables;

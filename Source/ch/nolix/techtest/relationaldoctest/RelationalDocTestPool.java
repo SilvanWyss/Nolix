@@ -8,7 +8,7 @@ import ch.nolix.techtest.relationaldoctest.datamodeltest.DataModelTestPool;
 //class
 public final class RelationalDocTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public RelationalDocTestPool() {
     super(new DataModelTestPool());
   }

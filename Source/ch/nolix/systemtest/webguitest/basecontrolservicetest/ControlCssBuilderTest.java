@@ -11,33 +11,33 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class ControlCssBuilderTest<CCB extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
     extends Test {
 
-  // method
+  //method
   @TestCase
   public final void testCase_whenGivenControlIsNew() {
 
-    // setup
+    //setup
     final var control = createControl();
     final var controlInternalId = control.getInternalId();
     final var testUnit = createTestUnit();
 
-    // execution
+    //execution
     final var result = testUnit.createCssRulesForControl(control);
 
-    // verification part 1
+    //verification part 1
     expect(result).hasElementCount(4);
     final var cssRuleForAllStates = result.getStoredFirst(r -> r.getSelector().startsWith("#" + controlInternalId));
     expect(cssRuleForAllStates.getProperties().containsAny(p -> p.hasName("cursor")));
 
-    // verification part 2
+    //verification part 2
     expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":hover")));
 
-    // verification part 3
+    //verification part 3
     expect(result.containsAny(r -> r.getSelector().startsWith("#" + controlInternalId + ":focus")));
   }
 
-  // method declaration
+  //method declaration
   protected abstract C createControl();
 
-  // method declaration
+  //method declaration
   protected abstract CCB createTestUnit();
 }

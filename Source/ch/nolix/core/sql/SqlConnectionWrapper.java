@@ -8,18 +8,18 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 final class SqlConnectionWrapper implements AutoCloseable {
 
-  // static method
+  //static method
   public static SqlConnectionWrapper forSqlConnection(final SqlConnection sqlConnection) {
     return new SqlConnectionWrapper(sqlConnection);
   }
 
-  // attribute
+  //attribute
   private final SqlConnection sqlConnection;
 
-  // attribute
+  //attribute
   private boolean available = true;
 
-  // constructor
+  //constructor
   private SqlConnectionWrapper(final SqlConnection sqlConnection) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
@@ -28,7 +28,7 @@ final class SqlConnectionWrapper implements AutoCloseable {
     this.sqlConnection = sqlConnection;
   }
 
-  // method
+  //method
   public SqlConnection getStoredSqlConnection() {
 
     assertIsAvailable();
@@ -36,33 +36,33 @@ final class SqlConnectionWrapper implements AutoCloseable {
     return sqlConnection;
   }
 
-  // method
+  //method
   @Override
   public void close() {
     sqlConnection.internalCloseDirectly();
   }
 
-  // method
+  //method
   public boolean contains(final SqlConnection sqlConnection) {
     return (this.sqlConnection == sqlConnection);
   }
 
-  // method
+  //method
   public boolean isAvailable() {
     return available;
   }
 
-  // method
+  //method
   public boolean isInUse() {
     return !isAvailable();
   }
 
-  // method
+  //method
   public void setAvailable() {
     available = true;
   }
 
-  // method
+  //method
   public void setAsInUse() {
 
     assertIsAvailable();
@@ -70,7 +70,7 @@ final class SqlConnectionWrapper implements AutoCloseable {
     available = false;
   }
 
-  // method
+  //method
   private void assertIsAvailable() {
     if (!isAvailable()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not available");

@@ -16,16 +16,16 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> {
 
-  // constant
+  //constant
   private static final IMultiValueValidator MULTI_VALUE_VALIDATOR = new MultiValueValidator();
 
-  // attribute
+  //attribute
   private boolean extractedValues;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<MultiValueEntry<V>> localEntries = new LinkedList<>();
 
-  // method
+  //method
   @Override
   public void addValue(final V value) {
 
@@ -36,7 +36,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     if (containsAny()) {
@@ -44,13 +44,13 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     }
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IMultiValueEntry<V>> getStoredLocalEntries() {
     return localEntries;
   }
 
-  // method
+  //method
   @Override
   public IContainer<V> getStoredValues() {
 
@@ -59,25 +59,25 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     return localEntries.to(IMultiValueEntry::getStoredValue);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getType() {
     return PropertyType.MULTI_VALUE;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return getStoredValues().isEmpty();
   }
 
-  // method
+  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void removeValue(final V value) {
 
@@ -88,24 +88,24 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     localEntries.removeAndGetRefFirst(le -> le.getStoredValue().equals(value)).internalSetDeleted();
   }
 
-  // method
+  //method
   @Override
   public IContentFieldDto technicalToContentField() {
     return new ContentFieldDto(getName());
   }
 
-  // method
+  //method
   @Override
   void internalSetOrClearDirectlyFromContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
   }
 
-  // method
+  //method
   private void assertCanAddValue(final V value) {
     MULTI_VALUE_VALIDATOR.assertCanAddGivenValue(this, value);
   }
 
-  // method
+  //method
   private void clearWhenContainsAny() {
 
     getStoredValues().forEach(this::removeValue);
@@ -113,19 +113,19 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   private boolean extractedValues() {
     return extractedValues;
   }
 
-  // method
+  //method
   private void extractValuesIfNeeded() {
     if (!extractedValues()) {
       extractValuesWhenNeeded();
     }
   }
 
-  // method
+  //method
   private void extractValuesWhenNeeded() {
 
     extractedValues = true;
@@ -133,7 +133,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
     localEntries.addAtEnd(loadEntries());
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   private IContainer<MultiValueEntry<V>> loadEntries() {
     return internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
@@ -143,7 +143,7 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
         .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
   }
 
-  // method
+  //method
   private void updateStateForAddValue(final V value) {
     localEntries.addAtEnd(MultiValueEntry.newEntryForMultiValueAndValue(this, value));
   }

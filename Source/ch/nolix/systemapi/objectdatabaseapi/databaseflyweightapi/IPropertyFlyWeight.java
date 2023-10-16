@@ -7,9 +7,9 @@ import ch.nolix.coreapi.functionapi.requestapi.VoidnessRequestable;
 //class
 public interface IPropertyFlyWeight extends VoidnessRequestable {
 
-  // method declaration
+  //method declaration
   void noteUpdate();
 
-  // method declaration
+  //method declaration
   void setUpdateAction(Runnable updateAction);
 }

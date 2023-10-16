@@ -8,13 +8,13 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 //class
 public final class DatabaseNodeSearcher {
 
-  // constant
+  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  // constant
+  //constant
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  // method
+  //method
   public IMutableNode<?> getStoredColumnNodeByColumnIdFromDatabaseNode(
       final IMutableNode<?> databaseNode,
       final String columnId) {
@@ -25,12 +25,12 @@ public final class DatabaseNodeSearcher {
                 .hasHeader(columnId));
   }
 
-  // method
+  //method
   public IMutableNode<?> getStoredDatabasePropertiesNodeFromDatabaseNode(final IMutableNode<?> databaseNode) {
     return databaseNode.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
   }
 
-  // method
+  //method
   public IMutableNode<?> getStoredTableNodeByTableIdFromDatabaseNode(
       final IMutableNode<?> databaseNode,
       final String tableId) {
@@ -39,7 +39,7 @@ public final class DatabaseNodeSearcher {
             .hasHeader(tableId));
   }
 
-  // method
+  //method
   public IMutableNode<?> getStoredTableNodeByTableNameFromDatabaseNode(
       final IMutableNode<?> databaseNode,
       final String tableName) {
@@ -50,12 +50,12 @@ public final class DatabaseNodeSearcher {
             .hasHeader(tableName));
   }
 
-  // method
+  //method
   public IContainer<? extends IMutableNode<?>> getStoredTableNodesFromDatabaseNode(final IMutableNode<?> databaseNode) {
     return databaseNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);
   }
 
-  // method
+  //method
   public int getTableNodeCount(final IMutableNode<?> databaseNode) {
     return databaseNode.getStoredChildNodes().getCount(a -> a.hasHeader(SubNodeHeaderCatalogue.TABLE));
   }

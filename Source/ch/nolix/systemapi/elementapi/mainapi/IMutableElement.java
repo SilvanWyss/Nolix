@@ -18,7 +18,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface IMutableElement extends Resettable, Specified {
 
-  // method declaration
+  //method declaration
   /**
    * Adds or changes the given attribute to the current {@link IMutableElement}.
    * 
@@ -26,7 +26,7 @@ public interface IMutableElement extends Resettable, Specified {
    */
   void addOrChangeAttribute(INode<?> attribute);
 
-  // method
+  //method
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
@@ -36,18 +36,18 @@ public interface IMutableElement extends Resettable, Specified {
    */
   default void addOrChangeAttribute(final INode<?> attribute, final INode<?>... attributes) {
 
-    // Calls other method.
+    //Calls other method.
     addOrChangeAttribute(attribute);
 
-    // Iterates the given attributes.
+    //Iterates the given attributes.
     for (final var a : attributes) {
 
-      // Calls other method.
+      //Calls other method.
       addOrChangeAttribute(a);
     }
   }
 
-  // method
+  //method
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
@@ -57,7 +57,7 @@ public interface IMutableElement extends Resettable, Specified {
    */
   void addOrChangeAttribute(String attribute, String... attributes);
 
-  // method
+  //method
   /**
    * Adds or changes the given attributes to the current {@link IMutableElement}.
    * 
@@ -66,13 +66,13 @@ public interface IMutableElement extends Resettable, Specified {
    */
   default void addOrChangeAttributes(final Iterable<? extends INode<?>> attributes) {
 
-    // Iterates the given attributes.
+    //Iterates the given attributes.
     for (final var a : attributes) {
       addOrChangeAttribute(a);
     }
   }
 
-  // method
+  //method
   /**
    * Resets the current {@link IMutableElement} from the given attributes.
    * 
@@ -86,7 +86,7 @@ public interface IMutableElement extends Resettable, Specified {
     addOrChangeAttributes(attributes);
   }
 
-  // method
+  //method
   /**
    * Resets the current {@link IMutableElement} from the given specification.
    * 

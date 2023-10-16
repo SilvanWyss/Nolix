@@ -17,7 +17,7 @@ public enum Weekday {
   SATURDAY,
   SUNDAY;
 
-  // static method
+  //static method
   public static Weekday fromDayOfWeek(final DayOfWeek dayOfWeek) {
     return switch (dayOfWeek) {
       case MONDAY ->
@@ -39,7 +39,7 @@ public enum Weekday {
     };
   }
 
-  // static method
+  //static method
   public static Weekday fromSpecification(final INode<?> specification) {
     return Weekday.valueOf(specification.getSingleChildNodeHeader());
   }

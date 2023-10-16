@@ -18,23 +18,23 @@ import io.netty.handler.logging.LoggingHandler;
 //class
 final class SecureServerWorker extends Worker {
 
-  // constant
+  //constant
   private static final SecureServerSSLContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
       new SecureServerSSLContextCreator();
 
-  // attribute
+  //attribute
   private final SecureServer parentWebSocketServer;
 
-  // attribute
+  //attribute
   private final int port;
 
-  // attribute
+  //attribute
   private final String htmlPage;
 
-  // attribute
+  //attribute
   private final ISSLCertificate mSSLCertificate;
 
-  // constructor
+  //constructor
   public SecureServerWorker(
       final SecureServer parentWebSocketServer,
       final int port,
@@ -53,7 +53,7 @@ final class SecureServerWorker extends Worker {
     start();
   }
 
-  // method
+  //method
   @Override
   protected void run() {
 
@@ -72,8 +72,8 @@ final class SecureServerWorker extends Worker {
 
       final var channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();
-    } catch (final InterruptedException interruptedException // NOSONAR: The Exception is rethrown wrapped in another
-                                                             // Exception.
+    } catch (final InterruptedException interruptedException //NOSONAR: The Exception is rethrown wrapped in another
+                                                             //Exception.
     ) {
       throw WrapperException.forError(interruptedException);
     } finally {

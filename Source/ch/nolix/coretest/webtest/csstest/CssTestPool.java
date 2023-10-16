@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class CssTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public CssTestPool() {
     super(CssPropertyTest.class, CssRuleTest.class);
   }

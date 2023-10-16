@@ -15,42 +15,42 @@ import ch.nolix.systemapi.guiapi.mainapi.IGui;
 //interface
 public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 
-  // method declaration
+  //method declaration
   ICss getCss();
 
-  // method declaration
+  //method declaration
   IHtmlElement getHtml();
 
-  // method declaration
+  //method declaration
   IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
 
-  // method declaration
+  //method declaration
   IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
 
-  // method declaration
+  //method declaration
   IContainer<IControl<?, ?>> getStoredControls();
 
-  // method declaration
+  //method declaration
   IContainer<ILayer<?>> getStoredLayers();
 
-  // method declaration
+  //method declaration
   ILayer<?> getStoredTopLayer();
 
-  // method declaration
+  //method declaration
   boolean hasRemoveLayerAction();
 
-  // method declaration
+  //method declaration
   WG pushLayer(ILayer<?> layer);
 
-  // method declaration
+  //method declaration
   WG pushLayerWithRootControl(IControl<?, ?> rootControl);
 
-  // method declaration
+  //method declaration
   void removeLayer(ILayer<?> layer);
 
-  // method declaration
+  //method declaration
   WG setFrontEndReaderAndFrontEndWriter(IFrontEndReader frontEndReader, IFrontEndWriter frontEndWriter);
 
-  // method declaration
+  //method declaration
   WG setRemoveLayerAction(Runnable removeLayerAction);
 }

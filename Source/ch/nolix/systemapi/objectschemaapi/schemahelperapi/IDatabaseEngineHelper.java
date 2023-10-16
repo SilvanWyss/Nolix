@@ -8,15 +8,15 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IDatabaseEngine;
 //interface
 public interface IDatabaseEngineHelper {
 
-  // method declaration
+  //method declaration
   void assertDoesNotContainDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 
-  // method declaration
+  //method declaration
   boolean containsDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 
-  // method declaration
+  //method declaration
   int getDatabaseCount(IDatabaseEngine databaseEngine);
 
-  // method declaration
+  //method declaration
   IDatabase getStoredDatabaseWithGivenName(IDatabaseEngine databaseEngine, String name);
 }

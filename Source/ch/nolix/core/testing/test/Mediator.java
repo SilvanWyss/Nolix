@@ -12,12 +12,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  * @author Silvan Wyss
  * @date 2017-01-08
  */
-public abstract class Mediator { // NOSONAR: Mediator does not have abstract methods.
+public abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 
-  // attribute
+  //attribute
   private final Consumer<String> expectationErrorTaker;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Mediator} with the given expectationError.
    * 
@@ -26,16 +26,16 @@ public abstract class Mediator { // NOSONAR: Mediator does not have abstract met
    */
   protected Mediator(final Consumer<String> expectationErrorTaker) {
 
-    // Asserts that the given expectationErrorTaker is not null.
+    //Asserts that the given expectationErrorTaker is not null.
     if (expectationErrorTaker == null) {
       throw ArgumentIsNullException.forArgumentName("expectation error taker");
     }
 
-    // Sets the expectationErrorTaker of the current Mediator.
+    //Sets the expectationErrorTaker of the current Mediator.
     this.expectationErrorTaker = expectationErrorTaker;
   }
 
-  // method
+  //method
   /**
    * @throws IllegalCallerException
    */
@@ -45,13 +45,13 @@ public abstract class Mediator { // NOSONAR: Mediator does not have abstract met
         "Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method.");
   }
 
-  // method
+  //method
   @Override
   public int hashCode() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "hashCode");
   }
 
-  // method
+  //method
   /**
    * Adds the given current test case error to the test this mediator belongs to.
    * 
@@ -61,7 +61,7 @@ public abstract class Mediator { // NOSONAR: Mediator does not have abstract met
     expectationErrorTaker.accept(error);
   }
 
-  // method
+  //method
   /**
    * @return the expectationErrorTaker of the current {@link Mediator}.
    */

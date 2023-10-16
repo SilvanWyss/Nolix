@@ -17,13 +17,13 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Indexed;
  */
 public class IndexedPackage<C> implements Indexed {
 
-  // attribute
+  //attribute
   private final int index;
 
-  // attribute
+  //attribute
   private final C content;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link IndexedPackage} with the given index and content.
    * 
@@ -33,17 +33,17 @@ public class IndexedPackage<C> implements Indexed {
    */
   public IndexedPackage(final int index, final C content) {
 
-    // Asserts that the given content is not null.
+    //Asserts that the given content is not null.
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNotNull();
 
-    // Sets the index of the current IndexedPackage.
+    //Sets the index of the current IndexedPackage.
     this.index = index;
 
-    // Sets the content of the current IndexedPackage.
+    //Sets the content of the current IndexedPackage.
     this.content = content;
   }
 
-  // method
+  //method
   /**
    * @return the content of the current {@link IndexedPackage}.
    */
@@ -51,7 +51,7 @@ public class IndexedPackage<C> implements Indexed {
     return content;
   }
 
-  // method
+  //method
   /**
    * @return the index of the current {@link IndexedPackage}.
    */

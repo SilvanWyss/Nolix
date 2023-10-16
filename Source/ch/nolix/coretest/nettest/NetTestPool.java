@@ -10,7 +10,7 @@ import ch.nolix.coretest.nettest.websockettest.WebSocketTestPool;
 //class
 public final class NetTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public NetTestPool() {
     super(
         new ch.nolix.coretest.nettest.endpointtest.EndPointTestPool(),

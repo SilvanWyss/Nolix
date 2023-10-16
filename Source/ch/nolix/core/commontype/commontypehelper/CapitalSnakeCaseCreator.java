@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 final class CapitalSnakeCaseCreator {
 
-  // method
+  //method
   public String toCapitalSnakeCase(final String string) {
 
     if (string.isEmpty()) {
@@ -18,7 +18,7 @@ final class CapitalSnakeCaseCreator {
     return toCapitalSnakeCaseWhenStringNotEmpty(string);
   }
 
-  // method
+  //method
   private String toCapitalSnakeCaseWhenStringNotEmpty(final String string) {
 
     final var stringBuilder = new StringBuilder();

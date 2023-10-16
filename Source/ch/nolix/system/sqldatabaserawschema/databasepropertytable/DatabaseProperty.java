@@ -10,10 +10,10 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Labeled;
 public enum DatabaseProperty implements Labeled {
   SCHEMA_TIMESTAMP("SchemaTimestamp");
 
-  // attribute
+  //attribute
   private final String label;
 
-  // constructor
+  //constructor
   DatabaseProperty(final String label) {
 
     GlobalValidator.assertThat(label).thatIsNamed(LowerCaseCatalogue.LABEL).isNotBlank();
@@ -21,7 +21,7 @@ public enum DatabaseProperty implements Labeled {
     this.label = label;
   }
 
-  // method
+  //method
   @Override
   public final String getLabel() {
     return label;

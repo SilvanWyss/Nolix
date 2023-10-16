@@ -10,12 +10,12 @@ public final class ParameterizedOptionalValueType<
     V>
     extends BaseParameterizedValueType<V> {
 
-  // constructor
+  //constructor
   public ParameterizedOptionalValueType(final Class<V> valueType) {
     super(valueType);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.OPTIONAL_VALUE;

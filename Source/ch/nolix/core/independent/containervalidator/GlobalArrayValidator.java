@@ -4,7 +4,7 @@ package ch.nolix.core.independent.containervalidator;
 //class
 public final class GlobalArrayValidator {
 
-  // static method
+  //static method
   public static void assertDoesNotContainNull(final Object[] array) {
 
     if (array == null) {
@@ -18,7 +18,7 @@ public final class GlobalArrayValidator {
     }
   }
 
-  // constructor
+  //constructor
   private GlobalArrayValidator() {
   }
 }

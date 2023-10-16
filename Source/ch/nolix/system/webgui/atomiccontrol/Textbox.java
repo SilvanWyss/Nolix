@@ -30,28 +30,28 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 //class
 public final class Textbox extends Control<ITextbox, ITextboxStyle> implements ITextbox {
 
-  // constant
+  //constant
   public static final String DEFAULT_TEXT = StringCatalogue.EMPTY_STRING;
 
-  // constant
+  //constant
   public static final TextMode DEFAULT_TEXT_MODE = TextMode.NORMAL;
 
-  // constant
+  //constant
   private static final String TEXT_HEADER = PascalCaseCatalogue.TEXT;
 
-  // constant
+  //constant
   private static final String TEXT_MODE_HEADER = "TextMode";
 
-  // constant
+  //constant
   private static final TextboxHtmlBuilder HTML_BUILDER = new TextboxHtmlBuilder();
 
-  // constant
+  //constant
   private static final TextboxCssBuilder CSS_BUILDER = new TextboxCssBuilder();
 
-  // attribute
+  //attribute
   private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
 
-  // attribute
+  //attribute
   private MutableValue<TextMode> textMode = new MutableValue<>(
       TEXT_MODE_HEADER,
       DEFAULT_TEXT_MODE,
@@ -59,14 +59,14 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
       TextMode::fromSpecification,
       Node::fromEnum);
 
-  // optional attribute
+  //optional attribute
   private Consumer<String> updateTextAction;
 
-  // constructor
+  //constructor
   public Textbox() {
 
-    // Info: Reset is technically optional, but required to achieve a well-defined
-    // initial state.
+    //Info: Reset is technically optional, but required to achieve a well-defined
+    //initial state.
     reset();
 
     getStoredStyle()
@@ -76,67 +76,67 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
         .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
   }
 
-  // method
+  //method
   @Override
   public void emptyText() {
     setText(StringCatalogue.EMPTY_STRING);
   }
 
-  // method
+  //method
   @Override
   public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
     return new SingleContainer<>("return x.value;");
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public String getText() {
     return text.getValue();
   }
 
-  // method
+  //method
   @Override
   public TextMode getTextMode() {
     return textMode.getValue();
   }
 
-  // method
+  //method
   @Override
   public String getUserInput() {
     return getText();
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void removeUpdateTextAction() {
     updateTextAction = null;
   }
 
-  // method
+  //method
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
-  // method
+  //method
   @Override
   public Textbox setText(final String text) {
 
@@ -147,7 +147,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return this;
   }
 
-  // method
+  //method
   @Override
   public Textbox setTextMode(final TextMode textMode) {
 
@@ -156,7 +156,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return this;
   }
 
-  // method
+  //method
   @Override
   public Textbox setUpdateTextAction(final Runnable updateTextAction) {
 
@@ -165,7 +165,7 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return setUpdateTextAction(t -> updateTextAction.run());
   }
 
-  // method
+  //method
   @Override
   public Textbox setUpdateTextAction(final Consumer<String> updateTextAction) {
 
@@ -176,31 +176,31 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     return this;
   }
 
-  // method
+  //method
   @Override
   public Textbox setUserInput(final String userInput) {
     return setText(userInput);
   }
 
-  // method
+  //method
   @Override
   protected TextboxStyle createStyle() {
     return new TextboxStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<ITextbox, ITextboxStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<ITextbox> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetControl() {
 
@@ -211,12 +211,12 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     setCursorIcon(CursorIcon.EDIT);
   }
 
-  // method
+  //method
   private boolean hasUpdateTextAction() {
     return (updateTextAction != null);
   }
 
-  // method
+  //method
   private void runOptionalUpdateTextActionForText(final String text) {
     if (hasUpdateTextAction()) {
       updateTextAction.accept(text);

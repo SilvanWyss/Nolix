@@ -12,7 +12,7 @@ public final class NodeDataAdapterBuilder
     extends
     WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> {
 
-  // constructor
+  //constructor
   public NodeDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
 
     super(new AndSchemaCapturer<>(null));
@@ -20,7 +20,7 @@ public final class NodeDataAdapterBuilder
     setBuilder(() -> build(nodeDatabase));
   }
 
-  // method
+  //method
   private NodeDataAdapter build(final IMutableNode<?> nodeDatabase) {
     return new NodeDataAdapter(
         getName(),

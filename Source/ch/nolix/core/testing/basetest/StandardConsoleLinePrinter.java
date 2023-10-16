@@ -14,27 +14,27 @@ package ch.nolix.core.testing.basetest;
  */
 public final class StandardConsoleLinePrinter implements ILinePrinter {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void printEmptyLine() {
-    System.out.println(); // NOSONAR: This is a logger.
-    System.out.flush(); // NOSONAR: This is a logger.
+    System.out.println(); //NOSONAR: This is a logger.
+    System.out.flush(); //NOSONAR: This is a logger.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void printErrorLine(final String errorLine) {
-    System.out.println(errorLine); // NOSONAR: This is a logger.
-    System.out.flush(); // NOSONAR: This is a logger.
+    System.out.println(errorLine); //NOSONAR: This is a logger.
+    System.out.flush(); //NOSONAR: This is a logger.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -43,17 +43,17 @@ public final class StandardConsoleLinePrinter implements ILinePrinter {
     errorLines.forEach(this::printErrorLine);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void printInfoLine(final String infoLine) {
-    System.out.println(infoLine); // NOSONAR: This is a logger.
-    System.out.flush(); // NOSONAR: This is a logger.
+    System.out.println(infoLine); //NOSONAR: This is a logger.
+    System.out.flush(); //NOSONAR: This is a logger.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

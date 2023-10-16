@@ -10,7 +10,7 @@ import ch.nolix.systemtest.elementtest.styletest.StyleTestPool;
 //class
 public final class ElementTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ElementTestPool() {
     super(new MultiStateConfigurationTestPool(), new MutableElementTestPool(), new StyleTestPool());
   }

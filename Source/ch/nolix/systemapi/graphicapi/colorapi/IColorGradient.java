@@ -11,19 +11,19 @@ import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
  */
 public interface IColorGradient extends Specified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the color1 of the current {@link IColorGradient}.
    */
   IColor getColor1();
 
-  // method declaration
+  //method declaration
   /**
    * @return the color2 of the current {@link IColorGradient}.
    */
   IColor getColor2();
 
-  // method declaration
+  //method declaration
   /**
    * @return the direction of the current {@link IColorGradient}.
    */

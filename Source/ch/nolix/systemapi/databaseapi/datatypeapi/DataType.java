@@ -16,7 +16,7 @@ public enum DataType {
   STRING(String.class),
   BINARY_OBJECT(IBinaryObject.class);
 
-  // static method
+  //static method
   public static DataType forType(final Class<?> type) {
     return switch (type.getSimpleName()) {
       case "Byte" -> INTEGER_1BYTE;
@@ -31,10 +31,10 @@ public enum DataType {
     };
   }
 
-  // attribute
+  //attribute
   private final Class<?> dataTypeClass;
 
-  // constructor
+  //constructor
   <V> DataType(final Class<V> dataTypeClass) {
 
     if (dataTypeClass == null) {
@@ -44,7 +44,7 @@ public enum DataType {
     this.dataTypeClass = dataTypeClass;
   }
 
-  // method
+  //method
   public Class<?> getDataTypeClass() {
     return dataTypeClass;
   }

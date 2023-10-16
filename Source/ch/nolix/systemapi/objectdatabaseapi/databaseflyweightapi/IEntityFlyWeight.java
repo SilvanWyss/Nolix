@@ -6,9 +6,9 @@ import ch.nolix.coreapi.functionapi.requestapi.VoidnessRequestable;
 //interface
 public interface IEntityFlyWeight extends VoidnessRequestable {
 
-  // method declaration
+  //method declaration
   void noteInsert();
 
-  // method declaration
+  //method declaration
   void setInsertAction(Runnable insertAction);
 }

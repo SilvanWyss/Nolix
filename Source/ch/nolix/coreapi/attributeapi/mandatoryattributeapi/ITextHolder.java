@@ -10,7 +10,7 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  */
 public interface ITextHolder {
 
-  // method declaration
+  //method declaration
   /**
    * @return the text of the current {@link ITextHolder}.
    */

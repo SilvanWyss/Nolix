@@ -30,7 +30,7 @@ import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
  */
 public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
-  // constructor
+  //constructor
   /**
    * Creates a new container mediator for the given argument.
    * 
@@ -38,11 +38,11 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public ContainerMediator(final Iterable<E> argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new container mediator for the given argument with the given
    * argument name.
@@ -56,11 +56,11 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
       final String argumentName,
       final Iterable<E> argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument);
   }
 
-  // method
+  //method
   /**
    * @param element
    * @throws ArgumentDoesNotContainElementException if the argument of the current
@@ -76,7 +76,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   /**
    * @param condition
    * @throws ArgumentIsNullException  if the given condition is null.
@@ -88,16 +88,16 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public void contains(final Predicate<E> condition) {
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     if (condition == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
     }
 
-    // Iterates the elements of the argument of this container mediator.
+    //Iterates the elements of the argument of this container mediator.
     var found = false;
     for (final E e : getStoredArgument()) {
 
-      // Handles the case that the current element fulfills the given condition.
+      //Handles the case that the current element fulfills the given condition.
       if (condition.test(e)) {
         found = true;
         break;
@@ -111,7 +111,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   public void containsAll(final Object[] elements) {
 
     if (elements == null) {
@@ -123,7 +123,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   public void containsAll(final Iterable<Object> elements) {
 
     if (elements == null) {
@@ -133,7 +133,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     elements.forEach(this::contains);
   }
 
-  // method
+  //method
   public void containsAsManyElementsAs(final Object[] array) {
 
     if (array == null) {
@@ -143,7 +143,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     hasElementCount(array.length);
   }
 
-  // method
+  //method
   public void containsExactly(final Object firstElement, final Object... elements) {
 
     final var allElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
@@ -153,7 +153,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     containsAll(allElements);
   }
 
-  // method
+  //method
   public void containsExactlyEqualing(final E firstElement, final @SuppressWarnings("unchecked") E... elements) {
 
     final var localElements = GlobalArrayHelper.createArrayWithElement(firstElement, elements);
@@ -161,7 +161,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     containsExactlyEqualing(localElements);
   }
 
-  // method
+  //method
   public void containsExactlyEqualing(final E[] elements) {
 
     containsAsManyElementsAs(elements);
@@ -180,7 +180,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   public void containsExactlyInSameOrder(final E element, final @SuppressWarnings("unchecked") E... elements) {
 
     final var localElements = GlobalArrayHelper.createArrayWithElement(element, elements);
@@ -201,7 +201,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   /**
    * @param element
    * @throws InvalidArgumentException if the argument of the current
@@ -218,7 +218,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   /**
    * @param elementCount
    * @throws NegativeArgumentException if the given element count is negative.
@@ -228,26 +228,26 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public void hasElementCount(final int elementCount) {
 
-    // Asserts that the given element count is not negative.
+    //Asserts that the given element count is not negative.
     if (elementCount < 0) {
       throw NegativeArgumentException.forArgumentNameAndArgument(
           LowerCaseCatalogue.ELEMENT_COUNT,
           elementCount);
     }
 
-    // Asserts that the argument of this container mediator is not null.
+    //Asserts that the argument of this container mediator is not null.
     isNotNull();
 
     var actualElementCount = 0;
 
-    // Iterates the argument of this container mediator.
+    //Iterates the argument of this container mediator.
     Iterator<E> iterator = getStoredArgument().iterator();
     while (iterator.hasNext()) {
 
       actualElementCount++;
 
-      // Asserts that the argument of this container mediator
-      // contains not more elements than the given element count says.
+      //Asserts that the argument of this container mediator
+      //contains not more elements than the given element count says.
       if (actualElementCount > elementCount) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
             getArgumentName(),
@@ -258,8 +258,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
       iterator.next();
     }
 
-    // Asserts that the argument of this container mediator
-    // contains not less elements than the given element count says.
+    //Asserts that the argument of this container mediator
+    //contains not less elements than the given element count says.
     if (actualElementCount < elementCount) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -268,7 +268,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     }
   }
 
-  // method
+  //method
   /**
    * @param array
    * @throws ArgumentIsNullException  if the given array is null.
@@ -278,16 +278,16 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public void hasSameSizeAs(final double[] array) {
 
-    // Asserts that the given array is not null.
+    //Asserts that the given array is not null.
     if (array == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ARRAY);
     }
 
-    // Calls other method.
+    //Calls other method.
     hasElementCount(array.length);
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException   if the argument of this container mediator
    *                                   is null.
@@ -296,16 +296,16 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public void isEmpty() {
 
-    // Asserts that the argument of this container mediator is not null.
+    //Asserts that the argument of this container mediator is not null.
     isNotNull();
 
-    // Asserts that the argument of this container mediator is empty.
+    //Asserts that the argument of this container mediator is empty.
     if (IterableHelper.containsAny(getStoredArgument())) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException if the argument of this container mediator is
    *                                 null.
@@ -314,10 +314,10 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    */
   public void isNotEmpty() {
 
-    // Asserts that the argument of this container mediator is not null.
+    //Asserts that the argument of this container mediator is not null.
     isNotNull();
 
-    // Asserts that the argument of this container mediator is not empty.
+    //Asserts that the argument of this container mediator is not empty.
     if (IterableHelper.isEmpty(getStoredArgument())) {
       throw EmptyArgumentException.forArgument(getStoredArgument());
     }

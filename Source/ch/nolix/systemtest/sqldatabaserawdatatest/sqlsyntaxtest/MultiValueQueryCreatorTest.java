@@ -12,13 +12,13 @@ public final class MultiValueQueryCreatorTest extends Test {
   @TestCase
   public void testCase_createQueryToLoadMultiValueEntries() {
 
-    // setup
+    //setup
     final var testUnit = new MultiValueQueryCreator();
 
-    // execution
+    //execution
     final var result = testUnit.createQueryToLoadMultiValueEntries("my_entity_id", "my_column_id");
 
-    // verification
+    //verification
     final var expectedResult = "SELECT Value "
         + "FROM MMultiValueEntry "
         + "WHERE EntityId = 'my_entity_id' "

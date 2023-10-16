@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  */
 public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
 
-  // constructor
+  //constructor
   /**
    * Creates a new extended generic argument mediator for the given argument.
    * 
@@ -24,11 +24,11 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
    */
   ExtendedArgumentMediator(final A argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument);
   }
 
-  // method
+  //method
   /**
    * @param type
    * @return a new generic argument mediator with the argument name from the given
@@ -38,7 +38,7 @@ public class ExtendedArgumentMediator<A> extends ArgumentMediator<A> {
     return new ArgumentMediator<>(type.getSimpleName(), getStoredArgument());
   }
 
-  // method
+  //method
   /**
    * @param argumentName
    * @return a new generic argument mediator with the given argument name and for

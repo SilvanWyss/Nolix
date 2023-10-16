@@ -4,12 +4,12 @@ package ch.nolix.templatetest.graphictest.texturetest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new TextureTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

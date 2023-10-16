@@ -26,19 +26,19 @@ import ch.nolix.core.programcontrol.worker.Worker;
 //class
 final class ServerSocketProcessor extends Worker {
 
-  // attribute
+  //attribute
   private final Server parentServer;
 
-  // attribute
+  //attribute
   private final Socket socket;
 
-  // attribute
+  //attribute
   private final InputStream socketInputStream;
 
-  // attribute
+  //attribute
   private final OutputStream socketOutputStream;
 
-  // constructor
+  //constructor
   public ServerSocketProcessor(final Server parentServer, final Socket socket) {
 
     GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
@@ -58,7 +58,7 @@ final class ServerSocketProcessor extends Worker {
     GlobalLogger.logInfo("Created a ServerSocketProcessor.");
   }
 
-  // method
+  //method
   @Override
   protected void run() {
     try {
@@ -70,7 +70,7 @@ final class ServerSocketProcessor extends Worker {
       } else {
         parentServer.internalTakeBackendEndPoint(netEndPoint.getStoredElement());
       }
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 
       closeSocket();
 
@@ -78,7 +78,7 @@ final class ServerSocketProcessor extends Worker {
     }
   }
 
-  // method
+  //method
   private void closeSocket() {
     try {
       socket.close();
@@ -87,7 +87,7 @@ final class ServerSocketProcessor extends Worker {
     }
   }
 
-  // method
+  //method
   private SingleContainer<NetEndPoint> createOptionalNetEndPoint() {
 
     final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
@@ -133,7 +133,7 @@ final class ServerSocketProcessor extends Worker {
     }
   }
 
-  // method
+  //method
   private void fillUpUntilEmptyLineFollows(final LinkedList<String> lines, final InputStream inputStream) {
     while (true) {
 
@@ -151,7 +151,7 @@ final class ServerSocketProcessor extends Worker {
     }
   }
 
-  // method
+  //method
   private NetEndPointCreationType getNetEndPointCreationTypeFromFirstReceivedLine(final String firstReceivedLine) {
 
     if (firstReceivedLine.equals(String.valueOf(NetEndPointProtocol.MAIN_TARGET_PREFIX))) {
@@ -169,7 +169,7 @@ final class ServerSocketProcessor extends Worker {
     throw InvalidArgumentException.forArgumentNameAndArgument("first received line", firstReceivedLine);
   }
 
-  // method
+  //method
   private void sendRawMessage(final String rawMessage) {
     try {
       socketOutputStream.write(rawMessage.getBytes(StandardCharsets.UTF_8));

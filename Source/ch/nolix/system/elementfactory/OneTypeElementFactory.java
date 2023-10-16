@@ -16,7 +16,7 @@ import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 //class
 final class OneTypeElementFactory<E> {
 
-  // static method
+  //static method
   private static <ME extends IMutableElement> ME createElementOf(final Class<ME> elementClass) {
     try {
       return elementClass.getConstructor().newInstance();
@@ -29,13 +29,13 @@ final class OneTypeElementFactory<E> {
     }
   }
 
-  // attribute
+  //attribute
   private final Class<E> elementClass;
 
-  // attribute
+  //attribute
   private final Function<INode<?>, E> creator;
 
-  // constructor
+  //constructor
   @SuppressWarnings("unchecked")
   public <ME extends IMutableElement> OneTypeElementFactory(final Class<ME> elementClass) {
     this(
@@ -49,7 +49,7 @@ final class OneTypeElementFactory<E> {
         });
   }
 
-  // constructor
+  //constructor
   public OneTypeElementFactory(final Class<E> elementClass, final Function<INode<?>, E> creator) {
 
     GlobalValidator.assertThat(elementClass).thatIsNamed("element class").isNotNull();
@@ -59,27 +59,27 @@ final class OneTypeElementFactory<E> {
     this.creator = creator;
   }
 
-  // method
+  //method
   public boolean canCreateElementFrom(final BaseNode<?> specification) {
     return canCreateElementOf(specification.getHeader());
   }
 
-  // method
+  //method
   public boolean canCreateElementOf(final Class<?> type) {
     return (elementClass == type);
   }
 
-  // method
+  //method
   public boolean canCreateElementOf(final String type) {
     return (elementClass.getSimpleName().equals(type) || elementClass.getName().equals(type));
   }
 
-  // method
+  //method
   public E createElementFrom(final BaseNode<?> specification) {
     return creator.apply(specification);
   }
 
-  // method
+  //method
   Class<E> internalGetElementClass() {
     return elementClass;
   }

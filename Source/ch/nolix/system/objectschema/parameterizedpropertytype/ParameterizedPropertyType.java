@@ -9,10 +9,10 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 //class
 public abstract class ParameterizedPropertyType implements IParameterizedPropertyType {
 
-  // attribute
+  //attribute
   private final DataType dataType;
 
-  // constructor
+  //constructor
   protected ParameterizedPropertyType(final DataType dataTye) {
 
     GlobalValidator.assertThat(dataTye).thatIsNamed(DataType.class).isNotNull();
@@ -20,7 +20,7 @@ public abstract class ParameterizedPropertyType implements IParameterizedPropert
     this.dataType = dataTye;
   }
 
-  // method
+  //method
   @Override
   public final DataType getDataType() {
     return dataType;

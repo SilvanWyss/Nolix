@@ -10,18 +10,18 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface ILinearContainer<LC extends ILinearContainer<LC, LCL>, LCL extends ILinearContainerStyle<LCL>>
     extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<LC, LCL> {
 
-  // method declaration
+  //method declaration
   LC addComponent(IControlGetter component, IControlGetter... components);
 
-  // method declaration
+  //method declaration
   LC addComponents(IContainer<? extends IControlGetter> components);
 
-  // method declaration
+  //method declaration
   LC addControl(IControl<?, ?> control, IControl<?, ?>... controls);
 
-  // method declaration
+  //method declaration
   LC addControls(IContainer<? extends IControl<?, ?>> controls);
 
-  // method declaration
+  //method declaration
   void removeControl(IControl<?, ?> control);
 }

@@ -14,10 +14,10 @@ package ch.nolix.core.environment.localcomputer;
  */
 public final class WindowsEnvironmentVariableCatalogue {
 
-  // constant
+  //constant
   public static final String APP_DATA = "APPDATA";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link WindowsEnvironmentVariableCatalogue}
    * can be created.

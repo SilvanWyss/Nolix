@@ -9,14 +9,14 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 //class
 final class MultiValueSaver {
 
-  // method
+  //method
   public void saveChangesOfMultiValue(final IMultiValue<?> multiValue, final Database database) {
     for (final var le : multiValue.getStoredLocalEntries()) {
       saveChangeOfMultiValueEntry(le, database);
     }
   }
 
-  // method
+  //method
   private void saveChangeOfMultiValueEntry(final IMultiValueEntry<?> multiValueEntry, final Database database) {
 
     final var multiValueEntryState = multiValueEntry.getState();
@@ -35,7 +35,7 @@ final class MultiValueSaver {
     }
   }
 
-  // method
+  //method
   private void saveMultiValueEntryCreation(final IMultiValueEntry<?> multiValueEntry, final Database database) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
@@ -47,7 +47,7 @@ final class MultiValueSaver {
         multiValueEntry.getStoredValue().toString());
   }
 
-  // method
+  //method
   private void saveMultiValueEntryDeletion(final IMultiValueEntry<?> multiValueEntry, final Database database) {
 
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();

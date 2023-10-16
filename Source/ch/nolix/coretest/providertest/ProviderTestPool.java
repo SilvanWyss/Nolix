@@ -8,7 +8,7 @@ import ch.nolix.coretest.providertest.implprovidertest.ImplProviderTestPool;
 //class
 public final class ProviderTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ProviderTestPool() {
     super(new ImplProviderTestPool());
   }

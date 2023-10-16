@@ -7,29 +7,29 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public final class GeneralEntity extends BaseEntity {
 
-  // constant
+  //constant
   private static final PropertyFromTableExtractor PROPERTY_FROM_TABLE_EXTRACTOR = new PropertyFromTableExtractor();
 
-  // static method
+  //static method
   public GeneralEntity forTable(final Table<GeneralEntity> table) {
     return new GeneralEntity(table);
   }
 
-  // attribute
+  //attribute
   private final String tableName;
 
-  // constructor
+  //constructor
   private GeneralEntity(final Table<GeneralEntity> table) {
     tableName = table.getName();
   }
 
-  // method
+  //method
   @Override
   public String getParentTableName() {
     return tableName;
   }
 
-  // method
+  //method
   @Override
   IContainer<Property> internalLoadProperties() {
     return PROPERTY_FROM_TABLE_EXTRACTOR.createPropertiesFromTable(getStoredParentTable());

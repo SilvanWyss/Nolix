@@ -17,13 +17,13 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
  */
 public interface IBaseStyle extends Specified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the attaching attributes of the current {@link IBaseStyle}.
    */
   IContainer<? extends INode<?>> getAttachingAttributes();
 
-  // method declaration
+  //method declaration
   /**
    * Lets the current {@link IBaseStyle} style the given element.
    * 

@@ -10,25 +10,25 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalIdentified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the id of the current {@link OptionalIdentified}.
    */
   String getId();
 
-  // method declaration
+  //method declaration
   /**
    * @return the id of the current {@link OptionalIdentified} in quotes.
    */
   String getIdInQuotes();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalIdentified} has an id.
    */
   boolean hasId();
 
-  // method declaration
+  //method declaration
   /**
    * @param id
    * @return true if the current {@link OptionalIdentified} has the given id.

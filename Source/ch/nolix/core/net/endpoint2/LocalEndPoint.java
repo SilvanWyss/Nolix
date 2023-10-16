@@ -22,16 +22,16 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
  */
 public final class LocalEndPoint extends EndPoint {
 
-  // attribute
+  //attribute
   private final PeerType peerType;
 
-  // attribute
+  //attribute
   private final LocalEndPoint counterpart;
 
-  // optional attribute
+  //optional attribute
   private final String target;
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point that will connect to an other new local end
    * point.
@@ -40,14 +40,14 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.FRONTEND;
 
-    // Creates the counterpart of this local end point.
+    //Creates the counterpart of this local end point.
     counterpart = new LocalEndPoint(this);
 
-    // Clears the target of this local end point.
+    //Clears the target of this local end point.
     target = null;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point that will connect to the given target
    * 
@@ -58,16 +58,16 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.FRONTEND;
 
-    // Creates the counterpart of this local end point.
+    //Creates the counterpart of this local end point.
     counterpart = new LocalEndPoint(this, target.getName());
 
-    // Clears the target of this local end point.
+    //Clears the target of this local end point.
     this.target = null;
 
     target.takeBackendEndPoint(getStoredCounterpart());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point that will connect to the given target on the
    * given server.
@@ -79,16 +79,16 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.FRONTEND;
 
-    // Creates the counterpart of this local end point.
+    //Creates the counterpart of this local end point.
     counterpart = new LocalEndPoint(this, target);
 
     this.target = target;
 
-    // Lets the given server take the counterpart of this lcoal end point.
+    //Lets the given server take the counterpart of this lcoal end point.
     baseServer.internalTakeBackendEndPoint(getStoredCounterpart());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point with the given counterpart.
    * 
@@ -99,17 +99,17 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.BACKEND;
 
-    // Asserts that the given counter part is not null.
+    //Asserts that the given counter part is not null.
     GlobalValidator.assertThat(counterPart).thatIsNamed("counterpart").isNotNull();
 
-    // Sets the counter part of this local end point.
+    //Sets the counter part of this local end point.
     this.counterpart = counterPart;
 
-    // Clears the target of this local end point.
+    //Clears the target of this local end point.
     target = null;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point with the given counterpart and target.
    * 
@@ -123,20 +123,20 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.BACKEND;
 
-    // Asserts that the given counter part is not null.
+    //Asserts that the given counter part is not null.
     GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    // Sets the counter part of this local end point.
+    //Sets the counter part of this local end point.
     this.counterpart = counterpart;
 
-    // Asserts that the given target is not null or empty.
+    //Asserts that the given target is not null or empty.
     GlobalValidator.assertThat(target).thatIsNamed("target").isNotEmpty();
 
-    // Sets the target of this local end point.
+    //Sets the target of this local end point.
     this.target = target;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -145,7 +145,7 @@ public final class LocalEndPoint extends EndPoint {
     return ConnectionType.LOCAL;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -154,7 +154,7 @@ public final class LocalEndPoint extends EndPoint {
     return peerType;
   }
 
-  // method
+  //method
   /**
    * Lets this local end point send the given message.
    * 
@@ -164,13 +164,13 @@ public final class LocalEndPoint extends EndPoint {
    */
   public String sendAndWaitToReply(final String message) {
 
-    // Asserts that this local end point is open.
+    //Asserts that this local end point is open.
     assertIsOpen();
 
     return getStoredCounterpart().receiveAndGetReply(message);
   }
 
-  // method
+  //method
   /**
    * @return the counterpart of this local end point.
    */
@@ -178,7 +178,7 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart;
   }
 
-  // method
+  //method
   /**
    * @return the target of this local end point.
    * @throws ArgumentDoesNotHaveAttributeException if this local end point does
@@ -187,7 +187,7 @@ public final class LocalEndPoint extends EndPoint {
   @Override
   public String getCustomTargetSlot() {
 
-    // Asserts that this local end point has a target.
+    //Asserts that this local end point has a target.
     if (!hasCustomTargetSlot()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "target");
     }
@@ -195,7 +195,7 @@ public final class LocalEndPoint extends EndPoint {
     return target;
   }
 
-  // method
+  //method
   /**
    * Lets this local end point send the given message.
    * 
@@ -207,7 +207,7 @@ public final class LocalEndPoint extends EndPoint {
     return getStoredCounterpart().receiveAndGetReply(message);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -216,7 +216,7 @@ public final class LocalEndPoint extends EndPoint {
     return SecurityLevel.UNSECURE;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -230,7 +230,7 @@ public final class LocalEndPoint extends EndPoint {
     return TargetSlotDefinition.CUSTOM;
   }
 
-  // method
+  //method
   /**
    * Lets this local end point receive the given message.
    * 

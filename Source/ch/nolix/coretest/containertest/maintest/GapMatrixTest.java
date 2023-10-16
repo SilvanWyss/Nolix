@@ -13,88 +13,88 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class GapMatrixTest extends ContainerTest {
 
-  // method
+  //method
   @TestCase
   public void testCase_addColumn_whenGapMatrixIsExpanded() {
 
-    // setup
+    //setup
     final var testUnit = new GapMatrix<>(100, 200);
 
-    // execution
+    //execution
     testUnit.addColumn();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
     expect(testUnit.getRowCount()).isEqualTo(100);
     expect(testUnit.getColumnCount()).isEqualTo(201);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addColumn_whenGapMatrixIsMinimal() {
 
-    // setup
+    //setup
     final var testUnit = new GapMatrix<>();
 
-    // execution
+    //execution
     testUnit.addColumn();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
     expect(testUnit.getRowCount()).isEqualTo(0);
     expect(testUnit.getColumnCount()).isEqualTo(1);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addRow_whenGapMatrixIsExpanded() {
 
-    // setup
+    //setup
     final var testUnit = new GapMatrix<>(100, 200);
 
-    // execution
+    //execution
     testUnit.addRow();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
     expect(testUnit.getRowCount()).isEqualTo(101);
     expect(testUnit.getColumnCount()).isEqualTo(200);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addRow_whenGapMatrixIsMinimal() {
 
-    // setup
+    //setup
     final var testUnit = new GapMatrix<>();
 
-    // execution
+    //execution
     testUnit.addRow();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
     expect(testUnit.getRowCount()).isEqualTo(1);
     expect(testUnit.getColumnCount()).isEqualTo(0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_create() {
 
-    // execution
+    //execution
     final var result = new GapMatrix<>(100, 200);
 
-    // verification
+    //verification
     expect(result.isEmpty());
     expect(result.getRowCount()).isEqualTo(100);
     expect(result.getColumnCount()).isEqualTo(200);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_iterate_whenGapMatrixContainsElements() {
 
-    // setup
+    //setup
     final var testUnit = new GapMatrix<String>(100, 200);
     testUnit.setAt1BasedRowIndexAndColumnIndex(10, 10, "I");
     testUnit.setAt1BasedRowIndexAndColumnIndex(10, 11, "II");
@@ -103,10 +103,10 @@ public final class GapMatrixTest extends ContainerTest {
     testUnit.setAt1BasedRowIndexAndColumnIndex(20, 11, "V");
     testUnit.setAt1BasedRowIndexAndColumnIndex(20, 12, "VI");
 
-    // execution
+    //execution
     final var iterator = testUnit.iterator();
 
-    // verification
+    //verification
     expect(iterator.hasNext());
     expect(iterator.next()).isEqualTo("I");
     expect(iterator.hasNext());
@@ -123,22 +123,22 @@ public final class GapMatrixTest extends ContainerTest {
     expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_iterate_whenGapMatrixIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new GapMatrix<String>(100, 200);
 
-    // execution
+    //execution
     final var iterator = testUnit.iterator();
 
-    // verification
+    //verification
     expectNot(iterator.hasNext());
     expectRunning(iterator::next).throwsException().ofType(NoSuchElementException.class);
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return new GapMatrix<>();

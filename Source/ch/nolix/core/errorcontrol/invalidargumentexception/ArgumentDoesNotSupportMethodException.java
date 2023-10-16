@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param methodName
@@ -28,7 +28,7 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
     return new ArgumentDoesNotSupportMethodException(argument, methodName);
   }
 
-  // static method
+  //static method
   /**
    * @param methodName
    * @return a valid method name of the given methodName.
@@ -37,12 +37,12 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
    */
   private static String getValidMethodNameOfMethodName(final String methodName) {
 
-    // Asserts that the given methodName is not null.
+    //Asserts that the given methodName is not null.
     if (methodName == null) {
       throw new IllegalArgumentException("The given method name is null.");
     }
 
-    // Asserts that the given methodName is not blank.
+    //Asserts that the given methodName is not blank.
     if (methodName.isBlank()) {
       throw new IllegalArgumentException("The given method name is blank.");
     }
@@ -50,7 +50,7 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
     return methodName;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
    * argument and methodName.
@@ -62,7 +62,7 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
    */
   private ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not support the " + getValidMethodNameOfMethodName(methodName) + " method");
   }
 }

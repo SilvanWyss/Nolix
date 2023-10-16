@@ -16,10 +16,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 //class
 public final class MultiReadContainer<E> extends Container<E> {
 
-  // attribute
+  //attribute
   private final IterableReadContainer<IContainer<E>> containers;
 
-  // static method
+  //static method
   public static <E2> MultiReadContainer<E2> forArray(
       final E2[] array,
       @SuppressWarnings("unchecked") final E2[]... arrays) {
@@ -35,7 +35,7 @@ public final class MultiReadContainer<E> extends Container<E> {
     return new MultiReadContainer<>(containers);
   }
 
-  // static method
+  //static method
   @SafeVarargs
   public static <E2> MultiReadContainer<E2> forIterable(
       final Iterable<? extends E2> iterable,
@@ -52,29 +52,29 @@ public final class MultiReadContainer<E> extends Container<E> {
     return new MultiReadContainer<>(containers);
   }
 
-  // constructor
+  //constructor
   public MultiReadContainer() {
     containers = new IterableReadContainer<>();
   }
 
-  // constructor
+  //constructor
   private MultiReadContainer(final IContainer<? extends IContainer<E>> container) {
     this.containers = IterableReadContainer.forIterable(container);
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> iterator() {
     return new MultiReadContainerIterator<>(containers);
   }
 
-  // method
+  //method
   @Override
   public int getElementCount() {
     return containers.getSumOfIntegers(IContainer::getElementCount).intValue();
   }
 
-  // method
+  //method
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
@@ -95,31 +95,31 @@ public final class MultiReadContainer<E> extends Container<E> {
         getElementCount());
   }
 
-  // method
+  //method
   @Override
   public E getStoredLast() {
     return containers.getStoredLast().getStoredLast();
   }
 
-  // method
+  //method
   @Override
   public boolean isMaterialized() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return new LinkedList<>();

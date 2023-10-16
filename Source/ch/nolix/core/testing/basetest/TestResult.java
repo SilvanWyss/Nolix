@@ -6,25 +6,25 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestResult {
 
-  // static method
+  //static method
   public static TestResult forTestCaseResults(final Iterable<TestCaseResult> testCaseResults) {
     return new TestResult(testCaseResults);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final List<TestCaseResult> testCaseResults;
 
-  // constructor
+  //constructor
   private TestResult(final Iterable<TestCaseResult> testCaseResults) {
     this.testCaseResults = List.withElements(testCaseResults);
   }
 
-  // method
+  //method
   public int getTestCaseCount() {
     return testCaseResults.getElementCount();
   }
 
-  // method
+  //method
   public int getPassedTestCaseCount() {
 
     var passedTestCaseCount = 0;
@@ -38,12 +38,12 @@ public final class TestResult {
     return passedTestCaseCount;
   }
 
-  // method
+  //method
   public boolean isFailed() {
     return !isPassed();
   }
 
-  // method
+  //method
   public boolean isPassed() {
 
     for (var tcr : testCaseResults) {

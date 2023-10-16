@@ -25,7 +25,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class FileAccessor extends FileSystemItemAccessor {
 
-  // constructor
+  //constructor
   /**
    * Creates a new file accessor for a file with the given file path.
    * 
@@ -36,11 +36,11 @@ public final class FileAccessor extends FileSystemItemAccessor {
    */
   public FileAccessor(final String filePath) {
 
-    // Calls method of the base class.
+    //Calls method of the base class.
     super(filePath);
 
-    // Asserts that the file system item with the given file path is acutally a
-    // file.
+    //Asserts that the file system item with the given file path is acutally a
+    //file.
     if (!FileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.FILE_PATH,
@@ -49,7 +49,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  // method
+  //method
   /**
    * Clears the file of this file accessor. Deletes the content of the file of
    * this file accessor, but not the file itself.
@@ -58,7 +58,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     overwriteFile(StringCatalogue.EMPTY_STRING);
   }
 
-  // method
+  //method
   /**
    * Overwrites the file of this file accessor with the given bytes.
    * 
@@ -74,7 +74,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  // method
+  //method
   /**
    * Overwrites the file of this file accessor with the given content.
    * 
@@ -90,7 +90,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  // method
+  //method
   /**
    * Reads the content of the file of this file accessor.
    * 
@@ -101,7 +101,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     return new String(readFileToBytes(), StandardCharsets.UTF_8).replace("\r", StringCatalogue.EMPTY_STRING);
   }
 
-  // method
+  //method
   /**
    * Reads the content of the file of this file accessor to bytes.
    * 
@@ -116,7 +116,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     }
   }
 
-  // method
+  //method
   /**
    * Reads the content of the file of this file accessor to lines.
    * 

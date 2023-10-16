@@ -13,204 +13,204 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class StringMediatorTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_hasLength_whenTheGivenLengthIsNegative() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("aaa");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.hasLength(-1))
         .throwsException()
         .ofType(NegativeArgumentException.class)
         .withMessage("The given length '-1' is negative.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_hasLength_whenTheGivenArgumentIsNull() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator(null);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.hasLength(4))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given argument is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_hasLength_whenTheGivenArgumentIsShorterThanTheGivenLength() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("aaa");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.hasLength(4))
         .throwsException()
         .ofType(InvalidArgumentException.class)
         .withMessage("The given argument 'aaa' does not have the length 4.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_hasLength_whenTheGivenArgumentHasTheGivenLength() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("aaaa");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.hasLength(4)).doesNotThrowException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_hasLength_whenTheGivenArgumentIsLongerThanTheGivenLength() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("aaaaa");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.hasLength(4))
         .throwsException()
         .ofType(InvalidArgumentException.class)
         .withMessage("The given argument 'aaaaa' does not have the length 4.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotEmpty_whenTheGivenArgumentIsNull() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator(null);
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotEmpty)
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given argument is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotEmpty_whenTheGivenArgumentIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("");
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotEmpty)
         .throwsException()
         .ofType(EmptyArgumentException.class)
         .withMessage("The given argument is empty.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfASpace() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator(" ");
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotEmpty).doesNotThrowException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotEmpty_whenTheGivenArgumentConsistsOfALetter() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("a");
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotEmpty).doesNotThrowException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotBlank_whenTheGivenArgumentIsNull() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator(null);
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotBlank)
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given argument is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotBlank_whenTheGivenArgumentIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("");
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotBlank)
         .throwsException()
         .ofType(InvalidArgumentException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotBlank_whenTheGivenArgumentConsistsOfASpace() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator(" ");
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotBlank)
         .throwsException()
         .ofType(InvalidArgumentException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotBlank_whenTheGivenArgumentConsistsOfALetter() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("a");
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::isNotBlank).doesNotThrowException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotLongerThan_whenTheArgumentIsShorterThanTheMaxLength() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("lorem");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10)).doesNotThrowException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotLongerThan_whenTheArgumentHasTheMaxLength() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("lorem ipsu");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10)).doesNotThrowException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isNotLongerThan_whenTheArgumentIsLongerThanTheMaxLength() {
 
-    // setup
+    //setup
     final var testUnit = new StringMediator("lorem ipsum dolor");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10))
         .throwsException()
         .ofType(InvalidArgumentException.class)

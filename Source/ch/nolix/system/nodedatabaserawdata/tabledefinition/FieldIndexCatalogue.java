@@ -4,13 +4,13 @@ package ch.nolix.system.nodedatabaserawdata.tabledefinition;
 //class
 public final class FieldIndexCatalogue {
 
-  // constant
+  //constant
   public static final int ID_INDEX = 1;
 
-  // constant
+  //constant
   public static final int SAVE_STAMP_INDEX = 2;
 
-  // constructor
+  //constructor
   private FieldIndexCatalogue() {
   }
 }

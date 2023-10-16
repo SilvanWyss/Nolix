@@ -26,16 +26,16 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
  */
 public final class NetEndPoint extends EndPoint {
 
-  // constant
+  //constant
   private int nextSentPackageIndex = 1;
 
-  // attribute
+  //attribute
   private final IEndPoint internalEndPoint;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Package> receivedPackages = new LinkedList<>();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the given port on the local machine.
@@ -45,11 +45,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final int port) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(port));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given target on
    * the given port on the local machine.
@@ -62,11 +62,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final int port, final String target) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(port, target));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the HTTP port (80) on the machine with the given ip.
@@ -75,11 +75,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final String ip) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default target on
    * the given port on the machine with the given ip.
@@ -90,11 +90,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final String ip, final int port) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given target on
    * the given port on the machine with the given ip.
@@ -108,11 +108,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final String ip, final int port, final String target) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint.SocketEndPoint(ip, port, target));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
@@ -128,7 +128,7 @@ public final class NetEndPoint extends EndPoint {
     internalEndPoint.setReceiver(this::receive);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -137,7 +137,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getConnectionType();
   }
 
-  // method
+  //method
   /**
    * @return the target of the current {@link NetEndPoint}.
    * @throws ArgumentDoesNotHaveAttributeException if this net end point does not
@@ -148,7 +148,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getCustomTargetSlot();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -157,7 +157,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getPeerType();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -166,7 +166,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getConnectionSecurityLevel();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link NetEndPoint} is a net end point.
    */
@@ -174,7 +174,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.isSocketEndPoint();
   }
 
-  // method
+  //method
   /**
    * Sends the given message and returns the reply.
    * 
@@ -187,7 +187,7 @@ public final class NetEndPoint extends EndPoint {
     return sendAndWaitToReply(message);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -196,7 +196,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getTargetSlotDefinition();
   }
 
-  // method
+  //method
   /**
    * @return the internal end point of the current {@link NetEndPoint}.
    */
@@ -204,7 +204,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint;
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message.
    * 
@@ -218,24 +218,24 @@ public final class NetEndPoint extends EndPoint {
     return receivedPackages;
   }
 
-  // method
+  //method
   /**
    * @return the index of the next sent package. of the current
    *         {@link NetEndPoint}
    */
   int getNextSentPackageIndex() {
 
-    // Resets the index of the text sent package if it has reached the maximum
-    // value.
+    //Resets the index of the text sent package if it has reached the maximum
+    //value.
     if (nextSentPackageIndex == Integer.MAX_VALUE) {
       nextSentPackageIndex = 0;
     }
 
-    // Returns and increments the next sent package index.
+    //Returns and increments the next sent package index.
     return nextSentPackageIndex++;
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given package.
    * 
@@ -243,8 +243,8 @@ public final class NetEndPoint extends EndPoint {
    */
   void receive(final Package pPackage) {
 
-    // Enumerates the message role of the given package.
-    switch (pPackage.getMessageRole()) { // NOSONAR: A switch-statement allows to add probable additional cases.
+    //Enumerates the message role of the given package.
+    switch (pPackage.getMessageRole()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case RESPONSE_EXPECTING_MESSAGE:
 
         try {
@@ -252,7 +252,7 @@ public final class NetEndPoint extends EndPoint {
           if (isOpen()) {
             send(new Package(pPackage.getIndex(), MessageRole.SUCCESS_RESPONSE, reply));
           }
-        } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+        } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
           String responseMessage = error.getMessage();
           send(new Package(pPackage.getIndex(), MessageRole.ERROR_RESPONSE, responseMessage));
         }
@@ -263,7 +263,7 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} return and remove the received package
    * with the given index.
@@ -277,7 +277,7 @@ public final class NetEndPoint extends EndPoint {
     return getStoredReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return true if the current {@link NetEndPoint} has received a package with
@@ -287,7 +287,7 @@ public final class NetEndPoint extends EndPoint {
     return getStoredReceivedPackages().containsAny(rp -> rp.hasIndex(index));
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} send the given package.
    * 
@@ -297,7 +297,7 @@ public final class NetEndPoint extends EndPoint {
     internalEndPoint.sendMessage(pPackage.toString());
   }
 
-  // method
+  //method
   /**
    * Sends the given message and waits to the reply.
    * 
@@ -307,7 +307,7 @@ public final class NetEndPoint extends EndPoint {
    */
   private String sendAndWaitToReply(final String message) {
 
-    // Sends message and receives reply.
+    //Sends message and receives reply.
     final var index = getNextSentPackageIndex();
     send(new Package(index, MessageRole.RESPONSE_EXPECTING_MESSAGE, message));
     final var response = waitToAndGetAndRemoveReceivedPackage(index);
@@ -316,7 +316,7 @@ public final class NetEndPoint extends EndPoint {
       return null;
     }
 
-    // Enumerates the response.
+    //Enumerates the response.
     return switch (response.getMessageRole()) {
       case SUCCESS_RESPONSE ->
         response.getStoredContent();
@@ -327,7 +327,7 @@ public final class NetEndPoint extends EndPoint {
     };
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} wait to and return and remove the
    * received package with the given index.
@@ -340,17 +340,17 @@ public final class NetEndPoint extends EndPoint {
    */
   private Package waitToAndGetAndRemoveReceivedPackage(final int index) {
 
-    // This loop suffers from being optimized away by the compiler or the JVM.
+    //This loop suffers from being optimized away by the compiler or the JVM.
     while (!receivedPackage(index)) {
 
-      // Handles the case that the current NetEndPoint is closed.
+      //Handles the case that the current NetEndPoint is closed.
       if (isClosed()) {
         return null;
       }
 
-      // This statement, which is theoretically unnecessary, makes that the current
-      // loop is not optimized away.
-      System.err.flush(); // NOSONAR: This statement is used to keep the loop.
+      //This statement, which is theoretically unnecessary, makes that the current
+      //loop is not optimized away.
+      System.err.flush(); //NOSONAR: This statement is used to keep the loop.
     }
 
     return getAndRemoveReceivedPackage(index);

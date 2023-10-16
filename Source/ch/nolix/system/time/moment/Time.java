@@ -32,34 +32,34 @@ import ch.nolix.systemapi.timeapi.timestructure.Weekday;
  */
 public final class Time extends Element implements ITime {
 
-  // constant
+  //constant
   public static final int DEFAULT_YEAR = 2000;
 
-  // constant
+  //constant
   public static final int DEFAULT_MONTH_OF_YEAR = 1;
 
-  // constant
+  //constant
   public static final int DEFAULT_DAY_OF_MONTH = 1;
 
-  // constant
+  //constant
   public static final int DEFAULT_HOUR_OF_DAY = 0;
 
-  // constant
+  //constant
   public static final int DEFAULT_MINUTE_OF_HOUR = 0;
 
-  // constant
+  //constant
   public static final int DEFAULT_SECOND_OF_MINUTE = 0;
 
-  // constant
+  //constant
   public static final int DEFAULT_MILLISECOND_OF_SECOND = 0;
 
-  // constant
+  //constant
   private static final Time DEFAULT_TIME = new Time();
 
-  // attribute
+  //attribute
   private final ZonedDateTime zonedDateTime;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link Time} from the given specification.
@@ -69,7 +69,7 @@ public final class Time extends Element implements ITime {
     return fromString(specification.getSingleChildNodeHeader());
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return a new {@link Time} from the given string.
@@ -77,13 +77,13 @@ public final class Time extends Element implements ITime {
    */
   public static Time fromString(final String string) {
 
-    // Asserts that the given string is not null.
+    //Asserts that the given string is not null.
     GlobalValidator.assertThat(string).thatIsNamed("string").isNotNull();
 
-    // Creates array of values of the given string.
+    //Creates array of values of the given string.
     final String[] array = string.split("-");
 
-    // Enumerates the length of the array.
+    //Enumerates the length of the array.
     return switch (array.length) {
       case 3 ->
         fromArrayWith3Values(array);
@@ -98,7 +98,7 @@ public final class Time extends Element implements ITime {
     };
   }
 
-  // static method
+  //static method
   /**
    * @return a new {@link Time} that represents the current time on the local
    *         computer.
@@ -107,7 +107,7 @@ public final class Time extends Element implements ITime {
     return new Time(ZonedDateTime.now());
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @return a new {@link Time} with the given year.
@@ -116,7 +116,7 @@ public final class Time extends Element implements ITime {
     return new Time(DEFAULT_TIME.zonedDateTime.withYear(year));
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @param monthOfYear
@@ -126,7 +126,7 @@ public final class Time extends Element implements ITime {
     return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear));
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @param monthOfYear
@@ -140,7 +140,7 @@ public final class Time extends Element implements ITime {
     return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear).withDayOfMonth(dayOfMonth));
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @param monthOfYear
@@ -162,7 +162,7 @@ public final class Time extends Element implements ITime {
             .withHour(hourOfDay));
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @param monthOfYear
@@ -187,7 +187,7 @@ public final class Time extends Element implements ITime {
             .withMinute(minuteOfHour));
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @param monthOfYear
@@ -215,7 +215,7 @@ public final class Time extends Element implements ITime {
             .withSecond(secondOfMinute));
   }
 
-  // static method
+  //static method
   /**
    * @param year
    * @param monthOfYear
@@ -246,7 +246,7 @@ public final class Time extends Element implements ITime {
             .withNano(1_000_000 * millisecondOfSecond));
   }
 
-  // static method
+  //static method
   /**
    * @param array with 3 values
    * @return a new {@link Time} from the given array.
@@ -258,7 +258,7 @@ public final class Time extends Element implements ITime {
         Integer.valueOf(array[2]));
   }
 
-  // static method
+  //static method
   /**
    * @param array with 5 values
    * @return a new {@link Time} from the given array.
@@ -272,7 +272,7 @@ public final class Time extends Element implements ITime {
         Integer.valueOf(array[4]));
   }
 
-  // static method
+  //static method
   /**
    * @param array with 6 values
    * @return a new {@link Time} from the given array.
@@ -287,7 +287,7 @@ public final class Time extends Element implements ITime {
         Integer.valueOf(array[5]));
   }
 
-  // static method
+  //static method
   /**
    * @param array with 7 values
    * @return a new {@link Time} from the given array.
@@ -303,7 +303,7 @@ public final class Time extends Element implements ITime {
         Integer.valueOf(array[6]));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Time} with default values.
    */
@@ -324,7 +324,7 @@ public final class Time extends Element implements ITime {
     this.zonedDateTime = zonedDateTime;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -342,7 +342,7 @@ public final class Time extends Element implements ITime {
             getMillisecondOfSecond())));
   }
 
-  // method
+  //method
   /**
    * @return the day of the current {@link Time}.
    */
@@ -353,7 +353,7 @@ public final class Time extends Element implements ITime {
         getDayOfMonth());
   }
 
-  // method
+  //method
   /**
    * @return the day of the month of the current {@link Time}.
    */
@@ -361,7 +361,7 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.getDayOfMonth();
   }
 
-  // method
+  //method
   /**
    * This method returns a negative value if the current {@link Time} is after the
    * given time.
@@ -373,7 +373,7 @@ public final class Time extends Element implements ITime {
     return (int) (getMillisecondsTo(time) / TimeUnitCatalogue.MILLISECONDS_PER_DAY);
   }
 
-  // method
+  //method
   /**
    * @return the hour of the current {@link Time}.
    */
@@ -385,7 +385,7 @@ public final class Time extends Element implements ITime {
         getHourOfDay());
   }
 
-  // method
+  //method
   /**
    * @return the hour of the month of the current {@link Time}.
    */
@@ -393,7 +393,7 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.getHour();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -402,7 +402,7 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.toInstant().toEpochMilli();
   }
 
-  // method
+  //method
   /**
    * @return the millisecond of the second of the current {@link Time}.
    */
@@ -410,7 +410,7 @@ public final class Time extends Element implements ITime {
     return (zonedDateTime.getNano() / 1_000_000);
   }
 
-  // method
+  //method
   /**
    * This method returns a negative value if the current {@link Time} is after the
    * given time.
@@ -423,7 +423,7 @@ public final class Time extends Element implements ITime {
     return (time.getMilliseconds() - this.getMilliseconds());
   }
 
-  // method
+  //method
   /**
    * @return the minute of the current {@link Time}.
    */
@@ -436,7 +436,7 @@ public final class Time extends Element implements ITime {
         getMinuteOfHour());
   }
 
-  // method
+  //method
   /**
    * @return the minute of the hour of the current {@link Time}.
    */
@@ -444,7 +444,7 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.getMinute();
   }
 
-  // method
+  //method
   /**
    * @return the month of the current {@link Time}.
    */
@@ -452,7 +452,7 @@ public final class Time extends Element implements ITime {
     return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -461,7 +461,7 @@ public final class Time extends Element implements ITime {
     return Month.fromJavaMonth(zonedDateTime.getMonth());
   }
 
-  // method
+  //method
   /**
    * @return the month of the year of the current {@link Time}.
    */
@@ -469,7 +469,7 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.getMonth().getValue();
   }
 
-  // method
+  //method
   /**
    * @return the next day of the current {@link Time}.
    */
@@ -477,7 +477,7 @@ public final class Time extends Element implements ITime {
     return getWithAddedOrSubtractedDays(1).getDay();
   }
 
-  // method
+  //method
   /**
    * @return the next hour of the current {@link Time}.
    */
@@ -485,7 +485,7 @@ public final class Time extends Element implements ITime {
     return getWithAddedOrSubtractedHours(1).getHour();
   }
 
-  // method
+  //method
   /**
    * @return the next minute of the current {@link Time}.
    */
@@ -493,24 +493,24 @@ public final class Time extends Element implements ITime {
     return getWithAddedOrSubtractedMinutes(1).getMinute();
   }
 
-  // method
+  //method
   /**
    * @return the next month of the current {@link Time}.
    */
   public Time getNextMonth() {
 
-    // Handles the case that the month of the year of the current {@link Time} is
-    // not December.
+    //Handles the case that the month of the year of the current {@link Time} is
+    //not December.
     if (getMonthOfYearAsInt() < 12) {
       return Time.withYearAndMonthOfYear(getYearAsInt(), getMonthOfYearAsInt() + 1);
     }
 
-    // Handles the case that the month of the year of the current {@link Time} is
-    // December.
+    //Handles the case that the month of the year of the current {@link Time} is
+    //December.
     return Time.withYearAndMonthOfYear(getYearAsInt() + 1, 1);
   }
 
-  // method
+  //method
   /**
    * @return the next second of the current {@link Time}.
    */
@@ -518,7 +518,7 @@ public final class Time extends Element implements ITime {
     return getWithAddedOrSubtractedSeconds(1).getSecond();
   }
 
-  // method
+  //method
   /**
    * @return the next year of the current {@link Time}.
    */
@@ -526,7 +526,7 @@ public final class Time extends Element implements ITime {
     return Time.withYear(getYearAsInt() + 1);
   }
 
-  // method
+  //method
   /**
    * @return the second of the current {@link Time}.
    */
@@ -540,7 +540,7 @@ public final class Time extends Element implements ITime {
         getSecondOfMinute());
   }
 
-  // method
+  //method
   /**
    * @return the second of the minute of the current {@link Time}.
    */
@@ -548,13 +548,13 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.getSecond();
   }
 
-  // method
+  //method
   @Override
   public Weekday getWeekday() {
     return Weekday.fromDayOfWeek(zonedDateTime.getDayOfWeek());
   }
 
-  // method
+  //method
   /**
    * @param days
    * @return a new {@link Time} with the given days added or subtracted to the
@@ -564,7 +564,7 @@ public final class Time extends Element implements ITime {
     return new Time(zonedDateTime.plusDays(days));
   }
 
-  // method
+  //method
   /**
    * @param hours
    * @return a new {@link Time} with the given hours added or subtracted to the
@@ -574,7 +574,7 @@ public final class Time extends Element implements ITime {
     return new Time(zonedDateTime.plusHours(hours));
   }
 
-  // method
+  //method
   /**
    * @param milliseconds
    * @return a new {@link Time} with the given milliseconds added or subtracted to
@@ -584,7 +584,7 @@ public final class Time extends Element implements ITime {
     return new Time(zonedDateTime.plusNanos(1000L * milliseconds));
   }
 
-  // method
+  //method
   /**
    * @param minutes
    * @return a new {@link Time} with the given minutes added or subtracted to the
@@ -594,7 +594,7 @@ public final class Time extends Element implements ITime {
     return new Time(zonedDateTime.plusMinutes(minutes));
   }
 
-  // method
+  //method
   /**
    * @param seconds
    * @return a new {@link Time} with the given seconds added or subtracted to the
@@ -604,7 +604,7 @@ public final class Time extends Element implements ITime {
     return new Time(zonedDateTime.plusSeconds(seconds));
   }
 
-  // method
+  //method
   /**
    * @return the year of the current {@link Time}.
    */
@@ -612,7 +612,7 @@ public final class Time extends Element implements ITime {
     return Time.withYear(getYearAsInt());
   }
 
-  // method
+  //method
   /**
    * @return the year of the current {@link Time}.
    */
@@ -620,7 +620,7 @@ public final class Time extends Element implements ITime {
     return zonedDateTime.getYear();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -629,7 +629,7 @@ public final class Time extends Element implements ITime {
     return (getMilliseconds() > time.getMilliseconds());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -638,7 +638,7 @@ public final class Time extends Element implements ITime {
     return (getMilliseconds() < time.getMilliseconds());
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link Time} is in a leap year.
    */

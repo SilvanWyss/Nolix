@@ -8,21 +8,21 @@ import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 //class
 public final class TestSlot implements ISlot {
 
-  // optional attribute
+  //optional attribute
   private TestReceivingDataProviderController latestCreatedReceivingDataProviderController;
 
-  // method
+  //method
   public TestReceivingDataProviderController getLatestCreatedReceivingDataProviderController() {
     return latestCreatedReceivingDataProviderController;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return "test_slot";
   }
 
-  // method
+  //method
   @Override
   public void takeBackendEndPoint(final IEndPoint backendEndPoint) {
 

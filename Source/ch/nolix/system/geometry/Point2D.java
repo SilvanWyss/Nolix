@@ -22,29 +22,29 @@ import ch.nolix.system.element.main.Element;
  */
 public final class Point2D extends Element {
 
-  // constant
+  //constant
   public static final double DEFAULT_X = 0.0;
 
-  // constant
+  //constant
   public static final double DEFAULT_Y = 0.0;
 
-  // attribute
+  //attribute
   private final double x;
 
-  // attribute
+  //attribute
   private final double y;
 
-  // constructor
+  //constructor
   /**
    * Creates a new 2D point with default coordinates.
    */
   public Point2D() {
 
-    // Calls other constructor
+    //Calls other constructor
     this(DEFAULT_X, DEFAULT_Y);
   }
 
-  // method
+  //method
   /**
    * Creates a new 2D point with the given coordinates.
    * 
@@ -56,7 +56,7 @@ public final class Point2D extends Element {
     this.y = y;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -67,7 +67,7 @@ public final class Point2D extends Element {
         Node.withHeader(GlobalDoubleHelper.toString(getY())));
   }
 
-  // method
+  //method
   /**
    * @param point
    * @return the distance of this 2D point to the given point
@@ -78,7 +78,7 @@ public final class Point2D extends Element {
             + Math.pow(getY() - point.getY(), 2));
   }
 
-  // method
+  //method
   /**
    * @return the distance of this 2D point to the origin.
    */
@@ -86,7 +86,7 @@ public final class Point2D extends Element {
     return getPositionVector().getEuclidNorm();
   }
 
-  // method
+  //method
   /**
    * @return the position vector of this 2D point.
    */
@@ -94,7 +94,7 @@ public final class Point2D extends Element {
     return Vector.withValue(getX(), getY());
   }
 
-  // method
+  //method
   /**
    * @return the x-coordinate of this 2D point.
    */
@@ -102,7 +102,7 @@ public final class Point2D extends Element {
     return x;
   }
 
-  // method
+  //method
   /**
    * @return the x-coordinate of this 2D point as float.
    */
@@ -110,7 +110,7 @@ public final class Point2D extends Element {
     return (float) getX();
   }
 
-  // method
+  //method
   /**
    * @return the y-coordinate of this 2D point.
    */
@@ -118,7 +118,7 @@ public final class Point2D extends Element {
     return y;
   }
 
-  // method
+  //method
   /**
    * @return the y-coordinate of this 3D point as float.
    */
@@ -126,7 +126,7 @@ public final class Point2D extends Element {
     return (float) getY();
   }
 
-  // method
+  //method
   /**
    * @return a new 3D point with the x-coordinate and the y-coordinate of this 2D
    *         point and a z-coordinate=0.

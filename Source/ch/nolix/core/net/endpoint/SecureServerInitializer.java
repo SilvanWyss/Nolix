@@ -16,13 +16,13 @@ final class SecureServerInitializer extends ChannelInitializer<SocketChannel> {
 
   private static final String WEBSOCKET_PATH = "/websocket";
 
-  // attribute
+  //attribute
   private final SecureServer parentWebSocketServer;
 
-  // attribute
+  //attribute
   private final String htmlPage;
 
-  // attribute
+  //attribute
   private final SslContext sslCtx;
 
   public SecureServerInitializer(SecureServer parentWebSocketServer, String htmlPage, SslContext sslCtx) {

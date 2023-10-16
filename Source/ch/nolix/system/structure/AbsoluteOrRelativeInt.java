@@ -26,16 +26,16 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
  */
 public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrRelativeInt {
 
-  // attribute
+  //attribute
   private final boolean isAbsolute;
 
-  // attribute
+  //attribute
   private final int absoluteValue;
 
-  // attribute
+  //attribute
   private final double percentage;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link AbsoluteOrRelativeInt} from the given specification.
@@ -52,7 +52,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return withIntValue(Integer.parseInt(attribute));
   }
 
-  // static method
+  //static method
   /**
    * @param intValue
    * @return a new {@link AbsoluteOrRelativeInt} with the given intValue.
@@ -61,7 +61,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return new AbsoluteOrRelativeInt(intValue);
   }
 
-  // static method
+  //static method
   /**
    * @param percentage
    * @return a new {@link AbsoluteOrRelativeInt} with the given percentage.
@@ -71,7 +71,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return new AbsoluteOrRelativeInt(percentage);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link AbsoluteOrRelativeInt} with the given intValue.
    * 
@@ -83,7 +83,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     percentage = 0.0;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
    * 
@@ -99,7 +99,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     this.percentage = percentage;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -119,7 +119,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return attributes;
   }
 
-  // method
+  //method
 
   @Override
   public int getAbsoluteValue() {
@@ -129,7 +129,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return absoluteValue;
   }
 
-  // method
+  //method
 
   @Override
   public double getPercentage() {
@@ -139,9 +139,9 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return percentage;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
@@ -155,7 +155,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return (int) (percentage * hundredPercentValue);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -164,9 +164,9 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return isAbsolute;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
@@ -180,7 +180,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return (percentage > 0.0);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -189,7 +189,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     return !isAbsolute();
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbsoluteOrRelativeInt}
@@ -201,7 +201,7 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AbsoluteOrRelativeInt}

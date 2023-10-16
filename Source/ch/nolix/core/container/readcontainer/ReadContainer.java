@@ -27,7 +27,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class ReadContainer<E> extends Container<E> {
 
-  // static method
+  //static method
   /**
    * @param array
    * @param arrays
@@ -42,7 +42,7 @@ public final class ReadContainer<E> extends Container<E> {
     return new ReadContainer<>(MultiReadContainer.forArray(array, arrays));
   }
 
-  // static method
+  //static method
   /**
    * @param firstElement
    * @param elements
@@ -56,7 +56,7 @@ public final class ReadContainer<E> extends Container<E> {
     return new ReadContainer<>(LinkedList.withElement(firstElement, elements));
   }
 
-  // static method
+  //static method
   /**
    * @param container
    * @param containers
@@ -74,20 +74,20 @@ public final class ReadContainer<E> extends Container<E> {
     return new ReadContainer<>(MultiReadContainer.forIterable(container, containers));
   }
 
-  // attribute
+  //attribute
   private final Container<E> container;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ReadContainer} for an empty container.
    */
   public ReadContainer() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new LinkedList<E>());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ReadContainer} for the given container.
    * 
@@ -98,14 +98,14 @@ public final class ReadContainer<E> extends Container<E> {
   @SuppressWarnings("unchecked")
   private <E2 extends E> ReadContainer(final Container<E2> container) {
 
-    // Asserts that the given container is not null.
+    //Asserts that the given container is not null.
     GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
 
-    // Sets the container of the current ReadContainer.
+    //Sets the container of the current ReadContainer.
     this.container = (Container<E>) container;
   }
 
-  // method
+  //method
   /**
    * An object equals a {@link ReadContainer} when the object is a
    * {@link ReadContainer} that contains exactly the same elements in the same
@@ -116,16 +116,16 @@ public final class ReadContainer<E> extends Container<E> {
   @Override
   public boolean equals(final Object object) {
 
-    // Handles the case that the given object is a ReadContainer.
+    //Handles the case that the given object is a ReadContainer.
     if (object instanceof ReadContainer<?> localContainer) {
       return containsExactlyInSameOrder(localContainer);
     }
 
-    // Handles the case that the given object is not a ReadContainer.
+    //Handles the case that the given object is not a ReadContainer.
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -134,7 +134,7 @@ public final class ReadContainer<E> extends Container<E> {
     return container.getElementCount();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -143,7 +143,7 @@ public final class ReadContainer<E> extends Container<E> {
     return container.getStoredAt1BasedIndex(p1BasedIndex);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -152,7 +152,7 @@ public final class ReadContainer<E> extends Container<E> {
     return container.getStoredLast();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -161,7 +161,7 @@ public final class ReadContainer<E> extends Container<E> {
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -170,7 +170,7 @@ public final class ReadContainer<E> extends Container<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -179,7 +179,7 @@ public final class ReadContainer<E> extends Container<E> {
     return container.iterator();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -188,7 +188,7 @@ public final class ReadContainer<E> extends Container<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -197,7 +197,7 @@ public final class ReadContainer<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTokened;
  */
 public interface FluentOptionalTokenable<FOT extends FluentOptionalTokenable<FOT>> extends OptionalTokened {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the token of the current {@link FluentOptionalTokenable}.
    * 
@@ -22,7 +22,7 @@ public interface FluentOptionalTokenable<FOT extends FluentOptionalTokenable<FOT
    */
   FOT removeToken();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the token of the current {@link FluentOptionalTokenable}.
    * 

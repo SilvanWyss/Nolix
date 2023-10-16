@@ -9,10 +9,10 @@ import ch.nolix.core.programcontrol.future.BaseFuture;
 //class
 final class Future extends BaseFuture {
 
-  // attribute
+  //attribute
   private final JobWrapper jobWrapper;
 
-  // constructor
+  //constructor
   public Future(final JobWrapper jobWrapper) {
 
     GlobalValidator.assertThat(jobWrapper).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -20,31 +20,31 @@ final class Future extends BaseFuture {
     this.jobWrapper = jobWrapper;
   }
 
-  // method
+  //method
   @Override
   public boolean caughtError() {
     return jobWrapper.caughtError();
   }
 
-  // method
+  //method
   @Override
   public Throwable getError() {
     return jobWrapper.getError();
   }
 
-  // method
+  //method
   @Override
   public boolean isFinished() {
     return jobWrapper.isFinished();
   }
 
-  // method
+  //method
   @Override
   public void waitUntilIsFinished() {
     jobWrapper.waitUntilIsFinished();
   }
 
-  // method
+  //method
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
     jobWrapper.waitUntilIsFinished(timeoutInMilliseconds);

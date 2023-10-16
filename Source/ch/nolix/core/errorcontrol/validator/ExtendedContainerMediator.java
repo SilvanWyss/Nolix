@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentExceptio
  */
 public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
 
-  // constructor
+  //constructor
   /**
    * Creates a new extended container mediator for the given argument.
    * 
@@ -24,11 +24,11 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
    */
   ExtendedContainerMediator(final Iterable<E> argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument);
   }
 
-  // method
+  //method
   /**
    * @param type
    * @return a new container mediator for the argument of this extended container
@@ -38,7 +38,7 @@ public class ExtendedContainerMediator<E> extends ContainerMediator<E> {
     return new ContainerMediator<>(type.getSimpleName(), getStoredArgument());
   }
 
-  // method
+  //method
   /**
    * @param argumentName
    * @return a new container mediator with the given argument name for the

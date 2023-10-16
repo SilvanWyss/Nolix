@@ -15,18 +15,18 @@ public final class TextureCatalogueTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
         "Hello World GUI tutorial",
         MainSession.class);
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -34,20 +34,20 @@ public final class TextureCatalogueTutorial {
         .runInBackground(server::close);
   }
 
-  public static final class MainSession // NOSONAR: A single-file-tutorial is allowed to have a long static class.
+  public static final class MainSession //NOSONAR: A single-file-tutorial is allowed to have a long static class.
       extends WebClientSession<Object> {
 
     @Override
     protected void initialize() {
 
-      // Creates textures.
+      //Creates textures.
       final var concreteTexture = TextureCatalogue.CONCRETE_TEXTURE.toScaledImage(10);
       final var fireWoodTexture = TextureCatalogue.FIR_WOOD_TEXTURE.toScaledImage(10);
       final var juteTexture = TextureCatalogue.JUTE_TEXTURE.toScaledImage(10);
       final var parchmentTexture = TextureCatalogue.PARCHMENT_TEXTURE.toScaledImage(10);
       final var whiteMarbleTexture = TextureCatalogue.WHITE_MARBLE_TEXTURE.toScaledImage(10);
 
-      // Adds the textures to the GUI of the current MainSession.
+      //Adds the textures to the GUI of the current MainSession.
       getStoredGui()
           .setTitle("TextureCatalogue Tutorial")
           .pushLayerWithRootControl(

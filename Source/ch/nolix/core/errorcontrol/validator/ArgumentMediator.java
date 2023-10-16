@@ -23,10 +23,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public class ArgumentMediator<A> extends Mediator {
 
-  // attribute
+  //attribute
   private final A argument;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentMediator} for the given argument.
    * 
@@ -34,11 +34,11 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public ArgumentMediator(final A argument) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_ARGUMENT_NAME, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentMediator} for the given argument, that has the
    * given argument name.
@@ -50,14 +50,14 @@ public class ArgumentMediator<A> extends Mediator {
    */
   protected ArgumentMediator(final String argumentName, final A argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName);
 
-    // Sets the argument of the current ArgumentMediator.
+    //Sets the argument of the current ArgumentMediator.
     this.argument = argument;
   }
 
-  // method
+  //method
   /**
    * @param condition
    * @throws ArgumentIsNullException  if the given condition is null.
@@ -67,13 +67,13 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public final void fulfills(Predicate<A> condition) {
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     if (condition == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.CONDITION);
     }
 
-    // Asserts that the argument of the current ArgumentMediator fulfills the given
-    // condition.
+    //Asserts that the argument of the current ArgumentMediator fulfills the given
+    //condition.
     if (!condition.test(getStoredArgument())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -82,7 +82,7 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param stringRepresentation
    * @throws InvalidArgumentException if the argument of the current
@@ -104,7 +104,7 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -113,14 +113,14 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public final void isEqualTo(final Object object) {
 
-    // Asserts that the argument of the current ArgumentMediator equals the given
-    // object.
+    //Asserts that the argument of the current ArgumentMediator equals the given
+    //object.
     if (!Objects.equals(getStoredArgument(), object)) {
       throw UnequalArgumentException.forArgumentAndValue(argument, object);
     }
   }
 
-  // method
+  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -129,8 +129,8 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public final void is(final Object object) {
 
-    // Asserts that the argument of the current ArgumentMediator is the given
-    // object.
+    //Asserts that the argument of the current ArgumentMediator is the given
+    //object.
     if (argument != object) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -139,7 +139,7 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -148,8 +148,8 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public final void isNot(final Object object) {
 
-    // Asserts that the argument of the current ArgumentMediator is not the given
-    // object.
+    //Asserts that the argument of the current ArgumentMediator is not the given
+    //object.
     if (argument == object) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -158,7 +158,7 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param object
    * @throws InvalidArgumentException if the argument of the current
@@ -167,40 +167,40 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public final void isNotEqualTo(final A object) {
 
-    // Asserts that the argument of the current ArgumentMediator does not equal the
-    // given object.
+    //Asserts that the argument of the current ArgumentMediator does not equal the
+    //given object.
     if (Objects.equals(getStoredArgument(), object)) {
       throw EqualArgumentException.forArgumentAndEqualValue(argument, object);
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException if the argument of the current
    *                                 {@link ArgumentMediator} is null.
    */
   public final void isNotNull() {
 
-    // Asserts that the argument of the current ArgumentMediator is not null.
+    //Asserts that the argument of the current ArgumentMediator is not null.
     if (argument == null) {
       throw ArgumentIsNullException.forArgumentName(getArgumentName());
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNotNullException if the argument of the current
    *                                    {@link ArgumentMediator} is not (!) null.
    */
   public final void isNull() {
 
-    // Asserts that the argument of the current ArgumentMediator is (!) null.
+    //Asserts that the argument of the current ArgumentMediator is (!) null.
     if (argument != null) {
       throw ArgumentIsNotNullException.forArgument(getStoredArgument());
     }
   }
 
-  // method
+  //method
   /**
    * @param type
    * @throws ArgumentIsNullException  if the argument of the current
@@ -211,11 +211,11 @@ public class ArgumentMediator<A> extends Mediator {
    */
   public final void isOfType(final Class<?> type) {
 
-    // Asserts that the argument of the current ArgumentMediator is not null.
+    //Asserts that the argument of the current ArgumentMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current ArgumentMediator is of the given
-    // type.
+    //Asserts that the argument of the current ArgumentMediator is of the given
+    //type.
     if (!type.isAssignableFrom(getStoredArgument().getClass())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -224,7 +224,7 @@ public class ArgumentMediator<A> extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @return the argument of the current {@link ArgumentMediator}.
    */

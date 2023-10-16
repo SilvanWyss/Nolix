@@ -12,10 +12,10 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.ITableValidator
 //class
 public final class TableValidator implements ITableValidator {
 
-  // constant
+  //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  // method
+  //method
   @Override
   public void assertCanInsertGivenEntity(final ITable<?> table, final IEntity entity) {
     if (!TABLE_HELPER.canInsertGivenEntity(table, entity)) {

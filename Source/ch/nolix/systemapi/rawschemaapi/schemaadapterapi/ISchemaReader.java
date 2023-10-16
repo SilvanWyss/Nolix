@@ -11,36 +11,36 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //interface
 public interface ISchemaReader extends GroupCloseable {
 
-  // method declaration
+  //method declaration
   boolean columnIsEmpty(String tableName, String columnName);
 
-  // method declaration
+  //method declaration
   int getTableCount();
 
-  // method declaration
+  //method declaration
   IContainer<IColumnDto> loadColumnsByTableName(String tableName);
 
-  // method declaration
+  //method declaration
   IContainer<IColumnDto> loadColumnsByTableId(String tableId);
 
-  // method declaration
+  //method declaration
   IFlatTableDto loadFlatTableById(String id);
 
-  // method declaration
+  //method declaration
   IFlatTableDto loadFlatTableByName(String name);
 
-  // method declaration
+  //method declaration
   IContainer<IFlatTableDto> loadFlatTables();
 
-  // method declaration
+  //method declaration
   ITableDto loadTableById(String id);
 
-  // method declaration
+  //method declaration
   ITableDto loadTableByName(String name);
 
-  // method declaration
+  //method declaration
   IContainer<ITableDto> loadTables();
 
-  // method declaration
+  //method declaration
   ITime loadSchemaTimestamp();
 }

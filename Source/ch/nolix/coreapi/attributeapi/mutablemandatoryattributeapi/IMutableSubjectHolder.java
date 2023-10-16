@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISubjectHolder;
  */
 public interface IMutableSubjectHolder extends ISubjectHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the subject of the current {@link IMutableSubjectHolder}.
    * 

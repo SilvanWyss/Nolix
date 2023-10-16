@@ -24,27 +24,27 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 //class
 public final class Column extends SchemaObject implements IColumn {
 
-  // constant
+  //constant
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 
-  // constant
+  //constant
   private static final ParameterizedPropertyType INITIAL_PROPERTY_TYPE = new ParameterizedValueType<>(
       DataType.INTEGER_4BYTE);
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
       new ParameterizedPropertyTypeMapper();
 
-  // constant
+  //constant
   private static final ColumnMutationValidator MUTATION_VALIDATOR = new ColumnMutationValidator();
 
-  // constant
+  //constant
   private static final ColumnMutationExecutor MUTATION_EXECUTOR = new ColumnMutationExecutor();
 
-  // constant
+  //constant
   private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 
-  // static method
+  //static method
   public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
     return new Column(
         columnDto.getId(),
@@ -54,26 +54,26 @@ public final class Column extends SchemaObject implements IColumn {
             tables));
   }
 
-  // attribute
+  //attribute
   private final String id;
 
-  // attribute
+  //attribute
   private String name = INITIAL_HEADER;
 
-  // attribute
+  //attribute
   private IParameterizedPropertyType parameterizedPropertyType = INITIAL_PROPERTY_TYPE;
 
-  // optional attribute
+  //optional attribute
   private Table parentTable;
 
-  // constructor
+  //constructor
   public Column(
       final String name,
       final IParameterizedPropertyType parameterizedPropertyType) {
     this(GlobalIdCreator.createIdOf10HexadecimalCharacters(), name, parameterizedPropertyType);
   }
 
-  // constructor
+  //constructor
   private Column(
       final String id,
       final String name,
@@ -86,38 +86,38 @@ public final class Column extends SchemaObject implements IColumn {
     setParameterizedPropertyType(parameterizedPropertyType);
   }
 
-  // method
+  //method
   @Override
   public boolean belongsToTable() {
     return (parentTable != null);
   }
 
-  // metod
+  //metod
   @Override
   public void delete() {
     MUTATION_VALIDATOR.assertCanDeleteColumn(this);
     MUTATION_EXECUTOR.deleteColumn(this);
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public IParameterizedPropertyType getParameterizedPropertyType() {
     return parameterizedPropertyType;
   }
 
-  // method
+  //method
   @Override
   public Table getParentTable() {
 
@@ -126,7 +126,7 @@ public final class Column extends SchemaObject implements IColumn {
     return parentTable;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
 
@@ -137,13 +137,13 @@ public final class Column extends SchemaObject implements IColumn {
     return internalGetRefRawSchemaAdapter().columnIsEmpty(this);
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return (belongsToTable() && getParentTable().isLinkedWithRealDatabase());
   }
 
-  // method
+  //method
   @Override
   public Column setName(final String name) {
 
@@ -153,7 +153,7 @@ public final class Column extends SchemaObject implements IColumn {
     return this;
   }
 
-  // method
+  //method
   @Override
   public Column setParameterizedPropertyType(
       final IParameterizedPropertyType parameterizedPropertyType) {
@@ -164,27 +164,27 @@ public final class Column extends SchemaObject implements IColumn {
     return this;
   }
 
-  // method
+  //method
   @Override
   public ColumnDto toDto() {
     return new ColumnDto(getId(), getName(), getParameterizedPropertyType().toDto());
   }
 
-  // method
+  //method
   void assertIsEmpty() {
     if (containsAny()) {
       throw NonEmptyArgumentException.forArgument(this);
     }
   }
 
-  // method
+  //method
   void assertIsNotBackReferenced() {
     if (isBackReferenced()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is back referenced");
     }
   }
 
-  // method
+  //method
   IContainer<IColumn> getStoredBackReferencingColumns() {
 
     if (!COLUMN_HELPER.isAReferenceColumn(this)) {
@@ -194,12 +194,12 @@ public final class Column extends SchemaObject implements IColumn {
     return getStoredBackReferencingColumnsWhenIsReferenceColumn();
   }
 
-  // method
+  //method
   RawSchemaAdapter internalGetRefRawSchemaAdapter() {
     return ((Database) COLUMN_HELPER.getParentDatabase(this)).internalGetRefRawSchemaAdapter();
   }
 
-  // method
+  //method
   boolean isBackReferenced() {
 
     if (!COLUMN_HELPER.isAReferenceColumn(this)) {
@@ -209,34 +209,34 @@ public final class Column extends SchemaObject implements IColumn {
     return isBackReferencedWhenIsAnyReferenceColumn();
   }
 
-  // method
+  //method
   void setNameAttribute(final String header) {
     this.name = header;
   }
 
-  // method
+  //method
   void setParameterizedPropertyTypeAttribute(
       final IParameterizedPropertyType parameterizedPropertyType) {
     this.parameterizedPropertyType = parameterizedPropertyType;
   }
 
-  // method
+  //method
   void setParameterizedPropertyTypeToDatabase() {
     internalGetRefRawSchemaAdapter().setColumnParameterizedPropertyType(this, parameterizedPropertyType);
   }
 
-  // method
+  //method
   void setParentTableAttribute(final Table parentTable) {
     this.parentTable = parentTable;
   }
 
-  // method
+  //method
   @Override
   protected void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenIsReferenceColumn() {
 
     if (COLUMN_HELPER.belongsToDatabase(this)) {
@@ -255,7 +255,7 @@ public final class Column extends SchemaObject implements IColumn {
     return new LinkedList<>();
   }
 
-  // method
+  //method
   private boolean isBackReferencedWhenIsAnyReferenceColumn() {
 
     if (COLUMN_HELPER.belongsToDatabase(this)) {

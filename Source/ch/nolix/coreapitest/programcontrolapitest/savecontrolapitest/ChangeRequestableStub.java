@@ -7,20 +7,20 @@ import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 //class
 public final class ChangeRequestableStub implements ChangeRequestable {
 
-  // static method
+  //static method
   public static ChangeRequestableStub withHasChangesFlag(final boolean hasChanges) {
     return new ChangeRequestableStub(hasChanges);
   }
 
-  // attribute
+  //attribute
   private final boolean hasChanges;
 
-  // constructor
+  //constructor
   private ChangeRequestableStub(final boolean hasChanges) {
     this.hasChanges = hasChanges;
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges() {
     return hasChanges;

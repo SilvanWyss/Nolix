@@ -12,16 +12,16 @@ public final class LayerTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext("Layer tutorial", MainSession.class);
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -36,26 +36,26 @@ public final class LayerTutorial {
 
       getStoredGui().setTitle("Layer tutorial");
 
-      // Creates labelA.
+      //Creates labelA.
       final var labelA = new Label().setText("A");
 
-      // Creates labelB.
+      //Creates labelB.
       final var labelB = new Label().setText("B");
 
-      // Configures the style of labelA.
+      //Configures the style of labelA.
       labelA.getStoredStyle()
           .setTextSizeForState(ControlState.BASE, 200)
           .setTextColorForState(ControlState.BASE, Color.GREY);
 
-      // Configures the look of labelB.
+      //Configures the look of labelB.
       labelB.getStoredStyle()
           .setTextSizeForState(ControlState.BASE, 180)
           .setTextColorForState(ControlState.BASE, Color.BLACK);
 
-      // Adds a new layer with labelA to the Frame.
+      //Adds a new layer with labelA to the Frame.
       getStoredGui().pushLayerWithRootControl(labelA);
 
-      // Adds a new layer with labelB to the Frame.
+      //Adds a new layer with labelB to the Frame.
       getStoredGui().pushLayerWithRootControl(labelB);
     }
   }

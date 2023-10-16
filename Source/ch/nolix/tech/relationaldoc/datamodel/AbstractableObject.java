@@ -15,33 +15,33 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 //class
 public final class AbstractableObject extends Entity implements IAbstractableObject {
 
-  // constant
+  //constant
   public static final String DEFAULT_NAME = PluralPascalCaseCatalogue.FIELD;
 
-  // constant
+  //constant
   public static final boolean DEFAULT_ABSTRACT_FLAG = false;
 
-  // constant
+  //constant
   private static final AbstractableObjectValidator ABSTRACTABLE_OBJECT_VALIDATOR = new AbstractableObjectValidator();
 
-  // attribute
+  //attribute
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
 
-  // attribute
+  //attribute
   private final Value<Boolean> abstractFlag = Value.withInitialValue(DEFAULT_ABSTRACT_FLAG);
 
-  // multi-attribute
+  //multi-attribute
   private final MultiReference<AbstractableObject> directBaseTypes = MultiReference.forEntity(AbstractableObject.class);
 
-  // multi-attribute
+  //multi-attribute
   private final MultiReference<AbstractableField> declaredFields = MultiReference.forEntity(AbstractableField.class);
 
-  // constructor
+  //constructor
   public AbstractableObject() {
     initialize();
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject addBaseType(final IAbstractableObject baseType) {
 
@@ -52,7 +52,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject addField(final IAbstractableField field) {
 
@@ -68,13 +68,13 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name.getStoredValue();
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredBaseTypes() {
     return ReadContainer
@@ -83,36 +83,36 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
             getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredBaseTypes));
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredConcreteSubTypes() {
     return getStoredSubTypes().getStoredSelected(IAbstractableObject::isConcrete);
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredDeclaredFields() {
     return declaredFields.getReferencedEntities();
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectBaseTypes() {
     return directBaseTypes.getReferencedEntities();
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredDirectSubTypes() {
 
-    // TODO: Create MultiBackReference.
+    //TODO: Create MultiBackReference.
     return getStoredParentDatabase()
         .getStoredTableByEntityType(AbstractableObject.class)
         .getStoredEntities()
         .getStoredSelected(ao -> ao.getStoredDirectBaseTypes().contains(this));
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredFields() {
     return ReadContainer.forIterable(
@@ -120,43 +120,43 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
         getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredSubTypes() {
 
-    // TODO: Create MultiBackReference.
+    //TODO: Create MultiBackReference.
     return getStoredParentDatabase()
         .getStoredTableByEntityType(AbstractableObject.class)
         .getStoredEntities()
         .getStoredSelected(ao -> ao.getStoredBaseTypes().contains(this));
   }
 
-  // method
+  //method
   @Override
   public boolean isAbstract() {
     return abstractFlag.getStoredValue();
   }
 
-  // method
+  //method
   @Override
   public boolean isSubTypeOfObject(final IAbstractableObject object) {
     return object != null
         && isSubTypeOfObjectWhenObjectIsNotNull(object);
   }
 
-  // method
+  //method
   @Override
   public void removeDirectBaseType(final IAbstractableObject directBaseType) {
     directBaseTypes.removeEntity((AbstractableObject) directBaseType);
   }
 
-  // method
+  //method
   @Override
   public void removeNonInheritedField(final IAbstractableField nonInheritedField) {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject setAsAbstract() {
 
@@ -165,7 +165,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject setAsConcrete() {
 
@@ -176,7 +176,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject setName(final String name) {
 
@@ -187,7 +187,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
     return this;
   }
 
-  // method
+  //method
   private boolean isSubTypeOfObjectWhenObjectIsNotNull(final IAbstractableObject object) {
 
     for (final var dbt : getStoredDirectBaseTypes()) {

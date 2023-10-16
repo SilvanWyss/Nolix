@@ -23,13 +23,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class GlobalCalculator {
 
-  // constant
+  //constant
   /**
    * The default maximum deviation is 10^-9.
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 
-  // static method
+  //static method
   /**
    * @param xValues
    * @param yValues
@@ -42,7 +42,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.createFPNPairs(xValues, yValues);
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -53,7 +53,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.equalsApproximatively(value1, value2);
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -66,7 +66,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.equalsApproximatively(value1, value2, maxDeviation);
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -76,7 +76,7 @@ public final class GlobalCalculator {
     return getAbsoluteValue(value2 - value1);
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -86,7 +86,7 @@ public final class GlobalCalculator {
     return getAbsoluteValue(value2 - value1);
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -96,7 +96,7 @@ public final class GlobalCalculator {
     return getAbsoluteValue(value2 - value1);
   }
 
-  // static method
+  //static method
   /**
    * The absolute value of a value x is -x if x is negative, and is x in the else
    * case.
@@ -113,7 +113,7 @@ public final class GlobalCalculator {
     return value;
   }
 
-  // static method
+  //static method
   /**
    * The absolute value of a value x is -x if x is negative, and is x in the else
    * case.
@@ -130,7 +130,7 @@ public final class GlobalCalculator {
     return value;
   }
 
-  // static method
+  //static method
   /**
    * The absolute value of a value x is -x if x is negative, and is x in the else
    * case.
@@ -147,7 +147,7 @@ public final class GlobalCalculator {
     return value;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -157,7 +157,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getAverage(value, values);
   }
 
-  // method
+  //method
   /**
    * @param values
    * @return the average of the given values.
@@ -167,7 +167,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getAverage(values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -177,7 +177,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getAverage(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -188,7 +188,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getAverage(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param pOrder
    * @param inputValues
@@ -199,7 +199,7 @@ public final class GlobalCalculator {
     return new ARModel(pOrder, inputValues);
   }
 
-  // static method
+  //static method
   /**
    * @param degree
    * @param xValues
@@ -214,15 +214,15 @@ public final class GlobalCalculator {
    */
   public static Polynom getFittingPolynom(final int degree, final double[] xValues, final double[] yValues) {
 
-    // Asserts that the given degree is not negative.
+    //Asserts that the given degree is not negative.
     GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotNegative();
 
-    // Asserts that the given degree is not bigger than the count of the given
-    // xValues.
+    //Asserts that the given degree is not bigger than the count of the given
+    //xValues.
     GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isNotBiggerThan(xValues.length);
 
-    // Asserts that the count of the given yValues equals the count of the given
-    // xValues.
+    //Asserts that the count of the given yValues equals the count of the given
+    //xValues.
     GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 
     final var factorMatrix = new Matrix(xValues.length, degree + 1);
@@ -241,7 +241,7 @@ public final class GlobalCalculator {
     return factorMatrix.getMinimalFactorMatrix(solutionMatrix).toPolynom();
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -251,7 +251,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getMax(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -261,7 +261,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getMax(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -271,7 +271,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getMax(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -281,7 +281,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getMin(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -291,7 +291,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getMin(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -301,7 +301,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getMin(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -310,7 +310,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSquare(value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -319,7 +319,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSquare(value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -328,7 +328,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSquare(value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -338,7 +338,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSum(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -348,7 +348,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSum(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param values
    * @return the sum of the given values.
@@ -357,7 +357,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSum(values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -367,7 +367,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.getSum(value, values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return true if the given value is approximately 1.0 with a deviation that is
@@ -377,7 +377,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.isApproximatelyOne(value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param maxDeviation
@@ -389,7 +389,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.isApproximatelyOne(value, maxDeviation);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return true if the given value is approximately 0.0 with a deviation that is
@@ -399,7 +399,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.isApproximatelyZero(value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param maxDeviation
@@ -411,7 +411,7 @@ public final class GlobalCalculator {
     return GlobalBasicCalculator.isApproximatelyZero(value, maxDeviation);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalCalculator} can be created.
    */

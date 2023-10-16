@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class MomentTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public MomentTestPool() {
     super(TimeTest.class);
   }

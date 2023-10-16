@@ -14,36 +14,36 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 //class
 public final class MultiReferenceWithBackReferencesTest extends Test {
 
-  // static class
+  //constant
   private static final class Person extends Entity {
 
-    // attribute
+    //attribute
     public final MultiReference<Pet> pets = MultiReference.forEntity(Pet.class);
 
-    // constructor
+    //constructor
     public Person() {
       initialize();
     }
   }
 
-  // static class
+  //constant
   private static final class Pet extends Entity {
 
-    // attribute
+    //attribute
     public final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
         "pets");
 
-    // constructor
+    //constructor
     public Pet() {
       initialize();
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isSaved_whenContainsSeveral() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -60,10 +60,10 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     nodeDataAdapter.insert(john);
     nodeDataAdapter.saveChanges();
 
-    // execution
+    //execution
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-    // verification
+    //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
         .getStoredEntityById(garfield.getId());
     final var loadedSimba = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
@@ -74,11 +74,11 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);
   }
 
-  // method
-  // TODO: @TestCase
+  //method
+  //TODO: @TestCase
   public void testCase_removeEntity_whenContainsEntity() {
 
-    // setup part 1
+    //setup part 1
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Person.class, Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -95,19 +95,19 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     nodeDataAdapter.insert(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    //setup part 2
     final var loadedJohn1 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedOdie1 = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
 
-    // execution
+    //execution
     loadedJohn1.pets.removeEntity(loadedOdie1);
     loadedOdie1.delete();
     nodeDataAdapter.saveChanges();
 
-    // verification part 1
+    //verification part 1
     expectNot(loadedJohn1.pets.referencesEntity(loadedOdie1));
 
-    // verification part 2
+    //verification part 2
     final var loadedJohn2 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
         .getStoredEntityById(garfield.getId());

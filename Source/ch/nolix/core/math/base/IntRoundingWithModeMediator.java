@@ -8,13 +8,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class IntRoundingWithModeMediator {
 
-  // attribute
+  //attribute
   private final int value;
 
-  // attribute
+  //attribute
   private final RoundingMode roundingMode;
 
-  // class
+  //class
   IntRoundingWithModeMediator(final int value, final RoundingMode roundingMode) {
 
     GlobalValidator
@@ -26,7 +26,7 @@ public final class IntRoundingWithModeMediator {
     this.roundingMode = roundingMode;
   }
 
-  // method
+  //method
   public int toNext(final int step) {
 
     GlobalValidator.assertThat(step).thatIsNamed(LowerCaseCatalogue.STEP).isPositive();

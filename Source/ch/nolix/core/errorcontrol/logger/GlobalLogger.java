@@ -6,27 +6,27 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class GlobalLogger {
 
-  // static attribute
+  //static attribute
   private static boolean active = true;
 
-  // static attribute
+  //static attribute
   private static LogWorker logWorker;
 
-  // static multi-attribute
+  //static multi-attribute
   private static final List<LogHandler> logHandlers = new List<>();
 
-  // static initialization
+  //static initialization
   static {
     logHandlers.addAtBegin(new StandardConsoleLogHandler());
     logHandlers.addAtBegin(new FileLogHandler());
   }
 
-  // static method
+  //static method
   public static void addLogHandler(final LogHandler logHandler) {
     logHandlers.addAtEnd(logHandler);
   }
 
-  // static method
+  //static method
   public static synchronized void disable() {
     if (active) {
 
@@ -39,19 +39,19 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static synchronized void enable() {
     if (!active) {
       active = true;
     }
   }
 
-  // static method
+  //static method
   public static boolean isActive() {
     return active;
   }
 
-  // static method
+  //static method
   public static void logError(final Throwable error) {
     if (active) {
 
@@ -66,7 +66,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logError(final String error) {
     if (active) {
 
@@ -83,7 +83,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logError(
       final String valueName,
       final double value,
@@ -103,7 +103,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logError(
       final String valueName,
       final long value,
@@ -123,7 +123,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logFatalError(final String fatalError) {
     if (active) {
 
@@ -140,7 +140,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logInfo(final String info) {
     if (active) {
 
@@ -157,7 +157,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logInfo(final String valueName, final double value) {
     if (active) {
 
@@ -174,7 +174,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logInfo(final String valueName, final long value) {
     if (active) {
 
@@ -191,7 +191,7 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   public static void logWarning(final String warning) {
     if (active) {
 
@@ -208,19 +208,19 @@ public final class GlobalLogger {
     }
   }
 
-  // static method
+  //static method
   static void takeLogEntry(final LogEntry logEntry) {
     for (final LogHandler lh : logHandlers) {
       lh.takeLogEntry(logEntry);
     }
   }
 
-  // static method
+  //static method
   static synchronized void removeLogWorker() {
     logWorker = null;
   }
 
-  // constructor
+  //constructor
   private GlobalLogger() {
   }
 }

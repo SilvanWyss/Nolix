@@ -4,49 +4,49 @@ package ch.nolix.coreapi.webapi.htmlapi;
 //class
 public final class HtmlElementTypeCatalogue {
 
-  // constant
+  //constant
   public static final String A = "a";
 
-  // constant
+  //constant
   public static final String BODY = "body";
 
-  // constant
+  //constant
   public static final String BUTTON = "button";
 
-  // constant
+  //constant
   public static final String DIV = "div";
 
-  // constant
+  //constant
   public static final String IMG = "img";
 
-  // constant
+  //constant
   public static final String INPUT = "input";
 
-  // constant
+  //constant
   public static final String OPTION = "option";
 
-  // constant
+  //constant
   public static final String SELECT = "select";
 
-  // constant
+  //constant
   public static final String SPAN = "span";
 
-  // constant
+  //constant
   public static final String TABLE = "table";
 
-  // constant
+  //constant
   public static final String TBODY = "tbody";
 
-  // constant
+  //constant
   public static final String TD = "td";
 
-  // constant
+  //constant
   public static final String TH = "th";
 
-  // constant
+  //constant
   public static final String TR = "tr";
 
-  // constructor
+  //constructor
   private HtmlElementTypeCatalogue() {
   }
 }

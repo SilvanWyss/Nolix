@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class MutableValue<V> extends SingleValue<V> {
 
-  // static method
+  //static method
   /**
    * @param name
    * @param defaultValue
@@ -37,7 +37,7 @@ public final class MutableValue<V> extends SingleValue<V> {
         Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param defaultValue
@@ -55,7 +55,7 @@ public final class MutableValue<V> extends SingleValue<V> {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param defaultValue
@@ -73,7 +73,7 @@ public final class MutableValue<V> extends SingleValue<V> {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param defaultValue
@@ -103,7 +103,7 @@ public final class MutableValue<V> extends SingleValue<V> {
         });
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link MutableValue} with the given name, defaultValue,
    * setterMethod, valueCreator and specificationCreator.
@@ -127,13 +127,13 @@ public final class MutableValue<V> extends SingleValue<V> {
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
 
     setValue(defaultValue);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

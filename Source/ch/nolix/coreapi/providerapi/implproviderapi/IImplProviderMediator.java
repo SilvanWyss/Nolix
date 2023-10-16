@@ -4,9 +4,9 @@ package ch.nolix.coreapi.providerapi.implproviderapi;
 //interface
 public interface IImplProviderMediator<IN> {
 
-  // method declaration
+  //method declaration
   IN createInstance();
 
-  // method declaration
+  //method declaration
   IN createInstance(final Object... arguments);
 }

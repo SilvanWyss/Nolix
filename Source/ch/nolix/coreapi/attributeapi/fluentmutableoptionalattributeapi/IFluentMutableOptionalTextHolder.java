@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
 public interface IFluentMutableOptionalTextHolder<FMOTH extends IFluentMutableOptionalTextHolder<FMOTH>>
     extends ITextHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the text of the current {@link IFluentMutableOptionalTextHolder}.
    * 
@@ -23,7 +23,7 @@ public interface IFluentMutableOptionalTextHolder<FMOTH extends IFluentMutableOp
    */
   FMOTH removeText();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the text of the current {@link IFluentMutableOptionalTextHolder}.
    * 

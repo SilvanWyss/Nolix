@@ -15,10 +15,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 public final class GlobalLicenseManager {
 
-  // constant
+  //constant
   private static final LicenseManager LICENSE_MANAGER = new LicenseManager();
 
-  // static method
+  //static method
   /**
    * Adds the given license to the {@link GlobalLicenseManager}.
    * 
@@ -32,7 +32,7 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.addLicense(license);
   }
 
-  // static method
+  //static method
   /**
    * Creates and adds a new {@link License} of the given licenseType to the
    * {@link GlobalLicenseManager}.
@@ -53,7 +53,7 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.addLicense(licenseType);
   }
 
-  // static method
+  //static method
   /**
    * Requires the {@link GlobalLicenseManager} to contain a {@link Feature} of the
    * given featureType.
@@ -70,7 +70,7 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.requireFeature(featureType);
   }
 
-  // static method
+  //static method
   /**
    * Removes the given license from the {@link GlobalLicenseManager}.
    * 
@@ -82,7 +82,7 @@ public final class GlobalLicenseManager {
     LICENSE_MANAGER.removeLicense(license);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return a new {@link LongMediator} for the given value.
@@ -91,7 +91,7 @@ public final class GlobalLicenseManager {
     return LICENSE_MANAGER.when(value);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalLicenseManager} can be created.
    */

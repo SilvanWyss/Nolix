@@ -6,18 +6,18 @@ import ch.nolix.core.independent.container.List;
 //class
 final class LogWorker extends Thread {
 
-  // attribute
+  //attribute
   private boolean active = true;
 
-  // multi-attribute
+  //multi-attribute
   private final List<LogEntry> logEntries = new List<>();
 
-  // constructor
+  //constructor
   public LogWorker() {
     start();
   }
 
-  // method
+  //method
   @Override
   public void run() {
 
@@ -44,22 +44,22 @@ final class LogWorker extends Thread {
     GlobalLogger.removeLogWorker();
   }
 
-  // method
+  //method
   public synchronized boolean containsLogEntries() {
     return !logEntries.isEmpty();
   }
 
-  // method
+  //method
   public synchronized void stop_() {
     active = false;
   }
 
-  // method
+  //method
   public synchronized void takeLogEntry(final LogEntry logEntry) {
     logEntries.addAtBegin(logEntry);
   }
 
-  // method
+  //method
   private synchronized LogEntry getAndRemoveNextLogEntry() {
     final var logEntry = logEntries.getStoredFirst();
     logEntries.removeFirst();

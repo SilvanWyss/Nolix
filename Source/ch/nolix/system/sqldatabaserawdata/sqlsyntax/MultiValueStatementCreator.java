@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueStatementCreato
 //class
 public final class MultiValueStatementCreator implements IMultiValueStatementCreator {
 
-  // method
+  //method
   @Override
   public String createStatementToDeleteMultiValueEntries(final String entityId, final String multiValueColumnId) {
     return "DELETE FROM "
@@ -24,7 +24,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
         + "'";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToDeleteMultiValueEntry(
       final String entityId,
@@ -47,7 +47,7 @@ public final class MultiValueStatementCreator implements IMultiValueStatementCre
         + "'";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToInsertEntryIntoMultiValue(
       final String entityId,

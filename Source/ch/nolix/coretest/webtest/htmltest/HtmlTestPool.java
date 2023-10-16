@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class HtmlTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public HtmlTestPool() {
     super(HtmlElementTest.class);
   }

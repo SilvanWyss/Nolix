@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploaderStyle;
 //class
 public final class UploaderStyle extends ControlStyle<IUploaderStyle> implements IUploaderStyle {
 
-  // constructor
+  //constructor
   public UploaderStyle() {
     initialize();
   }

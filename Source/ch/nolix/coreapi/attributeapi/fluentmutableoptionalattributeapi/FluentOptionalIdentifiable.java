@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalIdentified;
  */
 public interface FluentOptionalIdentifiable<FOI extends FluentOptionalIdentifiable<FOI>> extends OptionalIdentified {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the id of the current {@link FluentOptionalIdentifiable}.
    * 
@@ -22,7 +22,7 @@ public interface FluentOptionalIdentifiable<FOI extends FluentOptionalIdentifiab
    */
   FOI removeId();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the id of the current {@link FluentOptionalIdentifiable}.
    * 

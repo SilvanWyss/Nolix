@@ -8,16 +8,16 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWei
 //class
 public final class PropertyFlyWeight implements IPropertyFlyWeight {
 
-  // optional attribute
+  //optional attribute
   private Runnable updateAction;
 
-  // method
+  //method
   @Override
   public boolean isVoid() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void noteUpdate() {
     if (hasUpdateAction()) {
@@ -25,7 +25,7 @@ public final class PropertyFlyWeight implements IPropertyFlyWeight {
     }
   }
 
-  // method
+  //method
   @Override
   public void setUpdateAction(final Runnable updateAction) {
 
@@ -34,7 +34,7 @@ public final class PropertyFlyWeight implements IPropertyFlyWeight {
     this.updateAction = updateAction;
   }
 
-  // method
+  //method
   private boolean hasUpdateAction() {
     return (updateAction != null);
   }

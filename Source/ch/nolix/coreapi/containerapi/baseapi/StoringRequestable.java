@@ -11,7 +11,7 @@ import java.util.function.Predicate;
  */
 public interface StoringRequestable<E> {
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return true if the current {@link StoringRequestable} contains the given
@@ -19,7 +19,7 @@ public interface StoringRequestable<E> {
    */
   boolean contains(Object element);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @param elements
@@ -28,7 +28,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsAll(final Object element, final Object... elements);
 
-  // method declaration
+  //method declaration
   /**
    * @param elements
    * @return true if the current {@link StoringRequestable} contains all of the
@@ -36,7 +36,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsAll(Iterable<?> elements);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} contains an element
@@ -44,7 +44,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsAny(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @param elements
@@ -53,7 +53,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsAny(Object element, Object... elements);
 
-  // method declaration
+  //method declaration
   /**
    * @param elements
    * @return true if the current {@link StoringRequestable} contains any of the
@@ -61,7 +61,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsAnyOf(Iterable<?> elements);
 
-  // method declaration
+  //method declaration
   /**
    * @param container
    * @return true if the current {@link StoringRequestable} contains as many
@@ -69,7 +69,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsAsManyAs(Iterable<?> container);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return true if the current {@link StoringRequestable} contains an element
@@ -77,7 +77,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsEqualing(Object element);
 
-  // method declaration
+  //method declaration
   /**
    * @param container
    * @return true if the current {@link StoringRequestable} contains exactly the
@@ -85,7 +85,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsExactlyInSameOrder(final Iterable<?> container);
 
-  // method declaration
+  //method declaration
   /**
    * @param container
    * @return true if the current {@link StoringRequestable} contains less elements
@@ -93,7 +93,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsLessThan(Iterable<?> container);
 
-  // method declaration
+  //method declaration
   /**
    * @param container
    * @return true if the current {@link StoringRequestable} contains more elements
@@ -101,7 +101,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsMoreThan(Iterable<?> container);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} does not contain an
@@ -109,7 +109,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsNone(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @param elements
@@ -118,7 +118,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsNone(Object element, Object... elements);
 
-  // method declaration
+  //method declaration
   /**
    * @param elements
    * @return true if the current {@link StoringRequestable} does not contain any
@@ -126,7 +126,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsNoneOf(Iterable<?> elements);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return true if the current {@link StoringRequestable} contains the given
@@ -134,14 +134,14 @@ public interface StoringRequestable<E> {
    */
   boolean containsOnce(E element);
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link StoringRequestable} contains exactly 1
    *         element.
    */
   boolean containsOne();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} contains exactly 1
@@ -149,7 +149,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsOne(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return true if the current {@link StoringRequestable} contains exactly 1
@@ -157,7 +157,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsOneEqualing(E element);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return true if the current {@link StoringRequestable} contains only elements
@@ -165,7 +165,7 @@ public interface StoringRequestable<E> {
    */
   boolean containsOnly(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param container
    * @return true if the current {@link StoringRequestable} contains only elements

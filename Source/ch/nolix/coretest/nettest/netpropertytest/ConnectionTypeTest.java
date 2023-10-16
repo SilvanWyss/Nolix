@@ -10,45 +10,45 @@ import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 //class
 public final class ConnectionTypeTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getBaseType_whenIsLocal() {
 
-    // setup
+    //setup
     final var testUnit = ConnectionType.LOCAL;
 
-    // execution
+    //execution
     final var result = testUnit.getBaseType();
 
-    // verification
+    //verification
     expect(result).is(BaseConnectionType.LOCAL);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getBaseType_whenIsSocket() {
 
-    // setup
+    //setup
     final var testUnit = ConnectionType.SOCKET;
 
-    // execution
+    //execution
     final var result = testUnit.getBaseType();
 
-    // verification
+    //verification
     expect(result).is(BaseConnectionType.NET);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getBaseType_whenIsWebSocket() {
 
-    // setup
+    //setup
     final var testUnit = ConnectionType.WEB_SOCKET;
 
-    // execution
+    //execution
     final var result = testUnit.getBaseType();
 
-    // verification
+    //verification
     expect(result).is(BaseConnectionType.NET);
   }
 }

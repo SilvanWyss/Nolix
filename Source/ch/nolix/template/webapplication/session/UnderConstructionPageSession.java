@@ -17,13 +17,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class UnderConstructionPageSession extends WebClientSession<Object> {
 
-  // constant
+  //constant
   private static final String CRANE_IMAGE_RESOURCE_PATH = "ch/nolix/template/webapplication/resource/crane.jpg";
 
-  // constant
+  //constant
   private static final IImage CRANE_IMAGE = Image.fromResource(CRANE_IMAGE_RESOURCE_PATH);
 
-  // method
+  //method
   @Override
   protected void initialize() {
     getStoredGui()

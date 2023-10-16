@@ -7,6 +7,6 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 //interface
 public interface IExtendedImplRegistratorMediator<IN> extends IImplRegistratorMediator<IN> {
 
-  // method declaration
+  //method declaration
   IImplRegistratorMediator<IN> withWriteMode(WriteMode writeMode);
 }

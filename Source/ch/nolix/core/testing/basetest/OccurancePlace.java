@@ -10,8 +10,8 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public record OccurancePlace(String className, int lineNumber) {
 
-  // constructor
-  public OccurancePlace( // NOSONAR: This constructor does more than the default one.
+  //constructor
+  public OccurancePlace( //NOSONAR: This constructor does more than the default one.
       final String className,
       final int lineNumber) {
 
@@ -31,17 +31,17 @@ public record OccurancePlace(String className, int lineNumber) {
     this.lineNumber = lineNumber;
   }
 
-  // method
+  //method
   public String getClassName() {
     return className;
   }
 
-  // method
+  //method
   public int getLineNumber() {
     return lineNumber;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return ("(" + getClassName() + ".java:" + getLineNumber() + ")");

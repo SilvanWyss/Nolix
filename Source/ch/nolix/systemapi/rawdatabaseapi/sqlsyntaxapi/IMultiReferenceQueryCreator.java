@@ -4,10 +4,10 @@ package ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi;
 //interface
 public interface IMultiReferenceQueryCreator {
 
-  // method declaration
+  //method declaration
   String createQueryToLoadMultiReferenceEntries(String entityId, String multiReferenceColumnId);
 
-  // method declaration
+  //method declaration
   String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
       String columnId,
       String referencedEntityId);

@@ -13,18 +13,18 @@ public final class ShowValueDialogBuilderTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
         "ShowValueDialogBuilder tutorial",
         MainSession.class);
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()

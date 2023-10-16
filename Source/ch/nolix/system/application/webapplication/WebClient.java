@@ -23,16 +23,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
-  // method
+  //method
   @Override
   protected INode<?> getDataFromHereFromBaseBackendWebClient(final IChainedNode request) {
     throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REQUEST, request);
   }
 
-  // method
+  //method
   @Override
   protected void runHereOnBaseBackendWebClient(final IChainedNode command) {
-    switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ObjectProtocol.GUI:
         runGuiCommand(command.getNextNode());
         break;
@@ -41,28 +41,28 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  // method
+  //method
   void internalUpdateControlOnCounterpart(final IControl<?, ?> control) {
     WebClientPartialCounterpartUpdater
         .forCounterpartRunner(this::runOnCounterpart)
         .updateControlOnCounterpart(control);
   }
 
-  // method
+  //method
   void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui) {
     WebClientCounterpartUpdater
         .forCounterpartRunner(this::runOnCounterpart, this::isOpen)
         .updateCounterpartFromWebGui(webGui);
   }
 
-  // method
+  //method
   void internalRunOnCounterpart(final IContainer<? extends IChainedNode> updateCommands) {
     runOnCounterpart(updateCommands);
   }
 
-  // method
+  //method
   private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
-    switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
         runRunHtmlEventCommandOnControl(control, command);
         updateCounterpartIfOpen();
@@ -73,7 +73,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
         final var fileString = command.getSingleChildNodeHeader();
 
-        // Important: The received fileString is a Base 64 encoded string.
+        //Important: The received fileString is a Base 64 encoded string.
         final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
         uploader.technicalSetFile(bytes);
@@ -84,7 +84,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  // method
+  //method
   private void runControlCommand(final IChainedNode guiCommand) {
 
     final var command = guiCommand.getNextNode();
@@ -94,13 +94,13 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     final var controls = gui.getStoredControls();
     final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
 
-    // The Control could be removed on the server in the meanwhile.
+    //The Control could be removed on the server in the meanwhile.
     if (control != null) {
       runCommandOnControl(control, command);
     }
   }
 
-  // method
+  //method
   private void runGuiCommand(final IChainedNode guiCommand) {
     switch (guiCommand.getHeader()) {
       case ObjectProtocol.CONTROL_BY_INTERNAL_ID:
@@ -114,7 +114,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  // method
+  //method
   private void runRunHtmlEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHtmlEventCommand) {
 
     final var htmlEvent = runHtmlEventCommand.getSingleChildNodeHeader();
@@ -122,7 +122,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     control.runHtmlEvent(htmlEvent);
   }
 
-  // method
+  //method
   private void runSetUserInputsCommand(final IChainedNode guiCommand) {
 
     final var session = (WebClientSession<AC>) getStoredCurrentSession();
@@ -135,14 +135,14 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
       final var userInput = p.getChildNodeAt1BasedIndex(2).getHeaderOrEmptyString();
       final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
 
-      // The Control could be removed on the server in the meanwhile.
+      //The Control could be removed on the server in the meanwhile.
       if (control != null) {
         control.setUserInput(userInput);
       }
     }
   }
 
-  // method
+  //method
   private void updateCounterpartIfOpen() {
     if (isOpen()) {
       ((WebClientSession<AC>) getStoredCurrentSession()).refresh();

@@ -8,16 +8,16 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IEntityFlyWeigh
 //class
 public final class VoidEntityFlyWeight implements IEntityFlyWeight {
 
-  // method
+  //method
   @Override
   public boolean isVoid() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public void noteInsert() {
-    // Does nothing.
+    //Does nothing.
   }
 
   @Override

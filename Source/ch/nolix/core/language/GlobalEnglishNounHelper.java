@@ -8,7 +8,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class GlobalEnglishNounHelper {
 
-  // static method
+  //static method
   public static String getPlural(final String noun) {
 
     GlobalValidator.assertThat(noun).thatIsNamed(LowerCaseCatalogue.NOUN).isNotBlank();
@@ -29,7 +29,7 @@ public final class GlobalEnglishNounHelper {
     };
   }
 
-  // static method
+  //static method
   private static String getPluralOfNounDependingOnEnding(final String noun) {
 
     if (noun.endsWith("man")) {
@@ -68,7 +68,7 @@ public final class GlobalEnglishNounHelper {
     return (noun + "s");
   }
 
-  // constructor
+  //constructor
   private GlobalEnglishNounHelper() {
   }
 }

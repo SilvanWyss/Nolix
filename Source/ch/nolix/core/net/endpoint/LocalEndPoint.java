@@ -20,13 +20,13 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
  */
 public final class LocalEndPoint extends EndPoint {
 
-  // attribute
+  //attribute
   private final PeerType peerType;
 
-  // attribute
+  //attribute
   private final LocalEndPoint counterpart;
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point that will connect to an other new local end
    * point.
@@ -35,11 +35,11 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.FRONTEND;
 
-    // Creates the counterpart of this local end point.
+    //Creates the counterpart of this local end point.
     counterpart = new LocalEndPoint(this);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point that will connect to the given target.
    * 
@@ -50,17 +50,17 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.FRONTEND;
 
-    // Creates the counterpart of this local end point.
+    //Creates the counterpart of this local end point.
     counterpart = new LocalEndPoint(this);
 
-    // Sets the target of the counterpart of htis local end point.
+    //Sets the target of the counterpart of htis local end point.
     getStoredCounterPart().setTarget(target.getName());
 
-    // Lets the given target take the counterpart of this local end point.
+    //Lets the given target take the counterpart of this local end point.
     target.takeBackendEndPoint(getStoredCounterPart());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point that will connect to the given target on the
    * given server.
@@ -74,17 +74,17 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.FRONTEND;
 
-    // Creates the counterpart of this local end point.
+    //Creates the counterpart of this local end point.
     counterpart = new LocalEndPoint(this);
 
-    // Sets the target of the counterpart of this local end point.
+    //Sets the target of the counterpart of this local end point.
     getStoredCounterPart().setTarget(target);
 
-    // Lets the given server take the counterpart of this local end point.
+    //Lets the given server take the counterpart of this local end point.
     baseServer.internalTakeBackendEndPoint(getStoredCounterPart());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new local end point with the given counterpart.
    * 
@@ -95,24 +95,24 @@ public final class LocalEndPoint extends EndPoint {
 
     peerType = PeerType.BACKEND;
 
-    // Asserts that the given counterpart is not null.
+    //Asserts that the given counterpart is not null.
     GlobalValidator.assertThat(counterpart).thatIsNamed("counterpart").isNotNull();
 
-    // Creates a close dependency from the current LocalEndPoint to the given
-    // counterpart.
+    //Creates a close dependency from the current LocalEndPoint to the given
+    //counterpart.
     createCloseDependencyTo(counterpart);
 
-    // Sets the counterpart of this local end point.
+    //Sets the counterpart of this local end point.
     this.counterpart = counterpart;
   }
 
-  // method
+  //method
   @Override
   public PeerType getPeerType() {
     return peerType;
   }
 
-  // method
+  //method
   /**
    * @return the counterpart of this local end point.
    */
@@ -120,7 +120,7 @@ public final class LocalEndPoint extends EndPoint {
     return counterpart;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -129,7 +129,7 @@ public final class LocalEndPoint extends EndPoint {
     return ConnectionType.LOCAL;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -138,7 +138,7 @@ public final class LocalEndPoint extends EndPoint {
     return SecurityLevel.UNSECURE;
   }
 
-  // method
+  //method
   /**
    * Lets this local send the given message.
    * 
@@ -149,25 +149,25 @@ public final class LocalEndPoint extends EndPoint {
   @Override
   public void sendMessage(final String message) {
 
-    // Asserts that the given message is not null.
+    //Asserts that the given message is not null.
     GlobalValidator.assertThat(message).thatIsNamed("message").isNotNull();
 
-    // Asserts that this local end point is open.
+    //Asserts that this local end point is open.
     assertIsOpen();
 
     counterpart.receiveRawMessage(message);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link EndPoint} receive the given message.
    * 

@@ -13,13 +13,13 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWrit
 //class
 final class InternalSchemaWriter implements ChangeRequestable {
 
-  // constant
+  //constant
   private static final SchemaDtoMapper SCHEMA_DTO_MAPPER = new SchemaDtoMapper();
 
-  // attribute
+  //attribute
   private final ISchemaWriter sqlSchemaWriter;
 
-  // constructor
+  //constructor
   public InternalSchemaWriter(final ISchemaWriter sqlSchemaWriter) {
 
     GlobalValidator.assertThat(sqlSchemaWriter).thatIsNamed(ISchemaWriter.class).isNotNull();
@@ -27,45 +27,45 @@ final class InternalSchemaWriter implements ChangeRequestable {
     this.sqlSchemaWriter = sqlSchemaWriter;
   }
 
-  // method
+  //method
   public void addColumn(final String tableName, final IColumnDto column) {
     sqlSchemaWriter.addColumn(
         TableType.ENTITY_TABLE.getNamePrefix() + tableName,
         SCHEMA_DTO_MAPPER.createQslColumnDtoFrom(column));
   }
 
-  // method
+  //method
   public void addTable(final ITableDto table) {
     sqlSchemaWriter.addTable(SCHEMA_DTO_MAPPER.createQslTableDtoFrom(table));
   }
 
-  // method
+  //method
   public void deleteColumn(final String tableName, final String columnName) {
     sqlSchemaWriter.deleteColumn(TableType.ENTITY_TABLE.getNamePrefix() + tableName, columnName);
   }
 
-  // method
+  //method
   public void deleteTable(final String tableName) {
     sqlSchemaWriter.deleteTable(TableType.ENTITY_TABLE.getNamePrefix() + tableName);
   }
 
-  // method
+  //method
   public IContainer<String> getSqlStatements() {
     return sqlSchemaWriter.getSqlStatements();
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges() {
     return sqlSchemaWriter.hasChanges();
   }
 
-  // method
+  //method
   public void reset() {
     sqlSchemaWriter.reset();
   }
 
-  // method
+  //method
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
     sqlSchemaWriter.renameColumn(
         TableType.ENTITY_TABLE.getNamePrefix() + tableName,
@@ -73,7 +73,7 @@ final class InternalSchemaWriter implements ChangeRequestable {
         newColumnName);
   }
 
-  // method
+  //method
   public void setTableName(final String tableName, final String newTableName) {
     sqlSchemaWriter.renameTable(
         TableType.ENTITY_TABLE.getNamePrefix() + tableName,

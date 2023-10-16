@@ -13,7 +13,7 @@ public final class MsSqlSchemaAdapterBuilder
     extends
     AndPortCapturer<ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCapturer<MsSqlSchemaAdapter>>>> {
 
-  // constructor
+  //constructor
   public MsSqlSchemaAdapterBuilder(final String ipOrDomain, final int defaultPort) {
 
     super(
@@ -25,7 +25,7 @@ public final class MsSqlSchemaAdapterBuilder
     setBuilder(() -> build(ipOrDomain));
   }
 
-  // method
+  //method
   private MsSqlSchemaAdapter build(final String ipOrDomain) {
     return new MsSqlSchemaAdapter(
         next().getDatabaseName(),

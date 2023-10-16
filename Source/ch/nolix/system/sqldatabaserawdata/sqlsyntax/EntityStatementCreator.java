@@ -15,7 +15,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class EntityStatementCreator implements IEntityStatementCreator {
 
-  // method
+  //method
   @Override
   public String createStatementToDeleteEntity(
       final String tableName,
@@ -30,7 +30,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return "IF NOT EXISTS (SELECT * FROM "
@@ -46,7 +46,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         + "') BEGIN THROW 100000, 'The schema was changed in the meanwhile.', 0; END;";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
     return "SELECT Id FROM "
@@ -61,7 +61,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         + ".', 0) END;";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToInsertNewEntity(final String tableName, final INewEntityDto newEntity) {
     return "INSERT INTO "
@@ -77,7 +77,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         + ");";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     return "UPDATE"
@@ -92,7 +92,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToUpdateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
 
@@ -119,7 +119,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
         + "IF @@RowCount = 0 BEGIN THROW error(100000, 'The data was changed in the meanwhile.', 0) END;";
   }
 
-  // method
+  //method
   private String getValueOrNullInSqlOf(final IContentFieldDto contentField) {
 
     final var string = contentField.getValueAsStringOrNull();

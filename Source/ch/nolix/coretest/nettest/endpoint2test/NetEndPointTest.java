@@ -13,49 +13,49 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 //class
 public final class NetEndPointTest extends Test {
 
-  // static class
+  //constant
   private static final class EndPointTaker implements ISlot {
 
-    // optional attribute
+    //optional attribute
     private String receivedMessage;
 
-    // method
+    //method
     @Override
     public String getName() {
       return "EndPointTaker";
     }
 
-    // method
+    //method
     public String getReceivedMessageOrNull() {
       return receivedMessage;
     }
 
-    // method
+    //method
     @Override
     public void takeBackendEndPoint(final IEndPoint endPoint) {
       endPoint.setReplier(this::getReply);
     }
 
-    // method
+    //method
     private String getReply(final String message) {
       receivedMessage = message;
       return "REPLY";
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(50000)) {
 
-      // setup
+      //setup
       server.addDefaultSlot(new EndPointTaker());
 
-      // execution & verification
+      //execution & verification
       expectRunning(
           () -> {
             try (final var result = new NetEndPoint(port)) {
@@ -66,25 +66,25 @@ public final class NetEndPointTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_sendAndGetReply() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(50000)) {
 
-      // setup
+      //setup
       final var endPointTaker = new EndPointTaker();
       server.addDefaultSlot(endPointTaker);
 
       try (final var testUnit = new NetEndPoint(port)) {
 
-        // execution
+        //execution
         final var result = testUnit.getReplyForRequest("MESSAGE");
 
-        // verification
+        //verification
         expect(endPointTaker.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
         expect(result).isEqualTo("REPLY");
       }

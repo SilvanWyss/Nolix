@@ -8,19 +8,19 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IPropertyFlyWei
 //class
 public final class VoidPropertyFlyWeight implements IPropertyFlyWeight {
 
-  // method
+  //method
   @Override
   public boolean isVoid() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public void noteUpdate() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void setUpdateAction(final Runnable updateAction) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUpdateAction");

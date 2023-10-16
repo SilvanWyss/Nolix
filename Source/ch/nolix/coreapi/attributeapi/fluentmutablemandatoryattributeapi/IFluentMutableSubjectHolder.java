@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISubjectHolder;
  */
 public interface IFluentMutableSubjectHolder<FMSH extends IFluentMutableSubjectHolder<FMSH>> extends ISubjectHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the subject of the current {@link IFluentMutableSubjectHolder}.
    * 

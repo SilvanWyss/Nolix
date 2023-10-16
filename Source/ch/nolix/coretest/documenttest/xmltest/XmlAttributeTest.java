@@ -9,29 +9,29 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class XmlAttributeTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // execution
+    //execution
     final var result = new XmlAttribute("color", "green");
 
-    // verification
+    //verification
     expect(result.getName()).isEqualTo("color");
     expect(result.getValue()).isEqualTo("green");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString() {
 
-    // setup
+    //setup
     final var xmlAttribute = new XmlAttribute("color", "green");
 
-    // execution
+    //execution
     final var result = xmlAttribute.toString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("color='green'");
   }
 }

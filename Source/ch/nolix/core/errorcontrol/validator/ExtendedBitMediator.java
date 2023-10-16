@@ -4,10 +4,10 @@ package ch.nolix.core.errorcontrol.validator;
 //class
 public final class ExtendedBitMediator extends BitMediator {
 
-  // attribute
+  //attribute
   private final boolean argument;
 
-  // constructor
+  //constructor
   ExtendedBitMediator(boolean argument) {
 
     super(argument);
@@ -15,7 +15,7 @@ public final class ExtendedBitMediator extends BitMediator {
     this.argument = argument;
   }
 
-  // method
+  //method
   public BitMediator thatIsNamed(final String argumentName) {
     return new BitMediator(argumentName, argument);
   }

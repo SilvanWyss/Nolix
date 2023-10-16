@@ -18,7 +18,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
 
-  // method
+  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
@@ -27,7 +27,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
         control.getDisplayText());
   }
 
-  // method
+  //method
   private IContainer<? extends IHtmlAttribute> createHtmlAttributesForControl(final ILink control) {
 
     final var htmlAttribtues = new LinkedList<IHtmlAttribute>();
@@ -41,7 +41,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
     return htmlAttribtues;
   }
 
-  // method
+  //method
   private HtmlAttribute createTargetHtmlAttributeForControl(final ILink control) {
 
     final var target = control.getTarget();
@@ -49,7 +49,7 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
     return createTargetHtmlAttributeForTarget(target);
   }
 
-  // method
+  //method
   private HtmlAttribute createTargetHtmlAttributeForTarget(final LinkTarget target) {
     return switch (target) {
       case CURRENT_TAB ->

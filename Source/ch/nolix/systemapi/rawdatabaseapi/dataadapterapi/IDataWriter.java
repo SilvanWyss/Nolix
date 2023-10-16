@@ -14,7 +14,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
  */
 public interface IDataWriter extends IResettableChangeSaver {
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -25,7 +25,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void deleteMultiReferenceEntries(String tableName, String entityId, String multiReferenceColumnName);
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -36,7 +36,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void deleteMultiValueEntries(String tableName, String entityId, String multiValueColumnName);
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -52,7 +52,7 @@ public interface IDataWriter extends IResettableChangeSaver {
       String multiRefereceColumnName,
       String referencedEntityId);
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -68,7 +68,7 @@ public interface IDataWriter extends IResettableChangeSaver {
       String multiValueColumnName,
       String entry);
 
-  // method declaration
+  //method declaration
   /**
    * Causes an error if the concerned entity was deleted or changed in the
    * meanwhile.
@@ -78,7 +78,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void deleteEntity(String tableName, IEntityHeadDto entity);
 
-  // method declaration
+  //method declaration
   /**
    * Will cause an error if the concerned table does not contain an entity with
    * the given entityId. This method can be used to prevent from referencing an
@@ -89,7 +89,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void expectTableContainsEntity(String tableName, String entityId);
 
-  // method declaration
+  //method declaration
   /**
    * Will cause an error if the database does not have the given schema timestamp.
    * 
@@ -97,7 +97,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void expectGivenSchemaTimestamp(final ITime schemaTimestamp);
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -113,7 +113,7 @@ public interface IDataWriter extends IResettableChangeSaver {
       String multiReferenceColumnName,
       String referencedEntityId);
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.
@@ -125,7 +125,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void insertMultiValueEntry(String tableName, String entityId, String multiValueColumnName, String entry);
 
-  // method declaration
+  //method declaration
   /**
    * Inserts the given newEntity into the table with the given tableName.
    * 
@@ -134,7 +134,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void insertNewEntity(String tableName, INewEntityDto newEntity);
 
-  // method declaration
+  //method declaration
   /**
    * Sets the concerned entity as updated. Will cause an error if the concerned
    * entity was deleted or changed in the meanwhile.
@@ -144,7 +144,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    */
   void setEntityAsUpdated(String tableName, IEntityHeadDto entity);
 
-  // method declaration
+  //method declaration
   /**
    * There is not asserted that the concerned entity was not changed in the
    * meanwhile.

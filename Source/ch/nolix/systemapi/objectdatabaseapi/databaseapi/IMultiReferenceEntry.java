@@ -10,15 +10,15 @@ public interface IMultiReferenceEntry<
     E extends IEntity>
     extends IDatabaseObject {
 
-  // method declaration
+  //method declaration
   IProperty getStoredBackReferencingPropertyOrNull();
 
-  // method declaration
+  //method declaration
   E getReferencedEntity();
 
-  // method declaration
+  //method declaration
   String getReferencedEntityId();
 
-  // method declaration
+  //method declaration
   IMultiReference<E> getStoredParentMultiReference();
 }

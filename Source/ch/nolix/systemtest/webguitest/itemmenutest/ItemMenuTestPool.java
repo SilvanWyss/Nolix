@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class ItemMenuTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ItemMenuTestPool() {
     super(DropdownMenuTest.class);
   }

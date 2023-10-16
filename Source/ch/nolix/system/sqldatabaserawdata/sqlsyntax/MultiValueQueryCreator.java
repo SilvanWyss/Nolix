@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiValueQueryCreator;
 //class
 public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
 
-  // method
+  //method
   @Override
   public String createQueryToLoadMultiValueEntries(String entityId, String multiValueColumnId) {
     return "SELECT "
@@ -26,7 +26,7 @@ public final class MultiValueQueryCreator implements IMultiValueQueryCreator {
         + "';";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
       final String columnId,

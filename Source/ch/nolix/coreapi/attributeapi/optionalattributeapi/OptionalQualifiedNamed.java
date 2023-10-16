@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface OptionalQualifiedNamed extends Named {
 
-  // method
+  //method
   /**
    * @return the qualified name of the current {@link OptionalQualifiedNamed}.
    * @throws RuntimeException if the current {@link OptionalQualifiedNamed} does
@@ -26,7 +26,7 @@ public interface OptionalQualifiedNamed extends Named {
     return (getQualifyingPrefix() + getName());
   }
 
-  // method
+  //method
   /**
    * @return the qualified name of the current {@link OptionalQualifiedNamed} in
    *         quotes.
@@ -37,7 +37,7 @@ public interface OptionalQualifiedNamed extends Named {
     return ("'" + getQualifiedName() + "'");
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return the qualifying prefix of the current {@link OptionalQualifiedNamed}.
    *         The qualifying prefix of a {@link OptionalQualifiedNamed} completes
@@ -47,7 +47,7 @@ public interface OptionalQualifiedNamed extends Named {
    */
   String getQualifyingPrefix();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalQualifiedNamed} has a qualifying
    *         prefix, false otherwise.

@@ -17,10 +17,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class WebSocketFrame {
 
-  // constant
+  //constant
   private static final int MASK_LENGTH_IN_BYTES = 4;
 
-  // static method
+  //static method
   public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
 
     if (!pingFrame.isPingFrame()) {
@@ -32,19 +32,19 @@ public final class WebSocketFrame {
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
   }
 
-  // attribute
+  //attribute
   private final WebSocketFrameFirstNibble firstNibble;
 
-  // attribute
+  //attribute
   private final WebSocketFramePayloadLength payloadLength;
 
-  // attribute
+  //attribute
   private final byte[] payload;
 
-  // optional attribute
+  //optional attribute
   private final byte[] maskingKey;
 
-  // constructor
+  //constructor
   public WebSocketFrame(
       final boolean mFINBit,
       final WebSocketFrameOpcodeMeaning opcode,
@@ -60,11 +60,11 @@ public final class WebSocketFrame {
         payload.length);
 
     payloadLength = new WebSocketFramePayloadLength(payload.length);
-    this.payload = payload; // NOSONAR: A WebSocketFrame operates on the original instance.
+    this.payload = payload; //NOSONAR: A WebSocketFrame operates on the original instance.
     maskingKey = null;
   }
 
-  // constructor
+  //constructor
   public WebSocketFrame(
       final boolean mFINBit,
       final WebSocketFrameOpcodeMeaning opcode,
@@ -73,7 +73,7 @@ public final class WebSocketFrame {
     this(mFINBit, opcode, maskBit, payload.getBytes(StandardCharsets.UTF_8));
   }
 
-  // constructor
+  //constructor
   public WebSocketFrame(final InputStream inputStream) {
     try {
 
@@ -102,7 +102,7 @@ public final class WebSocketFrame {
     }
   }
 
-  // method
+  //method
   public WebSocketFrame createPongFrame() {
 
     if (!isPingFrame()) {
@@ -112,12 +112,12 @@ public final class WebSocketFrame {
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, payload);
   }
 
-  // method
+  //method
   public boolean getFINBit() {
     return firstNibble.getFINBit();
   }
 
-  // method
+  //method
   public WebSocketFrameType getFrameType() {
 
     if (isControlFrame()) {
@@ -131,7 +131,7 @@ public final class WebSocketFrame {
     throw InvalidArgumentException.forArgument(this);
   }
 
-  // method
+  //method
   public BigDecimal getLengthInBytes() {
 
     var byteRepresentationLength = BigDecimal.valueOf(2);
@@ -155,12 +155,12 @@ public final class WebSocketFrame {
     return byteRepresentationLength;
   }
 
-  // method
+  //method
   public boolean getMaskBit() {
     return firstNibble.getMaskBit();
   }
 
-  // method
+  //method
   public int getMaskLength() {
 
     if (masksPayload()) {
@@ -170,27 +170,27 @@ public final class WebSocketFrame {
     return 0;
   }
 
-  // method
+  //method
   public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
     return firstNibble.getOpcodeMeaning();
   }
 
-  // method
+  //method
   public long getPayloadLength() {
     return payloadLength.getValue();
   }
 
-  // method
+  //method
   public WebSocketFramePayloadLengthType getPayloadLengthType() {
     return firstNibble.getPayloadLengthType();
   }
 
-  // method
+  //method
   public byte[] getPayload() {
-    return payload; // NOSONAR: A WebSocketFrame returns the original instance.
+    return payload; //NOSONAR: A WebSocketFrame returns the original instance.
   }
 
-  // method
+  //method
   public boolean isControlFrame() {
     return switch (getOpcodeMeaning()) {
       case CONNECTION_CLOSE, PING, PONG ->
@@ -200,7 +200,7 @@ public final class WebSocketFrame {
     };
   }
 
-  // method
+  //method
   public boolean isDataFrame() {
     return switch (getOpcodeMeaning()) {
       case TEXT_FRAME, BINARY_FRAME ->
@@ -210,27 +210,27 @@ public final class WebSocketFrame {
     };
   }
 
-  // method
+  //method
   public boolean isFinalFragment() {
     return getFINBit();
   }
 
-  // method
+  //method
   public boolean isPingFrame() {
     return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PING);
   }
 
-  // method
+  //method
   public boolean isPongFrame() {
     return (getOpcodeMeaning() == WebSocketFrameOpcodeMeaning.PONG);
   }
 
-  // method
+  //method
   public boolean masksPayload() {
     return getMaskBit();
   }
 
-  // method
+  //method
   public byte[] toBytes() {
 
     final var bytes = new byte[getLengthInBytes().intValue()];
@@ -276,7 +276,7 @@ public final class WebSocketFrame {
     return bytes;
   }
 
-  // method
+  //method
   private WebSocketFramePayloadLength calculatePayloadLength(final InputStream inputStream) throws IOException {
     return switch (getPayloadLengthType()) {
       case BITS_7 ->
@@ -290,12 +290,12 @@ public final class WebSocketFrame {
     };
   }
 
-  // method
+  //method
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs7Bits() {
     return new WebSocketFramePayloadLength(firstNibble.get7BitsPayloadLength());
   }
 
-  // method
+  //method
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs16Bits(
       final InputStream inputStream) throws IOException {
 
@@ -306,7 +306,7 @@ public final class WebSocketFrame {
             + (headerNext2Bytes[1] & 0b11111111));
   }
 
-  // method
+  //method
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs64Bits(
       final InputStream inputStream) throws IOException {
 

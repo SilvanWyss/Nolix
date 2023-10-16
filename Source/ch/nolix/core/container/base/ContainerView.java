@@ -30,16 +30,16 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 final class ContainerView<E> extends Container<E> {
 
-  // attribute
+  //attribute
   private final Container<E> container;
 
-  // attribute
+  //attribute
   private final int startIndex;
 
-  // attribute
+  //attribute
   private final int endIndex;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ContainerView} with the given container, startIndex and
    * endIndex.
@@ -73,7 +73,7 @@ final class ContainerView<E> extends Container<E> {
     this.endIndex = endIndex;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -82,7 +82,7 @@ final class ContainerView<E> extends Container<E> {
     return (endIndex - startIndex + 1);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -95,7 +95,7 @@ final class ContainerView<E> extends Container<E> {
     return container.getStoredAt1BasedIndex(startIndex + p1BasedIndex - 1);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -104,7 +104,7 @@ final class ContainerView<E> extends Container<E> {
     return getStoredAt1BasedIndex(getElementCount());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -113,7 +113,7 @@ final class ContainerView<E> extends Container<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -125,7 +125,7 @@ final class ContainerView<E> extends Container<E> {
         endIndex);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -134,7 +134,7 @@ final class ContainerView<E> extends Container<E> {
     return container.createEmptyMutableList(new Marker<E>()).toOrderedList(norm);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -143,7 +143,7 @@ final class ContainerView<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

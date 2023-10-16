@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface VoidnessRequestable {
 
-  // method
+  //method
   /**
    * @return true if the current {@link VoidnessRequestable} is not void.
    */
@@ -21,7 +21,7 @@ public interface VoidnessRequestable {
     return !isVoid();
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link VoidnessRequestable} is void.
    */

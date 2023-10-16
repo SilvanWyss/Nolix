@@ -16,13 +16,13 @@ public abstract class LinearContainerStyle< //
     extends ControlStyle<LCS>
     implements ILinearContainerStyle<LCS> {
 
-  // constant
+  //constant
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 
-  // constant
+  //constant
   private static final String CHILD_CONTROL_MARGIN_HEADER = "ChildControlMargin";
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> childControlMargin = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           CHILD_CONTROL_MARGIN_HEADER,
@@ -30,19 +30,19 @@ public abstract class LinearContainerStyle< //
           this::setChildControlMarginForState,
           DEFAULT_CHILD_CONTROL_MARGIN);
 
-  // method
+  //method
   @Override
   public int getChildControlMarginWhenHasState(final ControlState state) {
     return childControlMargin.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public void removeCustomChildControlMargins() {
     childControlMargin.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public LCS setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 

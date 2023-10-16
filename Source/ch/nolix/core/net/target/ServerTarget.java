@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 //class
 public class ServerTarget implements IServerTarget {
 
-  // static method
+  //static method
   public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
       final String ipOrDomain,
       final int port,
@@ -19,16 +19,16 @@ public class ServerTarget implements IServerTarget {
     return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
   }
 
-  // attribute
+  //attribute
   private final String ipOrDomain;
 
-  // attribute
+  //attribute
   private final int port;
 
-  // attribute
+  //attribute
   private final SecurityLevel securityLevelForConnections;
 
-  // constructor
+  //constructor
   protected ServerTarget(
       final String ipOrDomain,
       final int port,
@@ -47,25 +47,25 @@ public class ServerTarget implements IServerTarget {
     this.securityLevelForConnections = securityLevelForConnections;
   }
 
-  // method
+  //method
   @Override
   public final String getIpOrDomain() {
     return ipOrDomain;
   }
 
-  // method
+  //method
   @Override
   public final int getPort() {
     return port;
   }
 
-  // method
+  //method
   @Override
   public final SecurityLevel getSecurityLevelForConnections() {
     return securityLevelForConnections;
   }
 
-  // method
+  //method
   @Override
   public String toUrl() {
     return switch (getSecurityLevelForConnections()) {
@@ -76,7 +76,7 @@ public class ServerTarget implements IServerTarget {
     };
   }
 
-  // method
+  //method
   private String toHttpsUrl() {
 
     if (getPort() == PortCatalogue.HTTPS) {
@@ -86,7 +86,7 @@ public class ServerTarget implements IServerTarget {
     return String.format("https://%s:%s", getIpOrDomain(), getPort());
   }
 
-  // method
+  //method
   private String toHttpUrl() {
 
     if (getPort() == PortCatalogue.HTTP) {

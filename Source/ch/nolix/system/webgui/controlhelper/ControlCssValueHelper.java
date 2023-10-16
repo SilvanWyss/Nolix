@@ -8,12 +8,12 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 //class
 public final class ControlCssValueHelper {
 
-  // method
+  //method
   public String getCssValueFromColor(final IColor color) {
     return String.format("#%02x%02x%02x", color.getRedValue(), color.getGreenValue(), color.getBlueValue());
   }
 
-  // method
+  //method
   public String getCssValueFromRelativeOrAbsoluteInt(
       final IAbsoluteOrRelativeInt absoluteOrRelativeInt,
       final String relativeIntCssUnit) {

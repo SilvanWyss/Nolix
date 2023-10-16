@@ -7,63 +7,63 @@ import java.math.BigDecimal;
 //interface
 public interface IComplexNumber extends Comparable<IComplexNumber> {
 
-  // method declaration
+  //method declaration
   int getBigDecimalScale();
 
-  // method declaration
+  //method declaration
   IComplexNumber getConjugate();
 
-  // method declaration
+  //method declaration
   BigDecimal getImaginaryComponent();
 
-  // method declaration
+  //method declaration
   BigDecimal getMagnitude();
 
-  // method declaration
+  //method declaration
   IComplexNumber getPower(int exponent);
 
-  // method declaration
+  //method declaration
   IComplexNumber getProduct(BigDecimal number);
 
-  // method declaration
+  //method declaration
   IComplexNumber getProduct(double number);
 
-  // method declaration
+  //method declaration
   IComplexNumber getProduct(IComplexNumber complexNumber);
 
-  // method declaration
+  //method declaration
   BigDecimal getRealComponent();
 
-  // method declaration
+  //method declaration
   int getScale();
 
-  // method declaration
+  //method declaration
   IComplexNumber getPower2();
 
-  // method declaration
+  //method declaration
   IComplexNumber getPower3();
 
-  // method declaration
+  //method declaration
   IComplexNumber getPower4();
 
-  // method declaration
+  //method declaration
   BigDecimal getSquaredMagnitude();
 
-  // method declaration
+  //method declaration
   IComplexNumber getSum(BigDecimal number);
 
-  // method declaration
+  //method declaration
   IComplexNumber getSum(double number);
 
-  // method declaration
+  //method declaration
   IComplexNumber getSum(IComplexNumber complexNumber);
 
-  // method declaration
+  //method declaration
   IComplexNumber inBigDecimalScale(int bigDecimalScale);
 
-  // method declaration
+  //method declaration
   boolean isPureImaginary();
 
-  // method declaration
+  //method declaration
   boolean isPureReal();
 }

@@ -18,18 +18,18 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     extends BackendClient<BBWC, AC>
     implements ICookieManager {
 
-  // constant
+  //constant
   private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
       new BaseWebClientCommandCreator();
 
-  // constant
+  //constant
   private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
       new BaseWebClientRequestCreator();
 
-  // attribute
+  //attribute
   private final BaseWebClientFileReader fileReader = BaseWebClientFileReader.forBackendWebClient(this);
 
-  // method
+  //method
   @Override
   public final void deleteCookieByName(final String name) {
 
@@ -38,7 +38,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     runOnCounterpart(deleteCookieCommand);
   }
 
-  // method
+  //method
   @Override
   public final String getCookieValueByCookieNameOrNull(final String cookieName) {
 
@@ -48,7 +48,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     return getCookieValueByCookieNameOrNullFromData(getDataFromCounterpart(getCookieValueRequest));
   }
 
-  // method
+  //method
   public final String getUrlParameterValueByUrlParameterNameOrNull(final String urlParameterName) {
 
     final var getUrlParameterValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
@@ -59,7 +59,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     return urlParameterValueReply.getHeaderOrNull();
   }
 
-  // method
+  //method
   @Override
   public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
 
@@ -69,19 +69,19 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     runOnCounterpart(setOrAddCookieCommand);
   }
 
-  // method
+  //method
   @Override
   protected final INode<?> getDataFromHere(final IChainedNode request) {
     return getDataFromHereFromBaseBackendWebClient(request);
   }
 
-  // method declaration
+  //method declaration
   protected abstract INode<?> getDataFromHereFromBaseBackendWebClient(final IChainedNode request);
 
-  // method
+  //method
   @Override
   protected final void runHere(final IChainedNode command) {
-    switch (command.getHeader()) { // NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case CommandProtocol.RECEIVE_OPTIONAL_FILE:
         receiveOptionalFileFromCounterpart(command);
         break;
@@ -90,15 +90,15 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     }
   }
 
-  // method declaration
+  //method declaration
   protected abstract void runHereOnBaseBackendWebClient(IChainedNode command);
 
-  // method
+  //method
   final IContainer<byte[]> internalGetFilesFromClipboardOfCounterpart() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "getFilesFromClipboard");
   }
 
-  // method
+  //method
   final String internalGetTextFromClipboardOfCounterpart() {
 
     final var getTextFromClipBoardCommand = BACKEND_WEB_CLIENT_REQUEST_CREATOR.createGetTextFromClipboardRequest();
@@ -106,7 +106,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     return getDataFromCounterpart(getTextFromClipBoardCommand).getHeader();
   }
 
-  // method
+  //method
   final void internalOpenNewTabOnCounterpartWithUrl(final String url) {
 
     final var openNewTabCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createOpenNewTabCommand(url);
@@ -114,12 +114,12 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     runOnCounterpart(openNewTabCommand);
   }
 
-  // method
+  //method
   final ISingleContainer<byte[]> internalReadOptionalFileFromCounterpart() {
     return fileReader.readOptionalFileFromCounterpart();
   }
 
-  // method
+  //method
   final void internalRedirectCounterpartTo(final IApplicationInstanceTarget applicationInstanceTarget) {
 
     final var redirectCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createRedirectCommand(applicationInstanceTarget);
@@ -127,17 +127,17 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     runOnCounterpart(redirectCommand);
   }
 
-  // method
+  //method
   final void internalRedirectCounterpartToUrl(final String url) {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 
-  // method
+  //method
   final void internalRunOnCounterpart(final ChainedNode command) {
     runOnCounterpart(command);
   }
 
-  // method
+  //method
   final void internalSaveFileOnCounterpart(final byte[] bytes) {
 
     final var saveFileCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createSaveFileCommand(bytes);
@@ -145,7 +145,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     runOnCounterpart(saveFileCommand);
   }
 
-  // method
+  //method
   final void internalWriteTextToClipboardOfCounterpart(final String text) {
 
     final var writeTextToClipboardCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR.createWriteTextToClipBoardCommand(text);
@@ -153,7 +153,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     runOnCounterpart(writeTextToClipboardCommand);
   }
 
-  // method
+  //method
   private String getCookieValueByCookieNameOrNullFromData(final INode<?> data) {
 
     if (!data.hasHeader()) {
@@ -163,7 +163,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
     return data.getHeader();
   }
 
-  // method
+  //method
   private void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
     fileReader.receiveOptionalFileFromCounterpart(receiveOptionalFileCommand);
   }

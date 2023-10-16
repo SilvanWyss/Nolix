@@ -12,10 +12,10 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IMultiReference
 //class
 public final class MultiReferenceValidator extends PropertyValidator implements IMultiReferenceValidator {
 
-  // constant
+  //constant
   private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();
 
-  // method
+  //method
   @Override
   public void assertCanAddGivenEntity(final IMultiReference<?> multiReference, final IEntity entity) {
     if (!MULTI_REFERENCE_HELPER.canAddGivenEntity(multiReference, entity)) {
@@ -23,7 +23,7 @@ public final class MultiReferenceValidator extends PropertyValidator implements 
     }
   }
 
-  // method
+  //method
   @Override
   public void assertCanClear(final IMultiReference<?> multiReference) {
     if (!MULTI_REFERENCE_HELPER.canClear(multiReference)) {
@@ -31,7 +31,7 @@ public final class MultiReferenceValidator extends PropertyValidator implements 
     }
   }
 
-  // method
+  //method
   @Override
   public <E extends IEntity> void assertCanRemoveEntity(
       final IMultiReference<E> multiReference,

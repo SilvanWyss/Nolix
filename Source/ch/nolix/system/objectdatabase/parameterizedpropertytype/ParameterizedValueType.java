@@ -10,12 +10,12 @@ public final class ParameterizedValueType<
     V>
     extends BaseParameterizedValueType<V> {
 
-  // constructor
+  //constructor
   public ParameterizedValueType(final Class<V> valueType) {
     super(valueType);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.VALUE;

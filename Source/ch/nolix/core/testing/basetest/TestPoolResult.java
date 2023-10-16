@@ -6,20 +6,20 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestPoolResult {
 
-  // static method
+  //static method
   public static TestPoolResult forTestPoolResultsAndTestResults(
       final Iterable<TestPoolResult> testPoolResults,
       final Iterable<TestResult> testResults) {
     return new TestPoolResult(testPoolResults, testResults);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final List<TestPoolResult> testPoolResults;
 
-  // multi-attribute
+  //multi-attribute
   private final List<TestResult> testResults;
 
-  // constructor
+  //constructor
   private TestPoolResult(final Iterable<TestPoolResult> testPoolResults, final Iterable<TestResult> testResults) {
 
     this.testPoolResults = List.withElements(testPoolResults);
@@ -27,17 +27,17 @@ public final class TestPoolResult {
     this.testResults = List.withElements(testResults);
   }
 
-  // method
+  //method
   public int getPassedTestCaseCount() {
     return (getPassedTestCaseCountOfTestPoolResults() + getPassedTestCaseCountOfTestResults());
   }
 
-  // method
+  //method
   public int getTestCaseCount() {
     return (getTestCaseCountOfTestPoolResults() + getTestCaseCountOfTestResults());
   }
 
-  // method
+  //method
   private int getPassedTestCaseCountOfTestPoolResults() {
 
     var passedTestCaseCount = 0;
@@ -49,7 +49,7 @@ public final class TestPoolResult {
     return passedTestCaseCount;
   }
 
-  // method
+  //method
   private int getPassedTestCaseCountOfTestResults() {
 
     var passedTestCaseCount = 0;
@@ -61,7 +61,7 @@ public final class TestPoolResult {
     return passedTestCaseCount;
   }
 
-  // method
+  //method
   private int getTestCaseCountOfTestPoolResults() {
 
     var testCaseCount = 0;
@@ -73,7 +73,7 @@ public final class TestPoolResult {
     return testCaseCount;
   }
 
-  // method
+  //method
   private int getTestCaseCountOfTestResults() {
 
     var testCaseCount = 0;

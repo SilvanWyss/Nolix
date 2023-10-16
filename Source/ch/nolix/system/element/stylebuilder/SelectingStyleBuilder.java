@@ -7,7 +7,7 @@ import ch.nolix.system.element.style.SelectingStyle;
 //class
 public final class SelectingStyleBuilder extends BaseSelectingStyleBuilder<SelectingStyleBuilder> {
 
-  // method
+  //method
   public SelectingStyle build() {
     return new SelectingStyle(
         getSelectorIdContainer(),
@@ -18,7 +18,7 @@ public final class SelectingStyleBuilder extends BaseSelectingStyleBuilder<Selec
         getSubStyles());
   }
 
-  // method
+  //method
   @Override
   protected SelectingStyleBuilder asConcrete() {
     return this;

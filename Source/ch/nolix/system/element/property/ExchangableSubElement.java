@@ -6,18 +6,18 @@ import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 //class
 public final class ExchangableSubElement<ME extends IMutableElement> extends BaseSubElement<ME> {
 
-  // constructor
+  //constructor
   public ExchangableSubElement(final String attributePrefix, final ME internalSubElement) {
     super(attributePrefix, internalSubElement);
   }
 
-  // method
+  //method
   @Override
   public boolean isExchangable() {
     return true;
   }
 
-  // method
+  //method
   public void setSubElement(final ME extensionElement) {
     internalSetSubElement(extensionElement);
   }

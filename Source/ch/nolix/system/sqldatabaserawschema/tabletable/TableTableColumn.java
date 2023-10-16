@@ -13,13 +13,13 @@ public enum TableTableColumn implements QualifiedNamed {
   ID(PascalCaseCatalogue.ID),
   NAME(PascalCaseCatalogue.NAME);
 
-  // constant
+  //constant
   private static final String NAME_PREFIX = SystemDataTable.TABLE.getQualifiedName() + StringCatalogue.DOT;
 
-  // attribute
+  //attribute
   private final String name;
 
-  // constructor
+  //constructor
   TableTableColumn(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -27,13 +27,13 @@ public enum TableTableColumn implements QualifiedNamed {
     this.name = name;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getQualifyingPrefix() {
     return NAME_PREFIX;

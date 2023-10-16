@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class SchemaAdapterTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public SchemaAdapterTestPool() {
     super(NodeSchemaAdapterTest.class);
   }

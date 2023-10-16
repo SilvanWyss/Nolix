@@ -20,10 +20,10 @@ public final class SecureButtonTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = SecureServer.forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext("Button tutorial", MainSession.class);
   }
 

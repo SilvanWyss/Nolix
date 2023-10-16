@@ -7,7 +7,7 @@ import ch.nolix.system.element.style.DeepSelectingStyle;
 //class
 public final class DeepSelectingStyleBuilder extends BaseSelectingStyleBuilder<DeepSelectingStyleBuilder> {
 
-  // method
+  //method
   public DeepSelectingStyle build() {
     return new DeepSelectingStyle(
         getSelectorIdContainer(),
@@ -18,7 +18,7 @@ public final class DeepSelectingStyleBuilder extends BaseSelectingStyleBuilder<D
         getSubStyles());
   }
 
-  // method
+  //method
   @Override
   protected DeepSelectingStyleBuilder asConcrete() {
     return this;

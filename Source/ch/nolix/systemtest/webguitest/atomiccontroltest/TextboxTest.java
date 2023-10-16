@@ -10,22 +10,22 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public final class TextboxTest extends ControlTest<ITextbox> {
 
-  // method
+  //method
   @TestCase
   public void testCase_emptyText() {
 
-    // setup
+    //setup
     final var testUnit = new Textbox();
     testUnit.setText("Lorem ipsum");
 
-    // execution
+    //execution
     testUnit.emptyText();
 
-    // verification
+    //verification
     expect(testUnit.getText()).isEmpty();
   }
 
-  // method
+  //method
   @Override
   protected ITextbox createTestUnit() {
     return new Textbox();

@@ -12,18 +12,18 @@ public final class GridTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
         "Grid tutorial",
         MainSession.class);
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -36,10 +36,10 @@ public final class GridTutorial {
     @Override
     protected void initialize() {
 
-      // Creates a Grid.
+      //Creates a Grid.
       final var grid = new Grid();
 
-      // Inserts Controls into the Grid.
+      //Inserts Controls into the Grid.
       grid
           .insertControlAtRowAndColumn(1, 1, new Label().setText("A"))
           .insertControlAtRowAndColumn(1, 3, new Label().setText("B"))
@@ -50,12 +50,12 @@ public final class GridTutorial {
           .insertControlAtRowAndColumn(4, 2, new Label().setText("G"))
           .insertControlAtRowAndColumn(4, 4, new Label().setText("H"));
 
-      // Configures the style of the Grid.
+      //Configures the style of the Grid.
       grid
           .getStoredStyle()
           .setTextSizeForState(ControlState.BASE, 50);
 
-      // Adds the Grid to the GUI of the current MainSession.
+      //Adds the Grid to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(grid);
     }
   }

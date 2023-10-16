@@ -10,39 +10,39 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IButton extends IControl<IButton, IButtonStyle>, IFluentMutableTextHolder<IButton> {
 
-  // method declaration
+  //method declaration
   ButtonRole getRole();
 
-  // method declaration
+  //method declaration
   boolean hasRole();
 
-  // method declaration
+  //method declaration
   void pressLeftMouseButton();
 
-  // method declaration
+  //method declaration
   void releaseLeftMouseButton();
 
-  // method declaration
+  //method declaration
   void removeLeftMouseButtonPressAction();
 
-  // method declaration
+  //method declaration
   void removeLeftMouseButtonReleaseAction();
 
-  // method declaration
+  //method declaration
   void removeRole();
 
-  // method declaration
+  //method declaration
   IButton setLeftMouseButtonPressAction(Runnable leftMouseButtonPressAction);
 
-  // method declaration
+  //method declaration
   IButton setLeftMouseButtonPressAction(Consumer<IButton> leftMouseButtonPressAction);
 
-  // method declaration
+  //method declaration
   IButton setLeftMouseButtonRelaseAction(Runnable leftMouseButtonReleaseAction);
 
-  // method declaration
+  //method declaration
   IButton setLeftMouseButtonRelaseAction(Consumer<IButton> leftMouseButtonReleaseAction);
 
-  // method declaration
+  //method declaration
   IButton setRole(ButtonRole role);
 }

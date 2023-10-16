@@ -14,24 +14,24 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final ILink control,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final ILink control,
       final ControlState state,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final ILink control,
@@ -39,12 +39,12 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
     list.addAtEnd(CssProperty.withNameAndValue("text-decoration", "none"));
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final ILink control,
       final ControlState state,
       final LinkedList<ICssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

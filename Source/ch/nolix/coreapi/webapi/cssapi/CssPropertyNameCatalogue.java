@@ -4,124 +4,124 @@ package ch.nolix.coreapi.webapi.cssapi;
 //class
 public final class CssPropertyNameCatalogue {
 
-  // constant
+  //constant
   public static final String ALIGN_ITEMS = "align-items";
 
-  // constant
+  //constant
   public static final String BACKGROUND = "background";
 
-  // constant
+  //constant
   public static final String BACKGROUND_IMAGE = "background-image";
 
-  // constant
+  //constant
   public static final String BACKGROUND_SIZE = "background-size";
 
-  // constant
+  //constant
   public static final String BORDER_BOTTOM_COLOR = "border-bottom-color";
 
-  // constant
+  //constant
   public static final String BORDER_BOTTOM_WIDTH = "border-bottom-width";
 
-  // constant
+  //constant
   public static final String BORDER_LEFT_COLOR = "border-left-color";
 
-  // constant
+  //constant
   public static final String BORDER_LEFT_WIDTH = "border-left-width";
 
-  // constant
+  //constant
   public static final String BORDER_RIGHT_COLOR = "border-right-color";
 
-  // constant
+  //constant
   public static final String BORDER_RIGHT_WIDTH = "border-right-width";
 
-  // constant
+  //constant
   public static final String BORDER_STYLE = "border-style";
 
-  // constant
+  //constant
   public static final String BORDER_TOP_COLOR = "border-top-color";
 
-  // constant
+  //constant
   public static final String BORDER_TOP_WIDTH = "border-top-width";
 
-  // constant
+  //constant
   public static final String COLOR = "color";
 
-  // constant
+  //constant
   public static final String CURSOR = "cursor";
 
-  // constant
+  //constant
   public static final String DISPLAY = "display";
 
-  // constant
+  //constant
   public static final String FLOAT = "float";
 
-  // constant
+  //constant
   public static final String FONT_FAMILY = "font-family";
 
-  // constant
+  //constant
   public static final String FONT_SIZE = "font-size";
 
-  // constant
+  //constant
   public static final String HEIGHT = "height";
 
-  // constant
+  //constant
   public static final String JUSTIFY_CONTENT = "justify-content";
 
-  // constant
+  //constant
   public static final String MARGIN = "margin";
 
-  // constant
+  //constant
   public static final String MARGIN_BOTTOM = "margin-bottom";
 
-  // constant
+  //constant
   public static final String MARGIN_LEFT = "margin-left";
 
-  // constant
+  //constant
   public static final String MARGIN_RIGHT = "margin-right";
 
-  // constant
+  //constant
   public static final String MARGIN_TOP = "margin-top";
 
-  // constant
+  //constant
   public static final String MAX_HEIGHT = "max-height";
 
-  // constant
+  //constant
   public static final String MAX_WIDTH = "max-width";
 
-  // constant
+  //constant
   public static final String MIN_HEIGHT = "min-height";
 
-  // constant
+  //constant
   public static final String MIN_WIDTH = "min-width";
 
-  // constant
+  //constant
   public static final String OPACITY = "opacity";
 
-  // constant
+  //constant
   public static final String OVERFLOW = "overflow";
 
-  // constant
+  //constant
   public static final String PADDING_BOTTOM = "padding-bottom";
 
-  // constant
+  //constant
   public static final String PADDING_LEFT = "padding-left";
 
-  // constant
+  //constant
   public static final String PADDING_RIGHT = "padding-right";
 
-  // constant
+  //constant
   public static final String PADDING_TOP = "padding-top";
 
-  // constant
+  //constant
   public static final String POSITION = "position";
 
-  // constant
+  //constant
   public static final String WIDTH = "width";
 
-  // constant
+  //constant
   public static final String Z_INDEX = "z-index";
 
-  // constructor
+  //constructor
   private CssPropertyNameCatalogue() {
   }
 }

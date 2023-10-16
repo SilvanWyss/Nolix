@@ -10,18 +10,18 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
 //class
 public final class EntityTest extends Test {
 
-  // static class
+  //constant
   private static final class Thing extends Entity {
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // execution
+    //execution
     final var result = new Thing();
 
-    // verification
+    //verification
     expect(result.getState()).isEqualTo(DatabaseObjectState.NEW);
     expectNot(result.isClosed());
     expectNot(result.isDeleted());
@@ -31,17 +31,17 @@ public final class EntityTest extends Test {
     expectNot(result.belongsToTable());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString() {
 
-    // setup
+    //setup
     final var testUnit = new Thing();
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("Thing (id: " + testUnit.getId() + ")");
   }
 }

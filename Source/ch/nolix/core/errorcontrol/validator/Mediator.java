@@ -12,25 +12,25 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  * @author Silvan Wyss
  * @date 2016-12-01
  */
-abstract class Mediator { // NOSONAR: Mediator does not have abstract methods.
+abstract class Mediator { //NOSONAR: Mediator does not have abstract methods.
 
-  // constant
+  //constant
   public static final String DEFAULT_ARGUMENT_NAME = "argument";
 
-  // attribute
+  //attribute
   private final String argumentName;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Mediator} with a default argument name.
    */
   protected Mediator() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_ARGUMENT_NAME);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new argument {@link Mediator} with the given argumentName.
    * 
@@ -40,12 +40,12 @@ abstract class Mediator { // NOSONAR: Mediator does not have abstract methods.
    */
   protected Mediator(final String argumentName) {
 
-    // Asserts that the given argumentName is not null.
+    //Asserts that the given argumentName is not null.
     if (argumentName == null) {
       throw ArgumentIsNullException.forArgumentName("argument name");
     }
 
-    // Asserts that the given argumentName is not blank.
+    //Asserts that the given argumentName is not blank.
     if (argumentName.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           "argument name",
@@ -53,11 +53,11 @@ abstract class Mediator { // NOSONAR: Mediator does not have abstract methods.
           "is blank");
     }
 
-    // Sets the argumentName of the current Mediator.
+    //Sets the argumentName of the current Mediator.
     this.argumentName = argumentName;
   }
 
-  // method
+  //method
   /**
    * @return the argument name of the current {@link Mediator}.
    */

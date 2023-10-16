@@ -12,144 +12,144 @@ import ch.nolix.system.graphic.image.Image;
 //class
 public final class SelectingStyleTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveAnId() {
 
-    // setup testStylableElement
+    //setup testStylableElement
     final var testStylableElement = new TestStylableElement();
 
-    // setup testUnit
+    //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorId("x").build();
 
-    // setup verification
+    //setup verification
     expectNot(testStylableElement.hasId());
 
-    // execution
+    //execution
     final var result = testUnit.selectsElement(testStylableElement);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
 
-    // setup testStylableElement
+    //setup testStylableElement
     final var testStylableElement = new TestStylableElement();
     testStylableElement.setId("x");
 
-    // setup
+    //setup
     final var testUnit = new SelectingStyleBuilder().setSelectorId("x").build();
 
-    // setup verification
+    //setup verification
     expect(testStylableElement.hasId());
 
-    // execution
+    //execution
     final var result = testUnit.selectsElement(testStylableElement);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
 
-    // setup testStylableElement
+    //setup testStylableElement
     final var testStylableElement = new TestStylableElement();
     testStylableElement.setId("x");
 
-    // setup
+    //setup
     final var testUnit = new SelectingStyleBuilder().setSelectorId("y").build();
 
-    // setup verification
+    //setup verification
     expect(testStylableElement.hasId());
 
-    // execution
+    //execution
     final var result = testUnit.selectsElement(testStylableElement);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
 
-    // setup testStylableElement
+    //setup testStylableElement
     final var testStylableElement = new TestStylableElement();
 
-    // setup testUnit
+    //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorType(Image.class).build();
 
-    // execution
+    //execution
     final var result = testUnit.selectsElement(testStylableElement);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
 
-    // setup testStylableElement
+    //setup testStylableElement
     final var testStylableElement = new TestStylableElement();
 
-    // setup testUnit
+    //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorType(TestStylableElement.class).build();
 
-    // execution
+    //execution
     final var result = testUnit.selectsElement(testStylableElement);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
 
-    // setup testStylableElement
+    //setup testStylableElement
     final var testStylableElement = new TestStylableElement();
 
-    // setup testUnit
+    //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorType(MutableElement.class).build();
 
-    // execution
+    //execution
     final var result = testUnit.selectsElement(testStylableElement);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_selectsChildElements() {
 
-    // setup
+    //setup
     final var testUnit = new SelectingStyleBuilder().build();
 
-    // execution
+    //execution
     final var result = testUnit.selectsChildElements();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_skipsChildElements() {
 
-    // setup
+    //setup
     final var testUnit = new SelectingStyleBuilder().build();
 
-    // execution
+    //execution
     final var result = testUnit.skipsChildElements();
 
-    // verification
+    //verification
     expect(result);
   }
 }

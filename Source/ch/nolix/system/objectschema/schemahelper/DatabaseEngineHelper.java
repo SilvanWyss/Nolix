@@ -11,7 +11,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseEngineHelper;
 //class
 public final class DatabaseEngineHelper extends DatabaseObjectHelper implements IDatabaseEngineHelper {
 
-  // method
+  //method
   @Override
   public void assertDoesNotContainDatabaseWithGivenName(
       final IDatabaseEngine databaseEngine,
@@ -23,7 +23,7 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
     }
   }
 
-  // method
+  //method
   @Override
   public boolean containsDatabaseWithGivenName(
       final IDatabaseEngine databaseEngine,
@@ -31,13 +31,13 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
     return databaseEngine.getStoredDatabases().containsAny(db -> db.hasName(name));
   }
 
-  // method
+  //method
   @Override
   public int getDatabaseCount(final IDatabaseEngine databaseEngine) {
     return databaseEngine.getStoredDatabases().getElementCount();
   }
 
-  // method
+  //method
   @Override
   public IDatabase getStoredDatabaseWithGivenName(
       final IDatabaseEngine databaseEngine,

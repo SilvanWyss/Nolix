@@ -9,14 +9,14 @@ import ch.nolix.template.math.sequence.GlobalSequenceCreator;
 //class
 public final class GlobalSequenceCreatorTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs0plus0i() {
 
-    // execution
+    //execution
     final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(0.0, 0.0));
 
-    // verification
+    //verification
     expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
     expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(0.0, 0.0));
     expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(0.0, 0.0));
@@ -24,14 +24,14 @@ public final class GlobalSequenceCreatorTest extends Test {
     expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus0i() {
 
-    // execution
+    //execution
     final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 0.0));
 
-    // verification
+    //verification
     expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
     expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 0.0));
     expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(2.0, 0.0));
@@ -39,14 +39,14 @@ public final class GlobalSequenceCreatorTest extends Test {
     expect(result.getValueAt1BasedIndex(5)).isEqualTo(new ComplexNumber(26.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createMandelbrotSequenceForIncrement_whenIncrementIs1plus1i() {
 
-    // execution
+    //execution
     final var result = GlobalSequenceCreator.createMandelbrotSequenceForIncrement(new ComplexNumber(1.0, 1.0));
 
-    // verification
+    //verification
     expect(result.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0));
     expect(result.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(1.0, 1.0));
     expect(result.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(1.0, 3.0));

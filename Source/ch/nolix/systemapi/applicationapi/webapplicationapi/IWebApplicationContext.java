@@ -7,6 +7,6 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 //interface
 public interface IWebApplicationContext {
 
-  // method declaration
+  //method declaration
   IImage getApplicationLogo();
 }

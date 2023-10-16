@@ -4,12 +4,12 @@ package ch.nolix.systemtest.graphictest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new GraphicTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

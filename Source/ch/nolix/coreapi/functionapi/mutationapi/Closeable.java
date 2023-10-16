@@ -10,7 +10,7 @@ package ch.nolix.coreapi.functionapi.mutationapi;
  */
 public interface Closeable extends AutoCloseable {
 
-  // method declaration
+  //method declaration
   /**
    * Closes the current {@link Closeable}.
    */

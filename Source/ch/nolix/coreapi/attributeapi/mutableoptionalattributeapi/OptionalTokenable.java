@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTokened;
  */
 public interface OptionalTokenable extends OptionalTokened {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the token of the current {@link OptionalTokenable}.
    */
   void removeToken();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the token of the current {@link OptionalTokenable}.
    * 

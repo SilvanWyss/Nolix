@@ -7,9 +7,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface ICss {
 
-  // method declaration
+  //method declaration
   IContainer<? extends ICssRule> getRules();
 
-  // method declaration
+  //method declaration
   String toStringWithoutEnclosingBrackets();
 }

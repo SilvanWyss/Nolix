@@ -10,13 +10,13 @@ import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlCssBuilderTe
 //class
 public final class ButtonCssBuilderTest extends ControlCssBuilderTest<ButtonCssBuilder, IButton> {
 
-  // method
+  //method
   @Override
   protected IButton createControl() {
     return new Button();
   }
 
-  // method
+  //method
   @Override
   protected ButtonCssBuilder createTestUnit() {
     return new ButtonCssBuilder();

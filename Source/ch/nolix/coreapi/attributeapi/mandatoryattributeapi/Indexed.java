@@ -13,13 +13,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Indexed {
 
-  // method declaration
+  //method declaration
   /**
    * @return the index of the current {@link Indexed}.
    */
   int getIndex();
 
-  // method
+  //method
   /**
    * @return the index of the current {@link Indexed} as {@link String}.
    */
@@ -27,7 +27,7 @@ public interface Indexed {
     return String.valueOf(getIndex());
   }
 
-  // method
+  //method
   /**
    * @return the index of the current {@link Indexed} as {@link String} in quotes.
    */
@@ -35,7 +35,7 @@ public interface Indexed {
     return ("'" + getIndexAsString() + "'");
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return true if the current {@link Indexed} has the given index.
@@ -44,7 +44,7 @@ public interface Indexed {
     return (getIndex() == index);
   }
 
-  // method
+  //method
   /**
    * @param object
    * @return true if the current {@link Indexed} has the same index as the given
@@ -52,12 +52,12 @@ public interface Indexed {
    */
   default boolean hasSameIndexAs(final Indexed object) {
 
-    // Handles the case that the given object is null.
+    //Handles the case that the given object is null.
     if (object == null) {
       return false;
     }
 
-    // Handles the case that the given object is not null.
+    //Handles the case that the given object is not null.
     return hasIndex(object.getIndex());
   }
 }

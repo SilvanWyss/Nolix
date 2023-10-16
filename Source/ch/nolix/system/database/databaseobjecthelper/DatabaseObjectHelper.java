@@ -13,7 +13,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjecthelperapi.IDatabaseObjectHel
 //class
 public class DatabaseObjectHelper implements IDatabaseObjectHelper {
 
-  // method
+  //method
   @Override
   public final void assertIsLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (!databaseObject.isLinkedWithRealDatabase()) {
@@ -21,7 +21,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsLoaded(final IDatabaseObject databaseObject) {
     if (!isLoaded(databaseObject)) {
@@ -29,7 +29,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsNew(final IDatabaseObject databaseObject) {
     if (!isNew(databaseObject)) {
@@ -37,7 +37,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsNotDeleted(final IDatabaseObject databaseObject) {
     if (databaseObject.isDeleted()) {
@@ -45,7 +45,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsNotLinkedWithRealDatabase(final IDatabaseObject databaseObject) {
     if (databaseObject.isLinkedWithRealDatabase()) {
@@ -53,7 +53,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsNotNew(final IDatabaseObject databaseObject) {
     if (isNew(databaseObject)) {
@@ -61,7 +61,7 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsOpen(final IDatabaseObject databaseObject) {
     if (databaseObject.isClosed()) {
@@ -69,37 +69,37 @@ public class DatabaseObjectHelper implements IDatabaseObjectHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public final boolean isDeleted(final IDatabaseObject databaseObject) {
     return (databaseObject.getState() == DatabaseObjectState.DELETED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isEdited(final IDatabaseObject databaseObject) {
     return (databaseObject.getState() == DatabaseObjectState.EDITED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isLoaded(final IDatabaseObject databaseObject) {
     return (databaseObject.getState() == DatabaseObjectState.LOADED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isNew(final IDatabaseObject databaseObject) {
     return (databaseObject.getState() == DatabaseObjectState.NEW);
   }
 
-  // method
+  //method
   @Override
   public final boolean isNewOrEdited(final IDatabaseObject databaseObject) {
     return (isNew(databaseObject) || isEdited(databaseObject));
   }
 
-  // method
+  //method
   @Override
   public boolean isNewOrLoaded(IDatabaseObject databaseObject) {
     return (isNew(databaseObject) || isLoaded(databaseObject));

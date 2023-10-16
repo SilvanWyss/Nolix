@@ -8,7 +8,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public final class LinkTest extends ControlTest<ILink> {
 
-  // method
+  //method
   @Override
   protected Link createTestUnit() {
     return new Link();

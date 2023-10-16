@@ -13,45 +13,45 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 //interface
 public interface IEntityHelper extends IDatabaseObjectHelper {
 
-  // method declaration
+  //method declaration
   boolean allNewAndEditedMandatoryPropertiesAreSet(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean canBeDeleted(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean canBeInsertedIntoTable(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(IEntity entity);
 
-  // method declaration
+  //method declaration
   IEntityUpdateDto createEntityUpdateDtoForEntity(IEntity entity);
 
-  // method declaration
+  //method declaration
   IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity);
 
-  // method declaration
+  //method declaration
   INewEntityDto createNewEntityDtoForEntity(IEntity entity);
 
-  // method declaration
+  //method declaration
   IContainer<IProperty> getStoredBackReferencingProperties(IEntity entity);
 
-  // method declaration
+  //method declaration
   IContainer<? extends IProperty> getStoredEditedProperties(IEntity entity);
 
-  // method declaration
+  //method declaration
   IContainer<? extends IProperty> getStoredReferencingProperties(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean isReferenced(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean isReferencedInLocalData(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean referencesGivenEntity(IEntity sourceEntity, IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean referencesUninsertedEntity(IEntity entity);
 }

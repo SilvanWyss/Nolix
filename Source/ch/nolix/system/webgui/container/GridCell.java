@@ -16,16 +16,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class GridCell extends MutableElement implements Clearable {
 
-  // constant
+  //constant
   private static final String ROW_INDEX_HEADER = PascalCaseCatalogue.ROW_INDEX;
 
-  // constant
+  //constant
   private static final String COLUMN_INDEX_HEADER = PascalCaseCatalogue.COLUMN_INDEX;
 
-  // constant
+  //constant
   private static final String CONTROL_HEADER = "Control";
 
-  // static method
+  //static method
   public static GridCell fromSpecification(final INode<?> specification) {
 
     final var cell = new GridCell();
@@ -34,7 +34,7 @@ public final class GridCell extends MutableElement implements Clearable {
     return cell;
   }
 
-  // static method
+  //static method
   public static GridCell with1BasedRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
 
     final var cell = new GridCell();
@@ -44,62 +44,62 @@ public final class GridCell extends MutableElement implements Clearable {
     return cell;
   }
 
-  // attribute
+  //attribute
   private final Value<Integer> rowIndex = Value.forInt(ROW_INDEX_HEADER, this::setRowIndex);
 
-  // attribute
+  //attribute
   private final Value<Integer> columnIndex = Value.forInt(COLUMN_INDEX_HEADER, this::setColumnIndex);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
       CONTROL_HEADER,
       this::setControl,
       GlobalControlFactory::createControlFromSpecification,
       IControl::getSpecification);
 
-  // constructor
+  //constructor
   private GridCell() {
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     control.clear();
   }
 
-  // method
+  //method
   public int getColumnIndex() {
     return columnIndex.getValue();
   }
 
-  // method
+  //method
   public IControl<?, ?> getStoredControl() {
     return control.getValue();
   }
 
-  // method
+  //method
   public int getRowIndex() {
     return rowIndex.getValue();
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return control.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public void reset() {
     clear();
   }
 
-  // method
+  //method
   public void setControl(final IControl<?, ?> control) {
     this.control.setValue(control);
   }
 
-  // method
+  //method
   private void setColumnIndex(final int columnIndex) {
 
     GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
@@ -107,7 +107,7 @@ public final class GridCell extends MutableElement implements Clearable {
     this.columnIndex.setValue(columnIndex);
   }
 
-  // method
+  //method
   private void setRowIndex(final int rowIndex) {
 
     GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();

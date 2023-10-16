@@ -11,12 +11,12 @@ public final class ParameterizedBackReferenceType<
     C extends IColumn>
     extends BaseParameterizedBackReferenceType<C> {
 
-  // constructor
+  //constructor
   public ParameterizedBackReferenceType(final C backReferencedColumn) {
     super(backReferencedColumn);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.BACK_REFERENCE;

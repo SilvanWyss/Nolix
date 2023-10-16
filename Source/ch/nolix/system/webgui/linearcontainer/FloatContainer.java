@@ -5,36 +5,36 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 
 //class
-public final class FloatContainer // NOSONAR: A FloatContainer is a LinearContainer.
+public final class FloatContainer //NOSONAR: A FloatContainer is a LinearContainer.
     extends LinearContainer<FloatContainer, FloatContainerStyle> {
 
-  // constant
+  //constant
   private static final FloatContainerHtmlBuilder HTML_BUILDER = new FloatContainerHtmlBuilder();
 
-  // constant
+  //constant
   private static final FloatContainerCssBuilder CSS_BUILDER = new FloatContainerCssBuilder();
 
-  // method
+  //method
   @Override
   protected FloatContainerStyle createStyle() {
     return new FloatContainerStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<FloatContainer, FloatContainerStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<FloatContainer> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetContainer() {
-    // Does nothing.
+    //Does nothing.
   }
 }

@@ -12,7 +12,7 @@ package ch.nolix.core.programatom.voidobject;
  */
 public final class VoidObject {
 
-  // constructor
+  //constructor
   public VoidObject() {
-  } // NOSONAR: A VoidObject does not have any functionality.
+  } //NOSONAR: A VoidObject does not have any functionality.
 }

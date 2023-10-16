@@ -8,13 +8,13 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 //class
 public abstract class Worker {
 
-  // attribute
+  //attribute
   private boolean started;
 
-  // method declaration
+  //method declaration
   protected abstract void run();
 
-  // method
+  //method
   protected final void start() {
 
     setStarted();
@@ -22,19 +22,19 @@ public abstract class Worker {
     GlobalSequencer.runInBackground(this::run);
   }
 
-  // method
+  //method
   private void assertIsNotStarted() {
     if (isStarted()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already started");
     }
   }
 
-  // method
+  //method
   private boolean isStarted() {
     return started;
   }
 
-  // method
+  //method
   private void setStarted() {
 
     assertIsNotStarted();

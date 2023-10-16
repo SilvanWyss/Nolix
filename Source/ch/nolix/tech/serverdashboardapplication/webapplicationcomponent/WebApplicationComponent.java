@@ -18,35 +18,35 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public final class WebApplicationComponent extends Component<WebApplicationController, IServerDashboardContext> {
 
-  // constant
+  //constant
   public static final int APPLICATION_LOGO_IMAGE_WIDTH = 250;
 
-  // constant
+  //constant
   public static final int APPLICATION_LOGO_IMAGE_HEIGHT = 200;
 
-  // constant
+  //constant
   private static final String DEFAULT_APPLICATION_LOGO_RESOURCE_PATH = //
       "ch/nolix/tech/serverdashboardapplication/resource/default_application_logo.jpg";
 
-  // constant
+  //constant
   public static final IImage DEFAULT_APPLICATION_LOGO = MutableImage
       .fromResource(DEFAULT_APPLICATION_LOGO_RESOURCE_PATH)
       .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
 
-  // constructor
+  //constructor
   public WebApplicationComponent(
       final WebApplicationController webApplicationController,
       final WebClientSession<IServerDashboardContext> session) {
     super(webApplicationController, session);
   }
 
-  // method
+  //method
   @Override
   public RefreshBehavior getRefreshBehavior() {
     return RefreshBehavior.REFRESH_SELF;
   }
 
-  // method
+  //method
   @Override
   protected IControl<?, ?> createControl(final WebApplicationController controller) {
     return new VerticalStack()
@@ -66,10 +66,10 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
 
   @Override
   protected void doRegistrations(final WebApplicationController controller) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationSheet webApplicationSheet) {
 
     if (!webApplicationSheet.hasApplicationLogo()) {

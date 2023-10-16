@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class BiggerArgumentException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -30,7 +30,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
     return new BiggerArgumentException(argumentName, argument, max);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -47,7 +47,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
     return new BiggerArgumentException(argumentName, argument, max);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link BiggerArgumentException} for the given argumentName,
    * argument and max.
@@ -60,11 +60,11 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    */
   private BiggerArgumentException(final String argumentName, final double argument, final double max) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "is bigger than " + max);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link BiggerArgumentException} for the given argumentName,
    * argument and max.
@@ -77,7 +77,7 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    */
   private BiggerArgumentException(final String argumentName, final long argument, final long max) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "is bigger than " + max);
   }
 }

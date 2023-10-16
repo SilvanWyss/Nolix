@@ -14,10 +14,10 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 public final class LayerHtmlBuilder {
 
-  // constant
+  //constant
   private static final LayerHelper LAYER_HELPER = new LayerHelper();
 
-  // method
+  //method
   public IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
         HtmlElementTypeCatalogue.DIV,
@@ -25,12 +25,12 @@ public final class LayerHtmlBuilder {
         getHtmlChildElementsForLayer(layer));
   }
 
-  // method
+  //method
   private IContainer<IHtmlAttribute> getHtmlAttributesForLayer(final ILayer<?> layer) {
     return ImmutableList.withElement(LAYER_HELPER.createIdHtmlAttributeForLayer(layer));
   }
 
-  // method
+  //method
   private IContainer<IHtmlElement> getHtmlChildElementsForLayer(final ILayer<?> layer) {
 
     if (layer.isEmpty()) {
@@ -40,7 +40,7 @@ public final class LayerHtmlBuilder {
     return ImmutableList.withElement(getContentHtmlElementForLayer(layer));
   }
 
-  // method
+  //method
   private IHtmlElement getContentHtmlElementForLayer(final ILayer<?> layer) {
     return layer.getStoredRootControl().getHtml();
   }

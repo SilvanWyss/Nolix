@@ -7,6 +7,6 @@ import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
 public interface IMultiStateConfiguration<MSC extends IMultiStateConfiguration<MSC, S>, S extends Enum<S>>
     extends IRespondingMutableElement<MSC> {
 
-  // method declaration
+  //method declaration
   S getBaseState();
 }

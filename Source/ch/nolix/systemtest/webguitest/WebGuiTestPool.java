@@ -12,7 +12,7 @@ import ch.nolix.systemtest.webguitest.maintest.MainTestPool;
 //class
 public final class WebGuiTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public WebGuiTestPool() {
     super(
         new ContainerTestPool(),

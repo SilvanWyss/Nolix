@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class LinearContainerTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public LinearContainerTestPool() {
     super(HorizontalStackHtmlBuilderTest.class, HorizontalStackTest.class);
   }

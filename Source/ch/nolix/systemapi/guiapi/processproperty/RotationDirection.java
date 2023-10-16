@@ -13,7 +13,7 @@ public enum RotationDirection {
   FORWARD,
   BACKWARD;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link RotationDirection} from the given specification.
@@ -24,7 +24,7 @@ public enum RotationDirection {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 
-  // method
+  //method
   /**
    * @return an int representation of the current {@link RotationDirection}. 1 if
    *         the current {@link RotationDirection} is
@@ -33,7 +33,7 @@ public enum RotationDirection {
    */
   public int toInt() {
 
-    // Enumerates the current DirectionOfRotation.
+    //Enumerates the current DirectionOfRotation.
     return switch (this) {
       case FORWARD ->
         1;

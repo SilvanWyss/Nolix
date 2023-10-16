@@ -9,12 +9,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //interface
 public interface IDataProvider {
 
-  // method declaration
+  //method declaration
   INode<?> getDataForRequest(IChainedNode request);
 
-  // method declaration
+  //method declaration
   IContainer<? extends INode<?>> getDataForRequests(IChainedNode request, IChainedNode... requests);
 
-  // method declaration
+  //method declaration
   IContainer<? extends INode<?>> getDataForRequests(Iterable<? extends IChainedNode> requests);
 }

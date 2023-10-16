@@ -23,22 +23,22 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 //class
 final class WebSocketEndPoint extends NetEndPoint {
 
-  // constant
+  //constant
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  // attribute
+  //attribute
   private final PeerType peerType;
 
-  // attribute
+  //attribute
   private final Socket socket;
 
-  // attribute
+  //attribute
   private final InputStream socketInputStream;
 
-  // attribute
+  //attribute
   private final OutputStream socketOutputStream;
 
-  // constructor
+  //constructor
   public WebSocketEndPoint(
       final Socket socket,
       final InputStream socketInputStream,
@@ -63,25 +63,25 @@ final class WebSocketEndPoint extends NetEndPoint {
     GlobalLogger.logInfo("Created a WebEndPoint.");
   }
 
-  // method
+  //method
   @Override
   public PeerType getPeerType() {
     return peerType;
   }
 
-  // method
+  //method
   @Override
   public SecurityLevel getConnectionSecurityLevel() {
     return SecurityLevel.UNSECURE;
   }
 
-  // method
+  //method
   @Override
   public ConnectionType getConnectionType() {
     return ConnectionType.WEB_SOCKET;
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
 
@@ -96,18 +96,18 @@ final class WebSocketEndPoint extends NetEndPoint {
     }
   }
 
-  // method
+  //method
   @Override
   protected void sendRawMessage(final String rawMessage) {
     sendFrame(new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, rawMessage));
   }
 
-  // method
+  //method
   InputStream getStoredInputStream() {
     return socketInputStream;
   }
 
-  // method
+  //method
   void receiveControlFrame(final WebSocketFrame controlFrame) {
     switch (controlFrame.getOpcodeMeaning()) {
       case PING:
@@ -121,12 +121,12 @@ final class WebSocketEndPoint extends NetEndPoint {
     }
   }
 
-  // method
+  //method
   private boolean canWork() {
     return !socket.isClosed();
   }
 
-  // method
+  //method
   private void sendBytes(final byte[] bytes) {
 
     assertIsOpen();
@@ -139,17 +139,17 @@ final class WebSocketEndPoint extends NetEndPoint {
     }
   }
 
-  // method
+  //method
   private void sendFrame(final WebSocketFrame frame) {
     sendBytes(frame.toBytes());
   }
 
-  // method
+  //method
   private void sendPongFrameForPingFrame(final WebSocketFrame pingFrame) {
     sendFrame(pingFrame.createPongFrame());
   }
 
-  // method
+  //method
   private void waitToTargetInfo() {
 
     GlobalSequencer.forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS).waitUntil(this::hasTargetInfo);

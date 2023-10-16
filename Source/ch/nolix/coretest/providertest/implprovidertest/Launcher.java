@@ -4,12 +4,12 @@ package ch.nolix.coretest.providertest.implprovidertest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(final String[] arguments) {
     new ImplProviderTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

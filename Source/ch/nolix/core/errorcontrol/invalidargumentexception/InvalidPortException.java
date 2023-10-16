@@ -15,21 +15,21 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 @SuppressWarnings("serial")
 public final class InvalidPortException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ARGUMENT_NAME = LowerCaseCatalogue.PORT;
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not valid";
 
-  // static method
+  //static method
   public static InvalidPortException forPort(final long port) {
     return new InvalidPortException(port);
   }
 
-  // constructor
+  //constructor
   private InvalidPortException(final long port) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(ARGUMENT_NAME, port, ERROR_PREDICATE);
   }
 }

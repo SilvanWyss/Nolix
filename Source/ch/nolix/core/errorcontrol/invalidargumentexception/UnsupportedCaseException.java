@@ -12,13 +12,13 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnsupportedCaseException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ARGUMENT_NAME = "case";
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not supported";
 
-  // static method
+  //static method
   /**
    * @param pCase
    * @return a new {@link UnsupportedCaseException} for the given pCase.
@@ -28,7 +28,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return new UnsupportedCaseException(pCase);
   }
 
-  // static method
+  //static method
   /**
    * @param pCase
    * @return a new {@link UnsupportedCaseException} for the given pCase.
@@ -39,7 +39,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return new UnsupportedCaseException(pCase);
   }
 
-  // static method
+  //static method
   /**
    * @param pCase
    * @return the name of the given pCase.
@@ -47,7 +47,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    */
   private static String getNameOfCase(final Enum<?> pCase) {
 
-    // Asserts that the given case is not null.
+    //Asserts that the given case is not null.
     if (pCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }
@@ -55,7 +55,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return pCase.toString();
   }
 
-  // static method
+  //static method
   /**
    * @param pCase
    * @return a valid case of the given pCase.
@@ -64,12 +64,12 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    */
   private static String getValidCaseOfCase(final String pCase) {
 
-    // Asserts that the given case is not null.
+    //Asserts that the given case is not null.
     if (pCase == null) {
       throw new IllegalArgumentException("The given case is null.");
     }
 
-    // Asserts that the given case is not blank.
+    //Asserts that the given case is not blank.
     if (pCase.isBlank()) {
       throw new IllegalArgumentException("The given case is blank.");
     }
@@ -77,7 +77,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     return pCase;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnsupportedCaseException} for the given pCase.
    *
@@ -86,11 +86,11 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    */
   private UnsupportedCaseException(final Enum<?> pCase) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(ARGUMENT_NAME, getNameOfCase(pCase), ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnsupportedCaseException} for the given pCase.
    *
@@ -100,7 +100,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    */
   private UnsupportedCaseException(final String pCase) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(ARGUMENT_NAME, getValidCaseOfCase(pCase), ERROR_PREDICATE);
   }
 }

@@ -17,7 +17,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
 public interface IFluentOptionalValueHolder<FOVH extends IFluentOptionalValueHolder<FOVH, V>, V>
     extends IOptionalValueHolder<V> {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the value of the current {@link IFluentOptionalValueHolder}.
    * 
@@ -25,7 +25,7 @@ public interface IFluentOptionalValueHolder<FOVH extends IFluentOptionalValueHol
    */
   FOVH removeValue();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the value of the current {@link IFluentOptionalValueHolder}.
    * 

@@ -18,13 +18,13 @@ import ch.nolix.core.time.TimeUnitCatalogue;
  */
 public final class AsLongAsMediator {
 
-  // attribute
+  //attribute
   private final java.util.function.BooleanSupplier condition;
 
-  // optional attribute
+  //optional attribute
   private final Integer maxRunCount;
 
-  // constructor
+  //constructor
   /**
    * Creates a new as long as mediator with the given condition.
    * 
@@ -33,14 +33,14 @@ public final class AsLongAsMediator {
    */
   AsLongAsMediator(final BooleanSupplier condition) {
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
 
     maxRunCount = null;
     this.condition = condition;
   }
 
-  // method
+  //method
   /**
    * @param timeIntervalInMilliseconds
    * @return a new after all mediator with the given time interval in
@@ -50,16 +50,16 @@ public final class AsLongAsMediator {
    */
   public AfterEveryMediator afterEveryMilliseconds(final int timeIntervalInMilliseconds) {
 
-    // Handles the case that this as long as mediator does not have a max run count.
+    //Handles the case that this as long as mediator does not have a max run count.
     if (!hasMaxRunCount()) {
       return new AfterEveryMediator(condition, timeIntervalInMilliseconds);
     }
 
-    // Handles the case that this as long as mediator has a max run count.
+    //Handles the case that this as long as mediator has a max run count.
     return new AfterEveryMediator(maxRunCount, condition, timeIntervalInMilliseconds);
   }
 
-  // method
+  //method
   /**
    * @return a new {@link AfterEveryMediator} with a time interval of 1 second.
    */
@@ -67,7 +67,7 @@ public final class AsLongAsMediator {
     return afterEveryMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
   }
 
-  // method
+  //method
   /**
    * Lets this as long as mediator run the given job.
    * 
@@ -75,13 +75,13 @@ public final class AsLongAsMediator {
    */
   public void run(final Runnable job) {
 
-    // Handles the case that this as long as mediator does not have a max run count.
+    //Handles the case that this as long as mediator does not have a max run count.
     if (!hasMaxRunCount()) {
       while (condition.getAsBoolean()) {
         job.run();
       }
 
-      // Handles the case that this as long as mediator has a max run count.
+      //Handles the case that this as long as mediator has a max run count.
     } else {
       for (var i = 1; i <= maxRunCount; i++) {
 
@@ -103,16 +103,16 @@ public final class AsLongAsMediator {
    */
   public Future runInBackground(final Runnable job) {
 
-    // Handles the case that this as long as mediator does not have a max run count.
+    //Handles the case that this as long as mediator does not have a max run count.
     if (!hasMaxRunCount()) {
       return new Future(new JobRunner(job, condition));
     }
 
-    // Handles the case that this as long as mediator has a max run count.
+    //Handles the case that this as long as mediator has a max run count.
     return new Future(new JobRunner(job, maxRunCount, condition));
   }
 
-  // method
+  //method
   /**
    * @return true if this as long as mediator has max run count.
    */

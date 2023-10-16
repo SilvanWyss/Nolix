@@ -4,12 +4,12 @@ package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi;
 //interface
 public interface IDataTypeDto {
 
-  // method declaration
+  //method declaration
   String getName();
 
-  // method declaration
+  //method declaration
   String getParameter();
 
-  // method declaration
+  //method declaration
   boolean hasParameter();
 }

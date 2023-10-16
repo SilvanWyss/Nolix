@@ -10,7 +10,7 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class IterableReadContainerTest extends ContainerTest {
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
       final E element,
@@ -18,7 +18,7 @@ public final class IterableReadContainerTest extends ContainerTest {
     return IterableReadContainer.forIterable(LinkedList.withElement(element, elements));
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return new IterableReadContainer<>();

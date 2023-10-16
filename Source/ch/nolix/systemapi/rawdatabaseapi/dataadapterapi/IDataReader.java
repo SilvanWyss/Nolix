@@ -9,30 +9,30 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //interface
 public interface IDataReader extends GroupCloseable {
 
-  // method
+  //method
   ITime getSchemaTimestamp();
 
-  // method declaration
+  //method declaration
   IContainer<ILoadedEntityDto> loadEntitiesOfTable(String tableName);
 
-  // method declaration
+  //method declaration
   IContainer<String> loadMultiReferenceEntries(
       String tableName,
       String entityId,
       String multiReferenceColumnName);
 
-  // method declaration
+  //method declaration
   IContainer<Object> loadMultiValueEntries(
       String tableName,
       String entityId,
       String multiValueColumnName);
 
-  // method declaration
+  //method declaration
   ILoadedEntityDto loadEntity(String tableName, String id);
 
-  // method declaration
+  //method declaration
   boolean tableContainsEntityWithGivenValueAtGivenColumn(String tableName, String columnName, String value);
 
-  // method declaration
+  //method declaration
   boolean tableContainsEntityWithGivenId(String tableName, String id);
 }

@@ -20,15 +20,15 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 final class ResultJobRunner<R> extends Thread {
 
-  // attribute
+  //attribute
   private final Supplier<R> resultJob;
   private R result;
   private boolean running = true;
 
-  // optional attribute
+  //optional attribute
   private Throwable error;
 
-  // constructor
+  //constructor
   /**
    * Creates a {@link ResultJobRunner} with the given resultJob. The
    * {@link ResultJobRunner} will start automatically.
@@ -38,17 +38,17 @@ final class ResultJobRunner<R> extends Thread {
    */
   public ResultJobRunner(final Supplier<R> resultJob) {
 
-    // Asserts that the given resultJob is not null.
+    //Asserts that the given resultJob is not null.
     GlobalValidator.assertThat(resultJob).thatIsNamed("result job").isNotNull();
 
-    // Sets the resultJob of the current ResultJobRunner.
+    //Sets the resultJob of the current ResultJobRunner.
     this.resultJob = resultJob;
 
-    // Starts the current ResultJobRunner.
+    //Starts the current ResultJobRunner.
     start();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ResultJobRunner} has caught an error.
    */
@@ -56,7 +56,7 @@ final class ResultJobRunner<R> extends Thread {
     return (error != null);
   }
 
-  // method
+  //method
   /**
    * @return the error of the current {@link ResultJobRunner}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -65,9 +65,9 @@ final class ResultJobRunner<R> extends Thread {
    */
   public Throwable getError() {
 
-    // Asserts that the current ResultJobRunner has an error.
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //Asserts that the current ResultJobRunner has an error.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
     }
@@ -75,7 +75,7 @@ final class ResultJobRunner<R> extends Thread {
     return error;
   }
 
-  // method
+  //method
   /**
    * @return the result of the current {@link ResultJobRunner}
    * @throws InvalidArgumentException if the current {@link ResultJobRunner} is
@@ -83,12 +83,12 @@ final class ResultJobRunner<R> extends Thread {
    */
   public R getResult() {
 
-    // Asserts that the current ResultJobRunner is finished.
+    //Asserts that the current ResultJobRunner is finished.
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
     }
 
-    // Asserts that the current ResultJobRunner has not caught an error.
+    //Asserts that the current ResultJobRunner has not caught an error.
     if (caughtError()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has caught an error");
     }
@@ -96,7 +96,7 @@ final class ResultJobRunner<R> extends Thread {
     return result;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ResultJobRunner} is finished.
    */
@@ -104,7 +104,7 @@ final class ResultJobRunner<R> extends Thread {
     return !isRunning();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ResultJobRunner} is finished successfully.
    */
@@ -112,7 +112,7 @@ final class ResultJobRunner<R> extends Thread {
     return (isFinished() && !caughtError());
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ResultJobRunner} is running.
    */
@@ -120,7 +120,7 @@ final class ResultJobRunner<R> extends Thread {
     return running;
   }
 
-  // method
+  //method
   /**
    * Runs the current {@link ResultJobRunner}.
    */
@@ -128,7 +128,7 @@ final class ResultJobRunner<R> extends Thread {
   public void run() {
     try {
       result = resultJob.get();
-    } catch (final Throwable lError) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable lError) { //NOSONAR: All Throwables must be caught here.
       error = lError;
       GlobalLogger.logError(lError);
     } finally {

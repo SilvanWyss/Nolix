@@ -9,102 +9,102 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class FunctionCatalogueTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getFalse() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getFalse();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getNull() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getNull();
 
-    // verification
+    //verification
     expect(result).isNull();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getOne() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getOne();
 
-    // verification
+    //verification
     expect(result).isEqualTo(1);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStringOf_whenIntIsGiven() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getStringOf(2500);
 
-    // verification
+    //verification
     expect(result).isEqualTo("2500");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStringOf_whenStringIsGiven() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getStringOf("Lorem ipsum");
 
-    // verification
+    //verification
     expect(result).isEqualTo("Lorem ipsum");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTrue() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getTrue();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTypeOf_whenIntIsGiven() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getTypeOf(2500);
 
-    // verification
+    //verification
     expect(result).is(Integer.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTypeOf_whenStringIsGiven() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getTypeOf("");
 
-    // verification
+    //verification
     expect(result).is(String.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getZero() {
 
-    // execution
+    //execution
     final var result = FunctionCatalogue.getZero();
 
-    // verification
+    //verification
     expect(result).isEqualTo(0);
   }
 }

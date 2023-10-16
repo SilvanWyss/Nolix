@@ -20,34 +20,34 @@ import ch.nolix.coreapi.programstructureapi.cachingapi.ICachingContainer;
 //class
 public final class CachingContainer<E> extends Container<E> implements ICachingContainer<E> {
 
-  // constant
+  //constant
   private static final String AUTO_ID_PREFIX = "Z";
 
-  // attribute
+  //attribute
   private long autoIdCounter;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Pair<String, E>> elements = new LinkedList<>();
 
-  // method
+  //method
   @Override
   public boolean containsWithId(final String id) {
     return elements.containsAny(e -> e.getStoredElement1().equals(id));
   }
 
-  // method
+  //method
   @Override
   public int getElementCount() {
     return elements.getElementCount();
   }
 
-  // method
+  //method
   @Override
   public String getIdOf(final E element) {
     return elements.getStoredFirst(e -> e.getStoredElement2().equals(element)).getStoredElement1();
   }
 
-  // method
+  //method
   public SingleContainer<String> getOptionalIdOf(final E element) {
 
     final var pair = elements.getStoredFirstOrNull(e -> e.getStoredElement2() == element);
@@ -59,25 +59,25 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return new SingleContainer<>(pair.getStoredElement1());
   }
 
-  // method
+  //method
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
     return elements.getStoredAt1BasedIndex(p1BasedIndex).getStoredElement2();
   }
 
-  // method
+  //method
   @Override
   public E getStoredById(final String id) {
     return elements.getStoredFirst(e -> e.getStoredElement1().equals(id)).getStoredElement2();
   }
 
-  // method
+  //method
   @Override
   public E getStoredLast() {
     return elements.getStoredLast().getStoredElement2();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -86,13 +86,13 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return true;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> iterator() {
     return new CachingContainerIterator<>(elements.iterator());
   }
 
-  // method
+  //method
   @Override
   public String registerAndGetId(final E element) {
 
@@ -106,7 +106,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return id;
   }
 
-  // method
+  //method
   @Override
   public void registerAtId(final String id, final E element) {
 
@@ -119,7 +119,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     elements.addAtEnd(new Pair<>(id, element));
   }
 
-  // method
+  //method
   @Override
   public String registerIfNotRegisteredAndGetId(final E element) {
 
@@ -138,13 +138,13 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return pair.getStoredElement1();
   }
 
-  // method
+  //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -153,7 +153,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     return new LinkedList<>();
   }
 
-  // method
+  //method
   private void assertDoesNotContain(final E element) {
     if (contains(element)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -162,7 +162,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     }
   }
 
-  // method
+  //method
   private void assertDoesNotContainId(final String id) {
     if (containsWithId(id)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -172,7 +172,7 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
     }
   }
 
-  // method
+  //method
   private String createNextAutoId() {
 
     autoIdCounter++;

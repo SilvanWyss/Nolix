@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IValidationLabel> {
 
-  // method
+  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final IValidationLabel control) {
     return HtmlElement.withTypeAndInnerText(
@@ -19,7 +19,7 @@ public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IVa
         getHtmlDivInnerTextForControl(control));
   }
 
-  // method
+  //method
   private String getHtmlDivInnerTextForControl(final IValidationLabel control) {
 
     if (control.isEmpty()) {

@@ -12,7 +12,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
  */
 public interface Nameable extends Named {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the name of the current {@link Nameable}.
    * 

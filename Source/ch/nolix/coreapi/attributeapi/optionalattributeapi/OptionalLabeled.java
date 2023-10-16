@@ -10,7 +10,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalLabeled {
 
-  // method declaration
+  //method declaration
   /**
    * @return the label of the current {@link OptionalLabeled}.
    * @throws RuntimeException if the current {@link OptionalLabeled} does not have
@@ -18,7 +18,7 @@ public interface OptionalLabeled {
    */
   String getLabel();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalLabeled} has a label.
    */

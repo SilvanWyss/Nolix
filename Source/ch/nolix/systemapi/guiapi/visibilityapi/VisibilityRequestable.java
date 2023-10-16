@@ -4,9 +4,9 @@ package ch.nolix.systemapi.guiapi.visibilityapi;
 //interface
 public interface VisibilityRequestable {
 
-  // method declaration
+  //method declaration
   boolean isInvisible();
 
-  // method declaration
+  //method declaration
   boolean isVisible();
 }

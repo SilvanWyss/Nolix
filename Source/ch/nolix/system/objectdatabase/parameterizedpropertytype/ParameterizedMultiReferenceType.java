@@ -12,12 +12,12 @@ public final class ParameterizedMultiReferenceType<
     E extends IEntity>
     extends BaseParameterizedReferenceType<E> {
 
-  // constructor
+  //constructor
   public ParameterizedMultiReferenceType(final ITable<E> referencedTable) {
     super(referencedTable);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.MULTI_REFERENCE;

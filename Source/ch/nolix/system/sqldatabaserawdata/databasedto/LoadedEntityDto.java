@@ -12,8 +12,8 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 public record LoadedEntityDto(String id, String saveStamp, IContainer<ILoadedContentFieldDto> contentFields)
     implements ILoadedEntityDto {
 
-  // constructor
-  public LoadedEntityDto( // NOSONAR: This implementations checks the given arguments.
+  //constructor
+  public LoadedEntityDto( //NOSONAR: This implementations checks the given arguments.
       final String id,
       final String saveStamp,
       final IContainer<ILoadedContentFieldDto> contentFields) {
@@ -35,19 +35,19 @@ public record LoadedEntityDto(String id, String saveStamp, IContainer<ILoadedCon
     this.contentFields = contentFields;
   }
 
-  // method
+  //method
   @Override
   public IContainer<ILoadedContentFieldDto> getContentFields() {
     return contentFields;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getSaveStamp() {
     return saveStamp;

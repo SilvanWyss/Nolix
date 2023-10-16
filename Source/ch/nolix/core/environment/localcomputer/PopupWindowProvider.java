@@ -17,16 +17,16 @@ import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
  */
 public final class PopupWindowProvider {
 
-  // constant
+  //constant
   private static final String ERROR_WINDOW_TITLE = "Error";
 
-  // constant
+  //constant
   private static final String MESSAGE_WINDOW_TITLE = "Message";
 
-  // constant
+  //constant
   private static final String REQUEST_WINDOW_TITLE = "Request";
 
-  // static method
+  //static method
   /**
    * Shows an error window with the given error message.
    * 
@@ -40,7 +40,7 @@ public final class PopupWindowProvider {
         JOptionPane.ERROR_MESSAGE);
   }
 
-  // static method
+  //static method
   /**
    * Shows an error window for the given error.
    * 
@@ -51,24 +51,24 @@ public final class PopupWindowProvider {
     String title;
     final var textStringBuilder = new StringBuilder();
 
-    // Handles the case that the given exception is null.
+    //Handles the case that the given exception is null.
     if (error == null) {
       title = "Exception";
       textStringBuilder.append("An exception, that is null, occured.");
 
-      // Handles the case that the given exception is not null.
+      //Handles the case that the given exception is not null.
     } else {
 
-      // Sets the title.
+      //Sets the title.
       title = error.getClass().getSimpleName();
 
-      // Handles the case that the given exception has a message.
+      //Handles the case that the given exception has a message.
       if (error.getMessage() != null && !error.getMessage().isEmpty()) {
         textStringBuilder.append(
             error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE);
       }
 
-      // Iterates the stack trace of the given exception.
+      //Iterates the stack trace of the given exception.
       for (final StackTraceElement ste : error.getStackTrace()) {
 
         final String[] classPath = ste.getClassName().split("\\.");
@@ -102,7 +102,7 @@ public final class PopupWindowProvider {
         JOptionPane.INFORMATION_MESSAGE);
   }
 
-  // static method
+  //static method
   /**
    * Shows a request window with the given question.
    * 
@@ -120,7 +120,7 @@ public final class PopupWindowProvider {
     return (result == 0);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link PopupWindowProvider} can be created.
    */

@@ -19,17 +19,17 @@ import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
  */
 public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
-  // constant
+  //constant
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  // optional attribute
+  //optional attribute
   private IDataProviderController receiverController;
 
-  // constructor
+  //constructor
   EndPoint() {
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -38,7 +38,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return (receiverController != null);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -47,13 +47,13 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
     runCommand(command);
 
-    // Iterates the given commands.
+    //Iterates the given commands.
     for (final var c : commands) {
       runCommand(c);
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -61,21 +61,21 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   public final void noteClose() {
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final void setReceivingDataProviderController(final IDataProviderController receiverController) {
 
-    // Asserts that the given receiverController is not null.
+    //Asserts that the given receiverController is not null.
     GlobalValidator.assertThat(receiverController).thatIsNamed("receiver controller").isNotNull();
 
-    // Sets the receiver controller of the current EndPoint.
+    //Sets the receiver controller of the current EndPoint.
     this.receiverController = receiverController;
   }
 
-  // method
+  //method
   /**
    * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
    */
@@ -85,7 +85,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     }
   }
 
-  // method
+  //method
   /**
    * @return the receiver controller of the current {@link EndPoint}.
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}

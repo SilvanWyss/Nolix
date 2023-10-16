@@ -10,11 +10,11 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 //class
 final class ColumnMapper {
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
       new ParameterizedPropertyTypeMapper();
 
-  // method
+  //method
   public IColumn createColumnFromDtoForParentTableUsingGivenReferencableTables(
       final IColumnDto columnDto,
       final Table<IEntity> parentTable,

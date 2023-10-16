@@ -26,10 +26,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public final class LicenseManager {
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<License> licenses = new LinkedList<>();
 
-  // method
+  //method
   /**
    * Creates and adds a new {@link License} of the given licenseType to the
    * current {@link LicenseManager}
@@ -59,7 +59,7 @@ public final class LicenseManager {
     return this;
   }
 
-  // method
+  //method
   /**
    * Adds the given license to the current {@link LicenseManager}.
    * 
@@ -73,14 +73,14 @@ public final class LicenseManager {
    */
   public LicenseManager addLicense(final License license) {
 
-    // Asserts that the given license is not null.
+    //Asserts that the given license is not null.
     GlobalValidator.assertThat(license).thatIsNamed(LowerCaseCatalogue.LICENSE).isNotNull();
 
-    // Assets thath the given license is actiaved.
+    //Assets thath the given license is actiaved.
     license.assetIsActivated();
 
-    // Handles the case that the current LicenseManager
-    // does not contain already a License of the type the given license is.
+    //Handles the case that the current LicenseManager
+    //does not contain already a License of the type the given license is.
     if (!containsLicense(license.getClass())) {
       licenses.addAtEnd(license);
     }
@@ -88,7 +88,7 @@ public final class LicenseManager {
     return this;
   }
 
-  // method
+  //method
   /**
    * @param featureType
    * @param <F>         is the given featureType.
@@ -110,7 +110,7 @@ public final class LicenseManager {
     }
   }
 
-  // method
+  //method
   /**
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -121,7 +121,7 @@ public final class LicenseManager {
     return licenses.containsAny(l -> l.getClass() == licenseType);
   }
 
-  // method
+  //method
   /**
    * @return the types of the licenses of the current {@link LicenseManager}.
    */
@@ -129,7 +129,7 @@ public final class LicenseManager {
     return licenses.to(License::getClass);
   }
 
-  // method
+  //method
   /**
    * Removes the given license from the current {@link LicenseManager}.
    * 
@@ -141,7 +141,7 @@ public final class LicenseManager {
     licenses.removeFirstOccurrenceOf(license);
   }
 
-  // method
+  //method
   /**
    * Requires the current {@link LicenseManager} to contain a {@link Feature} of
    * the given featureType.
@@ -156,8 +156,8 @@ public final class LicenseManager {
    */
   public <F extends Feature> LicenseManager requireFeature(final Class<F> featureType) {
 
-    // Asserts that the current LicenseManager contains a feature of the given
-    // featureType.
+    //Asserts that the current LicenseManager contains a feature of the given
+    //featureType.
     if (!containsFeature(featureType)) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, featureType.getSimpleName());
     }
@@ -173,7 +173,7 @@ public final class LicenseManager {
     return new LongMediator(this, value);
   }
 
-  // method
+  //method
   /**
    * @param licenseType
    * @param <L>         is the given licenseType.
@@ -183,13 +183,13 @@ public final class LicenseManager {
    */
   private <L extends License> String readKeyFromLicenseFile(final Class<L> licenseType) {
 
-    // Asserts that the given licenseType is not null.
+    //Asserts that the given licenseType is not null.
     GlobalValidator.assertThat(licenseType).thatIsNamed(LowerCaseCatalogue.TYPE).isNotNull();
 
     return readKeyFromLicenseFile(licenseType.getName());
   }
 
-  // method
+  //method
   /**
    * @param licenseName
    * @return the key of the license with the given licenseName from the license
@@ -201,7 +201,7 @@ public final class LicenseManager {
     try {
       return new FolderAccessor(LicenseEnvironment.LOCAL_LICENSE_FOLDER_NAME)
           .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
       throw GeneralException.withErrorMessage(
           "There does not exist a license file with the key for the License '" + licenseName + "'");
     }

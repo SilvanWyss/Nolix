@@ -21,10 +21,10 @@ public enum Font {
   TAHOMA(FontCodeCatalogue.TAHOMA),
   VERDANA(FontCodeCatalogue.VERDANA);
 
-  // attribute
+  //attribute
   private final String code;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link Font} from the given specification.
@@ -35,7 +35,7 @@ public enum Font {
     return valueOf(specification.getSingleChildNodeHeader());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Font} with the given code.
    * 
@@ -45,7 +45,7 @@ public enum Font {
     this.code = code;
   }
 
-  // method
+  //method
   /**
    * @return the code of the current {@link Font}.
    */

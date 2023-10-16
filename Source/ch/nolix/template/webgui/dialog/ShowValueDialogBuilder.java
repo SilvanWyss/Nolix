@@ -22,25 +22,25 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
 
-  // constant
+  //constant
   private static final String DEFAULT_VALUE_NAME = LowerCaseCatalogue.VALUE;
 
-  // constant
+  //constant
   private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;
 
-  // attribute
+  //attribute
   private String valueName = DEFAULT_VALUE_NAME;
 
-  // attribute
+  //attribute
   private String value = StringCatalogue.ZERO;
 
-  // attribute
+  //attribute
   private String confirmButtonText = DEFAULT_CONFIRM_BUTTON_TEXT;
 
-  // optional attribute
+  //optional attribute
   private Consumer<String> valueCopier;
 
-  // method
+  //method
   @Override
   public ILayer<?> build() {
     return new Layer()
@@ -69,7 +69,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
                         .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui())));
   }
 
-  // method
+  //method
   public ShowValueDialogBuilder setConfirmButtonText(final String confirmButtonText) {
 
     this.confirmButtonText = confirmButtonText;
@@ -77,7 +77,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public ShowValueDialogBuilder setValue(final String value) {
 
     this.value = value;
@@ -85,7 +85,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public ShowValueDialogBuilder setValueCopier(final Consumer<String> valueCopier) {
 
     this.valueCopier = valueCopier;
@@ -93,7 +93,7 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public ShowValueDialogBuilder setValueName(final String valueName) {
 
     this.valueName = valueName;
@@ -101,24 +101,24 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   private void assertHasValueCopier() {
     if (!hasValueCopier()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "value copier");
     }
   }
 
-  // method
+  //method
   private String getConfirmButtonText() {
     return confirmButtonText;
   }
 
-  // method
+  //method
   private String getValue() {
     return value;
   }
 
-  // method
+  //method
   private Consumer<String> getValueCopier() {
 
     assertHasValueCopier();
@@ -126,12 +126,12 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
     return valueCopier;
   }
 
-  // method
+  //method
   private String getValueName() {
     return valueName;
   }
 
-  // method
+  //method
   private boolean hasValueCopier() {
     return (valueCopier != null);
   }

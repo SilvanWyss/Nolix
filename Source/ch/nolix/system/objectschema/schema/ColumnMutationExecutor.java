@@ -6,7 +6,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 //class
 final class ColumnMutationExecutor {
 
-  // method
+  //method
   public void deleteColumn(final Column column) {
 
     if (column.belongsToTable()) {
@@ -18,7 +18,7 @@ final class ColumnMutationExecutor {
     column.internalSetDeleted();
   }
 
-  // method
+  //method
   public void setHeaderToColumn(final Column column, final String name) {
 
     final var oldName = column.getName();
@@ -37,7 +37,7 @@ final class ColumnMutationExecutor {
     column.internalSetEdited();
   }
 
-  // method
+  //method
   public void setParameterizedPropertyTypeToColumn(
       final Column column,
       final IParameterizedPropertyType parameterizedPropertyType) {

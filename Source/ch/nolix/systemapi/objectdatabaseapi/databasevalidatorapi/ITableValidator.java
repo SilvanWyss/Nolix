@@ -8,6 +8,6 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //interface
 public interface ITableValidator {
 
-  // method declaration
+  //method declaration
   void assertCanInsertGivenEntity(ITable<?> table, IEntity entity);
 }

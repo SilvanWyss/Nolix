@@ -30,10 +30,10 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class ParameterizedPropertyTypeMapper implements IParameterizedPropertyTypeMapper {
 
-  // constant
+  //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 
-  // method
+  //method
   @Override
   public IParameterizedPropertyType createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
       final IProperty property,

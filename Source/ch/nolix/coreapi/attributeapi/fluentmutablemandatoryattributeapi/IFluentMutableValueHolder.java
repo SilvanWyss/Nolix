@@ -16,7 +16,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
 public interface IFluentMutableValueHolder<FVH extends IFluentMutableValueHolder<FVH, V>, V>
     extends IValueHolder<V> {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the value of the current {@link IFluentMutableValueHolder}.
    * 

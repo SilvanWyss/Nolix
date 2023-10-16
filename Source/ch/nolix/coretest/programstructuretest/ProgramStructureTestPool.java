@@ -8,7 +8,7 @@ import ch.nolix.coretest.programstructuretest.cachingtest.CachingTestPool;
 //class
 public final class ProgramStructureTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ProgramStructureTestPool() {
     super(new CachingTestPool());
   }

@@ -7,20 +7,20 @@ import java.lang.reflect.InvocationTargetException;
 //class
 final class ErrorCreator {
 
-  // constant
+  //constant
   private static final OccurancePlaceFinder OCCURANCE_PLACE_FINDER = new OccurancePlaceFinder();
 
-  // constant
+  //constant
   private static final ThrowableHelper THROWABLE_HELPER = new ThrowableHelper();
 
-  // method
+  //method
   public Error createErrorFromInvocationTargetExceptionInInstance(
       final InvocationTargetException invocationTargetException,
       final Object instance) {
     return createErrorFromThrowableInInstance(invocationTargetException.getCause(), instance);
   }
 
-  // method
+  //method
   public Error createErrorFromThrowableInInstance(final Throwable throwable, final Object instance) {
     return new Error(
         THROWABLE_HELPER.getMessageFromThrowableOrDefaultErrorMessage(throwable),

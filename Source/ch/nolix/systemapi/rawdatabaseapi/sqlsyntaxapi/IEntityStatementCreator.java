@@ -10,21 +10,21 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //interface
 public interface IEntityStatementCreator {
 
-  // method declaration
+  //method declaration
   String createStatementToDeleteEntity(String tableName, IEntityHeadDto entity);
 
-  // method
+  //method
   String createStatementToExpectGivenSchemaTimestamp(ITime schemaTimestamp);
 
-  // method
+  //method
   String createStatementToExpectTableContainsEntity(String tableName, String entityId);
 
-  // method declaration
+  //method declaration
   String createStatementToInsertNewEntity(String tableName, INewEntityDto newEntity);
 
-  // method declaration
+  //method declaration
   String createStatementToSetEntityAsUpdated(String tableName, IEntityHeadDto entity);
 
-  // method declaration
+  //method declaration
   String createStatementToUpdateEntityOnTable(String tableName, IEntityUpdateDto entityUpdate);
 }

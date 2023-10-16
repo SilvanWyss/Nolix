@@ -7,12 +7,12 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IUploader extends IControl<IUploader, IUploaderStyle> {
 
-  // method declaration
+  //method declaration
   byte[] getFile();
 
-  // method declaration
+  //method declaration
   boolean hasFile();
 
-  // method declaration
+  //method declaration
   void technicalSetFile(byte[] file);
 }

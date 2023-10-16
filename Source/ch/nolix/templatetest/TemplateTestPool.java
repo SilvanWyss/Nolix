@@ -10,7 +10,7 @@ import ch.nolix.templatetest.webguitest.WebGuiTestPool;
 //class
 public final class TemplateTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public TemplateTestPool() {
     super(new GraphicTestPool(), new MathTestPool(), new WebGuiTestPool());
   }

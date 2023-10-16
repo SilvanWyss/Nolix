@@ -17,26 +17,26 @@ public interface ITable
     Identified,
     FluentNameable<ITable> {
 
-  // method declaration
+  //method declaration
   ITable addColumn(IColumn column);
 
-  // method declaration
+  //method declaration
   boolean belongsToDatabase();
 
-  // method declaration
+  //method declaration
   ITable createColumnWithNameAndParameterizedPropertyType(
       String name,
       IParameterizedPropertyType parameterizedPropertyType);
 
-  // method declaration
+  //method declaration
   IFlatTableDto getFlatDto();
 
-  // method declaration
+  //method declaration
   IDatabase getParentDatabase();
 
-  // method declarations
+  //method declarations
   IContainer<IColumn> getStoredColumns();
 
-  // method declaration
+  //method declaration
   ITableDto toDto();
 }

@@ -9,54 +9,54 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 //interface
 public interface IFractalHelper {
 
-  // method declaration
+  //method declaration
   BigDecimal getHeightInPixelAsBigDecimalOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getHeightInUnitsOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
       IFractal fractal,
       IComplexNumber complexNumber,
       BigDecimal limit);
 
-  // method declaration
+  //method declaration
   BigDecimal getMaxXOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getMaxYOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getMinXOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getMinYOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getPixelCountPerHorizontalUnitOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getPixelCountPerVerticalUnitOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getSquaredMinMagnitudeForDivergenceOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getUnitsPerHorizontalPixelOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getUnitsPerVerticalPixelOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getUnitsForHorizontalPixelCount(IFractal fractal, double horizontalPixelCount);
 
-  // method declaration
+  //method declaration
   BigDecimal getUnitsForVerticalPixelCount(IFractal fractal, double verticalPixelCount);
 
-  // method declaration
+  //method declaration
   BigDecimal getWidthInPixelAsBigDecimalOf(IFractal fractal);
 
-  // method declaration
+  //method declaration
   BigDecimal getWidthInUnitsOf(IFractal fractal);
 }

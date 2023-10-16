@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //class
 public final class OptionalReferenceHelper extends PropertyHelper implements IOptionalReferenceHelper {
 
-  // method
+  //method
   @Override
   public boolean canClear(final IOptionalReference<?> optionalReference) {
     return optionalReference != null
@@ -20,7 +20,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
         && optionalReference.getStoredParentEntity().isOpen();
   }
 
-  // method
+  //method
   @Override
   public boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
     return canSetEntity(optionalReference)
@@ -29,7 +29,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
         && optionalReference.getReferencedTableName().equals(entity.getParentTableName());
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForClear(final IOptionalReference<?> optionalReference) {
 
@@ -41,7 +41,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
         new ContentFieldDto(optionalReference.getName()));
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetEntity(
       final IOptionalReference<?> optionalReference,
@@ -55,7 +55,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
         new ContentFieldDto(optionalReference.getName(), entity.getId()));
   }
 
-  // method
+  //method
   @Override
   public IProperty getStoredBackReferencingPropertyOrNull(
       final IOptionalReference<?> optionalReference) {
@@ -65,7 +65,7 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
         .getStoredFirstOrNull(p -> p.referencesBackProperty(optionalReference));
   }
 
-  // method
+  //method
   private boolean canSetEntity(final IOptionalReference<?> optionalReference) {
     return optionalReference != null
         && optionalReference.belongsToEntity()

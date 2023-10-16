@@ -25,16 +25,16 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  */
 public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupCloseable {
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // optional attribute
+  //optional attribute
   private Application<?, ?> defaultApplication;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Application<?, ?>> applications = new LinkedList<>();
 
-  // method
+  //method
   /**
    * Adds the given application to the current {@link BaseServer}.
    * 
@@ -57,7 +57,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return asConcrete();
   }
 
-  // method
+  //method
   /**
    * Adds the given application with the given instanceName to the current
    * {@link BaseServer}.
@@ -86,7 +86,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return asConcrete();
   }
 
-  // method
+  //method
   /**
    * Adds a new {@link Application} with the given instanceName,
    * initialSessionClass and applicationContext to the current {@link BaseServer}.
@@ -112,17 +112,17 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
           final Class<S> initialSessionClass,
           final AC applicationContext) {
 
-    // Creates Application.
+    //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
         applicationName,
         initialSessionClass,
         applicationContext);
 
-    // Calls other method.
+    //Calls other method.
     return addApplication(application);
   }
 
-  // method
+  //method
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
    * void context to the current {@link BaseServer}.
@@ -145,17 +145,17 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
           final String name,
           final Class<S> initialSessionClass) {
 
-    // Creates Application.
+    //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
         name,
         initialSessionClass,
         new VoidObject());
 
-    // Calls other method.
+    //Calls other method.
     return addApplication(application);
   }
 
-  // method
+  //method
   /**
    * Adds the given defaultApplication to the current {@link BaseServer}. A
    * default {@link Application} takes all {@link Client}s that do not have a
@@ -209,17 +209,17 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
           final Class<S> initialSessionClass,
           final AC applicationContext) {
 
-    // Creates default Application.
+    //Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
         applicationName,
         initialSessionClass,
         applicationContext);
 
-    // Calls other method.
+    //Calls other method.
     return addDefaultApplication(localDefaultApplication);
   }
 
-  // method
+  //method
   /**
    * Adds a new {@link Application} with the given name, initialSessionClass and a
    * void context as default {@link Application} the current {@link BaseServer}.
@@ -242,23 +242,23 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
           final String name,
           final Class<S> initialSessionClass) {
 
-    // Creates a default Application.
+    //Creates a default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
         name,
         initialSessionClass,
         new VoidObject());
 
-    // Calls other method.
+    //Calls other method.
     return addDefaultApplication(localDefaultApplication);
   }
 
-  // method
+  //method
   /**
    * @return the current {@link Server} as {@link IServerTarget}.
    */
   public abstract IServerTarget asTarget();
 
-  // method
+  //method
   /**
    * @return true if the current {@link BaseServer} contains a default
    *         {@link Application}.
@@ -267,7 +267,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return (defaultApplication != null);
   }
 
-  // method
+  //method
   /**
    * @param name
    * @return true if the current {@link BaseServer} contains a {@link Application}
@@ -277,7 +277,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return applications.containsAny(a -> a.getInstanceName().equals(name));
   }
 
-  // method
+  //method
   /**
    * @param instanceName
    * @return the {@link Application} with the given instanceName from the current
@@ -291,7 +291,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return applications.getStoredFirst(a -> a.getInstanceName().equals(instanceName));
   }
 
-  // method
+  //method
   /**
    * @param urlInstanceName
    * @return the {@link Application} with the given urlInstanceName from the
@@ -305,7 +305,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return applications.getStoredFirst(a -> a.getUrlInstanceName().equals(urlInstanceName));
   }
 
-  // method
+  //method
   /**
    * @return the {@link Application}s of the current {@link BaseServer}.
    */
@@ -313,7 +313,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return applications;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -322,7 +322,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return closeController;
   }
 
-  // method
+  //method
   /**
    * @return the default {@link Application} of the current {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -332,13 +332,13 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    */
   public final Application<?, ?> getStoredDefaultApplication() {
 
-    // Asserts that the current Server contains a default Application.
+    //Asserts that the current Server contains a default Application.
     assertContainsDefaultApplication();
 
     return defaultApplication;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link BaseServer} has a {@link Client}
    *         connected.
@@ -347,7 +347,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     return applications.containsAny(Application::hasClientConnected);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -355,7 +355,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
   public final void noteClose() {
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link BaseServer} take the given client.
    * 
@@ -374,23 +374,23 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    */
   public final void takeClient(final BackendClient<?, ?> client) {
 
-    // Handles the case that the given client does not have a target.
+    //Handles the case that the given client does not have a target.
     if (!client.hasTarget()) {
       getStoredDefaultApplication().takeClient(client);
 
-      // Handles the case that the given client has a target.
+      //Handles the case that the given client has a target.
     } else {
       getStoredApplicationByUrlInstanceName(client.getTarget()).takeClient(client);
     }
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return the current {@link BaseServer}.
    */
   protected abstract SR asConcrete();
 
-  // method declaration
+  //method declaration
   /**
    * Notes that the curent {@link BaseServer} has added the given application.
    * 
@@ -398,7 +398,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    */
   protected abstract void noteAddedApplication(Application<?, ?> application);
 
-  // method declaration
+  //method declaration
   /**
    * Notes that the curent {@link BaseServer} has added the given
    * defaultApplication2.
@@ -407,7 +407,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    */
   protected abstract void noteAddedDefaultApplication(Application<?, ?> defaultApplication2);
 
-  // method
+  //method
   /**
    * Lets the current {@link Server} take the given endPoint.
    * 
@@ -415,17 +415,17 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    */
   void internalTakeEndPoint(final IEndPoint endPoint) {
 
-    // Handles the case that the given endPoint does not have a target.
+    //Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultApplication().takeEndPoint(endPoint);
 
-      // Handles the case that the given endPoint has a target.
+      //Handles the case that the given endPoint has a target.
     } else {
       getStoredApplicationByUrlInstanceName(endPoint.getCustomTargetSlot()).takeEndPoint(endPoint);
     }
   }
 
-  // method
+  //method
   /**
    * Adds the given application to the list of {@link Application}s of the current
    * {@link BaseServer}.
@@ -437,16 +437,16 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    */
   private void addApplicationToList(final Application<?, ?> application) {
 
-    // Asserts that the current Server does not contain already
-    // an Application with the same name as the given application..
+    //Asserts that the current Server does not contain already
+    //an Application with the same name as the given application..
     assertDoesNotContainApplicationWithName(application.getInstanceName());
 
-    // Adds the given application to the list of Applications of the current
-    // BaseServer.
+    //Adds the given application to the list of Applications of the current
+    //BaseServer.
     applications.addAtEnd(application);
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
@@ -459,7 +459,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
     }
   }
 
-  // method
+  //method
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains

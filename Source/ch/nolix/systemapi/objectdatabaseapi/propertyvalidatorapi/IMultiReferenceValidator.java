@@ -8,12 +8,12 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 //interface
 public interface IMultiReferenceValidator extends IPropertyValidator {
 
-  // method declaration
+  //method declaration
   void assertCanAddGivenEntity(IMultiReference<?> multiReference, IEntity entity);
 
-  // method declaration
+  //method declaration
   void assertCanClear(IMultiReference<?> multiReference);
 
-  // method declaration
+  //method declaration
   <E extends IEntity> void assertCanRemoveEntity(IMultiReference<E> multiReference, E entity);
 }

@@ -4,9 +4,9 @@ package ch.nolix.coreapi.programcontrolapi.targetapi;
 //interface
 public interface IAuthenticationServerTarget extends IServerTarget {
 
-  // method declaration
+  //method declaration
   String getLoginName();
 
-  // method declaration
+  //method declaration
   String getLoginPassword();
 }

@@ -9,13 +9,13 @@ import ch.nolix.system.nodedatabaserawschema.databaseschemainspector.DatabaseSch
 //class
 public final class DatabaseInitializer {
 
-  // constant
+  //constant
   private static final DatabaseSchemaInspector DATABASE_SCHEMA_INSPECTOR = new DatabaseSchemaInspector();
 
-  // constant
+  //constant
   private static final InternalDatabaseInitializer INTERNAL_DATABASE_INITIALIZER = new InternalDatabaseInitializer();
 
-  // method
+  //method
   public void initializeDatabaseIfNotInitialized(IMutableNode<?> databaseNode) {
     switch (DATABASE_SCHEMA_INSPECTOR.getDatabaseSchemaState(databaseNode)) {
       case UNINITIALIZED:

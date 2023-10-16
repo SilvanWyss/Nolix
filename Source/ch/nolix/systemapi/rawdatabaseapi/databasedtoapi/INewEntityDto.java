@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface INewEntityDto {
 
-  // method declaration
+  //method declaration
   IContainer<IContentFieldDto> getContentFields();
 
-  // method declaration
+  //method declaration
   String getId();
 }

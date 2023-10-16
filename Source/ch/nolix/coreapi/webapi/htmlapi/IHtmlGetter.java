@@ -4,6 +4,6 @@ package ch.nolix.coreapi.webapi.htmlapi;
 //interface
 public interface IHtmlGetter {
 
-  // method declaration
+  //method declaration
   IHtmlElement getHtml();
 }

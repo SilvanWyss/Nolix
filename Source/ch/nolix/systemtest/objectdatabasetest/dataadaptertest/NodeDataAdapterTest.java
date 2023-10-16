@@ -17,133 +17,133 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 //class
 public final class NodeDataAdapterTest extends Test {
 
-  // static class
+  //constant
   private static final class Pet extends Entity {
 
-    // constructor
+    //constructor
     public Pet() {
       initialize();
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_close_whenIsOpen() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     @SuppressWarnings("resource")
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
         .andSchema(Schema.EMPTY_SCHEMA);
 
-    // setup verification
+    //setup verification
     expect(testUnit.isOpen());
 
-    // execution
+    //execution
     testUnit.close();
 
-    // verification
+    //verification
     expect(testUnit.isClosed());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_close_whenIsClosed() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     @SuppressWarnings("resource")
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
         .andSchema(Schema.EMPTY_SCHEMA);
     testUnit.close();
 
-    // setup verification
+    //setup verification
     expect(testUnit.isClosed());
 
-    // execution
+    //execution
     testUnit.close();
 
-    // verification
+    //verification
     expect(testUnit.isClosed());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
 
-    // execution
+    //execution
     final var result = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
         .andSchema(Schema.EMPTY_SCHEMA);
 
-    // verification
+    //verification
     expect(result.getSaveCount()).isEqualTo(0);
     expect(result.isChangeFree());
   }
 
-  // method
+  //method
   @TestCase
   public void getEmptyCopy_whenHasChanges() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insert(new Pet());
 
-    // setup verification
+    //setup verification
     expect(testUnit.hasChanges());
 
-    // execution
+    //execution
     final var result = testUnit.getEmptyCopy();
 
-    // verification
+    //verification
     expect(testUnit.hasChanges());
     expect(result.isChangeFree());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_saveChangesAndReset_whenDoesNotHaveChanges() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
 
-    // execution
+    //execution
     testUnit.saveChanges();
 
-    // verification
+    //verification
     expect(testUnit.getSaveCount()).isEqualTo(1);
     expect(testUnit.isChangeFree());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_saveChangesAndReset_whenHasChanges() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insert(new Pet());
 
-    // execution
+    //execution
     testUnit.saveChanges();
 
-    // verification
+    //verification
     expect(testUnit.getSaveCount()).isEqualTo(1);
     expect(testUnit.isChangeFree());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_saveChangesAndReset_whenHasChangesAndSchemaWasChangedInTheMeanwhile() {
 
-    // setup part 1: Creates a database.
+    //setup part 1: Creates a database.
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     NodeDataAdapter
@@ -152,18 +152,18 @@ public final class NodeDataAdapterTest extends Test {
         .andSchema(schema)
         .saveChanges();
 
-    // setup part 2: Prepare changes for the database.
+    //setup part 2: Prepare changes for the database.
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     testUnit.insert(new Pet());
 
-    // setup part 3: Edit the schema of the database.
+    //setup part 3: Edit the schema of the database.
     final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
     schemaAdapter
         .getStoredTableByName("Pet")
         .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
     schemaAdapter.saveChanges();
 
-    // execution & verification: Try to save the the changes to the database.
+    //execution & verification: Try to save the the changes to the database.
     expectRunning(testUnit::saveChanges)
         .throwsException()
         .ofType(ResourceWasChangedInTheMeanwhileException.class)

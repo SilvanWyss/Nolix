@@ -7,6 +7,6 @@ public interface IBaseParameterizedBackReferenceType<
     C extends IColumn>
     extends IParameterizedPropertyType {
 
-  // method declaration
+  //method declaration
   C getBackReferencedColumn();
 }

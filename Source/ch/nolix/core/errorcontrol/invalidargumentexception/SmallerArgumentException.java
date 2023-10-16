@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @SuppressWarnings("serial")
 public final class SmallerArgumentException extends InvalidArgumentException {
 
-  // constructor
+  //constructor
   /**
    * @param argumentName
    * @param argument
@@ -34,7 +34,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
     return new SmallerArgumentException(argumentName, argument, limit);
   }
 
-  // constructor
+  //constructor
   /**
    * @param argumentName
    * @param argument
@@ -52,7 +52,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
     return new SmallerArgumentException(argumentName, argument, limit);
   }
 
-  // static method
+  //static method
   /**
    * @param limit
    * @return a valid limit of the given limit.
@@ -67,7 +67,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
     return limit;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SmallerArgumentException} for the given argumentName,
    * argument and limit.
@@ -81,11 +81,11 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    */
   private SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "is smaller than " + getValidLimitOfLimit(limit));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SmallerArgumentException} for the given argumentName,
    * argument and limit.
@@ -99,7 +99,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    */
   private SmallerArgumentException(final String argumentName, final double argument, final double limit) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "is smaller than " + limit);
   }
 }

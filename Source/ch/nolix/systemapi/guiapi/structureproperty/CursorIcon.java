@@ -22,7 +22,7 @@ public enum CursorIcon {
   MOVE,
   WAIT;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link CursorIcon} from the given specification.
@@ -33,7 +33,7 @@ public enum CursorIcon {
     return valueOf(specification.getSingleChildNodeHeader().toUpperCase(Locale.ENGLISH));
   }
 
-  // method
+  //method
   /**
    * @return a CSS value representation of the current {@link CursorIcon}.
    */
@@ -56,13 +56,13 @@ public enum CursorIcon {
     };
   }
 
-  // method
+  //method
   /**
    * @return a {@link Cursor} representation of the current {@link CursorIcon}.
    */
   public Cursor toCursor() {
 
-    // Enumerates the current cursor icon.
+    //Enumerates the current cursor icon.
     return switch (this) {
       case ARROW ->
         new Cursor(Cursor.DEFAULT_CURSOR);

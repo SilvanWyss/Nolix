@@ -13,7 +13,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class RunningJar {
 
-  // static method
+  //static method
   public static String getResource(final String path) {
     final var stringBuilder = new StringBuilder();
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
@@ -30,7 +30,7 @@ public final class RunningJar {
     }
   }
 
-  // static method
+  //static method
   public static byte[] getResourceAsBytes(final String path) {
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
     try {
@@ -40,7 +40,7 @@ public final class RunningJar {
     }
   }
 
-  // constructor
+  //constructor
   private RunningJar() {
   }
 }

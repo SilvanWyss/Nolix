@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param value
@@ -24,7 +24,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
     return new UnequalArgumentException(argument, value);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -41,7 +41,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
     return new UnequalArgumentException(argumentName, argument, value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return a name for the given value.
@@ -49,16 +49,16 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    */
   private static String getNameForValue(final Object value) {
 
-    // Asserts that the given argument is not null.
+    //Asserts that the given argument is not null.
     if (value == null) {
       throw new IllegalArgumentException("The given value is null");
     }
 
-    // Returns a name for the given value.
+    //Returns a name for the given value.
     return value.getClass().getSimpleName();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnequalArgumentException} for the given argument and
    * value.
@@ -68,11 +68,11 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    */
   private UnequalArgumentException(final Object argument, final Object value) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnequalArgumentException} for the given argument and
    * value.
@@ -85,7 +85,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    */
   private UnequalArgumentException(final String argumentName, final Object argument, final Object value) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }
 }

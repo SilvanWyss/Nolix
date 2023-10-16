@@ -10,25 +10,25 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalNamed {
 
-  // method declaration
+  //method declaration
   /**
    * @return the name of the current {@link OptionalNamed}.
    */
   String getName();
 
-  // method declaration
+  //method declaration
   /**
    * @return the name of the current {@link OptionalNamed} in quotes.
    */
   String getNameInQuotes();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalNamed} has a name.
    */
   boolean hasName();
 
-  // method
+  //method
   /**
    * @param name
    * @return true if the current {@link OptionalNamed} has the given name.

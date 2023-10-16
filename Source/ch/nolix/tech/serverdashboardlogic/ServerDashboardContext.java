@@ -14,15 +14,15 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public final class ServerDashboardContext implements IServerDashboardContext {
 
-  // static method
+  //static method
   public static ServerDashboardContext forServer(final BaseServer<?> server) {
     return new ServerDashboardContext(server);
   }
 
-  // attribute
+  //attribute
   private final BaseServer<?> server;
 
-  // constructor
+  //constructor
   private ServerDashboardContext(final BaseServer<?> server) {
 
     GlobalValidator.assertThat(server).thatIsNamed(LowerCaseCatalogue.SERVER).isNotNull();
@@ -30,13 +30,13 @@ public final class ServerDashboardContext implements IServerDashboardContext {
     this.server = server;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IWebApplicationSheet> getWebApplicationSheets() {
     return getStoredWebApplications().to(WebApplicationSheet::forWebApplication);
   }
 
-  // method
+  //method
   private IContainer<Application<WebClient<?>, ?>> getStoredWebApplications() {
 
     final var webApplications = new LinkedList<Application<WebClient<?>, ?>>();
@@ -54,7 +54,7 @@ public final class ServerDashboardContext implements IServerDashboardContext {
     return webApplications;
   }
 
-  // method
+  //method
   private boolean isWebApplication(final Application<?, ?> application) {
     return application != null
         && application.getClientClass() == WebClient.class;

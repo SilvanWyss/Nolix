@@ -4,12 +4,12 @@ package ch.nolix.systemtest.webguitest.itemmenutest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new ItemMenuTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

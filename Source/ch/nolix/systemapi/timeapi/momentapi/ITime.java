@@ -8,32 +8,32 @@ import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 //interface
 public interface ITime extends Specified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the milliseconds of the current {@link ITime}.
    */
   long getMilliseconds();
 
-  // method declaration
+  //method declaration
   /**
    * @return the month of the year of the current {@link ITime}.
    */
   Month getMonthOfYear();
 
-  // method declaration
+  //method declaration
   /**
    * @return the weekday of the current {@link ITime}.
    */
   Weekday getWeekday();
 
-  // method declaration
+  //method declaration
   /**
    * @param time
    * @return true if the current {@link ITime} is after the given time.
    */
   boolean isAfter(ITime time);
 
-  // method
+  //method
   /**
    * @param time
    * @return true if the current {@link ITime} is before the given time.

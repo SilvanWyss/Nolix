@@ -10,14 +10,14 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //class
 public final class ValueHelper extends PropertyHelper implements IValueHelper {
 
-  // method
+  //method
   @Override
   public boolean canSetGivenValue(final IValue<?> value, final Object valueToSet) {
     return canSetValue(value)
         && valueToSet != null;
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetValue(final IValue<?> value, final Object setValue) {
 
@@ -29,7 +29,7 @@ public final class ValueHelper extends PropertyHelper implements IValueHelper {
         new ContentFieldDto(value.getName(), setValue.toString()));
   }
 
-  // method
+  //method
   private boolean canSetValue(final IValue<?> value) {
     return value != null
         && value.isOpen();

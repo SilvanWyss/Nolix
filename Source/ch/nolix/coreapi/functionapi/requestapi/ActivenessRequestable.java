@@ -14,13 +14,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface ActivenessRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link ActivenessRequestable} is active.
    */
   boolean isActive();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link ActivenessRequestable} is not active.
    */

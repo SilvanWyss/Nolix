@@ -8,25 +8,25 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class GlobalCalculatorTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getMax() {
 
-    // execution
+    //execution
     final var min = GlobalCalculator.getMax(-2.0, -1.0, 0.0, 1.0, 2.0);
 
-    // validation
+    //validation
     expect(min).isEqualTo(2.0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMin() {
 
-    // execution
+    //execution
     final var min = GlobalCalculator.getMin(-2.0, -1.0, 0.0, 1.0, 2.0);
 
-    // validation
+    //validation
     expect(min).isEqualTo(-2.0);
   }
 }

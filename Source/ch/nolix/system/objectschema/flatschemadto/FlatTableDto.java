@@ -9,10 +9,10 @@ import ch.nolix.systemapi.rawschemaapi.flatschemadtoapi.IFlatTableDto;
 //class
 public record FlatTableDto(String id, String name) implements IFlatTableDto {
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
-  public FlatTableDto(final String id, final String name) { // NOSONAR: This implementations checks the given arguments.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
+  public FlatTableDto(final String id, final String name) { //NOSONAR: This implementations checks the given arguments.
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
@@ -26,13 +26,13 @@ public record FlatTableDto(String id, String name) implements IFlatTableDto {
     this.name = name;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;

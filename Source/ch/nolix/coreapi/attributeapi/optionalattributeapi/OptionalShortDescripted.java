@@ -10,7 +10,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalShortDescripted {
 
-  // method declaration
+  //method declaration
   /**
    * @return the short description of the current {@link OptionalShortDescripted}.
    * @throws RuntimeException if the current {@link OptionalShortDescripted} does
@@ -18,7 +18,7 @@ public interface OptionalShortDescripted {
    */
   String getShortDescription();
 
-  // method declaration
+  //method declaration
   /**
    * @return the short description of the current {@link OptionalShortDescripted}
    *         in quotes.
@@ -27,7 +27,7 @@ public interface OptionalShortDescripted {
    */
   String getShortDescriptionInQuotes();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalShortDescripted} has a short
    *         description, false otherwise.

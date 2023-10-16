@@ -8,31 +8,31 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class ChangeRequestableTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_isChangeFree_whenIsChangeFree() {
 
-    // setup
+    //setup
     final var testUnit = ChangeRequestableStub.withHasChangesFlag(false);
 
-    // execution
+    //execution
     final var result = testUnit.isChangeFree();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isChangeFree_whenHasChanges() {
 
-    // setup
+    //setup
     final var testUnit = ChangeRequestableStub.withHasChangesFlag(true);
 
-    // execution
+    //execution
     final var result = testUnit.isChangeFree();
 
-    // verification
+    //verification
     expectNot(result);
   }
 }

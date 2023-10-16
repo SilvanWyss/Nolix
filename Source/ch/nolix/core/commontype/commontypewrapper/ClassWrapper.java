@@ -13,10 +13,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class ClassWrapper<T> {
 
-  // attribute
+  //attribute
   private final Class<T> mClass;
 
-  // constructor
+  //constructor
   public ClassWrapper(final Class<T> pClass) {
 
     GlobalValidator.assertThat(pClass).thatIsNamed(LowerCaseCatalogue.CLASS).isNotNull();
@@ -24,7 +24,7 @@ public final class ClassWrapper<T> {
     mClass = pClass;
   }
 
-  // method
+  //method
   public T createInstance() {
     try {
       return getConstructor().newInstance();
@@ -37,7 +37,7 @@ public final class ClassWrapper<T> {
     }
   }
 
-  // method
+  //method
   public Constructor<T> getConstructor() {
     try {
       return mClass.getConstructor();

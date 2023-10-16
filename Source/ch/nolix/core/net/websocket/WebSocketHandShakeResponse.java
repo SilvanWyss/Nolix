@@ -14,22 +14,22 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class WebSocketHandShakeResponse {
 
-  // constant
+  //constant
   public static final String WEB_SOCKET_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 
-  // constant
+  //constant
   public static final String SEC_WEBSOCKET_ACCEPT_HEADER = "Sec-WebSocket-Accept";
 
-  // constant
+  //constant
   public static final String SEC_WEBSOCKET_PROTOCOL_HEADER = "Sec-WebSocket-Protocol";
 
-  // attribute
+  //attribute
   private final String secWebSocketKey;
 
-  // attribute
+  //attribute
   private final String secWebSocketAccept;
 
-  // constructor
+  //constructor
   public WebSocketHandShakeResponse(final String secWebSocketKey) {
 
     GlobalValidator.assertThat(secWebSocketKey).thatIsNamed("sec web socket key").isNotNull();
@@ -46,17 +46,17 @@ public final class WebSocketHandShakeResponse {
     }
   }
 
-  // method
+  //method
   public String getSecWebSocketAccept() {
     return secWebSocketAccept;
   }
 
-  // method
+  //method
   public String getSecWebSocketKey() {
     return secWebSocketKey;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return "HTTP/1.1 101 Switching Protocols\r\n"

@@ -10,12 +10,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 //class
 public final class NodeSchemaAdapter extends SchemaAdapter {
 
-  // static method
+  //static method
   public static NodeSchemaAdapter forDatabaseNode(final String databaseName, final IMutableNode<?> databaseNode) {
     return new NodeSchemaAdapter(databaseName, databaseNode);
   }
 
-  // static method
+  //static method
   public static NodeSchemaAdapter forDatabaseNodeInFile(final String filePath) {
 
     final var fileName = new FileAccessor(filePath).getName();
@@ -25,7 +25,7 @@ public final class NodeSchemaAdapter extends SchemaAdapter {
     return new NodeSchemaAdapter(databaseName, databaseNode);
   }
 
-  // constructor
+  //constructor
   private NodeSchemaAdapter(final String databaseName, final IMutableNode<?> databaseNode) {
     super(databaseName,
         ch.nolix.system.nodedatabaserawschema.schemaadapter.SchemaAdapter.forDatabaseNode(databaseNode));

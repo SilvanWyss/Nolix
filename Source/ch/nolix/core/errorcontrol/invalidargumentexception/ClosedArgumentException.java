@@ -12,10 +12,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ClosedArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is closed";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ClosedArgumentException} for the given argument.
@@ -24,7 +24,7 @@ public final class ClosedArgumentException extends InvalidArgumentException {
     return new ClosedArgumentException(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ClosedArgumentException} for the given argument.
    * 
@@ -32,7 +32,7 @@ public final class ClosedArgumentException extends InvalidArgumentException {
    */
   private ClosedArgumentException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
 }

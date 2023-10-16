@@ -11,21 +11,21 @@ import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
  */
 public final class LocalServer extends BaseServer {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultEndPointTaker) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   protected void noteAddedSlot(final ISlot endPointTaker) {
-    // Does nothing.
+    //Does nothing.
   }
 }

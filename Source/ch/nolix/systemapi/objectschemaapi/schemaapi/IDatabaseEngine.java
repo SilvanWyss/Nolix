@@ -6,12 +6,12 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface IDatabaseEngine {
 
-  // method declaration
+  //method declaration
   IDatabaseEngine addDatabase(IDatabase database);
 
-  // method declaration
+  //method declaration
   IDatabaseEngine createDatabaseWithName(String name);
 
-  // method declaration
+  //method declaration
   IContainer<IDatabase> getStoredDatabases();
 }

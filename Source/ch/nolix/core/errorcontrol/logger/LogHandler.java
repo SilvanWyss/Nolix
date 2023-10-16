@@ -4,18 +4,18 @@ package ch.nolix.core.errorcontrol.logger;
 //class
 public abstract class LogHandler {
 
-  // constant
+  //constant
   public static final HarmLevel DEFAULT_MIN_HARM_LEVEL = HarmLevel.INFO;
 
-  // optional attribute
+  //optional attribute
   private final HarmLevel minHarmLevel;
 
-  // constructor
+  //constructor
   protected LogHandler() {
     this(DEFAULT_MIN_HARM_LEVEL);
   }
 
-  // constructor
+  //constructor
   protected LogHandler(final HarmLevel minHarmLevel) {
 
     if (minHarmLevel == null) {
@@ -25,32 +25,32 @@ public abstract class LogHandler {
     this.minHarmLevel = minHarmLevel;
   }
 
-  // method
+  //method
   public final HarmLevel getMinHarmLevel() {
     return minHarmLevel;
   }
 
-  // method
+  //method
   public final boolean wouldLog(final LogEntry logEntry) {
     return (logEntry != null && !logEntry.getHarmLevel().isLowerThan(getMinHarmLevel()));
   }
 
-  // method declaration
+  //method declaration
   protected abstract void log(final LogEntry logEntry);
 
-  // method
+  //method
   final void takeLogEntry(final LogEntry logEntry) {
     if (wouldLog(logEntry)) {
       logSafely(logEntry);
     }
   }
 
-  // method
+  //method
   private void logSafely(final LogEntry logEntry) {
     try {
       log(logEntry);
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
-      System.err.println("An error occured by writing a log entry."); // NOSONAR: This is a logger.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
+      System.err.println("An error occured by writing a log entry."); //NOSONAR: This is a logger.
     }
   }
 }

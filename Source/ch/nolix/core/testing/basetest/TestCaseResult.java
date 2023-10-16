@@ -13,19 +13,19 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class TestCaseResult {
 
-  // attribute
+  //attribute
   private final Method testCase;
 
-  // attribute
+  //attribute
   private final int runtimeInMilliseconds;
 
-  // optional attribute
+  //optional attribute
   private final Error exceptionError;
 
-  // multi-attribute
+  //multi-attribute
   private final List<Error> expectationErrors;
 
-  // constructor
+  //constructor
   public TestCaseResult(
       final Method testCase,
       final int runtimeInMilliseconds,
@@ -49,7 +49,7 @@ public final class TestCaseResult {
     this.expectationErrors = expectationErrors;
   }
 
-  // constructor
+  //constructor
   public TestCaseResult(
       final Method testCase,
       final int runtimeInMilliseconds,
@@ -78,12 +78,12 @@ public final class TestCaseResult {
     this.expectationErrors = expectationErrors;
   }
 
-  // method
+  //method
   public int getExpectationErrorCount() {
     return expectationErrors.getElementCount();
   }
 
-  // method
+  //method
   public List<String> getOutputLines() {
 
     if (isPassed()) {
@@ -93,42 +93,42 @@ public final class TestCaseResult {
     return getOutputLinesWhenFailed();
   }
 
-  // method
+  //method
   public String getRuntimeAndUnitAsString() {
     return (String.valueOf(getRuntimeInMilliseconds()) + " ms");
   }
 
-  // method
+  //method
   public int getRuntimeInMilliseconds() {
     return runtimeInMilliseconds;
   }
 
-  // method
+  //method
   public String getTestCaseName() {
     return testCase.getName();
   }
 
-  // method
+  //method
   public boolean hasExceptionError() {
     return (exceptionError != null);
   }
 
-  // method
+  //method
   public boolean hasExpectationErrors() {
     return !expectationErrors.isEmpty();
   }
 
-  // method
+  //method
   public boolean isFailed() {
     return !isPassed();
   }
 
-  // method
+  //method
   public boolean isPassed() {
     return (!hasExpectationErrors() && !hasExceptionError());
   }
 
-  // method
+  //method
   private void fillUpExpectationErrors(final List<String> outputLines) {
     var i = 1;
     for (final var es : expectationErrors) {
@@ -139,14 +139,14 @@ public final class TestCaseResult {
     }
   }
 
-  // method
+  //method
   private void fillUpProbableExceptionError(final List<String> outputLines) {
     if (hasExceptionError()) {
       outputLines.addAtEnd("   " + (getExpectationErrorCount() + 1) + ")" + exceptionError.toString());
     }
   }
 
-  // method
+  //method
   private List<String> getOutputLinesWhenFailed() {
 
     final var outputLines = new List<>("-->FAILED: " + getTestCaseName() + " (" + getRuntimeAndUnitAsString() + ")");
@@ -156,7 +156,7 @@ public final class TestCaseResult {
     return outputLines;
   }
 
-  // method
+  //method
   private List<String> getOutputLinesWhenPassed() {
     return new List<>("   PASSED: " + getTestCaseName() + " (" + getRuntimeAndUnitAsString() + ")");
   }

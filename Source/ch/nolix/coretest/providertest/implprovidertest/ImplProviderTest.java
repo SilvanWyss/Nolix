@@ -11,26 +11,26 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class ImplProviderTest extends Test {
 
-  // static interface
+  //static interface
   private interface ICat {
 
-    // method declaration
+    //method declaration
     String getName();
   }
 
-  // static class
+  //constant
   private static final class Cat implements ICat {
 
-    // attribute
+    //attribute
     private final String name;
 
-    // constructor
+    //constructor
     @SuppressWarnings("unused")
     public Cat() {
       name = "Garfield";
     }
 
-    // constructor
+    //constructor
     @SuppressWarnings("unused")
     public Cat(String name) {
 
@@ -39,57 +39,57 @@ public final class ImplProviderTest extends Test {
       this.name = name;
     }
 
-    // method
+    //method
     @Override
     public String getName() {
       return name;
     }
   }
 
-  // method
+  //method
   @TestCase
   public void test_forInterface_registerImplementation() {
 
-    // setup
+    //setup
     final var testUnit = new ImplProvider();
 
-    // setup verification
+    //setup verification
     expectNot(testUnit.forInterface(ICat.class).containsImplementation());
 
-    // execution
+    //execution
     testUnit.forInterface(ICat.class).registerImplementation(Cat.class);
 
-    // verification
+    //verification
     testUnit.forInterface(ICat.class).containsImplementation();
   }
 
-  // method
+  //method
   @TestCase
   public void test_ofInterface_createInstance_whenDefaultConstructorIsUsed() {
 
-    // setup
+    //setup
     final var testUnit = new ImplProvider();
     testUnit.forInterface(ICat.class).registerImplementation(Cat.class);
 
-    // execution
+    //execution
     final var result = testUnit.ofInterface(ICat.class).createInstance();
 
-    // verification
+    //verification
     expect(result).isOfType(Cat.class);
   }
 
-  // method
+  //method
   @TestCase
   public void test_ofInterface_createInstance_whenConstructorWithParametersIsUsed() {
 
-    // setup
+    //setup
     final var testUnit = new ImplProvider();
     testUnit.forInterface(ICat.class).registerImplementation(Cat.class);
 
-    // execution
+    //execution
     final var result = testUnit.ofInterface(ICat.class).createInstance("Simba");
 
-    // verification
+    //verification
     expect(result).isOfType(Cat.class);
     expect(result.getName()).isEqualTo("Simba");
   }

@@ -8,13 +8,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 //record
 public record HtmlElementEvent(String htmlElementId, String htmlEvent) implements IHtmlElementEvent {
 
-  // static method
+  //static method
   public static HtmlElementEvent withHtmlElementIdAndHtmlEvent(final String htmlElementId, final String htmlEvent) {
     return new HtmlElementEvent(htmlElementId, htmlEvent);
   }
 
-  // constructor
-  public HtmlElementEvent( // NOSONAR: This constructor does more than the default one.
+  //constructor
+  public HtmlElementEvent( //NOSONAR: This constructor does more than the default one.
       final String htmlElementId,
       final String htmlEvent) {
 
@@ -25,13 +25,13 @@ public record HtmlElementEvent(String htmlElementId, String htmlEvent) implement
     this.htmlEvent = htmlEvent;
   }
 
-  // method
+  //method
   @Override
   public String getHtmlElementId() {
     return htmlElementId;
   }
 
-  // method
+  //method
   @Override
   public String getHtmlEvent() {
     return htmlEvent;

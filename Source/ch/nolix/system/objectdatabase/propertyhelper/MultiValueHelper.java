@@ -10,14 +10,14 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //class
 public final class MultiValueHelper extends PropertyHelper implements IMultiValueHelper {
 
-  // method
+  //method
   @Override
   public boolean canAddGivenValue(final IMultiValue<?> multiValue, final Object value) {
     return assertCanAddValue(multiValue)
         && value != null;
   }
 
-  // method
+  //method
   @Override
   public boolean canClear(final IMultiValue<?> multiValue) {
     return multiValue != null
@@ -25,14 +25,14 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
         && multiValue.getStoredParentEntity().isOpen();
   }
 
-  // method
+  //method
   @Override
   public <V> boolean canRemoveValue(final IMultiValue<V> multiValue, final V value) {
     return canRemoveValue(multiValue)
         && value != null;
   }
 
-  // method
+  //method
   @Override
   public <V> IEntityUpdateDto createEntityUpdateDtoForAddedValue(
       final IMultiValue<V> multiValue,
@@ -46,7 +46,7 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
         new ContentFieldDto(multiValue.getName(), ""));
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiValue<?> multiValue) {
 
@@ -58,14 +58,14 @@ public final class MultiValueHelper extends PropertyHelper implements IMultiValu
         new ContentFieldDto(multiValue.getName()));
   }
 
-  // method
+  //method
   private boolean assertCanAddValue(final IMultiValue<?> multiValue) {
     return multiValue != null
         && multiValue.belongsToEntity()
         && multiValue.getStoredParentEntity().isOpen();
   }
 
-  // method
+  //method
   private boolean canRemoveValue(final IMultiValue<?> multiValue) {
     return multiValue != null
         && multiValue.isOpen();

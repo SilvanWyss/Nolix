@@ -4,6 +4,6 @@ package ch.nolix.coreapi.programcontrolapi.triggerapi;
 //interface
 public interface Refreshable {
 
-  // method declaration
+  //method declaration
   void refresh();
 }

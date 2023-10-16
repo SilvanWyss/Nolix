@@ -18,16 +18,16 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  */
 public final class JobPool {
 
-  // constant
+  //constant
   private static final int OPTIMAL_WORKER_COUNT = 100;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Worker> workers = new LinkedList<>();
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<JobWrapper> jobWrappers = new LinkedList<>();
 
-  // method
+  //method
   /**
    * Enqueues the given job to the current {@link JobPool}.
    * 
@@ -44,7 +44,7 @@ public final class JobPool {
     return new Future(jobWrapper);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobPool} contains waiting jobs.
    */
@@ -52,7 +52,7 @@ public final class JobPool {
     return jobWrappers.containsAny(JobWrapper::isFresh);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobPool} is idle.
    */
@@ -60,7 +60,7 @@ public final class JobPool {
     return jobWrappers.containsAny();
   }
 
-  // method
+  //method
   synchronized ISingleContainer<JobWrapper> removeAndGetOptionalRefNextFreshJobWrapper() {
 
     final var nextFreshJobWrapper = jobWrappers.getStoredFirstOrNull(JobWrapper::isFresh);
@@ -73,31 +73,31 @@ public final class JobPool {
     return new SingleContainer<>(nextFreshJobWrapper);
   }
 
-  // method
+  //method
   synchronized void removeWorker(final Worker worker) {
     workers.removeFirstOccurrenceOf(worker);
   }
 
-  // method
+  //method
   private synchronized void createNewWorkerIfNeeded() {
 
-    // Handles the case that a new worker is needed.
+    //Handles the case that a new worker is needed.
     if (newWorkerIsNeeded()) {
       workers.addAtEnd(new Worker(this));
     }
   }
 
-  // method
+  //method
   private int getOptimalWorkerCount() {
     return OPTIMAL_WORKER_COUNT;
   }
 
-  // method
+  //method
   private int getWorkerCount() {
     return workers.getElementCount();
   }
 
-  // method
+  //method
   private synchronized boolean newWorkerIsNeeded() {
 
     final var workerCount = getWorkerCount();

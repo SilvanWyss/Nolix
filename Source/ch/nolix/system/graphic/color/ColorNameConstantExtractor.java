@@ -12,28 +12,28 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public final class ColorNameConstantExtractor {
 
-  // constant
+  //constant
   private static final String STRING_CONSTANT_POSTFIX = "_STRING";
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<Pair<String, Color>> colorNames = extractAndGetColorNames();
 
-  // method
+  //method
   public IContainer<Pair<String, Color>> getWebColorsAndNames() {
     return colorNames;
   }
 
-  // method
+  //method
   private boolean declaresColor(final Field field) {
     return GlobalFieldHelper.isStaticAndStoresValueOfGivenType(field, Color.class);
   }
 
-  // method
+  //method
   private boolean declaresColorName(final Field field) {
     return (GlobalFieldHelper.isStatic(field) && field.getName().endsWith(STRING_CONSTANT_POSTFIX));
   }
 
-  // method
+  //method
   private LinkedList<Pair<String, Color>> extractAndGetColorNames() {
 
     final LinkedList<Pair<String, Color>> lColorNames = new LinkedList<>();
@@ -55,7 +55,7 @@ public final class ColorNameConstantExtractor {
     return lColorNames;
   }
 
-  // method
+  //method
   private LinkedList<Field> getColorFields() {
 
     final var colorFields = new LinkedList<Field>();
@@ -69,7 +69,7 @@ public final class ColorNameConstantExtractor {
     return colorFields;
   }
 
-  // method
+  //method
   private LinkedList<Field> getColorNameConnstantFields() {
 
     final var colorNameConstantFields = new LinkedList<Field>();

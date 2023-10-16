@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface QualifiedNamed extends Named {
 
-  // method
+  //method
   /**
    * @return the qualified name of the current {@link QualifiedNamed}.
    */
@@ -23,7 +23,7 @@ public interface QualifiedNamed extends Named {
     return (getQualifyingPrefix() + getName());
   }
 
-  // method
+  //method
   /**
    * @return the qualified name of the current {@link QualifiedNamed} in quotes.
    */
@@ -31,7 +31,7 @@ public interface QualifiedNamed extends Named {
     return ("'" + getQualifiedName() + "'");
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return the qualifying prefix of the current {@link QualifiedNamed}. The
    *         qualifying prefix of a {@link QualifiedNamed} completes the name of

@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class LabelHtmlBuilder implements IControlHtmlBuilder<ILabel> {
 
-  // method
+  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final ILabel control) {
     return HtmlElement.withTypeAndInnerText(

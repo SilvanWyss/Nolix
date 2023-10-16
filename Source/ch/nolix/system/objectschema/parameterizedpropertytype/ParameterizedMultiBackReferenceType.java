@@ -8,12 +8,12 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 //class
 public final class ParameterizedMultiBackReferenceType extends BaseParameterizedBackReferenceType {
 
-  // constructor
+  //constructor
   public ParameterizedMultiBackReferenceType(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.MULTI_BACK_REFERENCE;

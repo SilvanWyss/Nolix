@@ -13,19 +13,19 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class TestCaseWrapper {
 
-  // attribute
+  //attribute
   private final BaseTest parentTest;
 
-  // attribute
+  //attribute
   private final Method testCase;
 
-  // optional attribute
+  //optional attribute
   private final Method setup;
 
-  // optional attribute
+  //optional attribute
   private final Method cleanup;
 
-  // constructor
+  //constructor
   public TestCaseWrapper(final BaseTest parentTest, final Method testCase) {
 
     if (parentTest == null) {
@@ -42,17 +42,17 @@ public final class TestCaseWrapper {
     cleanup = extractCleanup();
   }
 
-  // method
+  //method
   public BaseTest createTestInstance() {
     return parentTest.toTestInstance();
   }
 
-  // method
+  //method
   public BaseTest getParentTest() {
     return parentTest;
   }
 
-  // method
+  //method
   public Method getStoredCleanup() {
 
     supposeHasCleanup();
@@ -60,7 +60,7 @@ public final class TestCaseWrapper {
     return cleanup;
   }
 
-  // method
+  //method
   public Method getStoredSetup() {
 
     supposeHasSetup();
@@ -68,27 +68,27 @@ public final class TestCaseWrapper {
     return setup;
   }
 
-  // method
+  //method
   public Method getStoredTestCase() {
     return testCase;
   }
 
-  // method
+  //method
   public boolean hasCleanup() {
     return (cleanup != null);
   }
 
-  // method
+  //method
   public boolean hasSetup() {
     return (setup != null);
   }
 
-  // method
+  //method
   public boolean testCaseHasTimeout() {
     return !ReflectionHelper.elementHasAnnotation(getStoredTestCase(), IgnoreTimeout.class);
   }
 
-  // method
+  //method
   private Method extractCleanup() {
 
     Method lCleanup = null;
@@ -108,7 +108,7 @@ public final class TestCaseWrapper {
     return lCleanup;
   }
 
-  // method
+  //method
   private Method extractSetup() {
 
     Method lSetup = null;
@@ -128,14 +128,14 @@ public final class TestCaseWrapper {
     return lSetup;
   }
 
-  // method
+  //method
   private void supposeHasCleanup() {
     if (!hasCleanup()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.CLEANUP);
     }
   }
 
-  // method
+  //method
   private void supposeHasSetup() {
     if (!hasSetup()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.SETUP);

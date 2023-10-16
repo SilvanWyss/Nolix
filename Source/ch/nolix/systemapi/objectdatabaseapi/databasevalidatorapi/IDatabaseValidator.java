@@ -7,6 +7,6 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IDatabase;
 //interface
 public interface IDatabaseValidator {
 
-  // method declaration
+  //method declaration
   void assertCanSaveChanges(IDatabase database);
 }

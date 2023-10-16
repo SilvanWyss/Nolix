@@ -4,13 +4,13 @@ package ch.nolix.system.application.webapplicationprotocol;
 //class
 public final class ControlCommandProtocol {
 
-  // constant
+  //constant
   public static final String RUN_HTML_EVENT = "RunHTMLEvent";
 
-  // constant
+  //constant
   public static final String SET_FILE = "SetFile";
 
-  // constructor
+  //constructor
   private ControlCommandProtocol() {
   }
 }

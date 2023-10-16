@@ -18,21 +18,21 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 //class
 public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHelper {
 
-  // method
+  //method
   @Override
   public boolean belongsToEntity(final IProperty property) {
     return property != null
         && property.belongsToEntity();
   }
 
-  // method
+  //method
   @Override
   public final boolean belongsToLoadedEntity(final IProperty property) {
     return property.belongsToEntity()
         && isLoaded(property.getStoredParentEntity());
   }
 
-  // method
+  //method
   @Override
   public final Class<?> getDataType(final IProperty property) {
     return switch (property.getType().getBaseType()) {
@@ -45,26 +45,26 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
     };
   }
 
-  // method
+  //method
   @Override
   public final boolean isForMultiContent(final IProperty property) {
     return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.MULTI);
   }
 
-  // method
+  //method
   @Override
   public final boolean isForSingleContent(final IProperty property) {
     return (property.getType().getCardinality().getBaseCardinality() == BaseCardinality.SINGLE);
   }
 
-  // method
+  //method
   @Override
   public final boolean isMandatoryAndEmptyBoth(final IProperty property) {
     return property.isMandatory()
         && property.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IProperty property) {
     return !property.isMandatory()
@@ -72,7 +72,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
         || property.containsAny();
   }
 
-  // method
+  //method
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(IMultiValue<?> multiValue) {
 
     if (multiValue.isEmpty()) {
@@ -82,7 +82,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
     return multiValue.getStoredValues().getStoredFirst().getClass();
   }
 
-  // method
+  //method
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(IOptionalValue<?> optionalValue) {
 
     if (optionalValue.isEmpty()) {
@@ -92,7 +92,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
     return optionalValue.getStoredValue().getClass();
   }
 
-  // method
+  //method
   private Class<?> getDataTypeWhenDoesNotBelongToEntity(final IValue<?> value) {
 
     if (value.isEmpty()) {
@@ -102,7 +102,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
     return value.getStoredValue().getClass();
   }
 
-  // method
+  //method
   private Class<?> getDataTypeWhenIsBaseValue(final IProperty property) {
 
     if (!property.belongsToEntity()) {
@@ -112,7 +112,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
     return getDataTypeWhenIsBaseValueAndBelongsToEntity(property);
   }
 
-  // method
+  //method
   private Class<?> getDataTypeWhenIsBaseValueAndBelongsToEntity(final IProperty property) {
     final var propertyParentEntity = property.getStoredParentEntity();
 
@@ -125,7 +125,7 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
     return (Class<?>) typeArguments[typeArguments.length - 1];
   }
 
-  // method
+  //method
   private Class<?> getDataTypeWhenIsBaseValueAndDoesNotBelongToEntity(final IProperty property) {
     return switch (property.getType()) {
       case VALUE ->

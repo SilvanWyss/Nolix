@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class SqlSyntaxTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public SqlSyntaxTestPool() {
     super(
         EntityQueryCreatorTest.class,

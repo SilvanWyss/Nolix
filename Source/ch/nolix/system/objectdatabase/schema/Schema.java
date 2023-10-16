@@ -12,10 +12,10 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class Schema implements ISchema {
 
-  // constant
+  //constant
   public static final Schema EMPTY_SCHEMA = new Schema(new ImmutableList<>());
 
-  // static method
+  //static method
   @SuppressWarnings("unchecked")
   public static Schema withEntityType(
       final Class<?> entityType,
@@ -32,15 +32,15 @@ public final class Schema implements ISchema {
     return new Schema(allEntityTypes);
   }
 
-  // static method
+  //static method
   public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
     return new Schema(entityTypes);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<Class<? extends IEntity>> entityTypes;
 
-  // constructor
+  //constructor
   private Schema(final IContainer<Class<? extends IEntity>> entityTypes) {
 
     assertContainsDifferentEntityTypesOnly(entityTypes);
@@ -48,19 +48,19 @@ public final class Schema implements ISchema {
     this.entityTypes = entityTypes;
   }
 
-  // method
+  //method
   @Override
   public Class<? extends IEntity> getEntityTypeByName(final String name) {
     return getEntityTypes().getStoredFirst(et -> et.getSimpleName().equals(name));
   }
 
-  // method
+  //method
   @Override
   public IContainer<Class<? extends IEntity>> getEntityTypes() {
     return entityTypes;
   }
 
-  // method
+  //method
   private void assertContainsDifferentEntityTypesOnly(
       final IContainer<Class<? extends IEntity>> entityTypes) {
     if (!containsDifferentEntityTypesOnly(entityTypes)) {
@@ -71,7 +71,7 @@ public final class Schema implements ISchema {
     }
   }
 
-  // method
+  //method
   private boolean containsDifferentEntityTypesOnly(
       final IContainer<Class<? extends IEntity>> entityTypes) {
     return entityTypes.getStoredGroups(Class::getSimpleName).containsAsManyAs(entityTypes);

@@ -9,7 +9,7 @@ import ch.nolix.techtest.relationaldoctest.RelationalDocTestPool;
 //class
 public final class TechTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public TechTestPool() {
     super(new MathTestPool(), new RelationalDocTestPool());
   }

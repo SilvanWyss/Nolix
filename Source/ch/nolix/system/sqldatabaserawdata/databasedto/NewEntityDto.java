@@ -12,13 +12,13 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 //class
 public record NewEntityDto(String id, ImmutableList<IContentFieldDto> contentFields) implements INewEntityDto {
 
-  // constructor
+  //constructor
   public NewEntityDto(final String id, final IContainer<IContentFieldDto> contentFields) {
     this(id, ImmutableList.forIterable(contentFields));
   }
 
-  // constructor
-  public NewEntityDto( // NOSONAR: This constructor does more than the default one.
+  //constructor
+  public NewEntityDto( //NOSONAR: This constructor does more than the default one.
       final String id,
       final ImmutableList<IContentFieldDto> contentFields) {
 
@@ -34,13 +34,13 @@ public record NewEntityDto(String id, ImmutableList<IContentFieldDto> contentFie
     this.contentFields = contentFields;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IContentFieldDto> getContentFields() {
     return contentFields;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;

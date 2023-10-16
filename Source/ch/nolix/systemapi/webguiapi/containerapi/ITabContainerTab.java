@@ -9,9 +9,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IRootControlOwner;
 //interface
 public interface ITabContainerTab extends FluentHeaderable<Headered>, IRootControlOwner<ITabContainerTab>, Selectable {
 
-  // method declaration
+  //method declaration
   boolean belongsToTabContainer();
 
-  // method declaration
+  //method declaration
   ITabContainer getParentTabContainer();
 }

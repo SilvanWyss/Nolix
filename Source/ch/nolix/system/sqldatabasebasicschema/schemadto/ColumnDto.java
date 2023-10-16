@@ -14,24 +14,24 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
 //class
 public final class ColumnDto implements IColumnDto {
 
-  // constant
+  //constant
   private static final IContainer<IConstraintDto> EMPTY_CONSTRAINT_LIST = new LinkedList<>();
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final IDataTypeDto dataType;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<IConstraintDto> constraints;
 
-  // constructor
+  //constructor
   public ColumnDto(final String name, final IDataTypeDto dataType) {
     this(name, dataType, EMPTY_CONSTRAINT_LIST);
   }
 
-  // constructor
+  //constructor
   public ColumnDto(final String name, final IDataTypeDto dataType, final IContainer<IConstraintDto> constraints) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
@@ -43,7 +43,7 @@ public final class ColumnDto implements IColumnDto {
     this.constraints = LinkedList.fromIterable(constraints);
   }
 
-  // constructor
+  //constructor
   public ColumnDto(
       final String name,
       final IDataTypeDto dataType,
@@ -52,19 +52,19 @@ public final class ColumnDto implements IColumnDto {
     this(name, dataType, ReadContainer.forElement(constraint, constraints));
   }
 
-  // method
+  //method
   @Override
   public IContainer<IConstraintDto> getConstraints() {
     return constraints;
   }
 
-  // method
+  //method
   @Override
   public IDataTypeDto getDataType() {
     return dataType;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;

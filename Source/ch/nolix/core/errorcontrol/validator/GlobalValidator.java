@@ -18,9 +18,9 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  * @author Silvan Wyss
  * @date 2016-12-01
  */
-public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all validation methods.
+public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all validation methods.
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param <A>      is the type of the given argument.
@@ -30,7 +30,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedArgumentMediator<>(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedBigDecimalMediator} for the given argument.
@@ -39,7 +39,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedBigDecimalMediator(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedByteMediator} for the given argument.
@@ -48,7 +48,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedByteMediator(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedContainerMediator} for the given argument.
@@ -57,7 +57,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param <T>      is the type of the given argument
@@ -67,7 +67,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedTypeMediator<>(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedDoubleMediator} for the given argument.
@@ -76,24 +76,24 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedDoubleMediator(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedContainerMediator} for the given argument.
    */
   public static ExtendedContainerMediator<Double> assertThat(final double[] argument) {
 
-    // Handles the case that the given argument is null.
+    //Handles the case that the given argument is null.
     if (argument == null) {
       final List<Double> argumentVector = null;
       return new ExtendedContainerMediator<>(argumentVector);
     }
 
-    // Handles the case that the given argument is not null.
+    //Handles the case that the given argument is not null.
     return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedLongMediator} for the given argument.
@@ -102,24 +102,24 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return ExtendedLongMediator.forArgument(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedContainerMediator} for the given argument.
    */
   public static ExtendedContainerMediator<Long> assertThat(final int[] argument) {
 
-    // Handles the case that the given argument is null.
+    //Handles the case that the given argument is null.
     if (argument == null) {
       final List<Long> argumentVector = null;
       return new ExtendedContainerMediator<>(argumentVector);
     }
 
-    // Handles the case that the given argument is not null.
+    //Handles the case that the given argument is not null.
     return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param <A>      is the type of the elements of the given argument.
@@ -129,7 +129,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedContainerMediator<>(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedLongMediator} for the given argument.
@@ -138,24 +138,24 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return ExtendedLongMediator.forArgument(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedContainerMediator} for the given argument.
    */
   public static ExtendedContainerMediator<Long> assertThat(final long[] argument) {
 
-    // Handles the case that the given argument is null.
+    //Handles the case that the given argument is null.
     if (argument == null) {
       final List<Long> argumentVector = null;
       return new ExtendedContainerMediator<>(argumentVector);
     }
 
-    // Handles the case that the given argument is not null.
+    //Handles the case that the given argument is not null.
     return new ExtendedContainerMediator<>(GlobalArrayHelper.createIterable(argument));
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedMethodMediator} for the given argument.
@@ -164,7 +164,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedMethodMediator(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedStringMediator} for the given argument.
@@ -173,7 +173,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return ExtendedStringMediator.forArgument(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedBitMediator} for the given argument.
@@ -182,7 +182,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new ExtendedBitMediator(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param arguments
    * @return a new {@link MultiDoubleMediator} for the given arguments.
@@ -192,7 +192,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new MultiDoubleMediator(arguments);
   }
 
-  // static method
+  //static method
   /**
    * @param arguments
    * @param <E>       is the type of the given arguments.
@@ -203,7 +203,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new MultiArgumentMediator<>(arguments);
   }
 
-  // static method
+  //static method
   /**
    * @param arguments
    * @param <E>       is the type of the given arguments.
@@ -214,7 +214,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new MultiArgumentMediator<>(arguments);
   }
 
-  // static method
+  //static method
   /**
    * @param arguments
    * @return a new {@link MultiLongMediator} for the given arguments.
@@ -224,7 +224,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new MultiLongMediator(arguments);
   }
 
-  // static method
+  //static method
   /**
    * @param arguments
    * @return a new {@link MultiStringMediator} for the given arguments.
@@ -234,7 +234,7 @@ public final class GlobalValidator { // NOSONAR: The GlobalValidator bundles all
     return new MultiStringMediator(arguments);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalValidator} can be created.
    */

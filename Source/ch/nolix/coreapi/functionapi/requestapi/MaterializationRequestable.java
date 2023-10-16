@@ -26,14 +26,14 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface MaterializationRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link MaterializationRequestable} is
    *         materialized, false otherwise.
    */
   boolean isMaterialized();
 
-  // method
+  //method
   /**
    * @return true if the current {@link MaterializationRequestable} is a view,
    *         false otherwise.

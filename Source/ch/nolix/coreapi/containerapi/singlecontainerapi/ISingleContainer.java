@@ -6,6 +6,6 @@ import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 //interface
 public interface ISingleContainer<E> extends EmptinessRequestable {
 
-  // method declaration
+  //method declaration
   E getStoredElement();
 }

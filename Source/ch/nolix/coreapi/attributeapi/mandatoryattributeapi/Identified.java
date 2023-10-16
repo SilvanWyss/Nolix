@@ -13,13 +13,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Identified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the id of the current {@link Identified}.
    */
   String getId();
 
-  // method
+  //method
   /**
    * @return the id of the current {@link Identified} in quotes.
    */
@@ -27,7 +27,7 @@ public interface Identified {
     return ("'" + getId() + "'");
   }
 
-  // method
+  //method
   /**
    * @param id
    * @return true if the current {@link Identified} has the given id.

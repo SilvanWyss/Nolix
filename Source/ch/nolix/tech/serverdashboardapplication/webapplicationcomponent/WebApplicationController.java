@@ -10,10 +10,10 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public class WebApplicationController extends Controller<IServerDashboardContext> {
 
-  // attribute
+  //attribute
   private final IWebApplicationSheet webApplicationSheet;
 
-  // constructor
+  //constructor
   public WebApplicationController(final IWebApplicationSheet webApplicationSheet) {
 
     GlobalValidator.assertThat(webApplicationSheet).thatIsNamed(IWebApplicationSheet.class).isNotNull();
@@ -21,7 +21,7 @@ public class WebApplicationController extends Controller<IServerDashboardContext
     this.webApplicationSheet = webApplicationSheet;
   }
 
-  // method
+  //method
   public IWebApplicationSheet getWebApplicationSheet() {
     return webApplicationSheet;
   }

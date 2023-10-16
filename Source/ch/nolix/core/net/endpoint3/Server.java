@@ -17,7 +17,7 @@ import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
  */
 public final class Server extends BaseServer {
 
-  // static method
+  //static method
   /**
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
@@ -28,7 +28,7 @@ public final class Server extends BaseServer {
     return new Server(port);
   }
 
-  // static method
+  //static method
   /**
    * @param port
    * @param httpMessage
@@ -44,10 +44,10 @@ public final class Server extends BaseServer {
     return new Server(port, httpMessage);
   }
 
-  // attribute
+  //attribute
   private final ch.nolix.core.net.endpoint2.Server internalServer;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
    * given port.
@@ -57,15 +57,15 @@ public final class Server extends BaseServer {
    */
   private Server(final int port) {
 
-    // Creates the internal net server of the current net server.
+    //Creates the internal net server of the current net server.
     internalServer = ch.nolix.core.net.endpoint2.Server.forPort(port);
 
-    // Creates a close dependency to the internal net server of the current net
-    // server.
+    //Creates a close dependency to the internal net server of the current net
+    //server.
     createCloseDependencyTo(internalServer);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
    * given port.
@@ -81,15 +81,15 @@ public final class Server extends BaseServer {
    */
   private Server(final int port, final String httpMessage) {
 
-    // Creates the internal net server of the current net server.
+    //Creates the internal net server of the current net server.
     internalServer = ch.nolix.core.net.endpoint2.Server.forPortAndHttpMessage(port, httpMessage);
 
-    // Creates a close dependency to the internal net server of the current net
-    // server.
+    //Creates a close dependency to the internal net server of the current net
+    //server.
     createCloseDependencyTo(internalServer);
   }
 
-  // method
+  //method
   /**
    * @return the port of the current {@link Server}.
    */
@@ -97,7 +97,7 @@ public final class Server extends BaseServer {
     return internalServer.getPort();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -106,7 +106,7 @@ public final class Server extends BaseServer {
     internalServer.addDefaultSlot(new ServerEndPointTaker(defaultEndPointTaker.getName(), this));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

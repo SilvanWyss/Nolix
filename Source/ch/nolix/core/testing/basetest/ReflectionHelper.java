@@ -13,12 +13,12 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 final class ReflectionHelper {
 
-  // static method
+  //static method
   public static boolean firstIsSubClassOfSecond(final Class<?> class1, final Class<?> class2) {
     return (class1 != null && class2 != null && class2.isAssignableFrom(class1) && class1 != class2);
   }
 
-  // static method
+  //static method
   public static <T> Constructor<T> getDefaultConstructor(final Class<T> pClass) {
     try {
 
@@ -31,14 +31,14 @@ final class ReflectionHelper {
     }
   }
 
-  // static method
+  //static method
   public static <A extends Annotation> boolean elementHasAnnotation(
       final AnnotatedElement element,
       final Class<A> annotation) {
     return (element.getAnnotation(annotation) != null);
   }
 
-  // static method
+  //static method
   public static boolean hasDefaultConstructor(Class<?> pClass) {
 
     if (pClass == null) {
@@ -54,17 +54,17 @@ final class ReflectionHelper {
     return false;
   }
 
-  // static method
+  //static method
   public static boolean isAbstract(final Class<?> pClass) {
     return Modifier.isAbstract(pClass.getModifiers());
   }
 
-  // static method
+  //static method
   public static boolean isDefaultConstructor(final Constructor<?> constructor) {
     return (constructor != null && constructor.getParameterCount() == 0);
   }
 
-  // constructor
+  //constructor
   private ReflectionHelper() {
   }
 }

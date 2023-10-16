@@ -11,7 +11,7 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
  */
 public interface IClosePool {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given elements to the current {@link IClosePool}.
    * 
@@ -22,20 +22,20 @@ public interface IClosePool {
    */
   void addElements(IContainer<GroupCloseable> elements);
 
-  // method declaration
+  //method declaration
   /**
    * Closes the elements of the current {@link IClosePool} if the state of the
    * current {@link IClosePool} is {@link CloseState#OPEN}.
    */
   void closeElementsIfStateIsOpen();
 
-  // method declaration
+  //method declaration
   /**
    * @return the elements of the current {@link IClosePool}.
    */
   IContainer<GroupCloseable> getStoredElements();
 
-  // method declaration
+  //method declaration
   /**
    * @return the state of the current {@link IClosePool}.
    */

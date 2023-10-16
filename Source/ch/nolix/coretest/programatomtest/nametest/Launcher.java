@@ -4,12 +4,12 @@ package ch.nolix.coretest.programatomtest.nametest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new NameTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

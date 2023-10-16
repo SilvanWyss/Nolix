@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class WebApplicationCounterpartUpdaterTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public WebApplicationCounterpartUpdaterTestPool() {
     super(UpdateCommandCreatorTest.class);
   }

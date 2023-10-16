@@ -10,13 +10,13 @@ package ch.nolix.coreapi.containerapi.pairapi;
  */
 public interface IIntPair {
 
-  // method
+  //method
   /**
    * @return value1 of the current {@link IIntPair}.
    */
   int getValue1();
 
-  // method
+  //method
   /**
    * @return value2 of the current {@link IIntPair}.
    */

@@ -8,34 +8,34 @@ import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 //class
 public final class StopWatch {
 
-  // attribute
+  //attribute
   private int finishedRoundCount;
 
-  // attribute
+  //attribute
   private long totalRunningTimeInMilliseconds;
 
-  // attribute
+  //attribute
   private boolean running;
 
-  // attribute
+  //attribute
   private long latestStartInMilliseconds;
 
-  // method
+  //method
   public synchronized int getFinishedRoundCount() {
     return finishedRoundCount;
   }
 
-  // method
+  //method
   public synchronized long getTotalRunningTimeInMilliseconds() {
     return totalRunningTimeInMilliseconds;
   }
 
-  // method
+  //method
   public synchronized boolean isRunning() {
     return running;
   }
 
-  // method
+  //method
   public synchronized long stopAndGetMillisecondsSinceLatestStart() {
 
     assertIsRunning();
@@ -49,7 +49,7 @@ public final class StopWatch {
     return durationInMilliseconds;
   }
 
-  // method
+  //method
   public synchronized void start() {
 
     assertIsNotRunning();
@@ -58,15 +58,15 @@ public final class StopWatch {
     running = true;
   }
 
-  // method
-  // method
+  //method
+  //method
   private void assertIsNotRunning() {
     if (running) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is started");
     }
   }
 
-  // method
+  //method
   private void assertIsRunning() {
     if (!running) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not started");

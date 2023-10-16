@@ -13,56 +13,56 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 //class
 public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
 
-  // constant
+  //constant
   private static final IEntityQueryCreator ENTITY_QUERY_CREATOR = new EntityQueryCreator();
 
-  // constant
+  //constant
   private static final IEntityStatementCreator ENTITY_STATEMENT_CREATOR = new EntityStatementCreator();
 
-  // constant
+  //constant
   private static final IMultiValueQueryCreator MULTI_VALUE_QUERY_CREATOR = new MultiValueQueryCreator();
 
-  // constant
+  //constant
   private static final IMultiValueStatementCreator MULTI_VALUE_STATEMENT_CREATOR = new MultiValueStatementCreator();
 
-  // constant
+  //constant
   private static final IMultiReferenceQueryCreator MULTI_REFERENCE_QUERY_CREATOR = new MultiReferenceQueryCreator();
 
-  // constant
+  //constant
   private static final IMultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR = //
       new MultiReferenceStatementCreator();
 
-  // method
+  //method
   @Override
   public IMultiReferenceQueryCreator getMultiReferenceQueryCreator() {
     return MULTI_REFERENCE_QUERY_CREATOR;
   }
 
-  // method
+  //method
   @Override
   public IMultiValueQueryCreator getMultiValueQueryCreator() {
     return MULTI_VALUE_QUERY_CREATOR;
   }
 
-  // method
+  //method
   @Override
   public IMultiReferenceStatementCreator getMultiReferenceStatemeentCreator() {
     return MULTI_REFERENCE_STATEMENT_CREATOR;
   }
 
-  // method
+  //method
   @Override
   public IMultiValueStatementCreator getMultiValueStatemeentCreator() {
     return MULTI_VALUE_STATEMENT_CREATOR;
   }
 
-  // method
+  //method
   @Override
   public IEntityQueryCreator getEntityQueryCreator() {
     return ENTITY_QUERY_CREATOR;
   }
 
-  // method
+  //method
   @Override
   public IEntityStatementCreator getEntityStatementCreator() {
     return ENTITY_STATEMENT_CREATOR;

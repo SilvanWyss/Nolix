@@ -4,15 +4,15 @@ package ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi;
 //interface
 public interface ISchemaQueryCreator {
 
-  // method declaration
+  //method declaration
   String createQueryToLoadNameAndDataTypeOfColumns(String tableName);
 
-  // method declaration
+  //method declaration
   String createQueryToLoadNameOfTables();
 
-  // method declaration
+  //method declaration
   String createQueryToLoadTable(String tableName);
 
-  // method declaration
+  //method declaration
   String createQueryToLoadTopFirstRecordWhereColumnIsNotNull(String tableName, String columnName);
 }

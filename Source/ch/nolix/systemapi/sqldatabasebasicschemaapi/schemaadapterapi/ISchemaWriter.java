@@ -9,24 +9,24 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 //interface
 public interface ISchemaWriter extends IResettableChangeSaver {
 
-  // method declaration
+  //method declaration
   void addColumn(String tableName, IColumnDto column);
 
-  // method declaration
+  //method declaration
   void addTable(ITableDto table);
 
-  // method declaration
+  //method declaration
   void deleteColumn(String tableName, String columnName);
 
-  // method declaration
+  //method declaration
   void deleteTable(String tableName);
 
-  // method declaration
+  //method declaration
   IContainer<String> getSqlStatements();
 
-  // method declaration
+  //method declaration
   void renameColumn(String tableName, String columnName, String newColumnName);
 
-  // method declaration
+  //method declaration
   void renameTable(String tableName, String newTableName);
 }

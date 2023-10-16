@@ -10,7 +10,7 @@ package ch.nolix.coreapi.functionapi.mutationapi;
  */
 public interface Resettable {
 
-  // method declaration
+  //method declaration
   /**
    * Resets the current {@link Resettable}.
    */

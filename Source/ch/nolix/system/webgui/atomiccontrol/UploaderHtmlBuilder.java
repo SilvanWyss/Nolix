@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader> {
 
-  // method
+  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final IUploader control) {
     return HtmlElement.withTypeAndAttributes(

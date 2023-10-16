@@ -19,10 +19,10 @@ import ch.nolix.core.time.TimeUnitCatalogue;
  */
 public final class ForMaxMillisecondsMediator {
 
-  // attribute
+  //attribute
   private final int maxDurationInMilliseconds;
 
-  // static method
+  //static method
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -32,11 +32,11 @@ public final class ForMaxMillisecondsMediator {
    */
   static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
 
-    // Creates and returns a new ForMaxMillisecondsMediator.
+    //Creates and returns a new ForMaxMillisecondsMediator.
     return new ForMaxMillisecondsMediator(maxDurationInMilliseconds);
   }
 
-  // static method
+  //static method
   /**
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -46,14 +46,14 @@ public final class ForMaxMillisecondsMediator {
    */
   static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
 
-    // Asserts that the given maxDurationInSeconds is not negative.
+    //Asserts that the given maxDurationInSeconds is not negative.
     GlobalValidator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
 
-    // Creates and returns a new ForMaxMillisecondsMediator.
+    //Creates and returns a new ForMaxMillisecondsMediator.
     return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ForMaxMillisecondsMediator} for the given
    * maxDurationInMilliseconds.
@@ -64,14 +64,14 @@ public final class ForMaxMillisecondsMediator {
    */
   private ForMaxMillisecondsMediator(final int maxDurationInMilliseconds) {
 
-    // Asserts that the given maxDurationInMilliseconds is not negative.
+    //Asserts that the given maxDurationInMilliseconds is not negative.
     GlobalValidator.assertThat(maxDurationInMilliseconds).thatIsNamed("max duration in milliseconds").isNotNegative();
 
-    // Sets the maxDurationInMilliseconds of the current ForMaxMillisecondsMediator.
+    //Sets the maxDurationInMilliseconds of the current ForMaxMillisecondsMediator.
     this.maxDurationInMilliseconds = maxDurationInMilliseconds;
   }
 
-  // method
+  //method
   /**
    * Creates
    * 
@@ -83,7 +83,7 @@ public final class ForMaxMillisecondsMediator {
    */
   public AsLongAsMediator asLongAs(final BooleanSupplier condition) {
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
@@ -92,7 +92,7 @@ public final class ForMaxMillisecondsMediator {
     return new AsLongAsMediator(() -> System.currentTimeMillis() < endTimeInMilliseconds || condition.getAsBoolean());
   }
 
-  // method
+  //method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} for the maxDurationInMilliseconds of
@@ -102,11 +102,11 @@ public final class ForMaxMillisecondsMediator {
    */
   public AsLongAsMediator until(final BooleanSupplier condition) {
 
-    // Calls other method.
+    //Calls other method.
     return asLongAs(GlobalFunctionHelper.createNegatorFor(condition));
   }
 
-  // method
+  //method
   /**
    * Waits until the maxDurationInMilliseconds of the current
    * {@link ForMaxMillisecondsMediator} is reached or as long as the given
@@ -123,7 +123,7 @@ public final class ForMaxMillisecondsMediator {
     GlobalSequencer.waitAsLongAs(() -> System.currentTimeMillis() < endTimeInMilliseconds && condition.getAsBoolean());
   }
 
-  // method
+  //method
   /**
    * Waits until the maxDurationInMilliseconds of the current
    * {@link ForMaxMillisecondsMediator} is reached or until the given condition is
@@ -134,7 +134,7 @@ public final class ForMaxMillisecondsMediator {
    */
   public void waitUntil(final BooleanSupplier condition) {
 
-    // Calls other method.
+    //Calls other method.
     waitAsLongAs(GlobalFunctionHelper.createNegatorFor(condition));
   }
 }

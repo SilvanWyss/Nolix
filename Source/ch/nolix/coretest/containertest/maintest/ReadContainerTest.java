@@ -10,19 +10,19 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class ReadContainerTest extends ContainerTest {
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEqualing() {
 
-    // setup
+    //setup
     final String[] array1 = { "apple", "banana", "cerish" };
     final String[] array2 = { "elephant", "lion", "monkey" };
     final String[] array3 = { "flower", "tree", "palm" };
 
-    // execution
+    //execution
     final var readContainer = ReadContainer.forArray(array1, array2, array3);
 
-    // execution
+    //execution
     expect(readContainer.containsEqualing("apple"));
     expect(readContainer.containsEqualing("banana"));
     expect(readContainer.containsEqualing("cerish"));
@@ -37,19 +37,19 @@ public final class ReadContainerTest extends ContainerTest {
     expectNot(readContainer.containsEqualing("uranus"));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredAt1BasedIndex() {
 
-    // setup
+    //setup
     final String[] array1 = { "apple", "banana", "cerish" };
     final String[] array2 = { "elephant", "lion", "monkey" };
     final String[] array3 = { "flower", "tree", "palm" };
 
-    // execution
+    //execution
     final var readContainer = ReadContainer.forArray(array1, array2, array3);
 
-    // verification
+    //verification
     expect(readContainer.getStoredAt1BasedIndex(1)).isEqualTo("apple");
     expect(readContainer.getStoredAt1BasedIndex(2)).isEqualTo("banana");
     expect(readContainer.getStoredAt1BasedIndex(3)).isEqualTo("cerish");
@@ -61,25 +61,25 @@ public final class ReadContainerTest extends ContainerTest {
     expect(readContainer.getStoredAt1BasedIndex(9)).isEqualTo("palm");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredSelected() {
 
-    // setup
+    //setup
     final String[] array1 = { "A", "AA", "AAA" };
     final String[] array2 = { "B", "BB", "BBB" };
     final String[] array3 = { "C", "CC", "CCC" };
 
-    // execution
+    //execution
     final var readContainer = ReadContainer.forArray(array1, array2, array3);
 
-    // verification
+    //verification
     expect(readContainer.getStoredSelected(s -> s.length() == 1).toString()).isEqualTo("A,B,C");
     expect(readContainer.getStoredSelected(s -> s.length() == 2).toString()).isEqualTo("AA,BB,CC");
     expect(readContainer.getStoredSelected(s -> s.length() == 3).toString()).isEqualTo("AAA,BBB,CCC");
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
       final E element,
@@ -87,7 +87,7 @@ public final class ReadContainerTest extends ContainerTest {
     return ReadContainer.forElement(element, elements);
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return new ReadContainer<>();

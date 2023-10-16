@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentBelongsToParentException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param parent
@@ -25,7 +25,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
     return new ArgumentBelongsToParentException(argument, parent);
   }
 
-  // static method
+  //static method
   /**
    * @param parent
    * @return the name of the type of the given parent.
@@ -33,7 +33,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    */
   private static String getTypeNameOfParent(final Object parent) {
 
-    // Asserts that the given parent is not null.
+    //Asserts that the given parent is not null.
     if (parent == null) {
       throw new IllegalArgumentException("The given parent is null.");
     }
@@ -41,7 +41,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
     return parent.getClass().getSimpleName();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentBelongsToParentException} for the given argument
    * that belongs to the given parent.
@@ -52,7 +52,7 @@ public final class ArgumentBelongsToParentException extends InvalidArgumentExcep
    */
   private ArgumentBelongsToParentException(final Object argument, final Object parent) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "belongs to a " + getTypeNameOfParent(parent));
   }
 }

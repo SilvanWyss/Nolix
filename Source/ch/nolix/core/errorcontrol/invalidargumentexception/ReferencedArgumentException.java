@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ReferencedArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is referenced";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ReferencedArgumentException} for the given argument.
@@ -25,7 +25,7 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
     return new ReferencedArgumentException(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ReferencedArgumentException} for the given argument.
    * 
@@ -33,7 +33,7 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
    */
   private ReferencedArgumentException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
 }

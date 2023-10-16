@@ -14,13 +14,13 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 public abstract class BaseReference<E extends IEntity> extends Property
     implements IBaseReference<E> {
 
-  // attribute
+  //attribute
   private final String referencedTableName;
 
-  // optional attribute
+  //optional attribute
   private Table<E> referencedTable;
 
-  // constructor
+  //constructor
   protected BaseReference(final String referencedTableName) {
 
     GlobalValidator.assertThat(referencedTableName).thatIsNamed("referenced table name").isNotBlank();
@@ -28,7 +28,7 @@ public abstract class BaseReference<E extends IEntity> extends Property
     this.referencedTableName = referencedTableName;
   }
 
-  // method
+  //method
   @Override
   public final ITable<E> getReferencedTable() {
 
@@ -37,31 +37,31 @@ public abstract class BaseReference<E extends IEntity> extends Property
     return referencedTable;
   }
 
-  // method
+  //method
   @Override
   public final String getReferencedTableName() {
     return referencedTableName;
   }
 
-  // method
+  //method
   @Override
   public final IContainer<IProperty> getStoredReferencingProperties() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesBackEntity(final IEntity entity) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean referencesBackProperty(final IProperty property) {
     return false;
   }
 
-  // method
+  //method
   protected final void updateProbableBackReferenceForSetOrAddedEntity(final E entity) {
     if (isLinkedWithRealDatabase()) {
       for (final var p : entity.technicalGetRefProperties()) {
@@ -86,30 +86,30 @@ public abstract class BaseReference<E extends IEntity> extends Property
 
             break;
           default:
-            // Does nothing.
+            //Does nothing.
         }
       }
     }
   }
 
-  // method
+  //method
   private boolean extractedReferencedTable() {
     return (referencedTable != null);
   }
 
-  // method
+  //method
   private void extractReferencedTable() {
     referencedTable = loadReferencedTable();
   }
 
-  // method
+  //method
   private void extractReferencedTableIfNotExtracted() {
     if (!extractedReferencedTable()) {
       extractReferencedTable();
     }
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   private Table<E> loadReferencedTable() {
     return (Table<E>) getStoredParentEntity()

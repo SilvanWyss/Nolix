@@ -14,7 +14,7 @@ public final class SqlConnectionPoolBuilder
         UsingLoginNameCapturer<AndLoginPasswordCapturer<SqlConnectionPool>>>>//
 > {
 
-  // constructor
+  //constructor
   public SqlConnectionPoolBuilder(final String ipOrDomain, final int defaultPort) {
 
     super(
@@ -27,7 +27,7 @@ public final class SqlConnectionPoolBuilder
     setBuilder(() -> build(ipOrDomain));
   }
 
-  // method
+  //method
   private SqlConnectionPool build(final String ipOrDomain) {
     return new SqlConnectionPool(
         ipOrDomain,

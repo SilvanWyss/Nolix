@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class SchemaCatalogue {
 
-  // constant
+  //constant
   public static final ISchema RELATIONAL_DOC_SCHEMA = Schema.withEntityType(
       AbstractableField.class,
       AbstractableObject.class,
@@ -17,7 +17,7 @@ public final class SchemaCatalogue {
       ConcreteReferenceContent.class,
       ConcreteValueContent.class);
 
-  // constructor
+  //constructor
   private SchemaCatalogue() {
   }
 }

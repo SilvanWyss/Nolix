@@ -7,9 +7,9 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 //interface
 public interface ISchema {
 
-  // method declaration
+  //method declaration
   Class<? extends IEntity> getEntityTypeByName(String name);
 
-  // method declaration
+  //method declaration
   IContainer<Class<? extends IEntity>> getEntityTypes();
 }

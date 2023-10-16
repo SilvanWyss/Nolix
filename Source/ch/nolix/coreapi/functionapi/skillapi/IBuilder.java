@@ -11,7 +11,7 @@ package ch.nolix.coreapi.functionapi.skillapi;
  */
 public interface IBuilder<O> {
 
-  // method declaration
+  //method declaration
   /**
    * @return a new {@link Object} from the current {@link IBuilder}.
    */

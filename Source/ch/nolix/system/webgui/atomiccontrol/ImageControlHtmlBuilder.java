@@ -14,7 +14,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImageControl> {
 
-  // method
+  //method
   @Override
   public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
     return HtmlElement.withTypeAndAttributes(
@@ -22,7 +22,7 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
         createHtmlAttributesFromImageControl(imageControl));
   }
 
-  // method
+  //method
   private IContainer<HtmlAttribute> createHtmlAttributesFromImageControl(final IImageControl imageControl) {
 
     final var htmlAttributes = new LinkedList<HtmlAttribute>();

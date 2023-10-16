@@ -4,12 +4,12 @@ package ch.nolix.coretest.documenttest.xmltest;
 //launcher class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new XmlTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

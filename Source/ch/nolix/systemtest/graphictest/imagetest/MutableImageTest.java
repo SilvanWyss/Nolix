@@ -10,23 +10,23 @@ import ch.nolix.system.graphic.image.MutableImage;
 //class
 public final class MutableImageTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // parameter definition
+    //parameter definition
     final var width = 100;
     final var height = 50;
     final var color = Color.BLUE;
 
-    // execution
+    //execution
     final var testUnit = MutableImage.withWidthAndHeightAndColor(width, height, color);
 
-    // verification part 1
+    //verification part 1
     expect(testUnit.getWidth()).isEqualTo(width);
     expect(testUnit.getHeight()).isEqualTo(height);
 
-    // verification part 2
+    //verification part 2
     for (var i = 1; i <= width; i++) {
       for (var j = 1; j <= height; j++) {
         expect(testUnit.getPixel(i, j)).isEqualTo(color);
@@ -34,41 +34,41 @@ public final class MutableImageTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getBottomLeftPixel() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
     testUnit.setPixel(1, 50, Color.RED);
 
-    // execution
+    //execution
     final var result = testUnit.getBottomLeftPixel();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getBottomRightPixel() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
     testUnit.setPixel(100, 50, Color.RED);
 
-    // execution
+    //execution
     final var result = testUnit.getBottomRightPixel();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getCopy_whenOriginIsChangedAfterwards() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage
         .withWidthAndHeightAndWhiteColor(2, 2)
         .setPixel(1, 1, Color.YELLOW)
@@ -76,7 +76,7 @@ public final class MutableImageTest extends Test {
         .setPixel(2, 1, Color.GREEN)
         .setPixel(2, 2, Color.BLUE);
 
-    // execution
+    //execution
     final var result = testUnit.getCopy();
     testUnit
         .setPixel(1, 1, Color.BLACK)
@@ -84,7 +84,7 @@ public final class MutableImageTest extends Test {
         .setPixel(2, 1, Color.BLACK)
         .setPixel(2, 2, Color.BLACK);
 
-    // verification
+    //verification
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(Color.YELLOW);
@@ -93,58 +93,58 @@ public final class MutableImageTest extends Test {
     expect(result.getPixel(2, 2)).isEqualTo(Color.BLUE);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTopLeftPixel() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
     testUnit.setPixel(1, 1, Color.RED);
 
-    // execution
+    //execution
     final var result = testUnit.getTopLeftPixel();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTopRightPixel() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage.withWidthAndHeightAndColor(100, 50, Color.WHITE);
     testUnit.setPixel(100, 1, Color.RED);
 
-    // execution
+    //execution
     final var result = testUnit.getTopRightPixel();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_reset() {
 
-    // parameter definition
+    //parameter definition
     final var width = 100;
     final var height = 50;
 
-    // setup
+    //setup
     final var testUnit = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
     for (var i = 1; i <= width; i++) {
       testUnit.setPixel(i, 1, Color.RED);
     }
 
-    // execution
+    //execution
     testUnit.reset();
 
-    // verification part 1
+    //verification part 1
     expect(testUnit.getWidth()).isEqualTo(width);
     expect(testUnit.getHeight()).isEqualTo(height);
 
-    // verification part 2
+    //verification part 2
     for (var i = 1; i <= width; i++) {
       for (var j = 1; j <= height; j++) {
         expect(testUnit.getPixel(i, j)).isEqualTo(Color.WHITE);
@@ -152,11 +152,11 @@ public final class MutableImageTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toLeftRotatedImage() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage
         .withWidthAndHeightAndWhiteColor(2, 2)
         .setPixel(1, 1, Color.YELLOW)
@@ -164,10 +164,10 @@ public final class MutableImageTest extends Test {
         .setPixel(2, 1, Color.GREEN)
         .setPixel(2, 2, Color.BLUE);
 
-    // execution
+    //execution
     final var result = testUnit.toLeftRotatedImage();
 
-    // verification
+    //verification
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(Color.GREEN);
@@ -176,11 +176,11 @@ public final class MutableImageTest extends Test {
     expect(result.getPixel(2, 2)).isEqualTo(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toRepeatedImage() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage
         .withWidthAndHeightAndWhiteColor(2, 2)
         .setPixel(1, 1, Color.YELLOW)
@@ -188,10 +188,10 @@ public final class MutableImageTest extends Test {
         .setPixel(2, 1, Color.GREEN)
         .setPixel(2, 2, Color.BLUE);
 
-    // execution
+    //execution
     final var result = testUnit.toRepeatedImage(4, 4);
 
-    // verification
+    //verification
     expect(result.getWidth()).isEqualTo(4);
     expect(result.getHeight()).isEqualTo(4);
     expect(result.getPixel(1, 1)).isEqualTo(Color.YELLOW);
@@ -212,11 +212,11 @@ public final class MutableImageTest extends Test {
     expect(result.getPixel(4, 4)).isEqualTo(Color.BLUE);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toRightRotatedImage() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage
         .withWidthAndHeightAndWhiteColor(2, 2)
         .setPixel(1, 1, Color.YELLOW)
@@ -224,10 +224,10 @@ public final class MutableImageTest extends Test {
         .setPixel(2, 1, Color.GREEN)
         .setPixel(2, 2, Color.BLUE);
 
-    // execution
+    //execution
     final var result = testUnit.toRightRotatedImage();
 
-    // verification
+    //verification
     expect(result.getWidth()).isEqualTo(2);
     expect(result.getHeight()).isEqualTo(2);
     expect(result.getPixel(1, 1)).isEqualTo(Color.RED);
@@ -236,11 +236,11 @@ public final class MutableImageTest extends Test {
     expect(result.getPixel(2, 2)).isEqualTo(Color.GREEN);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toScaledImage() {
 
-    // setup
+    //setup
     final var testUnit = MutableImage
         .withWidthAndHeightAndWhiteColor(2, 2)
         .setPixel(1, 1, Color.YELLOW)
@@ -248,10 +248,10 @@ public final class MutableImageTest extends Test {
         .setPixel(2, 1, Color.GREEN)
         .setPixel(2, 2, Color.BLUE);
 
-    // execution
+    //execution
     final var result = testUnit.toScaledImage(2.0);
 
-    // verification
+    //verification
     expect(result.getWidth()).isEqualTo(4);
     expect(result.getHeight()).isEqualTo(4);
     expect(result.getPixel(1, 1)).isEqualTo(Color.YELLOW);

@@ -35,7 +35,7 @@ import ch.nolix.coreapi.containerapi.matrixapi.IMutableMatrix;
  */
 public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
-  // static method
+  //static method
   /**
    * @param matrix
    * @param <E2>   is the type of the elements of the given matrix.
@@ -52,10 +52,10 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return newMatrix;
   }
 
-  // multi-attribute
+  //multi-attribute
   private Object[][] elements = new Object[0][0];
 
-  // method
+  //method
   /**
    * Adds a new column to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -74,11 +74,11 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @SuppressWarnings("unchecked")
   public Matrix<E> addColumn(final E element, final E... elements) {
 
-    // Calls other method.
+    //Calls other method.
     return addColumn(ReadContainer.forElement(element, elements));
   }
 
-  // method
+  //method
   /**
    * Adds a new column to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -95,18 +95,18 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   public Matrix<E> addColumn(final Iterable<E> elements) {
 
-    // Asserts that the given elements are not null.
+    //Asserts that the given elements are not null.
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
     final var lElements = ReadContainer.forIterable(elements);
 
-    // Handles the case that the current {@link Matrix} is empty.
+    //Handles the case that the current {@link Matrix} is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
 
         this.elements = new Object[lElements.getElementCount()][1];
 
-        // Iterates the given elements.
+        //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
 
@@ -116,11 +116,11 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
         }
       }
 
-      // Handles the case that the current matrix is not empty.
+      //Handles the case that the current matrix is not empty.
     } else {
 
-      // Asserts that as many elements are given as the number of rows of the current
-      // matrix.
+      //Asserts that as many elements are given as the number of rows of the current
+      //matrix.
       GlobalValidator
           .assertThat(lElements.getElementCount())
           .thatIsNamed("number of the given elements")
@@ -128,7 +128,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
       final var columnCount = getColumnCount();
 
-      // Iterates the given elements.
+      //Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
 
@@ -144,7 +144,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return this;
   }
 
-  // method
+  //method
   /**
    * Adds a new row to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -163,11 +163,11 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @SuppressWarnings("unchecked")
   public Matrix<E> addRow(final E element, final E... elements) {
 
-    // Calls other method.
+    //Calls other method.
     return addRow(ReadContainer.forElement(element, elements));
   }
 
-  // method
+  //method
   /**
    * Adds a new row to the current {@link Matrix} with the given elements. The
    * complexity of this implementation is O(m + n) if: -The current {@link Matrix}
@@ -184,18 +184,18 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   public Matrix<E> addRow(final Iterable<E> elements) {
 
-    // Asserts that the given elements are not null.
+    //Asserts that the given elements are not null.
     GlobalValidator.assertThatTheElements(elements).areNotNull();
 
     final var lElements = ReadContainer.forIterable(elements);
 
-    // Handles the case that the current matrix is empty.
+    //Handles the case that the current matrix is empty.
     if (isEmpty()) {
       if (lElements.containsAny()) {
 
         this.elements = new Object[1][lElements.getElementCount()];
 
-        // Iterates the given elements.
+        //Iterates the given elements.
         var i = 0;
         for (final var e : lElements) {
 
@@ -205,11 +205,11 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
         }
       }
 
-      // Handles the case that the current matrix is not empty.
+      //Handles the case that the current matrix is not empty.
     } else {
 
-      // Asserts that as many elements are given as the number of columns of the
-      // current matrix.
+      //Asserts that as many elements are given as the number of columns of the
+      //current matrix.
       GlobalValidator
           .assertThat(lElements.getElementCount())
           .thatIsNamed("number of the given elements")
@@ -219,7 +219,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
       final var newElements = Arrays.copyOf(this.elements, rowCount + 1);
       newElements[rowCount] = new Object[getColumnCount()];
 
-      // Iterates the given elements.
+      //Iterates the given elements.
       var i = 0;
       for (final var e : lElements) {
 
@@ -234,7 +234,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return this;
   }
 
-  // method
+  //method
   /**
    * Removes all elements of the current {@link Matrix}. The complexity of this
    * implementation is O(1).
@@ -244,7 +244,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     elements = new Object[0][0];
   }
 
-  // method
+  //method
   /**
    * @param columnIndex
    * @return the column of the current {@link Matrix} with the given column index.
@@ -258,7 +258,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return new MatrixColumn<>(this, columnIndex);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -267,16 +267,16 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @Override
   public int getColumnCount() {
 
-    // Handles the case that the current {@link Matrix} is empty.
+    //Handles the case that the current {@link Matrix} is empty.
     if (elements.length < 1) {
       return 0;
     }
 
-    // Handles the case that the current {@link Matrix} is not empty.
+    //Handles the case that the current {@link Matrix} is not empty.
     return elements[0].length;
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return the index of the column of the element of the current {@link Matrix}
@@ -288,7 +288,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   public int getColumnIndexOf(final int index) {
 
-    // Asserts that the current matrix contains an element at the given index.
+    //Asserts that the current matrix contains an element at the given index.
     assertContainsAt(index);
 
     final var columnCount = getColumnCount();
@@ -300,7 +300,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return ((index - 1) % columnCount + 1);
   }
 
-  // method
+  //method
   /**
    * @return the columns of the current {@link Matrix}.
    */
@@ -309,7 +309,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     final var columns = new LinkedList<MatrixColumn<E>>();
 
-    // Iterates the columns of the current matrix.
+    //Iterates the columns of the current matrix.
     for (var i = 1; i <= getColumnCount(); i++) {
       columns.addAtEnd(new MatrixColumn<>(this, i));
     }
@@ -317,7 +317,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return columns;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m * n) if: -This matrix contains m
    * rows. -This matrix contains n columns.
@@ -339,7 +339,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return matrix;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -350,7 +350,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return (getRowCount() * getColumnCount());
   }
 
-  // method
+  //method
   /**
    * @param rowIndex
    * @param columnIndex
@@ -368,14 +368,14 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   public int getIndexOf(final int rowIndex, final int columnIndex) {
 
-    // Asserts that the current matrix contains an element
-    // at the given row index and the given column index.
+    //Asserts that the current matrix contains an element
+    //at the given row index and the given column index.
     assertContainsAt(rowIndex, columnIndex);
 
     return ((rowIndex - 1) * getColumnCount() + columnIndex);
   }
 
-  // method
+  //method
   /**
    * @return the element of the current {@link Matrix} at the given index .
    * @throws NonPositiveArgumentException if the given index is not positive.
@@ -388,7 +388,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return getStoredAt1BasedRowIndexAndColumnIndex(getRowIndexOf(p1BasedIndex), getColumnIndexOf(p1BasedIndex));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -410,16 +410,16 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @SuppressWarnings("unchecked")
   public E getStoredAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
 
-    // Asserts that the current matrix contains an element at the given row index
-    // and column index.
+    //Asserts that the current matrix contains an element at the given row index
+    //and column index.
     assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
 
     return (E) elements[p1BasedRowIndex - 1][p1BasedColumnIndex - 1];
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
@@ -429,7 +429,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return (E) elements[getRowCount()][getColumnCount()];
   }
 
-  // method
+  //method
   /**
    * @param rowIndex
    * @return the row of the current {@link Matrix} at the given row index.
@@ -442,7 +442,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return new MatrixRow<>(this, rowIndex);
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return the index of the row of the element of the current {@link Matrix} at
@@ -454,7 +454,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   public int getRowIndexOf(final int index) {
 
-    // Asserts that the current matrix contains an element at the given index.
+    //Asserts that the current matrix contains an element at the given index.
     assertContainsAt(index);
 
     final var columnCount = getColumnCount();
@@ -466,7 +466,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return ((index - 1) / columnCount + 1);
   }
 
-  // method
+  //method
   /**
    * @return the rows of the current {@link Matrix}.
    */
@@ -475,7 +475,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     final var rows = new LinkedList<MatrixRow<E>>();
 
-    // Iterates the rows of the current matrix.
+    //Iterates the rows of the current matrix.
     for (var i = 1; i <= getRowCount(); i++) {
       rows.addAtEnd(new MatrixRow<>(this, i));
     }
@@ -483,7 +483,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return rows;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -492,16 +492,16 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @Override
   public int getRowCount() {
 
-    // Handles the case that the current {@link Matrix} is empty.
+    //Handles the case that the current {@link Matrix} is empty.
     if (elements.length < 1) {
       return 0;
     }
 
-    // Handles the case that the current {@link Matrix} is not empty.
+    //Handles the case that the current {@link Matrix} is not empty.
     return elements.length;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -510,7 +510,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return true;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -521,7 +521,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return MatrixIterator.forMatrix(this);
   }
 
-  // method
+  //method
   /**
    * Sets the given element to the current {@link Matrix} at the given index. The
    * complexity of this implementation is O(1).
@@ -536,17 +536,17 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   public void setAt(final int index, final E element) {
 
-    // Asserts that the given element is not null.
+    //Asserts that the given element is not null.
     GlobalValidator
         .assertThat(element)
         .thatIsNamed(LowerCaseCatalogue.ELEMENT)
         .isNotNull();
 
-    // Sets the given element at the given index to the current matrix.
+    //Sets the given element at the given index to the current matrix.
     elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
   }
 
-  // method
+  //method
   /**
    * Sets the given element to the current {@link Matrix} to the row with the
    * given row index and the column with the given column index.
@@ -573,11 +573,11 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
       final int p1BasedColumnIndex,
       final E element) {
 
-    // Asserts that the current matrix contains an element at the given row index
-    // and column index.
+    //Asserts that the current matrix contains an element at the given row index
+    //and column index.
     assertContainsAt(p1BasedRowIndex, p1BasedColumnIndex);
 
-    // Asserts that the given element is not null.
+    //Asserts that the given element is not null.
     GlobalValidator
         .assertThat(element)
         .thatIsNamed(LowerCaseCatalogue.ELEMENT)
@@ -586,7 +586,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     elements[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] = element;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if: -This matrix contains n
    * elements. -The given transformer has a complexity of O(1).
@@ -599,14 +599,14 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @SuppressWarnings("unchecked")
   public <O> Matrix<O> toMatrix(final Function<E, O> transformer) {
 
-    // Creates matrix.
+    //Creates matrix.
     final var matrix = new Matrix<O>();
 
-    // Fills up the elements of the matrix.
+    //Fills up the elements of the matrix.
     matrix.elements = new Object[getRowCount()][getColumnCount()];
     for (var i = 0; i < getRowCount(); i++) {
 
-      // Iterates the columns of the current row.
+      //Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
         matrix.elements[i][j] = transformer.apply((E) elements[i][j]);
       }
@@ -615,9 +615,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return matrix;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * The complexity of this implementation is O(n) if the current {@link Matrix}
    * contains n elements.
@@ -634,10 +634,10 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     leftRotatedMatrix.elements = leftRotatedMatrixElements;
 
-    // Iterates the rows of the left rotated matrix.
+    //Iterates the rows of the left rotated matrix.
     for (var i = 0; i < leftRotatedMatrixRowCount; i++) {
 
-      // Iterates the columns of the current row.
+      //Iterates the columns of the current row.
       for (var j = 0; j < leftRotatedMatrixColumnCount; j++) {
         leftRotatedMatrixElements[i][j] = elements[j][leftRotatedMatrixRowCount - i - 1];
       }
@@ -646,7 +646,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return leftRotatedMatrix;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -655,9 +655,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * The complexity of this implementation is O(n) if the current {@link Matrix}
    * contains n elements.
@@ -674,10 +674,10 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     rightRotatedMatrix.elements = rightRotatedMatrixElements;
 
-    // Iterates the rows of the right rotated matrix.
+    //Iterates the rows of the right rotated matrix.
     for (var i = 0; i < rightRotatedMatrixRowCount; i++) {
 
-      // Iterates the columns of the current row.
+      //Iterates the columns of the current row.
       for (var j = 0; j < rightRotatedMatrixColumnCount; j++) {
         rightRotatedMatrixElements[i][j] = elements[rightRotatedMatrixColumnCount - j - 1][i];
       }
@@ -686,7 +686,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return rightRotatedMatrix;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if: -The current {@link Matrix}
    * contains n elements. -The toString method of the elements of the current
@@ -699,14 +699,14 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     final var stringBuilder = new StringBuilder();
 
-    // Iterates the rows of the current matrix.
+    //Iterates the rows of the current matrix.
     for (var i = 0; i < getRowCount(); i++) {
 
       if (i > 0) {
         stringBuilder.append(CharacterCatalogue.SEMICOLON);
       }
 
-      // Iterates the columns of the current row.
+      //Iterates the columns of the current row.
       for (var j = 0; j < getColumnCount(); j++) {
 
         if (j > 0) {
@@ -720,7 +720,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -729,7 +729,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
     return new LinkedList<>();
   }
 
-  // method
+  //method
   /**
    * @param index
    * @throws NonPositiveArgumentException if the given index is not positive.
@@ -750,7 +750,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
         .isNotBiggerThan(getElementCount());
   }
 
-  // method
+  //method
   /**
    * @param rowIndex
    * @param columnIndex

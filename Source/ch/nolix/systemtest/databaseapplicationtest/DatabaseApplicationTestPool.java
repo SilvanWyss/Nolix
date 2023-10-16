@@ -8,7 +8,7 @@ import ch.nolix.systemtest.databaseapplicationtest.propertybindertest.PropertyBi
 //class
 public final class DatabaseApplicationTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public DatabaseApplicationTestPool() {
     super(new PropertyBinderTestPool());
   }

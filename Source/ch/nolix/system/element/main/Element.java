@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
  */
 public abstract class Element implements Specified {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -23,7 +23,7 @@ public abstract class Element implements Specified {
         && hasSameSpecificationAs((Element) object);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -32,7 +32,7 @@ public abstract class Element implements Specified {
     return Node.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -41,7 +41,7 @@ public abstract class Element implements Specified {
     return getSpecification().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -50,7 +50,7 @@ public abstract class Element implements Specified {
     return getSpecification().toString();
   }
 
-  // method
+  //method
   /**
    * @param element
    * @return true if the current {@link Element} has the same specification as the

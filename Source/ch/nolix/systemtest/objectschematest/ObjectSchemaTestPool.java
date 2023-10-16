@@ -8,7 +8,7 @@ import ch.nolix.systemtest.objectschematest.schemaadaptertest.SchemaAdapterTestP
 //class
 public final class ObjectSchemaTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ObjectSchemaTestPool() {
     super(new SchemaAdapterTestPool());
   }

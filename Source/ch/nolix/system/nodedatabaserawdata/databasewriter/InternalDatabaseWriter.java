@@ -18,19 +18,19 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class InternalDatabaseWriter {
 
-  // constant
+  //constant
   private static final DatabaseUpdater DATABASE_UPDATER = new DatabaseUpdater();
 
-  // attribute
+  //attribute
   private int saveCount;
 
-  // attribute
+  //attribute
   private final IMutableNode<?> nodeDatabase;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Consumer<IMutableNode<?>>> changeActions = new LinkedList<>();
 
-  // constructor
+  //constructor
   public InternalDatabaseWriter(final IMutableNode<?> nodeDatabase) {
 
     GlobalValidator.assertThat(nodeDatabase).thatIsNamed("node database").isNotNull();
@@ -38,7 +38,7 @@ final class InternalDatabaseWriter {
     this.nodeDatabase = nodeDatabase;
   }
 
-  // method
+  //method
   public void deleteEntriesFromMultiReference(
       final ITableInfo tableInfo,
       final String entityId,
@@ -47,7 +47,7 @@ final class InternalDatabaseWriter {
         d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo));
   }
 
-  // method
+  //method
   public void deleteEntriesFromMultiValue(
       final ITableInfo tableInfo,
       final String entityId,
@@ -56,7 +56,7 @@ final class InternalDatabaseWriter {
         d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo));
   }
 
-  // method
+  //method
   public void deleteEntryFromMultiReference(
       final ITableInfo tableInfo,
       final String entityId,
@@ -71,7 +71,7 @@ final class InternalDatabaseWriter {
             referencedEntityId));
   }
 
-  // method
+  //method
   public void deleteEntryFromMultiValue(
       final ITableInfo tableInfo,
       final String entityId,
@@ -81,32 +81,32 @@ final class InternalDatabaseWriter {
         d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
   }
 
-  // method
+  //method
   public void deleteEntityFromTable(final String tableName, final IEntityHeadDto entity) {
     addChangeAction(d -> DATABASE_UPDATER.deleteEntityFromTable(d, tableName, entity));
   }
 
-  // method
+  //method
   public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
     addChangeAction(d -> DATABASE_UPDATER.expectGivenSchemaTimestamp(d, schemaTimestamp));
   }
 
-  // method
+  //method
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     addChangeAction(d -> DATABASE_UPDATER.expectTableContainsEntity(d, tableName, entityId));
   }
 
-  // method
+  //method
   public int getSaveCount() {
     return saveCount;
   }
 
-  // method
+  //method
   public boolean hasChanges() {
     return changeActions.containsAny();
   }
 
-  // method
+  //method
   public void insertEntryIntoMultiReference(
       final ITableInfo tableInfo,
       final String entityId,
@@ -121,7 +121,7 @@ final class InternalDatabaseWriter {
             referencedEntityId));
   }
 
-  // method
+  //method
   public void insertEntryIntoMultiValue(
       final ITableInfo tableInfo,
       final String entityId,
@@ -131,17 +131,17 @@ final class InternalDatabaseWriter {
         d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
   }
 
-  // method
+  //method
   public void insertEntityIntoTable(final ITableInfo tableInfo, final INewEntityDto newEntity) {
     addChangeAction(d -> DATABASE_UPDATER.insertEntityIntoTable(d, tableInfo, newEntity));
   }
 
-  // methods
+  //methods
   public void reset() {
     changeActions.clear();
   }
 
-  // method
+  //method
   public void saveChangesAndReset() {
     try {
       nodeDatabase.setChildNodes(createNodeDatabaseWithChanges().getStoredChildNodes());
@@ -151,22 +151,22 @@ final class InternalDatabaseWriter {
     }
   }
 
-  // method
+  //method
   public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     addChangeAction(d -> DATABASE_UPDATER.setEntityAsUpdated(d, tableName, entity));
   }
 
-  // method
+  //method
   public void updateEntityOnTable(final ITableInfo tableInfo, IEntityUpdateDto entityUpdate) {
     addChangeAction(d -> DATABASE_UPDATER.updateEntityOnTable(d, tableInfo, entityUpdate));
   }
 
-  // method
+  //method
   private void addChangeAction(final Consumer<IMutableNode<?>> changeAction) {
     changeActions.addAtEnd(changeAction);
   }
 
-  // method
+  //method
   private IMutableNode<?> createNodeDatabaseWithChanges() {
 
     final var newNodeDatabase = MutableNode.fromNode(nodeDatabase);

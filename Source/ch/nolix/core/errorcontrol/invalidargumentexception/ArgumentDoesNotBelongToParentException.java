@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentDoesNotBelongToParentException} for the given
@@ -23,7 +23,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     return new ArgumentDoesNotBelongToParentException(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param parentType
@@ -36,7 +36,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     return new ArgumentDoesNotBelongToParentException(argument, parentType);
   }
 
-  // static method
+  //static method
   /**
    * @param parentType
    * @return the name of the given parentType.
@@ -44,7 +44,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    */
   private static String getNameOfParentType(final Class<?> parentType) {
 
-    // Asserts that the given parent type is not null.
+    //Asserts that the given parent type is not null.
     if (parentType == null) {
       throw new IllegalArgumentException("The given parent type is null.");
     }
@@ -52,7 +52,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     return parentType.getSimpleName();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument.
@@ -61,11 +61,11 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    */
   private ArgumentDoesNotBelongToParentException(Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not belong to a parent");
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
    * argument and parentType.
@@ -76,7 +76,7 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    */
   private ArgumentDoesNotBelongToParentException(final Object argument, final Class<?> parentType) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not belong to a " + getNameOfParentType(parentType));
   }
 }

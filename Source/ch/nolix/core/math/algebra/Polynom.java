@@ -24,29 +24,29 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class Polynom {
 
-  // constant
+  //constant
   public static final Polynom EMPTY_POLYNOM = new Polynom();
 
-  // constant
+  //constant
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
 
-  // static method
+  //static method
   public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
     return new Polynom(GlobalArrayHelper.createArrayWithValue(coefficient, coefficients));
   }
 
-  // static method
+  //static method
   public static Polynom withCoefficients(final double[] coefficients) {
     return new Polynom(coefficients);
   }
 
-  // optional attribute
+  //optional attribute
   private Polynom derivedPolynom;
 
-  // multi-attribute
+  //multi-attribute
   private final double[] coefficients;
 
-  // constructor
+  //constructor
   /**
    * Creates a new empty {@link Polynom}.
    */
@@ -54,7 +54,7 @@ public final class Polynom {
     coefficients = new double[0];
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Polynom} with the given coefficientArray.
    * 
@@ -65,21 +65,21 @@ public final class Polynom {
    */
   private Polynom(final double[] coefficientArray) {
 
-    // Asserts that the given coefficientArray is not null.
+    //Asserts that the given coefficientArray is not null.
     GlobalValidator.assertThat(coefficientArray).thatIsNamed("coefficient array").isNotNull();
 
-    // Handles the case that the given coefficient array is not empty.
+    //Handles the case that the given coefficient array is not empty.
     if (coefficientArray.length > 0) {
 
-      // Asserts that the given highest coefficient is not 0.0.
+      //Asserts that the given highest coefficient is not 0.0.
       GlobalValidator.assertThat(coefficientArray[0]).thatIsNamed("highest coefficient").isNotEqualTo(0.0);
     }
 
-    // Sets the coefficients of the current Polynom.
-    coefficients = coefficientArray; // NOSONAR: A Polynom operates on the original instance.
+    //Sets the coefficients of the current Polynom.
+    coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -88,7 +88,7 @@ public final class Polynom {
     return (object instanceof Polynom polynom && equals(polynom));
   }
 
-  // method
+  //method
   /**
    * @param degree
    * @return the coefficient for the given degree from the current
@@ -99,14 +99,14 @@ public final class Polynom {
    */
   public double getCoefficientForDegree(final int degree) {
 
-    // Asserts that the given degree is between 0 and the degree of the current
-    // Polynom.
+    //Asserts that the given degree is between 0 and the degree of the current
+    //Polynom.
     GlobalValidator.assertThat(degree).thatIsNamed(LowerCaseCatalogue.DEGREE).isBetween(0, getDegree());
 
     return coefficients[coefficients.length - degree - 1];
   }
 
-  // method
+  //method
   /**
    * @return a new {@link Polynom} that is derived from the current
    *         {@link Polynom}.
@@ -115,7 +115,7 @@ public final class Polynom {
     return getDerived(1);
   }
 
-  // method
+  //method
   /**
    * @param deriveCount
    * @return a new {@link Polynom} that is derived from the current
@@ -136,7 +136,7 @@ public final class Polynom {
     return calculateDerived(deriveCount);
   }
 
-  // method
+  //method
   /**
    * @return the degree of the current {@link Polynom}.
    */
@@ -144,7 +144,7 @@ public final class Polynom {
     return (coefficients.length - 1);
   }
 
-  // method
+  //method
   /**
    * @return a new {@link Polynom} that is the integration of the current
    *         {@link Polynom}.
@@ -153,7 +153,7 @@ public final class Polynom {
     return getIntegrated(1);
   }
 
-  // method
+  //method
   /**
    * @param integrationCount
    * @return a new {@link Polynom} that is the integration from the current
@@ -186,7 +186,7 @@ public final class Polynom {
     return new Polynom(integratedCoefficients);
   }
 
-  // method
+  //method
   /**
    * @param x
    * @return the slope of the current {@link Polynom} at the given x.
@@ -195,7 +195,7 @@ public final class Polynom {
     return getDerived().getValueAt(x);
   }
 
-  // method
+  //method
   /**
    * This method implements the Horner scheme to calculate the value.
    * 
@@ -211,13 +211,13 @@ public final class Polynom {
     return getValueAtWhenIsNotZeroPolynom(x);
   }
 
-  // method
+  //method
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * @param polynom
    * @return true if the current {@link Polynom} has the same degree as the given
@@ -227,7 +227,7 @@ public final class Polynom {
     return (polynom != null && getDegree() == polynom.getDegree());
   }
 
-  // method
+  //method
   /**
    * A {@link Polynom} is a zero {@link Polynom} if all its coefficients are 0.0.
    * 
@@ -237,7 +237,7 @@ public final class Polynom {
     return (coefficients.length == 0);
   }
 
-  // method
+  //method
   /**
    * @return a new array with the coefficients of the current {@link Polynom}.
    */
@@ -245,7 +245,7 @@ public final class Polynom {
     return coefficients.clone();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -254,7 +254,7 @@ public final class Polynom {
     return toString(DEFAULT_PARAMTER_SYMBOL);
   }
 
-  // method
+  //method
   /**
    * @param parameterSymbol
    * @return a {@link String} representation of the current {@link Polynom} with
@@ -263,16 +263,16 @@ public final class Polynom {
    */
   public String toString(final String parameterSymbol) {
 
-    // Handles the case that the current Polynom is a zero Polynom.
+    //Handles the case that the current Polynom is a zero Polynom.
     if (isZeroPolynom()) {
       return toStringWhenIsZeroPolynom(parameterSymbol);
     }
 
-    // Handles the case that the current Polynom is not a zero Polynom.
+    //Handles the case that the current Polynom is not a zero Polynom.
     return toStringWhenIsNotZeroPolynom(parameterSymbol);
   }
 
-  // method
+  //method
   /**
    * @return a new {@link Vector} with the coefficients of the current
    *         {@link Polynom}.
@@ -281,7 +281,7 @@ public final class Polynom {
     return Vector.withValues(coefficients);
   }
 
-  // method
+  //method
   private Polynom calculateDerived(final int deriveCount) {
 
     GlobalValidator.assertThat(deriveCount).thatIsNamed("derive count").isNotNegative();
@@ -308,7 +308,7 @@ public final class Polynom {
     return new Polynom(derivedCoefficients);
   }
 
-  // method
+  //method
   private boolean equals(final Polynom polynom) {
 
     if (!hasSameDegreeAs(polynom)) {
@@ -324,7 +324,7 @@ public final class Polynom {
     return true;
   }
 
-  // method
+  //method
   private double getValueAtWhenIsNotZeroPolynom(final double x) {
 
     var value = coefficients[0];
@@ -338,7 +338,7 @@ public final class Polynom {
     return value;
   }
 
-  // method
+  //method
   private String toStringWhenIsZeroPolynom(final String parameterSymbol) {
 
     GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
@@ -346,7 +346,7 @@ public final class Polynom {
     return (parameterSymbol + "->0.0");
   }
 
-  // method
+  //method
   private String toStringWhenIsNotZeroPolynom(final String parameterSymbol) {
 
     GlobalValidator.assertThat(parameterSymbol).thatIsNamed("parameter symbol").isNotBlank();
@@ -361,7 +361,7 @@ public final class Polynom {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   private void appendConstantTo(final StringBuilder stringBuilder) {
     if (coefficients.length > 0) {
 
@@ -378,7 +378,7 @@ public final class Polynom {
     }
   }
 
-  // method
+  //method
   private void appendHigherCoefficientsTo(final StringBuilder stringBuilder, final String parameterSymbol) {
 
     final var degree = getDegree();
@@ -403,7 +403,7 @@ public final class Polynom {
     }
   }
 
-  // method
+  //method
   private void appendLinearCoefficientTo(final StringBuilder stringBuilder, final String parameterSymbol) {
     if (coefficients.length > 1) {
 

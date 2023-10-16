@@ -24,11 +24,11 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
     implements IControlCssBuilder<C, CS> {
 
-  // constant
+  //constant
   private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper();
 
-  // TODO: Refactor this method.
-  // method
+  //TODO: Refactor this method.
+  //method
   @Override
   public final IContainer<ICssRule> createCssRulesForControl(final C control) {
 
@@ -65,28 +65,28 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     return selectorPrefixedCssRules;
   }
 
-  // method declaration
+  //method declaration
   protected abstract void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       C control,
       LinkedList<? super ICssRule> list);
 
-  // method declaration
+  //method declaration
   protected abstract void fillUpAdditionalCssRulesForControlAndStateIntoList(
       C control,
       ControlState state,
       LinkedList<? super ICssRule> list);
 
-  // method declaration
+  //method declaration
   protected abstract void fillUpCssPropertiesForControlAndAllStatesIntoList(
       C control,
       LinkedList<CssProperty> list);
 
-  // method
+  //method
   private String getCssSelectorForControlAndAllStates(final C control) {
     return ("#" + control.getInternalId());
   }
 
-  // method
+  //method
   private String getCssSelectorForControlAndState(final C control, final ControlState state) {
     return switch (state) {
       case BASE ->
@@ -100,13 +100,13 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     };
   }
 
-  // method declaration
+  //method declaration
   protected abstract void fillUpCssPropertiesForControlAndStateIntoList(
       C control,
       ControlState state,
       LinkedList<ICssProperty> list);
 
-  // method
+  //method
   private void fillUpCssRulesForControlAndAllStatesIntoList(
       final C control,
       final LinkedList<ICssRule> list) {
@@ -116,7 +116,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     fillUpAdditionalCssRulesForControlAndAllStatesIntoList(control, list);
   }
 
-  // method
+  //method
   private void fillUpCssRulesForControlAndStateIntoList(
       final C control,
       final ControlState state,
@@ -127,7 +127,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     fillUpAdditionalCssRulesForControlAndStateIntoList(control, state, list);
   }
 
-  // method
+  //method
   private void fillUpMandatoryCssPropertiesForControlAndStateIntoList(
       final C control,
       final ControlState state,
@@ -179,7 +179,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     list.addAtEnd(style.getBackgroundWhenHasState(state).toCssProperties());
   }
 
-  // method
+  //method
   private void fillUpOptionalCssPropertiesForControlAndStateIntoList(
       final C control,
       final ControlState state,
@@ -206,7 +206,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     }
   }
 
-  // method
+  //method
   private IContainer<CssProperty> getCssPropertiesForControlAndAllStates(final C control) {
 
     final var cssPropertiesForBaseState = new LinkedList<CssProperty>();
@@ -216,7 +216,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     return cssPropertiesForBaseState;
   }
 
-  // method
+  //method
   private IContainer<ICssProperty> getCssPropertiesForControlAndState(final C control, final ControlState state) {
 
     final var cssProperties = new LinkedList<ICssProperty>();
@@ -226,21 +226,21 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     return cssProperties;
   }
 
-  // method
+  //method
   private final ICssRule getCssRuleForControlAndAllStates(final C control) {
     return CssRule.withSelectorAndProperties(
         StringCatalogue.EMPTY_STRING,
         getCssPropertiesForControlAndAllStates(control));
   }
 
-  // method
+  //method
   private final ICssRule getCssRuleForControlAndState(final C control, final ControlState state) {
     return CssRule.withSelectorAndProperties(
         StringCatalogue.EMPTY_STRING,
         getCssPropertiesForControlAndState(control, state));
   }
 
-  // method
+  //method
   private ICssProperty getFontWeightCssPropertyForControlAndState(final C control, final ControlState state) {
 
     final var style = control.getStoredStyle();
@@ -253,15 +253,15 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     return CssProperty.withNameAndValue("font-weight", "bold");
   }
 
-  // method
+  //method
   private void onOwnFillUpCssPropertiesForControlAndAllStatesIntoList(
       final C control,
       final LinkedList<CssProperty> list) {
 
     switch (control.getPresence()) {
       case VISIBLE:
-        // Does nothing. Since presence is configured for all states, the Control will
-        // be visible per default.
+        //Does nothing. Since presence is configured for all states, the Control will
+        //be visible per default.
         break;
       case INVISIBLE:
         list.addAtEnd(CssProperty.withNameAndValue("visibility", "hidden"));
@@ -314,7 +314,7 @@ public abstract class ControlCssBuilder<C extends IControl<C, CS>, CS extends IC
     fillUpCssPropertiesForControlAndAllStatesIntoList(control, list);
   }
 
-  // method
+  //method
   private void onOwnFillUpCssPropertiesForControlAndStateIntoList(
       final C control,
       final ControlState state,

@@ -9,27 +9,27 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
-public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not have abstract methods.
+public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not have abstract methods.
     A, N> {
 
-  // attribute
+  //attribute
   private boolean hasArgument;
 
-  // optional attribute
+  //optional attribute
   private A argument;
 
-  // optional attribute
+  //optional attribute
   private final N nextArgumentCapturer;
 
-  // optional attribute
+  //optional attribute
   private Supplier<N> builder;
 
-  // constructor
+  //constructor
   protected ArgumentCapturer(final N nextArgumentCapturer) {
     this.nextArgumentCapturer = nextArgumentCapturer;
   }
 
-  // method
+  //method
   public final N next() {
 
     assertHasNextArgumentCapturer();
@@ -37,7 +37,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
     return nextArgumentCapturer;
   }
 
-  // method
+  //method
   protected final N setArgumentAndGetNext(final A argument) {
 
     setArgument(argument);
@@ -45,7 +45,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
     return getNextArgumentCapturerOrResult();
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   protected final void setBuilder(final Supplier<?> builder) {
     if (hasNextArgumentCapturer()) {
@@ -58,7 +58,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
     }
   }
 
-  // method
+  //method
   protected final A getStoredArgument() {
 
     assertHasArgument();
@@ -66,33 +66,33 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
     return argument;
   }
 
-  // method
+  //method
   private void assertHasArgument() {
     if (!hasArgument()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "argument");
     }
   }
 
-  // method
+  //method
   private void assertHasBuilder() {
     if (!hasBuilder()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "builder");
     }
   }
 
-  // method
+  //method
   private void assertHasNextArgumentCapturer() {
     if (!hasNextArgumentCapturer()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next argument capturer");
     }
   }
 
-  // method
+  //method
   private N build() {
     return getStoredBuilder().get();
   }
 
-  // method
+  //method
   private N getNextArgumentCapturerOrResult() {
 
     if (hasNextArgumentCapturer()) {
@@ -102,7 +102,7 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
     return build();
   }
 
-  // method
+  //method
   private Supplier<N> getStoredBuilder() {
 
     assertHasBuilder();
@@ -110,22 +110,22 @@ public abstract class ArgumentCapturer< // NOSONAR: ArgumentCapturer does not ha
     return builder;
   }
 
-  // method
+  //method
   private boolean hasArgument() {
     return hasArgument;
   }
 
-  // method
+  //method
   private boolean hasBuilder() {
     return (builder != null);
   }
 
-  // method
+  //method
   private boolean hasNextArgumentCapturer() {
     return (nextArgumentCapturer != null);
   }
 
-  // method
+  //method
   private void setArgument(final A argument) {
 
     hasArgument = true;

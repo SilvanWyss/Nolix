@@ -8,13 +8,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
     extends Application<BC, AC> {
 
-  // attribute
+  //attribute
   private final String applicationName;
 
-  // attribute
+  //attribute
   private final Class<?> initialSessionClass;
 
-  // static method
+  //static method
   public static <BC2 extends BackendClient<BC2, AC2>, S extends Session<BC2, AC2>, AC2> BasicApplication<BC2, AC2> //
       withNameAndInitialSessionClassAndContext(
           final String applicationName,
@@ -23,7 +23,7 @@ public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
     return new BasicApplication<>(applicationName, initialSessionClass, applicationContext);
   }
 
-  // constructor
+  //constructor
   private <S extends Session<BC, AC>> BasicApplication(
       final String applicationName,
       final Class<S> initialSessionClass,
@@ -38,7 +38,7 @@ public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
     this.initialSessionClass = initialSessionClass;
   }
 
-  // method
+  //method
   @Override
   public String getApplicationName() {
     return applicationName;

@@ -7,12 +7,12 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface ICheckbox extends IControl<ICheckbox, ICheckboxStyle> {
 
-  // method declaration
+  //method declaration
   ICheckbox check();
 
-  // method declaration
+  //method declaration
   boolean isChecked();
 
-  // method declaration
+  //method declaration
   ICheckbox unCheck();
 }

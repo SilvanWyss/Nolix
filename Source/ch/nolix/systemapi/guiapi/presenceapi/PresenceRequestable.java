@@ -4,15 +4,15 @@ package ch.nolix.systemapi.guiapi.presenceapi;
 //interface
 public interface PresenceRequestable {
 
-  // method declaration
+  //method declaration
   Presence getPresence();
 
-  // method declaration
+  //method declaration
   boolean isCollapsed();
 
-  // method declaration
+  //method declaration
   boolean isInvisible();
 
-  // method declaration
+  //method declaration
   boolean isVisible();
 }

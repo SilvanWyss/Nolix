@@ -17,7 +17,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.IClosePool;
  */
 final class ClosePool implements IClosePool {
 
-  // static method
+  //static method
   /**
    * @param element
    * @return a new {@link ClosePool} with the given element.
@@ -27,13 +27,13 @@ final class ClosePool implements IClosePool {
     return new ClosePool(element);
   }
 
-  // attribute
+  //attribute
   private CloseState state = CloseState.OPEN;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<GroupCloseable> elements = new LinkedList<>();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ClosePool} with the given element.
    * 
@@ -44,7 +44,7 @@ final class ClosePool implements IClosePool {
     addElement(element);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -53,7 +53,7 @@ final class ClosePool implements IClosePool {
     elements.forEach(this::addElement);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -64,7 +64,7 @@ final class ClosePool implements IClosePool {
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -73,7 +73,7 @@ final class ClosePool implements IClosePool {
     return elements;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -82,7 +82,7 @@ final class ClosePool implements IClosePool {
     return state;
   }
 
-  // method
+  //method
   /**
    * Adds the given element to the current {@link ClosePool}.
    * 
@@ -98,7 +98,7 @@ final class ClosePool implements IClosePool {
     elements.addAtEnd(element);
   }
 
-  // method
+  //method
   /**
    * @param element
    * @throws ArgumentContainsElementException if the current {@link ClosePool}
@@ -110,7 +110,7 @@ final class ClosePool implements IClosePool {
     }
   }
 
-  // method
+  //method
   /**
    * Closes the elements of the current {@link IClosePool} for the case that the
    * state of the current {@link IClosePool} is {@link CloseState#OPEN}.
@@ -124,7 +124,7 @@ final class ClosePool implements IClosePool {
     state = CloseState.CLOSED;
   }
 
-  // method
+  //method
   /**
    * @param element
    * @return true if the current {@link ClosePool} contains the given element.
@@ -133,7 +133,7 @@ final class ClosePool implements IClosePool {
     return elements.contains(element);
   }
 
-  // method
+  //method
   /**
    * Lets the given element note a close.
    * 
@@ -142,7 +142,7 @@ final class ClosePool implements IClosePool {
   private void letNoteClose(final GroupCloseable element) {
     try {
       element.noteClose();
-    } catch (final Throwable exception) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable exception) { //NOSONAR: All Throwables must be caught here.
       GlobalLogger.logError(exception);
     }
   }

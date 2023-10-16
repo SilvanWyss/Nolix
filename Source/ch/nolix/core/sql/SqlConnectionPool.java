@@ -15,42 +15,42 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 //class
 public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarget {
 
-  // constant
+  //constant
   public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 
-  // constant
+  //constant
   private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 
-  // constant
+  //constant
   private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
 
-  // static method
+  //static method
   public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
     return new SqlConnectionPoolBuilder(ipOrDomain, DEFAULT_PORT);
   }
 
-  // attribute
+  //attribute
   private final String ipOrDomain;
 
-  // attribute
+  //attribute
   private final int port;
 
-  // attribute
+  //attribute
   private final String databaseName;
 
-  // attribute
+  //attribute
   private final SqlDatabaseEngine sqlDatabaseEngine;
 
-  // attribute
+  //attribute
   private final Credential credential;
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<SqlConnectionWrapper> sqlConnections = new LinkedList<>();
 
-  // constructor
+  //constructor
   SqlConnectionPool(
       final String ipOrDomain,
       final int port,
@@ -71,7 +71,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
     credential = Credential.withLoginName(loginName).andPassword(loginPassword);
   }
 
-  // method
+  //method
   public SqlConnection borrowSqlConnection() {
 
     final var sqlConnection = getOrCreateAvailableSqlConnectionWrapper();
@@ -82,60 +82,60 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
     return innerSqlConnection;
   }
 
-  // method
+  //method
   public boolean containsAvailableSqlConnection() {
     return sqlConnections.containsAny(SqlConnectionWrapper::isAvailable);
   }
 
-  // method
+  //method
   @Override
   public String getDatabaseName() {
     return databaseName;
   }
 
-  // method
+  //method
   @Override
   public String getIpOrDomain() {
     return ipOrDomain;
   }
 
-  // method
+  //method
   @Override
   public String getLoginName() {
     return credential.getLoginName();
   }
 
-  // method
+  //method
   @Override
   public String getLoginPassword() {
     return credential.getPassword();
   }
 
-  // method
+  //method
   @Override
   public int getPort() {
     return port;
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public SecurityLevel getSecurityLevelForConnections() {
     return SECURITY_LEVEL_FOR_CONNECTIONS;
   }
 
-  // method
+  //method
   @Override
   public SqlDatabaseEngine getSqlDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
     for (final var sqlc : sqlConnections) {
@@ -143,18 +143,18 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
     }
   }
 
-  // method
+  //method
   public void takeBackSqlConnection(final SqlConnection sqlConnection) {
     sqlConnections.getStoredFirst(sqlc -> sqlc.contains(sqlConnection)).setAvailable();
   }
 
-  // method
+  //method
   @Override
   public String toUrl() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "toUrl");
   }
 
-  // method
+  //method
   private SqlConnectionWrapper createQslConnectionWrapper() {
 
     final var sqlConnectionWrapper = SqlConnectionWrapper
@@ -165,7 +165,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
     return sqlConnectionWrapper;
   }
 
-  // method
+  //method
   private SqlConnectionWrapper getOrCreateAvailableSqlConnectionWrapper() {
 
     final var sqlConnectionWrapper = sqlConnections.getStoredFirstOrNull(SqlConnectionWrapper::isAvailable);

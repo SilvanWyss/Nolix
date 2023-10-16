@@ -12,10 +12,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsNullException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is null";
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @return a new {@link ArgumentIsNullException} for the given argumentName.
@@ -26,7 +26,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     return new ArgumentIsNullException(argumentName);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentType
    * @return a new {@link ArgumentIsNullException} for the given argumentType.
@@ -36,7 +36,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     return new ArgumentIsNullException(argumentType);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentType
    * @return the name of the given argumentType.
@@ -44,7 +44,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
    */
   private static String getNameOfArgumentType(final Class<?> argumentType) {
 
-    // Asserts that the given argumentType is not null.
+    //Asserts that the given argumentType is not null.
     if (argumentType == null) {
       throw new IllegalArgumentException("The given argument type is null.");
     }
@@ -52,7 +52,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     return argumentType.getSimpleName();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsNullException} for the given argumentType.
    * 
@@ -61,11 +61,11 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
    */
   private ArgumentIsNullException(final Class<?> argumentType) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsNullException} for the given argumentName.
    * 
@@ -75,7 +75,7 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
    */
   private ArgumentIsNullException(final String argumentName) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, null, ERROR_PREDICATE);
   }
 }

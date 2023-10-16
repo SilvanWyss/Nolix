@@ -11,19 +11,19 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 //class
 abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<SSB>> extends BaseStyleBuilder<SSB> {
 
-  // optional attribute
+  //optional attribute
   private String selectorId;
 
-  // optional attribute
+  //optional attribute
   private String selectorType;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<String> selectorRoles = new LinkedList<>();
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<String> selectorTokens = new LinkedList<>();
 
-  // method
+  //method
   public final SSB addSelectorRole(final Enum<?> selectorRole, final Enum<?>... selectorRoles) {
 
     final var allSelectorRoles = ReadContainer.forElement(selectorRole, selectorRoles);
@@ -31,7 +31,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
     return addSelectorRoles(allSelectorRoles);
   }
 
-  // method
+  //method
   public final SSB addSelectorRoles(final IContainer<? extends Enum<?>> selectorRoles) {
 
     final var selectorRolesAsStrings = selectorRoles.toString();
@@ -41,7 +41,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
     return asConcrete();
   }
 
-  // method
+  //method
   public final SSB addSelectorToken(final String selectorToken, final String... selectorTokens) {
 
     final var allSelectorTokensAsNodes = ReadContainer.forElement(selectorToken, selectorTokens);
@@ -49,7 +49,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
     return addSelectorTokens(allSelectorTokensAsNodes);
   }
 
-  // method
+  //method
   public final SSB addSelectorTokens(final IContainer<String> selectorTokens) {
 
     this.selectorTokens.addAtEnd(selectorTokens);
@@ -57,7 +57,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
     return asConcrete();
   }
 
-  // method
+  //method
   public SSB setSelectorId(final String selectorId) {
 
     this.selectorId = selectorId;
@@ -65,7 +65,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
     return asConcrete();
   }
 
-  // method
+  //method
   public SSB setSelectorType(final Class<?> selectorType) {
 
     this.selectorType = selectorType.getSimpleName();
@@ -73,22 +73,22 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
     return asConcrete();
   }
 
-  // method
+  //method
   protected final ISingleContainer<String> getSelectorIdContainer() {
     return SingleContainer.withElementOrEmpty(selectorId);
   }
 
-  // method
+  //method
   protected final IContainer<String> getSelectorRoles() {
     return selectorRoles;
   }
 
-  // method
+  //method
   protected final IContainer<String> getSelectorTokens() {
     return selectorTokens;
   }
 
-  // method
+  //method
   protected final ISingleContainer<String> getSelectorTypeContainer() {
     return SingleContainer.withElementOrEmpty(selectorType);
   }

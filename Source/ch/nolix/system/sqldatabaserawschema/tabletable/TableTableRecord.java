@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 //class
 public record TableTableRecord(String idValue, String nameValue) {
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
-  public TableTableRecord( // NOSONAR: This constructor does more than the default one.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
+  public TableTableRecord( //NOSONAR: This constructor does more than the default one.
       final String idValue,
       final String nameValue) {
 
@@ -26,12 +26,12 @@ public record TableTableRecord(String idValue, String nameValue) {
     this.nameValue = nameValue;
   }
 
-  // method
+  //method
   public String getIdValue() {
     return idValue;
   }
 
-  // method
+  //method
   public String getNameValue() {
     return nameValue;
   }

@@ -9,7 +9,7 @@ import ch.nolix.coretest.programatomtest.nametest.NameTestPool;
 //class
 public final class ProgramAtomTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ProgramAtomTestPool() {
     super(new FunctionTestPool(), new NameTestPool());
   }

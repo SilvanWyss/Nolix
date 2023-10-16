@@ -12,31 +12,31 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //class
 abstract class SchemaObject implements IDatabaseObject {
 
-  // attribute
+  //attribute
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
-  // method
+  //method
   @Override
   public final DatabaseObjectState getState() {
     return state;
   }
 
-  // method
+  //method
   @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
-  // method declaration
+  //method declaration
   protected abstract void noteClose();
 
-  // method
+  //method
   final void internalClose() {
 
     state = DatabaseObjectState.CLOSED;
@@ -44,7 +44,7 @@ abstract class SchemaObject implements IDatabaseObject {
     noteClose();
   }
 
-  // method
+  //method
   final void internalSetDeleted() {
     state = switch (getState()) {
       case NEW ->
@@ -60,7 +60,7 @@ abstract class SchemaObject implements IDatabaseObject {
     };
   }
 
-  // method
+  //method
   final void internalSetEdited() {
     switch (getState()) {
       case NEW:
@@ -77,7 +77,7 @@ abstract class SchemaObject implements IDatabaseObject {
     }
   }
 
-  // method
+  //method
   final void internalSetLoaded() {
     state = switch (getState()) {
       case NEW ->

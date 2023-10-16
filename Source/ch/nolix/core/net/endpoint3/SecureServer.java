@@ -9,12 +9,12 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 //class
 public final class SecureServer extends BaseServer {
 
-  // constant
+  //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
       //
       new NolixConfigurationSSLCertificateReader();
 
-  // static method
+  //static method
   public SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
       final int port,
       final String htmlPage) {
@@ -25,10 +25,10 @@ public final class SecureServer extends BaseServer {
     return new SecureServer(port, htmlPage, paramSSLCertificate);
   }
 
-  // attribute
+  //attribute
   private final ch.nolix.core.net.endpoint2.SecureServer internalWebSocketServer;
 
-  // constructor
+  //constructor
   public SecureServer(final int port, final String HtmlPage, final ISSLCertificate paramSSLCertificate) {
 
     internalWebSocketServer = new ch.nolix.core.net.endpoint2.SecureServer(port, HtmlPage, paramSSLCertificate);
@@ -36,13 +36,13 @@ public final class SecureServer extends BaseServer {
     createCloseDependencyTo(internalWebSocketServer);
   }
 
-  // method
+  //method
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
     internalWebSocketServer.addDefaultSlot(new ServerEndPointTaker(defaultSlot.getName(), this));
   }
 
-  // method
+  //method
   @Override
   protected void noteAddedSlot(final ISlot slot) {
     internalWebSocketServer.addSlot(new ServerEndPointTaker(slot.getName(), this));

@@ -18,21 +18,21 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IValueContent;
 //class
 public final class ConcreteValueContent extends ValueContent implements IConcreteValueContent {
 
-  // constant
+  //constant
   private static final ConcreteValueContentValidator CONCRETE_VALUE_CONTENT_VALIDATOR = //
       new ConcreteValueContentValidator();
 
-  // attribute
+  //attribute
   private final BackReference<AbstractableField> parentField = BackReference
       .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteValueContent");
 
-  // attribute
+  //attribute
   private final OptionalValue<String> dataType = new OptionalValue<>();
 
-  // attribute
+  //attribute
   private final MultiValue<String> values = new MultiValue<>();
 
-  // method
+  //method
   @Override
   public IConcreteValueContent addValue(final String value) {
 
@@ -43,7 +43,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     return this;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IConstraint<String>> getConstraints() {
 
@@ -54,7 +54,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public DataType getDataType() {
 
@@ -67,31 +67,31 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     return valueContent.getDataType();
   }
 
-  // method
+  //method
   @Override
   public IAbstractableField getStoredParentField() {
     return parentField.getBackReferencedEntity();
   }
 
-  // method
+  //method
   @Override
   public IContainer<String> getStoredValues() {
     return values.getStoredValues();
   }
 
-  // method
+  //method
   @Override
   public boolean isAbstract() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return values.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public void removeValue(final String value) {
 
@@ -104,7 +104,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     }
   }
 
-  // method
+  //method
   @Override
   public void removeValues() {
 
@@ -113,7 +113,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     values.clear();
   }
 
-  // method
+  //method
   @Override
   public IConcreteValueContent setDataType(final DataType dataType) {
 
@@ -124,7 +124,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     return this;
   }
 
-  // method
+  //method
   private IContainer<IConstraint<String>> getConstraintsWhenInheritsFromBaseField() {
 
     final var baseField = getStoredParentField().getStoredBaseField();
@@ -134,14 +134,14 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
     return abstractValueContent.getConstraints();
   }
 
-  // method
+  //method
   private void setDataTypeIfWillChange(final DataType dataType) {
     if (getDataType() != dataType) {
       setDataTypeWhenWillChange(dataType);
     }
   }
 
-  // method
+  //method
   private void setDataTypeWhenWillChange(final DataType dataType) {
     this.dataType.setValue(dataType.toString());
   }

@@ -16,10 +16,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  */
 public final class ForCountMediator {
 
-  // attribute
+  //attribute
   private final int maxRunCount;
 
-  // constructor
+  //constructor
   /**
    * Creates a new for count mediator with the given max run count.
    * 
@@ -28,14 +28,14 @@ public final class ForCountMediator {
    */
   ForCountMediator(final int maxRunCount) {
 
-    // Asserts that the given max run count is not negative.
+    //Asserts that the given max run count is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
-    // Sets the max run count of this for count mediator.
+    //Sets the max run count of this for count mediator.
     this.maxRunCount = maxRunCount;
   }
 
-  // method
+  //method
   /**
    * Lets this for count mediator run the given job.
    * 
@@ -47,7 +47,7 @@ public final class ForCountMediator {
     }
   }
 
-  // method
+  //method
   /**
    * Lets this for count mediator run the given job.
    * 
@@ -59,7 +59,7 @@ public final class ForCountMediator {
     }
   }
 
-  // method
+  //method
   /**
    * Lets this for count mediator run the given job in background.
    * 

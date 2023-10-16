@@ -4,19 +4,19 @@ package ch.nolix.core.net.endpoint2;
 //class
 final class MessageRolePrefixCatalogue {
 
-  // constant
+  //constant
   public static final char TARGET_APPLICATION_PREFIX = 'T';
 
-  // constant
+  //constant
   public static final char RESPONSE_EXPECTING_MESSAGE_PREFIX = 'M';
 
-  // constant
+  //constant
   public static final char SUCCESS_RESPONSE_PREFIX = 'R';
 
-  // constant
+  //constant
   public static final char ERROR_RESPONSE_PREFIX = 'E';
 
-  // constructor
+  //constructor
   private MessageRolePrefixCatalogue() {
   }
 }

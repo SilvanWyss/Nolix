@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class GuiTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public GuiTestPool() {
     super();
   }

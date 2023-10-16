@@ -11,36 +11,36 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
 public interface ITabContainer
     extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<ITabContainer, ITabContainerStyle> {
 
-  // method declaration
+  //method declaration
   ITabContainer addTab(ITabContainerTab tab, ITabContainerTab... tabs);
 
-  // method declaration
+  //method declaration
   ITabContainer addTabs(IContainer<ITabContainerTab> tabs);
 
-  // method declaration
+  //method declaration
   boolean containsSelectedTab();
 
-  // method declaration
+  //method declaration
   ILabelStyle getStoredHeaderStyle();
 
-  // method declaration
+  //method declaration
   ITabContainerTab getStoredSelectedTab();
 
-  // method declaration
+  //method declaration
   ITabContainerTab getStoredTabByHeader(String header);
 
-  // method declaration
+  //method declaration
   IContainer<ITabContainerTab> getStoredTabs();
 
-  // method declaration
+  //method declaration
   int getTabCount();
 
-  // method declaration
+  //method declaration
   ITabContainer onHeaderStyle(Consumer<ILabelStyle> headerStyleEditor);
 
-  // method declaration
+  //method declaration
   void selectFirstTab();
 
-  // method declaration
+  //method declaration
   void selectTabByHeader(String header);
 }

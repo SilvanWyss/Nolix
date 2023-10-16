@@ -8,19 +8,19 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 //class
 public final class PropertyBinderFactory {
 
-  // constant
+  //constant
   private static final ValueBinder VALUE_BINDER = new ValueBinder();
 
-  // constant
+  //constant
   private static final OptionalValueBinder OPTIONAL_VALUE_BINDER = new OptionalValueBinder();
 
-  // constant
+  //constant
   private static final ReferenceBinder REFERENCE_BINDER = new ReferenceBinder();
 
-  // constant
+  //constant
   private static final OptionalReferenceBinder OPTIONAL_REFERENCE_BINDER = new OptionalReferenceBinder();
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   public <P extends IProperty> PropertyBinder<P, ?> getPropertyBinderFor(final P property) {
     return switch (property.getType()) {

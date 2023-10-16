@@ -9,6 +9,6 @@ import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 public interface IConcreteValueContent
     extends IFluentMutableMultiValueHolder<IConcreteValueContent, String>, IValueContent {
 
-  // method declaration
+  //method declaration
   IConcreteValueContent setDataType(DataType dataType);
 }

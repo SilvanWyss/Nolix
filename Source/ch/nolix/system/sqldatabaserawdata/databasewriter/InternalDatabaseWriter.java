@@ -17,25 +17,25 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class InternalDatabaseWriter {
 
-  // attribute
+  //attribute
   private int saveCount;
 
-  // attribute
+  //attribute
   private final SqlCollector sqlCollector = new SqlCollector();
 
-  // attribute
+  //attribute
   private final SqlConnection sqlConnection;
 
-  // attribute
+  //attribute
   private final IEntityStatementCreator entityStatementCreator;
 
-  // attribute
+  //attribute
   private final IMultiValueStatementCreator multiValueStatementCreator;
 
-  // attribute
+  //attribute
   private final IMultiReferenceStatementCreator multiReferenceStatementCreator;
 
-  // constructor
+  //constructor
   public InternalDatabaseWriter(
       final String databaseName,
       final SqlConnection sqlConnection,
@@ -51,7 +51,7 @@ public final class InternalDatabaseWriter {
     sqlConnection.execute("USE " + databaseName);
   }
 
-  // method
+  //method
   public void deleteEntriesFromMultiReference(
       final String entityId,
       final String multiReferenceColumnId) {
@@ -59,7 +59,7 @@ public final class InternalDatabaseWriter {
         multiReferenceStatementCreator.createStatementToDeleteMultiReferenceEntries(entityId, multiReferenceColumnId));
   }
 
-  // method
+  //method
   public void deleteEntriesFromMultiValue(
       final String entityId,
       final String multiValueColumnId) {
@@ -67,7 +67,7 @@ public final class InternalDatabaseWriter {
         multiValueStatementCreator.createStatementToDeleteMultiValueEntries(entityId, multiValueColumnId));
   }
 
-  // method
+  //method
   public void deleteEntryFromMultiReference(
       final String entityId,
       final String multiReferenceColumnId,
@@ -79,7 +79,7 @@ public final class InternalDatabaseWriter {
             referencedEntityId));
   }
 
-  // method
+  //method
   public void deleteEntryFromMultiValue(
       final String entityId,
       final String multiValueColumnId,
@@ -88,35 +88,35 @@ public final class InternalDatabaseWriter {
         multiValueStatementCreator.createStatementToDeleteMultiValueEntry(entityId, multiValueColumnId, entry));
   }
 
-  // method
+  //method
   public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
     sqlCollector.addSqlStatement(
         entityStatementCreator.createStatementToDeleteEntity(tableName, entity));
   }
 
-  // method
+  //method
   public void expectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     sqlCollector.addSqlStatement(
         entityStatementCreator.createStatementToExpectGivenSchemaTimestamp(schemaTimestamp));
   }
 
-  // method
+  //method
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     sqlCollector.addSqlStatement(
         entityStatementCreator.createStatementToExpectTableContainsEntity(tableName, entityId));
   }
 
-  // method
+  //method
   public int getSaveCount() {
     return saveCount;
   }
 
-  // method
+  //method
   public boolean hasChanges() {
     return sqlCollector.containsAny();
   }
 
-  // method
+  //method
   public void insertEntryIntoMultiReference(
       final String entityId,
       final String multiReferenceColumnId,
@@ -128,7 +128,7 @@ public final class InternalDatabaseWriter {
             referencedEntityId));
   }
 
-  // method
+  //method
   public void insertEntryIntoMultiValue(
       final String entityId,
       final String multiValueColumnId,
@@ -137,18 +137,18 @@ public final class InternalDatabaseWriter {
         multiValueStatementCreator.createQueryToInsertEntryIntoMultiValue(entityId, multiValueColumnId, entry));
   }
 
-  // method
+  //method
   public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
     sqlCollector.addSqlStatement(
         entityStatementCreator.createStatementToInsertNewEntity(tableName, newEntity));
   }
 
-  // method
+  //method
   public void reset() {
     sqlCollector.clear();
   }
 
-  // method
+  //method
   public void saveChangesAndReset() {
     try {
       sqlCollector.executeUsingConnection(sqlConnection);
@@ -158,12 +158,12 @@ public final class InternalDatabaseWriter {
     }
   }
 
-  // method
+  //method
   public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     sqlCollector.addSqlStatement(entityStatementCreator.createStatementToSetEntityAsUpdated(tableName, entity));
   }
 
-  // method
+  //method
   public void updateEntityOnTable(final String tableName, final IEntityUpdateDto entityUpdate) {
     sqlCollector.addSqlStatement(
         entityStatementCreator.createStatementToUpdateEntityOnTable(tableName, entityUpdate));

@@ -23,7 +23,7 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
  */
 public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 
-  // static method
+  //static method
   /**
    * @param name
    * @param adderMethod
@@ -37,7 +37,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param adderMethod
@@ -51,13 +51,13 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
   }
 
-  // attribute
+  //attribute
   private final Consumer<V> adderMethod;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<V> values = new LinkedList<>();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link MultiValue} with the given name, valueCreator,
    * adderMethod and specificationCreator.
@@ -78,17 +78,17 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
 
-    // Calls constructor of the base class
+    //Calls constructor of the base class
     super(name, valueCreator, specificationCreator);
 
-    // Asserts that the given adderMethod is not null.
+    //Asserts that the given adderMethod is not null.
     GlobalValidator.assertThat(adderMethod).thatIsNamed("adder method").isNotNull();
 
-    // Sets the adderMethod of the current MultiProperty.
+    //Sets the adderMethod of the current MultiProperty.
     this.adderMethod = adderMethod;
   }
 
-  // method
+  //method
   /**
    * Adds the given value to the current {@link MultiValue}.
    * 
@@ -99,7 +99,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     values.addAtEnd(value);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -108,7 +108,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     values.clear();
   }
 
-  // method
+  //method
   /**
    * @return the values of the current {@link MultiValue}.
    */
@@ -116,7 +116,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return values;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -125,7 +125,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return values.isEmpty();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -134,7 +134,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return true;
   }
 
-  // method
+  //method
   /**
    * Removes the given value of the current {@link MultiValue}.
    * 
@@ -146,7 +146,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     values.removeFirstOccurrenceOf(value);
   }
 
-  // method
+  //method
   /**
    * Removes and returns the last value of the current {@link MultiValue}.
    * 
@@ -157,7 +157,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return values.removeAndGetRefLast();
   }
 
-  // method
+  //method
   /**
    * Removes the last value of the current {@link MultiValue}.
    * 
@@ -171,7 +171,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     return this;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -180,21 +180,21 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
     adderMethod.accept(value);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 
-    // Iterates the values of the current MultiProperty.
+    //Iterates the values of the current MultiProperty.
     for (final var v : getStoredValues()) {
 
-      // Creates a specification from the current value.
+      //Creates a specification from the current value.
       final var specification = Node.withHeaderAndChildNodes(getName(),
           specificationCreator.apply(v).getStoredChildNodes());
 
-      // Adds the specification to the given list.
+      //Adds the specification to the given list.
       list.addAtEnd(specification);
     }
   }

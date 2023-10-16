@@ -10,124 +10,124 @@ package ch.nolix.core.commontype.commontypeconstant;
  */
 public final class CharacterCatalogue {
 
-  // constant
+  //constant
   public static final char APOSTROPH = '\'';
 
-  // constant
+  //constant
   public static final char AVERAGE = '\u00D8';
 
-  // constant
+  //constant
   public static final char BACK_SLASH = '\\';
 
-  // constant
+  //constant
   public static final char BULLET_POINT = '\u2022';
 
-  // constant
+  //constant
   public static final char CLOSED_BRACKET = ')';
 
-  // constant
+  //constant
   public static final char CLOSED_CROCODILE_BRACKET = '>';
 
-  // constant
+  //constant
   public static final char CLOSED_SQUARE_BRACKET = ']';
 
-  // constant
+  //constant
   public static final char COMMA = ',';
 
-  // constant
+  //constant
   public static final char DOLLAR = '$';
 
-  // constant
+  //constant
   public static final char DOT = '.';
 
-  // constant
+  //constant
   public static final char ELLIPSIS = '\u2026';
 
-  // constant
+  //constant
   public static final char FAT_CHECK_MARK = '\u2714';
 
-  // constant
+  //constant
   public static final char FAT_CROSS = '\u2716';
 
-  // constant
+  //constant
   public static final char HOME = '\u2302';
 
-  // constant
+  //constant
   public static final char INFINITY = '\u221E';
 
-  // constant
+  //constant
   public static final char LONG_LEFT_ARROW = '\u27F5';
 
-  // constant
+  //constant
   public static final char LONG_LEFT_RIGHT_ARROW = '\u27F7';
 
-  // constant
+  //constant
   public static final char LOWER_CASE_AE = '\u00E4';
 
-  // constant
+  //constant
   public static final char LOWER_CASE_OE = '\u00F6';
 
-  // constant
+  //constant
   public static final char LOWER_CASE_UE = '\u00FC';
 
-  // constant
+  //constant
   public static final char MINUS = '-';
 
-  // constant
+  //constant
   public static final char NEW_LINE = '\n';
 
-  // constant
+  //constant
   public static final char OPEN_BRACKET = '(';
 
-  // constant
+  //constant
   public static final char OPEN_CROCODILE_BRACKET = '<';
 
-  // constant
+  //constant
   public static final char OPEN_SQUARE_BRACKET = '[';
 
-  // constant
+  //constant
   public static final char QUESTION_MARK = '?';
 
-  // constant
+  //constant
   public static final char QUOTE = '\'';
 
-  // constant
+  //constant
   public static final char RIGHT_ARROW = '\u2192';
 
-  // constant
+  //constant
   public static final char SEMICOLON = ';';
 
-  // constant
+  //constant
   public static final char SLASH = '/';
 
-  // constant
+  //constant
   public static final char SPACE = ' ';
 
-  // constant
+  //constant
   public static final char TABULATOR = '\t';
 
-  // constant
+  //constant
   public static final char THIN_CROSS = '\u2715';
 
-  // constant
+  //constant
   public static final char UNDERSCORE = '_';
 
-  // constant
+  //constant
   public static final char UPPERCASE_AE = '\u00C4';
 
-  // constant
+  //constant
   public static final char UPPERCASE_DELTA = '\u0394';
 
-  // constant
+  //constant
   public static final char UPPERCASE_OE = '\u00D6';
 
-  // constant
+  //constant
   public static final char UPPERCASE_UE = '\u00DC';
 
-  // constant
+  //constant
   public static final char ZERO = '0';
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link CharacterCatalogue} can be created.
    */

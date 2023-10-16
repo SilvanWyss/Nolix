@@ -11,13 +11,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 
-  // attribute
+  //attribute
   private final CopyableIterator<IContainer<E>> rootIterator;
 
-  // optional attribute
+  //optional attribute
   private CopyableIterator<E> currentIterator;
 
-  // constructor
+  //constructor
   public MultiReadContainerIterator(final Container<IContainer<E>> containers) {
 
     rootIterator = containers.iterator();
@@ -27,7 +27,7 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // constructor
+  //constructor
   private MultiReadContainerIterator(
       final CopyableIterator<IContainer<E>> rootIterator,
       final CopyableIterator<E> currentIterator) {
@@ -35,19 +35,19 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
     this.currentIterator = currentIterator;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return new MultiReadContainerIterator<>(rootIterator.getCopy(), currentIterator.getCopy());
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (currentIterator != null && currentIterator.hasNext());
   }
 
-  // method
+  //method
   @Override
   public E next() {
 

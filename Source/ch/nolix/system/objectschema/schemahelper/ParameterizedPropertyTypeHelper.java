@@ -11,19 +11,19 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedProperty
 public final class ParameterizedPropertyTypeHelper extends DatabaseObjectHelper
     implements IParameterizedPropertyTypeHelper {
 
-  // method
+  //method
   @Override
   public boolean isABaseBackReferenceType(final IParameterizedPropertyType parameterizedPropertyType) {
     return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
   }
 
-  // method
+  //method
   @Override
   public boolean isABaseReferenceType(IParameterizedPropertyType parameterizedPropertyType) {
     return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_REFERENCE);
   }
 
-  // method
+  //method
   @Override
   public boolean isABaseValueType(IParameterizedPropertyType parameterizedPropertyType) {
     return (parameterizedPropertyType.getPropertyType().getBaseType() == BasePropertyType.BASE_VALUE);

@@ -16,10 +16,10 @@ public abstract class BaseParameterizedReferenceType<
     E extends IEntity>
     implements IBaseParameterizedReferenceType<E> {
 
-  // attribute
+  //attribute
   private final ITable<E> referencedTable;
 
-  // constructor
+  //constructor
   protected BaseParameterizedReferenceType(final ITable<E> referencedTable) {
 
     GlobalValidator.assertThat(referencedTable).thatIsNamed("referenced table").isNotNull();
@@ -27,31 +27,31 @@ public abstract class BaseParameterizedReferenceType<
     this.referencedTable = referencedTable;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
-  // method
+  //method
   @Override
   public final ITable<E> getStoredencedTable() {
     return referencedTable;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesTable(final ITable<?> table) {
     return (getStoredencedTable() == table);

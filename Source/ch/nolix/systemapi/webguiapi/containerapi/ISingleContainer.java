@@ -9,12 +9,12 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface ISingleContainer extends IContainer<ISingleContainer, ISingleContainerStyle> {
 
-  // method declaration
+  //method declaration
   IControl<?, ?> getStoredControl();
 
-  // method declaration
+  //method declaration
   ISingleContainer setComponent(IControlGetter component);
 
-  // method declaration
+  //method declaration
   ISingleContainer setControl(IControl<?, ?> control);
 }

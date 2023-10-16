@@ -9,18 +9,18 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class WebSocketHandShakeRequestTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase() {
 
-    // setup
+    //setup
     final var webSocketHandShakeRequest = new WebSocketHandShakeRequest(
         LinkedList.withElement("Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ=="));
 
-    // execution
+    //execution
     final var result = webSocketHandShakeRequest.getSecWebSocketKey();
 
-    // verification
+    //verification
     expect(result).isEqualTo("dGhlIHNhbXBsZSBub25jZQ==");
   }
 }

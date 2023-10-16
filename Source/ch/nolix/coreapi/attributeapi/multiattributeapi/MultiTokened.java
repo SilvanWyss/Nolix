@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface MultiTokened {
 
-  // method declaration
+  //method declaration
   /**
    * @return the tokens of the current {@link MultiTokened}.
    */

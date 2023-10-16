@@ -18,25 +18,25 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 //class
 final class InternalDatabaseReader {
 
-  // constant
+  //constant
   private static final LoadedEntityDtoMapper LOADED_ENTITY_DTO_MAPPER = new LoadedEntityDtoMapper();
 
-  // constant
+  //constant
   private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
-  // attribute
+  //attribute
   private final SqlConnection sqlConnection;
 
-  // attribute
+  //attribute
   private final IEntityQueryCreator entityQueryCreator;
 
-  // attribute
+  //attribute
   private final IMultiValueQueryCreator multiValueQueryCreator;
 
-  // attribute
+  //attribute
   private final IMultiReferenceQueryCreator multiReferenceQueryCreator;
 
-  // constructor
+  //constructor
   public InternalDatabaseReader(
       final String databaseName,
       final SqlConnection sqlConnection,
@@ -52,13 +52,13 @@ final class InternalDatabaseReader {
     sqlConnection.execute("USE " + databaseName);
   }
 
-  // method
+  //method
   public Time getSchemaTimestamp() {
     return Time.fromString(
         sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0));
   }
 
-  // method
+  //method
   public IContainer<String> loadMultiReferenceEntries(
       final String entityId,
       final IColumnInfo multiReferenceColumnInfo) {
@@ -70,7 +70,7 @@ final class InternalDatabaseReader {
         .to(r -> r.get(0));
   }
 
-  // method
+  //method
   public IContainer<Object> loadMultiValueEntries(
       final String entityId,
       final IColumnInfo multiValueColumnInfo) {
@@ -82,21 +82,21 @@ final class InternalDatabaseReader {
         .to(r -> VALUE_MAPPER.createValueFromString(r.get(0), multiValueColumnInfo));
   }
 
-  // method
+  //method
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
     return sqlConnection
         .getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
         .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
   }
 
-  // method
+  //method
   public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
         sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
         tableInfo);
   }
 
-  // method
+  //method
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
       final String tableName,
       final IColumnInfo columnInfo,
@@ -116,7 +116,7 @@ final class InternalDatabaseReader {
     };
   }
 
-  // method
+  //method
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
 
     final var entityCount = Integer.valueOf(
@@ -127,7 +127,7 @@ final class InternalDatabaseReader {
     return entityCount > 0;
   }
 
-  // method
+  //method
   private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntity(
       final String columnId,
       final String referencedEntityId) {
@@ -139,7 +139,7 @@ final class InternalDatabaseReader {
         .containsAny();
   }
 
-  // method
+  //method
   private boolean multiValueEntryExistsForGivenColumnAndValue(
       final String columnId,
       final String value) {
@@ -150,7 +150,7 @@ final class InternalDatabaseReader {
         .containsAny();
   }
 
-  // method
+  //method
   private boolean tableContainsEntityWithGivenValueAtGivenSingleColumn(
       final String tableName,
       final String singleColumnName,

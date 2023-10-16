@@ -11,10 +11,10 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 //class
 public final class ContentFieldDtoMapper {
 
-  // constant
+  //constant
   private static final ValueMapper VALUE_MAPPER = new ValueMapper();
 
-  // method
+  //method
   public ILoadedContentFieldDto createContentFieldDtoFromContentFieldNode(
       final IMutableNode<?> contentFieldNode,
       final IColumnInfo columnInfo) {

@@ -14,13 +14,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface AlivenessRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link AlivenessRequestable} is alive.
    */
   boolean isAlive();
 
-  // method
+  //method
   /**
    * @return true if the current {@link AlivenessRequestable} is outdated.
    */

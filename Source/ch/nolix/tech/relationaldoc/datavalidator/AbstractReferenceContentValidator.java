@@ -10,11 +10,11 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 //class
 public final class AbstractReferenceContentValidator {
 
-  // constant
+  //constant
   private static final AbstractReferenceContentEvaluator ABSTRACT_REFERENCE_CONTENT_EVALUATOR = //
       new AbstractReferenceContentEvaluator();
 
-  // method
+  //method
   public void assertCanSetReferenceType(
       final AbstractReferenceContent abstractReferenceContent,
       final IAbstractableObject referenceType) {

@@ -14,46 +14,46 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
 //interface
 public interface IFractalBuilder {
 
-  // method declaration
+  //method declaration
   IFractal build();
 
-  // method declaration
+  //method declaration
   int getMaxIterationCount();
 
-  // method declaration
+  //method declaration
   IFractalBuilder setBigDecimalScale(int bigDecumalScale);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setColorFunction(IntFunction<IColor> colorFunction);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setHeightInPixel(final int heightInPixel);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setImaginaryComponentInterval(double min, double max);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setImaginaryComponentInterval(IClosedInterval imaginaryComponentInterval);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setMaxIterationCount(int maxIterationCount);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setMinMagnitudeForDivergence(BigDecimal minMagnitudeForDivergence);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setMinMagnitudeForDivergence(double minMagnitudeForDivergence);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setRealComponentInterval(double min, double max);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setRealComponentInterval(IClosedInterval realComponentInterval);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setSequenceCreator(
       Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator);
 
-  // method declaration
+  //method declaration
   IFractalBuilder setWidthInPixel(int widthInPixel);
 }

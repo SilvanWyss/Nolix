@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 //class
 final class ColumnDefinitionMapper {
 
-  // method
+  //method
   public IColumnInfo createColumnDefinitionFrom(final IColumnDto column) {
     return new ColumnInfo(
         column.getId(),

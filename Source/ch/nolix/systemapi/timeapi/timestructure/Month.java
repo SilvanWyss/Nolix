@@ -19,7 +19,7 @@ public enum Month {
   NOVEMBER,
   DECEMBER;
 
-  // static method
+  //static method
   public static Month fromJavaMonth(final java.time.Month month) {
     return switch (month) {
       case JANUARY ->
@@ -51,7 +51,7 @@ public enum Month {
     };
   }
 
-  // static method
+  //static method
   public Month fromSpecification(final INode<?> specification) {
     return Month.valueOf(specification.getSingleChildNodeHeader());
   }

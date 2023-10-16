@@ -9,7 +9,7 @@ public enum TextMode {
   NORMAL,
   SECRET;
 
-  // static method
+  //static method
   public static TextMode fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

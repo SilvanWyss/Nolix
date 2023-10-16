@@ -4,16 +4,16 @@ package ch.nolix.system.webgui.atomiccontrol;
 //class
 final class ToggleButtonConstantCatalogue {
 
-  // constant
+  //constant
   public static final String ON_OFF_STATE_HEADER = "OnOffState";
 
-  // constant
+  //constant
   public static final String OFF = "off";
 
-  // constant
+  //constant
   public static final String ON = "on";
 
-  // constructor
+  //constructor
   private ToggleButtonConstantCatalogue() {
   }
 }

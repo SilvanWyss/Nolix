@@ -15,16 +15,16 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  */
 public final class QuadraticFunction {
 
-  // attribute
+  //attribute
   private final double a;
 
-  // attribute
+  //attribute
   private final double b;
 
-  // attribute
+  //attribute
   private final double c;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link QuadraticFunction} with the givenac. The b and c of the
    * {@link QuadraticFunction} will be 0.0.
@@ -34,11 +34,11 @@ public final class QuadraticFunction {
    */
   public QuadraticFunction(final double a) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(a, 0.0, 0.0);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link QuadraticFunction} with the given coefficients.
    * 
@@ -49,7 +49,7 @@ public final class QuadraticFunction {
    */
   public QuadraticFunction(final double a, final double b, final double c) {
 
-    // Asserts that the given a is not 0.0.
+    //Asserts that the given a is not 0.0.
     GlobalValidator.assertThat(a).thatIsNamed("a").isNotEqualTo(0.0);
 
     this.a = a;
@@ -57,7 +57,7 @@ public final class QuadraticFunction {
     this.c = c;
   }
 
-  // method
+  //method
   /**
    * @return the a of the current {@link QuadraticFunction}.
    */
@@ -65,7 +65,7 @@ public final class QuadraticFunction {
     return a;
   }
 
-  // method
+  //method
   /**
    * @return the b of the current {@link QuadraticFunction}.
    */
@@ -73,7 +73,7 @@ public final class QuadraticFunction {
     return b;
   }
 
-  // method
+  //method
   /**
    * @return the c of the current {@link QuadraticFunction}.
    */
@@ -81,7 +81,7 @@ public final class QuadraticFunction {
     return c;
   }
 
-  // method
+  //method
   /**
    * @return the discriminant of the current {@link QuadraticFunction}.
    */
@@ -89,7 +89,7 @@ public final class QuadraticFunction {
     return (Math.pow(b, 2) - (4 * a * c));
   }
 
-  // method
+  //method
   /**
    * @return the maximum of the current {@link QuadraticFunction}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -98,7 +98,7 @@ public final class QuadraticFunction {
    */
   public double getMax() {
 
-    // Asserts that the current quadratic function has a maximum.
+    //Asserts that the current quadratic function has a maximum.
     if (!hasMax()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "maximum");
     }
@@ -106,7 +106,7 @@ public final class QuadraticFunction {
     return (-b / (2 * a));
   }
 
-  // method
+  //method
   /**
    * @return the minimum of the current {@link QuadraticFunction}.
    * @throws ArgumentDoesNotHaveAttributeException if the
@@ -115,7 +115,7 @@ public final class QuadraticFunction {
    */
   public double getMin() {
 
-    // Asserts that the current quadratic function has a minimum.
+    //Asserts that the current quadratic function has a minimum.
     if (hasMin()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "minimum");
     }
@@ -123,7 +123,7 @@ public final class QuadraticFunction {
     return (-b / (2 * a));
   }
 
-  // method
+  //method
   /**
    * @return the solutions of the current {@link QuadraticFunction}.
    */
@@ -131,19 +131,19 @@ public final class QuadraticFunction {
 
     final double discriminant = getDiscriminant();
 
-    // Handles the case that the current quadratic function does not have a
-    // solution.
+    //Handles the case that the current quadratic function does not have a
+    //solution.
     if (discriminant < 0) {
       return new double[0];
     }
 
-    // Handles the case that the current quadratic function has 1 solution.
+    //Handles the case that the current quadratic function has 1 solution.
     if (discriminant == 0) {
       final var solutions = new double[1];
       solutions[0] = -b / (2 * a);
     }
 
-    // Handles the case that the current quadratic function has 2 solutions.
+    //Handles the case that the current quadratic function has 2 solutions.
     final var solutions = new double[2];
     double discriminantRoot = Math.sqrt(discriminant);
     solutions[0] = (-b - discriminantRoot) / (2 * a);
@@ -152,30 +152,30 @@ public final class QuadraticFunction {
     return solutions;
   }
 
-  // method
+  //method
   /**
    * @return the number of solutions of the current {@link QuadraticFunction}.
    */
   public int getSolutionCount() {
 
-    // Calculates the discriminant of the current quadratic function.
+    //Calculates the discriminant of the current quadratic function.
     final double discriminant = getDiscriminant();
 
-    // Handles the case that the discriminant is negative.
+    //Handles the case that the discriminant is negative.
     if (discriminant < 0) {
       return 0;
     }
 
-    // Handles the case that the discriminant is 0.0.
+    //Handles the case that the discriminant is 0.0.
     if (discriminant == 0) {
       return 1;
     }
 
-    // Handles the case that the discriminant is positive.
+    //Handles the case that the discriminant is positive.
     return 2;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link QuadraticFunction} has a maximum.
    */
@@ -183,7 +183,7 @@ public final class QuadraticFunction {
     return (a < 0);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link QuadraticFunction} has a minimum.
    */
@@ -191,7 +191,7 @@ public final class QuadraticFunction {
     return (a > 0);
   }
 
-  // method
+  //method
   /**
    * @return a new array with the coefficients of the current
    *         {@link QuadraticFunction}.
@@ -200,7 +200,7 @@ public final class QuadraticFunction {
     return new double[] { a, b, c };
   }
 
-  // method
+  //method
   /**
    * @return a new {@link Polynom} representation of the current
    *         {@link QuadraticFunction}.
@@ -209,7 +209,7 @@ public final class QuadraticFunction {
     return Polynom.withCoefficient(a, b, c);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

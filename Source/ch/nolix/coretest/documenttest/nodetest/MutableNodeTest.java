@@ -7,13 +7,13 @@ import ch.nolix.core.document.node.MutableNode;
 //class
 public final class MutableNodeTest extends BaseMutableNodeTest<MutableNode> {
 
-  // method
+  //method
   @Override
   protected MutableNode createBlankNode() {
     return new MutableNode();
   }
 
-  // method
+  //method
   @Override
   protected MutableNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 

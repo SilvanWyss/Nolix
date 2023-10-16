@@ -11,13 +11,13 @@ import ch.nolix.system.element.style.BaseSelectingStyle;
 //class
 abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Node> attachingAttributes = new LinkedList<>();
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<BaseSelectingStyle> subStyles = new LinkedList<>();
 
-  // method
+  //method
   public final SB addAttachingAttribute(final String attachingAttribute, final String... attachingAttributes) {
 
     final var allAttachingAttributesAsNodes = ReadContainer.forElement(attachingAttribute, attachingAttributes);
@@ -25,7 +25,7 @@ abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
     return addAttachingAttributes(allAttachingAttributesAsNodes);
   }
 
-  // method
+  //method
   public final SB addAttachingAttributes(final IContainer<String> attachingAttributes) {
 
     final var attachingAttributesAsNodes = attachingAttributes.to(Node::fromString);
@@ -35,7 +35,7 @@ abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
     return asConcrete();
   }
 
-  // method
+  //method
   public final SB addSubStyle(final BaseSelectingStyle subStyle, final BaseSelectingStyle... subStyles) {
 
     final var allSubStyles = ReadContainer.forElement(subStyle, subStyles);
@@ -43,7 +43,7 @@ abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
     return addSubStyles(allSubStyles);
   }
 
-  // method
+  //method
   public final SB addSubStyles(final IContainer<BaseSelectingStyle> subStyles) {
 
     this.subStyles.addAtEnd(subStyles);
@@ -51,15 +51,15 @@ abstract class BaseStyleBuilder<SB extends BaseStyleBuilder<SB>> {
     return asConcrete();
   }
 
-  // method declaration
+  //method declaration
   protected abstract SB asConcrete();
 
-  // method
+  //method
   protected final IContainer<Node> getAttachingAttributes() {
     return attachingAttributes;
   }
 
-  // method
+  //method
   protected final IContainer<BaseSelectingStyle> getSubStyles() {
     return subStyles;
   }

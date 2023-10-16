@@ -4,6 +4,6 @@ package ch.nolix.systemapi.applicationapi.mainapi;
 //interface
 public interface IApplicationControllerFactory<AC> {
 
-  // method declaration
+  //method declaration
   AC createApplicationController();
 }

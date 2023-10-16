@@ -10,7 +10,7 @@ package ch.nolix.coretest.documenttest.nodetest;
  */
 public final class Launcher {
 
-  // main method
+  //main method
   /**
    * Creates a new {@link NodeTestPool} and runs it.
    * 
@@ -20,7 +20,7 @@ public final class Launcher {
     new NodeTestPool().run();
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link Launcher} can be created.
    */

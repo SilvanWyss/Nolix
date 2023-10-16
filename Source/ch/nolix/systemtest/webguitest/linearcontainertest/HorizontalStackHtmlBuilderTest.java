@@ -15,20 +15,20 @@ import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlHtmlBuilderT
 public final class HorizontalStackHtmlBuilderTest
     extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 
-  // method
+  //method
   @TestCase
   public void testCase_createHtmlElement_whenContainsChildControls() {
 
-    // setup control
+    //setup control
     final var control = createControl().addControl(new Label(), new Label(), new Label());
 
-    // setup testUnit
+    //setup testUnit
     final var testUnit = createTestUnit();
 
-    // execution
+    //execution
     final var result = testUnit.createHtmlElementForControl(control);
 
-    // verification
+    //verification
     expect(result.getInnerText().isEmpty());
     final var childElements = result.getChildElements();
     expect(childElements).hasElementCount(3);
@@ -37,19 +37,19 @@ public final class HorizontalStackHtmlBuilderTest
     expect(childElements.getStoredAt1BasedIndex(3).getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);
   }
 
-  // method
+  //method
   @Override
   protected IHorizontalStack createControl() {
     return new HorizontalStack();
   }
 
-  // method
+  //method
   @Override
   protected HorizontalStackHtmlBuilder createTestUnit() {
     return new HorizontalStackHtmlBuilder();
   }
 
-  // method
+  //method
   @Override
   protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
     expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.DIV);

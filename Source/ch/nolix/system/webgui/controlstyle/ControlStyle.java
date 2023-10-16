@@ -24,77 +24,77 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     extends ControlHeadStyle<ECS>
     implements IControlStyle<ECS> {
 
-  // constant
+  //constant
   public static final int DEFAULT_BORDER_THICKNESS = 0;
 
-  // constant
+  //constant
   public static final IColor DEFAULT_BORDER_COLOR = Color.BLACK;
 
-  // constant
+  //constant
   public static final IBackground DEFAULT_BACKGROUND = Background.TRANSPARENT_BACKGROUND;
 
-  // constant
+  //constant
   public static final int DEFAULT_PADDING = 0;
 
-  // constant
+  //constant
   private static final String WIDTH_HEADER = PascalCaseCatalogue.WIDTH;
 
-  // constant
+  //constant
   private static final String HEIGHT_HEADER = PascalCaseCatalogue.HEIGHT;
 
-  // constant
+  //constant
   private static final String LEFT_BORDER_THICKNESS_HEADER = "LeftBorderThickness";
 
-  // constant
+  //constant
   private static final String RIGHT_BORDER_THICKNESS_HEADER = "RightBorderThickness";
 
-  // constant
+  //constant
   private static final String TOP_BORDER_THICKNESS_HEADER = "TopBorderThickness";
 
-  // constant
+  //constant
   private static final String BOTTOM_BORDER_THICKNESS_HEADER = "BottomBorderThickness";
 
-  // constant
+  //constant
   private static final String LEFT_BORDER_COLOR_HEADER = "LeftBorderColor";
 
-  // constant
+  //constant
   private static final String RIGHT_BORDER_COLOR_HEADER = "RightBorderColor";
 
-  // constant
+  //constant
   private static final String TOP_BORDER_COLOR_HEADER = "TopBorderColor";
 
-  // constant
+  //constant
   private static final String BOTTOM_BORDER_COLOR_HEADER = "BottomBorderColor";
 
-  // constant
+  //constant
   private static final String BACKGROUND_HEADER = "Background";
 
-  // constant
+  //constant
   private static final String LEFT_PADDING_HEADER = "LeftPadding";
 
-  // constant
+  //constant
   private static final String RIGHT_PADDING_HEADER = "RightPadding";
 
-  // constant
+  //constant
   private static final String TOP_PADDING_HEADER = "TopPadding";
 
-  // constant
+  //constant
   private static final String BOTTOM_PADDING_HEADER = "BottomPadding";
 
-  // constant
+  //constant
   private static final String BORDER_COLOR_HEADER = "BorderColor";
 
-  // constant
+  //constant
   private static final String BORDER_THICKNESS_HEADER = "BorderThickness";
 
-  // constant
+  //constant
   private static final String PADDING_HEADER = "Padding";
 
-  // constant
+  //constant
   private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
       new AbsoluteOrRelativeIntValidator();
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = new NonCascadingProperty<>(
       WIDTH_HEADER,
       ControlState.class,
@@ -102,7 +102,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IAbsoluteOrRelativeInt::getSpecification,
       this::setWidthForState);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = new NonCascadingProperty<>(
       HEIGHT_HEADER,
       ControlState.class,
@@ -110,7 +110,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IAbsoluteOrRelativeInt::getSpecification,
       this::setHeightForState);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> leftBorderThickness = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           LEFT_BORDER_THICKNESS_HEADER,
@@ -118,7 +118,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setLeftBorderThicknessForState,
           DEFAULT_BORDER_THICKNESS);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> rightBorderThickness = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           RIGHT_BORDER_THICKNESS_HEADER,
@@ -126,7 +126,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setRightBorderThicknessForState,
           DEFAULT_BORDER_THICKNESS);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> topBorderThickness = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           TOP_BORDER_THICKNESS_HEADER,
@@ -134,7 +134,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setTopBorderThicknessForState,
           DEFAULT_BORDER_THICKNESS);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> bottomBorderThickness = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           BOTTOM_BORDER_THICKNESS_HEADER,
@@ -142,7 +142,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setBottomBorderThicknessForState,
           DEFAULT_BORDER_THICKNESS);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IColor> leftBorderColor = new NonCascadingProperty<>(
       LEFT_BORDER_COLOR_HEADER,
       ControlState.class,
@@ -150,7 +150,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IColor::getSpecification,
       DEFAULT_BORDER_COLOR);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IColor> rightBorderColor = new NonCascadingProperty<>(
       RIGHT_BORDER_COLOR_HEADER,
       ControlState.class,
@@ -158,7 +158,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IColor::getSpecification,
       DEFAULT_BORDER_COLOR);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IColor> topBorderColor = new NonCascadingProperty<>(
       TOP_BORDER_COLOR_HEADER,
       ControlState.class,
@@ -166,7 +166,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IColor::getSpecification,
       DEFAULT_BORDER_COLOR);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IColor> bottomBorderColor = new NonCascadingProperty<>(
       BOTTOM_BORDER_COLOR_HEADER,
       ControlState.class,
@@ -174,7 +174,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IColor::getSpecification,
       DEFAULT_BORDER_COLOR);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IBackground> background = new NonCascadingProperty<>(
       BACKGROUND_HEADER,
       ControlState.class,
@@ -182,7 +182,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       IBackground::getSpecification,
       DEFAULT_BACKGROUND);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> leftPadding = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           LEFT_PADDING_HEADER,
@@ -190,7 +190,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setLeftPaddingForState,
           DEFAULT_PADDING);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> rightPadding = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           RIGHT_PADDING_HEADER,
@@ -198,7 +198,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setRightPaddingForState,
           DEFAULT_PADDING);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> topPadding = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           TOP_PADDING_HEADER,
@@ -206,7 +206,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setTopPaddingForState,
           DEFAULT_PADDING);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> bottomPadding = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           BOTTOM_PADDING_HEADER,
@@ -214,7 +214,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
           this::setBottomPaddingForState,
           DEFAULT_PADDING);
 
-  // attribute
+  //attribute
   private final ForwardingProperty<ControlState, Integer> borderThickness = ForwardingProperty.withNameAndForProperty(
       BORDER_THICKNESS_HEADER,
       leftBorderThickness,
@@ -222,7 +222,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       topBorderThickness,
       bottomBorderThickness);
 
-  // attribute
+  //attribute
   private final ForwardingProperty<ControlState, IColor> borderColor = ForwardingProperty.withNameAndForProperty(
       BORDER_COLOR_HEADER,
       leftBorderColor,
@@ -230,125 +230,125 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
       topBorderColor,
       bottomBorderColor);
 
-  // attribute
+  //attribute
   private final ForwardingProperty<ControlState, Integer> padding = ForwardingProperty
       .withNameAndForProperty(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 
-  // method
+  //method
   @Override
   public final boolean definesHeightForState(final ControlState state) {
     return height.hasValueForState(state);
   }
 
-  // method
+  //method
   @Override
   public final boolean definesWidthForState(final ControlState state) {
     return width.hasValueForState(state);
   }
 
-  // method
+  //method
   @Override
   public final IBackground getBackgroundWhenHasState(final ControlState state) {
     return background.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final IColor getBottomBorderColorWhenHasState(final ControlState state) {
     return bottomBorderColor.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getBottomBorderThicknessWhenHasState(final ControlState state) {
     return bottomBorderThickness.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getBottomPaddingWhenHasState(final ControlState state) {
     return bottomPadding.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final IColor getLeftBorderColorWhenHasState(final ControlState state) {
     return leftBorderColor.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getLeftBorderThicknessWhenHasState(final ControlState state) {
     return leftBorderThickness.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final IAbsoluteOrRelativeInt getHeightForState(final ControlState state) {
     return height.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getLeftPaddingWhenHasState(final ControlState state) {
     return leftPadding.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final IColor getRightBorderColorWhenHasState(final ControlState state) {
     return rightBorderColor.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getRightBorderThicknessWhenHasState(final ControlState state) {
     return rightBorderThickness.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getRightPaddingWhenHasState(final ControlState state) {
     return rightPadding.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final IColor getTopBorderColorWhenHasState(final ControlState state) {
     return topBorderColor.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getTopBorderThicknessWhenHasState(final ControlState state) {
     return topBorderThickness.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final int getTopPaddingWhenHasState(final ControlState state) {
     return topPadding.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final IAbsoluteOrRelativeInt getWidthForState(final ControlState state) {
     return width.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomBackgrounds() {
     background.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomBorderColors() {
     borderColor.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomBorderThicknesses() {
     removeCustomLeftBorderColors();
@@ -357,49 +357,49 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     removeCustomBottomBorderColors();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomBottomBorderColors() {
     bottomBorderColor.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomBottomBorderThicknesses() {
     bottomBorderThickness.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomBottomPaddings() {
     bottomPadding.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomHeights() {
     height.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomLeftBorderColors() {
     leftBorderColor.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomLeftBorderThicknesses() {
     leftBorderThickness.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomLeftPaddings() {
     leftPadding.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomPaddings() {
     removeCustomLeftPaddings();
@@ -408,55 +408,55 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     removeCustomBottomPaddings();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomRightBorderColors() {
     rightBorderColor.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomRightBorderThicknesses() {
     rightBorderThickness.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomRightPaddings() {
     rightPadding.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomTopBorderColors() {
     topBorderColor.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomTopBorderThicknesses() {
     topBorderThickness.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomTopPaddings() {
     topPadding.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final void removeCustomWidths() {
     width.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public final ECS setBackgroundColorForState(final ControlState state, final IColor backgroundColor) {
     return setBackgroundForState(state, Background.withColor(backgroundColor));
   }
 
-  // method
+  //method
   @Override
   public final ECS setBackgroundColorGradientForState(
       final ControlState state,
@@ -472,7 +472,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setBackgroundImageForState(
       final ControlState state,
@@ -483,7 +483,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
         Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
-  // method
+  //method
   @Override
   public final ECS setBorderColorForState(final ControlState state, final IColor borderColor) {
 
@@ -492,7 +492,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setBorderThicknessForState(final ControlState state, final int borderThickness) {
 
@@ -501,7 +501,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setBottomBorderColorForState(final ControlState state, final IColor bottomBorderColor) {
 
@@ -510,7 +510,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setBottomBorderThicknessForState(final ControlState state, final int bottomBorderThickness) {
 
@@ -521,7 +521,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setBottomPaddingForState(final ControlState state, final int bottomPadding) {
 
@@ -532,7 +532,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setHeightForState(final ControlState state, final int height) {
 
@@ -541,7 +541,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setHeightInPercentOfViewAreaForState(
       final ControlState state,
@@ -552,7 +552,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setLeftBorderColorForState(final ControlState state, final IColor leftBorderColor) {
 
@@ -561,7 +561,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setLeftBorderThicknessForState(final ControlState state, final int leftBorderThickness) {
 
@@ -572,7 +572,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setLeftPaddingForState(final ControlState state, final int leftPadding) {
 
@@ -583,7 +583,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setPaddingForState(final ControlState state, final int padding) {
 
@@ -592,7 +592,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setRightBorderColorForState(final ControlState state, final IColor rightBorderColor) {
 
@@ -601,7 +601,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setRightBorderThicknessForState(final ControlState state, final int rightBorderThickness) {
 
@@ -612,7 +612,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setRightPaddingForState(final ControlState state, final int rightPadding) {
 
@@ -623,7 +623,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setTopBorderColorForState(final ControlState state, final IColor topBorderColor) {
 
@@ -632,7 +632,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setTopBorderThicknessForState(final ControlState state, final int topBorderThickness) {
 
@@ -643,7 +643,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setTopPaddingForState(final ControlState state, final int topPadding) {
 
@@ -654,7 +654,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final ECS setWidthForState(final ControlState state, final int width) {
 
@@ -663,7 +663,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public ECS setWidthInPercentOfViewAreaWidthForState(
       final ControlState state,
@@ -674,7 +674,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     return asConcrete();
   }
 
-  // method
+  //method
   private void setHeightForState(final ControlState state, final IAbsoluteOrRelativeInt height) {
 
     ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(height);
@@ -682,7 +682,7 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
     this.height.setValueForState(state, height);
   }
 
-  // method
+  //method
   private void setWidthForState(final ControlState state, final IAbsoluteOrRelativeInt width) {
 
     ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(width);

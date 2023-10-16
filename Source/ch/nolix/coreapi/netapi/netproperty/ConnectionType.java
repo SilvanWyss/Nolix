@@ -7,15 +7,15 @@ public enum ConnectionType {
   SOCKET(BaseConnectionType.NET),
   WEB_SOCKET(BaseConnectionType.NET);
 
-  // attribute
+  //attribute
   private final BaseConnectionType baseType;
 
-  // constructor
+  //constructor
   ConnectionType(final BaseConnectionType baseType) {
     this.baseType = baseType;
   }
 
-  // method
+  //method
   public final BaseConnectionType getBaseType() {
     return baseType;
   }

@@ -18,39 +18,39 @@ import ch.nolix.techapi.mathapi.fractalapi.IFractal;
 //class
 public final class Fractal implements IFractal {
 
-  // constant
+  //constant
   public static final Color CONVERGENCE_COLOR = Color.BLACK;
 
-  // attribute
+  //attribute
   private final IClosedInterval realComponentInterval;
 
-  // attribute
+  //attribute
   private final IClosedInterval imaginaryComponentInterval;
 
-  // attribute
+  //attribute
   private final int widthInPixel;
 
-  // attribute
+  //attribute
   private final int heightInPixel;
 
-  // attribute
+  //attribute
   private final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator;
 
-  // attribute
+  //attribute
   private final BigDecimal sequencesMinDivergenceMagnitude;
 
-  // attribute
+  //attribute
   private final int sequencesMaxIterationCount;
 
-  // attribute
+  //attribute
   private final IntFunction<IColor> colorFunction;
 
-  // attribute
+  //attribute
   private final int bigDecimalScale;
 
-  // constructor
-  public Fractal( // NOSONAR: A Fractal has many parameters and therefore a FractalBuilder fills
-                  // them up.
+  //constructor
+  public Fractal( //NOSONAR: A Fractal has many parameters and therefore a FractalBuilder fills
+                  //them up.
       final IClosedInterval realComponentInterval,
       final IClosedInterval imaginaryComponentInterval,
       final int widthInPixel,
@@ -117,19 +117,19 @@ public final class Fractal implements IFractal {
     this.bigDecimalScale = bigDecimalScale;
   }
 
-  // method
+  //method
   @Override
   public ISequence<IComplexNumber> createSequenceFor(final IComplexNumber complexNumber) {
     return sequenceCreator.apply(complexNumber);
   }
 
-  // method
+  //method
   @Override
   public int getBigDecimalScale() {
     return bigDecimalScale;
   }
 
-  // method
+  //method
   @Override
   public IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(final int iterationCount) {
 
@@ -140,49 +140,49 @@ public final class Fractal implements IFractal {
     return colorFunction.apply(iterationCount);
   }
 
-  // method
+  //method
   @Override
   public int getHeightInPixel() {
     return heightInPixel;
   }
 
-  // method
+  //method
   @Override
   public IClosedInterval getImaginaryComponentInterval() {
     return imaginaryComponentInterval;
   }
 
-  // method
+  //method
   @Override
   public IClosedInterval getRealComponentInterval() {
     return realComponentInterval;
   }
 
-  // method
+  //method
   @Override
   public int getMaxIterationCount() {
     return sequencesMaxIterationCount;
   }
 
-  // method
+  //method
   @Override
   public BigDecimal getMinMagnitudeForDivergence() {
     return sequencesMinDivergenceMagnitude;
   }
 
-  // method
+  //method
   @Override
   public int getWidthInPixel() {
     return widthInPixel;
   }
 
-  // method
+  //method
   @Override
   public ImageGenerator startImageGeneration() {
     return new ImageGenerator(this);
   }
 
-  // method
+  //method
   @Override
   public MutableImage toImage() {
 

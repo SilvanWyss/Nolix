@@ -12,13 +12,13 @@ package ch.nolix.coreapi.programcontrolapi.futureapi;
  */
 public interface IResultFuture<R> extends IFuture {
 
-  // method declaration
+  //method declaration
   /**
    * @return the result of the current {@link IResultFuture}.
    */
   R getResult();
 
-  // method declaration
+  //method declaration
   /**
    * Waits until the current {@link IResultFuture} is finished and returns its
    * result.

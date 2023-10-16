@@ -18,16 +18,16 @@ import ch.nolix.core.net.endpoint3.EndPoint;
  */
 public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extends Client<BC> {
 
-  // attribute
+  //attribute
   private final ClientSessionManager<BC, AC> sessionManager = new ClientSessionManager<>(this);
 
-  // optional attribute
+  //optional attribute
   /**
    * The {@link Application} the current {@link BackendClient} belongs to.
    */
   private Application<BC, AC> parentApplication;
 
-  // method
+  //method
   /**
    * @return the name of the parent {@link Application} of the current
    *         {@link BackendClient}.
@@ -36,7 +36,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return getStoredParentApplication().getInstanceName();
   }
 
-  // method
+  //method
   /**
    * @return the context of the parent {@link Application} of the current
    *         {@link BackendClient}.
@@ -45,7 +45,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return getStoredParentApplication().getStoredApplicationContext();
   }
 
-  // method
+  //method
   /**
    * @return the parent {@link Application} of the current {@link BackendClient}.
    * @throws InvalidArgumentException if the current {@link BackendClient} does
@@ -59,7 +59,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return parentApplication;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -68,7 +68,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return true;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -77,7 +77,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -88,7 +88,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     }
   }
 
-  // method
+  //method
   /**
    * @return the current {@link Session} of the current {@link BackendClient}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -99,7 +99,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return sessionManager.getStoredCurrentSession();
   }
 
-  // method
+  //method
   /**
    * Sets the {@link EndPoint} of the current {@link BackendClient}.
    * 
@@ -112,7 +112,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     internalSetEndPoint(endPoint);
   }
 
-  // method
+  //method
   /**
    * @return the size of the {@link Session} stack of the current
    *         {@link BackendClient}.
@@ -121,7 +121,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return sessionManager.getSessionStackSize();
   }
 
-  // method
+  //method
   /**
    * Pops the current {@link Session} of the current {@link BackendClient} from
    * the current {@link BackendClient}. Closes the current {@link BackendClient}
@@ -137,7 +137,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     sessionManager.popCurrentSession();
   }
 
-  // method
+  //method
   /**
    * Pops the current {@link Session} of the current {@link BackendClient} from
    * the current {@link BackendClient} Forwards the given result. Closes the
@@ -155,7 +155,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     sessionManager.popCurrentSessionAndForwardGivenResult(result);
   }
 
-  // method
+  //method
   /**
    * Pushes the given session to the current {@link BackendClient}.
    * 
@@ -166,7 +166,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     sessionManager.pushSession(session);
   }
 
-  // method
+  //method
   /**
    * Pushes the given session to the current {@link BackendClient}.
    * 
@@ -179,7 +179,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     return sessionManager.pushSessionAndGetResult(session);
   }
 
-  // method
+  //method
   /**
    * Sets the current {@link Session} of the current {@link BackendClient}. That
    * means the current {@link Session} of the current {@link BackendClient} will
@@ -193,7 +193,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     sessionManager.setCurrentSession(session);
   }
 
-  // method
+  //method
   /**
    * Sets the {@link Application} the current {@link BackendClient} will belong
    * to.
@@ -206,17 +206,17 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
    */
   final void internalSetParentApplication(final Application<BC, AC> parentApplication) {
 
-    // Asserts that the given parent application is not null.
+    //Asserts that the given parent application is not null.
     GlobalValidator.assertThat(parentApplication).thatIsNamed("parent application").isNotNull();
 
-    // Asserts that the current client does not reference its parent application.
+    //Asserts that the current client does not reference its parent application.
     assertDoesNotReferenceParentApplication();
 
-    // Sets the parent Application of the current Client.
+    //Sets the parent Application of the current Client.
     this.parentApplication = parentApplication;
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the current {@link BackendClient}
    *                                  references already its parent
@@ -228,7 +228,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     }
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the current {@link BackendClient} does
    *                                  not reference its parent
@@ -240,7 +240,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
     }
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link BackendClient} references its parent
    *         {@link Application}.

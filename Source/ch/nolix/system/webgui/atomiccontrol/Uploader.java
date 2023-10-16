@@ -22,13 +22,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 //class
 public final class Uploader extends Control<IUploader, IUploaderStyle> implements IUploader {
 
-  // constant
+  //constant
   private static final UploaderHtmlBuilder HTML_BUILDER = new UploaderHtmlBuilder();
 
-  // constant
+  //constant
   private static final UploaderCssBuilder CSS_BUILDER = new UploaderCssBuilder();
 
-  // optional attribute
+  //optional attribute
   private byte[] file;
 
   @Override
@@ -39,98 +39,98 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
     return file.clone();
   }
 
-  // method
+  //method
   @Override
   public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
     return new SingleContainer<>();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public String getUserInput() {
     return StringCatalogue.EMPTY_STRING;
   }
 
-  // method
+  //method
   @Override
   public boolean hasFile() {
     return (file != null);
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void runHtmlEvent(final String htmlEvent) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public IUploader setUserInput(final String userInput) {
 
-    // Does nothing.
+    //Does nothing.
 
     return this;
   }
 
-  // method
+  //method
   @Override
   public void technicalSetFile(final byte[] file) {
 
     GlobalValidator.assertThat(file).thatIsNamed(LowerCaseCatalogue.FILE).isNotNull();
 
-    this.file = file; // NOSONAR: A Uploader operates on the original input.
+    this.file = file; //NOSONAR: A Uploader operates on the original input.
   }
 
-  // method
+  //method
   @Override
   protected IUploaderStyle createStyle() {
     return new UploaderStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<IUploader, IUploaderStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<IUploader> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetControl() {
     removeFile();
   }
 
-  // method
+  //method
   private void assertHasFile() {
     if (!hasFile()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.FILE);
     }
   }
 
-  // method
+  //method
   private void removeFile() {
     file = null;
   }

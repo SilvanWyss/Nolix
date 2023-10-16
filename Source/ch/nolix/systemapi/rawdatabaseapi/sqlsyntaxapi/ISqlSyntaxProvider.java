@@ -4,21 +4,21 @@ package ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi;
 //interface
 public interface ISqlSyntaxProvider {
 
-  // method declaration
+  //method declaration
   IEntityQueryCreator getEntityQueryCreator();
 
-  // method declaration
+  //method declaration
   IEntityStatementCreator getEntityStatementCreator();
 
-  // method declaration
+  //method declaration
   IMultiReferenceQueryCreator getMultiReferenceQueryCreator();
 
-  // method declaration
+  //method declaration
   IMultiValueQueryCreator getMultiValueQueryCreator();
 
-  // method declaration
+  //method declaration
   IMultiReferenceStatementCreator getMultiReferenceStatemeentCreator();
 
-  // method declaration
+  //method declaration
   IMultiValueStatementCreator getMultiValueStatemeentCreator();
 }

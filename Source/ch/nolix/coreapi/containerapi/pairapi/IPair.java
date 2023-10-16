@@ -12,19 +12,19 @@ package ch.nolix.coreapi.containerapi.pairapi;
  */
 public interface IPair<E1, E2> {
 
-  // method declaration
+  //method declaration
   /**
    * @return the element1 of the current {@link IPair}.
    */
   E1 getStoredElement1();
 
-  // method declaration
+  //method declaration
   /**
    * @return the element2 of the current {@link IPair}.
    */
   E2 getStoredElement2();
 
-  // method declaration
+  //method declaration
   /**
    * @param object
    * @return true if the element1 of the current {@link IPair} is the given
@@ -32,7 +32,7 @@ public interface IPair<E1, E2> {
    */
   boolean hasElement1(Object object);
 
-  // method declaration
+  //method declaration
   /**
    * @param object
    * @return true if the element2 of the current {@link IPair} is the given

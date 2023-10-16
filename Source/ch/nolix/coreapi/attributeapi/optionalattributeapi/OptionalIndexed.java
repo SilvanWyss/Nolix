@@ -10,7 +10,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalIndexed {
 
-  // method declaration
+  //method declaration
   /**
    * @return the index of the current {@link OptionalIndexed}.
    * @throws RuntimeException if the current {@link OptionalIndexed} does not have
@@ -18,13 +18,13 @@ public interface OptionalIndexed {
    */
   String getIndex();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalIndexed} has an index.
    */
   boolean hasIndex();
 
-  // method declaration
+  //method declaration
   /**
    * @param index
    * @return true if the current {@link OptionalIndexed} has the given index.

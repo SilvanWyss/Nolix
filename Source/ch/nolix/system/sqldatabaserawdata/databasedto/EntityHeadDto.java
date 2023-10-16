@@ -9,9 +9,9 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 //class
 public record EntityHeadDto(String id, String saveStamp) implements IEntityHeadDto {
 
-  // constructor
-  public EntityHeadDto(final String id, final String saveStamp) { // NOSONAR: This implementations checks the given
-                                                                  // arguments.
+  //constructor
+  public EntityHeadDto(final String id, final String saveStamp) { //NOSONAR: This implementations checks the given
+                                                                  //arguments.
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
@@ -25,13 +25,13 @@ public record EntityHeadDto(String id, String saveStamp) implements IEntityHeadD
     this.saveStamp = saveStamp;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getSaveStamp() {
     return saveStamp;

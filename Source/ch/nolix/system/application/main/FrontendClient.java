@@ -17,7 +17,7 @@ import ch.nolix.core.net.endpoint3.NetEndPoint;
  */
 public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Client<FC> {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -26,7 +26,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -35,7 +35,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     return true;
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the given application.
    * 
@@ -52,7 +52,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     application.takeEndPoint(endPoint.getStoredCounterpart());
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the default
    * {@link Application} on the given server.
@@ -70,7 +70,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     server.getStoredDefaultApplication().takeEndPoint(endPoint.getStoredCounterpart());
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the default
    * {@link Application} on the given port on the local computer.
@@ -84,7 +84,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     internalSetEndPoint(new NetEndPoint(port));
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the {@link Application} with
    * the given name on the given port on the local computer.
@@ -101,7 +101,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     internalSetEndPoint(new NetEndPoint(port, name));
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the {@link Application} with
    * the given instanceName on the given server.
@@ -122,7 +122,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     server.getStoredApplicationByInstanceName(instanceName).takeEndPoint(endPoint.getStoredCounterpart());
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the default
    * {@link Application} on the HTTP port (80) on the computer with the given ip.
@@ -135,7 +135,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     internalSetEndPoint(new NetEndPoint(ip));
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the default
    * {@link Application} on given port on the computer with the given ip.
@@ -150,7 +150,7 @@ public abstract class FrontendClient<FC extends FrontendClient<FC>> extends Clie
     internalSetEndPoint(new NetEndPoint(ip, port));
   }
 
-  // method
+  //method
   /**
    * Connects the current {@link FrontendClient} to the {@link Application} with
    * the given name on the given port on the computer with the given ip.

@@ -27,25 +27,25 @@ import ch.nolix.techapi.mathapi.fractalapi.IImageGenerator;
 //class
 public final class ImageGenerator extends BaseFuture implements IImageGenerator {
 
-  // constant
+  //constant
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 
-  // constant
+  //constant
   private static final IFractalHelper FRACTAL_HELPER = new FractalHelper();
 
-  // attribute
+  //attribute
   private final IFractal fractal;
 
-  // attribute
+  //attribute
   private final BigDecimal squaredMinMagnitudeForDivergence;
 
-  // attribute
+  //attribute
   private final MutableImage image;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<IFuture> futures;
 
-  // constructor
+  //constructor
   public ImageGenerator(final IFractal fractal) {
 
     GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
@@ -59,13 +59,13 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     futures = startFillImageAndGetFutures();
   }
 
-  // method
+  //method
   @Override
   public boolean caughtError() {
     return futures.containsAny(IFuture::caughtError);
   }
 
-  // method
+  //method
   @Override
   public Throwable getError() {
 
@@ -78,25 +78,25 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     return futureWithError.getError();
   }
 
-  // method
+  //method
   @Override
   public MutableImage getStoredImage() {
     return image;
   }
 
-  // method
+  //method
   @Override
   public boolean isFinished() {
     return futures.containsOnly(IFuture::isFinished);
   }
 
-  // method
+  //method
   @Override
   public void waitUntilIsFinished() {
     futures.forEach(IFuture::waitUntilIsFinished);
   }
 
-  // method
+  //method
   @Override
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
 
@@ -111,21 +111,21 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     }
   }
 
-  // method
+  //method
   private void fillImageRow(final int y) {
     for (var x = 1; x <= image.getWidth(); x++) {
       fillImagePixel(x, y);
     }
   }
 
-  // method
+  //method
   private void fillImageRows(final int startImageRow, final int endImageRow) {
     for (var y = startImageRow; y <= endImageRow; y++) {
       fillImageRow(y);
     }
   }
 
-  // method
+  //method
   private void fillImagePixel(final int x, final int y) {
 
     final var color = Color.createAverageFrom(
@@ -137,7 +137,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     image.setPixel(x, y, color);
   }
 
-  // method
+  //method
   private IColor getColorOfPixel(final double x, final double y) {
 
     final var z = getComplexNumberOfPixel(x, y);
@@ -147,14 +147,14 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     return fractal.getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(iterationCount);
   }
 
-  // method
+  //method
   private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
     return new ComplexNumber(
         FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
         FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
   }
 
-  // method
+  //method
   private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
       final IComplexNumber complexNumber) {
     return FRACTAL_HELPER.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
@@ -163,7 +163,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
         squaredMinMagnitudeForDivergence);
   }
 
-  // method
+  //method
   private LinkedList<IFuture> startFillImageAndGetFutures() {
 
     final var lFutures = new LinkedList<IFuture>();

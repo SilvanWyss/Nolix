@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 //class
 final class PascalCaseCreator {
 
-  // method
+  //method
   public String toPascalCase(final String string) {
 
     if (string.isEmpty()) {
@@ -16,14 +16,14 @@ final class PascalCaseCreator {
     return toPascalCaseWhenStringNotEmpty(string);
   }
 
-  // method
+  //method
   private String toPascalCaseWhenStringNotEmpty(final String string) {
 
     final var stringBuilder = new StringBuilder();
 
     final var firstCharacter = string.charAt(0);
     final var firstCharacterType = CharacterType.fromCharacter(firstCharacter);
-    switch (firstCharacterType) { // NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (firstCharacterType) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case LOWER_CASE_LETTER:
         stringBuilder.append(Character.toUpperCase(firstCharacter));
         break;

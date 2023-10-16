@@ -4,10 +4,10 @@ package ch.nolix.system.application.basewebapplicationprotocol;
 //class
 public final class ObjectProtocol {
 
-  // constant
+  //constant
   public static final String URL = "URL";
 
-  // constructor
+  //constructor
   private ObjectProtocol() {
   }
 }

@@ -9,180 +9,180 @@ import ch.nolix.core.testing.basetest.TestCase;
 //class
 public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {
 
-  // method
+  //method
   @TestCase
   public void testCase_removeHeader() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
 
-    // setup verification
+    //setup verification
     expect(testUnit.hasHeader());
 
-    // execution
+    //execution
     testUnit.removeHeader();
 
-    // verification
+    //verification
     expectNot(testUnit.hasHeader());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_1A() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.reset();
 
-    // verification
+    //verification
     expectNot(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(0);
     expect(testUnit.toString()).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_1B() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("");
 
-    // verification
+    //verification
     expectNot(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(0);
     expect(testUnit.toString()).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_2A() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("a");
 
-    // verification
+    //verification
     expect(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(0);
     expect(testUnit.toString()).isEqualTo("a");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_2B() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("a(b)");
 
-    // verification
+    //verification
     expect(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(1);
     expect(testUnit.toString()).isEqualTo("a(b)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_2C() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("a(b,c,d)");
 
-    // verification
+    //verification
     expect(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(3);
     expect(testUnit.toString()).isEqualTo("a(b,c,d)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_2D() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("a(b(c))");
 
-    // verification
+    //verification
     expect(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(1);
     expect(testUnit.toString()).isEqualTo("a(b(c))");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_3A() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("a(b(c),d(e))");
 
-    // verification
+    //verification
     expect(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(2);
     expect(testUnit.toString()).isEqualTo("a(b(c),d(e))");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_3B() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution
+    //execution
     testUnit.resetFromString("a(b(c,d),e(f,g))");
 
-    // verification
+    //verification
     expect(testUnit.hasHeader());
     expect(testUnit.getStoredChildNodes().getElementCount()).isEqualTo(2);
     expect(testUnit.toString()).isEqualTo("a(b(c,d),e(f,g))");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_resetFromString_whenTheGivenStringIsNotValid() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.resetFromString("a(b).c"))
         .throwsException()
         .ofType(UnrepresentingArgumentException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_setHeader() {
 
-    // setup
+    //setup
     final var testUnit = createBlankNode();
     testUnit.setHeader("Lorem");
 
-    // setup verification
+    //setup verification
     expect(testUnit.hasHeader());
 
-    // execution
+    //execution
     testUnit.setHeader("Ipsum");
 
-    // verification
+    //verification
     expect(testUnit.getHeader()).isEqualTo("Ipsum");
   }
 }

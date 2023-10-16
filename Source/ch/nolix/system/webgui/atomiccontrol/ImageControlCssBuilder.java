@@ -16,32 +16,32 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class ImageControlCssBuilder
     extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final IImageControl imageControl,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final IImageControl imageControl,
       final ControlState state,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final IImageControl control,
       final LinkedList<CssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final IImageControl imageControl,

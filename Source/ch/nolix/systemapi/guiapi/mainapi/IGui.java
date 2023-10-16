@@ -14,19 +14,19 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
  */
 public interface IGui<G extends IGui<G>> extends FluentTitleable<G> {
 
-  // method declaration
+  //method declaration
   /**
    * @return the {@link IFrontEndReader} of the current {@link IGui}.
    */
   IFrontEndReader fromFrontEnd();
 
-  // method declaration
+  //method declaration
   /**
    * @return the icon of the current {@link IGui}.
    */
   IImage getIcon();
 
-  // method declaration
+  //method declaration
   /**
    * A root {@link IGui} is a {@link IGui} that is not contained in another
    * {@link IGui}.
@@ -35,13 +35,13 @@ public interface IGui<G extends IGui<G>> extends FluentTitleable<G> {
    */
   boolean isRootGui();
 
-  // method declaration
+  //method declaration
   /**
    * @return the {@link IFrontEndWriter} of the current {@link IGui}.
    */
   IFrontEndWriter onFrontEnd();
 
-  // method
+  //method
   /**
    * Sets the icon of the current{@link IGui}.
    * 

@@ -6,24 +6,24 @@ public record ParameterizedPropertyTypeSqlRecord(
     String propertyTypeValue,
     String dataTypeValue,
     String referencedTableIdValue,
-    String backReferencedColumnIdValue) { // NOSONAR: The left curly brace is at the right place.
+    String backReferencedColumnIdValue) { //NOSONAR: The left curly brace is at the right place.
 
-  // method
+  //method
   public String getBackReferencedColumnIdValue() {
     return backReferencedColumnIdValue;
   }
 
-  // method
+  //method
   public String getDataTypeValue() {
     return dataTypeValue;
   }
 
-  // method
+  //method
   public String getPropertyTypeValue() {
     return propertyTypeValue;
   }
 
-  // method
+  //method
   public String getReferencedTableIdValue() {
     return referencedTableIdValue;
   }

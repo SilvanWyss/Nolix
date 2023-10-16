@@ -9,7 +9,7 @@ public enum ImageApplication {
   SCALE_TO_FRAME,
   REPEATE;
 
-  // static method
+  //static method
   public static ImageApplication fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

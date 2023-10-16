@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class DatabaseTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public DatabaseTestPool() {
     super(
         BackReferenceOnDatabaseTest.class,

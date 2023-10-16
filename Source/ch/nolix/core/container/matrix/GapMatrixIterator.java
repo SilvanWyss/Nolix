@@ -13,12 +13,12 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class GapMatrixIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> GapMatrixIterator<E2> forGapMatrix(final GapMatrix<E2> gapMatrix) {
     return new GapMatrixIterator<>(gapMatrix);
   }
 
-  // static method
+  //static method
   private static <E2> GapMatrixIterator<E2> forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
       final GapMatrix<E2> gapMatrix,
       final int p1BasedNextElementRowIndex,
@@ -26,16 +26,16 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     return new GapMatrixIterator<>(gapMatrix, p1BasedNextElementRowIndex, p1BasedNextElementColumnIndex);
   }
 
-  // attribute
+  //attribute
   private final GapMatrix<E> parentGapMatrix;
 
-  // attribute
+  //attribute
   private int nextElementRowIndex = -1;
 
-  // attribute
+  //attribute
   private int nextElementColumnIndex = -1;
 
-  // constructor
+  //constructor
   private GapMatrixIterator(final GapMatrix<E> parentGapMatrix) {
 
     GlobalValidator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
@@ -45,7 +45,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     incrementNextElementRowAndColumnIndex();
   }
 
-  // constructor
+  //constructor
   private GapMatrixIterator(
       final GapMatrix<E> parentGapMatrix,
       final int p1BasedNextElementRowIndex,
@@ -57,7 +57,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     nextElementColumnIndex = p1BasedNextElementColumnIndex;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
@@ -66,13 +66,13 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
         nextElementColumnIndex);
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (nextElementRowIndex != -1);
   }
 
-  // method
+  //method
   @Override
   public E next() {
 
@@ -81,7 +81,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNextElement() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
@@ -89,7 +89,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private void incrementNextElementRowAndColumnIndex() {
 
     nextElementColumnIndex++;
@@ -113,7 +113,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     nextElementColumnIndex = -1;
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = parentGapMatrix.getStoredAt1BasedRowIndexAndColumnIndex(nextElementRowIndex,

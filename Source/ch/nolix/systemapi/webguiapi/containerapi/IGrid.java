@@ -9,24 +9,24 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IGrid extends IContainer<IGrid, IGridStyle> {
 
-  // method declaration
+  //method declaration
   boolean containsControlAt1BasedRowAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
 
-  // method declaration
+  //method declaration
   int getColumnCount();
 
-  // method declaration
+  //method declaration
   IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(int rowIndex, int columnIndex);
 
-  // method declaration
+  //method declaration
   int getRowCount();
 
-  // method declaration
+  //method declaration
   IGrid insertComponentAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, IControlGetter component);
 
-  // method declaration
+  //method declaration
   IGrid insertControlAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, IControl<?, ?> control);
 
-  // method declaration
+  //method declaration
   IGrid insertTextAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, String text);
 }

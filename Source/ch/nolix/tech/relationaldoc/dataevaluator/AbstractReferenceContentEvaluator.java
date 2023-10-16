@@ -8,7 +8,7 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 //class
 public final class AbstractReferenceContentEvaluator {
 
-  // method
+  //method
   public boolean canSetReferenceType(
       final AbstractReferenceContent abstractReferenceContent,
       final IAbstractableObject referenceType) {

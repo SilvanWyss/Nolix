@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface TransparencyRequestable {
 
-  // method
+  //method
   /**
    * @return true if the current {@link TransparencyRequestable} is opaque.
    */
@@ -21,7 +21,7 @@ public interface TransparencyRequestable {
     return !isTransparent();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link TransparencyRequestable} is transparent.
    */

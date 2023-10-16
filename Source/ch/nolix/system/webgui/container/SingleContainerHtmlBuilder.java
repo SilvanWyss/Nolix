@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISingleContainer> {
 
-  // method
+  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
     return HtmlElement.withTypeAndChildElements(
@@ -21,7 +21,7 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
         createHtmlElementsForChildControlsOfSingleContainer(control));
   }
 
-  // method
+  //method
   private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
       final ISingleContainer singleContainer) {
 

@@ -4,10 +4,10 @@ package ch.nolix.core.testing.basetest;
 //class
 final class ThrowableHelper {
 
-  // constant
+  //constant
   public static final String DEFAULT_ERROR_MESSAGE = "An error occured.";
 
-  // method
+  //method
   public String getMessageFromThrowableOrDefaultErrorMessage(final Throwable throwable) {
 
     if (throwable == null) {

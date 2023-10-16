@@ -11,49 +11,49 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 //class
 final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
 
-  // constant
+  //constant
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
 
-  // attribute
+  //attribute
   private final Client<C> parentClient;
 
-  // optional attribute
+  //optional attribute
   private Session<C, AC> currentSession;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Session<C, AC>> sessionStack = new LinkedList<>();
 
-  // constructor
+  //constructor
   public ClientSessionManager(final Client<C> parentClient) {
 
-    // Asserts that the given parentClient is not null.
+    //Asserts that the given parentClient is not null.
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
-    // Sets the parentClient of the current ClientSessionManager.
+    //Sets the parentClient of the current ClientSessionManager.
     this.parentClient = parentClient;
   }
 
-  // method
+  //method
   public boolean containsCurrentSession() {
     return (currentSession != null);
   }
 
-  // method
+  //method
   public boolean containsNextSession() {
     return (containsCurrentSession() && getSessionStackSize() > getCurrentSessionIndex());
   }
 
-  // method
+  //method
   public boolean containsPreviousSession() {
     return (containsCurrentSession() && getCurrentSessionIndex() > 1);
   }
 
-  // method
+  //method
   public boolean currentSessionIsTopSession() {
     return (containsCurrentSession() && getStoredCurrentSession() == getStoredTopSession());
   }
 
-  // method
+  //method
   public Session<C, AC> getStoredCurrentSession() {
 
     GlobalSequencer
@@ -65,41 +65,41 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
     return currentSession;
   }
 
-  // method
+  //method
   public int getSessionStackSize() {
     return sessionStack.getElementCount();
   }
 
-  // method
+  //method
   public void popCurrentSession() {
     popCurrentSessionFromStack();
     closeClientOrReinitializeCurrentSession();
   }
 
-  // method
+  //method
   public void popCurrentSessionAndForwardGivenResult(final Object result) {
     getStoredCurrentSession().internalSetResult(result);
     popCurrentSessionFromStack();
   }
 
-  // method
+  //method
   public void pushSession(final Session<C, AC> session) {
 
-    // Asserts that the given session is not null.
+    //Asserts that the given session is not null.
     GlobalValidator.assertThat(session).isOfType(Session.class);
 
-    // Sets the given session to the Client of the current ClientSessionManager.
+    //Sets the given session to the Client of the current ClientSessionManager.
     session.internalSetParentClient(parentClient.asConcrete());
 
-    // Pushes the given session to the current ClientSessionManager.
+    //Pushes the given session to the current ClientSessionManager.
     sessionStack.addAtEnd(session);
     currentSession = session;
 
-    // Initializes the given session.
+    //Initializes the given session.
     initializeSession(session);
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   public <R> R pushSessionAndGetResult(final Session<C, AC> session) {
 
@@ -112,20 +112,20 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
     return (R) session.internalGetStoredResult();
   }
 
-  // method
+  //method
   public void setCurrentSession(final Session<C, AC> session) {
     popCurrentSessionFromStack();
     pushSession(session);
   }
 
-  // method
+  //method
   private void assertContainsCurrentSession() {
     if (!containsCurrentSession()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "current Session");
     }
   }
 
-  // method
+  //method
   private void assertContainsCurrentSessionAsTopSession() {
 
     assertContainsCurrentSession();
@@ -138,7 +138,7 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
     }
   }
 
-  // method
+  //method
   private void closeClientOrReinitializeCurrentSession() {
     if (!containsCurrentSession()) {
       parentClient.close();
@@ -147,20 +147,20 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
     }
   }
 
-  // method
+  //method
   private int getCurrentSessionIndex() {
     return sessionStack.get1BasedIndexOfFirstOccuranceOf(getStoredCurrentSession());
   }
 
-  // method
+  //method
   private Session<C, AC> getStoredTopSession() {
     return sessionStack.getStoredLast();
   }
 
-  // method
+  //method
   private void initializeSession(final Session<C, AC> session) {
 
-    // Check if the parentClient is open because it could be closed before.
+    //Check if the parentClient is open because it could be closed before.
     if (parentClient.isOpen()) {
       session.fullInitialize();
     }
@@ -175,7 +175,7 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
     }
   }
 
-  // method
+  //method
   private void popCurrentSessionFromStack() {
 
     assertContainsCurrentSessionAsTopSession();
@@ -183,19 +183,19 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
     popCurrentSessionFromStackWhenContainsCurrentSessionAsTopSession();
   }
 
-  // method
+  //method
   private void popCurrentSessionFromStackWhenContainsCurrentSessionAsTopSession() {
     popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession();
     setOrClearCurrentSessionAccordingToSessionStack();
   }
 
-  // method
+  //method
   private void popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession() {
     final var topSession = sessionStack.removeAndGetRefLast();
     topSession.internalRemoveParentClient();
   }
 
-  // method
+  //method
   private void setOrClearCurrentSessionAccordingToSessionStack() {
     if (sessionStack.isEmpty()) {
       currentSession = null;

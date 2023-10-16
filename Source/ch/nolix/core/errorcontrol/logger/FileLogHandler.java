@@ -14,13 +14,13 @@ import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
 //class
 public final class FileLogHandler extends LogHandler {
 
-  // constant
+  //constant
   public static final String NOLIX_LOG_FILE_NAME = "nolix_log.txt";
 
-  // constant
+  //constant
   private static final char FOLDER_DELIMITER = '/';
 
-  // static method
+  //static method
   public static String getLocalNolixLogFilePath() {
 
     final var localNolixFilePath = GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + FOLDER_DELIMITER
@@ -30,7 +30,7 @@ public final class FileLogHandler extends LogHandler {
     return localNolixFilePath;
   }
 
-  // static method
+  //static method
   private static void createFileIfDoesNotExist(final String path) {
 
     final var lPath = Path.of(path);
@@ -44,7 +44,7 @@ public final class FileLogHandler extends LogHandler {
     }
   }
 
-  // method
+  //method
   @Override
   protected void log(final LogEntry logEntry) {
     try {

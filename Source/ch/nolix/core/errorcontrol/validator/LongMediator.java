@@ -28,7 +28,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
  */
 public class LongMediator extends Mediator {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link LongMediator} for the given argument.
@@ -37,7 +37,7 @@ public class LongMediator extends Mediator {
     return new LongMediator(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -49,10 +49,10 @@ public class LongMediator extends Mediator {
     return new LongMediator(argumentName, argument);
   }
 
-  // attribute
+  //attribute
   private final long argument;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link LongMediator} for the given argument.
    * 
@@ -62,7 +62,7 @@ public class LongMediator extends Mediator {
     this.argument = argument;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link LongMediator} for the given argumentName and argument.
    * 
@@ -78,7 +78,7 @@ public class LongMediator extends Mediator {
     this.argument = argument;
   }
 
-  // method
+  //method
   /**
    * @param min
    * @param max
@@ -90,7 +90,7 @@ public class LongMediator extends Mediator {
     isBetween((long) min, (long) max);
   }
 
-  // method
+  //method
   /**
    * @param min
    * @param max
@@ -108,7 +108,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws InvalidArgumentException if the argument of the current
@@ -124,7 +124,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws SmallerArgumentException if the argument of the current
@@ -140,7 +140,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws UnequalArgumentException if the argument of the current
@@ -151,7 +151,7 @@ public class LongMediator extends Mediator {
     isEqualTo((long) value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws UnequalArgumentException if the argument of the current
@@ -164,7 +164,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @param values
@@ -190,7 +190,7 @@ public class LongMediator extends Mediator {
         "does not equal one of {" + GlobalArrayHelper.createString(values) + "}");
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the argument of the current
    *                                  {@link LongMediator} is not negative.
@@ -201,7 +201,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param min
    * @param max
@@ -219,7 +219,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws EqualArgumentException if the argument of the current
@@ -231,7 +231,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws BiggerArgumentException if the argument of the current
@@ -242,7 +242,7 @@ public class LongMediator extends Mediator {
     isNotBiggerThan((long) value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws BiggerArgumentException if the argument of the current
@@ -255,7 +255,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @throws NegativeArgumentException if the argument of htis
    *                                   {@link LongMediator} is negative.
@@ -266,7 +266,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @throws PositiveArgumentException if the argument of the current
    *                                   {@link LongMediator} is positive.
@@ -277,7 +277,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @throws InvalidPortException if the argument of the current
    *                              {@link LongMediator} is not a port.
@@ -288,7 +288,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @throws NonPositiveArgumentException if the argument of the current
    *                                      {@link LongMediator} is not positive.
@@ -299,7 +299,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws InvalidArgumentException if the argument of the current
@@ -315,7 +315,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws BiggerArgumentException if the argument of the current
@@ -328,7 +328,7 @@ public class LongMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @return the argument of the current {@link LongMediator}.
    */

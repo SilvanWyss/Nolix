@@ -10,10 +10,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class AsSoonAsMediator {
 
-  // attribute
+  //attribute
   private final BooleanSupplier condition;
 
-  // constructor
+  //constructor
   AsSoonAsMediator(final BooleanSupplier condition) {
 
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
@@ -21,7 +21,7 @@ public final class AsSoonAsMediator {
     this.condition = condition;
   }
 
-  // method
+  //method
   public Future runInBackground(final Runnable job) {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -29,7 +29,7 @@ public final class AsSoonAsMediator {
     return new Future(new JobRunner(() -> runAsSoonAsConditionIsFulfilled(job), 1));
   }
 
-  // method
+  //method
   private void runAsSoonAsConditionIsFulfilled(final Runnable job) {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();

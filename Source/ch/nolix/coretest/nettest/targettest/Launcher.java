@@ -4,12 +4,12 @@ package ch.nolix.coretest.nettest.targettest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(final String[] arguments) {
     new TargetTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

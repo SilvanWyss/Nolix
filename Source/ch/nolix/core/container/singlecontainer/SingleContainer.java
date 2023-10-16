@@ -19,7 +19,7 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
  */
 public final class SingleContainer<E> implements ISingleContainer<E> {
 
-  // static method
+  //static method
   /**
    * @param <E2>    is the type of the given element.
    * @param element
@@ -35,10 +35,10 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
     return new SingleContainer<>(element);
   }
 
-  // optional attribute
+  //optional attribute
   private final E element;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SingleContainer} that is empty.
    */
@@ -46,7 +46,7 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
     element = null;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SingleContainer} with the given element.
    * 
@@ -60,9 +60,9 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
     this.element = element;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * @return the element of the current {@link SingleContainer}.
    * @throws EmptyArgumentException if the current {@link SingleContainer} is
@@ -78,7 +78,7 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
     return element;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

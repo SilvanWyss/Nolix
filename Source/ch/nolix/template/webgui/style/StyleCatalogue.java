@@ -7,10 +7,10 @@ import ch.nolix.system.element.style.Style;
 //class
 public final class StyleCatalogue {
 
-  // constant
+  //constant
   public static final Style DARK_STYLE = new DarkStyleCreator().createDarkStyle();
 
-  // constructor
+  //constructor
   private StyleCatalogue() {
   }
 }

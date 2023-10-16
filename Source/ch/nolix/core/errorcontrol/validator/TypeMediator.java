@@ -11,17 +11,17 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 
-  // constructor
+  //constructor
   TypeMediator(final Class<T> argument) {
     super(LowerCaseCatalogue.TYPE, argument);
   }
 
-  // constructor
+  //constructor
   TypeMediator(final String argumentName, final Class<T> argument) {
     super(argumentName, argument);
   }
 
-  // method
+  //method
   public final void isAbstract() {
 
     isNotNull();
@@ -34,7 +34,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isClass() {
 
     isNotNull();
@@ -49,7 +49,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isEnum() {
 
     isNotNull();
@@ -62,7 +62,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isImplementing(final Class<?> pInterface) {
 
     new TypeMediator<>(pInterface).isInterface();
@@ -77,7 +77,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isInterface() {
 
     isNotNull();
@@ -90,7 +90,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isNotAbstract() {
 
     isNotNull();
@@ -103,7 +103,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isSubClassOf(final Class<?> pClass) {
 
     new TypeMediator<>(pClass).isClass();
@@ -119,7 +119,7 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
     }
   }
 
-  // method
+  //method
   public final void isSuperClassOf(final Class<?> pClass) {
 
     new TypeMediator<>(pClass).isClass();

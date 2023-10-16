@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreato
 //class
 public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCreator {
 
-  // method
+  //method
   @Override
   public String createQueryToLoadMultiReferenceEntries(
       final String entityId,
@@ -28,7 +28,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
         + "';";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
       final String columnId,

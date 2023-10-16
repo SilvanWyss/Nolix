@@ -7,21 +7,21 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface ILabel extends IControl<ILabel, ILabelStyle> {
 
-  // method declaration
+  //method declaration
   LabelRole getRole();
 
-  // method declaration
+  //method declaration
   String getText();
 
-  // method declaration
+  //method declaration
   boolean hasRole();
 
-  // method declaration
+  //method declaration
   void removeRole();
 
-  // method declaration
+  //method declaration
   ILabel setRole(LabelRole role);
 
-  // method declaration
+  //method declaration
   ILabel setText(String text);
 }

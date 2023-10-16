@@ -7,7 +7,7 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class StackTraceMapper {
 
-  // method
+  //method
   public String[] mapErrorToStackTrace(final Throwable error) {
 
     final var list = new List<String>();
@@ -23,7 +23,7 @@ public final class StackTraceMapper {
     return List.createArrayFromList(list);
   }
 
-  // method
+  //method
   private String getMessageFromError(final Throwable error) {
 
     if (error == null) {
@@ -38,7 +38,7 @@ public final class StackTraceMapper {
     return message;
   }
 
-  // method
+  //method
   private void mapCauseStackTraceIntoList(final Throwable cause, final List<String> list) {
 
     list.addAtEnd("Cause: " + cause.getClass().getSimpleName() + ": " + getMessageFromError(cause));
@@ -46,7 +46,7 @@ public final class StackTraceMapper {
     mapOwnStackTraceElementsOfErrorIntoList(cause, list);
   }
 
-  // method
+  //method
   private void mapOwnStackTraceElementsOfErrorIntoList(final Throwable cause, final List<String> list) {
     for (final var ste : cause.getStackTrace()) {
       list.addAtEnd(ste.toString());

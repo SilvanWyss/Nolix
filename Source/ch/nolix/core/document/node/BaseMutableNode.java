@@ -13,21 +13,21 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends BaseNode<MN> implements IMutableNode<MN> {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final MN addPostfixToHeader(final String postfix) {
 
-    // Asserts that the given postfix is not blank.
+    //Asserts that the given postfix is not blank.
     GlobalValidator.assertThat(postfix).thatIsNamed(LowerCaseCatalogue.POSTFIX).isNotBlank();
 
-    // Handles the case that the current BaseMutableNode does not have a header.
+    //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
       setHeader(postfix);
 
-      // Handles the case that the current BaseMutableNode has a header.
+      //Handles the case that the current BaseMutableNode has a header.
     } else {
       setHeader(getHeader() + postfix);
     }
@@ -35,21 +35,21 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     return asConcrete();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final MN addPrefixToHeader(final String prefix) {
 
-    // Asserts that the given prefix is not blank.
+    //Asserts that the given prefix is not blank.
     GlobalValidator.assertThat(prefix).thatIsNamed(LowerCaseCatalogue.PREFIX).isNotBlank();
 
-    // Handles the case that the current BaseMutableNode does not have a header.
+    //Handles the case that the current BaseMutableNode does not have a header.
     if (!hasHeader()) {
       setHeader(prefix);
 
-      // Handles the case that the current BaseMutableNode has a header.
+      //Handles the case that the current BaseMutableNode has a header.
     } else {
       setHeader(prefix + getHeader());
     }
@@ -57,7 +57,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     return asConcrete();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -70,7 +70,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
             .replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -84,7 +84,7 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -97,13 +97,13 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
     return asConcrete();
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return the current {@link BaseMutableNode}.
    */
   protected abstract MN asConcrete();
 
-  // method
+  //method
   protected final int setAndGetEndIndex(final String substring, final int startIndex) {
 
     var index = startIndex;

@@ -11,10 +11,10 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 //class
 public final class AbstractableObjectValidator {
 
-  // constant
+  //constant
   private static final AbstractableObjectEvaluator ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectEvaluator();
 
-  // method
+  //method
   public void assertCanAddBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject baseType) {
     if (!ABSTRACTABLE_OBJECT_EVALUATOR.canAddBaseType(abstractableObject, baseType)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -24,7 +24,7 @@ public final class AbstractableObjectValidator {
     }
   }
 
-  // method
+  //method
   public void assertCanAddField(final IAbstractableObject abstractableObject, final IAbstractableField field) {
     if (!ABSTRACTABLE_OBJECT_EVALUATOR.canAddField(abstractableObject, field)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -34,14 +34,14 @@ public final class AbstractableObjectValidator {
     }
   }
 
-  // method
+  //method
   public void assertCanBeSetAsConcrete(final IAbstractableObject abstractableObject) {
     if (!ABSTRACTABLE_OBJECT_EVALUATOR.canBeSetAsConcrete(abstractableObject)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(abstractableObject, "cannot be set as concrete");
     }
   }
 
-  // method
+  //method
   public void assertCanSetName(final IAbstractableObject abstractableObject, final String name) {
     if (!ABSTRACTABLE_OBJECT_EVALUATOR.canSetName(abstractableObject, name)) {
       throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.NAME, name);

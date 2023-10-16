@@ -24,10 +24,10 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class Node extends BaseNode<Node> {
 
-  // constant
+  //constant
   public static final Node EMPTY_NODE = new Node();
 
-  // static method
+  //static method
   /**
    * @param pEnum
    * @return a new {@link Node} from the given pEnum.
@@ -36,7 +36,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNode(getTypeNameOfEnum(pEnum), withHeader(pEnum.name()));
   }
 
-  // static method
+  //static method
   /**
    * @param filePath
    * @return a new {@link Node} from the file with the given filePath.
@@ -48,7 +48,7 @@ public final class Node extends BaseNode<Node> {
     return fromNode(MutableNode.fromFile(filePath));
   }
 
-  // static method
+  //static method
   /**
    * @param intPair
    * @return a new {@link Node} from the given intPair.
@@ -57,7 +57,7 @@ public final class Node extends BaseNode<Node> {
     return withChildNode(withHeader(intPair.getValue1()), withHeader(intPair.getValue2()));
   }
 
-  // static method
+  //static method
   /**
    * @param node
    * @return a new {@link Node} from the given {@link INode}.
@@ -75,7 +75,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNodes(node.getHeader(), node.getStoredChildNodes());
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return a new {@link Node} from the given string.
@@ -86,7 +86,7 @@ public final class Node extends BaseNode<Node> {
     return fromNode(MutableNode.fromString(string));
   }
 
-  // static method
+  //static method
   /**
    * @param childNode
    * @return a new {@link Node} with the given childNode.
@@ -95,7 +95,7 @@ public final class Node extends BaseNode<Node> {
     return withChildNode(withHeader(childNode));
   }
 
-  // static method
+  //static method
   /**
    * @param childNode
    * @return a new {@link Node} with the given childNode.
@@ -104,7 +104,7 @@ public final class Node extends BaseNode<Node> {
     return withChildNode(withHeader(childNode));
   }
 
-  // static method
+  //static method
   /**
    * @param childNode
    * @param childNodes
@@ -114,7 +114,7 @@ public final class Node extends BaseNode<Node> {
     return new Node(ReadContainer.forElement(childNode, childNodes));
   }
 
-  // static method
+  //static method
   /**
    * @param childNode
    * @return a new {@link Node} with the given childNode.
@@ -123,7 +123,7 @@ public final class Node extends BaseNode<Node> {
     return withChildNode(withHeader(childNode));
   }
 
-  // static method
+  //static method
   /**
    * @param childNode
    * @param childNodes
@@ -135,7 +135,7 @@ public final class Node extends BaseNode<Node> {
     return withChildNodes(ReadContainer.forElement(childNode, childNodes).to(Node::withHeader));
   }
 
-  // static method
+  //static method
   /**
    * @param childNodes
    * @return a new {@link Node} with the given childNodes.
@@ -144,7 +144,7 @@ public final class Node extends BaseNode<Node> {
     return new Node(childNodes);
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @return a new {@link Node} with the given header.
@@ -153,7 +153,7 @@ public final class Node extends BaseNode<Node> {
     return withHeader(String.valueOf(header));
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @return a new {@link Node} with the given header.
@@ -162,7 +162,7 @@ public final class Node extends BaseNode<Node> {
     return withHeader(String.valueOf(header));
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @return a new {@link Node} with the given header.
@@ -171,7 +171,7 @@ public final class Node extends BaseNode<Node> {
     return withHeader(String.valueOf(header));
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @return a new {@link Node} with the given header.
@@ -182,7 +182,7 @@ public final class Node extends BaseNode<Node> {
     return new Node(header);
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNode
@@ -194,7 +194,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNode(header, withHeader(childNode));
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNode
@@ -206,7 +206,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNode(header, withHeader(childNode));
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNode
@@ -222,7 +222,7 @@ public final class Node extends BaseNode<Node> {
     return new Node(header, childNode, childNodes);
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNodes
@@ -234,7 +234,7 @@ public final class Node extends BaseNode<Node> {
     return new Node(header, childNodes);
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNode
@@ -246,7 +246,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNode(header, withHeader(childNode));
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNode
@@ -261,7 +261,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNodes(header, ReadContainer.forElement(childNode, childNodes).to(Node::withHeader));
   }
 
-  // static method
+  //static method
   /**
    * @param nodes
    * @return new {@link Node}s from the given nodes.
@@ -278,7 +278,7 @@ public final class Node extends BaseNode<Node> {
     return lNodes;
   }
 
-  // static method
+  //static method
   /**
    * @param pEnum
    * @return the name of the type of the given pEnum.
@@ -287,7 +287,7 @@ public final class Node extends BaseNode<Node> {
     return pEnum.getClass().getSimpleName();
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @return a valid header from the given header.
@@ -301,13 +301,13 @@ public final class Node extends BaseNode<Node> {
     return header;
   }
 
-  // optional attribute
+  //optional attribute
   private final String header;
 
-  // multi-attribute
+  //multi-attribute
   private final ImmutableList<Node> childNodes;
 
-  // constructor
+  //constructor
   private Node() {
 
     header = null;
@@ -315,7 +315,7 @@ public final class Node extends BaseNode<Node> {
     childNodes = ImmutableList.forIterable(new LinkedList<>());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Node} with the given childNodes.
    * 
@@ -328,7 +328,7 @@ public final class Node extends BaseNode<Node> {
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Node} with the given header.
    * 
@@ -343,7 +343,7 @@ public final class Node extends BaseNode<Node> {
     childNodes = new ImmutableList<>();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Node} with the given header and childNodes.
    * 
@@ -360,7 +360,7 @@ public final class Node extends BaseNode<Node> {
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(ReadContainer.forElement(childNode, childNodes)));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Node} with the given header and childNodes.
    * 
@@ -376,7 +376,7 @@ public final class Node extends BaseNode<Node> {
     this.childNodes = ImmutableList.forIterable(createNodesFromNodes(childNodes));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -385,7 +385,7 @@ public final class Node extends BaseNode<Node> {
     return withHeaderAndChildNodes(header, getStoredChildNodes());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -399,9 +399,9 @@ public final class Node extends BaseNode<Node> {
     return equalsNode((Node) object);
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
@@ -415,7 +415,7 @@ public final class Node extends BaseNode<Node> {
     return header;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -424,7 +424,7 @@ public final class Node extends BaseNode<Node> {
     return childNodes;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -433,7 +433,7 @@ public final class Node extends BaseNode<Node> {
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

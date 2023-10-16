@@ -9,15 +9,15 @@ import ch.nolix.core.programcontrol.worker.BatchWorker;
 //class
 final class WebEndPointMessageListener extends BatchWorker {
 
-  // static method
+  //static method
   public static WebEndPointMessageListener forWebEndPoint(final WebSocketEndPoint webSocketEndPoint) {
     return new WebEndPointMessageListener(webSocketEndPoint);
   }
 
-  // attribute
+  //attribute
   private final WebSocketEndPoint parentWebEndPoint;
 
-  // constructor
+  //constructor
   private WebEndPointMessageListener(final WebSocketEndPoint parentWebEndPoint) {
 
     GlobalValidator.assertThat(parentWebEndPoint).thatIsNamed("parent WebEndPoint").isNotNull();
@@ -27,7 +27,7 @@ final class WebEndPointMessageListener extends BatchWorker {
     start();
   }
 
-  // method
+  //method
   @Override
   protected void runStep() {
 
@@ -39,23 +39,23 @@ final class WebEndPointMessageListener extends BatchWorker {
     receiveMessage(message);
   }
 
-  // method
+  //method
   @Override
   protected boolean shouldRunNextStep() {
     return parentWebEndPoint.isOpen();
   }
 
-  // method
+  //method
   private void receiveMessage(final String message) {
 
-    // A web socket can send frames that contain a payload of length 0 resp. an
-    // empty message.
+    //A web socket can send frames that contain a payload of length 0 resp. an
+    //empty message.
     if (!message.isEmpty()) {
       parentWebEndPoint.receiveRawMessageInBackground(message);
     }
   }
 
-  // method
+  //method
   private void receiveMessage(final WebSocketCompleteMessage message) {
     if (message.isComplete()) {
       receiveMessage(message.getMessage());

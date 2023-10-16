@@ -11,7 +11,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 //class
 public final class GlobalInputStreamHelper {
 
-  // static method
+  //static method
   /**
    * @param inputStream
    * @return the next line from the given inputStream or null.
@@ -38,13 +38,13 @@ public final class GlobalInputStreamHelper {
         }
 
         bytes.addAtEnd((byte) lByte);
-      } catch (final Exception exception) { // NOSONAR: At this place any Exception should be caught.
+      } catch (final Exception exception) { //NOSONAR: At this place any Exception should be caught.
         return null;
       }
     }
   }
 
-  // constructor
+  //constructor
   private GlobalInputStreamHelper() {
   }
 }

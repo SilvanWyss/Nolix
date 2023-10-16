@@ -10,18 +10,18 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 //class
 public final class ColumnDto implements IColumnDto {
 
-  // attribute
+  //attribute
   private final String id;
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto;
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public ColumnDto(
       final String id,
       final String name,
@@ -44,19 +44,19 @@ public final class ColumnDto implements IColumnDto {
     this.parameterizedPropertyTypeDto = parameterizedPropertyTypeDto;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public IParameterizedPropertyTypeDto getParameterizedPropertyType() {
     return parameterizedPropertyTypeDto;

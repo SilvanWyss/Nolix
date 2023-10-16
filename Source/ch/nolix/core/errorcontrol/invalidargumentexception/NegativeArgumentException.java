@@ -15,10 +15,10 @@ import java.math.BigDecimal;
 @SuppressWarnings("serial")
 public final class NegativeArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is negative";
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -33,7 +33,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     return new NegativeArgumentException(argumentName, argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -48,7 +48,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     return new NegativeArgumentException(argumentName, argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -63,7 +63,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
     return new NegativeArgumentException(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NegativeArgumentException} for the given argumentName
    * and argument.
@@ -75,11 +75,11 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    */
   private NegativeArgumentException(final String argumentName, final BigDecimal argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NegativeArgumentException} for the given argumentName
    * and argument.
@@ -91,11 +91,11 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    */
   private NegativeArgumentException(final String argumentName, final double argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NegativeArgumentException} for the given argumentName
    * and argument.
@@ -107,7 +107,7 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    */
   private NegativeArgumentException(final String argumentName, final long argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 }

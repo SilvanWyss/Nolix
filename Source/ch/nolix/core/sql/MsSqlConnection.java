@@ -7,19 +7,19 @@ import java.sql.Connection;
 //class
 public final class MsSqlConnection extends SqlConnection {
 
-  // constant
+  //constant
   public static final SqlDatabaseEngine SQL_DATABASE_ENGINE = SqlDatabaseEngine.MSSQL;
 
-  // constant
+  //constant
   private static final String MSSQL_DATABASE_ENINGE_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-  // constructor
+  //constructor
   public MsSqlConnection(
       final Connection connection) {
     super(SQL_DATABASE_ENGINE, connection);
   }
 
-  // constructor
+  //constructor
   public MsSqlConnection(
       final int port,
       final String userName,
@@ -31,7 +31,7 @@ public final class MsSqlConnection extends SqlConnection {
         userPassword);
   }
 
-  // constructor
+  //constructor
   public MsSqlConnection(
       final String ip,
       final int port,
@@ -45,7 +45,7 @@ public final class MsSqlConnection extends SqlConnection {
         userPassword);
   }
 
-  // constructor
+  //constructor
   public MsSqlConnection(
       final String ip,
       final int port,
@@ -61,7 +61,7 @@ public final class MsSqlConnection extends SqlConnection {
         parentQslConnectionPool);
   }
 
-  // method
+  //method
   @Override
   protected String getSqlDatabaseEngineDriverClass() {
     return MSSQL_DATABASE_ENINGE_DRIVER_CLASS;

@@ -16,42 +16,42 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public abstract class BaseParameterizedValueType<V> extends ParameterizedPropertyType
     implements IBaseParameterizedValueType<V> {
 
-  // constructor
+  //constructor
   protected BaseParameterizedValueType(final DataType dataType) {
     super(dataType);
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesTable(final ITable table) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesBackColumn(final IColumn column) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public final IParameterizedPropertyTypeDto toDto() {
     return new BaseParameterizedValueTypeDto(getPropertyType(), getDataType());

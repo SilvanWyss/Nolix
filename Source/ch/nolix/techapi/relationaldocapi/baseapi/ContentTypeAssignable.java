@@ -7,9 +7,9 @@ import ch.nolix.coreapi.datamodelapi.entityrequestapi.ContentTypeRequestable;
 //interface
 public interface ContentTypeAssignable<CTA extends ContentTypeAssignable<CTA>> extends ContentTypeRequestable {
 
-  // method declaration
+  //method declaration
   CTA setForReferences();
 
-  // method declaration
+  //method declaration
   CTA setForValues();
 }

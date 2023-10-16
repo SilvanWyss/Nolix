@@ -16,10 +16,10 @@ import java.math.BigDecimal;
 @SuppressWarnings("serial")
 public final class NonPositiveArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not positive";
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -34,7 +34,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -49,7 +49,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -64,7 +64,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonPositiveArgumentException} for the given argumentName
    * and argument.
@@ -76,11 +76,11 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
    */
   private NonPositiveArgumentException(final String argumentName, final BigDecimal argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonPositiveArgumentException} for the given argumentName
    * and argument.
@@ -92,11 +92,11 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
    */
   private NonPositiveArgumentException(final String argumentName, final double argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonPositiveArgumentException} for the given argumentName
    * and argument.
@@ -108,7 +108,7 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
    */
   private NonPositiveArgumentException(final String argumentName, final long argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 }

@@ -9,10 +9,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableDefinitionMapper {
 
-  // constant
+  //constant
   private static final ColumnDefinitionMapper COLUMN_DEFINITION_MAPPER = new ColumnDefinitionMapper();
 
-  // method
+  //method
   public ITableInfo createTableDefinitionFrom(final ITableDto table) {
     return new TableInfo(
         table.getId(),

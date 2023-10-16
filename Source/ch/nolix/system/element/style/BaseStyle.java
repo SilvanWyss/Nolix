@@ -19,16 +19,16 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  */
 abstract class BaseStyle extends Element implements IBaseStyle {
 
-  // constant
+  //constant
   protected static final String ATTACHING_ATTRIBUTE_HEADER = "AttachingAttribute";
 
-  // multi-attribute
+  //multi-attribute
   private final ImmutableList<Node> attachingAttributes;
 
-  // multi-attribute
+  //multi-attribute
   private final ImmutableList<BaseSelectingStyle> subStyles;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link BaseStyle}.
    * 
@@ -44,7 +44,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     this.subStyles = ImmutableList.forIterable(subStyles);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -53,7 +53,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     return attachingAttributes;
   }
 
-  // method
+  //method
   /**
    * @return the sub styles of the current {@link BaseStyle}.
    */
@@ -61,7 +61,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     return subStyles;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link BaseStyle} has attaching attributes.
    */
@@ -69,7 +69,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     return attachingAttributes.containsAny();
   }
 
-  // method
+  //method
   /**
    * Sets the attaching attributes of the current {@link BaseStyle} to the given
    * element.
@@ -83,7 +83,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     for (final var aa : getAttachingAttributes()) {
       try {
         element.addOrChangeAttribute(aa);
-      } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+      } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
             "attaching attribute",
@@ -97,7 +97,7 @@ abstract class BaseStyle extends Element implements IBaseStyle {
     }
   }
 
-  // method
+  //method
   /**
    * Lets the sub styles of the current {@link BaseStyle} style the child element
    * of the given element.

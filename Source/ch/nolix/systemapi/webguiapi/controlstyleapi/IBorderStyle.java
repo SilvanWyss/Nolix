@@ -8,87 +8,87 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //interface
 public interface IBorderStyle<BCS extends IBorderStyle<BCS>> {
 
-  // method declaration
+  //method declaration
   IColor getBottomBorderColorWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getBottomBorderThicknessWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   IColor getLeftBorderColorWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getLeftBorderThicknessWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   IColor getRightBorderColorWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getRightBorderThicknessWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   IColor getTopBorderColorWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getTopBorderThicknessWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   void removeCustomBorderColors();
 
-  // method declaration
+  //method declaration
   void removeCustomBorderThicknesses();
 
-  // method declaration
+  //method declaration
   void removeCustomBottomBorderColors();
 
-  // method declaration
+  //method declaration
   void removeCustomBottomBorderThicknesses();
 
-  // method declaration
+  //method declaration
   void removeCustomLeftBorderColors();
 
-  // method declaration
+  //method declaration
   void removeCustomLeftBorderThicknesses();
 
-  // method declaration
+  //method declaration
   void removeCustomRightBorderColors();
 
-  // method declaration
+  //method declaration
   void removeCustomRightBorderThicknesses();
 
-  // method declaration
+  //method declaration
   void removeCustomTopBorderColors();
 
-  // method declaration
+  //method declaration
   void removeCustomTopBorderThicknesses();
 
-  // method declaration
+  //method declaration
   BCS setBorderColorForState(ControlState state, IColor borderColor);
 
-  // method declaration
+  //method declaration
   BCS setBorderThicknessForState(ControlState state, int borderThickness);
 
-  // method declaration
+  //method declaration
   BCS setBottomBorderColorForState(ControlState state, IColor bottomBorderColor);
 
-  // method declaration
+  //method declaration
   BCS setBottomBorderThicknessForState(ControlState state, int bottomBorderThickness);
 
-  // method declaration
+  //method declaration
   BCS setLeftBorderColorForState(ControlState state, IColor leftBorderColor);
 
-  // method declaration
+  //method declaration
   BCS setLeftBorderThicknessForState(ControlState state, int leftBorderThickness);
 
-  // method declaration
+  //method declaration
   BCS setRightBorderColorForState(ControlState state, IColor rightBorderColor);
 
-  // method declaration
+  //method declaration
   BCS setRightBorderThicknessForState(ControlState state, int rightBorderThickness);
 
-  // method declaration
+  //method declaration
   BCS setTopBorderColorForState(ControlState state, IColor topBorderColor);
 
-  // method declaration
+  //method declaration
   BCS setTopBorderThicknessForState(ControlState state, int topBorderThickness);
 }

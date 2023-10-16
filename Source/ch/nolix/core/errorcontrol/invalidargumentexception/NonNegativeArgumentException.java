@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class NonNegativeArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not negative";
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -31,7 +31,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
     return new NonNegativeArgumentException(argumentName, argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -46,7 +46,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
     return new NonNegativeArgumentException(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonNegativeArgumentException} for the given argumentName
    * and argument.
@@ -58,11 +58,11 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    */
   private NonNegativeArgumentException(final String argumentName, final double argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonNegativeArgumentException} for the given argumentName
    * and argument.
@@ -74,7 +74,7 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    */
   private NonNegativeArgumentException(final String argumentName, final long argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 }

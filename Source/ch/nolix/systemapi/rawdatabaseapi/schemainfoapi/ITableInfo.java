@@ -6,18 +6,18 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface ITableInfo {
 
-  // method declaration
+  //method declaration
   IColumnInfo getColumnInfoByColumnName(String columnName);
 
-  // method declaration
+  //method declaration
   IContainer<IColumnInfo> getColumnInfos();
 
-  // method declaration
+  //method declaration
   String getTableId();
 
-  // method declaration
+  //method declaration
   String getTableName();
 
-  // method declaration
+  //method declaration
   String getTableNameInQuotes();
 }

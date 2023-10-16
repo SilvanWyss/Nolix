@@ -16,10 +16,10 @@ public final class MsSqlDataAdapterBuilder
         ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCapturer<AndSchemaCapturer<ISchema, MsSqlDataAdapter>>>>//
 > {
 
-  // constant
+  //constant
   public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 
-  // constructor
+  //constructor
   public MsSqlDataAdapterBuilder(final String ipOrDomain) {
 
     super(
@@ -32,7 +32,7 @@ public final class MsSqlDataAdapterBuilder
     setBuilder(() -> build(ipOrDomain));
   }
 
-  // method
+  //method
   private MsSqlDataAdapter build(final String ipOrDomain) {
     return new MsSqlDataAdapter(
         ipOrDomain,

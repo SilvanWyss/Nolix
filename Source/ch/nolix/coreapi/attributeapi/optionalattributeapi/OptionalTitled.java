@@ -10,19 +10,19 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalTitled {
 
-  // method declaration
+  //method declaration
   /**
    * @return the title of the current {@link OptionalTitled}.
    */
   String getTitle();
 
-  // method declaration
+  //method declaration
   /**
    * @return the title of the current {@link OptionalTitled} in quotes.
    */
   String getTitleInQuotes();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalTitled} has a title.
    */

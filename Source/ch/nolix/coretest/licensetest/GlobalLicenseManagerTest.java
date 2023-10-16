@@ -15,31 +15,31 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public final class GlobalLicenseManagerTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_requireFeature_whenLicenseIsNotThere() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).throwsException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_requireFeature_whenLicenseIsThere() {
 
-    // setup
+    //setup
     final var testLicense = new TestLicense();
     testLicense.activate("0000-0000");
     GlobalLicenseManager.addLicense(testLicense);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> GlobalLicenseManager.requireFeature(TestFeature.class)).doesNotThrowException();
 
-    // cleanup
+    //cleanup
     GlobalLicenseManager.removeLicense(testLicense);
   }
 
-  // static class
+  //constant
   private static final class TestLicense extends License {
 
     @Override
@@ -48,8 +48,8 @@ public final class GlobalLicenseManagerTest extends Test {
     }
   }
 
-  // static class
-  // This class must be public that it can be processed by reflection.
+  //constant
+  //This class must be public that it can be processed by reflection.
   public static final class TestFeature extends Feature {
 
     @Override

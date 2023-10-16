@@ -9,234 +9,234 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class GlobalStringHelperTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_createStringWithoutLastCharacters_1A() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.createStringWithoutLastCharacters("cheeseburger", 0);
 
-    // verification
+    //verification
     expect(result).isEqualTo("cheeseburger");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createStringWithoutLastCharacters_1B() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.createStringWithoutLastCharacters("cheeseburger", 6);
 
-    // verification
+    //verification
     expect(result).isEqualTo("cheese");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createStringWithoutLastCharacters_1C() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.createStringWithoutLastCharacters("cheeseburger", 12);
 
-    // verification
+    //verification
     expect(result).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInParantheses_whenGivenStringIsEmpty() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.getInParantheses("");
 
-    // verification
+    //verification
     expect(result).isEqualTo("()");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInParantheses_whenGivenStringIsNotEmpty() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.getInParantheses("Zebra");
 
-    // verification
+    //verification
     expect(result).isEqualTo("(Zebra)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInQuotes_whenGivenStringIsEmpty() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.getInQuotes("");
 
-    // verification
+    //verification
     expect(result).isEqualTo("''");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInQuotes_whenGivenStringIsNotEmpty() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.getInQuotes("Zebra");
 
-    // verification
+    //verification
     expect(result).isEqualTo("'Zebra'");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringContainsOneWordInLowerCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("zebra");
 
-    // verification
+    //verification
     expect(result).isEqualTo("Zebra");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringContainsOneWordInUpperCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("ZEBRA");
 
-    // verification
+    //verification
     expect(result).isEqualTo("Zebra");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringContainsOneWordInSentenceCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("Zebra");
 
-    // verification
+    //verification
     expect(result).isEqualTo("Zebra");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("cursor_icon");
 
-    // verification
+    //verification
     expect(result).isEqualTo("CursorIcon");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("CURSOR_ICON");
 
-    // verification
+    //verification
     expect(result).isEqualTo("CursorIcon");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("Cursor_Icon");
 
-    // verification
+    //verification
     expect(result).isEqualTo("CursorIcon");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toPascalCase_whenGivenStringIsEmpty() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toPascalCase("");
 
-    // verification
+    //verification
     expect(result).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInLowerCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("zebra");
 
-    // verification
+    //verification
     expect(result).isEqualTo("ZEBRA");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInUpperCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("ZEBRA");
 
-    // verification
+    //verification
     expect(result).isEqualTo("ZEBRA");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringContainsOneWordInSentenceCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("Zebra");
 
-    // verification
+    //verification
     expect(result).isEqualTo("ZEBRA");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInLowerSnakeCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("cursor_icon");
 
-    // verification
+    //verification
     expect(result).isEqualTo("CURSOR_ICON");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInUpperSnakeCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("CURSOR_ICON");
 
-    // verification
+    //verification
     expect(result).isEqualTo("CURSOR_ICON");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringContainsTwoWordsInSentenceSnakeCase() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("Cursor_Icon");
 
-    // verification
+    //verification
     expect(result).isEqualTo("CURSOR_ICON");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUpperSnakeCase_whenGivenStringIsEmpty() {
 
-    // execution
+    //execution
     final var result = GlobalStringHelper.toUpperSnakeCase("");
 
-    // verification
+    //verification
     expect(result).isEqualTo("");
   }
 }

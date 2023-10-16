@@ -10,7 +10,7 @@ import ch.nolix.coretest.documenttest.xmltest.XmlTestPool;
 //class
 public final class DocumentTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public DocumentTestPool() {
     super(new ChainedNodeTestPool(), new NodeTestPool(), new XmlTestPool());
   }

@@ -13,13 +13,13 @@ import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 //class
 final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 
-  // attribute
+  //attribute
   private final SecureServer parentWebSocketServer;
 
-  // optional attribute
+  //optional attribute
   private SecureServerEndPoint parentWebSocketServerEndPoint;
 
-  // constructor
+  //constructor
   public SecureServerChannelInboundHandler(final SecureServer parentWebSocketServer) {
 
     GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
@@ -27,7 +27,7 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
     this.parentWebSocketServer = parentWebSocketServer;
   }
 
-  // method
+  //method
   /**
    * Is triggered when the communication is stopped. For example when the client
    * closes the connections. Closes the parent {@link SecureServerEndPoint} of the
@@ -38,7 +38,7 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
     parentWebSocketServerEndPoint.close();
   }
 
-  // method
+  //method
   @Override
   protected void channelRead0(
       final ChannelHandlerContext channelHandlerContext,
@@ -47,8 +47,8 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
 
       parentWebSocketServerEndPoint = new SecureServerEndPoint(channelHandlerContext);
 
-      // The end point must receive the current message to know its content before it
-      // is added to the server.
+      //The end point must receive the current message to know its content before it
+      //is added to the server.
       final var rawMessage = ((TextWebSocketFrame) webSocketFrame).text();
       parentWebSocketServerEndPoint.receiveRawMessage(rawMessage);
 

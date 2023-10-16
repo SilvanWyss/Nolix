@@ -18,31 +18,31 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // constant
+  //constant
   private static final SchemaInitializer SCHEMA_INITIALIZER = new SchemaInitializer();
 
-  // constant
+  //constant
   private static final DatabaseSaver DATABASE_SAVER = new DatabaseSaver();
 
-  // attribute
+  //attribute
   private final String databaseName;
 
-  // attribute
+  //attribute
   private final ISchema schema;
 
-  // attribute
+  //attribute
   private final Database database;
 
-  // attribute
+  //attribute
   private int saveCount;
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // constructor
+  //constructor
   protected DataAdapter(
       final String databaseName,
       final ISchemaAdapter schemaAdapter,
@@ -64,32 +64,32 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
     getStoredCloseController().createCloseDependencyTo(dataAndSchemaAdapter);
   }
 
-  // method
+  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public final <E extends IEntity> ITable<E> getStoredTableByEntityType(
       final Class<E> entityType) {
     return database.getStoredTableByEntityType(entityType);
   }
 
-  // method
+  //method
   @Override
   public final int getSaveCount() {
     return saveCount;
   }
 
-  // method
+  //method
   @Override
   public final boolean hasChanges() {
     return DATABASE_HELPER.hasChanges(database);
   }
 
-  // method
+  //method
   @Override
   public final <E extends IEntity> DataAdapter insert(final E entity) {
 
@@ -98,19 +98,19 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final void noteClose() {
     database.internalClose();
   }
 
-  // method
+  //method
   @Override
   public final void reset() {
     database.internalReset();
   }
 
-  // method
+  //method
   @Override
   public final void saveChanges() {
     try {
@@ -120,17 +120,17 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
     }
   }
 
-  // method
+  //method
   protected final String getDatabaseName() {
     return databaseName;
   }
 
-  // method
+  //method
   protected final ISchema getSchema() {
     return schema;
   }
 
-  // method
+  //method
   private void justSaveChanges() {
 
     DATABASE_SAVER.saveChangesOfDatabaseThreadSafe(database);

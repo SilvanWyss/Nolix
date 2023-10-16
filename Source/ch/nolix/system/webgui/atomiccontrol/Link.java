@@ -30,32 +30,32 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 //class
 public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
-  // constant
+  //constant
   public static final String DEFAULT_DISPLAY_TEXT = StringCatalogue.QUESTION_MARK;
 
-  // constant
+  //constant
   private static final LinkTarget DEFAULT_TARGET = LinkTarget.NEW_TAB;
 
-  // constant
+  //constant
   private static final String DISPLAY_TEXT_HEADER = "DisplayText";
 
-  // constant
+  //constant
   private static final String TARGET_HEADER = PascalCaseCatalogue.TARGET;
 
-  // constant
+  //constant
   private static final String URL_HEADER = PascalCaseCatalogue.URL;
 
-  // constant
+  //constant
   private static final LinkHtmlBuilder LINK_HTML_BUILDER = new LinkHtmlBuilder();
 
-  // constant
+  //constant
   private static final LinkCssBuilder LINK_CSS_BUILDER = new LinkCssBuilder();
 
-  // attribute
+  //attribute
   private final MutableValue<String> displayText = MutableValue.forString(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
       this::setDisplayText);
 
-  // attribute
+  //attribute
   private final MutableValue<LinkTarget> target = new MutableValue<>(
       TARGET_HEADER,
       DEFAULT_TARGET,
@@ -63,86 +63,86 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
       s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
       Node::fromEnum);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<String> url = MutableOptionalValue.forString(URL_HEADER, this::setUrl);
 
-  // constructor
+  //constructor
   public Link() {
 
-    // Info: Reset is technically optional, but required to achieve a well-defined
-    // initial state.
+    //Info: Reset is technically optional, but required to achieve a well-defined
+    //initial state.
     reset();
 
     getStoredStyle().setBackgroundColorForState(ControlState.BASE, Color.BLUE);
   }
 
-  // method
+  //method
   @Override
   public String getDisplayText() {
     return displayText.getValue();
   }
 
-  // method
+  //method
   @Override
   public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
     return new SingleContainer<>();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public LinkTarget getTarget() {
     return target.getValue();
   }
 
-  // method
+  //method
   @Override
   public String getUrl() {
     return url.getValue();
   }
 
-  // method
+  //method
   @Override
   public String getUserInput() {
     return StringCatalogue.EMPTY_STRING;
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean hasUrl() {
     return url.containsAny();
   }
 
-  // method
+  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void removeUrl() {
     url.clear();
   }
 
-  // method
+  //method
   @Override
   public void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
-  // method
+  //method
   @Override
   public ILink setDisplayText(final String displayText) {
 
@@ -153,7 +153,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
-  // method
+  //method
   @Override
   public ILink setTarget(final LinkTarget target) {
 
@@ -162,7 +162,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
-  // method
+  //method
   @Override
   public ILink setUrl(final String url) {
 
@@ -173,7 +173,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
-  // method
+  //method
   @Override
   public ILink setUserInput(final String userInput) {
 
@@ -182,25 +182,25 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
     return this;
   }
 
-  // method
+  //method
   @Override
   protected ILinkStyle createStyle() {
     return new LinkStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<ILink, ILinkStyle> getCssBuilder() {
     return LINK_CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<ILink> getHtmlBuilder() {
     return LINK_HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetControl() {
 

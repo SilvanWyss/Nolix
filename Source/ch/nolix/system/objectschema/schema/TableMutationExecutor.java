@@ -8,10 +8,10 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 final class TableMutationExecutor {
 
-  // constant
+  //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  // method
+  //method
   public void addColumnToTable(final Table table, final Column column) {
 
     table.addColumnAttribute(column);
@@ -24,7 +24,7 @@ final class TableMutationExecutor {
     table.internalSetEdited();
   }
 
-  // method
+  //method
   public void deleteTable(final Table table) {
 
     if (table.belongsToDatabase()) {
@@ -36,7 +36,7 @@ final class TableMutationExecutor {
     table.internalSetDeleted();
   }
 
-  // method
+  //method
   public void setNameToTable(final Table table, final String name) {
 
     final var oldTableName = table.getName();

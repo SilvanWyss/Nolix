@@ -13,7 +13,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
  */
 public interface ICardinalityHolder {
 
-  // method declaration
+  //method declaration
   /**
    * @return the {@link Cardinality} of the current {@link ICardinalityHolder}.
    */

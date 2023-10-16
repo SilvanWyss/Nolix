@@ -15,7 +15,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class ByteWrapper {
 
-  // static method
+  //static method
   /**
    * @param number
    * @return a new {@link ByteWrapper} from the given number.
@@ -23,20 +23,20 @@ public final class ByteWrapper {
    */
   public static ByteWrapper fromNumber(final int number) {
 
-    // Asserts that the given number is in [0, 255].
+    //Asserts that the given number is in [0, 255].
     GlobalValidator.assertThat(number).thatIsNamed(LowerCaseCatalogue.NUMBER).isBetween(0, 255);
 
     return new ByteWrapper((byte) (number - 128));
   }
 
-  // attribute
+  //attribute
   /**
    * A {@link ByteWrapper} stores its value in an unsigned int because for any
    * transformation it would be needed to transform the value to an int anyway.
    */
   private final int mByte;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ByteWrapper} with the given pByte.
    * 
@@ -46,7 +46,7 @@ public final class ByteWrapper {
     mByte = pByte & 0b11111111;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ByteWrapper} with the given bits.
    * 
@@ -59,7 +59,7 @@ public final class ByteWrapper {
    * @param bit7
    * @param bit8
    */
-  public ByteWrapper( // NOSONAR: A byte consists of 8 bits.
+  public ByteWrapper( //NOSONAR: A byte consists of 8 bits.
       final int bit1,
       final int bit2,
       final int bit3,
@@ -71,7 +71,7 @@ public final class ByteWrapper {
     mByte = 128 * bit1 + 64 * bit2 + 32 * bit3 + 16 * bit4 + 8 * bit5 + 4 * bit6 + 2 * bit7 + bit8;
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return the bit at the given index from the current {@link ByteWrapper}.
@@ -80,7 +80,7 @@ public final class ByteWrapper {
     return (getBitAtAsInt(index) == 1);
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return the bit at the given index from the current {@link ByteWrapper} as
@@ -93,7 +93,7 @@ public final class ByteWrapper {
     return (mByte >> (8 - index)) & 1;
   }
 
-  // method
+  //method
   /**
    * @return a {@link String} with the bits of the current {@link ByteWrapper}.
    */
@@ -110,7 +110,7 @@ public final class ByteWrapper {
         getBitAtAsInt(8));
   }
 
-  // method
+  //method
   /**
    * @return the current {@link ByteWrapper} as byte.
    */
@@ -118,7 +118,7 @@ public final class ByteWrapper {
     return (byte) mByte;
   }
 
-  // method
+  //method
   /**
    * @return the current {@link ByteWrapper} as int.
    */

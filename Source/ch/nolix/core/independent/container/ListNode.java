@@ -4,13 +4,13 @@ package ch.nolix.core.independent.container;
 //class
 final class ListNode<E> {
 
-  // attribute
+  //attribute
   private final E element;
 
-  // optional attribute
+  //optional attribute
   private ListNode<E> nextNode;
 
-  // constructor
+  //constructor
   public ListNode(final E element) {
 
     if (element == null) {
@@ -20,32 +20,32 @@ final class ListNode<E> {
     this.element = element;
   }
 
-  // method
+  //method
   public boolean contains(final E element) {
     return (this.element == element);
   }
 
-  // method
+  //method
   public E getStoredElement() {
     return element;
   }
 
-  // method
+  //method
   public ListNode<E> getStoredNextNodeOrNull() {
     return nextNode;
   }
 
-  // method
+  //method
   public boolean hasNextNode() {
     return (nextNode != null);
   }
 
-  // method
+  //method
   public void removeNextNode() {
     nextNode = null;
   }
 
-  // method
+  //method
   public void setNextNode(final ListNode<E> nextNode) {
 
     if (nextNode == null) {

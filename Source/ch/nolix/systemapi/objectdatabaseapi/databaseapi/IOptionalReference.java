@@ -9,15 +9,15 @@ public interface IOptionalReference<
     E extends IEntity>
     extends Clearable, IBaseReference<E> {
 
-  // method declaration
+  //method declaration
   E getReferencedEntity();
 
-  // method declaration
+  //method declaration
   String getReferencedEntityId();
 
-  // method declaration
+  //method declaration
   void setEntity(E entity);
 
-  // method declaration
+  //method declaration
   void setEntityById(final String id);
 }

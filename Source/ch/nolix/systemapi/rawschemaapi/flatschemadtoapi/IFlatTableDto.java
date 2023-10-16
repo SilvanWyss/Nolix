@@ -4,9 +4,9 @@ package ch.nolix.systemapi.rawschemaapi.flatschemadtoapi;
 //interface
 public interface IFlatTableDto {
 
-  // method declaration
+  //method declaration
   String getId();
 
-  // method declaration
+  //method declaration
   String getName();
 }

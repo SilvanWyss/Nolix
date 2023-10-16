@@ -12,259 +12,259 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 //class
 public final class ComplexNumberTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_1A() {
 
-    // execution
+    //execution
     final var result = new ComplexNumber(0.0, 0.0);
 
-    // verification
+    //verification
     expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
     expect(result.getImaginaryComponent().doubleValue()).isEqualTo(0.0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_1B() {
 
-    // execution
+    //execution
     final var result = new ComplexNumber(1.0, 0.0);
 
-    // verification
+    //verification
     expect(result.getRealComponent().doubleValue()).isEqualTo(1.0);
     expect(result.getImaginaryComponent().doubleValue()).isEqualTo(0.0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_1C() {
 
-    // execution
+    //execution
     final var result = new ComplexNumber(0.0, 1.0);
 
-    // verification
+    //verification
     expect(result.getRealComponent().doubleValue()).isEqualTo(0.0);
     expect(result.getImaginaryComponent().doubleValue()).isEqualTo(1.0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_2A() {
 
-    // execution
+    //execution
     final var realComponent = new BigDecimal("3.14159265359").setScale(5, RoundingMode.HALF_UP);
     final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(10, RoundingMode.HALF_UP);
 
-    // execution
+    //execution
     final var result = new ComplexNumber(realComponent, imaginaryComponent);
 
-    // verification
+    //verification
     expect(result.getScale()).isEqualTo(10);
     expect(result.getRealComponent()).hasStringRepresentation("3.1415900000");
     expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182818285");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_2B() {
 
-    // execution
+    //execution
     final var realComponent = new BigDecimal("3.14159265359").setScale(10, RoundingMode.HALF_UP);
     final var imaginaryComponent = new BigDecimal("2.71828182846").setScale(5, RoundingMode.HALF_UP);
 
-    // execution
+    //execution
     final var result = new ComplexNumber(realComponent, imaginaryComponent);
 
-    // verification
+    //verification
     expect(result.getScale()).isEqualTo(10);
     expect(result.getRealComponent()).hasStringRepresentation("3.1415926536");
     expect(result.getImaginaryComponent()).hasStringRepresentation("2.7182800000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getConjugate_1A() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.getConjugate();
 
-    // verification
+    //verification
     expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getConjugate_1B() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.getConjugate();
 
-    // verification
+    //verification
     expect(result).isEqualTo(new ComplexNumber(0.0, -1.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getConjugate_1C() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.getConjugate();
 
-    // verification
+    //verification
     expect(result).isEqualTo(new ComplexNumber(1.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getConjugate_1D() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.getConjugate();
 
-    // verification
+    //verification
     expect(result).isEqualTo(new ComplexNumber(1.0, -1.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMagnitude_1A() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 10;
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.getMagnitude();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMagnitude_1B() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 10;
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.getMagnitude();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMagnitude_1C() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 10;
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.getMagnitude();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMagnitude_2A() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 10;
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(3.0, 4.0);
 
-    // execution
+    //execution
     final var result = testUnit.getMagnitude();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(5.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMagnitude_2B() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 10;
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(4.0, 3.0);
 
-    // execution
+    //execution
     final var result = testUnit.getMagnitude();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(5.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getProduct_1A() {
 
-    // parameter definition
+    //parameter definition
     final var factor = new ComplexNumber(0.0, 0.0);
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.getProduct(factor);
 
-    // verification
+    //verification
     expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getProduct_1B() {
 
-    // parameter definition
+    //parameter definition
     final var factor = new ComplexNumber(0.0, 0.0);
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.getProduct(factor);
 
-    // verification
+    //verification
     expect(result).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSum_1A() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(-1.0, -1.0);
 
-    // execution & verification
+    //execution & verification
     expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(-2.0, -2.0));
     expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(-2.0, -1.0));
     expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(-2.0, 0.0));
@@ -276,14 +276,14 @@ public final class ComplexNumberTest extends Test {
     expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSum_1B() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
-    // execution & verification
+    //execution & verification
     expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(-1.0, -1.0));
     expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(-1.0, 0.0));
     expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(-1.0, 1.0));
@@ -295,14 +295,14 @@ public final class ComplexNumberTest extends Test {
     expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(1.0, 1.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSum_1C() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
-    // execution & verification
+    //execution & verification
     expect(testUnit.getSum(new ComplexNumber(-1.0, -1.0))).isEqualTo(new ComplexNumber(0.0, 0.0));
     expect(testUnit.getSum(new ComplexNumber(-1.0, 0.0))).isEqualTo(new ComplexNumber(0.0, 1.0));
     expect(testUnit.getSum(new ComplexNumber(-1.0, 1.0))).isEqualTo(new ComplexNumber(0.0, 2.0));
@@ -314,201 +314,201 @@ public final class ComplexNumberTest extends Test {
     expect(testUnit.getSum(new ComplexNumber(1.0, 1.0))).isEqualTo(new ComplexNumber(2.0, 2.0));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_inBigDecimalScale() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 10);
 
-    // execution
+    //execution
     final var result = testUnit.inBigDecimalScale(50);
 
-    // verification
+    //verification
     expect(result.getBigDecimalScale()).isEqualTo(50);
     expect(result.getRealComponent().scale()).isEqualTo(50);
     expect(result.getImaginaryComponent().scale()).isEqualTo(50);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_1() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, -1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureImaginary();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_2() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureImaginary();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsNotPureImaginary_3() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureImaginary();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_1() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, -1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureImaginary();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_2() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureImaginary();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureImaginary_whenTheGivenComplexNumberIsPureImaginary_3() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureImaginary();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_1() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(-1.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureReal();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_2() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureReal();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureReal_whenTheGivenComplexNumberIsNotPureReal_3() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureReal();
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_1() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(-1.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureReal();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_2() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(0.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureReal();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isPureReal_whenTheGivenComplexNumberIsPureReal_3() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(1.0, 0.0);
 
-    // execution
+    //execution
     final var result = testUnit.isPureReal();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 5);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("3.00000 + 2.00000i");
   }
 }

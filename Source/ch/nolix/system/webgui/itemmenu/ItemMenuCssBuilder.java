@@ -12,20 +12,20 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public abstract class ItemMenuCssBuilder<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
     extends ControlCssBuilder<IM, IMS> {
 
-  // method
+  //method
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final IM itemMenu,
       final ControlState state,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected final void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final IM itemMenu,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

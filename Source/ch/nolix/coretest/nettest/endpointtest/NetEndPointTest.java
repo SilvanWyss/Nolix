@@ -13,52 +13,52 @@ import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 //class
 public final class NetEndPointTest extends Test {
 
-  // constant
+  //constant
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  // static class
+  //constant
   private static final class TestEndPointTaker implements ISlot {
 
-    // optional attribute
+    //optional attribute
     private String receivedMessage;
 
-    // method
+    //method
     @Override
     public String getName() {
       return "EndPointTaker";
     }
 
-    // method
+    //method
     public String getReceivedMessage() {
       return receivedMessage;
     }
 
-    // method
+    //method
     @Override
     public void takeBackendEndPoint(final IEndPoint endPoint) {
       endPoint.setReceiver(this::setMessage);
     }
 
-    // method
+    //method
     private void setMessage(final String receivedMessage) {
       this.receivedMessage = receivedMessage;
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
-    // setup
+    //setup
     try (final var server = Server.forPort(port)) {
 
-      // setup
+      //setup
       server.addDefaultSlot(new TestEndPointTaker());
 
-      // execution & verification
+      //execution & verification
       expectRunning(
           () -> {
             try (final var result = new SocketEndPoint(port)) {
@@ -69,26 +69,26 @@ public final class NetEndPointTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_send() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
 
-      // setup
+      //setup
       final var endPointTaker = new TestEndPointTaker();
       server.addDefaultSlot(endPointTaker);
 
       try (final var testUnit = new SocketEndPoint(port)) {
 
-        // execution
+        //execution
         testUnit.sendMessage("MESSAGE");
         GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
 
-        // verification
+        //verification
         expect(endPointTaker.getReceivedMessage()).isEqualTo("MESSAGE");
       }
     }

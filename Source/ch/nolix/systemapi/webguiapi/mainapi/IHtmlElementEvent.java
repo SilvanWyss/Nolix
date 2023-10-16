@@ -4,9 +4,9 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 //interface
 public interface IHtmlElementEvent {
 
-  // method declaration
+  //method declaration
   String getHtmlElementId();
 
-  // method declaration
+  //method declaration
   String getHtmlEvent();
 }

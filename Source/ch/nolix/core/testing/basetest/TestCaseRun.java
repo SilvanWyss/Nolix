@@ -11,24 +11,24 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 final class TestCaseRun {
 
-  // constant
+  //constant
   public static final long MAX_DURATION_IN_MILLISECONDS = 5000;
 
-  // constant
+  //constant
   private static final StackTraceElementFinder STACK_TRACE_ELEMENT_FINDER = new StackTraceElementFinder();
 
-  // attribute
+  //attribute
   private final TestCaseWrapper testCaseWrapper;
 
-  // attribute
+  //attribute
   private boolean started;
 
-  // constructor
+  //constructor
   public TestCaseRun(final BaseTest parentTest, final Method testCase) {
     this(new TestCaseWrapper(parentTest, testCase));
   }
 
-  // constructor
+  //constructor
   public TestCaseRun(final TestCaseWrapper testCaseWrapper) {
 
     if (testCaseWrapper == null) {
@@ -38,17 +38,17 @@ final class TestCaseRun {
     this.testCaseWrapper = testCaseWrapper;
   }
 
-  // method
+  //method
   public boolean hasStarted() {
     return started;
   }
 
-  // method
+  //method
   public boolean hasTimeout() {
     return testCaseWrapper.testCaseHasTimeout();
   }
 
-  // method
+  //method
   public TestCaseResult runAndGetResult() {
 
     if (!hasTimeout()) {
@@ -58,35 +58,35 @@ final class TestCaseRun {
     return runAndGetResultWithTimeout();
   }
 
-  // method
+  //method
   public TestCaseResult runAndGetResultWithoutTimeout() {
 
     setStarted();
     final var testCaseRunner = new TestCaseRunner(testCaseWrapper);
 
-    // This loop suffers from being optimized away by the compiler or the JVM.
+    //This loop suffers from being optimized away by the compiler or the JVM.
     while (!testCaseRunner.isFinished()) {
 
-      // This statement, which is theoretically unnecessary, makes that the current
-      // loop is not optimized away.
-      System.err.flush(); // NOSONAR: This statement is used to keep the loop.
+      //This statement, which is theoretically unnecessary, makes that the current
+      //loop is not optimized away.
+      System.err.flush(); //NOSONAR: This statement is used to keep the loop.
     }
 
     return testCaseRunner.getResult();
   }
 
-  // method
+  //method
   public TestCaseResult runAndGetResultWithTimeout() {
 
     setStarted();
     final var testCaseRunner = new TestCaseRunner(testCaseWrapper);
 
-    // This loop suffers from being optimized away by the compiler or the JVM.
+    //This loop suffers from being optimized away by the compiler or the JVM.
     while (!testCaseRunner.isFinished()) {
 
-      // This statement, which is theoretically unnecessary, makes that the current
-      // loop is not optimized away.
-      System.err.flush(); // NOSONAR: This statement is used to keep the loop.
+      //This statement, which is theoretically unnecessary, makes that the current
+      //loop is not optimized away.
+      System.err.flush(); //NOSONAR: This statement is used to keep the loop.
 
       if (testCaseRunner.getRuntimeInMilliseconds() > MAX_DURATION_IN_MILLISECONDS) {
         testCaseRunner.stop(
@@ -103,14 +103,14 @@ final class TestCaseRun {
     return testCaseRunner.getResult();
   }
 
-  // method
+  //method
   private void assertHasNotStarted() {
     if (hasStarted()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "has started already");
     }
   }
 
-  // method
+  //method
   private void setStarted() {
     assertHasNotStarted();
     started = true;

@@ -10,22 +10,22 @@ package ch.nolix.core.net.endpoint3;
  */
 final class NetEndPointProtocol {
 
-  // constant
+  //constant
   public static final String COMMANDS_HEADER = "Commands";
 
-  // constant
+  //constant
   public static final String DONE_HEADER = "Done";
 
-  // constant
+  //constant
   public static final String ERROR_HEADER = "Error";
 
-  // constant
+  //constant
   public static final String MULTI_DATA_HEADER = "MultiData";
 
-  // constant
+  //constant
   public static final String MULTI_DATA_REQUEST_HEADER = "MultiDataRequest";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link NetEndPointProtocol} can be created.
    */

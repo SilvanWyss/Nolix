@@ -12,7 +12,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHorizontalStack> {
 
-  // method
+  //method
   @Override
   public HtmlElement createHtmlElementForControl(final IHorizontalStack horizontalStack) {
     return HtmlElement.withTypeAndChildElements(
@@ -20,13 +20,13 @@ public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHo
         createHtmlElementsForChildControlsOfHorizontalStack(horizontalStack));
   }
 
-  // method
+  //method
   private IContainer<HtmlElement> createHtmlElementsForChildControlsOfHorizontalStack(
       final IHorizontalStack horizontalStack) {
     return horizontalStack.getStoredChildControls().to(this::createHtmlElementsForChildControl);
   }
 
-  // method
+  //method
   private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
     return HtmlElement.withTypeAndChildElement(HtmlElementTypeCatalogue.DIV, childControl.getHtml());
   }

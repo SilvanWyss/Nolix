@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 final class OccurancePlaceFinder {
 
-  // method
+  //method
   public <O extends Object> OccurancePlace findOccurancePlaceOfStackTraceInClass(
       final StackTraceElement[] stackTrace,
       final Class<O> pClass) {
@@ -27,21 +27,21 @@ final class OccurancePlaceFinder {
     throw InvalidArgumentException.forArgument("The given stack trace does not occur in the given test class.");
   }
 
-  // method
+  //method
   public OccurancePlace findOccurancePlaceOfStackTraceInInstance(
       final StackTraceElement[] stackTrace,
       final BaseTest test) {
     return findOccurancePlaceOfStackTraceInClass(stackTrace, test.getClass());
   }
 
-  // method
+  //method
   public <O extends Object> OccurancePlace findOccurancePlaceOfThrowableInInstance(
       final Throwable throwable,
       final O instance) {
     return findOccurancePlaceOfThrowableInClass(throwable, instance.getClass());
   }
 
-  // method
+  //method
   public <O extends Object> OccurancePlace findOccurancePlaceOfThrowableInClass(
       final Throwable throwable,
       final Class<O> pClass) {

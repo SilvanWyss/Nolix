@@ -16,18 +16,18 @@ public final class YesNoDialogBuilderTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
         "YesNoDialogBuilder tutorial",
         MainSession.class);
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -35,14 +35,14 @@ public final class YesNoDialogBuilderTutorial {
         .runInBackground(server::close);
   }
 
-  public static final class MainSession // NOSONAR: A single-file-tutorial is allowed to have a long static class.
+  public static final class MainSession //NOSONAR: A single-file-tutorial is allowed to have a long static class.
       extends WebClientSession<Object> {
 
     @Override
     protected void initialize() {
 
-      // Adds a Button, that can open a YesNoDialog, to the GUI of the current
-      // MainSession.
+      //Adds a Button, that can open a YesNoDialog, to the GUI of the current
+      //MainSession.
       getStoredGui().pushLayerWithRootControl(
           new Button()
               .setText("Click me")
@@ -54,7 +54,7 @@ public final class YesNoDialogBuilderTutorial {
                               .setConfirmAction(() -> getStoredGui().onFrontEnd().openNewTabWithUrl("nolix.ch"))
                               .build())));
 
-      // Creates and adds a Style to the GUI of the current MainSession.
+      //Creates and adds a Style to the GUI of the current MainSession.
       getStoredGui().setStyle(
           new StyleBuilder()
               .addSubStyle(

@@ -14,17 +14,17 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public class MethodMediator extends ArgumentMediator<Method> {
 
-  // constructor
+  //constructor
   MethodMediator(final Method argument) {
     super(LowerCaseCatalogue.METHOD, argument);
   }
 
-  // constructor
+  //constructor
   MethodMediator(final String argumentName, final Method argument) {
     super(argumentName, argument);
   }
 
-  // method
+  //method
   public final MethodMediator doesNotHaveAnnotations() {
 
     isNotNull();
@@ -39,7 +39,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  // method
+  //method
   public final MethodMediator doesNotReturnAnything() {
 
     isNotNull();
@@ -54,7 +54,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  // method
+  //method
   public final <A extends Annotation> MethodMediator hasAnnotation(final Class<A> annotationType) {
 
     if (annotationType == null) {
@@ -73,7 +73,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  // method
+  //method
   public final MethodMediator hasParametersOfTypeOnly(final Class<String> type) {
 
     if (type == null) {
@@ -94,7 +94,7 @@ public class MethodMediator extends ArgumentMediator<Method> {
     return this;
   }
 
-  // method
+  //method
   public final MethodMediator hasReturnType(final Class<Node> returnType) {
 
     if (returnType == null) {

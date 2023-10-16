@@ -4,12 +4,12 @@ package ch.nolix.coreapi.webapi.sessionapi;
 //interface
 public interface ICookieManager {
 
-  // method declaration
+  //method declaration
   void deleteCookieByName(String name);
 
-  // method declaration
+  //method declaration
   String getCookieValueByCookieNameOrNull(String cookieName);
 
-  // method declaration
+  //method declaration
   void setOrAddCookieWithNameAndValue(String name, String value);
 }

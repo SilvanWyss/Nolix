@@ -16,16 +16,16 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class DatabaseWriter implements IDataWriter {
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // attribute
+  //attribute
   private final InternalDatabaseWriter internalDatabaseWriter;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<ITableInfo> tableInfos;
 
-  // constructor
+  //constructor
   public DatabaseWriter(final IMutableNode<?> nodeDatabase, final IContainer<ITableInfo> tableInfos) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
@@ -34,7 +34,7 @@ public final class DatabaseWriter implements IDataWriter {
     this.tableInfos = tableInfos;
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiReferenceEntries(
       final String tableName,
@@ -49,7 +49,7 @@ public final class DatabaseWriter implements IDataWriter {
         tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiValueEntries(
       final String tableName,
@@ -64,7 +64,7 @@ public final class DatabaseWriter implements IDataWriter {
         tableInfo.getColumnInfoByColumnName(multiValueColumnName));
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiReferenceEntry(
       final String tableName,
@@ -81,7 +81,7 @@ public final class DatabaseWriter implements IDataWriter {
         referencedEntityId);
   }
 
-  // method
+  //method
   @Override
   public void deleteMultiValueEntry(
       final String tableName,
@@ -98,37 +98,37 @@ public final class DatabaseWriter implements IDataWriter {
         entry);
   }
 
-  // method
+  //method
   @Override
   public void deleteEntity(final String tableName, final IEntityHeadDto entity) {
     internalDatabaseWriter.deleteEntityFromTable(tableName, entity);
   }
 
-  // method
+  //method
   @Override
   public void expectGivenSchemaTimestamp(ITime schemaTimestamp) {
     internalDatabaseWriter.expectGivenSchemaTimestamp(schemaTimestamp);
   }
 
-  // method
+  //method
   @Override
   public void expectTableContainsEntity(final String tableName, final String entityId) {
     internalDatabaseWriter.expectTableContainsEntity(tableName, entityId);
   }
 
-  // method
+  //method
   @Override
   public int getSaveCount() {
     return internalDatabaseWriter.getSaveCount();
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges() {
     return internalDatabaseWriter.hasChanges();
   }
 
-  // method
+  //method
   @Override
   public void insertMultiReferenceEntry(
       final String tableName,
@@ -145,7 +145,7 @@ public final class DatabaseWriter implements IDataWriter {
         referencedEntityId);
   }
 
-  // method
+  //method
   @Override
   public void insertMultiValueEntry(
       final String tableName,
@@ -162,49 +162,49 @@ public final class DatabaseWriter implements IDataWriter {
         entry);
   }
 
-  // method
+  //method
   @Override
   public void insertNewEntity(final String tableName, final INewEntityDto newEntity) {
     internalDatabaseWriter.insertEntityIntoTable(getTableInfoByTableName(tableName), newEntity);
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void reset() {
     internalDatabaseWriter.reset();
   }
 
-  // method
+  //method
   @Override
   public void saveChanges() {
     internalDatabaseWriter.saveChangesAndReset();
   }
 
-  // method
+  //method
   @Override
   public void setEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     internalDatabaseWriter.setEntityAsUpdated(tableName, entity);
   }
 
-  // method
+  //method
   @Override
   public void updateEntity(final String tableName, final IEntityUpdateDto entityUpdate) {
     internalDatabaseWriter.updateEntityOnTable(getTableInfoByTableName(tableName), entityUpdate);
   }
 
-  // method
+  //method
   private ITableInfo getTableInfoByTableName(final String tableName) {
     return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
   }

@@ -4,12 +4,12 @@ package ch.nolix.systemtest.timetest.momenttest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new MomentTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

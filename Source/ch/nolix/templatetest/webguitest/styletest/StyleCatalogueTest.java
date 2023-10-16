@@ -22,19 +22,19 @@ import ch.nolix.template.webgui.style.StyleCatalogue;
 //class
 public final class StyleCatalogueTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_DarkStyle() {
 
-    // setup
+    //setup
     final var webGuiWithVariousContent = createWebGuiWithVariousContent();
     final var testUnit = StyleCatalogue.DARK_STYLE;
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.styleElement(webGuiWithVariousContent)).doesNotThrowException();
   }
 
-  // method
+  //method
   private WebGui createWebGuiWithVariousContent() {
     return new WebGui()
         .pushLayer(

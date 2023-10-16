@@ -16,19 +16,19 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
 
-  // constant
+  //constant
   private static final Runnable DEFAULT_JOB = FunctionCatalogue::doNothing;
 
-  // constant
+  //constant
   private static final Runnable DEFAULT_TERMINAL_ACTION = FunctionCatalogue::doNothing;
 
-  // attribute
+  //attribute
   private Runnable job = DEFAULT_JOB;
 
-  // attribute
+  //attribute
   private Runnable terminalAction = DEFAULT_TERMINAL_ACTION;
 
-  // method
+  //method
   @Override
   public ILayer<?> build() {
 
@@ -47,7 +47,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
     return waitDialog;
   }
 
-  // method
+  //method
   public WaitDialogBuilder setJob(final Runnable job) {
 
     this.job = job;
@@ -55,7 +55,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public WaitDialogBuilder setTerminalAction(final Runnable terminalAction) {
 
     this.terminalAction = terminalAction;
@@ -63,12 +63,12 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   private Runnable getJob() {
     return job;
   }
 
-  // method
+  //method
   private Runnable getTerminalAction() {
     return terminalAction;
   }

@@ -14,7 +14,7 @@ package ch.nolix.core.errorcontrol.exception;
 @SuppressWarnings("serial")
 public final class ResourceWasChangedInTheMeanwhileException extends RuntimeException {
 
-  // static method
+  //static method
   /**
    * @param resource
    * @return a new {@link ResourceWasChangedInTheMeanwhileException} for the given
@@ -26,7 +26,7 @@ public final class ResourceWasChangedInTheMeanwhileException extends RuntimeExce
     return new ResourceWasChangedInTheMeanwhileException(resource);
   }
 
-  // static method
+  //static method
   /**
    * @param resource
    * @return a valid resource for the given resource.
@@ -46,7 +46,7 @@ public final class ResourceWasChangedInTheMeanwhileException extends RuntimeExce
     return resource;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ResourceWasChangedInTheMeanwhileException} for the given
    * resource.

@@ -16,10 +16,10 @@ public abstract class BaseParameterizedValueType<
     V>
     implements IBaseParameterizedValueType<V> {
 
-  // attribute
+  //attribute
   private final Class<V> valueType;
 
-  // constructor
+  //constructor
   protected BaseParameterizedValueType(final Class<V> valueType) {
 
     GlobalValidator.assertThat(valueType).thatIsNamed(LowerCaseCatalogue.VALUE_TYPE).isNotNull();
@@ -27,31 +27,31 @@ public abstract class BaseParameterizedValueType<
     this.valueType = valueType;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedBackReferenceType<?> asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final Class<V> getValueType() {
     return valueType;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesTable(final ITable<?> table) {
     return false;

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
  */
 public interface IMutableValueHolder<V> extends IValueHolder<V> {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the value of the current {@link IMutableValueHolder}.
    * 

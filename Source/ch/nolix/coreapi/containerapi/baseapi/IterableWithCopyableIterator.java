@@ -13,7 +13,7 @@ package ch.nolix.coreapi.containerapi.baseapi;
  */
 public interface IterableWithCopyableIterator<E> extends Iterable<E> {
 
-  // method declaration
+  //method declaration
   /**
    * {@inheritDoc}
    */

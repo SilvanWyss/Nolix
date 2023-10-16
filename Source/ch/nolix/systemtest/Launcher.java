@@ -4,12 +4,12 @@ package ch.nolix.systemtest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new SystemTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

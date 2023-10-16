@@ -12,26 +12,26 @@ import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
 public final class ServerDashboardApplication
     extends Application<WebClient<IServerDashboardContext>, IServerDashboardContext> {
 
-  // constant
+  //constant
   public static final String APPLICATION_NAME = "Server Dashboard";
 
-  // static method
+  //static method
   public static ServerDashboardApplication forServer(final BaseServer<?> server) {
     return new ServerDashboardApplication(ServerDashboardContext.forServer(server));
   }
 
-  // constructor
+  //constructor
   private ServerDashboardApplication(final IServerDashboardContext serverDashboardContext) {
     super(serverDashboardContext);
   }
 
-  // method
+  //method
   @Override
   public String getApplicationName() {
     return APPLICATION_NAME;
   }
 
-  // method
+  //method
   @Override
   protected Class<?> getInitialSessionClass() {
     return ServerDashboardSession.class;

@@ -19,27 +19,27 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 final class ColumnMutationValidator {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // constant
+  //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  // constant
+  //constant
   private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 
-  // constant
+  //constant
   private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = //
       new ParameterizedPropertyTypeHelper();
 
-  // method
+  //method
   public void assertCanDeleteColumn(final Column column) {
     COLUMN_HELPER.assertIsOpen(column);
     COLUMN_HELPER.assertIsNotDeleted(column);
     column.assertIsNotBackReferenced();
   }
 
-  // method
+  //method
   public void assertCanSetNameToColumn(final Column column, final String name) {
 
     COLUMN_HELPER.assertIsOpen(column);
@@ -51,7 +51,7 @@ final class ColumnMutationValidator {
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
   }
 
-  // method
+  //method
   public void assertCanSetParameterizedPropertyTypeToColumn(
       final Column column,
       final IParameterizedPropertyType parameterizedPropertyType) {
@@ -84,7 +84,7 @@ final class ColumnMutationValidator {
     }
   }
 
-  // method
+  //method
   public void assertCanSetParentTableToColumn(final Column column, final Table parentTable) {
 
     COLUMN_HELPER.assertIsOpen(column);

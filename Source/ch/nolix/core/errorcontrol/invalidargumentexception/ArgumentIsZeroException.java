@@ -12,10 +12,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsZeroException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is 0";
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -28,7 +28,7 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
     return new ArgumentIsZeroException(argumentName, argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -41,7 +41,7 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
     return new ArgumentIsZeroException(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsZeroException} for the given argumentName and
    * argument.
@@ -53,11 +53,11 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
    */
   private ArgumentIsZeroException(final String argumentName, final double argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsZeroException} for the given argumentName and
    * argument.
@@ -69,7 +69,7 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
    */
   private ArgumentIsZeroException(final String argumentName, final long argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 }

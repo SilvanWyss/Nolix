@@ -14,16 +14,16 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class DatabaseReader implements IDataReader {
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // attribute
+  //attribute
   private final InternalDatabaseReader internalDatabaseReader;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<ITableInfo> tableInfos;
 
-  // constructor
+  //constructor
   public DatabaseReader(final IMutableNode<?> databaseNode, final IContainer<ITableInfo> tableInfos) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
@@ -33,19 +33,19 @@ public final class DatabaseReader implements IDataReader {
     this.tableInfos = tableInfos;
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public Time getSchemaTimestamp() {
     return internalDatabaseReader.getSchemaTimestamp();
   }
 
-  // method
+  //method
   @Override
   public IContainer<String> loadMultiReferenceEntries(
       final String tableName,
@@ -60,7 +60,7 @@ public final class DatabaseReader implements IDataReader {
         tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
   }
 
-  // method
+  //method
   @Override
   public IContainer<Object> loadMultiValueEntries(
       final String tableName,
@@ -75,25 +75,25 @@ public final class DatabaseReader implements IDataReader {
         tableInfo.getColumnInfoByColumnName(multiValueColumnName));
   }
 
-  // method
+  //method
   @Override
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final String tableName) {
     return internalDatabaseReader.loadEntitiesOfTable(getTableInfoByTableName(tableName));
   }
 
-  // method
+  //method
   @Override
   public ILoadedEntityDto loadEntity(final String tableName, final String id) {
     return internalDatabaseReader.loadEntity(getTableInfoByTableName(tableName), id);
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
       final String tableName,
@@ -108,13 +108,13 @@ public final class DatabaseReader implements IDataReader {
         value);
   }
 
-  // method
+  //method
   @Override
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
     return internalDatabaseReader.tableContainsEntityWithGivenId(tableName, id);
   }
 
-  // method
+  //method
   private ITableInfo getTableInfoByTableName(final String tableName) {
     return tableInfos.getStoredFirst(td -> td.getTableName().equals(tableName));
   }

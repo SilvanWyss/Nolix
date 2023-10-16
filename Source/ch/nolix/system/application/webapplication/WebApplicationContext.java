@@ -9,16 +9,16 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 //class
 public class WebApplicationContext implements IWebApplicationContext {
 
-  // optional attribute
+  //optional attribute
   private IImage applicationLogo;
 
-  // method
+  //method
   @Override
   public final IImage getApplicationLogo() {
     return applicationLogo;
   }
 
-  // method
+  //method
   public final WebApplicationContext setApplicationLogo(final IImage applicationLogo) {
 
     GlobalValidator.assertThat(applicationLogo).thatIsNamed("application logo").isNotNull();

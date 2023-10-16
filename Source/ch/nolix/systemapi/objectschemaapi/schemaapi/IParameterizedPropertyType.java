@@ -9,27 +9,27 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 //interface
 public interface IParameterizedPropertyType {
 
-  // method declaration
+  //method declaration
   IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType();
 
-  // method declaration
+  //method declaration
   IBaseParameterizedReferenceType asBaseParameterizedReferenceType();
 
-  // method declaration
+  //method declaration
   IBaseParameterizedValueType<?> asBaseParameterizedValueType();
 
-  // method declaration
+  //method declaration
   DataType getDataType();
 
-  // method declaration
+  //method declaration
   PropertyType getPropertyType();
 
-  // method declaration
+  //method declaration
   boolean referencesTable(ITable table);
 
-  // method declaration
+  //method declaration
   boolean referencesBackColumn(IColumn column);
 
-  // method declaration
+  //method declaration
   IParameterizedPropertyTypeDto toDto();
 }

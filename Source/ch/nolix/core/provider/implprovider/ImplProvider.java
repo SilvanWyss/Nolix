@@ -15,7 +15,7 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IImplProviderMediator;
 //class
 public final class ImplProvider implements IImplProvider {
 
-  // multi-attribute
+  //multi-attribute
   private final HashMap<Class<?>, SingleImplProvider<?>> singleImplProviders = new HashMap<>();
 
   @Override
@@ -23,7 +23,7 @@ public final class ImplProvider implements IImplProvider {
     return new ExtendedImplRegistratorMediator<>(this, pInterface);
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   public <IN> IImplProviderMediator<IN> ofInterface(final Class<IN> pInterface) {
@@ -37,12 +37,12 @@ public final class ImplProvider implements IImplProvider {
     return (IImplProviderMediator<IN>) singleImplProvider;
   }
 
-  // method
+  //method
   <IN> boolean containsImplementationFor(final Class<IN> pInterface) {
     return singleImplProviders.containsKey(pInterface);
   }
 
-  // method
+  //method
   <IN, IM extends IN> void registerImplementation(
       final Class<IN> pInterface,
       final Class<IM> implementation,
@@ -70,7 +70,7 @@ public final class ImplProvider implements IImplProvider {
     }
   }
 
-  // method
+  //method
   private String getName() {
     return getClass().getSimpleName();
   }

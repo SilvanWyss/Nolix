@@ -10,7 +10,7 @@ import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableColumn;
 //class
 final class QueryCreator {
 
-  // method
+  //method
   public String createQueryToGetTableCount() {
     return "SELECT COUNT("
         + TableTableColumn.ID.getName()
@@ -19,7 +19,7 @@ final class QueryCreator {
         + ";";
   }
 
-  // method
+  //method
   public String createQueryToLoadCoumnsByTableId(final String tableId) {
     return "SELECT "
         + ColumnTableColumn.ID.getName()
@@ -44,7 +44,7 @@ final class QueryCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createQueryToLoadCoumnsByTableName(final String tableName) {
     return "SELECT "
         + ColumnTableColumn.ID.getName()
@@ -69,7 +69,7 @@ final class QueryCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createQueryToLoadFlatTableById(final String id) {
     return "SELECT "
         + TableTableColumn.ID.getName()
@@ -84,7 +84,7 @@ final class QueryCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createQueryToLoadFlatTableByName(final String name) {
     return "SELECT "
         + TableTableColumn.ID.getName()
@@ -99,7 +99,7 @@ final class QueryCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createQueryToLoadFlatTables() {
     return "SELECT "
         + TableTableColumn.ID.getName()
@@ -109,7 +109,7 @@ final class QueryCreator {
         + SystemDataTable.TABLE.getQualifiedName();
   }
 
-  // method
+  //method
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "
         + DatabasePropertySystemTableColumn.VALUE.getLabel()

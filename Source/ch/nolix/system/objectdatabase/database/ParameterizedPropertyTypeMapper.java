@@ -21,7 +21,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 //class
 final class ParameterizedPropertyTypeMapper {
 
-  // method
+  //method
   public IParameterizedPropertyType createParameterizedPropertyTypeFromDtoUsingGivenReferencableTables(
       final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto,
       final IContainer<? extends ITable<IEntity>> referencableTables) {

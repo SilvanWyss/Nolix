@@ -8,9 +8,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IRootControlOwner;
 //interface
 public interface IAccordionTab extends FluentHeaderable<IAccordionTab>, IRootControlOwner<IAccordionTab>, Selectable {
 
-  // method declaration
+  //method declaration
   boolean belongsToAccordion();
 
-  // method declaration
+  //method declaration
   IAccordion getParentAccordion();
 }

@@ -14,10 +14,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  */
 final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
 
-  // attribute
+  //attribute
   private final MessageRole messageRole;
 
-  // static method
+  //static method
   /**
    * @param string
    * @return a new zeta package the given string represents.
@@ -29,7 +29,7 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
         string.substring(9));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new zeta package with the given index and message and the role the
    * given message has.
@@ -42,17 +42,17 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
    */
   public Package(final int index, final MessageRole messageRole, final String message) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(index, message);
 
-    // Asserts that the given message role is not null.
+    //Asserts that the given message role is not null.
     GlobalValidator.assertThat(messageRole).isOfType(MessageRole.class);
 
-    // Sets the message role of thsis zeta package.
+    //Sets the message role of thsis zeta package.
     this.messageRole = messageRole;
   }
 
-  // method
+  //method
   /**
    * @return the role of the message of this zeta package.
    */
@@ -60,7 +60,7 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
     return messageRole;
   }
 
-  // method
+  //method
   /**
    * @return a {@link String} representation of this zeta package.
    */

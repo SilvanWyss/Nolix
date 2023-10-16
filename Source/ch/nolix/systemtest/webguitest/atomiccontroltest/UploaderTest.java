@@ -9,7 +9,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public final class UploaderTest extends ControlTest<IUploader> {
 
-  // method
+  //method
   @Override
   protected Uploader createTestUnit() {
     return new Uploader();

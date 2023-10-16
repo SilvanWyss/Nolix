@@ -9,7 +9,7 @@ public enum Visibility {
   VISIBLE,
   INVISIBLE;
 
-  // static method
+  //static method
   public static Visibility fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

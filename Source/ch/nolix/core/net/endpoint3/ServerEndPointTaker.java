@@ -15,13 +15,13 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
  */
 final class ServerEndPointTaker implements ISlot {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final BaseServer parentServer;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@ServerEndPointTaker} that will belong to the given
    * parentServer.
@@ -41,7 +41,7 @@ final class ServerEndPointTaker implements ISlot {
     this.name = name;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -50,7 +50,7 @@ final class ServerEndPointTaker implements ISlot {
     return name;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

@@ -4,9 +4,9 @@ package ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi;
 //interface
 public interface IMultiValueQueryCreator {
 
-  // method declaration
+  //method declaration
   String createQueryToLoadMultiValueEntries(String entityId, String multiValueColumnId);
 
-  // method declaration
+  //method declaration
   String createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(String columnId, String value);
 }

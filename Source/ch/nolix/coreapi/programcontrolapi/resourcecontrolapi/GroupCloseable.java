@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface GroupCloseable extends Closeable, CloseStateRequestable {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -23,7 +23,7 @@ public interface GroupCloseable extends Closeable, CloseStateRequestable {
     getStoredCloseController().close();
   }
 
-  // method
+  //method
   /**
    * Creates a close dependency between the current {@link GroupCloseable} and the
    * given element.
@@ -42,13 +42,13 @@ public interface GroupCloseable extends Closeable, CloseStateRequestable {
     getStoredCloseController().createCloseDependencyTo(element);
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return the {@link ICloseController} of the current {@link GroupCloseable}.
    */
   ICloseController getStoredCloseController();
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -57,7 +57,7 @@ public interface GroupCloseable extends Closeable, CloseStateRequestable {
     return getStoredCloseController().hasClosed();
   }
 
-  // method declaration
+  //method declaration
   /**
    * Lets the current {@link GroupCloseable} note a close.
    */

@@ -11,18 +11,18 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class LinkedListTest extends ContainerTest {
 
-  // method
+  //method
   @TestCase
   public void testCase_addAtBegin() {
 
-    // setup
+    //setup
     final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
     final var list = LinkedList.withElement("b1", "b2");
 
-    // execution
+    //execution
     testUnit.addAtBegin(list);
 
-    // verification
+    //verification
     expect(testUnit.getElementCount()).isEqualTo(6);
     expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("b1");
     expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("b2");
@@ -32,18 +32,18 @@ public final class LinkedListTest extends ContainerTest {
     expect(testUnit.getStoredAt1BasedIndex(6)).isEqualTo("a4");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addAtBegin_whenGivenListIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
     final var list = new LinkedList<String>();
 
-    // execution
+    //execution
     testUnit.addAtBegin(list);
 
-    // verification
+    //verification
     expect(testUnit.getElementCount()).isEqualTo(4);
     expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("a1");
     expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("a2");
@@ -51,96 +51,96 @@ public final class LinkedListTest extends ContainerTest {
     expect(testUnit.getStoredAt1BasedIndex(4)).isEqualTo("a4");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addAtBegin_whenIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new LinkedList<String>();
     final var list = LinkedList.withElement("b1", "b2");
 
-    // execution
+    //execution
     testUnit.addAtBegin(list);
 
-    // verification
+    //verification
     expect(testUnit.getElementCount()).isEqualTo(2);
     expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("b1");
     expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("b2");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addAtBegin_whenTheGivenElementIsNull() {
 
-    // setup
+    //setup
     final var testUnit = new LinkedList<>();
     final Object nullElement = null;
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.addAtBegin(nullElement))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given element is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addAtEnd_whenTheGivenElementIsNull() {
 
-    // setup
+    //setup
     final var testUnit = new LinkedList<>();
     final Object nullElement = null;
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.addAtEnd(nullElement))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given element is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_clear() {
 
-    // setup
+    //setup
     final var testUnit = LinkedList.withElement("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
 
-    // execution
+    //execution
     testUnit.clear();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString() {
 
-    // setup
+    //setup
     final var testUnit = LinkedList.withElement("elephant", "jaguar", "lion", "python", "shark", "zebra");
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("elephant,jaguar,lion,python,shark,zebra");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenLikedListIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new LinkedList<>();
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // verification
+    //verification
     expect(result).isEmpty();
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
       final E element,
@@ -148,7 +148,7 @@ public final class LinkedListTest extends ContainerTest {
     return LinkedList.withElement(element, elements);
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return new LinkedList<>();

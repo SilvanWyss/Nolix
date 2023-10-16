@@ -9,14 +9,14 @@ import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 //class
 record ServerHttpMessage(String serverIP, int serverPort) {
 
-  // constant
+  //constant
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
 
-  // constant
+  //constant
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 
-  // constructor
-  public ServerHttpMessage( // NOSONAR: This constructor does more than the default one.
+  //constructor
+  public ServerHttpMessage( //NOSONAR: This constructor does more than the default one.
       final String serverIP,
       final int serverPort) {
 
@@ -27,22 +27,22 @@ record ServerHttpMessage(String serverIP, int serverPort) {
     this.serverPort = serverPort;
   }
 
-  // method
+  //method
   public String getServerIP() {
     return serverIP;
   }
 
-  // method
+  //method
   public String getServerIpInQuotes() {
     return "'" + getServerIP() + "'";
   }
 
-  // method
+  //method
   public int getServerPort() {
     return serverPort;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return "HTTP/1.1 200 OK\r\n"
@@ -52,7 +52,7 @@ record ServerHttpMessage(String serverIP, int serverPort) {
         + "<html>\n"
         + "<head>\n"
 
-        // The 'data:,' link avoids that a browser requests a favorite icon.
+        //The 'data:,' link avoids that a browser requests a favorite icon.
         + "<link id=\"icon\" rel=\"icon\" href=\"data:,\">\n"
 
         + "<script>\n"
@@ -71,7 +71,7 @@ record ServerHttpMessage(String serverIP, int serverPort) {
         + "</html>\r\n";
   }
 
-  // method
+  //method
   private String getMainScript() {
     return "<script>\n"
         + "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"

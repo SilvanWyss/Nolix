@@ -4,12 +4,12 @@ package ch.nolix.systemtest.elementtest.mutableelementtest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new MutableElementTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

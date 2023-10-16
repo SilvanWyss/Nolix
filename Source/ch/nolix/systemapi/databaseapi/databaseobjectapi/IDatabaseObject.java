@@ -6,9 +6,9 @@ import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
 //interface
 public interface IDatabaseObject extends CloseStateRequestable, DeletionRequestable {
 
-  // method declaration
+  //method declaration
   DatabaseObjectState getState();
 
-  // method declaration
+  //method declaration
   boolean isLinkedWithRealDatabase();
 }

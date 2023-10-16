@@ -7,17 +7,17 @@ import ch.nolix.core.builder.main.ArgumentCapturer;
 //class
 public class AndPasswordCapturer<N> extends ArgumentCapturer<String, N> {
 
-  // constructor
+  //constructor
   public AndPasswordCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
 
-  // method
+  //method
   public final N andPassword(final String password) {
     return setArgumentAndGetNext(password);
   }
 
-  // method
+  //method
   public final String getPassword() {
     return getStoredArgument();
   }

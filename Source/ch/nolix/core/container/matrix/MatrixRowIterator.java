@@ -13,18 +13,18 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class MatrixRowIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> MatrixRowIterator<E2> forMatrixRow(final MatrixRow<E2> matrixRow) {
     return new MatrixRowIterator<>(matrixRow);
   }
 
-  // attribute
+  //attribute
   private final MatrixRow<E> parentMatrixRow;
 
-  // attribute
+  //attribute
   private int nextElement1BasedColumnIndex;
 
-  // constructor
+  //constructor
   private MatrixRowIterator(final MatrixRow<E> parentMatrixRow) {
 
     GlobalValidator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
@@ -33,7 +33,7 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
     nextElement1BasedColumnIndex = 1;
   }
 
-  // constructor
+  //constructor
   private MatrixRowIterator(final MatrixRow<E> parentMatrixRow, final int nextElement1BasedColumnIndex) {
 
     GlobalValidator.assertThat(parentMatrixRow).thatIsNamed("parent MatrixRow").isNotNull();
@@ -47,19 +47,19 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
     this.nextElement1BasedColumnIndex = nextElement1BasedColumnIndex;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return new MatrixRowIterator<>(parentMatrixRow, nextElement1BasedColumnIndex);
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (nextElement1BasedColumnIndex <= parentMatrixRow.getElementCount());
   }
 
-  // method
+  //method
   @Override
   public E next() {
 
@@ -68,7 +68,7 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
@@ -76,7 +76,7 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = parentMatrixRow.getStoredAt1BasedIndex(nextElement1BasedColumnIndex);

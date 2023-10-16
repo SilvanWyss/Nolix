@@ -16,16 +16,16 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 final class TableMutationValidator {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // constant
+  //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  // constant
+  //constant
   private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 
-  // method
+  //method
   public void assertCanAddColumnToTable(final Table table, final Column column) {
 
     TABLE_HELPER.assertIsOpen(table);
@@ -53,7 +53,7 @@ final class TableMutationValidator {
     }
   }
 
-  // method
+  //method
   public void assertCanDeleteTable(final Table table) {
     TABLE_HELPER.assertIsOpen(table);
     TABLE_HELPER.assertIsNotNew(table);
@@ -61,7 +61,7 @@ final class TableMutationValidator {
     TABLE_HELPER.assertIsNotReferenced(table);
   }
 
-  // method
+  //method
   public void assertCanSetNameToTable(final Table table, final String name) {
 
     TABLE_HELPER.assertIsOpen(table);

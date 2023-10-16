@@ -13,32 +13,32 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class CompressedListIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> CompressedListIterator<E2> forCompressedListWithFirstNode(
       final CompressedListNode<E2> firstNode) {
     return new CompressedListIterator<>(firstNode);
   }
 
-  // static method
+  //static method
   public static <E2> CompressedListIterator<E2> forEmptyCompressedList() {
     return new CompressedListIterator<>();
   }
 
-  // optional attribute
+  //optional attribute
   private CompressedListNode<E> nextNode;
 
-  // optional attribute
+  //optional attribute
   private int nextNodeIndex;
 
-  // constructor
+  //constructor
   private CompressedListIterator() {
     nextNode = null;
     nextNodeIndex = -1;
   }
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   private CompressedListIterator(final CompressedListNode<E> firstNode) {
 
     if (firstNode == null) {
@@ -49,7 +49,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
     nextNodeIndex = 1;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
 
@@ -60,7 +60,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
     return forCompressedListWithFirstNode(nextNode);
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (nextNode != null);
@@ -74,7 +74,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
@@ -82,7 +82,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private void moveForward() {
     if (nextNodeIndex < nextNode.getElementCount()) {
       nextNodeIndex++;
@@ -91,7 +91,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private void moveForwardCurrentNode() {
     if (nextNode.hasNextNode()) {
 
@@ -106,7 +106,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = nextNode.getStoredElement();

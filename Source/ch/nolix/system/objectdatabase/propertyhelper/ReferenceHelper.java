@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //class
 public final class ReferenceHelper extends PropertyHelper implements IReferenceHelper {
 
-  // method
+  //method
   @Override
   public boolean canSetGivenEntity(final IReference<?> reference, final IEntity entity) {
     return canSetEntity(reference)
@@ -21,7 +21,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
         && reference.getReferencedTableName().equals(entity.getParentTableName());
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetEntity(
       final IReference<?> reference,
@@ -35,7 +35,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
         new ContentFieldDto(reference.getName(), entity.getId()));
   }
 
-  // method
+  //method
   @Override
   public IProperty getStoredBackReferencingPropertyOrNull(final IReference<?> reference) {
     return reference
@@ -44,7 +44,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
         .getStoredFirstOrNull(p -> p.referencesBackProperty(reference));
   }
 
-  // method
+  //method
   private boolean canSetEntity(final IReference<?> reference) {
     return reference != null
         && reference.belongsToEntity()

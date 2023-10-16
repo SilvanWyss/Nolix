@@ -17,7 +17,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public final class ForwardingMutableValue<V> implements IProperty, Named {
 
-  // static method
+  //static method
   public static ForwardingMutableValue<Boolean> forBoolean(
       final String name,
       final Consumer<Boolean> setter,
@@ -25,7 +25,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
     return new ForwardingMutableValue<>(name, setter, getter, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
-  // static method
+  //static method
   public static ForwardingMutableValue<Integer> forInt(
       final String name,
       final Consumer<Integer> setter,
@@ -33,7 +33,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
     return new ForwardingMutableValue<>(name, setter, getter, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  // static method
+  //static method
   public static ForwardingMutableValue<String> forString(
       final String name,
       final Consumer<String> setter,
@@ -53,22 +53,22 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
         });
   }
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Consumer<V> setter;
 
-  // attribute
+  //attribute
   private final Supplier<V> getter;
 
-  // attribute
+  //attribute
   private final Function<INode<?>, V> valueCreator;
 
-  // attribute
+  //attribute
   private final Function<V, INode<?>> specificationCreator;
 
-  // constructor
+  //constructor
   public ForwardingMutableValue(
       final String name,
       final Consumer<V> setter,
@@ -89,13 +89,13 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
     this.specificationCreator = specificationCreator;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public boolean addedOrChangedAttribute(INode<?> attribute) {
 
@@ -107,7 +107,7 @@ public final class ForwardingMutableValue<V> implements IProperty, Named {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     list.addAtEnd(specificationCreator.apply(getter.get()));

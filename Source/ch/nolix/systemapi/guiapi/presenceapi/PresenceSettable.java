@@ -4,15 +4,15 @@ package ch.nolix.systemapi.guiapi.presenceapi;
 //interface
 public interface PresenceSettable<PS extends PresenceSettable<PS>> extends PresenceRequestable {
 
-  // method declaration
+  //method declaration
   PS setCollapsed();
 
-  // method declaration
+  //method declaration
   PS setInvisible();
 
-  // method declaration
+  //method declaration
   PS setVisibility(boolean visible);
 
-  // method declaration
+  //method declaration
   PS setVisible();
 }

@@ -9,15 +9,15 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IContainer<C extends IContainer<C, ECS>, ECS extends IControlStyle<ECS>>
     extends Clearable, IControl<C, ECS> {
 
-  // method declaration
+  //method declaration
   ContainerRole getRole();
 
-  // method declaration
+  //method declaration
   boolean hasRole();
 
-  // method declaration
+  //method declaration
   void removeRole();
 
-  // method declaration
+  //method declaration
   C setRole(ContainerRole role);
 }

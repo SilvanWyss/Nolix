@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class LocalComputer {
 
-  // static method
+  //static method
   public static String getLANIP() {
     try {
       return InetAddress.getLocalHost().getHostAddress();
@@ -20,7 +20,7 @@ public final class LocalComputer {
     }
   }
 
-  // constructor
+  //constructor
   private LocalComputer() {
   }
 }

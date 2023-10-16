@@ -12,16 +12,16 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 //class
 public final class SecureServer extends BaseServer<SecureServer> {
 
-  // constant
+  //constant
   public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
 
-  // constant
+  //constant
   private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.SECURE;
 
-  // constant
+  //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = new NolixConfigurationSSLCertificateReader();
 
-  // static method
+  //static method
   public static SecureServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
 
     final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
@@ -32,7 +32,7 @@ public final class SecureServer extends BaseServer<SecureServer> {
     return new SecureServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
   }
 
-  // static method
+  //static method
   public static SecureServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
       final String domain) {
 
@@ -42,7 +42,7 @@ public final class SecureServer extends BaseServer<SecureServer> {
     return new SecureServer(DEFAULT_PORT, domain, paramSSLCertificate);
   }
 
-  // static method
+  //static method
   public static SecureServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
       final int port,
       final String domain) {
@@ -53,16 +53,16 @@ public final class SecureServer extends BaseServer<SecureServer> {
     return new SecureServer(port, domain, paramSSLCertificate);
   }
 
-  // attribute
+  //attribute
   private final ch.nolix.core.net.endpoint3.SecureServer internalWebSocketServer;
 
-  // attribute
+  //attribute
   private final String domain;
 
-  // attribute
+  //attribute
   private final int port;
 
-  // constructor
+  //constructor
   public SecureServer(final int port, final String domain, final ISSLCertificate paramSSLCertificate) {
 
     final var htmlPage = new SecureServerHtmlPage(domain, port);
@@ -76,7 +76,7 @@ public final class SecureServer extends BaseServer<SecureServer> {
     createCloseDependencyTo(internalWebSocketServer);
   }
 
-  // method
+  //method
   @Override
   public IServerTarget asTarget() {
     return ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
@@ -85,7 +85,7 @@ public final class SecureServer extends BaseServer<SecureServer> {
         SECURITY_LEVEL_FOR_CONNECTIONS);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -94,13 +94,13 @@ public final class SecureServer extends BaseServer<SecureServer> {
     return this;
   }
 
-  // method
+  //method
   @Override
   protected void noteAddedApplication(final Application<?, ?> application) {
     internalWebSocketServer.addSlot(new ServerEndPointTaker(application.getUrlInstanceName(), this));
   }
 
-  // method
+  //method
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
     internalWebSocketServer.addDefaultSlot(new ServerEndPointTaker(defaultApplication.getUrlInstanceName(), this));

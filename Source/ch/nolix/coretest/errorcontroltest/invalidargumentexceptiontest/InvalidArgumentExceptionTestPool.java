@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class InvalidArgumentExceptionTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public InvalidArgumentExceptionTestPool() {
     super(InvalidArgumentExceptionTest.class);
   }

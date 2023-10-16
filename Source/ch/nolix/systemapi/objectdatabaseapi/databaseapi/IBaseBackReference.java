@@ -7,12 +7,12 @@ public interface IBaseBackReference<
     E extends IEntity>
     extends IProperty {
 
-  // method declaration
+  //method declaration
   String getBackReferencedPropertyName();
 
-  // method declaration
+  //method declaration
   ITable<E> getBackReferencedTable();
 
-  // method declaration
+  //method declaration
   String getBackReferencedTableName();
 }

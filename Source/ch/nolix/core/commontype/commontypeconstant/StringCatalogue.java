@@ -10,142 +10,142 @@ package ch.nolix.core.commontype.commontypeconstant;
  */
 public final class StringCatalogue {
 
-  // constant
+  //constant
   public static final String APOSTROPH = "'";
 
-  // constant
+  //constant
   public static final String AVERAGE = "\u00D8";
 
-  // constant
+  //constant
   public static final String BACK_SLASH = "\\";
 
-  // constant
+  //constant
   public static final String BULLET_POINT = "\u2022";
 
-  // constant
+  //constant
   public static final String CLOSED_BRACKET = ")";
 
-  // constant
+  //constant
   public static final String CLOSED_CROCODILE_BRACKET = ">";
 
-  // constant
+  //constant
   public static final String CLOSED_SQUARE_BRACKET = "]";
 
-  // constant
+  //constant
   public static final String COMMA = ",";
 
-  // constant
+  //constant
   public static final String DEFAULT_STRING = "Default";
 
-  // constant
+  //constant
   public static final String DOLLAR = "$";
 
-  // constant
+  //constant
   public static final String DOT = ".";
 
-  // constant
+  //constant
   public static final String ELLIPSIS = "\u2026";
 
-  // constant
+  //constant
   public static final String EMPTY_STRING = "";
 
-  // constant
+  //constant
   public static final String FALSE_HEADER = "false";
 
-  // constant
+  //constant
   public static final String FAT_CHECK_MARK = "\u2714";
 
-  // constant
+  //constant
   public static final String FAT_CROSS = "\u2716";
 
-  // constant
+  //constant
   public static final String HEXADECIMAL_PREFIX = "0x";
 
-  // constant
+  //constant
   public static final String HOME = "\u2302";
 
-  // constant
+  //constant
   public static final String INFINITY = "\u221E";
 
-  // constant
+  //constant
   public static final String LONG_LEFT_ARROW = "\u27F5";
 
-  // constant
+  //constant
   public static final String LONG_LEFT_RIGHT_ARROW = "\u27F7";
 
-  // constant
+  //constant
   public static final String LOWER_CASE_AE = "\u00E4";
 
-  // constant
+  //constant
   public static final String LOWER_CASE_OE = "\u00F6";
 
-  // constant
+  //constant
   public static final String LOWER_CASE_UE = "\u00FC";
 
-  // constant
+  //constant
   public static final String NEW_LINE = "\n";
 
-  // constant
+  //constant
   public static final String MINUS = "-";
 
-  // constant
+  //constant
   public static final String NULL_HEADER = "null";
 
-  // constant
+  //constant
   public static final String OPEN_BRACKET = "(";
 
-  // constant
+  //constant
   public static final String OPEN_CROCODILE_BRACKET = "<";
 
-  // constant
+  //constant
   public static final String OPEN_SQUARE_BRACKET = "[";
 
-  // constant
+  //constant
   public static final String QUESTION_MARK = "?";
 
-  // constant
+  //constant
   public static final String QUOTE = "'";
 
-  // constant
+  //constant
   public static final String RIGHT_ARROW = "\u2192";
 
-  // constant
+  //constant
   public static final String SEMICOLON = ";";
 
-  // constant
+  //constant
   public static final String SLASH = "/";
 
-  // constant
+  //constant
   public static final String SPACE = " ";
 
-  // constant
+  //constant
   public static final String TABULATOR = "\t";
 
-  // constant
+  //constant
   public static final String THIN_CROSS = "\u2715";
 
-  // constant
+  //constant
   public static final String TRUE_HEADER = "true";
 
-  // constant
+  //constant
   public static final String UNDERSCORE = "_";
 
-  // constant
+  //constant
   public static final String UPPERCASE_AE = "\u00C4";
 
-  // constant
+  //constant
   public static final String UPPERCASE_DELTA = "\u0394";
 
-  // constant
+  //constant
   public static final String UPPERCASE_OE = "\u00D6";
 
-  // constant
+  //constant
   public static final String UPPERCASE_UE = "\u00DC";
 
-  // constant
+  //constant
   public static final String ZERO = "0";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link StringCatalogue} can be created.
    */

@@ -10,16 +10,16 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class CachingProperty<V> {
 
-  // attribute
+  //attribute
   private final Supplier<V> valueCreator;
 
-  // optional attribute
+  //optional attribute
   private final BooleanSupplier needToRefreshFunction;
 
-  // optional attribute
+  //optional attribute
   private V value;
 
-  // constructor
+  //constructor
   public CachingProperty(final Supplier<V> valueCreator) {
 
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
@@ -28,7 +28,7 @@ public final class CachingProperty<V> {
     needToRefreshFunction = null;
   }
 
-  // constructor
+  //constructor
   public CachingProperty(final Supplier<V> valueCreator,
       final java.util.function.BooleanSupplier needToRefreshFunction) {
 
@@ -39,7 +39,7 @@ public final class CachingProperty<V> {
     this.needToRefreshFunction = needToRefreshFunction;
   }
 
-  // method
+  //method
   public V getValue() {
 
     refreshIfNeeded();
@@ -47,19 +47,19 @@ public final class CachingProperty<V> {
     return value;
   }
 
-  // method
+  //method
   private void refresh() {
     value = valueCreator.get();
   }
 
-  // method
+  //method
   private void refreshIfNeeded() {
     if (refreshIsNeeded()) {
       refresh();
     }
   }
 
-  // method
+  //method
   private boolean refreshIsNeeded() {
     return (value == null || (needToRefreshFunction != null && needToRefreshFunction.getAsBoolean()));
   }

@@ -4,12 +4,12 @@ package ch.nolix.coretest.programcontroltest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new ProgramControlTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

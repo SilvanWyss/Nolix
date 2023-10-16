@@ -23,21 +23,21 @@ public interface IStylableElement<SE extends IStylableElement<SE>>
     FluentMultiTokenable<SE>,
     TypeRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * @return the child {@link IStylableElement}s of the current
    *         {@link IStylableElement}.
    */
   IContainer<? extends IStylableElement<?>> getStoredChildStylableElements();
 
-  // method declaration
+  //method declaration
   /**
    * @param role
    * @return true if the current {@link IStylableElement} has the given role.
    */
   boolean hasRole(String role);
 
-  // method declaration
+  //method declaration
   /**
    * Resets the style of the current {@link IStylableElement} and the style of the
    * child {@link IStylableElement}s of the current {@link IStylableElement}.

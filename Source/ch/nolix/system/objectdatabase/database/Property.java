@@ -19,31 +19,31 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public abstract class Property implements IProperty {
 
-  // constant
+  //constant
   private static final PropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 
-  // constant
+  //constant
   private static final VoidPropertyFlyWeight VOID_PROPERTY_FLY_WEIGHT = new VoidPropertyFlyWeight();
 
-  // attribute
+  //attribute
   private IPropertyFlyWeight propertyFlyWeight = VOID_PROPERTY_FLY_WEIGHT;
 
-  // attribute
+  //attribute
   private boolean edited;
 
-  // optional attribute
+  //optional attribute
   private IEntity parentEntity;
 
-  // optional attribute
+  //optional attribute
   private IColumn parentColumn;
 
-  // method
+  //method
   @Override
   public final boolean belongsToEntity() {
     return (parentEntity != null);
   }
 
-  // method
+  //method
   @Override
   public final String getName() {
 
@@ -58,7 +58,7 @@ public abstract class Property implements IProperty {
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "cannot evaluate own name");
   }
 
-  // method
+  //method
   @Override
   public IColumn getStoredParentColumn() {
 
@@ -67,7 +67,7 @@ public abstract class Property implements IProperty {
     return parentColumn;
   }
 
-  // method
+  //method
   @Override
   public final IEntity getStoredParentEntity() {
 
@@ -76,7 +76,7 @@ public abstract class Property implements IProperty {
     return parentEntity;
   }
 
-  // method
+  //method
   @Override
   public final DatabaseObjectState getState() {
 
@@ -87,7 +87,7 @@ public abstract class Property implements IProperty {
     return getStateWhenBelongsToEntity();
   }
 
-  // method
+  //method
   @Override
   public final boolean isClosed() {
 
@@ -98,7 +98,7 @@ public abstract class Property implements IProperty {
     return getStoredParentEntity().isClosed();
   }
 
-  // method
+  //method
   @Override
   public final boolean isDeleted() {
 
@@ -109,19 +109,19 @@ public abstract class Property implements IProperty {
     return getStoredParentEntity().isDeleted();
   }
 
-  // method
+  //method
   @Override
   public final boolean isLinkedWithRealDatabase() {
     return (belongsToEntity() && getStoredParentEntity().isLinkedWithRealDatabase());
   }
 
-  // method
+  //method
   @Override
   public final boolean knowsParentColumn() {
     return (parentColumn != null);
   }
 
-  // method
+  //method
   @Override
   public final void setUpdateAction(final Runnable updateAction) {
 
@@ -130,7 +130,7 @@ public abstract class Property implements IProperty {
     propertyFlyWeight.setUpdateAction(updateAction);
   }
 
-  // method
+  //method
   protected final void setAsEditedAndRunProbableUpdateAction() {
 
     if (belongsToEntity()) {
@@ -142,15 +142,15 @@ public abstract class Property implements IProperty {
     propertyFlyWeight.noteUpdate();
   }
 
-  // method
+  //method
   final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
     return ((BaseEntity) parentEntity).internalGetRefDataAndSchemaAdapter();
   }
 
-  // method declaration
+  //method declaration
   abstract void internalSetOrClearDirectlyFromContent(Object content);
 
-  // method
+  //method
   final void internalSetParentColumn(final IColumn parentColumn) {
 
     GlobalValidator.assertThat(parentColumn).thatIsNamed("parent column").isNotNull();
@@ -158,14 +158,14 @@ public abstract class Property implements IProperty {
     this.parentColumn = parentColumn;
   }
 
-  // method
+  //method
   final void internalSetParentColumnFromParentTable() {
     final var name = getName();
     parentColumn = getStoredParentEntity().getStoredParentTable().getStoredColumns()
         .getStoredFirst(c -> c.hasName(name));
   }
 
-  // method
+  //method
   final void internalSetParentEntity(final BaseEntity parentEntity) {
 
     GlobalValidator.assertThat(parentEntity).thatIsNamed("parent entity").isNotNull();
@@ -175,10 +175,10 @@ public abstract class Property implements IProperty {
     setParentColumnFromParentTableIfParentEntityBelongsToTable(parentEntity);
   }
 
-  // method declaration
+  //method declaration
   abstract void internalUpdateProbableBackReferencesWhenIsNew();
 
-  // method
+  //method
   private DatabaseObjectState getStateWhenBelongsToEntity() {
 
     final var parentEntityState = getStoredParentEntity().getState();
@@ -201,7 +201,7 @@ public abstract class Property implements IProperty {
     };
   }
 
-  // method
+  //method
   private DatabaseObjectState getStateWhenParentPropertyIsEdited() {
 
     if (!edited) {
@@ -211,19 +211,19 @@ public abstract class Property implements IProperty {
     return DatabaseObjectState.EDITED;
   }
 
-  // method
+  //method
   private void setEffectivePropertyFlyWeightIfPropertyFlyWeightIsVoid() {
     if (propertyFlyWeight.isVoid()) {
       setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid();
     }
   }
 
-  // method
+  //method
   private void setEffectivePropertyFlyWeightWhenPropertyFlyWeightIsVoid() {
     propertyFlyWeight = new PropertyFlyWeight();
   }
 
-  // method
+  //method
   private void setParentColumnFromParentTableIfParentEntityBelongsToTable(final BaseEntity parentEntity) {
     if (parentEntity.belongsToTable()) {
       internalSetParentColumnFromParentTable();

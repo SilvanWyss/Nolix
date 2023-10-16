@@ -15,11 +15,11 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 //class
 public class ParameterizedPropertyTypeDtoMapper {
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
       new ParameterizedPropertyTypeNodeSearcher();
 
-  // method
+  //method
   public ParameterizedPropertyTypeDto createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode) {
 
@@ -43,7 +43,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     };
   }
 
-  // method
+  //method
   private ParameterizedPropertyTypeDto createBaseParameterizedBackReferenceTypeDtoFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode,
       final PropertyType propertyType) {
@@ -53,7 +53,7 @@ public class ParameterizedPropertyTypeDtoMapper {
         getBackReferencedColumnIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
   }
 
-  // method
+  //method
   private ParameterizedPropertyTypeDto createBaseParameterizedReferenceTypeDtoFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode,
       final PropertyType propertyType) {
@@ -63,7 +63,7 @@ public class ParameterizedPropertyTypeDtoMapper {
         getReferencedTableIdFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
   }
 
-  // method
+  //method
   private BaseParameterizedValueTypeDto createBaseParameterizedValueTypeDtoFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode,
       final PropertyType propertyType) {
@@ -72,7 +72,7 @@ public class ParameterizedPropertyTypeDtoMapper {
         getDataTypeFromParameterizedPropertyTypeNode(parameterizedPropertyTypeNode));
   }
 
-  // method
+  //method
   private String getBackReferencedColumnIdFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode) {
 
@@ -83,7 +83,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     return backReferencedColumnNode.getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   private DataType getDataTypeFromParameterizedPropertyTypeNode(final IMutableNode<?> parameterizedPropertyTypeNode) {
 
     final var dataTypeNode = PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER
@@ -93,7 +93,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
-  // method
+  //method
   private PropertyType getPropertyTypeFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode) {
 
@@ -104,7 +104,7 @@ public class ParameterizedPropertyTypeDtoMapper {
     return PropertyType.fromSpecification(propertyTypeNode);
   }
 
-  // method
+  //method
   private String getReferencedTableIdFromParameterizedPropertyTypeNode(
       final IMutableNode<?> parameterizedPropertyTypeNode) {
 

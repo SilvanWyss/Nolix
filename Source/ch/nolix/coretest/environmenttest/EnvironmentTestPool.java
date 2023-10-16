@@ -8,7 +8,7 @@ import ch.nolix.coretest.environmenttest.filesystemtest.FileSystemTestPool;
 //class
 public final class EnvironmentTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public EnvironmentTestPool() {
     super(new FileSystemTestPool());
   }

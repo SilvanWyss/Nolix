@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 public record TableInfo(String tableId, String tableName, ImmutableList<IColumnInfo> columnInfos)
     implements ITableInfo {
 
-  // constructor
+  //constructor
   public TableInfo(
       final String tableId,
       final String tableName,
@@ -21,8 +21,8 @@ public record TableInfo(String tableId, String tableName, ImmutableList<IColumnI
     this(tableId, tableName, ImmutableList.forIterable(columnInfos));
   }
 
-  // constructor
-  public TableInfo( // NOSONAR: This implementations checks the given arguments.
+  //constructor
+  public TableInfo( //NOSONAR: This implementations checks the given arguments.
       final String tableId,
       final String tableName,
       final ImmutableList<IColumnInfo> columnInfos) {
@@ -44,31 +44,31 @@ public record TableInfo(String tableId, String tableName, ImmutableList<IColumnI
     this.columnInfos = columnInfos;
   }
 
-  // method
+  //method
   @Override
   public IColumnInfo getColumnInfoByColumnName(final String columnName) {
     return getColumnInfos().getStoredFirst(cd -> cd.getColumnName().equals(columnName));
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumnInfo> getColumnInfos() {
     return columnInfos;
   }
 
-  // method
+  //method
   @Override
   public String getTableId() {
     return tableId;
   }
 
-  // method
+  //method
   @Override
   public String getTableName() {
     return tableName;
   }
 
-  // method
+  //method
   @Override
   public String getTableNameInQuotes() {
     return GlobalStringHelper.getInQuotes(getTableName());

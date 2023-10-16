@@ -7,7 +7,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, ?>> {
 
-  // method
+  //method
   public final PropertyBinding bindControlWithProperty(final W control, final P property) {
 
     final var propertyBinding = new PropertyBinding(property, control);
@@ -18,27 +18,27 @@ public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, 
     return propertyBinding;
   }
 
-  // method
+  //method
   public final PropertyBinding createControlAndBindItWith(final P property) {
     return bindControlWithProperty(createControl(), property);
   }
 
-  // method declaration
+  //method declaration
   protected abstract void addSelectionOptionsToControlForProperty(W control, P property);
 
-  // method declaration
+  //method declaration
   protected abstract W createControl();
 
-  // method declaration
+  //method declaration
   protected abstract void setNoteUpdateActionToControl(W control, Runnable noteUpdateAction);
 
-  // method declaration
+  //method declaration
   protected abstract void updatePropertyFromControl(P property, W control);
 
-  // method declaration
+  //method declaration
   protected abstract void updateControlFromProperty(W control, P property);
 
-  // method
+  //method
   private void bindControlToProperty(final W control, final P property, final PropertyBinding propertyBinding) {
 
     addSelectionOptionsToControlForProperty(control, property);
@@ -50,7 +50,7 @@ public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, 
         () -> updatePropertyFromControlCatchingErrors(property, control, propertyBinding));
   }
 
-  // method
+  //method
   private void updatePropertyFromControlCatchingErrors(
       final P property,
       final W control,
@@ -58,7 +58,7 @@ public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, 
     try {
       updatePropertyFromControl(property, control);
       propertyBinding.removeCurrentError();
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
       propertyBinding.setCurrentError(error);
     }
   }

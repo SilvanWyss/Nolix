@@ -7,9 +7,9 @@ import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 //interface
 public interface IEndPoint extends IBaseEndPoint, IDataProviderController {
 
-  // method declaration
+  //method declaration
   boolean hasReceivingDataProviderController();
 
-  // method declaration
+  //method declaration
   void setReceivingDataProviderController(IDataProviderController receivingDataProviderController);
 }

@@ -14,31 +14,31 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class ContainerMediatorTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_contains_whenTheGivenConditionIsNull() {
 
-    // setup
+    //setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final Predicate<String> condition = null;
     final var testUnit = new ContainerMediator<>(list);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.contains(condition))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given condition is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_contains_whenTheGivenArgumentDoesNotContainAWantedElement() {
 
-    // setup
+    //setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = new ContainerMediator<>(list);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("e")))
         .throwsException()
         .ofType(InvalidArgumentException.class)
@@ -47,15 +47,15 @@ public final class ContainerMediatorTest extends Test {
                 + "an element that fulfils the given condition.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_contains_whenTheGivenArgumentContainsAWantedElement() {
 
-    // setup
+    //setup
     final var list = ImmutableList.withElement("ax", "ax", "bx", "bx", "cx", "cx", "dx", "dx");
     final var testUnit = new ContainerMediator<>(list);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("c"))).doesNotThrowException();
   }
 }

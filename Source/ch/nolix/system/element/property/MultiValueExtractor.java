@@ -17,22 +17,22 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public final class MultiValueExtractor<V> implements IProperty, Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Consumer<V> adder;
 
-  // attribute
+  //attribute
   private final Supplier<IContainer<V>> getter;
 
-  // attribute
+  //attribute
   private final Function<INode<?>, V> valueCreator;
 
-  // attribute
+  //attribute
   private final Function<V, INode<?>> specificationCreator;
 
-  // constructor
+  //constructor
   public MultiValueExtractor(
       final String name,
       final Consumer<V> adder,
@@ -53,13 +53,13 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
     this.specificationCreator = specificationCreator;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -71,7 +71,7 @@ public final class MultiValueExtractor<V> implements IProperty, Named {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var v : getter.get()) {

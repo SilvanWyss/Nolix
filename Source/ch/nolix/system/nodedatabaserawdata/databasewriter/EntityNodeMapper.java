@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 final class EntityNodeMapper {
 
-  // method
+  //method
   public Node createNodeFromEntityWithSaveStamp(
       final ITableInfo tableInfo,
       final INewEntityDto newEntity,
@@ -22,7 +22,7 @@ final class EntityNodeMapper {
         createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo));
   }
 
-  // method
+  //method
   private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
       final INewEntityDto newEntity,
       final long saveStamp,
@@ -49,12 +49,12 @@ final class EntityNodeMapper {
     return ReadContainer.forArray(attributes);
   }
 
-  // method
+  //method
   private Node createIdAttributeFrom(final INewEntityDto newEntity) {
     return Node.withHeader(newEntity.getId());
   }
 
-  // method
+  //method
   private Node createSaveStampAttribute(final long saveStamp) {
     return Node.withHeader(saveStamp);
   }

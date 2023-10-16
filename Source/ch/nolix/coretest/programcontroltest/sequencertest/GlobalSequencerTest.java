@@ -11,42 +11,42 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class GlobalSequencerTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_runInBackground_whenFailingProcessIsGiven() {
 
-    // execution
+    //execution
     final var result = GlobalSequencer.runInBackground(() -> {
       throw GeneralException.withErrorMessage("test error");
     });
     result.waitUntilIsFinished();
 
-    // verification
+    //verification
     expect(result.isFinishedWithError());
     expect(result.getError()).isOfType(GeneralException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_runInBackground_whenPassingProcessIsGiven() {
 
-    // execution
+    //execution
     final var result = GlobalSequencer.runInBackground(FunctionCatalogue::doNothing);
     result.waitUntilIsFinished();
 
-    // verification
+    //verification
     expect(result.isFinishedSuccessfully());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_runInBackground_whenFunctionIsGiven() {
 
-    // execution
+    //execution
     final var result = GlobalSequencer.runInBackground(() -> 3 + 4);
     result.waitUntilIsFinished();
 
-    // verification
+    //verification
     expect(result.isFinishedSuccessfully());
     expect(result.getResult()).isEqualTo(7);
   }

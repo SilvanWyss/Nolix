@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
  */
 public interface Identifiable extends Identified {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the id of the current {@link Identifiable}.
    * 

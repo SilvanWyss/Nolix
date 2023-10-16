@@ -20,7 +20,7 @@ public enum ContentAlignment {
   BOTTOM,
   BOTTOM_RIGHT;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link ContentAlignment} from the given specification.

@@ -17,10 +17,10 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.ITableHelper;
 //class
 public final class TableHelper extends DatabaseObjectHelper implements ITableHelper {
 
-  // constant
+  //constant
   private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 
-  // method
+  //method
   @Override
   public void assertContainsGivenColumn(final ITable table, final IColumn column) {
     if (!containsGivenColumn(table, column)) {
@@ -28,7 +28,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     }
   }
 
-  // method
+  //method
   @Override
   public void assertDoesNotBelongToDatabase(final ITable table) {
     if (table.belongsToDatabase()) {
@@ -36,7 +36,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     }
   }
 
-  // method
+  //method
   @Override
   public void assertDoesNotContainGivenColumn(final ITable table, final IColumn column) {
     if (containsGivenColumn(table, column)) {
@@ -44,7 +44,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     }
   }
 
-  // method
+  //method
   @Override
   public void assertDoesNotContainColumnWithGivenName(final ITable table, final String name) {
     if (containsColumnWithGivenName(table, name)) {
@@ -54,7 +54,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     }
   }
 
-  // method
+  //method
   @Override
   public void assertIsNotReferenced(final ITable table) {
     if (isReferenced(table)) {
@@ -62,7 +62,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     }
   }
 
-  // method
+  //method
   @Override
   public boolean canBeAddedToDatabase(final ITable table) {
     return table != null
@@ -70,18 +70,18 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
         && !table.belongsToDatabase();
   }
 
-  // method
+  //method
   @Override
   public boolean containsGivenColumn(final ITable table, final IColumn column) {
     return table.getStoredColumns().contains(column);
   }
 
-  // method
+  //method
   @Override
   public boolean containsColumnBackReferencedByGivenColumn(final ITable table, final IColumn column) {
 
-    // This check is theoretically not necessary, but provides a better performance
-    // for some cases.
+    //This check is theoretically not necessary, but provides a better performance
+    //for some cases.
     if (!COLUMN_HELPER.isABackReferenceColumn(column)) {
       return false;
     }
@@ -89,12 +89,12 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return table.getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, column));
   }
 
-  // method
+  //method
   @Override
   public boolean containsColumnThatReferencesBackGivenColumn(final ITable table, final IColumn column) {
 
-    // This check is theoretically not necessary, but provides a better performance
-    // for some cases.
+    //This check is theoretically not necessary, but provides a better performance
+    //for some cases.
     if (!COLUMN_HELPER.isAReferenceColumn(column)) {
       return false;
     }
@@ -102,7 +102,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return table.getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesBackGivenColumn(c, column));
   }
 
-  // method
+  //method
   @Override
   public boolean containsColumnThatReferencesGivenTable(
       final ITable table,
@@ -110,25 +110,25 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return table.getStoredColumns().containsAny(c -> COLUMN_HELPER.referencesGivenTable(c, table));
   }
 
-  // method
+  //method
   @Override
   public boolean containsColumnWithGivenName(final ITable table, final String name) {
     return table.getStoredColumns().containsAny(c -> c.hasName(name));
   }
 
-  // method
+  //method
   @Override
   public int getColumnCount(final ITable table) {
     return table.getStoredColumns().getElementCount();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumn> getStoredBackReferenceColumns(final ITable table) {
     return table.getStoredColumns().getStoredSelected(COLUMN_HELPER::isABackReferenceColumn);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumn> getStoredBackReferencingColumns(final ITable table) {
 
@@ -139,7 +139,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return getStoredBackReferencingColumnsWhenBelongsToDatabase(table);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumn> getStoredReferencingColumns(final ITable table) {
 
@@ -150,7 +150,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return getStoredReferencingColumnsWhenBelongsToDatabase(table);
   }
 
-  // method
+  //method
   @Override
   public boolean isReferenced(final ITable table) {
     return table.belongsToDatabase()
@@ -158,7 +158,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
             .containsAny(t -> containsColumnThatReferencesGivenTable(t, table));
   }
 
-  // method
+  //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenBelongsToDatabase(
       final ITable table) {
 
@@ -169,7 +169,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
         .getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_HELPER.referencesBackGivenColumn(c, c2)));
   }
 
-  // method
+  //method
   private IContainer<IColumn> getStoredBackReferencingColumnsWhenDoesNotBelongToDatabase(
       final ITable table) {
 
@@ -178,7 +178,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return columns.getStoredSelected(c -> columns.containsAny(c2 -> COLUMN_HELPER.referencesBackGivenColumn(c, c2)));
   }
 
-  // method
+  //method
   private IContainer<IColumn> getStoredReferencingColumnsWhenBelongsToDatabase(final ITable table) {
     return table
         .getParentDatabase()
@@ -187,7 +187,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
         .getStoredSelected(c -> COLUMN_HELPER.referencesGivenTable(c, table));
   }
 
-  // method
+  //method
   private IContainer<IColumn> getStoredReferencingColumnsWhenDoesNotBelongToDatabase(
       final ITable table) {
     return table.getStoredColumns().getStoredSelected(c -> COLUMN_HELPER.referencesGivenTable(c, table));

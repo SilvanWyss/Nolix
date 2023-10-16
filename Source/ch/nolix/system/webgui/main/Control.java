@@ -39,42 +39,42 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     extends StylableElement<C>
     implements IControl<C, CS> {
 
-  // constant
+  //constant
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
 
-  // constant
+  //constant
   public static final CursorIcon DEFAULT_CURSOR_ICON = CursorIcon.ARROW;
 
-  // constant
+  //constant
   private static final String PRESENCE_HEADER = "Presence";
 
-  // constant
+  //constant
   private static final String MIN_WIDTH_HEADER = "MinWidth";
 
-  // constant
+  //constant
   private static final String MIN_HEIGHT_HEADER = "MinHeight";
 
-  // constant
+  //constant
   private static final String MAX_WIDTH_HEADER = "MaxWidth";
 
-  // constant
+  //constant
   private static final String MAX_HEIGHT_HEADER = "MaxHeight";
 
-  // constant
+  //constant
   private static final String CURSOR_ICON_HEADER = PascalCaseCatalogue.CURSOR_ICON;
 
-  // constant
+  //constant
   private static final ControlHelper CONTROL_HELPER = new ControlHelper();
 
-  // constant
+  //constant
   private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
       new AbsoluteOrRelativeIntValidator();
 
-  // attribute
-  // An id works correctly for CSS only when it begins with a letter.
+  //attribute
+  //An id works correctly for CSS only when it begins with a letter.
   private final String internalId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 
-  // attribute
+  //attribute
   private final MutableValue<Presence> presence = new MutableValue<>(
       PRESENCE_HEADER,
       DEFAULT_PRESENCE,
@@ -82,31 +82,31 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
       Presence::fromSpecification,
       Node::fromEnum);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> minWidth = MutableOptionalValue.forElement(
       MIN_WIDTH_HEADER,
       this::setMinWidth,
       AbsoluteOrRelativeInt::fromSpecification);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> minHeight = MutableOptionalValue.forElement(
       MIN_HEIGHT_HEADER,
       this::setMinHeight,
       AbsoluteOrRelativeInt::fromSpecification);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> maxWidth = MutableOptionalValue.forElement(
       MAX_WIDTH_HEADER,
       this::setMaxWidth,
       AbsoluteOrRelativeInt::fromSpecification);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> maxHeight = MutableOptionalValue.forElement(
       MAX_HEIGHT_HEADER,
       this::setMaxHeight,
       AbsoluteOrRelativeInt::fromSpecification);
 
-  // attribute
+  //attribute
   private final MutableValue<CursorIcon> cursorIcon = new MutableValue<>(
       CURSOR_ICON_HEADER,
       DEFAULT_CURSOR_ICON,
@@ -114,38 +114,38 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
       CursorIcon::fromSpecification,
       Node::fromEnum);
 
-  // attribute
+  //attribute
   private final ExtensionElement<CS> style = new ExtensionElement<>(createStyle());
 
-  // optional attribute
+  //optional attribute
   private ControlParent parent;
 
-  // optional attribute
+  //optional attribute
   private Object linkedObject;
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   @Override
   public final boolean belongsToControl() {
     return (parent != null && parent.isControl());
   }
 
-  // method
+  //method
   @Override
   public final boolean belongsToGui() {
     return (belongsToLayer() && getStoredParentLayer().belongsToGui());
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   @Override
   public final boolean belongsToLayer() {
     return (parent != null && parent.belongsToLayer());
   }
 
-  // method
+  //method
   @Override
   public final C editStyle(final Consumer<CS> styleEditor) {
 
@@ -154,19 +154,19 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final IContainer<ICssRule> getCssRules() {
     return getCssBuilder().createCssRulesForControl(asConcrete());
   }
 
-  // method
+  //method
   @Override
   public final CursorIcon getCursorIcon() {
     return cursorIcon.getValue();
   }
 
-  // method
+  //method
   @Override
   public final IHtmlElement getHtml() {
 
@@ -175,55 +175,55 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return html.withAttribute(CONTROL_HELPER.createIdHtmlAttributeForControl(this));
   }
 
-  // method
+  //method
   @Override
   public final String getInternalId() {
     return internalId;
   }
 
-  // method
+  //method
   @Override
   public final IAbsoluteOrRelativeInt getMaxHeight() {
     return maxHeight.getValue();
   }
 
-  // method
+  //method
   @Override
   public final IAbsoluteOrRelativeInt getMaxWidth() {
     return maxWidth.getValue();
   }
 
-  // method
+  //method
   @Override
   public final IAbsoluteOrRelativeInt getMinHeight() {
     return minHeight.getValue();
   }
 
-  // method
+  //method
   @Override
   public final IAbsoluteOrRelativeInt getMinWidth() {
     return minWidth.getValue();
   }
 
-  // method
+  //method
   @Override
   public final Presence getPresence() {
     return presence.getValue();
   }
 
-  // method
+  //method
   @Override
   public final IControl<?, ?> getStoredChildControlOrNullByInternalId(final String internalId) {
     return getStoredChildControls().getStoredFirstOrNull(cs -> cs.hasInternalId(internalId));
   }
 
-  // method
+  //method
   @Override
   public final IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return getStoredChildControls();
   }
 
-  // method
+  //method
   @Override
   public IContainer<Object> getStoredLinkedObjects() {
 
@@ -234,91 +234,91 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return ImmutableList.withElement(linkedObject);
   }
 
-  // method
+  //method
   @Override
   public final IControl<?, ?> getStoredParentControl() {
     return getStoredParent().getStoredControl();
   }
 
-  // method
+  //method
   @Override
   public final IWebGui<?> getStoredParentGui() {
     return getStoredParentLayer().getStoredParentGui();
   }
 
-  // method
+  //method
   @Override
   public final ILayer<?> getStoredParentLayer() {
     return getStoredParent().getStoredRootLayer();
   }
 
-  // method
+  //method
   @Override
   public final CS getStoredStyle() {
     return style.getExtensionElement();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasInternalId(final String internalId) {
     return getInternalId().equals(internalId);
   }
 
-  // method
+  //method
   @Override
   public final boolean hasMaxHeight() {
     return maxHeight.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasMaxWidth() {
     return maxWidth.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasMinHeight() {
     return minHeight.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasMinWidth() {
     return minWidth.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final boolean isCollapsed() {
     return (getPresence() == Presence.COLLAPSED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isInvisible() {
     return (getPresence() == Presence.INVISIBLE);
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedTo(final Object object) {
     return isLinkedToAnObject() && (linkedObject == object);
   }
 
-  // method
+  //method
   @Override
   public final boolean isLinkedToAnObject() {
     return (linkedObject != null);
   }
 
-  // method
+  //method
   @Override
   public final boolean isVisible() {
     return (getPresence() == Presence.VISIBLE);
   }
 
-  // method
+  //method
   @Override
   public final void linkTo(final Object object) {
 
@@ -328,31 +328,31 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     linkedObject = object;
   }
 
-  // method
+  //method
   @Override
   public final void removeMaxHeight() {
     maxHeight.clear();
   }
 
-  // method
+  //method
   @Override
   public final void removeMaxWidth() {
     maxWidth.clear();
   }
 
-  // method
+  //method
   @Override
   public final void removeMinHeight() {
     minHeight.clear();
   }
 
-  // method
+  //method
   @Override
   public final void removeMinWidth() {
     minWidth.clear();
   }
 
-  // method
+  //method
   @Override
   public final C setCollapsed() {
 
@@ -361,7 +361,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setCursorIcon(final CursorIcon cursorIcon) {
 
@@ -370,7 +370,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setInvisible() {
 
@@ -379,7 +379,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMaxHeight(final int maxHeight) {
 
@@ -388,7 +388,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMaxHeightInPercentOfViewAreaHeight(final double maxHeightInPercentOfViewAreaHeight) {
 
@@ -397,7 +397,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMaxWidth(final int maxWidth) {
 
@@ -406,7 +406,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMaxWidthInPercentOfViewAreaWidth(final double maxWidthInPercentOfViewAreaWidth) {
 
@@ -415,7 +415,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMinHeight(final int minHeight) {
 
@@ -424,7 +424,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMinHeightInPercentOfViewAreaHeight(final double minHeightInPercentOfViewAreaHeight) {
 
@@ -433,7 +433,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMinWidth(final int minWidth) {
 
@@ -442,7 +442,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setMinWidthInPercentOfViewAreaWidth(final double minWidthInPercentOfViewAreaWidth) {
 
@@ -451,7 +451,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setVisible() {
 
@@ -460,7 +460,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setVisibility(final boolean visible) {
 
@@ -469,31 +469,31 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final void technicalSetParentControl(final IControl<?, ?> parentControl) {
     setParent(ControlParent.forControl(parentControl));
   }
 
-  // method
+  //method
   @Override
   public final void technicalSetParentLayer(final ILayer<?> parentLayer) {
     setParent(ControlParent.forLayer(parentLayer));
   }
 
-  // method declaration
+  //method declaration
   protected abstract CS createStyle();
 
-  // method declaration
+  //method declaration
   protected abstract IControlCssBuilder<C, CS> getCssBuilder();
 
-  // method declaration
+  //method declaration
   protected abstract IControlHtmlBuilder<C> getHtmlBuilder();
 
-  // method declaration
+  //method declaration
   protected abstract void resetControl();
 
-  // method
+  //method
   @Override
   protected final void resetStylableElement() {
 
@@ -507,39 +507,39 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     resetControl();
   }
 
-  // method
+  //method
   @Override
   protected final void resetStyle() {
     getStoredStyle().reset();
   }
 
-  // method
+  //method
   private void assertBelongsToParent() {
     if (!belongsToParent()) {
       throw ArgumentDoesNotBelongToParentException.forArgument(this);
     }
   }
 
-  // method
+  //method
   private void assertDoesNotBelongToParent() {
     if (belongsToParent()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(this, parent.getStoredElement());
     }
   }
 
-  // method
+  //method
   private void assertIsNotLinkedAnObject() {
     if (isLinkedToAnObject()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is alreay linked to an object");
     }
   }
 
-  // method
+  //method
   private boolean belongsToParent() {
     return (parent != null);
   }
 
-  // method
+  //method
   private ControlParent getStoredParent() {
 
     assertBelongsToParent();
@@ -547,7 +547,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     return parent;
   }
 
-  // method
+  //method
   private void setMaxHeight(final AbsoluteOrRelativeInt maxHeight) {
 
     ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(maxHeight);
@@ -555,7 +555,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     this.maxHeight.setValue(maxHeight);
   }
 
-  // method
+  //method
   private void setMaxWidth(final AbsoluteOrRelativeInt maxWidth) {
 
     ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(maxWidth);
@@ -563,7 +563,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     this.maxWidth.setValue(maxWidth);
   }
 
-  // method
+  //method
   private void setMinHeight(final AbsoluteOrRelativeInt minHeight) {
 
     ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(minHeight);
@@ -571,7 +571,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     this.minHeight.setValue(minHeight);
   }
 
-  // method
+  //method
   private void setMinWidth(final AbsoluteOrRelativeInt minWidth) {
 
     ABSOLUTE_OR_RELATIVE_INT_VALIDATOR.assertIsPositive(minWidth);
@@ -579,7 +579,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     this.minWidth.setValue(minWidth);
   }
 
-  // method
+  //method
   private void setParent(final ControlParent parent) {
 
     GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();
@@ -592,12 +592,12 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
     }
   }
 
-  // method
+  //method
   private void setPresence(final Presence presence) {
     this.presence.setValue(presence);
   }
 
-  // method
+  //method
   private void voidSetVisibility(final boolean visible) {
     if (!visible) {
       setInvisible();

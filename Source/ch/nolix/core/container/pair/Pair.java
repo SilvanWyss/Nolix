@@ -17,13 +17,13 @@ import ch.nolix.coreapi.containerapi.pairapi.IPair;
  */
 public final class Pair<E1, E2> implements IPair<E1, E2> {
 
-  // attribute
+  //attribute
   private final E1 element1;
 
-  // attribute
+  //attribute
   private final E2 element2;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Pair} with the given elements.
    * 
@@ -34,20 +34,20 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
    */
   public Pair(final E1 element1, final E2 element2) {
 
-    // Asserts that the given element 1 is not null.
+    //Asserts that the given element 1 is not null.
     GlobalValidator.assertThat(element1).thatIsNamed("element 1").isNotNull();
 
-    // Asserts that the given element 2 is not null.
+    //Asserts that the given element 2 is not null.
     GlobalValidator.assertThat(element2).thatIsNamed("element 2").isNotNull();
 
-    // Sets the element 1 of the current {@link Pair}.
+    //Sets the element 1 of the current {@link Pair}.
     this.element1 = element1;
 
-    // Sets the element 2 of the current {@link Pair}.
+    //Sets the element 2 of the current {@link Pair}.
     this.element2 = element2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -56,7 +56,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return element1;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -65,7 +65,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return element2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -74,7 +74,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return (element1 == object);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -83,7 +83,7 @@ public final class Pair<E1, E2> implements IPair<E1, E2> {
     return (element2 == object);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

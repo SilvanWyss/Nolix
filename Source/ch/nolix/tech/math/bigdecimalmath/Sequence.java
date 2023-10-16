@@ -11,10 +11,10 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
 //class
 abstract class Sequence<V> implements ISequence<V> {
 
-  // multi-attribute
+  //multi-attribute
   private final ArrayList<Pair<V, BigDecimal>> valuesAndSquaredMagnitudes = new ArrayList<>();
 
-  // method
+  //method
   @Override
   public int getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
       final BigDecimal limit,
@@ -29,7 +29,7 @@ abstract class Sequence<V> implements ISequence<V> {
     return -1;
   }
 
-  // method
+  //method
   @Override
   public BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(final int p1BasedIndex) {
 
@@ -38,7 +38,7 @@ abstract class Sequence<V> implements ISequence<V> {
     return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getStoredElement2();
   }
 
-  // method
+  //method
   @Override
   public V getValueAt1BasedIndex(final int p1BasedIndex) {
 
@@ -47,18 +47,18 @@ abstract class Sequence<V> implements ISequence<V> {
     return valuesAndSquaredMagnitudes.get(p1BasedIndex - 1).getStoredElement1();
   }
 
-  // method declaration
+  //method declaration
   protected abstract BigDecimal calculateSquaredMagnitudeForValue(V value);
 
-  // method declaration
+  //method declaration
   protected abstract V calculateValue(int index);
 
-  // method
+  //method
   protected V getValueAtIndexWhenCalculated(final int index) {
     return valuesAndSquaredMagnitudes.get(index - 1).getStoredElement1();
   }
 
-  // method
+  //method
   private void calculateValuesAndSquaredMagnitudesToIndex(final int index) {
     for (var i = valuesAndSquaredMagnitudes.size() + 1; i <= index; i++) {
 

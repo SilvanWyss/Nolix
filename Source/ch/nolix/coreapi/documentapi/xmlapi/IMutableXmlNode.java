@@ -7,18 +7,18 @@ import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentOp
 public interface IMutableXmlNode
     extends IFluentOptionalValueHolder<IMutableXmlNode, String>, IXmlNode<IMutableXmlNode> {
 
-  // method declaration
+  //method declaration
   IMutableXmlNode addAttribute(IXmlAttribute attribute);
 
-  // method declaration
+  //method declaration
   IMutableXmlNode addAttributes(IXmlAttribute attribute, IXmlAttribute... attributes);
 
-  // method declaration
+  //method declaration
   IMutableXmlNode addAttributeWithNameAndValue(String name, String value);
 
-  // method declaration
+  //method declaration
   IMutableXmlNode addChildNode(IMutableXmlNode childNode);
 
-  // method declaration
+  //method declaration
   IMutableXmlNode addChildNodes(IMutableXmlNode childNode, IMutableXmlNode... childNodes);
 }

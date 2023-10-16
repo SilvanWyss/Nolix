@@ -7,9 +7,9 @@ import ch.nolix.systemapi.guiapi.structureproperty.VerticalContentAlignment;
 //interface
 public interface IHorizontalStack extends ILinearContainer<IHorizontalStack, IHorizontalStackStyle> {
 
-  // method declaration
+  //method declaration
   VerticalContentAlignment getContentAlignment();
 
-  // method declaration
+  //method declaration
   IHorizontalStack setContentAlignment(VerticalContentAlignment contentAlignment);
 }

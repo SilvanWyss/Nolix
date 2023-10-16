@@ -9,14 +9,14 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public abstract class ContainerTest<C extends IContainer<C, ?>> extends ControlTest<C> {
 
-  // method
+  //method
   @TestCase
   public final void testCase_constructor() {
 
-    // execution
+    //execution
     final var testUnit = createTestUnit();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
   }
 }

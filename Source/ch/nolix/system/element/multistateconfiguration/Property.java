@@ -11,13 +11,13 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public abstract class Property<S extends Enum<S>> implements Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   protected MultiStateConfiguration<?, S> parent;
 
-  // constructor
+  //constructor
   protected Property(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -25,25 +25,25 @@ public abstract class Property<S extends Enum<S>> implements Named {
     this.name = name;
   }
 
-  // method
+  //method
   @Override
   public final String getName() {
     return name;
   }
 
-  // method declaration
+  //method declaration
   protected abstract void fillUpValuesSpecificationInto(ILinkedList<INode<?>> list);
 
-  // method declaration
+  //method declaration
   protected abstract void setFrom(Property<S> property);
 
-  // method declaration
+  //method declaration
   protected abstract void setUndefined();
 
-  // method declaration
+  //method declaration
   protected abstract void setValueFromSpecification(INode<?> specification);
 
-  // method
+  //method
   final void setParent(final MultiStateConfiguration<?, S> parent) {
 
     GlobalValidator.assertThat(parent).thatIsNamed(LowerCaseCatalogue.PARENT).isNotNull();

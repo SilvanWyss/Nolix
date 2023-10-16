@@ -13,20 +13,20 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class MsSqlDataAdapter extends DataAdapter {
 
-  // static method
+  //static method
   public static MsSqlDataAdapterBuilder toIpOrAddress(final String ipOrDomain) {
     return new MsSqlDataAdapterBuilder(ipOrDomain);
   }
 
-  // static method
+  //static method
   public static MsSqlDataAdapterBuilder toLocalHost() {
     return new MsSqlDataAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
   }
 
-  // attribute
+  //attribute
   private final SqlConnectionPool sqlConnectionPool;
 
-  // constructor
+  //constructor
   MsSqlDataAdapter(
       final String ipOrDomain,
       final int port,
@@ -46,7 +46,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
             .andLoginPassword(loginPassword));
   }
 
-  // constructor
+  //constructor
   private MsSqlDataAdapter(
       final String databaseName,
       final ISchema schema,
@@ -63,7 +63,7 @@ public final class MsSqlDataAdapter extends DataAdapter {
     this.sqlConnectionPool = sqlConnectionPool;
   }
 
-  // method
+  //method
   @Override
   public DataAdapter getEmptyCopy() {
     return new MsSqlDataAdapter(getDatabaseName(), getSchema(), sqlConnectionPool);

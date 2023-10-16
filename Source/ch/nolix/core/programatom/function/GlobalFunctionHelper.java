@@ -10,7 +10,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class GlobalFunctionHelper {
 
-  // static method
+  //static method
   public static BooleanSupplier createNegatorFor(final BooleanSupplier condition) {
 
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
@@ -18,7 +18,7 @@ public final class GlobalFunctionHelper {
     return (() -> !condition.getAsBoolean());
   }
 
-  // constructor
+  //constructor
   private GlobalFunctionHelper() {
   }
 }

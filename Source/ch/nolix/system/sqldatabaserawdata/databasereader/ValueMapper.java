@@ -9,12 +9,12 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 //class
 public final class ValueMapper {
 
-  // method
+  //method
   public Object createValueFromString(final String string, final IColumnInfo contentColumnDefinition) {
     return createValueFromString(string, contentColumnDefinition.getColumnDataType());
   }
 
-  // method
+  //method
   private Object createValueFromString(final String string, final DataType dataType) {
     return switch (dataType) {
       case INTEGER_1BYTE ->

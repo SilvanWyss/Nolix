@@ -18,65 +18,65 @@ import ch.nolix.techapi.mathapi.fractalapi.IFractalBuilder;
 //class
 public final class FractalBuilder implements IFractalBuilder {
 
-  // constant
+  //constant
   public static final IClosedInterval DEFAULT_REAL_COMPONENT_INTERVAL = new ClosedInterval(-2.5, 1.0);
 
-  // constant
+  //constant
   public static final IClosedInterval DEFAULT_IMAGINARY_COMPONENT_INTERVAL = new ClosedInterval(-1.5, 1.5);
 
-  // constant
+  //constant
   public static final int DEFAULT_WIDHT_IN_PIXEL = 500;
 
-  // constant
+  //constant
   public static final int DEFAULT_HEIGHT_IN_PIXEL = DEFAULT_WIDHT_IN_PIXEL;
 
-  // constant
+  //constant
   public static final Function<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = //
       z -> new ComplexSequenceDefinedBy1Predecessor(
           z, p -> p.getPower2().getSum(z));
 
-  // constant
+  //constant
   public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 10.0;
 
-  // constant
+  //constant
   public static final int DEFAULT_SEQUENCE_MAX_ITERATION_COUNT = 50;
 
-  // constant
+  //constant
   public static final IntFunction<IColor> DEFAULT_COLOR_FUNCTION = i -> Color
       .withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
 
-  // constant
+  //constant
   public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
 
-  // attribute
+  //attribute
   private IClosedInterval realComponentInterval = DEFAULT_REAL_COMPONENT_INTERVAL;
 
-  // attribute
+  //attribute
   private IClosedInterval imaginaryComponentInterval = DEFAULT_IMAGINARY_COMPONENT_INTERVAL;
 
-  // attribute
+  //attribute
   private int widthInPixel = DEFAULT_WIDHT_IN_PIXEL;
 
-  // attribute
+  //attribute
   private int heightInPixel = DEFAULT_HEIGHT_IN_PIXEL;
 
-  // attribute
+  //attribute
   private Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator = //
       DEFAULT_SEQUENCE_CREATOR;
 
-  // attribute
+  //attribute
   private BigDecimal sequencesMinDivergenceMagnitude = BigDecimal.valueOf(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
 
-  // attribute
+  //attribute
   private int sequencesMaxIterationCount = DEFAULT_SEQUENCE_MAX_ITERATION_COUNT;
 
-  // attribute
+  //attribute
   private IntFunction<IColor> colorFunction = DEFAULT_COLOR_FUNCTION;
 
-  // attribute
+  //attribute
   private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
 
-  // method
+  //method
   @Override
   public Fractal build() {
     return new Fractal(
@@ -91,13 +91,13 @@ public final class FractalBuilder implements IFractalBuilder {
         bigDecimalScale);
   }
 
-  // method
+  //method
   @Override
   public int getMaxIterationCount() {
     return sequencesMaxIterationCount;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setBigDecimalScale(final int bigDecumalScale) {
 
@@ -106,7 +106,7 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setColorFunction(final IntFunction<IColor> colorFunction) {
 
@@ -115,7 +115,7 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setHeightInPixel(final int heightInPixel) {
 
@@ -124,13 +124,13 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setImaginaryComponentInterval(final double min, final double max) {
     return setImaginaryComponentInterval(new ClosedInterval(min, max));
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setImaginaryComponentInterval(final IClosedInterval imaginaryComponentInterval) {
 
@@ -139,13 +139,13 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setRealComponentInterval(final double min, final double max) {
     return setRealComponentInterval(new ClosedInterval(min, max));
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setRealComponentInterval(final IClosedInterval realComponentInterval) {
 
@@ -154,7 +154,7 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setMaxIterationCount(final int sequencesMaxIterationCount) {
 
@@ -163,7 +163,7 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setMinMagnitudeForDivergence(final BigDecimal sequencesMinDivergenceMagnitude) {
 
@@ -172,13 +172,13 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setMinMagnitudeForDivergence(final double minMagnitudeForDivergence) {
     return setMinMagnitudeForDivergence(BigDecimal.valueOf(minMagnitudeForDivergence));
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setSequenceCreator(
       final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
@@ -188,7 +188,7 @@ public final class FractalBuilder implements IFractalBuilder {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IFractalBuilder setWidthInPixel(final int widthInPixel) {
 

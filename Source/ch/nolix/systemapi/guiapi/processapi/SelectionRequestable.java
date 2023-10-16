@@ -4,6 +4,6 @@ package ch.nolix.systemapi.guiapi.processapi;
 //interface
 public interface SelectionRequestable {
 
-  // method declaration
+  //method declaration
   boolean isSelected();
 }

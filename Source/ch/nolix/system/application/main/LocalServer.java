@@ -12,13 +12,13 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  */
 public final class LocalServer extends BaseServer<LocalServer> {
 
-  // method
+  //method
   @Override
   public IServerTarget asTarget() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asTarget");
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -27,21 +27,21 @@ public final class LocalServer extends BaseServer<LocalServer> {
     return this;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   protected void noteAddedApplication(Application<?, ?> application) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication2) {
-    // Does nothing.
+    //Does nothing.
   }
 }

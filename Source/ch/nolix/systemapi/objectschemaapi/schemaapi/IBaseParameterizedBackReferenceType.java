@@ -4,6 +4,6 @@ package ch.nolix.systemapi.objectschemaapi.schemaapi;
 //interface
 public interface IBaseParameterizedBackReferenceType extends IParameterizedPropertyType {
 
-  // method declaration
+  //method declaration
   IColumn getBackReferencedColumn();
 }

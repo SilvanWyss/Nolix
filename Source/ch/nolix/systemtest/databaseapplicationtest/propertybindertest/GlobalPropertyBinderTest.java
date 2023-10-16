@@ -12,39 +12,39 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 //class
 public final class GlobalPropertyBinderTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_createControlAndBindItWith() {
 
-    // setup
+    //setup
     final var value = new Value<String>();
     value.setValue("");
 
-    // execution
+    //execution
     final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 
-    // verification part 1
+    //verification part 1
     expect(result.getStoredProperty()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();
     expect(value.getStoredValue()).isEqualTo("");
     expect(textBox.getText()).isEqualTo("");
 
-    // verification part 2
+    //verification part 2
     value.setValue("");
     textBox.emptyText();
     value.setValue("zebra");
     expect(value.getStoredValue()).isEqualTo("zebra");
     expect(textBox.getText()).isEqualTo("zebra");
 
-    // verification part 3
+    //verification part 3
     value.setValue("");
     textBox.setText("");
     textBox.setText("zebra");
     expect(value.getStoredValue()).isEqualTo("zebra");
     expect(textBox.getText()).isEqualTo("zebra");
 
-    // verification part 4
+    //verification part 4
     value.setValue("zebra");
     textBox.setText("zebra");
     textBox.setText("");
@@ -52,20 +52,20 @@ public final class GlobalPropertyBinderTest extends Test {
     expect(textBox.getText()).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createControlAndBindItWith_whenPropertyDoesNotHaveInitialValue() {
 
-    // setup
+    //setup
     final var value = new Value<String>();
 
-    // setup verification
+    //setup verification
     expect(value.isEmpty());
 
-    // execution
+    //execution
     final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 
-    // verification
+    //verification
     expect(result.getStoredProperty()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();
@@ -73,18 +73,18 @@ public final class GlobalPropertyBinderTest extends Test {
     expect(textBox.getText()).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createControlAndBindItWith_whenPropertyHasInitialValue() {
 
-    // setup
+    //setup
     final var value = new Value<String>();
     value.setValue("zebra");
 
-    // execution
+    //execution
     final var result = GlobalPropertyBinder.createControlAndBindItWith(value);
 
-    // verification
+    //verification
     expect(result.getStoredProperty()).is(value);
     expect(result.getStoredControl()).isOfType(Textbox.class);
     final var textBox = (ITextbox) result.getStoredControl();

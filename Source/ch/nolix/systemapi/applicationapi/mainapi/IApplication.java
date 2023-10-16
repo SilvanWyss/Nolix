@@ -7,27 +7,27 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 //interface
 public interface IApplication<AC> {
 
-  // method declaration
+  //method declaration
   IApplicationInstanceTarget asTarget();
 
-  // method declaration
+  //method declaration
   boolean belongsToServer();
 
-  // method declaration
+  //method declaration
   String getApplicationName();
 
-  // method declaration
+  //method declaration
   String getInstanceName();
 
-  // method declaration
+  //method declaration
   String getNameAddendum();
 
-  // method declaration
+  //method declaration
   AC getStoredApplicationContext();
 
-  // method declaration
+  //method declaration
   String getUrlInstanceName();
 
-  // method declaration
+  //method declaration
   boolean hasNameAddendum();
 }

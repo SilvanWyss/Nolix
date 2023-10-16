@@ -22,10 +22,10 @@ import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
  */
 final class ClientDataProviderController implements IDataProviderController {
 
-  // attribute
+  //attribute
   private final Client<?> parentClient;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ClientDataProviderController} with the given
    * parentClient.
@@ -40,7 +40,7 @@ final class ClientDataProviderController implements IDataProviderController {
     this.parentClient = parentClient;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -49,21 +49,21 @@ final class ClientDataProviderController implements IDataProviderController {
     return parentClient.getDataFromHere(request);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
 
-    // Concatenates the given requests.
+    //Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElement(request, requests);
 
-    // Calls other method.
+    //Calls other method.
     return getDataForRequests(concatenatedRequests);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -72,7 +72,7 @@ final class ClientDataProviderController implements IDataProviderController {
     return ReadContainer.forIterable(requests).to(parentClient::getDataFromHere);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -81,28 +81,28 @@ final class ClientDataProviderController implements IDataProviderController {
     parentClient.runHere(command);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void runCommands(final IChainedNode command, final IChainedNode... commands) {
 
-    // Concatenates the given commands.
+    //Concatenates the given commands.
     final var concatenatedCommands = ImmutableList.withElement(command, commands);
 
-    // Calls other method.
+    //Calls other method.
     runCommands(concatenatedCommands);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
 
-    // Iterates the given commands.
+    //Iterates the given commands.
     for (final var c : commands) {
       parentClient.runHere(c);
     }

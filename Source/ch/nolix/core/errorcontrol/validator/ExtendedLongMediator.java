@@ -14,7 +14,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 public final class ExtendedLongMediator extends LongMediator {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ExtendedLongMediator} for the given argument.
@@ -23,7 +23,7 @@ public final class ExtendedLongMediator extends LongMediator {
     return new ExtendedLongMediator(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ExtendedLongMediator} for the given argument.
    * 
@@ -31,11 +31,11 @@ public final class ExtendedLongMediator extends LongMediator {
    */
   private ExtendedLongMediator(final long argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument);
   }
 
-  // method
+  //method
   /**
    * @param argumentName
    * @return a new {@link LongMediator} for the given argumentName and the

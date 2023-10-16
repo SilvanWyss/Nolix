@@ -10,10 +10,10 @@ package ch.nolix.core.net.constant;
  */
 public final class IPv6Catalogue {
 
-  // constant
+  //constant
   public static final String LOOP_BACK_ADDRESS = "::1";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link IPv6Catalogue} can be created.
    */

@@ -11,21 +11,21 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //interface
 public interface IBackgroundStyle<BCS extends IBackgroundStyle<BCS>> {
 
-  // method declaration
+  //method declaration
   IBackground getBackgroundWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   void removeCustomBackgrounds();
 
-  // method declaration
+  //method declaration
   BCS setBackgroundColorForState(ControlState state, IColor backgroundColor);
 
-  // method declaration
+  //method declaration
   BCS setBackgroundColorGradientForState(ControlState state, IColorGradient backgroundColorGradient);
 
-  // method declaration
+  //method declaration
   BCS setBackgroundImageForState(ControlState state, IImage backgroundImage, ImageApplication imageApplication);
 
-  // method declaration
+  //method declaration
   BCS setBackgroundForState(ControlState state, IBackground background);
 }

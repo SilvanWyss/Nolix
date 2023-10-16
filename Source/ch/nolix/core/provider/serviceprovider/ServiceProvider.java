@@ -13,10 +13,10 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 //class
 public final class ServiceProvider {
 
-  // multi-attribute
+  //multi-attribute
   private final HashMap<Class<?>, Object> services = new HashMap<>();
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   public <S> S get(final Class<S> pInterface) {
 
@@ -33,12 +33,12 @@ public final class ServiceProvider {
     return service;
   }
 
-  // method
+  //method
   public <I, S extends I> void register(final Class<I> pInterface, final S service) {
     register(pInterface, service, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
-  // method
+  //method
   public <I, S extends I> void register(final Class<I> pInterface, final S service, final WriteMode writeMode) {
 
     GlobalValidator.assertThat(pInterface).thatIsNamed(LowerCaseCatalogue.INTERFACE).isNotNull();

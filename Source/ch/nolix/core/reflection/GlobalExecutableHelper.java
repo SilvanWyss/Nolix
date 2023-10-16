@@ -15,7 +15,7 @@ import java.lang.reflect.Executable;
  */
 public final class GlobalExecutableHelper {
 
-  // static method
+  //static method
   /**
    * @param executable
    * @param type
@@ -24,7 +24,7 @@ public final class GlobalExecutableHelper {
    */
   public static boolean allParametersOfMethodAreOfType(final Executable executable, final Class<?> type) {
 
-    // Iterates the parameters of the given executable.
+    //Iterates the parameters of the given executable.
     for (final var p : executable.getParameters()) {
       if (!p.getType().isAssignableFrom(type)) {
         return false;
@@ -34,7 +34,7 @@ public final class GlobalExecutableHelper {
     return true;
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalExecutableHelper} can be
    * created.

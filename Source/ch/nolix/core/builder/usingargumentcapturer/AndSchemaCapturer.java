@@ -8,17 +8,17 @@ import ch.nolix.core.builder.main.ArgumentCapturer;
 public class AndSchemaCapturer<S, N>
     extends ArgumentCapturer<S, N> {
 
-  // constructor
+  //constructor
   public AndSchemaCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
 
-  // method
+  //method
   public final S getStoredSchema() {
     return getStoredArgument();
   }
 
-  // method
+  //method
   public final N andSchema(final S schema) {
     return setArgumentAndGetNext(schema);
   }

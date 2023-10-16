@@ -10,11 +10,11 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 //class
 public final class FractalBuilderTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_build() {
 
-    // setup
+    //setup
     final var testUnit = new FractalBuilder();
     testUnit
         .setWidthInPixel(1_200)
@@ -24,10 +24,10 @@ public final class FractalBuilderTest extends Test {
         .setMaxIterationCount(150)
         .setBigDecimalScale(30);
 
-    // execution
+    //execution
     final var result = testUnit.build();
 
-    // verification
+    //verification
     expect(result.getWidthInPixel()).isEqualTo(1_200);
     expect(result.getHeightInPixel()).isEqualTo(800);
     expect(result.getRealComponentInterval()).isEqualTo(new ClosedInterval(-1.0, 1.0, 30));

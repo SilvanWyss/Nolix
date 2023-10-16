@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class GlobalBufferedImageHelper {
 
-  // static method
+  //static method
   public static BufferedImage fromBytes(final byte[] bytes) {
     try {
       return ImageIO.read(new ByteArrayInputStream(bytes));
@@ -24,7 +24,7 @@ public final class GlobalBufferedImageHelper {
     }
   }
 
-  // static method
+  //static method
   public static BufferedImage fromFile(final String filePath) {
     try {
       return ImageIO.read(new File(filePath));
@@ -33,7 +33,7 @@ public final class GlobalBufferedImageHelper {
     }
   }
 
-  // constructor
+  //constructor
   private GlobalBufferedImageHelper() {
   }
 }

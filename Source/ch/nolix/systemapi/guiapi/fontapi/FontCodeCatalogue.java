@@ -10,31 +10,31 @@ package ch.nolix.systemapi.guiapi.fontapi;
  */
 public final class FontCodeCatalogue {
 
-  // constant
+  //constant
   public static final String ARIAL = "Arial";
 
-  // constant
+  //constant
   public static final String ARIAL_BLACK = "Arial Black";
 
-  // constant
+  //constant
   public static final String COMIC_SANS_MS = "Comic Sans MS";
 
-  // constant
+  //constant
   public static final String IMPACT = "Impact";
 
-  // constant
+  //constant
   public static final String LUCIDA_CONSOLE = "Lucida Console";
 
-  // constant
+  //constant
   public static final String PAPYRUS = "Papyrus";
 
-  // constant
+  //constant
   public static final String TAHOMA = "Tahoma";
 
-  // constant
+  //constant
   public static final String VERDANA = "Verdana";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link FontCodeCatalogue} can be created.
    */

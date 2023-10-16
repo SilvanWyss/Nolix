@@ -10,14 +10,14 @@ import ch.nolix.system.objectschema.schemadto.ParameterizedPropertyTypeDto;
 //class
 final class ColumnDtoMapper {
 
-  // constant
+  //constant
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeDtoMapper PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER = //
       new ParameterizedPropertyTypeDtoMapper();
 
-  // method
+  //method
   public ColumnDto createColumnDtoFromColumnNode(final IMutableNode<?> columnNode) {
     return new ColumnDto(
         getIdFromColumnNode(columnNode),
@@ -25,17 +25,17 @@ final class ColumnDtoMapper {
         createParameterizedPropertyTypeFromColumnNode(columnNode));
   }
 
-  // method
+  //method
   private String getIdFromColumnNode(final IMutableNode<?> columnNode) {
     return COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   private String getNameFromColumnNode(final IMutableNode<?> columnNode) {
     return COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   private ParameterizedPropertyTypeDto createParameterizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER

@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class ValidatorTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ValidatorTestPool() {
     super(
         ContainerMediatorTest.class,

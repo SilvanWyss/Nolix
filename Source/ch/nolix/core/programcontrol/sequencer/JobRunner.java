@@ -19,36 +19,36 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 final class JobRunner extends Thread {
 
-  // constant
+  //constant
   private static final JobMerger JOB_MERGER = new JobMerger();
 
-  // static method
+  //static method
   public static JobRunner forJobs(final IContainer<Runnable> jobs) {
     return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
   }
 
-  // attribute
+  //attribute
   private final Runnable job;
 
-  // attribute
+  //attribute
   private int finishedJobCount;
 
-  // attribute
+  //attribute
   private boolean running = true;
 
-  // optional attribute
+  //optional attribute
   private final Integer maxRunCount;
 
-  // optional attribute
+  //optional attribute
   private final BooleanSupplier condition;
 
-  // optional attribute
+  //optional attribute
   private final Integer timeIntervalInMilliseconds;
 
-  // optional attribute
+  //optional attribute
   private Throwable error;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job. The {@link JobRunner}
    * will start automatically.
@@ -58,7 +58,7 @@ final class JobRunner extends Thread {
    */
   public JobRunner(final Runnable job) {
 
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
     this.job = job;
@@ -69,7 +69,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job and condition. The
    * {@link JobRunner} will start automatically.
@@ -81,10 +81,10 @@ final class JobRunner extends Thread {
    */
   public JobRunner(final Runnable job, final BooleanSupplier condition) {
 
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();
 
     this.job = job;
@@ -95,7 +95,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, condition and
    * timeIntervalInMilliseconds. The {@link JobRunner} will start automatically.
@@ -112,13 +112,13 @@ final class JobRunner extends Thread {
       final Runnable job,
       final BooleanSupplier condition,
       final int timeIntervalInMilliseconds) {
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 
-    // Asserts that the given timeIntervalInMilliseconds is not negative.
+    //Asserts that the given timeIntervalInMilliseconds is not negative.
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
         .isNotNegative();
 
@@ -130,7 +130,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job and maxRunCount. The
    * {@link JobRunner} will start automatically.
@@ -144,10 +144,10 @@ final class JobRunner extends Thread {
       final Runnable job,
       final int maxRunCount) {
 
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
-    // Asserts that the given maxRunCount is not negative.
+    //Asserts that the given maxRunCount is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     this.job = job;
@@ -158,7 +158,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, maxRunCount and
    * condition. The {@link JobRunner} will start automatically.
@@ -175,13 +175,13 @@ final class JobRunner extends Thread {
       final int maxRunCount,
       final BooleanSupplier condition) {
 
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
-    // Asserts that the given maxRunCount is not negative.
+    //Asserts that the given maxRunCount is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 
     this.job = job;
@@ -192,7 +192,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, maxRunCount, condition
    * and timeIntervalInMilliseconds. The {@link JobRunner} will start
@@ -213,16 +213,16 @@ final class JobRunner extends Thread {
       final int maxRunCount,
       final BooleanSupplier condition,
       final int timeIntervalInMilliseconds) {
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
-    // Asserts that the given max run count is not negative.
+    //Asserts that the given max run count is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 
-    // Asserts that the given timeIntervalInMilliseconds is not negative.
+    //Asserts that the given timeIntervalInMilliseconds is not negative.
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     this.job = job;
@@ -233,7 +233,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link JobRunner} with the given job, maxRunCount and
    * timeIntervalInMilliseconds. The {@link JobRunner} will start automatically.
@@ -251,13 +251,13 @@ final class JobRunner extends Thread {
       final int maxRunCount,
       final int timeIntervalInMilliseconds) {
 
-    // Asserts that the given job is not null.
+    //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
-    // Asserts that the given maxRunCount is not negative.
+    //Asserts that the given maxRunCount is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
-    // Asserts that the given timeIntervalInMilliseconds is not negative.
+    //Asserts that the given timeIntervalInMilliseconds is not negative.
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseconds").isNotNegative();
 
     this.job = job;
@@ -268,7 +268,7 @@ final class JobRunner extends Thread {
     start();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} has caught an error.
    */
@@ -276,7 +276,7 @@ final class JobRunner extends Thread {
     return (error != null);
   }
 
-  // method
+  //method
   /**
    * @return the error of the current {@link JobRunner}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -285,9 +285,9 @@ final class JobRunner extends Thread {
    */
   public Throwable getError() {
 
-    // Asserts that the current JobRunner has an error.
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //Asserts that the current JobRunner has an error.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     if (error == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ERROR);
     }
@@ -295,7 +295,7 @@ final class JobRunner extends Thread {
     return error;
   }
 
-  // method
+  //method
   /**
    * @return the number of finished jobs of the current {@link JobRunner}.
    */
@@ -303,7 +303,7 @@ final class JobRunner extends Thread {
     return finishedJobCount;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} has a condition.
    */
@@ -311,7 +311,7 @@ final class JobRunner extends Thread {
     return (condition != null);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} has a max run count.
    */
@@ -319,7 +319,7 @@ final class JobRunner extends Thread {
     return (maxRunCount != null);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} has a time interval.
    */
@@ -327,7 +327,7 @@ final class JobRunner extends Thread {
     return (timeIntervalInMilliseconds != null);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} is finished.
    */
@@ -335,7 +335,7 @@ final class JobRunner extends Thread {
     return !isRunning();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} is finished successfully.
    */
@@ -343,7 +343,7 @@ final class JobRunner extends Thread {
     return (isFinished() && !caughtError());
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} is running.
    */
@@ -351,18 +351,18 @@ final class JobRunner extends Thread {
     return running;
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link JobRunner} run.
    */
   @Override
   public void run() {
 
-    // main loop
+    //main loop
     while (!reachedProbableMaxRunCount()) {
       try {
 
-        // Handles the case that the current JobRunner has a time interval.
+        //Handles the case that the current JobRunner has a time interval.
         if (hasTimeInterval()) {
           Waiter.waitForMilliseconds(timeIntervalInMilliseconds);
         }
@@ -373,7 +373,7 @@ final class JobRunner extends Thread {
 
         finishedJobCount++;
         job.run();
-      } catch (final Throwable lError) { // NOSONAR: All Throwables must be caught here.
+      } catch (final Throwable lError) { //NOSONAR: All Throwables must be caught here.
         error = lError;
         GlobalLogger.logError(lError);
         break;
@@ -383,7 +383,7 @@ final class JobRunner extends Thread {
     running = false;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} has a condition and violates
    *         it.
@@ -392,7 +392,7 @@ final class JobRunner extends Thread {
     return (hasCondition() && !condition.getAsBoolean());
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link JobRunner} has a max run count and has
    *         reached it.

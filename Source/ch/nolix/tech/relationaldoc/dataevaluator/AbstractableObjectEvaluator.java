@@ -8,7 +8,7 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 //class
 public final class AbstractableObjectEvaluator {
 
-  // method
+  //method
   public boolean canAddBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject baseType) {
     return canAddBaseType(baseType)
         && abstractableObject != null
@@ -17,7 +17,7 @@ public final class AbstractableObjectEvaluator {
         && canAddBaseTypeBecauseOfSubTypes(abstractableObject, baseType);
   }
 
-  // method
+  //method
   public boolean canAddField(final IAbstractableObject abstractableObject, final IAbstractableField field) {
 
     if (!canAddField(field) || abstractableObject == null) {
@@ -32,13 +32,13 @@ public final class AbstractableObjectEvaluator {
         && canAddFieldBecauseOfSubTypes(abstractableObject, field);
   }
 
-  // method
+  //method
   public boolean canBeSetAsConcrete(final IAbstractableObject abstractableObject) {
     return abstractableObject != null
         && abstractableObject.getStoredFields().containsNone(IAbstractableField::isAbstract);
   }
 
-  // method
+  //method
   public boolean canSetName(final IAbstractableObject abstractableObject, final String name) {
     return canSetName(name)
         && abstractableObject != null
@@ -46,19 +46,19 @@ public final class AbstractableObjectEvaluator {
         && abstractableObject.getStoredSubTypes().containsNone(ao -> ao.hasName(name));
   }
 
-  // method
+  //method
   public boolean hasBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject probableBaseType) {
     return abstractableObject != null
         && !abstractableObject.getStoredBaseTypes().contains(probableBaseType);
   }
 
-  // method
+  //method
   public boolean hasBaseTypes(final IAbstractableObject abstractableObject) {
     return abstractableObject != null
         && abstractableObject.getStoredDirectBaseTypes().containsAny();
   }
 
-  // method
+  //method
   private boolean canAddBaseTypeBecauseOfBaseTypes(
       final IAbstractableObject abstractableObject,
       final IAbstractableObject baseType) {
@@ -71,7 +71,7 @@ public final class AbstractableObjectEvaluator {
     return baseTypes.containsNone(bt -> bt.hasSameNameAs(baseType));
   }
 
-  // method
+  //method
   private boolean canAddBaseTypeBecauseOfSubTypes(
       final IAbstractableObject abstractableObject,
       final IAbstractableObject baseType) {
@@ -84,18 +84,18 @@ public final class AbstractableObjectEvaluator {
     return subTypes.containsNone(st -> st.hasSameNameAs(baseType));
   }
 
-  // method
+  //method
   private boolean canAddBaseType(final IAbstractableObject baseType) {
     return baseType != null
         && baseType.isAbstract();
   }
 
-  // method
+  //method
   private boolean canAddField(final IAbstractableField field) {
     return (field != null);
   }
 
-  // method
+  //method
   private boolean canAddFieldBecauseOfSubTypes(
       final IAbstractableObject abstractableObject,
       final IAbstractableField field) {
@@ -104,7 +104,7 @@ public final class AbstractableObjectEvaluator {
         .containsNone(st -> st.getStoredFields().containsAny(f -> f.hasSameNameAs(field)));
   }
 
-  // method
+  //method
   private boolean canSetName(final String name) {
     return name != null
         && !name.isBlank();

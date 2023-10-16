@@ -19,10 +19,10 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  */
 public class MultiArgumentMediator<A> {
 
-  // attribute
+  //attribute
   private final Iterable<A> arguments;
 
-  // constructor
+  //constructor
   /**
    * Creates a new multi argument mediator with the given arguments.
    * 
@@ -31,16 +31,16 @@ public class MultiArgumentMediator<A> {
    */
   MultiArgumentMediator(final Iterable<A> arguments) {
 
-    // Asserts that the given arguments is not null.
+    //Asserts that the given arguments is not null.
     if (arguments == null) {
       throw ArgumentIsNullException.forArgumentName("arguments");
     }
 
-    // Sets the arguments of this multi argument mediator.
+    //Sets the arguments of this multi argument mediator.
     this.arguments = arguments;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new multi argument mediator with the given arguments.
    * 
@@ -49,32 +49,32 @@ public class MultiArgumentMediator<A> {
    */
   MultiArgumentMediator(final A[] arguments) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(GlobalArrayHelper.createIterable(arguments));
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException if one of the arguments of this multi
    *                                 argument mediator is null.
    */
   public final void areNotNull() {
 
-    // Iterates the arguments of this multi argument mediator.
+    //Iterates the arguments of this multi argument mediator.
     var index = 1;
     for (final A a : getStoredArguments()) {
 
-      // Asserts that the current argument is not null.
+      //Asserts that the current argument is not null.
       if (a == null) {
         throw ArgumentIsNullException.forArgumentName(index + "th argument");
       }
 
-      // Increments the index.
+      //Increments the index.
       index++;
     }
   }
 
-  // method
+  //method
   /**
    * @param condition
    * @throws ArgumentIsNullException  if the given condition is null.
@@ -83,11 +83,11 @@ public class MultiArgumentMediator<A> {
    */
   public final void fulfill(final Predicate<A> condition) {
 
-    // Iterates the arguments of this multi argument mediator.
+    //Iterates the arguments of this multi argument mediator.
     var index = 1;
     for (final A a : getStoredArguments()) {
 
-      // Asserts that the current argument fulfills the given condition.
+      //Asserts that the current argument fulfills the given condition.
       if (!condition.test(a)) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
             index + "th argument",
@@ -95,12 +95,12 @@ public class MultiArgumentMediator<A> {
             "does not fulfil the given condition");
       }
 
-      // Increments the index.
+      //Increments the index.
       index++;
     }
   }
 
-  // method
+  //method
   /**
    * @return the arguments of this multi argument mediator.
    */

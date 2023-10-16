@@ -22,10 +22,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public abstract class ThrownExceptionMediator extends Mediator {
 
-  // optional attribute
+  //optional attribute
   private final Throwable exception;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ThrownExceptionMediator} that will belong to the given
    * test.
@@ -35,14 +35,14 @@ public abstract class ThrownExceptionMediator extends Mediator {
    */
   ThrownExceptionMediator(final Consumer<String> expectationErrorTaker) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(expectationErrorTaker);
 
-    // Clears the exception of the current thrown exception mediator.
+    //Clears the exception of the current thrown exception mediator.
     exception = null;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ThrownExceptionMediator} that will belong to the given
    * test and is for the given exception.
@@ -54,28 +54,28 @@ public abstract class ThrownExceptionMediator extends Mediator {
    */
   ThrownExceptionMediator(final Consumer<String> expectationErrorTaker, final Throwable exception) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(expectationErrorTaker);
 
-    // Asserts that the given exception is not null.
+    //Asserts that the given exception is not null.
     if (exception == null) {
       throw ArgumentIsNullException.forArgumentType(Exception.class);
     }
 
-    // Sets the exception of the current thrown exception mediator.
+    //Sets the exception of the current thrown exception mediator.
     this.exception = exception;
   }
 
-  // method
+  //method
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have a message.
    */
   public final void withMessage() {
 
-    // Handles the case that the current thrown exception mediator has an exception.
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //Handles the case that the current thrown exception mediator has an exception.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     if (exception != null && exception.getMessage() == null) {
       addCurrentTestCaseError(
           "An exception with a message was expected,"
@@ -83,7 +83,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} does not have the given message.
@@ -93,18 +93,18 @@ public abstract class ThrownExceptionMediator extends Mediator {
    */
   public final void withMessage(final String message) {
 
-    // Asserts that the given message is not null.
+    //Asserts that the given message is not null.
     if (message == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.MESSAGE);
     }
 
-    // Handles the case that the current ThrownExceptionMediator has an exception.
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //Handles the case that the current ThrownExceptionMediator has an exception.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     if (exception != null) {
 
-      // Asserts that the exception of the current ThrownExceptionMediator has a
-      // message.
+      //Asserts that the exception of the current ThrownExceptionMediator has a
+      //message.
       if (exception.getMessage() == null) {
         addCurrentTestCaseError(
             "An exception with the message '"
@@ -112,8 +112,8 @@ public abstract class ThrownExceptionMediator extends Mediator {
                 + "' was expected, but an exception without messag was received.");
       }
 
-      // Asserts that the exception of the current ThrownExceptionMediator has the
-      // given message.
+      //Asserts that the exception of the current ThrownExceptionMediator has the
+      //given message.
       if (!exception.getMessage().equals(message)) {
         addCurrentTestCaseError(
             "An exception with the message '"
@@ -125,16 +125,16 @@ public abstract class ThrownExceptionMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} has a message.
    */
   public final void withoutMessage() {
 
-    // Handles the case that the current ThrownExceptionMediator has an exception.
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //Handles the case that the current ThrownExceptionMediator has an exception.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     if (exception != null && exception.getMessage() != null) {
       addCurrentTestCaseError(
           "An exception without message was expected, but an exception with the message '"
@@ -143,16 +143,16 @@ public abstract class ThrownExceptionMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @return the exception of the current {@link ThrownExceptionMediator}.
    * 
    */
   final Throwable getException() {
 
-    // Asserts that the current ThrownExceptionMediator has an exception.
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //Asserts that the current ThrownExceptionMediator has an exception.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     if (exception == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.EXCEPTION);
     }
@@ -160,7 +160,7 @@ public abstract class ThrownExceptionMediator extends Mediator {
     return exception;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ThrownExceptionMediator} has an exception.
    */

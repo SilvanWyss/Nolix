@@ -25,10 +25,10 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 //class
 public final class LocalFrontEndReader implements IFrontEndReader {
 
-  // constant
+  //constant
   private static final JFileChooser FILE_CHOOSER;
 
-  // static initializing
+  //static initializing
   static {
 
     try {
@@ -44,13 +44,13 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     FILE_CHOOSER = new JFileChooser();
   }
 
-  // method
+  //method
   @Override
   public IContainer<byte[]> getFilesFromClipboard() {
     return getFilePathsFromClipboard().to(FileSystemAccessor::readFileToBytes);
   }
 
-  // method
+  //method
   @Override
   public String getTextFromClipboard() {
     try {
@@ -60,7 +60,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     }
   }
 
-  // method
+  //method
   @Override
   public SingleContainer<byte[]> readFileToBytes() {
 
@@ -73,7 +73,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     return new SingleContainer<>(new FileAccessor(filePath).readFileToBytes());
   }
 
-  // method
+  //method
   private IContainer<String> getFilePathsFromClipboard() {
     try {
 

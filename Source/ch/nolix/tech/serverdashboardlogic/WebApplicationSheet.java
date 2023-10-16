@@ -12,18 +12,18 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public final class WebApplicationSheet implements IWebApplicationSheet {
 
-  // static method
+  //static method
   public static WebApplicationSheet forWebApplication(final Application<WebClient<?>, ?> webApplication) {
     return new WebApplicationSheet(webApplication);
   }
 
-  // attribute
+  //attribute
   private final IApplicationInstanceTarget applicationInstanceTarget;
 
-  // optional attribute
+  //optional attribute
   private final IImage applicationLogo;
 
-  // constructor
+  //constructor
   private WebApplicationSheet(final Application<WebClient<?>, ?> webApplication) {
 
     applicationInstanceTarget = webApplication.asTarget();
@@ -37,13 +37,13 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
     }
   }
 
-  // method
+  //method
   @Override
   public IApplicationInstanceTarget getApplicationInstanceTarget() {
     return applicationInstanceTarget;
   }
 
-  // method
+  //method
   @Override
   public IImage getApplicationLogo() {
 
@@ -52,13 +52,13 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
     return applicationLogo;
   }
 
-  // method
+  //method
   @Override
   public boolean hasApplicationLogo() {
     return (applicationLogo != null);
   }
 
-  // method
+  //method
   private void assertHasApplicationLogo() {
     if (!hasApplicationLogo()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "application logo");

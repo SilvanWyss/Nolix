@@ -14,14 +14,14 @@ public enum MultiValueEntryTableColumn implements QualifiedNamed {
   ENTITY_ID("EntityId"),
   VALUE(PascalCaseCatalogue.VALUE);
 
-  // constant
+  //constant
   private static final String NAME_PREFIX = MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
       + StringCatalogue.DOT;
 
-  // attribute
+  //attribute
   private final String name;
 
-  // constructor
+  //constructor
   MultiValueEntryTableColumn(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -29,13 +29,13 @@ public enum MultiValueEntryTableColumn implements QualifiedNamed {
     this.name = name;
   }
 
-  // method
+  //method
   @Override
   public final String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getQualifyingPrefix() {
     return NAME_PREFIX;

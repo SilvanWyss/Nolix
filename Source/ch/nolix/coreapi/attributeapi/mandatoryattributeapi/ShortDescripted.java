@@ -26,13 +26,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface ShortDescripted {
 
-  // method declaration
+  //method declaration
   /**
    * @return the short description of the current {@link ShortDescripted}.
    */
   String getShortDescription();
 
-  // method
+  //method
   /**
    * @return the short description of the current {@link ShortDescripted} in
    *         quotes.

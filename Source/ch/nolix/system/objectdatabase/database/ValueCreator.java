@@ -9,7 +9,7 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 //class
 public final class ValueCreator {
 
-  // method
+  //method
   public Object createValueOfDataTypeFromString(final DataType dataType, final String string) {
     return switch (dataType) {
       case INTEGER_1BYTE ->

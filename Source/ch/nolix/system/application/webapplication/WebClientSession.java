@@ -10,20 +10,20 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClient<AC>, AC> {
 
-  // attribute
+  //attribute
   private final IWebGui<?> webGui = new WebGui();
 
-  // method
+  //method
   public final IWebGui<?> getStoredGui() {
     return webGui;
   }
 
-  // method
+  //method
   public void updateControlOnCounterpart(final IControl<?, ?> control) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control);
   }
 
-  // method
+  //method
   @Override
   protected final void fullInitialize() {
 
@@ -34,21 +34,21 @@ public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClien
     initialize();
   }
 
-  // method declaration
+  //method declaration
   protected abstract void initialize();
 
-  // method
+  //method
   @Override
   protected final Class<?> getClientClass() {
     return WebClient.class;
   }
 
-  // method
+  //method
   protected final void refreshControl(final IControl<?, ?> control) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control);
   }
 
-  // method
+  //method
   @Override
   protected final void updateCounterpart() {
     getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());

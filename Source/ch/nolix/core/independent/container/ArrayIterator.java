@@ -8,35 +8,35 @@ import java.util.NoSuchElementException;
 //class
 public final class ArrayIterator<E> implements Iterator<E> {
 
-  // static method
+  //static method
   public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
     return new ArrayIterator<>(array);
   }
 
-  // attribute
+  //attribute
   private final E[] parentArray;
 
-  // attribute
+  //attribute
   private int nextIndex;
 
-  // constructor
+  //constructor
   private ArrayIterator(final E[] parrentArray) {
 
     if (parrentArray == null) {
       throw new IllegalArgumentException("The given parent array is null.");
     }
 
-    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (nextIndex < parentArray.length);
   }
 
-  // method
+  //method
   @Override
   public E next() {
 
@@ -45,14 +45,14 @@ public final class ArrayIterator<E> implements Iterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw new NoSuchElementException("The current ArrayIterator does not have a next element.");
     }
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = parentArray[nextIndex];

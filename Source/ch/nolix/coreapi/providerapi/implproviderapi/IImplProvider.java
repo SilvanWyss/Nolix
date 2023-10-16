@@ -4,9 +4,9 @@ package ch.nolix.coreapi.providerapi.implproviderapi;
 //interface
 public interface IImplProvider {
 
-  // method declaration
+  //method declaration
   <IN> IExtendedImplRegistratorMediator<IN> forInterface(Class<IN> pInterface);
 
-  // method declaration
+  //method declaration
   <IN> IImplProviderMediator<IN> ofInterface(Class<IN> pInterface);
 }

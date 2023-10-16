@@ -10,13 +10,13 @@ import ch.nolix.systemapi.elementapi.multistateconfigurationapi.ValueStoringStat
 //class
 final class StateProperty<V> {
 
-  // attribute
+  //attribute
   private boolean hasValueOrDefinesEmpty;
 
-  // optional attribute
+  //optional attribute
   private V value;
 
-  // method
+  //method
   public ValueStoringState getAssignmentType() {
 
     if (!hasValueOrDefinesEmpty()) {
@@ -30,9 +30,9 @@ final class StateProperty<V> {
     return ValueStoringState.STORING_VALUE;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public V getValue() {
 
     if (!hasValueOrDefinesEmpty || value == null) {
@@ -42,31 +42,31 @@ final class StateProperty<V> {
     return value;
   }
 
-  // method
+  //method
   public boolean hasValue() {
     return (value != null);
   }
 
-  // method
+  //method
   public boolean hasValueOrDefinesEmpty() {
     return hasValueOrDefinesEmpty;
   }
 
-  // method
+  //method
   public void setEmpty() {
     hasValueOrDefinesEmpty = true;
     value = null;
   }
 
-  // method
+  //method
   public void setForwarding() {
     hasValueOrDefinesEmpty = false;
     value = null;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public void setValue(final V value) {
 
     if (value == null) {

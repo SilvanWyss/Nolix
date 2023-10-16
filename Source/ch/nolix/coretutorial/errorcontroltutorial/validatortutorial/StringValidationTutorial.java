@@ -20,12 +20,12 @@ public final class StringValidationTutorial {
    */
   public static void main(String[] args) {
 
-    // Lets the validator validate that the string 'Hello World!' is not null and
-    // not empty.
+    //Lets the validator validate that the string 'Hello World!' is not null and
+    //not empty.
     GlobalValidator.assertThat("Hello World!").isNotEmpty();
 
-    // Lets the validator validate that he string 'Hello World!' has the max length
-    // 20.
+    //Lets the validator validate that he string 'Hello World!' has the max length
+    //20.
     GlobalValidator.assertThat("Hello World!").isNotLongerThan(12);
   }
 

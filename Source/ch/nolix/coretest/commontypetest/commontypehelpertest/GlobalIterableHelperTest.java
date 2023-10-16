@@ -10,129 +10,129 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class GlobalIterableHelperTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_containsAny_whenGivenIterableIsNull() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = null;
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsAny(iterable);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsAny_whenGivenIterableIsEmpty() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>();
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsAny(iterable);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsAny_whenGivenIterableContains1Element() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x" });
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsAny(iterable);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsAny_whenGivenIterableContains2Elements() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx" });
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsAny(iterable);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEqualing_whenGivenIterableIsNull() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = null;
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsEqualing(iterable, "x");
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEqualing_whenGivenIterableIsEmpty() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>();
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsEqualing(iterable, "x");
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEqualing_whenGivenIterableContainsOnlyUnequalElements() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsEqualing(iterable, "xxxx");
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEqualing_whenGivenIterableContainsEqualElementAndUnequalElements() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "xx", "xxx" });
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsEqualing(iterable, "xx");
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEqualing_whenGivenIterableContainsOnlyEqualElements() {
 
-    // setup
+    //setup
     final Iterable<Object> iterable = new List<>(new String[] { "x", "x", "x" });
 
-    // execution
+    //execution
     final var result = GlobalIterableHelper.containsEqualing(iterable, "x");
 
-    // verification
+    //verification
     expect(result);
   }
 }

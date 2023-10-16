@@ -10,10 +10,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableNodeMapper {
 
-  // constant
+  //constant
   private static final ColumnNodeMapper COLUMN_NODE_MAPPER = new ColumnNodeMapper();
 
-  // method
+  //method
   public Node createTableNodeFrom(final ITableDto table) {
 
     final var childNodes = LinkedList.withElement(createIdNodeFrom(table), createNameNodeFrom(table));
@@ -22,17 +22,17 @@ public final class TableNodeMapper {
     return Node.withHeaderAndChildNodes(SubNodeHeaderCatalogue.TABLE, childNodes);
   }
 
-  // method
+  //method
   private Node createIdNodeFrom(final ITableDto table) {
     return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.ID, table.getId());
   }
 
-  // method
+  //method
   private Node createNameNodeFrom(final ITableDto table) {
     return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.NAME, table.getName());
   }
 
-  // method
+  //method
   private Iterable<Node> createColumnNodesFrom(final ITableDto table) {
     return table.getColumns().to(COLUMN_NODE_MAPPER::createColumnNodeFrom);
   }

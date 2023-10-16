@@ -16,7 +16,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdap
 //class
 final class InternalDatabaseInitializer {
 
-  // method
+  //method
   public void initializeDatabase(
       final String databaseName,
       final ISchemaAdapter schemaAdapter,

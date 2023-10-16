@@ -18,19 +18,19 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {
 
-  // constant
+  //constant
   private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 
-  // attribute
+  //attribute
   private final SchemaReader rawSchemaReader;
 
-  // attribute
+  //attribute
   private final SchemaWriter rawSchemaWriter;
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // constructor
+  //constructor
   protected SchemaAdapter(
       final String databaseName,
       final SqlConnectionPool sqlConnectionPool,
@@ -52,138 +52,138 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     getStoredCloseController().createCloseDependencyTo(rawSchemaWriter);
   }
 
-  // method
+  //method
   @Override
   public final boolean columnIsEmpty(final String tableName, final String columnName) {
     return rawSchemaReader.columnIsEmpty(tableName, columnName);
   }
 
-  // method
+  //method
   @Override
   public final void addColumn(final String tableName, IColumnDto column) {
     rawSchemaWriter.addColumn(tableName, column);
   }
 
-  // method
+  //method
   @Override
   public final void addTable(final ITableDto table) {
     rawSchemaWriter.addTable(table);
   }
 
-  // method
+  //method
   @Override
   public final void deleteColumn(final String tableName, final String columnName) {
     rawSchemaWriter.deleteColumn(tableName, columnName);
   }
 
-  // method
+  //method
   @Override
   public final void deleteTable(final String tableName) {
     rawSchemaWriter.deleteTable(tableName);
   }
 
-  // method
+  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public final int getSaveCount() {
     return rawSchemaWriter.getSaveCount();
   }
 
-  // method
+  //method
   @Override
   public final int getTableCount() {
     return rawSchemaReader.getTableCount();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasChanges() {
     return rawSchemaWriter.hasChanges();
   }
 
-  // method
+  //method
   @Override
   public final IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
     return rawSchemaReader.loadColumnsByTableId(tableId);
   }
 
-  // method
+  //method
   @Override
   public final IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
     return rawSchemaReader.loadColumnsByTableName(tableName);
   }
 
-  // method
+  //method
   @Override
   public final IFlatTableDto loadFlatTableById(final String id) {
     return rawSchemaReader.loadFlatTableById(id);
   }
 
-  // method
+  //method
   @Override
   public IFlatTableDto loadFlatTableByName(final String name) {
     return rawSchemaReader.loadFlatTableByName(name);
   }
 
-  // method
+  //method
   @Override
   public final IContainer<IFlatTableDto> loadFlatTables() {
     return rawSchemaReader.loadFlatTables();
   }
 
-  // method
+  //method
   @Override
   public final Time loadSchemaTimestamp() {
     return rawSchemaReader.loadSchemaTimestamp();
   }
 
-  // method
+  //method
   @Override
   public final ITableDto loadTableById(final String id) {
     return rawSchemaReader.loadTableById(id);
   }
 
-  // method
+  //method
   @Override
   public final ITableDto loadTableByName(final String name) {
     return rawSchemaReader.loadTableByName(name);
   }
 
-  // method
+  //method
   @Override
   public final IContainer<ITableDto> loadTables() {
     return rawSchemaReader.loadTables();
   }
 
-  // method
+  //method
   @Override
   public final void noteClose() {
   }
 
-  // method
+  //method
   @Override
   public final void reset() {
     rawSchemaWriter.reset();
   }
 
-  // method
+  //method
   @Override
   public final void saveChanges() {
     rawSchemaWriter.saveChanges();
   }
 
-  // method
+  //method
   @Override
   public final void setColumnName(final String tableName, final String columnName, final String newColumnName) {
     rawSchemaWriter.setColumnName(tableName, columnName, newColumnName);
   }
 
-  // method
+  //method
   @Override
   public final void setColumnParameterizedPropertyType(
       final String columnId,
@@ -191,7 +191,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     rawSchemaWriter.setColumnParameterizedPropertyType(columnId, parameterizedPropertyType);
   }
 
-  // method
+  //method
   @Override
   public final void setTableName(final String tableName, final String newTableName) {
     rawSchemaWriter.setTableName(tableName, newTableName);

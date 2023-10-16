@@ -19,7 +19,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class VerticalStackCssBuilder
     extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final IVerticalStack verticalStack,
@@ -34,15 +34,15 @@ public final class VerticalStackCssBuilder
                     verticalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final IVerticalStack verticalStack,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final IVerticalStack control,
@@ -53,16 +53,16 @@ public final class VerticalStackCssBuilder
         createCssPropertyForContentAlignmentOfControl(control));
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final IVerticalStack verticalStack,
       final ControlState state,
       final LinkedList<ICssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   private CssProperty createCssPropertyForContentAlignment(final HorizontalContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case LEFT ->
@@ -74,7 +74,7 @@ public final class VerticalStackCssBuilder
     };
   }
 
-  // method
+  //method
   private CssProperty createCssPropertyForContentAlignmentOfControl(final IVerticalStack control) {
 
     final var contentAlignment = control.getContentAlignment();

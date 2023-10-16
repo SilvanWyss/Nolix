@@ -7,15 +7,15 @@ public interface IReference<
     E extends IEntity>
     extends IBaseReference<E> {
 
-  // method declaration
+  //method declaration
   E getReferencedEntity();
 
-  // method declaration
+  //method declaration
   String getReferencedEntityId();
 
-  // method declaration
+  //method declaration
   void setEntity(final E entity);
 
-  // method declaration
+  //method declaration
   void setEntityById(final String id);
 }

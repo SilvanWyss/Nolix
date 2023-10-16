@@ -7,10 +7,10 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 //class
 public final class SubNodeHeaderCatalogue {
 
-  // constant
+  //constant
   public static final String ENTITY = PascalCaseCatalogue.ENTITY;
 
-  // constructor
+  //constructor
   private SubNodeHeaderCatalogue() {
   }
 }

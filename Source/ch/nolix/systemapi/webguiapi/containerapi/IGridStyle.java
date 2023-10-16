@@ -10,39 +10,39 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //interface
 public interface IGridStyle extends IControlStyle<IGridStyle> {
 
-  // method declaration
+  //method declaration
   int getChildControlMarginWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   IColor getGridColorWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getGridThicknessWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   GridType getGridTypeWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   void removeCustomChildControlMargins();
 
-  // method declaration
+  //method declaration
   void removeCustomGridColors();
 
-  // method declaration
+  //method declaration
   void removeCustomGridThicknesses();
 
-  // method declaration
+  //method declaration
   void removeCustomGridTypes();
 
-  // method declaration
+  //method declaration
   IGridStyle setChildControlMarginForState(ControlState state, int childControlMargin);
 
-  // method declaration
+  //method declaration
   IGridStyle setGridColorForState(ControlState state, IColor gridColor);
 
-  // method declaration
+  //method declaration
   IGridStyle setGridThicknessForState(ControlState state, int gridThickness);
 
-  // method declaration
+  //method declaration
   IGridStyle setGridTypeForState(ControlState state, GridType gridType);
 }

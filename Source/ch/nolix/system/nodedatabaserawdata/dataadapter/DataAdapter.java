@@ -13,20 +13,20 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class DataAdapter extends BaseDataAdapter {
 
-  // constant
+  //constant
   private static final TableDefinitionLoader TABLE_DEFINITION_LOADER = new TableDefinitionLoader();
 
-  // static method
+  //static method
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new DataAdapter(nodeDatabase);
   }
 
-  // constructor
+  //constructor
   private DataAdapter(final IMutableNode<?> nodeDatabase) {
     this(nodeDatabase, TABLE_DEFINITION_LOADER.loadTableDefinitionsFromDatabaseNode(nodeDatabase));
   }
 
-  // constructor
+  //constructor
   private DataAdapter(
       final IMutableNode<?> nodeDatabase,
       final IContainer<ITableInfo> tableInfos) {

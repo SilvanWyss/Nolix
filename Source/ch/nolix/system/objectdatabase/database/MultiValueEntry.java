@@ -12,33 +12,33 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiValueEntry;
 //class
 public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
-  // constant
+  //constant
   private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
 
-  // static method
+  //static method
   public static <V2> MultiValueEntry<V2> loadedEntryForMultiValueAndValue(
       final IMultiValue<V2> multiValue,
       final V2 value) {
     return new MultiValueEntry<>(multiValue, DatabaseObjectState.LOADED, value);
   }
 
-  // static method
+  //static method
   public static <V2> MultiValueEntry<V2> newEntryForMultiValueAndValue(
       final IMultiValue<V2> multiValue,
       final V2 value) {
     return new MultiValueEntry<>(multiValue, DatabaseObjectState.NEW, value);
   }
 
-  // attribute
+  //attribute
   private final IMultiValue<V> parentMultiValue;
 
-  // attribute
+  //attribute
   private DatabaseObjectState state;
 
-  // attribute
+  //attribute
   private final V value;
 
-  // constructor
+  //constructor
   private MultiValueEntry(
       final IMultiValue<V> parentMultiValue,
       final DatabaseObjectState initialState,
@@ -53,19 +53,19 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
     this.value = value;
   }
 
-  // method
+  //method
   @Override
   public IMultiValue<V> getStoredParentMultiValue() {
     return parentMultiValue;
   }
 
-  // method
+  //method
   @Override
   public V getStoredValue() {
     return value;
   }
 
-  // method
+  //method
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiValue().getState()) {
@@ -78,25 +78,25 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
     };
   }
 
-  // method
+  //method
   @Override
   public boolean isClosed() {
     return getStoredParentMultiValue().isClosed();
   }
 
-  // method
+  //method
   @Override
   public boolean isDeleted() {
     return getStoredParentMultiValue().isDeleted();
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return getStoredParentMultiValue().isLinkedWithRealDatabase();
   }
 
-  // method
+  //method
   void internalSetDeleted() {
 
     assertIsLoaded();
@@ -104,7 +104,7 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
     state = DatabaseObjectState.DELETED;
   }
 
-  // method
+  //method
   private void assertIsLoaded() {
     DATABASE_OBJECT_HELPER.assertIsLoaded(this);
   }

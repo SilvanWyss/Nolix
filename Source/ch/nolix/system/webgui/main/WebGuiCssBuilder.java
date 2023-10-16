@@ -16,7 +16,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebGuiCssBuilder {
 
-  // method
+  //method
   public Css createCssForWebGui(final IWebGui<?> webGui) {
 
     final var cssRules = new LinkedList<ICssRule>();
@@ -26,7 +26,7 @@ public final class WebGuiCssBuilder {
     return Css.withRules(cssRules);
   }
 
-  // method
+  //method
   private void fillUpCssRulesOfWebGuiIntoList(
       final IWebGui<?> webGui,
       final LinkedList<ICssRule> cssRules) {
@@ -51,7 +51,7 @@ public final class WebGuiCssBuilder {
     fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
   }
 
-  // method
+  //method
   private void fillUpCssRulesOfLayersOfWebGuiIntoList(
       final IWebGui<?> webGui,
       final LinkedList<ICssRule> cssRules) {
@@ -60,7 +60,7 @@ public final class WebGuiCssBuilder {
     }
   }
 
-  // method
+  //method
   private void fillUpCssRulesOfLayerIntoList(final ILayer<?> layer, final LinkedList<ICssRule> cssRules) {
 
     cssRules.addAtEnd(layer.getCssRule());

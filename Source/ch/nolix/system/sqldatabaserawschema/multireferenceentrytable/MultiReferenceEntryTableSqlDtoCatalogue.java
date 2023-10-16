@@ -11,28 +11,28 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 //class
 public final class MultiReferenceEntryTableSqlDtoCatalogue {
 
-  // constant
+  //constant
   private static final IColumnDto MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO = new ColumnDto(
       MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName(),
       SqlDatatypeCatalogue.TEXT);
 
-  // constant
+  //constant
   private static final IColumnDto ENTITY_COLUMN_SQL_DTO = new ColumnDto(
       MultiReferenceEntryTableColumn.ENTITY_ID.getName(), SqlDatatypeCatalogue.TEXT);
 
-  // constant
+  //constant
   private static final IColumnDto REFERENCED_ENTITY_COLUMN_SQL_DTO = new ColumnDto(
       MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName(),
       SqlDatatypeCatalogue.TEXT);
 
-  // constant
+  //constant
   public static final ITableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = new TableDto(
       MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName(),
       MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
       ENTITY_COLUMN_SQL_DTO,
       REFERENCED_ENTITY_COLUMN_SQL_DTO);
 
-  // constructor
+  //constructor
   private MultiReferenceEntryTableSqlDtoCatalogue() {
   }
 }

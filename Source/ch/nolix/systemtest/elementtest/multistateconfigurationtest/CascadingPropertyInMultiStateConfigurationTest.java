@@ -11,7 +11,7 @@ import ch.nolix.system.graphic.color.Color;
 //class
 public final class CascadingPropertyInMultiStateConfigurationTest extends Test {
 
-  // static enum
+  //static enum
   private enum CustomState {
     A,
     B,
@@ -19,13 +19,13 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Test {
     D
   }
 
-  // static class
+  //constant
   private static final class CustomMultiStateConfiguration
       extends MultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
 
     public static final CustomState BASE_STATE = CustomState.A;
 
-    // attribute
+    //attribute
     public final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
         "Color",
         CustomState.class,
@@ -33,7 +33,7 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Test {
         Color::getSpecification,
         Color.WHITE);
 
-    // constructor
+    //constructor
     public CustomMultiStateConfiguration() {
 
       super(BASE_STATE);
@@ -41,73 +41,73 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Test {
       reset();
     }
 
-    // method
+    //method
     public void addChild(final CustomMultiStateConfiguration child) {
       internalAddChild(child);
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueOfState_whenDoesNotDefineValueForGivenState() {
 
-    // setup
+    //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
-    // execution
+    //execution
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+    //verification
     expect(result).is(Color.WHITE);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndDefinesValueForBaseState() {
 
-    // setup
+    //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setValueForState(CustomState.A, Color.RED);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
-    // execution
+    //execution
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+    //verification
     expect(result).is(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueOfState_whenDoesNotDefineValueForGivenStateAndGetsValueFromParent() {
 
-    // setup
+    //setup
     final var parentMultiStateConfiguration = new CustomMultiStateConfiguration();
     parentMultiStateConfiguration.testUnit.setValueForState(CustomState.C, Color.RED);
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     parentMultiStateConfiguration.addChild(multiStateConfiguration);
     multiStateConfiguration.testUnit.setUndefinedForState(CustomState.C);
 
-    // execution
+    //execution
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+    //verification
     expect(result).is(Color.RED);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueOfState_whenDefinesValueForGivenState() {
 
-    // setup
+    //setup
     final var multiStateConfiguration = new CustomMultiStateConfiguration();
     multiStateConfiguration.testUnit.setValueForState(CustomState.C, Color.RED);
 
-    // execution
+    //execution
     final var result = multiStateConfiguration.testUnit.getValueWhenHasState(CustomState.C);
 
-    // verification
+    //verification
     expect(result).is(Color.RED);
   }
 }

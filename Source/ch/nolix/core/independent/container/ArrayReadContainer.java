@@ -7,27 +7,27 @@ import java.util.Iterator;
 //class
 public final class ArrayReadContainer<E> implements Iterable<E> {
 
-  // attribute
+  //attribute
   private final E[] array;
 
-  // constructor
+  //constructor
   public ArrayReadContainer(final E[] array) {
 
-    // Asserts that the given array is not null.
+    //Asserts that the given array is not null.
     if (array == null) {
       throw new IllegalArgumentException("The given array is null.");
     }
 
-    // Sets the array of the current array read container.
-    this.array = array; // NOSONAR: An ArrayReadContainer operates on the original instance.
+    //Sets the array of the current array read container.
+    this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.
   }
 
-  // method
+  //method
   public int getSize() {
     return array.length;
   }
 
-  // method
+  //method
   @Override
   public Iterator<E> iterator() {
     return ArrayIterator.forArray(array);

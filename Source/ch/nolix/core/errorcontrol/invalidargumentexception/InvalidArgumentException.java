@@ -26,22 +26,22 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public class InvalidArgumentException extends RuntimeException {
 
-  // constant
+  //constant
   private static final int MAX_ARGUMENT_NAME_LENGTH = 100;
 
-  // constant
+  //constant
   private static final String DEFAULT_ARGUMENT_NAME = "argument";
 
-  // constant
+  //constant
   private static final String DEFAULT_ERROR_PREDICATE = "is not valid";
 
-  // constant
+  //constant
   private static final char DOT = '.';
 
-  // constant
+  //constant
   private static final char ELLIPSIS = 0x2026;
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link InvalidArgumentException} for the given argument.
@@ -50,7 +50,7 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param errorPredicate
@@ -66,7 +66,7 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argument, errorPredicate);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -81,7 +81,7 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argumentName, argument, DEFAULT_ERROR_PREDICATE);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -101,23 +101,23 @@ public class InvalidArgumentException extends RuntimeException {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a argument name for the given argument.
    */
   private static String getNameOfArgument(final Object argument) {
 
-    // Handles the case that the given argument is null.
+    //Handles the case that the given argument is null.
     if (argument == null) {
       return DEFAULT_ARGUMENT_NAME;
     }
 
-    // Handles the case that the given argument is not null.
+    //Handles the case that the given argument is not null.
     return argument.getClass().getSimpleName();
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a {@link String} representation of the given argument with puffer to
@@ -125,31 +125,31 @@ public class InvalidArgumentException extends RuntimeException {
    */
   private static String getStringRepresentationWithPufferToNextWordsOfArgument(final Object argument) {
 
-    // Handles the case that the given argument is null.
+    //Handles the case that the given argument is null.
     if (argument == null) {
       return " ";
     }
 
-    // Gets the String representation of the given argument.
+    //Gets the String representation of the given argument.
     final var string = argument.toString();
 
-    // Handles the case that the String representation is null or blank.
+    //Handles the case that the String representation is null or blank.
     if (string == null || string.isBlank()) {
       return " ";
     }
 
-    // Handles the case that the length of the String representation is not bigger
-    // than the max argument name length.
+    //Handles the case that the length of the String representation is not bigger
+    //than the max argument name length.
     if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
       return (" '" + string + "' ");
     }
 
-    // Handles the case that the length of the String representation is bigger than
-    // the max argument name length.
+    //Handles the case that the length of the String representation is bigger than
+    //the max argument name length.
     return (" '" + string.substring(0, MAX_ARGUMENT_NAME_LENGTH) + ELLIPSIS + "' ");
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @return a valid argument name of the given argumentName.
@@ -158,12 +158,12 @@ public class InvalidArgumentException extends RuntimeException {
    */
   private static String getValidArgumentNameOfArgumentName(final String argumentName) {
 
-    // Asserts that the given argumentName is not null.
+    //Asserts that the given argumentName is not null.
     if (argumentName == null) {
       throw new IllegalArgumentException("The given argument name is null.");
     }
 
-    // Asserts that the given argumentName is not blank.
+    //Asserts that the given argumentName is not blank.
     if (argumentName.isBlank()) {
       throw new IllegalArgumentException("The given argument name is blank.");
     }
@@ -171,7 +171,7 @@ public class InvalidArgumentException extends RuntimeException {
     return argumentName;
   }
 
-  // static method
+  //static method
   /**
    * @param errorPredicate
    * @return a valid error predicate of the given errorPredicate.
@@ -181,17 +181,17 @@ public class InvalidArgumentException extends RuntimeException {
    */
   private static String getValidErrorPredicateOfErrorPredicate(final String errorPredicate) {
 
-    // Asserts that the given errorPredicate is not null.
+    //Asserts that the given errorPredicate is not null.
     if (errorPredicate == null) {
       throw new IllegalArgumentException("The given error predicate is null.");
     }
 
-    // Asserts that the given errorPredicate is not blank.
+    //Asserts that the given errorPredicate is not blank.
     if (errorPredicate.isBlank()) {
       throw new IllegalArgumentException("The given error predicate is blank.");
     }
 
-    // Asserts that the given errorPredicate does not end with a dot.
+    //Asserts that the given errorPredicate does not end with a dot.
     if (errorPredicate.charAt(errorPredicate.length() - 1) == DOT) {
       throw new IllegalArgumentException("The given error predicate '" + errorPredicate + "' ends with a dot.");
     }
@@ -199,16 +199,16 @@ public class InvalidArgumentException extends RuntimeException {
     return errorPredicate;
   }
 
-  // attribute
+  //attribute
   private final String argumentName;
 
-  // attribute
+  //attribute
   private final transient Object argument;
 
-  // attribute
+  //attribute
   private final String errorPredicate;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argument.
    * 
@@ -216,11 +216,11 @@ public class InvalidArgumentException extends RuntimeException {
    */
   protected InvalidArgumentException(final Object argument) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argument and
    * errorPredicate.
@@ -233,11 +233,11 @@ public class InvalidArgumentException extends RuntimeException {
    */
   protected InvalidArgumentException(final Object argument, final String errorPredicate) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(getNameOfArgument(argument), argument, errorPredicate);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link InvalidArgumentException} for the given argumentName,
    * argument and errorPredicate.
@@ -265,7 +265,7 @@ public class InvalidArgumentException extends RuntimeException {
     this.errorPredicate = errorPredicate;
   }
 
-  // method
+  //method
   /**
    * @return the name of the argument of the current
    *         {@link InvalidArgumentException}.
@@ -274,7 +274,7 @@ public class InvalidArgumentException extends RuntimeException {
     return argumentName;
   }
 
-  // method
+  //method
   /**
    * @return the error predicate of the current {@link InvalidArgumentException}.
    */
@@ -282,7 +282,7 @@ public class InvalidArgumentException extends RuntimeException {
     return errorPredicate;
   }
 
-  // method
+  //method
   /**
    * @return the argument of the current {@link InvalidArgumentException}.
    */

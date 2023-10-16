@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi.IEntityFlyWeigh
 //class
 public final class EntityFlyWeight implements IEntityFlyWeight {
 
-  // optional attribute
+  //optional attribute
   private Runnable insertAction;
 
   @Override
@@ -31,7 +31,7 @@ public final class EntityFlyWeight implements IEntityFlyWeight {
     this.insertAction = insertAction;
   }
 
-  // method
+  //method
   private boolean hasInsertAction() {
     return (insertAction != null);
   }

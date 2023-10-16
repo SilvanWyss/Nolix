@@ -15,13 +15,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class GlobalCharacterHelper {
 
-  // constant
+  //constant
   private static final String ARTICLE_A = "a";
 
-  // constant
+  //constant
   private static final String ARTICLE_AN = "an";
 
-  // static method
+  //static method
   /**
    * @param letter
    * @return the article of a word that starts with the given letter.
@@ -29,14 +29,14 @@ public final class GlobalCharacterHelper {
    */
   public static String getArticle(final char letter) {
 
-    // Asserts that the given letter is valid.
+    //Asserts that the given letter is valid.
     if (letter < 65
         || (letter > 90 && letter < 97)
         || letter > 122) {
       throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LETTER, letter);
     }
 
-    // Enumerates the given letter.
+    //Enumerates the given letter.
     return switch (letter) {
       case
           'A',
@@ -55,7 +55,7 @@ public final class GlobalCharacterHelper {
     };
   }
 
-  // static method
+  //static method
   /**
    * @param character
    * @return true if the given character is a digit.
@@ -64,7 +64,7 @@ public final class GlobalCharacterHelper {
     return (character >= 48 && character <= 57);
   }
 
-  // static method
+  //static method
   /**
    * @param character
    * @return true if the given character is a hexadecimal digit.
@@ -73,7 +73,7 @@ public final class GlobalCharacterHelper {
     return (isDigit(character) || (character >= 65 && character <= 70));
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalCharacterHelper} can be
    * created.

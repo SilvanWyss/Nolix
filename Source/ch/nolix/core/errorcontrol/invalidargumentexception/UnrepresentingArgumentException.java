@@ -13,13 +13,13 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnrepresentingArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String PRONOUN_A = "a";
 
-  // constant
+  //constant
   private static final String PRONOUN_AN = "an";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param type
@@ -31,7 +31,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return new UnrepresentingArgumentException(argument, type);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -49,7 +49,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return new UnrepresentingArgumentException(argumentName, argument, type);
   }
 
-  // static method
+  //static method
   /**
    * @param type
    * @return the name of the given type.
@@ -57,7 +57,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    */
   private static String getNameOfType(final Class<?> type) {
 
-    // Asserts that the given type is not null.
+    //Asserts that the given type is not null.
     if (type == null) {
       throw new IllegalArgumentException("The given type is null.");
     }
@@ -65,7 +65,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return type.getSimpleName();
   }
 
-  // static method
+  //static method
   /**
    * @param noun
    * @return the pronoun for the given noun.
@@ -73,17 +73,17 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    */
   private static String getPronounForNoun(final String noun) {
 
-    // Asserts that the given noun is not null.
+    //Asserts that the given noun is not null.
     if (noun == null) {
       throw new IllegalArgumentException("The given noun is null.");
     }
 
-    // Asserts that the given noun is not blank.
+    //Asserts that the given noun is not blank.
     if (noun.isBlank()) {
       throw new IllegalArgumentException("The given noun is blank.");
     }
 
-    // Enumerates the first character of the given noun.
+    //Enumerates the first character of the given noun.
     return switch (noun.charAt(0)) {
       case
           'A',
@@ -102,7 +102,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     };
   }
 
-  // static method
+  //static method
   /**
    * @param type
    * @return the type name with the pronoun for the given type.
@@ -115,7 +115,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     return (getPronounForNoun(typeName) + " " + typeName);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnrepresentingArgumentException} for the given argument
    * and type.
@@ -126,11 +126,11 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    */
   private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnrepresentingArgumentException} for the given
    * argumentName, argument and type.
@@ -144,7 +144,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    */
   private UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }
 }

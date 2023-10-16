@@ -14,54 +14,54 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
 
-  // method
+  //method
   @TestCase
   public void testCase_letsClear() {
 
-    // setup part 1: Creates a ValidationLabel and runs an action that produces an
-    // error.
+    //setup part 1: Creates a ValidationLabel and runs an action that produces an
+    //error.
     final var testUnit = new ValidationLabel();
     final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionCatalogue::throwException);
     new VerticalStack().addControl(testUnit, actionButton);
     actionButton.pressLeftMouseButton();
 
-    // setup part 2: Prepares an action that does not produce an error.
+    //setup part 2: Prepares an action that does not produce an error.
     actionButton.setLeftMouseButtonPressAction(FunctionCatalogue::doNothing);
 
-    // execution: Runs the action that does not produce an error.
+    //execution: Runs the action that does not produce an error.
     actionButton.pressLeftMouseButton();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_letsShowError() {
 
-    // setup
+    //setup
     final var testUnit = new ValidationLabel();
     final var actionButton = new Button().setLeftMouseButtonPressAction(FunctionCatalogue::throwException);
     new VerticalStack().addControl(testUnit, actionButton);
 
-    // setup verification
+    //setup verification
     expect(testUnit.isEmpty());
 
-    // execution
+    //execution
     actionButton.pressLeftMouseButton();
 
-    // verification
+    //verification
     expect(testUnit.containsAny());
     expect(testUnit.getError()).isEqualTo(getExceptionOfFunctionsCatalogueThrowExceptionMethod());
   }
 
-  // method
+  //method
   @Override
   protected IValidationLabel createTestUnit() {
     return new ValidationLabel();
   }
 
-  // method
+  //method
   private Exception getExceptionOfFunctionsCatalogueThrowExceptionMethod() {
 
     try {

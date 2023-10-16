@@ -14,13 +14,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Named {
 
-  // method declaration
+  //method declaration
   /**
    * @return the name of the current {@link Named}.
    */
   String getName();
 
-  // method
+  //method
   /**
    * @return the name of the current {@link Named} in quotes.
    */
@@ -28,7 +28,7 @@ public interface Named {
     return ("'" + getName() + "'");
   }
 
-  // method
+  //method
   /**
    * @param name
    * @return true if the current {@link Named} has the given name.
@@ -37,7 +37,7 @@ public interface Named {
     return getName().equals(name);
   }
 
-  // method
+  //method
   /**
    * @param object
    * @return true if the current {@link Named} has the same name as the given
@@ -45,12 +45,12 @@ public interface Named {
    */
   default boolean hasSameNameAs(final Named object) {
 
-    // Handles the case that the given object is null.
+    //Handles the case that the given object is null.
     if (object == null) {
       return false;
     }
 
-    // Handles the case that the given object is not null.
+    //Handles the case that the given object is not null.
     return hasName(object.getName());
   }
 }

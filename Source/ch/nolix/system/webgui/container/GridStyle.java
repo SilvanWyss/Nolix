@@ -15,31 +15,31 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class GridStyle extends ControlStyle<IGridStyle> implements IGridStyle {
 
-  // constant
+  //constant
   public static final GridType DEFAULT_GRID_TYPE = GridType.INNER_LINES;
 
-  // constant
+  //constant
   public static final int DEFAULT_GRID_THICKNESS = 1;
 
-  // constant
+  //constant
   public static final Color DEFAULT_GRID_COLOR = Color.BLACK;
 
-  // constant
+  //constant
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
 
-  // constant
+  //constant
   private static final String GRID_TYPE_HEADER = "GridType";
 
-  // constant
+  //constant
   private static final String GRID_THICKNESS_HEADER = "GridThickness";
 
-  // constant
+  //constant
   private static final String GRID_COLOR_HEADER = "GridColor";
 
-  // constant
+  //constant
   private static final String CHILD_CONTROL_MARGIN_HEADER = "ChildControlMargin";
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, GridType> gridType = new NonCascadingProperty<>(
       GRID_TYPE_HEADER,
       ControlState.class,
@@ -48,7 +48,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
       this::setGridTypeForState,
       DEFAULT_GRID_TYPE);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> gridThickness = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           GRID_THICKNESS_HEADER,
@@ -56,7 +56,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
           this::setGridThicknessForState,
           DEFAULT_GRID_THICKNESS);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, IColor> gridColor = new NonCascadingProperty<>(
       GRID_COLOR_HEADER,
       ControlState.class,
@@ -65,7 +65,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
       this::setGridColorForState,
       DEFAULT_GRID_COLOR);
 
-  // attribute
+  //attribute
   private final NonCascadingProperty<ControlState, Integer> childControlMargin = NonCascadingProperty
       .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           CHILD_CONTROL_MARGIN_HEADER,
@@ -73,60 +73,60 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
           this::setChildControlMarginForState,
           DEFAULT_CHILD_CONTROL_MARGIN);
 
-  // constructor
+  //constructor
   public GridStyle() {
     initialize();
   }
 
-  // method
+  //method
   @Override
   public int getChildControlMarginWhenHasState(final ControlState state) {
     return childControlMargin.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public IColor getGridColorWhenHasState(final ControlState state) {
     return gridColor.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public int getGridThicknessWhenHasState(final ControlState state) {
     return gridThickness.getValueWhenHasState(state);
   }
 
-  // method
+  //method
   @Override
   public GridType getGridTypeWhenHasState(final ControlState state) {
     return gridType.getValueOfState(state);
   }
 
-  // method
+  //method
   @Override
   public void removeCustomChildControlMargins() {
     childControlMargin.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public void removeCustomGridColors() {
     gridColor.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public void removeCustomGridThicknesses() {
     gridThickness.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public void removeCustomGridTypes() {
     gridType.setUndefined();
   }
 
-  // method
+  //method
   @Override
   public IGridStyle setChildControlMarginForState(final ControlState state, final int childControlMargin) {
 
@@ -137,7 +137,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
     return this;
   }
 
-  // method
+  //method
   @Override
   public IGridStyle setGridColorForState(final ControlState state, final IColor gridColor) {
 
@@ -146,7 +146,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
     return this;
   }
 
-  // method
+  //method
   @Override
   public IGridStyle setGridThicknessForState(final ControlState state, final int gridThickness) {
 
@@ -157,7 +157,7 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
     return this;
   }
 
-  // method
+  //method
   @Override
   public IGridStyle setGridTypeForState(final ControlState state, final GridType gridType) {
 

@@ -4,6 +4,6 @@ package ch.nolix.coreapi.programcontrolapi.triggerapi;
 //interface
 public interface Triggerable {
 
-  // method declaration
+  //method declaration
   void trigger();
 }

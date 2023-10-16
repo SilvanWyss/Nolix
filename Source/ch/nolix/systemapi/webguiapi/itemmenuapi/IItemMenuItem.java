@@ -10,12 +10,12 @@ import ch.nolix.systemapi.guiapi.processapi.Selectable;
 public interface IItemMenuItem<IMI extends IItemMenuItem<IMI>>
     extends BlanknessRequestable, Identified, IMutableElement, Selectable {
 
-  // method declaration
+  //method declaration
   boolean belongsToMenu();
 
-  // method declaration
+  //method declaration
   String getText();
 
-  // method declaration
+  //method declaration
   void technicalSetParentMenu(IItemMenu<?, ?> parentMenu);
 }

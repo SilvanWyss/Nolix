@@ -17,15 +17,15 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
  */
 final class LinkedListIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
     return new LinkedListIterator<>(firstNode);
   }
 
-  // optional attribute
+  //optional attribute
   private LinkedListNode<E> nextNode;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link LinkedListIterator} with the given firstNode. The given
    * firstNode be null.
@@ -36,7 +36,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     nextNode = firstNode;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -45,7 +45,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     return withFirstNodeOrNull(nextNode);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +54,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     return (nextNode != null);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -66,7 +66,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
@@ -74,7 +74,7 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = nextNode.getElement();

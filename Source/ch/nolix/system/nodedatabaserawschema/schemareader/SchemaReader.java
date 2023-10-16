@@ -22,32 +22,32 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 //class
 public final class SchemaReader implements ISchemaReader {
 
-  // constant
+  //constant
   private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  // constant
+  //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
       new DatabasePropertiesNodeSearcher();
 
-  // constant
+  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  // constant
+  //constant
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  // constant
+  //constant
   private static final FlatTableDtoMapper FLAT_TABLE_DTO_MAPPER = new FlatTableDtoMapper();
 
-  // constant
+  //constant
   private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // attribute
+  //attribute
   private final IMutableNode<?> databaseNode;
 
-  // constructor
+  //constructor
   public SchemaReader(final IMutableNode<?> databaseNode) {
 
     GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
@@ -55,7 +55,7 @@ public final class SchemaReader implements ISchemaReader {
     this.databaseNode = databaseNode;
   }
 
-  // method
+  //method
   @Override
   public boolean columnIsEmpty(String tableName, String columnName) {
 
@@ -66,19 +66,19 @@ public final class SchemaReader implements ISchemaReader {
     return COLUMN_NODE_SEARCHER.columnNodeContainsEntityNode(columnNode);
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public int getTableCount() {
     return DATABASE_NODE_SEARCHER.getTableNodeCount(databaseNode);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
 
@@ -88,7 +88,7 @@ public final class SchemaReader implements ISchemaReader {
         .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
 
@@ -98,21 +98,21 @@ public final class SchemaReader implements ISchemaReader {
         .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
   }
 
-  // method
+  //method
   @Override
   public IFlatTableDto loadFlatTableById(final String id) {
     return FLAT_TABLE_DTO_MAPPER.createFlatTableDtoFromTableNode(
         DATABASE_NODE_SEARCHER.getStoredTableNodeByTableIdFromDatabaseNode(databaseNode, id));
   }
 
-  // method
+  //method
   @Override
   public IFlatTableDto loadFlatTableByName(final String name) {
     return FLAT_TABLE_DTO_MAPPER.createFlatTableDtoFromTableNode(
         DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, name));
   }
 
-  // method
+  //method
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return DATABASE_NODE_SEARCHER
@@ -120,7 +120,7 @@ public final class SchemaReader implements ISchemaReader {
         .to(FLAT_TABLE_DTO_MAPPER::createFlatTableDtoFromTableNode);
   }
 
-  // method
+  //method
   @Override
   public ITableDto loadTableById(final String id) {
 
@@ -129,7 +129,7 @@ public final class SchemaReader implements ISchemaReader {
     return loadTableFromTableNode(tableNode);
   }
 
-  // method
+  //method
   @Override
   public ITableDto loadTableByName(final String name) {
 
@@ -138,7 +138,7 @@ public final class SchemaReader implements ISchemaReader {
     return loadTableFromTableNode(tableNode);
   }
 
-  // method
+  //method
   @Override
   public IContainer<ITableDto> loadTables() {
     return DATABASE_NODE_SEARCHER
@@ -146,7 +146,7 @@ public final class SchemaReader implements ISchemaReader {
         .to(this::loadTableFromTableNode);
   }
 
-  // method
+  //method
   @Override
   public Time loadSchemaTimestamp() {
 
@@ -159,19 +159,19 @@ public final class SchemaReader implements ISchemaReader {
     return Time.fromSpecification(timestampNode);
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   private IContainer<IColumnDto> loadColumnsFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode)
         .to(COLUMN_DTO_MAPPER::createColumnDtoFromColumnNode);
   }
 
-  // method
+  //method
   private ITableDto loadTableFromTableNode(final IMutableNode<?> tableNode) {
     return new TableDto(
         TABLE_NODE_SEARCHER.getStoredIdNodeFromTableNode(tableNode).getSingleChildNodeHeader(),

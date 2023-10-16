@@ -11,23 +11,23 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStack;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 
 //class
-public final class VerticalStack // NOSONAR: A VerticalStack is a LinearContainer.
+public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer.
     extends LinearContainer<IVerticalStack, IVerticalStackStyle>
     implements IVerticalStack {
 
-  // constant
+  //constant
   public static final HorizontalContentAlignment DEFAULT_CONTENT_ALIGNMENT = HorizontalContentAlignment.LEFT;
 
-  // constant
+  //constant
   private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
 
-  // constant
+  //constant
   private static final VerticalStackHtmlBuilder HTML_BUILDER = new VerticalStackHtmlBuilder();
 
-  // constant
+  //constant
   private static final VerticalStackCssBuilder CSS_BUILDER = new VerticalStackCssBuilder();
 
-  // attribute
+  //attribute
   private final MutableValue<HorizontalContentAlignment> contentAlignment = new MutableValue<>(
       CONTENT_ALIGNMENT_HEADER,
       DEFAULT_CONTENT_ALIGNMENT,
@@ -35,13 +35,13 @@ public final class VerticalStack // NOSONAR: A VerticalStack is a LinearContaine
       HorizontalContentAlignment::fromSpecification,
       Node::fromEnum);
 
-  // method
+  //method
   @Override
   public HorizontalContentAlignment getContentAlignment() {
     return contentAlignment.getValue();
   }
 
-  // method
+  //method
   @Override
   public IVerticalStack setContentAlignment(final HorizontalContentAlignment contentAlignment) {
 
@@ -50,25 +50,25 @@ public final class VerticalStack // NOSONAR: A VerticalStack is a LinearContaine
     return this;
   }
 
-  // method
+  //method
   @Override
   protected IVerticalStackStyle createStyle() {
     return new VerticalStackStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<IVerticalStack, IVerticalStackStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<IVerticalStack> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetContainer() {
     setContentAlignment(DEFAULT_CONTENT_ALIGNMENT);

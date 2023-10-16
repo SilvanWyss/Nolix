@@ -15,11 +15,11 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class WebSocketFrameTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
-    // setup
+    //setup
     final var bytes = new byte[] {
         new ByteWrapper(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
         new ByteWrapper(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
@@ -27,7 +27,7 @@ public final class WebSocketFrameTest extends Test {
         new ByteWrapper(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
     };
 
-    // setup
+    //setup
     final var webSocketFrame = new WebSocketFrame(
         new InputStream() {
 
@@ -36,7 +36,7 @@ public final class WebSocketFrameTest extends Test {
           @Override
           public int read() throws IOException {
 
-            // The mask 0xFF makes a byte unsigned.
+            //The mask 0xFF makes a byte unsigned.
             final var lByte = 0xFF & bytes[counter];
 
             counter++;
@@ -45,13 +45,13 @@ public final class WebSocketFrameTest extends Test {
           }
         });
 
-    // execution
+    //execution
     final var resultFINBit = webSocketFrame.getFINBit();
     final var resultMaskBit = webSocketFrame.getMaskBit();
     final var resultOpcode = webSocketFrame.getOpcodeMeaning();
     final var resultPayload = webSocketFrame.getPayload();
 
-    // verification
+    //verification
     expect(resultFINBit);
     expectNot(resultMaskBit);
     expect(resultOpcode).isEqualTo(WebSocketFrameOpcodeMeaning.TEXT_FRAME);
@@ -60,52 +60,52 @@ public final class WebSocketFrameTest extends Test {
     expect(new ByteWrapper(resultPayload[1]).toBitString()).isEqualTo("00100000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toBytes_whenFinalBitIs0_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new WebSocketFrame(false, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
 
-    // execution
+    //execution
     final var result = testUnit.toBytes();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(2);
     expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("00000001");
     expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, new byte[] {});
 
-    // execution
+    //execution
     final var result = testUnit.toBytes();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(2);
     expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
     expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs4Bytes() {
 
-    // setup
+    //setup
     final var testUnit = new WebSocketFrame(
         true,
         WebSocketFrameOpcodeMeaning.TEXT_FRAME, false,
         new byte[] { 0b00000001, 0b00000010, 0b00000011, 0b00000100 });
 
-    // execution
+    //execution
     final var result = testUnit.toBytes();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(6);
     expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
     expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("00000100");
@@ -115,24 +115,24 @@ public final class WebSocketFrameTest extends Test {
     expect(new ByteWrapper(result[5]).toBitString()).isEqualTo("00000100");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65535Bytes() {
 
-    // setup
+    //setup
     final var payload = new byte[65535];
     final var lByte = new ByteWrapper(1, 0, 1, 0, 1, 1, 0, 0).toByte();
     for (var i = 0; i < payload.length; i++) {
       payload[i] = lByte;
     }
 
-    // setup
+    //setup
     final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, payload);
 
-    // execution
+    //execution
     final var result = testUnit.toBytes();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(65539);
     expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
     expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("01111110");
@@ -143,24 +143,24 @@ public final class WebSocketFrameTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs65536Bytes() {
 
-    // setup
+    //setup
     final var payload = new byte[65536];
     final var lByte = new ByteWrapper(1, 0, 1, 0, 1, 1, 0, 0).toByte();
     for (var i = 0; i < payload.length; i++) {
       payload[i] = lByte;
     }
 
-    // setup
+    //setup
     final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, payload);
 
-    // execution
+    //execution
     final var result = testUnit.toBytes();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(65546);
     expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
     expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("01111111");
@@ -177,24 +177,24 @@ public final class WebSocketFrameTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toBytes_whenFinalBitIs1_andOpcodeMeaningIsTextFrame_andMaskBitIs0_andPayloadIs1000000Bytes() {
 
-    // setup
+    //setup
     final var payload = new byte[1_000_000];
     final var lByte = new ByteWrapper(1, 0, 1, 0, 1, 1, 0, 0).toByte();
     for (var i = 0; i < payload.length; i++) {
       payload[i] = lByte;
     }
 
-    // setup
+    //setup
     final var testUnit = new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.TEXT_FRAME, false, payload);
 
-    // execution
+    //execution
     final var result = testUnit.toBytes();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(1_000_010);
     expect(new ByteWrapper(result[0]).toBitString()).isEqualTo("10000001");
     expect(new ByteWrapper(result[1]).toBitString()).isEqualTo("01111111");

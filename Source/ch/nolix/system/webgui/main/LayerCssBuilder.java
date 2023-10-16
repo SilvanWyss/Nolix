@@ -15,17 +15,17 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 public final class LayerCssBuilder {
 
-  // method
+  //method
   public CssRule getCssRuleForLayer(final ILayer<?> layer) {
     return CssRule.withSelectorAndProperties(getCssSelectorForLayer(layer), getCssPropertiesForLayer(layer));
   }
 
-  // method
+  //method
   private String getCssSelectorForLayer(final ILayer<?> layer) {
     return ("#" + layer.getInternalId());
   }
 
-  // method
+  //method
   private IContainer<ICssProperty> getCssPropertiesForLayer(final ILayer<?> layer) {
 
     final var cssProperties = new LinkedList<ICssProperty>();
@@ -55,12 +55,12 @@ public final class LayerCssBuilder {
     return cssProperties;
   }
 
-  // method
+  //method
   private CssProperty getZIndexCssPropertyForLayer(final ILayer<?> layer) {
     return CssProperty.withNameAndValue(CssPropertyNameCatalogue.Z_INDEX, getCssZIndexForLayer(layer));
   }
 
-  // method
+  //method
   private int getCssZIndexForLayer(final ILayer<?> layer) {
 
     if (!layer.belongsToGui()) {
@@ -70,12 +70,12 @@ public final class LayerCssBuilder {
     return layer.getStoredParentGui().getStoredLayers().get1BasedIndexOfFirstOccuranceOf(layer);
   }
 
-  // method
+  //method
   private CssProperty getJustifyContentCssPropertyForLayer(final ILayer<?> layer) {
     return getJustifyContentCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
-  // method
+  //method
   private CssProperty getJustifyContentCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case TOP_LEFT, LEFT, BOTTOM_LEFT ->
@@ -89,12 +89,12 @@ public final class LayerCssBuilder {
     };
   }
 
-  // method
+  //method
   private CssProperty getAlignItemsCssPropertyForLayer(final ILayer<?> layer) {
     return getAlignItemsCssPropertyForContentAlignment(layer.getContentAlignment());
   }
 
-  // method
+  //method
   private CssProperty getAlignItemsCssPropertyForContentAlignment(final ContentAlignment contentAlignment) {
     return switch (contentAlignment) {
       case BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT ->

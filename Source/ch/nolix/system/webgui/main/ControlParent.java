@@ -10,28 +10,28 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 final class ControlParent {
 
-  // static method
+  //static method
   public static ControlParent forControl(final IControl<?, ?> control) {
     return new ControlParent(control);
   }
 
-  // static method
+  //static method
   public static ControlParent forLayer(final ILayer<?> layer) {
     return new ControlParent(layer);
   }
 
-  // static method
+  //static method
   public ControlParent withLayer(final ILayer<?> layer) {
     return new ControlParent(layer);
   }
 
-  // optional attribute
+  //optional attribute
   private final ILayer<?> layer;
 
-  // optional attribute
+  //optional attribute
   private final IControl<?, ?> control;
 
-  // constructor
+  //constructor
   private ControlParent(final IControl<?, ?> control) {
 
     GlobalValidator.assertThat(control).thatIsNamed(IControl.class).isNotNull();
@@ -40,7 +40,7 @@ final class ControlParent {
     this.control = control;
   }
 
-  // constructor
+  //constructor
   private ControlParent(final ILayer<?> layer) {
 
     GlobalValidator.assertThat(layer).thatIsNamed(ILayer.class).isNotNull();
@@ -49,7 +49,7 @@ final class ControlParent {
     control = null;
   }
 
-  // method
+  //method
   public boolean belongsToGui() {
 
     if (isControl()) {
@@ -59,7 +59,7 @@ final class ControlParent {
     return layer.belongsToGui();
   }
 
-  // method
+  //method
   public boolean belongsToLayer() {
 
     if (isControl()) {
@@ -69,7 +69,7 @@ final class ControlParent {
     return true;
   }
 
-  // method
+  //method
   public IControl<?, ?> getStoredControl() {
 
     assertIsControl();
@@ -77,7 +77,7 @@ final class ControlParent {
     return control;
   }
 
-  // method
+  //method
   public Object getStoredElement() {
 
     if (isControl()) {
@@ -87,7 +87,7 @@ final class ControlParent {
     return layer;
   }
 
-  // method
+  //method
   public ILayer<?> getStoredRootLayer() {
 
     if (isLayer()) {
@@ -97,17 +97,17 @@ final class ControlParent {
     return control.getStoredParentLayer();
   }
 
-  // method
+  //method
   public boolean isControl() {
     return (control != null);
   }
 
-  // method
+  //method
   public boolean isLayer() {
     return (layer != null);
   }
 
-  // method
+  //method
   private void assertIsControl() {
     if (!isControl()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not a Control");

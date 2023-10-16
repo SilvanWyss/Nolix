@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Titled;
  */
 public interface Titleable extends Titled {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the title of the current {@link Titleable}.
    * 

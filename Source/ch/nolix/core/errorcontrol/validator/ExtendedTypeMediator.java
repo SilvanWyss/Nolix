@@ -4,12 +4,12 @@ package ch.nolix.core.errorcontrol.validator;
 //class
 public final class ExtendedTypeMediator<T> extends TypeMediator<T> {
 
-  // constructor
+  //constructor
   ExtendedTypeMediator(final Class<T> argument) {
     super(argument);
   }
 
-  // method
+  //method
   public TypeMediator<T> thatIsNamed(final String arguemtName) {
     return new TypeMediator<>(arguemtName, getStoredArgument());
   }

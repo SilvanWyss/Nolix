@@ -17,7 +17,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 public interface IFluentMutableCardinalityHolder<FMCH extends IFluentMutableCardinalityHolder<FMCH>>
     extends ICardinalityHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the {@link Cardinality} of the current
    * {@link IFluentMutableCardinalityHolder}.

@@ -11,26 +11,26 @@ package ch.nolix.core.container.pair;
  */
 public final class FloatingPointNumberPair {
 
-  // constant
+  //constant
   public static final double DEFAULT_VALUE = 0.0;
 
-  // attribute
+  //attribute
   private final double value1;
 
-  // attribute
+  //attribute
   private final double value2;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link FloatingPointNumberPair} with default values.
    */
   public FloatingPointNumberPair() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_VALUE, DEFAULT_VALUE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link FloatingPointNumberPair} with the given values.
    * 
@@ -39,29 +39,29 @@ public final class FloatingPointNumberPair {
    */
   public FloatingPointNumberPair(final double value1, final double value2) {
 
-    // Sets the values of the current FPNPair.
+    //Sets the values of the current FPNPair.
     this.value1 = value1;
     this.value2 = value2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}}
    */
   @Override
   public boolean equals(final Object object) {
 
-    // Handles the case that the given object is not a FPNPair.
+    //Handles the case that the given object is not a FPNPair.
     if (!(object instanceof FloatingPointNumberPair)) {
       return false;
     }
 
-    // Handles the case that the given object is a FPNPair.
+    //Handles the case that the given object is a FPNPair.
     final var lFPNPair = (FloatingPointNumberPair) object;
     return (getValue1() == lFPNPair.getValue1() && getValue2() == lFPNPair.getValue2());
   }
 
-  // method
+  //method
   /**
    * @return value 1 of the current {@link FloatingPointNumberPair}.
    */
@@ -69,7 +69,7 @@ public final class FloatingPointNumberPair {
     return value1;
   }
 
-  // method
+  //method
   /**
    * @return value 2 of the current {@link FloatingPointNumberPair}.
    */
@@ -77,7 +77,7 @@ public final class FloatingPointNumberPair {
     return value2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}}
    */
@@ -86,7 +86,7 @@ public final class FloatingPointNumberPair {
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}}
    */

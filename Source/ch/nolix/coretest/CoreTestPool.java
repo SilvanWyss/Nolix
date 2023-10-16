@@ -24,7 +24,7 @@ import ch.nolix.coretest.webtest.WebTestPool;
  */
 public final class CoreTestPool extends TestPool {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link CoreTestPool}.
    */

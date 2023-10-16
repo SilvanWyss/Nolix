@@ -15,10 +15,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
  */
 public final class ClosureMediator extends Mediator {
 
-  // attribute
+  //attribute
   private final Runnable closure;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ClosureMediator} that belongs to the given test and is
    * for the given closure.
@@ -30,19 +30,19 @@ public final class ClosureMediator extends Mediator {
    */
   public ClosureMediator(final Consumer<String> expectationErrorTaker, final Runnable closure) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(expectationErrorTaker);
 
-    // Asserts that the given closure is not null.
+    //Asserts that the given closure is not null.
     if (closure == null) {
       throw ArgumentIsNullException.forArgumentName("closure");
     }
 
-    // Sets the closure of the current ClosureMediator.
+    //Sets the closure of the current ClosureMediator.
     this.closure = closure;
   }
 
-  // method
+  //method
   /**
    * Generates an error if the closure of the current {@link ClosureMediator} does
    * not throw an exception.
@@ -54,12 +54,12 @@ public final class ClosureMediator extends Mediator {
       closure.run();
       addCurrentTestCaseError("An exception was expected, but no exception was thrown.");
       return new ExtendedThrownExceptionMediator(getStoredExpectationErrorTaker());
-    } catch (final Throwable exception) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable exception) { //NOSONAR: All Throwables must be caught here.
       return new ExtendedThrownExceptionMediator(getStoredExpectationErrorTaker(), exception);
     }
   }
 
-  // method
+  //method
   /**
    * Generates an error if the closure of the current {@link ClosureMediator}
    * throws an exception.
@@ -67,7 +67,7 @@ public final class ClosureMediator extends Mediator {
   public void doesNotThrowException() {
     try {
       closure.run();
-    } catch (final Throwable exception) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable exception) { //NOSONAR: All Throwables must be caught here.
 
       final var message = exception.getMessage();
 

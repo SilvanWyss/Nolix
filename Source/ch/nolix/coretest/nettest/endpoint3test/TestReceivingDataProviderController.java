@@ -13,13 +13,13 @@ import ch.nolix.coreapi.netapi.endpoint3api.IDataProviderController;
 //class
 public final class TestReceivingDataProviderController implements IDataProviderController {
 
-  // optional attribute
+  //optional attribute
   private IChainedNode latestReceivedCommand;
 
-  // optional attribute
+  //optional attribute
   private IChainedNode latestReceivedRequest;
 
-  // method
+  //method
   @Override
   public INode<?> getDataForRequest(final IChainedNode request) {
 
@@ -28,7 +28,7 @@ public final class TestReceivingDataProviderController implements IDataProviderC
     return Node.withHeader("test_data");
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(
       final IChainedNode request,
@@ -36,35 +36,35 @@ public final class TestReceivingDataProviderController implements IDataProviderC
     return getDataForRequests(ImmutableList.withElement(request, requests));
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
     return ReadContainer.forIterable(requests).to(this::getDataForRequest);
   }
 
-  // method
+  //method
   public IChainedNode getLatestReceivedCommand() {
     return latestReceivedCommand;
   }
 
-  // method
+  //method
   public IChainedNode getLatestReceivedRequest() {
     return latestReceivedRequest;
   }
 
-  // method
+  //method
   @Override
   public void runCommand(final IChainedNode command) {
     latestReceivedCommand = command;
   }
 
-  // method
+  //method
   @Override
   public void runCommands(final IChainedNode command, final IChainedNode... commands) {
     runCommands(ImmutableList.withElement(command, commands));
   }
 
-  // method
+  //method
   @Override
   public void runCommands(Iterable<? extends IChainedNode> commands) {
     commands.forEach(this::runCommand);

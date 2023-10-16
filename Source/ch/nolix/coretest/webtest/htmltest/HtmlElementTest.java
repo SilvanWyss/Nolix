@@ -11,11 +11,11 @@ import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 //class
 public final class HtmlElementTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_withAttribute_whenContainsAttributesAndHasNonEmptyInnerText() {
 
-    // setup
+    //setup
     final var attribute1 = HtmlAttribute.withNameAndValue("n1", "v1");
     final var attribute2 = HtmlAttribute.withNameAndValue("n2", "v2");
     final var attribute3 = HtmlAttribute.withNameAndValue("n3", "v3");
@@ -25,10 +25,10 @@ public final class HtmlElementTest extends Test {
         ImmutableList.withElement(attribute1, attribute2),
         "my inner text");
 
-    // execution
+    //execution
     final var result = testUnit.withAttribute(attribute3, attribute4);
 
-    // verification
+    //verification
     expect(testUnit)
         .isEqualTo(
             HtmlElement.withTypeAndAttributesAndInnerText(

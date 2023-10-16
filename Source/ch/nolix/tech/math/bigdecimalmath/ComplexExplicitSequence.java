@@ -11,10 +11,10 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 //class
 public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
 
-  // attribute
+  //attribute
   private final IntFunction<IComplexNumber> valueFunction;
 
-  // constructor
+  //constructor
   public ComplexExplicitSequence(final IntFunction<IComplexNumber> valueFunction) {
 
     GlobalValidator.assertThat(valueFunction).thatIsNamed("value function").isNotNull();
@@ -22,13 +22,13 @@ public final class ComplexExplicitSequence extends Sequence<IComplexNumber> {
     this.valueFunction = valueFunction;
   }
 
-  // method
+  //method
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
-  // method
+  //method
   @Override
   protected IComplexNumber calculateValue(final int index) {
     return valueFunction.apply(index);

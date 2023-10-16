@@ -11,11 +11,11 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 //class
 public final class ApplicationInstanceTargetTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_toUrl_forHttpPortAndUnsecureSecurityLevel() {
 
-    // setup
+    //setup
     final var testUnit = ApplicationInstanceTarget
         .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
             "nolix.tech",
@@ -24,18 +24,18 @@ public final class ApplicationInstanceTargetTest extends Test {
             "demo_application",
             SecurityLevel.UNSECURE);
 
-    // execution
+    //execution
     final var result = testUnit.toUrl();
 
-    // verification
+    //verification
     expect(result).isEqualTo("http://nolix.tech?app=demo_application");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUrl_forHttpsPortAndSecureSecurityLevel() {
 
-    // setup
+    //setup
     final var testUnit = ApplicationInstanceTarget
         .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
             "nolix.tech",
@@ -44,18 +44,18 @@ public final class ApplicationInstanceTargetTest extends Test {
             "demo_application",
             SecurityLevel.SECURE);
 
-    // execution
+    //execution
     final var result = testUnit.toUrl();
 
-    // verification
+    //verification
     expect(result).isEqualTo("https://nolix.tech?app=demo_application");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUrl_forCustomPortAndUnsecureSecurityLevel() {
 
-    // setup
+    //setup
     final var testUnit = ApplicationInstanceTarget
         .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
             "nolix.tech",
@@ -64,18 +64,18 @@ public final class ApplicationInstanceTargetTest extends Test {
             "demo_application",
             SecurityLevel.UNSECURE);
 
-    // execution
+    //execution
     final var result = testUnit.toUrl();
 
-    // verification
+    //verification
     expect(result).isEqualTo("http://nolix.tech:50000?app=demo_application");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toUrl_forCustomPortAndSecureSecurityLevel() {
 
-    // setup
+    //setup
     final var testUnit = ApplicationInstanceTarget
         .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
             "nolix.tech",
@@ -84,10 +84,10 @@ public final class ApplicationInstanceTargetTest extends Test {
             "demo_application",
             SecurityLevel.SECURE);
 
-    // execution
+    //execution
     final var result = testUnit.toUrl();
 
-    // verification
+    //verification
     expect(result).isEqualTo("https://nolix.tech:50000?app=demo_application");
   }
 }

@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebGuiHtmlBuilder {
 
-  // method
+  //method
   public IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
         HtmlElementTypeCatalogue.DIV,
@@ -23,7 +23,7 @@ public final class WebGuiHtmlBuilder {
         createLayerHtmlElementsForWebGui(webGui));
   }
 
-  // method
+  //method
   private IContainer<? extends IHtmlElement> createLayerHtmlElementsForWebGui(final IWebGui<?> webGui) {
     return webGui.getStoredLayers().to(ILayer::getHtml);
   }

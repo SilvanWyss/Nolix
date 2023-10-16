@@ -21,45 +21,45 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class SchemaWriter implements ISchemaWriter {
 
-  // constant
+  //constant
   private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  // constant
+  //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
       new DatabasePropertiesNodeSearcher();
 
-  // constant
+  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  // constant
+  //constant
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  // constant
+  //constant
   private static final TableNodeMapper TABLE_NODE_MAPPER = new TableNodeMapper();
 
-  // constant
+  //constant
   private static final ColumnNodeMapper columnNodeMapper = new ColumnNodeMapper();
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeNodeMapper parameterizedPropertyTypeNodeMapper = //
       new ParameterizedPropertyTypeNodeMapper();
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // attribute
+  //attribute
   private int saveCount;
 
-  // attribute
+  //attribute
   private final IMutableNode<?> databaseNode;
 
-  // attribute
+  //attribute
   private IMutableNode<?> editedDatabaseNode;
 
-  // attribute
+  //attribute
   private boolean hasChanges;
 
-  // constructor
+  //constructor
   public SchemaWriter(final IMutableNode<?> databaseNode) {
 
     GlobalValidator.assertThat(databaseNode).thatIsNamed("database Node").isNotNull();
@@ -69,7 +69,7 @@ public final class SchemaWriter implements ISchemaWriter {
     reset();
   }
 
-  // method
+  //method
   @Override
   public void addColumn(final String tableName, final IColumnDto column) {
 
@@ -81,7 +81,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   @Override
   public void addTable(final ITableDto table) {
 
@@ -90,7 +90,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   @Override
   public void deleteColumn(final String tableName, final String columnName) {
 
@@ -105,7 +105,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   @Override
   public void deleteTable(final String tableName) {
 
@@ -116,31 +116,31 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public int getSaveCount() {
     return saveCount;
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges() {
     return hasChanges;
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void reset() {
 
@@ -149,7 +149,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = false;
   }
 
-  // method
+  //method
   @Override
   public void saveChanges() {
     try {
@@ -163,7 +163,7 @@ public final class SchemaWriter implements ISchemaWriter {
     }
   }
 
-  // method
+  //method
   @Override
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 
@@ -177,7 +177,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   @Override
   public void setColumnParameterizedPropertyType(
       final String columnId,
@@ -192,7 +192,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   @Override
   public void setTableName(final String tableName, final String newTableName) {
 
@@ -205,7 +205,7 @@ public final class SchemaWriter implements ISchemaWriter {
     hasChanges = true;
   }
 
-  // method
+  //method
   private void setSchemaTimestamp(final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER

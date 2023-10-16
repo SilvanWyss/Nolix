@@ -7,13 +7,13 @@ import java.util.Objects;
 //class
 public final class GlobalIterableHelper {
 
-  // static method
+  //static method
   public static boolean containsAny(final Iterable<?> iterable) {
     return iterable != null
         && iterable.iterator().hasNext();
   }
 
-  // static method
+  //static method
   public static boolean containsEqualing(final Iterable<?> iterable, final Object object) {
 
     if (iterable == null) {
@@ -29,7 +29,7 @@ public final class GlobalIterableHelper {
     return false;
   }
 
-  // static method
+  //static method
   public static int getElementCount(final Iterable<?> iterable) {
 
     var elementCount = 0;
@@ -42,7 +42,7 @@ public final class GlobalIterableHelper {
     return elementCount;
   }
 
-  // constructor
+  //constructor
   private GlobalIterableHelper() {
   }
 }

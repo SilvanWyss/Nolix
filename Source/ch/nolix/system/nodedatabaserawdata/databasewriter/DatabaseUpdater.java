@@ -23,23 +23,23 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class DatabaseUpdater {
 
-  // constant
+  //constant
   private static final DatabaseNodeSearcher DATABASE_NODE_SEARCHER = new DatabaseNodeSearcher();
 
-  // constant
+  //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
       new DatabasePropertiesNodeSearcher();
 
-  // constant
+  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  // constant
+  //constant
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  // constant
+  //constant
   private static final EntityNodeMapper ENTITY_NODE_MAPPER = new EntityNodeMapper();
 
-  // method
+  //method
   public void deleteEntriesFromMultiReference(
       final IMutableNode<?> databaseNode,
       final ITableInfo tableInfo,
@@ -58,7 +58,7 @@ final class DatabaseUpdater {
     multiReferenceColumnNode.removeChildNodes();
   }
 
-  // method
+  //method
   public void deleteEntriesFromMultiValue(
       final IMutableNode<?> databaseNode,
       final ITableInfo tableInfo,
@@ -77,7 +77,7 @@ final class DatabaseUpdater {
     multiValueColumnNode.removeChildNodes();
   }
 
-  // method
+  //method
   public void deleteEntryFromMultiReference(
       final IMutableNode<?> databaseNode,
       final ITableInfo tableInfo,
@@ -97,7 +97,7 @@ final class DatabaseUpdater {
     multiReferenceColumnNode.removeFirstChildNodeWithHeader(referencedEntityId);
   }
 
-  // method
+  //method
   public void deleteEntryFromMultiValue(
       final IMutableNode<?> databaseNode,
       final ITableInfo tableInfo,
@@ -117,7 +117,7 @@ final class DatabaseUpdater {
     multiValueColumnNode.removeFirstChildNodeWithHeader(entry);
   }
 
-  // method
+  //method
   public void deleteEntityFromTable(
       final IMutableNode<?> database,
       final String tableName,
@@ -134,7 +134,7 @@ final class DatabaseUpdater {
     }
   }
 
-  // method
+  //method
   public void expectGivenSchemaTimestamp(final IMutableNode<?> databaseNode, final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
@@ -148,7 +148,7 @@ final class DatabaseUpdater {
     }
   }
 
-  // method
+  //method
   public void expectTableContainsEntity(
       final IMutableNode<?> databaseNode,
       final String tableName,
@@ -169,7 +169,7 @@ final class DatabaseUpdater {
     }
   }
 
-  // method
+  //method
   public void insertEntryIntoMultiReference(
       final IMutableNode<?> databaseNode,
       final ITableInfo tableInfo,
@@ -189,7 +189,7 @@ final class DatabaseUpdater {
     multiReferenceColumnNode.addChildNode(Node.withHeader(referencedEntityId));
   }
 
-  // method
+  //method
   public void insertEntryIntoMultiValue(
       final IMutableNode<?> databaseNode,
       final ITableInfo tableInfo,
@@ -209,7 +209,7 @@ final class DatabaseUpdater {
     multiValueColumnNode.addChildNode(Node.withHeader(entry));
   }
 
-  // method
+  //method
   public void insertEntityIntoTable(
       final IMutableNode<?> database,
       final ITableInfo tableInfo,
@@ -228,7 +228,7 @@ final class DatabaseUpdater {
     tableNode.addChildNode(entityNode);
   }
 
-  // method
+  //method
   public void setEntityAsUpdated(final IMutableNode<?> database, final String tableName, final IEntityHeadDto entity) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database, tableName);
@@ -249,7 +249,7 @@ final class DatabaseUpdater {
     saveStampNode.setHeader(newSaveStamp);
   }
 
-  // method
+  //method
   public void updateEntityOnTable(
       final IMutableNode<?> database,
       final ITableInfo tableInfo,
@@ -276,7 +276,7 @@ final class DatabaseUpdater {
     updateEntityNode(entityNode, tableInfo, entityUpdate);
   }
 
-  // method
+  //method
   private void updateEntityNode(
       final IMutableNode<?> entityNode,
       final ITableInfo tableInfo,

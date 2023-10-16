@@ -16,30 +16,30 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class Appointment extends MutableElement implements IMutableAppointment<Appointment> {
 
-  // constant
+  //constant
   public static final String DEFAULT_SUBJECT = PascalCaseCatalogue.APPOINTMENT;
 
-  // constant
+  //constant
   private static final Time DEFAULT_START_TIME = Time
       .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2020, 1, 1, 10, 0);
 
   private static final Time DEFAULT_END_TIME = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2020,
       1, 1, 11, 0);
 
-  // constant
+  //constant
   private static final String SUBJECT_HEADER = PascalCaseCatalogue.SUBJECT;
 
-  // constant
+  //constant
   private static final String START_TIME_HEADER = PascalCaseCatalogue.START_TIME;
 
-  // constant
+  //constant
   private static final String END_TIME_HEADER = PascalCaseCatalogue.END_TIME;
 
-  // attribute
+  //attribute
   private final MutableValue<String> subject = MutableValue.forString(SUBJECT_HEADER, DEFAULT_SUBJECT,
       this::setSubject);
 
-  // attribute
+  //attribute
   private final MutableValue<ITime> startTime = new MutableValue<>(
       START_TIME_HEADER,
       DEFAULT_START_TIME,
@@ -47,7 +47,7 @@ public final class Appointment extends MutableElement implements IMutableAppoint
       Time::fromSpecification,
       ITime::getSpecification);
 
-  // attribute
+  //attribute
   private final MutableValue<ITime> endTime = new MutableValue<>(
       END_TIME_HEADER,
       DEFAULT_END_TIME,
@@ -55,37 +55,37 @@ public final class Appointment extends MutableElement implements IMutableAppoint
       Time::fromSpecification,
       ITime::getSpecification);
 
-  // method
+  //method
   @Override
   public ITime getEndTime() {
     return endTime.getValue();
   }
 
-  // method
+  //method
   @Override
   public ITime getStartTime() {
     return startTime.getValue();
   }
 
-  // method
+  //method
   @Override
   public String getSubject() {
     return subject.getValue();
   }
 
-  // method
+  //method
   @Override
   public String getSubjectInQuotes() {
     return GlobalStringHelper.getInQuotes(getSubject());
   }
 
-  // method
+  //method
   @Override
   public void reset() {
     setSubject(DEFAULT_SUBJECT);
   }
 
-  // method
+  //method
   @Override
   public Appointment setEndTime(final ITime endTime) {
 
@@ -96,7 +96,7 @@ public final class Appointment extends MutableElement implements IMutableAppoint
     return this;
   }
 
-  // method
+  //method
   @Override
   public Appointment setStartTime(final ITime startTime) {
 
@@ -107,7 +107,7 @@ public final class Appointment extends MutableElement implements IMutableAppoint
     return this;
   }
 
-  // method
+  //method
   @Override
   public Appointment setSubject(final String subject) {
 

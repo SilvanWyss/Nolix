@@ -7,6 +7,6 @@ public interface IBaseParameterizedValueType<
     V>
     extends IParameterizedPropertyType {
 
-  // method declaration
+  //method declaration
   Class<V> getValueType();
 }

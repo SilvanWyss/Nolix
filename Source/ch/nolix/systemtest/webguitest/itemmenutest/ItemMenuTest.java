@@ -12,34 +12,34 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
     extends ControlTest<IM> {
 
-  // method
+  //method
   @TestCase
   public final void testCase_addItemWithIdAndText() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
 
-    // setup verification
+    //setup verification
     expect(testUnit.isEmpty());
 
-    // execution
+    //execution
     testUnit
         .addItemWithIdAndText("my_id_1", "my_text_1")
         .addItemWithIdAndText("my_id_2", "my_text_2")
         .addItemWithIdAndText("my_id_3", "my_text_3");
 
-    // verification
+    //verification
     expect(testUnit.getStoredItems()).containsExactlyEqualing(
         ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
         ItemMenuItem.withIdAndText("my_id_2", "my_text_2"),
         ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
   }
 
-  // method
+  //method
   @TestCase
   public final void testCase_selectItemById_whenContainsItemWithGivenId() {
 
-    // setup
+    //setup
     final var item = ItemMenuItem.withIdAndText("my_id_2", "my_text_2");
     final var testUnit = createTestUnit()
         .addItem(
@@ -47,13 +47,13 @@ public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends II
             item,
             ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
 
-    // setup verification
+    //setup verification
     expectNot(item.isSelected());
 
-    // execution
+    //execution
     testUnit.selectItemById("my_id_2");
 
-    // verification
+    //verification
     expect(item.isSelected());
   }
 }

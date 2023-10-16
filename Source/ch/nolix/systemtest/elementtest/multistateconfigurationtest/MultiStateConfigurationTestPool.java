@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class MultiStateConfigurationTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public MultiStateConfigurationTestPool() {
     super(
         CascadingPropertyInMultiStateConfigurationTest.class,

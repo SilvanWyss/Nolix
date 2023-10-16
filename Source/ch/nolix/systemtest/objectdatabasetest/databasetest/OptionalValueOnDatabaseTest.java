@@ -13,58 +13,58 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 //class
 public final class OptionalValueOnDatabaseTest extends Test {
 
-  // static class
+  //constant
   private static final class Pet extends Entity {
 
-    // attribute
+    //attribute
     private final OptionalValue<String> name = new OptionalValue<>();
 
-    // constructor
+    //constructor
     public Pet() {
       initialize();
     }
 
-    // method
+    //method
     public String getName() {
       return name.getStoredValue();
     }
 
-    // method
+    //method
     public boolean hasName() {
       return name.containsAny();
     }
 
-    // method
+    //method
     public void setName(final String name) {
       this.name.setValue(name);
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_whenIsEmptyAndSaved() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var garfield = new Pet();
     nodeDataAdapter.insert(garfield);
 
-    // execution
+    //execution
     nodeDataAdapter.saveChanges();
 
-    // verification
+    //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
         .getStoredEntityById(garfield.getId());
     expectNot(loadedGarfield.hasName());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredValue_whenContainsAnyAndIsNotSaved() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -72,18 +72,18 @@ public final class OptionalValueOnDatabaseTest extends Test {
     garfield.setName("Garfield");
     nodeDataAdapter.insert(garfield);
 
-    // execution
+    //execution
     final var result = garfield.getName();
 
-    // verification
+    //verification
     expect(result).isEqualTo("Garfield");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredValue_whenContainsAnyAndIsSaved() {
 
-    // setup part 1
+    //setup part 1
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -92,14 +92,14 @@ public final class OptionalValueOnDatabaseTest extends Test {
     nodeDataAdapter.insert(garfield);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    //setup part 2
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
         .getStoredEntityById(garfield.getId());
 
-    // execution
+    //execution
     final var result = loadedGarfield.getName();
 
-    // verification
+    //verification
     expect(result).isEqualTo("Garfield");
   }
 }

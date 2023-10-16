@@ -17,19 +17,19 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
  */
 public final class FunctionCatalogue {
 
-  // constant
+  //constant
   private static final long ZERO = 0L;
 
-  // constant
+  //constant
   private static final long ONE = 1L;
 
-  // constant
+  //constant
   private static final boolean FALSE = false;
 
-  // constant
+  //constant
   private static final boolean TRUE = true;
 
-  // static method
+  //static method
   /**
    * @param object1
    * @param object2
@@ -39,15 +39,15 @@ public final class FunctionCatalogue {
     return Objects.equals(object1, object2);
   }
 
-  // static method
+  //static method
   /**
    * Does nothing.
    */
   public static void doNothing() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // static method
+  //static method
   /**
    * @return false.
    */
@@ -55,7 +55,7 @@ public final class FunctionCatalogue {
     return FALSE;
   }
 
-  // static method
+  //static method
   /**
    * @param object
    * @return the hash code of the given object.
@@ -69,7 +69,7 @@ public final class FunctionCatalogue {
     return object.hashCode();
   }
 
-  // static method
+  //static method
   /**
    * @return null.
    */
@@ -77,7 +77,7 @@ public final class FunctionCatalogue {
     return null;
   }
 
-  // static method
+  //static method
   /**
    * @return 1.
    */
@@ -85,7 +85,7 @@ public final class FunctionCatalogue {
     return ONE;
   }
 
-  // static method
+  //static method
   /**
    * @param object
    * @param <O>    is the type of the given object.
@@ -95,7 +95,7 @@ public final class FunctionCatalogue {
     return object;
   }
 
-  // static method
+  //static method
   /**
    * @param object
    * @return the {@link String} of the given object.
@@ -109,7 +109,7 @@ public final class FunctionCatalogue {
     return object.toString();
   }
 
-  // static method
+  //static method
   /**
    * @return true.
    */
@@ -117,7 +117,7 @@ public final class FunctionCatalogue {
     return TRUE;
   }
 
-  // static method
+  //static method
   /**
    * @param object
    * @return the type of the given object.
@@ -126,7 +126,7 @@ public final class FunctionCatalogue {
     return object.getClass();
   }
 
-  // static method
+  //static method
   /**
    * @return 0.
    */
@@ -134,17 +134,17 @@ public final class FunctionCatalogue {
     return ZERO;
   }
 
-  // static method
+  //static method
   /**
    * Does nothing.
    * 
    * @param object
    */
-  public static void takeObjectAndDoNothing(final Object object) { // NOSONAR: The parameter is necessary.
-    // Does nothing.
+  public static void takeObjectAndDoNothing(final Object object) { //NOSONAR: The parameter is necessary.
+    //Does nothing.
   }
 
-  // static method
+  //static method
   /**
    * @throws GeneralException
    */
@@ -152,7 +152,7 @@ public final class FunctionCatalogue {
     throw GeneralException.withErrorMessage("An error was provoked.");
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link FunctionCatalogue} can be created.
    */

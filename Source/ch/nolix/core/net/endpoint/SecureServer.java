@@ -8,7 +8,7 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 //class
 public final class SecureServer extends BaseServer {
 
-  // constant
+  //constant
   public static final String DEFAULT_HTML_PAGE = """
       <!DOCTYPE html>
       <html>
@@ -23,11 +23,11 @@ public final class SecureServer extends BaseServer {
       </html>
       """;
 
-  // constant
+  //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
       new NolixConfigurationSSLCertificateReader();
 
-  // static method
+  //static method
   public static SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
       final int port,
       final String htmlPage) {
@@ -38,19 +38,19 @@ public final class SecureServer extends BaseServer {
     return new SecureServer(port, htmlPage, paramSSLCertificate);
   }
 
-  // constructor
+  //constructor
   public SecureServer(final int port, final ISSLCertificate paramSSLCertificate) {
     this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
   }
 
-  // constructor
+  //constructor
   public SecureServer(final int port, final String htmlPage, final ISSLCertificate paramSSLCertificate) {
     new SecureServerWorker(this, port, htmlPage, paramSSLCertificate);
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 }

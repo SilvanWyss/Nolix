@@ -4,16 +4,16 @@ package ch.nolix.system.application.basewebapplicationprotocol;
 //class
 public final class RequestProtocol {
 
-  // constant
+  //constant
   public static final String GET_COOKIE_VALUE_BY_COOKIE_NAME = "GetCookieValueByCookieName";
 
-  // constant
+  //constant
   public static final String GET_TEXT_FROM_CLIPBOARD = "GetTextFromClipboard";
 
-  // constant
+  //constant
   public static final String GET_URL_PARARAMETER_VALUE = "GetURLParameterValueByURLParameterName";
 
-  // constructor
+  //constructor
   private RequestProtocol() {
   }
 }

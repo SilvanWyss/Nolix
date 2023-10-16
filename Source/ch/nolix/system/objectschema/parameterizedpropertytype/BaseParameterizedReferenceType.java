@@ -17,10 +17,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public abstract class BaseParameterizedReferenceType extends ParameterizedPropertyType
     implements IBaseParameterizedReferenceType {
 
-  // attribute
+  //attribute
   private final ITable referencedTable;
 
-  // constructor
+  //constructor
   protected BaseParameterizedReferenceType(final ITable referencedTable) {
 
     super(DataType.STRING);
@@ -30,43 +30,43 @@ public abstract class BaseParameterizedReferenceType extends ParameterizedProper
     this.referencedTable = referencedTable;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedBackReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
-  // method
+  //method
   @Override
   public ITable getReferencedTable() {
     return referencedTable;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesTable(final ITable table) {
     return (getReferencedTable() == table);
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesBackColumn(final IColumn column) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public final IParameterizedPropertyTypeDto toDto() {
     return new BaseParameterizedReferenceTypeDto(

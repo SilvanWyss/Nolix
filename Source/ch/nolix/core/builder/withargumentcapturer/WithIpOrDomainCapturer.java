@@ -9,17 +9,17 @@ import ch.nolix.core.net.constant.IPv4Catalogue;
 //class
 public class WithIpOrDomainCapturer<N> extends ArgumentCapturer<String, N> {
 
-  // constructor
+  //constructor
   public WithIpOrDomainCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
 
-  // method
+  //method
   public final String getIpOrDomain() {
     return getStoredArgument();
   }
 
-  // method
+  //method
   public final N withIpOrDomain(final String ipOrDomain) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
@@ -27,7 +27,7 @@ public class WithIpOrDomainCapturer<N> extends ArgumentCapturer<String, N> {
     return setArgumentAndGetNext(ipOrDomain);
   }
 
-  // method
+  //method
   public final N withLocalAddress() {
     return withIpOrDomain(IPv4Catalogue.LOOP_BACK_ADDRESS);
   }

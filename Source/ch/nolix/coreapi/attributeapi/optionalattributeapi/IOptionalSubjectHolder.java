@@ -10,7 +10,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface IOptionalSubjectHolder {
 
-  // method declaration
+  //method declaration
   /**
    * @return the subject of the current {@link IOptionalSubjectHolder}.
    * @throws RuntimeException if the current {@link IOptionalSubjectHolder} does
@@ -18,20 +18,20 @@ public interface IOptionalSubjectHolder {
    */
   String getSubject();
 
-  // method declaration
+  //method declaration
   /**
    * @return the subject of the current {@link IOptionalSubjectHolder} if it has a
    *         subject, otherwise an empty {@link String}.
    */
   String getSubjectOrEmptyString();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link IOptionalSubjectHolder} has a subject.
    */
   boolean hasSubject();
 
-  // method
+  //method
   /**
    * @param subject
    * @return true if the current {@link IOptionalSubjectHolder} has the given

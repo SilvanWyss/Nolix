@@ -14,7 +14,7 @@ import ch.nolix.coretest.containertest.singlecontainertest.SingleContainerTestPo
  */
 public final class ContainerTestPool extends TestPool {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ContainerTestPool}.
    */

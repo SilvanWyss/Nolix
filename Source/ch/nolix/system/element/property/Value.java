@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class Value<V> extends SingleValue<V> {
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -32,7 +32,7 @@ public final class Value<V> extends SingleValue<V> {
     return new Value<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -46,7 +46,7 @@ public final class Value<V> extends SingleValue<V> {
     return new Value<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -64,7 +64,7 @@ public final class Value<V> extends SingleValue<V> {
         Value::getStringValueSpecificationForAValueFromString);
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return the specification of a {@link String} value of a {@link Value} from
@@ -81,7 +81,7 @@ public final class Value<V> extends SingleValue<V> {
     return Node.withChildNode(string);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Value} with the given name, setterMethod, valueCreator
    * and specificationCreator.
@@ -101,11 +101,11 @@ public final class Value<V> extends SingleValue<V> {
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

@@ -19,13 +19,13 @@ import ch.nolix.coreapi.functionapi.mutationapi.Runnable;
  */
 public abstract class TestPool implements Runnable {
 
-  // multi-attribute
+  //multi-attribute
   private final List<TestPool> testPools = new List<>();
 
-  // multi-attribute
+  //multi-attribute
   private final List<Class<BaseTest>> testClasses = new List<>();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link TestPool}.
    * 
@@ -35,7 +35,7 @@ public abstract class TestPool implements Runnable {
   protected TestPool() {
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link TestPool} with the given test {@link Class}s.
    * 
@@ -52,13 +52,13 @@ public abstract class TestPool implements Runnable {
 
     addTestClass(testClass);
 
-    // Iterates the given testClasses.
+    //Iterates the given testClasses.
     for (final var tc : testClasses) {
       addTestClass(tc);
     }
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link TestPool} with the given {@link TestPool}s.
    * 
@@ -70,13 +70,13 @@ public abstract class TestPool implements Runnable {
 
     addTestPool(testPool);
 
-    // Iterates the given testPools.
+    //Iterates the given testPools.
     for (final var tp : testPools) {
       addTestPool(tp);
     }
   }
 
-  // method
+  //method
   /**
    * @param testPool
    * @return true if the current {@link TestPool} contains the given testPool
@@ -84,11 +84,11 @@ public abstract class TestPool implements Runnable {
    */
   public final boolean containsTestPoolRecursively(final TestPool testPool) {
 
-    // Iterates the testPools of the current TestPool.
+    //Iterates the testPools of the current TestPool.
     for (final TestPool tp : testPools) {
 
-      // Asserts that the current testPool is the given testPool or contains the given
-      // testPool recursively.
+      //Asserts that the current testPool is the given testPool or contains the given
+      //testPool recursively.
       if (tp == testPool || tp.containsTestPoolRecursively(testPool)) {
         return true;
       }
@@ -97,7 +97,7 @@ public abstract class TestPool implements Runnable {
     return false;
   }
 
-  // method
+  //method
   /**
    * @param testClass
    * @return true if the current {@link TestPool} contains the given testClass
@@ -105,19 +105,19 @@ public abstract class TestPool implements Runnable {
    */
   public final boolean containsTestClassRecursively(final Class<BaseTest> testClass) {
 
-    // Iterates the testPools of the current TestPool.
+    //Iterates the testPools of the current TestPool.
     for (final var tp : testPools) {
 
-      // Asserts that the current testPool contains the given testClass recursively.
+      //Asserts that the current testPool contains the given testClass recursively.
       if (tp.containsTestClassRecursively(testClass)) {
         return true;
       }
     }
 
-    // Iterates the testClasses of the current TestPool.
+    //Iterates the testClasses of the current TestPool.
     for (final var tc : testClasses) {
 
-      // Asserts that the current testClass is the given testClass.
+      //Asserts that the current testClass is the given testClass.
       if (tc == testClass) {
         return true;
       }
@@ -126,7 +126,7 @@ public abstract class TestPool implements Runnable {
     return false;
   }
 
-  // method
+  //method
   /**
    * @return the name of the current {@link TestPool}.
    */
@@ -134,7 +134,7 @@ public abstract class TestPool implements Runnable {
     return getClass().getName();
   }
 
-  // method
+  //method
   /**
    * @return the simple name of the current {@link TestPool}.
    */
@@ -142,18 +142,18 @@ public abstract class TestPool implements Runnable {
     return getClass().getSimpleName();
   }
 
-  // method
+  //method
   /**
    * Runs the {@link BaseTest}s of the current {@link TestPool} recursively.
    */
   @Override
   public final void run() {
 
-    // Calls other method
+    //Calls other method
     runAndGetResult(new StandardConsoleLinePrinter());
   }
 
-  // method
+  //method
   /**
    * Runs the {@link BaseTest}s of the current {@link TestPool} recursively using
    * the given linePrinter.
@@ -169,7 +169,7 @@ public abstract class TestPool implements Runnable {
     return testPoolRun.runAndGetResult();
   }
 
-  // method
+  //method
   /**
    * @return the test {@link Class}s of the current {@link TestPool}.
    */
@@ -177,7 +177,7 @@ public abstract class TestPool implements Runnable {
     return testClasses;
   }
 
-  // method
+  //method
   /**
    * @return the test {@link TestPool}s of the current {@link TestPool}.
    */
@@ -185,7 +185,7 @@ public abstract class TestPool implements Runnable {
     return testPools;
   }
 
-  // method
+  //method
   /**
    * Adds the given testClass to the current {@link TestPool}.
    * 
@@ -200,12 +200,12 @@ public abstract class TestPool implements Runnable {
   @SuppressWarnings("unchecked")
   private void addTestClass(final Class<?> testClass) {
 
-    // Asserts that the given testClass is not null.
+    //Asserts that the given testClass is not null.
     if (testClass == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CLASS);
     }
 
-    // Asserts that the given testClass is a sub class of BaseTest.
+    //Asserts that the given testClass is a sub class of BaseTest.
     if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.TEST_CLASS,
@@ -213,7 +213,7 @@ public abstract class TestPool implements Runnable {
           "is not a sub class of " + BaseTest.class.getName());
     }
 
-    // Asserts that the given testClass is not abstract.
+    //Asserts that the given testClass is not abstract.
     if (ReflectionHelper.isAbstract(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.TEST_CLASS,
@@ -221,7 +221,7 @@ public abstract class TestPool implements Runnable {
           "is abstract");
     }
 
-    // Asserts that the given testClass has a default constructor.
+    //Asserts that the given testClass has a default constructor.
     if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.TEST_CLASS,
@@ -232,7 +232,7 @@ public abstract class TestPool implements Runnable {
     testClasses.addAtEnd((Class<BaseTest>) testClass);
   }
 
-  // method
+  //method
   /**
    * Adds the given testPool to the current {@link TestPool}.
    * 
@@ -243,13 +243,13 @@ public abstract class TestPool implements Runnable {
    */
   private void addTestPool(final TestPool testPool) {
 
-    // Asserts that the given testPool is not null.
+    //Asserts that the given testPool is not null.
     if (testPool == null) {
       throw ArgumentIsNullException.forArgumentName("test pool");
     }
 
-    // Asserts that the given test pool does not contain the current TestPool
-    // recursively.
+    //Asserts that the given test pool does not contain the current TestPool
+    //recursively.
     if (testPool.containsTestPoolRecursively(this)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(testPool, "contains recursively " + getName());
     }

@@ -10,27 +10,27 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //interface
 public interface IEntity extends Deletable, IDatabaseObject, Identified, ShortDescripted {
 
-  // method declaration
+  //method declaration
   boolean belongsToTable();
 
-  // method declaration
+  //method declaration
   String getParentTableName();
 
-  // method declaration
+  //method declaration
   IDatabase getStoredParentDatabase();
 
-  // method declaration
+  //method declaration
   ITable<IEntity> getStoredParentTable();
 
-  // method declaration
+  //method declaration
   String getSaveStamp();
 
-  // method declaration
+  //method declaration
   boolean hasSaveStamp();
 
-  // method declaration
+  //method declaration
   boolean isReferencedInPersistedData();
 
-  // method declaration
+  //method declaration
   IContainer<? extends IProperty> technicalGetRefProperties();
 }

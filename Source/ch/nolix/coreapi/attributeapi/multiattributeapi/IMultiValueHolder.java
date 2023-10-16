@@ -14,7 +14,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface IMultiValueHolder<V> {
 
-  // method declaration
+  //method declaration
   /**
    * @return the values of the current {@link IMultiValueHolder}.
    */

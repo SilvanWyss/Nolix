@@ -19,7 +19,7 @@ public enum ContainerRole {
   COMPONENT_CONTAINER,
   TITLE_CONTAINER;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link ContainerRole} from the given specification.

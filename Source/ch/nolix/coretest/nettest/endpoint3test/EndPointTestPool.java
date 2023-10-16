@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class EndPointTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public EndPointTestPool() {
     super(NetEndPointTest.class);
   }

@@ -12,33 +12,33 @@ public interface ITable<
     E extends IEntity>
     extends IDatabaseObject, Identified, Named {
 
-  // method declaration
+  //method declaration
   boolean containsEntityWithId(String id);
 
-  // method declaration
+  //method declaration
   int getEntityCount();
 
-  // method declaration
+  //method declaration
   Class<E> getEntityType();
 
-  // method declaration
+  //method declaration
   IContainer<IColumn> getStoredColumns();
 
-  // method declaration
+  //method declaration
   IContainer<E> getStoredEntities();
 
-  // method declaration
+  //method declaration
   E getStoredEntityById(String id);
 
-  // method declaration
+  //method declaration
   E getStoredEntityByIdOrNull(String id);
 
-  // method declaration
+  //method declaration
   IDatabase getStoredParentDatabase();
 
-  // method declaration
+  //method declaration
   ITable<E> insertEntity(E entity);
 
-  // method declaration
+  //method declaration
   IContainer<E> technicalGetRefEntitiesInLocalData();
 }

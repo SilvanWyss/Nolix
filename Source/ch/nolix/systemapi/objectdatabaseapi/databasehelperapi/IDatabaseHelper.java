@@ -11,18 +11,18 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //interface
 public interface IDatabaseHelper extends IDatabaseObjectHelper {
 
-  // method declaration
+  //method declaration
   boolean allNewAndEditedMandatoryPropertiesAreSet(IDatabase database);
 
-  // method declaration
+  //method declaration
   boolean canSaveChanges(IDatabase database);
 
-  // method declaration
+  //method declaration
   IContainer<IEntity> getStoredEntitiesInLocalData(IDatabase database);
 
-  // method declaration
+  //method declaration
   <E extends IEntity> ITable<E> getStoredTableForGivenEntity(IDatabase database, E entity);
 
-  // method declaration
+  //method declaration
   boolean hasChanges(IDatabase database);
 }

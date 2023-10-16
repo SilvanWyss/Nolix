@@ -21,7 +21,7 @@ public enum ExtendedContentAlignment {
   BOTTOM_RIGHT,
   FREE;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link ExtendedContentAlignment} from the given specification.

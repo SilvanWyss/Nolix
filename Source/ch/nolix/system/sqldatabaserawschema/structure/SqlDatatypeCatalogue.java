@@ -6,13 +6,13 @@ import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDto;
 //class
 public final class SqlDatatypeCatalogue {
 
-  // constant
+  //constant
   public static final DataTypeDto INTEGER = new DataTypeDto("INT");
 
-  // constant
+  //constant
   public static final DataTypeDto TEXT = new DataTypeDto("NVARCHAR", "MAX");
 
-  // constructor
+  //constructor
   private SqlDatatypeCatalogue() {
   }
 }

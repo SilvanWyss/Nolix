@@ -7,45 +7,45 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //interface
 public interface IPaddingStyle<PS extends IPaddingStyle<PS>> {
 
-  // method declaration
+  //method declaration
   int getBottomPaddingWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getLeftPaddingWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getRightPaddingWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   int getTopPaddingWhenHasState(ControlState state);
 
-  // method declaration
+  //method declaration
   void removeCustomBottomPaddings();
 
-  // method declaration
+  //method declaration
   void removeCustomLeftPaddings();
 
-  // method declaration
+  //method declaration
   void removeCustomPaddings();
 
-  // method declaration
+  //method declaration
   void removeCustomRightPaddings();
 
-  // method declaration
+  //method declaration
   void removeCustomTopPaddings();
 
-  // method declaration
+  //method declaration
   PS setBottomPaddingForState(ControlState state, int bottomPadding);
 
-  // method declaration
+  //method declaration
   PS setLeftPaddingForState(ControlState state, int leftPadding);
 
-  // method declaration
+  //method declaration
   PS setPaddingForState(ControlState state, int padding);
 
-  // method declaration
+  //method declaration
   PS setRightPaddingForState(ControlState state, int rightPadding);
 
-  // method declaration
+  //method declaration
   PS setTopPaddingForState(ControlState state, int topPadding);
 }

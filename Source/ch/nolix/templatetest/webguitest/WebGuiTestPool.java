@@ -8,7 +8,7 @@ import ch.nolix.templatetest.webguitest.styletest.StyleTestPool;
 //class
 public final class WebGuiTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public WebGuiTestPool() {
     super(new StyleTestPool());
   }

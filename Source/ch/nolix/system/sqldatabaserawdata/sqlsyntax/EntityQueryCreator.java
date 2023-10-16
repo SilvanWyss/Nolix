@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IEntityQueryCreator;
 //class
 public final class EntityQueryCreator implements IEntityQueryCreator {
 
-  // method
+  //method
   @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
     return "SELECT COUNT(Id) FROM "
@@ -24,7 +24,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
         + "';";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToCountEntitiesWithGivenValueAtGivenColumn(
       final String tableName,
@@ -42,7 +42,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
         + "';";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToLoadEntitiesOfTable(final ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
@@ -52,7 +52,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
         + ";";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToLoadEntity(String id, ITableInfo tableInfo) {
     return "SELECT Id, SaveStamp, "
@@ -64,7 +64,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
         + "';";
   }
 
-  // method
+  //method
   @Override
   public String createQueryToLoadSchemaTimestamp() {
     return "SELECT "

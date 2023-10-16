@@ -18,7 +18,7 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {
 
-  // method
+  //method
   @Override
   protected void initialize() {
     getStoredGui()
@@ -35,13 +35,13 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
         .setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
   }
 
-  // method
+  //method
   private IContainer<IComponent> createApplicationComponents() {
     return getWebApplicationSheets()
         .to(was -> new WebApplicationComponent(new WebApplicationController(was), this));
   }
 
-  // method
+  //method
   private IContainer<IWebApplicationSheet> getWebApplicationSheets() {
     return getStoredApplicationContext()
         .getWebApplicationSheets()

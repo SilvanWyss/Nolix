@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class StyleTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public StyleTestPool() {
     super(DeepSelectingStyleTest.class, SelectingStyleTest.class, StyleTest.class);
   }

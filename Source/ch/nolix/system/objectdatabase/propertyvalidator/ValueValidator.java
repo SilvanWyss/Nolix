@@ -11,10 +11,10 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IValueValidator
 //class
 public final class ValueValidator extends PropertyValidator implements IValueValidator {
 
-  // constant
+  //constant
   private static final IValueHelper VALUE_HELPER = new ValueHelper();
 
-  // method
+  //method
   @Override
   public void assertCanSetGivenValue(final IValue<?> value, final Object valueToSet) {
     if (!VALUE_HELPER.canSetGivenValue(value, valueToSet)) {

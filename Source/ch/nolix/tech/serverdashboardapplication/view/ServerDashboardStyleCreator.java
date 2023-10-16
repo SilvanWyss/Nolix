@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 //class
 final class ServerDashboardStyleCreator {
 
-  // method
+  //method
   public Style createServerDashboardStyle() {
     return new StyleBuilder()
         .addSubStyle(
@@ -30,7 +30,7 @@ final class ServerDashboardStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createLayerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Layer.class)
@@ -38,7 +38,7 @@ final class ServerDashboardStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createImageControlStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(ImageControl.class)
@@ -51,7 +51,7 @@ final class ServerDashboardStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createOverallVerticalStackContainerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(VerticalStack.class)
@@ -63,7 +63,7 @@ final class ServerDashboardStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createMainContentFloatContainerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(FloatContainer.class)
@@ -77,7 +77,7 @@ final class ServerDashboardStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createTitleLabelStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Label.class)
@@ -86,7 +86,7 @@ final class ServerDashboardStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createLevel1HeaderLabelStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Label.class)

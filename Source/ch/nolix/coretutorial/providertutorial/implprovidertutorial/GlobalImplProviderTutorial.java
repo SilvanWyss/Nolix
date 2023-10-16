@@ -36,14 +36,14 @@ public final class GlobalImplProviderTutorial {
 
   public static void main(String[] args) {
 
-    // Registers the City class as the implementation of the ICity interface.
+    //Registers the City class as the implementation of the ICity interface.
     GlobalImplProvider.forInterface(ICity.class).registerImplementation(City.class);
 
-    // Creates instances of the City class, that is found by the ICity interface.
+    //Creates instances of the City class, that is found by the ICity interface.
     final var paris = GlobalImplProvider.ofInterface(ICity.class).createInstance("Paris", 12_100_000);
     final var london = GlobalImplProvider.ofInterface(ICity.class).createInstance("London", 8_100_000);
 
-    // Prints out to the console the data of the instances.
+    //Prints out to the console the data of the instances.
     GlobalLogger.logInfo(paris.getName() + ", population: " + paris.getPopulation());
     GlobalLogger.logInfo(london.getName() + ", population: " + london.getPopulation());
   }

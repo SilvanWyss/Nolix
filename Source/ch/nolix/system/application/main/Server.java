@@ -19,10 +19,10 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  */
 public final class Server extends BaseServer<Server> {
 
-  // constant
+  //constant
   private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 
-  // static method
+  //static method
   /**
    * @return a new {@link Server} that will listen to net {@link Client}s on the
    *         HTTP port (80).
@@ -31,7 +31,7 @@ public final class Server extends BaseServer<Server> {
     return forPort(PortCatalogue.HTTP);
   }
 
-  // static method
+  //static method
   /**
    * @param port
    * @return a new {@link Server} that will listen to net {@link Client}s on the
@@ -42,10 +42,10 @@ public final class Server extends BaseServer<Server> {
     return new Server(port);
   }
 
-  // attribute
+  //attribute
   private ch.nolix.core.net.endpoint3.Server internalServer;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Server} that will listen to net {@link Client}s on the
    * given port.
@@ -55,16 +55,16 @@ public final class Server extends BaseServer<Server> {
    */
   private Server(final int port) {
 
-    // Creates the internalServer of the current Server.
+    //Creates the internalServer of the current Server.
     internalServer = ch.nolix.core.net.endpoint3.Server.forPortAndHttpMessage(
         port,
         new ServerHttpMessage(getIp(), port).toString());
 
-    // Creates a close dependency between the current Server and its internalServer.
+    //Creates a close dependency between the current Server and its internalServer.
     createCloseDependencyTo(internalServer);
   }
 
-  // method
+  //method
   /**
    * @return the current {@link Server} as {@link IServerTarget}.
    */
@@ -76,7 +76,7 @@ public final class Server extends BaseServer<Server> {
         SECURITY_LEVEL_FOR_CONNECTIONS);
   }
 
-  // method
+  //method
   /**
    * @return the Ip of the current {@link Server}.
    */
@@ -84,7 +84,7 @@ public final class Server extends BaseServer<Server> {
     return LocalComputer.getLANIP();
   }
 
-  // method
+  //method
   /**
    * @return the port of the current {@link Server}.
    */
@@ -92,7 +92,7 @@ public final class Server extends BaseServer<Server> {
     return internalServer.getPort();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -101,7 +101,7 @@ public final class Server extends BaseServer<Server> {
     return this;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -110,7 +110,7 @@ public final class Server extends BaseServer<Server> {
     internalServer.addSlot(new ServerEndPointTaker(application.getUrlInstanceName(), this));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

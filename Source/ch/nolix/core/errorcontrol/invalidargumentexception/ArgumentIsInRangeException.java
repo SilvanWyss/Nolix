@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsInRangeException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsInRangeException} for the given argument and
@@ -28,7 +28,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argument, min, max);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsInRangeException} for the given argument and
@@ -43,7 +43,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argument, min, max);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -62,7 +62,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argumentName, argument, min, max);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -81,7 +81,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
     return new ArgumentIsInRangeException(argumentName, argument, min, max);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argument and
    * range defined by the given min and max.
@@ -92,11 +92,11 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    */
   private ArgumentIsInRangeException(final double argument, final double min, final double max) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "is in [" + min + ", " + max + "]");
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argument and
    * range defined by the given min and max.
@@ -107,11 +107,11 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    */
   private ArgumentIsInRangeException(final long argument, final long min, final long max) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "is in [" + min + ", " + max + "]");
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argumentName,
    * argument and range defined by the given min and max.
@@ -129,11 +129,11 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
       final double min,
       final double max) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "is in [" + min + ", " + max + "]");
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsInRangeException} for the given argumentName,
    * argument and range defined by the given min and max.
@@ -151,7 +151,7 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
       final long min,
       final long max) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "is in [" + min + ", " + max + "]");
   }
 }

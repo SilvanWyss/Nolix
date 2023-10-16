@@ -8,7 +8,7 @@ import ch.nolix.coretest.containertest.singlecontainertest.SingleContainerTest;
 //class
 public final class MainTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public MainTestPool() {
     super(
         GapMatrixTest.class,

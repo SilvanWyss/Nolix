@@ -9,12 +9,12 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public class AndLoginPasswordCapturer<N> extends ArgumentCapturer<String, N> {
 
-  // constructor
+  //constructor
   public AndLoginPasswordCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
 
-  // method
+  //method
   public final N andLoginPassword(final String loginPassword) {
 
     GlobalValidator.assertThat(loginPassword).thatIsNamed(LowerCaseCatalogue.LOGIN_PASSWORD).isNotBlank();
@@ -22,7 +22,7 @@ public class AndLoginPasswordCapturer<N> extends ArgumentCapturer<String, N> {
     return setArgumentAndGetNext(loginPassword);
   }
 
-  // method
+  //method
   public final String getLoginPassword() {
     return getStoredArgument();
   }

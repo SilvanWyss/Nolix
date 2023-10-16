@@ -10,20 +10,20 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableField;
 //class
 public final class AbstractableFieldEvaluator {
 
-  // method
+  //method
   public boolean canBeSetAsAbstract(final IAbstractableField abstractableField) {
     return abstractableField != null
         && !abstractableField.inheritsFromBaseField()
         && canBeSetAsAbstractBecauseOfParentObject(abstractableField);
   }
 
-  // method
+  //method
   public boolean canBeSetAsConcrete(final IAbstractableField abstractableField) {
     return abstractableField != null
         && canBeSetAsConcreteWhenIsNotNull(abstractableField);
   }
 
-  // method
+  //method
   public boolean canBeSetForReferences(final IAbstractableField abstractableField) {
 
     if (abstractableField != null) {
@@ -42,13 +42,13 @@ public final class AbstractableFieldEvaluator {
     return false;
   }
 
-  // method
+  //method
   public boolean canBeSetForValues(final IAbstractableField abstractableField) {
     return abstractableField != null
         && canBeSetForValuesWhenIsNotNull(abstractableField);
   }
 
-  // method
+  //method
   public boolean canSetCardinality(final IAbstractableField abstractableField, final Cardinality cardinality) {
 
     if (abstractableField != null && cardinality != null) {
@@ -69,7 +69,7 @@ public final class AbstractableFieldEvaluator {
     return false;
   }
 
-  // method
+  //method
   public boolean canSetName(final IAbstractableField abstractableField, final String name) {
     return canSetName(name)
         && abstractableField != null
@@ -77,7 +77,7 @@ public final class AbstractableFieldEvaluator {
         && canSetNameBecauseOfSubTypesOfParentObject(abstractableField, name);
   }
 
-  // method
+  //method
   public IContainer<? extends IAbstractableField> getStoredRealisingFields(final IAbstractableField field) {
 
     if (field == null || field.isConcrete()) {
@@ -87,13 +87,13 @@ public final class AbstractableFieldEvaluator {
     return getStoredRealisingFieldsWhenIsAbstract(field);
   }
 
-  // method
+  //method
   private boolean canBeSetAsAbstractBecauseOfParentObject(final IAbstractableField abstractableField) {
     return abstractableField != null
         && abstractableField.getStoredParentObject().isAbstract();
   }
 
-  // method
+  //method
   private boolean canBeSetAsConcreteWhenIsNotNull(final IAbstractableField abstractableField) {
 
     final var realisingFields = getStoredRealisingFields(abstractableField);
@@ -101,7 +101,7 @@ public final class AbstractableFieldEvaluator {
     return realisingFields.containsOnly(IAbstractableField::isEmpty);
   }
 
-  // method
+  //method
   private boolean canBeSetForValuesWhenIsAbstractAndForReferences(final IAbstractableField abstractableField) {
 
     final var realisingFields = getStoredRealisingFields(abstractableField);
@@ -109,12 +109,12 @@ public final class AbstractableFieldEvaluator {
     return realisingFields.containsOnly(IAbstractableField::isEmpty);
   }
 
-  // method
+  //method
   private boolean canBeSetForValuesWhenIsConcreteAndForReferences(final IAbstractableField abstractableField) {
     return !abstractableField.inheritsFromBaseField();
   }
 
-  // method
+  //method
   private boolean canBeSetForValuesWhenIsForReferences(final IAbstractableField abstractableField) {
 
     if (abstractableField.isAbstract()) {
@@ -124,12 +124,12 @@ public final class AbstractableFieldEvaluator {
     return canBeSetForValuesWhenIsConcreteAndForReferences(abstractableField);
   }
 
-  // method
+  //method
   private boolean canBeSetForValuesWhenIsForValues(final IAbstractableField abstractableField) {
     return true;
   }
 
-  // method
+  //method
   private boolean canBeSetForValuesWhenIsNotNull(final IAbstractableField abstractableField) {
 
     if (abstractableField.isForValues()) {
@@ -139,13 +139,13 @@ public final class AbstractableFieldEvaluator {
     return canBeSetForValuesWhenIsForReferences(abstractableField);
   }
 
-  // method
+  //method
   private boolean canSetName(final String name) {
     return name != null
         && !name.isBlank();
   }
 
-  // method
+  //method
   private boolean canSetNameBecauseOfSubTypesOfParentObject(
       final IAbstractableField abstractableField,
       final String name) {
@@ -154,7 +154,7 @@ public final class AbstractableFieldEvaluator {
         abstractableField.getStoredParentObject().getStoredSubTypes().containsNone(cst -> cst.hasName(name));
   }
 
-  // method
+  //method
   private IContainer<? extends IAbstractableField> getStoredRealisingFieldsWhenIsAbstract(
       final IAbstractableField field) {
     return field

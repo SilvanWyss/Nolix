@@ -4,25 +4,25 @@ package ch.nolix.coreapi.webapi.htmlapi;
 //class
 public final class HtmlAttributeNameCatalogue {
 
-  // constant
+  //constant
   public static final String CLASS = "class";
 
-  // constant
+  //constant
   public static final String ID = "id";
 
-  // constant
+  //constant
   public static final String SRC = "src";
 
-  // constant
+  //constant
   public static final String STYLE = "style";
 
-  // constant
+  //constant
   public static final String TYPE = "type";
 
-  // constant
+  //constant
   public static final String VALUE = "value";
 
-  // constructor
+  //constructor
   private HtmlAttributeNameCatalogue() {
   }
 }

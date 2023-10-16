@@ -11,7 +11,7 @@ import ch.nolix.core.testing.basetest.TestPool;
  */
 public final class NodeTestPool extends TestPool {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NodeTestPool}.
    */

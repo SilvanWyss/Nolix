@@ -15,7 +15,7 @@ public enum BackgroundType {
   IMAGE,
   TRANSPARENCY;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link BackgroundType} from the given specification.

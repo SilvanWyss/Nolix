@@ -16,7 +16,7 @@ final class SecureServerEndPoint extends NetEndPoint {
 
   private final ChannelHandlerContext channelHandlerContext;
 
-  // constructor
+  //constructor
   public SecureServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
 
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
@@ -26,19 +26,19 @@ final class SecureServerEndPoint extends NetEndPoint {
     this.channelHandlerContext = channelHandlerContext;
   }
 
-  // method
+  //method
   @Override
   public ConnectionType getConnectionType() {
     return ConnectionType.WEB_SOCKET;
   }
 
-  // method
+  //method
   @Override
   public PeerType getPeerType() {
     return PeerType.BACKEND;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -47,13 +47,13 @@ final class SecureServerEndPoint extends NetEndPoint {
     return SecurityLevel.SECURE;
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
     channelHandlerContext.close();
   }
 
-  // method
+  //method
   @Override
   protected void sendRawMessage(final String rawMessage) {
     channelHandlerContext.channel().writeAndFlush(new TextWebSocketFrame(rawMessage + "\r\n"));

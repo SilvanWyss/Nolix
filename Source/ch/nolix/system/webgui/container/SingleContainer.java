@@ -21,29 +21,29 @@ public final class SingleContainer
     extends Container<ISingleContainer, ISingleContainerStyle>
     implements ISingleContainer {
 
-  // constant
+  //constant
   private static final String CONTROL_HEADER = "Control";
 
-  // constant
+  //constant
   private static final SingleContainerHtmlBuilder HTML_BUILDER = new SingleContainerHtmlBuilder();
 
-  // constant
+  //constant
   private static final SingleContainerCssBuilder CSS_BUILDER = new SingleContainerCssBuilder();
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
       CONTROL_HEADER,
       this::setControl,
       GlobalControlFactory::createControlFromSpecification,
       IControl::getSpecification);
 
-  // method
+  //method
   @Override
   public void clear() {
     control.clear();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
 
@@ -54,25 +54,25 @@ public final class SingleContainer
     return ImmutableList.withElement(getStoredControl());
   }
 
-  // method
+  //method
   @Override
   public IControl<?, ?> getStoredControl() {
     return control.getValue();
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return !control.containsAny();
   }
 
-  // method
+  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public ISingleContainer setComponent(final IControlGetter component) {
 
@@ -81,7 +81,7 @@ public final class SingleContainer
     return setControl(localControl);
   }
 
-  // method
+  //method
   @Override
   public SingleContainer setControl(final IControl<?, ?> control) {
 
@@ -91,25 +91,25 @@ public final class SingleContainer
     return this;
   }
 
-  // method
+  //method
   @Override
   protected SingleContainerStyle createStyle() {
     return new SingleContainerStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<ISingleContainer, ISingleContainerStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<ISingleContainer> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetContainer() {
     clear();

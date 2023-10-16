@@ -19,10 +19,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public class FileSystemItemAccessor {
 
-  // attribute
+  //attribute
   private final File internalAccessor;
 
-  // constructor
+  //constructor
   /**
    * Creates a new file system accessor for the file system item with the given
    * path.
@@ -34,10 +34,10 @@ public class FileSystemItemAccessor {
    */
   public FileSystemItemAccessor(final String path) {
 
-    // Creates the internal file accessor of this file accessor.
+    //Creates the internal file accessor of this file accessor.
     internalAccessor = new File(path);
 
-    // Asserts that the given file path does not point to a directory.
+    //Asserts that the given file path does not point to a directory.
     if (!internalAccessor.exists()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.PATH,
@@ -46,7 +46,7 @@ public class FileSystemItemAccessor {
     }
   }
 
-  // method
+  //method
   /**
    * @return the extension of the name of the file system item of the current
    *         {@link FileSystemItemAccessor}.
@@ -58,7 +58,7 @@ public class FileSystemItemAccessor {
     return ("." + array[array.length - 1]);
   }
 
-  // method
+  //method
   /**
    * @return the name of the file system item of the current
    *         {@link FileSystemItemAccessor}.
@@ -70,7 +70,7 @@ public class FileSystemItemAccessor {
     return array[array.length - 1];
   }
 
-  // method
+  //method
   /**
    * @return a new folder accessor to the parent folder of the file system item of
    *         this file system item accessor.
@@ -79,7 +79,7 @@ public class FileSystemItemAccessor {
     return new FolderAccessor(internalAccessor.getParent());
   }
 
-  // method
+  //method
   /**
    * @return the path of the file system item of this file system item accessor.
    */
@@ -87,7 +87,7 @@ public class FileSystemItemAccessor {
     return internalAccessor.getAbsolutePath();
   }
 
-  // method
+  //method
   /**
    * @param extension
    * @return true if the file system item of the current
@@ -97,7 +97,7 @@ public class FileSystemItemAccessor {
     return getExtension().equals(extension);
   }
 
-  // method
+  //method
   /**
    * @return the size of the file system item of this file system item accessor in
    *         bytes.
@@ -106,7 +106,7 @@ public class FileSystemItemAccessor {
     return getInternalAccessor().length();
   }
 
-  // method
+  //method
   /**
    * @return true if the file system item is a file in the file system on the
    *         local machine.
@@ -115,7 +115,7 @@ public class FileSystemItemAccessor {
     return getInternalAccessor().isFile();
   }
 
-  // method
+  //method
   /**
    * @return true if this path is a folder in the file system on the local
    *         machine.
@@ -124,7 +124,7 @@ public class FileSystemItemAccessor {
     return getInternalAccessor().isDirectory();
   }
 
-  // method
+  //method
   /**
    * Opens the parent folder of the file system item of this file system item
    * accessor in the file explorer.
@@ -133,7 +133,7 @@ public class FileSystemItemAccessor {
     getParentFolderAccessor().openInFileExplorer();
   }
 
-  // method
+  //method
   /**
    * @return the internal accessor of this file system item accessor.
    */

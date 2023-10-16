@@ -9,18 +9,18 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //interface
 public interface IDatabase extends IDatabaseObject, Named {
 
-  // method declaration
+  //method declaration
   IDatabase addTable(ITable table);
 
-  // method declaration
+  //method declaration
   IDatabase createTableWithName(String name);
 
-  // method declaration
+  //method declaration
   IContainer<ITable> getStoredTables();
 
-  // method declaration
+  //method declaration
   int getTableCount();
 
-  // method declaration
+  //method declaration
   void setRawSchemaAdapter(ISchemaAdapter rawSchemaAdapter);
 }

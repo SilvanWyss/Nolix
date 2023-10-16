@@ -12,7 +12,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 //class
 public final class ParameterizedPropertyTypeSqlRecordMapper {
 
-  // method
+  //method
   public ParameterizedPropertyTypeSqlRecord createParameterizedPropertyTypeRecordFrom(
       final IParameterizedPropertyTypeDto parameterizedPropertyType) {
     return switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
@@ -28,7 +28,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
     };
   }
 
-  // method
+  //method
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedBackReferenceRecord(
       final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return new ParameterizedPropertyTypeSqlRecord(
@@ -38,7 +38,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
         "'" + baseParameterizedBackReferenceType.getBackReferencedColumnId() + "'");
   }
 
-  // method
+  //method
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
       final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return new ParameterizedPropertyTypeSqlRecord(
@@ -48,7 +48,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
         SqlSyntaxCatalogue.NULL);
   }
 
-  // method
+  //method
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedValueTypeRecord(
       final IBaseParameterizedValueTypeDto baseParameterizedPropertyType) {
     return new ParameterizedPropertyTypeSqlRecord(

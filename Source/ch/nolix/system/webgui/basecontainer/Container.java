@@ -19,59 +19,59 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 public abstract class Container<C extends IContainer<C, ECS>, ECS extends IControlStyle<ECS>>
     extends Control<C, ECS> implements IContainer<C, ECS> {
 
-  // constant
+  //constant
   private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<ContainerRole> role = new MutableOptionalValue<>(
       ROLE_HEADER,
       this::setRole,
       ContainerRole::fromSpecification,
       Node::fromEnum);
 
-  // method
+  //method
   @Override
   public final ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
     return new SingleContainer<>();
   }
 
-  // method
+  //method
   @Override
   public final ContainerRole getRole() {
     return role.getValue();
   }
 
-  // method
+  //method
   @Override
   public final String getUserInput() {
     return StringCatalogue.EMPTY_STRING;
   }
 
-  // method
+  //method
   @Override
   public final boolean hasRole() {
     return role.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
-  // method
+  //method
   @Override
   public final void removeRole() {
     role.clear();
   }
 
-  // method
+  //method
   @Override
   public final void runHtmlEvent(final String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
-  // method
+  //method
   @Override
   public final C setRole(final ContainerRole role) {
 
@@ -80,7 +80,7 @@ public abstract class Container<C extends IContainer<C, ECS>, ECS extends IContr
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final C setUserInput(final String userInput) {
 
@@ -89,10 +89,10 @@ public abstract class Container<C extends IContainer<C, ECS>, ECS extends IContr
     return asConcrete();
   }
 
-  // method declaration
+  //method declaration
   protected abstract void resetContainer();
 
-  // method
+  //method
   @Override
   protected final void resetControl() {
 

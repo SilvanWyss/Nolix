@@ -4,12 +4,12 @@ package ch.nolix.templatetest.mathtest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new MathTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

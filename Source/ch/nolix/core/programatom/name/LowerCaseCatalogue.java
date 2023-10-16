@@ -10,622 +10,622 @@ package ch.nolix.core.programatom.name;
  */
 public final class LowerCaseCatalogue {
 
-  // constant
+  //constant
   public static final String AGE = "age";
 
-  // constant
+  //constant
   public static final String AMOUNT = "amount";
 
-  // constant
+  //constant
   public static final String APPLICATION = "application";
 
-  // constant
+  //constant
   public static final String APPOINTMENT = "appointment";
 
-  // constant
+  //constant
   public static final String ARRAY = "array";
 
-  // constant
+  //constant
   public static final String ATTRIBUTE = "attribute";
 
-  // constant
+  //constant
   public static final String BACKGROUND = "background";
 
-  // constant
+  //constant
   public static final String BACKGROUND_COLOR = "background color";
 
-  // constant
+  //constant
   public static final String BASE_TYPE = "base type";
 
-  // constant
+  //constant
   public static final String BIT = "bit";
 
-  // constant
+  //constant
   public static final String BOOLEAN = "boolean";
 
-  // constant
+  //constant
   public static final String BORDER_COLOR = "border color";
 
-  // constant
+  //constant
   public static final String BUILDER = "builder";
 
-  // constant
+  //constant
   public static final String BYTE = "byte";
 
-  // constant
+  //constant
   public static final String CAPACITY = "capacity";
 
-  // constant
+  //constant
   public static final String CAPTION = "caption";
 
-  // constant
+  //constant
   public static final String CELL = "cell";
 
-  // constant
+  //constant
   public static final String CHARACTER = "character";
 
-  // constant
+  //constant
   public static final String CHILD = "child";
 
-  // constant
+  //constant
   public static final String CLASS = "class";
 
-  // constant
+  //constant
   public static final String CLEANUP = "cleanup";
 
-  // constant
+  //constant
   public static final String CODE = "code";
 
-  // constant
+  //constant
   public static final String COEFFICIENT = "coefficient";
 
-  // constant
+  //constant
   public static final String COLOR = "color";
 
-  // constant
+  //constant
   public static final String COLUMN = "column";
 
-  // constant
+  //constant
   public static final String COLUMN_COUNT = "column count";
 
-  // constant
+  //constant
   public static final String COLUMN_HEADER = "column header";
 
-  // constant
+  //constant
   public static final String COLUMN_INDEX = "column index";
 
-  // constant
+  //constant
   public static final String COLUMN_NAME = "column name";
 
-  // constant
+  //constant
   public static final String COMMAND = "command";
 
-  // constant
+  //constant
   public static final String CONDITION = "condition";
 
-  // constant
+  //constant
   public static final String CONFIGURATION = "configuration";
 
-  // constant
+  //constant
   public static final String CONTAINER = "container";
 
-  // constant
+  //constant
   public static final String CONTENT = "content";
 
-  // constant
+  //constant
   public static final String CONTEXT = "context";
 
-  // constant
+  //constant
   public static final String CONTROLLER = "controller";
 
-  // constant
+  //constant
   public static final String CREATION_DATE = "creation date";
 
-  // constant
+  //constant
   public static final String CREATOR = "creator";
 
-  // constant
+  //constant
   public static final String CURSOR_ICON = "cursor icon";
 
-  // constant
+  //constant
   public static final String CURSOR_POSITION = "cursor position";
 
-  // constant
+  //constant
   public static final String DATABASE = "database";
 
-  // constant
+  //constant
   public static final String DATABASE_NAME = "database name";
 
-  // constant
+  //constant
   public static final String DATA_TYPE = "data type";
 
-  // constant
+  //constant
   public static final String DATE = "date";
 
-  // constant
+  //constant
   public static final String DATE_OF_BIRTH = "date of birth";
 
-  // constant
+  //constant
   public static final String DEFAULT = "default";
 
-  // constant
+  //constant
   public static final String DEFAULT_CAPACITY = "default capacity";
 
-  // constant
+  //constant
   public static final String DEFAULT_COLOR = "default color";
 
-  // constant
+  //constant
   public static final String DEFAULT_NAME = "default name";
 
-  // constant
+  //constant
   public static final String DEFAULT_SIZE = "default size";
 
-  // constant
+  //constant
   public static final String DEFAULT_TEXTURE = "default texture";
 
-  // constant
+  //constant
   public static final String DEFAULT_VALUE = "default value";
 
-  // constant
+  //constant
   public static final String DEGREE = "degree";
 
-  // constant
+  //constant
   public static final String DESCRIPTION = "description";
 
-  // constant
+  //constant
   public static final String DIAMETER = "diameter";
 
-  // constant
+  //constant
   public static final String DISTANCE = "distance";
 
-  // constant
+  //constant
   public static final String DURATION = "duration";
 
-  // constant
+  //constant
   public static final String DURACTION_IN_MILLISECONDS = "duration in milliseconds";
 
-  // constant
+  //constant
   public static final String DURATION_IN_SECONDS = "duration in seconds";
 
-  // constant
+  //constant
   public static final String ELEMENT = "element";
 
-  // constant
+  //constant
   public static final String ELEMENT_COUNT = "element count";
 
-  // constant
+  //constant
   public static final String ELEMENT_MARGIN = "element margin";
 
-  // constant
+  //constant
   public static final String END_DATE = "end date";
 
-  // constant
+  //constant
   public static final String END_INDEX = "end index";
 
-  // constant
+  //constant
   public static final String END_TIME = "end time";
 
-  // constant
+  //constant
   public static final String ENTITY = "entity";
 
-  // constant
+  //constant
   public static final String ENTITY_TYPE = "entity type";
 
-  // constant
+  //constant
   public static final String ENUM = "enum";
 
-  // constant
+  //constant
   public static final String ERROR = "error";
 
-  // constant
+  //constant
   public static final String ERROR_MESSAGE = "error message";
 
-  // constant
+  //constant
   public static final String EXCEPTION = "exception";
 
-  // constant
+  //constant
   public static final String EXPONENT = "exponent";
 
-  // constant
+  //constant
   public static final String FACTOR = "factor";
 
-  // constant
+  //constant
   public static final String FEATURE = "feature";
 
-  // constant
+  //constant
   public static final String FIELD = "field";
 
-  // constant
+  //constant
   public static final String FILE = "file";
 
-  // constant
+  //constant
   public static final String FILE_NAME = "file name";
 
-  // constant
+  //constant
   public static final String FILE_PATH = "file path";
 
-  // constant
+  //constant
   public static final String FOLDER = "folder";
 
-  // constant
+  //constant
   public static final String FOLDER_PATH = "folder path";
 
-  // constant
+  //constant
   public static final String FONT = "font";
 
-  // constant
+  //constant
   public static final String FUNCTION = "function";
 
-  // constant
+  //constant
   public static final String GENERATOR = "generator";
 
-  // constant
+  //constant
   public static final String GUI = "GUI";
 
-  // constant
+  //constant
   public static final String HASH_CODE = "hash code";
 
-  // constant
+  //constant
   public static final String HEADER = "header";
 
-  // constant
+  //constant
   public static final String HEIGHT = "height";
 
-  // constant
+  //constant
   public static final String ICON = "icon";
 
-  // constant
+  //constant
   public static final String ID = "id";
 
-  // constant
+  //constant
   public static final String IMAGE = "image";
 
-  // constant
+  //constant
   public static final String IMPLEMENTATION = "implementation";
 
-  // constant
+  //constant
   public static final String INDEX = "index";
 
-  // constant
+  //constant
   public static final String INFO_STRING = "info string";
 
-  // constant
+  //constant
   public static final String INPUT = "input";
 
-  // constant
+  //constant
   public static final String INPUT_VALUE = "input value";
 
-  // constant
+  //constant
   public static final String INTERFACE = "interface";
 
-  // constant
+  //constant
   public static final String ITEM = "item";
 
-  // constant
+  //constant
   public static final String JOB = "job";
 
-  // constant
+  //constant
   public static final String KEY = "key";
 
-  // constant
+  //constant
   public static final String LABEL = "label";
 
-  // constant
+  //constant
   public static final String LAYER = "layer";
 
-  // constant
+  //constant
   public static final String LENGTH = "length";
 
-  // constant
+  //constant
   public static final String LETTER = "letter";
 
-  // constant
+  //constant
   public static final String LICENSE = "license";
 
-  // constant
+  //constant
   public static final String LINE = "line";
 
-  // constant
+  //constant
   public static final String LINE_COLOR = "line color";
 
-  // constant
+  //constant
   public static final String LINE_NUMBER = "line number";
 
-  // constant
+  //constant
   public static final String LINE_THICKNESS = "line thickness";
 
-  // constant
+  //constant
   public static final String LOGIN_NAME = "login name";
 
-  // constant
+  //constant
   public static final String LOGIN_PASSWORD = "login password";
 
-  // constant
+  //constant
   public static final String MAXIMUM = "maximum";
 
-  // constant
+  //constant
   public static final String MESSAGE = "message";
 
-  // constant
+  //constant
   public static final String METHOD = "method";
 
-  // constant
+  //constant
   public static final String MINIMUM = "minimum";
 
-  // constant
+  //constant
   public static final String NAME = "name";
 
-  // constant
+  //constant
   public static final String NEXT_ELEMENT = "next element";
 
-  // constant
+  //constant
   public static final String NODE = "node";
 
-  // constant
+  //constant
   public static final String NOUN = "noun";
 
-  // constant
+  //constant
   public static final String NUMBER = "number";
 
-  // constant
+  //constant
   public static final String OBJECT = "object";
 
-  // constant
+  //constant
   public static final String OPACITY = "opacity";
 
-  // constant
+  //constant
   public static final String OPCODE = "opcode";
 
-  // constant
+  //constant
   public static final String OUTPUT = "output";
 
-  // constant
+  //constant
   public static final String OUTPUT_FUNCTION = "output function";
 
-  // constant
+  //constant
   public static final String OUTPUT_VALUE = "output value";
 
-  // constant
+  //constant
   public static final String PADDING = "padding";
 
-  // constant
+  //constant
   public static final String PARAMETER = "parameter";
 
-  // constant
+  //constant
   public static final String PARENT = "parent";
 
-  // constant
+  //constant
   public static final String PASSWORD = "password";
 
-  // constant
+  //constant
   public static final String PATH = "path";
 
-  // constant
+  //constant
   public static final String PERCENTAGE = "percentage";
 
-  // constant
+  //constant
   public static final String PERMISSION = "permission";
 
-  // constant
+  //constant
   public static final String PORT = "port";
 
-  // constant
+  //constant
   public static final String POSITION = "position";
 
-  // constant
+  //constant
   public static final String POSTFIX = "postfix";
 
-  // constant
+  //constant
   public static final String PREFIX = "prefix";
 
-  // constant
+  //constant
   public static final String PRICE = "price";
 
-  // constant
+  //constant
   public static final String RADIUS = "radius";
 
-  // constant
+  //constant
   public static final String REASON = "reason";
 
-  // constant
+  //constant
   public static final String RECEIVER = "receiver";
 
-  // constant
+  //constant
   public static final String RECORD = "record";
 
-  // constant
+  //constant
   public static final String REPLIER = "replier";
 
-  // constant
+  //constant
   public static final String REPLY = "reply";
 
-  // constant
+  //constant
   public static final String REQUEST = "reqest";
 
-  // constant
+  //constant
   public static final String RESOURCE = "resource";
 
-  // constant
+  //constant
   public static final String RESULT = "result";
 
-  // constant
+  //constant
   public static final String ROLE = "role";
 
-  // constant
+  //constant
   public static final String ROOT = "root";
 
-  // constant
+  //constant
   public static final String ROOT_FOLDER = "root folder";
 
-  // constant
+  //constant
   public static final String ROOT_NODE = "root node";
 
-  // constant
+  //constant
   public static final String ROW = "row";
 
-  // constant
+  //constant
   public static final String ROW_COUNT = "row count";
 
-  // constant
+  //constant
   public static final String ROW_INDEX = "row index";
 
-  // constant
+  //constant
   public static final String RUNTIME = "runtime";
 
-  // constant
+  //constant
   public static final String SAVE_STAMP = "save stamp";
 
-  // constant
+  //constant
   public static final String SENDER = "sender";
 
-  // constant
+  //constant
   public static final String SEPARATOR = "separator";
 
-  // constant
+  //constant
   public static final String SEQUENCE = "sequence";
 
-  // constant
+  //constant
   public static final String SERVER = "server";
 
-  // constant
+  //constant
   public static final String SERVICE = "service";
 
-  // constant
+  //constant
   public static final String SETUP = "setup";
 
-  // constant
+  //constant
   public static final String SIDE_LENGTH = "side length";
 
-  // constant
+  //constant
   public static final String SIZE = "size";
 
-  // constant
+  //constant
   public static final String SPECIFICATION = "specification";
 
-  // constant
+  //constant
   public static final String START_DATE = "start date";
 
-  // constant
+  //constant
   public static final String START_INDEX = "start index";
 
-  // constant
+  //constant
   public static final String START_TIME = "start time";
 
-  // constant
+  //constant
   public static final String START_VALUE = "start value";
 
-  // constant
+  //constant
   public static final String STATE = "state";
 
-  // constant
+  //constant
   public static final String STATEMENT = "statement";
 
-  // constant
+  //constant
   public static final String STEP = "step";
 
-  // constant
+  //constant
   public static final String STRING = "string";
 
-  // constant
+  //constant
   public static final String SUBJECT = "subject";
 
-  // constant
+  //constant
   public static final String SUMMARY = "summary";
 
-  // constant
+  //constant
   public static final String SURNAME = "surname";
 
-  // constant
+  //constant
   public static final String TABLE = "table";
 
-  // constant
+  //constant
   public static final String TAB = "tab";
 
-  // constant
+  //constant
   public static final String TARGET = "target";
 
-  // constant
+  //constant
   public static final String TEST = "test";
 
-  // constant
+  //constant
   public static final String TEST_CASE = "test case";
 
-  // constant
+  //constant
   public static final String TEST_CLASS = "test class";
 
-  // constant
+  //constant
   public static final String TEXT = "text";
 
-  // constant
+  //constant
   public static final String TEXT_COLOR = "text color";
 
-  // constant
+  //constant
   public static final String TEXT_SIZE = "text size";
 
-  // constant
+  //constant
   public static final String TEXTURE = "texture";
 
-  // constant
+  //constant
   public static final String THICKNESS = "thickness";
 
-  // constant
+  //constant
   public static final String TIME = "time";
 
-  // constant
+  //constant
   public static final String TIMEOUT = "timeout";
 
-  // constant
+  //constant
   public static final String TIMEOUT_IN_MICROSECONDS = "timeout in microseconds";
 
-  // constant
+  //constant
   public static final String TIMEOUT_IN_MILLISECONDS = "timeout in milliseconds";
 
-  // constant
+  //constant
   public static final String TIMEOUT_IN_NANOSECONDS = "timeout in nanoseconds";
 
-  // constant
+  //constant
   public static final String TIMEOUT_IN_SECONDS = "timeout in seconds";
 
-  // constant
+  //constant
   public static final String TIMESTAMP = "timestamp";
 
-  // constant
+  //constant
   public static final String TITLE = "title";
 
-  // constant
+  //constant
   public static final String TOKEN = "token";
 
-  // constant
+  //constant
   public static final String TRANSFORMATOR = "transformator";
 
-  // constant
+  //constant
   public static final String TYPE = "type";
 
-  // constant
+  //constant
   public static final String URL = "URL";
 
-  // constant
+  //constant
   public static final String VALUE = "value";
 
-  // constant
+  //constant
   public static final String VALUE_TYPE = "value type";
 
-  // constant
+  //constant
   public static final String VERSION = "version";
 
-  // constant
+  //constant
   public static final String VISUALIZER = "visualizer";
 
-  // constant
+  //constant
   public static final String WEIGHT = "weight";
 
-  // constant
+  //constant
   public static final String WIDTH = "width";
 
-  // constant
+  //constant
   public static final String YEAR = "year";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link LowerCaseCatalogue} can be created.
    */

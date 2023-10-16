@@ -15,14 +15,14 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface AbstractnessRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link AbstractnessRequestable} is abstract,
    *         false otherwise.
    */
   boolean isAbstract();
 
-  // method
+  //method
   /**
    * @return true if the current {@link AbstractnessRequestable} is concreate,
    *         false otherwise.

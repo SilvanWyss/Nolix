@@ -11,7 +11,7 @@ import ch.nolix.core.independent.container.List;
 //class
 final class StackTraceElementFinder {
 
-  // method
+  //method
   public List<StackTraceElement> getStackTraceElementsOfRunningMethod(final Method method) {
 
     final var stackTraceElements = new List<StackTraceElement>();
@@ -27,12 +27,12 @@ final class StackTraceElementFinder {
     return stackTraceElements;
   }
 
-  // method
+  //method
   public StackTraceElement getStackTraceElementOfMethodInThrowable(final Method method, final Throwable throwable) {
     return getStackTraceElementOfMethodInStackTrace(method, throwable.getStackTrace());
   }
 
-  // method
+  //method
   private StackTraceElement getStackTraceElementOfMethodInStackTrace(
       final Method method,
       final StackTraceElement[] stackTrace) {

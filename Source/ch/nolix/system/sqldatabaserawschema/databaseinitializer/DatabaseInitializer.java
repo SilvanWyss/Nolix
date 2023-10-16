@@ -10,13 +10,13 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdap
 //class
 public final class DatabaseInitializer {
 
-  // constant
+  //constant
   private static final DatabaseSchemaInspector DATABASE_SCHEMA_INSPECTOR = new DatabaseSchemaInspector();
 
-  // constant
+  //constant
   private static final InternalDatabaseInitializer INTERNAL_DATABASE_INITIALIZER = new InternalDatabaseInitializer();
 
-  // method
+  //method
   public void initializeDatabaseIfNotInitialized(
       final String databaseName,
       final ISchemaAdapter schemaAdapter,

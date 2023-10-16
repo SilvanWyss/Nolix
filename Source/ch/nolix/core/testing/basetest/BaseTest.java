@@ -16,18 +16,18 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
  * @author Silvan Wyss
  * @date 2016-09-01
  */
-public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract methods.
+public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract methods.
 
-  // attribute
+  //attribute
   private boolean isTestInstance;
 
-  // multi-attribute
+  //multi-attribute
   private final List<Error> expectationErrors = new List<>();
 
-  // multi-attribute
+  //multi-attribute
   private final List<AutoCloseable> closableElements = new List<>();
 
-  // method
+  //method
   /**
    * @return the name of the current {@link BaseTest}.
    */
@@ -35,7 +35,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return getClass().getName();
   }
 
-  // method
+  //method
   /**
    * @return the simple name of the current {@link BaseTest}.
    */
@@ -43,7 +43,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return getClass().getSimpleName();
   }
 
-  // method
+  //method
   /**
    * Runs the test cases of the current {@link BaseTest} and prints out the result
    * to the console.
@@ -52,7 +52,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     runAndGetResult(new StandardConsoleLinePrinter());
   }
 
-  // method
+  //method
   /**
    * Runs the test cases of the current {@link BaseTest} and prints out the result
    * using the given linePrinter.
@@ -68,7 +68,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return testRun.runAndGetResult();
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link BaseTest} register the given element to close.
    * 
@@ -80,7 +80,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link BaseTest} register the given element to close.
    * 
@@ -92,7 +92,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     }
   }
 
-  // method
+  //method
   /**
    * Adds the given expectationError to the current {@link BaseTest}.
    * 
@@ -123,7 +123,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     expectationErrors.addAtEnd(new Error(expectationError, className, lineNumber));
   }
 
-  // method
+  //method
   /**
    * @return the expectation errors of the current {@link BaseTest}.
    */
@@ -131,7 +131,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return expectationErrors;
   }
 
-  // method
+  //method
   /**
    * @return the {@link AutoCloseable}s of the current {@link BaseTest}.
    */
@@ -139,7 +139,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return closableElements;
   }
 
-  // method
+  //method
   /**
    * @return the test cases of the current {@link BaseTest} ordered
    *         alphabetically.
@@ -164,7 +164,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return testCasesOrderedAlphabetically;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link BaseTest} is a test instance.
    */
@@ -172,7 +172,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return isTestInstance;
   }
 
-  // method
+  //method
   /**
    * @return a new test instance from the current {@link BaseTest}.
    */
@@ -184,7 +184,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return testInstance;
   }
 
-  // method
+  //method
   /**
    * @return a new copy of the current {@link BaseTest}.
    * @throws InvalidArgumentException if the current {@link BaseTest} could not be
@@ -222,7 +222,7 @@ public abstract class BaseTest { // NOSONAR: BaseTest does not have abstract met
     return testCases;
   }
 
-  // method
+  //method
   /**
    * @param method
    * @return true if the given method is a test case.

@@ -10,7 +10,7 @@ import ch.nolix.core.testing.basetest.Cleanup;
 //class
 public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
 
-  // method
+  //method
   @Cleanup
   public void cleanup() {
 
@@ -21,13 +21,13 @@ public final class FileNodeTest extends BaseMutableNodeTest<FileNode> {
     }
   }
 
-  // method
+  //method
   @Override
   protected FileNode createBlankNode() {
     return new FileNode(FileSystemAccessor.getFolderOfRunningJarFile().getPath() + "/fileNode");
   }
 
-  // method
+  //method
   @Override
   protected FileNode createNodeWithHeaderAndChildNodes(final String header, final String... childNodeHeaders) {
 

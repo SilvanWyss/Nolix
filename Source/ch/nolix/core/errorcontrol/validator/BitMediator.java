@@ -7,15 +7,15 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 public class BitMediator extends Mediator {
 
-  // attribute
+  //attribute
   private final boolean argument;
 
-  // constructor
+  //constructor
   BitMediator(final boolean argument) {
     this.argument = argument;
   }
 
-  // constructor
+  //constructor
   BitMediator(final String argumentName, final boolean argument) {
 
     super(argumentName);
@@ -23,7 +23,7 @@ public class BitMediator extends Mediator {
     this.argument = argument;
   }
 
-  // method
+  //method
   public final void isCleared() {
     if (argument) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -33,7 +33,7 @@ public class BitMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   public final void isSet() {
     if (!argument) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(

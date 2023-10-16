@@ -12,13 +12,13 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnacceptedKeyException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ARGUMENT_NAME = "key";
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not accepted";
 
-  // static method
+  //static method
   /**
    * @param key
    * @return a new {@link UnacceptedKeyException} for the given key.
@@ -27,7 +27,7 @@ public final class UnacceptedKeyException extends InvalidArgumentException {
     return new UnacceptedKeyException(key);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnacceptedKeyException} for the given key.
    * 
@@ -35,7 +35,7 @@ public final class UnacceptedKeyException extends InvalidArgumentException {
    */
   private UnacceptedKeyException(final String key) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(ARGUMENT_NAME, key, ERROR_PREDICATE);
   }
 }

@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface ContentTypeRequestable {
 
-  // method
+  //method
   /**
    * @return true if the current {@link ContentTypeRequestable} is for references,
    *         false otherwise.
@@ -24,7 +24,7 @@ public interface ContentTypeRequestable {
     return !isForValues();
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link ContentTypeRequestable} is for values,
    *         false otherwiese.

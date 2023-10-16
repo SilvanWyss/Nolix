@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCr
 //class
 public final class MultiReferenceStatementCreator implements IMultiReferenceStatementCreator {
 
-  // method
+  //method
   @Override
   public String createStatementToDeleteMultiReferenceEntries(
       final String entityId,
@@ -26,7 +26,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
         + "'";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToDeleteMultiReferenceEntry(
       final String entityId,
@@ -49,7 +49,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
         + "'";
   }
 
-  // method
+  //method
   @Override
   public String createStatementToInsertEntryIntoMultiReference(
       final String entityId,

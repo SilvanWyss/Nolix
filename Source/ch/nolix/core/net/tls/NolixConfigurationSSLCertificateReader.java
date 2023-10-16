@@ -10,19 +10,19 @@ import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 //class
 public final class NolixConfigurationSSLCertificateReader {
 
-  // constant
+  //constant
   private static final String DEFAULT_SSL_CERTIFICATE_HEADER = "DefaultSSLCertificate";
 
-  // constant
+  //constant
   private static final String DOMAIN_HEADER = "Domain";
 
-  // constant
+  //constant
   private static final String PUBLIC_KEY_PEM_FILE_HEADER = "PublicKeyPEMFile";
 
-  // constant
+  //constant
   private static final String PRIVATE_KEY_PEM_FILE_HEADER = "PrivateKeyPEMFile";
 
-  // method
+  //method
   public ISSLCertificate getDefaultSSLCertificatefromLocalNolixConfiguration() {
 
     final var localNolixConfiguration = getLocalNolixConfiguration();
@@ -30,7 +30,7 @@ public final class NolixConfigurationSSLCertificateReader {
     return getDefaultSSLCertificateFromNolixConfiguration(localNolixConfiguration);
   }
 
-  // method
+  //method
   public String getDefaultDomainFromLocalNolixConfiguration() {
 
     final var localNolixConfiguration = getLocalNolixConfiguration();
@@ -38,7 +38,7 @@ public final class NolixConfigurationSSLCertificateReader {
     return getDefaultDomainFromNolixConfiguration(localNolixConfiguration);
   }
 
-  // method
+  //method
   private String getDefaultDomainFromDefaultCertificateConfiguration(
       final INode<?> defaultSSLCertificateConfiguration) {
     return defaultSSLCertificateConfiguration
@@ -46,7 +46,7 @@ public final class NolixConfigurationSSLCertificateReader {
         .getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   private String getDefaultDomainFromNolixConfiguration(final INode<?> nolixConfiguration) {
 
     final var defaultSSLCertificateConfiguration = nolixConfiguration
@@ -55,7 +55,7 @@ public final class NolixConfigurationSSLCertificateReader {
     return getDefaultDomainFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
   }
 
-  // method
+  //method
   private ISSLCertificate getDefaultSSLCertificateFromDefaultCertificateConfiguration(
       final INode<?> defaultSSLCertificateConfiguration) {
 
@@ -70,7 +70,7 @@ public final class NolixConfigurationSSLCertificateReader {
     return new SSLCertificate(publicKeyPEMFilePath, privateKeyPEMFilePath);
   }
 
-  // method
+  //method
   private ISSLCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
 
     final var defaultSSLCertificateConfiguration = nolixConfiguration
@@ -79,7 +79,7 @@ public final class NolixConfigurationSSLCertificateReader {
     return getDefaultSSLCertificateFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
   }
 
-  // method
+  //method
   private INode<?> getLocalNolixConfiguration() {
 
     final var localNolixConfigurationFilePath = GlobalNolixEnvironmentHelper.getLocalNolixConfigurationFilePath();

@@ -19,7 +19,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
         && multiReference.getReferencedTableName().equals(entity.getParentTableName());
   }
 
-  // method
+  //method
   @Override
   public boolean canClear(IMultiReference<?> multiReference) {
     return multiReference != null
@@ -27,7 +27,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
         && multiReference.getStoredParentEntity().isOpen();
   }
 
-  // method
+  //method
   @Override
   public <E extends IEntity> boolean canRemoveEntity(
       final IMultiReference<E> multiReference,
@@ -36,7 +36,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
         && entity.isOpen();
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForAddEntity(
       final IMultiReference<?> multiReference,
@@ -50,7 +50,7 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
         new ContentFieldDto(multiReference.getName()));
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForClear(final IMultiReference<?> multiReference) {
 
@@ -62,14 +62,14 @@ public final class MultiReferenceHelper extends PropertyHelper implements IMulti
         new ContentFieldDto(multiReference.getName()));
   }
 
-  // method
+  //method
   private boolean canAddEntity(final IMultiReference<?> multiReference) {
     return multiReference != null
         && multiReference.belongsToEntity()
         && multiReference.getStoredParentEntity().isOpen();
   }
 
-  // method
+  //method
   private boolean canRemoveEntity(IMultiReference<?> multiReference) {
     return multiReference != null
         && multiReference.isOpen();

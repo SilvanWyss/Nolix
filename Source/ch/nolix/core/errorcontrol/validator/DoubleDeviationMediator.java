@@ -14,13 +14,13 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  */
 public final class DoubleDeviationMediator extends Mediator {
 
-  // attribute
+  //attribute
   private final double argument;
 
-  // attribute
+  //attribute
   private final double maxDeviation;
 
-  // constructor
+  //constructor
   /**
    * Creates a new named double deviation mediator with the given argument name,
    * argument and max deviation.
@@ -37,10 +37,10 @@ public final class DoubleDeviationMediator extends Mediator {
       final Double argument,
       final double maxDeviation) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName);
 
-    // Asserts that the given max deviation is not negative.
+    //Asserts that the given max deviation is not negative.
     if (maxDeviation < 0.0) {
       throw NegativeArgumentException.forArgumentNameAndArgument("max deviation", maxDeviation);
     }
@@ -49,7 +49,7 @@ public final class DoubleDeviationMediator extends Mediator {
     this.maxDeviation = maxDeviation;
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws UnequalArgumentException if the argument of this named double

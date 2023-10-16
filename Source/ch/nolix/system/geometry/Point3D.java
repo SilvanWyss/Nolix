@@ -22,16 +22,16 @@ import ch.nolix.system.element.main.Element;
  */
 public class Point3D extends Element {
 
-  // constant
+  //constant
   public static final double DEFAULT_X = 0.0;
 
-  // constant
+  //constant
   public static final double DEFAULT_Y = 0.0;
 
-  // constant
+  //constant
   public static final double DEFAULT_Z = 0.0;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link Point3D} from the given specification.
@@ -46,26 +46,26 @@ public class Point3D extends Element {
         attributes.getStoredAt1BasedIndex(3).toDouble());
   }
 
-  // attribute
+  //attribute
   private final double x;
 
-  // attribute
+  //attribute
   private final double y;
 
-  // attribute
+  //attribute
   private final double z;
 
-  // constructor
+  //constructor
   /**
    * Creates a new 3D point with default coordinates.
    */
   public Point3D() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_X, DEFAULT_Y, DEFAULT_Z);
   }
 
-  // method
+  //method
   /**
    * Creates a new 3D point with the given coordinates.
    * 
@@ -79,7 +79,7 @@ public class Point3D extends Element {
     this.z = z;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -91,7 +91,7 @@ public class Point3D extends Element {
         Node.withHeader(GlobalDoubleHelper.toString(getZ())));
   }
 
-  // method
+  //method
   /**
    * @param point
    * @return the distance of this 3D point to the given point.
@@ -103,7 +103,7 @@ public class Point3D extends Element {
             Math.pow(getZ() - point.getZ(), 2));
   }
 
-  // method
+  //method
   /**
    * @return the distance of this 3D point to the origin.
    */
@@ -111,7 +111,7 @@ public class Point3D extends Element {
     return getPositionVector().getEuclidNorm();
   }
 
-  // method
+  //method
   /**
    * @return the position vector of this 3D point.
    */
@@ -119,7 +119,7 @@ public class Point3D extends Element {
     return Vector.withValue(getX(), getY(), getZ());
   }
 
-  // method
+  //method
   /**
    * @return the x-coordinate of this 3D point.
    */
@@ -127,7 +127,7 @@ public class Point3D extends Element {
     return x;
   }
 
-  // method
+  //method
   /**
    * @return the x-coordinate of this 3D point as float.
    */
@@ -135,7 +135,7 @@ public class Point3D extends Element {
     return (float) getX();
   }
 
-  // method
+  //method
   /**
    * @return the y-coordinate of this 3D point.
    */
@@ -143,7 +143,7 @@ public class Point3D extends Element {
     return y;
   }
 
-  // method
+  //method
   /**
    * @return the y-coordinate of this 3D point as float.
    */
@@ -151,7 +151,7 @@ public class Point3D extends Element {
     return (float) getY();
   }
 
-  // method
+  //method
   /**
    * @return the z-coordinate of this 3D point.
    */
@@ -159,7 +159,7 @@ public class Point3D extends Element {
     return z;
   }
 
-  // method
+  //method
   /**
    * @return the z-coordinate of this 3D point as float.
    */

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  */
 public interface IFluentMutableTextHolder<FMTH extends IFluentMutableTextHolder<FMTH>> extends ITextHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the text of the current {@link IFluentMutableTextHolder}.
    * 

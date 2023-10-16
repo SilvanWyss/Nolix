@@ -12,13 +12,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class Component<C extends Controller<AC>, AC>
     implements IComponent {
 
-  // attribute
+  //attribute
   private final SingleContainer rootControl = new SingleContainer();
 
-  // attribute
+  //attribute
   private final C controller;
 
-  // constructor
+  //constructor
   protected Component(final C controller, final WebClientSession<AC> session) {
 
     GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
@@ -33,19 +33,19 @@ public abstract class Component<C extends Controller<AC>, AC>
     doRegistrations(controller);
   }
 
-  // method
+  //method
   @Override
   public final IControl<?, ?> getStoredControl() {
     return rootControl;
   }
 
-  // method
+  //method
   @Override
   public final boolean isAlive() {
     return getStoredSession().isAlive();
   }
 
-  // method
+  //method
   @Override
   public final void refresh() {
     switch (getRefreshBehavior()) {
@@ -62,13 +62,13 @@ public abstract class Component<C extends Controller<AC>, AC>
     }
   }
 
-  // method declaration
+  //method declaration
   protected abstract IControl<?, ?> createControl(C controller);
 
-  // method declaration
+  //method declaration
   protected abstract void doRegistrations(C controller);
 
-  // method
+  //method
   private void fillUpRootControl() {
 
     final var control = createControl(controller);
@@ -76,7 +76,7 @@ public abstract class Component<C extends Controller<AC>, AC>
     rootControl.setControl(control);
   }
 
-  // method
+  //method
   private final WebClientSession<AC> getStoredSession() {
     return controller.getStoredSession();
   }

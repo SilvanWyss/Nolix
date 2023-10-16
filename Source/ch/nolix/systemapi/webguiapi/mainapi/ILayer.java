@@ -18,39 +18,39 @@ public interface ILayer<L extends ILayer<L>>
     IStylableElement<L>,
     IRootControlOwner<L> {
 
-  // method declaration
+  //method declaration
   boolean belongsToGui();
 
-  // method declaration
+  //method declaration
   ContentAlignment getContentAlignment();
 
-  // method declaration
+  //method declaration
   ICssRule getCssRule();
 
-  // method declaration
+  //method declaration
   double getOpacity();
 
-  // method declaration
+  //method declaration
   IWebGui<?> getStoredParentGui();
 
-  // method declaration
+  //method declaration
   LayerRole getRole();
 
-  // method declaration
+  //method declaration
   boolean hasRole();
 
-  // method declaration
+  //method declaration
   void removeSelfFromGui();
 
-  // method declaration
+  //method declaration
   L setContentAlignment(ContentAlignment contentAlignment);
 
-  // method declaration
+  //method declaration
   L setRole(LayerRole role);
 
-  // method declaration
+  //method declaration
   L setOpacity(double opacity);
 
-  // method declaration
+  //method declaration
   void technicalSetParentGui(IWebGui<?> parentGui);
 }

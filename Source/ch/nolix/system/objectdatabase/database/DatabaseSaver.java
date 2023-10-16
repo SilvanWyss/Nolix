@@ -9,26 +9,26 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
 //class
 final class DatabaseSaver {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // constant
+  //constant
   private static final DatabaseValidator DATABASE_VALIDATOR = new DatabaseValidator();
 
-  // constant
+  //constant
   private static final DatabaseSaveValidator DATABASE_SAVE_VALIDATOR = new DatabaseSaveValidator();
 
-  // constant
+  //constant
   private static final EntitySaver ENTITY_SAVER = new EntitySaver();
 
-  // method
+  //method
   public void saveChangesOfDatabaseThreadSafe(final Database database) {
     synchronized (DatabaseSaver.class) {
       saveChangesOfDatabase(database);
     }
   }
 
-  // method
+  //method
   private void saveChangesOfDatabase(final Database database) {
 
     assertCanSaveChangesOfDatabase(database);
@@ -42,12 +42,12 @@ final class DatabaseSaver {
     commitChangesToDatabase(database);
   }
 
-  // method
+  //method
   private void assertCanSaveChangesOfDatabase(final Database database) {
     DATABASE_VALIDATOR.assertCanSaveChanges(database);
   }
 
-  // method
+  //method
   private void prepareChangesOfDatabase(final Database database) {
 
     final var entitiesInLocalData = DATABASE_HELPER.getStoredEntitiesInLocalData(database);
@@ -57,17 +57,17 @@ final class DatabaseSaver {
     }
   }
 
-  // method
+  //method
   private void addExpectionThatDatabaseHasInitialSchemaTimestamp(final Database database) {
     database.internalGetRefDataAndSchemaAdapter().expectGivenSchemaTimestamp(database.getSchemaTimestamp());
   }
 
-  // method
+  //method
   private void assertNewlyReferencedEntitiesExists(final Database database) {
     DATABASE_SAVE_VALIDATOR.addExpectionsThatNewlyReferencedEntitiesExistToDatabase(database);
   }
 
-  // method
+  //method
   private void commitChangesToDatabase(final Database database) {
     database.internalGetRefDataAndSchemaAdapter().saveChanges();
   }

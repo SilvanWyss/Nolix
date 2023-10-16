@@ -12,78 +12,78 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public interface IItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
     extends Clearable, IControl<IM, IMS> {
 
-  // method declaration
+  //method declaration
   IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items);
 
-  // method declaration
+  //method declaration
   IM addBlankItem();
 
-  // method declaration
+  //method declaration
   IM addItemWithIdAndText(String id, String text);
 
-  // method declaration
+  //method declaration
   IM addItemWithIdAndTextAndSelectAction(String id, String text, Runnable selectAction);
 
-  // method declaration
+  //method declaration
   IM addItemWithIdAndTextAndSelectAction(String id, String text, Consumer<IItemMenuItem<?>> selectAction);
 
-  // method declaration
+  //method declaration
   IM addItemWithText(String text, String... texts);
 
-  // method declaration
+  //method declaration
   IM addItemWithTextAndSelectAction(String text, Runnable selectAction);
 
-  // method declaration
+  //method declaration
   IM addItemWithTextAndSelectAction(String text, Consumer<IItemMenuItem<?>> selectAction);
 
-  // method declaration
+  //method declaration
   boolean blankItemIsSelected();
 
-  // method declaration
+  //method declaration
   boolean containsBlankItem();
 
-  // method declaration
+  //method declaration
   boolean containsItemWithId(String id);
 
-  // method declaration
+  //method declaration
   boolean containsItemWithText(String text);
 
-  // method declaration
+  //method declaration
   boolean containsSelectedItem();
 
-  // method declaration
+  //method declaration
   String getIdByItemText(String itemText);
 
-  // method declaration
+  //method declaration
   IContainer<IItemMenuItem<?>> getStoredItems();
 
-  // method declaration
+  //method declaration
   IItemMenuItem<?> getStoredSelectedItem();
 
-  // method declaration
+  //method declaration
   String getTextByItemId(String itemId);
 
-  // method declaration
+  //method declaration
   void removeSelectAction();
 
-  // method declaration
+  //method declaration
   IM selectBlankItem();
 
-  // method declaration
+  //method declaration
   IM selectFirstItem();
 
-  // method declaration
+  //method declaration
   IM selectItemById(String id);
 
-  // method declaration
+  //method declaration
   IM selectItemByText(String text);
 
-  // method declaration
+  //method declaration
   IM setSelectAction(Runnable selectAction);
 
-  // method declaration
+  //method declaration
   IM setSelectAction(Consumer<IItemMenuItem<?>> selectAction);
 
-  // method declaration
+  //method declaration
   void technicalRunOptionalSelectActionForItem(IItemMenuItem<?> item);
 }

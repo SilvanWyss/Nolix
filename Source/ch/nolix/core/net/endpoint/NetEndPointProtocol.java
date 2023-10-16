@@ -10,19 +10,19 @@ package ch.nolix.core.net.endpoint;
  */
 final class NetEndPointProtocol {
 
-  // constant
+  //constant
   public static final char MESSAGE_PREFIX = 'M';
 
-  // constant
+  //constant
   public static final char TARGET_PREFIX = 'T';
 
-  // constant
+  //constant
   public static final char MAIN_TARGET_PREFIX = 'A';
 
-  // constant
+  //constant
   public static final char CLOSE_PREFIX = 'C';
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link NetEndPointProtocol} can be created.
    */

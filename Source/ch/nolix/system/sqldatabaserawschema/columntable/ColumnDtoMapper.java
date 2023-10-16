@@ -16,7 +16,7 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 //class
 public final class ColumnDtoMapper {
 
-  // method
+  //method
   public ColumnDto createColumnDto(final List<String> columnSystemTableSqlRecord) {
     return switch (PropertyType.valueOf(columnSystemTableSqlRecord.get(3)).getBaseType()) {
       case BASE_VALUE ->
@@ -32,7 +32,7 @@ public final class ColumnDtoMapper {
     };
   }
 
-  // method
+  //method
   private ColumnDto createColumnDtoForBaseBackReference(final List<String> columnSystemTableSqlRecord) {
     return new ColumnDto(
         columnSystemTableSqlRecord.get(0),
@@ -43,7 +43,7 @@ public final class ColumnDtoMapper {
             columnSystemTableSqlRecord.get(6)));
   }
 
-  // method
+  //method
   private ColumnDto createColumnDtoForBaseReference(final List<String> columnSystemTableSqlRecord) {
     return new ColumnDto(
         columnSystemTableSqlRecord.get(0),
@@ -54,7 +54,7 @@ public final class ColumnDtoMapper {
             columnSystemTableSqlRecord.get(5)));
   }
 
-  // method
+  //method
   private ColumnDto createColumnDtoForBaseValue(final List<String> columnSystemTableSqlRecord) {
     return new ColumnDto(
         columnSystemTableSqlRecord.get(0),

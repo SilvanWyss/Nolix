@@ -14,19 +14,19 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 //class
 public final class EntitySaver {
 
-  // constant
+  //constant
   private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 
-  // constant
+  //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 
-  // constant
+  //constant
   private static final MultiValueSaver MULTI_VALUE_SAVER = new MultiValueSaver();
 
-  // constant
+  //constant
   private static final MultiReferenceSaver MULTI_REFERENCE_SAVER = new MultiReferenceSaver();
 
-  // method
+  //method
   public void saveChangesOfEntity(final IEntity entity, final Database database) {
     switch (entity.getState()) {
       case NEW:
@@ -39,11 +39,11 @@ public final class EntitySaver {
         saveEntityDeletion(entity, database);
         break;
       default:
-        // Does nothing.
+        //Does nothing.
     }
   }
 
-  // method
+  //method
   private void saveNewEntity(final IEntity newEntity, final Database database) {
 
     database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
@@ -53,7 +53,7 @@ public final class EntitySaver {
     saveMultiPropertyChangesOfEntity(newEntity, database);
   }
 
-  // method
+  //method
   private void saveChangesOfEditedEntity(final IEntity editedEntity, final Database database) {
 
     database.internalGetRefDataAndSchemaAdapter().updateEntity(
@@ -63,14 +63,14 @@ public final class EntitySaver {
     saveMultiPropertyChangesOfEntity(editedEntity, database);
   }
 
-  // method
+  //method
   private void saveEntityDeletion(final IEntity deletedEntity, final Database database) {
     database.internalGetRefDataAndSchemaAdapter().deleteEntity(
         deletedEntity.getStoredParentTable().getName(),
         ENTITY_HELPER.createEntityHeadDtoForEntity(deletedEntity));
   }
 
-  // method
+  //method
   private void saveMultiPropertyChangesOfEntity(
       final IEntity entity,
       final Database database) {
@@ -79,14 +79,14 @@ public final class EntitySaver {
     }
   }
 
-  // method
+  //method
   private void saveChangesOfPotentialMultiProperty(final Database database, final IProperty p) {
     if (PROPERTY_HELPER.isNewOrEdited(p)) {
       saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(database, p);
     }
   }
 
-  // method
+  //method
   private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(final Database database,
       final IProperty p) {
     switch (p.getType()) {
@@ -97,7 +97,7 @@ public final class EntitySaver {
         MULTI_REFERENCE_SAVER.saveChangesOfMultiReference((IMultiReference<?>) p, database);
         break;
       default:
-        // Does nothing.
+        //Does nothing.
     }
   }
 }

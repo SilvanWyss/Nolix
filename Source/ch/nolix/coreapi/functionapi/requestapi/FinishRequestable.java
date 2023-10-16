@@ -13,13 +13,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface FinishRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link FinishRequestable} is finished.
    */
   boolean isFinished();
 
-  // method
+  //method
   /**
    * @return true if the current {@link FinishRequestable} is still running.
    */

@@ -17,77 +17,77 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 //class
 public final class AbstractReferenceContent extends ReferenceContent implements IAbstractReferenceContent {
 
-  // constant
+  //constant
   private static final AbstractableFieldEvaluator ABSTRACTABLE_FIELD_EVALUATOR = new AbstractableFieldEvaluator();
 
-  // constant
+  //constant
   private static final AbstractReferenceContentValidator ABSTRACT_REFERENCE_CONTENT_VALIDATOR = //
       new AbstractReferenceContentValidator();
 
-  // attribute
+  //attribute
   private final BackReference<AbstractableField> parentField = BackReference
       .forEntityAndBackReferencedPropertyName(AbstractableField.class, "abstractReferenceContent");
 
-  // attribute
+  //attribute
   private final Reference<AbstractableObject> referencedType = Reference.forEntity(AbstractableObject.class);
 
-  // constructor
+  //constructor
   public AbstractReferenceContent() {
     initialize();
   }
 
-  // method
+  //method
   @Override
   public IAbstractReferenceContent addConstraint(final IConstraint<IAbstractableObject> constraint) {
 
-    // TODO: Implement.
+    //TODO: Implement.
     return this;
   }
 
   @Override
   public IContainer<? extends IConstraint<IAbstractableObject>> getConstraints() {
 
-    // TODO: Implement.
+    //TODO: Implement.
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public IAbstractableField getStoredParentField() {
     return parentField.getBackReferencedEntity();
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject getStoredReferencedType() {
     return referencedType.getReferencedEntity();
   }
 
-  // method
+  //method
   @Override
   public boolean isAbstract() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public void removeConstraint(final IConstraint<IAbstractableObject> constraint) {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 
-  // method
+  //method
   @Override
   public void removeConstraints() {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 
-  // method
+  //method
   @Override
   public IAbstractReferenceContent setReferencedType(final IAbstractableObject referenceType) {
 
@@ -96,7 +96,7 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
     return this;
   }
 
-  // method
+  //method
   private void setReferenceTypeIfWillChange(final IAbstractableObject referenceType) {
     if (getStoredReferencedType() != referenceType) {
 
@@ -106,7 +106,7 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
     }
   }
 
-  // method
+  //method
   private void setReferenceTypeWhenWillChange(final IAbstractableObject referenceType) {
 
     final var realisingFields = ABSTRACTABLE_FIELD_EVALUATOR.getStoredRealisingFields(getStoredParentField());
@@ -123,7 +123,7 @@ public final class AbstractReferenceContent extends ReferenceContent implements 
       }
     }
 
-    // TODO: Avoid casting here.
+    //TODO: Avoid casting here.
     this.referencedType.setEntity((AbstractableObject) referenceType);
   }
 }

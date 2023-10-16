@@ -13,14 +13,14 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 //class
 public final class ColumnDefinitionMapper {
 
-  // constant
+  //constant
   private static final ColumnNodeSearcher COLUMN_NODE_SEARCHER = new ColumnNodeSearcher();
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeNodeSearcher PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER = //
       new ParameterizedPropertyTypeNodeSearcher();
 
-  // method
+  //method
   public IColumnInfo createColumnDefinitionFromColumnNode(
       final IMutableNode<?> columnNode,
       final int columnIndexOnEntityNode) {
@@ -32,23 +32,23 @@ public final class ColumnDefinitionMapper {
         columnIndexOnEntityNode);
   }
 
-  // method
+  //method
   private DataType getColumnDataTypeFromColumnNode(final IMutableNode<?> columnNode) {
     return getDataTypeFromParameterizedPropertyTypeNode(
         COLUMN_NODE_SEARCHER.getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode));
   }
 
-  // method
+  //method
   private String getColumnIdFromColumnNode(final IMutableNode<?> columnNode) {
     return COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   private String getColumnNameFromColumnNode(final IMutableNode<?> columnNode) {
     return COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode).getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   private PropertyType getColumnPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
@@ -61,12 +61,12 @@ public final class ColumnDefinitionMapper {
     return PropertyType.fromSpecification(propertyTypeNode);
   }
 
-  // method
+  //method
   private DataType getDataTypeFromDataTypeNode(final IMutableNode<?> dataTypeNode) {
     return DataType.valueOf(dataTypeNode.getSingleChildNodeHeader());
   }
 
-  // method
+  //method
   private DataType getDataTypeFromParameterizedPropertyTypeNode(IMutableNode<?> parameterizedPropertyTypeNode) {
     return getDataTypeFromDataTypeNode(
         PARAMETERIZED_PROPERTY_TYPE_NODE_SEARCHER.getStoredDataTypeNodeFromParameterizedPropertyTypeNode(

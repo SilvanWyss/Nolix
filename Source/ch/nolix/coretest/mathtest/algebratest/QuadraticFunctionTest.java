@@ -10,35 +10,35 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class QuadraticFunctionTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> new QuadraticFunction(0.0, 0.0, 0.0))
         .throwsException()
         .ofType(InvalidArgumentException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_hasMin() {
 
-    // setup
+    //setup
     final var quadraticFunction = new QuadraticFunction(1.0, 0.0, 0.0);
 
-    // execution & verification
+    //execution & verification
     expect(quadraticFunction.hasMin());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_hasMin_2() {
 
-    // setup
+    //setup
     final var quadraticFunction = new QuadraticFunction(-1.0, 0.0, 0.0);
 
-    // execution & verification
+    //execution & verification
     expectNot(quadraticFunction.hasMin());
   }
 }

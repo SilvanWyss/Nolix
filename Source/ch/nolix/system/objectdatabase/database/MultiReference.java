@@ -23,34 +23,34 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class MultiReference<E extends IEntity> extends BaseReference<E> implements IMultiReference<E> {
 
-  // constant
+  //constant
   private static final IMultiReferenceHelper MULTI_REFERENCE_HELPER = new MultiReferenceHelper();
 
-  // constant
+  //constant
   private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 
-  // static method
+  //static method
   public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> type) {
     return new MultiReference<>(type.getSimpleName());
   }
 
-  // static method
+  //static method
   public static MultiReference<BaseEntity> forEntityWithTableName(final String tableName) {
     return new MultiReference<>(tableName);
   }
 
-  // attribute
+  //attribute
   private boolean extractedReferencedEntityIds;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<MultiReferenceEntry<E>> localEntries = new LinkedList<>();
 
-  // constructor
+  //constructor
   private MultiReference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   public void addEntity(final Object entity) {
@@ -60,7 +60,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     addEntityOfConcreteType(entityOfConcreteType);
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     if (containsAny()) {
@@ -68,7 +68,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     }
   }
 
-  // method
+  //method
   @Override
   public IContainer<IProperty> getStoredBackReferencingProperties() {
 
@@ -87,13 +87,13 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     return backReferencingProperties;
   }
 
-  // method
+  //method
   @Override
   public IContainer<E> getReferencedEntities() {
     return getReferencedEntityIds().to(getReferencedTable()::getStoredEntityById);
   }
 
-  // method
+  //method
   @Override
   public IContainer<String> getReferencedEntityIds() {
 
@@ -104,31 +104,31 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
         .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IMultiReferenceEntry<E>> getStoredLocalEntries() {
     return localEntries;
   }
 
-  // method
+  //method
   @Override
   public PropertyType getType() {
     return PropertyType.MULTI_REFERENCE;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return getReferencedEntityIds().isEmpty();
   }
 
-  // method
+  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean referencesEntity(final IEntity entity) {
 
@@ -139,13 +139,13 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     return getReferencedEntityIds().containsEqualing(entity.getId());
   }
 
-  // method
+  //method
   @Override
   public boolean referencesUninsertedEntity() {
     return getReferencedEntities().containsAny(e -> !e.belongsToTable());
   }
 
-  // method
+  //method
   @Override
   public void removeEntity(final E entity) {
 
@@ -158,19 +158,19 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   @Override
   public IContentFieldDto technicalToContentField() {
     return new ContentFieldDto(getName());
   }
 
-  // method
+  //method
   @Override
   void internalSetOrClearDirectlyFromContent(final Object content) {
     GlobalValidator.assertThat(content).thatIsNamed(LowerCaseCatalogue.CONTENT).isNull();
   }
 
-  // method
+  //method
   @Override
   void internalUpdateProbableBackReferencesWhenIsNew() {
     if (containsAny()) {
@@ -180,7 +180,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     }
   }
 
-  // method
+  //method
   private void addEntityOfConcreteType(final E entity) {
 
     assertCanAddEntity(entity);
@@ -192,12 +192,12 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   private void assertCanAddEntity(final E entity) {
     MULTI_REFERENCE_VALIDATOR.assertCanAddGivenEntity(this, entity);
   }
 
-  // method
+  //method
   private void clearWhenContainsAny() {
 
     getReferencedEntities().forEach(this::removeEntity);
@@ -205,19 +205,19 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   private boolean extractedReferencedEntityIds() {
     return extractedReferencedEntityIds;
   }
 
-  // method
+  //method
   private void extractReferencedEntityIdsIfNeeded() {
     if (shouldExtractReferencedEntityIds()) {
       extractReferencedEntityIdsWhenNotLoaded();
     }
   }
 
-  // method
+  //method
   private void extractReferencedEntityIdsWhenNotLoaded() {
 
     extractedReferencedEntityIds = true;
@@ -225,7 +225,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     localEntries.addAtEnd(loadReferencedEntityIds());
   }
 
-  // method
+  //method
   private IContainer<MultiReferenceEntry<E>> loadReferencedEntityIds() {
     return internalGetRefDataAndSchemaAdapter().loadMultiReferenceEntries(
         getStoredParentEntity().getParentTableName(),
@@ -234,13 +234,13 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
         .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
   }
 
-  // method
+  //method
   private boolean shouldExtractReferencedEntityIds() {
     return !extractedReferencedEntityIds()
         && MULTI_REFERENCE_HELPER.belongsToLoadedEntity(this);
   }
 
-  // method
+  //method
   private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
     for (final var p : entity.technicalGetRefProperties()) {
       if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
@@ -277,7 +277,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     }
   }
 
-  // method
+  //method
   private void updateStateForAddEntity(final E entity) {
     localEntries.addAtEnd(MultiReferenceEntry.newEntryForMultiReferenceAndReferencedEntityId(this, entity.getId()));
   }

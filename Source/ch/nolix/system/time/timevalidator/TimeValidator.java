@@ -7,12 +7,12 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class TimeValidator {
 
-  // method
+  //method
   public static ExtendedTimeMediator assertThat(final ITime time) {
     return new ExtendedTimeMediator(time);
   }
 
-  // constructor
+  //constructor
   private TimeValidator() {
   }
 }

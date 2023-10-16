@@ -19,7 +19,7 @@ import ch.nolix.coreapi.functionapi.skillapi.Copyable;
  */
 public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, IContainer<E> {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given element at the begin of the current {@link ILinkedList}.
    * 
@@ -28,7 +28,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtBegin(E element);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given element and the given elements at the begin of the current
    * {@link ILinkedList}. The elements will be added in the given order.
@@ -40,7 +40,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtBegin(E element, @SuppressWarnings("unchecked") E... elements);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given elements at the begin of the current {@link ILinkedList}. The
    * elements will be added in the given order.
@@ -50,7 +50,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtBegin(E[] elements);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given elements at the begin of the current {@link ILinkedList}. The
    * elements will be added in the given order.
@@ -60,7 +60,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtBegin(Iterable<? extends E> elements);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given element at the end of the current {@link ILinkedList}.
    * 
@@ -69,7 +69,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtEnd(E element);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given element and the given elements at the end of the current
    * {@link ILinkedList}. The elements will be added in the given order.
@@ -81,7 +81,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtEnd(E element, @SuppressWarnings("unchecked") E... elements);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given elements at the end of the current {@link ILinkedList}. The
    * elements will be added in the given order.
@@ -91,7 +91,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtEnd(E[] elements);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given elements at the end of the current {@link ILinkedList}. The
    * elements will be added in the given order.
@@ -101,7 +101,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void addAtEnd(Iterable<? extends E> elements);
 
-  // method declaration
+  //method declaration
   /**
    * Removes all elements from the current {@link ILinkedList} the given selector
    * selects.
@@ -110,7 +110,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void removeAll(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * Removes and returns the first element of the current {@link ILinkedList}.
    * 
@@ -119,7 +119,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   E removeAndGetRefFirst();
 
-  // method declaration
+  //method declaration
   /**
    * Removes and returns the first element the given selector selects from the
    * current {@link ILinkedList}.
@@ -132,7 +132,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   E removeAndGetRefFirst(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * Removes and returns the last element of the current {@link ILinkedList}.
    * 
@@ -141,13 +141,13 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   E removeAndGetRefLast();
 
-  // method declaration
+  //method declaration
   /**
    * Removes the first element from the current {@link ILinkedList}.
    */
   void removeFirst();
 
-  // method declaration
+  //method declaration
   /**
    * Removes the first element the given selector selects from the current
    * {@link ILinkedList}
@@ -156,7 +156,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void removeFirst(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the first occurrence of the given element from the current
    * {@link ILinkedList}.
@@ -165,13 +165,13 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    */
   void removeFirstOccurrenceOf(Object element);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the last element from the current {@link ILinkedList}.
    */
   void removeLast();
 
-  // method declaration
+  //method declaration
   /**
    * Replaces the first element the given selector selects from the current
    * {@link ILinkedList} with the given element.

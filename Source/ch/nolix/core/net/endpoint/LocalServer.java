@@ -8,12 +8,12 @@ package ch.nolix.core.net.endpoint;
  */
 public final class LocalServer extends BaseServer {
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 }

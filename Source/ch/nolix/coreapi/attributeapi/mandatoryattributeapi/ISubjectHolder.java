@@ -10,13 +10,13 @@ package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
  */
 public interface ISubjectHolder {
 
-  // method declaration
+  //method declaration
   /**
    * @return the subject of the current {@link ISubjectHolder}.
    */
   String getSubject();
 
-  // method declaration
+  //method declaration
   /**
    * @return the subject of the current {@link ISubjectHolder} in quotes.
    */

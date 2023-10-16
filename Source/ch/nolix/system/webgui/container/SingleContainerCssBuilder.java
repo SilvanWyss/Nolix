@@ -15,37 +15,37 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class SingleContainerCssBuilder
     extends ControlCssBuilder<ISingleContainer, ISingleContainerStyle> {
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final ISingleContainer control,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final ISingleContainer control,
       final ControlState state,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final ISingleContainer control,
       final LinkedList<CssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final ISingleContainer control,
       final ControlState state,
       final LinkedList<ICssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

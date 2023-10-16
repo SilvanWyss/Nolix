@@ -22,19 +22,19 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
 public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     implements IRefreshableSubscriber {
 
-  // attribute
+  //attribute
   private BC parentClient;
 
-  // attribute
+  //attribute
   private boolean isRefreshing;
 
-  // attribute
+  //attribute
   private boolean refreshIsRequired;
 
-  // optional attribute
+  //optional attribute
   private Object result;
 
-  // method
+  //method
   /**
    * @return true if the current {@link Session} belongs to a {@link Client}.
    */
@@ -42,7 +42,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return (parentClient != null);
   }
 
-  // method
+  //method
   /**
    * @return the name of the parent {@link Application} of the parent
    *         {@link Client} of the current {@link Session}.
@@ -51,7 +51,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return getStoredParentClient().getApplicationName();
   }
 
-  // method
+  //method
   /**
    * @return the context of the parent {@link Application} of the parent
    *         {@link Client} of the current {@link Session}.
@@ -60,7 +60,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return getStoredParentApplication().getStoredApplicationContext();
   }
 
-  // method
+  //method
   /**
    * @return the parent client of the current {@link Session}.
    * @throws InvalidArgumentException if the current {@link Session} does not
@@ -68,20 +68,20 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
    */
   public final BC getStoredParentClient() {
 
-    // Asserts that the current {@link Session} belonts to a client.
+    //Asserts that the current {@link Session} belonts to a client.
     assertBelongsToClient();
 
     return parentClient;
   }
 
-  // method
+  //method
   public final boolean hasParentSession() {
     return (getStoredParentClient().internalGetSessionStackSize() > 1);
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
@@ -91,7 +91,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
         && parentClient.isOpen();
   }
 
-  // method
+  //method
   /**
    * Pops the current {@link Session} from its parent {@link Client}.
    */
@@ -99,7 +99,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     getStoredParentClient().internalPopCurrentSession();
   }
 
-  // method
+  //method
   /**
    * Pops the current {@link Session} from its parent {@link Client} with the
    * given result.
@@ -111,7 +111,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     getStoredParentClient().internalPopCurrentSessionAndForwardGivenResult(result);
   }
 
-  // method
+  //method
   /**
    * Pushes the given session to the parent {@link Client} of the current
    * {@link Session}.
@@ -123,7 +123,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     getStoredParentClient().internalPush(session);
   }
 
-  // method
+  //method
   /**
    * Pushes the given session to the parent {@link Client} of the current
    * {@link Session}.
@@ -137,7 +137,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return getStoredParentClient().internalPushAndGetResult(session);
   }
 
-  // method
+  //method
   /**
    * Updates the counterpart of the {@link Client} of the current {@link Session}.
    */
@@ -151,7 +151,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * Sets the next session of the parent {@link Client} of the current
    * {@link Session}. That means the current {@link Session} will be popped from
@@ -165,26 +165,26 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     getStoredParentClient().internalSetCurrentSession(session);
   }
 
-  // method declaration
+  //method declaration
   /**
    * Initializes the current {@link Session}.
    */
   protected abstract void fullInitialize();
 
-  // method
+  //method
   /**
    * @return the {@link Client} class of the current {@link Session}.
    */
   protected abstract Class<?> getClientClass();
 
-  // method declaration
+  //method declaration
   /**
    * Updates the counterpart of the {@link Client} of the current {@link Session}
    * actually.
    */
   protected abstract void updateCounterpart();
 
-  // method
+  //method
   final Object internalGetStoredResult() {
 
     if (result == null) {
@@ -194,7 +194,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return result;
   }
 
-  // method
+  //method
   /**
    * Removes the parent client of the current {@link Session}.
    */
@@ -202,7 +202,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     parentClient = null;
   }
 
-  // method
+  //method
   /**
    * Sets the parent client of the current {@link Session}.
    * 
@@ -213,17 +213,17 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
    */
   final void internalSetParentClient(BC parentClient) {
 
-    // Asserts that the given client is not null.
+    //Asserts that the given client is not null.
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
-    // Asserts that the current session does not belong to a client.
+    //Asserts that the current session does not belong to a client.
     assertDoesNotBelongToClient();
 
-    // Sets the parent client of the current session.
+    //Sets the parent client of the current session.
     this.parentClient = parentClient;
   }
 
-  // method
+  //method
   final void internalSetResult(final Object result) {
 
     GlobalValidator.assertThat(result).thatIsNamed(LowerCaseCatalogue.RESULT).isNotNull();
@@ -231,33 +231,33 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     this.result = result;
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the current {@link Session} does not
    *                                  belong to a client.
    */
   private void assertBelongsToClient() {
 
-    // Asserts that the current {@link Session} belongs to a client.
+    //Asserts that the current {@link Session} belongs to a client.
     if (!belongsToClient()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not belong to a client");
     }
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the current {@link Session} belongs to a
    *                                  client.
    */
   private void assertDoesNotBelongToClient() {
 
-    // Asserts that the current {@link Session} does not belong to a client.
+    //Asserts that the current {@link Session} does not belong to a client.
     if (belongsToClient()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "belongs to a client");
     }
   }
 
-  // method
+  //method
   /**
    * @return the parent {@link Application} of the parent {@link Client} of the
    *         current {@link Session}.
@@ -266,7 +266,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return getStoredParentClient().getStoredParentApplication();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link Session} is refreshing.
    */
@@ -274,7 +274,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return isRefreshing;
   }
 
-  // method
+  //method
   /**
    * Refreshes the current {@link Session} as long as required.
    */
@@ -293,7 +293,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * @return true if a refresh is required for the current {@link Session}.
    */
@@ -301,7 +301,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     return (isAlive() && refreshIsRequired);
   }
 
-  // method
+  //method
   /**
    * Sets the current {@link Session} as finished refreshing.
    */
@@ -310,7 +310,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
 
   }
 
-  // method
+  //method
   /**
    * Sets the current {@link Session} as refreshing.
    */
@@ -318,7 +318,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     isRefreshing = true;
   }
 
-  // method
+  //method
   /**
    * Sets a refresh required for the current {@link Session}.
    */
@@ -326,7 +326,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
     refreshIsRequired = true;
   }
 
-  // method
+  //method
   /**
    * Sets a refresh as unrequired for the current {@link Session}.
    */

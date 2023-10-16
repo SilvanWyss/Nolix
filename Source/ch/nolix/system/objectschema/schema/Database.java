@@ -14,25 +14,25 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public final class Database extends SchemaObject implements IDatabase {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // constant
+  //constant
   private static final DatabaseMutationExecutor MUTATION_EXECUTOR = new DatabaseMutationExecutor();
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private boolean loadedTablesFromDatabase;
 
-  // optional attribute
+  //optional attribute
   private RawSchemaAdapter rawSchemaAdapter;
 
-  // multi-attribute
+  //multi-attribute
   private LinkedList<ITable> tables = new LinkedList<>();
 
-  // constructor
+  //constructor
   public Database(final String name) {
 
     DATABASE_HELPER.assertCanSetGivenNameToDatabase(name);
@@ -40,7 +40,7 @@ public final class Database extends SchemaObject implements IDatabase {
     this.name = name;
   }
 
-  // method
+  //method
   @Override
   public Database addTable(final ITable table) {
 
@@ -50,19 +50,19 @@ public final class Database extends SchemaObject implements IDatabase {
     return this;
   }
 
-  // method
+  //method
   @Override
   public Database createTableWithName(final String name) {
     return addTable(new Table(name));
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public IContainer<ITable> getStoredTables() {
 
@@ -71,7 +71,7 @@ public final class Database extends SchemaObject implements IDatabase {
     return tables;
   }
 
-  // method
+  //method
   @Override
   public int getTableCount() {
 
@@ -82,35 +82,35 @@ public final class Database extends SchemaObject implements IDatabase {
     return rawSchemaAdapter.getTableCount();
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return (rawSchemaAdapter != null);
   }
 
-  // method
+  //method
   @Override
   public void setRawSchemaAdapter(final ISchemaAdapter rawSchemaAdapter) {
     setRawSchemaAdapter(new RawSchemaAdapter(rawSchemaAdapter));
   }
 
-  // method
+  //method
   @Override
   protected void noteClose() {
 
-    // Does not call getStoredTables method to avoid that the tables need to be
-    // loaded from the database.
+    //Does not call getStoredTables method to avoid that the tables need to be
+    //loaded from the database.
     for (final var t : tables) {
       ((Table) t).internalClose();
     }
   }
 
-  // method
+  //method
   void addTableAttribute(final ITable table) {
     tables.addAtEnd(table);
   }
 
-  // method
+  //method
   RawSchemaAdapter internalGetRefRawSchemaAdapter() {
 
     DATABASE_HELPER.assertIsLinkedWithRealDatabase(this);
@@ -118,17 +118,17 @@ public final class Database extends SchemaObject implements IDatabase {
     return rawSchemaAdapter;
   }
 
-  // method
+  //method
   void removeTableAttribute(final Table table) {
     tables.removeFirstOccurrenceOf(table);
   }
 
-  // method
+  //method
   private boolean hasLoadedTablesFromDatabase() {
     return loadedTablesFromDatabase;
   }
 
-  // method
+  //method
   private void loadTablesFromDatabase() {
 
     tables = LinkedList.fromIterable(internalGetRefRawSchemaAdapter().loadFlatTables().to(Table::fromFlatDto));
@@ -141,19 +141,19 @@ public final class Database extends SchemaObject implements IDatabase {
     loadedTablesFromDatabase = true;
   }
 
-  // method
+  //method
   private void loadTablesFromDatabaseIfNeeded() {
     if (needsToLoadTablesFromDatabase()) {
       loadTablesFromDatabase();
     }
   }
 
-  // method
+  //method
   private boolean needsToLoadTablesFromDatabase() {
     return (DATABASE_HELPER.isLoaded(this) && !hasLoadedTablesFromDatabase());
   }
 
-  // method
+  //method
   private void setRawSchemaAdapter(final RawSchemaAdapter rawSchemaAdapter) {
 
     GlobalValidator.assertThat(rawSchemaAdapter).thatIsNamed(RawSchemaAdapter.class).isNotNull();

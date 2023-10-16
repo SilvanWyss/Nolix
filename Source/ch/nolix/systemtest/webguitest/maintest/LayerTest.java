@@ -13,46 +13,46 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class LayerTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_clear_whenIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new Layer();
 
-    // setup verification
+    //setup verification
     expect(testUnit.isEmpty());
 
-    // execution
+    //execution
     testUnit.clear();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_clear_whenContainsAny() {
 
-    // setup
+    //setup
     final var testUnit = new Layer();
     testUnit.setRootControl(new Label());
 
-    // setup verification
+    //setup verification
     expect(testUnit.containsAny());
 
-    // execution
+    //execution
     testUnit.clear();
 
-    // verification
+    //verification
     expect(testUnit.isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_reset() {
 
-    // setup
+    //setup
     final var testUnit = new Layer()
         .setId("id")
         .setRole(LayerRole.MAIN_LAYER)
@@ -61,10 +61,10 @@ public final class LayerTest extends Test {
         .setContentAlignment(ContentAlignment.BOTTOM_RIGHT)
         .setRootControl(new Label());
 
-    // execution
+    //execution
     testUnit.reset();
 
-    // verification
+    //verification
     expectNot(testUnit.hasId());
     expectNot(testUnit.hasRole());
     expect(testUnit.getOpacity()).isEqualTo(1.0);

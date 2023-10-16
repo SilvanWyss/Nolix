@@ -30,7 +30,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
  */
 public final class Server extends BaseServer {
 
-  // constant
+  //constant
   private static final String DEFAULT_HTTP_MESSAGE = """
       HTTP/1.1 200 OK
       Content-Type: text/html; charset=UTF-8
@@ -48,7 +48,7 @@ public final class Server extends BaseServer {
       </html>
       """;
 
-  // static method
+  //static method
   /**
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
    *         HTTP port (80).
@@ -57,7 +57,7 @@ public final class Server extends BaseServer {
     return new Server(PortCatalogue.HTTP, DEFAULT_HTTP_MESSAGE);
   }
 
-  // static method
+  //static method
   /**
    * @param port
    * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
@@ -68,7 +68,7 @@ public final class Server extends BaseServer {
     return new Server(port, DEFAULT_HTTP_MESSAGE);
   }
 
-  // static method
+  //static method
   /**
    * @param port
    * @param httpMessage
@@ -84,16 +84,16 @@ public final class Server extends BaseServer {
     return new Server(port, httpMessage);
   }
 
-  // attribute
+  //attribute
   private final int port;
 
-  // attribute
+  //attribute
   private final String httpMessage;
 
-  // attribute
+  //attribute
   private final ServerSocket serverSocket;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Server} that will listen to {@link NetEndPoint}s on the
    * given port.
@@ -109,35 +109,35 @@ public final class Server extends BaseServer {
    */
   private Server(final int port, final String httpMessage) {
 
-    // Asserts that the given port is in [0,65535].
+    //Asserts that the given port is in [0,65535].
     GlobalValidator.assertThat(port).isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
-    // Asserts that the given httpMessage is not null or blank.
+    //Asserts that the given httpMessage is not null or blank.
     GlobalValidator.assertThat(httpMessage).thatIsNamed("HTTP message").isNotBlank();
 
-    // Sets the port of the current Server.
+    //Sets the port of the current Server.
     this.port = port;
 
-    // Sets the httpMessage of the current Server.
+    //Sets the httpMessage of the current Server.
     this.httpMessage = httpMessage;
 
     try {
 
-      // Creates the serverSocket of the current Server.
+      //Creates the serverSocket of the current Server.
       serverSocket = new ServerSocket(getPort());
 
-      // This is important that the address of the current Server
-      // can be reused immediately when the current NetSever is closed.
+      //This is important that the address of the current Server
+      //can be reused immediately when the current NetSever is closed.
       serverSocket.setReuseAddress(true);
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
 
-    // Creates and starts a ServerListener for the current Server.
+    //Creates and starts a ServerListener for the current Server.
     new ServerListener(this);
   }
 
-  // method
+  //method
   /**
    * @return the port of the current {@link Server}.
    */
@@ -145,7 +145,7 @@ public final class Server extends BaseServer {
     return port;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -158,7 +158,7 @@ public final class Server extends BaseServer {
     }
   }
 
-  // method
+  //method
   /**
    * The HTTP message of a {@link Server} is the message a {@link Server} sends to
    * web browsers.
@@ -169,7 +169,7 @@ public final class Server extends BaseServer {
     return httpMessage;
   }
 
-  // method
+  //method
   /**
    * @return the {@link ServerSocket} of the current {@link Server}.
    */

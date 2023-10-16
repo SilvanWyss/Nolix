@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  */
 public interface IMutableOptionalTextHolder extends ITextHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the text of the current {@link IMutableOptionalTextHolder}.
    */
   void removeText();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the text of the current {@link IMutableOptionalTextHolder}.
    * 

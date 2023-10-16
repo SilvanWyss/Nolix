@@ -21,7 +21,7 @@ import ch.nolix.core.testing.basetest.BaseTest;
  */
 public abstract class Test extends BaseTest {
 
-  // method
+  //method
   /**
    * Generates an error if the given value is false.
    * 
@@ -29,13 +29,13 @@ public abstract class Test extends BaseTest {
    */
   protected final void expect(final boolean value) {
 
-    // Handles the case that the given value is false.
+    //Handles the case that the given value is false.
     if (!value) {
       addExpectationError("True was expected, but false was received.");
     }
   }
 
-  // method
+  //method
   /**
    * Generates an error for all of the given values that are false.
    * 
@@ -44,7 +44,7 @@ public abstract class Test extends BaseTest {
    */
   protected final void expect(final boolean value, final boolean... values) {
 
-    // Handles the case that the given values is null.
+    //Handles the case that the given values is null.
     if (values == null) {
       addExpectationError("True values were expected, but null was received.");
     }
@@ -53,21 +53,21 @@ public abstract class Test extends BaseTest {
       addExpectationError("True values were expected, but the 1th value is false.");
     }
 
-    // Handles the case that the given values is not null.
+    //Handles the case that the given values is not null.
     var index = 2;
     for (final boolean b : values) {
 
-      // Handles the case that the current value is false.
+      //Handles the case that the current value is false.
       if (!b) {
         addExpectationError("True values were expected, but the " + index + "th value is false.");
       }
 
-      // Increments index.
+      //Increments index.
       index++;
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new {@link ByteMediator} for the given value.
@@ -76,7 +76,7 @@ public abstract class Test extends BaseTest {
     return new ByteMediator(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new double mediator that belongs to this test and is for the given
@@ -86,7 +86,7 @@ public abstract class Test extends BaseTest {
     return new DoubleMediator(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new double mediator that belongs to this test and is for the given
@@ -96,7 +96,7 @@ public abstract class Test extends BaseTest {
     return new DoubleMediator(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -106,7 +106,7 @@ public abstract class Test extends BaseTest {
     return LongMediator.forArgument(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -116,7 +116,7 @@ public abstract class Test extends BaseTest {
     return LongMediator.forArgument(value);
   }
 
-  // method
+  //method
   /**
    * @param container
    * @param <E>       is the type of the elements of the given container.
@@ -127,7 +127,7 @@ public abstract class Test extends BaseTest {
     return new ContainerMediator<>(container);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -137,7 +137,7 @@ public abstract class Test extends BaseTest {
     return LongMediator.forArgument(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new long mediator that belongs to this test and is for the given
@@ -147,7 +147,7 @@ public abstract class Test extends BaseTest {
     return LongMediator.forArgument(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @param <V>   is the type of the given value.
@@ -158,7 +158,7 @@ public abstract class Test extends BaseTest {
     return new ArgumentMediator<>(value);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @return a new string mediator that belongs to this nolix test and has the
@@ -168,7 +168,7 @@ public abstract class Test extends BaseTest {
     return new StringMediator(value);
   }
 
-  // method
+  //method
   /**
    * Generates an error if the given value is true.
    * 
@@ -176,13 +176,13 @@ public abstract class Test extends BaseTest {
    */
   protected final void expectNot(final boolean value) {
 
-    // Handles the case that the given value is true.
+    //Handles the case that the given value is true.
     if (value) {
       addExpectationError("False was expected, but true was received.");
     }
   }
 
-  // method
+  //method
   /**
    * Generates an error for all of the given values that are true.
    * 
@@ -191,31 +191,31 @@ public abstract class Test extends BaseTest {
    */
   protected final void expectNot(final boolean value, final boolean... values) {
 
-    // Handles the case that the given values is null.
+    //Handles the case that the given values is null.
     if (values == null) {
       addExpectationError("False values were expected, but null was received.");
     }
 
-    // Handles the case that the given value is false.
+    //Handles the case that the given value is false.
     if (value) {
       addExpectationError("False values were expected, but the 1th value is true.");
     }
 
-    // Handles the case that the given values is not null.
+    //Handles the case that the given values is not null.
     var index = 2;
     for (final boolean v : values) {
 
-      // Handles the case that the current value is false.
+      //Handles the case that the current value is false.
       if (v) {
         addExpectationError("False values were expected, but the " + index + "th value is true.");
       }
 
-      // Increments index.
+      //Increments index.
       index++;
     }
   }
 
-  // method
+  //method
   /**
    * @param closure
    * @return a new closure mediator that belongs to this test and is for the given
@@ -225,7 +225,7 @@ public abstract class Test extends BaseTest {
     return new ClosureMediator(this::addExpectationError, closure);
   }
 
-  // method
+  //method
   /**
    * @param values
    * @return a new multi double mediator that belongs to this test and is for the
@@ -235,7 +235,7 @@ public abstract class Test extends BaseTest {
     return new MultiDoubleMediator(values);
   }
 
-  // method
+  //method
   /**
    * @param values
    * @return a new multi double mediator that belongs to this test and is for the
@@ -245,7 +245,7 @@ public abstract class Test extends BaseTest {
     return new MultiDoubleMediator(values);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @param values
@@ -256,7 +256,7 @@ public abstract class Test extends BaseTest {
     return MultiLongMediator.forValue(value, values);
   }
 
-  // method
+  //method
   /**
    * @param values
    * @return a new long container mediator that belongs to this test and has the
@@ -266,7 +266,7 @@ public abstract class Test extends BaseTest {
     return new MultiLongMediator(values);
   }
 
-  // method
+  //method
   /**
    * @param value
    * @param values

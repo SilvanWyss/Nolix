@@ -16,7 +16,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediator {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ExtendedThrownExceptionMediator} that will belong to the
    * given test.
@@ -26,11 +26,11 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    */
   ExtendedThrownExceptionMediator(final Consumer<String> expectationErrorTaker) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(expectationErrorTaker);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ExtendedThrownExceptionMediator} that will belong to the
    * given test and is for the given exception.
@@ -42,11 +42,11 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    */
   ExtendedThrownExceptionMediator(final Consumer<String> expectationErrorTaker, final Throwable exception) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(expectationErrorTaker, exception);
   }
 
-  // method
+  //method
   /**
    * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} is not of the given type.
@@ -60,19 +60,19 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
    */
   public <E extends Exception> ExtendedThrownExceptionMediator ofType(final Class<E> type) {
 
-    // Asserts that the given type is not null.
+    //Asserts that the given type is not null.
     if (type == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TYPE);
     }
 
-    // Handles the case that the current extended thrown exception mediator
-    // does not have an exception.
+    //Handles the case that the current extended thrown exception mediator
+    //does not have an exception.
     if (!hasException()) {
       return new ExtendedThrownExceptionMediator(getStoredExpectationErrorTaker());
     }
 
-    // Handles the case that the current extended thrown exception mediator has an
-    // exception.
+    //Handles the case that the current extended thrown exception mediator has an
+    //exception.
     if (!type.isAssignableFrom(getException().getClass())) {
       addCurrentTestCaseError(
           "An exception of the type "

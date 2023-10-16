@@ -8,27 +8,27 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 //class
 public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?>, ITextbox> {
 
-  // method
+  //method
   @Override
   protected void addSelectionOptionsToControlForProperty(
       final ITextbox control,
       final IOptionalValue<?> optionalValue) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected ITextbox createControl() {
     return new Textbox();
   }
 
-  // method
+  //method
   @Override
   protected void setNoteUpdateActionToControl(final ITextbox textBox, final Runnable noteUpdateAction) {
     textBox.setUpdateTextAction(noteUpdateAction);
   }
 
-  // method
+  //method
   @Override
   protected void updatePropertyFromControl(final IOptionalValue<?> optionalValue, final ITextbox textBox) {
     if (textBox.getText().isEmpty()) {
@@ -38,7 +38,7 @@ public class OptionalValueBinder extends PropertyBinder<IOptionalValue<?>, IText
     }
   }
 
-  // method
+  //method
   @Override
   protected void updateControlFromProperty(final ITextbox textBox, final IOptionalValue<?> optionalValue) {
     if (optionalValue.isEmpty()) {

@@ -14,16 +14,16 @@ public final class ServerDashboardTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Creates a ServerDashboardApplication for the Server.
+    //Creates a ServerDashboardApplication for the Server.
     final var serverDashboardApplication = ServerDashboardApplication.forServer(server);
 
-    // Adds the ServerDashboardApplication as default Application to the Server.
+    //Adds the ServerDashboardApplication as default Application to the Server.
     server.addDefaultApplication(serverDashboardApplication);
 
-    // Adds further Applications to the Server.
+    //Adds further Applications to the Server.
     server.addApplicationWithNameAndInitialSessionClassAndContext(
         "Hello World GUI tutorial",
         HelloWorldGuiTutorial.MainSession.class,
@@ -37,7 +37,7 @@ public final class ServerDashboardTutorial {
         PartialRefreshTutorial.MainSession.class,
         new VoidObject());
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
   }
 }

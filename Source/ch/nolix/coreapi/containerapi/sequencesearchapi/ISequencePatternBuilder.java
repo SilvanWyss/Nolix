@@ -15,7 +15,7 @@ import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
  */
 public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuilder<ISequencePattern<E>> {
 
-  // method declaration
+  //method declaration
   /**
    * Adds a blank condition for the next element of the searched-for sequences to
    * the current {@link ISequencePatternBuilder}.
@@ -24,7 +24,7 @@ public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuild
    */
   ISequencePatternBuilder<E> addBlankForNext();
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given condition for the next element of the searched-for sequences
    * to the current {@link ISequencePatternBuilder}.
@@ -35,7 +35,7 @@ public interface ISequencePatternBuilder<E> extends EmptinessRequestable, IBuild
    */
   ISequencePatternBuilder<E> addConditionForNext(Predicate<E> condition);
 
-  // method declaration
+  //method declaration
   /**
    * @param count
    * @return a new {@link INextMediator} for the current

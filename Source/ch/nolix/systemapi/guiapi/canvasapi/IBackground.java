@@ -13,21 +13,21 @@ import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
 //interface
 public interface IBackground extends Specified {
 
-  // method declaration
+  //method declaration
   IColor getColor();
 
-  // method declaration
+  //method declaration
   IColorGradient getColorGradient();
 
-  // method declaration
+  //method declaration
   IImage getImage();
 
-  // method declaration
+  //method declaration
   ImageApplication getImageApplication();
 
-  // method declaration
+  //method declaration
   BackgroundType getType();
 
-  // method declaration
+  //method declaration
   IContainer<ICssProperty> toCssProperties();
 }

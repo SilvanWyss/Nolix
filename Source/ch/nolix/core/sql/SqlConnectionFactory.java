@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseExcept
 //class
 public final class SqlConnectionFactory {
 
-  // method
+  //method
   public SqlConnection createQslConnectionFor(final SqlConnectionPool sqlDatabaseTarget) {
     return switch (sqlDatabaseTarget.getSqlDatabaseEngine()) {
       case MSSQL ->

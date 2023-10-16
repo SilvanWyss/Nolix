@@ -11,13 +11,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface IStyle extends IBaseStyle {
 
-  // method declaration
+  //method declaration
   /**
    * @return the sub styles of the current {@link IStyle}.
    */
   IContainer<? extends ISelectingStyle> getSubStyles();
 
-  // method declaration
+  //method declaration
   /**
    * @param attachingAttributes
    * @param subStyles

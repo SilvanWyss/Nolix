@@ -26,40 +26,40 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public abstract class BaseEntity implements IEntity {
 
-  // constant
+  //constant
   private static final VoidEntityFlyWeight VOID_ENTITY_FLY_WEIGHT = new VoidEntityFlyWeight();
 
-  // constant
+  //constant
   private static final EntityValidator ENTITY_VALIDATOR = new EntityValidator();
 
-  // constant
+  //constant
   private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 
-  // attribute
+  //attribute
   private String id = GlobalIdCreator.createIdOf10HexadecimalCharacters();
 
-  // attribute
+  //attribute
   private DatabaseObjectState state = DatabaseObjectState.NEW;
 
-  // attribute
+  //attribute
   private IEntityFlyWeight entityFlyweight = VOID_ENTITY_FLY_WEIGHT;
 
-  // optional attribute
+  //optional attribute
   private ITable<IEntity> parentTable;
 
-  // optional attribute
+  //optional attribute
   private String saveStamp;
 
-  // multi-attribute
+  //multi-attribute
   private IContainer<Property> properties;
 
-  // method
+  //method
   @Override
   public final boolean belongsToTable() {
     return (parentTable != null);
   }
 
-  // method
+  //method
   @Override
   public final void delete() {
 
@@ -74,7 +74,7 @@ public abstract class BaseEntity implements IEntity {
     updateStateForDelete();
   }
 
-  // method
+  //method
   public final void deleteWithoutReferenceCheck() {
 
     updateBackReferencingPropertiesForDeletion();
@@ -82,19 +82,19 @@ public abstract class BaseEntity implements IEntity {
     updateStateForDelete();
   }
 
-  // method
+  //method
   @Override
   public final String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public final IDatabase getStoredParentDatabase() {
     return getStoredParentTable().getStoredParentDatabase();
   }
 
-  // method
+  //method
   @Override
   public final ITable<IEntity> getStoredParentTable() {
 
@@ -103,7 +103,7 @@ public abstract class BaseEntity implements IEntity {
     return parentTable;
   }
 
-  // method
+  //method
   @Override
   public final String getSaveStamp() {
 
@@ -112,44 +112,44 @@ public abstract class BaseEntity implements IEntity {
     return saveStamp;
   }
 
-  // method
+  //method
   @Override
   public final DatabaseObjectState getState() {
     return state;
   }
 
-  // method
+  //method
   @Override
   public final String getShortDescription() {
     return (getClass().getSimpleName() + " " + getId());
   }
 
-  // method
+  //method
   @Override
   public final boolean hasSaveStamp() {
     return (saveStamp != null);
   }
 
-  // method
+  //method
   @Override
   public final boolean isClosed() {
     return (getState() == DatabaseObjectState.CLOSED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isDeleted() {
     return (getState() == DatabaseObjectState.DELETED);
   }
 
-  // method
+  //method
   @Override
   public final boolean isLinkedWithRealDatabase() {
     return belongsToTable()
         && getStoredParentTable().isLinkedWithRealDatabase();
   }
 
-  // method
+  //method
   @Override
   public final boolean isReferencedInPersistedData() {
 
@@ -160,24 +160,24 @@ public abstract class BaseEntity implements IEntity {
     return isReferencedInPersistedDataWhenBelongsToTable();
   }
 
-  // method
+  //method
   @Override
   public final IContainer<? extends IProperty> technicalGetRefProperties() {
     return getStoredProperties();
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return (getClass().getSimpleName() + " (id: " + getId() + ")");
   }
 
-  // method
+  //method
   protected final void initialize() {
     extractPropertiesIfNotExtracted();
   }
 
-  // method
+  //method
   protected final void setInsertAction(final Runnable insertAction) {
 
     setEffectiveEntityFlyWeightIfEntityFlyWeightIsVoid();
@@ -185,30 +185,30 @@ public abstract class BaseEntity implements IEntity {
     entityFlyweight.setInsertAction(insertAction);
   }
 
-  // method
+  //method
   final void internalClose() {
     state = DatabaseObjectState.CLOSED;
   }
 
-  // method
+  //method
   final IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
     return ((Table<?>) getStoredParentTable()).internalGetRefDataAndSchemaAdapter();
   }
 
-  // method
+  //method
   final Property internalGetRefPropertyByName(final String name) {
     return getStoredProperties().getStoredFirst(p -> p.hasName(name));
   }
 
-  // method declaration
+  //method declaration
   abstract IContainer<Property> internalLoadProperties();
 
-  // method
+  //method
   final void internalNoteInsert() {
     entityFlyweight.noteInsert();
   }
 
-  // method
+  //method
   final void internalSetEdited() {
     switch (getState()) {
       case NEW:
@@ -225,7 +225,7 @@ public abstract class BaseEntity implements IEntity {
     }
   }
 
-  // method
+  //method
   final void internalSetId(final String id) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
@@ -233,7 +233,7 @@ public abstract class BaseEntity implements IEntity {
     this.id = id;
   }
 
-  // method
+  //method
   final void internalSetLoaded() {
 
     ENTITY_HELPER.assertIsNew(this);
@@ -241,7 +241,7 @@ public abstract class BaseEntity implements IEntity {
     state = DatabaseObjectState.LOADED;
   }
 
-  // method
+  //method
   final void internalSetParentTable(final ITable<IEntity> parentTable) {
 
     GlobalValidator.assertThat(parentTable).thatIsNamed("parent table").isNotNull();
@@ -251,7 +251,7 @@ public abstract class BaseEntity implements IEntity {
     getStoredProperties().forEach(Property::internalSetParentColumnFromParentTable);
   }
 
-  // method
+  //method
   final void internalSetSaveStamp(final String saveStamp) {
 
     GlobalValidator.assertThat(saveStamp).thatIsNamed(LowerCaseCatalogue.SAVE_STAMP).isNotNull();
@@ -259,24 +259,24 @@ public abstract class BaseEntity implements IEntity {
     this.saveStamp = saveStamp;
   }
 
-  // method
+  //method
   final void internalUpdateProbableBackReferencesWhenIsNew() {
     getStoredProperties().forEach(Property::internalUpdateProbableBackReferencesWhenIsNew);
   }
 
-  // method
+  //method
   private boolean extractedProperties() {
     return (properties != null);
   }
 
-  // method
+  //method
   private void extractPropertiesIfNotExtracted() {
     if (!extractedProperties()) {
       extractPropertiesWhenNotExtracted();
     }
   }
 
-  // method
+  //method
   private void extractPropertiesWhenNotExtracted() {
 
     properties = internalLoadProperties();
@@ -284,7 +284,7 @@ public abstract class BaseEntity implements IEntity {
     properties.forEach(p -> p.internalSetParentEntity(this));
   }
 
-  // method
+  //method
   private IContainer<Property> getStoredProperties() {
 
     extractPropertiesIfNotExtracted();
@@ -292,7 +292,7 @@ public abstract class BaseEntity implements IEntity {
     return properties;
   }
 
-  // method
+  //method
   private boolean isReferencedInPersistedDataWhenBelongsToTable() {
 
     final var lId = getId();
@@ -302,36 +302,36 @@ public abstract class BaseEntity implements IEntity {
         .containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
   }
 
-  // method
+  //method
   private void setEffectiveEntityFlyWeightIfEntityFlyWeightIsVoid() {
     if (entityFlyweight.isVoid()) {
       setEffectiveEntityFlyWeightWhenEntityFlyWeightIsVoid();
     }
   }
 
-  // method
+  //method
   private void setEffectiveEntityFlyWeightWhenEntityFlyWeightIsVoid() {
     entityFlyweight = new EntityFlyWeight();
   }
 
-  // method
+  //method
   private void updateBackReferenceForDeletion(final BackReference<?> backReference) {
     backReference.internalClear();
     backReference.setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   private void updateBackReferencingPropertiesForDeletion() {
     ENTITY_HELPER.getStoredBackReferencingProperties(this).forEach(this::updateBackReferencingPropertyForDeletion);
   }
 
-  // method
+  //method
   private void updateBackReferencingPropertyForDeletion(
       final IProperty backReferencingProperty) {
     updateBackReferencingPropertyForDeletion((IBaseBackReference<?>) backReferencingProperty);
   }
 
-  // method
+  //method
   private void updateBackReferencingPropertyForDeletion(
       final IBaseBackReference<?> baseBackReference) {
     switch (baseBackReference.getType()) {
@@ -352,13 +352,13 @@ public abstract class BaseEntity implements IEntity {
     }
   }
 
-  // method
+  //method
   private void updateOptionalBackReferenceForDeletion(final OptionalBackReference<?> optionalBackReference) {
     optionalBackReference.internalClear();
     optionalBackReference.setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   private void updateStateForDelete() {
     state = DatabaseObjectState.DELETED;
   }

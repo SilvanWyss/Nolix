@@ -13,13 +13,13 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public abstract class BaseSubElement<ME extends IMutableElement> implements IProperty {
 
-  // attribute
+  //attribute
   private final String attributePrefix;
 
-  // attribute
+  //attribute
   private ME internalSubElement;
 
-  // constructor
+  //constructor
   protected BaseSubElement(
       final String attributePrefix,
       final ME internalSubElement) {
@@ -30,20 +30,20 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     internalSetSubElement(internalSubElement);
   }
 
-  // method
+  //method
   public String getAttributePrefix() {
     return attributePrefix;
   }
 
-  // method
+  //method
   public ME getSubElement() {
     return internalSubElement;
   }
 
-  // method declaration
+  //method declaration
   public abstract boolean isExchangable();
 
-  // method
+  //method
   @Override
   public final boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -60,7 +60,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var a : internalSubElement.getAttributes()) {
@@ -69,7 +69,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     }
   }
 
-  // method
+  //method
   protected final void internalSetSubElement(final ME internalSubElement) {
 
     GlobalValidator.assertThat(internalSubElement).thatIsNamed("sub element").isNotNull();

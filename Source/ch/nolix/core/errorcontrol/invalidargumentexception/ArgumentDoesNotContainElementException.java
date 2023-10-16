@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotContainElementException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentDoesNotContainElementException} for the given
@@ -26,7 +26,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     return new ArgumentDoesNotContainElementException(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param element
@@ -39,7 +39,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     return new ArgumentDoesNotContainElementException(argument, element);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -54,23 +54,23 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     return new ArgumentDoesNotContainElementException(argumentName, argument, element);
   }
 
-  // static method
+  //static method
   /**
    * @param element
    * @return the name of the given element.
    */
   private static String getNameForElement(final Object element) {
 
-    // Handles the case that the given element is null.
+    //Handles the case that the given element is null.
     if (element == null) {
       return DEFAULT_ELEMENT_NAME;
     }
 
-    // Handles the case that the given element is not null.
+    //Handles the case that the given element is not null.
     return element.getClass().getSimpleName();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument.
@@ -81,7 +81,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     super(argument, "does not contain such an element");
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argument and element.
@@ -93,7 +93,7 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
     super(argument, "does not contain the given " + getNameForElement(element));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotContainElementException} for the given
    * argumentName, argument and element.

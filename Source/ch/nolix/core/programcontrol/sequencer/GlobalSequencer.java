@@ -24,13 +24,13 @@ import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
  */
 public final class GlobalSequencer {
 
-  // constant
+  //constant
   private static final JobPool JOB_POOL = new JobPool();
 
-  // constant
+  //constant
   private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
 
-  // static method
+  //static method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} with the given condition.
@@ -40,7 +40,7 @@ public final class GlobalSequencer {
     return new AsLongAsMediator(condition);
   }
 
-  // static method
+  //static method
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the given condition.
@@ -50,7 +50,7 @@ public final class GlobalSequencer {
     return new AsSoonAsMediator(condition);
   }
 
-  // static method
+  //static method
   /**
    * @param condition
    * @return a new {@link AsSoonAsMediator} with the negation of the given
@@ -61,7 +61,7 @@ public final class GlobalSequencer {
     return new AsSoonAsMediator(GlobalFunctionHelper.createNegatorFor(condition));
   }
 
-  // static method
+  //static method
   /**
    * Enqueues the given job.
    * 
@@ -73,7 +73,7 @@ public final class GlobalSequencer {
     return JOB_POOL.enqueue(job);
   }
 
-  // static method
+  //static method
   /**
    * @param maxRunCount
    * @return a new {@link ForCountMediator} with the given max run count.
@@ -83,7 +83,7 @@ public final class GlobalSequencer {
     return new ForCountMediator(maxRunCount);
   }
 
-  // static method
+  //static method
   /**
    * @param maxDurationInMilliseconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -95,7 +95,7 @@ public final class GlobalSequencer {
     return ForMaxMillisecondsMediator.forMaxMilliseconds(maxDurationInMilliseconds);
   }
 
-  // static method
+  //static method
   /**
    * @param maxDurationInSeconds
    * @return a new {@link ForMaxMillisecondsMediator} for the given
@@ -107,7 +107,7 @@ public final class GlobalSequencer {
     return ForMaxMillisecondsMediator.forMaxSeconds(maxDurationInSeconds);
   }
 
-  // static method
+  //static method
   /**
    * Runs the given job in background.
    * 
@@ -119,7 +119,7 @@ public final class GlobalSequencer {
     return new Future(new JobRunner(job, 1));
   }
 
-  // static method
+  //static method
   /**
    * Runs the given jobs in background in the given order.
    * 
@@ -131,7 +131,7 @@ public final class GlobalSequencer {
     return new Future(JobRunner.forJobs(ReadContainer.forElement(job, jobs)));
   }
 
-  // static method
+  //static method
   /**
    * Runs the given result job in background. A result job is a job that returns a
    * result.
@@ -145,7 +145,7 @@ public final class GlobalSequencer {
     return new ResultFuture<>(new ResultJobRunner<>(resultJob));
   }
 
-  // static method
+  //static method
   /**
    * @param condition
    * @return a new {@link AsLongAsMediator} for the negation of the given
@@ -156,7 +156,7 @@ public final class GlobalSequencer {
     return new AsLongAsMediator(GlobalFunctionHelper.createNegatorFor(condition));
   }
 
-  // static method
+  //static method
   /**
    * Waits as long as the given condition is fulfilled.
    * 
@@ -166,7 +166,7 @@ public final class GlobalSequencer {
    */
   public static ActionMediator waitAsLongAs(final BooleanSupplier condition) {
 
-    // Asserts that the given condition is not null.
+    //Asserts that the given condition is not null.
     GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
 
     var i = 1;
@@ -183,7 +183,7 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  // static method
+  //static method
   /**
    * Waits for the given durationInMilliseconds.
    * 
@@ -199,7 +199,7 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  // static method
+  //static method
   /**
    * Waits for the given durationInSeconds.
    * 
@@ -214,7 +214,7 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  // static method
+  //static method
   /**
    * Waits until the given condition is fulfilled.
    * 
@@ -229,7 +229,7 @@ public final class GlobalSequencer {
     return ACTION_MEDIATOR;
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalSequencer} can be created.
    */

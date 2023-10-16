@@ -7,12 +7,12 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface LinkedRequestable {
 
-  // method declaration
+  //method declaration
   IContainer<Object> getStoredLinkedObjects();
 
-  // method declaration
+  //method declaration
   boolean isLinkedTo(Object object);
 
-  // method declaration
+  //method declaration
   boolean isLinkedToAnObject();
 }

@@ -18,7 +18,7 @@ public enum LabelRole {
   WARNING_LABEL,
   ERROR_LABEL;
 
-  // static method
+  //static method
   public static LabelRole fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

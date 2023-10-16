@@ -20,7 +20,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaQueryCre
 //class
 final class SchemaReader implements ISchemaReader {
 
-  // static method
+  //static method
   public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
       final String databaseName,
       final SqlConnectionPool sqlConnectionPool,
@@ -28,16 +28,16 @@ final class SchemaReader implements ISchemaReader {
     return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaQueryCreator);
   }
 
-  // attribute
+  //attribute
   private final SqlConnection sqlConnection;
 
-  // attribute
+  //attribute
   private final ISchemaQueryCreator schemaQueryCreator;
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // constructor
+  //constructor
   private SchemaReader(
       final String databaseName,
       final SqlConnection sqlConnection,
@@ -52,7 +52,7 @@ final class SchemaReader implements ISchemaReader {
     sqlConnection.execute("USE " + databaseName);
   }
 
-  // method
+  //method
   @Override
   public boolean columnsIsEmpty(final String tableName, final String columnName) {
     return sqlConnection
@@ -60,13 +60,13 @@ final class SchemaReader implements ISchemaReader {
         .isEmpty();
   }
 
-  // method
+  //method
   @Override
   public CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumnDto> loadColumns(final String tableName) {
     return sqlConnection
@@ -74,7 +74,7 @@ final class SchemaReader implements ISchemaReader {
         .to(r -> new ColumnDto(r.get(0), new DataTypeDto(r.get(1))));
   }
 
-  // method
+  //method
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return sqlConnection
@@ -82,19 +82,19 @@ final class SchemaReader implements ISchemaReader {
         .to(FlatTableDto::new);
   }
 
-  // method
+  //method
   @Override
   public IContainer<ITableDto> loadTables() {
     return loadFlatTables().to(t -> new TableDto(t.getName(), loadColumns(t.getName())));
   }
 
-  // method
+  //method
   @Override
   public void noteClose() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public boolean tableExists(String tableName) {
     return sqlConnection

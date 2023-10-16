@@ -13,16 +13,16 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 //class
 public final class DatabaseHelper extends DatabaseObjectHelper implements IDatabaseHelper {
 
-  // constant
+  //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  // method
+  //method
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IDatabase database) {
     return database.getStoredTables().containsOnly(TABLE_HELPER::allNewAndEditedMandatoryPropertiesAreSet);
   }
 
-  // method
+  //method
   @Override
   public boolean canSaveChanges(final IDatabase database) {
     return database.isOpen()
@@ -30,13 +30,13 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
         && allNewAndEditedMandatoryPropertiesAreSet(database);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IEntity> getStoredEntitiesInLocalData(final IDatabase database) {
     return database.getStoredTables().toFromGroups(ITable::technicalGetRefEntitiesInLocalData);
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableForGivenEntity(
@@ -45,7 +45,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
     return database.getStoredTableByEntityType((Class<E>) entity.getClass());
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges(final IDatabase database) {
     return database.getStoredTables().containsAny(TABLE_HELPER::hasChanges);

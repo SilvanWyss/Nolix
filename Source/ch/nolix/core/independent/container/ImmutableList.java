@@ -11,27 +11,27 @@ import ch.nolix.core.independent.containervalidator.GlobalArrayValidator;
 //class
 public final class ImmutableList<E> implements Iterable<E> {
 
-  // static method
+  //static method
   public static <E2> ImmutableList<E2> createEmptyList() {
     return new ImmutableList<>();
   }
 
-  // static method
+  //static method
   public static <E2> ImmutableList<E2> withElement(
       final E2 element,
       final @SuppressWarnings("unchecked") E2... elements) {
     return new ImmutableList<>(element, elements);
   }
 
-  // static method
+  //static method
   public static <E2> ImmutableList<E2> withElements(final E2[] array) {
     return new ImmutableList<>(array);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final E[] elements;
 
-  // constructor
+  //constructor
   @SuppressWarnings("unchecked")
   private ImmutableList() {
 
@@ -40,7 +40,7 @@ public final class ImmutableList<E> implements Iterable<E> {
     GlobalArrayValidator.assertDoesNotContainNull(elements);
   }
 
-  // constructor
+  //constructor
   private ImmutableList(final E[] paramElements) {
 
     elements = paramElements.clone();
@@ -48,7 +48,7 @@ public final class ImmutableList<E> implements Iterable<E> {
     GlobalArrayValidator.assertDoesNotContainNull(elements);
   }
 
-  // constructor
+  //constructor
   private ImmutableList(final E element, final E[] paramElements) {
 
     elements = Arrays.copyOfRange(paramElements, 0, 1 + paramElements.length);
@@ -57,7 +57,7 @@ public final class ImmutableList<E> implements Iterable<E> {
     GlobalArrayValidator.assertDoesNotContainNull(paramElements);
   }
 
-  // method
+  //method
   @Override
   public Iterator<E> iterator() {
     return ArrayIterator.forArray(elements);

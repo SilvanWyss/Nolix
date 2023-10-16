@@ -7,10 +7,10 @@ public enum Cardinality {
   TO_ONE_OR_NONE(BaseCardinality.SINGLE),
   TO_MANY(BaseCardinality.MULTI);
 
-  // attribute
+  //attribute
   private final BaseCardinality baseCardinality;
 
-  // constructor
+  //constructor
   Cardinality(final BaseCardinality baseCardinality) {
 
     if (baseCardinality == null) {
@@ -20,7 +20,7 @@ public enum Cardinality {
     this.baseCardinality = baseCardinality;
   }
 
-  // method
+  //method
   public final BaseCardinality getBaseCardinality() {
     return baseCardinality;
   }

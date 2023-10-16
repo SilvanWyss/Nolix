@@ -19,17 +19,17 @@ public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS 
     extends Container<LC, LCS>
     implements ILinearContainer<LC, LCS> {
 
-  // constant
+  //constant
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
-  // attribute
+  //attribute
   private final MultiValue<IControl<?, ?>> childControls = new MultiValue<>(
       CHILD_CONTROL_HEADER,
       this::addControl,
       GlobalControlFactory::createControlFromSpecification,
       IControl::getSpecification);
 
-  // method
+  //method
   @Override
   public final LC addControl(IControl<?, ?> control, final IControl<?, ?>... controls) {
 
@@ -38,7 +38,7 @@ public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS 
     return addControls(allControls);
   }
 
-  // method
+  //method
   @Override
   public final LC addComponent(final IControlGetter component, final IControlGetter... components) {
 
@@ -47,7 +47,7 @@ public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS 
     return addComponents(allComponents);
   }
 
-  // method
+  //method
   @Override
   public final LC addComponents(IContainer<? extends IControlGetter> components) {
 
@@ -56,7 +56,7 @@ public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS 
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final LC addControls(final IContainer<? extends IControl<?, ?>> controls) {
 
@@ -65,37 +65,37 @@ public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS 
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final void clear() {
     childControls.clear();
   }
 
-  // method
+  //method
   @Override
   public final IContainer<IControl<?, ?>> getStoredChildControls() {
     return childControls.getStoredValues();
   }
 
-  // method
+  //method
   @Override
   public final boolean isEmpty() {
     return childControls.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public final void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public final void removeControl(final IControl<?, ?> control) {
     childControls.remove(control);
   }
 
-  // method
+  //method
   private void addComponent(final IControlGetter component) {
 
     final var control = component.getStoredControl();
@@ -103,7 +103,7 @@ public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS 
     addControl(control);
   }
 
-  // method
+  //method
   private void addControl(final IControl<?, ?> control) {
 
     control.technicalSetParentControl(this);

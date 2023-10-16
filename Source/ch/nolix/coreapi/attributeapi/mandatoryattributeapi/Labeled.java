@@ -14,13 +14,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Labeled {
 
-  // method declaration
+  //method declaration
   /**
    * @return the label of the current {@link Labeled}.
    */
   String getLabel();
 
-  // method
+  //method
   /**
    * @return the label of the current {@link Labeled} in quotes.
    */

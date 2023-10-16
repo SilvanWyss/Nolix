@@ -8,33 +8,33 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //interface
 public interface ISizeStyle<S extends ISizeStyle<S>> {
 
-  // method declaration
+  //method declaration
   boolean definesHeightForState(ControlState state);
 
-  // method declaration
+  //method declaration
   boolean definesWidthForState(ControlState state);
 
-  // method declaration
+  //method declaration
   IAbsoluteOrRelativeInt getHeightForState(ControlState state);
 
-  // method declaration
+  //method declaration
   IAbsoluteOrRelativeInt getWidthForState(ControlState state);
 
-  // method declaration
+  //method declaration
   void removeCustomHeights();
 
-  // method declaration
+  //method declaration
   void removeCustomWidths();
 
-  // method declaration
+  //method declaration
   S setHeightForState(ControlState state, int height);
 
-  // method declaration
+  //method declaration
   S setHeightInPercentOfViewAreaForState(ControlState state, double heightInPercentOfViewAreaHeight);
 
-  // method declaration
+  //method declaration
   S setWidthForState(ControlState state, int width);
 
-  // method declaration
+  //method declaration
   S setWidthInPercentOfViewAreaWidthForState(ControlState state, double widthInPercentOfViewAreaWidth);
 }

@@ -10,34 +10,34 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //class
 abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObject {
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // method
+  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public final DatabaseObjectState getState() {
     return DatabaseObjectState.LOADED;
   }
 
-  // method
+  //method
   @Override
   public final boolean isDeleted() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public final boolean isLinkedWithRealDatabase() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public final void noteClose() {
   }

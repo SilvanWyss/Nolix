@@ -8,19 +8,19 @@ import ch.nolix.system.application.basewebapplicationprotocol.RequestProtocol;
 //class
 final class BaseWebClientRequestCreator {
 
-  // method
+  //method
   public ChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
     return ChainedNode.withHeaderAndChildNode(
         RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME,
         ChainedNode.withHeader(cookieName));
   }
 
-  // method
+  //method
   public ChainedNode createGetTextFromClipboardRequest() {
     return ChainedNode.withHeader(RequestProtocol.GET_TEXT_FROM_CLIPBOARD);
   }
 
-  // method
+  //method
   public ChainedNode createGetUrlParameterValueRequestForUrlParameterName(final String urlParameterName) {
     return ChainedNode.withHeaderAndChildNode(
         RequestProtocol.GET_URL_PARARAMETER_VALUE,

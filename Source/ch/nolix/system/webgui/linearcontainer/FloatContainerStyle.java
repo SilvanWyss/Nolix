@@ -2,10 +2,10 @@
 package ch.nolix.system.webgui.linearcontainer;
 
 //class
-public final class FloatContainerStyle // NOSONAR: A FloatContainerStyle is a LinearContainerStyle.
+public final class FloatContainerStyle //NOSONAR: A FloatContainerStyle is a LinearContainerStyle.
     extends LinearContainerStyle<FloatContainerStyle> {
 
-  // constructor
+  //constructor
   public FloatContainerStyle() {
     initialize();
   }

@@ -10,7 +10,7 @@ public enum Presence {
   INVISIBLE,
   COLLAPSED;
 
-  // static method
+  //static method
   public static Presence fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

@@ -15,22 +15,22 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IDatabaseHelper;
 //class
 public abstract class SchemaAdapter implements ISchemaAdapter {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // attribute
+  //attribute
   private IDatabase database;
 
-  // attribute
+  //attribute
   private final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter;
 
-  // attribute
+  //attribute
   private int saveCount;
 
-  // constructor
+  //constructor
   protected SchemaAdapter(
       final String databaseName,
       final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter) {
@@ -47,7 +47,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     resetUsingDatabaseName(databaseName);
   }
 
-  // method
+  //method
   @Override
   public ISchemaAdapter addTable(final ITable table) {
 
@@ -56,54 +56,54 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   @Override
   public final ITable getStoredTableByName(final String name) {
     return DATABASE_HELPER.getStoredTableWithGivenName(database, name);
   }
 
-  // method
+  //method
   @Override
   public final IContainer<ITable> getStoredTables() {
     return database.getStoredTables();
   }
 
-  // method
+  //method
   @Override
   public final int getSaveCount() {
     return saveCount;
   }
 
-  // method
+  //method
   @Override
   public int getTableCount() {
     return database.getTableCount();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasChanges() {
     return rawSchemaAdapter.hasChanges();
   }
 
-  // method
+  //method
   @Override
   public final void noteClose() {
   }
 
-  // method
+  //method
   @Override
   public final void reset() {
     resetUsingDatabaseName(database.getName());
   }
 
-  // method
+  //method
   @Override
   public final void saveChanges() {
     try {
@@ -117,7 +117,7 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
     }
   }
 
-  // method
+  //method
   private void resetUsingDatabaseName(final String databaseName) {
 
     database = new Database(databaseName);

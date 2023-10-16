@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class AlgebraTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public AlgebraTestPool() {
     super(
         MatrixTest.class,

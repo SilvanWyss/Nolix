@@ -9,10 +9,10 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class TableDefinitionLoader {
 
-  // constant
+  //constant
   private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
 
-  // method
+  //method
   public IContainer<ITableInfo> loadTableDefinitionsFromDatabaseNode(final IMutableNode<?> databaseNode) {
 
     final var tableNodes = databaseNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.TABLE);

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Tokened;
  */
 public interface FluentTokenable<FT extends FluentTokenable<FT>> extends Tokened {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the token of the current {@link FluentTokenable}.
    * 

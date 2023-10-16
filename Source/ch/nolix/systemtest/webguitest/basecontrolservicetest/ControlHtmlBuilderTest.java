@@ -12,30 +12,30 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class ControlHtmlBuilderTest<CHB extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
     extends Test {
 
-  // method
+  //method
   @TestCase
   public final void testCase_createHtmlElementForNewControl() {
 
-    // setup
+    //setup
     final var control = createControl();
     final var testUnit = createTestUnit();
 
-    // execution
+    //execution
     final var result = testUnit.createHtmlElementForControl(control);
 
-    // verification part 1
+    //verification part 1
     expect(result.getAttributes().containsNone(a -> a.hasName("id")));
 
-    // verification part 2
+    //verification part 2
     expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(result);
   }
 
-  // method declaration
+  //method declaration
   protected abstract C createControl();
 
-  // method declaration
+  //method declaration
   protected abstract CHB createTestUnit();
 
-  // method declaration
+  //method declaration
   protected abstract void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(IHtmlElement htmlElement);
 }

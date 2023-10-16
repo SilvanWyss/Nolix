@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
  */
 public interface FluentIdentifiable<FI> extends Identified {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the id of the current {@link FluentIdentifiable}.
    * 

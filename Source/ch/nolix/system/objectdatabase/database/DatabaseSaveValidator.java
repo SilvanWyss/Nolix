@@ -17,19 +17,19 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 //class
 public final class DatabaseSaveValidator {
 
-  // constant
+  //constant
   private static final IDatabaseHelper DATABASE_HELPER = new DatabaseHelper();
 
-  // constant
+  //constant
   private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 
-  // constant
+  //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 
-  // constant
+  //constant
   private static final IMultiReferenceEntryHelper MULTI_REFERENCE_ENTRY_HELPER = new MultiReferenceEntryHelper();
 
-  // method
+  //method
   public void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(final Database database) {
 
     final var entitiesInLocalData = DATABASE_HELPER.getStoredEntitiesInLocalData(database);
@@ -39,7 +39,7 @@ public final class DatabaseSaveValidator {
     }
   }
 
-  // method
+  //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
       final IEntity entity,
       final Database database) {
@@ -48,7 +48,7 @@ public final class DatabaseSaveValidator {
     }
   }
 
-  // method
+  //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(
       final IEntity entity,
       final Database database) {
@@ -57,7 +57,7 @@ public final class DatabaseSaveValidator {
     }
   }
 
-  // method
+  //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
       final Database database,
       final IProperty property) {
@@ -66,7 +66,7 @@ public final class DatabaseSaveValidator {
     }
   }
 
-  // method
+  //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(
       final IProperty property,
       final Database database) {
@@ -106,7 +106,7 @@ public final class DatabaseSaveValidator {
 
         break;
       default:
-        // Does nothing.
+        //Does nothing.
     }
   }
 }

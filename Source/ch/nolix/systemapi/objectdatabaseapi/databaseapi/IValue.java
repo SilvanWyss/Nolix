@@ -7,12 +7,12 @@ public interface IValue<
     V>
     extends IBaseValue<V> {
 
-  // method declaration
+  //method declaration
   V getStoredValue();
 
-  // method declaration
+  //method declaration
   void setValue(V value);
 
-  // method declaration
+  //method declaration
   void setValueFromString(String string);
 }

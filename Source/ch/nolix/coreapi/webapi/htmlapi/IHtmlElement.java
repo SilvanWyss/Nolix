@@ -7,24 +7,24 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface IHtmlElement {
 
-  // method declaration
+  //method declaration
   boolean containsAttributes();
 
-  // method declaration
+  //method declaration
   boolean containsChildElements();
 
-  // method declaration
+  //method declaration
   IContainer<? extends IHtmlAttribute> getAttributes();
 
-  // method declaration
+  //method declaration
   IContainer<? extends IHtmlElement> getChildElements();
 
-  // method declaration
+  //method declaration
   String getInnerText();
 
-  // method declaration
+  //method declaration
   String getType();
 
-  // method declaration
+  //method declaration
   IHtmlElement withAttribute(final IHtmlAttribute attribute, IHtmlAttribute... attributes);
 }

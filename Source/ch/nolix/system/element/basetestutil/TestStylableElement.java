@@ -12,10 +12,10 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 //class
 public final class TestStylableElement extends StylableElement<TestStylableElement> {
 
-  // optional attribute
+  //optional attribute
   private String role;
 
-  // method
+  //method
   public String getRole() {
 
     assertHasRole();
@@ -23,43 +23,43 @@ public final class TestStylableElement extends StylableElement<TestStylableEleme
     return role;
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(String role) {
     return (hasRole() && getRole().equals(role));
   }
 
-  // method
+  //method
   public void removeRole() {
     role = null;
   }
 
-  // method
+  //method
   @Override
   protected void resetStylableElement() {
     removeRole();
   }
 
-  // method
+  //method
   @Override
   protected void resetStyle() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   private void assertHasRole() {
     if (!hasRole()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.ROLE);
     }
   }
 
-  // method
+  //method
   private boolean hasRole() {
     return (role != null);
   }

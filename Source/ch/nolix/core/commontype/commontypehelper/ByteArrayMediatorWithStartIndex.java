@@ -8,13 +8,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class ByteArrayMediatorWithStartIndex {
 
-  // attribute
+  //attribute
   private final byte[] byteArray;
 
-  // attribute
+  //attribute
   private int index;
 
-  // constructor
+  //constructor
   ByteArrayMediatorWithStartIndex(final byte[] byteArray, final int startIndex) {
 
     GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
@@ -24,11 +24,11 @@ public final class ByteArrayMediatorWithStartIndex {
         .thatIsNamed(LowerCaseCatalogue.START_INDEX)
         .isBetween(0, byteArray.length);
 
-    this.byteArray = byteArray; // NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
+    this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
     index = startIndex;
   }
 
-  // method
+  //method
   public NextIndexMediator write(final byte[] bytes) {
 
     for (var i = 0; i < bytes.length; i++) {

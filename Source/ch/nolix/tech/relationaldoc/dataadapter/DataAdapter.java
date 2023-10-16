@@ -16,10 +16,10 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 //class
 public final class DataAdapter implements IDataAdapter {
 
-  // constant
+  //constant
   private static final AbstractableObjectEvaluator ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectEvaluator();
 
-  // static method
+  //static method
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
 
     final var nodeDataAdapter = NodeDataAdapter
@@ -30,10 +30,10 @@ public final class DataAdapter implements IDataAdapter {
     return new DataAdapter(nodeDataAdapter);
   }
 
-  // attribute
+  //attribute
   private final ch.nolix.system.objectdatabase.database.DataAdapter internalDataAdapter;
 
-  // constructor
+  //constructor
   private DataAdapter(final ch.nolix.system.objectdatabase.database.DataAdapter internalDataAdapter) {
 
     GlobalValidator
@@ -44,13 +44,13 @@ public final class DataAdapter implements IDataAdapter {
     this.internalDataAdapter = internalDataAdapter;
   }
 
-  // method
+  //method
   @Override
   public void close() {
     internalDataAdapter.close();
   }
 
-  // method
+  //method
   @Override
   public IAbstractableObject createObject() {
 
@@ -61,19 +61,19 @@ public final class DataAdapter implements IDataAdapter {
     return object;
   }
 
-  // method
+  //method
   @Override
   public void deleteObject(IAbstractableObject object) {
     ((AbstractableObject) object).delete();
   }
 
-  // method
+  //method
   @Override
   public IDataAdapter getEmptyCopy() {
     return new DataAdapter(internalDataAdapter.getEmptyCopy());
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IAbstractableObject> getStoredTopLevelObjects() {
 
@@ -84,13 +84,13 @@ public final class DataAdapter implements IDataAdapter {
     return objects.getStoredOther(ABSTRACTABLE_OBJECT_EVALUATOR::hasBaseTypes);
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges() {
     return internalDataAdapter.hasChanges();
   }
 
-  // method
+  //method
   @Override
   public void saveChanges() {
     internalDataAdapter.saveChanges();

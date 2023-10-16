@@ -17,7 +17,7 @@ public enum TabExpansionBehavior {
   OPEN_SEVERAL_TABS_OR_NONE,
   OPEN_SEVERAL_TABS;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link TabExpansionBehavior} from the given specification.

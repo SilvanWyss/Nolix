@@ -21,16 +21,16 @@ import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
  */
 public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable, Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Function<INode<?>, V> valueCreator;
 
-  // attribute
+  //attribute
   protected final Function<V, INode<?>> specificationCreator;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link BaseValue} with the given name, valueCreator and
    * specificationCreator.
@@ -57,7 +57,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     this.specificationCreator = specificationCreator;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -66,7 +66,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     return name;
   }
 
-  // method
+  //method
   /**
    * Adds or changes the value from the given attribute to the current
    * {@link BaseValue}.
@@ -84,7 +84,7 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
     return false;
   }
 
-  // method declaration
+  //method declaration
   /**
    * Adds or change the given value to the current {@link BaseValue}.
    * 

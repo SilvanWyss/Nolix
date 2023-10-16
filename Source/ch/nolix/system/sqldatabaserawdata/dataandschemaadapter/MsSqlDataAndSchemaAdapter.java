@@ -10,7 +10,7 @@ import ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter;
 //class
 public final class MsSqlDataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 
-  // static method
+  //static method
   public static MsSqlDataAndSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
       final String databaseName,
       final SqlConnectionPool sqlConnectionPool) {
@@ -19,7 +19,7 @@ public final class MsSqlDataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
         MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool));
   }
 
-  // constructor
+  //constructor
   private MsSqlDataAndSchemaAdapter(
       final MsSqlDataAdapter msSqlDataAdapter,
       final MsSqlSchemaAdapter msSqlSchemaAdapter) {

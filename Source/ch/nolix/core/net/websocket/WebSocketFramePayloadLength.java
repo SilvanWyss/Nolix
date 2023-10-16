@@ -12,26 +12,26 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public record WebSocketFramePayloadLength(long value) {
 
-  // constructor
-  public WebSocketFramePayloadLength(final long value) { // NOSONAR: This constructor does more than the default one.
+  //constructor
+  public WebSocketFramePayloadLength(final long value) { //NOSONAR: This constructor does more than the default one.
 
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNegative();
 
     this.value = value;
   }
 
-  // method
+  //method
   public WebSocketFramePayloadLengthType getType() {
 
     return WebSocketFramePayloadLengthType.fromPayloadLength(value);
   }
 
-  // method
+  //method
   public long getValue() {
     return value;
   }
 
-  // method
+  //method
   public byte[] toBytes() {
     return switch (getType()) {
       case BITS_7 ->
@@ -45,7 +45,7 @@ public record WebSocketFramePayloadLength(long value) {
     };
   }
 
-  // method
+  //method
   private byte[] toBytesWhen7Bits() {
 
     final var byteArray = BigInteger.valueOf(value).toByteArray();
@@ -53,7 +53,7 @@ public record WebSocketFramePayloadLength(long value) {
     return new byte[] { byteArray[0] };
   }
 
-  // method
+  //method
   private byte[] toBytesWhen16Bits() {
 
     final var byteArray = BigInteger.valueOf(value).toByteArray();
@@ -69,7 +69,7 @@ public record WebSocketFramePayloadLength(long value) {
     return new byte[] { byteArray[1], byteArray[2] };
   }
 
-  // method
+  //method
   private byte[] toBytesWhen64Bits() {
 
     final var byteArray = BigInteger.valueOf(value).toByteArray();

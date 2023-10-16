@@ -10,622 +10,622 @@ package ch.nolix.core.programatom.name;
  */
 public final class PluralPascalCaseCatalogue {
 
-  // constant
+  //constant
   public static final String AGES = "Ages";
 
-  // constant
+  //constant
   public static final String AMOUNTS = "Amounts";
 
-  // constant
+  //constant
   public static final String APPLICATIONS = "Applications";
 
-  // constant
+  //constant
   public static final String APPOINTMENTS = "Appointments";
 
-  // constant
+  //constant
   public static final String ARRAYS = "Arrays";
 
-  // constant
+  //constant
   public static final String ATTRIBUTES = "Attributes";
 
-  // constant
+  //constant
   public static final String BACKGROUNDS = "Backgrounds";
 
-  // constant
+  //constant
   public static final String BACKGROUND_COLORS = "BackgroundColors";
 
-  // constant
+  //constant
   public static final String BASE_TYPES = "BaseTypes";
 
-  // constant
+  //constant
   public static final String BITS = "Bits";
 
-  // constant
+  //constant
   public static final String BOOLEANS = "Booleans";
 
-  // constant
+  //constant
   public static final String BORDER_COLORS = "BorderColors";
 
-  // constant
+  //constant
   public static final String BUILDERS = "Builders";
 
-  // constant
+  //constant
   public static final String BYTES = "Bytes";
 
-  // constant
+  //constant
   public static final String CAPACITIES = "Capacities";
 
-  // constant
+  //constant
   public static final String CAPTIONS = "Captions";
 
-  // constant
+  //constant
   public static final String CELLS = "Cells";
 
-  // constant
+  //constant
   public static final String CHARACTERS = "Characters";
 
-  // constant
+  //constant
   public static final String CHILDS = "Childs";
 
-  // constant
+  //constant
   public static final String CLASSES = "Classes";
 
-  // constant
+  //constant
   public static final String CLEANUPS = "Cleanups";
 
-  // constant
+  //constant
   public static final String CODES = "Codes";
 
-  // constant
+  //constant
   public static final String COEFFICIENTS = "Coefficients";
 
-  // constant
+  //constant
   public static final String COLORS = "Colors";
 
-  // constant
+  //constant
   public static final String COLUMNS = "Columns";
 
-  // constant
+  //constant
   public static final String COLUMN_COUNTS = "ColumnCounts";
 
-  // constant
+  //constant
   public static final String COLUMN_HEADERS = "ColumnHeaders";
 
-  // constant
+  //constant
   public static final String COLUMN_INDEXES = "ColumnIndexes";
 
-  // constant
+  //constant
   public static final String COLUMN_NAMES = "ColumnNames";
 
-  // constant
+  //constant
   public static final String COMMANDS = "Commands";
 
-  // constant
+  //constant
   public static final String CONDITIONS = "Conditions";
 
-  // constant
+  //constant
   public static final String CONFIGURATIONS = "Configurations";
 
-  // constant
+  //constant
   public static final String CONTAINERS = "Containers";
 
-  // constant
+  //constant
   public static final String CONTENTS = "Contents";
 
-  // constant
+  //constant
   public static final String CONTEXTS = "Contexts";
 
-  // constant
+  //constant
   public static final String CONTROLLERS = "Controllers";
 
-  // constant
+  //constant
   public static final String CREATION_DATES = "CreationDates";
 
-  // constant
+  //constant
   public static final String CREATORS = "Creators";
 
-  // constant
+  //constant
   public static final String CURSOR_ICONS = "CursorIcons";
 
-  // constant
+  //constant
   public static final String CURSOR_POSITIONS = "CursorPositions";
 
-  // constant
+  //constant
   public static final String DATABASES = "Databases";
 
-  // constant
+  //constant
   public static final String DATABASE_NAMES = "DatabaseNames";
 
-  // constant
+  //constant
   public static final String DATA_TYPES = "DataTypes";
 
-  // constant
+  //constant
   public static final String DATES = "Dates";
 
-  // constant
+  //constant
   public static final String DATES_OF_BIRTH = "DatesOfBirth";
 
-  // constant
+  //constant
   public static final String DEFAULTS = "Defaults";
 
-  // constant
+  //constant
   public static final String DEFAULT_CAPACITIES = "DefaultCapacities";
 
-  // constant
+  //constant
   public static final String DEFAULT_COLORS = "DefaultColors";
 
-  // constant
+  //constant
   public static final String DEFAULT_NAMES = "DefaultNames";
 
-  // constant
+  //constant
   public static final String DEFAULT_SIZES = "DefaultSizes";
 
-  // constant
+  //constant
   public static final String DEFAULT_TEXTURES = "DefaultTextures";
 
-  // constant
+  //constant
   public static final String DEFAULT_VALUES = "DefaultValues";
 
-  // constant
+  //constant
   public static final String DEGREES = "Degrees";
 
-  // constant
+  //constant
   public static final String DESCRIPTIONS = "Descriptions";
 
-  // constant
+  //constant
   public static final String DIAMETERS = "Diameters";
 
-  // constant
+  //constant
   public static final String DISTANCES = "Distances";
 
-  // constant
+  //constant
   public static final String DURATIONS = "Durations";
 
-  // constant
+  //constant
   public static final String DURACTIONS_IN_MILLISECONDS = "DurationsInMilliseconds";
 
-  // constant
+  //constant
   public static final String DURATIONS_IN_SECONDS = "DurationInSeconds";
 
-  // constant
+  //constant
   public static final String ELEMENTS = "Elements";
 
-  // constant
+  //constant
   public static final String ELEMENT_COUNTS = "ElementCounts";
 
-  // constant
+  //constant
   public static final String ELEMENT_MARGINS = "ElementMargins";
 
-  // constant
+  //constant
   public static final String END_DATES = "EndDates";
 
-  // constant
+  //constant
   public static final String END_INDEXES = "EndIndexes";
 
-  // constant
+  //constant
   public static final String END_TIMES = "EndTimes";
 
-  // constant
+  //constant
   public static final String ENTITIES = "Entities";
 
-  // constant
+  //constant
   public static final String ENTITY_TYPES = "EntityTypes";
 
-  // constant
+  //constant
   public static final String ENUMS = "Enums";
 
-  // constant
+  //constant
   public static final String ERRORS = "Errors";
 
-  // constant
+  //constant
   public static final String ERROR_MESSAGES = "ErrorMessages";
 
-  // constant
+  //constant
   public static final String EXCEPTIONS = "Execptions";
 
-  // constant
+  //constant
   public static final String EXPONENTS = "Exponents";
 
-  // constant
+  //constant
   public static final String FACTORS = "Factors";
 
-  // constant
+  //constant
   public static final String FEATURES = "Features";
 
-  // constant
+  //constant
   public static final String FIELD = "Fields";
 
-  // constant
+  //constant
   public static final String FILES = "Files";
 
-  // constant
+  //constant
   public static final String FILE_NAMES = "FileNames";
 
-  // constant
+  //constant
   public static final String FILE_PATHS = "FilePaths";
 
-  // constant
+  //constant
   public static final String FOLDERS = "Folders";
 
-  // constant
+  //constant
   public static final String FOLDER_PATHS = "FolderPaths";
 
-  // constant
+  //constant
   public static final String FONTS = "Fonts";
 
-  // constant
+  //constant
   public static final String FUNCTIONS = "Functions";
 
-  // constant
+  //constant
   public static final String GENERATORS = "Generators";
 
-  // constant
+  //constant
   public static final String GUIS = "GUIs";
 
-  // constant
+  //constant
   public static final String HASH_CODES = "HashCodes";
 
-  // constant
+  //constant
   public static final String HEADERS = "Headers";
 
-  // constant
+  //constant
   public static final String HEIGHTS = "Heights";
 
-  // constant
+  //constant
   public static final String ICON = "Icons";
 
-  // constant
+  //constant
   public static final String IDS = "Ids";
 
-  // constant
+  //constant
   public static final String IMAGE = "Images";
 
-  // constant
+  //constant
   public static final String IMPLEMENTATIONS = "Implementations";
 
-  // constant
+  //constant
   public static final String INDEXES = "Indexes";
 
-  // constant
+  //constant
   public static final String INFO_STRINGS = "InfoStrings";
 
-  // constant
+  //constant
   public static final String INPUTS = "Inputs";
 
-  // constant
+  //constant
   public static final String INPUT_VALUES = "InputValues";
 
-  // constant
+  //constant
   public static final String INTERFACES = "Interfaces";
 
-  // constant
+  //constant
   public static final String ITEMS = "Items";
 
-  // constant
+  //constant
   public static final String JOBS = "Jobs";
 
-  // constant
+  //constant
   public static final String KEYS = "Keys";
 
-  // constant
+  //constant
   public static final String LABELS = "Labels";
 
-  // constant
+  //constant
   public static final String LAYERS = "Layers";
 
-  // constant
+  //constant
   public static final String LENGTHS = "Lengths";
 
-  // constant
+  //constant
   public static final String LETTERS = "Letters";
 
-  // constant
+  //constant
   public static final String LICENSES = "Licenses";
 
-  // constant
+  //constant
   public static final String LINES = "Lines";
 
-  // constant
+  //constant
   public static final String LINE_COLORS = "LineColors";
 
-  // constant
+  //constant
   public static final String LINE_NUMBERS = "LineNumbers";
 
-  // constant
+  //constant
   public static final String LINE_THICKNESSES = "LineThicknesses";
 
-  // constant
+  //constant
   public static final String LOGIN_NAMES = "LoginNames";
 
-  // constant
+  //constant
   public static final String LOGIN_PASSWORDS = "LoginPassword";
 
-  // constant
+  //constant
   public static final String MAXIMA = "Maxima";
 
-  // constant
+  //constant
   public static final String MESSAGES = "Messages";
 
-  // constant
+  //constant
   public static final String METHODS = "Methods";
 
-  // constant
+  //constant
   public static final String MINIMA = "Minima";
 
-  // constant
+  //constant
   public static final String NAMES = "Names";
 
-  // constant
+  //constant
   public static final String NEXT_ELEMENTS = "NextElements";
 
-  // constant
+  //constant
   public static final String NODES = "Nodes";
 
-  // constant
+  //constant
   public static final String NOUNS = "Nouns";
 
-  // constant
+  //constant
   public static final String NUMBERS = "Numbers";
 
-  // constant
+  //constant
   public static final String OBJECTS = "Objects";
 
-  // constant
+  //constant
   public static final String OPACITIES = "Opacities";
 
-  // constant
+  //constant
   public static final String OPCODES = "Opcodes";
 
-  // constant
+  //constant
   public static final String OUTPUTS = "Outputs";
 
-  // constant
+  //constant
   public static final String OUTPUT_FUNCTIONS = "OutputFunctions";
 
-  // constant
+  //constant
   public static final String OUTPUT_VALUES = "OutputValues";
 
-  // constant
+  //constant
   public static final String PADDINGS = "Paddings";
 
-  // constant
+  //constant
   public static final String PARAMETERS = "Parameters";
 
-  // constant
+  //constant
   public static final String PARENTS = "Parents";
 
-  // constant
+  //constant
   public static final String PASSWORD = "Passwords";
 
-  // constant
+  //constant
   public static final String PATHS = "Paths";
 
-  // constant
+  //constant
   public static final String PERCENTAGES = "Percentages";
 
-  // constant
+  //constant
   public static final String PERMISSIONS = "Permissions";
 
-  // constant
+  //constant
   public static final String PORTS = "Ports";
 
-  // constant
+  //constant
   public static final String POSITIONS = "Positions";
 
-  // constant
+  //constant
   public static final String POSTFIXES = "Postfixes";
 
-  // constant
+  //constant
   public static final String PREFIXES = "Prefixes";
 
-  // constant
+  //constant
   public static final String PRICES = "Prices";
 
-  // constant
+  //constant
   public static final String RADII = "Radii";
 
-  // constant
+  //constant
   public static final String REASONS = "Reasons";
 
-  // constant
+  //constant
   public static final String RECEIVERS = "Receivers";
 
-  // constant
+  //constant
   public static final String RECORDS = "Records";
 
-  // constant
+  //constant
   public static final String REPLIERS = "Repliers";
 
-  // constant
+  //constant
   public static final String REPLIES = "Replies";
 
-  // constant
+  //constant
   public static final String REQUESTS = "Requests";
 
-  // constant
+  //constant
   public static final String RESOURCES = "Resources";
 
-  // constant
+  //constant
   public static final String RESULTS = "Results";
 
-  // constant
+  //constant
   public static final String ROLES = "Roles";
 
-  // constant
+  //constant
   public static final String ROOTS = "Roots";
 
-  // constant
+  //constant
   public static final String ROOT_FOLDERS = "RootFolders";
 
-  // constant
+  //constant
   public static final String ROOT_NODES = "RootNodes";
 
-  // constant
+  //constant
   public static final String ROWS = "Rows";
 
-  // constant
+  //constant
   public static final String ROW_COUNTS = "RowCounts";
 
-  // constant
+  //constant
   public static final String ROW_INDEXES = "RowIndexes";
 
-  // constant
+  //constant
   public static final String RUNTIMES = "Runtimes";
 
-  // constant
+  //constant
   public static final String SAVE_STAMPS = "SaveStamps";
 
-  // constant
+  //constant
   public static final String SENDERS = "Senders";
 
-  // constant
+  //constant
   public static final String SEPARATORS = "Separators";
 
-  // constant
+  //constant
   public static final String SEQUENCES = "Sequences";
 
-  // constant
+  //constant
   public static final String SERVERS = "Servers";
 
-  // constant
+  //constant
   public static final String SERVICES = "Services";
 
-  // constant
+  //constant
   public static final String SETUPS = "Setups";
 
-  // constant
+  //constant
   public static final String SIDE_LENGTHS = "SideLengths";
 
-  // constant
+  //constant
   public static final String SIZES = "Sizes";
 
-  // constant
+  //constant
   public static final String SPECIFICATIONS = "Specifications";
 
-  // constant
+  //constant
   public static final String START_DATES = "StartDates";
 
-  // constant
+  //constant
   public static final String START_INDEXES = "StartIndexes";
 
-  // constant
+  //constant
   public static final String START_TIMES = "StartTimes";
 
-  // constant
+  //constant
   public static final String START_VALUES = "StartValues";
 
-  // constant
+  //constant
   public static final String STATES = "States";
 
-  // constant
+  //constant
   public static final String STATEMENTS = "Statements";
 
-  // constant
+  //constant
   public static final String STEPS = "Steps";
 
-  // constant
+  //constant
   public static final String STRINGS = "Strings";
 
-  // constant
+  //constant
   public static final String SUBJECTS = "Subjects";
 
-  // constant
+  //constant
   public static final String SUMMARIES = "Summaries";
 
-  // constant
+  //constant
   public static final String SURNAMES = "Surnames";
 
-  // constant
+  //constant
   public static final String TABLES = "Tables";
 
-  // constant
+  //constant
   public static final String TABS = "Tabs";
 
-  // constant
+  //constant
   public static final String TARGETS = "Targets";
 
-  // constant
+  //constant
   public static final String TESTS = "Tests";
 
-  // constant
+  //constant
   public static final String TEST_CASES = "TestCases";
 
-  // constant
+  //constant
   public static final String TEST_CLASSSES = "TestClasses";
 
-  // constant
+  //constant
   public static final String TEXTS = "Texts";
 
-  // constant
+  //constant
   public static final String TEXT_COLORS = "TextColors";
 
-  // constant
+  //constant
   public static final String TEXT_SIZES = "TextSizes";
 
-  // constant
+  //constant
   public static final String TEXTURES = "Textures";
 
-  // constant
+  //constant
   public static final String THICKNESSES = "Thicknesses";
 
-  // constant
+  //constant
   public static final String TIMEOUTS = "Timeouts";
 
-  // constant
+  //constant
   public static final String TIMEOUTS_IN_MICROSECONDS = "TimeoutsInMicroseconds";
 
-  // constant
+  //constant
   public static final String TIMEOUTS_IN_MILLISECONDS = "TimeoutsInMilliseconds";
 
-  // constant
+  //constant
   public static final String TIMEOUTS_IN_NANOSECONDS = "TimeoutsInNanoseconds";
 
-  // constant
+  //constant
   public static final String TIMEOUTS_IN_SECONDS = "TimeoutsInSeconds";
 
-  // constant
+  //constant
   public static final String TIMESTAMPS = "Timestamps";
 
-  // constant
+  //constant
   public static final String TIMES = "Times";
 
-  // constant
+  //constant
   public static final String TITLES = "Titles";
 
-  // constant
+  //constant
   public static final String TOKENS = "Tokens";
 
-  // constant
+  //constant
   public static final String TRANSFORMATORS = "Transformators";
 
-  // constant
+  //constant
   public static final String TYPES = "Types";
 
-  // constant
+  //constant
   public static final String URLS = "URLs";
 
-  // constant
+  //constant
   public static final String VALUES = "Values";
 
-  // constant
+  //constant
   public static final String VALUE_TYPES = "ValueTypes";
 
-  // constant
+  //constant
   public static final String VERSIONS = "Versions";
 
-  // constant
+  //constant
   public static final String VISUALIZERS = "Visualizers";
 
-  // constant
+  //constant
   public static final String WEIGHTS = "Weights";
 
-  // constant
+  //constant
   public static final String WIDTHS = "Widths";
 
-  // constant
+  //constant
   public static final String YEARS = "Years";
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link PluralPascalCaseCatalogue} can be
    * created.

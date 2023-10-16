@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentHasAttributeException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param attributeName
@@ -28,7 +28,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
     return new ArgumentHasAttributeException(argument, attributeName);
   }
 
-  // static method
+  //static method
   /**
    * @param attributeName
    * @return a valid attribute name of the given attribtueName.
@@ -37,12 +37,12 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
    */
   private static String getValidttributeNameOfAttributeName(final String attributeName) {
 
-    // Asserts that the given attributeName is not null.
+    //Asserts that the given attributeName is not null.
     if (attributeName == null) {
       throw new IllegalArgumentException("The given attribute name is null.");
     }
 
-    // Asserts that the given attributeName is not blank.
+    //Asserts that the given attributeName is not blank.
     if (attributeName.isBlank()) {
       throw new IllegalArgumentException("The given attribute name is blank.");
     }
@@ -50,7 +50,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
     return attributeName;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentHasAttributeException} for the given argument
    * and attributeName.
@@ -62,7 +62,7 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
    */
   private ArgumentHasAttributeException(final Object argument, final String attributeName) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));
   }
 }

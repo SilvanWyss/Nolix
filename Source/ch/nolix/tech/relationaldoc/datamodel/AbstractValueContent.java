@@ -16,78 +16,78 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteValueContent;
 //class
 public final class AbstractValueContent extends ValueContent implements IAbstractValueContent {
 
-  // constant
+  //constant
   public static final DataType DEFAULT_DATA_TYPE = DataType.TEXT;
 
-  // constant
+  //constant
   private static final AbstractValueContentValidator ABSTRACT_VALUE_CONTENT_VALIDATOR = //
       new AbstractValueContentValidator();
 
-  // attribute
+  //attribute
   private final BackReference<AbstractableField> parentField = BackReference
       .forEntityAndBackReferencedPropertyName(AbstractableField.class, "abstractValueContent");
 
-  // attribute
+  //attribute
   private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());
 
-  // constructor
+  //constructor
   public AbstractValueContent() {
     initialize();
   }
 
-  // method
+  //method
   @Override
   public IAbstractValueContent addConstraint(final IConstraint<String> constraint) {
 
-    // TODO: Implement.
+    //TODO: Implement.
     return this;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IConstraint<String>> getConstraints() {
 
-    // TODO: Implement.
+    //TODO: Implement.
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public DataType getDataType() {
     return DataType.valueOf(dataType.getStoredValue());
   }
 
-  // method
+  //method
   @Override
   public IAbstractableField getStoredParentField() {
     return parentField.getBackReferencedEntity();
   }
 
-  // method
+  //method
   @Override
   public boolean isAbstract() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public void removeConstraint(final IConstraint<String> constraint) {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 
-  // method
+  //method
   @Override
   public void removeConstraints() {
-    // TODO: Implement.
+    //TODO: Implement.
   }
 
-  // method
+  //method
   @Override
   public IAbstractValueContent setDataType(final DataType dataType) {
 
@@ -98,7 +98,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
     return this;
   }
 
-  // method
+  //method
   private void clearRealisingFields() {
 
     final var localParentField = getStoredParentField();
@@ -117,14 +117,14 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
     }
   }
 
-  // method
+  //method
   private void setDataTypeIfWillChange(final DataType dataType) {
     if (getDataType() != dataType) {
       setDataTypeWhenWillChange(dataType);
     }
   }
 
-  // method
+  //method
   private void setDataTypeWhenWillChange(final DataType dataType) {
 
     this.dataType.setValue(dataType.toString());

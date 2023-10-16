@@ -15,16 +15,16 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public final class CatchingProperty<V> implements IProperty, Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Consumer<V> setter;
 
-  // attribute
+  //attribute
   private final Function<INode<?>, V> valueCreator;
 
-  // constructor
+  //constructor
   public CatchingProperty(
       final String name,
       final Consumer<V> setter,
@@ -39,13 +39,13 @@ public final class CatchingProperty<V> implements IProperty, Named {
     this.valueCreator = valueCreator;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public boolean addedOrChangedAttribute(INode<?> attribute) {
 
@@ -57,9 +57,9 @@ public final class CatchingProperty<V> implements IProperty, Named {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

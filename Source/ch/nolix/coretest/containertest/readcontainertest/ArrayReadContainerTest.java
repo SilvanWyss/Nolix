@@ -12,18 +12,18 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class ArrayReadContainerTest extends ContainerTest {
 
-  // method
+  //method
   @TestCase
   public void testCase_forArray_whenTheGivenArrayIsNull() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> ArrayReadContainer
         .forArray(null)).throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given array is null.");
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
       final E element,
@@ -31,7 +31,7 @@ public final class ArrayReadContainerTest extends ContainerTest {
     return ArrayReadContainer.forArray(GlobalArrayHelper.createArrayWithElement(element, elements));
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return new ArrayReadContainer<>();

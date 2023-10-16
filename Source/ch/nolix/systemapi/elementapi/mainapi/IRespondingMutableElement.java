@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public interface IRespondingMutableElement<RME extends IRespondingMutableElement<RME>> extends IMutableElement {
 
-  // method declaration
+  //method declaration
   /**
    * Adds or changes the given attribute to the current
    * {@link IRespondingMutableElement} if the given attributes matches.

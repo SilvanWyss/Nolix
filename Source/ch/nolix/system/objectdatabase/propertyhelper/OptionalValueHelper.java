@@ -16,7 +16,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
         && value != null;
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetValue(
       final IOptionalValue<?> optionalValue,
@@ -30,7 +30,7 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
         new ContentFieldDto(optionalValue.getName(), value.toString()));
   }
 
-  // method
+  //method
   private boolean canSetValue(final IOptionalValue<?> optionalValue) {
     return optionalValue != null
         && optionalValue.isOpen();

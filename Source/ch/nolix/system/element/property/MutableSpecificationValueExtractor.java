@@ -15,16 +15,16 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public final class MutableSpecificationValueExtractor implements IProperty, Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Consumer<INode<?>> setter;
 
-  // attribute
+  //attribute
   private final Supplier<INode<?>> getter;
 
-  // constructor
+  //constructor
   public MutableSpecificationValueExtractor(
       final String name,
       final Consumer<INode<?>> setter,
@@ -39,13 +39,13 @@ public final class MutableSpecificationValueExtractor implements IProperty, Name
     this.getter = getter;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -57,7 +57,7 @@ public final class MutableSpecificationValueExtractor implements IProperty, Name
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     list.addAtEnd(getter.get());

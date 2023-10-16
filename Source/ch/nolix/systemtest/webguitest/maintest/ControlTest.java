@@ -12,73 +12,73 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
 
-  // method
+  //method
   @TestCase
   public final void testCase_editStyle() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
 
-    // execution
+    //execution
     testUnit.editStyle(s -> s.setTextColorForState(ControlState.BASE, Color.DARK_CYAN));
 
-    // verification
+    //verification
     final var actualBaseTextColor = testUnit.getStoredStyle().getTextColorWhenHasState(ControlState.BASE);
     expect(actualBaseTextColor).isEqualTo(Color.DARK_CYAN);
   }
 
-  // method
+  //method
   @TestCase
   public final void testCase_getInternalId() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
 
-    // execution
+    //execution
     final var result = testUnit.getInternalId();
 
-    // verification
+    //verification
     expect(result).startsWith("i");
     expect(result).hasLength(11);
   }
 
-  // method
+  //method
   @TestCase
   public final void testCase_getInternalId_whenMethodIsCalledSeveralTimes() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
     final var internalId = testUnit.getInternalId();
 
     for (var i = 1; i <= 10_000; i++) {
 
-      // execution
+      //execution
       final var result = testUnit.getInternalId();
 
-      // verification
+      //verification
       expect(result).isEqualTo(internalId);
     }
   }
 
-  // method
+  //method
   @TestCase
   public final void testCase_getStoredChildControls() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
 
-    // execution
+    //execution
     final var result = testUnit.getStoredChildControls();
 
-    // verification
+    //verification
     expect(result).isEmpty();
   }
 
-  // method
+  //method
   @TestCase
   public final void testCase_reset() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
     testUnit.setInvisible();
     testUnit.setMinWidth(1000);
@@ -87,10 +87,10 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
     testUnit.setMaxHeight(600);
     testUnit.setCursorIcon(CursorIcon.HAND);
 
-    // execution
+    //execution
     testUnit.reset();
 
-    // verification
+    //verification
     expect(testUnit.isVisible());
     expectNot(testUnit.hasMinWidth());
     expectNot(testUnit.hasMinHeight());
@@ -98,24 +98,24 @@ public abstract class ControlTest<C extends IControl<C, ?>> extends Test {
     expectNot(testUnit.hasMaxHeight());
   }
 
-  // method
+  //method
   @TestCase
   public final void testCase_setCursorIcon() {
 
-    // setup
+    //setup
     final var testUnit = createTestUnit();
 
-    // setup verification
+    //setup verification
     expect(testUnit.getCursorIcon()).isNot(CursorIcon.MOVE);
 
-    // execution
+    //execution
     final var result = testUnit.setCursorIcon(CursorIcon.MOVE);
 
-    // verification
+    //verification
     expect(result).is(testUnit);
     expect(testUnit.getCursorIcon()).is(CursorIcon.MOVE);
   }
 
-  // method declaration
+  //method declaration
   protected abstract C createTestUnit();
 }

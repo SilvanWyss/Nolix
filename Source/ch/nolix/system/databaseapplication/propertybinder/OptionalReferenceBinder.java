@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenu;
 public final class OptionalReferenceBinder
     extends PropertyBinder<IOptionalReference<IEntity>, IDropdownMenu> {
 
-  // method
+  //method
   @Override
   protected void addSelectionOptionsToControlForProperty(
       final IDropdownMenu dropdownMenu,
@@ -23,13 +23,13 @@ public final class OptionalReferenceBinder
     }
   }
 
-  // method
+  //method
   @Override
   protected IDropdownMenu createControl() {
     return new DropdownMenu();
   }
 
-  // method
+  //method
   @Override
   protected void setNoteUpdateActionToControl(
       final IDropdownMenu dropdownMenu,
@@ -37,7 +37,7 @@ public final class OptionalReferenceBinder
     dropdownMenu.setSelectAction(noteUpdateAction);
   }
 
-  // method
+  //method
   @Override
   protected void updatePropertyFromControl(
       final IOptionalReference<IEntity> optionalReference,
@@ -52,7 +52,7 @@ public final class OptionalReferenceBinder
     }
   }
 
-  // method
+  //method
   @Override
   protected void updateControlFromProperty(
       final IDropdownMenu dropdownMenu,

@@ -12,40 +12,40 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 //class
 public final class TableOnDatabaseTest extends Test {
 
-  // static class
+  //constant
   private static final class Thing extends Entity {
 
-    // constructor
+    //constructor
     public Thing() {
       initialize();
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEntityWithId_whenDoesNotContainEntityWithGivenId() {
 
-    // setup part 1: Initializes database.
+    //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Thing.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var thing = new Thing();
 
-    // setup part 2: Gains test unit.
+    //setup part 2: Gains test unit.
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 
-    // execution
+    //execution
     final var result = testUnit.containsEntityWithId(thing.getId());
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsEntityWithId_whenContainsEntityWithGivenId() {
 
-    // setup part 1: Initializes database.
+    //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Thing.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -53,13 +53,13 @@ public final class TableOnDatabaseTest extends Test {
     nodeDataAdapter.insert(thing);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: Gains test unit.
+    //setup part 2: Gains test unit.
     final var testUnit = nodeDataAdapter.getStoredTableByEntityType(Thing.class);
 
-    // execution
+    //execution
     final var result = testUnit.containsEntityWithId(thing.getId());
 
-    // verification
+    //verification
     expect(result);
   }
 }

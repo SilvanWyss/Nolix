@@ -15,7 +15,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
  */
 public final class MultiStringMediator extends MultiArgumentMediator<String> {
 
-  // constructor
+  //constructor
   /**
    * Creates a new string container mediator with the given arguments.
    * 
@@ -24,11 +24,11 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    */
   MultiStringMediator(final Iterable<String> arguments) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(arguments);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new string container mediator with the given arguments.
    * 
@@ -37,11 +37,11 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    */
   MultiStringMediator(final String[] arguments) {
 
-    // Calls method of the base class.
+    //Calls method of the base class.
     super(arguments);
   }
 
-  // method
+  //method
   /**
    * for the arguments of the current {@link MultiStringMediator}.
    * 
@@ -52,25 +52,25 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    */
   public void areNotBlank() {
 
-    // Asserts that the arguments of the current multi string mediator are not null.
+    //Asserts that the arguments of the current multi string mediator are not null.
     areNotNull();
 
-    // Iterates the arguments of the current multi string mediator.
+    //Iterates the arguments of the current multi string mediator.
     var index = 1;
     for (final var a : getStoredArguments()) {
 
-      // Asserts that the current argument is not blank.
+      //Asserts that the current argument is not blank.
       if (a.isBlank()) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(index + "th argument", a,
             "is blank");
       }
 
-      // Increments index.
+      //Increments index.
       index++;
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException if one of the arguments of this strinc
    *                                 container mediator is null.
@@ -79,19 +79,19 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
    */
   public void areNotEmpty() {
 
-    // Asserts that the arguments of this string container mediator are not null.
+    //Asserts that the arguments of this string container mediator are not null.
     areNotNull();
 
-    // Iterates the arguments of this string container mediator.
+    //Iterates the arguments of this string container mediator.
     var index = 1;
     for (final String a : getStoredArguments()) {
 
-      // Asserts that the current argument is not empty.
+      //Asserts that the current argument is not empty.
       if (a.isEmpty()) {
         throw EmptyArgumentException.forArgumentNameAndArgument(index + "th argument", a);
       }
 
-      // Increments index.
+      //Increments index.
       index++;
     }
   }

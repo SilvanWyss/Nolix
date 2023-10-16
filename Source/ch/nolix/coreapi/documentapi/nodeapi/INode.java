@@ -25,7 +25,7 @@ import ch.nolix.coreapi.functionapi.requestapi.BlanknessRequestable;
  */
 public interface INode<N extends INode<N>> extends BlanknessRequestable, OptionalHeadered {
 
-  // method declaration
+  //method declaration
   /**
    * @param header
    * @return a new {@link INode} that is a copy of the current {@link INode} with
@@ -35,13 +35,13 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   INode<?> asWithHeader(String header);
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link INode} contains child {@link INode}s.
    */
   boolean containsChildNodes();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return true if the current {@link INode} contains a child {@link INode} the
@@ -49,7 +49,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   boolean containsChildNodeThat(Predicate<INode<?>> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param header
    * @return true if the current {@link INode} contains a child {@link INode} with
@@ -57,19 +57,19 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   boolean containsChildNodeWithHeader(String header);
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link INode} contains 1 child {@link INode}.
    */
   boolean containsOneChildNode();
 
-  // method declaration
+  //method declaration
   /**
    * @return the number of child {@link INode}s of the current {@link INode}.
    */
   int getChildNodeCount();
 
-  // method declaration
+  //method declaration
   /**
    * @return the headers of the child {@link INode}s of the current {@link INode}.
    * @throws RuntimeException if one of the child {@link INode}s of the current
@@ -77,7 +77,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   IContainer<String> getChildNodesHeaders();
 
-  // method declaration
+  //method declaration
   /**
    * @param p1BasedIndex
    * @return the child {@link INode} at the given p1BasedIndex from the current
@@ -88,13 +88,13 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   N getStoredChildNodeAt1BasedIndex(int p1BasedIndex);
 
-  // method declaration
+  //method declaration
   /**
    * @return the child {@link INode}s of the current {@link INode}.
    */
   IContainer<N> getStoredChildNodes();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the child {@link INode}s the given selector selects from the current
@@ -102,7 +102,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   IContainer<N> getStoredChildNodesThat(Predicate<INode<?>> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param header
    * @return the child {@link INode}s with the given header from the current
@@ -110,7 +110,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   IContainer<N> getStoredChildNodesWithHeader(String header);
 
-  // method declaration
+  //method declaration
   /**
    * @return the first child {@link INode} from the current {@link INode}.
    * @throws RuntimeException if the current {@link INode} does not contain child
@@ -118,7 +118,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   N getStoredFirstChildNode();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the first child {@link INode} the given selector selects from the
@@ -128,7 +128,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   N getStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the first child {@link INode} the given selector selects from the
@@ -138,7 +138,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   N getStoredFirstChildNodeThatOrNull(Predicate<INode<?>> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param header
    * @return the first child {@link INode} with the given header from the current
@@ -148,7 +148,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   N getStoredFirstChildNodeWithHeader(String header);
 
-  // method declaration
+  //method declaration
   /**
    * @return the single child {@link INode} of the current {@link INode}.
    * @throws RuntimeException if the current {@link INode} does not contain child
@@ -157,7 +157,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   N getStoredSingleChildNode();
 
-  // method declaration
+  //method declaration
   /**
    * @return the boolean the single child {@link INode} of the current
    *         {@link INode} represents.
@@ -169,7 +169,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   boolean getSingleChildNodeAsBoolean();
 
-  // method declaration
+  //method declaration
   /**
    * @return the double the single child {@link INode} of the current
    *         {@link INode} represents.
@@ -181,7 +181,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   double getSingleChildNodeAsDouble();
 
-  // method declaration
+  //method declaration
   /**
    * @return the int the single child {@link INode} of the current {@link INode}
    *         represents.
@@ -193,7 +193,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   int getSingleChildNodeAsInt();
 
-  // method declaration
+  //method declaration
   /**
    * @return the header of the single child {@link INode} of the current
    *         {@link INode}.
@@ -205,7 +205,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   String getSingleChildNodeHeader();
 
-  // method declaration
+  //method declaration
   /**
    * @return the boolean the current {@link INode} represents.
    * @throws RuntimeException if the current {@link INode} does not represent a
@@ -213,7 +213,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   boolean toBoolean();
 
-  // method declaration
+  //method declaration
   /**
    * @return the double the current {@link INode} represents.
    * @throws RuntimeException if the current {@link INode} does not represent a
@@ -221,14 +221,14 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   double toDouble();
 
-  // method declaration
+  //method declaration
   /**
    * @return a formatted {@link String} representation of the current
    *         {@link INode}.
    */
   String toFormattedString();
 
-  // method declaration
+  //method declaration
   /**
    * @return the int the current {@link INode} represents.
    * @throws RuntimeException if the current {@link INode} does not represent an
@@ -236,7 +236,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   int toInt();
 
-  // method declaration
+  //method declaration
   /**
    * @return the {@link IIntPair} the current {@link INode} represents.
    * @throws RuntimeException if the current {@link INode} does not represent a
@@ -244,7 +244,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    */
   IIntPair toIntPair();
 
-  // method
+  //method
   /**
    * @return a {@link IXmlNode} representation of the current {@link INode}.
    */

@@ -9,7 +9,7 @@ import ch.nolix.techtest.mathtest.fractaltest.FractalTestPool;
 //class
 public final class MathTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public MathTestPool() {
     super(new BigDecimalMathTestPool(), new FractalTestPool());
   }

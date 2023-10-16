@@ -10,7 +10,7 @@ package ch.nolix.coreapi.functionapi.mutationapi;
  */
 public interface Runnable {
 
-  // method declaration
+  //method declaration
   /**
    * Lets this runnable object run.
    */

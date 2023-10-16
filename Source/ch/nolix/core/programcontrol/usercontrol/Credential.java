@@ -9,28 +9,28 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class Credential {
 
-  // attribute
+  //attribute
   private final String loginName;
 
-  // attribute
+  //attribute
   private final String password;
 
-  // static class
+  //constant
   public static final class CredentialBuilder extends AndPasswordCapturer<Credential> {
 
-    // constructor
+    //constructor
     private CredentialBuilder(final String loginName) {
       super(null);
       this.setBuilder(() -> new Credential(loginName, super.getPassword()));
     }
   }
 
-  // static method
+  //static method
   public static CredentialBuilder withLoginName(final String loginName) {
     return new CredentialBuilder(loginName);
   }
 
-  // constructor
+  //constructor
   Credential(final String loginName, final String password) {
 
     GlobalValidator.assertThat(loginName).thatIsNamed(LowerCaseCatalogue.LOGIN_NAME).isNotBlank();
@@ -40,12 +40,12 @@ public final class Credential {
     this.password = password;
   }
 
-  // method
+  //method
   public String getLoginName() {
     return loginName;
   }
 
-  // method
+  //method
   public String getPassword() {
     return password;
   }

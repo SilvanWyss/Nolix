@@ -13,13 +13,13 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Headered {
 
-  // method declaration
+  //method declaration
   /**
    * @return the header of the current {@link Headered}.
    */
   String getHeader();
 
-  // method
+  //method
   /**
    * @return the header of the current {@link Headered} in quotes.
    */
@@ -27,7 +27,7 @@ public interface Headered {
     return ("'" + getHeader() + "'");
   }
 
-  // method
+  //method
   /**
    * @param header
    * @return true if the current {@link Headered} has the given header.
@@ -36,7 +36,7 @@ public interface Headered {
     return getHeader().equals(header);
   }
 
-  // method
+  //method
   /**
    * @param object
    * @return true if the current {@link Headered} has the same header as the given
@@ -44,12 +44,12 @@ public interface Headered {
    */
   default boolean hasSameHeaderAs(final Headered object) {
 
-    // Handles the case that the given object is null.
+    //Handles the case that the given object is null.
     if (object == null) {
       return false;
     }
 
-    // Handles the case that the given object is not null.
+    //Handles the case that the given object is not null.
     return getHeader().equals(object.getHeader());
   }
 }

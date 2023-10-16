@@ -15,7 +15,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuItem;
 //class
 public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropdownMenu> {
 
-  // method
+  //method
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
     return HtmlElement.withTypeAndChildElements(
@@ -23,19 +23,19 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
         createHtmlChildElementsForDropdownMenu(dropdownMenu));
   }
 
-  // method
+  //method
   private IContainer<IHtmlElement> createHtmlChildElementsForDropdownMenu(
       final IDropdownMenu dropdownMenu) {
     return createHtmlElementsFromItems(dropdownMenu.getStoredItems());
   }
 
-  // method
+  //method
   private IContainer<IHtmlElement> createHtmlElementsFromItems(
       final IContainer<? extends IItemMenuItem<?>> items) {
     return items.to(this::createHtmlElementForItem);
   }
 
-  // method
+  //method
   private IHtmlElement createHtmlElementForItem(final IItemMenuItem<?> item) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
         HtmlElementTypeCatalogue.OPTION,
@@ -43,7 +43,7 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
         item.getText());
   }
 
-  // method
+  //method
   private IContainer<HtmlAttribute> createHtmlAttributesForItem(final IItemMenuItem<?> item) {
 
     final var htmlAttributes = new LinkedList<HtmlAttribute>();

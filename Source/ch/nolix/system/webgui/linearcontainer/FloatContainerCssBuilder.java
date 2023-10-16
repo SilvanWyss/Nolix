@@ -16,7 +16,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class FloatContainerCssBuilder
     extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final FloatContainer floatContainer,
@@ -31,7 +31,7 @@ public final class FloatContainerCssBuilder
                     "left"))));
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final FloatContainer floatContainer,
@@ -47,20 +47,20 @@ public final class FloatContainerCssBuilder
                     floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final FloatContainer control,
       final LinkedList<CssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final FloatContainer floatContainer,
       final ControlState state,
       final LinkedList<ICssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

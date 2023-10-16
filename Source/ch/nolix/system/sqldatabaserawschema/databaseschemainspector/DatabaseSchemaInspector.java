@@ -8,7 +8,7 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdap
 //class
 public final class DatabaseSchemaInspector {
 
-  // method
+  //method
   public DatabaseSchemaState getDatabaseSchemaState(final ISchemaAdapter schemaAdapter) {
 
     if (schemaAdapter.tableExists(SystemDataTable.DATABASE_PROPERTY.getQualifiedName())) {

@@ -12,21 +12,21 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableDto implements ITableDto {
 
-  // attribute
+  //attribute
   private final String id;
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final ISaveStampConfigurationDto saveStampConfiguration;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<IColumnDto> columnDtos;
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public TableDto(
       final String id,
       final String name,
@@ -55,25 +55,25 @@ public final class TableDto implements ITableDto {
     this.columnDtos = LinkedList.fromIterable(columnDtos);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumnDto> getColumns() {
     return columnDtos;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public ISaveStampConfigurationDto getSaveStampConfiguration() {
     return saveStampConfiguration;

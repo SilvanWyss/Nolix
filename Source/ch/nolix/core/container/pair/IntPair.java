@@ -13,26 +13,26 @@ import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
  */
 public final class IntPair implements IIntPair {
 
-  // constant
+  //constant
   public static final int DEFAULT_VALUE = 0;
 
-  // attribute
+  //attribute
   private final int value1;
 
-  // attribute
+  //attribute
   private final int value2;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link IntPair} with default values.
    */
   public IntPair() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(DEFAULT_VALUE, DEFAULT_VALUE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link IntPair} with the given values.
    * 
@@ -41,29 +41,29 @@ public final class IntPair implements IIntPair {
    */
   public IntPair(final int value1, final int value2) {
 
-    // Sets the values of the current IntPair.
+    //Sets the values of the current IntPair.
     this.value1 = value1;
     this.value2 = value2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public boolean equals(final Object object) {
 
-    // Handles the case that the given object is not an IntPair.
+    //Handles the case that the given object is not an IntPair.
     if (!(object instanceof IntPair)) {
       return false;
     }
 
-    // Handles the case that the given object is an IntPair.
+    //Handles the case that the given object is an IntPair.
     final var intPair = (IntPair) object;
     return (getValue1() == intPair.getValue1() && getValue2() == intPair.getValue2());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -72,7 +72,7 @@ public final class IntPair implements IIntPair {
     return value1;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -81,7 +81,7 @@ public final class IntPair implements IIntPair {
     return value2;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -90,7 +90,7 @@ public final class IntPair implements IIntPair {
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

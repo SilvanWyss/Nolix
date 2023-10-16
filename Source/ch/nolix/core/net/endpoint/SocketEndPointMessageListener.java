@@ -9,10 +9,10 @@ import ch.nolix.core.programcontrol.worker.Worker;
 //class
 final class SocketEndPointMessageListener extends Worker {
 
-  // attribute
+  //attribute
   private final SocketEndPoint parentNetEndPoint;
 
-  // constructor
+  //constructor
   public SocketEndPointMessageListener(final SocketEndPoint parentNetEndPoint) {
 
     GlobalValidator.assertThat(parentNetEndPoint).thatIsNamed("parent NetEndPoint").isNotNull();
@@ -22,7 +22,7 @@ final class SocketEndPointMessageListener extends Worker {
     start();
   }
 
-  // method
+  //method
   @Override
   protected void run() {
     while (parentNetEndPoint.isOpen()) {

@@ -12,149 +12,149 @@ import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 //class
 public final class AbsoluteOrRelativeIntTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAValue() {
 
-    // setup
+    //setup
     final var specification = Node.fromString("Width(500)");
 
-    // execution
+    //execution
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
 
-    // verification
+    //verification
     expect(result.isAbsolute());
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromSpecification_whenTheGivenSpecificationSpecifiesAPercentage() {
 
-    // setup
+    //setup
     final var specification = Node.fromString("Width(20%)");
 
-    // execution
+    //execution
     final var result = AbsoluteOrRelativeInt.fromSpecification(specification);
 
-    // verification
+    //verification
     expect(result.isRelative());
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getAbsoluteValue_whenIsRelative() {
 
-    // setup
+    //setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::getAbsoluteValue)
         .throwsException()
         .ofType(InvalidArgumentException.class)
         .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(20%)' does not have a absolute value.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getPercentage_whenIsAbsolute() {
 
-    // setup
+    //setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::getPercentage)
         .throwsException()
         .ofType(InvalidArgumentException.class)
         .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(500)' does not have a percentage.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsolute() {
 
-    // setup
+    //setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
 
-    // execution
+    //execution
     final var result = testUnit.getValueRelativeToHundredPercentValue(200);
 
-    // verification
+    //verification
     expect(result).isEqualTo(500);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueRelativeToHundredPercentValue_whenIsAbsoluteAndTheGivenHundredPercentValueIsZero() {
 
-    // setup
+    //setup
     final var testUnit = AbsoluteOrRelativeInt.withIntValue(500);
 
-    // execution
+    //execution
     final var result = testUnit.getValueRelativeToHundredPercentValue(0);
 
-    // verification
+    //verification
     expect(result).isEqualTo(500);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueRelativeToHundredPercentValue_whenIsRelative() {
 
-    // setup
+    //setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-    // execution
+    //execution
     final var result = testUnit.getValueRelativeToHundredPercentValue(200);
 
-    // verification
+    //verification
     expect(result).isEqualTo(40);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getValueRelativeToHundredPercentValue_whenIsRelativeAndTheGivenHundredPercentValueIsZero() {
 
-    // setup
+    //setup
     final var testUnit = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-    // execution
+    //execution
     final var result = testUnit.getValueRelativeToHundredPercentValue(0);
 
-    // verification
+    //verification
     expect(result).isEqualTo(0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withIntValue() {
 
-    // execution
+    //execution
     final var result = AbsoluteOrRelativeInt.withIntValue(500);
 
-    // verification
+    //verification
     expect(result.isAbsolute());
     expect(result.getAbsoluteValue()).isEqualTo(500);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withPercentage() {
 
-    // execution
+    //execution
     final var result = AbsoluteOrRelativeInt.withPercentage(0.2);
 
-    // verification
+    //verification
     expect(result.isRelative());
     expect(result.getPercentage()).isEqualTo(0.2);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withPercentage_whenTheGivenPercentageIsNegative() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> AbsoluteOrRelativeInt.withPercentage(-0.2))
         .throwsException()
         .ofType(NegativeArgumentException.class)

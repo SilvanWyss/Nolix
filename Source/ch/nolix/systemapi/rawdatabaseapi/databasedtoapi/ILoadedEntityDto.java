@@ -6,12 +6,12 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface ILoadedEntityDto {
 
-  // method declaration
+  //method declaration
   IContainer<ILoadedContentFieldDto> getContentFields();
 
-  // method declaration
+  //method declaration
   String getId();
 
-  // method declaration
+  //method declaration
   String getSaveStamp();
 }

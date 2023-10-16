@@ -10,51 +10,51 @@ import ch.nolix.core.web.css.CssProperty;
 //class
 public final class CssPropertyTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_toString() {
 
-    // setup
+    //setup
     final var testUnit = CssProperty.withNameAndValue("width", "200px");
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("width: 200px;");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withNameAndValue() {
 
-    // execution
+    //execution
     final var result = CssProperty.withNameAndValue("width", "200px");
 
-    // verification
+    //verification
     expect(result.getName()).isEqualTo("width");
     expect(result.getValue()).isEqualTo("200px");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withNameAndValue_whenTheGivenNameIsNull() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> CssProperty.withNameAndValue(null, "200px"))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given name is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withNameAndValue_whenTheGivenValueIsNull() {
 
-    // setup
+    //setup
     final String value = null;
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> CssProperty.withNameAndValue("width", value))
         .throwsException()
         .ofType(ArgumentIsNullException.class)

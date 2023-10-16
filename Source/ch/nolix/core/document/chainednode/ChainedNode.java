@@ -31,25 +31,25 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class ChainedNode implements IChainedNode {
 
-  // constant
+  //constant
   public static final String DOT_CODE = "$D";
 
-  // constant
+  //constant
   public static final String COMMA_CODE = "$M";
 
-  // constant
+  //constant
   public static final String DOLLAR_SYMBOL_CODE = "$X";
 
-  // constant
+  //constant
   public static final String OPEN_BRACKET_CODE = "$O";
 
-  // constant
+  //constant
   public static final String CLOSED_BRACKET_CODE = "$C";
 
-  // constant
+  //constant
   private static final String NEXT_NODE_VARIABLE_NAME = "next node";
 
-  // static method
+  //static method
   /**
    * @param node
    * @return a new {@link ChainedNode} from the given node.
@@ -67,7 +67,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return a new {@link ChainedNode} the given string represents.
@@ -82,7 +82,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return an escape {@link String} for the given string.
@@ -90,7 +90,7 @@ public final class ChainedNode implements IChainedNode {
   public static String getEscapeStringFor(final String string) {
     return string
 
-        // It is essential to replace the dollar symbol at first.
+        //It is essential to replace the dollar symbol at first.
         .replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
 
         .replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
@@ -99,7 +99,7 @@ public final class ChainedNode implements IChainedNode {
         .replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
   }
 
-  // static method
+  //static method
   /**
    * @param escapeString
    * @return an origin {@link String} from the given escapeString.
@@ -112,11 +112,11 @@ public final class ChainedNode implements IChainedNode {
         .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
         .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
 
-        // It is essential to replace the dollar symbol code at last.
+        //It is essential to replace the dollar symbol code at last.
         .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
   }
 
-  // static method
+  //static method
   /**
    * @param childNode
    * @param childNodes
@@ -131,7 +131,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * Creates a new {@link ChainedNode} with the given attributes.
    * 
@@ -147,7 +147,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @return a new {@link ChainedNode} with the given header.
@@ -162,7 +162,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param attribute
@@ -192,7 +192,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param childNode
@@ -209,7 +209,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param attributes
@@ -229,7 +229,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ChainedNode} with the given header and attributes.
    * 
@@ -253,7 +253,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ChainedNode} with the given header and attributes.
    * 
@@ -275,7 +275,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param nextNode
@@ -293,7 +293,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param header
    * @param nextNode
@@ -319,7 +319,7 @@ public final class ChainedNode implements IChainedNode {
     return chainedNode;
   }
 
-  // static method
+  //static method
   /**
    * @param chainedNode
    * @return a {@link ChainedNode} from the given chainedNode.
@@ -345,16 +345,16 @@ public final class ChainedNode implements IChainedNode {
     return newChainedNode;
   }
 
-  // optional attribute
+  //optional attribute
   private String header;
 
-  // optional attribute
+  //optional attribute
   private ChainedNode nextNode;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<ChainedNode> childNodes = new LinkedList<>();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ChainedNode}.
    */
@@ -363,7 +363,7 @@ public final class ChainedNode implements IChainedNode {
     nextNode = null;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ChainedNode} with the given header and attributes.
    * 
@@ -377,7 +377,7 @@ public final class ChainedNode implements IChainedNode {
     addChildNodesFromNodes(attributes);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ChainedNode} with the given header, attributes and
    * nextNode.
@@ -398,7 +398,7 @@ public final class ChainedNode implements IChainedNode {
     setNextNode(nextNode);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -407,7 +407,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.containsAny();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -416,7 +416,7 @@ public final class ChainedNode implements IChainedNode {
     return (object instanceof ChainedNode chainedNode && equals(chainedNode));
   }
 
-  // method
+  //method
   /**
    * @return the number of attributes of the current {@link ChainedNode}.
    */
@@ -425,7 +425,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.getElementCount();
   }
 
-  // method
+  //method
   /**
    * @param index
    * @return the attribute at the given index of the current {@link ChainedNode}.
@@ -441,7 +441,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.getStoredAt1BasedIndex(index);
   }
 
-  // method
+  //method
   /**
    * @return the attributes of the current {@link ChainedNode}.
    */
@@ -450,7 +450,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes;
   }
 
-  // method
+  //method
   /**
    * @return the {@link Node} representations of the attributes of the current
    *         {@link ChainedNode}.
@@ -462,7 +462,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.to(ChainedNode::toNode);
   }
 
-  // method
+  //method
   /**
    * @return a {@link String} representation of the attributes of the current
    *         {@link ChainedNode}.
@@ -471,7 +471,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.toString();
   }
 
-  // method
+  //method
   /**
    * @return the {@link String} representations of the attributes of the current
    *         {@link ChainedNode}.
@@ -480,7 +480,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.toStrings();
   }
 
-  // method
+  //method
   /**
    * @return a reproducing {@link String} representation of the header of the
    *         current {@link ChainedNode}.
@@ -490,7 +490,7 @@ public final class ChainedNode implements IChainedNode {
    */
   public String getEscapeHeader() {
 
-    // Asserts that the current ChainedNode has a header.
+    //Asserts that the current ChainedNode has a header.
     if (header == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
     }
@@ -498,7 +498,7 @@ public final class ChainedNode implements IChainedNode {
     return getEscapeStringFor(header);
   }
 
-  // method
+  //method
   /**
    * @param header
    * @return the first attribute with the given header from the current
@@ -513,7 +513,7 @@ public final class ChainedNode implements IChainedNode {
     return getChildNodes().getStoredFirst(a -> a.hasHeader(header));
   }
 
-  // method
+  //method
   /**
    * @return the header of the current {@link ChainedNode}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -523,7 +523,7 @@ public final class ChainedNode implements IChainedNode {
   @Override
   public String getHeader() {
 
-    // Asserts that the current ChainedNode has a header.
+    //Asserts that the current ChainedNode has a header.
     if (header == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
     }
@@ -531,43 +531,43 @@ public final class ChainedNode implements IChainedNode {
     return header;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public String getHeaderOrEmptyString() {
 
-    // Handles the case that current ChainedNode does not have a header.
+    //Handles the case that current ChainedNode does not have a header.
     if (header == null) {
       return StringCatalogue.EMPTY_STRING;
     }
 
-    // Handles the case that current ChainedNode has a header.
+    //Handles the case that current ChainedNode has a header.
     return header;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public String getHeaderOrNull() {
 
-    // Handles the case that current ChainedNode does not have a header.
+    //Handles the case that current ChainedNode does not have a header.
     if (header == null) {
       return null;
     }
 
-    // Handles the case that current ChainedNode has a header.
+    //Handles the case that current ChainedNode has a header.
     return header;
   }
 
-  // method
+  //method
   /**
    * @return the next node of the current {@link ChainedNode}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -577,7 +577,7 @@ public final class ChainedNode implements IChainedNode {
   @Override
   public ChainedNode getNextNode() {
 
-    // Asserts that the current ChanedNode has a next node.
+    //Asserts that the current ChanedNode has a next node.
     if (nextNode == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
     }
@@ -585,7 +585,7 @@ public final class ChainedNode implements IChainedNode {
     return nextNode;
   }
 
-  // method
+  //method
   /**
    * @return a {@link String} representation of the next node of the current
    *         {@link ChainedNode}.
@@ -595,7 +595,7 @@ public final class ChainedNode implements IChainedNode {
    */
   public String getNextNodeAsString() {
 
-    // Asserts that the current ChainedNode has a next node.
+    //Asserts that the current ChainedNode has a next node.
     if (nextNode == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, NEXT_NODE_VARIABLE_NAME);
     }
@@ -603,7 +603,7 @@ public final class ChainedNode implements IChainedNode {
     return nextNode.toString();
   }
 
-  // method
+  //method
   /**
    * @return the one attribute of the current {@link ChainedNode}.
    * @throws EmptyArgumentException   if the current {@link ChainedNode} does not
@@ -616,7 +616,7 @@ public final class ChainedNode implements IChainedNode {
     return childNodes.getStoredOne();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -625,7 +625,7 @@ public final class ChainedNode implements IChainedNode {
     return getSingleChildNode().getHeader();
   }
 
-  // method
+  //method
   /**
    * @return a {@link Double} representation of the one attribute of the current
    *         {@link ChainedNode}.
@@ -641,7 +641,7 @@ public final class ChainedNode implements IChainedNode {
     return getSingleChildNode().toDouble();
   }
 
-  // method
+  //method
   /**
    * @return a {@link Integer} representation of the one attribute of the current
    *         {@link ChainedNode}.
@@ -657,7 +657,7 @@ public final class ChainedNode implements IChainedNode {
     return getSingleChildNode().toInt();
   }
 
-  // method
+  //method
   /**
    * @return a {@link Node} representation of the one attribute of the current
    *         {@link ChainedNode}.
@@ -673,7 +673,7 @@ public final class ChainedNode implements IChainedNode {
     return getSingleChildNode().toNode();
   }
 
-  // method
+  //method
   /**
    * @return a {@link String} representation of the one attribute of the current
    *         {@link ChainedNode}.
@@ -686,7 +686,7 @@ public final class ChainedNode implements IChainedNode {
     return getSingleChildNode().toString();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -695,7 +695,7 @@ public final class ChainedNode implements IChainedNode {
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -704,23 +704,23 @@ public final class ChainedNode implements IChainedNode {
     return (header != null);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public boolean hasHeader(final String header) {
 
-    // Handles the case that current ChainedNode does not have a header.
+    //Handles the case that current ChainedNode does not have a header.
     if (!hasHeader()) {
       return false;
     }
 
-    // Handles the case that current ChainedNode has a header.
+    //Handles the case that current ChainedNode has a header.
     return getHeader().equals(header);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ChainedNode} has a next node.
    */
@@ -729,7 +729,7 @@ public final class ChainedNode implements IChainedNode {
     return (nextNode != null);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link ChainedNode} does not have a header and
    *         does not contains attributes.
@@ -740,7 +740,7 @@ public final class ChainedNode implements IChainedNode {
         && !containsChildNodes();
   }
 
-  // method
+  //method
   /**
    * @return a {@link Double} representation of the current {@link ChainedNode}.
    * @throws UnrepresentingArgumentException if the current {@link ChainedNode}
@@ -749,7 +749,7 @@ public final class ChainedNode implements IChainedNode {
   @Override
   public double toDouble() {
 
-    // Asserts that the current ChainedNode can represent a Double.
+    //Asserts that the current ChainedNode can represent a Double.
     if (header == null || childNodes.containsAny()) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
@@ -757,7 +757,7 @@ public final class ChainedNode implements IChainedNode {
     return Double.valueOf(header);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -775,7 +775,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * A {@link ChainedNode} represents a {@link Node} if: -The {@link ChainedNode}
    * does not have a next node. -Each attribute of the {@link ChainedNode}
@@ -788,21 +788,21 @@ public final class ChainedNode implements IChainedNode {
   @Override
   public Node toNode() {
 
-    // Asserts that the current ChainedNode can represent a Node.
+    //Asserts that the current ChainedNode can represent a Node.
     if (nextNode != null) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Node.class);
     }
 
-    // Handles the case that the current ChainedNode does not have a header.
+    //Handles the case that the current ChainedNode does not have a header.
     if (!hasHeader()) {
       return Node.withChildNodes(getChildNodes().to(ChainedNode::toNode));
     }
 
-    // Handles the case that the current ChainedNode has a header.
+    //Handles the case that the current ChainedNode has a header.
     return Node.withHeaderAndChildNodes(getHeader(), getChildNodes().to(ChainedNode::toNode));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -813,7 +813,7 @@ public final class ChainedNode implements IChainedNode {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   /**
    * Adds the given childNode and childNodes to the current {@link ChainedNode}.
    * 
@@ -838,7 +838,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * Adds the given attributes to the current {@link ChainedNode}.
    * 
@@ -854,7 +854,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * Adds the given attributes to the current {@link ChainedNode}.
    * 
@@ -871,7 +871,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * Adds the given attributes to the current {@link ChainedNode}.
    * 
@@ -883,7 +883,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * Appends the {@link String} representation of the current {@link ChainedNode}
    * to the given stringBuilder.
@@ -892,12 +892,12 @@ public final class ChainedNode implements IChainedNode {
    */
   private void appendStringRepresentationTo(final StringBuilder stringBuilder) {
 
-    // Handles the case that the current ChainedNode has a header.
+    //Handles the case that the current ChainedNode has a header.
     if (header != null) {
       stringBuilder.append(getEscapeStringFor(header));
     }
 
-    // Handles the case that the current ChainedNode contains attributes.
+    //Handles the case that the current ChainedNode contains attributes.
     if (childNodes.containsAny()) {
 
       stringBuilder.append("(");
@@ -917,14 +917,14 @@ public final class ChainedNode implements IChainedNode {
       stringBuilder.append(")");
     }
 
-    // Handles the case that the current ChainedNode contains a next node.
+    //Handles the case that the current ChainedNode contains a next node.
     if (nextNode != null) {
       stringBuilder.append(".");
       nextNode.appendStringRepresentationTo(stringBuilder);
     }
   }
 
-  // method
+  //method
   /**
    * @param chainedNode
    * @return true if the current {@link ChainedNode} equals the given chainedNode.
@@ -934,7 +934,7 @@ public final class ChainedNode implements IChainedNode {
         && canEqualBecauseOfChildNodes(chainedNode);
   }
 
-  // method
+  //method
   /**
    * @param chainedNode
    * @return true if the current {@link ChainedNode} can equal the given
@@ -972,7 +972,7 @@ public final class ChainedNode implements IChainedNode {
     return true;
   }
 
-  // method
+  //method
   /**
    * @param chainedNode
    * @return true if the current {@link ChainedNode} can equal the given
@@ -987,7 +987,7 @@ public final class ChainedNode implements IChainedNode {
     return (chainedNode.hasHeader() && hasHeader(chainedNode.getHeader()));
   }
 
-  // method
+  //method
   /**
    * @param string
    * @param startIndex
@@ -1019,7 +1019,7 @@ public final class ChainedNode implements IChainedNode {
     return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
   }
 
-  // method
+  //method
   /**
    * Resets the current {@link ChainedNode}.
    */
@@ -1029,7 +1029,7 @@ public final class ChainedNode implements IChainedNode {
     nextNode = null;
   }
 
-  // method
+  //method
   /**
    * Resets the current {@link ChainedNode} from the given string.
    * 
@@ -1046,7 +1046,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * Sets the current {@link ChainedNode} from the given string starting from the
    * given startIndex. The given startIndex and the returned next index are
@@ -1111,7 +1111,7 @@ public final class ChainedNode implements IChainedNode {
     return nextNode.setAndGetNextIndex(string, nextIndex);
   }
 
-  // method
+  //method
   /**
    * Sets the header of the current {@link ChainedNode}.
    * 
@@ -1121,12 +1121,12 @@ public final class ChainedNode implements IChainedNode {
    */
   private void setHeader(final String header) {
 
-    // Asserts that the given header is not null.
+    //Asserts that the given header is not null.
     if (header == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.HEADER);
     }
 
-    // Asserts that the given header is not blank.
+    //Asserts that the given header is not blank.
     if (header.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.HEADER,
@@ -1137,7 +1137,7 @@ public final class ChainedNode implements IChainedNode {
     this.header = header;
   }
 
-  // method
+  //method
   /**
    * Sets the next node of the current {@link ChainedNode}.
    * 
@@ -1146,7 +1146,7 @@ public final class ChainedNode implements IChainedNode {
    */
   private void setNextNode(final IChainedNode nextNode) {
 
-    // Asserts that the given nextNode is not null.
+    //Asserts that the given nextNode is not null.
     if (nextNode == null) {
       throw ArgumentIsNullException.forArgumentName(NEXT_NODE_VARIABLE_NAME);
     }
@@ -1158,7 +1158,7 @@ public final class ChainedNode implements IChainedNode {
     }
   }
 
-  // method
+  //method
   /**
    * Sets the probable header of the current {@link ChainedNode}. The header is in
    * the given string starting from the given startIndex and has the given

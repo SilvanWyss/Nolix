@@ -4,31 +4,31 @@ package ch.nolix.system.application.webapplicationprotocol;
 //class
 public final class CommandProtocol {
 
-  // constant
+  //constant
   public static final String SET_CSS = "SetCSS";
 
-  // constant
+  //constant
   public static final String SET_EVENT_FUNCTIONS = "SetEventFunctions";
 
-  // constant
+  //constant
   public static final String SET_HTML_ELEMENT = "SetHTMLElement";
 
-  // constant
+  //constant
   public static final String SET_ICON = "SetIcon";
 
-  // constant
+  //constant
   public static final String SET_ROOT_HTML_ELEMENT = "SetRootHTMLElement";
 
-  // constant
+  //constant
   public static final String SET_TITLE = "SetTitle";
 
-  // constant
+  //constant
   public static final String SET_USER_INPUT_FUNCTIONS = "SetUserInputFunctions";
 
-  // constant
+  //constant
   public static final String SET_USER_INPUTS = "SetUserInputs";
 
-  // constructor
+  //constructor
   private CommandProtocol() {
   }
 }

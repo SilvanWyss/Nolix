@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalNamed;
  */
 public interface FluentOptionalNameable<FON extends FluentOptionalNameable<FON>> extends OptionalNamed {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the name of the current {@link FluentOptionalNameable}.
    * 
@@ -22,7 +22,7 @@ public interface FluentOptionalNameable<FON extends FluentOptionalNameable<FON>>
    */
   FON removeName();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the name of the current {@link FluentOptionalNameable}.
    * 

@@ -10,16 +10,16 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 //class
 final class BaseWebClientFrontendReader implements IFrontEndReader {
 
-  // static method
+  //static method
   public static BaseWebClientFrontendReader forBackendWebClient(
       final BaseWebClient<?, ?> backendWebClient) {
     return new BaseWebClientFrontendReader(backendWebClient);
   }
 
-  // attribute
+  //attribute
   private final BaseWebClient<?, ?> parentBackendWebClient;
 
-  // constructor
+  //constructor
   private BaseWebClientFrontendReader(final BaseWebClient<?, ?> parentBackendWebClient) {
 
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
@@ -27,19 +27,19 @@ final class BaseWebClientFrontendReader implements IFrontEndReader {
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
-  // method
+  //method
   @Override
   public IContainer<byte[]> getFilesFromClipboard() {
     return parentBackendWebClient.internalGetFilesFromClipboardOfCounterpart();
   }
 
-  // method
+  //method
   @Override
   public String getTextFromClipboard() {
     return parentBackendWebClient.internalGetTextFromClipboardOfCounterpart();
   }
 
-  // method
+  //method
   @Override
   public ISingleContainer<byte[]> readFileToBytes() {
     return parentBackendWebClient.internalReadOptionalFileFromCounterpart();

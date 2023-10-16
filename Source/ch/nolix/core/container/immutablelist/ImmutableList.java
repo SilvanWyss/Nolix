@@ -28,14 +28,14 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class ImmutableList<E> extends Container<E> {
 
-  // static method
+  //static method
   public static <E2> ImmutableList<E2> forArray(final E2[] array) {
     return new ImmutableList<>(array.clone());
   }
 
-  // static method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //static method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * @param <E2>
    * @param container
@@ -68,7 +68,7 @@ public final class ImmutableList<E> extends Container<E> {
     return new ImmutableList<>((E2[]) elements);
   }
 
-  // static method
+  //static method
   /**
    * @param element
    * @param elements
@@ -83,10 +83,10 @@ public final class ImmutableList<E> extends Container<E> {
     return new ImmutableList<>(element, elements);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final E[] elements;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ImmutableList} that is empty.
    */
@@ -95,17 +95,17 @@ public final class ImmutableList<E> extends Container<E> {
     elements = (E[]) new Object[0];
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ImmutableList} with the given elements.
    * 
    * @param elements
    */
   private ImmutableList(final E[] elements) {
-    this.elements = elements; // NOSONAR: A ImmutableList operates on the original instance.
+    this.elements = elements; //NOSONAR: A ImmutableList operates on the original instance.
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ImmutableList} with the given element and elements.
    * 
@@ -121,7 +121,7 @@ public final class ImmutableList<E> extends Container<E> {
     GlobalValidator.assertThatTheElements(elements).areNotNull();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -130,7 +130,7 @@ public final class ImmutableList<E> extends Container<E> {
     return elements.length;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -142,7 +142,7 @@ public final class ImmutableList<E> extends Container<E> {
     return elements[p1BasedIndex - 1];
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -151,7 +151,7 @@ public final class ImmutableList<E> extends Container<E> {
     return elements[getElementCount() - 1];
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -160,7 +160,7 @@ public final class ImmutableList<E> extends Container<E> {
     return true;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -169,7 +169,7 @@ public final class ImmutableList<E> extends Container<E> {
     return ArrayIterator.forArray(elements);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -178,7 +178,7 @@ public final class ImmutableList<E> extends Container<E> {
     return ReadContainer.forIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -187,7 +187,7 @@ public final class ImmutableList<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

@@ -18,10 +18,10 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  */
 public final class SelectingStyle extends BaseSelectingStyle {
 
-  // constant
+  //constant
   public static final String TYPE_NAME = "SelectingStyle";
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link SelectingStyle} from the given specification.
@@ -75,7 +75,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
         subStyles);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SelectingStyle}.
    * 
@@ -102,7 +102,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
         subStyles);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -111,7 +111,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

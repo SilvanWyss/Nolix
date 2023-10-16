@@ -10,7 +10,7 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 //class
 public final class ConcreteReferenceContentEvaluator {
 
-  // method
+  //method
   public boolean canAddObject(
       final IConcreteReferenceContent concreteReferenceContent,
       final IAbstractableObject object) {
@@ -20,24 +20,24 @@ public final class ConcreteReferenceContentEvaluator {
         && canAddObjectBecauseOfReferencedType(concreteReferenceContent, object);
   }
 
-  // method
+  //method
   public boolean canRemoveObjects(final IConcreteReferenceContent concreteReferenceContent) {
     return canRemoveObjectsBecauseOfCardinality(concreteReferenceContent);
   }
 
-  // method
+  //method
   public boolean canRemoveOneObject(final IConcreteReferenceContent concreteReferenceContent) {
     return canRemoveOneObjectBecauseOfCardinality(concreteReferenceContent);
   }
 
-  // method
+  //method
   private boolean canAddObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
         && (concreteReferenceContent.getStoredParentField().getCardinality() == Cardinality.TO_MANY
             || concreteReferenceContent.getStoredReferencedObjects().isEmpty());
   }
 
-  // mehtod
+  //mehtod
   private boolean canAddObjectBecauseOfReferencedType(
       final IConcreteReferenceContent concreteReferenceContent,
       final IAbstractableObject object) {
@@ -60,13 +60,13 @@ public final class ConcreteReferenceContentEvaluator {
     return true;
   }
 
-  // mehod
+  //mehod
   private boolean canRemoveObjectsBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
         && concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE;
   }
 
-  // method
+  //method
   private boolean canRemoveOneObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
         && (concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE

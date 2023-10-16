@@ -37,19 +37,19 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     implements IApplication<AC> {
 
-  // attribute
+  //attribute
   private final AC applicationContext;
 
-  // optional attribute
+  //optional attribute
   private String nameAddendum;
 
-  // optional attribute
+  //optional attribute
   private BaseServer<?> parentServer;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<BC> clients = new LinkedList<>();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Application} with the given applicationContext.
    * 
@@ -63,7 +63,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     this.applicationContext = applicationContext;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -75,7 +75,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return asTargetWithServerTarget(serverTarget);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -84,7 +84,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return (parentServer != null);
   }
 
-  // method
+  //method
   /**
    * @return the class of the {@link Client}s of the current {@link Application}.
    */
@@ -93,7 +93,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return (Class<BC>) (createInitialSession().getClientClass());
   }
 
-  // method
+  //method
   /**
    * @return the instance name of the current {@link Application}.
    */
@@ -107,7 +107,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return String.format("%s %s", getApplicationName(), getNameAddendum());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -119,7 +119,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return nameAddendum;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -128,7 +128,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return applicationContext;
   }
 
-  // method
+  //method
   /**
    * @return the {@link Client}s of the current {@link Application}.
    */
@@ -139,7 +139,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return clients;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -148,7 +148,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return getInstanceName().replace(StringCatalogue.SPACE, StringCatalogue.UNDERSCORE).toLowerCase(Locale.ENGLISH);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link Application} has a {@link Client}
    *         connected.
@@ -157,7 +157,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return getStoredClients().containsAny();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -166,7 +166,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return (nameAddendum != null);
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link Application} take the given client.
    * 
@@ -180,7 +180,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     GlobalSequencer.runInBackground(() -> lClient.internalPush(createInitialSession()));
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link Application} take the given endPoint.
    * 
@@ -190,7 +190,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     takeClient(createBackendClientWithEndPoint(endPoint));
   }
 
-  // method
+  //method
   /**
    * @return a new initial {@link Session} for a {@link Client} of the current
    *         {@link Application}.
@@ -208,13 +208,13 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * @return the initial {@link Session} class of the current {@link Application}.
    */
   protected abstract Class<?> getInitialSessionClass();
 
-  // method
+  //method
   /**
    * Sets the given nameAddendum to the current {@link Application}.
    * 
@@ -233,7 +233,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     this.nameAddendum = nameAddendum;
   }
 
-  // method
+  //method
   /**
    * Sets the parent {@link BaseServer} of the current {@link Application}.
    * 
@@ -250,7 +250,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     this.parentServer = parentServer;
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotBelongToParentException if the current
    *                                                {@link Application} does not
@@ -263,7 +263,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentBelongsToParentException if the current {@link Application}
    *                                          belongs already to a
@@ -275,7 +275,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentHasAttributeException if the current {@link Application} has
    *                                       already an instance name.
@@ -286,7 +286,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link Application} does not
@@ -298,7 +298,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     }
   }
 
-  // method
+  //method
   /**
    * @param serverTarget
    * @return the current {@link Application} as target using the given
@@ -314,7 +314,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
             serverTarget.getSecurityLevelForConnections());
   }
 
-  // method
+  //method
   /**
    * @param endPoint
    * @return a new {@link BackendClient} with the given endPoint
@@ -327,7 +327,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return backendClient;
   }
 
-  // method
+  //method
   /**
    * @return the constructor of the initial {@link Session} class of the current
    *         {@link Application}.
@@ -338,7 +338,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return constructor;
   }
 
-  // method
+  //method
   /**
    * @return the parent {@link BaseServer} of the current {@link Application}.
    * @throws ArgumentDoesNotBelongToParentException if the current
@@ -353,7 +353,7 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     return parentServer;
   }
 
-  // method
+  //method
   /**
    * Removes the closed {@link Client}s of the current {@link Application}.
    */

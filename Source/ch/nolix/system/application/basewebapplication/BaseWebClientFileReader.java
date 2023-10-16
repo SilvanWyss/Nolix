@@ -15,25 +15,25 @@ import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 //class
 final class BaseWebClientFileReader {
 
-  // constant
+  //constant
   private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 
-  // static method
+  //static method
   public static BaseWebClientFileReader forBackendWebClient(
       final BaseWebClient<?, ?> backendWebClient) {
     return new BaseWebClientFileReader(backendWebClient);
   }
 
-  // attribute
+  //attribute
   private final BaseWebClient<?, ?> parentBackendWebClient;
 
-  // attribute
+  //attribute
   private boolean isWaitingForFileFromCounterpart;
 
-  // optional attribute
+  //optional attribute
   private SingleContainer<byte[]> latestOptionalFileFromCounterpart;
 
-  // constructor
+  //constructor
   private BaseWebClientFileReader(final BaseWebClient<?, ?> parentBackendWebClient) {
 
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
@@ -41,7 +41,7 @@ final class BaseWebClientFileReader {
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
-  // method
+  //method
   public SingleContainer<byte[]> readOptionalFileFromCounterpart() {
 
     assertIsNotWaitingForFileFromCounterpart();
@@ -59,7 +59,7 @@ final class BaseWebClientFileReader {
     return latestOptionalFileFromCounterpart;
   }
 
-  // method
+  //method
   public void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
     switch (receiveOptionalFileCommand.getChildNodeCount()) {
       case 0:
@@ -69,7 +69,7 @@ final class BaseWebClientFileReader {
 
         final var fileString = receiveOptionalFileCommand.getSingleChildNode().getHeader();
 
-        // Important: The received fileString is a Base 64 encoded string.
+        //Important: The received fileString is a Base 64 encoded string.
         final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
         receiveOptionalFileFromCounterpart(
@@ -82,7 +82,7 @@ final class BaseWebClientFileReader {
     }
   }
 
-  // method
+  //method
   private void assertIsNotWaitingForFileFromCounterpart() {
     if (isWaitingForFileFromCounterpart()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -91,19 +91,19 @@ final class BaseWebClientFileReader {
     }
   }
 
-  // method
+  //method
   private void assertIsWaitingForFileFromCounterpart() {
     if (!isWaitingForFileFromCounterpart()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not waiting for a file from counterpart");
     }
   }
 
-  // method
+  //method
   private boolean isWaitingForFileFromCounterpart() {
     return isWaitingForFileFromCounterpart;
   }
 
-  // method
+  //method
   private void receiveOptionalFileFromCounterpart(final SingleContainer<byte[]> optionalFile) {
 
     GlobalValidator.assertThat(optionalFile).thatIsNamed("optional file").isNotNull();

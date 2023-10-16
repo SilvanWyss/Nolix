@@ -17,7 +17,7 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  */
 public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
 
-  // constructor
+  //constructor
   /**
    * Creates a new multi double mediator for the given arguments.
    * 
@@ -26,11 +26,11 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    */
   public MultiDoubleMediator(final Iterable<Double> arguments) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(arguments);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new multi double mediator for the given arguments.
    * 
@@ -39,11 +39,11 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    */
   public MultiDoubleMediator(final double[] arguments) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(GlobalArrayHelper.createIterable(arguments));
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws ArgumentIsNullException  if one of the arguments of this multi double
@@ -53,14 +53,14 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    */
   public void areBiggerThan(final double value) {
 
-    // Asserts that the arguments of this multi double mediator are not null.
+    //Asserts that the arguments of this multi double mediator are not null.
     areNotNull();
 
-    // Iterates the arguments of this multi double mediator.
+    //Iterates the arguments of this multi double mediator.
     var i = 1;
     for (final double a : getStoredArguments()) {
 
-      // Asserts that the current argument is bigger than the given value.
+      //Asserts that the current argument is bigger than the given value.
       if (a <= value) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
             i + "th argument",
@@ -68,12 +68,12 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
             "is not bigger than " + value);
       }
 
-      // Increments index.
+      //Increments index.
       i++;
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException      if one of the arguments of this multi
    *                                      double mediator is null.
@@ -82,24 +82,24 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    */
   public void areNegative() {
 
-    // Asserts that the arguments of this multi double mediator are not null.
+    //Asserts that the arguments of this multi double mediator are not null.
     areNotNull();
 
-    // Iterates the arguments of this multi double mediator.
+    //Iterates the arguments of this multi double mediator.
     var i = 1;
     for (final double a : getStoredArguments()) {
 
-      // Asserts that the current arguemnt is negative.
+      //Asserts that the current arguemnt is negative.
       if (a > 0) {
         throw NonNegativeArgumentException.forArgumentNameAndArgument(i + "th argument", a);
       }
 
-      // Increments index.
+      //Increments index.
       i++;
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException      if one of the arguments of this multi
    *                                      double mediator is null.
@@ -108,24 +108,24 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    */
   public void arePositive() {
 
-    // Asserts that the arguments of this multi double mediator are not null.
+    //Asserts that the arguments of this multi double mediator are not null.
     areNotNull();
 
-    // Iterates the arguments of this multi double mediator.
+    //Iterates the arguments of this multi double mediator.
     var i = 1;
     for (final double a : getStoredArguments()) {
 
-      // Asserts that the current argument is positive.
+      //Asserts that the current argument is positive.
       if (a <= 0) {
         throw NonPositiveArgumentException.forArgumentNameAndArgument(i + "th argument", a);
       }
 
-      // Increments index.
+      //Increments index.
       i++;
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws ArgumentIsNullException  if one of the arguments of this multi double
@@ -136,14 +136,14 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
    */
   public void areSmallerThan(final double value) {
 
-    // Asserts that the arguments of this multi double mediator are not null.
+    //Asserts that the arguments of this multi double mediator are not null.
     areNotNull();
 
-    // Iterates the arguments of this multi double mediator.
+    //Iterates the arguments of this multi double mediator.
     var i = 1;
     for (final double a : getStoredArguments()) {
 
-      // Asserts that the current argument is smaller than the given value.
+      //Asserts that the current argument is smaller than the given value.
       if (a >= value) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
             i + "the argument",
@@ -151,7 +151,7 @@ public final class MultiDoubleMediator extends MultiArgumentMediator<Double> {
             "is not smaller than " + value);
       }
 
-      // Increments index.
+      //Increments index.
       i++;
     }
   }

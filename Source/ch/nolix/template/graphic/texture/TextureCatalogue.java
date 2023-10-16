@@ -7,25 +7,25 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 //class
 public final class TextureCatalogue {
 
-  // constant
+  //constant
   private static final TextureCreator TEXTURE_CREATOR = new TextureCreator();
 
-  // constant
+  //constant
   public static final IImage CONCRETE_TEXTURE = TEXTURE_CREATOR.createConcreteTexture();
 
-  // constant
+  //constant
   public static final IImage FIR_WOOD_TEXTURE = TEXTURE_CREATOR.createFirWoodTexture();
 
-  // constant
+  //constant
   public static final IImage JUTE_TEXTURE = TEXTURE_CREATOR.createJuteTexture();
 
-  // constant
+  //constant
   public static final IImage PARCHMENT_TEXTURE = TEXTURE_CREATOR.createParchmentTexture();
 
-  // constant
+  //constant
   public static final IImage WHITE_MARBLE_TEXTURE = TEXTURE_CREATOR.createWhiteMarbleTexture();
 
-  // constructor
+  //constructor
   private TextureCatalogue() {
   }
 }

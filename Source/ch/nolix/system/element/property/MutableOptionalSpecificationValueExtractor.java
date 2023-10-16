@@ -17,19 +17,19 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public final class MutableOptionalSpecificationValueExtractor implements IProperty, Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Consumer<INode<?>> setter;
 
-  // attribute
+  //attribute
   private final BooleanSupplier valuePresenceChecker;
 
-  // attribute
+  //attribute
   private final Supplier<Node> getter;
 
-  // constructor
+  //constructor
   public MutableOptionalSpecificationValueExtractor(
       final String name,
       final Consumer<INode<?>> setter,
@@ -47,13 +47,13 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     this.getter = getter;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -65,7 +65,7 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     if (valuePresenceChecker.getAsBoolean()) {

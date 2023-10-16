@@ -29,13 +29,13 @@ import ch.nolix.coreapi.containerapi.sequencesearchapi.ISequencePattern;
  */
 public final class SequencePattern<E> implements ISequencePattern<E> {
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Predicate<E>> elementConditions = new LinkedList<>();
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Predicate<LinkedList<E>>> sequenceConditions = new LinkedList<>();
 
-  // method
+  //method
   /**
    * Adds a blank condition for the next element of the sequences of the current
    * {@link SequencePattern}.
@@ -49,7 +49,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return this;
   }
 
-  // method
+  //method
   /**
    * Adds the given condition for the next element of the sequences of the current
    * {@link SequencePattern}.
@@ -65,7 +65,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return this;
   }
 
-  // method
+  //method
   /**
    * Adds the given sequence condition to the current {@link SequencePattern}. The
    * sequence conditions must be fulfilled from the sequences of a
@@ -84,7 +84,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return this;
   }
 
-  // method
+  //method
   /**
    * @param count
    * @return a new {@link SequencePatternNextMediator} for the current
@@ -95,7 +95,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return new SequencePatternNextMediator<>(this, count);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -106,12 +106,12 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
 
     final int maxSequenceCount = list.getElementCount() - getSize() + 1;
 
-    // Iterates the given list.
+    //Iterates the given list.
     final var iterator = list.iterator();
     for (var i = 1; i <= maxSequenceCount; i++) {
 
-      // Asserts that the current sequence fulfills the element conditions of the
-      // current SequencePattern.
+      //Asserts that the current sequence fulfills the element conditions of the
+      //current SequencePattern.
       var sequenceFulfillsElementConditions = true;
       final var iterator2 = iterator.getCopy();
       for (final Predicate<E> c : elementConditions) {
@@ -130,21 +130,21 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
         final var iterator3 = iterator.getCopy();
         GlobalSequencer.forCount(getSize()).run(() -> sequence.addAtEnd(iterator3.next()));
 
-        // Asserts that the current sequence fulfills the sequence conditions of the
-        // current SequencePattern.
+        //Asserts that the current sequence fulfills the sequence conditions of the
+        //current SequencePattern.
         if (sequenceConditions.containsOnly(sc -> sc.test(sequence))) {
           sequences.addAtEnd(sequence);
         }
       }
 
-      // Increments the iterator.
+      //Increments the iterator.
       iterator.next();
     }
 
     return sequences;
   }
 
-  // method
+  //method
   /**
    * @return the number of elements of the sequences of the current
    *         {@link SequencePattern}.
@@ -153,22 +153,22 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
     return elementConditions.getElementCount();
   }
 
-  // method
+  //method
   /**
    * @param list
    * @return true if this {@link SequencePattern} matches the given list.
    */
   boolean matches(final LinkedList<E> list) {
 
-    // Asserts that the given list has as many elements as the current
-    // SequencePattern requires.
+    //Asserts that the given list has as many elements as the current
+    //SequencePattern requires.
     if (list.getElementCount() != getSize()) {
       return false;
     }
 
-    // Asserts that the elements of the given list
-    // fulfill the according element conditions the current SequencePattern
-    // requires.
+    //Asserts that the elements of the given list
+    //fulfill the according element conditions the current SequencePattern
+    //requires.
     final Iterator<Predicate<E>> iterator = elementConditions.iterator();
     for (final E e : list) {
       if (!iterator.next().test(e)) {
@@ -176,8 +176,8 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
       }
     }
 
-    // Asserts that the given list fulfils the sequence conditions of the current
-    // SequencePattern.
+    //Asserts that the given list fulfils the sequence conditions of the current
+    //SequencePattern.
     return sequenceConditions.containsOnly(sc -> sc.test(list));
   }
 }

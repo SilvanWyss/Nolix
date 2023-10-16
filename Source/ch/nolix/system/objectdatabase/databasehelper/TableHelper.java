@@ -13,27 +13,27 @@ import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.ITableHelper;
 //class
 public final class TableHelper extends DatabaseObjectHelper implements ITableHelper {
 
-  // constant
+  //constant
   private static final EntityHelper ENTITY_HELPER = new EntityHelper();
 
-  // method
+  //method
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?> table) {
     return table
         .technicalGetRefEntitiesInLocalData()
         .containsOnly(
-            e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) // NOSONAR: A method reference will rise a
-                                                                           // BootstrapMethodError.
+            e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a
+                                                                           //BootstrapMethodError.
         );
   }
 
-  // method
+  //method
   @Override
   public boolean canInsertEntity(final ITable<?> table) {
     return table.isOpen();
   }
 
-  // method
+  //method
   @Override
   public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
     return canInsertEntity(table)
@@ -41,13 +41,13 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
         && !hasInsertedGivenEntityInLocalData(table, entity);
   }
 
-  // method
+  //method
   @Override
   public boolean containsEntityWithGivenIdInLocalData(final ITable<?> table, final String id) {
     return table.technicalGetRefEntitiesInLocalData().containsAny(e -> e.hasId(id));
   }
 
-  // method
+  //method
   @Override
   public <E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(
       final ITable<E> table) {
@@ -64,13 +64,13 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
     return columns;
   }
 
-  // method
+  //method
   @Override
   public boolean hasChanges(final ITable<?> table) {
     return table.technicalGetRefEntitiesInLocalData().containsAny(e -> !ENTITY_HELPER.isLoaded(e));
   }
 
-  // method
+  //method
   @Override
   public boolean hasInsertedGivenEntityInLocalData(final ITable<?> table, final IEntity entity) {
     return containsEntityWithGivenIdInLocalData(table, entity.getId());

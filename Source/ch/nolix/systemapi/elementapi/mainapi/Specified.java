@@ -14,19 +14,19 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Specified {
 
-  // method
+  //method
   /**
    * @return the attributes of the current {@link Specified}.
    */
   IContainer<INode<?>> getAttributes();
 
-  // method
+  //method
   /**
    * @return the specification of the current {@link Specified}.
    */
   INode<?> getSpecification();
 
-  // method
+  //method
   /**
    * @return the header of the specification of the current {@link Specified}.
    */
@@ -34,7 +34,7 @@ public interface Specified {
     return getClass().getSimpleName();
   }
 
-  // method
+  //method
   /**
    * @param header
    * @return the specification of the current {@link Specified} with the given
@@ -46,7 +46,7 @@ public interface Specified {
     return getSpecification().asWithHeader(header);
   }
 
-  // method
+  //method
   /**
    * @return a formated {@link String} representation of the current
    *         {@link Specified}.
@@ -55,7 +55,7 @@ public interface Specified {
     return getSpecification().toFormattedString();
   }
 
-  // method
+  //method
   /**
    * @return a XML representation of the current {@link Specified}.
    */
@@ -63,7 +63,7 @@ public interface Specified {
     return getSpecification().toXml();
   }
 
-  // method
+  //method
   /**
    * @return a XML representation of the current {@link Specified} with the given
    *         header.

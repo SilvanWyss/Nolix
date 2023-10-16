@@ -9,7 +9,7 @@ import ch.nolix.systemtest.objectdatabasetest.databasetest.DatabaseTestPool;
 //class
 public final class ObjectDatabaseTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ObjectDatabaseTestPool() {
     super(new DatabaseTestPool(), new DataAdapterTestPool());
   }

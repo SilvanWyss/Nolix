@@ -7,9 +7,9 @@ public interface IOptionalBackReference<
     E extends IEntity>
     extends IBaseBackReference<E> {
 
-  // method declaration
+  //method declaration
   E getBackReferencedEntity();
 
-  // method declaration
+  //method declaration
   String getBackReferencedEntityId();
 }

@@ -7,18 +7,18 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 //interface
 public interface IServer extends Clearable, GroupCloseable {
 
-  // method declaration
+  //method declaration
   void addDefaultSlot(ISlot defaultSlot);
 
-  // method declaration
+  //method declaration
   void addSlot(ISlot slot);
 
-  // method declaration
+  //method declaration
   boolean containsDefaultSlot();
 
-  // method declaration
+  //method declaration
   boolean containsSlotWithName(String name);
 
-  // method declaration
+  //method declaration
   void removeSlotByName(String name);
 }

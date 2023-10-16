@@ -9,39 +9,39 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class WebSocketHandShakeResponseTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getSecWebSocketAccept() {
 
-    // parameter definition
+    //parameter definition
     final var secWebSocketKey = "dGhlIHNhbXBsZSBub25jZQ==";
     final var expcetedSecWebSocketAccept = "s3pPLMBiTxaQ9kYGzzhZRbK+xOo=";
 
-    // setup
+    //setup
     final var webSocketHandShakeResponse = new WebSocketHandShakeResponse(secWebSocketKey);
 
-    // execution
+    //execution
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
 
-    // verification
+    //verification
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSecWebSocketAccept_2() {
 
-    // parameter definition
+    //parameter definition
     final var secWebSocketKey = "xqBt3ImNzJbYqRINxEFlkg==";
     final var expcetedSecWebSocketAccept = "K7DJLdLooIwIG/MOpvWFB3y3FE8=";
 
-    // setup
+    //setup
     final var webSocketHandShakeResponse = new WebSocketHandShakeResponse(secWebSocketKey);
 
-    // execution
+    //execution
     final var secWebSocketAccept = webSocketHandShakeResponse.getSecWebSocketAccept();
 
-    // verification
+    //verification
     expect(secWebSocketAccept).isEqualTo(expcetedSecWebSocketAccept);
   }
 }

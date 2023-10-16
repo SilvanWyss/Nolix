@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.itemmenuapi.IDropdownMenuStyle;
 //class
 public final class DropdownMenuTest extends ItemMenuTest<IDropdownMenu, IDropdownMenuStyle> {
 
-  // method
+  //method
   @Override
   protected IDropdownMenu createTestUnit() {
     return new DropdownMenu();

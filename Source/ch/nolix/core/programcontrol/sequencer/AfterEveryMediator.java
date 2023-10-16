@@ -19,16 +19,16 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class AfterEveryMediator {
 
-  // attribute
+  //attribute
   private final int timeIntervalInMilliseconds;
 
-  // optional attribute
+  //optional attribute
   private final Integer maxRunCount;
 
-  // optional attribute
+  //optional attribute
   private final BooleanSupplier condition;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link AfterEveryMediator} with the given condition and time
    * interval in milliseconds.
@@ -49,7 +49,7 @@ public final class AfterEveryMediator {
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link AfterEveryMediator} with the given maxRunCount,
    * condition and time interval in milliseconds.
@@ -76,7 +76,7 @@ public final class AfterEveryMediator {
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job.
    * 
@@ -84,18 +84,18 @@ public final class AfterEveryMediator {
    */
   public void run(final Runnable job) {
 
-    // Handles the case that the current AfterAllMediator does not have a max run
-    // count.
+    //Handles the case that the current AfterAllMediator does not have a max run
+    //count.
     if (!hasMaxRunCount()) {
       runWhenDoesNotHaveMaxRunCount(job);
 
-      // Handles the case that the current AfterAllMediator has a max run count.
+      //Handles the case that the current AfterAllMediator has a max run count.
     } else {
       runWhenHasMaxRunCount(job);
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job in background.
    * 
@@ -105,16 +105,16 @@ public final class AfterEveryMediator {
    */
   public Future runInBackground(final Runnable job) {
 
-    // Handles the case that the current AfterAllMediator does not have a max count.
+    //Handles the case that the current AfterAllMediator does not have a max count.
     if (!hasMaxRunCount()) {
       return runInBackgroundWhenDoesNotHaveMaxRunConunt(job);
     }
 
-    // Handles the case that the current AfterAllMediator has a max count.
+    //Handles the case that the current AfterAllMediator has a max count.
     return runInBackgroundWhenHasMaxRunConunt(job);
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link AfterEveryMediator} does
@@ -126,7 +126,7 @@ public final class AfterEveryMediator {
     }
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link AfterEveryMediator} has a condition.
    */
@@ -134,7 +134,7 @@ public final class AfterEveryMediator {
     return (condition != null);
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link AfterEveryMediator} has a max run count.
    */
@@ -142,7 +142,7 @@ public final class AfterEveryMediator {
     return (maxRunCount != null);
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job in background
    * for the case when the current {@link AfterEveryMediator} does not have a max
@@ -154,16 +154,16 @@ public final class AfterEveryMediator {
    */
   private Future runInBackgroundWhenDoesNotHaveMaxRunConunt(final Runnable job) {
 
-    // Handles the case that the current AfterAllMediator does not have a condition.
+    //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       return new Future(new JobRunner(job, timeIntervalInMilliseconds, () -> true));
     }
 
-    // Handles the case that the current AfterAllMediator has a condition.
+    //Handles the case that the current AfterAllMediator has a condition.
     return new Future(new JobRunner(job, condition, timeIntervalInMilliseconds));
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job in background
    * for the case when the current {@link AfterEveryMediator} has a max run count.
@@ -174,16 +174,16 @@ public final class AfterEveryMediator {
    */
   private Future runInBackgroundWhenHasMaxRunConunt(final Runnable job) {
 
-    // Handles the case that the current AfterAllMediator does not have a condition.
+    //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       return new Future(new JobRunner(job, maxRunCount, timeIntervalInMilliseconds));
     }
 
-    // Handles the case that the current AfterAllMediator has a condition.
+    //Handles the case that the current AfterAllMediator has a condition.
     return new Future(new JobRunner(job, maxRunCount, condition, timeIntervalInMilliseconds));
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job for the case
    * when the current {@link AfterEveryMediator} does not have a max run count.
@@ -203,7 +203,7 @@ public final class AfterEveryMediator {
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link AfterEveryMediator} run the given job for the case
    * when the current {@link AfterEveryMediator} has a max run count.
@@ -212,7 +212,7 @@ public final class AfterEveryMediator {
    */
   private void runWhenHasMaxRunCount(final Runnable job) {
 
-    // Handles the case that the current AfterAllMediator does not have a condition.
+    //Handles the case that the current AfterAllMediator does not have a condition.
     if (!hasCondition()) {
       for (var i = 1; i <= maxRunCount; i++) {
 
@@ -221,7 +221,7 @@ public final class AfterEveryMediator {
         job.run();
       }
 
-      // Handles the case that the current AfterAllMediator has a condition.
+      //Handles the case that the current AfterAllMediator has a condition.
     } else {
       for (var i = 1; i <= maxRunCount; i++) {
 

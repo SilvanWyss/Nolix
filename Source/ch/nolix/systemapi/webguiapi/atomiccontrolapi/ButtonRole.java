@@ -18,7 +18,7 @@ public enum ButtonRole {
   CONFIRM_BUTTON,
   CANCEL_BUTTON;
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link ButtonRole} from the given specification.

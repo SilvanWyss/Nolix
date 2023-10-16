@@ -12,12 +12,12 @@ public final class ParameterizedOptionalReferenceType<
     E extends IEntity>
     extends BaseParameterizedReferenceType<E> {
 
-  // constructor
+  //constructor
   public ParameterizedOptionalReferenceType(final ITable<E> referencedTable) {
     super(referencedTable);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.OPTIONAL_REFERENCE;

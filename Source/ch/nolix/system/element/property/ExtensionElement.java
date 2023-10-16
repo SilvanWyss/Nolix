@@ -6,12 +6,12 @@ import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
 //class
 public final class ExtensionElement<E extends IRespondingMutableElement<E>> extends BaseExtensionElement<E> {
 
-  // constructor
+  //constructor
   public ExtensionElement(final E internalExtensionElement) {
     super(internalExtensionElement);
   }
 
-  // method
+  //method
   @Override
   public boolean isExchangable() {
     return true;

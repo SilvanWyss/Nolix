@@ -9,17 +9,17 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public class TimeMediator extends ArgumentMediator<ITime> {
 
-  // constructor
+  //constructor
   TimeMediator(final String argumentName, final ITime argument) {
     super(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   TimeMediator(final ITime argument) {
     super(argument);
   }
 
-  // method
+  //method
   public final void isAfter(final ITime time) {
 
     isNotNull();
@@ -32,7 +32,7 @@ public class TimeMediator extends ArgumentMediator<ITime> {
     }
   }
 
-  // method
+  //method
   public final void isBefore(final ITime time) {
 
     isNotNull();

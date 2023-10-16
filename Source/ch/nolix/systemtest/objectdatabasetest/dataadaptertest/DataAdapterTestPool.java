@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class DataAdapterTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public DataAdapterTestPool() {
     super(NodeDataAdapterTest.class);
   }

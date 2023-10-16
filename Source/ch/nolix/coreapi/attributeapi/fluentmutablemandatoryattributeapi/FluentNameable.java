@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
  */
 public interface FluentNameable<FN extends FluentNameable<FN>> extends Named {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the name of the current {@link FluentNameable}.
    * 

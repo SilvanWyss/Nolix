@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotHaveAttributeException extends InvalidArgumentException {
 
-  // constructor
+  //constructor
   /**
    * @param argument
    * @param attributeName
@@ -31,7 +31,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argument, attributeName);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param attributeType
@@ -45,7 +45,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argument, attributeType);
   }
 
-  // constructor
+  //constructor
   /**
    * @param argumentName
    * @param argument
@@ -64,7 +64,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeName);
   }
 
-  // constructor
+  //constructor
   /**
    * @param argumentName
    * @param argument
@@ -82,7 +82,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeType);
   }
 
-  // static method
+  //static method
   /**
    * @param attributeType
    * @return the name of the given attribtueType.
@@ -90,7 +90,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    */
   private static String getNameOfAttributeType(final Class<?> attributeType) {
 
-    // Asserts that the given attribtueType is not null.
+    //Asserts that the given attribtueType is not null.
     if (attributeType == null) {
       throw new IllegalArgumentException("The given attribute type is null.");
     }
@@ -98,7 +98,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return attributeType.getSimpleName();
   }
 
-  // static method
+  //static method
   /**
    * @param attributeName
    * @return a valid attribute name of the given attributeName.
@@ -107,12 +107,12 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    */
   private static String getValidAttributeNameOfAttributeName(final String attributeName) {
 
-    // Asserts that the given attributeName is not null.
+    //Asserts that the given attributeName is not null.
     if (attributeName == null) {
       throw new IllegalArgumentException("The given attribute name is null.");
     }
 
-    // Asserts that the given attributeName is not blank.
+    //Asserts that the given attributeName is not blank.
     if (attributeName.isBlank()) {
       throw new IllegalArgumentException("The given attribute name is blank.");
     }
@@ -120,7 +120,7 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     return attributeName;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argument and attributeType.
@@ -131,11 +131,11 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not have a " + getNameOfAttributeType(attributeType));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argument and attributeName.
@@ -147,11 +147,11 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    */
   private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argumentName, argument and attributeType.
@@ -168,11 +168,11 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
       final Object argument,
       final Class<?> attributeType) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "does not have a " + getNameOfAttributeType(attributeType));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
    * argumentName, argument and attributeName.
@@ -190,11 +190,11 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
       final Object argument,
       final String attributeName) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
   }
 
-  // method
+  //method
   /**
    * @return a new {@link NoSuchElementException} representation of the current
    *         {@link ArgumentDoesNotHaveAttributeException}.

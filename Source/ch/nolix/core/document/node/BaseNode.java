@@ -26,19 +26,19 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
  */
 public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
-  // constant
+  //constant
   public static final String COMMA_CODE = "$M";
 
-  // constant
+  //constant
   public static final String DOLLAR_SYMBOL_CODE = "$X";
 
-  // constant
+  //constant
   public static final String OPEN_BRACKET_CODE = "$O";
 
-  // constant
+  //constant
   public static final String CLOSED_BRACKET_CODE = "$C";
 
-  // static method
+  //static method
   /**
    * @param string
    * @return an escape {@link String} for the given string.
@@ -69,7 +69,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return stringBuilder.toString();
   }
 
-  // static method
+  //static method
   /**
    * @param escapeString
    * @return an origin {@link String} from the given escapeString.
@@ -81,11 +81,11 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
         .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
         .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
 
-        // It is essential to replace the dollar symbol code at last.
+        //It is essential to replace the dollar symbol code at last.
         .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -94,7 +94,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().containsAny();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -103,7 +103,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().containsAny(selector::test);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -112,7 +112,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return containsChildNodeThat(a -> a.hasHeader(header));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -121,7 +121,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().containsOne();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -130,39 +130,39 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getElementCount();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final String getHeaderOrEmptyString() {
 
-    // Handles the case that current BaseNode does not have a header.
+    //Handles the case that current BaseNode does not have a header.
     if (!hasHeader()) {
       return StringCatalogue.EMPTY_STRING;
     }
 
-    // Handles the case that current BaseNode has a header.
+    //Handles the case that current BaseNode has a header.
     return getHeader();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final String getHeaderOrNull() {
 
-    // Handles the case that current BaseNode does not have a header.
+    //Handles the case that current BaseNode does not have a header.
     if (!hasHeader()) {
       return null;
     }
 
-    // Handles the case that current BaseNode has a header.
+    //Handles the case that current BaseNode has a header.
     return getHeader();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -171,7 +171,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().to(INode::getHeader);
   }
 
-  // method declaration
+  //method declaration
   /**
    * {@inheritDoc}
    */
@@ -180,7 +180,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredAt1BasedIndex(index);
   }
 
-  // method declaration
+  //method declaration
   /**
    * {@inheritDoc}
    */
@@ -189,7 +189,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodesThat(a -> a.hasHeader(header));
   }
 
-  // method declaration
+  //method declaration
   /**
    * {@inheritDoc}
    */
@@ -198,7 +198,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredSelected(selector);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -207,7 +207,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredFirst();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -216,7 +216,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredOne();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -225,7 +225,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredFirst(selector);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -234,7 +234,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredChildNodes().getStoredFirstOrNull(selector);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -243,7 +243,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredFirstChildNodeThat(a -> a.hasHeader(header));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -252,7 +252,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().toBoolean();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -261,7 +261,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().toDouble();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -270,7 +270,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().toInt();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -279,23 +279,23 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getStoredSingleChildNode().getHeader();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final boolean hasHeader(final String header) {
 
-    // Handles the case that current BaseNode<?> does not have a header.
+    //Handles the case that current BaseNode<?> does not have a header.
     if (!hasHeader()) {
       return false;
     }
 
-    // Handles the case that current BaseNode<?> has a header.
+    //Handles the case that current BaseNode<?> has a header.
     return getHeader().equals(header);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -304,7 +304,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return (!hasHeader() && !containsChildNodes());
   }
 
-  // method
+  //method
   /**
    * Saves the current {@link BaseNode} to the file with the given file path.
    * 
@@ -316,11 +316,11 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   public final void saveToFile(final String path) {
 
-    // Calls other method.
+    //Calls other method.
     saveToFile(path, WriteMode.THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY);
   }
 
-  // method
+  //method
   /**
    * Saves the current {@link BaseNode} to the file with the given path.
    * 
@@ -337,7 +337,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     FileSystemAccessor.createFile(path, writeMode, toFormattedString());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -346,7 +346,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return GlobalStringHelper.toBoolean(toString());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -355,7 +355,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return GlobalStringHelper.toDouble(toString());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -364,7 +364,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return toFormattedString(0);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -382,14 +382,14 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final IntPair toIntPair() {
 
-    // Asserts that the current BaseNode contains 2 child nodes.
+    //Asserts that the current BaseNode contains 2 child nodes.
     if (getChildNodeCount() != 2) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
     }
@@ -397,7 +397,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return new IntPair(getStoredChildNodeAt1BasedIndex(1).toInt(), getStoredChildNodeAt1BasedIndex(2).toInt());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -406,12 +406,12 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
     final var stringBuilder = new StringBuilder();
 
-    // Handles the case that the current specification has a header.
+    //Handles the case that the current specification has a header.
     if (hasHeader()) {
       stringBuilder.append(getReproducingHeader());
     }
 
-    // Handles the case that the current BaseNode contains child nodes.
+    //Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       stringBuilder
           .append(CharacterCatalogue.OPEN_BRACKET)
@@ -422,26 +422,26 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final IMutableXmlNode toXml() {
 
-    // Creates an XmlNode.
+    //Creates an XmlNode.
     final var xmlNode = new MutableXmlNode()
         .setName(getHeader());
 
-    // Iterates the child nodes of the current BaseNode.
+    //Iterates the child nodes of the current BaseNode.
     for (final BaseNode<?> cn : getStoredChildNodes()) {
 
-      // Handles the case that the current child node itself does not contain child
-      // nodes.
+      //Handles the case that the current child node itself does not contain child
+      //nodes.
       if (!cn.containsChildNodes()) {
         xmlNode.setValue(cn.toString());
 
-        // Handles the case that the current child node itself contains child nodes.
+        //Handles the case that the current child node itself contains child nodes.
       } else {
         xmlNode.addChildNode(cn.toXml());
       }
@@ -450,7 +450,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return xmlNode;
   }
 
-  // method
+  //method
   /**
    * @param node
    * @return true if the current {@link BaseNode} equals the given node.
@@ -460,28 +460,28 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
         && hasEqualChildNodeSettingLikeNode(node);
   }
 
-  // method
+  //method
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
       final int leadingTabulators,
       final StringBuilder stringBuilder) {
 
-    // Handles the case that all child nodes of the current BaseNode themselves do
-    // not contain child nodes.
+    //Handles the case that all child nodes of the current BaseNode themselves do
+    //not contain child nodes.
     if (getStoredChildNodes().containsNone(INode::containsChildNodes)) {
       stringBuilder
           .append(CharacterCatalogue.OPEN_BRACKET)
           .append(getStoredChildNodes().toString())
           .append(CharacterCatalogue.CLOSED_BRACKET);
 
-      // Handles the case that the current BaseNode contains child nodes that
-      // themselves contains child nodes.
+      //Handles the case that the current BaseNode contains child nodes that
+      //themselves contains child nodes.
     } else {
 
       stringBuilder
           .append(CharacterCatalogue.OPEN_BRACKET)
           .append(CharacterCatalogue.NEW_LINE);
 
-      // Iterates the child nodes of the current BaseNode.
+      //Iterates the child nodes of the current BaseNode.
       final var attributeCount = getChildNodeCount();
       var index = 1;
       for (final BaseNode<?> cn : getStoredChildNodes()) {
@@ -503,7 +503,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     }
   }
 
-  // method
+  //method
   /**
    * @return a reproducing {@link String} representation of the header of the
    *         current {@link BaseNode}.
@@ -512,7 +512,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return getEscapeStringFor(getHeader());
   }
 
-  // method
+  //method
   private boolean hasEqualHeaderSettingLikeNode(final INode<?> node) {
 
     if (!hasHeader()) {
@@ -522,7 +522,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return node.hasHeader(getHeader());
   }
 
-  // method
+  //method
   private boolean hasEqualChildNodeSettingLikeNode(final INode<?> node) {
 
     if (getChildNodeCount() != node.getChildNodeCount()) {
@@ -539,7 +539,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     return true;
   }
 
-  // method
+  //method
   /**
    * @param leadingTabulators
    * @return a formated {@link String} representation of the current
@@ -552,12 +552,12 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
     stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulators));
 
-    // Handles the case that the current specification has a header.
+    //Handles the case that the current specification has a header.
     if (hasHeader()) {
       stringBuilder.append(getReproducingHeader());
     }
 
-    // Handles the case that the current BaseNode contains child nodes.
+    //Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       appendFormattedStringRepresentationOfChildNodesToStringBuilder(leadingTabulators, stringBuilder);
     }

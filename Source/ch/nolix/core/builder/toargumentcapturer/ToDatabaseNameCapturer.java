@@ -9,17 +9,17 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public class ToDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
 
-  // constructor
+  //constructor
   public ToDatabaseNameCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
 
-  // method
+  //method
   public final String getDatabaseName() {
     return getStoredArgument();
   }
 
-  // method
+  //method
   public final N toDatabase(final String databaseName) {
 
     GlobalValidator.assertThat(databaseName).thatIsNamed(LowerCaseCatalogue.DATABASE_NAME).isNotBlank();

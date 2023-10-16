@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButtonStyle;
 //class
 public final class ButtonStyle extends ControlStyle<IButtonStyle> implements IButtonStyle {
 
-  // constructor
+  //constructor
   public ButtonStyle() {
     initialize();
   }

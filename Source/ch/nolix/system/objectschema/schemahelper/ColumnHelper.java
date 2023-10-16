@@ -17,11 +17,11 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedProperty
 //class
 public final class ColumnHelper extends DatabaseObjectHelper implements IColumnHelper {
 
-  // constant
+  //constant
   private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = //
       new ParameterizedPropertyTypeHelper();
 
-  // method
+  //method
   @Override
   public void assertBelongsToTable(final IColumn column) {
     if (!column.belongsToTable()) {
@@ -29,7 +29,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     }
   }
 
-  // method
+  //method
   @Override
   public void assertDoesNotBelongToTable(final IColumn column) {
     if (column.belongsToTable()) {
@@ -37,7 +37,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     }
   }
 
-  // method
+  //method
   @Override
   public void assertIsABackReferenceColumn(final IColumn column) {
     if (!isABackReferenceColumn(column)) {
@@ -45,7 +45,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     }
   }
 
-  // method
+  //method
   @Override
   public void assertIsAReferenceColumn(final IColumn column) {
     if (!isAReferenceColumn(column)) {
@@ -53,49 +53,49 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     }
   }
 
-  // method
+  //method
   @Override
   public boolean belongsToDatabase(final IColumn column) {
     return (column.belongsToTable() && column.getParentTable().belongsToDatabase());
   }
 
-  // method
+  //method
   @Override
   public BasePropertyType getBasePropertyType(IColumn column) {
     return getPropertyType(column).getBaseType();
   }
 
-  // method
+  //method
   @Override
   public IDatabase getParentDatabase(final IColumn column) {
     return column.getParentTable().getParentDatabase();
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType(final IColumn column) {
     return column.getParameterizedPropertyType().getPropertyType();
   }
 
-  // method
+  //method
   @Override
   public boolean isABackReferenceColumn(final IColumn column) {
     return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(column.getParameterizedPropertyType());
   }
 
-  // method
+  //method
   @Override
   public boolean isAReferenceColumn(final IColumn column) {
     return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(column.getParameterizedPropertyType());
   }
 
-  // method
+  //method
   @Override
   public boolean isAValueColumn(final IColumn column) {
     return PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseValueType(column.getParameterizedPropertyType());
   }
 
-  // method
+  //method
   @Override
   public boolean isAValidBackReferenceColumn(IColumn column) {
 
@@ -117,7 +117,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     return referencesGivenTable(backReferencedColumn, column.getParentTable());
   }
 
-  // method
+  //method
   @Override
   public boolean referencesBackGivenColumn(
       final IColumn column,
@@ -125,7 +125,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     return column.getParameterizedPropertyType().referencesBackColumn(probableBackReferencedColumn);
   }
 
-  // method
+  //method
   @Override
   public boolean referencesGivenTable(final IColumn column, final ITable table) {
     return column.getParameterizedPropertyType().referencesTable(table);

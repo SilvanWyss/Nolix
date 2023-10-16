@@ -19,7 +19,7 @@ public enum DirectionInRectangle {
   DIAGONAL_UP,
   DIAGONAL_DOWN;
 
-  // method
+  //method
   /**
    * @param specification
    * @return a new {@link DirectionInRectangle} from the given specification.

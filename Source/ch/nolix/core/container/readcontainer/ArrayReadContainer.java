@@ -24,10 +24,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class ArrayReadContainer<E> extends Container<E> {
 
-  // attribute
+  //attribute
   private final E[] array;
 
-  // static method
+  //static method
   /**
    * @param array
    * @param <E2>  is the type of the elements of the given array.
@@ -38,18 +38,18 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return new ArrayReadContainer<>(array);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArrayReadContainer} for a new empty array.
    */
   @SuppressWarnings("unchecked")
   public ArrayReadContainer() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this((E[]) new Object[0]);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArrayReadContainer} for the given array.
    * 
@@ -58,17 +58,17 @@ public final class ArrayReadContainer<E> extends Container<E> {
    */
   private ArrayReadContainer(final E[] array) {
 
-    // Asserts that the given array is not null.
+    //Asserts that the given array is not null.
     GlobalValidator
         .assertThat(array)
         .thatIsNamed(LowerCaseCatalogue.ARRAY)
         .isNotNull();
 
-    // Sets the array of the current ArrayReadContainer.
-    this.array = array; // NOSONAR: An ArrayReadContainer operates on the original instance.
+    //Sets the array of the current ArrayReadContainer.
+    this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -77,7 +77,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return array.length;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -90,7 +90,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return array[p1BasedIndex - 1];
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -99,7 +99,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return array[getElementCount() - 1];
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -108,7 +108,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -117,7 +117,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return ArrayIterator.forArray(array);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -126,7 +126,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n). if the current
    * {@link ArrayReadContainer} contains n elements.
@@ -139,7 +139,7 @@ public final class ArrayReadContainer<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

@@ -13,23 +13,23 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 //class
 public final class MultiValueOnDatabaseTest extends Test {
 
-  // static class
+  //constant
   private static final class Round extends Entity {
 
-    // attribute
+    //attribute
     public final MultiValue<Integer> amounts = new MultiValue<>();
 
-    // constructor
+    //constructor
     public Round() {
       initialize();
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isSaved_whenIsNewAndEmpty() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -37,18 +37,18 @@ public final class MultiValueOnDatabaseTest extends Test {
     nodeDataAdapter.insert(round);
     nodeDataAdapter.saveChanges();
 
-    // execution
+    //execution
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    // verification
+    //verification
     expect(loadedRound.amounts.getStoredValues().isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isSaved_whenIsNewAndContainsValue() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -60,20 +60,20 @@ public final class MultiValueOnDatabaseTest extends Test {
     nodeDataAdapter.insert(round);
     nodeDataAdapter.saveChanges();
 
-    // execution
+    //execution
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    // verification
+    //verification
     final var loadedValues = loadedRound.amounts.getStoredValues();
     expect(loadedValues.getElementCount()).isEqualTo(4);
     expect(loadedValues.containsAll(10, 20, 30, 40));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_removeValue_whenIsLoadedAndContainsValue() {
 
-    // setup part 1
+    //setup part 1
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Round.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -85,13 +85,13 @@ public final class MultiValueOnDatabaseTest extends Test {
     nodeDataAdapter.insert(round);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    //setup part 2
     final var loadedRound = nodeDataAdapter.getStoredTableByEntityType(Round.class).getStoredEntityById(round.getId());
 
-    // execution
+    //execution
     loadedRound.amounts.removeValue(40);
 
-    // verification
+    //verification
     final var loadedValues = loadedRound.amounts.getStoredValues();
     expect(loadedValues.getElementCount()).isEqualTo(3);
     expect(loadedValues.containsAll(10, 20, 30));

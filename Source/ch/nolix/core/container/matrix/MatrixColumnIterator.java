@@ -13,18 +13,18 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class MatrixColumnIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> MatrixColumnIterator<E2> forMatrixColumn(final MatrixColumn<E2> matrixColumn) {
     return new MatrixColumnIterator<>(matrixColumn);
   }
 
-  // attribute
+  //attribute
   private final MatrixColumn<E> parentMatrixColumn;
 
-  // attribute
+  //attribute
   private int nextElement1BasedRowIndex = 1;
 
-  // constructor
+  //constructor
   private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn) {
 
     GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
@@ -32,7 +32,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
     this.parentMatrixColumn = parentMatrixColumn;
   }
 
-  // constructor
+  //constructor
   private MatrixColumnIterator(final MatrixColumn<E> parentMatrixColumn, final int nextElement1BasedRowIndex) {
 
     GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
@@ -46,19 +46,19 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
     this.nextElement1BasedRowIndex = nextElement1BasedRowIndex;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return new MatrixColumnIterator<>(parentMatrixColumn, nextElement1BasedRowIndex);
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (nextElement1BasedRowIndex <= parentMatrixColumn.getElementCount());
   }
 
-  // method
+  //method
   @Override
   public E next() {
 
@@ -67,7 +67,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
@@ -75,7 +75,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = parentMatrixColumn.getStoredAt1BasedIndex(nextElement1BasedRowIndex);

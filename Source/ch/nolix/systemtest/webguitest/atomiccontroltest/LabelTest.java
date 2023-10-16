@@ -12,92 +12,92 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public final class LabelTest extends ControlTest<ILabel> {
 
-  // method
+  //method
   @TestCase
   public void testCase_removeRole() {
 
-    // setup
+    //setup
     final var testUnit = new Label();
     testUnit.setRole(LabelRole.TITLE);
 
-    // setup verification
+    //setup verification
     expect(testUnit.hasRole());
 
-    // execution
+    //execution
     testUnit.removeRole();
 
-    // verification
+    //verification
     expectNot(testUnit.hasRole());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_setRole() {
 
-    // setup
+    //setup
     final var testUnit = new Label();
 
-    // setup verification
+    //setup verification
     expectNot(testUnit.hasRole());
 
-    // execution
+    //execution
     final var result = testUnit.setRole(LabelRole.TITLE);
 
-    // verification
+    //verification
     expect(result).is(testUnit);
     expect(testUnit.getRole()).is(LabelRole.TITLE);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_setText() {
 
-    // setup
+    //setup
     final var testUnit = new Label();
 
-    // setup verification
+    //setup verification
     expect(testUnit.getText()).isEqualTo("-");
 
-    // execution
+    //execution
     testUnit.setText("Lorem Ipsum");
 
-    // verification
+    //verification
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_setText_whenGivenTextIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new Label();
 
-    // execution
+    //execution
     testUnit.setText("");
 
-    // verification
+    //verification
     expect(testUnit.getText()).isEqualTo("");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_setText_whenGivenTextIsNull() {
 
-    // setup
+    //setup
     final var testUnit = new Label();
     testUnit.setText("Lorem Ipsum");
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.setText(null))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given text is null.");
 
-    // verification
+    //verification
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");
   }
 
-  // method
+  //method
   @Override
   protected Label createTestUnit() {
     return new Label();

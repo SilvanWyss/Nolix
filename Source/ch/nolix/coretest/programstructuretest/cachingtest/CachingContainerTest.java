@@ -9,137 +9,137 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class CachingContainerTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // execution
+    //execution
     final var result = new CachingContainer<String>();
 
-    // verification
+    //verification
     expect(result.isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredById() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfield = "Garfield";
     final var garfieldId = testUnit.registerAndGetId(garfield);
 
-    // execution
+    //execution
     final var result = testUnit.getStoredById(garfieldId);
 
-    // verification
+    //verification
     expect(result).is(garfield);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredById_whenForTheGivenIdAnElementIsNotRegistered() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
 
-    // execution
+    //execution
     expectRunning(() -> testUnit.getStoredById("G")).throwsException().ofType(InvalidArgumentException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_registerAndGetId() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfield = "Garfield";
 
-    // execution
+    //execution
     final var result = testUnit.registerAndGetId(garfield);
 
-    // verification
+    //verification
     expect(testUnit.getElementCount()).isEqualTo(1);
     expect(testUnit.containsWithId(result));
     expect(testUnit.contains(garfield));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_registerAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfield = "Garfield";
     testUnit.registerAndGetId(garfield);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.registerAndGetId(garfield)).throwsException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_registerAt() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfieldId = "G";
     final var garfield = "Garfield";
 
-    // execution
+    //execution
     testUnit.registerAtId(garfieldId, garfield);
 
-    // verification
+    //verification
     expect(testUnit.getElementCount()).isEqualTo(1);
     expect(testUnit.containsWithId(garfieldId));
     expect(testUnit.contains(garfield));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_registerAt_whenTheGivenElementIsAlreadyRegistered() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfieldId = "G";
     final var garfield = "Garfield";
     testUnit.registerAtId(garfieldId, garfield);
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> testUnit.registerAtId(garfieldId, garfield)).throwsException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_registerIfNotRegisterAndGetId() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfield = "Garfield";
 
-    // execution
+    //execution
     final var result = testUnit.registerIfNotRegisteredAndGetId(garfield);
 
-    // verification
+    //verification
     expect(testUnit.getElementCount()).isEqualTo(1);
     expect(testUnit.containsWithId(result));
     expect(testUnit.contains(garfield));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_registerIfNotRegisterAndGetId_whenTheGivenElementIsAlreadyRegistered() {
 
-    // setup
+    //setup
     final var testUnit = new CachingContainer<String>();
     final var garfieldId = "G";
     final var garfield = "Garfield";
     testUnit.registerAtId(garfieldId, garfield);
 
-    // execution
+    //execution
     final var result = testUnit.registerIfNotRegisteredAndGetId(garfield);
 
-    // verification
+    //verification
     expect(result).isEqualTo(garfieldId);
   }
 }

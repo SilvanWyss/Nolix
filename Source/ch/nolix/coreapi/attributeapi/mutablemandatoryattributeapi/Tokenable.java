@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Tokened;
  */
 public interface Tokenable extends Tokened {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the token of the current {@link Tokenable}.
    * 

@@ -13,18 +13,18 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableDto implements ITableDto {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // mutli-attribute
+  //mutli-attribute
   private final IContainer<IColumnDto> columns;
 
-  // constructor
+  //constructor
   public TableDto(final String name, final IColumnDto column, final IColumnDto... columns) {
     this(name, ReadContainer.forElement(column, columns));
   }
 
-  // constructor
+  //constructor
   public TableDto(final String name, final IContainer<IColumnDto> columns) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
@@ -34,13 +34,13 @@ public final class TableDto implements ITableDto {
     this.columns = LinkedList.fromIterable(columns);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumnDto> getColumns() {
     return columns;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;

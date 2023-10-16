@@ -9,335 +9,335 @@ import ch.nolix.system.graphic.color.Color;
 //class
 public final class ColorTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_equals_whenGivenColorIsEqual() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
     final var color = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.equals(color);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_equals_whenGivenColorIsNotEqual() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
     final var color = Color.fromString("0x101010");
 
-    // execution
+    //execution
     final var result = testUnit.equals(color);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_1A() {
 
-    // execution
+    //execution
     final var result = Color.fromString("0x000000");
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x000000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_fromString_1B() {
 
-    // execution
+    //execution
     final var result = Color.fromString("0xFFFFFF");
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getAlphaValue() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+    //execution
     final var result = testUnit.getAlphaValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo(0xA0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getBlueValue() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+    //execution
     final var result = testUnit.getBlueValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo(0x30);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getGreenValue() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+    //execution
     final var result = testUnit.getGreenValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo(0x20);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getColorNameOrHexadecimalString_1A() {
 
-    // setup
+    //setup
     final var testUnit = Color.ALICE_BLUE;
 
-    // execution
+    //execution
     final var result = testUnit.getColorNameOrHexadecimalString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("AliceBlue");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getColorNameOrHexadecimalString_1B() {
 
-    // setup
+    //setup
     final var testUnit = Color.YELLOW_GREEN;
 
-    // execution
+    //execution
     final var result = testUnit.getColorNameOrHexadecimalString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("YellowGreen");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInvertedColor_1A() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromLong(0x000000);
 
-    // execution
+    //execution
     final var result = testUnit.getInvertedColor();
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0xFFFFFF");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInvertedColor_1B() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromLong(0xFFFFFF);
 
-    // execution
+    //execution
     final var result = testUnit.getInvertedColor();
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x000000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getRedValue() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+    //execution
     final var result = testUnit.getRedValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo(0x10);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSpecification() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.getSpecification();
 
-    // verification
+    //verification
     expect(result).hasStringRepresentation("Color(0x102030)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSpecificationAs() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.getSpecificationWithHeader("BackgroundColor");
 
-    // verification
+    //verification
     expect(result).hasStringRepresentation("BackgroundColor(0x102030)");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toHexadecimalStringWithAlphaValue_1A() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x10203000");
 
-    // execution
+    //execution
     final var result = testUnit.toHexadecimalStringWithAlphaValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo("0x10203000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toHexadecimalStringWithAlphaValue_1B() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x1020307F");
 
-    // execution
+    //execution
     final var result = testUnit.toHexadecimalStringWithAlphaValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo("0x1020307F");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toHexadecimalStringWithAlphaValue_1C() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030FF");
 
-    // execution
+    //execution
     final var result = testUnit.toHexadecimalStringWithAlphaValue();
 
-    // verification
+    //verification
     expect(result).isEqualTo("0x102030FF");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withAlphaValue_1A() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x10203000");
 
-    // execution
+    //execution
     final var result = testUnit.withAlphaValue(0);
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x10203000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withAlphaValue_1B() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x10203000");
 
-    // execution
+    //execution
     final var result = testUnit.withAlphaValue(160);
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x102030A0");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withFloatingPointAlphaValue_1A() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.withFloatingPointAlphaValue(0.0);
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x10203000");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withFloatingPointAlphaValue_1B() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.withFloatingPointAlphaValue(0.5);
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x1020307F");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withFloatingPointAlphaValue_1C() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.withFloatingPointAlphaValue(1.0);
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x102030");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withFullAlphaValue_1A() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030");
 
-    // execution
+    //execution
     final var result = testUnit.withFullAlphaValue();
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x102030");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withFullAlphaValue_1B() {
 
-    // setup
+    //setup
     final var testUnit = Color.fromString("0x102030A0");
 
-    // execution
+    //execution
     final var result = testUnit.withFullAlphaValue();
 
-    // verification
+    //verification
     expect(result.toHexadecimalString()).isEqualTo("0x102030");
   }
 }

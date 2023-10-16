@@ -13,13 +13,13 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC extends IDataAdapterFactory<DA>, DA>
     implements IComponent {
 
-  // attribute
+  //attribute
   private final SingleContainer rootControl = new SingleContainer();
 
-  // attribute
+  //attribute
   private final C controller;
 
-  // constructor
+  //constructor
   protected ComponentWithDataAdapter(
       final C controller,
       final DA initialDataAdapter,
@@ -37,40 +37,40 @@ public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC exte
     doRegistrations(controller);
   }
 
-  // method
+  //method
   @Override
   public final IControl<?, ?> getStoredControl() {
     return rootControl;
   }
 
-  // method
+  //method
   @Override
   public final boolean isAlive() {
     return getStoredSession().isAlive();
   }
 
-  // method
+  //method
   @Override
   public final void refresh() {
 
     fillUpRootControl();
 
-    // TODO: Lets a Component update the web client with the required CSS.
-    // getStoredSession().updateControlOnCounterpart(rootControl);
+    //TODO: Lets a Component update the web client with the required CSS.
+    //getStoredSession().updateControlOnCounterpart(rootControl);
   }
 
-  // method declaration
+  //method declaration
   protected abstract IControl<?, ?> createControl(C controller, DA dataAdapter);
 
-  // method declaration
+  //method declaration
   protected abstract void doRegistrations(C controller);
 
-  // method
+  //method
   private DA createDataAdapter() {
     return getStoredApplicationContext().createDataAdapter();
   }
 
-  // method
+  //method
   private void fillUpRootControl() {
 
     final var dataAdapter = createDataAdapter();
@@ -78,7 +78,7 @@ public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC exte
     fillUpRootControl(dataAdapter);
   }
 
-  // method
+  //method
   private void fillUpRootControl(final DA dataAdapter) {
 
     final var control = createControl(controller, dataAdapter);
@@ -86,12 +86,12 @@ public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC exte
     rootControl.setControl(control);
   }
 
-  // method
+  //method
   private AC getStoredApplicationContext() {
     return controller.getStoredApplicationContext();
   }
 
-  // method
+  //method
   private WebClientSession<AC> getStoredSession() {
     return controller.getStoredSession();
   }

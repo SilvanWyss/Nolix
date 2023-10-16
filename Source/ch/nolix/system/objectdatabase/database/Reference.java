@@ -20,31 +20,31 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class Reference<E extends IEntity> extends BaseReference<E> implements IReference<E> {
 
-  // constant
+  //constant
   private static final IReferenceValidator REFERENCE_VALIDATOR = new ReferenceValidator();
 
-  // constant
+  //constant
   private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 
-  // static method
+  //static method
   public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
     return new Reference<>(type.getSimpleName());
   }
 
-  // static method
+  //static method
   public static Reference<BaseEntity> forEntityWithTableName(final String tableName) {
     return new Reference<>(tableName);
   }
 
-  // optional attribute
+  //optional attribute
   private String referencedEntityId;
 
-  // constructor
+  //constructor
   private Reference(final String referencedTableName) {
     super(referencedTableName);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IProperty> getStoredBackReferencingProperties() {
 
@@ -62,13 +62,13 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public E getReferencedEntity() {
     return getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
-  // method
+  //method
   @Override
   public String getReferencedEntityId() {
 
@@ -77,25 +77,25 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     return referencedEntityId;
   }
 
-  // method
+  //method
   @Override
   public PropertyType getType() {
     return PropertyType.REFERENCE;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return (referencedEntityId == null);
   }
 
-  // method
+  //method
   @Override
   public boolean isMandatory() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public boolean referencesEntity(final IEntity entity) {
     return containsAny()
@@ -103,14 +103,14 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
         && getReferencedEntityId().equals(entity.getId());
   }
 
-  // method
+  //method
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
         && !getReferencedEntity().belongsToTable();
   }
 
-  // method
+  //method
   @Override
   public void setEntity(final E entity) {
 
@@ -127,7 +127,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   @Override
   public void setEntityById(final String id) {
 
@@ -136,19 +136,19 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     setEntity(entity);
   }
 
-  // method
+  //method
   @Override
   public IContentFieldDto technicalToContentField() {
     return new ContentFieldDto(getName(), getReferencedEntityId());
   }
 
-  // method
+  //method
   @Override
   void internalSetOrClearDirectlyFromContent(final Object content) {
     referencedEntityId = (String) content;
   }
 
-  // method
+  //method
   @Override
   void internalUpdateProbableBackReferencesWhenIsNew() {
     if (containsAny()) {
@@ -156,12 +156,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
   }
 
-  // method
+  //method
   private void assertCanSetEntity(final E entity) {
     REFERENCE_VALIDATOR.assertCanSetGivenEntity(this, entity);
   }
 
-  // method
+  //method
   private void updateBackReferencingPropertyForClear(final IProperty backReferencingProperty) {
     switch (backReferencingProperty.getType()) {
       case BACK_REFERENCE:
@@ -181,18 +181,18 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
          */
         break;
       default:
-        // Does nothing.
+        //Does nothing.
     }
   }
 
-  // method
+  //method
   private void clear() {
     if (containsAny()) {
       clearWhenContainsAny();
     }
   }
 
-  // method
+  //method
   private void clearWhenContainsAny() {
 
     updateProbableBackReferencingPropertyForClear();
@@ -202,19 +202,19 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   private IProperty getPendantReferencingPropertyToEntityOrNull(final E entity) {
     return ENTITY_HELPER.getStoredReferencingProperties(entity).getStoredFirstOrNull(rp -> rp.hasName(getName()));
   }
 
-  // method
+  //method
   private void updateProbableBackReferencingPropertyForClear() {
     for (final var brp : getStoredBackReferencingProperties()) {
       updateBackReferencingPropertyForClear(brp);
     }
   }
 
-  // method
+  //method
   private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
     for (final var p : entity.technicalGetRefProperties()) {
       if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
@@ -251,7 +251,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
   }
 
-  // method
+  //method
   private void updatePropbableBackReferencingPropertyOfEntityForClear(final E entity) {
 
     final var pendantReferencingProperty = getPendantReferencingPropertyToEntityOrNull(entity);
@@ -262,12 +262,12 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
     }
   }
 
-  // method
+  //method
   private void updateStateForClear() {
     referencedEntityId = null;
   }
 
-  // method
+  //method
   private void updateStateForSetEntity(final E entity) {
     referencedEntityId = entity.getId();
   }

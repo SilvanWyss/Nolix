@@ -16,10 +16,10 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
  */
 public abstract class License implements Named {
 
-  // attribute
+  //attribute
   private boolean activated;
 
-  // method
+  //method
   /**
    * Activates the current {@link License} with the given key.
    * 
@@ -37,7 +37,7 @@ public abstract class License implements Named {
     activated = true;
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the current {@link License} is not
    *                                  activated.
@@ -48,7 +48,7 @@ public abstract class License implements Named {
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -57,7 +57,7 @@ public abstract class License implements Named {
     return getClass().getName();
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link License} is activated.
    */
@@ -65,14 +65,14 @@ public abstract class License implements Named {
     return activated;
   }
 
-  // method declaration
+  //method declaration
   /**
    * @param filteredKey
    * @return true if the current {@link License} accepts the given filteredKey.
    */
   protected abstract boolean acceptsFilteredKey(String filteredKey);
 
-  // method
+  //method
   /**
    * @param key
    * @return true if the current {@link License} accepts the given key.
@@ -81,7 +81,7 @@ public abstract class License implements Named {
     return acceptsFilteredKey(getFilteredKey(key));
   }
 
-  // method
+  //method
   /**
    * @param key
    * @throws UnacceptedKeyException if the current {@link License} does no accepts
@@ -93,7 +93,7 @@ public abstract class License implements Named {
     }
   }
 
-  // method
+  //method
   /**
    * @throws InvalidArgumentException if the current {@link License} is activated.
    */

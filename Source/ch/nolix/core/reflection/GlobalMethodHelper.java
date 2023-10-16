@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
  */
 public final class GlobalMethodHelper {
 
-  // static method
+  //static method
   /**
    * @param method
    * @param annotationType
@@ -29,7 +29,7 @@ public final class GlobalMethodHelper {
     return (method.getAnnotation(annotationType) != null);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalMethodHelper} can be created.
    */

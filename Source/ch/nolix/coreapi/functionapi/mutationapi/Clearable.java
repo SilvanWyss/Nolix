@@ -13,7 +13,7 @@ import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
  */
 public interface Clearable extends EmptinessRequestable {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the elements of the current {@link Clearable}.
    */

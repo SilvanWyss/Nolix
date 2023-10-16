@@ -13,7 +13,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public interface ISequencePattern<E> {
 
-  // method declaration
+  //method declaration
   /**
    * @param container
    * @return all sequences from the given container that match the current

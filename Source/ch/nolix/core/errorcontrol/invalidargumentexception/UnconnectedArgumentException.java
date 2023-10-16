@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnconnectedArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not connected";
 
-  // constructor
+  //constructor
   /**
    * @param argument
    * @return a new {@link UnconnectedArgumentException} for the given argument.
@@ -25,7 +25,7 @@ public final class UnconnectedArgumentException extends InvalidArgumentException
     return new UnconnectedArgumentException(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link UnconnectedArgumentException} for the given argument.
    * 
@@ -33,7 +33,7 @@ public final class UnconnectedArgumentException extends InvalidArgumentException
    */
   private UnconnectedArgumentException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
 }

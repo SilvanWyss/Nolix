@@ -8,7 +8,7 @@ public enum HarmLevel {
   ERROR,
   FATAL_ERROR;
 
-  // method
+  //method
   public final boolean isHigherThan(final HarmLevel harmLevel) {
     return switch (this) {
       case INFO ->
@@ -22,7 +22,7 @@ public enum HarmLevel {
     };
   }
 
-  // method
+  //method
   public final boolean isLowerThan(final HarmLevel harmLevel) {
     return harmLevel.isHigherThan(this);
   }

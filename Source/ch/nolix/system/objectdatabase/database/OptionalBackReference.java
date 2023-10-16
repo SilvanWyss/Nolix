@@ -17,32 +17,32 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 public final class OptionalBackReference<E extends IEntity> extends BaseBackReference<E>
     implements IOptionalBackReference<E> {
 
-  // constant
+  //constant
   private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 
-  // static method
+  //static method
   public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedPropertyName(
       final Class<E2> type,
       final String backReferencedPropertyName) {
     return new OptionalBackReference<>(type.getSimpleName(), backReferencedPropertyName);
   }
 
-  // static method
+  //static method
   public static OptionalBackReference<BaseEntity> forEntityWithTableNameAndBackReferencedPropertyName(
       final String tableName,
       final String backReferencedPropertyName) {
     return new OptionalBackReference<>(tableName, backReferencedPropertyName);
   }
 
-  // optional attribute
+  //optional attribute
   private String backReferencedEntityId;
 
-  // constructor
+  //constructor
   private OptionalBackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
     super(backReferencedTableName, backReferencedPropertyName);
   }
 
-  // method
+  //method
   @Override
   public String getBackReferencedEntityId() {
 
@@ -51,13 +51,13 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
     return backReferencedEntityId;
   }
 
-  // method
+  //method
   @Override
   public E getBackReferencedEntity() {
     return getBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
-  // method
+  //method
   @Override
   public IContainer<IProperty> getStoredReferencingProperties() {
 
@@ -70,25 +70,25 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
             .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
   }
 
-  // method
+  //method
   @Override
   public PropertyType getType() {
     return PropertyType.OPTIONAL_BACK_REFERENCE;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return (backReferencedEntityId == null);
   }
 
-  // method
+  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean referencesBackEntity(IEntity entity) {
     return containsAny()
@@ -96,7 +96,7 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
         && getBackReferencedEntityId().equals(entity.getId());
   }
 
-  // method
+  //method
   @Override
   public IContentFieldDto technicalToContentField() {
 
@@ -107,24 +107,24 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
     return new ContentFieldDto(getName(), getBackReferencedEntityId());
   }
 
-  // method
+  //method
   @Override
   protected boolean referencesBackEntityWithId(final String id) {
     return (containsAny() && getBackReferencedEntityId().equals(id));
   }
 
-  // method
+  //method
   void internalClear() {
     backReferencedEntityId = null;
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   void internalSetDirectlyBackReferencedEntityId(final String backReferencedEntityId) {
     this.backReferencedEntityId = backReferencedEntityId;
   }
 
-  // method
+  //method
   @Override
   void internalSetOrClearDirectlyFromContent(final Object content) {
     backReferencedEntityId = (String) content;

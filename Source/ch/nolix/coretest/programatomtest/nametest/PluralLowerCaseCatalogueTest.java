@@ -12,14 +12,14 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class PluralLowerCaseCatalogueTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constants() {
 
-    // setup
+    //setup
     final var exceptions = LinkedList.withElement(PluralLowerCaseCatalogue.GUIS, PluralLowerCaseCatalogue.URLS);
 
-    // verification
+    //verification
     for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(PluralLowerCaseCatalogue.class)) {
 
       expect(c).isOfType(String.class);

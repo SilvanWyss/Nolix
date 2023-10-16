@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //class
 public final class ValidationLabelHelper implements IValidationLabelHelper {
 
-  // method
+  //method
   @Override
   public void clearNearestValidationLabelOfControl(final IControl<?, ?> control) {
 
@@ -21,7 +21,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
     }
   }
 
-  // method
+  //method
   @Override
   public void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
       final IControl<?, ?> control,
@@ -29,12 +29,12 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
     try {
       action.run();
       clearNearestValidationLabelOfControl(control);
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
       showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
     }
   }
 
-  // method
+  //method
   @Override
   public <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
       C control,
@@ -42,12 +42,12 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
     try {
       action.accept(control);
       clearNearestValidationLabelOfControl(control);
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
       showErrorInNearestValidationLabelOfControlOrSwallowError(control, error);
     }
   }
 
-  // method
+  //method
   @Override
   public IValidationLabel getStoredNearestValidationLabelOfControlOrNull(final IControl<?, ?> control) {
 
@@ -67,7 +67,7 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
     return null;
   }
 
-  // method
+  //method
   @Override
   public void showErrorInNearestValidationLabelOfControlOrSwallowError(
       final IControl<?, ?> control,

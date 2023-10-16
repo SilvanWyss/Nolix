@@ -9,13 +9,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class Error {
 
-  // attribute
+  //attribute
   private final String errorMessage;
 
-  // attribute
+  //attribute
   private final OccurancePlace occurancePlace;
 
-  // constructor
+  //constructor
   public Error(
       final String errorMessage,
       final String occuranceClassName,
@@ -23,7 +23,7 @@ public final class Error {
     this(errorMessage, new OccurancePlace(occuranceClassName, occuranceLineNumber));
   }
 
-  // constructor
+  //constructor
   public Error(final String errorMessage, final OccurancePlace occurancePlace) {
 
     if (errorMessage == null) {
@@ -45,22 +45,22 @@ public final class Error {
     this.occurancePlace = occurancePlace;
   }
 
-  // method
+  //method
   public String getErrorMessage() {
     return errorMessage;
   }
 
-  // method
+  //method
   public String getOccuranceClassName() {
     return occurancePlace.getClassName();
   }
 
-  // method
+  //method
   public int getOccuranceLineNumber() {
     return occurancePlace.getLineNumber();
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return (errorMessage + " " + occurancePlace.toString());

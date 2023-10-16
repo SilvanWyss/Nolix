@@ -15,10 +15,10 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class RawSchemaAdapter {
 
-  // attribute
+  //attribute
   private final ISchemaAdapter internalRawSchemaAdapter;
 
-  // constructor
+  //constructor
   public RawSchemaAdapter(final ISchemaAdapter internalRawSchemaAdapter) {
 
     GlobalValidator.assertThat(internalRawSchemaAdapter).thatIsNamed("internal raw schema adapter").isNotNull();
@@ -26,57 +26,57 @@ final class RawSchemaAdapter {
     this.internalRawSchemaAdapter = internalRawSchemaAdapter;
   }
 
-  // method
+  //method
   public void addColumnToTable(final ITable table, final IColumn column) {
     internalRawSchemaAdapter.addColumn(table.getName(), column.toDto());
   }
 
-  // method
+  //method
   public void addTable(final ITable table) {
     internalRawSchemaAdapter.addTable(table.toDto());
   }
 
-  // method
+  //method
   public boolean columnIsEmpty(final IColumn column) {
     return internalRawSchemaAdapter.columnIsEmpty(column.getParentTable().getName(), column.getName());
   }
 
-  // method
+  //method
   public void deleteColumn(final IColumn column) {
     internalRawSchemaAdapter.deleteColumn(column.getParentTable().getName(), column.getName());
   }
 
-  // method
+  //method
   public void deleteTable(final ITable table) {
     internalRawSchemaAdapter.deleteTable(table.getName());
   }
 
-  // method
+  //method
   public int getTableCount() {
     return internalRawSchemaAdapter.getTableCount();
   }
 
-  // method
+  //method
   public IContainer<IColumnDto> loadColumnsOfTable(final ITable table) {
     return internalRawSchemaAdapter.loadColumnsByTableId(table.getId());
   }
 
-  // method
+  //method
   public IContainer<IFlatTableDto> loadFlatTables() {
     return internalRawSchemaAdapter.loadFlatTables();
   }
 
-  // method
+  //method
   public ITime loadSchemaTimestamp() {
     return internalRawSchemaAdapter.loadSchemaTimestamp();
   }
 
-  // method
+  //method
   public void saveChangesAndReset() {
     internalRawSchemaAdapter.saveChanges();
   }
 
-  // method
+  //method
   public void setColumnName(
       final IColumn column,
       final String columnName,
@@ -92,7 +92,7 @@ final class RawSchemaAdapter {
         parameterizedPropertyType.toDto());
   }
 
-  // method
+  //method
   public void setTableName(final String tableName, final String newTableName) {
     internalRawSchemaAdapter.setTableName(tableName, newTableName);
   }

@@ -20,7 +20,7 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  */
 public final class Style extends BaseStyle implements IStyle {
 
-  // static method
+  //static method
   /**
    * @param filePath
    * @return a new standard specification from the file with the given file path.
@@ -35,7 +35,7 @@ public final class Style extends BaseStyle implements IStyle {
     return fromSpecification(specification);
   }
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link Style} from the given specification.
@@ -67,7 +67,7 @@ public final class Style extends BaseStyle implements IStyle {
     return new Style(attachingAttributes, subStyles);
   }
 
-  // method
+  //method
   /**
    * @param selectingStyle
    * @return a {@link BaseSelectingStyle} from the current selectingStyle.
@@ -76,7 +76,7 @@ public final class Style extends BaseStyle implements IStyle {
     return (BaseSelectingStyle) selectingStyle;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Style}.
    * 
@@ -89,7 +89,7 @@ public final class Style extends BaseStyle implements IStyle {
     super(attachingAttributes, subStyles);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -100,7 +100,7 @@ public final class Style extends BaseStyle implements IStyle {
         getSubStyles().to(ISelectingStyle::getSpecification));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -110,7 +110,7 @@ public final class Style extends BaseStyle implements IStyle {
     letSubStylesStyleChildElementsOfElement(element);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

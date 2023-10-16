@@ -14,13 +14,13 @@ import ch.nolix.coreapi.functionapi.requestapi.CompletenessRequestable;
 //class
 public final class WebSocketCompleteMessage implements CompletenessRequestable {
 
-  // attribute
+  //attribute
   private boolean complete;
 
-  // attribute
+  //attribute
   private final LinkedList<Byte> message = new LinkedList<>();
 
-  // constructor
+  //constructor
   public WebSocketCompleteMessage(
       final BooleanSupplier isOpenFunction,
       final InputStream inputStream,
@@ -33,12 +33,12 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
     }
   }
 
-  // method
+  //method
   public String getMessage() {
     return new String(getMessageAsByteArray(), StandardCharsets.UTF_8);
   }
 
-  // method
+  //method
   public byte[] getMessageAsByteArray() {
 
     final var byteArray = new byte[message.getElementCount()];
@@ -51,15 +51,15 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
     return byteArray;
   }
 
-  // method
+  //method
   @Override
   public boolean isComplete() {
     return complete;
   }
 
-  // method
+  //method
   private void addFrame(final WebSocketFrame frame, final Consumer<WebSocketFrame> controlFrameTaker) {
-    switch (frame.getFrameType()) { // NOSONAR: A switch-statement allows to add probable additional cases.
+    switch (frame.getFrameType()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case CONTROL_FRAME:
         controlFrameTaker.accept(frame);
         break;

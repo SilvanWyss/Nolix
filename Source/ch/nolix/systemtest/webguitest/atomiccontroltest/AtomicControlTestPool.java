@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class AtomicControlTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public AtomicControlTestPool() {
     super(
         ButtonCssBuilderTest.class,

@@ -14,14 +14,14 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class ColumnMapper implements IColumnMapper {
 
-  // constant
+  //constant
   private static final EntityCreator ENTITY_CREATOR = new EntityCreator();
 
-  // constant
+  //constant
   private static final IParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
       new ParameterizedPropertyTypeMapper();
 
-  // method
+  //method
   @Override
   public IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
       final IProperty property,
@@ -33,7 +33,7 @@ public final class ColumnMapper implements IColumnMapper {
             referencableTables));
   }
 
-  // method
+  //method
   @Override
   public <E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
       final Class<E> entityType,
@@ -43,7 +43,7 @@ public final class ColumnMapper implements IColumnMapper {
         referencableTables);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
       final IEntity entity,

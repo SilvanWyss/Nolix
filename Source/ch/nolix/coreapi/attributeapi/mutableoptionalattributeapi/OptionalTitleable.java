@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTitled;
  */
 public interface OptionalTitleable extends OptionalTitled {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the title of the current {@link OptionalTitleable}.
    */
   void removeTitle();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the title of the current {@link OptionalTitleable}.
    * 

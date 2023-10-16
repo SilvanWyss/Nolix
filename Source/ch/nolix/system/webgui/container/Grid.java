@@ -24,19 +24,19 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 //class
 public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
 
-  // constant
+  //constant
   private static final String CELL_HEADER = PascalCaseCatalogue.CELL;
 
-  // constant
+  //constant
   private static final GridHtmlBuilder HTML_BUILDER = new GridHtmlBuilder();
 
-  // constant
+  //constant
   private static final GridCssBuilder CSS_BUILDER = new GridCssBuilder();
 
-  // multi-attribute
+  //multi-attribute
   private Matrix<GridCell> cells = new Matrix<>();
 
-  // attribute
+  //attribute
   @SuppressWarnings("unused")
   private final MultiValueExtractor<GridCell> cellExtractor = new MultiValueExtractor<>(
       CELL_HEADER,
@@ -45,32 +45,32 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
       GridCell::fromSpecification,
       GridCell::getSpecification);
 
-  // constructor
+  //constructor
   public Grid() {
     getStoredStyle()
         .setGridThicknessForState(ControlState.BASE, 1)
         .setChildControlMarginForState(ControlState.BASE, 10);
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     cells.clear();
   }
 
-  // method
+  //method
   @Override
   public boolean containsControlAt1BasedRowAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
     return cells.getStoredAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).containsAny();
   }
 
-  // method
+  //method
   @Override
   public int getColumnCount() {
     return cells.getColumnCount();
   }
 
-  // method
+  //method
   @Override
   public IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(
       final int p1BasedRowIndex,
@@ -78,13 +78,13 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     return cells.getStoredAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getStoredControl();
   }
 
-  // method
+  //method
   @Override
   public int getRowCount() {
     return cells.getRowCount();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
 
@@ -98,7 +98,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     return childControls;
   }
 
-  // method
+  //method
   @Override
   public IGrid insertComponentAtRowAndColumn(
       final int param1BasedRowIndex,
@@ -110,7 +110,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     return insertControlAtRowAndColumn(param1BasedRowIndex, param1BasedColumnIndex, control);
   }
 
-  // method
+  //method
   @Override
   public IGrid insertControlAtRowAndColumn(
       final int param1BasedRowIndex,
@@ -126,7 +126,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IGrid insertTextAtRowAndColumn(final int rowIndex, final int columnIndex, final String text) {
 
@@ -135,43 +135,43 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     return insertControlAtRowAndColumn(rowIndex, columnIndex, textControl);
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return cells.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected GridStyle createStyle() {
     return new GridStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<IGrid, IGridStyle> getCssBuilder() {
     return CSS_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<IGrid> getHtmlBuilder() {
     return HTML_BUILDER;
   }
 
-  // method
+  //method
   @Override
   protected void resetContainer() {
     clear();
   }
 
-  // method
+  //method
   private void addCell(final GridCell cell) {
 
     expandTo(cell.getRowIndex(), cell.getColumnIndex());
@@ -179,13 +179,13 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     cells.setAt1BasedRowIndexAndColumnIndex(cell.getRowIndex(), cell.getColumnIndex(), cell);
   }
 
-  // method
+  //method
   private void expandTo(final int rowCount, final int columnCount) {
     expandRowsTo(rowCount);
     expandColumnsTo(columnCount);
   }
 
-  // method
+  //method
   private void expandColumnsTo(final int columnIndex) {
 
     GlobalValidator.assertThat(columnIndex).thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX).isPositive();
@@ -206,7 +206,7 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
     }
   }
 
-  // method
+  //method
   private void expandRowsTo(final int rowIndex) {
 
     GlobalValidator.assertThat(rowIndex).thatIsNamed(LowerCaseCatalogue.ROW_INDEX).isPositive();

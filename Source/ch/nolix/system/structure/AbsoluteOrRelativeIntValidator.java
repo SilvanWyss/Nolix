@@ -8,7 +8,7 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 //class
 public final class AbsoluteOrRelativeIntValidator {
 
-  // method
+  //method
   public void assertIsPositive(final IAbsoluteOrRelativeInt absoluteOrRelativeInt) {
     if (!absoluteOrRelativeInt.isPositive()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(

@@ -12,14 +12,14 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class LowerCaseCatalogueTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constants() {
 
-    // setup
+    //setup
     final var exceptions = LinkedList.withElement(LowerCaseCatalogue.GUI, LowerCaseCatalogue.URL);
 
-    // verification
+    //verification
     for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(LowerCaseCatalogue.class)) {
 
       expect(c).isOfType(String.class);

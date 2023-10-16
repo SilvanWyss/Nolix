@@ -12,15 +12,15 @@ public enum DataType {
   TEXT(String.class),
   IMAGE(IImage.class);
 
-  // attribute
+  //attribute
   private final Class<?> dataTypeClass;
 
-  // constructor
+  //constructor
   <V> DataType(final Class<V> dataTypeClass) {
     this.dataTypeClass = dataTypeClass;
   }
 
-  // method
+  //method
   public Class<?> getDataTypeClass() {
     return dataTypeClass;
   }

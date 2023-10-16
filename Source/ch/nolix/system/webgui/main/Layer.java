@@ -35,16 +35,16 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class Layer extends StylableElement<Layer> implements ILayer<Layer> {
 
-  // constant
+  //constant
   public static final double DEFAULT_OPACITY = 1.0;
 
-  // constant
+  //constant
   public static final IColor DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
-  // constant
+  //constant
   public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 
-  // static method
+  //static method
   public static Layer fromSpecification(final INode<?> specification) {
 
     final var layer = new Layer();
@@ -53,39 +53,39 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return layer;
   }
 
-  // constant
+  //constant
   private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 
-  // constant
+  //constant
   private static final String OPACITY_HEADER = PascalCaseCatalogue.OPACITY;
 
-  // constant
+  //constant
   private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
 
-  // constant
+  //constant
   private static final String CONTENT_ALIGNMENT_HEADER = "ContentAlignment";
 
-  // constant
+  //constant
   private static final String ROOT_CONTROL_HEADER = "RootControl";
 
-  // constant
+  //constant
   private static final LayerHtmlBuilder HTML_CREATOR = new LayerHtmlBuilder();
 
-  // constant
+  //constant
   private static final LayerCssBuilder CSS_RULE_CREATOR = new LayerCssBuilder();
 
-  // attribute
-  // For CSS an id works only when it begins with a letter.
+  //attribute
+  //For CSS an id works only when it begins with a letter.
   private final String internalId = "i" + GlobalIdCreator.createIdOf10HexadecimalCharacters();
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<LayerRole> role = new MutableOptionalValue<>(
       ROLE_HEADER,
       this::setRole,
       LayerRole::fromSpecification,
       Node::fromEnum);
 
-  // attribute
+  //attribute
   private final MutableValue<Double> opacity = new MutableValue<>(
       OPACITY_HEADER,
       DEFAULT_OPACITY,
@@ -93,14 +93,14 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
       s -> getOpacityFromString(s.getSingleChildNodeHeader()),
       Node::withChildNode);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
       BACKGROUND_HEADER,
       this::setBackground,
       Background::fromSpecification,
       IBackground::getSpecification);
 
-  // attribute
+  //attribute
   private final MutableValue<ContentAlignment> contentAlignment = new MutableValue<>(
       CONTENT_ALIGNMENT_HEADER,
       DEFAULT_CONTENT_POSITION,
@@ -108,28 +108,28 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
       ContentAlignment::fromSpecification,
       Node::fromEnum);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<IControl<?, ?>> rootControl = new MutableOptionalValue<>(
       ROOT_CONTROL_HEADER,
       this::setRootControl,
       GlobalControlFactory::createControlFromSpecification,
       IControl::getSpecification);
 
-  // optional attribute
+  //optional attribute
   private IWebGui<?> parentGui;
 
-  // constructor
+  //constructor
   public Layer() {
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
   }
 
-  // method
+  //method
   @Override
   public boolean belongsToGui() {
     return (parentGui != null);
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     if (containsAny()) {
@@ -137,73 +137,73 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     }
   }
 
-  // method
+  //method
   @Override
   public IBackground getBackground() {
     return background.getValue();
   }
 
-  // method
+  //method
   @Override
   public IColor getBackgroundColor() {
     return getBackground().getColor();
   }
 
-  // method
+  //method
   @Override
   public IColorGradient getBackgroundColorGradient() {
     return getBackground().getColorGradient();
   }
 
-  // method
+  //method
   @Override
   public IImage getBackgroundImage() {
     return getBackground().getImage();
   }
 
-  // method
+  //method
   @Override
   public ImageApplication getBackgroundImageApplication() {
     return getBackground().getImageApplication();
   }
 
-  // method
+  //method
   @Override
   public BackgroundType getBackgroundType() {
     return getBackground().getType();
   }
 
-  // method
+  //method
   @Override
   public ContentAlignment getContentAlignment() {
     return contentAlignment.getValue();
   }
 
-  // method
+  //method
   @Override
   public ICssRule getCssRule() {
     return CSS_RULE_CREATOR.getCssRuleForLayer(this);
   }
 
-  // method
+  //method
   @Override
   public IHtmlElement getHtml() {
     return HTML_CREATOR.getHtmlElementForLayer(this);
   }
 
-  // method
+  //method
   @Override
   public String getInternalId() {
     return internalId;
   }
 
-  // method
+  //method
   @Override
   public double getOpacity() {
     return opacity.getValue();
   }
 
-  // method
+  //method
   @Override
   public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
 
@@ -219,7 +219,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return localRootControl.getStoredChildControlOrNullByInternalId(internalId);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
 
@@ -230,7 +230,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return getStoredControlsWhenIsNotEmpty();
   }
 
-  // method
+  //method
   @Override
   public IWebGui<?> getStoredParentGui() {
 
@@ -239,19 +239,19 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return parentGui;
   }
 
-  // method
+  //method
   @Override
   public IControl<?, ?> getStoredRootControl() {
     return rootControl.getValue();
   }
 
-  // method
+  //method
   @Override
   public LayerRole getRole() {
     return role.getValue();
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
 
@@ -264,55 +264,55 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return childConfigurableElements;
   }
 
-  // method
+  //method
   @Override
   public boolean hasBackground() {
     return background.containsAny();
   }
 
-  // method
+  //method
   @Override
   public boolean hasInternalId(final String internalId) {
     return getInternalId().equals(internalId);
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole() {
     return role.containsAny();
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(final String role) {
     return (hasRole() && getRole().toString().equals(role));
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return rootControl.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public void removeBackground() {
     background.clear();
   }
 
-  // method
+  //method
   public void removeRole() {
     role.clear();
   }
 
-  // method
+  //method
   @Override
   public void removeSelfFromGui() {
     getStoredParentGui().removeLayer(this);
     parentGui = null;
   }
 
-  // method
+  //method
   public Layer setBackground(final IBackground background) {
 
     this.background.setValue(background);
@@ -320,31 +320,31 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return this;
   }
 
-  // method
+  //method
   @Override
   public Layer setBackgroundColor(final IColor backgroundColor) {
     return setBackground(Background.withColor(backgroundColor));
   }
 
-  // method
+  //method
   @Override
   public Layer setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
     return setBackground(Background.withColorGradient(backgroundColorGradient));
   }
 
-  // method
+  //method
   @Override
   public Layer setBackgroundImage(final IImage backgroundImage) {
     return setBackground(Background.withImage(backgroundImage));
   }
 
-  // method
+  //method
   @Override
   public Layer setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
     return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
-  // method
+  //method
   @Override
   public Layer setRootControl(final IControl<?, ?> rootControl) {
 
@@ -354,7 +354,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return this;
   }
 
-  // method
+  //method
   @Override
   public Layer setContentAlignment(final ContentAlignment contentAlignment) {
 
@@ -363,7 +363,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return this;
   }
 
-  // method
+  //method
   @Override
   public Layer setOpacity(final double opacity) {
 
@@ -374,7 +374,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return this;
   }
 
-  // method
+  //method
   @Override
   public Layer setRole(final LayerRole role) {
 
@@ -383,7 +383,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return this;
   }
 
-  // method
+  //method
   @Override
   public void technicalSetParentGui(final IWebGui<?> parentGui) {
 
@@ -393,14 +393,14 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     this.parentGui = parentGui;
   }
 
-  // method
+  //method
   @Override
   protected void resetStylableElement() {
     removeRole();
     clear();
   }
 
-  // method
+  //method
   @Override
   protected void resetStyle() {
     setOpacity(DEFAULT_OPACITY);
@@ -408,26 +408,26 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     setContentAlignment(DEFAULT_CONTENT_POSITION);
   }
 
-  // method
+  //method
   private void assertBelongsToGui() {
     if (!belongsToGui()) {
       throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWebGui.class);
     }
   }
 
-  // method
+  //method
   private void assertDoesNotBelongToGui() {
     if (belongsToGui()) {
       throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentGui());
     }
   }
 
-  // method
+  //method
   private void clearWhenIsNotEmpty() {
     rootControl.clear();
   }
 
-  // method
+  //method
   private void fillUpChildControlsOfControlIntoListRecursively(
       final IControl<?, ?> control,
       final LinkedList<IControl<?, ?>> list) {
@@ -438,7 +438,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
   }
 
-  // method
+  //method
   private double getOpacityFromString(final String string) {
 
     GlobalValidator.assertThat(string).thatIsNamed(String.class).isNotNull();
@@ -450,12 +450,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     return (Double.valueOf(string.substring(0, string.length() - 1)) / 100);
   }
 
-  // method
+  //method
   private IContainer<IControl<?, ?>> getStoredControlsWhenIsEmpty() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   private IContainer<IControl<?, ?>> getStoredControlsWhenIsNotEmpty() {
 
     final var controls = new LinkedList<IControl<?, ?>>();

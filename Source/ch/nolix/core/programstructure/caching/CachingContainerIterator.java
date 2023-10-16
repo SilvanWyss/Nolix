@@ -8,27 +8,27 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class CachingContainerIterator<E> implements CopyableIterator<E> {
 
-  // attribute
+  //attribute
   private final CopyableIterator<Pair<String, E>> parentCachingContainerIterator;
 
-  // constructor
+  //constructor
   public CachingContainerIterator(final CopyableIterator<Pair<String, E>> parentCachingContainerIterator) {
     this.parentCachingContainerIterator = parentCachingContainerIterator;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return new CachingContainerIterator<>(parentCachingContainerIterator.getCopy());
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return parentCachingContainerIterator.hasNext();
   }
 
-  // method
+  //method
   @Override
   public E next() {
     return parentCachingContainerIterator.next().getStoredElement2();

@@ -29,79 +29,79 @@ public final class ValidationLabel
     extends Control<IValidationLabel, IValidationLabelStyle>
     implements IValidationLabel {
 
-  // constant
+  //constant
   private static final String ERROR_HEADER = PascalCaseCatalogue.ERROR;
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<Throwable> error = new MutableOptionalValue<>(
       ERROR_HEADER,
       this::showError,
       s -> GeneralException.withErrorMessage(s.getHeader()),
       e -> Node.withHeader(e.getMessage()));
 
-  // constructor
+  //constructor
   public ValidationLabel() {
 
-    // Info: Reset is technically optional, but required to achieve a well-defined
-    // initial state.
+    //Info: Reset is technically optional, but required to achieve a well-defined
+    //initial state.
     reset();
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     error.clear();
   }
 
-  // method
+  //method
   @Override
   public Throwable getError() {
     return error.getValue();
   }
 
-  // method
+  //method
   @Override
   public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
     return new SingleContainer<>();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredChildControls() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public String getUserInput() {
     return StringCatalogue.EMPTY_STRING;
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return error.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   public void runHtmlEvent(String htmlEvent) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "runHtmlEvent");
   }
 
-  // method
+  //method
   @Override
   public ValidationLabel setUserInput(final String userInput) {
 
@@ -110,31 +110,31 @@ public final class ValidationLabel
     return this;
   }
 
-  // method
+  //method
   @Override
   public void showError(final Throwable error) {
     this.error.setValue(error);
   }
 
-  // method
+  //method
   @Override
   protected ValidationLabelStyle createStyle() {
     return new ValidationLabelStyle();
   }
 
-  // method
+  //method
   @Override
   protected IControlCssBuilder<IValidationLabel, IValidationLabelStyle> getCssBuilder() {
     return new ValidationLabelCssBuilder();
   }
 
-  // method
+  //method
   @Override
   protected IControlHtmlBuilder<IValidationLabel> getHtmlBuilder() {
     return new ValidationLabelHtmlBuilder();
   }
 
-  // method
+  //method
   @Override
   protected void resetControl() {
 

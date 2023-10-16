@@ -17,7 +17,7 @@ import ch.nolix.core.time.TimeUnitCatalogue;
  */
 final class Waiter {
 
-  // static method
+  //static method
   /**
    * Waits for the given duractionInSeconds.
    * 
@@ -27,13 +27,13 @@ final class Waiter {
    */
   public static void waitForSeconds(final int duractionInSeconds) {
 
-    // Asserts that the given duractionInSeconds is not negative.
+    //Asserts that the given duractionInSeconds is not negative.
     GlobalValidator.assertThat(duractionInSeconds).thatIsNamed("duration in seconds").isNotNegative();
 
     waitForMilliseconds(TimeUnitCatalogue.MILLISECONDS_PER_SECOND * duractionInSeconds);
   }
 
-  // static method
+  //static method
   /**
    * Waits for the given durationInMilliseconds.
    * 
@@ -43,7 +43,7 @@ final class Waiter {
    */
   public static void waitForMilliseconds(final int durationInMilliseconds) {
 
-    // Asserts that the given durationInMilliseconds is not negative.
+    //Asserts that the given durationInMilliseconds is not negative.
     GlobalValidator.assertThat(durationInMilliseconds).thatIsNamed("duration in milliseconds").isNotNegative();
 
     try {
@@ -54,7 +54,7 @@ final class Waiter {
     }
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link Waiter} can be created.
    */

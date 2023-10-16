@@ -10,18 +10,18 @@ import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
 //class
 public final class XmlAttribute implements IXmlAttribute {
 
-  // optional attribute
+  //optional attribute
   private final String name;
 
-  // optional attribute
+  //optional attribute
   private final String value;
 
-  // constructor
+  //constructor
   public XmlAttribute(final String name) {
     this(name, StringCatalogue.EMPTY_STRING);
   }
 
-  // constructor
+  //constructor
   public XmlAttribute(final String name, final String value) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -31,19 +31,19 @@ public final class XmlAttribute implements IXmlAttribute {
     this.value = value;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getValue() {
     return value;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return (getName() + "='" + getValue() + "'");

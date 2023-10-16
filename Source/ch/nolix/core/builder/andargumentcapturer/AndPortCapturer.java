@@ -10,10 +10,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
 
-  // attribute
+  //attribute
   private final int defaultPort;
 
-  // constructor
+  //constructor
   public AndPortCapturer(final int defaultPort, final N nextArgumentCapturer) {
 
     super(nextArgumentCapturer);
@@ -26,12 +26,12 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
     this.defaultPort = defaultPort;
   }
 
-  // method
+  //method
   public final N andDefaultPort() {
     return andPort(defaultPort);
   }
 
-  // method
+  //method
   public final N andPort(final int port) {
 
     GlobalValidator
@@ -42,7 +42,7 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
     return setArgumentAndGetNext(port);
   }
 
-  // method
+  //method
   public final int getPort() {
     return getStoredArgument();
   }

@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class NonEmptyArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not empty";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link NonEmptyArgumentException} for the given argument.
@@ -25,7 +25,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
     return new NonEmptyArgumentException(argument);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -40,7 +40,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
     return new NonEmptyArgumentException(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonEmptyArgumentException} for the given argument.
    * 
@@ -48,11 +48,11 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
    */
   private NonEmptyArgumentException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NonEmptyArgumentException} for the given argumentName
    * and argument.
@@ -64,7 +64,7 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
    */
   private NonEmptyArgumentException(final String argumentName, final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 }

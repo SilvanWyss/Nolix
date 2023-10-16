@@ -18,16 +18,16 @@ import ch.nolix.coreapi.netapi.endpointapi.ISlot;
  */
 public abstract class BaseServer implements IServer {
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // optional attribute
+  //optional attribute
   private ISlot defaultSlot;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<ISlot> slots = new LinkedList<>();
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -39,7 +39,7 @@ public abstract class BaseServer implements IServer {
     this.defaultSlot = defaultSlot;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -51,7 +51,7 @@ public abstract class BaseServer implements IServer {
     this.slots.addAtEnd(slot);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -63,7 +63,7 @@ public abstract class BaseServer implements IServer {
     defaultSlot = null;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -72,7 +72,7 @@ public abstract class BaseServer implements IServer {
     return (defaultSlot != null);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -81,7 +81,7 @@ public abstract class BaseServer implements IServer {
     return slots.containsAny(s -> s.hasName(name));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -90,7 +90,7 @@ public abstract class BaseServer implements IServer {
     return closeController;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -99,7 +99,7 @@ public abstract class BaseServer implements IServer {
     return slots.isEmpty();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -108,7 +108,7 @@ public abstract class BaseServer implements IServer {
     removeSlot(slots.getStoredFirst(s -> s.hasName(name)));
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link BaseServer} take the given endPoint.
    * 
@@ -130,20 +130,20 @@ public abstract class BaseServer implements IServer {
    */
   final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
 
-    // Asserts that the given endPoint is open.
+    //Asserts that the given endPoint is open.
     assertIsOpen(endPoint);
 
-    // Handles the case that the given endPoint does not have a target.
+    //Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultSlot().takeBackendEndPoint(endPoint);
 
-      // Handles the case that the given endPoint has a target.
+      //Handles the case that the given endPoint has a target.
     } else {
       getStoredSlotName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
@@ -156,7 +156,7 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  // method
+  //method
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
@@ -171,7 +171,7 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  // method
+  //method
   /**
    * @param endPoint
    * @throws ClosedArgumentException if the given endPoint is closed.
@@ -182,7 +182,7 @@ public abstract class BaseServer implements IServer {
     }
   }
 
-  // method
+  //method
   /**
    * @return the default {@link IEndPointTaker} of the current {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -197,7 +197,7 @@ public abstract class BaseServer implements IServer {
     return defaultSlot;
   }
 
-  // method
+  //method
   /**
    * 
    * @param name
@@ -213,7 +213,7 @@ public abstract class BaseServer implements IServer {
     return slots.getStoredFirst(ept -> ept.hasName(name));
   }
 
-  // method
+  //method
   /**
    * Removes the given endPointTaker from the current {@link BaseServer}.
    * 

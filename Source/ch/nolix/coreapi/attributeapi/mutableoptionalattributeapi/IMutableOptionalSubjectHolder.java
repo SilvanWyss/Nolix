@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISubjectHolder;
  */
 public interface IMutableOptionalSubjectHolder extends ISubjectHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the subject of the current {@link IMutableOptionalSubjectHolder}.
    */
   void removeSubject();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the subject of the current {@link IMutableOptionalSubjectHolder}.
    * 

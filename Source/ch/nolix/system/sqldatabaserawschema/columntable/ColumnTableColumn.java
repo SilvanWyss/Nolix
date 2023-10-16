@@ -18,13 +18,13 @@ public enum ColumnTableColumn implements QualifiedNamed {
   REFERENCED_TABLE_ID("ReferencedTableId"),
   BACK_REFERENCED_COLUM_ID("BackReferencedColumnId");
 
-  // constant
+  //constant
   private static final String NAME_PREFIX = SystemDataTable.COLUMN.getQualifiedName() + StringCatalogue.DOT;
 
-  // attribute
+  //attribute
   private final String name;
 
-  // constructor
+  //constructor
   ColumnTableColumn(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -32,13 +32,13 @@ public enum ColumnTableColumn implements QualifiedNamed {
     this.name = name;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getQualifyingPrefix() {
     return NAME_PREFIX;

@@ -4,7 +4,7 @@ package ch.nolix.core.programcontrol.worker;
 //class
 public abstract class BatchWorker extends Worker {
 
-  // method
+  //method
   @Override
   protected final void run() {
     while (shouldRunNextStep()) {
@@ -12,9 +12,9 @@ public abstract class BatchWorker extends Worker {
     }
   }
 
-  // method declaration
+  //method declaration
   protected abstract void runStep();
 
-  // method declaration
+  //method declaration
   protected abstract boolean shouldRunNextStep();
 }

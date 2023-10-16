@@ -10,13 +10,13 @@ import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlCssBuilderTe
 //class
 public final class TextboxCssBuilderTest extends ControlCssBuilderTest<TextboxCssBuilder, ITextbox> {
 
-  // method
+  //method
   @Override
   protected ITextbox createControl() {
     return new Textbox();
   }
 
-  // method
+  //method
   @Override
   protected TextboxCssBuilder createTestUnit() {
     return new TextboxCssBuilder();

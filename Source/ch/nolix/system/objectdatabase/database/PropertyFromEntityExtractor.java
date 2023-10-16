@@ -11,7 +11,7 @@ import ch.nolix.core.reflection.GlobalFieldHelper;
 //class
 final class PropertyFromEntityExtractor {
 
-  // method
+  //method
   public LinkedList<Property> getStoredPropertiesFrom(final Object entity) {
 
     final var properties = new LinkedList<Property>();
@@ -21,7 +21,7 @@ final class PropertyFromEntityExtractor {
     return properties;
   }
 
-  // method
+  //method
   private void fillUpPropertiesFromGivenObjectIntoGivenList(
       final Object object,
       final LinkedList<Property> list) {
@@ -32,7 +32,7 @@ final class PropertyFromEntityExtractor {
     }
   }
 
-  // method
+  //method
   private void fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(
       final Object object,
       final Class<?> pClass,
@@ -42,7 +42,7 @@ final class PropertyFromEntityExtractor {
     }
   }
 
-  // method
+  //method
   private void fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(
       final Object object,
       final Field field,
@@ -52,12 +52,12 @@ final class PropertyFromEntityExtractor {
     }
   }
 
-  // method
+  //method
   private boolean fieldIsProperty(final Field field) {
     return GlobalFieldHelper.hasGivenTypeOrSuperType(field, Property.class);
   }
 
-  // method
+  //method
   private void fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(
       final Object object,
       final Field field,

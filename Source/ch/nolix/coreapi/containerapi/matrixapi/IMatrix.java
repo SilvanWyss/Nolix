@@ -7,18 +7,18 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface IMatrix<E> extends IContainer<E> {
 
-  // method declaration
+  //method declaration
   int getColumnCount();
 
-  // method declaration
+  //method declaration
   IContainer<? extends IContainer<E>> getColumns();
 
-  // method declaration
+  //method declaration
   E getStoredAt1BasedRowIndexAndColumnIndex(int p1BasedRowIndex, int p1BasedColumnIndex);
 
-  // method declaration
+  //method declaration
   int getRowCount();
 
-  // method declaration
+  //method declaration
   IContainer<? extends IContainer<E>> getRows();
 }

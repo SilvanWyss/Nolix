@@ -12,13 +12,13 @@ public final class MultiReferenceQueryCreatorTest extends Test {
   @TestCase
   public void testCase_createQueryToLoadMultiReferenceEntries() {
 
-    // setup
+    //setup
     final var testUnit = new MultiReferenceQueryCreator();
 
-    // execution
+    //execution
     final var result = testUnit.createQueryToLoadMultiReferenceEntries("my_entity_id", "my_column_id");
 
-    // verification
+    //verification
     final var expectedResult = "SELECT ReferencedEntityId "
         + "FROM MMultiReferenceEntry "
         + "WHERE EntityId = 'my_entity_id' "

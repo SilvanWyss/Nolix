@@ -13,13 +13,13 @@ public final class ComplexSequenceDefinedBy1Predecessor
     extends Sequence<IComplexNumber>
     implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
 
-  // attribute
+  //attribute
   private final IComplexNumber firstValue;
 
-  // attribute
+  //attribute
   private final Function<IComplexNumber, IComplexNumber> nextValueFunction;
 
-  // constructor
+  //constructor
   public ComplexSequenceDefinedBy1Predecessor(
       final IComplexNumber firstValue,
       final Function<IComplexNumber, IComplexNumber> nextValueFunction) {
@@ -31,19 +31,19 @@ public final class ComplexSequenceDefinedBy1Predecessor
     this.nextValueFunction = nextValueFunction;
   }
 
-  // method
+  //method
   @Override
   public IComplexNumber getFirstValue() {
     return firstValue;
   }
 
-  // method
+  //method
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
-  // method
+  //method
   @Override
   protected IComplexNumber calculateValue(final int index) {
 

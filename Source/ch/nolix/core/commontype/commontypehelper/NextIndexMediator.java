@@ -4,15 +4,15 @@ package ch.nolix.core.commontype.commontypehelper;
 //class
 public final class NextIndexMediator {
 
-  // attribute
+  //attribute
   private final int index;
 
-  // constructor
+  //constructor
   NextIndexMediator(final int index) {
     this.index = index;
   }
 
-  // method
+  //method
   public int andGetNextIndex() {
     return index;
   }

@@ -21,16 +21,16 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedEntityDto;
 //class
 public final class Table<E extends IEntity> implements ITable<E> {
 
-  // constant
+  //constant
   private static final TableValidator TABLE_VALIDATOR = new TableValidator();
 
-  // constant
+  //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  // constant
+  //constant
   private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
 
-  // static method
+  //static method
   static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
       final Database parentDatabase,
       final String name,
@@ -39,32 +39,32 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return new Table<>(parentDatabase, name, id, entityClass);
   }
 
-  // attribute
+  //attribute
   private final Database parentDatabase;
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final String id;
 
-  // attribute
+  //attribute
   private final Class<E> entityClass;
 
-  // attribute
+  //attribute
   private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable = new CachingProperty<>(
       () -> TABLE_HELPER.getColumsThatReferenceGivenTable(this));
 
-  // attribute
+  //attribute
   private boolean loadedAllEntitiesInLocalData;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<IColumn> columns = new LinkedList<>();
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<E> entitiesInLocalData = new LinkedList<>();
 
-  // constructor
+  //constructor
   private Table(
       final Database parentDatabase,
       final String name,
@@ -82,43 +82,43 @@ public final class Table<E extends IEntity> implements ITable<E> {
     this.entityClass = entityClass;
   }
 
-  // method
+  //method
   @Override
   public boolean containsEntityWithId(final String id) {
     return internalGetRefDataAndSchemaAdapter().tableContainsEntityWithGivenId(getName(), id);
   }
 
-  // method
+  //method
   @Override
   public int getEntityCount() {
     return getStoredEntities().getElementCount();
   }
 
-  // method
+  //method
   @Override
   public Class<E> getEntityType() {
     return entityClass;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IColumn> getStoredColumns() {
     return columns;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public IContainer<E> getStoredEntities() {
 
@@ -127,7 +127,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entitiesInLocalData;
   }
 
-  // method
+  //method
   @Override
   public E getStoredEntityById(final String id) {
 
@@ -143,7 +143,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entity;
   }
 
-  // method
+  //method
   @Override
   public E getStoredEntityByIdOrNull(final String id) {
 
@@ -164,26 +164,26 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return entity;
   }
 
-  // method
+  //method
   @Override
   public IDatabase getStoredParentDatabase() {
     return parentDatabase;
   }
 
-  // method
+  //method
   @Override
   public DatabaseObjectState getState() {
     return parentDatabase.getState();
   }
 
-  // method
+  //method
   @Override
   public ITable<E> insertEntity(final E entity) {
 
     @SuppressWarnings("unchecked")
     final var table = (ITable<IEntity>) this;
 
-    // The inserted Entity must know its Table to be inserted.
+    //The inserted Entity must know its Table to be inserted.
     ((BaseEntity) entity).internalSetParentTable(table);
 
     TABLE_VALIDATOR.assertCanInsertGivenEntity(this, entity);
@@ -193,52 +193,52 @@ public final class Table<E extends IEntity> implements ITable<E> {
     return this;
   }
 
-  // method
+  //method
   @Override
   public boolean isClosed() {
     return parentDatabase.isClosed();
   }
 
-  // method
+  //method
   @Override
   public boolean isDeleted() {
     return parentDatabase.isDeleted();
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return parentDatabase.isLinkedWithRealDatabase();
   }
 
-  // method
+  //method
   @Override
   public IContainer<E> technicalGetRefEntitiesInLocalData() {
     return entitiesInLocalData;
   }
 
-  // method
+  //method
   void internalAddColumn(final IColumn column) {
     columns.addAtEnd(column);
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   void internalClose() {
     ((IContainer<BaseEntity>) technicalGetRefEntitiesInLocalData()).forEach(BaseEntity::internalClose);
   }
 
-  // method
+  //method
   IContainer<IColumn> internalGetColumnsThatReferencesCurrentTable() {
     return columnsThatReferenceCurrentTable.getValue();
   }
 
-  // method
+  //method
   IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
     return parentDatabase.internalGetRefDataAndSchemaAdapter();
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   void internalReset() {
 
@@ -248,36 +248,36 @@ public final class Table<E extends IEntity> implements ITable<E> {
     entitiesInLocalData.clear();
   }
 
-  // method
+  //method
   void internalSetColumns(final IContainer<IColumn> columns) {
     this.columns.clear();
     this.columns.addAtEnd(columns);
   }
 
-  // method
+  //method
   private void addEntityWithIdWhenIsNotAdded(final String id) {
     entitiesInLocalData.addAtEnd(loadEntityById(id));
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   private E createLoadedEntityFromDto(ILoadedEntityDto loadedEntityDto) {
     return (E) ENTITY_MAPPER.createLoadedEntityFromDto(loadedEntityDto, (Table<BaseEntity>) this);
   }
 
-  // method
+  //method
   private E getStoredEntityByIdWhenIsInLocalData(final String id) {
     return technicalGetRefEntitiesInLocalData().getStoredFirst(e -> e.hasId(id));
   }
 
-  // method
+  //method
   private void insertEntityFromGivenLoadedEntityDtoInLocalDataIfNotInserted(ILoadedEntityDto loadedEntity) {
     if (!TABLE_HELPER.containsEntityWithGivenIdInLocalData(this, loadedEntity.getId())) {
       entitiesInLocalData.addAtEnd(createLoadedEntityFromDto(loadedEntity));
     }
   }
 
-  // method
+  //method
   private void insertWhenCanBeInserted(final E entity) {
 
     entitiesInLocalData.addAtEnd(entity);
@@ -287,14 +287,14 @@ public final class Table<E extends IEntity> implements ITable<E> {
     baseEntity.internalNoteInsert();
   }
 
-  // method
+  //method
   private void loadAllEntitiesInLocalDataIfNotLoaded() {
     if (!loadedAllEntitiesInLocalData()) {
       loadAllEntitiesInLocalDataWhenNotLoadedAll();
     }
   }
 
-  // method
+  //method
   private void loadAllEntitiesInLocalDataWhenNotLoadedAll() {
 
     for (final var r : internalGetRefDataAndSchemaAdapter().loadEntitiesOfTable(getName())) {
@@ -304,17 +304,17 @@ public final class Table<E extends IEntity> implements ITable<E> {
     loadedAllEntitiesInLocalData = true;
   }
 
-  // method
+  //method
   private boolean loadedAllEntitiesInLocalData() {
     return loadedAllEntitiesInLocalData;
   }
 
-  // method
+  //method
   private E loadEntityById(final String id) {
     return createLoadedEntityFromDto(loadEntityDtoById(id));
   }
 
-  // method
+  //method
   private ILoadedEntityDto loadEntityDtoById(final String id) {
     return internalGetRefDataAndSchemaAdapter().loadEntity(getName(), id);
   }

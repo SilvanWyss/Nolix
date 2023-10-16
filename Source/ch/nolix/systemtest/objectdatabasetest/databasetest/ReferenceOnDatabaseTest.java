@@ -13,27 +13,27 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 //class
 public final class ReferenceOnDatabaseTest extends Test {
 
-  // static class
+  //constant
   private static final class Pet extends Entity {
   }
 
-  // static class
+  //constant
   private static final class Person extends Entity {
 
-    // attribute
+    //attribute
     public final Reference<Pet> pet = Reference.forEntity(Pet.class);
 
-    // constructor
+    //constructor
     public Person() {
       initialize();
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredEntity_whenIsNewAndContainsAny() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -43,18 +43,18 @@ public final class ReferenceOnDatabaseTest extends Test {
     john.pet.setEntity(garfield);
     nodeDataAdapter.insert(john);
 
-    // execution
+    //execution
     final var result = john.pet.getReferencedEntity();
 
-    // verification
+    //verification
     expect(result).is(garfield);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredEntity_whenIsLoadedAndContainsAny() {
 
-    // setup part 1
+    //setup part 1
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -65,36 +65,36 @@ public final class ReferenceOnDatabaseTest extends Test {
     nodeDataAdapter.insert(john);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2
+    //setup part 2
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
 
-    // execution
+    //execution
     final var result = loadedJohn.pet.getReferencedEntity();
 
-    // verification
+    //verification
     expect(result.getId()).isEqualTo(garfield.getId());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isSaved_whenIsNewAndEmpty() {
 
-    // setup
+    //setup
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
     final var john = new Person();
     nodeDataAdapter.insert(john);
 
-    // execution & verification
+    //execution & verification
     expectRunning(nodeDataAdapter::saveChanges).throwsException();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isSaved_whenIsEditedAndReferencedEntityIsDeleted() {
 
-    // setup part 1: Initializes database.
+    //setup part 1: Initializes database.
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class, Person.class);
     final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
@@ -102,7 +102,7 @@ public final class ReferenceOnDatabaseTest extends Test {
     nodeDataAdapter.insert(garfield);
     nodeDataAdapter.saveChanges();
 
-    // setup part 2: Prepares a change.
+    //setup part 2: Prepares a change.
     final var nodeDataAdapterB = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database")
         .andSchema(schema);
     final var loadedGarfieldB = nodeDataAdapterB.getStoredTableByEntityType(Pet.class)
@@ -111,7 +111,7 @@ public final class ReferenceOnDatabaseTest extends Test {
     johnB.pet.setEntity(loadedGarfieldB);
     nodeDataAdapterB.insert(johnB);
 
-    // setup part 3: Deletes the referenced Entity.
+    //setup part 3: Deletes the referenced Entity.
     final var nodeDataAdapterC = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database")
         .andSchema(schema);
     final var loadedGarfieldC = nodeDataAdapterC.getStoredTableByEntityType(Pet.class)
@@ -119,8 +119,8 @@ public final class ReferenceOnDatabaseTest extends Test {
     loadedGarfieldC.delete();
     nodeDataAdapterC.saveChanges();
 
-    // execution & verification: Tries to save when the referenced Entity is
-    // deleted.
+    //execution & verification: Tries to save when the referenced Entity is
+    //deleted.
     expectRunning(nodeDataAdapterB::saveChanges).throwsException();
   }
 }

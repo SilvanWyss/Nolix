@@ -11,13 +11,13 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //class
 final class PropertyFromTableExtractor {
 
-  // method
+  //method
   public IContainer<Property> createPropertiesFromTable(
       final ITable<IEntity> table) {
     return table.getStoredColumns().to(this::createPropertyFromColumn);
   }
 
-  // method
+  //method
   private Property createEmptyPropertyFromColumn(final IColumn column) {
     switch (column.getParameterizedPropertyType().getPropertyType()) {
       case VALUE:
@@ -59,7 +59,7 @@ final class PropertyFromTableExtractor {
     }
   }
 
-  // method
+  //method
   private Property createPropertyFromColumn(final IColumn column) {
 
     final var property = createEmptyPropertyFromColumn(column);

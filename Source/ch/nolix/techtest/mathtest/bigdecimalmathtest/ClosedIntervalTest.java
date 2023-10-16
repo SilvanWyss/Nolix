@@ -12,450 +12,450 @@ import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 //class
 public final class ClosedIntervalTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_containsValue_whenNullIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.containsValue(null);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsValue_whenMinIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.containsValue(BigDecimal.valueOf(0.0));
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsValue_whenMaxIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.containsValue(BigDecimal.valueOf(1.0));
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsValue_whenMidpointIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.containsValue(BigDecimal.valueOf(0.5));
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsValue_whenSmallerValueIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.containsValue(BigDecimal.valueOf(-1.0));
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_containsValue_whenBiggerValueIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.containsValue(BigDecimal.valueOf(2.0));
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_whenTheGivenMinIsNull() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given minimum is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_whenTheGivenMaxIsNull() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
         .throwsException()
         .ofType(ArgumentIsNullException.class)
         .withMessage("The given maximum is null.");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_equals_whenNullIsGiven() {
 
-    // setup
+    //setup
     final ClosedInterval nullCloedInterval = null;
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.equals(nullCloedInterval);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_equals_whenUnequalClosedIntervalIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.equals(new ClosedInterval(-1.0, 0.0));
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_equals_whenEqualClosedIntervalIsGiven() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.equals(new ClosedInterval(0.0, 1.0));
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getHalfs_1A() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getHalfs();
 
-    // verification
+    //verification
     expect(result.getStoredElement1().getMin()).isEqualTo(BigDecimal.valueOf(-1.0).setScale(scale));
     expect(result.getStoredElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getHalfs_1B() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getHalfs();
 
-    // verification
+    //verification
     expect(result.getStoredElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
     expect(result.getStoredElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
     expect(result.getStoredElement2().getMax()).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getHalfs_whenHasLength0() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 0.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getHalfs();
 
-    // verification
+    //verification
     expect(result.getStoredElement1().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement1().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement2().getMin()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
     expect(result.getStoredElement2().getMax()).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getLength_1A() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(-1.0, -1.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getLength();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getLength_1B() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(-1.0, 0.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getLength();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(1.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getLength_1C() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getLength();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(2.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getLength_whenHasLength0() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 0.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getLength();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMidpoint_1A() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(-1.0, 1.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getMidPoint();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMidpoint_1B() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getMidPoint();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(0.5).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getMidpoint_whenHasLength0() {
 
-    // parameter definition
+    //parameter definition
     final var scale = 20;
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 0.0, scale);
 
-    // execution
+    //execution
     final var result = testUnit.getMidPoint();
 
-    // verification
+    //verification
     expect(result).isEqualTo(BigDecimal.valueOf(0.0).setScale(scale));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenGivenClosedIntervalIsBefore() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(-2.0, -1.0);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenGivenClosedIntervalIsAfter() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(2.0, 3.0);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expectNot(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenEqualsGivenClosedInterval() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenEclosesGivenClosedInterval() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 2.0);
     final var closedInterval = new ClosedInterval(0.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenGivenClosedIntervalEncloses() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(0.0, 2.0);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtBegin() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(-1.0, 0.25);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_intersectsWith_whenIntersectsGivenClosedIntervalAtEnd() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(0.0, 1.0);
     final var closedInterval = new ClosedInterval(0.75, 2.0);
 
-    // execution
+    //execution
     final var result = testUnit.intersectsWith(closedInterval);
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString() {
 
-    // setup
+    //setup
     final var testUnit = new ClosedInterval(-1.0, 1.0, 5);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // verification
+    //verification
     expect(result).isEqualTo("[-1.00000, 1.00000]");
   }
 }

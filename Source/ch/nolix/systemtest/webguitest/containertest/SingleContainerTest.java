@@ -8,7 +8,7 @@ import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 //class
 public final class SingleContainerTest extends ContainerTest<ISingleContainer> {
 
-  // method
+  //method
   @Override
   protected ISingleContainer createTestUnit() {
     return new SingleContainer();

@@ -13,33 +13,33 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 //class
 final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEntry<E> {
 
-  // constant
+  //constant
   private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
 
-  // static method
+  //static method
   public static <E2 extends IEntity> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
       final IMultiReference<E2> multiReference,
       final String referencedEntityId) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.LOADED, referencedEntityId);
   }
 
-  // static method
+  //static method
   public static <E2 extends IEntity> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
       final IMultiReference<E2> multiReference,
       final String referencedEntityId) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
   }
 
-  // attribute
+  //attribute
   private final IMultiReference<E> parentMultiReference;
 
-  // attribute
+  //attribute
   private DatabaseObjectState state;
 
-  // attribute
+  //attribute
   private final String referencedEntityId;
 
-  // constructor
+  //constructor
   private MultiReferenceEntry(
       final IMultiReference<E> parentMultiReference,
       final DatabaseObjectState initialState,
@@ -54,7 +54,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.referencedEntityId = referencedEntityId;
   }
 
-  // method
+  //method
   @Override
   public IProperty getStoredBackReferencingPropertyOrNull() {
     return getReferencedEntity()
@@ -62,13 +62,13 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
         .getStoredFirstOrNull(p -> p.referencesBackProperty(getStoredParentMultiReference()));
   }
 
-  // method
+  //method
   @Override
   public IMultiReference<E> getStoredParentMultiReference() {
     return parentMultiReference;
   }
 
-  // method
+  //method
   @Override
   public DatabaseObjectState getState() {
     return switch (getStoredParentMultiReference().getState()) {
@@ -81,37 +81,37 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     };
   }
 
-  // method
+  //method
   @Override
   public E getReferencedEntity() {
     return getStoredParentMultiReference().getReferencedTable().getStoredEntityById(getReferencedEntityId());
   }
 
-  // method
+  //method
   @Override
   public String getReferencedEntityId() {
     return referencedEntityId;
   }
 
-  // method
+  //method
   @Override
   public boolean isClosed() {
     return getStoredParentMultiReference().isClosed();
   }
 
-  // method
+  //method
   @Override
   public boolean isDeleted() {
     return getStoredParentMultiReference().isDeleted();
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return getStoredParentMultiReference().isLinkedWithRealDatabase();
   }
 
-  // method
+  //method
   void internalSetDeleted() {
 
     assertIsLoaded();
@@ -119,7 +119,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     state = DatabaseObjectState.DELETED;
   }
 
-  // method
+  //method
   private void assertIsLoaded() {
     DATABASE_OBJECT_HELPER.assertIsLoaded(this);
   }

@@ -26,7 +26,7 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
  */
 public final class GlobalStringHelper {
 
-  // static method
+  //static method
   /**
    * @param string
    * @param length
@@ -39,13 +39,13 @@ public final class GlobalStringHelper {
    */
   public static String createStringWithLength(final String string, final int length) {
 
-    // Asserts that the given string is not null.
+    //Asserts that the given string is not null.
     GlobalValidator.assertThat(string).isNotNull();
 
-    // Asserts that the given length is not negative.
+    //Asserts that the given length is not negative.
     GlobalValidator.assertThat(length).thatIsNamed("length").isNotNegative();
 
-    // Asserts that the given string is not longer than the given length.
+    //Asserts that the given string is not longer than the given length.
     if (string.length() > length) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           LowerCaseCatalogue.STRING,
@@ -62,7 +62,7 @@ public final class GlobalStringHelper {
     return stringBuilder.toString();
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @param n
@@ -73,7 +73,7 @@ public final class GlobalStringHelper {
     return string.substring(0, string.length() - n);
   }
 
-  // static method
+  //static method
   /**
    * @param tabulatorCount
    * @return a new {@link String} consisting of as many tabulators as the given
@@ -82,7 +82,7 @@ public final class GlobalStringHelper {
    */
   public static String createTabulators(final int tabulatorCount) {
 
-    // Asserts that the given tabulatorCount is not negative.
+    //Asserts that the given tabulatorCount is not negative.
     GlobalValidator.assertThat(tabulatorCount).thatIsNamed("tabulator count").isNotNegative();
 
     final var stringBuilder = new StringBuilder();
@@ -94,9 +94,9 @@ public final class GlobalStringHelper {
     return stringBuilder.toString();
   }
 
-  // static method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //static method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * @param string
    * @return the given string in braces.
@@ -111,9 +111,9 @@ public final class GlobalStringHelper {
     return ("{" + string + "}");
   }
 
-  // static method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //static method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * @param string
    * @return the given string in parentheses.
@@ -128,9 +128,9 @@ public final class GlobalStringHelper {
     return ("(" + string + ")");
   }
 
-  // static method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //static method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * @param string
    * @return the given string in quotes
@@ -145,39 +145,39 @@ public final class GlobalStringHelper {
     return ("'" + string + "'");
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return true if the given string is in lower case.
    */
   public static boolean isLowerCase(final String string) {
 
-    // Handles the case that the given string is null.
+    //Handles the case that the given string is null.
     if (string == null) {
       return false;
     }
 
-    // Handles the case that the given string is not null.
+    //Handles the case that the given string is not null.
     return isLowerCaseWhenNotNull(string);
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return true if the given string is in pascal case.
    */
   public static boolean isPascalCase(final String string) {
 
-    // Handles the case that the given string is null.
+    //Handles the case that the given string is null.
     if (string == null) {
       return false;
     }
 
-    // Handles the case that the given string is not null.
+    //Handles the case that the given string is not null.
     return isPascalCaseWhenNotNull(string);
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @param prefix
@@ -187,7 +187,7 @@ public final class GlobalStringHelper {
     return string.regionMatches(true, 0, prefix, 0, prefix.length());
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return the boolean the given string represents.
@@ -196,7 +196,7 @@ public final class GlobalStringHelper {
    */
   public static boolean toBoolean(final String string) {
 
-    // Enumerates the given string.
+    //Enumerates the given string.
     return switch (string) {
       case "0", "F", "FALSE", "False", "false" ->
         false;
@@ -207,7 +207,7 @@ public final class GlobalStringHelper {
     };
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return the double the given string represents.
@@ -223,7 +223,7 @@ public final class GlobalStringHelper {
     return Double.valueOf(string);
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return a new {@link String} in pascal case for the given string.
@@ -232,7 +232,7 @@ public final class GlobalStringHelper {
     return new PascalCaseCreator().toPascalCase(string);
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return a new {@link String} in capital snake case for the given string.
@@ -241,7 +241,7 @@ public final class GlobalStringHelper {
     return new CapitalSnakeCaseCreator().toCapitalSnakeCase(string);
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return true if the given string is in lower case for the case that the given
@@ -251,7 +251,7 @@ public final class GlobalStringHelper {
     return !string.contains(StringCatalogue.UNDERSCORE) && string.equals(string.toLowerCase(Locale.ENGLISH));
   }
 
-  // static method
+  //static method
   /**
    * @param string
    * @return true if the given string is in pascal case for the case that the
@@ -261,7 +261,7 @@ public final class GlobalStringHelper {
     return string.equals(toPascalCase(string));
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalStringHelper} can be created.
    */

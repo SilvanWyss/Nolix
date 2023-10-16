@@ -9,13 +9,13 @@ public final class BrowserFrontEndTutorial {
   @SuppressWarnings("resource")
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server after 2 seconds.
+    //Closes the Server after 2 seconds.
     GlobalSequencer.waitForSeconds(2);
     server.close();
   }

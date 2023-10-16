@@ -8,30 +8,30 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 //interface
 public interface ILayerStack extends Clearable {
 
-  // method declaration
+  //method declaration
   IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
 
-  // method declaration
+  //method declaration
   IContainer<IControl<?, ?>> getStoredControls();
 
-  // method declaration
+  //method declaration
   IContainer<ILayer<?>> getStoredLayers();
 
-  // method declaration
+  //method declaration
   ILayer<?> getStoredTopLayer();
 
-  // method declaration
+  //method declaration
   boolean hasRemoveLayerAction();
 
-  // method declaration
+  //method declaration
   ILayerStack pushLayer(ILayer<?> layer);
 
-  // method declaration
+  //method declaration
   ILayerStack pushLayerWithRootControl(IControl<?, ?> rootControl);
 
-  // method declaration
+  //method declaration
   void removeLayer(ILayer<?> layer);
 
-  // method declaration
+  //method declaration
   ILayerStack setRemoveLayerAction(Runnable removeLayerAction);
 }

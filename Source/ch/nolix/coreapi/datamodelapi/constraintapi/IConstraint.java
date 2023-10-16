@@ -4,6 +4,6 @@ package ch.nolix.coreapi.datamodelapi.constraintapi;
 //interface
 public interface IConstraint<E> {
 
-  // method declaration
+  //method declaration
   boolean acceptsEntry(E entry);
 }

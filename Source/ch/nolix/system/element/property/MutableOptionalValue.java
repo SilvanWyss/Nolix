@@ -19,7 +19,7 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
  */
 public final class MutableOptionalValue<V> extends SingleValue<V> {
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -33,7 +33,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
     return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -55,7 +55,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
     return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -69,7 +69,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
     return new MutableOptionalValue<>(name, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
-  // static method
+  //static method
   /**
    * @param name
    * @param setterMethod
@@ -94,7 +94,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
         });
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link MutableOptionalValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
@@ -114,11 +114,11 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }
 
-  // method
+  //method
   /**
    * Removes the value of the current {@link SingleValue}.
    */
@@ -126,7 +126,7 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
     internalClear();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

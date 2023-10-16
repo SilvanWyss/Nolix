@@ -12,20 +12,20 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class DropdownMenuCssBuilder extends ItemMenuCssBuilder<IDropdownMenu, IDropdownMenuStyle> {
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final IDropdownMenu control,
       final LinkedList<CssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final IDropdownMenu dropdownMenu,
       final ControlState state,
       final LinkedList<ICssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

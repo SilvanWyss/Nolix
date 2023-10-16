@@ -24,38 +24,38 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
 
-  // constant
+  //constant
   private static final String DEFAULT_INFO_TEXT = "Enter value";
 
-  // constant
+  //constant
   private static final String DEFAULT_ORIGINAL_VALUE = StringCatalogue.EMPTY_STRING;
 
-  // constant
+  //constant
   private static final String DEFAULT_CONFIRM_BUTTON_TEXT = StringCatalogue.FAT_CHECK_MARK;
 
-  // constant
+  //constant
   private static final String DEFAULT_CANCEL_BUTTON_TEXT = StringCatalogue.LONG_LEFT_ARROW;
 
-  // constant
+  //constant
   private static final Consumer<String> DEFAULT_VALUE_TAKER = (String value) -> {
   };
 
-  // attribute
+  //attribute
   private String infoText = DEFAULT_INFO_TEXT;
 
-  // attribute
+  //attribute
   private String originalValue = DEFAULT_ORIGINAL_VALUE;
 
-  // attribute
+  //attribute
   private String cancelButtonText = DEFAULT_CANCEL_BUTTON_TEXT;
 
-  // attribute
+  //attribute
   private String confirmButtonText = DEFAULT_CONFIRM_BUTTON_TEXT;
 
-  // attribute
+  //attribute
   private Consumer<String> valueTaker = DEFAULT_VALUE_TAKER;
 
-  // method
+  //method
   @Override
   public ILayer<?> build() {
 
@@ -85,7 +85,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
                                 .setLeftMouseButtonPressAction(b -> confirmNewValue(b, valueTextbox, valueTaker)))));
   }
 
-  // method
+  //method
   public EnterValueDialogBuilder setCancelButtonText(String cancelButtonText) {
 
     this.cancelButtonText = cancelButtonText;
@@ -93,7 +93,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public EnterValueDialogBuilder setConfirmButtonText(final String confirmButtonText) {
 
     this.confirmButtonText = confirmButtonText;
@@ -101,7 +101,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public EnterValueDialogBuilder setInfoText(final String infoText) {
 
     this.infoText = infoText;
@@ -109,7 +109,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public EnterValueDialogBuilder setOriginalValue(final String originalValue) {
 
     this.originalValue = originalValue;
@@ -117,7 +117,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   public EnterValueDialogBuilder setValueTaker(final Consumer<String> valueTaker) {
 
     this.valueTaker = valueTaker;
@@ -125,7 +125,7 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     return this;
   }
 
-  // method
+  //method
   private void confirmNewValue(
       final IButton confirmButton,
       final ITextbox valueTextbox,
@@ -138,17 +138,17 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     confirmButton.getStoredParentLayer().removeSelfFromGui();
   }
 
-  // method
+  //method
   private String getCancelButtonText() {
     return cancelButtonText;
   }
 
-  // method
+  //method
   private String getConfirmButtonText() {
     return confirmButtonText;
   }
 
-  // method
+  //method
   private String getInfoText() {
     return infoText;
   }

@@ -12,7 +12,7 @@ import java.util.function.Predicate;
  */
 public interface ISearchableContainer<E> {
 
-  // method declaration
+  //method declaration
   /**
    * @return a randomly selected element of the current
    *         {@link ISearchableContainer}.
@@ -21,7 +21,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredAny();
 
-  // method declaration declaration
+  //method declaration declaration
   /**
    * @param p1BasedIndex
    * @return the element at the given p1BasedIndex.
@@ -30,7 +30,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredAt1BasedIndex(int p1BasedIndex);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -42,7 +42,7 @@ public interface ISearchableContainer<E> {
    */
   <C extends Comparable<C>> E getStoredByMax(Function<E, C> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -54,7 +54,7 @@ public interface ISearchableContainer<E> {
    */
   <C extends Comparable<C>> E getStoredByMin(Function<E, C> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @return the first element of the current {@link ISearchableContainer}.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
@@ -62,7 +62,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredFirst();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the first element the given selector selects from the current
@@ -72,14 +72,14 @@ public interface ISearchableContainer<E> {
    */
   E getStoredFirst(Predicate<? super E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @return the first element of the current {@link ISearchableContainer} or
    *         null.
    */
   E getStoredFirstOrNull();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the first element the given selector selects from the current
@@ -87,7 +87,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredFirstOrNull(Predicate<? super E> selector);
 
-  // method
+  //method
   /**
    * @param norm
    * @return a new {@link ISearchableContainer} with groups with the elements of
@@ -95,7 +95,7 @@ public interface ISearchableContainer<E> {
    */
   IContainer<? extends IContainer<E>> getStoredGroups(Function<E, ?> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @return the last element of the current {@link ISearchableContainer}.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
@@ -103,7 +103,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredLast();
 
-  // method declaration
+  //method declaration
   /**
    * @param type
    * @param <E2> is the type of the elements of the returned
@@ -113,7 +113,7 @@ public interface ISearchableContainer<E> {
    */
   <E2 extends E> IContainer<E2> getStoredOfType(Class<E2> type);
 
-  // method declaration
+  //method declaration
   /**
    * @return the one element of the current {@link ISearchableContainer}.
    * @throws RuntimeException if the current {@link ISearchableContainer} is
@@ -123,7 +123,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredOne();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the one element the given selector selects from the current
@@ -134,7 +134,7 @@ public interface ISearchableContainer<E> {
    */
   E getStoredOne(Predicate<? super E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return a new {@link ISearchableContainer} with the elements from the current
@@ -142,7 +142,7 @@ public interface ISearchableContainer<E> {
    */
   IContainer<E> getStoredOther(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return a new {@link ISearchableContainer} with the elements the given

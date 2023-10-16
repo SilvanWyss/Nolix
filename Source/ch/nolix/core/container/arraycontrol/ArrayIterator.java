@@ -13,54 +13,54 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 public final class ArrayIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
     return new ArrayIterator<>(array);
   }
 
-  // static method
+  //static method
   public static <E2> ArrayIterator<E2> forArrayAndStartIndex(final E2[] array, final int startIndex) {
     return new ArrayIterator<>(array, startIndex);
   }
 
-  // attribute
+  //attribute
   private final E[] parentArray;
 
-  // attribute
+  //attribute
   private int nextIndex;
 
-  // constructor
+  //constructor
   private ArrayIterator(final E[] parrentArray) {
 
     GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
 
-    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
   }
 
-  // constructor
+  //constructor
   private ArrayIterator(final E[] parrentArray, final int startIndex) {
 
     GlobalValidator.assertThat(parrentArray).thatIsNamed("parent array").isNotNull();
     GlobalValidator.assertThat(startIndex).thatIsNamed("start index").isNotNegative();
 
-    this.parentArray = parrentArray; // NOSONAR: An ArrayIterator operates on the original instance.
+    this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = startIndex;
   }
 
-  // methood
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return forArrayAndStartIndex(parentArray, nextIndex);
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return (nextIndex < parentArray.length);
   }
 
-  // method
+  //method
   @Override
   public E next() {
 
@@ -69,7 +69,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
     return nextWhenHasNext();
   }
 
-  // method
+  //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
@@ -77,7 +77,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
     }
   }
 
-  // method
+  //method
   private E nextWhenHasNext() {
 
     final var element = parentArray[nextIndex];

@@ -13,13 +13,13 @@ import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 //class
 public final class GlobalBasicCalculator {
 
-  // constant
+  //constant
   /**
    * The default maximum deviation is 10^-9.
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 
-  // static method
+  //static method
   /**
    * @param xValues
    * @param yValues
@@ -30,8 +30,8 @@ public final class GlobalBasicCalculator {
    */
   public static LinkedList<FloatingPointNumberPair> createFPNPairs(final double[] xValues, final double[] yValues) {
 
-    // Asserts that the count of the given yValues equals the count of the given
-    // xValues.
+    //Asserts that the count of the given yValues equals the count of the given
+    //xValues.
     GlobalValidator.assertThat(yValues).thatIsNamed("y-values container").hasSameSizeAs(xValues);
 
     final var lFPNPairs = new LinkedList<FloatingPointNumberPair>();
@@ -42,7 +42,7 @@ public final class GlobalBasicCalculator {
     return lFPNPairs;
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -51,12 +51,12 @@ public final class GlobalBasicCalculator {
    */
   public static boolean equalsApproximatively(final double value1, final double value2) {
 
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     return (Math.abs(value1 - value2) < DEFAULT_MAX_DEVIATION);
   }
 
-  // static method
+  //static method
   /**
    * @param value1
    * @param value2
@@ -67,13 +67,13 @@ public final class GlobalBasicCalculator {
    */
   public static boolean equalsApproximatively(final double value1, final double value2, final double maxDeviation) {
 
-    // Asserts that the given maxDeviation is not negative.
+    //Asserts that the given maxDeviation is not negative.
     GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 
     return (Math.abs(value1 - value2) <= maxDeviation);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -87,7 +87,7 @@ public final class GlobalBasicCalculator {
     return (sum / valueCount);
   }
 
-  // method
+  //method
   /**
    * @param values
    * @return the average of the given values.
@@ -109,7 +109,7 @@ public final class GlobalBasicCalculator {
     return (sum / count);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -123,7 +123,7 @@ public final class GlobalBasicCalculator {
     return (sum / valueCount);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -137,7 +137,7 @@ public final class GlobalBasicCalculator {
     return (sum / valueCount);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -155,7 +155,7 @@ public final class GlobalBasicCalculator {
     return max;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -173,7 +173,7 @@ public final class GlobalBasicCalculator {
     return max;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -191,7 +191,7 @@ public final class GlobalBasicCalculator {
     return max;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -209,7 +209,7 @@ public final class GlobalBasicCalculator {
     return min;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -227,7 +227,7 @@ public final class GlobalBasicCalculator {
     return min;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -245,7 +245,7 @@ public final class GlobalBasicCalculator {
     return min;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -254,7 +254,7 @@ public final class GlobalBasicCalculator {
     return (value * value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -263,7 +263,7 @@ public final class GlobalBasicCalculator {
     return (value * value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return the square of the given value.
@@ -272,7 +272,7 @@ public final class GlobalBasicCalculator {
     return (value * value);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -289,7 +289,7 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -305,7 +305,7 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  // static method
+  //static method
   /**
    * @param values
    * @return the sum of the given values.
@@ -320,7 +320,7 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -336,7 +336,7 @@ public final class GlobalBasicCalculator {
     return sum;
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return true if the given value is approximately 1.0 with a deviation that is
@@ -344,12 +344,12 @@ public final class GlobalBasicCalculator {
    */
   public static boolean isApproximatelyOne(final double value) {
 
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     return (Math.abs(value - 1.0) <= DEFAULT_MAX_DEVIATION);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param maxDeviation
@@ -359,13 +359,13 @@ public final class GlobalBasicCalculator {
    */
   public static boolean isApproximatelyOne(final double value, final double maxDeviation) {
 
-    // Asserts that the given maxDeviation is not negative.
+    //Asserts that the given maxDeviation is not negative.
     GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 
     return (Math.abs(value - 1.0) <= maxDeviation);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return true if the given value is approximately 0.0 with a deviation that is
@@ -373,12 +373,12 @@ public final class GlobalBasicCalculator {
    */
   public static boolean isApproximatelyZero(final double value) {
 
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     return (Math.abs(value) <= DEFAULT_MAX_DEVIATION);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param maxDeviation
@@ -388,13 +388,13 @@ public final class GlobalBasicCalculator {
    */
   public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
 
-    // Asserts that the given maxDeviation is not negative.
+    //Asserts that the given maxDeviation is not negative.
     GlobalValidator.assertThat(maxDeviation).thatIsNamed("max deviation").isNotNegative();
 
     return (Math.abs(value) <= maxDeviation);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @return a new {@link IntRoundingMediator} for the given value.
@@ -403,7 +403,7 @@ public final class GlobalBasicCalculator {
     return new IntRoundingMediator(value);
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalBasicCalculator} can be
    * created.

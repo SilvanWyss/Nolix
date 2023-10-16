@@ -8,28 +8,28 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class SingleContainerTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // execution
+    //execution
     final var result = new SingleContainer<String>();
 
-    // verification
+    //verification
     expect(result.isEmpty());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor_whenThereIsGiven1Element() {
 
-    // setup
+    //setup
     final var garfield = "Garfield";
 
-    // execution
+    //execution
     final var result = new SingleContainer<>(garfield);
 
-    // verification
+    //verification
     expect(result.containsAny());
     expect(result.getStoredElement()).is(garfield);
   }

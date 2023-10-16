@@ -16,25 +16,25 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 //class
 public final class LocalFrontEndWriter implements IFrontEndWriter {
 
-  // method
+  //method
   @Override
   public void openNewTabWithUrl(final String url) {
     ShellProvider.startDefaultWebBrowserOpeningUrl(url);
   }
 
-  // method
+  //method
   @Override
   public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectTo");
   }
 
-  // method
+  //method
   @Override
   public void redirectToUrl(String url) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "redirectToUrl");
   }
 
-  // method
+  //method
   @Override
   public void saveFile(final byte[] bytes) {
 
@@ -55,7 +55,7 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
     }
   }
 
-  // method
+  //method
   @Override
   public void writeTextToClipboard(final String text) {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "writeTextToClipboard");

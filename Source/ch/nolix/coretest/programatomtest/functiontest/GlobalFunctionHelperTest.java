@@ -11,33 +11,33 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class GlobalFunctionHelperTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_createNegatorFor_whenTrueFunctionIsGiven() {
 
-    // execution
+    //execution
     final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getTrue);
 
-    // verification
+    //verification
     expectNot(result.getAsBoolean());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createNegatorFor_whenFalseFunctionIsGiven() {
 
-    // execution
+    //execution
     final var result = GlobalFunctionHelper.createNegatorFor(FunctionCatalogue::getFalse);
 
-    // verification
+    //verification
     expect(result.getAsBoolean());
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createNegatorFor_whenNullIsGiven() {
 
-    // execution & verification
+    //execution & verification
     expectRunning(() -> GlobalFunctionHelper.createNegatorFor(null))
         .throwsException()
         .ofType(ArgumentIsNullException.class)

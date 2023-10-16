@@ -12,11 +12,11 @@ import ch.nolix.template.graphic.texture.TextureCatalogue;
 //class
 public final class TextureCatalogueTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constantsOfTextureCatalogue() {
 
-    // verification
+    //verification
     final var textures = GlobalClassHelper.getPublicStaticFieldValuesOfClass(TextureCatalogue.class);
     for (final var t : textures) {
 

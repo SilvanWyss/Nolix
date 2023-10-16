@@ -10,54 +10,54 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class MatrixTest extends ContainerTest {
 
-  // method
+  //method
   @TestCase
   public void testCase_addColumn() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
 
-    // execution
+    //execution
     matrix.addColumn("apple", "banana", "cerish");
 
-    // verification
+    //verification
     expect(matrix.getRowCount()).isEqualTo(3);
     expect(matrix.getColumnCount()).isEqualTo(1);
     expect(matrix.getColumn(1).toString()).isEqualTo("apple,banana,cerish");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_addRow() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
 
-    // execution
+    //execution
     matrix.addRow("apple", "banana", "cerish");
 
-    // verification
+    //verification
     expect(matrix.getRowCount()).isEqualTo(1);
     expect(matrix.getColumnCount()).isEqualTo(3);
     expect(matrix.getRow(1).toString()).isEqualTo("apple,banana,cerish");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getColumn() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("elephant", "lion", "monkey");
     matrix.addRow("flower", "tree", "palm");
 
-    // execution
+    //execution
     final var column1 = matrix.getColumn(1);
     final var column2 = matrix.getColumn(2);
     final var column3 = matrix.getColumn(3);
 
-    // verification
+    //verification
     expect(column1.getElementCount()).isEqualTo(3);
     expect(column1.toString()).isEqualTo("apple,elephant,flower");
     expect(column2.getElementCount()).isEqualTo(3);
@@ -66,20 +66,20 @@ public final class MatrixTest extends ContainerTest {
     expect(column3.toString()).isEqualTo("cerish,monkey,palm");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getCopy() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("elephant", "lion", "monkey");
     matrix.addRow("flower", "tree", "palm");
 
-    // execution
+    //execution
     final var copy = matrix.getCopy();
 
-    // verification
+    //verification
     expect(copy.getColumnCount()).isEqualTo(3);
     expect(copy.getRowCount()).isEqualTo(3);
     expect(copy.getRow(1).toString()).isEqualTo("apple,banana,cerish");
@@ -87,17 +87,17 @@ public final class MatrixTest extends ContainerTest {
     expect(copy.getRow(3).toString()).isEqualTo("flower,tree,palm");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getIndexOf() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("elephant", "lion", "monkey");
     matrix.addRow("flower", "tree", "palm");
 
-    // execution
+    //execution
     final var index1 = matrix.getIndexOf(1, 1);
     final var index2 = matrix.getIndexOf(1, 2);
     final var index3 = matrix.getIndexOf(1, 3);
@@ -108,7 +108,7 @@ public final class MatrixTest extends ContainerTest {
     final var index8 = matrix.getIndexOf(3, 2);
     final var index9 = matrix.getIndexOf(3, 3);
 
-    // verification
+    //verification
     expect(index1).isEqualTo(1);
     expect(index2).isEqualTo(2);
     expect(index3).isEqualTo(3);
@@ -120,22 +120,22 @@ public final class MatrixTest extends ContainerTest {
     expect(index9).isEqualTo(9);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getRow() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("elephant", "lion", "monkey");
     matrix.addRow("flower", "tree", "palm");
 
-    // execution
+    //execution
     final var row1 = matrix.getRow(1);
     final var row2 = matrix.getRow(2);
     final var row3 = matrix.getRow(3);
 
-    // verification
+    //verification
     expect(row1.getElementCount()).isEqualTo(3);
     expect(row1.toString()).isEqualTo("apple,banana,cerish");
     expect(row2.getElementCount()).isEqualTo(3);
@@ -144,20 +144,20 @@ public final class MatrixTest extends ContainerTest {
     expect(row3.toString()).isEqualTo("flower,tree,palm");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toLeftRotatedMatrix() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("elephant", "lion", "monkey");
     matrix.addRow("flower", "tree", "palm");
 
-    // execution
+    //execution
     final var leftRotatedMatrix = matrix.toLeftRotatedMatrix();
 
-    // verification
+    //verification
     expect(leftRotatedMatrix.getRowCount()).isEqualTo(3);
     expect(leftRotatedMatrix.getColumnCount()).isEqualTo(3);
     expect(leftRotatedMatrix.getRow(1).toString()).isEqualTo("cerish,monkey,palm");
@@ -165,20 +165,20 @@ public final class MatrixTest extends ContainerTest {
     expect(leftRotatedMatrix.getRow(3).toString()).isEqualTo("apple,elephant,flower");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toRightRotatedMatrix() {
 
-    // setup
+    //setup
     final var matrix = new Matrix<String>();
     matrix.addRow("apple", "banana", "cerish");
     matrix.addRow("elephant", "lion", "monkey");
     matrix.addRow("flower", "tree", "palm");
 
-    // execution
+    //execution
     final var rightRotatedMatrix = matrix.toRightRotatedMatrix();
 
-    // verification
+    //verification
     expect(rightRotatedMatrix.getRowCount()).isEqualTo(3);
     expect(rightRotatedMatrix.getColumnCount()).isEqualTo(3);
     expect(rightRotatedMatrix.getRow(1).toString()).isEqualTo("flower,elephant,apple");
@@ -186,7 +186,7 @@ public final class MatrixTest extends ContainerTest {
     expect(rightRotatedMatrix.getRow(3).toString()).isEqualTo("palm,monkey,cerish");
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
       final E element,
@@ -199,7 +199,7 @@ public final class MatrixTest extends ContainerTest {
     return matrix;
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(final Class<E> type) {
     return new Matrix<>();

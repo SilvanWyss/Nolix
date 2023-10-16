@@ -12,10 +12,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class DeletedArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is deleted";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link DeletedArgumentException} for the given argument.
@@ -24,7 +24,7 @@ public final class DeletedArgumentException extends InvalidArgumentException {
     return new DeletedArgumentException(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link DeletedArgumentException} for the given argument.
    * 
@@ -32,7 +32,7 @@ public final class DeletedArgumentException extends InvalidArgumentException {
    */
   private DeletedArgumentException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
 }

@@ -4,18 +4,18 @@ package ch.nolix.core.testing.basetest;
 //interface
 public interface ILinePrinter {
 
-  // method declaration
+  //method declaration
   void printEmptyLine();
 
-  // method declaration
+  //method declaration
   void printErrorLine(final String errorLine);
 
-  // method declaration
+  //method declaration
   void printErrorLines(final Iterable<String> errorLines);
 
-  // method declaration
+  //method declaration
   void printInfoLine(final String infoLine);
 
-  // method declaration
+  //method declaration
   void printInfoLines(final Iterable<String> infoLines);
 }

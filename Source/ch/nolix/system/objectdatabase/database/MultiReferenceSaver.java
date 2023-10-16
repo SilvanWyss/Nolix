@@ -9,14 +9,14 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReferenceEntry;
 //class
 final class MultiReferenceSaver {
 
-  // method
+  //method
   public void saveChangesOfMultiReference(final IMultiReference<?> multiReference, final Database database) {
     for (final var le : multiReference.getStoredLocalEntries()) {
       saveChangeOfMultiReferenceEntry(le, database);
     }
   }
 
-  // method
+  //method
   private void saveChangeOfMultiReferenceEntry(
       final IMultiReferenceEntry<?> multiReferenceEntry,
       final Database database) {
@@ -39,7 +39,7 @@ final class MultiReferenceSaver {
     }
   }
 
-  // method
+  //method
   private void saveMultiReferenceEntryCreation(
       final IMultiReferenceEntry<?> multiReferenceEntry,
       final Database database) {
@@ -53,7 +53,7 @@ final class MultiReferenceSaver {
         multiReferenceEntry.getReferencedEntityId());
   }
 
-  // method
+  //method
   private void saveMultiReferenceEntryDeletion(
       final IMultiReferenceEntry<?> multiReferenceEntry,
       final Database database) {

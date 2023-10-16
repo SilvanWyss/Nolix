@@ -4,9 +4,9 @@ package ch.nolix.systemapi.rawdatabaseapi.databasedtoapi;
 //interface
 public interface IEntityHeadDto {
 
-  // method declaration
+  //method declaration
   String getId();
 
-  // method declaration
+  //method declaration
   String getSaveStamp();
 }

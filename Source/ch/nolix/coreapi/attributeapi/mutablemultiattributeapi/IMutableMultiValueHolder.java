@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
  */
 public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given value to the current {@link IMutableMultiValueHolder}.
    * 
@@ -24,7 +24,7 @@ public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
    */
   void addValue(V value);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the given value from the current {@link IMutableMultiValueHolder}.
    * 
@@ -34,7 +34,7 @@ public interface IMutableMultiValueHolder<V> extends IMultiValueHolder<V> {
    */
   void removeValue(V value);
 
-  // method declaration
+  //method declaration
   /**
    * Removes all values from the current {@link IMutableMultiValueHolder}.
    */

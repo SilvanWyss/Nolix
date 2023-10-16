@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalNamed;
  */
 public interface OptionalNameable extends OptionalNamed {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the name of the current {@link OptionalNameable}.
    */
   void removeName();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the name of the current {@link OptionalNameable}.
    * 

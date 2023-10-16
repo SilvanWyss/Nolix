@@ -17,7 +17,7 @@ import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 //class
 public final class MutableXmlNode implements IMutableXmlNode {
 
-  // static method
+  //static method
   public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
 
     final var mutableXmlNode = new MutableXmlNode();
@@ -39,7 +39,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return mutableXmlNode;
   }
 
-  // method
+  //method
   private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
 
     final var stringBuilder = new StringBuilder();
@@ -93,19 +93,19 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return stringBuilder.toString();
   }
 
-  // optional attribute
+  //optional attribute
   private String name;
 
-  // optional attribute
+  //optional attribute
   private String value;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<IXmlAttribute> attributes = new LinkedList<>();
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<IMutableXmlNode> childNodes = new LinkedList<>();
 
-  // method
+  //method
   @Override
   public MutableXmlNode addAttribute(final IXmlAttribute attribute) {
 
@@ -114,7 +114,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public MutableXmlNode addAttributes(final IXmlAttribute attribute, final IXmlAttribute... attributes) {
 
@@ -123,9 +123,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return addAttributes(ReadContainer.forArray(attributes));
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public MutableXmlNode addAttributes(final Iterable<IXmlAttribute> attributes) {
 
     this.attributes.addAtEnd(attributes);
@@ -133,13 +133,13 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IMutableXmlNode addAttributeWithNameAndValue(final String name, final String value) {
     return addAttribute(new XmlAttribute(name, value));
   }
 
-  // method
+  //method
   @Override
   public MutableXmlNode addChildNode(final IMutableXmlNode childNode) {
 
@@ -148,7 +148,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public MutableXmlNode addChildNodes(final IMutableXmlNode childNode, final IMutableXmlNode... childNodes) {
 
@@ -157,45 +157,45 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return addChildNodes(ReadContainer.forArray(childNodes));
   }
 
-  // method
+  //method
   public MutableXmlNode addChildNodes(final Iterable<IMutableXmlNode> childNodes) {
 
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     this.childNodes.addAtEnd(childNodes);
 
     return this;
   }
 
-  // method
+  //method
   @Override
   public boolean containsAttributes() {
     return attributes.containsAny();
   }
 
-  // method
+  //method
   @Override
   public boolean containsChildNodes() {
     return childNodes.containsAny();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IXmlAttribute> getAttributes() {
     return attributes;
   }
 
-  // method
+  //method
   public int getAttributeCount() {
     return attributes.getElementCount();
   }
 
-  // method
+  //method
   public int getChildNodeCount() {
     return childNodes.getElementCount();
   }
 
-  // method
+  //method
   @Override
   public String getName() {
 
@@ -206,19 +206,19 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return name;
   }
 
-  // method
+  //method
   @Override
   public String getNameInQuotes() {
     return GlobalStringHelper.getInQuotes(getName());
   }
 
-  // method
+  //method
   @Override
   public IContainer<IMutableXmlNode> getStoredChildNodes() {
     return childNodes;
   }
 
-  // method
+  //method
   @Override
   public String getValue() {
 
@@ -227,19 +227,19 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return value;
   }
 
-  // method
+  //method
   @Override
   public boolean hasMixedContent() {
     return (hasValue() && containsChildNodes());
   }
 
-  // method
+  //method
   @Override
   public boolean hasName() {
     return (name != null);
   }
 
-  // method
+  //method
   @Override
   public boolean hasName(final String name) {
 
@@ -250,13 +250,13 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return getName().equals(name);
   }
 
-  // method
+  //method
   @Override
   public boolean hasValue() {
     return (value != null);
   }
 
-  // method
+  //method
   public IMutableXmlNode removeAttributes() {
 
     attributes.clear();
@@ -264,7 +264,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   public IMutableXmlNode removeChildNodes() {
 
     childNodes.clear();
@@ -272,7 +272,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IMutableXmlNode removeName() {
 
@@ -281,7 +281,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IMutableXmlNode removeValue() {
 
@@ -290,7 +290,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IMutableXmlNode setName(final String name) {
 
@@ -301,7 +301,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   @Override
   public IMutableXmlNode setValue(final String value) {
 
@@ -312,12 +312,12 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return this;
   }
 
-  // method
+  //method
   public String toFormatedString() {
     return toFormatedString(this, 0);
   }
 
-  // method
+  //method
   @Override
   public String toString() {
 
@@ -355,7 +355,7 @@ public final class MutableXmlNode implements IMutableXmlNode {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   private void supposeHasValue() {
     if (!hasValue()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.VALUE);

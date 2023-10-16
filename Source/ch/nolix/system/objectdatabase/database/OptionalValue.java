@@ -17,19 +17,19 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class OptionalValue<V> extends BaseValue<V> implements IOptionalValue<V> {
 
-  // constant
+  //constant
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 
-  // constant
+  //constant
   private static final IOptionalValueValidator OPTIONAL_VALUE_VALIDATOR = new OptionalValueValidator();
 
-  // constant
+  //constant
   private static final IOptionalValueHelper OPTIONAL_VALUE_HELPER = new OptionalValueHelper();
 
-  // optional attribute
+  //optional attribute
   private V internalValue;
 
-  // method
+  //method
   @Override
   public void clear() {
 
@@ -38,13 +38,13 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return (internalValue == null);
   }
 
-  // method
+  //method
   @Override
   public V getStoredValue() {
 
@@ -53,19 +53,19 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     return internalValue;
   }
 
-  // method
+  //method
   @Override
   public PropertyType getType() {
     return PropertyType.OPTIONAL_VALUE;
   }
 
-  // method
+  //method
   @Override
   public boolean isMandatory() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public void setValue(final V value) {
 
@@ -76,7 +76,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   @Override
   public void setValueFromString(final String string) {
 
@@ -88,7 +88,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     setValue(value);
   }
 
-  // method
+  //method
   @Override
   public IContentFieldDto technicalToContentField() {
 
@@ -99,7 +99,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     return new ContentFieldDto(getName(), getStoredValue().toString());
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   void internalSetOrClearDirectlyFromContent(final Object content) {
@@ -110,7 +110,7 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
     }
   }
 
-  // method
+  //method
   private void updateStateForSetValue(final V value) {
 
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();

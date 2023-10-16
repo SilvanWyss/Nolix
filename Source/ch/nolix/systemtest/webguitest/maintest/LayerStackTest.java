@@ -12,78 +12,78 @@ import ch.nolix.system.webgui.main.WebGui;
 //class
 public final class LayerStackTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredControlOrNullByInternalId_whenIsEmpty() {
 
-    // setup
+    //setup
     final var control = new Label();
     final var testUnit = LayerStack.forWebGui(new WebGui());
 
-    // setup verification
+    //setup verification
     expect(testUnit.isEmpty());
 
-    // execution
+    //execution
     final var result = testUnit.getStoredControlOrNullByInternalId(control.getInternalId());
 
-    // verification
+    //verification
     expect(result).isNull();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredControlOrNullByInternalId_whenContainsSuchAControl() {
 
-    // setup
+    //setup
     final var control = new Label();
     final var testUnit = LayerStack.forWebGui(new WebGui());
     testUnit.pushLayerWithRootControl(control);
 
-    // execution
+    //execution
     final var result = testUnit.getStoredControlOrNullByInternalId(control.getInternalId());
 
-    // verification
+    //verification
     expect(result).is(control);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredControls_whenIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = LayerStack.forWebGui(new WebGui());
 
-    // setup verification
+    //setup verification
     expect(testUnit.isEmpty());
 
-    // execution
+    //execution
     final var result = testUnit.getStoredControls();
 
-    // verification
+    //verification
     expect(result).isEmpty();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredControls_whenContains1Control() {
 
-    // setup
+    //setup
     final var testUnit = LayerStack.forWebGui(new WebGui());
     final var label = new Label();
     testUnit.pushLayerWithRootControl(label);
 
-    // execution
+    //execution
     final var result = testUnit.getStoredControls();
 
-    // verification
+    //verification
     expect(result).containsExactlyInSameOrder(label);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredControls_whenContains4Control() {
 
-    // setup
+    //setup
     final var testUnit = LayerStack.forWebGui(new WebGui());
     final var verticalStack = new VerticalStack();
     final var label1 = new Label();
@@ -92,10 +92,10 @@ public final class LayerStackTest extends Test {
     verticalStack.addControl(label1, label2, label3);
     testUnit.pushLayerWithRootControl(verticalStack);
 
-    // execution
+    //execution
     final var result = testUnit.getStoredControls();
 
-    // verification
+    //verification
     expect(result).containsExactlyInSameOrder(verticalStack, label1, label2, label3);
   }
 }

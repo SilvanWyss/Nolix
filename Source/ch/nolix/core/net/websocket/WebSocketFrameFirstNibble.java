@@ -8,22 +8,22 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 final class WebSocketFrameFirstNibble {
 
-  // attribute
+  //attribute
   private final boolean mFINBit;
 
-  // attribute
+  //attribute
   private final int opcode;
 
-  // attribute
+  //attribute
   private final boolean maskBit;
 
-  // attribute
+  //attribute
   private final WebSocketFramePayloadLengthType payloadLengthSpecification;
 
-  // attribute
+  //attribute
   private final int m7BitPayloadLength;
 
-  // static method
+  //static method
   public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
 
     GlobalValidator.assertThat(nibble).hasElementCount(2);
@@ -31,7 +31,7 @@ final class WebSocketFrameFirstNibble {
     return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
   }
 
-  // constructor
+  //constructor
   public WebSocketFrameFirstNibble(
       final boolean mFINBit,
       final WebSocketFrameOpcodeMeaning opcodeMeaning,
@@ -52,7 +52,7 @@ final class WebSocketFrameFirstNibble {
     }
   }
 
-  // constructor
+  //constructor
   public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
 
     final var wrapperByte1 = new ByteWrapper(byte1);
@@ -73,12 +73,12 @@ final class WebSocketFrameFirstNibble {
     m7BitPayloadLength = byte2 & 0x7F;
   }
 
-  // method
+  //method
   public int get7BitsPayloadLength() {
     return m7BitPayloadLength;
   }
 
-  // method
+  //method
   public byte getByte1() {
 
     var byte1 = 0;
@@ -92,7 +92,7 @@ final class WebSocketFrameFirstNibble {
     return (byte) byte1;
   }
 
-  // method
+  //method
   public byte getByte2() {
 
     var byte2 = 0;
@@ -116,32 +116,32 @@ final class WebSocketFrameFirstNibble {
     return (byte) byte2;
   }
 
-  // method
+  //method
   public boolean getFINBit() {
     return mFINBit;
   }
 
-  // method
+  //method
   public boolean getMaskBit() {
     return maskBit;
   }
 
-  // method
+  //method
   public int getOpcode() {
     return opcode;
   }
 
-  // method
+  //method
   public WebSocketFrameOpcodeMeaning getOpcodeMeaning() {
     return WebSocketFrameOpcodeMeaning.fromNumber(opcode);
   }
 
-  // method
+  //method
   public WebSocketFramePayloadLengthType getPayloadLengthType() {
     return payloadLengthSpecification;
   }
 
-  // method
+  //method
   public byte[] toBytes() {
     return new byte[] { getByte1(), getByte2() };
   }

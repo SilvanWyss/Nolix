@@ -10,13 +10,13 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
 //class
 public final class DataTypeDto implements IDataTypeDto {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // optional attribute
+  //optional attribute
   private final String parameter;
 
-  // constructor
+  //constructor
   public DataTypeDto(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
@@ -25,7 +25,7 @@ public final class DataTypeDto implements IDataTypeDto {
     parameter = null;
   }
 
-  // constructor
+  //constructor
   public DataTypeDto(final String name, final String parameter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotNull();
@@ -35,7 +35,7 @@ public final class DataTypeDto implements IDataTypeDto {
     this.parameter = parameter;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
@@ -49,13 +49,13 @@ public final class DataTypeDto implements IDataTypeDto {
     return parameter;
   }
 
-  // method
+  //method
   @Override
   public boolean hasParameter() {
     return (parameter != null);
   }
 
-  // method
+  //method
   private void assertHasParameter() {
     if (!hasParameter()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.PARAMETER);

@@ -10,19 +10,19 @@ import ch.nolix.system.time.moment.Time;
 //class
 final class InternalDatabaseInitializer {
 
-  // method
+  //method
   public void initializeDatabase(final IMutableNode<?> databaseNode) {
     databaseNode
         .setHeader(SubNodeHeaderCatalogue.DATABASE)
         .addChildNode(createDatabasePropertiesNode());
   }
 
-  // method
+  //method
   private Node createDatabasePropertiesNode() {
     return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.DATABASE_PROPERTIES, createSchemaTimestampNode());
   }
 
-  // method
+  //method
   private Node createSchemaTimestampNode() {
     return Node.withHeaderAndChildNode(
         SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP,

@@ -32,7 +32,7 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class LinkedList<E> extends Container<E> implements ILinkedList<E> {
 
-  // static method
+  //static method
   /**
    * @param array
    * @param <E2>  is the type of the elements of the given array.
@@ -49,7 +49,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  // static method
+  //static method
   /**
    * @param container
    * @param <E2>      is the type of the elements of the given container.
@@ -66,7 +66,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  // static method
+  //static method
   /**
    * @param element
    * @param elements
@@ -84,23 +84,23 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  // attribute
+  //attribute
   private int elementCount;
 
-  // optional attribute
+  //optional attribute
   private LinkedListNode<E> firstNode;
 
-  // optional attribute
+  //optional attribute
   private LinkedListNode<E> lastNode;
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void addAtBegin(E element) {
 
-    // Creates new node.
+    //Creates new node.
     final var node = new LinkedListNode<>(element);
 
     if (isEmpty()) {
@@ -113,25 +113,25 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount++;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   @SafeVarargs
-  public final void addAtBegin( // NOSONAR: final keyword is required for SaveVarargs annotation.
+  public final void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
       final E element,
       final E... elements) {
 
     addAtBegin(element);
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final E e : elements) {
       addAtBegin(e);
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if n elements are given.
    * 
@@ -140,23 +140,23 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void addAtBegin(E[] elements) {
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final E e : elements) {
       addAtBegin(e);
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void addAtBegin(final Iterable<? extends E> elements) {
 
-    // Asserts that the given elements is not null.
+    //Asserts that the given elements is not null.
     GlobalValidator.assertThat(elements).thatIsNamed(PluralLowerCaseCatalogue.ELEMENTS).isNotNull();
 
-    // Handles the case that the given elements is not empty.
+    //Handles the case that the given elements is not empty.
     if (GlobalIterableHelper.containsAny(elements)) {
 
       final LinkedListNode<E> newFirstNode = new LinkedListNode<>(elements.iterator().next());
@@ -188,7 +188,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -197,7 +197,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void addAtEnd(final E element) {
 
-    // Creates new node.
+    //Creates new node.
     final var node = new LinkedListNode<>(element);
 
     if (isEmpty()) {
@@ -210,7 +210,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elementCount++;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if n elements are given.
    * 
@@ -218,19 +218,19 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @Override
   @SafeVarargs
-  public final void addAtEnd( // NOSONAR: final keyword is required for SaveVarargs annotation.
+  public final void addAtEnd( //NOSONAR: final keyword is required for SaveVarargs annotation.
       final E element,
       final E... elements) {
 
     addAtEnd(element);
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final E e : elements) {
       addAtEnd(e);
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if n elements are given.
    * 
@@ -239,13 +239,13 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void addAtEnd(E[] elements) {
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final E e : elements) {
       addAtEnd(e);
     }
   }
 
-  // method
+  //method
   /**
    * Adds the given elements at the end of the current {@link LinkedList}. The
    * complexity of this implementation is O(n) if n elements are given.
@@ -258,7 +258,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     elements.forEach(this::addAtEnd);
   }
 
-  // method
+  //method
   /**
    * Removes all elements of the current {@link LinkedList}. The complexity of
    * this implementation is O(n) when the current {@link LinkedList} contains n
@@ -267,7 +267,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void clear() {
 
-    // Handles the case that the current list contains any elements.
+    //Handles the case that the current list contains any elements.
     if (containsAny()) {
 
       var iterator = firstNode;
@@ -283,7 +283,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * An object equals a list if it is a list containing exactly the same elements.
    * 
@@ -292,16 +292,16 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public boolean equals(final Object object) {
 
-    // Handles the case that the given object is a LinkedList.
+    //Handles the case that the given object is a LinkedList.
     if (object instanceof LinkedList<?> linkedList) {
       return containsExactlyInSameOrder(linkedList);
     }
 
-    // Handles the case that the given object is not a LinkedList.
+    //Handles the case that the given object is not a LinkedList.
     return false;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -311,10 +311,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public ILinkedList<E> getCopy() {
 
-    // Creates a LinkedList.
+    //Creates a LinkedList.
     final var copy = new LinkedList<E>();
 
-    // Iterates the current LinkedList
+    //Iterates the current LinkedList
     for (final var e : this) {
       copy.addAtEnd(e);
     }
@@ -322,7 +322,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return copy;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -339,11 +339,11 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
-    // Iterates the current LinkedList.
+    //Iterates the current LinkedList.
     var i = 1;
     for (final var e : this) {
 
-      // Asserts that the current index is the given index.
+      //Asserts that the current index is the given index.
       if (i == p1BasedIndex) {
         return e;
       }
@@ -358,7 +358,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
         getElementCount());
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -368,7 +368,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public E getStoredLast() {
 
-    // Asserts that the current list is not empty.
+    //Asserts that the current list is not empty.
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
@@ -376,7 +376,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return lastNode.getElement();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -387,7 +387,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return elementCount;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -396,7 +396,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return toString().hashCode();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -405,7 +405,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return true;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -416,7 +416,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return LinkedListIterator.withFirstNodeOrNull(firstNode);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -433,7 +433,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     addAtEnd(remainingElements);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -449,7 +449,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return element;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -466,7 +466,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return element;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -482,7 +482,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return element;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -491,7 +491,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void removeFirst() {
 
-    // Enumerates the element count of the current LinkedList.
+    //Enumerates the element count of the current LinkedList.
     switch (getElementCount()) {
       case 0:
         break;
@@ -504,7 +504,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -514,13 +514,13 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void removeFirst(final Predicate<E> selector) {
 
-    // Handles the case that the current LinkedList contains elements.
+    //Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
       removeFirstWhenContainsAny(selector);
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -530,13 +530,13 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void removeFirstOccurrenceOf(final Object element) {
 
-    // Handles the case that the current LinkedList contains elements.
+    //Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
       removeFirstOccurrenceOfWhenContainsAny(element);
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n).
    * 
@@ -545,13 +545,13 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void removeLast() {
 
-    // Handles the case that the current LinkedList contains elements.
+    //Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
       removeLastWhenContainsAny();
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -576,7 +576,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * This implementation uses the merge sort algorithm. The complexity of this
    * implementation is O(n*log(n)) if the current {@link Container} contains n
@@ -589,7 +589,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return getOrderedSubList(1, getElementCount(), norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -601,7 +601,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -610,7 +610,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return new LinkedList<>();
   }
 
-  // method
+  //method
   /**
    * @param startIndex
    * @param endIndex
@@ -626,21 +626,21 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       final int endIndex,
       final Function<E, C> norm) {
 
-    // Searches for the start node.
+    //Searches for the start node.
     var startNode = firstNode;
     for (var i = 1; i < startIndex; i++) {
       startNode = startNode.getNextNode();
     }
 
-    // Calculates the length of the sub list.
+    //Calculates the length of the sub list.
     final var length = (endIndex - startIndex) + 1;
 
-    // Handles the case when the sub list contains 1 element.
+    //Handles the case when the sub list contains 1 element.
     if (length == 1) {
       return LinkedList.withElement(startNode.getElement());
     }
 
-    // Handles the case when the sub list contains 2 elements.
+    //Handles the case when the sub list contains 2 elements.
     if (length == 2) {
 
       final var list = new LinkedList<E>();
@@ -658,7 +658,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       return list;
     }
 
-    // Handles the case when the sub list contains more than 2 elements.
+    //Handles the case when the sub list contains more than 2 elements.
     final var list = new LinkedList<E>();
     final var middleIndex = startIndex + length / 2;
     final var subList1 = getOrderedSubList(startIndex, middleIndex, norm);
@@ -686,7 +686,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     return list;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
@@ -717,7 +717,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * Removes the first element the given selector selects from the current
    * {@link ILinkedList} for the case that the current {@link LinkedList} contains
@@ -744,7 +744,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n).
    * 
@@ -753,11 +753,11 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   private void removeLastWhenContainsAny() {
 
-    // Handles the case that the current list contains 1 element.
+    //Handles the case that the current list contains 1 element.
     if (containsOne()) {
       clear();
 
-      // Handles the case that the current list contains several elements.
+      //Handles the case that the current list contains several elements.
     } else {
 
       var iterator = firstNode;
@@ -772,7 +772,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
   }
 
-  // method
+  //method
   /**
    * Removes the next node of the given node.
    * 
@@ -783,7 +783,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   private void removeNextNode(final LinkedListNode<E> node) {
 
-    // Asserts that the given node is not null.
+    //Asserts that the given node is not null.
     GlobalValidator.assertThat(node).thatIsNamed(LowerCaseCatalogue.NODE).isNotNull();
 
     final var nextNode = node.getNextNode();

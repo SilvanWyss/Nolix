@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 //class
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 
-  // static method
+  //static method
   public static ApplicationInstanceTarget//
       forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
           final String ipOrDomain,
@@ -25,13 +25,13 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
         securityLevelForConnections);
   }
 
-  // attribute
+  //attribute
   private final String applicationInstanceName;
 
-  // attribute
+  //attribute
   private final String applicationUrlInstanceName;
 
-  // constructor
+  //constructor
   protected ApplicationInstanceTarget(
       final String ipOrDomain,
       final int port,
@@ -48,19 +48,19 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
     this.applicationUrlInstanceName = applicationUrlInstanceName;
   }
 
-  // method
+  //method
   @Override
   public final String getApplicationInstanceName() {
     return applicationInstanceName;
   }
 
-  // method
+  //method
   @Override
   public final String getApplicationUrlInstanceName() {
     return applicationUrlInstanceName;
   }
 
-  // method
+  //method
   @Override
   public String toUrl() {
     return (super.toUrl() + "?app=" + getApplicationUrlInstanceName());

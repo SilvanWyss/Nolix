@@ -10,11 +10,11 @@ import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 //class
 public final class TimeTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getDay() {
 
-    // setup
+    //setup
     final var testUnit = Time
         .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
             2020,
@@ -25,10 +25,10 @@ public final class TimeTest extends Test {
             30,
             500);
 
-    // execution
+    //execution
     final Time result = testUnit.getDay();
 
-    // verification
+    //verification
     expect(result.getYearAsInt()).isEqualTo(2020);
     expect(result.getMonthOfYearAsInt()).isEqualTo(1);
     expect(result.getDayOfMonth()).isEqualTo(2);
@@ -38,49 +38,49 @@ public final class TimeTest extends Test {
     expect(result.getMillisecondOfSecond()).isEqualTo(0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getWeekday_whenIs2020_01_01() {
 
-    // setup
+    //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 1);
 
-    // execution
+    //execution
     final var result = testUnit.getWeekday();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Weekday.WEDNESDAY);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getWeekday_whenIs2020_01_02() {
 
-    // setup
+    //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 2);
 
-    // execution
+    //execution
     final var result = testUnit.getWeekday();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Weekday.THURSDAY);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getWeekday_whenIs2020_01_03() {
 
-    // setup
+    //setup
     final var testUnit = Time.withYearAndMonthOfYearAndDayOfMonth(2020, 1, 3);
 
-    // execution
+    //execution
     final var result = testUnit.getWeekday();
 
-    // verification
+    //verification
     expect(result).isEqualTo(Weekday.FRIDAY);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withYearAndMonthOfYearAndDayOfMonth() {
     for (var y = 1600; y <= 3000; y++) {
@@ -95,10 +95,10 @@ public final class TimeTest extends Test {
 
         for (var d = 1; d <= dayCount; d++) {
 
-          // execution
+          //execution
           final var result = Time.withYearAndMonthOfYearAndDayOfMonth(y, m, d);
 
-          // verification
+          //verification
           expect(result.getYearAsInt()).isEqualTo(y);
           expect(result.getMonthOfYearAsInt()).isEqualTo(m);
           expect(result.getDayOfMonth()).isEqualTo(d);
@@ -107,18 +107,18 @@ public final class TimeTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour() {
 
-    // main loop
+    //main loop
     for (var h = 0; h <= 23; h++) {
       for (var m = 0; m <= 59; m++) {
 
-        // execution
+        //execution
         final var result = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2000, 1, 1, h, m);
 
-        // verification
+        //verification
         expect(result.getYearAsInt()).isEqualTo(2000);
         expect(result.getMonthOfYearAsInt()).isEqualTo(1);
         expect(result.getDayOfMonth()).isEqualTo(1);

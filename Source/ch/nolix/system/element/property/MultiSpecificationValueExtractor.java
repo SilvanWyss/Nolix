@@ -16,16 +16,16 @@ import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 //class
 public final class MultiSpecificationValueExtractor implements IProperty, Named {
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final Consumer<INode<?>> adder;
 
-  // attribute
+  //attribute
   private final Supplier<IContainer<INode<?>>> getter;
 
-  // constructor
+  //constructor
   public MultiSpecificationValueExtractor(
       final String name,
       final Consumer<INode<?>> adder,
@@ -40,13 +40,13 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
     this.getter = getter;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public boolean addedOrChangedAttribute(final INode<?> attribute) {
 
@@ -58,7 +58,7 @@ public final class MultiSpecificationValueExtractor implements IProperty, Named 
     return false;
   }
 
-  // method
+  //method
   @Override
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     list.addAtEnd(getter.get());

@@ -36,10 +36,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public abstract class Container<E> implements IContainer<E> {
 
-  // constant
+  //constant
   private static final Random RANDOM = new Random();
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -49,10 +49,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean contains(final Object element) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the current element is the given element.
+      //Handles the case that the current element is the given element.
       if (e == element) {
         return true;
       }
@@ -61,7 +61,7 @@ public abstract class Container<E> implements IContainer<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -71,17 +71,17 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsAll(final Object element, final Object... elements) {
 
-    // Handles the case that the current Container does not contain the given
-    // firstElement.
+    //Handles the case that the current Container does not contain the given
+    //firstElement.
     if (!contains(element)) {
       return false;
     }
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final var e : elements) {
 
-      // Handles the case that the current Container does not contain the current
-      // element.
+      //Handles the case that the current Container does not contain the current
+      //element.
       if (!contains(e)) {
         return false;
       }
@@ -90,7 +90,7 @@ public abstract class Container<E> implements IContainer<E> {
     return true;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -100,11 +100,11 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsAll(final Iterable<?> elements) {
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final var e : elements) {
 
-      // Handles the case that the current IContainer does not contain the current
-      // element.
+      //Handles the case that the current IContainer does not contain the current
+      //element.
       if (!contains(e)) {
         return false;
       }
@@ -113,7 +113,7 @@ public abstract class Container<E> implements IContainer<E> {
     return true;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -124,7 +124,7 @@ public abstract class Container<E> implements IContainer<E> {
     return iterator().hasNext();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -134,10 +134,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsAny(final Predicate<E> selector) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
         return true;
       }
@@ -146,7 +146,7 @@ public abstract class Container<E> implements IContainer<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -156,15 +156,15 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsAny(final Object element, final Object... elements) {
 
-    // Handles the case that the current Container contains the given firstElement.
+    //Handles the case that the current Container contains the given firstElement.
     if (contains(element)) {
       return true;
     }
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final var e : elements) {
 
-      // Handles the case that the current Container contains the current element.
+      //Handles the case that the current Container contains the current element.
       if (contains(e)) {
         return true;
       }
@@ -173,7 +173,7 @@ public abstract class Container<E> implements IContainer<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -183,10 +183,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsAnyOf(final Iterable<?> elements) {
 
-    // Iterates the given elements.
+    //Iterates the given elements.
     for (final var e : elements) {
 
-      // Handles the case that the current IContainer contains the current element.
+      //Handles the case that the current IContainer contains the current element.
       if (contains(e)) {
         return true;
       }
@@ -195,7 +195,7 @@ public abstract class Container<E> implements IContainer<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is -O(1) if the given container is a
    * {@link IContainer}. -O(n) otherwise.
@@ -205,16 +205,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsAsManyAs(Iterable<?> container) {
 
-    // Handles the case that the given container is a IContainer.
+    //Handles the case that the given container is a IContainer.
     if (container instanceof IContainer<?> lContainer) {
       return (getElementCount() == lContainer.getElementCount());
     }
 
-    // Handles the case that the given container is not a IContainer.
+    //Handles the case that the given container is not a IContainer.
     return (getElementCount() == GlobalIterableHelper.getElementCount(container));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -224,10 +224,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsEqualing(final Object element) {
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     for (final var e : this) {
 
-      // Handles the case that the current element equals the given element.
+      //Handles the case that the current element equals the given element.
       if (e.equals(element)) {
         return true;
       }
@@ -236,7 +236,7 @@ public abstract class Container<E> implements IContainer<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -246,12 +246,12 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsExactlyInSameOrder(final Iterable<?> container) {
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     final var iterator = container.iterator();
     for (final var e : this) {
 
-      // Handles the case that the current element is not the next element in the
-      // given container.
+      //Handles the case that the current element is not the next element in the
+      //given container.
       if (!iterator.hasNext() || e != iterator.next()) {
         return false;
       }
@@ -260,7 +260,7 @@ public abstract class Container<E> implements IContainer<E> {
     return !iterator.hasNext();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is -O(1) if the given container is a
    * {@link IContainer}. -O(n) otherwise.
@@ -270,16 +270,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsLessThan(final Iterable<?> container) {
 
-    // Handles the case that the given container is a IContainer.
+    //Handles the case that the given container is a IContainer.
     if (container instanceof IContainer<?> lContainer) {
       return (getElementCount() < lContainer.getElementCount());
     }
 
-    // Handles the case that the given container is not a IContainer.
+    //Handles the case that the given container is not a IContainer.
     return (getElementCount() < GlobalIterableHelper.getElementCount(container));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -288,16 +288,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsMoreThan(final Iterable<?> container) {
 
-    // Handles the case that the given container is a IContainer.
+    //Handles the case that the given container is a IContainer.
     if (container instanceof IContainer<?> lContainer) {
       return (getElementCount() > lContainer.getElementCount());
     }
 
-    // Handles the case that the given container is not a IContainer.
+    //Handles the case that the given container is not a IContainer.
     return (getElementCount() > GlobalIterableHelper.getElementCount(container));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -309,7 +309,7 @@ public abstract class Container<E> implements IContainer<E> {
     return !containsAny(selector::test);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -321,7 +321,7 @@ public abstract class Container<E> implements IContainer<E> {
     return !containsAny(element, elements);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -333,7 +333,7 @@ public abstract class Container<E> implements IContainer<E> {
     return !containsAnyOf(elements);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -345,13 +345,13 @@ public abstract class Container<E> implements IContainer<E> {
 
     var found = false;
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the current element is the given element.
+      //Handles the case that the current element is the given element.
       if (e == element) {
 
-        // Handles the case that the given element was already found.
+        //Handles the case that the given element was already found.
         if (found) {
           return false;
         }
@@ -363,7 +363,7 @@ public abstract class Container<E> implements IContainer<E> {
     return found;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -374,17 +374,17 @@ public abstract class Container<E> implements IContainer<E> {
 
     final var iterator = iterator();
 
-    // Handles the case that the current IContainer is empty.
+    //Handles the case that the current IContainer is empty.
     if (!iterator.hasNext()) {
       return false;
     }
 
-    // Handles the case that the current IContainer is not empty.
+    //Handles the case that the current IContainer is not empty.
     iterator.next();
     return !iterator.hasNext();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -396,14 +396,14 @@ public abstract class Container<E> implements IContainer<E> {
 
     var found = false;
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
 
-        // Handles the case that an element the given selector selects was already
-        // found.
+        //Handles the case that an element the given selector selects was already
+        //found.
         if (found) {
           return false;
         }
@@ -415,7 +415,7 @@ public abstract class Container<E> implements IContainer<E> {
     return found;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -427,7 +427,7 @@ public abstract class Container<E> implements IContainer<E> {
     return containsOne(e -> e.equals(element));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if: -The current
    * {@link Container} contains m elements. -n elements are given.
@@ -437,10 +437,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final boolean containsOnly(final Predicate<E> selector) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector does not select the current element.
+      //Handles the case that the given selector does not select the current element.
       if (!selector.test(e)) {
         return false;
       }
@@ -449,7 +449,7 @@ public abstract class Container<E> implements IContainer<E> {
     return true;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(m*n) if the current
    * {@link Container} contains m elements and the container contains n elements.
@@ -474,7 +474,7 @@ public abstract class Container<E> implements IContainer<E> {
     return true;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -485,7 +485,7 @@ public abstract class Container<E> implements IContainer<E> {
     return getSubContainerFromStartIndexToEndIndex(startIndex, getElementCount());
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -496,7 +496,7 @@ public abstract class Container<E> implements IContainer<E> {
     return getSubContainerFromStartIndexToEndIndex(startIndex, endIndex);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -515,7 +515,7 @@ public abstract class Container<E> implements IContainer<E> {
     return averageAsBigDecimal.doubleValue();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -525,16 +525,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final double getAverageOrZero(final Function<E, Number> norm) {
 
-    // Handles the case that the current Container is empty.
+    //Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;
     }
 
-    // Handles the case that the current Container contains elements.
+    //Handles the case that the current Container contains elements.
     return getAverage(norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -546,10 +546,10 @@ public abstract class Container<E> implements IContainer<E> {
 
     var elementCount = 0;
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
         elementCount++;
       }
@@ -558,7 +558,7 @@ public abstract class Container<E> implements IContainer<E> {
     return elementCount;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -570,10 +570,10 @@ public abstract class Container<E> implements IContainer<E> {
 
     var elementCount = 0;
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the current element is the given element.
+      //Handles the case that the current element is the given element.
       if (e == element) {
         elementCount++;
       }
@@ -582,7 +582,7 @@ public abstract class Container<E> implements IContainer<E> {
     return elementCount;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -592,23 +592,23 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final int get1BasedIndexOfFirst(final Predicate<E> selector) {
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     var l1BasedIndex = 1;
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
         return l1BasedIndex;
       }
 
-      // Increments the index.
+      //Increments the index.
       l1BasedIndex++;
     }
 
     throw ArgumentDoesNotContainElementException.forArgument(this);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -618,23 +618,23 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final int get1BasedIndexOfFirstEqualElement(final E element) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     var index = 1;
     for (final var e : this) {
 
-      // Handles the case that the current element equals the given element.
+      //Handles the case that the current element equals the given element.
       if (e.equals(element)) {
         return index;
       }
 
-      // Increments index.
+      //Increments index.
       index++;
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain an equal element");
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -644,23 +644,23 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final int get1BasedIndexOfFirstOccuranceOf(final E element) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     var index = 1;
     for (final var e : this) {
 
-      // Handles the case that the current element is the given element.
+      //Handles the case that the current element is the given element.
       if (e == element) {
         return index;
       }
 
-      // Increments index.
+      //Increments index.
       index++;
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "does not contain the given element");
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -684,7 +684,7 @@ public abstract class Container<E> implements IContainer<E> {
     return max;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -694,16 +694,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final double getMaxOrZero(Function<E, Number> norm) {
 
-    // Handles the case that the current Container is empty.
+    //Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;
     }
 
-    // Handles the case that the current Container contains elements.
+    //Handles the case that the current Container contains elements.
     return getMaxWhenContainsAny(norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n*log(n)) if the current
    * {@link Container} contains n elements.
@@ -713,20 +713,20 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final double getMedian(final Function<E, Number> norm) {
 
-    // Asserts that the current Container is not empty.
+    //Asserts that the current Container is not empty.
     assertIsNotEmpty();
 
-    // Calculates the values the given norm returns from the elements of the current
-    // Container.
+    //Calculates the values the given norm returns from the elements of the current
+    //Container.
     final var values = to(norm::apply);
 
-    // Orders the values by an ascending order.
+    //Orders the values by an ascending order.
     final var orderedValues = values.toOrderedList(Number::doubleValue);
 
-    // Gets the number of values.
+    //Gets the number of values.
     final var valueCount = values.getElementCount();
 
-    // Handles the case that the number of values is even.
+    //Handles the case that the number of values is even.
     if (valueCount % 2 == 0) {
 
       final var firstIndex = valueCount / 2;
@@ -736,11 +736,11 @@ public abstract class Container<E> implements IContainer<E> {
       return 0.5 * (preMedian + postMedian);
     }
 
-    // Handles the case that the number of values is odd.
+    //Handles the case that the number of values is odd.
     return orderedValues.getStoredAt1BasedIndex((valueCount / 2) + 1).doubleValue();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n*log(n)) if the current
    * {@link Container} contains n elements.
@@ -750,16 +750,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final double getMedianOrZero(Function<E, Number> norm) {
 
-    // Handles the case that the current Container is empty.
+    //Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;
     }
 
-    // Handles the case that the current Container contains elements.
+    //Handles the case that the current Container contains elements.
     return getMedian(norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -783,23 +783,23 @@ public abstract class Container<E> implements IContainer<E> {
     return min;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public final double getMinOrZero(Function<E, Number> norm) {
 
-    // Handles the case that the current Container is empty.
+    //Handles the case that the current Container is empty.
     if (isEmpty()) {
       return 0.0;
     }
 
-    // Handles the case that the current Container contains elements.
+    //Handles the case that the current Container contains elements.
     return getMinWhenContainsAny(norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -808,16 +808,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredAny() {
 
-    // Asserts that the current IContainer is not empty.
+    //Asserts that the current IContainer is not empty.
     assertIsNotEmpty();
 
-    // Calculates a random element index.
+    //Calculates a random element index.
     final var randomElementIndex = RANDOM.nextInt(getElementCount()) + 1;
 
     return getStoredAt1BasedIndex(randomElementIndex);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -843,7 +843,7 @@ public abstract class Container<E> implements IContainer<E> {
     return max;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -869,7 +869,7 @@ public abstract class Container<E> implements IContainer<E> {
     return min;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -878,7 +878,7 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredFirst() {
 
-    // Asserts that the current IContainer is not empty.
+    //Asserts that the current IContainer is not empty.
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
@@ -886,7 +886,7 @@ public abstract class Container<E> implements IContainer<E> {
     return iterator().next();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -896,10 +896,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredFirst(final Predicate<? super E> selector) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
         return e;
       }
@@ -908,7 +908,7 @@ public abstract class Container<E> implements IContainer<E> {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element the given selector selects");
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -917,16 +917,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredFirstOrNull() {
 
-    // Handles the case that this list is empty.
+    //Handles the case that this list is empty.
     if (isEmpty()) {
       return null;
     }
 
-    // Handles the case that this list is not empty.
+    //Handles the case that this list is not empty.
     return getStoredFirst();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -935,10 +935,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredFirstOrNull(final Predicate<? super E> selector) {
 
-    // Iterates the current IContainer.
+    //Iterates the current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
         return e;
       }
@@ -947,7 +947,7 @@ public abstract class Container<E> implements IContainer<E> {
     return null;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n^2) if the current
    * {@link Container} contains n elements.
@@ -959,7 +959,7 @@ public abstract class Container<E> implements IContainer<E> {
 
     final var groups = createEmptyMutableList(new Marker<ILinkedList<E>>());
 
-    // Iterates the current list.
+    //Iterates the current list.
     for (final var e : this) {
 
       final var groupKey = norm.apply(e);
@@ -979,7 +979,7 @@ public abstract class Container<E> implements IContainer<E> {
     return groups;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -992,7 +992,7 @@ public abstract class Container<E> implements IContainer<E> {
     return (IContainer<E2>) getStoredSelected(e -> type.isAssignableFrom(e.getClass()));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1001,7 +1001,7 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredOne() {
 
-    // Enumerates the element count of the current Container.
+    //Enumerates the element count of the current Container.
     return switch (getElementCount()) {
       case 0 ->
         throw EmptyArgumentException.forArgument(this);
@@ -1012,7 +1012,7 @@ public abstract class Container<E> implements IContainer<E> {
     };
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1022,39 +1022,39 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final E getStoredOne(final Predicate<? super E> selector) {
 
-    // Declares the selected element.
+    //Declares the selected element.
     E selectedElement = null;
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
 
-        // Handles the case that the given selector selected already an element.
+        //Handles the case that the given selector selected already an element.
         if (selectedElement != null) {
           throw InvalidArgumentException.forArgumentAndErrorPredicate(
               this,
               "contains several elements the given selector selects");
         }
 
-        // Handles the case that the given selector did not selected already an element.
+        //Handles the case that the given selector did not selected already an element.
         selectedElement = e;
       }
     }
 
-    // Handles the case that the given selector did not select an element.
+    //Handles the case that the given selector did not select an element.
     if (selectedElement == null) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
           this,
           "does not contain an element the given selector selects");
     }
 
-    // Handles the case that the given selector selected an element.
+    //Handles the case that the given selector selected an element.
     return selectedElement;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1066,7 +1066,7 @@ public abstract class Container<E> implements IContainer<E> {
     return getStoredSelected(e -> !selector.test(e));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1076,14 +1076,14 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final IContainer<E> getStoredSelected(final Predicate<? super E> selector) {
 
-    // Creates list.
+    //Creates list.
     final var list = createEmptyMutableList(new Marker<E>());
 
-    // Fills up the list with the elements the given selector selects from the
-    // current IContainer.
+    //Fills up the list with the elements the given selector selects from the
+    //current IContainer.
     for (final var e : this) {
 
-      // Handles the case that the given selector selects the current element.
+      //Handles the case that the given selector selects the current element.
       if (selector.test(e)) {
         list.addAtEnd(e);
       }
@@ -1092,7 +1092,7 @@ public abstract class Container<E> implements IContainer<E> {
     return list;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1104,7 +1104,7 @@ public abstract class Container<E> implements IContainer<E> {
     return Math.sqrt(getVariance(norm));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1123,7 +1123,7 @@ public abstract class Container<E> implements IContainer<E> {
     return sum;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1142,7 +1142,7 @@ public abstract class Container<E> implements IContainer<E> {
     return sum;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1172,7 +1172,7 @@ public abstract class Container<E> implements IContainer<E> {
     return varianceAsBigDecimal.doubleValue();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1183,7 +1183,7 @@ public abstract class Container<E> implements IContainer<E> {
     return !iterator().hasNext();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1193,10 +1193,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final <E2> IContainer<E2> to(final Function<E, E2> extractor) {
 
-    // Creates a list.
+    //Creates a list.
     final var list = createEmptyMutableList(new Marker<E2>());
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     for (final var e : this) {
       list.addAtEnd(extractor.apply(e));
     }
@@ -1204,7 +1204,7 @@ public abstract class Container<E> implements IContainer<E> {
     return list;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1214,10 +1214,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final Object[] toArray() {
 
-    // Creates array.
+    //Creates array.
     final var array = new Object[getElementCount()];
 
-    // Fills up the array.
+    //Fills up the array.
     var i = 0;
     for (final var e : this) {
       array[i] = e;
@@ -1227,7 +1227,7 @@ public abstract class Container<E> implements IContainer<E> {
     return array;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1237,10 +1237,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final byte[] toByteArray(final Function<E, Byte> byteNorm) {
 
-    // Creates array.
+    //Creates array.
     final var array = new byte[getElementCount()];
 
-    // Fills up the array.
+    //Fills up the array.
     var i = 0;
     for (final var e : this) {
       array[i] = byteNorm.apply(e);
@@ -1250,7 +1250,7 @@ public abstract class Container<E> implements IContainer<E> {
     return array;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1260,10 +1260,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final char[] toCharArray(final Function<E, Character> charNorm) {
 
-    // Creates array.
+    //Creates array.
     final var array = new char[getElementCount()];
 
-    // Fills up the array.
+    //Fills up the array.
     var i = 0;
     for (final var e : this) {
       array[i] = charNorm.apply(e);
@@ -1273,7 +1273,7 @@ public abstract class Container<E> implements IContainer<E> {
     return array;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1292,7 +1292,7 @@ public abstract class Container<E> implements IContainer<E> {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1302,10 +1302,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final double[] toDoubleArray(final ToDoubleFunction<E> doubleNorm) {
 
-    // Creates array.
+    //Creates array.
     final var array = new double[getElementCount()];
 
-    // Fills up the array.
+    //Fills up the array.
     var i = 0;
     for (final var e : this) {
       array[i] = doubleNorm.applyAsDouble(e);
@@ -1315,7 +1315,7 @@ public abstract class Container<E> implements IContainer<E> {
     return array;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1334,7 +1334,7 @@ public abstract class Container<E> implements IContainer<E> {
     return list;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1344,10 +1344,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final int[] toIntArray(final ToIntFunction<E> intNorm) {
 
-    // Creates array.
+    //Creates array.
     final var array = new int[getElementCount()];
 
-    // Fills up the array.
+    //Fills up the array.
     var i = 0;
     for (final var e : this) {
       array[i] = intNorm.applyAsInt(e);
@@ -1357,7 +1357,7 @@ public abstract class Container<E> implements IContainer<E> {
     return array;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1367,10 +1367,10 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final long[] toLongArray(final ToLongFunction<E> longNorm) {
 
-    // Creates the array.
+    //Creates the array.
     final var array = new long[getElementCount()];
 
-    // Fills up the array.
+    //Fills up the array.
     var i = 0;
     for (final var e : this) {
       array[i] = longNorm.applyAsLong(e);
@@ -1380,7 +1380,7 @@ public abstract class Container<E> implements IContainer<E> {
     return array;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1390,16 +1390,16 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final IContainer<E> toReversedList() {
 
-    // Handles the case that the current Container is empty.
+    //Handles the case that the current Container is empty.
     if (isEmpty()) {
       return createEmptyMutableList(new Marker<E>());
     }
 
-    // Handles the case that the current Container contains elements.
+    //Handles the case that the current Container contains elements.
     return getReversedListWhenContainsElements();
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1411,7 +1411,7 @@ public abstract class Container<E> implements IContainer<E> {
 
     final var stringArray = new String[getElementCount()];
 
-    // Iterates the elements of the current IContainer.
+    //Iterates the elements of the current IContainer.
     var i = 0;
     for (final var e : this) {
       stringArray[i] = e.toString();
@@ -1421,7 +1421,7 @@ public abstract class Container<E> implements IContainer<E> {
     return stringArray;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1433,7 +1433,7 @@ public abstract class Container<E> implements IContainer<E> {
     return to(E::toString);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1443,11 +1443,11 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final String toStringWithSeparator(final char separator) {
 
-    // Calls other method.
+    //Calls other method.
     return toStringWithSeparator(String.valueOf(separator));
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1457,7 +1457,7 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final String toStringWithSeparator(final String separator) {
 
-    // Enumerates the element count of the current Container.
+    //Enumerates the element count of the current Container.
     return switch (getElementCount()) {
       case 0 ->
         StringCatalogue.EMPTY_STRING;
@@ -1468,7 +1468,7 @@ public abstract class Container<E> implements IContainer<E> {
     };
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1479,7 +1479,7 @@ public abstract class Container<E> implements IContainer<E> {
     return getSubContainerFromStartIndexToEndIndex(1, endIndex);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1495,7 +1495,7 @@ public abstract class Container<E> implements IContainer<E> {
     return withoutFirst(1);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1504,21 +1504,21 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final IContainer<E> withoutFirst(final int n) {
 
-    // Asserts that the given n is positive.
+    //Asserts that the given n is positive.
     GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 
     final var elementCount = getElementCount();
 
-    // Handles the case that the current IContainer contains more than n elements.
+    //Handles the case that the current IContainer contains more than n elements.
     if (elementCount > n) {
       return getSubContainerFromStartIndexToEndIndex(n + 1, elementCount);
     }
 
-    // Handles the case that the current IContainer contains n or less elements.
+    //Handles the case that the current IContainer contains n or less elements.
     return createEmptyMutableList(new Marker<E>());
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1527,7 +1527,7 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final IContainer<E> withoutLast() {
 
-    // Asserts that the current IContainer is not empty.
+    //Asserts that the current IContainer is not empty.
     if (isEmpty()) {
       throw EmptyArgumentException.forArgument(this);
     }
@@ -1535,7 +1535,7 @@ public abstract class Container<E> implements IContainer<E> {
     return withoutLast(1);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1544,21 +1544,21 @@ public abstract class Container<E> implements IContainer<E> {
   @Override
   public final IContainer<E> withoutLast(final int n) {
 
-    // Asserts that the given n is positive.
+    //Asserts that the given n is positive.
     GlobalValidator.assertThat(n).thatIsNamed("n").isPositive();
 
     final var elementCount = getElementCount();
 
-    // Handles the case that the current IContainer contains more than n elements.
+    //Handles the case that the current IContainer contains more than n elements.
     if (elementCount > 0) {
       return getSubContainerFromStartIndexToEndIndex(0, elementCount - n);
     }
 
-    // Handles the case that the current IContainer contains n or less elements.
+    //Handles the case that the current IContainer contains n or less elements.
     return createEmptyMutableList(new Marker<E>());
   }
 
-  // method declaration
+  //method declaration
   /**
    * @param marker
    * @param <E2>   is the type of the elements the created {@link ILinkedList} can
@@ -1567,7 +1567,7 @@ public abstract class Container<E> implements IContainer<E> {
    */
   protected abstract <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker);
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(1).
    * 
@@ -1579,7 +1579,7 @@ public abstract class Container<E> implements IContainer<E> {
     }
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1591,16 +1591,16 @@ public abstract class Container<E> implements IContainer<E> {
    */
   private double getMaxWhenContainsAny(final Function<E, Number> norm) {
 
-    // Declares max.
+    //Declares max.
     var max = norm.apply(getStoredFirst()).doubleValue();
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     for (final var e : this) {
 
-      // Extracts the current number.
+      //Extracts the current number.
       final var number = norm.apply(e).doubleValue();
 
-      // Handles the case that the current number is bigger than max.
+      //Handles the case that the current number is bigger than max.
       if (number > max) {
         max = number;
       }
@@ -1609,7 +1609,7 @@ public abstract class Container<E> implements IContainer<E> {
     return max;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1621,16 +1621,16 @@ public abstract class Container<E> implements IContainer<E> {
    */
   private double getMinWhenContainsAny(final Function<E, Number> norm) {
 
-    // Declares min.
+    //Declares min.
     var min = norm.apply(getStoredFirst()).doubleValue();
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     for (final var e : this) {
 
-      // Extracts the current number.
+      //Extracts the current number.
       final var number = norm.apply(e).doubleValue();
 
-      // Handles the case that the current number is smaller than min.
+      //Handles the case that the current number is smaller than min.
       if (number < min) {
         min = number;
       }
@@ -1639,7 +1639,7 @@ public abstract class Container<E> implements IContainer<E> {
     return min;
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1650,10 +1650,10 @@ public abstract class Container<E> implements IContainer<E> {
    */
   private ILinkedList<E> getReversedListWhenContainsElements() {
 
-    // Creates a ILinkedList.
+    //Creates a ILinkedList.
     final var reversedList = createEmptyMutableList(new Marker<E>());
 
-    // Iterates the current Container.
+    //Iterates the current Container.
     for (final var e : this) {
       reversedList.addAtBegin(e);
     }
@@ -1661,7 +1661,7 @@ public abstract class Container<E> implements IContainer<E> {
     return reversedList;
   }
 
-  // method declaration
+  //method declaration
   /**
    * @param p1BasedStartIndex
    * @param p1BasedEndIndex
@@ -1677,14 +1677,14 @@ public abstract class Container<E> implements IContainer<E> {
    *                                      number of elements of the current
    *                                      {@link Container}.
    */
-  // method
+  //method
   private IContainer<E> getSubContainerFromStartIndexToEndIndex(
       final int p1BasedStartIndex,
       final int p1BasedEndIndex) {
     return new ContainerView<>(this, p1BasedStartIndex, p1BasedEndIndex);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n) if the current
    * {@link Container} contains n elements.
@@ -1697,20 +1697,20 @@ public abstract class Container<E> implements IContainer<E> {
    */
   private String toStringWhenContainsSeveralElements(final String separator) {
 
-    // Asserts that the given separator is not null.
+    //Asserts that the given separator is not null.
     GlobalValidator.assertThat(separator).thatIsNamed(LowerCaseCatalogue.SEPARATOR).isNotNull();
 
-    // Creates a StringBuilder.
+    //Creates a StringBuilder.
     final var stringBuilder = new StringBuilder();
 
-    // Appends the String representation of the first element to the StringBuilder.
+    //Appends the String representation of the first element to the StringBuilder.
     stringBuilder.append(getStoredFirst());
 
-    // Iterates the elements of the current Container without the first element.
+    //Iterates the elements of the current Container without the first element.
     for (final var e : withoutFirst()) {
 
-      // Appends the separator and the String representation of the current element to
-      // the StringBuilder.
+      //Appends the separator and the String representation of the current element to
+      //the StringBuilder.
       stringBuilder.append(separator + e);
     }
 

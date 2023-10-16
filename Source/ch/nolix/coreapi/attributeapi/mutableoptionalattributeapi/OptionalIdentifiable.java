@@ -13,13 +13,13 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalIdentified;
  */
 public interface OptionalIdentifiable extends OptionalIdentified {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the id of the current {@link OptionalIdentifiable}.
    */
   void removeId();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the id of the current {@link OptionalIdentifiable}.
    * 

@@ -6,30 +6,30 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public final class WebSocketHandShakeRequest {
 
-  // constant
+  //constant
   private static final String SEC_WEBSOCKET_KEY_HEADER = "Sec-WebSocket-Key";
 
-  // static method
+  //static method
   public static boolean canBe(final IContainer<String> lines) {
     return lines.containsAny(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
   }
 
-  // attribute
+  //attribute
   private final String secWebSocketKey;
 
-  // constructor
+  //constructor
   public WebSocketHandShakeRequest(final IContainer<String> lines) {
     secWebSocketKey = lines
         .getStoredFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
         .substring(SEC_WEBSOCKET_KEY_HEADER.length() + 2);
   }
 
-  // method
+  //method
   public WebSocketHandShakeResponse getWebSocketHandShakeResponse() {
     return new WebSocketHandShakeResponse(secWebSocketKey);
   }
 
-  // method
+  //method
   public String getSecWebSocketKey() {
     return secWebSocketKey;
   }

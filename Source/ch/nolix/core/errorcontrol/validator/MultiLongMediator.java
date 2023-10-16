@@ -16,7 +16,7 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
-  // static method
+  //static method
   public static MultiLongMediator forValue(final int value, final int[] values) {
 
     final var allValues = new List<Long>();
@@ -28,7 +28,7 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
     return new MultiLongMediator(allValues);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new long container mediator with the given arguments.
    * 
@@ -37,17 +37,17 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
    */
   public MultiLongMediator(final Iterable<Long> arguments) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(arguments);
   }
 
   public MultiLongMediator(final long[] arguments) {
 
-    // Calls constructor if the base class.
+    //Calls constructor if the base class.
     super(GlobalArrayHelper.createIterable(arguments));
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException      if one of the arguments of this long
    *                                      container mediator is null.
@@ -56,19 +56,19 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
    */
   public void arePositive() {
 
-    // Asserts that the arguments of this long container mediator are not null.
+    //Asserts that the arguments of this long container mediator are not null.
     areNotNull();
 
-    // Iterates through the arguments of this long container mediator.
+    //Iterates through the arguments of this long container mediator.
     var index = 1;
     for (long a : getStoredArguments()) {
 
-      // Asserts that the current argument is positive.
+      //Asserts that the current argument is positive.
       if (a <= 0) {
         throw NonPositiveArgumentException.forArgumentNameAndArgument(index + "th", a);
       }
 
-      // Increments the index.
+      //Increments the index.
       index++;
     }
   }

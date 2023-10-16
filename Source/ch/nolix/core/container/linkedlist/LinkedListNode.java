@@ -20,13 +20,13 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 final class LinkedListNode<E> {
 
-  // attribute
+  //attribute
   private E element;
 
-  // optional attribute
+  //optional attribute
   private LinkedListNode<E> nextNode;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link LinkedListNode} with the given element.
    * 
@@ -37,7 +37,7 @@ final class LinkedListNode<E> {
     setElement(element);
   }
 
-  // method
+  //method
   /**
    * @param selector
    * @return true if the current {@link LinkedListNode} contains an element the
@@ -47,7 +47,7 @@ final class LinkedListNode<E> {
     return selector.test(getElement());
   }
 
-  // method
+  //method
   /**
    * @param element
    * @return true if the current {@link LinkedListNode} contains the given
@@ -57,7 +57,7 @@ final class LinkedListNode<E> {
     return (getElement() == element);
   }
 
-  // method
+  //method
   /**
    * @return the element of the current {@link LinkedListNode}.
    */
@@ -65,7 +65,7 @@ final class LinkedListNode<E> {
     return element;
   }
 
-  // method
+  //method
   /**
    * @return the next node of the current {@link LinkedListNode}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -74,7 +74,7 @@ final class LinkedListNode<E> {
    */
   public LinkedListNode<E> getNextNode() {
 
-    // Asserts that the current list node has a next node.
+    //Asserts that the current list node has a next node.
     if (!hasNextNode()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
     }
@@ -82,7 +82,7 @@ final class LinkedListNode<E> {
     return nextNode;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link LinkedListNode} has a next node.
    */
@@ -90,7 +90,7 @@ final class LinkedListNode<E> {
     return (nextNode != null);
   }
 
-  // method
+  //method
   /**
    * Removes the next node of the current {@link LinkedListNode}.
    */
@@ -98,7 +98,7 @@ final class LinkedListNode<E> {
     nextNode = null;
   }
 
-  // method
+  //method
   /**
    * Sets the element of the current {@link LinkedListNode}.
    * 
@@ -107,17 +107,17 @@ final class LinkedListNode<E> {
    */
   public void setElement(final E element) {
 
-    // Asserts that the given element is not null.
+    //Asserts that the given element is not null.
     GlobalValidator
         .assertThat(element)
         .thatIsNamed(LowerCaseCatalogue.ELEMENT)
         .isNotNull();
 
-    // Sets the element of the current list node.
+    //Sets the element of the current list node.
     this.element = element;
   }
 
-  // method
+  //method
   /**
    * Sets the next node of the current {@link LinkedListNode}.
    * 
@@ -126,14 +126,14 @@ final class LinkedListNode<E> {
    */
   public void setNextNode(final LinkedListNode<E> nextNode) {
 
-    // Asserts that the given next node is not null.
+    //Asserts that the given next node is not null.
     GlobalValidator.assertThat(nextNode).thatIsNamed("next node").isNotNull();
 
-    // Sets the next node of the current list node.
+    //Sets the next node of the current list node.
     this.nextNode = nextNode;
   }
 
-  // method
+  //method
   /**
    * Swaps the element of the current {@link LinkedListNode} with the element of
    * the next node of the current {@link LinkedListNode}.
@@ -144,7 +144,7 @@ final class LinkedListNode<E> {
    */
   public void swapElementWithNextNode() {
 
-    // Asserts that the current list node has a next node.
+    //Asserts that the current list node has a next node.
     if (!hasNextNode()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");
     }

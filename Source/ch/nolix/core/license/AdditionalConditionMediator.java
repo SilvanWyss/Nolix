@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 public final class AdditionalConditionMediator {
 
-  // attribute
+  //attribute
   private final LicenseManager parentLicenseManager;
 
-  // constructor
+  //constructor
   AdditionalConditionMediator(final LicenseManager parentLicenseManager) {
 
     GlobalValidator.assertThat(parentLicenseManager).thatIsNamed("parent LicenseManager").isNotNull();
@@ -18,7 +18,7 @@ public final class AdditionalConditionMediator {
     this.parentLicenseManager = parentLicenseManager;
   }
 
-  // method
+  //method
   public LongMediator andWhen(final long value) {
     return new LongMediator(parentLicenseManager, value);
   }

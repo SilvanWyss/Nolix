@@ -25,18 +25,18 @@ import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
  */
 public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
-  // constant
+  //constant
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
-  // optional attribute
+  //optional attribute
   private String target;
 
-  // optional attribute
+  //optional attribute
   private Consumer<String> receiver;
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * @return the target of the current {@link EndPoint}.
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
@@ -45,7 +45,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   @Override
   public final String getCustomTargetSlot() {
 
-    // Asserts that the current EndPoint has a target.
+    //Asserts that the current EndPoint has a target.
     if (this.target == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.TARGET);
     }
@@ -53,7 +53,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return target;
   }
 
-  // method
+  //method
   @Override
   public final TargetSlotDefinition getTargetSlotDefinition() {
 
@@ -64,7 +64,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return TargetSlotDefinition.CUSTOM;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link EndPoint} has a receiver.
    */
@@ -73,7 +73,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return (receiver != null);
   }
 
-  // method
+  //method
   /**
    * Sets the receiver of the current {@link EndPoint}.
    * 
@@ -84,17 +84,17 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   @Override
   public final void setReceiver(final Consumer<String> receiver) {
 
-    // Asserts that the given receiver is not null.
+    //Asserts that the given receiver is not null.
     GlobalValidator.assertThat(receiver).thatIsNamed(LowerCaseCatalogue.RECEIVER).isNotNull();
 
-    // Asserts that the current EndPoint is open.
+    //Asserts that the current EndPoint is open.
     assertIsOpen();
 
-    // Sets the receiver of the current EndPoint.
+    //Sets the receiver of the current EndPoint.
     this.receiver = receiver;
   }
 
-  // method
+  //method
   /**
    * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
    */
@@ -104,7 +104,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     }
   }
 
-  // method
+  //method
   /**
    * @return the receiver of the current {@link EndPoint}.
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
@@ -123,7 +123,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     return receiver;
   }
 
-  // method
+  //method
   /**
    * Sets the target of the current {@link EndPoint}.
    * 
@@ -134,17 +134,17 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    */
   protected final void setTarget(final String target) {
 
-    // Asserts that the given target is not null or blank.
+    //Asserts that the given target is not null or blank.
     GlobalValidator.assertThat(target).thatIsNamed(LowerCaseCatalogue.TARGET).isNotBlank();
 
-    // Asserts that the current net EndPoint is open.
+    //Asserts that the current net EndPoint is open.
     assertIsOpen();
 
-    // Sets the target of the current EndPoint.
+    //Sets the target of the current EndPoint.
     this.target = target;
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
    *                                               does not have a receiver.

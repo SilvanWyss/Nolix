@@ -10,7 +10,7 @@ import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 //class
 public final class MutableElementFactory<E> extends ElementFactory<E> {
 
-  // method
+  //method
   public <ME extends IMutableElement> MutableElementFactory<E> registerElementClass(
       final Class<ME> elementClass) {
 
@@ -19,7 +19,7 @@ public final class MutableElementFactory<E> extends ElementFactory<E> {
     return this;
   }
 
-  // method
+  //method
   public MutableElementFactory<E> registerElementClass(
       final Class<E> elementClass,
       final Function<INode<?>, E> creator) {

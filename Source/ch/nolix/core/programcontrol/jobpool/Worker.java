@@ -7,10 +7,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 final class Worker extends Thread {
 
-  // attribute
+  //attribute
   private final JobPool parentJobPool;
 
-  // constructor
+  //constructor
   public Worker(final JobPool parentJobPool) {
 
     GlobalValidator.assertThat(parentJobPool).thatIsNamed("parent job bool");
@@ -20,7 +20,7 @@ final class Worker extends Thread {
     start();
   }
 
-  // method
+  //method
   @Override
   public void run() {
 

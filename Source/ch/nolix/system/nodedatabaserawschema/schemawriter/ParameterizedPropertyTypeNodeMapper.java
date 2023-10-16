@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 //class
 public final class ParameterizedPropertyTypeNodeMapper {
 
-  // method
+  //method
   public Node createParameterizedPropertyTypeNodeFrom(final IParameterizedPropertyTypeDto parameterizedPropertyType) {
     return switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
       case BASE_VALUE ->
@@ -27,7 +27,7 @@ public final class ParameterizedPropertyTypeNodeMapper {
     };
   }
 
-  // method
+  //method
   private Node createParameterizedPropertyTypeNodeFrom(
       IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
@@ -43,7 +43,7 @@ public final class ParameterizedPropertyTypeNodeMapper {
             baseParameterizedBackReferenceType.getBackReferencedColumnId()));
   }
 
-  // method
+  //method
   private Node createParameterizedPropertyTypeNodeFrom(
       final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
@@ -59,7 +59,7 @@ public final class ParameterizedPropertyTypeNodeMapper {
             baseParameterizedReferenceType.getReferencedTableId()));
   }
 
-  // method
+  //method
   private Node createParameterizedPropertyTypeNodeFrom(
       final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(

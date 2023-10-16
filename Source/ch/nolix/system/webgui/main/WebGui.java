@@ -40,34 +40,34 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui> {
 
-  // constant
+  //constant
   public static final String DEFAULT_TITLE = PascalCaseCatalogue.GUI;
 
-  // constant
+  //constant
   public static final Image DEFAULT_ICON = IconCatalogue.NOLIX_ICON;
 
-  // constant
+  //constant
   public static final Color DEFAULT_BACKGROUND_COLOR = Color.WHITE;
 
-  // constant
+  //constant
   private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
 
-  // constant
+  //constant
   private static final String ICON_HEADER = PascalCaseCatalogue.ICON;
 
-  // constant
+  //constant
   private static final String BACKGROUND_HEADER = PascalCaseCatalogue.BACKGROUND;
 
-  // constant
+  //constant
   private static final String LAYER_HEADER = PascalCaseCatalogue.LAYER;
 
-  // constant
+  //constant
   private static final WebGuiHtmlBuilder WEB_GUI_HTML_BUILDER = new WebGuiHtmlBuilder();
 
-  // constant
+  //constant
   private static final WebGuiCssBuilder WEB_GUI_CSS_BUILDER = new WebGuiCssBuilder();
 
-  // attribute
+  //attribute
   private final MutableValue<String> title = new MutableValue<>(
       TITLE_HEADER,
       DEFAULT_TITLE,
@@ -75,7 +75,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
       INode::getSingleChildNodeHeader,
       Node::withChildNode);
 
-  // attribute
+  //attribute
   private final MutableValue<Image> icon = new MutableValue<>(
       ICON_HEADER,
       DEFAULT_ICON,
@@ -83,14 +83,14 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
       Image::fromSpecification,
       Image::getSpecification);
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
       BACKGROUND_HEADER,
       this::setBackground,
       Background::fromSpecification,
       IBackground::getSpecification);
 
-  // attribute
+  //attribute
   @SuppressWarnings("unused")
   private final MultiValueExtractor<ILayer<?>> layerExtractor = new MultiValueExtractor<>(
       LAYER_HEADER,
@@ -99,16 +99,16 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
       Layer::fromSpecification,
       ILayer::getSpecification);
 
-  // attribute
+  //attribute
   private final ILayerStack layerStack = LayerStack.forWebGui(this);
 
-  // attribute
+  //attribute
   private IFrontEndReader frontEndReader = new LocalFrontEndReader();
 
-  // attribute
+  //attribute
   private IFrontEndWriter frontEndWriter = new LocalFrontEndWriter();
 
-  // constructor
+  //constructor
   public WebGui() {
 
     reset();
@@ -116,73 +116,73 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     layerStack.clear();
   }
 
-  // method
+  //method
   @Override
   public IFrontEndReader fromFrontEnd() {
     return frontEndReader;
   }
 
-  // method
+  //method
   @Override
   public IBackground getBackground() {
     return background.getValue();
   }
 
-  // method
+  //method
   @Override
   public IColor getBackgroundColor() {
     return getBackground().getColor();
   }
 
-  // method
+  //method
   @Override
   public IColorGradient getBackgroundColorGradient() {
     return getBackground().getColorGradient();
   }
 
-  // method
+  //method
   @Override
   public IImage getBackgroundImage() {
     return getBackground().getImage();
   }
 
-  // method
+  //method
   @Override
   public ImageApplication getBackgroundImageApplication() {
     return getBackground().getImageApplication();
   }
 
-  // method
+  //method
   @Override
   public BackgroundType getBackgroundType() {
     return getBackground().getType();
   }
 
-  // method
+  //method
   @Override
   public ICss getCss() {
     return WEB_GUI_CSS_BUILDER.createCssForWebGui(this);
   }
 
-  // method
+  //method
   @Override
   public IHtmlElement getHtml() {
     return WEB_GUI_HTML_BUILDER.createHtmlForWebGui(this);
   }
 
-  // method
+  //method
   @Override
   public IImage getIcon() {
     return icon.getValue();
   }
 
-  // method
+  //method
   @Override
   public IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations() {
 
@@ -193,85 +193,85 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return htmlElementEventRegistrations;
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return getStoredLayers();
   }
 
-  // method
+  //method
   @Override
   public IControl<?, ?> getStoredControlOrNullByInternalId(final String internalId) {
     return layerStack.getStoredControlOrNullByInternalId(internalId);
   }
 
-  // method
+  //method
   @Override
   public IContainer<IControl<?, ?>> getStoredControls() {
     return layerStack.getStoredControls();
   }
 
-  // method
+  //method
   @Override
   public IContainer<ILayer<?>> getStoredLayers() {
     return layerStack.getStoredLayers();
   }
 
-  // method
+  //method
   @Override
   public ILayer<?> getStoredTopLayer() {
     return layerStack.getStoredTopLayer();
   }
 
-  // method
+  //method
   @Override
   public String getTitle() {
     return title.getValue();
   }
 
-  // method
+  //method
   @Override
   public String getTitleInQuotes() {
     return GlobalStringHelper.getInQuotes(getTitle());
   }
 
-  // method
+  //method
   @Override
   public boolean hasBackground() {
     return background.containsAny();
   }
 
-  // method
+  //method
   @Override
   public boolean hasRemoveLayerAction() {
     return layerStack.hasRemoveLayerAction();
   }
 
-  // method
+  //method
   @Override
   public boolean hasRole(final String role) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return layerStack.isEmpty();
   }
 
-  // method
+  //method
   @Override
   public boolean isRootGui() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public IFrontEndWriter onFrontEnd() {
     return frontEndWriter;
   }
 
-  // method
+  //method
   @Override
   public WebGui pushLayer(final ILayer<?> layer) {
 
@@ -280,7 +280,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   public WebGui pushLayerWithRootControl(final IControl<?, ?> rootControl) {
 
@@ -289,19 +289,19 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   public void removeBackground() {
     background.clear();
   }
 
-  // method
+  //method
   @Override
   public void removeLayer(final ILayer<?> layer) {
     layerStack.removeLayer(layer);
   }
 
-  // method
+  //method
   public WebGui setBackground(final IBackground background) {
 
     this.background.setValue(background);
@@ -309,31 +309,31 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   public WebGui setBackgroundColor(final IColor backgroundColor) {
     return setBackground(Background.withColor(backgroundColor));
   }
 
-  // method
+  //method
   @Override
   public WebGui setBackgroundColorGradient(final IColorGradient backgroundColorGradient) {
     return setBackground(Background.withColorGradient(backgroundColorGradient));
   }
 
-  // method
+  //method
   @Override
   public WebGui setBackgroundImage(final IImage backgroundImage) {
     return setBackground(Background.withImage(backgroundImage));
   }
 
-  // method
+  //method
   @Override
   public WebGui setBackgroundImage(final IImage backgroundImage, final ImageApplication imageApplication) {
     return setBackground(Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
-  // method
+  //method
   @Override
   public WebGui setFrontEndReaderAndFrontEndWriter(
       final IFrontEndReader frontEndReader,
@@ -348,7 +348,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   public WebGui setIcon(final IImage icon) {
 
@@ -357,7 +357,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   public WebGui setRemoveLayerAction(Runnable removeLayerAction) {
 
@@ -366,7 +366,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   public WebGui setTitle(final String title) {
 
@@ -377,7 +377,7 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     return this;
   }
 
-  // method
+  //method
   @Override
   protected void resetConfigurationElement() {
 
@@ -387,18 +387,18 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     clear();
   }
 
-  // method
+  //method
   @Override
   protected void resetStyle() {
 
-    // An image will not be reset since an image is not supposed to be applied from
-    // a Style.
+    //An image will not be reset since an image is not supposed to be applied from
+    //a Style.
     if (hasBackground() && getBackground().getType() != BackgroundType.IMAGE) {
       setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
     }
   }
 
-  // method
+  //method
   private void registerHtmlElementEventsAt(final LinkedList<IHtmlElementEvent> htmlElementEventRegistrations) {
     for (final var c : getStoredControls()) {
       c.registerHtmlElementEventsAt(htmlElementEventRegistrations);

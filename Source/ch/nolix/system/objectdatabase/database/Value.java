@@ -15,16 +15,16 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //class
 public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
-  // constant
+  //constant
   private static final ValueCreator VALUE_CREATOR = new ValueCreator();
 
-  // constant
+  //constant
   private static final IValueHelper VALUE_HELPER = new ValueHelper();
 
-  // constant
+  //constant
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
 
-  // static method
+  //static method
   public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
 
     final var value = new Value<V2>();
@@ -34,10 +34,10 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     return value;
   }
 
-  // optional attribute
+  //optional attribute
   private V internalValue;
 
-  // method
+  //method
   @Override
   public V getStoredValue() {
 
@@ -46,25 +46,25 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     return internalValue;
   }
 
-  // method
+  //method
   @Override
   public PropertyType getType() {
     return PropertyType.VALUE;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return (internalValue == null);
   }
 
-  // method
+  //method
   @Override
   public boolean isMandatory() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public void setValue(final V value) {
 
@@ -75,7 +75,7 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     setAsEditedAndRunProbableUpdateAction();
   }
 
-  // method
+  //method
   @Override
   public void setValueFromString(final String string) {
 
@@ -87,20 +87,20 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
     setValue(value);
   }
 
-  // method
+  //method
   @Override
   public IContentFieldDto technicalToContentField() {
     return new ContentFieldDto(getName(), getStoredValue().toString());
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   void internalSetOrClearDirectlyFromContent(final Object content) {
     internalValue = (V) content;
   }
 
-  // method
+  //method
   private void updateStateForSetValue(final V value) {
     internalValue = value;
   }

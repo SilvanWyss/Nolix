@@ -12,7 +12,7 @@ package ch.nolix.core.errorcontrol.validator;
  */
 final class IterableHelper {
 
-  // static method
+  //static method
   /**
    * @param iterableObject
    * @param <E>            is the type of the elements of the given
@@ -23,7 +23,7 @@ final class IterableHelper {
     return !isEmpty(iterableObject);
   }
 
-  // static method
+  //static method
   /**
    * @param iterableObject
    * @param <E>            is the type of the elements of the given
@@ -34,7 +34,7 @@ final class IterableHelper {
     return !iterableObject.iterator().hasNext();
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link IterableHelper} can be created.
    */

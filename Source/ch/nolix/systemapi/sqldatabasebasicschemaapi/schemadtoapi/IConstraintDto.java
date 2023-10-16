@@ -6,9 +6,9 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface IConstraintDto {
 
-  // method declaration
+  //method declaration
   IContainer<String> getParameters();
 
-  // method declaration
+  //method declaration
   ConstraintType getType();
 }

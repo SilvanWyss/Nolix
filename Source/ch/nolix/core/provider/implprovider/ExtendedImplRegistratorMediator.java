@@ -10,13 +10,13 @@ import ch.nolix.coreapi.providerapi.implproviderapi.IExtendedImplRegistratorMedi
 //class
 public final class ExtendedImplRegistratorMediator<IN> implements IExtendedImplRegistratorMediator<IN> {
 
-  // attribute
+  //attribute
   private final ImplProvider implProvider;
 
-  // attribute
+  //attribute
   private final Class<IN> mInterface;
 
-  // constructor
+  //constructor
   ExtendedImplRegistratorMediator(final ImplProvider implProvider, final Class<IN> pInterface) {
 
     GlobalValidator.assertThat(implProvider).thatIsNamed(ImplProvider.class).isNotNull();

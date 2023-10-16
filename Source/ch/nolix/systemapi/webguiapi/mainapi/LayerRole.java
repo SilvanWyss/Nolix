@@ -10,7 +10,7 @@ public enum LayerRole {
   MAIN_LAYER,
   DIALOG_LAYER;
 
-  // static method
+  //static method
   public static LayerRole fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
   }

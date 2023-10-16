@@ -10,18 +10,18 @@ public interface IMultiReference<
     E extends IEntity>
     extends Clearable, IBaseReference<E> {
 
-  // method declaration
+  //method declaration
   void addEntity(Object entity);
 
-  // method declaration
+  //method declaration
   IContainer<E> getReferencedEntities();
 
-  // method declaration
+  //method declaration
   IContainer<String> getReferencedEntityIds();
 
-  // method declaration
+  //method declaration
   IContainer<? extends IMultiReferenceEntry<E>> getStoredLocalEntries();
 
-  // method declaration
+  //method declaration
   void removeEntity(E entity);
 }

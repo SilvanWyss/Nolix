@@ -11,14 +11,14 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
 //class
 public record ConstraintDto(ConstraintType type, ImmutableList<String> parameters) implements IConstraintDto {
 
-  // constructor
+  //constructor
   public ConstraintDto(final ConstraintType type, final String parameter, final String... parameters) {
     this(type, ImmutableList.withElement(parameter, parameters));
   }
 
-  // constructor
-  public ConstraintDto(final ConstraintType type, ImmutableList<String> parameters) { // NOSONAR: This implementations
-                                                                                      // checks the given arguments.
+  //constructor
+  public ConstraintDto(final ConstraintType type, ImmutableList<String> parameters) { //NOSONAR: This implementations
+                                                                                      //checks the given arguments.
 
     GlobalValidator.assertThat(type).thatIsNamed(ConstraintType.class).isNotNull();
 
@@ -26,13 +26,13 @@ public record ConstraintDto(ConstraintType type, ImmutableList<String> parameter
     this.parameters = parameters;
   }
 
-  // method
+  //method
   @Override
   public IContainer<String> getParameters() {
     return parameters;
   }
 
-  // method
+  //method
   @Override
   public ConstraintType getType() {
     return type;

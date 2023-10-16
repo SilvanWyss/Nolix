@@ -9,7 +9,7 @@ import ch.nolix.systemtest.graphictest.imagetest.ImageTestPool;
 //class
 public final class GraphicTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public GraphicTestPool() {
     super(new ColorTestPool(), new ImageTestPool());
   }

@@ -14,19 +14,19 @@ public final class CopyTextToClipboardTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
         "Copy text to clipboard tutorial",
         MainSession.class,
         new VoidObject());
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -39,13 +39,13 @@ public final class CopyTextToClipboardTutorial {
     @Override
     protected void initialize() {
 
-      // Creates inputTextbox.
+      //Creates inputTextbox.
       final var inputTextbox = new Textbox();
 
-      // Adds an initial text to the inputTextbox.
+      //Adds an initial text to the inputTextbox.
       inputTextbox.setText("Supercalifragilisticexpialigetisch");
 
-      // Creates rootControl.
+      //Creates rootControl.
       final var rootControl = new HorizontalStack()
           .addControl(
               inputTextbox,
@@ -54,13 +54,13 @@ public final class CopyTextToClipboardTutorial {
                   .setLeftMouseButtonPressAction(
                       () -> getStoredGui().onFrontEnd().writeTextToClipboard(inputTextbox.getText())));
 
-      // Configures the style of the rootControl.
+      //Configures the style of the rootControl.
       rootControl.editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 10));
 
-      // Configures the style of the inputTextbox.
+      //Configures the style of the inputTextbox.
       inputTextbox.editStyle(s -> s.setWidthForState(ControlState.BASE, 500));
 
-      // Adds the rootControl to the GUI of the current MainSession.
+      //Adds the rootControl to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(rootControl);
     }
   }

@@ -7,7 +7,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 public final class TableTableRecordMapper {
 
-  // method
+  //method
   public TableTableRecord createTableSystemTableRecordFrom(final ITableDto table) {
     return new TableTableRecord(
         "'" + table.getId() + "'",

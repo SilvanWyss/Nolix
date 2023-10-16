@@ -12,19 +12,19 @@ public final class HelloWorldGuiTutorial {
 
   public static void main(String[] args) {
 
-    // Creates a Server.
+    //Creates a Server.
     final var server = Server.forHttpPort();
 
-    // Adds a default Application to the Server.
+    //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
         "Hello World GUI tutorial",
         MainSession.class,
         new VoidObject());
 
-    // Starts a web browser that will connect to the Server.
+    //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
-    // Closes the Server as soon as it does not have a client connected any more.
+    //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)
         .andThen()
@@ -37,13 +37,13 @@ public final class HelloWorldGuiTutorial {
     @Override
     protected void initialize() {
 
-      // Creates Label.
+      //Creates Label.
       final var label = new Label().setText("Hello World!");
 
-      // Configures the style of the Label.
+      //Configures the style of the Label.
       label.getStoredStyle().setTextSizeForState(ControlState.BASE, 50);
 
-      // Adds the Label to the GUI of the current MainSession.
+      //Adds the Label to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(label);
     }
   }

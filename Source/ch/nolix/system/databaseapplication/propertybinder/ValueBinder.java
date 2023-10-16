@@ -8,31 +8,31 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 //class
 public final class ValueBinder extends PropertyBinder<IValue<?>, ITextbox> {
 
-  // attribute
+  //attribute
   @Override
   protected void addSelectionOptionsToControlForProperty(final ITextbox control, final IValue<?> property) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected ITextbox createControl() {
     return new Textbox();
   }
 
-  // method
+  //method
   @Override
   protected void setNoteUpdateActionToControl(final ITextbox textBox, final Runnable noteUpdateAction) {
     textBox.setUpdateTextAction(noteUpdateAction);
   }
 
-  // method
+  //method
   @Override
   protected void updatePropertyFromControl(final IValue<?> value, final ITextbox textBox) {
     value.setValueFromString(textBox.getText());
   }
 
-  // method
+  //method
   @Override
   protected void updateControlFromProperty(final ITextbox textBox, final IValue<?> value) {
     if (value.containsAny()) {

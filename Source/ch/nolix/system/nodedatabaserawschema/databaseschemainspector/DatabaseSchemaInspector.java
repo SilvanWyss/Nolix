@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 //class
 public final class DatabaseSchemaInspector {
 
-  // method
+  //method
   public DatabaseSchemaState getDatabaseSchemaState(final IMutableNode<?> databaseNode) {
 
     if (databaseIsInitialized(databaseNode)) {
@@ -23,13 +23,13 @@ public final class DatabaseSchemaInspector {
     return DatabaseSchemaState.INVALID;
   }
 
-  // method
+  //method
   private boolean databaseIsInitialized(final IMutableNode<?> databaseNode) {
     return databaseNode.hasHeader(SubNodeHeaderCatalogue.DATABASE)
         && databaseNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
   }
 
-  // method
+  //method
   private boolean databaseIsUnitialized(final IMutableNode<?> databaseNode) {
     return (!databaseNode.hasHeader() && !databaseNode.containsChildNodes());
   }

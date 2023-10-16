@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentContainsElementException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param element
@@ -27,23 +27,23 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
     return new ArgumentContainsElementException(argument, element);
   }
 
-  // static method
+  //static method
   /**
    * @param element
    * @return the name of the given element.
    */
   private static String getNameOfElement(final Object element) {
 
-    // Handles the case that the given element is null.
+    //Handles the case that the given element is null.
     if (element == null) {
       return DEFAULT_ELEMENT_NAME;
     }
 
-    // Handles the case that the given element is not null.
+    //Handles the case that the given element is not null.
     return element.getClass().getSimpleName();
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentContainsElementException} for the given argument
    * and element.

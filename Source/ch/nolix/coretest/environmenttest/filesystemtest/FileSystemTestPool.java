@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class FileSystemTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public FileSystemTestPool() {
     super(FileExtensionCatalogueTest.class);
   }

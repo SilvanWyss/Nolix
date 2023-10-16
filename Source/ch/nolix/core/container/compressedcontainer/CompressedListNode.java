@@ -11,23 +11,23 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 final class CompressedListNode<E> {
 
-  // static method
+  //static method
   public static <E2> CompressedListNode<E2> forElement(final E2 element) {
     return new CompressedListNode<>(element, 1);
   }
 
-  // attribute
+  //attribute
   private final E element;
 
-  // attribute
+  //attribute
   private int elementCount;
 
-  // optional attribute
+  //optional attribute
   private CompressedListNode<E> nextNode;
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   private CompressedListNode(final E element, final int elementCount) {
 
     if (element == null) {
@@ -42,17 +42,17 @@ final class CompressedListNode<E> {
     this.elementCount = elementCount;
   }
 
-  // method
+  //method
   public int getElementCount() {
     return elementCount;
   }
 
-  // method
+  //method
   public E getStoredElement() {
     return element;
   }
 
-  // method
+  //method
   public CompressedListNode<E> getStoredNextNode() {
 
     assertHasNextNode();
@@ -60,17 +60,17 @@ final class CompressedListNode<E> {
     return nextNode;
   }
 
-  // method
+  //method
   public boolean hasNextNode() {
     return (nextNode != null);
   }
 
-  // method
+  //method
   public void incrementElementCount() {
     elementCount++;
   }
 
-  // method
+  //method
   public void setNextNode(final CompressedListNode<E> nextNode) {
 
     assertDoesNotHaveNextNode();
@@ -78,14 +78,14 @@ final class CompressedListNode<E> {
     this.nextNode = nextNode;
   }
 
-  // method
+  //method
   private void assertDoesNotHaveNextNode() {
     if (hasNextNode()) {
       throw ArgumentHasAttributeException.forArgumentAndAttributeName(this, "next node");
     }
   }
 
-  // method
+  //method
   private void assertHasNextNode() {
     if (!hasNextNode()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "next node");

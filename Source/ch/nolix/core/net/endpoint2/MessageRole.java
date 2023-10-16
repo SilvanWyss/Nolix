@@ -16,7 +16,7 @@ public enum MessageRole {
   SUCCESS_RESPONSE(MessageRolePrefixCatalogue.SUCCESS_RESPONSE_PREFIX),
   ERROR_RESPONSE(MessageRolePrefixCatalogue.ERROR_RESPONSE_PREFIX);
 
-  // static method
+  //static method
   /**
    * @param prefix
    * @return a new {@link MessageRole} from the given prefix
@@ -25,7 +25,7 @@ public enum MessageRole {
    */
   public static MessageRole fromPrefix(final char prefix) {
 
-    // Enumerates the given prefix.
+    //Enumerates the given prefix.
     return switch (prefix) {
       case MessageRolePrefixCatalogue.TARGET_APPLICATION_PREFIX ->
         TARGET_APPLICATION_MESSAGE;
@@ -40,7 +40,7 @@ public enum MessageRole {
     };
   }
 
-  // static method
+  //static method
   /**
    * @param prefix
    * @return a new {@link UnrepresentingArgumentException} for the given prefix
@@ -53,10 +53,10 @@ public enum MessageRole {
         MessageRole.class);
   }
 
-  // attribute
+  //attribute
   private final char prefix;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link MessageRole} with the given prefix.
    * 
@@ -66,7 +66,7 @@ public enum MessageRole {
     this.prefix = prefix;
   }
 
-  // method
+  //method
   /**
    * @return the prefix of the current {@link MessageRole}.
    */

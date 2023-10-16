@@ -15,10 +15,10 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IPropertyValida
 //class
 public class PropertyValidator implements IPropertyValidator {
 
-  // constant
+  //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 
-  // method
+  //method
   @Override
   public final void assertBelongsToEntity(final IProperty property) {
     if (!property.belongsToEntity()) {
@@ -26,7 +26,7 @@ public class PropertyValidator implements IPropertyValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertDoesNotBelongToEntity(final IProperty property) {
     if (property.belongsToEntity()) {
@@ -34,7 +34,7 @@ public class PropertyValidator implements IPropertyValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsNotEmpty(final IProperty property) {
     if (property.isEmpty()) {
@@ -42,7 +42,7 @@ public class PropertyValidator implements IPropertyValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertIsNotMandatoryAndEmptyBoth(final IProperty property) {
     if (PROPERTY_HELPER.isMandatoryAndEmptyBoth(property)) {
@@ -50,7 +50,7 @@ public class PropertyValidator implements IPropertyValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public final void assertKnowsParentColumn(final IProperty property) {
     if (!property.knowsParentColumn()) {

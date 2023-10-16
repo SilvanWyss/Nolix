@@ -18,10 +18,10 @@ public record ColumnInfo(
     int columnIndexOnEntityNode)
     implements IColumnInfo {
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
-  public ColumnInfo( // NOSONAR: This implementations checks the given arguments.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
+  public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
       final String columnId,
       final String columnName,
       final PropertyType columnPropertyType,
@@ -57,25 +57,25 @@ public record ColumnInfo(
     this.columnIndexOnEntityNode = columnIndexOnEntityNode;
   }
 
-  // method
+  //method
   @Override
   public DataType getColumnDataType() {
     return columnDataType;
   }
 
-  // method
+  //method
   @Override
   public String getColumnId() {
     return columnId;
   }
 
-  // method
+  //method
   @Override
   public String getColumnName() {
     return columnName;
   }
 
-  // method
+  //method
   @Override
   public PropertyType getColumnPropertyType() {
     return columnPropertyType;

@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Headered;
  */
 public interface Headerable extends Headered {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the header of the current {@link Headerable}.
    * 

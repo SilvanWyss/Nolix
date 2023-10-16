@@ -13,16 +13,16 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //class
 public final class EntityUpdateDto implements IEntityUpdateDto {
 
-  // attribute
+  //attribute
   private final String id;
 
-  // attribute
+  //attribute
   private final String saveStamp;
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<IContentFieldDto> updatedContentFields;
 
-  // constructor
+  //constructor
   public EntityUpdateDto(
       final String id,
       final String saveStamp,
@@ -45,7 +45,7 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
     this.updatedContentFields = updatedContentFields;
   }
 
-  // constructor
+  //constructor
   public EntityUpdateDto(
       final String id,
       final String saveStamp,
@@ -53,7 +53,7 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
     this(id, saveStamp, LinkedList.withElement(updatedContentField));
   }
 
-  // constructor
+  //constructor
   public EntityUpdateDto(
       final String id,
       final String saveStamp,
@@ -62,19 +62,19 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
     this(id, saveStamp, ReadContainer.forElement(updatedContentField, updatedContentFields));
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getSaveStamp() {
     return saveStamp;
   }
 
-  // method
+  //method
   @Override
   public IContainer<IContentFieldDto> getUpdatedContentFields() {
     return updatedContentFields;

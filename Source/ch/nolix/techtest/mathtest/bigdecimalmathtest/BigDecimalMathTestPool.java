@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class BigDecimalMathTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public BigDecimalMathTestPool() {
     super(
         ClosedIntervalTest.class,

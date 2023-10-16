@@ -11,7 +11,7 @@ enum CharacterType {
   UNDERSCORE,
   OTHER;
 
-  // static method
+  //static method
   public static CharacterType fromCharacter(final char character) {
     return switch (character) {
       case

@@ -13,41 +13,41 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 //class
 public final class ImageControlTest extends ControlTest<IImageControl> {
 
-  // method
+  //method
   @Override
   protected IImageControl createTestUnit() {
     return new ImageControl();
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredImage_whenIsEmpty() {
 
-    // setup
+    //setup
     final var testUnit = new ImageControl();
 
-    // setup verification
+    //setup verification
     expect(testUnit.isEmpty());
 
-    // execution & verification
+    //execution & verification
     expectRunning(testUnit::getStoredImage)
         .throwsException()
         .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getStoredImage_whenContainsMutableImage() {
 
-    // setup
+    //setup
     final var mutableImage = MutableImage.withWidthAndHeightAndColor(16, 16, Color.WHITE);
     final var testUnit = new ImageControl();
     testUnit.setImage(mutableImage);
 
-    // execution
+    //execution
     final var result = testUnit.getStoredImage();
 
-    // verification
+    //verification
     expect(result).is(mutableImage);
   }
 }

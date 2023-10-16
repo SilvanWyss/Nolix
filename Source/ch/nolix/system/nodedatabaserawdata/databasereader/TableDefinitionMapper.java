@@ -13,13 +13,13 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 final class TableDefinitionMapper {
 
-  // constant
+  //constant
   private static final ColumnDefinitionMapper COLUMN_DEFINITION_MAPPER = new ColumnDefinitionMapper();
 
-  // constant
+  //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
 
-  // method
+  //method
   public ITableInfo createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
     return new TableInfo(
         getTableIdFromTableNode(tableNode),
@@ -27,7 +27,7 @@ final class TableDefinitionMapper {
         getContentColumnDefinitionsFromTableNode(tableNode));
   }
 
-  // method
+  //method
   private IContainer<IColumnInfo> getContentColumnDefinitionsFromTableNode(IMutableNode<?> tableNode) {
 
     final var columnInfos = new LinkedList<IColumnInfo>();
@@ -45,18 +45,18 @@ final class TableDefinitionMapper {
     return columnInfos;
   }
 
-  // method
+  //method
   private IContainer<? extends IMutableNode<?>> getStoredColumnNodesInOrderFromTableNode(
       final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
   }
 
-  // method
+  //method
   private String getTableIdFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getTableIdFromTableNode(tableNode);
   }
 
-  // method
+  //method
   private String getTableNameFromTableNode(final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getTableNameFromTableNode(tableNode);
   }

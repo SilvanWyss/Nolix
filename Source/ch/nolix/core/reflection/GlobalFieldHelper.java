@@ -14,7 +14,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class GlobalFieldHelper {
 
-  // static method
+  //static method
   @SuppressWarnings("unchecked")
   public static <V> V getValueFromStaticField(final Field staticField) {
 
@@ -30,12 +30,12 @@ public final class GlobalFieldHelper {
     }
   }
 
-  // static method
+  //static method
   public static boolean hasGivenTypeOrSuperType(final Field field, final Class<?> type) {
     return type.isAssignableFrom(field.getType());
   }
 
-  // static method
+  //static method
   public static boolean isStatic(final Field field) {
 
     if (field == null) {
@@ -45,7 +45,7 @@ public final class GlobalFieldHelper {
     return Modifier.isStatic(field.getModifiers());
   }
 
-  // method
+  //method
   public static boolean isStaticAndStoresValueOfGivenType(final Field field, final Class<?> type) {
 
     if (type == null) {
@@ -61,7 +61,7 @@ public final class GlobalFieldHelper {
     return (value != null && type.isAssignableFrom(value.getClass()));
   }
 
-  // constructor
+  //constructor
   private GlobalFieldHelper() {
   }
 }

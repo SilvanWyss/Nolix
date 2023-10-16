@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.MultiTokened;
  */
 public interface MultiTokenable extends MultiTokened {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given token to the current {@link MultiTokenable}.
    * 
@@ -23,7 +23,7 @@ public interface MultiTokenable extends MultiTokened {
    */
   void addToken(String token);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the token that equals the given token from the current
    * {@link MultiTokenable} if the current {@link MultiTokenable} contains such a
@@ -33,7 +33,7 @@ public interface MultiTokenable extends MultiTokened {
    */
   void removeToken(String token);
 
-  // method declaration
+  //method declaration
   /**
    * Removes all tokens from the current {@link MultiTokenable}.
    */

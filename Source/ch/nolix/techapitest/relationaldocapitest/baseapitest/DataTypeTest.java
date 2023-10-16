@@ -10,73 +10,73 @@ import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 //class
 public final class DataTypeTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_getDataTypeClass_whenIsInteger8Byte() {
 
-    // setup
+    //setup
     final var testUnit = DataType.INTEGER_8BYTE;
 
-    // execution
+    //execution
     final var result = testUnit.getDataTypeClass();
 
-    // verification
+    //verification
     expect(result).is(Long.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getDataTypeClass_whenIsFloatingPointNumber8Byte() {
 
-    // setup
+    //setup
     final var testUnit = DataType.FLOATING_POINT_NUMBER_8BYTE;
 
-    // execution
+    //execution
     final var result = testUnit.getDataTypeClass();
 
-    // verification
+    //verification
     expect(result).is(Double.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getDataTypeClass_whenIsBoolean() {
 
-    // setup
+    //setup
     final var testUnit = DataType.BOOLEAN;
 
-    // execution
+    //execution
     final var result = testUnit.getDataTypeClass();
 
-    // verification
+    //verification
     expect(result).is(Boolean.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getDataTypeClass_whenIsText() {
 
-    // setup
+    //setup
     final var testUnit = DataType.TEXT;
 
-    // execution
+    //execution
     final var result = testUnit.getDataTypeClass();
 
-    // verification
+    //verification
     expect(result).is(String.class);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getDataTypeClass_whenIsImage() {
 
-    // setup
+    //setup
     final var testUnit = DataType.IMAGE;
 
-    // execution
+    //execution
     final var result = testUnit.getDataTypeClass();
 
-    // verification
+    //verification
     expect(result).is(IImage.class);
   }
 }

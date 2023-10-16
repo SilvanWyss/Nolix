@@ -16,10 +16,10 @@ public abstract class BaseParameterizedBackReferenceType<
     C extends IColumn>
     implements IBaseParameterizedBackReferenceType<C> {
 
-  // attribute
+  //attribute
   private final C backReferencedColumn;
 
-  // constructor
+  //constructor
   protected BaseParameterizedBackReferenceType(final C backReferencedColumn) {
 
     GlobalValidator.assertThat(backReferencedColumn).thatIsNamed("back referenced column").isNotNull();
@@ -27,31 +27,31 @@ public abstract class BaseParameterizedBackReferenceType<
     this.backReferencedColumn = backReferencedColumn;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedBackReferenceType<C> asBaseParameterizedBackReferenceType() {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedReferenceType<?> asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
-  // method
+  //method
   @Override
   public final C getBackReferencedColumn() {
     return backReferencedColumn;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesTable(final ITable<?> table) {
     return false;

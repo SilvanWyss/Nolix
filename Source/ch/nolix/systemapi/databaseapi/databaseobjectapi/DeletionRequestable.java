@@ -4,6 +4,6 @@ package ch.nolix.systemapi.databaseapi.databaseobjectapi;
 //interface
 public interface DeletionRequestable {
 
-  // method declaration
+  //method declaration
   boolean isDeleted();
 }

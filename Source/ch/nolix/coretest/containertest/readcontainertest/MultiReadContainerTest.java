@@ -11,23 +11,23 @@ import ch.nolix.coretest.containertest.basetest.ContainerTest;
 //class
 public final class MultiReadContainerTest extends ContainerTest {
 
-  // method
+  //method
   @TestCase
   public void testCase_forArray() {
 
-    // setup
+    //setup
     final var array1 = new String[] { "x", "xx" };
     final var array2 = new String[] { "y", "yy" };
     final var array3 = new String[] { "z", "zz" };
 
-    // execution
+    //execution
     final var result = MultiReadContainer.forArray(array1, array2, array3);
 
-    // verification
+    //verification
     expect(result).containsExactlyInSameOrder("x", "xx", "y", "yy", "z", "zz");
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
       final E element,
@@ -38,7 +38,7 @@ public final class MultiReadContainerTest extends ContainerTest {
     return MultiReadContainer.forIterable(container);
   }
 
-  // method
+  //method
   @Override
   protected <E> IContainer<E> createEmptyContainerForType(Class<E> type) {
     return new MultiReadContainer<>();

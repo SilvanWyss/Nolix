@@ -13,7 +13,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //class
 public final class TableMapper implements ITableMapper {
 
-  // constant
+  //constant
   private static final IColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
   @Override
@@ -32,13 +32,13 @@ public final class TableMapper implements ITableMapper {
     return tables;
   }
 
-  // method
+  //method
   @Override
   public IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema) {
     return schema.getEntityTypes().to(this::createEmptyTableFrom);
   }
 
-  // method
+  //method
   private <E extends IEntity> ITable createEmptyTableFrom(final Class<E> entityType) {
     return new Table(entityType.getSimpleName());
   }

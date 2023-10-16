@@ -13,7 +13,7 @@ import java.util.function.Predicate;
  */
 public interface INextMediator<E> {
 
-  // method declaration
+  //method declaration
   /**
    * Adds a blank condition to the current {@link INextMediator} for the next
    * element of the searched-for sequences of the parent
@@ -24,7 +24,7 @@ public interface INextMediator<E> {
    */
   ISequencePatternBuilder<E> addBlank();
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given condition to the current {@link INextMediator} for the next
    * element of the searched-for sequences of the parent

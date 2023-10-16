@@ -12,42 +12,42 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 //interface
 public interface IProperty extends EmptinessRequestable, IDatabaseObject, MandatorynessRequestable, Named {
 
-  // method declaration
+  //method declaration
   boolean belongsToEntity();
 
-  // method declaration
+  //method declaration
   IContainer<IProperty> getStoredBackReferencingProperties();
 
-  // method
+  //method
   IColumn getStoredParentColumn();
 
-  // method declaration
+  //method declaration
   IEntity getStoredParentEntity();
 
-  // method declaration
+  //method declaration
   IContainer<IProperty> getStoredReferencingProperties();
 
-  // method declaration
+  //method declaration
   PropertyType getType();
 
-  // method declaration
+  //method declaration
   boolean knowsParentColumn();
 
-  // method declaration
+  //method declaration
   boolean referencesBackEntity(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean referencesBackProperty(IProperty property);
 
-  // method declaration
+  //method declaration
   boolean referencesEntity(IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean referencesUninsertedEntity();
 
-  // method declaration
+  //method declaration
   void setUpdateAction(Runnable updateAction);
 
-  // method declaration
+  //method declaration
   IContentFieldDto technicalToContentField();
 }

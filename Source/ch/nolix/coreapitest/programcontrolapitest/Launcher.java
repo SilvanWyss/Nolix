@@ -4,12 +4,12 @@ package ch.nolix.coreapitest.programcontrolapitest;
 //class
 public final class Launcher {
 
-  // main method
+  //main method
   public static void main(String[] args) {
     new ProgramControlApiTestPool().run();
   }
 
-  // constructor
+  //constructor
   private Launcher() {
   }
 }

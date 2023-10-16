@@ -7,15 +7,15 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 //interface
 public interface IServerTarget {
 
-  // method declaration
+  //method declaration
   String getIpOrDomain();
 
-  // method declaration
+  //method declaration
   int getPort();
 
-  // method declaration
+  //method declaration
   SecurityLevel getSecurityLevelForConnections();
 
-  // method declaration
+  //method declaration
   String toUrl();
 }

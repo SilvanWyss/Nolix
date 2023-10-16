@@ -18,27 +18,27 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 //class
 public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
 
-  // constant
+  //constant
   private static final ControlCssValueHelper CONTROL_CSS_VALUE_HELPER = new ControlCssValueHelper();
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
       final IGrid control,
       final LinkedList<CssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
       final IGrid control,
       final ControlState state,
       final LinkedList<ICssProperty> list) {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
       final IGrid control,
@@ -66,11 +66,11 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
                 CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
   }
 
-  // method
+  //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
       final IGrid control,
       final LinkedList<? super ICssRule> list) {
-    // Does nothing.
+    //Does nothing.
   }
 }

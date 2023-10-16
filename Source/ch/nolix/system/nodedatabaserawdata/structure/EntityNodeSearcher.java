@@ -8,17 +8,17 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 //class
 public final class EntityNodeSearcher {
 
-  // method
+  //method
   public String getEntitySaveStampFromEntityNode(final IMutableNode<?> entityNode) {
     return getStoredSaveStampNodeFromEntityNode(entityNode).getSingleChildNodeHeader();
   }
 
-  // method
+  //method
   public IMutableNode<?> getStoredIdNodeFromEntityNode(final IMutableNode<?> entityNode) {
     return entityNode.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX);
   }
 
-  // method
+  //method
   public IMutableNode<?> getStoredSaveStampNodeFromEntityNode(final IMutableNode<?> entityNode) {
     return entityNode.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.SAVE_STAMP_INDEX);
   }

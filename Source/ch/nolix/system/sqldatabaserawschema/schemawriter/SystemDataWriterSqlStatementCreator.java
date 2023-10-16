@@ -18,14 +18,14 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 final class SystemDataWriterSqlStatementCreator {
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = //
       new ParameterizedPropertyTypeSqlRecordMapper();
 
-  // constant
+  //constant
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
 
-  // method
+  //method
   public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 
     final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
@@ -71,7 +71,7 @@ final class SystemDataWriterSqlStatementCreator {
         + "'";
   }
 
-  // method
+  //method
   public LinkedList<String> createStatementsToAddTable(final ITableDto table) {
 
     final var statements = new LinkedList<String>();
@@ -85,7 +85,7 @@ final class SystemDataWriterSqlStatementCreator {
     return statements;
   }
 
-  // method
+  //method
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return "DELETE FROM "
         + SystemDataTable.COLUMN.getQualifiedName()
@@ -100,7 +100,7 @@ final class SystemDataWriterSqlStatementCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createStatementToDeleteTable(final String tableName) {
     return "DELETE FROM "
         + SystemDataTable.TABLE.getQualifiedName()
@@ -111,7 +111,7 @@ final class SystemDataWriterSqlStatementCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
     return "UPDATE "
         + SystemDataTable.COLUMN.getQualifiedName()
@@ -130,7 +130,7 @@ final class SystemDataWriterSqlStatementCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createStatementToSetColumnParameterizedPropertyType(
       final String columnID,
       final IParameterizedPropertyTypeDto parameterizedPropertyType) {
@@ -159,7 +159,7 @@ final class SystemDataWriterSqlStatementCreator {
         + "'";
   }
 
-  // method
+  //method
   public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
     return "UPDATE "
         + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
@@ -173,7 +173,7 @@ final class SystemDataWriterSqlStatementCreator {
         + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }
 
-  // method
+  //method
   public String createStatementToSetTableName(String tableName, String newTableName) {
     return "UPDATE "
         + SystemDataTable.TABLE.getQualifiedName()
@@ -188,7 +188,7 @@ final class SystemDataWriterSqlStatementCreator {
         + "'";
   }
 
-  // method
+  //method
   private String createStatementToAddTableIgnoringColumns(ITableDto table) {
 
     final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);

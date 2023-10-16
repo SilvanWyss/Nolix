@@ -10,28 +10,28 @@ package ch.nolix.core.net.constant;
  */
 public final class PortCatalogue {
 
-  // constant
+  //constant
   public static final int MIN_PORT = 0;
 
-  // constant
+  //constant
   public static final int FTP = 20;
 
-  // constant
+  //constant
   public static final int SMTP = 25;
 
-  // constant
+  //constant
   public static final int HTTP = 80;
 
-  // constant
+  //constant
   public static final int HTTPS = 443;
 
-  // constant
+  //constant
   public static final int MAX_PORT = 65535;
 
-  // constant
+  //constant
   public static final int MSSQL = 1433;
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link PortCatalogue} can be created.
    */

@@ -10,21 +10,21 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface ITextbox extends IControl<ITextbox, ITextboxStyle>, IFluentMutableTextHolder<ITextbox> {
 
-  // method declaration
+  //method declaration
   void emptyText();
 
-  // method declaration
+  //method declaration
   TextMode getTextMode();
 
-  // method declaration
+  //method declaration
   void removeUpdateTextAction();
 
-  // method declaration
+  //method declaration
   ITextbox setTextMode(TextMode textMode);
 
-  // method declaration
+  //method declaration
   ITextbox setUpdateTextAction(Runnable updateTextAction);
 
-  // method declaration
+  //method declaration
   ITextbox setUpdateTextAction(Consumer<String> updateTextAction);
 }

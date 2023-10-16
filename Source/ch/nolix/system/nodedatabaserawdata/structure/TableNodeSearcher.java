@@ -8,38 +8,38 @@ import ch.nolix.system.nodedatabaserawdata.tabledefinition.FieldIndexCatalogue;
 //class
 public final class TableNodeSearcher {
 
-  // method
+  //method
   public IMutableNode<?> getStoredEntityNodeFromTableNode(final IMutableNode<?> tableNode, final String id) {
     return tableNode.getStoredFirstChildNodeThat(
         a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
             && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
-  // method
+  //method
   public IMutableNode<?> getStoredEntityNodeFromTableNodeOrNull(final IMutableNode<?> tableNode, final String id) {
     return tableNode.getStoredFirstChildNodeThatOrNull(
         a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
             && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
-  // method
+  //method
   public IContainer<? extends IMutableNode<?>> getStoredEntityNodesFromTableNode(final IMutableNode<?> tableNode) {
     return tableNode.getStoredChildNodesWithHeader(SubNodeHeaderCatalogue.ENTITY);
   }
 
-  // method
+  //method
   public IMutableNode<?> removeAndGetRefEntityNodeFromTableNode(IMutableNode<?> tableNode, String id) {
     return tableNode.removeAndGetRefFirstChildNodeThat(
         a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
             && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
 
-  // method
+  //method
   public boolean tableNodeContainsEntityNodeWithGivenId(final IMutableNode<?> tableNode, final String id) {
     return tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(tableNode, FieldIndexCatalogue.ID_INDEX, id);
   }
 
-  // method
+  //method
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
       final IMutableNode<?> tableNode,
       final int valueIndex,
@@ -56,7 +56,7 @@ public final class TableNodeSearcher {
         });
   }
 
-  // method
+  //method
   public boolean tableNodeContainsEntityNodeWhoseFieldAtGivenIndexHasGivenHeader(
       final IMutableNode<?> tableNode,
       final int valueIndex,

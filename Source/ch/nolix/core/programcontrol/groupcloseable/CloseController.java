@@ -16,7 +16,7 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.IClosePool;
  */
 public final class CloseController implements ICloseController {
 
-  // static method
+  //static method
   /**
    * @param element
    * @return a new {@link CloseController} for the given element.
@@ -26,10 +26,10 @@ public final class CloseController implements ICloseController {
     return new CloseController(element);
   }
 
-  // attribute
+  //attribute
   private IClosePool parentClosePool;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link CloseController} for the given element.
    * 
@@ -40,7 +40,7 @@ public final class CloseController implements ICloseController {
     parentClosePool = new ClosePool(element);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -49,7 +49,7 @@ public final class CloseController implements ICloseController {
     parentClosePool.closeElementsIfStateIsOpen();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -65,7 +65,7 @@ public final class CloseController implements ICloseController {
     parentClosePool.addElements(elementsToAdd);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -74,7 +74,7 @@ public final class CloseController implements ICloseController {
     return parentClosePool;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -83,17 +83,17 @@ public final class CloseController implements ICloseController {
     return (parentClosePool.getState() == CloseState.CLOSED);
   }
 
-  // method.
+  //method.
   /**
    * {@inheritDoc}
    */
   @Override
   public void setParentClosePool(final IClosePool parentClosePool) {
 
-    // Asserts that the given parentClosePool is not null.
+    //Asserts that the given parentClosePool is not null.
     GlobalValidator.assertThat(parentClosePool).thatIsNamed("parent ClosePool").isNotNull();
 
-    // Sets the parentClosePool of the current CloseController.
+    //Sets the parentClosePool of the current CloseController.
     this.parentClosePool = parentClosePool;
   }
 }

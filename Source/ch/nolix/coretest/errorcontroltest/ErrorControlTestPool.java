@@ -9,7 +9,7 @@ import ch.nolix.coretest.errorcontroltest.validatortest.ValidatorTestPool;
 //class
 public final class ErrorControlTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ErrorControlTestPool() {
     super(new InvalidArgumentExceptionTestPool(), new ValidatorTestPool());
   }

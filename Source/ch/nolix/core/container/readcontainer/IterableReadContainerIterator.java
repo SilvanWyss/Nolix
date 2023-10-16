@@ -11,21 +11,21 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class IterableReadContainerIterator<E> implements CopyableIterator<E> {
 
-  // static method
+  //static method
   public static <E2> IterableReadContainerIterator<E2> forIterable(final Iterable<E2> iterable) {
     return new IterableReadContainerIterator<>(iterable);
   }
 
-  // attribute
+  //attribute
   private final Iterable<E> parentIterable;
 
-  // attribute
+  //attribute
   private final Iterator<E> internalIterator;
 
-  // attribute
+  //attribute
   private int iterationCount;
 
-  // constructor
+  //constructor
   private IterableReadContainerIterator(final Iterable<E> parentIterable) {
 
     GlobalValidator.assertThat(parentIterable).thatIsNamed("parent iterable").isNotNull();
@@ -35,7 +35,7 @@ final class IterableReadContainerIterator<E> implements CopyableIterator<E> {
     iterationCount = 0;
   }
 
-  // constructor
+  //constructor
   private IterableReadContainerIterator(final Iterable<E> parentIterable, final int iterationCount) {
 
     GlobalValidator.assertThat(iterationCount).thatIsNamed("iteration count").isNotNegative();
@@ -50,19 +50,19 @@ final class IterableReadContainerIterator<E> implements CopyableIterator<E> {
     this.iterationCount = iterationCount;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> getCopy() {
     return new IterableReadContainerIterator<>(parentIterable, iterationCount);
   }
 
-  // method
+  //method
   @Override
   public boolean hasNext() {
     return internalIterator.hasNext();
   }
 
-  // method
+  //method
   @Override
   public E next() {
 

@@ -8,25 +8,25 @@ import ch.nolix.core.independent.container.ImmutableList;
 //class
 public final class LogEntry {
 
-  // constant
+  //constant
   private static final StackTraceMapper STACK_TRACE_MAPPER = new StackTraceMapper();
 
-  // static method
+  //static method
   public static LogEntry forError(final Throwable error) {
     return new LogEntry(HarmLevel.ERROR, getMessageFromError(error), getAdditionalInfoLinesFromError(error));
   }
 
-  // static method
+  //static method
   public static LogEntry withMessageAndHarmLevel(final String message, final HarmLevel harmLevel) {
     return new LogEntry(harmLevel, message, new String[0]);
   }
 
-  // static method
+  //static method
   private static String[] getAdditionalInfoLinesFromError(Throwable error) {
     return STACK_TRACE_MAPPER.mapErrorToStackTrace(error);
   }
 
-  // method
+  //method
   private static String getMessageFromError(final Throwable error) {
 
     if (error == null) {
@@ -41,19 +41,19 @@ public final class LogEntry {
     return message;
   }
 
-  // attribute
+  //attribute
   private final String message;
 
-  // attribute
+  //attribute
   private final HarmLevel harmLevel;
 
-  // attribute
+  //attribute
   private final long creationTimeInMillisecondsSince1970;
 
-  // multi-attribute
+  //multi-attribute
   private final ImmutableList<String> additionalInfoLines;
 
-  // constructor
+  //constructor
   private LogEntry(final HarmLevel harmLevel, final String message, final String[] additionalInfoLines) {
 
     creationTimeInMillisecondsSince1970 = System.currentTimeMillis();
@@ -77,27 +77,27 @@ public final class LogEntry {
     }
   }
 
-  // method
+  //method
   public ImmutableList<String> getAdditionalInfoLines() {
     return additionalInfoLines;
   }
 
-  // method
+  //method
   public long getCreationTimeInMillisecondsSince1970() {
     return creationTimeInMillisecondsSince1970;
   }
 
-  // method
+  //method
   public HarmLevel getHarmLevel() {
     return harmLevel;
   }
 
-  // method
+  //method
   public String getMessage() {
     return message;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return (getHarmLevel() + ": " + getMessage());

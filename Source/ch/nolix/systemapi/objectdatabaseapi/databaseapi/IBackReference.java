@@ -7,12 +7,12 @@ public interface IBackReference<
     E extends IEntity>
     extends IBaseBackReference<E> {
 
-  // method declaration
+  //method declaration
   E getBackReferencedEntity();
 
-  // method declaration
+  //method declaration
   String getBackReferencedEntityId();
 
-  // method declaration
+  //method declaration
   boolean referencesBackEntity();
 }

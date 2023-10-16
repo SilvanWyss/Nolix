@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class MainTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public MainTestPool() {
     super(BasicApplicationTest.class, BasicApplicationOnServerTest.class);
   }

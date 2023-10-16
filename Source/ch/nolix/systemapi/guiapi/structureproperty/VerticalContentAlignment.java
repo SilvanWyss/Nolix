@@ -10,7 +10,7 @@ public enum VerticalContentAlignment {
   CENTER,
   BOTTOM;
 
-  // static method
+  //static method
   public static VerticalContentAlignment fromSpecification(final INode<?> specification) {
 
     final var verticalContentAlignmentString = specification.getSingleChildNodeHeader();

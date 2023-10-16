@@ -19,16 +19,16 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 //class
 public final class CompressedList<E> extends Container<E> {
 
-  // attribute
+  //attribute
   private int elementCount;
 
-  // optional attribute
+  //optional attribute
   private CompressedListNode<E> firstNode;
 
-  // optional attribute
+  //optional attribute
   private CompressedListNode<E> lastNode;
 
-  // method
+  //method
   public void addElement(final E element) {
 
     if (isEmpty()) {
@@ -47,15 +47,15 @@ public final class CompressedList<E> extends Container<E> {
     elementCount++;
   }
 
-  // method
+  //method
   @Override
   public int getElementCount() {
     return elementCount;
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
@@ -87,7 +87,7 @@ public final class CompressedList<E> extends Container<E> {
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "element at " + p1BasedIndex);
   }
 
-  // method
+  //method
   @Override
   public E getStoredLast() {
 
@@ -96,13 +96,13 @@ public final class CompressedList<E> extends Container<E> {
     return lastNode.getStoredElement();
   }
 
-  // method
+  //method
   @Override
   public boolean isMaterialized() {
     return true;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> iterator() {
 
@@ -113,13 +113,13 @@ public final class CompressedList<E> extends Container<E> {
     return CompressedListIterator.forCompressedListWithFirstNode(firstNode);
   }
 
-  // method
+  //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return new LinkedList<>();

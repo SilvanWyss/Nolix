@@ -21,19 +21,19 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 //class
 public abstract class SqlConnection implements GroupCloseable {
 
-  // attribute
+  //attribute
   private final SqlDatabaseEngine sqlDatabaseEngine;
 
-  // attribute
+  //attribute
   private final Connection connection;
 
-  // attribute
+  //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
-  // optional attribute
+  //optional attribute
   private final SqlConnectionPool parentQslConnectionPool;
 
-  // constructor
+  //constructor
   protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
 
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
@@ -44,7 +44,7 @@ public abstract class SqlConnection implements GroupCloseable {
     parentQslConnectionPool = null;
   }
 
-  // constructor
+  //constructor
   protected SqlConnection(
       final SqlDatabaseEngine sqlDatabaseEngine,
       final int port,
@@ -58,7 +58,7 @@ public abstract class SqlConnection implements GroupCloseable {
         userPassword);
   }
 
-  // constructor
+  //constructor
   protected SqlConnection(
       final SqlDatabaseEngine sqlDatabaseEngine,
       final String ip,
@@ -81,7 +81,7 @@ public abstract class SqlConnection implements GroupCloseable {
     parentQslConnectionPool = null;
   }
 
-  // constructor
+  //constructor
   protected SqlConnection(
       final SqlDatabaseEngine sqlDatabaseEngine,
       final String ip,
@@ -114,12 +114,12 @@ public abstract class SqlConnection implements GroupCloseable {
     this.parentQslConnectionPool = parentQslConnectionPool;
   }
 
-  // method
+  //method
   public final boolean belongsToSqlConnectionPool() {
     return (parentQslConnectionPool != null);
   }
 
-  // method
+  //method
   @Override
   public final void close() {
     if (!belongsToSqlConnectionPool()) {
@@ -129,7 +129,7 @@ public abstract class SqlConnection implements GroupCloseable {
     }
   }
 
-  // method
+  //method
   public final SqlConnection execute(final Iterable<String> sqlStatements) {
 
     try (final var statement = connection.createStatement()) {
@@ -156,28 +156,28 @@ public abstract class SqlConnection implements GroupCloseable {
     return this;
   }
 
-  // method
+  //method
   public final SqlConnection execute(final String sqlStatement) {
     return execute(ReadContainer.forElement(sqlStatement));
   }
 
-  // method
+  //method
   public final SqlConnection execute(final String sqlStatement, final String... sqlStatements) {
     return execute(ReadContainer.forElement(sqlStatement, sqlStatements));
   }
 
-  // method
+  //method
   public final List<String> getOneRecord(final String sqlQuery) {
     return getRecords(sqlQuery).getStoredOne();
   }
 
-  // method
+  //method
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
   }
 
-  // method
+  //method
   public final LinkedList<List<String>> getRecords(final String sqlQuery) {
 
     final var records = new LinkedList<List<String>>();
@@ -202,17 +202,17 @@ public abstract class SqlConnection implements GroupCloseable {
     return records;
   }
 
-  // method
+  //method
   public final IContainer<String> getRecordsAsStrings(final String sqlQuery) {
     return getRecords(sqlQuery).toStrings();
   }
 
-  // method
+  //method
   public final SqlDatabaseEngine getSqlDatabaseEngine() {
     return sqlDatabaseEngine;
   }
 
-  // method
+  //method
   @Override
   public final boolean isClosed() {
 
@@ -223,13 +223,13 @@ public abstract class SqlConnection implements GroupCloseable {
     return parentQslConnectionPool.isClosed();
   }
 
-  // method
+  //method
   @Override
   public final void noteClose() {
     internalCloseDirectly();
   }
 
-  // method
+  //method
   final void internalCloseDirectly() {
     try {
       connection.close();
@@ -238,18 +238,18 @@ public abstract class SqlConnection implements GroupCloseable {
     }
   }
 
-  // method declaration
+  //method declaration
   protected abstract String getSqlDatabaseEngineDriverClass();
 
-  // method
+  //method
   private void giveBackSelfToParentSqlConnectionPool() {
     parentQslConnectionPool.takeBackSqlConnection(this);
   }
 
-  // method
+  //method
   private void registerSqlDatabaseEngineDriver() {
     try {
-      Class.forName( // NOSONAR: Dynamic class loading is needed to gain driver class.
+      Class.forName( //NOSONAR: Dynamic class loading is needed to gain driver class.
           getSqlDatabaseEngineDriverClass());
     } catch (final ClassNotFoundException classNotFoundException) {
       throw WrapperException.forError(classNotFoundException);

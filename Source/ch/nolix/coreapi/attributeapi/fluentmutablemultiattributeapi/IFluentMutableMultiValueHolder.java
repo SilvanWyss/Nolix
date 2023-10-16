@@ -18,7 +18,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
 public interface IFluentMutableMultiValueHolder<FMMVH extends IFluentMutableMultiValueHolder<FMMVH, V>, V>
     extends IMultiValueHolder<V> {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given value to the current {@link IFluentMutableMultiValueHolder}.
    * 
@@ -28,7 +28,7 @@ public interface IFluentMutableMultiValueHolder<FMMVH extends IFluentMutableMult
    */
   FMMVH addValue(V value);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the given value from the current
    * {@link IFluentMutableMultiValueHolder}.
@@ -40,7 +40,7 @@ public interface IFluentMutableMultiValueHolder<FMMVH extends IFluentMutableMult
    */
   void removeValue(V value);
 
-  // method declaration
+  //method declaration
   /**
    * Removes all values from the current {@link IFluentMutableMultiValueHolder}.
    */

@@ -12,7 +12,7 @@ public enum WebSocketFramePayloadLengthType {
   BITS_16,
   BITS_64;
 
-  // static method
+  //static method
   public static WebSocketFramePayloadLengthType fromCode(final int code) {
 
     GlobalValidator.assertThat(code).thatIsNamed(LowerCaseCatalogue.CODE).isNotNegative();
@@ -32,7 +32,7 @@ public enum WebSocketFramePayloadLengthType {
     throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.CODE, code);
   }
 
-  // static method
+  //static method
   public static WebSocketFramePayloadLengthType fromPayloadLength(final long payloadLength) {
 
     GlobalValidator.assertThat(payloadLength).thatIsNamed("payload length").isNotNegative();
@@ -45,7 +45,7 @@ public enum WebSocketFramePayloadLengthType {
       return BITS_16;
     }
 
-    // payloadLength < 2^63
+    //payloadLength < 2^63
     return WebSocketFramePayloadLengthType.BITS_64;
   }
 }

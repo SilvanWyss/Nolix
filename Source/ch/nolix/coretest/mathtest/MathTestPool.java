@@ -14,7 +14,7 @@ import ch.nolix.coretest.mathtest.stochastictest.StochasticTestPool;
  */
 public final class MathTestPool extends TestPool {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link MathTestPool}.
    */

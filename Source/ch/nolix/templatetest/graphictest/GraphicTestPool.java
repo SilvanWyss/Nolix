@@ -8,7 +8,7 @@ import ch.nolix.templatetest.graphictest.texturetest.TextureTestPool;
 //class
 public final class GraphicTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public GraphicTestPool() {
     super(new TextureTestPool());
   }

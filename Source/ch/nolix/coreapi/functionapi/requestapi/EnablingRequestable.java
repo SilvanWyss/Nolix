@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface EnablingRequestable {
 
-  // method
+  //method
   /**
    * @return true if the current {@link EnablingRequestable} is disabled.
    */
@@ -21,7 +21,7 @@ public interface EnablingRequestable {
     return !isEnabled();
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link EnablingRequestable} is enabled.
    */

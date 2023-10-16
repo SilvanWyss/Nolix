@@ -11,7 +11,7 @@ package ch.nolix.coreapi.functionapi.skillapi;
  */
 public interface Copyable<C extends Copyable<C>> {
 
-  // method declaration
+  //method declaration
   /**
    * @return a copy of the current {@link Copyable}.
    */

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTitled;
  */
 public interface FluentOptionalTitleable<FOT extends FluentOptionalTitleable<FOT>> extends OptionalTitled {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the title of the current {@link FluentOptionalTitleable}.
    * 
@@ -22,7 +22,7 @@ public interface FluentOptionalTitleable<FOT extends FluentOptionalTitleable<FOT
    */
   FOT removeTitle();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the title of the current {@link FluentOptionalTitleable}.
    * 

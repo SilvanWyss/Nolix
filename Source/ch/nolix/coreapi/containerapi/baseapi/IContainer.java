@@ -30,7 +30,7 @@ public interface IContainer<E>
     MaterializationRequestable,
     StoringRequestable<E> {
 
-  // method declaration
+  //method declaration
   /**
    * @param p1BasedStartIndex
    * @return a new sub {@link IContainer} of the current {@link IContainer} from
@@ -41,7 +41,7 @@ public interface IContainer<E>
    */
   IContainer<E> from1BasedStartIndex(int p1BasedStartIndex);
 
-  // method declaration
+  //method declaration
   /**
    * @param p1BasedStartIndex
    * @param p1BasedEndIndex
@@ -56,7 +56,7 @@ public interface IContainer<E>
    */
   IContainer<E> from1BasedStartIndexUntil1BasedEndIndex(int p1BasedStartIndex, int p1BasedEndIndex);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the average of the values the given norm returns from the elements of
@@ -65,7 +65,7 @@ public interface IContainer<E>
    */
   double getAverage(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the average of the values the given norm returns from the elements of
@@ -74,7 +74,7 @@ public interface IContainer<E>
    */
   double getAverageOrZero(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the number of elements the given selector selects from the current
@@ -82,7 +82,7 @@ public interface IContainer<E>
    */
   int getCount(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return the number how many times the current {@link IContainer} contains the
@@ -90,13 +90,13 @@ public interface IContainer<E>
    */
   int getCount(Object element);
 
-  // method declaration declaration
+  //method declaration declaration
   /**
    * @return the number of elements of the current {@link IContainer}.
    */
   int getElementCount();
 
-  // method declaration
+  //method declaration
   /**
    * @param selector
    * @return the 1 based index of the first element the given selector selects
@@ -106,7 +106,7 @@ public interface IContainer<E>
    */
   int get1BasedIndexOfFirst(Predicate<E> selector);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return the 1-based index of the first element of the current
@@ -116,7 +116,7 @@ public interface IContainer<E>
    */
   int get1BasedIndexOfFirstEqualElement(E element);
 
-  // method declaration
+  //method declaration
   /**
    * @param element
    * @return the 1-based index of the given element in the current
@@ -126,7 +126,7 @@ public interface IContainer<E>
    */
   int get1BasedIndexOfFirstOccuranceOf(E element);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -136,7 +136,7 @@ public interface IContainer<E>
    */
   <C extends Comparable<C>> C getMax(Function<E, C> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the biggest value the given norm returns from the elements of the
@@ -145,7 +145,7 @@ public interface IContainer<E>
    */
   double getMaxOrZero(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the median of the values the given norm returns from the elements of
@@ -154,7 +154,7 @@ public interface IContainer<E>
    */
   double getMedian(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the median of the values the given norm returns from the elements of
@@ -163,7 +163,7 @@ public interface IContainer<E>
    */
   double getMedianOrZero(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -173,7 +173,7 @@ public interface IContainer<E>
    */
   <C extends Comparable<C>> C getMin(Function<E, C> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the smallest value the given norm returns from the elements of the
@@ -182,7 +182,7 @@ public interface IContainer<E>
    */
   double getMinOrZero(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the standard deviation of the values the given norm returns from the
@@ -191,7 +191,7 @@ public interface IContainer<E>
    */
   double getStandardDeviation(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the sum of the values the given norm returns from the elements of the
@@ -199,7 +199,7 @@ public interface IContainer<E>
    */
   BigDecimal getSum(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the sum of the integers the given norm returns from the elements of
@@ -207,7 +207,7 @@ public interface IContainer<E>
    */
   BigInteger getSumOfIntegers(ToIntFunction<E> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @return the variance of the values the given norm returns from the elements
@@ -216,7 +216,7 @@ public interface IContainer<E>
    */
   double getVariance(Function<E, Number> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @param norm
    * @param <C>  is the type of the {@link Comparable}s the given norm returns.
@@ -226,14 +226,14 @@ public interface IContainer<E>
    */
   <C extends Comparable<C>> IContainer<E> toOrderedList(Function<E, C> norm);
 
-  // method declaration
+  //method declaration
   /**
    * @return a new {@link IContainer} with the elements of the current
    *         {@link IContainer} in the reversed order.
    */
   IContainer<E> toReversedList();
 
-  // method declaration
+  //method declaration
   /**
    * 
    * @return a new array with the Strings that represent the elements of the
@@ -241,14 +241,14 @@ public interface IContainer<E>
    */
   String[] toStringArray();
 
-  // method declaration
+  //method declaration
   /**
    * @return a new {@link IContainer} with the {@link String} representations of
    *         the elements of the current {@link IContainer}.
    */
   IContainer<String> toStrings();
 
-  // method declaration
+  //method declaration
   /**
    * @param separator
    * @return a {@link String} representation the current {@link IContainer} with
@@ -256,7 +256,7 @@ public interface IContainer<E>
    */
   String toStringWithSeparator(char separator);
 
-  // method declaration
+  //method declaration
   /**
    * @param separator
    * @return a {@link String} representation of the current {@link IContainer}
@@ -265,7 +265,7 @@ public interface IContainer<E>
    */
   String toStringWithSeparator(String separator);
 
-  // method declaration
+  //method declaration
   /**
    * @param p1BasedEndIndex
    * @return a new sub {@link IContainer} of the current {@link IContainer} with
@@ -276,7 +276,7 @@ public interface IContainer<E>
    */
   IContainer<E> until1BasedIndex(int p1BasedEndIndex);
 
-  // method declaration
+  //method declaration
   /**
    * @return a new sub {@link IContainer} of the current {@link IContainer}
    *         without the first element.
@@ -284,7 +284,7 @@ public interface IContainer<E>
    */
   IContainer<E> withoutFirst();
 
-  // method declaration
+  //method declaration
   /**
    * @param n
    * @return a new sub {@link IContainer} of the current {@link IContainer}
@@ -295,7 +295,7 @@ public interface IContainer<E>
    */
   IContainer<E> withoutFirst(int n);
 
-  // method declaration
+  //method declaration
   /**
    * @return a new sub {@link IContainer} of the current {@link IContainer}
    *         without the last element.
@@ -303,7 +303,7 @@ public interface IContainer<E>
    */
   IContainer<E> withoutLast();
 
-  // method declaration
+  //method declaration
   /**
    * @param n
    * @return a new sub {@link IContainer} of the current {@link IContainer}

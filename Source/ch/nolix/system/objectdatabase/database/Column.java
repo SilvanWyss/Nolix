@@ -13,7 +13,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn {
 
-  // static method
+  //static method
   static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
       final String name,
       final String id,
@@ -22,19 +22,19 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     return new Column(name, id, parameterizedPropertyType, parentTable);
   }
 
-  // attribute
+  //attribute
   private final String name;
 
-  // attribute
+  //attribute
   private final String id;
 
-  // attribute
+  //attribute
   private final IParameterizedPropertyType parameterizedPropertyType;
 
-  // attribute
+  //attribute
   private final Table<IEntity> parentTable;
 
-  // constructor
+  //constructor
   private Column(
       final String name,
       final String id,
@@ -52,31 +52,31 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     this.parentTable = parentTable;
   }
 
-  // method
+  //method
   @Override
   public String getId() {
     return id;
   }
 
-  // method
+  //method
   @Override
   public String getName() {
     return name;
   }
 
-  // method
+  //method
   @Override
   public IParameterizedPropertyType getParameterizedPropertyType() {
     return parameterizedPropertyType;
   }
 
-  // method
+  //method
   @Override
   public ITable<IEntity> getStoredParentTable() {
     return parentTable;
   }
 
-  // method
+  //method
   @Override
   public boolean technicalContainsGivenValueInPersistedData(final String value) {
     return getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
@@ -85,7 +85,7 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
         value);
   }
 
-  // method
+  //method
   private IDataAndSchemaAdapter getStoredDataAndSchemaAdapter() {
     return parentTable.internalGetRefDataAndSchemaAdapter();
   }

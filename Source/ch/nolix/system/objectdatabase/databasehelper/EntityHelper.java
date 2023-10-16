@@ -20,10 +20,10 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.INewEntityDto;
 //class
 public final class EntityHelper extends DatabaseObjectHelper implements IEntityHelper {
 
-  // constant
+  //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 
-  // method
+  //method
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
 
@@ -34,26 +34,26 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
     return true;
   }
 
-  // method
+  //method
   @Override
   public boolean canBeDeleted(final IEntity entity) {
     return (isLoaded(entity) && !isReferenced(entity));
   }
 
-  // method
+  //method
   @Override
   public boolean canBeInsertedIntoTable(final IEntity entity) {
     return isNew(entity)
         && entity.belongsToTable();
   }
 
-  // method
+  //method
   @Override
   public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity entity) {
     return entity.technicalGetRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
   }
 
-  // method
+  //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForEntity(final IEntity entity) {
     return new EntityUpdateDto(
@@ -62,43 +62,43 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
         getStoredEditedProperties(entity).to(IProperty::technicalToContentField));
   }
 
-  // method
+  //method
   @Override
   public IEntityHeadDto createEntityHeadDtoForEntity(IEntity entity) {
     return new EntityHeadDto(entity.getId(), entity.getSaveStamp());
   }
 
-  // method
+  //method
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
     return new NewEntityDto(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
   }
 
-  // method
+  //method
   @Override
   public IContainer<IProperty> getStoredBackReferencingProperties(final IEntity entity) {
     return entity.technicalGetRefProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
     return entity.technicalGetRefProperties().getStoredSelected(PROPERTY_HELPER::isEdited);
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends IProperty> getStoredReferencingProperties(final IEntity entity) {
     return entity.technicalGetRefProperties().toFromGroups(IProperty::getStoredReferencingProperties);
   }
 
-  // method
+  //method
   @Override
   public boolean isReferenced(final IEntity entity) {
     return (isReferencedInLocalData(entity) || entity.isReferencedInPersistedData());
   }
 
-  // method
+  //method
   @Override
   public boolean isReferencedInLocalData(final IEntity entity) {
 
@@ -115,19 +115,19 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
     return sourceEntity.technicalGetRefProperties().containsAny(p -> p.referencesEntity(entity));
   }
 
-  // method
+  //method
   @Override
   public boolean referencesUninsertedEntity(final IEntity entity) {
     return entity.technicalGetRefProperties().containsAny(IProperty::referencesUninsertedEntity);
   }
 
-  // method
+  //method
   private boolean isBaseValueOrBaseReference(final IProperty property) {
 
     final var baseType = property.getType().getBaseType();
@@ -136,7 +136,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
         || baseType == BasePropertyType.BASE_REFERENCE;
   }
 
-  // method
+  //method
   private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty property) {
     return isBaseValueOrBaseReference(property)
         && PROPERTY_HELPER.isMandatoryAndEmptyBoth(property);

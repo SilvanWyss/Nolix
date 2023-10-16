@@ -13,13 +13,13 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 final class DatabaseTableLoader {
 
-  // constant
+  //constant
   private static final TableMapper TABLE_MAPPER = new TableMapper();
 
-  // constant
+  //constant
   private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
-  // method
+  //method
   public LinkedList<Table<IEntity>> loadTablesForDatabase(final Database database) {
 
     final var rawTables = database.internalGetRefDataAndSchemaAdapter().loadTables();
@@ -33,7 +33,7 @@ final class DatabaseTableLoader {
     return LinkedList.fromIterable(tables);
   }
 
-  // method
+  //method
   private void addBaseValueColumnsToTablesFromRawTables(
       final IContainer<Table<IEntity>> tables,
       final IContainer<ITableDto> rawTables) {
@@ -44,7 +44,7 @@ final class DatabaseTableLoader {
     }
   }
 
-  // method
+  //method
   private void addBaseValueColumnsToTableFromRawTable(
       final Table<IEntity> table,
       final ITableDto rawTable) {
@@ -65,7 +65,7 @@ final class DatabaseTableLoader {
     }
   }
 
-  // method
+  //method
   private void addBaseReferenceColumnsToTablesFromRawTables(
       final IContainer<Table<IEntity>> tables,
       final IContainer<ITableDto> rawTables,
@@ -77,7 +77,7 @@ final class DatabaseTableLoader {
     }
   }
 
-  // method
+  //method
   private void addBaseReferenceColumnsToTableFromRawTable(
       final Table<IEntity> table,
       final ITableDto rawTable,
@@ -99,7 +99,7 @@ final class DatabaseTableLoader {
     }
   }
 
-  // method
+  //method
   private void addBaseBackReferenceColumnsToTablesFromRawTables(
       final IContainer<Table<IEntity>> tables,
       final IContainer<ITableDto> rawTables,
@@ -111,7 +111,7 @@ final class DatabaseTableLoader {
     }
   }
 
-  // method
+  //method
   private void addBaseBackReferenceColumnsToTableFromRawTable(
       final Table<IEntity> table,
       final ITableDto rawTable,

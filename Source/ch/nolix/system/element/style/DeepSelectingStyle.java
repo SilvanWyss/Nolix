@@ -18,10 +18,10 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
  */
 public final class DeepSelectingStyle extends BaseSelectingStyle {
 
-  // constant
+  //constant
   public static final String TYPE_NAME = "DeepSelectingStyle";
 
-  // static method
+  //static method
   /**
    * @param specification
    * @return a new {@link DeepSelectingStyle} from the given specification.
@@ -75,7 +75,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
         subStyles);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link DeepSelectingStyle}.
    * 
@@ -102,7 +102,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
         subStyles);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -111,7 +111,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     return true;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -126,7 +126,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     styleChildElementsOfElement(element);
   }
 
-  // method
+  //method
   private void styleChildElementsOfElement(final IStylableElement<?> element) {
 
     final var childElements = element.getStoredChildStylableElements();

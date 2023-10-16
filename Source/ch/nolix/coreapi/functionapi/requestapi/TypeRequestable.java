@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface TypeRequestable {
 
-  // method
+  //method
   /**
    * @return the type of the current {@link TypeRequestable}.
    */
@@ -21,7 +21,7 @@ public interface TypeRequestable {
     return getClass().getSimpleName();
   }
 
-  // method
+  //method
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
@@ -31,7 +31,7 @@ public interface TypeRequestable {
     return (getClass() == concreteType);
   }
 
-  // method
+  //method
   /**
    * @param concreteType
    * @return true if the current {@link TypeRequestable} is of the given concrete
@@ -39,12 +39,12 @@ public interface TypeRequestable {
    */
   default boolean isOfConcreteType(final String concreteType) {
 
-    // For a better performance, this implementation does not use all comfortable
-    // methods.
+    //For a better performance, this implementation does not use all comfortable
+    //methods.
     return getClass().getSimpleName().equals(concreteType);
   }
 
-  // method
+  //method
   /**
    * @param type
    * @return true if the current {@link TypeRequestable} is of the given type.
@@ -53,18 +53,18 @@ public interface TypeRequestable {
     return type.isAssignableFrom(getClass());
   }
 
-  // method
+  //method
   /**
    * @param type
    * @return true if the current {@link TypeRequestable} is of the given type.
    */
   default boolean isOfType(final String type) {
 
-    // Iterates the classes of this type requestable object.
+    //Iterates the classes of this type requestable object.
     Class<?> c = getClass();
     while (c.getSuperclass() != null) {
 
-      // Handles the case that the current class is the given type or super type.
+      //Handles the case that the current class is the given type or super type.
       if (c.getSimpleName().equals(type)) {
         return true;
       }

@@ -16,29 +16,29 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class Database implements IDatabase {
 
-  // constant
+  //constant
   private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 
-  // static method
+  //static method
   public static Database withDataAndSchemaAdapterAndSchema(
       final IDataAndSchemaAdapter dataAndSchemaAdapter,
       final ISchema schema) {
     return new Database(dataAndSchemaAdapter, schema);
   }
 
-  // attribute
+  //attribute
   private final ITime schemaTimestamp;
 
-  // attribute
+  //attribute
   private final IDataAndSchemaAdapter dataAndSchemaAdapter;
 
-  // attribute
+  //attribute
   private final ISchema schema;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<? extends ITable<IEntity>> tables;
 
-  // constructor
+  //constructor
   private Database(final IDataAndSchemaAdapter dataAndSchemaAdapter, final ISchema schema) {
 
     GlobalValidator.assertThat(dataAndSchemaAdapter).thatIsNamed(IDataAndSchemaAdapter.class).isNotNull();
@@ -50,13 +50,13 @@ public final class Database implements IDatabase {
     tables = loadTables();
   }
 
-  // method
+  //method
   @Override
   public <E extends IEntity> IContainer<E> getStoredEntitiesByType(final Class<E> type) {
     return getStoredTableByEntityType(type).getStoredEntities();
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableByEntityType(
@@ -64,25 +64,25 @@ public final class Database implements IDatabase {
     return (ITable<E>) getStoredTableByName(entityClass.getSimpleName());
   }
 
-  // method
+  //method
   @Override
   public ITable<IEntity> getStoredTableByName(final String name) {
     return tables.getStoredFirst(t -> t.hasName(name));
   }
 
-  // method
+  //method
   @Override
   public IContainer<? extends ITable<IEntity>> getStoredTables() {
     return tables;
   }
 
-  // method
+  //method
   @Override
   public ITime getSchemaTimestamp() {
     return schemaTimestamp;
   }
 
-  // method
+  //method
   @Override
   public DatabaseObjectState getState() {
 
@@ -97,7 +97,7 @@ public final class Database implements IDatabase {
     return DatabaseObjectState.LOADED;
   }
 
-  // method
+  //method
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> IDatabase insertEntity(final E entity) {
@@ -107,49 +107,49 @@ public final class Database implements IDatabase {
     return this;
   }
 
-  // method
+  //method
   @Override
   public boolean isClosed() {
     return internalGetRefDataAndSchemaAdapter().isClosed();
   }
 
-  // method
+  //method
   @Override
   public boolean isDeleted() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public boolean isLinkedWithRealDatabase() {
     return true;
   }
 
-  // method
+  //method
   void internalClose() {
     for (final var t : getStoredTables()) {
       ((Table<?>) t).internalClose();
     }
   }
 
-  // method
+  //method
   IDataAndSchemaAdapter internalGetRefDataAndSchemaAdapter() {
     return dataAndSchemaAdapter;
   }
 
-  // method
+  //method
   ISchema internalGetSchema() {
     return schema;
   }
 
-  // method
+  //method
   void internalReset() {
     for (final var t : getStoredTables()) {
       ((Table<?>) t).internalReset();
     }
   }
 
-  // method
+  //method
   private LinkedList<Table<IEntity>> loadTables() {
     return DATABASE_TABLE_LOADER.loadTablesForDatabase(this);
   }

@@ -12,16 +12,16 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public abstract class StatisticalModel {
 
-  // attribute
+  //attribute
   private final int backStepCount;
 
-  // multi-attribute
+  //multi-attribute
   private final double[] inputValues;
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<Double> forecasts = new LinkedList<>();
 
-  // constructor
+  //constructor
   protected StatisticalModel(final int backStepsCount, final double[] inputValues) {
 
     GlobalValidator.assertThat(inputValues).thatIsNamed("input values").isNotEmpty();
@@ -31,17 +31,17 @@ public abstract class StatisticalModel {
     this.inputValues = inputValues.clone();
   }
 
-  // method
+  //method
   public final int getBackStepsCount() {
     return backStepCount;
   }
 
-  // method
+  //method
   public final int getInputValuesCount() {
     return inputValues.length;
   }
 
-  // method
+  //method
   public final double getForecast(final int index) {
 
     GlobalValidator.assertThat(index).thatIsNamed("index").isPositive();
@@ -53,15 +53,15 @@ public abstract class StatisticalModel {
     return forecasts.getStoredAt1BasedIndex(index);
   }
 
-  // method declaration
+  //method declaration
   protected abstract double calculateNextValue();
 
-  // method
+  //method
   protected final int getIndexOfNextValue() {
     return (getInputValuesCount() + forecasts.getElementCount() + 1);
   }
 
-  // method
+  //method
   protected final double getValueFromBack(final int index) {
 
     GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();

@@ -10,15 +10,15 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.SaveStampStrategy;
 //class
 public final class SaveStampConfigurationDto implements ISaveStampConfigurationDto {
 
-  // attribute
+  //attribute
   private final SaveStampStrategy saveStampStrategy;
 
-  // optional attribute
+  //optional attribute
   private final String baseTableName;
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public SaveStampConfigurationDto(final SaveStampStrategy saveStampStrategy) {
 
     if (saveStampStrategy == null) {
@@ -29,7 +29,7 @@ public final class SaveStampConfigurationDto implements ISaveStampConfigurationD
     baseTableName = null;
   }
 
-  // constructor
+  //constructor
   public SaveStampConfigurationDto(final SaveStampStrategy saveStampStrategy, final String baseTableName) {
 
     if (saveStampStrategy == null) {
@@ -44,7 +44,7 @@ public final class SaveStampConfigurationDto implements ISaveStampConfigurationD
     this.baseTableName = baseTableName;
   }
 
-  // method
+  //method
   @Override
   public String getBaseTableName() {
 
@@ -53,20 +53,20 @@ public final class SaveStampConfigurationDto implements ISaveStampConfigurationD
     return baseTableName;
   }
 
-  // method
+  //method
   @Override
   public SaveStampStrategy getSaveStampStrategy() {
     return saveStampStrategy;
   }
 
-  // method
+  //method
   private void assertHasBaseTableName() {
     if (!hasBaseTableName()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "base table name");
     }
   }
 
-  // method
+  //method
   private boolean hasBaseTableName() {
     return (baseTableName != null);
   }

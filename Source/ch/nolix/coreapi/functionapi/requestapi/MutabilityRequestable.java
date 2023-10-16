@@ -13,7 +13,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface MutabilityRequestable {
 
-  // method
+  //method
   /**
    * @return true if the current {@link MutabilityRequestable} is not mutable.
    */
@@ -21,7 +21,7 @@ public interface MutabilityRequestable {
     return !isMutable();
   }
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link MutabilityRequestable} is mutable.
    */

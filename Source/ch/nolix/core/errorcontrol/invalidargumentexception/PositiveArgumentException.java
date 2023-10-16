@@ -12,10 +12,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class PositiveArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is positive";
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -30,7 +30,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
     return new PositiveArgumentException(argumentName, argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link PositiveArgumentException} for the given argumentName
    * and argument.
@@ -42,7 +42,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
    */
   private PositiveArgumentException(final String argumentName, final long argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }
 }

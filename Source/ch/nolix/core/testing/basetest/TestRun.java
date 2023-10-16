@@ -13,19 +13,19 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestRun {
 
-  // attribute
+  //attribute
   private final BaseTest parentTest;
 
-  // attribute
+  //attribute
   private final ILinePrinter linePrinter;
 
-  // attribute
+  //attribute
   private boolean started;
 
-  // attribute
+  //attribute
   private int runtimeInMilliseconds = -1;
 
-  // constructor
+  //constructor
   public TestRun(final BaseTest parentTest, final ILinePrinter linePrinter) {
 
     if (parentTest == null) {
@@ -40,17 +40,17 @@ public final class TestRun {
     this.linePrinter = linePrinter;
   }
 
-  // method
+  //method
   public String getRuntimeAndUnitAsString() {
     return (String.valueOf(getRuntimeInMilliseconds()) + " ms");
   }
 
-  // method
+  //method
   public String getRuntimeAndUnitAsStringInBrackets() {
     return ("(" + getRuntimeAndUnitAsString() + ")");
   }
 
-  // method
+  //method
   public int getRuntimeInMilliseconds() {
 
     supposeIsFinished();
@@ -58,25 +58,25 @@ public final class TestRun {
     return runtimeInMilliseconds;
   }
 
-  // method
+  //method
   public boolean hasStarted() {
     return started;
   }
 
-  // method
+  //method
   public boolean isFinished() {
     return (runtimeInMilliseconds > -1);
   }
 
-  // method
+  //method
   public TestResult runAndGetResult() {
 
-    // setup phase
+    //setup phase
     setStarted();
     final var startTimeInMilliseconds = System.currentTimeMillis();
     linePrinter.printInfoLine("   STARTED: " + parentTest.getSimpleName());
 
-    // main phase
+    //main phase
     final var testCaseResults = new List<TestCaseResult>();
     for (final var tc : getStoredTestCasesOrderedAlphabetically()) {
 
@@ -87,19 +87,19 @@ public final class TestRun {
       printTestCaseResult(testCaseResult);
     }
 
-    // result phase
+    //result phase
     final var testResult = TestResult.forTestCaseResults(testCaseResults);
     setFinished((int) (System.currentTimeMillis() - startTimeInMilliseconds));
     printSummaryOfTestResult(testResult);
     return testResult;
   }
 
-  // method
+  //method
   private List<Method> getStoredTestCasesOrderedAlphabetically() {
     return parentTest.getStoredTestCasesOrderedAlphabetically();
   }
 
-  // method
+  //method
   private void printSummaryOfTestResult(final TestResult testResult) {
 
     linePrinter.printInfoLine(
@@ -115,7 +115,7 @@ public final class TestRun {
     linePrinter.printEmptyLine();
   }
 
-  // method
+  //method
   private void printTestCaseResult(final TestCaseResult testCaseResult) {
     if (testCaseResult.isPassed()) {
       linePrinter.printInfoLines(testCaseResult.getOutputLines());
@@ -124,7 +124,7 @@ public final class TestRun {
     }
   }
 
-  // method
+  //method
   private void setFinished(final int runtimeInMilliseconds) {
 
     if (runtimeInMilliseconds < 0) {
@@ -136,7 +136,7 @@ public final class TestRun {
     this.runtimeInMilliseconds = runtimeInMilliseconds;
   }
 
-  // method
+  //method
   private void setStarted() {
 
     supposeHasNotStarted();
@@ -144,21 +144,21 @@ public final class TestRun {
     started = true;
   }
 
-  // method
+  //method
   private void supposeHasNotStarted() {
     if (hasStarted()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "started already");
     }
   }
 
-  // method
+  //method
   private void supposeIsFinished() {
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not finished");
     }
   }
 
-  // method
+  //method
   private void supposeIsNotFinished() {
     if (isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is already finished");

@@ -22,7 +22,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 //class
 public final class ParameterizedPropertyTypeMapper {
 
-  // method
+  //method
   public ParameterizedPropertyType createParameterizedPropertyTypeFromDto(
       final IParameterizedPropertyTypeDto parameterizedPropertyType,
       final IContainer<ITable> tables) {
@@ -56,7 +56,7 @@ public final class ParameterizedPropertyTypeMapper {
     };
   }
 
-  // method
+  //method
   private Column getStoredBackReferencedColumnFromParameterizedPropertyType(
       final IParameterizedPropertyTypeDto parameterizedPropertyType,
       final IContainer<ITable> tables) {
@@ -67,7 +67,7 @@ public final class ParameterizedPropertyTypeMapper {
     return (Column) tables.toFromGroups(ITable::getStoredColumns).getStoredFirst(c -> c.hasId(backReferencedColumnId));
   }
 
-  // method
+  //method
   private ITable getStoredReferencedTableFromParameterizedPropertyType(
       final IParameterizedPropertyTypeDto parameterizedPropertyType,
       final IContainer<ITable> tables) {

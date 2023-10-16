@@ -9,10 +9,10 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public final class DatabaseInspector {
 
-  // constant
+  //constant
   private static final TableDefinitionMapper TABLE_DEFINITION_MAPPER = new TableDefinitionMapper();
 
-  // method
+  //method
   public IContainer<ITableInfo> createTableDefinitionsFrom(final ISchemaAdapter schemaAdapter) {
     return schemaAdapter.loadTables().to(TABLE_DEFINITION_MAPPER::createTableDefinitionFrom);
   }

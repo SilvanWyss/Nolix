@@ -9,52 +9,52 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class MatrixTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_add() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(2, 3).setValues(1.0, 1.0, 1.0, 2.0, 2.0, 2.0);
     final var matrix = new Matrix(2, 3).setValues(5.0, 5.0, 5.0, 6.0, 6, 6.0);
 
-    // execution
+    //execution
     final var result = testUnit.getSum(matrix);
 
-    // verification
+    //verification
     final var expectedResult = new Matrix(2, 3).setValues(6.0, 6.0, 6.0, 8.0, 8.0, 8.0);
     expect(result).isEqualTo(expectedResult);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_appendAtRight() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(2, 2).setValues(1.0, 1.0, 2.0, 2.0);
     final var matrix = new Matrix(2, 2).setValues(5.0, 5.0, 6.0, 6.0);
 
-    // execution
+    //execution
     testUnit.appendAtRight(matrix);
 
-    // verification
+    //verification
     final var expectedResult = new Matrix(2, 4).setValues(1.0, 1.0, 5.0, 5.0, 2.0, 2.0, 6.0, 6.0);
     expect(testUnit).isEqualTo(expectedResult);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_createIdendityMatrix() {
 
-    // parameter definition
+    //parameter definition
     final var n = 100;
 
-    // test loop
+    //test loop
     for (var k = 1; k <= n; k++) {
 
-      // execution
+      //execution
       final var result = Matrix.createIdendityMatrix(k);
 
-      // verification
+      //verification
       expect(result.getRowCount()).isEqualTo(k);
       expect(result.getColumnCount()).isEqualTo(k);
       for (var i = 1; i <= k; i++) {
@@ -69,269 +69,269 @@ public final class MatrixTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInverse_whenMatrixIs2x2Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
 
-    // execution
+    //execution
     final var result = testUnit.getInverse();
 
-    // verification
+    //verification
     final var expectedResult = new Matrix(2, 2).setValues(1.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result)).isEqualTo(expectedResult);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInverse_whenMatrixIs3x3Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(3, 3).setValues(2.0, 6.0, 4.0, 1.0, 5.0, 9.0, 3.0, 7.0, 8.0);
 
-    // execution
+    //execution
     final var result = testUnit.getInverse();
 
-    // verification
+    //verification
     final var expectedResult = new Matrix(3, 3).setValues(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getInverse_whenMatrixIs4x4Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(4, 4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0,
         9.0, 3.0, 2.0);
 
-    // execution
+    //execution
     final var result = testUnit.getInverse();
 
-    // verification
+    //verification
     final var expectedResult = new Matrix(4, 4).setValues(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
         0.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getProduct() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(2, 3).setValues(1, 1, 1, 2, 2, 2);
     final var matrix = new Matrix(3, 2).setValues(1, 1, 2, 2, 3, 3);
 
-    // execution
+    //execution
     final var result = testUnit.getProduct(matrix);
 
-    // verification
+    //verification
     final Matrix expectedProduct = new Matrix(2, 2).setValues(6, 6, 12, 12);
     expect(result).isEqualTo(expectedProduct);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getRank_whenMatrixIsIdentityMatrix() {
 
-    // parameter definition
+    //parameter definition
     final var n = 10;
 
-    // test loop
+    //test loop
     for (var k = 1; k <= n; k++) {
 
-      // setup
+      //setup
       final var testUnit = Matrix.createIdendityMatrix(k);
 
-      // execution
+      //execution
       final var result = testUnit.getRank();
 
-      // verification
+      //verification
       expect(result).isEqualTo(k);
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs2x3Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(2, 3).setValues(4.0, 4.0, 30.0, 0.0, 2.0, 10.0);
 
-    // execution
+    //execution
     final var result = testUnit.getSolutionAsExtendedMatrix();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(2);
     expect(result[0]).isEqualTo(2.5);
     expect(result[1]).isEqualTo(5.0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getSolutionAsExtendedMatrix_whenMatrixIs3x4Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(3, 4).setValues(1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.getSolutionAsExtendedMatrix();
 
-    // verification
+    //verification
     expect(result.length).isEqualTo(3);
     expect(result[0]).isEqualTo(1.0);
     expect(result[1]).isEqualTo(1.0);
     expect(result[2]).isEqualTo(1.0);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTrace_whenMatrixIsIdentityMatrix() {
 
-    // parameter definition
+    //parameter definition
     final var n = 100;
 
-    // test loop
+    //test loop
     for (var k = 1; k <= n; k++) {
 
-      // setup
+      //setup
       final var testUnit = Matrix.createIdendityMatrix(k);
 
-      // execution
+      //execution
       final var result = testUnit.getTrace();
 
-      // verification
+      //verification
       expect(result).isEqualTo(k);
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getTransposed_whenGivenMatrixIs4x3Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(4, 3).setValues(20.0, 10.0, 1.0, 10.0, 20.0, 1.0, 20.0, 10.0, 1.0, 10.0, 20.0, 1.0);
 
-    // execution
+    //execution
     final var result = testUnit.getTransposed();
 
-    // verification
+    //verification
     final var expectedResult = new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0,
         1.0);
     expect(result).isEqualTo(expectedResult);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs1x1IdentityMatrix() {
 
-    // setup
+    //setup
     final var testUnit = Matrix.createIdendityMatrix(1);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[1]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs2x2IdentityMatrix() {
 
-    // setup
+    //setup
     final var testUnit = Matrix.createIdendityMatrix(2);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[1,0;0,1]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs3x3IdentityMatrix() {
 
-    // setup
+    //setup
     final var testUnit = Matrix.createIdendityMatrix(3);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[1,0,0;0,1,0;0,0,1]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs4x4IdentityMatrix() {
 
-    // setup
+    //setup
     final var testUnit = Matrix.createIdendityMatrix(4);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[1,0,0,0;0,1,0,0;0,0,1,0;0,0,0,1]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs1x1Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(1, 1);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[0]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs2x2Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(2, 2);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[0,0;0,0]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs3x3Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(3, 3);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[0,0,0;0,0,0;0,0,0]");
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_toString_whenMatrixIs4x4Matrix() {
 
-    // setup
+    //setup
     final var testUnit = new Matrix(4, 4);
 
-    // execution
+    //execution
     final var result = testUnit.toString();
 
-    // execution
+    //execution
     expect(result).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
   }
 }

@@ -13,13 +13,13 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  */
 public abstract class Feature implements Named {
 
-  // method declaration
+  //method declaration
   /**
    * @return the authorized {@link License} types of the current {@link Feature}.
    */
   public abstract IContainer<Class<?>> getAuthorizedLicenseTypes();
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

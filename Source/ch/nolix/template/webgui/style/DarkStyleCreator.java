@@ -26,7 +26,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 //class
 final class DarkStyleCreator {
 
-  // method
+  //method
   public Style createDarkStyle() {
     return new StyleBuilder()
         .addSubStyle(
@@ -50,7 +50,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createLayerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Layer.class)
@@ -65,7 +65,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createLinearContainerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(LinearContainer.class)
@@ -73,7 +73,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createGridStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Grid.class)
@@ -83,7 +83,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createLinkStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Link.class)
@@ -93,7 +93,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createButtonStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Button.class)
@@ -109,7 +109,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createTextboxStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Textbox.class)
@@ -119,7 +119,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createDropdownMenuStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(DropdownMenu.class)
@@ -134,7 +134,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createValidationLabelStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(ValidationLabel.class)
@@ -142,7 +142,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createOverallVerticalStackStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(VerticalStack.class)
@@ -155,7 +155,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createHeaderHorizontalStackStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(HorizontalStack.class)
@@ -166,7 +166,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createMainContentContainerStyle() {
     return new DeepSelectingStyleBuilder()
         .addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
@@ -174,7 +174,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createFooterHorizontalStackStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(HorizontalStack.class)
@@ -186,7 +186,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createTitleLabelStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Label.class)
@@ -195,7 +195,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createLevel1HeaderLabelStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Label.class)
@@ -204,7 +204,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createDialogLayerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Layer.class)
@@ -215,7 +215,7 @@ final class DarkStyleCreator {
         .build();
   }
 
-  // method
+  //method
   private DeepSelectingStyle createDialogContainerStyle() {
     return new DeepSelectingStyleBuilder()
         .setSelectorType(Container.class)

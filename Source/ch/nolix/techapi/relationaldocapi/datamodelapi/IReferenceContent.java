@@ -8,9 +8,9 @@ import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 //interface
 public interface IReferenceContent extends IContent {
 
-  // method declaration
+  //method declaration
   IContainer<? extends IConstraint<IAbstractableObject>> getConstraints();
 
-  // method declaration
+  //method declaration
   IAbstractableObject getStoredReferencedType();
 }

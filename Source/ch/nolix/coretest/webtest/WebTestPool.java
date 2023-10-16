@@ -9,7 +9,7 @@ import ch.nolix.coretest.webtest.htmltest.HtmlTestPool;
 //class
 public final class WebTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public WebTestPool() {
     super(new CssTestPool(), new HtmlTestPool());
   }

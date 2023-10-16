@@ -7,55 +7,55 @@ import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 //class
 public final class SubNodeHeaderCatalogue {
 
-  // constant
+  //constant
   public static final String DATABASE = PascalCaseCatalogue.DATABASE;
 
-  // constant
+  //constant
   public static final String DATABASE_PROPERTIES = "DatabaseProperties";
 
-  // constant
+  //constant
   public static final String SCHEMA_TIMESTAMP = "SchemaTimestamp";
 
-  // constant
+  //constant
   public static final String TABLE = PascalCaseCatalogue.TABLE;
 
-  // constant
+  //constant
   public static final String NAME = PascalCaseCatalogue.NAME;
 
-  // constant
+  //constant
   public static final String COLUMN = PascalCaseCatalogue.COLUMN;
 
-  // constant
+  //constant
   public static final String PARAMETERIZED_PROPERTY_TYPE = "ParameterizedPropertyType";
 
-  // constant
+  //constant
   public static final String PROPERTY_TYPE = "PropertyType";
 
-  // constant
+  //constant
   public static final String DATA_TYPE = PascalCaseCatalogue.DATA_TYPE;
 
-  // constant
+  //constant
   public static final String REFERENCED_TABLE_ID = "ReferencedTableId";
 
-  // constant
+  //constant
   public static final String BACK_REFERENCED_COLUMN_ID = "BackReferencedColumnId";
 
-  // constant
+  //constant
   public static final String ID = PascalCaseCatalogue.ID;
 
-  // constant
+  //constant
   public static final String SAVE_STAMP = PascalCaseCatalogue.SAVE_STAMP;
 
-  // constant
+  //constant
   public static final String STRING = PascalCaseCatalogue.STRING;
 
-  // constant
+  //constant
   public static final String BIG_DECIMAL = "BigDecimal";
 
-  // constant
+  //constant
   public static final String ENTITY = PascalCaseCatalogue.ENTITY;
 
-  // constructor
+  //constructor
   private SubNodeHeaderCatalogue() {
   }
 }

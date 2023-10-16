@@ -8,18 +8,18 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;
 //interface
 public interface IMultiReferenceHelper extends IPropertyHelper {
 
-  // method declaration
+  //method declaration
   <E extends IEntity> boolean canRemoveEntity(IMultiReference<E> multiReference, E entity);
 
-  // method declaration
+  //method declaration
   IEntityUpdateDto createEntityUpdateDtoForAddEntity(IMultiReference<?> multiReference, IEntity entity);
 
-  // method declaration
+  //method declaration
   IEntityUpdateDto createEntityUpdateDtoForClear(IMultiReference<?> multiReference);
 
-  // method declaration
+  //method declaration
   boolean canAddGivenEntity(IMultiReference<?> multiReference, IEntity entity);
 
-  // method declaration
+  //method declaration
   boolean canClear(IMultiReference<?> multiReference);
 }

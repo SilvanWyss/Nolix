@@ -13,10 +13,10 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyvalidatorapi.IOptionalRefere
 //class
 public final class OptionalReferenceValidator extends PropertyValidator implements IOptionalReferenceValidator {
 
-  // constant
+  //constant
   private static final IOptionalReferenceHelper OPTIONAL_REFERENCE_HELPER = new OptionalReferenceHelper();
 
-  // method
+  //method
   @Override
   public void assertCanClear(final IOptionalReference<?> optionalReference) {
     if (!OPTIONAL_REFERENCE_HELPER.canClear(optionalReference)) {
@@ -24,7 +24,7 @@ public final class OptionalReferenceValidator extends PropertyValidator implemen
     }
   }
 
-  // method
+  //method
   @Override
   public void assertCanSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
     if (!OPTIONAL_REFERENCE_HELPER.canSetGivenEntity(optionalReference, entity)) {
@@ -32,7 +32,7 @@ public final class OptionalReferenceValidator extends PropertyValidator implemen
     }
   }
 
-  // method
+  //method
   @Override
   public void assertIsNotEmpty(final IOptionalReference<?> optionalReference) {
     if (optionalReference.isEmpty()) {

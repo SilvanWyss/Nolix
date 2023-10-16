@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 //class
 public final class List<E> implements Iterable<E> {
 
-  // static method
+  //static method
   public static String[] createArrayFromList(final List<String> list) {
 
     final var array = new String[list.getElementCount()];
@@ -22,7 +22,7 @@ public final class List<E> implements Iterable<E> {
     return array;
   }
 
-  // static method
+  //static method
   public static <E2> List<E2> withElements(final Iterable<E2> elements) {
 
     final var list = new List<E2>();
@@ -34,32 +34,32 @@ public final class List<E> implements Iterable<E> {
     return list;
   }
 
-  // attribute
+  //attribute
   private int elementCount;
 
-  // optional attribute
+  //optional attribute
   private ListNode<E> beginNode;
 
-  // optional attribute
+  //optional attribute
   private ListNode<E> endNode;
 
-  // constructor
+  //constructor
   public List() {
   }
 
-  // constructor
+  //constructor
   public List(final E element) {
     addAtBegin(element);
   }
 
-  // constructor
+  //constructor
   public List(final E[] elements) {
     for (final var e : elements) {
       addAtBegin(e);
     }
   }
 
-  // method
+  //method
   public void addAtBegin(final E element) {
 
     final ListNode<E> node = new ListNode<>(element);
@@ -75,7 +75,7 @@ public final class List<E> implements Iterable<E> {
     elementCount++;
   }
 
-  // method
+  //method
   public void addAtEnd(final E element) {
 
     final var node = new ListNode<>(element);
@@ -91,14 +91,14 @@ public final class List<E> implements Iterable<E> {
     elementCount++;
   }
 
-  // method
+  //method
   public void clear() {
     beginNode = null;
     endNode = null;
     elementCount = 0;
   }
 
-  // method
+  //method
   public List<E> getCopy() {
 
     final var list = new List<E>();
@@ -110,12 +110,12 @@ public final class List<E> implements Iterable<E> {
     return list;
   }
 
-  // method
+  //method
   public int getElementCount() {
     return elementCount;
   }
 
-  // method
+  //method
   public E getStoredFirst() {
 
     assertIsNotEmpty();
@@ -123,12 +123,12 @@ public final class List<E> implements Iterable<E> {
     return beginNode.getStoredElement();
   }
 
-  // method
+  //method
   public boolean isEmpty() {
     return (beginNode == null);
   }
 
-  // method
+  //method
   @Override
   public Iterator<E> iterator() {
 
@@ -139,7 +139,7 @@ public final class List<E> implements Iterable<E> {
     return ListIterator.forStartNode(beginNode);
   }
 
-  // method
+  //method
   public void removeFirst() {
 
     assertIsNotEmpty();
@@ -154,7 +154,7 @@ public final class List<E> implements Iterable<E> {
     elementCount--;
   }
 
-  // method
+  //method
   public void removeFirst(final E element) {
 
     if (!isEmpty()) {
@@ -187,7 +187,7 @@ public final class List<E> implements Iterable<E> {
     }
   }
 
-  // method
+  //method
   private void assertIsNotEmpty() {
     if (isEmpty()) {
       throw new IllegalStateException("The current List is empty.");

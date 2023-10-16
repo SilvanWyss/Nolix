@@ -10,10 +10,10 @@ public enum TableType {
   ENTITY_TABLE("E"),
   MULTI_FIELD_TABLE("M");
 
-  // attribute
+  //attribute
   private final String namePrefix;
 
-  // constructor
+  //constructor
   TableType(final String namePrefix) {
 
     GlobalValidator.assertThat(namePrefix).thatIsNamed("name prefix").isNotBlank();
@@ -21,7 +21,7 @@ public enum TableType {
     this.namePrefix = namePrefix;
   }
 
-  // method
+  //method
   public final String getNamePrefix() {
     return namePrefix;
   }

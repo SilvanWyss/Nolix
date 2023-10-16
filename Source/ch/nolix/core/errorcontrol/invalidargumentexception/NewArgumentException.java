@@ -12,10 +12,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class NewArgumentException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is new";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link NewArgumentException} for the given argument.
@@ -24,7 +24,7 @@ public final class NewArgumentException extends InvalidArgumentException {
     return new NewArgumentException(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NewArgumentException} for the given argument.
    * 
@@ -32,7 +32,7 @@ public final class NewArgumentException extends InvalidArgumentException {
    */
   private NewArgumentException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
 }

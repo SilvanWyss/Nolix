@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  */
 public interface IMutableTextHolder extends ITextHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the text of the current {@link IMutableTextHolder}.
    * 

@@ -13,36 +13,36 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequence;
 //interface
 public interface IFractal {
 
-  // method declaration
+  //method declaration
   ISequence<IComplexNumber> createSequenceFor(IComplexNumber complexNumber);
 
-  // method declaration
+  //method declaration
   int getBigDecimalScale();
 
-  // method declaration
+  //method declaration
   IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);
 
-  // method declaration
+  //method declaration
   int getHeightInPixel();
 
-  // method declaration
+  //method declaration
   IClosedInterval getImaginaryComponentInterval();
 
-  // method declaration
+  //method declaration
   int getMaxIterationCount();
 
-  // method declaration
+  //method declaration
   BigDecimal getMinMagnitudeForDivergence();
 
-  // method declaration
+  //method declaration
   IClosedInterval getRealComponentInterval();
 
-  // method declaration
+  //method declaration
   int getWidthInPixel();
 
-  // method declaration
+  //method declaration
   IImageGenerator startImageGeneration();
 
-  // method declaration
+  //method declaration
   IMutableImage<?> toImage();
 }

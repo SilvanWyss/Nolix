@@ -13,75 +13,75 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 //interface
 public interface IImage extends Specified {
 
-  // method declaration
+  //method declaration
   IColor getBottomLeftPixel();
 
-  // method declaration
+  //method declaration
   IColor getBottomRightPixel();
 
-  // method declaration
+  //method declaration
   INode<?> getCompressedSpecification();
 
-  // method declaration
+  //method declaration
   int getHeight();
 
-  // method declaration
+  //method declaration
   IColor getPixel(int xPosition, int yPosition);
 
-  // method declaration
+  //method declaration
   int getPixelCount();
 
-  // method declaration
+  //method declaration
   IMatrix<IColor> getPixels();
 
-  // method declaration
+  //method declaration
   IMutableImage<?> getSection(int xPosition, int yPosition, int width, int height);
 
-  // method declaration
+  //method declaration
   IColor getTopLeftPixel();
 
-  // method declaration
+  //method declaration
   IColor getTopRightPixel();
 
-  // method declaration
+  //method declaration
   int getWidth();
 
-  // method declaration
+  //method declaration
   BufferedImage toBufferedImage();
 
-  // method declaration
+  //method declaration
   IImage toImmutableImage();
 
-  // method declaration
+  //method declaration
   byte[] toJPG();
 
-  // method declaration
+  //method declaration
   String toJPGString();
 
-  // method declaration
+  //method declaration
   IMutableImage<?> toLeftRotatedImage();
 
-  // method declaration
+  //method declaration
   byte[] toPNG();
 
-  // method declaration
+  //method declaration
   String toPNGString();
 
-  // method declaration
+  //method declaration
   IMutableImage<?> toRepeatedImage(int width, int height);
 
-  // method declaration
+  //method declaration
   IMutableImage<?> toRightRotatedImage();
 
-  // method declaration
+  //method declaration
   IMutableImage<?> toScaledImage(double factor);
 
-  // method declaration
+  //method declaration
   IMutableImage<?> toScaledImage(double widthFactor, double heightFactor);
 
-  // method declaration
+  //method declaration
   IMutableImage<?> withAlphaValue(final double alphaValue);
 
-  // method declaration
+  //method declaration
   IMutableImage<?> withWidthAndHeight(int width, int height);
 }

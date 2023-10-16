@@ -9,11 +9,11 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 //class
 public final class ColumnNodeMapper {
 
-  // constant
+  //constant
   private static final ParameterizedPropertyTypeNodeMapper PARAMETERIZED_PROPERTY_TYPE_NODE_MAPPER = //
       new ParameterizedPropertyTypeNodeMapper();
 
-  // method
+  //method
   public Node createColumnNodeFrom(final IColumnDto column) {
     return Node.withHeaderAndChildNode(
         SubNodeHeaderCatalogue.COLUMN,
@@ -22,17 +22,17 @@ public final class ColumnNodeMapper {
         createParameterizedPropertyTypeNodeFrom(column));
   }
 
-  // method
+  //method
   private Node createIdNodeFrom(final IColumnDto column) {
     return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.ID, column.getId());
   }
 
-  // method
+  //method
   private Node createNameNodeFrom(final IColumnDto column) {
     return Node.withHeaderAndChildNode(SubNodeHeaderCatalogue.NAME, column.getName());
   }
 
-  // method
+  //method
   private Node createParameterizedPropertyTypeNodeFrom(final IColumnDto column) {
     return PARAMETERIZED_PROPERTY_TYPE_NODE_MAPPER.createParameterizedPropertyTypeNodeFrom(
         column.getParameterizedPropertyType());

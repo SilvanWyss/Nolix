@@ -7,12 +7,12 @@ import ch.nolix.system.element.style.Style;
 //class
 public final class StyleBuilder extends BaseStyleBuilder<StyleBuilder> {
 
-  // method
+  //method
   public Style build() {
     return new Style(getAttachingAttributes(), getSubStyles());
   }
 
-  // method
+  //method
   @Override
   protected StyleBuilder asConcrete() {
     return this;

@@ -18,10 +18,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 public abstract class BaseParameterizedBackReferenceType extends ParameterizedPropertyType
     implements IBaseParameterizedBackReferenceType {
 
-  // attribute
+  //attribute
   private final IColumn backReferencedColumn;
 
-  // constructor
+  //constructor
   protected BaseParameterizedBackReferenceType(final IColumn backReferencedColumn) {
 
     super(DataType.STRING);
@@ -31,43 +31,43 @@ public abstract class BaseParameterizedBackReferenceType extends ParameterizedPr
     this.backReferencedColumn = backReferencedColumn;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedBackReferenceType asBaseParameterizedBackReferenceType() {
     return this;
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedReferenceType asBaseParameterizedReferenceType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedReferenceType");
   }
 
-  // method
+  //method
   @Override
   public final IBaseParameterizedValueType<?> asBaseParameterizedValueType() {
     throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "asBaseParameterizedValueType");
   }
 
-  // method
+  //method
   @Override
   public IColumn getBackReferencedColumn() {
     return backReferencedColumn;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesTable(final ITable table) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesBackColumn(final IColumn column) {
     return (getBackReferencedColumn() == column);
   }
 
-  // method
+  //method
   @Override
   public final IParameterizedPropertyTypeDto toDto() {
     return new BaseParameterizedBackReferenceTypeDto(
@@ -76,7 +76,7 @@ public abstract class BaseParameterizedBackReferenceType extends ParameterizedPr
         getBackReferencedColumn().getId());
   }
 
-  // method
+  //method
   private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
     if (!isAnyReferenceColumn(backReferencedColumn)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
@@ -86,7 +86,7 @@ public abstract class BaseParameterizedBackReferenceType extends ParameterizedPr
     }
   }
 
-  // method
+  //method
   private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
     return backReferencedColumn.getParameterizedPropertyType().getPropertyType()
         .getBaseType() == BasePropertyType.BASE_REFERENCE;

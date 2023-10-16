@@ -12,7 +12,7 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
  */
 public interface IAbsoluteOrRelativeInt extends Specified {
 
-  // method declaration
+  //method declaration
   /**
    * @return the absolute value of the current {@link IAbsoluteOrRelativeInt}.
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
@@ -20,7 +20,7 @@ public interface IAbsoluteOrRelativeInt extends Specified {
    */
   int getAbsoluteValue();
 
-  // method declaration
+  //method declaration
   /**
    * @return the percentage of the current {@link IAbsoluteOrRelativeInt}.
    * @throws RuntimeException if the current {@link IAbsoluteOrRelativeInt} is not
@@ -28,7 +28,7 @@ public interface IAbsoluteOrRelativeInt extends Specified {
    */
   double getPercentage();
 
-  // method declaration
+  //method declaration
   /**
    * @param hundredPercentValue
    * @return the value of the current {@link IAbsoluteOrRelativeInt} relative to
@@ -36,19 +36,19 @@ public interface IAbsoluteOrRelativeInt extends Specified {
    */
   int getValueRelativeToHundredPercentValue(int hundredPercentValue);
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link IAbsoluteOrRelativeInt} is absolute.
    */
   boolean isAbsolute();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link IAbsoluteOrRelativeInt} is positive.
    */
   boolean isPositive();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link IAbsoluteOrRelativeInt} is relative.
    */

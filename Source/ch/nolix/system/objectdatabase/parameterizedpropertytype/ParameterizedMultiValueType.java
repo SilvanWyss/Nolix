@@ -10,12 +10,12 @@ public final class ParameterizedMultiValueType<
     V>
     extends BaseParameterizedValueType<V> {
 
-  // constructor
+  //constructor
   public ParameterizedMultiValueType(final Class<V> valueType) {
     super(valueType);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.MULTI_VALUE;

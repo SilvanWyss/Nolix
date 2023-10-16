@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class StochasticTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public StochasticTestPool() {
     super(
         ARModelTest.class);

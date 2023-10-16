@@ -10,19 +10,19 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  */
 public interface OptionalTokened {
 
-  // method declaration
+  //method declaration
   /**
    * @return the token of the current {@link OptionalTokened}.
    */
   String getToken();
 
-  // method declaration
+  //method declaration
   /**
    * @return true if the current {@link OptionalTokened} has a token.
    */
   boolean hasToken();
 
-  // method declaration
+  //method declaration
   /**
    * @param token
    * @return true if the current {@link OptionalTokened} has the given token.

@@ -9,31 +9,31 @@ import ch.nolix.system.element.stylebuilder.DeepSelectingStyleBuilder;
 //class
 public final class DeepSelectingStyleTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_selectsChildElements() {
 
-    // setup
+    //setup
     final var testUnit = new DeepSelectingStyleBuilder().build();
 
-    // execution
+    //execution
     final var result = testUnit.selectsChildElements();
 
-    // verification
+    //verification
     expect(result);
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_skipsChildElements() {
 
-    // setup
+    //setup
     final var testUnit = new DeepSelectingStyleBuilder().build();
 
-    // execution
+    //execution
     final var result = testUnit.skipsChildElements();
 
-    // verification
+    //verification
     expectNot(result);
   }
 }

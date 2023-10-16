@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.MultiTokened;
  */
 public interface FluentMultiTokenable<MT extends FluentMultiTokenable<MT>> extends MultiTokened {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given token to the current {@link FluentMultiTokenable}.
    * 
@@ -25,7 +25,7 @@ public interface FluentMultiTokenable<MT extends FluentMultiTokenable<MT>> exten
    */
   MT addToken(String token);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the token that equals the given token from the current
    * {@link FluentMultiTokenable} if the current {@link FluentMultiTokenable}
@@ -36,7 +36,7 @@ public interface FluentMultiTokenable<MT extends FluentMultiTokenable<MT>> exten
    */
   MT removeToken(String token);
 
-  // method declaration
+  //method declaration
   /**
    * Removes all tokens from the current {@link FluentMultiTokenable}.
    * 

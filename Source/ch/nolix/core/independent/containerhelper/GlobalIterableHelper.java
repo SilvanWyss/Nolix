@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 public final class GlobalIterableHelper {
 
-  // static method
+  //static method
   /**
    * @param iterable
    * @param element
@@ -31,7 +31,7 @@ public final class GlobalIterableHelper {
     return containsElementWhenIsNotNull(iterable, element);
   }
 
-  // static method
+  //static method
   /**
    * @param iterable
    * @param element
@@ -56,7 +56,7 @@ public final class GlobalIterableHelper {
     return found;
   }
 
-  // static method
+  //static method
   /**
    * @param container
    * @param object
@@ -74,7 +74,7 @@ public final class GlobalIterableHelper {
     return false;
   }
 
-  // static method
+  //static method
   /**
    * @param container
    * @return the number of elements of the given container.
@@ -91,7 +91,7 @@ public final class GlobalIterableHelper {
     return elementCount;
   }
 
-  // static method
+  //static method
   /**
    * @param container
    * @return true if the given container is not empty.
@@ -100,7 +100,7 @@ public final class GlobalIterableHelper {
     return !container.iterator().hasNext();
   }
 
-  // static method
+  //static method
   /**
    * @param iterable
    * @param element
@@ -118,7 +118,7 @@ public final class GlobalIterableHelper {
     return false;
   }
 
-  // constructor
+  //constructor
   /**
    * Prevents that an instance of the {@link GlobalIterableHelper} can be created.
    */

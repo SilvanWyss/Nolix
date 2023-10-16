@@ -16,19 +16,19 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 public abstract class BaseBackReference<E extends IEntity> extends Property
     implements IBaseBackReference<E> {
 
-  // constant
+  //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
 
-  // attribute
+  //attribute
   private final String backReferencedTableName;
 
-  // attribute
+  //attribute
   private final String backReferencedPropertyName;
 
-  // optional attribute
+  //optional attribute
   private Table<E> backReferencedTable;
 
-  // constructor
+  //constructor
   protected BaseBackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
 
     GlobalValidator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
@@ -42,13 +42,13 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
     this.backReferencedPropertyName = backReferencedPropertyName;
   }
 
-  // method
+  //method
   @Override
   public final String getBackReferencedPropertyName() {
     return backReferencedPropertyName;
   }
 
-  // method
+  //method
   @Override
   public final ITable<E> getBackReferencedTable() {
 
@@ -57,25 +57,25 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
     return backReferencedTable;
   }
 
-  // method
+  //method
   @Override
   public final String getBackReferencedTableName() {
     return backReferencedTableName;
   }
 
-  // method
+  //method
   @Override
   public final IContainer<IProperty> getStoredBackReferencingProperties() {
     return new ImmutableList<>();
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesEntity(final IEntity entity) {
     return false;
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesBackProperty(final IProperty property) {
     return PROPERTY_HELPER.belongsToEntity(property)
@@ -85,39 +85,39 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
         && referencesBackEntityWithId(property.getStoredParentEntity().getId());
   }
 
-  // method
+  //method
   @Override
   public final boolean referencesUninsertedEntity() {
     return false;
   }
 
-  // method declaration
+  //method declaration
   protected abstract boolean referencesBackEntityWithId(String id);
 
-  // method
+  //method
   @Override
   final void internalUpdateProbableBackReferencesWhenIsNew() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   private boolean extractedBackReferencedTable() {
     return (backReferencedTable != null);
   }
 
-  // method
+  //method
   private void extractBackReferencedTable() {
     backReferencedTable = loadBackReferencedTable();
   }
 
-  // method
+  //method
   private void extractBackReferencedTableIfNotExtracted() {
     if (!extractedBackReferencedTable()) {
       extractBackReferencedTable();
     }
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   private Table<E> loadBackReferencedTable() {
     return (Table<E>) getStoredParentEntity()

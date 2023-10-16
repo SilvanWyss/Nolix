@@ -4,9 +4,9 @@ package ch.nolix.techapi.mathapi.bigdecimalmathapi;
 //interface
 public interface ISequenceDefinedBy2Predecessor<V> extends ISequence<V> {
 
-  // method declaration
+  //method declaration
   V getFirstValue();
 
-  // method declaration
+  //method declaration
   V getSecondValue();
 }

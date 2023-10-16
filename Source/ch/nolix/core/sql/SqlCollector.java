@@ -9,10 +9,10 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 //class
 public final class SqlCollector implements Clearable {
 
-  // multi-attribute
+  //multi-attribute
   private final LinkedList<String> sqlStatements = new LinkedList<>();
 
-  // method
+  //method
   public SqlCollector addSqlStatement(final String sqlstatement) {
 
     GlobalValidator.assertThat(sqlstatement).thatIsNamed("SQL statement").isNotBlank();
@@ -22,7 +22,7 @@ public final class SqlCollector implements Clearable {
     return this;
   }
 
-  // method
+  //method
   public SqlCollector addSqlStatements(final Iterable<String> sqlStatements) {
 
     sqlStatements.forEach(this::addSqlStatement);
@@ -30,13 +30,13 @@ public final class SqlCollector implements Clearable {
     return this;
   }
 
-  // method
+  //method
   @Override
   public void clear() {
     sqlStatements.clear();
   }
 
-  // method
+  //method
   public void executeAndClearUsingConnection(final SqlConnection sqlConnection) {
     try {
       executeUsingConnection(sqlConnection);
@@ -45,23 +45,23 @@ public final class SqlCollector implements Clearable {
     }
   }
 
-  // method
+  //method
   public void executeUsingConnection(final SqlConnection sqlConnection) {
     sqlConnection.execute(sqlStatements);
   }
 
-  // method
+  //method
   public IContainer<String> getSqlStatements() {
     return sqlStatements;
   }
 
-  // method
+  //method
   @Override
   public boolean isEmpty() {
     return sqlStatements.isEmpty();
   }
 
-  // method
+  //method
   private String getSqlStatementWithSemicolonAtEnd(final String sqlStatement) {
 
     if (!sqlStatement.endsWith(";")) {

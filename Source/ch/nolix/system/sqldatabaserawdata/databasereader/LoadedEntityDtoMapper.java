@@ -16,10 +16,10 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 final class LoadedEntityDtoMapper {
 
-  // constant
+  //constant
   private static final ContentFieldMapper CONTENT_FIELD_MAPPER = new ContentFieldMapper();
 
-  // method
+  //method
   public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
       final List<String> sqlRecordValues,
       final ITableInfo tableInfo) {
@@ -29,14 +29,14 @@ final class LoadedEntityDtoMapper {
         getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo));
   }
 
-  // method
+  //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
       final List<String> sqlRecordValues,
       final ITableInfo tableInfo) {
     return getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
   }
 
-  // method
+  //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
       final List<String> sqlRecordValues,
       final IContainer<IColumnInfo> contentColumnDefinitions) {
@@ -44,7 +44,7 @@ final class LoadedEntityDtoMapper {
     final var contentFields = new LinkedList<ILoadedContentFieldDto>();
     var sqlRecordValueIterator = sqlRecordValues.iterator();
 
-    // Skips id and save stamp.
+    //Skips id and save stamp.
     sqlRecordValueIterator.next();
     sqlRecordValueIterator.next();
 

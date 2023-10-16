@@ -8,27 +8,27 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface ILink extends IControl<ILink, ILinkStyle> {
 
-  // method declaration
+  //method declaration
   String getDisplayText();
 
-  // method declaration
+  //method declaration
   LinkTarget getTarget();
 
-  // method declaration
+  //method declaration
   String getUrl();
 
-  // method declaration
+  //method declaration
   boolean hasUrl();
 
-  // method declaration
+  //method declaration
   void removeUrl();
 
-  // method declaration
+  //method declaration
   ILink setDisplayText(String displayText);
 
-  // method declaration
+  //method declaration
   ILink setTarget(LinkTarget target);
 
-  // method declaration
+  //method declaration
   ILink setUrl(String url);
 }

@@ -14,13 +14,13 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 //class
 public final class LoadedEntityDtoMapper {
 
-  // constant
+  //constant
   private static final ContentFieldDtoMapper CONTENT_FIELD_DTO_MAPPER = new ContentFieldDtoMapper();
 
-  // constant
+  //constant
   private static final EntityNodeSearcher ENTITY_NODE_SEARCHER = new EntityNodeSearcher();
 
-  // method
+  //method
   public ILoadedEntityDto createLoadedEntityDtoFromEntityNode(
       final IMutableNode<?> entityNode,
       final ITableInfo tableInfo) {
@@ -30,7 +30,7 @@ public final class LoadedEntityDtoMapper {
         createContentFieldsFromEntityNode(entityNode, tableInfo));
   }
 
-  // method
+  //method
   private IContainer<ILoadedContentFieldDto> createContentFieldsFromEntityNode(
       final IMutableNode<?> entityNode,
       final ITableInfo tableInfo) {
@@ -46,7 +46,7 @@ public final class LoadedEntityDtoMapper {
     return contentFields;
   }
 
-  // method
+  //method
   private String getIdFromEntityNode(final IMutableNode<?> entityNode) {
 
     final var idNode = ENTITY_NODE_SEARCHER.getStoredIdNodeFromEntityNode(entityNode);
@@ -54,7 +54,7 @@ public final class LoadedEntityDtoMapper {
     return idNode.getHeader();
   }
 
-  // method
+  //method
   private String getSaveStampFromEntityNode(IMutableNode<?> entityNode) {
 
     final var saveStampNode = ENTITY_NODE_SEARCHER.getStoredSaveStampNodeFromEntityNode(entityNode);

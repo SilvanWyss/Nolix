@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ISubjectHolder;
 public interface IFluentMutableOptionalSubjectHolder<FMOSH extends IFluentMutableOptionalSubjectHolder<FMOSH>>
     extends ISubjectHolder {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the subject of the current
    * {@link IFluentMutableOptionalSubjectHolder}.
@@ -24,7 +24,7 @@ public interface IFluentMutableOptionalSubjectHolder<FMOSH extends IFluentMutabl
    */
   FMOSH removeSubject();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the subject of the current {@link IFluentMutableOptionalSubjectHolder}.
    * 

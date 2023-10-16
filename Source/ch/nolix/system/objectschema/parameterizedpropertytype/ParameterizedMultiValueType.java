@@ -8,12 +8,12 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 //class
 public final class ParameterizedMultiValueType<V> extends BaseParameterizedValueType<V> {
 
-  // constructor
+  //constructor
   public ParameterizedMultiValueType(final DataType dataType) {
     super(dataType);
   }
 
-  // method
+  //method
   @Override
   public PropertyType getPropertyType() {
     return PropertyType.MULTI_VALUE;

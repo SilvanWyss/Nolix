@@ -7,9 +7,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IValidationLabel extends Clearable, IControl<IValidationLabel, IValidationLabelStyle> {
 
-  // method declaration
+  //method declaration
   Throwable getError();
 
-  // method declaration
+  //method declaration
   void showError(Throwable error);
 }

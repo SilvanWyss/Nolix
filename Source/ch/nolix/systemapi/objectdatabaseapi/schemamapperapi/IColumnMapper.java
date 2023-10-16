@@ -10,17 +10,17 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 //interface
 public interface IColumnMapper {
 
-  // method declaration
+  //method declaration
   IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
       IProperty property,
       IContainer<ITable> referencableTables);
 
-  // method declaration
+  //method declaration
   <E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
       Class<E> entityType,
       IContainer<ITable> referencableTables);
 
-  // method declaration
+  //method declaration
   IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
       IEntity entity,
       IContainer<ITable> referencableTables);

@@ -30,7 +30,7 @@ import io.netty.handler.ssl.SslContextBuilder;
 //class
 final class SecureServerSSLContextCreator {
 
-  // method
+  //method
   public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {
     try {
 
@@ -58,7 +58,7 @@ final class SecureServerSSLContextCreator {
     }
   }
 
-  // method
+  //method
   private X509Certificate getCert(final ISSLCertificate paramSSLCertificate) throws Exception {
 
     String filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
@@ -69,7 +69,7 @@ final class SecureServerSSLContextCreator {
   }
 
   private PrivateKey getPrivateKey(final ISSLCertificate paramSSLCertificate)
-      throws Exception { // NOSONAR: This method can throw several different Exceptions.
+      throws Exception { //NOSONAR: This method can throw several different Exceptions.
 
     final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
 

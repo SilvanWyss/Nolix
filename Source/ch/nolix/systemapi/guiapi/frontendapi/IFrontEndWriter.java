@@ -6,18 +6,18 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 //interface
 public interface IFrontEndWriter {
 
-  // method declaration
+  //method declaration
   void openNewTabWithUrl(String url);
 
-  // method declaration
+  //method declaration
   void redirectTo(IApplicationInstanceTarget applicationInstanceTarget);
 
-  // method declaration
+  //method declaration
   void redirectToUrl(String url);
 
-  // method declaration
+  //method declaration
   void saveFile(byte[] bytes);
 
-  // method declaration
+  //method declaration
   void writeTextToClipboard(String text);
 }

@@ -4,9 +4,9 @@ package ch.nolix.systemapi.rawdatabaseapi.databasedtoapi;
 //interface
 public interface ILoadedContentFieldDto {
 
-  // method declaration
+  //method declaration
   String getColumnName();
 
-  // method declaration
+  //method declaration
   Object getValueOrNull();
 }

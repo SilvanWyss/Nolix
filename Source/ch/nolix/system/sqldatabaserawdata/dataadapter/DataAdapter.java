@@ -15,10 +15,10 @@ import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 //class
 public abstract class DataAdapter extends BaseDataAdapter {
 
-  // constant
+  //constant
   private static final DatabaseInspector DATABASE_INSPECTOR = new DatabaseInspector();
 
-  // constructor
+  //constructor
   protected DataAdapter(
       final String databaseName,
       final SqlConnectionPool sqlConnectionPool,
@@ -34,7 +34,7 @@ public abstract class DataAdapter extends BaseDataAdapter {
     schemaAdapter.close();
   }
 
-  // constructor
+  //constructor
   private DataAdapter(
       final String databaseName,
       final SqlConnectionPool sqlConnectionPool,

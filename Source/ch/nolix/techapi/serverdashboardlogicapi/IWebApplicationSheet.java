@@ -7,12 +7,12 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 //interface
 public interface IWebApplicationSheet {
 
-  // method declaration
+  //method declaration
   IApplicationInstanceTarget getApplicationInstanceTarget();
 
-  // method declaration
+  //method declaration
   IImage getApplicationLogo();
 
-  // method declaration
+  //method declaration
   boolean hasApplicationLogo();
 }

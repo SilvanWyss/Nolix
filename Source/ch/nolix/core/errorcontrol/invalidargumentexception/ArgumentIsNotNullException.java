@@ -13,10 +13,10 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentIsNotNullException extends InvalidArgumentException {
 
-  // constant
+  //constant
   private static final String ERROR_PREDICATE = "is not null";
 
-  // static method
+  //static method
   /**
    * @param argument
    * @return a new {@link ArgumentIsNotNullException} for the given argument.
@@ -26,7 +26,7 @@ public final class ArgumentIsNotNullException extends InvalidArgumentException {
     return new ArgumentIsNotNullException(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ArgumentIsNotNullException} for the given argument.
    * 
@@ -35,10 +35,10 @@ public final class ArgumentIsNotNullException extends InvalidArgumentException {
    */
   private ArgumentIsNotNullException(final Object argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
 
-    // Asserts that the given argument is not null.
+    //Asserts that the given argument is not null.
     if (argument == null) {
       throw new IllegalArgumentException("The given argument is null.");
     }

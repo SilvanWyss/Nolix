@@ -14,28 +14,28 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 final class SchemaDtoMapper {
 
-  // constant
+  //constant
   private static final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto SQL_ID_COLUMN_DTO = //
       new ColumnDto(PascalCaseCatalogue.ID, SqlDatatypeCatalogue.TEXT);
 
-  // constant
+  //constant
   private static final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
       new ColumnDto(
           PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 
-  // method
+  //method
   public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto createQslColumnDtoFrom(
       final IColumnDto column) {
     return new ColumnDto(column.getName(), SqlDatatypeCatalogue.TEXT);
   }
 
-  // method
+  //method
   public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(
       final ITableDto table) {
     return new TableDto(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createQslColumnDtosFrom(table));
   }
 
-  // method
+  //method
   private IContainer<ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto> createQslColumnDtosFrom(
       final ITableDto table) {
 

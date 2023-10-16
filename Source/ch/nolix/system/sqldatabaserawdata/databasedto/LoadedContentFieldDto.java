@@ -9,13 +9,13 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDto;
 //class
 public final class LoadedContentFieldDto implements ILoadedContentFieldDto {
 
-  // attribute
+  //attribute
   private final String columnName;
 
-  // optional attribute
+  //optional attribute
   private final Object value;
 
-  // constructor
+  //constructor
   public LoadedContentFieldDto(final String columnName) {
 
     if (columnName == null) {
@@ -26,7 +26,7 @@ public final class LoadedContentFieldDto implements ILoadedContentFieldDto {
     value = null;
   }
 
-  // constructor
+  //constructor
   public LoadedContentFieldDto(final String columnName, final Object value) {
 
     if (columnName == null) {
@@ -41,13 +41,13 @@ public final class LoadedContentFieldDto implements ILoadedContentFieldDto {
     this.value = value;
   }
 
-  // method
+  //method
   @Override
   public String getColumnName() {
     return columnName;
   }
 
-  // method
+  //method
   @Override
   public Object getValueOrNull() {
     return value;

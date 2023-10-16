@@ -4,30 +4,30 @@ package ch.nolix.core.math.base;
 //class
 public final class IntRoundingMediator {
 
-  // attribute
+  //attribute
   private final int value;
 
-  // constructor
+  //constructor
   IntRoundingMediator(final int value) {
     this.value = value;
   }
 
-  // method
+  //method
   public int downToNext(final int step) {
     return new IntRoundingWithModeMediator(value, RoundingMode.DOWN).toNext(step);
   }
 
-  // method
+  //method
   public int toNext(final int step) {
     return withMode(RoundingMode.UP_WHEN_REST_IS_HALF_STEP).toNext(step);
   }
 
-  // method
+  //method
   public int upToNext(final int step) {
     return new IntRoundingWithModeMediator(value, RoundingMode.UP).toNext(step);
   }
 
-  // method
+  //method
   public IntRoundingWithModeMediator withMode(final RoundingMode roundingMode) {
     return new IntRoundingWithModeMediator(value, roundingMode);
   }

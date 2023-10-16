@@ -13,7 +13,7 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class EqualArgumentException extends InvalidArgumentException {
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -28,11 +28,11 @@ public final class EqualArgumentException extends InvalidArgumentException {
       final double argument,
       final double equalValue) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     return new EqualArgumentException(argumentName, argument, equalValue);
   }
 
-  // static method
+  //static method
   /**
    * @param argumentName
    * @param argument
@@ -47,11 +47,11 @@ public final class EqualArgumentException extends InvalidArgumentException {
       final long argument,
       final long equalValue) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     return new EqualArgumentException(argumentName, argument, equalValue);
   }
 
-  // static method
+  //static method
   /**
    * @param argument
    * @param equalValue
@@ -60,11 +60,11 @@ public final class EqualArgumentException extends InvalidArgumentException {
    */
   public static EqualArgumentException forArgumentAndEqualValue(final Object argument, final Object equalValue) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     return new EqualArgumentException(argument, equalValue);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link EqualArgumentException} for the given argument and
    * equalValue.
@@ -74,11 +74,11 @@ public final class EqualArgumentException extends InvalidArgumentException {
    */
   private EqualArgumentException(final Object argument, final Object equalValue) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument, "equals " + equalValue);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link EqualArgumentException} for the given argumentName,
    * argument and equalValue.
@@ -91,11 +91,11 @@ public final class EqualArgumentException extends InvalidArgumentException {
    */
   private EqualArgumentException(final String argumentName, final double argument, final double equalValue) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "equals " + equalValue);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link EqualArgumentException} for the given argumentName,
    * argument and equalValue.
@@ -108,7 +108,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
    */
   private EqualArgumentException(final String argumentName, final long argument, final long equalValue) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument, "equals " + equalValue);
   }
 }

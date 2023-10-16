@@ -11,33 +11,33 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 public interface IImageControl extends Clearable, IControl<IImageControl, IImageControlStyle> {
 
-  // method declaration
+  //method declaration
   IMutableImage<?> getStoredImage();
 
-  // method declaration
+  //method declaration
   boolean hasLeftMouseButtonPressAction();
 
-  // method declaration
+  //method declaration
   boolean hasLeftMouseButtonReleaseAction();
 
-  // method declaration
+  //method declaration
   void removeLeftMouseButtonPressAction();
 
-  // method declaration
+  //method declaration
   void removeLeftMouseButtonReleaseAction();
 
-  // method declaration
+  //method declaration
   IImageControl setImage(IImage image);
 
-  // method declaration
+  //method declaration
   IImageControl setLeftMouseButtonPressAction(Runnable leftMouseButtonPressAction);
 
-  // method declaration
+  //method declaration
   IImageControl setLeftMouseButtonPressAction(Consumer<IImageControl> leftMouseButtonPressAction);
 
-  // method declaration
+  //method declaration
   IImageControl setLeftMouseButtonRelaseAction(Runnable leftMouseButtonReleaseAction);
 
-  // method declaration
+  //method declaration
   IImageControl setLeftMouseButtonRelaseAction(Consumer<IImageControl> leftMouseButtonReleaseAction);
 }

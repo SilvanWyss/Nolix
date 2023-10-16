@@ -8,17 +8,17 @@ import ch.nolix.core.builder.main.ArgumentCapturer;
 public class WithDatabaseCapturer<D, N>
     extends ArgumentCapturer<D, N> {
 
-  // constructor
+  //constructor
   public WithDatabaseCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }
 
-  // method
+  //method
   public final D getStoredDatabase() {
     return getStoredArgument();
   }
 
-  // method
+  //method
   public final N withDatabase(final D database) {
     return setArgumentAndGetNext(database);
   }

@@ -8,17 +8,17 @@ package ch.nolix.core.programcontrol.sequencer;
  */
 public final class ActionMediator {
 
-  // constant
+  //constant
   private static final SequencerMediator SEQUENCER_MEDIATOR = new SequencerMediator();
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link ActionMediator}.
    */
   ActionMediator() {
   }
 
-  // method
+  //method
   /**
    * @return a {@link SequencerMediator}.
    */

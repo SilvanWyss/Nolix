@@ -13,19 +13,19 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class NetEndPointTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_constructor() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
 
-      // setup
+      //setup
       server.addDefaultSlot(new TestSlot());
 
-      // execution & verification
+      //execution & verification
       expectRunning(
           () -> {
             try (final var result = new NetEndPoint(port)) {
@@ -36,50 +36,50 @@ public final class NetEndPointTest extends Test {
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_runCommand() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
 
-      // setup
+      //setup
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
 
-        // execution
+        //execution
         testUnit.runCommand(ChainedNode.fromString("test_command"));
 
-        // verification
+        //verification
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
             .hasStringRepresentation("test_command");
       }
     }
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_getData() {
 
-    // parameter definition
+    //parameter definition
     final var port = 50000;
 
     try (final var server = Server.forPort(port)) {
 
-      // setup
+      //setup
       final var slot = new TestSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
 
-        // execution
+        //execution
         final var result = testUnit.getDataForRequest(ChainedNode.fromString("test_request"));
 
-        // verification
+        //verification
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
             .hasStringRepresentation("test_request");
         expect(result).isEqualTo(Node.withHeader("test_data"));

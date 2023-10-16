@@ -9,7 +9,7 @@ import ch.nolix.core.testing.test.Test;
 //class
 public final class GlobalCharacterHelperTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void testCase_isDigit_whenGivenCharacterIsADigit() {
     expect(GlobalCharacterHelper.isDigit('0'));
@@ -24,7 +24,7 @@ public final class GlobalCharacterHelperTest extends Test {
     expect(GlobalCharacterHelper.isDigit('9'));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isDigit_whenGivenCharacterIsNotADigit() {
     expectNot(GlobalCharacterHelper.isDigit('A'));
@@ -39,7 +39,7 @@ public final class GlobalCharacterHelperTest extends Test {
     expectNot(GlobalCharacterHelper.isDigit(')'));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isHexadecimalDigit_whenGivenCharacterIsAHexadecimalDigit() {
     expect(GlobalCharacterHelper.isHexadecimalDigit('0'));
@@ -60,7 +60,7 @@ public final class GlobalCharacterHelperTest extends Test {
     expect(GlobalCharacterHelper.isHexadecimalDigit('F'));
   }
 
-  // method
+  //method
   @TestCase
   public void testCase_isHexadecimalDigit_whenGivenCharacterIsNotAHexadecimalDigit() {
     expectNot(GlobalCharacterHelper.isHexadecimalDigit('G'));

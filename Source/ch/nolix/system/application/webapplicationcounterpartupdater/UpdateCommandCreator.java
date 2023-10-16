@@ -18,44 +18,44 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class UpdateCommandCreator {
 
-  // method
+  //method
   public ChainedNode createSetCssCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetCssCommandFromCss(webGui.getCss());
   }
 
-  // method
+  //method
   public ChainedNode createSetEventFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetEventFunctionsCommandFromHtmlElementEventRegistrations(webGui.getHtmlElementEventRegistrations());
   }
 
-  // method
+  //method
   public ChainedNode createSetIconCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetIconCommandForIcon(webGui.getIcon());
   }
 
-  // method
+  //method
   public ChainedNode createSetIconCommandForIcon(final IImage icon) {
     return ChainedNode.withHeaderAndNextNode(
         ObjectProtocol.GUI,
         ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
-  // method
+  //method
   public ChainedNode createSetRootHtmlElementCommandFromControl(final IControl<?, ?> control) {
     return createSetHtmlElementCommandFromHtmlElement(control.getInternalId(), control.getHtml());
   }
 
-  // method
+  //method
   public ChainedNode createSetRootHtmlElementCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetRootHtmlElementCommandFromHtmlElement(webGui.getHtml());
   }
 
-  // method
+  //method
   public ChainedNode createSetTitleCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetTitleCommandForTitle(webGui.getTitle());
   }
 
-  // method
+  //method
   public ChainedNode createSetTitleCommandForTitle(final String title) {
     return ChainedNode.withHeaderAndNextNode(
         ObjectProtocol.GUI,
@@ -64,17 +64,17 @@ public final class UpdateCommandCreator {
             Node.withHeader(title)));
   }
 
-  // method
+  //method
   public ChainedNode createSetUserInputFunctionsCommandFromWebGui(final IWebGui<?> webGui) {
     return createSetUserInputFunctionsCommandForControls(webGui.getStoredControls());
   }
 
-  // method
+  //method
   private ChainedNode createSetCssCommandFromCss(final ICss css) {
     return createSetCssCommandFromCss(css.toStringWithoutEnclosingBrackets());
   }
 
-  // method
+  //method
   private ChainedNode createSetCssCommandFromCss(final String css) {
     return ChainedNode.withHeaderAndNextNode(
         ObjectProtocol.GUI,
@@ -83,7 +83,7 @@ public final class UpdateCommandCreator {
             ChainedNode.withHeader(css)));
   }
 
-  // method
+  //method
   private ChainedNode createSetHtmlElementCommandFromHtmlElement(
       final String htmlElementId,
       final IHtmlElement htmlElement) {
@@ -95,7 +95,7 @@ public final class UpdateCommandCreator {
             ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  // method
+  //method
   private ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
       final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
 
@@ -109,7 +109,7 @@ public final class UpdateCommandCreator {
             eventFunctions));
   }
 
-  // method
+  //method
   private ChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement htmlElement) {
     return ChainedNode.withHeaderAndNextNode(
         ObjectProtocol.GUI,
@@ -118,7 +118,7 @@ public final class UpdateCommandCreator {
             ChainedNode.withHeader(htmlElement.toString())));
   }
 
-  // method
+  //method
   private ChainedNode createSetUserInputFunctionsCommandForControls(final IContainer<IControl<?, ?>> controls) {
 
     final var userInputFunctions = new LinkedList<ChainedNode>();
@@ -138,7 +138,7 @@ public final class UpdateCommandCreator {
             userInputFunctions));
   }
 
-  // method
+  //method
   private ChainedNode createUserInputFunctionFromControlAndString(final IControl<?, ?> control, final String string) {
     return ChainedNode.withChildNodesFromNodes(Node.withHeader(control.getInternalId()), Node.withHeader(string));
   }

@@ -11,7 +11,7 @@ import ch.nolix.techapi.relationaldocapi.datamodelapi.IConcreteReferenceContent;
 //class
 public final class ConcreteReferenceContentValidator {
 
-  // constant
+  //constant
   private static final ConcreteReferenceContentEvaluator CONCRETE_REFERENCE_CONTENT_EVALUATOR = //
       new ConcreteReferenceContentEvaluator();
 
@@ -23,7 +23,7 @@ public final class ConcreteReferenceContentValidator {
     }
   }
 
-  // method
+  //method
   public void assertCanRemoveObjects(final IConcreteReferenceContent concreteReferenceContent) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canRemoveObjects(concreteReferenceContent)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
@@ -32,7 +32,7 @@ public final class ConcreteReferenceContentValidator {
     }
   }
 
-  // method
+  //method
   public void assertCanRemoveOneObject(final IConcreteReferenceContent concreteReferenceContent) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canRemoveOneObject(concreteReferenceContent)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(

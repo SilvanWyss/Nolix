@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOpt
  */
 public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, FluentOptionalHeaderable<MN> {
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 
@@ -26,7 +26,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   MN addChildNode(INode<?> childNode, INode<?>... childNodes);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the child {@link INode}s from the given strings the current
    * {@link IMutableNode}.
@@ -39,7 +39,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   MN addChildNodeFromString(String string, String... strings);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given childNodes to the current {@link IMutableNode}.
    * 
@@ -50,7 +50,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   <N extends INode<?>> MN addChildNodes(Iterable<N> childNodes);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the child {@link INode}s from the given strings the current
    * {@link IMutableNode}.
@@ -62,7 +62,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   MN addChildNodesFromStrings(Iterable<String> strings);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given postfix at the end of the header of the current
    * {@link IMutableNode} if the current {@link IMutableNode} has a header. Sets
@@ -76,7 +76,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   MN addPostfixToHeader(String postfix);
 
-  // method declaration
+  //method declaration
   /**
    * Adds the given prefix at the begin of the header of the current
    * {@link IMutableNode} if the current {@link IMutableNode} has a header. Sets
@@ -90,7 +90,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   MN addPrefixToHeader(String prefix);
 
-  // method declaration
+  //method declaration
   /**
    * Removes and returns the first child {@link INode} the given selector selects
    * from the current {@link IMutableNode}.
@@ -103,13 +103,13 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   MN removeAndGetRefFirstChildNodeThat(Predicate<INode<?>> selector);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the child {@link INode}s from the current {@link IMutableNode}.
    */
   void removeChildNodes();
 
-  // method declaration
+  //method declaration
   /**
    * Removes the first child {@link INode} the given selector selects from the
    * current {@link IMutableNode}.
@@ -120,7 +120,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   void removeFirstChildNodeThat(Predicate<? extends INode<?>> selector);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the first child {@link INode} with the given header from the current
    * {@link IMutableNode}.
@@ -131,7 +131,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   void removeFirstChildNodeWithHeader(String header);
 
-  // method declaration
+  //method declaration
   /**
    * Replaces the first child {@link INode} with the given header from the current
    * {@link IMutableNode} by the given {@link INode}.
@@ -143,14 +143,14 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   void replaceFirstChildNodeWithGivenHeaderByGivenNode(String header, INode<?> node);
 
-  // method declaration
+  //method declaration
   /**
    * Removes the header and child {@link INode}s of the current
    * {@link IMutableNode}.
    */
   void reset();
 
-  // method declaration
+  //method declaration
   /**
    * Resets the current {@link IMutableNode} from the file with the given file
    * path.
@@ -159,7 +159,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   void resetFromFile(String filePath);
 
-  // method declaration
+  //method declaration
   /**
    * Resets the current {@link IMutableNode} from the given string.
    * 
@@ -169,7 +169,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, Fl
    */
   void resetFromString(String string);
 
-  // method declaration
+  //method declaration
   /**
    * Resets the child {@link INode}s of the current {@link IMutableNode} with the
    * given childNodes.

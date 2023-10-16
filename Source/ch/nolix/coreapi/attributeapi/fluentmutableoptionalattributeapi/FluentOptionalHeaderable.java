@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
  */
 public interface FluentOptionalHeaderable<FOH extends FluentOptionalHeaderable<FOH>> extends OptionalHeadered {
 
-  // method declaration
+  //method declaration
   /**
    * Removes the header of current {@link FluentOptionalHeaderable}.
    * 
@@ -22,7 +22,7 @@ public interface FluentOptionalHeaderable<FOH extends FluentOptionalHeaderable<F
    */
   FOH removeHeader();
 
-  // method declaration
+  //method declaration
   /**
    * Sets the header of the current {@link FluentOptionalHeaderable}.
    * 

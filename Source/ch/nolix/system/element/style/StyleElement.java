@@ -21,31 +21,31 @@ public abstract class StyleElement<SE extends StyleElement<SE>>
     extends StylableElement<SE>
     implements IStyleElement<SE> {
 
-  // constant
+  //constant
   private static final String CONFIGURATION_HEADER = PascalCaseCatalogue.CONFIGURATION;
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(
       CONFIGURATION_HEADER,
       this::setStyle,
       Style::fromSpecification,
       IStyle::getSpecification);
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void applyStyleIfHasStyle() {
 
-    // Handles the case that the current ConfigurationElement has a Configuration.
+    //Handles the case that the current ConfigurationElement has a Configuration.
     if (hasStyle()) {
       resetStyleRecursively();
       getStoredConfiguration().styleElement(this);
     }
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -54,7 +54,7 @@ public abstract class StyleElement<SE extends StyleElement<SE>>
     return style.containsAny();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -64,7 +64,7 @@ public abstract class StyleElement<SE extends StyleElement<SE>>
     resetStyleRecursively();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -77,7 +77,7 @@ public abstract class StyleElement<SE extends StyleElement<SE>>
     return asConcrete();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -89,13 +89,13 @@ public abstract class StyleElement<SE extends StyleElement<SE>>
     resetConfigurationElement();
   }
 
-  // method
+  //method
   /**
    * Resets the current {@link StyleElement}.
    */
   protected abstract void resetConfigurationElement();
 
-  // method
+  //method
   /**
    * @return the {@link Style} of the current {@link StyleElement}.
    */

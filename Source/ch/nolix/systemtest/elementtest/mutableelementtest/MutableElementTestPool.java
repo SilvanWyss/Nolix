@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class MutableElementTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public MutableElementTestPool() {
     super(ValueTest.class);
   }

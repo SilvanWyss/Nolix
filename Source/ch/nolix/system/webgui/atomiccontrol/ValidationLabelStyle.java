@@ -10,7 +10,7 @@ public final class ValidationLabelStyle
     extends ControlStyle<IValidationLabelStyle>
     implements IValidationLabelStyle {
 
-  // constructor
+  //constructor
   public ValidationLabelStyle() {
     initialize();
   }

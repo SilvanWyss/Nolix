@@ -17,7 +17,7 @@ import ch.nolix.system.element.main.Element;
  */
 public final class Discrete2DPoint extends Element {
 
-  // static method
+  //static method
   /**
    * Creates a new {@link Discrete2DPoint} from the given specification.
    * 
@@ -30,13 +30,13 @@ public final class Discrete2DPoint extends Element {
         specification.getStoredChildNodeAt1BasedIndex(2).toInt());
   }
 
-  // attribute
+  //attribute
   private final int x;
 
-  // attribute
+  //attribute
   private final int y;
 
-  // method
+  //method
   /**
    * Creates a new {@link Discrete2DPoint} with the given x and y.
    * 
@@ -48,7 +48,7 @@ public final class Discrete2DPoint extends Element {
     this.y = y;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -57,7 +57,7 @@ public final class Discrete2DPoint extends Element {
     return LinkedList.withElement(Node.withHeader(x), Node.withHeader(y));
   }
 
-  // method
+  //method
   /**
    * @return the x-coordinate of the current {@link Discrete2DPoint}.
    */
@@ -68,7 +68,7 @@ public final class Discrete2DPoint extends Element {
   /**
    * @return the y-coordinate of the current {@link Discrete2DPoint}.
    */
-  // method
+  //method
   public int getY() {
     return y;
   }

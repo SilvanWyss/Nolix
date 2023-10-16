@@ -9,16 +9,16 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 //class
 final class BaseWebClientFrontendWriter implements IFrontEndWriter {
 
-  // static method
+  //static method
   public static BaseWebClientFrontendWriter forBackendWebClient(
       final BaseWebClient<?, ?> backendWebClient) {
     return new BaseWebClientFrontendWriter(backendWebClient);
   }
 
-  // attribute
+  //attribute
   private final BaseWebClient<?, ?> parentBackendWebClient;
 
-  // constructor
+  //constructor
   private BaseWebClientFrontendWriter(final BaseWebClient<?, ?> parentBackendWebClient) {
 
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
@@ -26,31 +26,31 @@ final class BaseWebClientFrontendWriter implements IFrontEndWriter {
     this.parentBackendWebClient = parentBackendWebClient;
   }
 
-  // method
+  //method
   @Override
   public void openNewTabWithUrl(final String url) {
     parentBackendWebClient.internalOpenNewTabOnCounterpartWithUrl(url);
   }
 
-  // method
+  //method
   @Override
   public void redirectTo(final IApplicationInstanceTarget applicationInstanceTarget) {
     parentBackendWebClient.internalRedirectCounterpartTo(applicationInstanceTarget);
   }
 
-  // method
+  //method
   @Override
   public void redirectToUrl(final String url) {
     parentBackendWebClient.internalRedirectCounterpartToUrl(url);
   }
 
-  // method
+  //method
   @Override
   public void saveFile(final byte[] bytes) {
     parentBackendWebClient.internalSaveFileOnCounterpart(bytes);
   }
 
-  // method
+  //method
   @Override
   public void writeTextToClipboard(final String text) {
     parentBackendWebClient.internalWriteTextToClipboardOfCounterpart(text);

@@ -24,10 +24,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentExcept
  */
 public class DoubleMediator extends Mediator {
 
-  // attribute
+  //attribute
   private final double argument;
 
-  // constructor
+  //constructor
   /**
    * Creates a new double mediator for the given argument.
    * 
@@ -35,11 +35,11 @@ public class DoubleMediator extends Mediator {
    */
   public DoubleMediator(double argument) {
 
-    // Sets the argument of this double mediator.
+    //Sets the argument of this double mediator.
     this.argument = argument;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new double mediator for the given argument with the given argument
    * name.
@@ -51,14 +51,14 @@ public class DoubleMediator extends Mediator {
    */
   DoubleMediator(final String argumentName, final double argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName);
 
-    // Sets the argument of this double mediator.
+    //Sets the argument of this double mediator.
     this.argument = argument;
   }
 
-  // method
+  //method
   /**
    * @param min
    * @param max
@@ -67,8 +67,8 @@ public class DoubleMediator extends Mediator {
    */
   public void isBetween(final double min, final double max) {
 
-    // Asserts that the argument of this double mediator
-    // is between the given min and max.
+    //Asserts that the argument of this double mediator
+    //is between the given min and max.
     if (argument < min || argument > max) {
       throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
           getArgumentName(),
@@ -78,7 +78,7 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws InvalidArgumentException if the argument of this double mediator is
@@ -86,8 +86,8 @@ public class DoubleMediator extends Mediator {
    */
   public void isBiggerThan(final double value) {
 
-    // Asserts that the argument of this double mediator is bigger than the given
-    // value.
+    //Asserts that the argument of this double mediator is bigger than the given
+    //value.
     if (argument <= value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -96,7 +96,7 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws UnequalArgumentException if the argument of this double mediator does
@@ -104,26 +104,26 @@ public class DoubleMediator extends Mediator {
    */
   public void isEqualTo(final double value) {
 
-    // Asserts that the argument of this double mediator equals the given value.
+    //Asserts that the argument of this double mediator equals the given value.
     if (argument != value) {
       throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(getArgumentName(), argument, value);
     }
   }
 
-  // method
+  //method
   /**
    * @throws NonNegativeArgumentException if the argument of this double mediator
    *                                      is not negative.
    */
   public void isNegative() {
 
-    // Asserts that the argument of this double mediator is negative.
+    //Asserts that the argument of this double mediator is negative.
     if (argument >= 0) {
       throw NonNegativeArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws BiggerArgumentException if the argument of this double mediator is
@@ -131,14 +131,14 @@ public class DoubleMediator extends Mediator {
    */
   public void isNotBiggerThan(final double value) {
 
-    // Asserts that the argument of this named long mediator is not bigger than the
-    // given value.
+    //Asserts that the argument of this named long mediator is not bigger than the
+    //given value.
     if (argument > value) {
       throw BiggerArgumentException.forArgumentNameAndArgumentAndMax(getArgumentName(), argument, value);
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws EqualArgumentException if the argument of this double mediator equals
@@ -146,40 +146,40 @@ public class DoubleMediator extends Mediator {
    */
   public void isNotEqualTo(final double value) {
 
-    // Asserts that the argument of this double mediator does not equal the given
-    // value.
+    //Asserts that the argument of this double mediator does not equal the given
+    //value.
     if (argument == value) {
       throw EqualArgumentException.forArgumentNameAndArgumentAndEqualValue(getArgumentName(), argument, value);
     }
   }
 
-  // method
+  //method
   /**
    * @throws NegativeArgumentException if the argument of this double mediator is
    *                                   negative.
    */
   public void isNotNegative() {
 
-    // Asserts that the argument of this double mediator is not negative.
+    //Asserts that the argument of this double mediator is not negative.
     if (argument < 0) {
       throw NegativeArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
     }
   }
 
-  // method
+  //method
   /**
    * @throws NonPositiveArgumentException if the argument of this double mediator
    *                                      is positive.
    */
   public void isNotPositive() {
 
-    // Asserts that the argument of this double mediator is not positive.
+    //Asserts that the argument of this double mediator is not positive.
     if (argument <= 0) {
       throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws SmallerArgumentException if the argument of this double mediator is
@@ -187,27 +187,27 @@ public class DoubleMediator extends Mediator {
    */
   public void isNotSmallerThan(final double value) {
 
-    // Asserts that the argument of this double mediator is not smaller than the
-    // given value.
+    //Asserts that the argument of this double mediator is not smaller than the
+    //given value.
     if (argument > value) {
       throw SmallerArgumentException.forArgumentNameAndArgumentAndLimit(getArgumentName(), argument, value);
     }
   }
 
-  // method
+  //method
   /**
    * @throws NonPositiveArgumentException if the argument of this double mediator
    *                                      is not positive.
    */
   public void isPositive() {
 
-    // Asserts that the argument of this double mediator is positive.
+    //Asserts that the argument of this double mediator is positive.
     if (argument <= 0) {
       throw NonPositiveArgumentException.forArgumentNameAndArgument(getArgumentName(), argument);
     }
   }
 
-  // method
+  //method
   /**
    * @param value
    * @throws InvalidArgumentException if the argument of this double mediator is
@@ -215,8 +215,8 @@ public class DoubleMediator extends Mediator {
    */
   public void isSmallerThan(final double value) {
 
-    // Asserts that the argument of this double mediator is smaller than the given
-    // value.
+    //Asserts that the argument of this double mediator is smaller than the given
+    //value.
     if (argument >= value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -225,12 +225,12 @@ public class DoubleMediator extends Mediator {
     }
   }
 
-  // method
+  //method
   public DoubleDeviationMediator withMaxDeviation(final double maxDeviation) {
     return new DoubleDeviationMediator(getArgumentName(), getArgument(), maxDeviation);
   }
 
-  // method
+  //method
   /**
    * @return the argument of htis double mediator.
    */

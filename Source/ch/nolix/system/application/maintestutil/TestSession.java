@@ -10,16 +10,16 @@ import ch.nolix.system.application.main.Session;
 public final class TestSession<BC extends BackendClient<BC, AC>, AC>
     extends Session<BC, AC> {
 
-  // static method
+  //static method
   public static <BC2 extends BackendClient<BC2, AC2>, AC2> TestSession<BC2, AC2> withClientClass(
       final Class<BC2> clientClass) {
     return new TestSession<>(clientClass);
   }
 
-  // attribute
+  //attribute
   private final Class<?> clientClass;
 
-  // constructor
+  //constructor
   private TestSession(final Class<?> clientClass) {
 
     GlobalValidator.assertThat(clientClass).thatIsNamed("client class").isNotNull();
@@ -27,21 +27,21 @@ public final class TestSession<BC extends BackendClient<BC, AC>, AC>
     this.clientClass = clientClass;
   }
 
-  // method
+  //method
   @Override
   protected void fullInitialize() {
-    // Does nothing.
+    //Does nothing.
   }
 
-  // method
+  //method
   @Override
   protected Class<?> getClientClass() {
     return clientClass;
   }
 
-  // method
+  //method
   @Override
   protected void updateCounterpart() {
-    // Does nothing.
+    //Does nothing.
   }
 }

@@ -13,12 +13,12 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackRefere
 public final class BaseParameterizedBackReferenceTypeDto extends ParameterizedPropertyTypeDto
     implements IBaseParameterizedBackReferenceTypeDto {
 
-  // attribute
+  //attribute
   private final String backReferencedColumnId;
 
-  // constructor
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //constructor
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   public BaseParameterizedBackReferenceTypeDto(
       final PropertyType propertyType,
       final DataType dataType,
@@ -37,7 +37,7 @@ public final class BaseParameterizedBackReferenceTypeDto extends ParameterizedPr
     this.backReferencedColumnId = backReferencedColumnId;
   }
 
-  // method
+  //method
   @Override
   public String getBackReferencedColumnId() {
     return backReferencedColumnId;

@@ -4,9 +4,9 @@ package ch.nolix.coreapi.containerapi.pairapi;
 //interface
 public interface IKeyValuePair<K, V> {
 
-  // method declaration
+  //method declaration
   K getKey();
 
-  // method declaration
+  //method declaration
   V getValue();
 }

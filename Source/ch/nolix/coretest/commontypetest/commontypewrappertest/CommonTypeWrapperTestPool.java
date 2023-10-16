@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class CommonTypeWrapperTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public CommonTypeWrapperTestPool() {
     super(WrapperByteTest.class);
   }

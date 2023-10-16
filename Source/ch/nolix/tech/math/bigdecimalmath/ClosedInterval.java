@@ -14,13 +14,13 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;
 //class
 public final class ClosedInterval implements IClosedInterval {
 
-  // attribute
+  //attribute
   private final BigDecimal min;
 
-  // attribute
+  //attribute
   private final BigDecimal max;
 
-  // constructor
+  //constructor
   public ClosedInterval(final BigDecimal min, final BigDecimal max) {
 
     GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
@@ -31,7 +31,7 @@ public final class ClosedInterval implements IClosedInterval {
     this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
   }
 
-  // constructor
+  //constructor
   public ClosedInterval(final BigDecimal min, final BigDecimal max, final int bigDecimalScale) {
 
     GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
@@ -42,17 +42,17 @@ public final class ClosedInterval implements IClosedInterval {
     this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
   }
 
-  // constructor
+  //constructor
   public ClosedInterval(final double min, final double max) {
     this(BigDecimal.valueOf(min), BigDecimal.valueOf(max));
   }
 
-  // constructor
+  //constructor
   public ClosedInterval(final double min, final double max, final int bigDecimalScale) {
     this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), bigDecimalScale);
   }
 
-  // method
+  //method
   @Override
   public boolean containsValue(final BigDecimal value) {
     return value != null
@@ -60,7 +60,7 @@ public final class ClosedInterval implements IClosedInterval {
         && value.compareTo(max) <= 0;
   }
 
-  // method
+  //method
   @Override
   public boolean equals(final Object object) {
 
@@ -74,13 +74,13 @@ public final class ClosedInterval implements IClosedInterval {
         && max.equals(closedInterval.max);
   }
 
-  // method
+  //method
   @Override
   public int getBigDecimalScale() {
     return min.scale();
   }
 
-  // method
+  //method
   @Override
   public Pair<IClosedInterval, IClosedInterval> getHalfs() {
 
@@ -92,50 +92,50 @@ public final class ClosedInterval implements IClosedInterval {
         new ClosedInterval(midPoint, max, bigDecimalScale));
   }
 
-  // method
+  //method
   @Override
   public BigDecimal getLength() {
     return max.subtract(min);
   }
 
-  // method
+  //method
   @Override
   public BigDecimal getMax() {
     return max;
   }
 
-  // method
+  //method
   @Override
   public BigDecimal getMidPoint() {
     return min.add(max).divide(BigDecimal.valueOf(2.0)).setScale(min.scale());
   }
 
-  // method
+  //method
   @Override
   public BigDecimal getMin() {
     return min;
   }
 
-  // method
+  //method
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
-  // method
+  //method
   @Override
   public ClosedInterval inBigDecimalScale(final int bigDecimalScale) {
     return new ClosedInterval(min, max, bigDecimalScale);
   }
 
-  // method
+  //method
   @Override
   public boolean intersectsWith(final IClosedInterval closedInterval) {
     return getMin().compareTo(closedInterval.getMax()) < 0
         && getMax().compareTo(closedInterval.getMin()) > 0;
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return ("[" + min + ", " + max + "]");

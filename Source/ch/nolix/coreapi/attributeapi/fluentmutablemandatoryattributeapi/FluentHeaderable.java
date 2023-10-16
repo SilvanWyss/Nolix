@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Headered;
  */
 public interface FluentHeaderable<FH extends Headered> extends Headered {
 
-  // method declaration
+  //method declaration
   /**
    * Sets the header of the current {@link FluentHeaderable}.
    * 

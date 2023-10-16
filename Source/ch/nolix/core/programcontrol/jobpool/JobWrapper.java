@@ -11,19 +11,19 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 //class
 final class JobWrapper implements Runnable {
 
-  // attribute
+  //attribute
   private boolean finished;
 
-  // attribute
+  //attribute
   private boolean running;
 
-  // attribute
+  //attribute
   private final Runnable job;
 
-  // optional attribute
+  //optional attribute
   private Throwable error;
 
-  // constructor
+  //constructor
   public JobWrapper(final Runnable job) {
 
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -31,12 +31,12 @@ final class JobWrapper implements Runnable {
     this.job = job;
   }
 
-  // method
+  //method
   public boolean caughtError() {
     return (error != null);
   }
 
-  // method
+  //method
   public Throwable getError() {
 
     if (!caughtError()) {
@@ -46,22 +46,22 @@ final class JobWrapper implements Runnable {
     return error;
   }
 
-  // method
+  //method
   public boolean isFinished() {
     return finished;
   }
 
-  // method
+  //method
   public boolean isFresh() {
     return (!isRunning() && !isFinished());
   }
 
-  // method
+  //method
   public boolean isRunning() {
     return running;
   }
 
-  // method
+  //method
   @Override
   public void run() {
 
@@ -71,7 +71,7 @@ final class JobWrapper implements Runnable {
 
     try {
       job.run();
-    } catch (final Throwable lError) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable lError) { //NOSONAR: All Throwables must be caught here.
       error = lError;
     } finally {
       running = false;
@@ -79,12 +79,12 @@ final class JobWrapper implements Runnable {
     }
   }
 
-  // method
+  //method
   public void waitUntilIsFinished() {
     GlobalSequencer.waitUntil(this::isFinished);
   }
 
-  // method
+  //method
   public void waitUntilIsFinished(final int timeoutInMilliseconds) {
 
     final var startTimeInMilliseconds = System.currentTimeMillis();
@@ -97,7 +97,7 @@ final class JobWrapper implements Runnable {
     }
   }
 
-  // method
+  //method
   private void assertIsFresh() {
 
     if (isRunning()) {

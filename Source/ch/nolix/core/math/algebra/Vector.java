@@ -20,10 +20,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class Vector {
 
-  // constant
+  //constant
   public static final Vector EMPTY_VECTOR = new Vector();
 
-  // static method
+  //static method
   /**
    * @param values
    * @return a new {@link Vector} with the given values.
@@ -32,7 +32,7 @@ public final class Vector {
     return new Vector(values);
   }
 
-  // static method
+  //static method
   /**
    * @param value
    * @param values
@@ -42,7 +42,7 @@ public final class Vector {
     return new Vector(GlobalArrayHelper.createArrayWithValue(value, values));
   }
 
-  // static method
+  //static method
   /**
    * @param values
    * @return a new {@link Vector} with the given values.
@@ -51,10 +51,10 @@ public final class Vector {
     return new Vector(values);
   }
 
-  // multi-attribute
+  //multi-attribute
   private final double[] values;
 
-  // constructor
+  //constructor
   /**
    * Creates a new empty {@link Vector}.
    */
@@ -62,7 +62,7 @@ public final class Vector {
     values = new double[0];
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link Vector} with the given values.
    * 
@@ -72,7 +72,7 @@ public final class Vector {
     this.values = Arrays.copyOf(values, values.length);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -81,7 +81,7 @@ public final class Vector {
     return (object instanceof Vector vector && equalsVector(vector));
   }
 
-  // method
+  //method
   /**
    * @return the euclid norm of the current {@link Vector}.
    */
@@ -95,7 +95,7 @@ public final class Vector {
     return Math.sqrt(sum);
   }
 
-  // method
+  //method
   /**
    * @return the Manhattan norm of the current {@link Vector}.
    */
@@ -110,7 +110,7 @@ public final class Vector {
     return manhattanNorm;
   }
 
-  // method
+  //method
   /**
    * @param factor
    * @return a new {@link Vector} that is the product of the current
@@ -128,7 +128,7 @@ public final class Vector {
     return new Vector(productValues);
   }
 
-  // method
+  //method
   /**
    * @return the size of the current {@link Vector}.
    */
@@ -136,7 +136,7 @@ public final class Vector {
     return values.length;
   }
 
-  // method
+  //method
   /**
    * @param vector
    * @return a new {@link Vector} that is the sum of the current {@link Vector}
@@ -164,7 +164,7 @@ public final class Vector {
     return new Vector(sumValues);
   }
 
-  // method
+  //method
   /**
    * @param p1BasedIndex
    * @return the value at the given index
@@ -179,18 +179,18 @@ public final class Vector {
     return values[p1BasedIndex - 1];
   }
 
-  // method
+  //method
   @Override
   public int hashCode() {
     return toString().hashCode();
   }
 
-  // method
+  //method
   public boolean hasSameSizeAs(final Vector vector) {
     return (getSize() == vector.getSize());
   }
 
-  // method
+  //method
   /**
    * @return an array with the values of the current {@link Vector}
    */
@@ -198,9 +198,9 @@ public final class Vector {
     return Arrays.copyOf(values, values.length);
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
@@ -225,7 +225,7 @@ public final class Vector {
     return stringBuilder.toString();
   }
 
-  // method
+  //method
   /**
    * @param vector
    * @return true if the current {@link Vector} equals the given vector.

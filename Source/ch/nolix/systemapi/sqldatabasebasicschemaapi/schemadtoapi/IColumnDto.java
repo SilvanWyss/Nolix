@@ -6,12 +6,12 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //interface
 public interface IColumnDto {
 
-  // method declaration
+  //method declaration
   IContainer<IConstraintDto> getConstraints();
 
-  // method declaration
+  //method declaration
   IDataTypeDto getDataType();
 
-  // method declaration
+  //method declaration
   String getName();
 }

@@ -12,10 +12,10 @@ package ch.nolix.core.independent.container;
  */
 public final class SingleContainer<E> {
 
-  // optional attribute
+  //optional attribute
   private final E element;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SingleContainer} that is empty.
    */
@@ -23,7 +23,7 @@ public final class SingleContainer<E> {
     element = null;
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SingleContainer} with the given element.
    * 
@@ -32,16 +32,16 @@ public final class SingleContainer<E> {
    */
   public SingleContainer(final E element) {
 
-    // Asserts that the given element is not null.
+    //Asserts that the given element is not null.
     if (element == null) {
       throw new IllegalArgumentException("The given element is null.");
     }
 
-    // Sets the element of the current SingleContainer.
+    //Sets the element of the current SingleContainer.
     this.element = element;
   }
 
-  // method
+  //method
   /**
    * @return the element of the current {@link SingleContainer}.
    * @throws IllegalStateException if the current {@link SingleContainer} is
@@ -49,16 +49,16 @@ public final class SingleContainer<E> {
    */
   public E getStoredElement() {
 
-    // Asserts that the current SingleContainer is not empty.
+    //Asserts that the current SingleContainer is not empty.
     if (isEmpty()) {
       throw new IllegalStateException("The current SingleContainer is empty.");
     }
 
-    // Returns the element of the current SingleContainer.
+    //Returns the element of the current SingleContainer.
     return element;
   }
 
-  // method
+  //method
   /**
    * @return true if the current {@link SingleContainer} is empty.
    */

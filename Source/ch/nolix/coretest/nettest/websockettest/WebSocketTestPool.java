@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class WebSocketTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public WebSocketTestPool() {
     super(
         WebSocketFramePayloadLengthTest.class,

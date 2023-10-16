@@ -4,6 +4,6 @@ package ch.nolix.coreapi.programcontrolapi.targetapi;
 //interface
 public interface IDatabaseTarget extends IAuthenticationServerTarget {
 
-  // method declaration
+  //method declaration
   String getDatabaseName();
 }

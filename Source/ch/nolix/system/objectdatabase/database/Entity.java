@@ -7,16 +7,16 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public abstract class Entity extends BaseEntity {
 
-  // constant
+  //constant
   private static final PropertyFromEntityExtractor PROPERTY_FROM_ENTITY_EXTRACTOR = new PropertyFromEntityExtractor();
 
-  // method
+  //method
   @Override
   public final String getParentTableName() {
     return getClass().getSimpleName();
   }
 
-  // method
+  //method
   @Override
   final IContainer<Property> internalLoadProperties() {
     return PROPERTY_FROM_ENTITY_EXTRACTOR.getStoredPropertiesFrom(this);

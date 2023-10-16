@@ -11,20 +11,20 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 final class ColorConstantExtractor {
 
-  // multi-attribute
+  //multi-attribute
   private final IContainer<Color> colors = extractAndGetColors();
 
-  // method
+  //method
   public IContainer<Color> getColors() {
     return colors;
   }
 
-  // method
+  //method
   private boolean declaresColor(final Field field) {
     return GlobalFieldHelper.isStaticAndStoresValueOfGivenType(field, Color.class);
   }
 
-  // method
+  //method
   private IContainer<Color> extractAndGetColors() {
 
     final LinkedList<Color> lColors = new LinkedList<>();

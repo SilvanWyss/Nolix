@@ -10,17 +10,17 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 //class
 public final class ComplexSequenceDefinedBy2PredecessorTest extends Test {
 
-  // method
+  //method
   @TestCase
   public void test_getValueAt1BasedIndex() {
 
-    // setup
+    //setup
     final var testUnit = new ComplexSequenceDefinedBy2Predecessor(
         new ComplexNumber(1.0, 0.0, 20),
         new ComplexNumber(0.0, 2.0, 20),
         IComplexNumber::getSum);
 
-    // execution & verification
+    //execution & verification
     expect(testUnit.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(1.0, 0.0, 20));
     expect(testUnit.getValueAt1BasedIndex(2)).isEqualTo(new ComplexNumber(0.0, 2.0, 20));
     expect(testUnit.getValueAt1BasedIndex(3)).isEqualTo(new ComplexNumber(1.0, 2.0, 20));

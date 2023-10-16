@@ -12,19 +12,19 @@ import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlHtmlBuilderT
 //class
 public final class ButtonHtmlBuilderTest extends ControlHtmlBuilderTest<ButtonHtmlBuilder, IButton> {
 
-  // method
+  //method
   @Override
   protected IButton createControl() {
     return new Button();
   }
 
-  // method
+  //method
   @Override
   protected ButtonHtmlBuilder createTestUnit() {
     return new ButtonHtmlBuilder();
   }
 
-  // method
+  //method
   @Override
   protected void expectSpecificPropertiesOnHtmlElementCreatedOfNewControl(final IHtmlElement htmlElement) {
     expect(htmlElement.getType()).isEqualTo(HtmlElementTypeCatalogue.BUTTON);

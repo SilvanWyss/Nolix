@@ -6,9 +6,9 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
 //interface
 public interface IMutableOptionalValueHolder<V> extends IOptionalValueHolder<V> {
 
-  // method declaration
+  //method declaration
   void removeValue();
 
-  // method declaration
+  //method declaration
   void setValue(V value);
 }

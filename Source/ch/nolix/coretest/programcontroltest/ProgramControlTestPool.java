@@ -8,7 +8,7 @@ import ch.nolix.coretest.programcontroltest.sequencertest.SequencerTestPool;
 //class
 public final class ProgramControlTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public ProgramControlTestPool() {
     super(new SequencerTestPool());
   }

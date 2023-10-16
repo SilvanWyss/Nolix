@@ -33,10 +33,10 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
  */
 public final class NetEndPoint extends EndPoint {
 
-  // attribute
+  //attribute
   private final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the given port on the local machine.
@@ -46,11 +46,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final int port) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(IPv6Catalogue.LOOP_BACK_ADDRESS, port);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given targetSlot
    * on the given port on the local machine.
@@ -63,11 +63,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final int port, final String targetSlot) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(IPv6Catalogue.LOOP_BACK_ADDRESS, port, targetSlot);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the default port on the machine with the given ip.
@@ -76,11 +76,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final String ip) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the default slot on
    * the given port on the machine with the given ip.
@@ -91,11 +91,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final String ip, final int port) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip, port));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} that will connect to the given target slot
    * on the given port on the machine with the given ip.
@@ -109,11 +109,11 @@ public final class NetEndPoint extends EndPoint {
    */
   public NetEndPoint(final String ip, final int port, final String targetSlot) {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new ch.nolix.core.net.endpoint2.NetEndPoint(ip, port, targetSlot));
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NetEndPoint} with the given internalEndPoint.
    * 
@@ -122,21 +122,21 @@ public final class NetEndPoint extends EndPoint {
    */
   NetEndPoint(final ch.nolix.coreapi.netapi.endpoint2api.IEndPoint internalEndPoint) {
 
-    // Asserts that the given internalEndPoint is not null.
+    //Asserts that the given internalEndPoint is not null.
     GlobalValidator.assertThat(internalEndPoint).thatIsNamed("internal end point").isNotNull();
 
-    // Sets the internalNetEndPoint of the current NetEndPoint.
+    //Sets the internalNetEndPoint of the current NetEndPoint.
     this.internalEndPoint = internalEndPoint;
 
-    // Sets the replier of the internalEndPoint of the current NetEndPoint.
+    //Sets the replier of the internalEndPoint of the current NetEndPoint.
     internalEndPoint.setReplier(this::receiveAndGetReply);
 
-    // Creates a close dependency between the current NetEndPoint and the
-    // internalEndPoint of the current NetEndPoint.
+    //Creates a close dependency between the current NetEndPoint and the
+    //internalEndPoint of the current NetEndPoint.
     createCloseDependencyTo(internalEndPoint);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -145,7 +145,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getConnectionType();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -154,7 +154,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getCustomTargetSlot();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -166,34 +166,34 @@ public final class NetEndPoint extends EndPoint {
     return getDataForRequests(requests).getStoredOne();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final IChainedNode request, final IChainedNode... requests) {
 
-    // Concatenates the given requests.
+    //Concatenates the given requests.
     final var concatenatedRequests = ImmutableList.withElement(request, requests);
 
-    // Calls other method.
+    //Calls other method.
     return getDataForRequests(concatenatedRequests);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
 
-    // Creates message.
+    //Creates message.
     final var message = NetEndPointProtocol.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
-    // Sends message and receives reply.
+    //Sends message and receives reply.
     final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
 
-    // Enumerates the header of the reply.
+    //Enumerates the header of the reply.
     return switch (reply.getHeader()) {
       case NetEndPointProtocol.MULTI_DATA_HEADER ->
         reply.getStoredChildNodes();
@@ -204,7 +204,7 @@ public final class NetEndPoint extends EndPoint {
     };
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -213,7 +213,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getPeerType();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -222,7 +222,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getConnectionSecurityLevel();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -231,7 +231,7 @@ public final class NetEndPoint extends EndPoint {
     return internalEndPoint.getTargetSlotDefinition();
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -240,27 +240,27 @@ public final class NetEndPoint extends EndPoint {
     runCommands(LinkedList.withElement(command));
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
 
-    // Creates message.
+    //Creates message.
     final var message = NetEndPointProtocol.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
 
     final var replyAsString = internalEndPoint.getReplyForRequest(message);
 
     if (replyAsString == null) {
-      // When one of the givne commands is a redirect command, the counterpart will
-      // redirect and leave null.
+      //When one of the givne commands is a redirect command, the counterpart will
+      //redirect and leave null.
     } else {
 
-      // Sends the message and received reply.
+      //Sends the message and received reply.
       final var reply = Node.fromString(replyAsString);
 
-      // Enumerates the header of the reply.
+      //Enumerates the header of the reply.
       switch (reply.getHeader()) {
         case NetEndPointProtocol.DONE_HEADER:
           break;
@@ -272,7 +272,7 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message. This method
    * does not throw any exception and returns a reply in any case because the
@@ -285,7 +285,7 @@ public final class NetEndPoint extends EndPoint {
   private String receiveAndGetReply(final String message) {
     try {
       return receiveAndGetReply(ChainedNode.fromString(message));
-    } catch (final Throwable error) { // NOSONAR: All Throwables must be caught here.
+    } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 
       GlobalLogger.logError(error);
 
@@ -297,7 +297,7 @@ public final class NetEndPoint extends EndPoint {
     }
   }
 
-  // method
+  //method
   /**
    * Lets the current {@link NetEndPoint} receive the given message.
    * 
@@ -309,10 +309,10 @@ public final class NetEndPoint extends EndPoint {
    */
   private String receiveAndGetReply(final ChainedNode message) {
 
-    // Gets the receiver controller of the current NetEndPoint.
+    //Gets the receiver controller of the current NetEndPoint.
     final var receiverController = getStoredReceiverController();
 
-    // Enumerates the header of the given message.
+    //Enumerates the header of the given message.
     switch (message.getHeader()) {
       case NetEndPointProtocol.COMMANDS_HEADER:
 

@@ -8,18 +8,18 @@ import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
 //interface
 public interface IColumnInfo {
 
-  // method declaration
+  //method declaration
   DataType getColumnDataType();
 
-  // method declaration
+  //method declaration
   String getColumnId();
 
-  // method declaration
+  //method declaration
   String getColumnName();
 
-  // method declaration
+  //method declaration
   PropertyType getColumnPropertyType();
 
-  // method declaration
+  //method declaration
   int getColumnIndexOnEntityNode();
 }

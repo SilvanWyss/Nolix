@@ -4,12 +4,12 @@ package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 //interface
 public interface IColumnDto {
 
-  // method declaration
+  //method declaration
   String getId();
 
-  // method declaration
+  //method declaration
   String getName();
 
-  // method declaration
+  //method declaration
   IParameterizedPropertyTypeDto getParameterizedPropertyType();
 }

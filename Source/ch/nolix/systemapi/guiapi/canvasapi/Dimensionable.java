@@ -7,63 +7,63 @@ import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 //interface
 public interface Dimensionable<D extends Dimensionable<D>> {
 
-  // method declaration
+  //method declaration
   IAbsoluteOrRelativeInt getMaxHeight();
 
-  // method declaration
+  //method declaration
   IAbsoluteOrRelativeInt getMaxWidth();
 
-  // method declaration
+  //method declaration
   IAbsoluteOrRelativeInt getMinHeight();
 
-  // method declaration
+  //method declaration
   IAbsoluteOrRelativeInt getMinWidth();
 
-  // method declaration
+  //method declaration
   boolean hasMaxHeight();
 
-  // method declaration
+  //method declaration
   boolean hasMaxWidth();
 
-  // method declaration
+  //method declaration
   boolean hasMinHeight();
 
-  // method declaration
+  //method declaration
   boolean hasMinWidth();
 
-  // method declaration
+  //method declaration
   void removeMaxHeight();
 
-  // method declaration
+  //method declaration
   void removeMaxWidth();
 
-  // method declaration
+  //method declaration
   void removeMinHeight();
 
-  // method declaration
+  //method declaration
   void removeMinWidth();
 
-  // method declaration
+  //method declaration
   D setMaxHeight(int maxHeight);
 
-  // method declaration
+  //method declaration
   D setMaxHeightInPercentOfViewAreaHeight(double maxHeightInPercentOfViewAreaHeight);
 
-  // method declaration
+  //method declaration
   D setMaxWidth(int maxWidth);
 
-  // method declaration
+  //method declaration
   D setMaxWidthInPercentOfViewAreaWidth(double maxWidthInPercentOfViewAreaWidth);
 
-  // method declaration
+  //method declaration
   D setMinHeight(int minHeight);
 
-  // method declaration
+  //method declaration
   D setMinHeightInPercentOfViewAreaHeight(double minHeightInPercentOfViewAreaHeight);
 
-  // method declaration
+  //method declaration
   D setMinWidth(int minWidth);
 
-  // method declaration
+  //method declaration
   D setMinWidthInPercentOfViewAreaWidth(double minWidthInPercentOfViewAreaWidth);
 }

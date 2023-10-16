@@ -19,7 +19,7 @@ import ch.nolix.templatetest.TemplateTestPool;
  */
 public final class NolixTestPool extends TestPool {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link NolixTestPool}.
    */

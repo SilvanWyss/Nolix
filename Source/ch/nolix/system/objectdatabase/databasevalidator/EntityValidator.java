@@ -17,10 +17,10 @@ import ch.nolix.systemapi.objectdatabaseapi.databasevalidatorapi.IEntityValidato
 //class
 public final class EntityValidator implements IEntityValidator {
 
-  // constant
+  //constant
   private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 
-  // method
+  //method
   @Override
   public void assertBelongsToTable(final IEntity entity) {
     if (!entity.belongsToTable()) {
@@ -28,7 +28,7 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public void assertCanBeDeleted(final IEntity entity) {
     if (!ENTITY_HELPER.canBeDeleted(entity)) {
@@ -36,7 +36,7 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public void assertDoesNotBelongToTable(final IEntity entity) {
     if (entity.belongsToTable()) {
@@ -44,7 +44,7 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public void assertHasSaveStamp(final IEntity entity) {
     if (!entity.hasSaveStamp()) {
@@ -52,7 +52,7 @@ public final class EntityValidator implements IEntityValidator {
     }
   }
 
-  // method
+  //method
   @Override
   public void assertIsNotReferenced(final IEntity entity) {
     if (ENTITY_HELPER.isReferenced(entity)) {

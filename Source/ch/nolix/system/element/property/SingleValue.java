@@ -22,13 +22,13 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 abstract class SingleValue<V> extends BaseValue<V> {
 
-  // attribute
+  //attribute
   private final Consumer<V> setterMethod;
 
-  // optional attribute
+  //optional attribute
   private V value;
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link SingleValue} with the given name, setterMethod,
    * valueCreator and specificationCreator.
@@ -49,17 +49,17 @@ abstract class SingleValue<V> extends BaseValue<V> {
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(name, valueCreator, specificationCreator);
 
-    // Asserts that the given setterMethod is not null.
+    //Asserts that the given setterMethod is not null.
     GlobalValidator.assertThat(setterMethod).thatIsNamed("setter method").isNotNull();
 
-    // Sets the setterMethod of the current SingleProperty.
+    //Sets the setterMethod of the current SingleProperty.
     this.setterMethod = setterMethod;
   }
 
-  // method
+  //method
   /**
    * @return a new specification of the current {@link SingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -70,7 +70,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
     return Node.withHeaderAndChildNodes(getName(), specificationCreator.apply(getValue()).getStoredChildNodes());
   }
 
-  // method
+  //method
   /**
    * @return the value of the current {@link SingleValue}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
@@ -79,7 +79,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
    */
   public final V getValue() {
 
-    // Asserts that the current SingleProperty has a value.
+    //Asserts that the current SingleProperty has a value.
     if (value == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentNameAndArgumentAndAttributeName(
           getName(),
@@ -90,7 +90,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
     return value;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -99,7 +99,7 @@ abstract class SingleValue<V> extends BaseValue<V> {
     return (value == null);
   }
 
-  // method
+  //method
   /**
    * Sets the value of the current {@link SingleValue}.
    * 
@@ -110,43 +110,43 @@ abstract class SingleValue<V> extends BaseValue<V> {
    */
   public final void setValue(final V value) {
 
-    // Asserts that the given value is not null.
+    //Asserts that the given value is not null.
     GlobalValidator.assertThat(value).thatIsNamed(LowerCaseCatalogue.VALUE).isNotNull();
 
-    // Asserts that the current SingleProperty is mutable or does not have already a
-    // value.
+    //Asserts that the current SingleProperty is mutable or does not have already a
+    //value.
     if (!isMutable() && containsAny()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not mutable and has already a value");
     }
 
-    // Sets the value of the current SingleProperty.
+    //Sets the value of the current SingleProperty.
     this.value = value;
   }
 
-  // method
+  //method
   @Override
   protected final void addOrChangeValue(final V value) {
     setterMethod.accept(value);
   }
 
-  // method
-  // For a better performance, this implementation does not use all comfortable
-  // methods.
+  //method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
   /**
    * {@inheritDoc}
    */
   @Override
   public final void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
 
-    // Handles the case that the current SingleValue has a value.
+    //Handles the case that the current SingleValue has a value.
     if (containsAny()) {
 
-      // Adds the specification of the current SingleValue to the given list.
+      //Adds the specification of the current SingleValue to the given list.
       list.addAtEnd(getSpecification());
     }
   }
 
-  // method
+  //method
   /**
    * Removes the value of the current {@link SingleValue}.
    */

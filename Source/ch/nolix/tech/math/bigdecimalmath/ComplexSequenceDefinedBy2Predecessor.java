@@ -14,16 +14,16 @@ public final class ComplexSequenceDefinedBy2Predecessor
     extends Sequence<IComplexNumber>
     implements ISequenceDefinedBy2Predecessor<IComplexNumber> {
 
-  // attribute
+  //attribute
   private final IComplexNumber firstValue;
 
-  // attribute
+  //attribute
   private final IComplexNumber secondValue;
 
-  // attribute
+  //attribute
   private final BiFunction<IComplexNumber, IComplexNumber, IComplexNumber> nextValueFunction;
 
-  // constructor
+  //constructor
   public ComplexSequenceDefinedBy2Predecessor(
       final IComplexNumber firstValue,
       final IComplexNumber secondValue,
@@ -38,25 +38,25 @@ public final class ComplexSequenceDefinedBy2Predecessor
     this.nextValueFunction = nextValueFunction;
   }
 
-  // method
+  //method
   @Override
   public IComplexNumber getFirstValue() {
     return firstValue;
   }
 
-  // method
+  //method
   @Override
   public IComplexNumber getSecondValue() {
     return secondValue;
   }
 
-  // method
+  //method
   @Override
   protected BigDecimal calculateSquaredMagnitudeForValue(final IComplexNumber value) {
     return value.getSquaredMagnitude();
   }
 
-  // method
+  //method
   @Override
   protected IComplexNumber calculateValue(final int index) {
 

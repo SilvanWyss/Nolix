@@ -7,7 +7,7 @@ import ch.nolix.core.testing.basetest.TestPool;
 //class
 public final class NameTestPool extends TestPool {
 
-  // constructor
+  //constructor
   public NameTestPool() {
     super(
         LowerCaseCatalogueTest.class,

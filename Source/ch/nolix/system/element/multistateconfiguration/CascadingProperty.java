@@ -13,7 +13,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 
-  // static method
+  //static method
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
       final String name,
       final Class<S2> stateClass,
@@ -26,7 +26,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
         defaultValue);
   }
 
-  // static method
+  //static method
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
       forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
           final String name,
@@ -42,13 +42,13 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
         defaultValue);
   }
 
-  // attribute
+  //attribute
   private final V defaultValue;
 
-  // optional attribute
+  //optional attribute
   private CascadingProperty<S, V> parentProperty;
 
-  // constructor
+  //constructor
   public CascadingProperty(
       final String name,
       final Class<S> stateClass,
@@ -63,7 +63,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     this.defaultValue = defaultValue;
   }
 
-  // constructor
+  //constructor
   public CascadingProperty(
       final String name,
       final Class<S> stateClass,
@@ -79,7 +79,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     this.defaultValue = defaultValue;
   }
 
-  // method
+  //method
   @Override
   protected V getValueWhenHasState(final State<S> state) {
 
@@ -100,7 +100,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     return defaultValue;
   }
 
-  // method
+  //method
   @Override
   protected boolean hasValueWhenHasState(final State<S> state) {
 
@@ -117,7 +117,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     return hasParentProperty() && parentProperty.hasValueWhenHasState(state);
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   void setParentProperty(final CascadingProperty<S, ?> parentProperty) {
 
@@ -126,7 +126,7 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     this.parentProperty = (CascadingProperty<S, V>) parentProperty;
   }
 
-  // method
+  //method
   private boolean hasParentProperty() {
     return (parentProperty != null);
   }

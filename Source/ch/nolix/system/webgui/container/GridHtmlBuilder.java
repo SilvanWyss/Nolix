@@ -13,7 +13,7 @@ import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlHtmlBuilder;
 //class
 public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
 
-  // method
+  //method
   @Override
   public IHtmlElement createHtmlElementForControl(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
@@ -21,21 +21,21 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
         createHtmlElementForTableOfGrid(control));
   }
 
-  // method
+  //method
   public HtmlElement createHtmlElementForTableOfGrid(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
         HtmlElementTypeCatalogue.TABLE,
         createHtmlElementForTableBodyOfGrid(control));
   }
 
-  // method
+  //method
   private HtmlElement createHtmlElementForTableBodyOfGrid(final IGrid grid) {
     return HtmlElement.withTypeAndChildElements(
         HtmlElementTypeCatalogue.TBODY,
         createHtmlElementsForChildControlsOfGrid(grid));
   }
 
-  // method
+  //method
   private IContainer<HtmlElement> createHtmlElementsForChildControlsOfGrid(
       final IGrid grid) {
 
@@ -48,14 +48,14 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
     return htmlElements;
   }
 
-  // method
+  //method
   private HtmlElement createHtmlElementForRowOfGrid(final IGrid grid, final int rowIndex) {
     return HtmlElement.withTypeAndChildElements(
         HtmlElementTypeCatalogue.TR,
         createHtmlElementsForCellsOfRowOfGrid(grid, rowIndex));
   }
 
-  // method
+  //method
   private IContainer<HtmlElement> createHtmlElementsForCellsOfRowOfGrid(final IGrid grid, final int rowIndex) {
 
     final var htmlElements = new LinkedList<HtmlElement>();
@@ -67,7 +67,7 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
     return htmlElements;
   }
 
-  // method
+  //method
   private HtmlElement createHtmlElementForCellOfGrid(final IGrid grid, final int rowIndex, final int columnIndex) {
 
     if (!grid.containsControlAt1BasedRowAndColumnIndex(rowIndex, columnIndex)) {

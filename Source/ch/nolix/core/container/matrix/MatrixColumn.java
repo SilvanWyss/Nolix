@@ -17,13 +17,13 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 //class
 public final class MatrixColumn<E> extends Container<E> {
 
-  // attribute
+  //attribute
   private final Matrix<E> parentMatrix;
 
-  // attribute
+  //attribute
   private final int columnIndex;
 
-  // constructor
+  //constructor
   MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
 
     GlobalValidator
@@ -40,54 +40,54 @@ public final class MatrixColumn<E> extends Container<E> {
     this.columnIndex = columnIndex;
   }
 
-  // method
+  //method
   @Override
   public int getElementCount() {
     return parentMatrix.getRowCount();
   }
 
-  // method
+  //method
   public int getColumnIndex() {
     return columnIndex;
   }
 
-  // method
+  //method
   @Override
   public E getStoredAt1BasedIndex(final int rowIndex) {
     return parentMatrix.getStoredAt1BasedRowIndexAndColumnIndex(rowIndex, getColumnIndex());
   }
 
-  // method
+  //method
   @Override
   public E getStoredLast() {
     return parentMatrix.getStoredAt1BasedRowIndexAndColumnIndex(parentMatrix.getRowCount(), getColumnIndex());
   }
 
-  // method
+  //method
   @Override
   public boolean isMaterialized() {
     return false;
   }
 
-  // method
+  //method
   @Override
   public CopyableIterator<E> iterator() {
     return MatrixColumnIterator.forMatrixColumn(this);
   }
 
-  // method
+  //method
   @Override
   public <C extends Comparable<C>> IContainer<E> toOrderedList(final Function<E, C> norm) {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   @Override
   public String toString() {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return new LinkedList<>();

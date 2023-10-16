@@ -4,10 +4,10 @@ package ch.nolix.core.sql;
 //class
 public final class SqlSyntaxCatalogue {
 
-  // constant
+  //constant
   public static final String NULL = "NULL";
 
-  // constructor
+  //constructor
   private SqlSyntaxCatalogue() {
   }
 }

@@ -10,7 +10,7 @@ public final class SingleContainerStyle
     extends ControlStyle<ISingleContainerStyle>
     implements ISingleContainerStyle {
 
-  // constructor
+  //constructor
   public SingleContainerStyle() {
     initialize();
   }

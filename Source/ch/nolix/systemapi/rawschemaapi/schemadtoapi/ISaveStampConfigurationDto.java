@@ -4,9 +4,9 @@ package ch.nolix.systemapi.rawschemaapi.schemadtoapi;
 //interface
 public interface ISaveStampConfigurationDto {
 
-  // method declaration
+  //method declaration
   String getBaseTableName();
 
-  // method declaration
+  //method declaration
   SaveStampStrategy getSaveStampStrategy();
 }

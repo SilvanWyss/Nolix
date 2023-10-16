@@ -17,7 +17,7 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     extends MutableElement
     implements IStylableElement<SE> {
 
-  // method
+  //method
   @Override
   public final void resetStyleRecursively() {
 
@@ -26,25 +26,25 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
   }
 
-  // method declaration
+  //method declaration
   protected abstract void resetStylableElement();
 
-  // method declaration
+  //method declaration
   protected abstract void resetStyle();
 
-  // constant
+  //constant
   private static final String ID_HEADER = PascalCaseCatalogue.ID;
 
-  // constant
+  //constant
   private static final String TOKEN_HEADER = PascalCaseCatalogue.TOKEN;
 
-  // attribute
+  //attribute
   private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
 
-  // attribute
+  //attribute
   private final MultiValue<String> tokens = MultiValue.forStrings(TOKEN_HEADER, this::addToken);
 
-  // method
+  //method
   @Override
   public final SE addToken(final String token) {
 
@@ -55,37 +55,37 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final String getId() {
     return id.getValue();
   }
 
-  // method
+  //method
   @Override
   public final String getIdInQuotes() {
     return GlobalStringHelper.getInQuotes(getId());
   }
 
-  // method
+  //method
   @Override
   public final IContainer<String> getTokens() {
     return tokens.getStoredValues();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasId() {
     return id.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final boolean hasId(final String id) {
     return (hasId() && getId().equals(id));
   }
 
-  // method
+  //method
   @Override
   public SE removeId() {
 
@@ -94,7 +94,7 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final SE removeToken(final String token) {
 
@@ -103,7 +103,7 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final SE removeTokens() {
 
@@ -112,7 +112,7 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     return asConcrete();
   }
 
-  // method
+  //method
   @Override
   public final void reset() {
 
@@ -124,7 +124,7 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     resetStylableElement();
   }
 
-  // method
+  //method
   @Override
   public final SE setId(final String id) {
 
@@ -135,7 +135,7 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     return asConcrete();
   }
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   protected final SE asConcrete() {
     return (SE) this;

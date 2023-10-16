@@ -12,18 +12,18 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 public interface IColumn
     extends Deletable, EmptinessRequestable, IDatabaseObject, Identified, FluentNameable<IColumn> {
 
-  // method declaration
+  //method declaration
   boolean belongsToTable();
 
-  // method declaration
+  //method declaration
   IParameterizedPropertyType getParameterizedPropertyType();
 
-  // method declaration
+  //method declaration
   ITable getParentTable();
 
-  // method declaration
+  //method declaration
   IColumn setParameterizedPropertyType(IParameterizedPropertyType parameterizedPropertyType);
 
-  // method declaration
+  //method declaration
   IColumnDto toDto();
 }

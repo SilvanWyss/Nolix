@@ -24,10 +24,10 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class IterableReadContainer<E> extends Container<E> {
 
-  // attribute
+  //attribute
   private final Iterable<E> container;
 
-  // static method
+  //static method
   /**
    * @param iterable
    * @param <E2>     is the type of the elements of the given iterable.
@@ -38,17 +38,17 @@ public final class IterableReadContainer<E> extends Container<E> {
     return new IterableReadContainer<>(iterable);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link IterableReadContainer} for a new empty container.
    */
   public IterableReadContainer() {
 
-    // Calls other constructor.
+    //Calls other constructor.
     this(new LinkedList<E>());
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link IterableReadContainer} for the given container.
    * 
@@ -59,17 +59,17 @@ public final class IterableReadContainer<E> extends Container<E> {
   @SuppressWarnings("unchecked")
   private <E2 extends E> IterableReadContainer(final Iterable<E2> container) {
 
-    // Asserts that the given container is not null.
+    //Asserts that the given container is not null.
     GlobalValidator
         .assertThat(container)
         .thatIsNamed(LowerCaseCatalogue.CONTAINER)
         .isNotNull();
 
-    // Sets the container of the current IterableReadContainer.
+    //Sets the container of the current IterableReadContainer.
     this.container = (Iterable<E>) container;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -78,7 +78,7 @@ public final class IterableReadContainer<E> extends Container<E> {
 
     var size = 0;
 
-    // Iterates the current IterableReadContainer.
+    //Iterates the current IterableReadContainer.
     final var iterator = container.iterator();
     while (iterator.hasNext()) {
       size++;
@@ -88,18 +88,18 @@ public final class IterableReadContainer<E> extends Container<E> {
     return size;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
   @Override
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
-    // Iterates the current IterableReadContainer.
+    //Iterates the current IterableReadContainer.
     var i = 1;
     for (final var e : this) {
 
-      // Asserts that the current index is the given index.
+      //Asserts that the current index is the given index.
       if (i == p1BasedIndex) {
         return e;
       }
@@ -114,7 +114,7 @@ public final class IterableReadContainer<E> extends Container<E> {
         getElementCount());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -123,7 +123,7 @@ public final class IterableReadContainer<E> extends Container<E> {
     return getStoredAt1BasedIndex(getElementCount());
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -132,7 +132,7 @@ public final class IterableReadContainer<E> extends Container<E> {
     return false;
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -141,7 +141,7 @@ public final class IterableReadContainer<E> extends Container<E> {
     return IterableReadContainerIterator.forIterable(container);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */
@@ -150,7 +150,7 @@ public final class IterableReadContainer<E> extends Container<E> {
     return LinkedList.fromIterable(this).toOrderedList(norm);
   }
 
-  // method
+  //method
   /**
    * The complexity of this implementation is O(n). if the current
    * {@link IterableReadContainer} contains n elements.
@@ -163,7 +163,7 @@ public final class IterableReadContainer<E> extends Container<E> {
     return toStringWithSeparator(CharacterCatalogue.COMMA);
   }
 
-  // method
+  //method
   /**
    * {@inheritDoc}
    */

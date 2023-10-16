@@ -7,18 +7,18 @@ import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
     extends BaseExtensionElement<E> {
 
-  // constructor
+  //constructor
   public ExchangableExtensionElement(final E internalExtensionElement) {
     super(internalExtensionElement);
   }
 
-  // method
+  //method
   @Override
   public boolean isExchangable() {
     return true;
   }
 
-  // method
+  //method
   public void setExtensionElement(final E internalExtensionElement) {
     internalSetExtensionElement(internalExtensionElement);
   }

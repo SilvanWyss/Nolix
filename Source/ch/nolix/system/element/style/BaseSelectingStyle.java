@@ -16,31 +16,31 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 //class
 public abstract class BaseSelectingStyle extends BaseStyle implements ISelectingStyle {
 
-  // constant
+  //constant
   protected static final String SELECTOR_ID_HEADER = "SelectorId";
 
-  // constant
+  //constant
   protected static final String SELECTOR_TYPE_HEADER = "SelectorType";
 
-  // constant
+  //constant
   protected static final String SELECTOR_ROLE_HEADER = "SelectorRole";
 
-  // constant
+  //constant
   protected static final String SELECTOR_TOKEN_HEADER = "SelectorToken";
 
-  // optional attribute
+  //optional attribute
   private final String selectorId;
 
-  // optional attribute
+  //optional attribute
   private final String selectorType;
 
-  // multi-attribute
+  //multi-attribute
   private final ImmutableList<String> selectorRoles;
 
-  // multi-attribute
+  //multi-attribute
   private final ImmutableList<String> selectorTokens;
 
-  // constructor
+  //constructor
   protected BaseSelectingStyle(
       final ISingleContainer<String> selectorIdContainer,
       final ISingleContainer<String> selectorTypeContainer,
@@ -76,27 +76,27 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     this.selectorTokens = ImmutableList.forIterable(selectorTokens);
   }
 
-  // method
+  //method
   public final boolean containsSelectorRole(final String selectorRole) {
     return selectorRoles.containsEqualing(selectorRole);
   }
 
-  // method
+  //method
   public final boolean containsSelectorRoles() {
     return selectorRoles.containsAny();
   }
 
-  // method
+  //method
   public final boolean containsSelectorToken(final String selectorToken) {
     return selectorTokens.containsEqualing(selectorToken);
   }
 
-  // method
+  //method
   public final boolean containsSelectorTokens() {
     return selectorTokens.containsAny();
   }
 
-  // method
+  //method
   @Override
   public final IContainer<INode<?>> getAttributes() {
 
@@ -121,7 +121,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     return attributes;
   }
 
-  // method
+  //method
   public final String getSelectorId() {
 
     assertHasSelectorId();
@@ -129,17 +129,17 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     return selectorId;
   }
 
-  // method
+  //method
   public IContainer<String> getSelectorRoles() {
     return selectorRoles;
   }
 
-  // method
+  //method
   public IContainer<String> getSelectorTokens() {
     return selectorTokens;
   }
 
-  // method
+  //method
   public final String getSelectorType() {
 
     assertHasSelectorType();
@@ -147,12 +147,12 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     return selectorType;
   }
 
-  // method
+  //method
   public final boolean hasSelectorId() {
     return (selectorId != null);
   }
 
-  // method
+  //method
   public final boolean hasSelectorId(final String selectorId) {
 
     if (!hasSelectorId()) {
@@ -162,12 +162,12 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     return getSelectorId().equals(selectorId);
   }
 
-  // method
+  //method
   public final boolean hasSelectorType() {
     return (selectorType != null);
   }
 
-  // method
+  //method
   public final boolean hasSelectorType(final String selectorType) {
 
     if (!hasSelectorType()) {
@@ -177,7 +177,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     return getSelectorType().equals(selectorType);
   }
 
-  // method
+  //method
   @Override
   public final boolean selectsElement(IStylableElement<?> element) {
     return selectorIdAllowsToSelectElement(element)
@@ -186,36 +186,36 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
         && selectorTokensAllowToSelectElement(element);
   }
 
-  // method
+  //method
   private void assertHasSelectorId() {
     if (!hasSelectorId()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector id");
     }
   }
 
-  // method
+  //method
   private void assertHasSelectorType() {
     if (!hasSelectorType()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, "selector type");
     }
   }
 
-  // method
+  //method
   private boolean selectorIdAllowsToSelectElement(final IStylableElement<?> element) {
     return !hasSelectorId() || element.hasId(getSelectorId());
   }
 
-  // method
+  //method
   private boolean selectorRolesAllowToSelectElement(IStylableElement<?> element) {
     return !containsSelectorRoles() || getSelectorRoles().containsAny(element::hasRole);
   }
 
-  // method
+  //method
   private boolean selectorTokensAllowToSelectElement(final IStylableElement<?> element) {
     return !containsSelectorTokens() || getSelectorTokens().containsAnyOf(element.getTokens());
   }
 
-  // method
+  //method
   private boolean selectorTypeAllowsToSelectElement(final IStylableElement<?> element) {
     return !hasSelectorType() || element.isOfType(getSelectorType());
   }

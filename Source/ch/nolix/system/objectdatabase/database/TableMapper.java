@@ -10,10 +10,10 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 //class
 final class TableMapper {
 
-  // constant
+  //constant
   private static final ColumnMapper COLUMN_MAPPER = new ColumnMapper();
 
-  // method
+  //method
   @SuppressWarnings("unchecked")
   public Table<IEntity> createEmptyTableFromTableDtoForDatabase(
       final ITableDto tableDto,
@@ -25,7 +25,7 @@ final class TableMapper {
         (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.getName()));
   }
 
-  // method
+  //method
   public ITable<IEntity> createTableFromTableDtoForDatabaseUsingGivenReferencableTables(
       final ITableDto tableDto,
       final Database database,

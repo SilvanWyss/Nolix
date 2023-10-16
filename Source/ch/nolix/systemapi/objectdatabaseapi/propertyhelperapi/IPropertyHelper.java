@@ -8,24 +8,24 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 //interface
 public interface IPropertyHelper extends IDatabaseObjectHelper {
 
-  // method
+  //method
   boolean belongsToEntity(IProperty property);
 
-  // method declaration
+  //method declaration
   boolean belongsToLoadedEntity(IProperty property);
 
-  // method declaration
+  //method declaration
   Class<?> getDataType(IProperty property);
 
-  // method declaration
+  //method declaration
   boolean isForMultiContent(IProperty property);
 
-  // method declaration
+  //method declaration
   boolean isForSingleContent(IProperty property);
 
-  // method declaration
+  //method declaration
   boolean isMandatoryAndEmptyBoth(IProperty property);
 
-  // method declaration
+  //method declaration
   boolean isSetForCaseIsNewOrEditedAndMandatory(IProperty property);
 }

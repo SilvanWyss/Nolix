@@ -24,7 +24,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public class StringMediator extends ArgumentMediator<String> {
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link StringMediator} for the given argument.
    * 
@@ -32,11 +32,11 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public StringMediator(final String argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argument);
   }
 
-  // constructor
+  //constructor
   /**
    * Creates a new {@link StringMediator} for the given argument with the given
    * argument name.
@@ -48,11 +48,11 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   StringMediator(final String argumentName, final String argument) {
 
-    // Calls constructor of the base class.
+    //Calls constructor of the base class.
     super(argumentName, argument);
   }
 
-  // method
+  //method
   /**
    * @param length
    * @throws NegativeArgumentException if the given length is negative.
@@ -64,16 +64,16 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void hasLength(final int length) {
 
-    // Asserts that the given length is not negative.
+    //Asserts that the given length is not negative.
     if (length < 0) {
       throw NegativeArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LENGTH, length);
     }
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator does not have the
-    // given length.
+    //Asserts that the argument of the current StringMediator does not have the
+    //given length.
     if (getStoredArgument().length() != length) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -82,7 +82,7 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException  if the argument of the current
    *                                  {@link StringMediator} is null.
@@ -91,10 +91,10 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void isBlank() {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator is blank.
+    //Asserts that the argument of the current StringMediator is blank.
     if (!getStoredArgument().isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -103,7 +103,7 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException   if the argument of the current
    *                                   {@link StringMediator} is null.
@@ -112,16 +112,16 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void isEmpty() {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator is not empty.
+    //Asserts that the argument of the current StringMediator is not empty.
     if (!getStoredArgument().isEmpty()) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException if the argument of the current
    *                                 {@link StringMediator} is null.
@@ -130,16 +130,16 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void isNotEmpty() {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator is not empty.
+    //Asserts that the argument of the current StringMediator is not empty.
     if (getStoredArgument().isEmpty()) {
       throw EmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
 
-  // method
+  //method
   /**
    * @throws ArgumentIsNullException  if the argument of the current
    *                                  {@link StringMediator} is null.
@@ -148,10 +148,10 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void isNotBlank() {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the the argument of the current StringMediator is not blank.
+    //Asserts that the the argument of the current StringMediator is not blank.
     if (getStoredArgument().isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -160,7 +160,7 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  // method
+  //method
   /**
    * @param maxLength
    * @throws ArgumentIsNullException  if the argument of the current
@@ -171,11 +171,11 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void isNotLongerThan(final int maxLength) {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator is not longer than
-    // the given max length says.
+    //Asserts that the argument of the current StringMediator is not longer than
+    //the given max length says.
     if (getStoredArgument().length() > maxLength) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -184,7 +184,7 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  // method
+  //method
   /**
    * @param minLength
    * @throws ArgumentIsNullException  if the argument of the current
@@ -195,11 +195,11 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void isNotShorterThan(final int minLength) {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator is not shorter than
-    // the given min length says.
+    //Asserts that the argument of the current StringMediator is not shorter than
+    //the given min length says.
     if (getStoredArgument().length() < minLength) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           getArgumentName(),
@@ -216,17 +216,17 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void matches(final String regularExpression) {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
-    // Asserts that the argument of the current StringMediator matches the given
-    // regularExpression.
+    //Asserts that the argument of the current StringMediator matches the given
+    //regularExpression.
     if (!getStoredArgument().matches(regularExpression)) {
       throw InvalidArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
 
-  // method
+  //method
   /**
    * @param directory
    * @throws ArgumentIsNullException  if the argument of the current
@@ -237,7 +237,7 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void specifiesProbableDirectoryOnLocalMachine(final String directory) {
 
-    // Asserts that the argument of the current StringMediator is not null.
+    //Asserts that the argument of the current StringMediator is not null.
     isNotNull();
 
     var specifiesProbableDirectoryOnLocalMachine = true;
@@ -261,7 +261,7 @@ public class StringMediator extends ArgumentMediator<String> {
     }
   }
 
-  // method
+  //method
   /**
    * @param sequence
    * @throws ArgumentIsNullException  if the given sequence is null.
@@ -273,7 +273,7 @@ public class StringMediator extends ArgumentMediator<String> {
    */
   public void startsWith(final String sequence) {
 
-    // Asserts that the given sequence is not null.
+    //Asserts that the given sequence is not null.
     if (sequence == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SEQUENCE);
     }
