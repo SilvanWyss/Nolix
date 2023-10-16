@@ -200,7 +200,7 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   //method
   @Override
-  public IFlatTableDto loadFlatTableById(String id) {
+  public final IFlatTableDto loadFlatTableById(String id) {
     return schemaReader.loadFlatTableById(id);
   }
 
