@@ -19,7 +19,8 @@ public final class SecureServer extends BaseServer<SecureServer> {
   private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.SECURE;
 
   //constant
-  private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = new NolixConfigurationSSLCertificateReader();
+  private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
+      new NolixConfigurationSSLCertificateReader();
 
   //static method
   public static SecureServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {

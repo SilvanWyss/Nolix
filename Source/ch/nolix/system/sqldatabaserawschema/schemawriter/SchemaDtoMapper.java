@@ -15,13 +15,14 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 final class SchemaDtoMapper {
 
   //constant
-  private static final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto SQL_ID_COLUMN_DTO = //
+  private static final //
+  ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto SQL_ID_COLUMN_DTO = //
       new ColumnDto(PascalCaseCatalogue.ID, SqlDatatypeCatalogue.TEXT);
 
   //constant
-  private static final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
-      new ColumnDto(
-          PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
+  private static final //
+  ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto SQL_SAVE_STAMP_COLUMN_DTO = //
+      new ColumnDto(PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 
   //method
   public ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto createQslColumnDtoFrom(
