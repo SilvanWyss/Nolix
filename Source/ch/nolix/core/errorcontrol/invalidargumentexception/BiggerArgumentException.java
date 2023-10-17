@@ -13,40 +13,6 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class BiggerArgumentException extends InvalidArgumentException {
 
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @param max
-   * @return a new {@link BiggerArgumentException} for the given argumentName,
-   *         argument and max.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static BiggerArgumentException forArgumentNameAndArgumentAndMax(
-      final String argumentName,
-      final double argument,
-      final double max) {
-    return new BiggerArgumentException(argumentName, argument, max);
-  }
-
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @param max
-   * @return a new {@link BiggerArgumentException} for the given argumentName,
-   *         argument and max.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static BiggerArgumentException forArgumentNameAndArgumentAndMax(
-      final String argumentName,
-      final long argument,
-      final long max) {
-    return new BiggerArgumentException(argumentName, argument, max);
-  }
-
   //constructor
   /**
    * Creates a new {@link BiggerArgumentException} for the given argumentName,
@@ -79,5 +45,39 @@ public final class BiggerArgumentException extends InvalidArgumentException {
 
     //Calls constructor of the base class.
     super(argumentName, argument, "is bigger than " + max);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @param max
+   * @return a new {@link BiggerArgumentException} for the given argumentName,
+   *         argument and max.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static BiggerArgumentException forArgumentNameAndArgumentAndMax(
+      final String argumentName,
+      final double argument,
+      final double max) {
+    return new BiggerArgumentException(argumentName, argument, max);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @param max
+   * @return a new {@link BiggerArgumentException} for the given argumentName,
+   *         argument and max.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static BiggerArgumentException forArgumentNameAndArgumentAndMax(
+      final String argumentName,
+      final long argument,
+      final long max) {
+    return new BiggerArgumentException(argumentName, argument, max);
   }
 }

@@ -51,58 +51,6 @@ public final class Background extends Element implements IBackground {
   //constant
   private static final String TRANSPARENCY_HEADER = "Transparency";
 
-  //static method
-  public static Background fromSpecification(final INode<?> specification) {
-
-    final var childNode = specification.getStoredFirstChildNode();
-
-    return switch (childNode.getHeader()) {
-      case COLOR_HEADER ->
-        withColor(Color.fromSpecification(childNode));
-      case COLOR_GRADIENT_HEADER ->
-        withColorGradient(ColorGradient.fromSpecification(childNode));
-      case IMAGE_HEADER ->
-        withImageAndImageApplication(
-            Image.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(1)),
-            ImageApplication.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(2)));
-      case TRANSPARENCY_HEADER ->
-        TRANSPARENT_BACKGROUND;
-      default ->
-        throw createExceptionForSpecificationDoesNotSpecifyBackground(specification);
-    };
-  }
-
-  //static method
-  public static Background withColor(final IColor color) {
-    return new Background(color);
-  }
-
-  //static method
-  public static Background withColorGradient(final IColorGradient colorGradient) {
-    return new Background(colorGradient);
-  }
-
-  //static method
-  public static Background withImage(final IImage image) {
-    return withImageAndImageApplication(image, DEFAULT_IMAGE_APPLICATION);
-  }
-
-  //static method
-  public static Background withImageAndImageApplication(
-      final IImage image,
-      final ImageApplication imageApplication) {
-    return new Background(image, imageApplication);
-  }
-
-  //method
-  private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
-      final INode<?> specification) {
-    return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-        LowerCaseCatalogue.SPECIFICATION,
-        specification,
-        Background.class);
-  }
-
   //attribute
   private final IColor color;
 
@@ -155,6 +103,58 @@ public final class Background extends Element implements IBackground {
     colorGradient = null;
     this.image = image;
     this.imageApplication = imageApplication;
+  }
+
+  //static method
+  public static Background fromSpecification(final INode<?> specification) {
+
+    final var childNode = specification.getStoredFirstChildNode();
+
+    return switch (childNode.getHeader()) {
+      case COLOR_HEADER ->
+        withColor(Color.fromSpecification(childNode));
+      case COLOR_GRADIENT_HEADER ->
+        withColorGradient(ColorGradient.fromSpecification(childNode));
+      case IMAGE_HEADER ->
+        withImageAndImageApplication(
+            Image.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(1)),
+            ImageApplication.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(2)));
+      case TRANSPARENCY_HEADER ->
+        TRANSPARENT_BACKGROUND;
+      default ->
+        throw createExceptionForSpecificationDoesNotSpecifyBackground(specification);
+    };
+  }
+
+  //static method
+  public static Background withColor(final IColor color) {
+    return new Background(color);
+  }
+
+  //static method
+  public static Background withColorGradient(final IColorGradient colorGradient) {
+    return new Background(colorGradient);
+  }
+
+  //static method
+  public static Background withImage(final IImage image) {
+    return withImageAndImageApplication(image, DEFAULT_IMAGE_APPLICATION);
+  }
+
+  //static method
+  public static Background withImageAndImageApplication(
+      final IImage image,
+      final ImageApplication imageApplication) {
+    return new Background(image, imageApplication);
+  }
+
+  //method
+  private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
+      final INode<?> specification) {
+    return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
+        LowerCaseCatalogue.SPECIFICATION,
+        specification,
+        Background.class);
   }
 
   //method

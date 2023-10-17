@@ -18,12 +18,6 @@ final class BaseWebClientFileReader {
   //constant
   private static final int MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS = 60;
 
-  //static method
-  public static BaseWebClientFileReader forBackendWebClient(
-      final BaseWebClient<?, ?> backendWebClient) {
-    return new BaseWebClientFileReader(backendWebClient);
-  }
-
   //attribute
   private final BaseWebClient<?, ?> parentBackendWebClient;
 
@@ -39,6 +33,12 @@ final class BaseWebClientFileReader {
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
+  }
+
+  //static method
+  public static BaseWebClientFileReader forBackendWebClient(
+      final BaseWebClient<?, ?> backendWebClient) {
+    return new BaseWebClientFileReader(backendWebClient);
   }
 
   //method

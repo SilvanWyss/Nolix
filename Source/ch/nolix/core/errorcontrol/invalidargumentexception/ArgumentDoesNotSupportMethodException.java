@@ -13,6 +13,22 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotSupportMethodException extends InvalidArgumentException {
 
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
+   * argument and methodName.
+   * 
+   * @param argument
+   * @param methodName
+   * @throws IllegalArgumentException if the given methodName is null.
+   * @throws IllegalArgumentException if the given methodName is blank.
+   */
+  private ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
+
+    //Calls constructor of the base class.
+    super(argument, "does not support the " + getValidMethodNameOfMethodName(methodName) + " method");
+  }
+
   //static method
   /**
    * @param argument
@@ -48,21 +64,5 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
     }
 
     return methodName;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotSupportMethodException} for the given
-   * argument and methodName.
-   * 
-   * @param argument
-   * @param methodName
-   * @throws IllegalArgumentException if the given methodName is null.
-   * @throws IllegalArgumentException if the given methodName is blank.
-   */
-  private ArgumentDoesNotSupportMethodException(final Object argument, final String methodName) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not support the " + getValidMethodNameOfMethodName(methodName) + " method");
   }
 }

@@ -10,12 +10,6 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 //class
 final class BaseWebClientFrontendReader implements IFrontEndReader {
 
-  //static method
-  public static BaseWebClientFrontendReader forBackendWebClient(
-      final BaseWebClient<?, ?> backendWebClient) {
-    return new BaseWebClientFrontendReader(backendWebClient);
-  }
-
   //attribute
   private final BaseWebClient<?, ?> parentBackendWebClient;
 
@@ -25,6 +19,12 @@ final class BaseWebClientFrontendReader implements IFrontEndReader {
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
+  }
+
+  //static method
+  public static BaseWebClientFrontendReader forBackendWebClient(
+      final BaseWebClient<?, ?> backendWebClient) {
+    return new BaseWebClientFrontendReader(backendWebClient);
   }
 
   //method

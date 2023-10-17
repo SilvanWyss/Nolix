@@ -6,6 +6,9 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 public final class BrowserFrontEndTutorial {
 
+  private BrowserFrontEndTutorial() {
+  }
+
   @SuppressWarnings("resource")
   public static void main(String[] args) {
 
@@ -18,8 +21,5 @@ public final class BrowserFrontEndTutorial {
     //Closes the Server after 2 seconds.
     GlobalSequencer.waitForSeconds(2);
     server.close();
-  }
-
-  private BrowserFrontEndTutorial() {
   }
 }

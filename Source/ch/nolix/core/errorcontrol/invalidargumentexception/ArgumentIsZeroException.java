@@ -15,32 +15,6 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is 0";
 
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link ArgumentIsZeroException} for the given argumentName and
-   *         argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static ArgumentIsZeroException forAgumentNameAndArgument(final String argumentName, final double argument) {
-    return new ArgumentIsZeroException(argumentName, argument);
-  }
-
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link ArgumentIsZeroException} for the given argumentName and
-   *         argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static ArgumentIsZeroException forAgumentNameAndArgument(final String argumentName, final long argument) {
-    return new ArgumentIsZeroException(argumentName, argument);
-  }
-
   //constructor
   /**
    * Creates a new {@link ArgumentIsZeroException} for the given argumentName and
@@ -71,5 +45,31 @@ public final class ArgumentIsZeroException extends InvalidArgumentException {
 
     //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link ArgumentIsZeroException} for the given argumentName and
+   *         argument.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static ArgumentIsZeroException forAgumentNameAndArgument(final String argumentName, final double argument) {
+    return new ArgumentIsZeroException(argumentName, argument);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link ArgumentIsZeroException} for the given argumentName and
+   *         argument.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static ArgumentIsZeroException forAgumentNameAndArgument(final String argumentName, final long argument) {
+    return new ArgumentIsZeroException(argumentName, argument);
   }
 }

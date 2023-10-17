@@ -15,6 +15,33 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is null";
 
+  //constructor
+  /**
+   * Creates a new {@link ArgumentIsNullException} for the given argumentType.
+   * 
+   * @param argumentType
+   * @throws IllegalArgumentException if the given argumentType is null.
+   */
+  private ArgumentIsNullException(final Class<?> argumentType) {
+
+    //Calls constructor of the base class.
+    super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentIsNullException} for the given argumentName.
+   * 
+   * @param argumentName
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  private ArgumentIsNullException(final String argumentName) {
+
+    //Calls constructor of the base class.
+    super(argumentName, null, ERROR_PREDICATE);
+  }
+
   //static method
   /**
    * @param argumentName
@@ -50,32 +77,5 @@ public final class ArgumentIsNullException extends InvalidArgumentException {
     }
 
     return argumentType.getSimpleName();
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentIsNullException} for the given argumentType.
-   * 
-   * @param argumentType
-   * @throws IllegalArgumentException if the given argumentType is null.
-   */
-  private ArgumentIsNullException(final Class<?> argumentType) {
-
-    //Calls constructor of the base class.
-    super(getNameOfArgumentType(argumentType), null, ERROR_PREDICATE);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentIsNullException} for the given argumentName.
-   * 
-   * @param argumentName
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  private ArgumentIsNullException(final String argumentName) {
-
-    //Calls constructor of the base class.
-    super(argumentName, null, ERROR_PREDICATE);
   }
 }

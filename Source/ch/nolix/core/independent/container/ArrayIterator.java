@@ -8,11 +8,6 @@ import java.util.NoSuchElementException;
 //class
 public final class ArrayIterator<E> implements Iterator<E> {
 
-  //static method
-  public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
-    return new ArrayIterator<>(array);
-  }
-
   //attribute
   private final E[] parentArray;
 
@@ -28,6 +23,11 @@ public final class ArrayIterator<E> implements Iterator<E> {
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = 0;
+  }
+
+  //static method
+  public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
+    return new ArrayIterator<>(array);
   }
 
   //method

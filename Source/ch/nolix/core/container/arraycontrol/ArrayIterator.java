@@ -13,16 +13,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 public final class ArrayIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
-    return new ArrayIterator<>(array);
-  }
-
-  //static method
-  public static <E2> ArrayIterator<E2> forArrayAndStartIndex(final E2[] array, final int startIndex) {
-    return new ArrayIterator<>(array, startIndex);
-  }
-
   //attribute
   private final E[] parentArray;
 
@@ -46,6 +36,16 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
 
     this.parentArray = parrentArray; //NOSONAR: An ArrayIterator operates on the original instance.
     nextIndex = startIndex;
+  }
+
+  //static method
+  public static <E2> ArrayIterator<E2> forArray(final E2[] array) {
+    return new ArrayIterator<>(array);
+  }
+
+  //static method
+  public static <E2> ArrayIterator<E2> forArrayAndStartIndex(final E2[] array, final int startIndex) {
+    return new ArrayIterator<>(array, startIndex);
   }
 
   //method

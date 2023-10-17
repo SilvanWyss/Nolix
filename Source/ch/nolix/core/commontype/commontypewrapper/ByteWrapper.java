@@ -15,20 +15,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class ByteWrapper {
 
-  //static method
-  /**
-   * @param number
-   * @return a new {@link ByteWrapper} from the given number.
-   * @throws ArgumentIsOutOfRangeException if the given number is not in [0, 255].
-   */
-  public static ByteWrapper fromNumber(final int number) {
-
-    //Asserts that the given number is in [0, 255].
-    GlobalValidator.assertThat(number).thatIsNamed(LowerCaseCatalogue.NUMBER).isBetween(0, 255);
-
-    return new ByteWrapper((byte) (number - 128));
-  }
-
   //attribute
   /**
    * A {@link ByteWrapper} stores its value in an unsigned int because for any
@@ -69,6 +55,20 @@ public final class ByteWrapper {
       final int bit7,
       final int bit8) {
     mByte = 128 * bit1 + 64 * bit2 + 32 * bit3 + 16 * bit4 + 8 * bit5 + 4 * bit6 + 2 * bit7 + bit8;
+  }
+
+  //static method
+  /**
+   * @param number
+   * @return a new {@link ByteWrapper} from the given number.
+   * @throws ArgumentIsOutOfRangeException if the given number is not in [0, 255].
+   */
+  public static ByteWrapper fromNumber(final int number) {
+
+    //Asserts that the given number is in [0, 255].
+    GlobalValidator.assertThat(number).thatIsNamed(LowerCaseCatalogue.NUMBER).isBetween(0, 255);
+
+    return new ByteWrapper((byte) (number - 128));
   }
 
   //method

@@ -14,15 +14,6 @@ public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
   //attribute
   private final Class<?> initialSessionClass;
 
-  //static method
-  public static <BC2 extends BackendClient<BC2, AC2>, S extends Session<BC2, AC2>, AC2> BasicApplication<BC2, AC2> //
-      withNameAndInitialSessionClassAndContext(
-          final String applicationName,
-          final Class<S> initialSessionClass,
-          final AC2 applicationContext) {
-    return new BasicApplication<>(applicationName, initialSessionClass, applicationContext);
-  }
-
   //constructor
   private <S extends Session<BC, AC>> BasicApplication(
       final String applicationName,
@@ -36,6 +27,15 @@ public final class BasicApplication<BC extends BackendClient<BC, AC>, AC>
 
     this.applicationName = applicationName;
     this.initialSessionClass = initialSessionClass;
+  }
+
+  //static method
+  public static <BC2 extends BackendClient<BC2, AC2>, S extends Session<BC2, AC2>, AC2> BasicApplication<BC2, AC2> //
+      withNameAndInitialSessionClassAndContext(
+          final String applicationName,
+          final Class<S> initialSessionClass,
+          final AC2 applicationContext) {
+    return new BasicApplication<>(applicationName, initialSessionClass, applicationContext);
   }
 
   //method

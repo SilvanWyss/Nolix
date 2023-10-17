@@ -27,17 +27,6 @@ public final class ArrayReadContainer<E> extends Container<E> {
   //attribute
   private final E[] array;
 
-  //static method
-  /**
-   * @param array
-   * @param <E2>  is the type of the elements of the given array.
-   * @return a new {@link ArrayReadContainer} for the given array.
-   * @throws ArgumentIsNullException if the given array is null.
-   */
-  public static <E2> ArrayReadContainer<E2> forArray(final E2[] array) {
-    return new ArrayReadContainer<>(array);
-  }
-
   //constructor
   /**
    * Creates a new {@link ArrayReadContainer} for a new empty array.
@@ -66,6 +55,17 @@ public final class ArrayReadContainer<E> extends Container<E> {
 
     //Sets the array of the current ArrayReadContainer.
     this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.
+  }
+
+  //static method
+  /**
+   * @param array
+   * @param <E2>  is the type of the elements of the given array.
+   * @return a new {@link ArrayReadContainer} for the given array.
+   * @throws ArgumentIsNullException if the given array is null.
+   */
+  public static <E2> ArrayReadContainer<E2> forArray(final E2[] array) {
+    return new ArrayReadContainer<>(array);
   }
 
   //method

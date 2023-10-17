@@ -13,6 +13,9 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 
 public final class BlackWhiteJuliaFractalTutorial {
 
+  private BlackWhiteJuliaFractalTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -67,8 +70,5 @@ public final class BlackWhiteJuliaFractalTutorial {
           .afterEverySecond()
           .runInBackground(this::refresh);
     }
-  }
-
-  private BlackWhiteJuliaFractalTutorial() {
   }
 }

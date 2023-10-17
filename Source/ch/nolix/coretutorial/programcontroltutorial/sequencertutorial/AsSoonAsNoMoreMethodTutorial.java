@@ -6,6 +6,9 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 public final class AsSoonAsNoMoreMethodTutorial {
 
+  private AsSoonAsNoMoreMethodTutorial() {
+  }
+
   public static void main(String[] args) {
 
     final var cats = LinkedList.withElement("Garfield", "Simba", "Smokey");
@@ -15,8 +18,5 @@ public final class AsSoonAsNoMoreMethodTutorial {
         .runInBackground(() -> GlobalLogger.logInfo("Couch is not scratched anymore!"));
 
     cats.clear();
-  }
-
-  private AsSoonAsNoMoreMethodTutorial() {
   }
 }

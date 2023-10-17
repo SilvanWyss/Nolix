@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 
 public final class ButtonTutorial {
 
+  private ButtonTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -50,8 +53,5 @@ public final class ButtonTutorial {
       countLabel.setText(String.valueOf(count));
       refresh();
     }
-  }
-
-  private ButtonTutorial() {
   }
 }

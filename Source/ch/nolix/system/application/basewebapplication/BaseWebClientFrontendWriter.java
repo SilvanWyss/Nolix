@@ -9,12 +9,6 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 //class
 final class BaseWebClientFrontendWriter implements IFrontEndWriter {
 
-  //static method
-  public static BaseWebClientFrontendWriter forBackendWebClient(
-      final BaseWebClient<?, ?> backendWebClient) {
-    return new BaseWebClientFrontendWriter(backendWebClient);
-  }
-
   //attribute
   private final BaseWebClient<?, ?> parentBackendWebClient;
 
@@ -24,6 +18,12 @@ final class BaseWebClientFrontendWriter implements IFrontEndWriter {
     GlobalValidator.assertThat(parentBackendWebClient).thatIsNamed("parent backend web client").isNotNull();
 
     this.parentBackendWebClient = parentBackendWebClient;
+  }
+
+  //static method
+  public static BaseWebClientFrontendWriter forBackendWebClient(
+      final BaseWebClient<?, ?> backendWebClient) {
+    return new BaseWebClientFrontendWriter(backendWebClient);
   }
 
   //method

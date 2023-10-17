@@ -11,16 +11,6 @@ import ch.nolix.coreapi.programstructureapi.dataapi.IBinaryObject;
 //class
 public final class BinaryObject implements IBinaryObject {
 
-  //static method
-  public static BinaryObject forBytes(final byte[] bytes) {
-    return new BinaryObject(bytes);
-  }
-
-  //static method
-  public static BinaryObject fromString(final String string) {
-    return new BinaryObject(string.getBytes(StandardCharsets.UTF_8));
-  }
-
   //multi-attribute
   private final byte[] bytes;
 
@@ -30,6 +20,16 @@ public final class BinaryObject implements IBinaryObject {
     GlobalValidator.assertThat(bytes).thatIsNamed("bytes").isNotNull();
 
     this.bytes = bytes; //NOSONAR: A BinaryObject operates on the original instance.
+  }
+
+  //static method
+  public static BinaryObject forBytes(final byte[] bytes) {
+    return new BinaryObject(bytes);
+  }
+
+  //static method
+  public static BinaryObject fromString(final String string) {
+    return new BinaryObject(string.getBytes(StandardCharsets.UTF_8));
   }
 
   //method

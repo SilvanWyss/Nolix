@@ -9,6 +9,9 @@ public final class AsSoonAsMethodTutorial {
 
   private static final Random random = new Random();
 
+  private AsSoonAsMethodTutorial() {
+  }
+
   public static void main(String[] args) {
     GlobalSequencer
         .asSoonAs(() -> getRandomNumberBetween1And100() == 100)
@@ -17,8 +20,5 @@ public final class AsSoonAsMethodTutorial {
 
   private static int getRandomNumberBetween1And100() {
     return (random.nextInt(100) + 1);
-  }
-
-  private AsSoonAsMethodTutorial() {
   }
 }
