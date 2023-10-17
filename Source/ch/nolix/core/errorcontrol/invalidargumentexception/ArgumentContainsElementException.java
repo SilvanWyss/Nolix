@@ -16,6 +16,18 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
   //constant
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
+  //constructor
+  /**
+   * Creates a new {@link ArgumentContainsElementException} for the given argument
+   * and element.
+   * 
+   * @param argument
+   * @param element
+   */
+  private ArgumentContainsElementException(final Object argument, final Object element) {
+    super(argument, "contains already the given " + getNameOfElement(element));
+  }
+
   //static method
   /**
    * @param argument
@@ -41,17 +53,5 @@ public final class ArgumentContainsElementException extends InvalidArgumentExcep
 
     //Handles the case that the given element is not null.
     return element.getClass().getSimpleName();
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentContainsElementException} for the given argument
-   * and element.
-   * 
-   * @param argument
-   * @param element
-   */
-  private ArgumentContainsElementException(final Object argument, final Object element) {
-    super(argument, "contains already the given " + getNameOfElement(element));
   }
 }

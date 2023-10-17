@@ -18,6 +18,80 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
 
   //constructor
   /**
+   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
+   * argument and attributeType.
+   * 
+   * @param argument
+   * @param attributeType
+   * @throws IllegalArgumentException if the given attributeType is null.
+   */
+  private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
+
+    //Calls constructor of the base class.
+    super(argument, "does not have a " + getNameOfAttributeType(attributeType));
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
+   * argument and attributeName.
+   * 
+   * @param argument
+   * @param attributeName
+   * @throws IllegalArgumentException if the given attributeName is null.
+   * @throws IllegalArgumentException if the given attributeName is blank.
+   */
+  private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
+
+    //Calls constructor of the base class.
+    super(argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
+   * argumentName, argument and attributeType.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param attributeType
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given attributeType is null.
+   */
+  private ArgumentDoesNotHaveAttributeException(
+      final String argumentName,
+      final Object argument,
+      final Class<?> attributeType) {
+
+    //Calls constructor of the base class.
+    super(argumentName, argument, "does not have a " + getNameOfAttributeType(attributeType));
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
+   * argumentName, argument and attributeName.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param attributeName
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given attributeName is null.
+   * @throws IllegalArgumentException if the given attributeName is blank.
+   */
+  private ArgumentDoesNotHaveAttributeException(
+      final String argumentName,
+      final Object argument,
+      final String attributeName) {
+
+    //Calls constructor of the base class.
+    super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
+  }
+
+  //constructor
+  /**
    * @param argument
    * @param attributeName
    * @return a new {@link ArgumentDoesNotHaveAttributeException} for the given
@@ -118,80 +192,6 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
     }
 
     return attributeName;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   * argument and attributeType.
-   * 
-   * @param argument
-   * @param attributeType
-   * @throws IllegalArgumentException if the given attributeType is null.
-   */
-  private ArgumentDoesNotHaveAttributeException(final Object argument, final Class<?> attributeType) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not have a " + getNameOfAttributeType(attributeType));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   * argument and attributeName.
-   * 
-   * @param argument
-   * @param attributeName
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
-   */
-  private ArgumentDoesNotHaveAttributeException(final Object argument, final String attributeName) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   * argumentName, argument and attributeType.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param attributeType
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given attributeType is null.
-   */
-  private ArgumentDoesNotHaveAttributeException(
-      final String argumentName,
-      final Object argument,
-      final Class<?> attributeType) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not have a " + getNameOfAttributeType(attributeType));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotHaveAttributeException} for the given
-   * argumentName, argument and attributeName.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param attributeName
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
-   */
-  private ArgumentDoesNotHaveAttributeException(
-      final String argumentName,
-      final Object argument,
-      final String attributeName) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
   }
 
   //method

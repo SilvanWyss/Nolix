@@ -35,6 +35,34 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
   //attribute
   private final double percentage;
 
+  //constructor
+  /**
+   * Creates a new {@link AbsoluteOrRelativeInt} with the given intValue.
+   * 
+   * @param intValue
+   */
+  private AbsoluteOrRelativeInt(final int intValue) {
+    isAbsolute = true;
+    this.absoluteValue = intValue;
+    percentage = 0.0;
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
+   * 
+   * @param percentage
+   * @throws NegativeArgumentException if the given percentage is negative.
+   */
+  private AbsoluteOrRelativeInt(final double percentage) {
+
+    GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseCatalogue.PERCENTAGE).isNotNegative();
+
+    isAbsolute = false;
+    absoluteValue = 0;
+    this.percentage = percentage;
+  }
+
   //static method
   /**
    * @param specification
@@ -69,34 +97,6 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
    */
   public static AbsoluteOrRelativeInt withPercentage(final double percentage) {
     return new AbsoluteOrRelativeInt(percentage);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link AbsoluteOrRelativeInt} with the given intValue.
-   * 
-   * @param intValue
-   */
-  private AbsoluteOrRelativeInt(final int intValue) {
-    isAbsolute = true;
-    this.absoluteValue = intValue;
-    percentage = 0.0;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link AbsoluteOrRelativeInt} with the given percentage.
-   * 
-   * @param percentage
-   * @throws NegativeArgumentException if the given percentage is negative.
-   */
-  private AbsoluteOrRelativeInt(final double percentage) {
-
-    GlobalValidator.assertThat(percentage).thatIsNamed(LowerCaseCatalogue.PERCENTAGE).isNotNegative();
-
-    isAbsolute = false;
-    absoluteValue = 0;
-    this.percentage = percentage;
   }
 
   //method

@@ -9,22 +9,6 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 //class
 public class ApplicationInstanceTarget extends ServerTarget implements IApplicationInstanceTarget {
 
-  //static method
-  public static ApplicationInstanceTarget//
-      forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-          final String ipOrDomain,
-          final int port,
-          final String applicationInstanceName,
-          final String applicationUrlInstanceName,
-          final SecurityLevel securityLevelForConnections) {
-    return new ApplicationInstanceTarget(
-        ipOrDomain,
-        port,
-        applicationInstanceName,
-        applicationUrlInstanceName,
-        securityLevelForConnections);
-  }
-
   //attribute
   private final String applicationInstanceName;
 
@@ -46,6 +30,22 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 
     this.applicationInstanceName = applicationInstanceName;
     this.applicationUrlInstanceName = applicationUrlInstanceName;
+  }
+
+  //static method
+  public static ApplicationInstanceTarget//
+      forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+          final String ipOrDomain,
+          final int port,
+          final String applicationInstanceName,
+          final String applicationUrlInstanceName,
+          final SecurityLevel securityLevelForConnections) {
+    return new ApplicationInstanceTarget(
+        ipOrDomain,
+        port,
+        applicationInstanceName,
+        applicationUrlInstanceName,
+        securityLevelForConnections);
   }
 
   //method

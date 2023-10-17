@@ -13,6 +13,34 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentDoesNotBelongToParentException extends InvalidArgumentException {
 
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
+   * argument.
+   * 
+   * @param argument
+   */
+  private ArgumentDoesNotBelongToParentException(Object argument) {
+
+    //Calls constructor of the base class.
+    super(argument, "does not belong to a parent");
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
+   * argument and parentType.
+   * 
+   * @param argument
+   * @param parentType
+   * @throws IllegalArgumentException if the given parentType is null.
+   */
+  private ArgumentDoesNotBelongToParentException(final Object argument, final Class<?> parentType) {
+
+    //Calls constructor of the base class.
+    super(argument, "does not belong to a " + getNameOfParentType(parentType));
+  }
+
   //static method
   /**
    * @param argument
@@ -50,33 +78,5 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
     }
 
     return parentType.getSimpleName();
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
-   * argument.
-   * 
-   * @param argument
-   */
-  private ArgumentDoesNotBelongToParentException(Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not belong to a parent");
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotBelongToParentException} for the given
-   * argument and parentType.
-   * 
-   * @param argument
-   * @param parentType
-   * @throws IllegalArgumentException if the given parentType is null.
-   */
-  private ArgumentDoesNotBelongToParentException(final Object argument, final Class<?> parentType) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not belong to a " + getNameOfParentType(parentType));
   }
 }

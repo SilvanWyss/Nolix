@@ -16,6 +16,45 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
   //constant
   private static final String DEFAULT_ELEMENT_NAME = "element";
 
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotContainElementException} for the given
+   * argument.
+   * 
+   * @param argument
+   */
+  private ArgumentDoesNotContainElementException(final Object argument) {
+    super(argument, "does not contain such an element");
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotContainElementException} for the given
+   * argument and element.
+   * 
+   * @param argument
+   * @param element
+   */
+  private ArgumentDoesNotContainElementException(final Object argument, final Object element) {
+    super(argument, "does not contain the given " + getNameForElement(element));
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ArgumentDoesNotContainElementException} for the given
+   * argumentName, argument and element.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param element
+   */
+  private ArgumentDoesNotContainElementException(
+      final String argumentName,
+      final Object argument,
+      final Object element) {
+    super(argumentName, argument, "does not contain the given " + getNameForElement(element));
+  }
+
   //static method
   /**
    * @param argument
@@ -68,44 +107,5 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
 
     //Handles the case that the given element is not null.
     return element.getClass().getSimpleName();
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotContainElementException} for the given
-   * argument.
-   * 
-   * @param argument
-   */
-  private ArgumentDoesNotContainElementException(final Object argument) {
-    super(argument, "does not contain such an element");
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotContainElementException} for the given
-   * argument and element.
-   * 
-   * @param argument
-   * @param element
-   */
-  private ArgumentDoesNotContainElementException(final Object argument, final Object element) {
-    super(argument, "does not contain the given " + getNameForElement(element));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentDoesNotContainElementException} for the given
-   * argumentName, argument and element.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param element
-   */
-  private ArgumentDoesNotContainElementException(
-      final String argumentName,
-      final Object argument,
-      final Object element) {
-    super(argumentName, argument, "does not contain the given " + getNameForElement(element));
   }
 }

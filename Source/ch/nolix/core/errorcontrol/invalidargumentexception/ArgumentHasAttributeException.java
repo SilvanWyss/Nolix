@@ -13,6 +13,22 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class ArgumentHasAttributeException extends InvalidArgumentException {
 
+  //constructor
+  /**
+   * Creates a new {@link ArgumentHasAttributeException} for the given argument
+   * and attributeName.
+   * 
+   * @param argument
+   * @param attributeName
+   * @throws IllegalArgumentException if the given attributeName is null.
+   * @throws IllegalArgumentException if the given attributeName is blank.
+   */
+  private ArgumentHasAttributeException(final Object argument, final String attributeName) {
+
+    //Calls constructor of the base class.
+    super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));
+  }
+
   //static method
   /**
    * @param argument
@@ -48,21 +64,5 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
     }
 
     return attributeName;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ArgumentHasAttributeException} for the given argument
-   * and attributeName.
-   * 
-   * @param argument
-   * @param attributeName
-   * @throws IllegalArgumentException if the given attributeName is null.
-   * @throws IllegalArgumentException if the given attributeName is blank.
-   */
-  private ArgumentHasAttributeException(final Object argument, final String attributeName) {
-
-    //Calls constructor of the base class.
-    super(argument, "has a " + getValidttributeNameOfAttributeName(attributeName));
   }
 }
