@@ -14,6 +14,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class GlobalFieldHelper {
 
+  //constructor
+  private GlobalFieldHelper() {
+  }
+
   //static method
   @SuppressWarnings("unchecked")
   public static <V> V getValueFromStaticField(final Field staticField) {
@@ -59,9 +63,5 @@ public final class GlobalFieldHelper {
     final var value = getValueFromStaticField(field);
 
     return (value != null && type.isAssignableFrom(value.getClass()));
-  }
-
-  //constructor
-  private GlobalFieldHelper() {
   }
 }

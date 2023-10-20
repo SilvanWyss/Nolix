@@ -10,6 +10,10 @@ public final class GlobalServiceProvider {
   //constant
   private static final ServiceProvider SERVICE_PROVIDER = new ServiceProvider();
 
+  //constructor
+  private GlobalServiceProvider() {
+  }
+
   //static method
   public static <S> S get(final Class<S> pInterface) {
     return SERVICE_PROVIDER.get(pInterface);
@@ -26,9 +30,5 @@ public final class GlobalServiceProvider {
       final S service,
       final WriteMode writeMode) {
     SERVICE_PROVIDER.register(pInterface, service, writeMode);
-  }
-
-  //constructor
-  private GlobalServiceProvider() {
   }
 }

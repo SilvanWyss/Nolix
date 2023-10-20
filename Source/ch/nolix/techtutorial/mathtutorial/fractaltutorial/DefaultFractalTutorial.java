@@ -10,6 +10,9 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 
 public final class DefaultFractalTutorial {
 
+  private DefaultFractalTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -46,8 +49,5 @@ public final class DefaultFractalTutorial {
           .afterEverySecond()
           .runInBackground(this::refresh);
     }
-  }
-
-  private DefaultFractalTutorial() {
   }
 }

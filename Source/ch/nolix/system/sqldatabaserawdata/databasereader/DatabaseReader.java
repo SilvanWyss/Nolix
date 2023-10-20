@@ -17,15 +17,6 @@ import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.ISqlSyntaxProvider;
 //class
 public final class DatabaseReader implements IDataReader {
 
-  //static method
-  public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DatabaseReader(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
-  }
-
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -48,6 +39,15 @@ public final class DatabaseReader implements IDataReader {
     this.tableInfos = tableInfos;
 
     createCloseDependencyTo(sqlConnection);
+  }
+
+  //static method
+  public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool,
+      final IContainer<ITableInfo> tableInfos,
+      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    return new DatabaseReader(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
   }
 
   //method

@@ -15,15 +15,6 @@ public final class DeletedArgumentException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is deleted";
 
-  //static method
-  /**
-   * @param argument
-   * @return a new {@link DeletedArgumentException} for the given argument.
-   */
-  public static DeletedArgumentException forArgument(final Object argument) {
-    return new DeletedArgumentException(argument);
-  }
-
   //constructor
   /**
    * Creates a new {@link DeletedArgumentException} for the given argument.
@@ -31,8 +22,17 @@ public final class DeletedArgumentException extends InvalidArgumentException {
    * @param argument
    */
   private DeletedArgumentException(final Object argument) {
-
+  
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @return a new {@link DeletedArgumentException} for the given argument.
+   */
+  public static DeletedArgumentException forArgument(final Object argument) {
+    return new DeletedArgumentException(argument);
   }
 }

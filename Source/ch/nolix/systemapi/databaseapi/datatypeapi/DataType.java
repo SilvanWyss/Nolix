@@ -16,6 +16,19 @@ public enum DataType {
   STRING(String.class),
   BINARY_OBJECT(IBinaryObject.class);
 
+  //attribute
+  private final Class<?> dataTypeClass;
+
+  //constructor
+  <V> DataType(final Class<V> dataTypeClass) {
+
+    if (dataTypeClass == null) {
+      throw new IllegalArgumentException("The given data type class is null.");
+    }
+
+    this.dataTypeClass = dataTypeClass;
+  }
+
   //static method
   public static DataType forType(final Class<?> type) {
     return switch (type.getSimpleName()) {
@@ -29,19 +42,6 @@ public enum DataType {
       case "String" -> STRING;
       default -> throw new IllegalArgumentException("The given type does not represent a DataType.");
     };
-  }
-
-  //attribute
-  private final Class<?> dataTypeClass;
-
-  //constructor
-  <V> DataType(final Class<V> dataTypeClass) {
-
-    if (dataTypeClass == null) {
-      throw new IllegalArgumentException("The given data type class is null.");
-    }
-
-    this.dataTypeClass = dataTypeClass;
   }
 
   //method

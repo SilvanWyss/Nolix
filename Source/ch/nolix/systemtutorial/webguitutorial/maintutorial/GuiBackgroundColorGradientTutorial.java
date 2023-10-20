@@ -9,6 +9,9 @@ import ch.nolix.system.graphic.color.ColorGradient;
 
 public final class GuiBackgroundColorGradientTutorial {
 
+  private GuiBackgroundColorGradientTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -38,8 +41,5 @@ public final class GuiBackgroundColorGradientTutorial {
       //Sets a background ColorGradient to the GUI of the current MainSession.
       getStoredGui().setBackgroundColorGradient(new ColorGradient(Color.SKY_BLUE, Color.WHITE));
     }
-  }
-
-  private GuiBackgroundColorGradientTutorial() {
   }
 }

@@ -8,6 +8,9 @@ import ch.nolix.system.application.webapplication.WebClientSession;
 
 public final class EmptyGuiTutorial {
 
+  private EmptyGuiTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -36,8 +39,5 @@ public final class EmptyGuiTutorial {
     protected void initialize() {
       //Does nothing.
     }
-  }
-
-  private EmptyGuiTutorial() {
   }
 }

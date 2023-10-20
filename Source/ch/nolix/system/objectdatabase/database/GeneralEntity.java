@@ -10,17 +10,17 @@ public final class GeneralEntity extends BaseEntity {
   //constant
   private static final PropertyFromTableExtractor PROPERTY_FROM_TABLE_EXTRACTOR = new PropertyFromTableExtractor();
 
-  //static method
-  public GeneralEntity forTable(final Table<GeneralEntity> table) {
-    return new GeneralEntity(table);
-  }
-
   //attribute
   private final String tableName;
 
   //constructor
   private GeneralEntity(final Table<GeneralEntity> table) {
     tableName = table.getName();
+  }
+
+  //static method
+  public static GeneralEntity forTable(final Table<GeneralEntity> table) {
+    return new GeneralEntity(table);
   }
 
   //method

@@ -9,6 +9,10 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor
 //class
 public final class GlobalSequenceCreator {
 
+  //constructor
+  private GlobalSequenceCreator() {
+  }
+
   //static method
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(
       final IComplexNumber increment) {
@@ -24,9 +28,5 @@ public final class GlobalSequenceCreator {
     return new ComplexSequenceDefinedBy1Predecessor(
         startValue,
         z -> z.getPower2().getSum(increment));
-  }
-
-  //constructor
-  private GlobalSequenceCreator() {
   }
 }

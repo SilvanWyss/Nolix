@@ -5,6 +5,11 @@ package ch.nolix.core.errorcontrol.exception;
 @SuppressWarnings("serial")
 public final class GeneralException extends RuntimeException {
 
+  //constructor
+  private GeneralException(final String errorMessage) {
+    super(getValidErroMessageOfErrorMessage(errorMessage));
+  }
+
   //static method
   public static GeneralException withErrorMessage(final String errorMessage) {
     return new GeneralException(errorMessage);
@@ -22,11 +27,6 @@ public final class GeneralException extends RuntimeException {
     }
 
     return errorMessage;
-  }
-
-  //constructor
-  private GeneralException(final String errorMessage) {
-    super(getValidErroMessageOfErrorMessage(errorMessage));
   }
 
   //method

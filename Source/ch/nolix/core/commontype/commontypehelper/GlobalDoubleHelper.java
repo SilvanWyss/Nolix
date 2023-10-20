@@ -16,6 +16,13 @@ import java.util.Locale;
  */
 public final class GlobalDoubleHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalDoubleHelper} can be created.
+   */
+  private GlobalDoubleHelper() {
+  }
+
   //static method
   /**
    * @param value
@@ -31,12 +38,5 @@ public final class GlobalDoubleHelper {
     decimalFormat.applyPattern("0.################");
 
     return decimalFormat.format(value);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalDoubleHelper} can be created.
-   */
-  private GlobalDoubleHelper() {
   }
 }

@@ -4,6 +4,10 @@ package ch.nolix.core.independent.containervalidator;
 //class
 public final class GlobalArrayValidator {
 
+  //constructor
+  private GlobalArrayValidator() {
+  }
+
   //static method
   public static void assertDoesNotContainNull(final Object[] array) {
 
@@ -16,9 +20,5 @@ public final class GlobalArrayValidator {
         throw new IllegalArgumentException("The given array contains null at the index " + i + ".");
       }
     }
-  }
-
-  //constructor
-  private GlobalArrayValidator() {
   }
 }

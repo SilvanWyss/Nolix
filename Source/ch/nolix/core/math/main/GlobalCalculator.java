@@ -29,6 +29,13 @@ public final class GlobalCalculator {
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalCalculator} can be created.
+   */
+  private GlobalCalculator() {
+  }
+
   //static method
   /**
    * @param xValues
@@ -409,12 +416,5 @@ public final class GlobalCalculator {
    */
   public static boolean isApproximatelyZero(final double value, final double maxDeviation) {
     return GlobalBasicCalculator.isApproximatelyZero(value, maxDeviation);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalCalculator} can be created.
-   */
-  private GlobalCalculator() {
   }
 }

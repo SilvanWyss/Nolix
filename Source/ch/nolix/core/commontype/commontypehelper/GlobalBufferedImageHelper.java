@@ -15,6 +15,10 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class GlobalBufferedImageHelper {
 
+  //constructor
+  private GlobalBufferedImageHelper() {
+  }
+
   //static method
   public static BufferedImage fromBytes(final byte[] bytes) {
     try {
@@ -31,9 +35,5 @@ public final class GlobalBufferedImageHelper {
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
-  }
-
-  //constructor
-  private GlobalBufferedImageHelper() {
   }
 }

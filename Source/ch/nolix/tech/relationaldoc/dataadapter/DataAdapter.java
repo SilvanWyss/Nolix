@@ -19,17 +19,6 @@ public final class DataAdapter implements IDataAdapter {
   //constant
   private static final AbstractableObjectEvaluator ABSTRACTABLE_OBJECT_EVALUATOR = new AbstractableObjectEvaluator();
 
-  //static method
-  public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-
-    final var nodeDataAdapter = NodeDataAdapter
-        .forNodeDatabase(nodeDatabase)
-        .withName(LowerCaseCatalogue.DATABASE)
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
-
-    return new DataAdapter(nodeDataAdapter);
-  }
-
   //attribute
   private final ch.nolix.system.objectdatabase.database.DataAdapter internalDataAdapter;
 
@@ -42,6 +31,17 @@ public final class DataAdapter implements IDataAdapter {
         .isNotNull();
 
     this.internalDataAdapter = internalDataAdapter;
+  }
+
+  //static method
+  public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+  
+    final var nodeDataAdapter = NodeDataAdapter
+        .forNodeDatabase(nodeDatabase)
+        .withName(LowerCaseCatalogue.DATABASE)
+        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+  
+    return new DataAdapter(nodeDataAdapter);
   }
 
   //method

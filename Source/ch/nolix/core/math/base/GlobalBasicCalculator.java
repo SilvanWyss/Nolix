@@ -19,6 +19,14 @@ public final class GlobalBasicCalculator {
    */
   public static final double DEFAULT_MAX_DEVIATION = 0.000000001;
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalBasicCalculator} can be
+   * created.
+   */
+  private GlobalBasicCalculator() {
+  }
+
   //static method
   /**
    * @param xValues
@@ -401,13 +409,5 @@ public final class GlobalBasicCalculator {
    */
   public static IntRoundingMediator round(final int value) {
     return new IntRoundingMediator(value);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalBasicCalculator} can be
-   * created.
-   */
-  private GlobalBasicCalculator() {
   }
 }

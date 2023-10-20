@@ -29,6 +29,13 @@ import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
  */
 public final class FileSystemAccessor {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link FileSystemAccessor} can be created.
+   */
+  private FileSystemAccessor() {
+  }
+
   //static method
   /**
    * @return a new {@link FolderAccessor} to the folder of the running jar file.
@@ -411,12 +418,5 @@ public final class FileSystemAccessor {
    */
   public static LinkedList<String> readFileToLines(final String path) {
     return new FileAccessor(path).readFileToLines();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link FileSystemAccessor} can be created.
-   */
-  private FileSystemAccessor() {
   }
 }

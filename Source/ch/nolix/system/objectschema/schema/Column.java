@@ -44,16 +44,6 @@ public final class Column extends SchemaObject implements IColumn {
   //constant
   private static final IColumnHelper COLUMN_HELPER = new ColumnHelper();
 
-  //static method
-  public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
-    return new Column(
-        columnDto.getId(),
-        columnDto.getName(),
-        PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
-            columnDto.getParameterizedPropertyType(),
-            tables));
-  }
-
   //attribute
   private final String id;
 
@@ -84,6 +74,16 @@ public final class Column extends SchemaObject implements IColumn {
     this.id = id;
     setName(name);
     setParameterizedPropertyType(parameterizedPropertyType);
+  }
+
+  //static method
+  public static Column fromDto(final IColumnDto columnDto, final IContainer<ITable> tables) {
+    return new Column(
+        columnDto.getId(),
+        columnDto.getName(),
+        PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+            columnDto.getParameterizedPropertyType(),
+            tables));
   }
 
   //method

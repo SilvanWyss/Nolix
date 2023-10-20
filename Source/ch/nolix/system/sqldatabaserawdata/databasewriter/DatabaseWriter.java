@@ -19,15 +19,6 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class DatabaseWriter implements IDataWriter {
 
-  //static method
-  public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
-    return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
-  }
-
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -50,6 +41,15 @@ public final class DatabaseWriter implements IDataWriter {
     this.tableInfos = tableInfos;
 
     createCloseDependencyTo(sqlConnection);
+  }
+
+  //static method
+  public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool,
+      final IContainer<ITableInfo> tableInfos,
+      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
   }
 
   //method

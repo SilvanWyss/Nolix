@@ -11,6 +11,11 @@ import ch.nolix.system.rawdatabase.databaseandschemaadapter.BaseDataAndSchemaAda
 //class
 public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
 
+  //constructor
+  private DataAndSchemaAdapter(final IMutableNode<?> nodeDatabase) {
+    super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
+  }
+
   //static method
   public static DataAndSchemaAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new DataAndSchemaAdapter(nodeDatabase);
@@ -19,10 +24,5 @@ public final class DataAndSchemaAdapter extends BaseDataAndSchemaAdapter {
   //static method
   public static DataAndSchemaAdapter forNodeDatabaseInFile(final String filePath) {
     return new DataAndSchemaAdapter(new FileNode(filePath));
-  }
-
-  //constructor
-  private DataAndSchemaAdapter(final IMutableNode<?> nodeDatabase) {
-    super(DataAdapter.forNodeDatabase(nodeDatabase), SchemaAdapter.forDatabaseNode(nodeDatabase));
   }
 }

@@ -11,6 +11,10 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class GlobalConstructorHelper {
 
+  //constructor
+  private GlobalConstructorHelper() {
+  }
+
   //static method
   public static <T> T createInstanceFromDefaultConstructor(final Constructor<T> defaultConstructor) {
     try {
@@ -21,9 +25,5 @@ public final class GlobalConstructorHelper {
         | InvocationTargetException exception) {
       throw WrapperException.forError(exception);
     }
-  }
-
-  //constructor
-  private GlobalConstructorHelper() {
   }
 }

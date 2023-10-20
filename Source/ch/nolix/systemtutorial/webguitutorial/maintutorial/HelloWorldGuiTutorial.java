@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class HelloWorldGuiTutorial {
 
+  private HelloWorldGuiTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -46,8 +49,5 @@ public final class HelloWorldGuiTutorial {
       //Adds the Label to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(label);
     }
-  }
-
-  private HelloWorldGuiTutorial() {
   }
 }

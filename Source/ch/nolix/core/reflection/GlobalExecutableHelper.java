@@ -15,6 +15,14 @@ import java.lang.reflect.Executable;
  */
 public final class GlobalExecutableHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalExecutableHelper} can be
+   * created.
+   */
+  private GlobalExecutableHelper() {
+  }
+
   //static method
   /**
    * @param executable
@@ -32,13 +40,5 @@ public final class GlobalExecutableHelper {
     }
 
     return true;
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalExecutableHelper} can be
-   * created.
-   */
-  private GlobalExecutableHelper() {
   }
 }

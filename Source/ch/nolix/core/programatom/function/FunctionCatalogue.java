@@ -17,6 +17,13 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
  */
 public final class FunctionCatalogue {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link FunctionCatalogue} can be created.
+   */
+  private FunctionCatalogue() {
+  }
+
   //constant
   private static final long ZERO = 0L;
 
@@ -150,12 +157,5 @@ public final class FunctionCatalogue {
    */
   public static void throwException() {
     throw GeneralException.withErrorMessage("An error was provoked.");
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link FunctionCatalogue} can be created.
-   */
-  private FunctionCatalogue() {
   }
 }

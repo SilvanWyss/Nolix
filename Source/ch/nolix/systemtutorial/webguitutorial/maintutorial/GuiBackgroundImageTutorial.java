@@ -9,6 +9,9 @@ import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 
 public final class GuiBackgroundImageTutorial {
 
+  private GuiBackgroundImageTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -41,8 +44,5 @@ public final class GuiBackgroundImageTutorial {
       //Sets the Image as background image to the GUI of the current MainSession.
       getStoredGui().setBackgroundImage(image, ImageApplication.SCALE_TO_FRAME);
     }
-  }
-
-  private GuiBackgroundImageTutorial() {
   }
 }

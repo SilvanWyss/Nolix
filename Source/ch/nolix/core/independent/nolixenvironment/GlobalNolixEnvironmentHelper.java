@@ -22,6 +22,10 @@ public final class GlobalNolixEnvironmentHelper {
   //constant
   private static final char FOLDER_DELIMITER = '/';
 
+  //constructor
+  private GlobalNolixEnvironmentHelper() {
+  }
+
   //static method
   public static String getLocalNolixConfigurationFilePath() {
     return getLocalNolixFolderPath() + FOLDER_DELIMITER + LOCAL_NOLIX_CONFIGURATION_FILE_NAME;
@@ -58,9 +62,5 @@ public final class GlobalNolixEnvironmentHelper {
   //static method
   private static String getLocalAppDataFolderPath() {
     return System.getenv(APPDATA_HEADER);
-  }
-
-  //constructor
-  private GlobalNolixEnvironmentHelper() {
   }
 }

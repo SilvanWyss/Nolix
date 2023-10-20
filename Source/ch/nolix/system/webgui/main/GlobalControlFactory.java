@@ -10,6 +10,10 @@ public final class GlobalControlFactory {
   //constant
   private static final ControlFactory CONTROL_FACTORY = new ControlFactory();
 
+  //constructor
+  private GlobalControlFactory() {
+  }
+
   //static method
   public static boolean canCreateControlOfType(final String type) {
     return CONTROL_FACTORY.canCreateControlOfType(type);
@@ -30,9 +34,5 @@ public final class GlobalControlFactory {
       final Class<Control<?, ?>> controlClass,
       final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
     CONTROL_FACTORY.registerControlClass(controlClass, controlClasses);
-  }
-
-  //constructor
-  private GlobalControlFactory() {
   }
 }

@@ -8,6 +8,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class GlobalEnglishNounHelper {
 
+  //constructor
+  private GlobalEnglishNounHelper() {
+  }
+
   //static method
   public static String getPlural(final String noun) {
 
@@ -66,9 +70,5 @@ public final class GlobalEnglishNounHelper {
     }
 
     return (noun + "s");
-  }
-
-  //constructor
-  private GlobalEnglishNounHelper() {
   }
 }

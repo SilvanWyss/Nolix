@@ -13,19 +13,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class GapMatrixIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> GapMatrixIterator<E2> forGapMatrix(final GapMatrix<E2> gapMatrix) {
-    return new GapMatrixIterator<>(gapMatrix);
-  }
-
-  //static method
-  private static <E2> GapMatrixIterator<E2> forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
-      final GapMatrix<E2> gapMatrix,
-      final int p1BasedNextElementRowIndex,
-      final int p1BasedNextElementColumnIndex) {
-    return new GapMatrixIterator<>(gapMatrix, p1BasedNextElementRowIndex, p1BasedNextElementColumnIndex);
-  }
-
   //attribute
   private final GapMatrix<E> parentGapMatrix;
 
@@ -55,6 +42,19 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
     this.parentGapMatrix = parentGapMatrix;
     nextElementColumnIndex = p1BasedNextElementRowIndex;
     nextElementColumnIndex = p1BasedNextElementColumnIndex;
+  }
+
+  //static method
+  public static <E2> GapMatrixIterator<E2> forGapMatrix(final GapMatrix<E2> gapMatrix) {
+    return new GapMatrixIterator<>(gapMatrix);
+  }
+
+  //static method
+  private static <E2> GapMatrixIterator<E2> forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
+      final GapMatrix<E2> gapMatrix,
+      final int p1BasedNextElementRowIndex,
+      final int p1BasedNextElementColumnIndex) {
+    return new GapMatrixIterator<>(gapMatrix, p1BasedNextElementRowIndex, p1BasedNextElementColumnIndex);
   }
 
   //method

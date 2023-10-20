@@ -15,6 +15,13 @@ import java.lang.reflect.Method;
  */
 public final class GlobalMethodHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalMethodHelper} can be created.
+   */
+  private GlobalMethodHelper() {
+  }
+
   //static method
   /**
    * @param method
@@ -27,12 +34,5 @@ public final class GlobalMethodHelper {
       final Method method,
       final Class<A> annotationType) {
     return (method.getAnnotation(annotationType) != null);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalMethodHelper} can be created.
-   */
-  private GlobalMethodHelper() {
   }
 }

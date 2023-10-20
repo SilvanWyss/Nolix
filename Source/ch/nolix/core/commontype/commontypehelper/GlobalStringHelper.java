@@ -26,6 +26,13 @@ import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
  */
 public final class GlobalStringHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalStringHelper} can be created.
+   */
+  private GlobalStringHelper() {
+  }
+
   //static method
   /**
    * @param string
@@ -259,12 +266,5 @@ public final class GlobalStringHelper {
    */
   private static boolean isPascalCaseWhenNotNull(final String string) {
     return string.equals(toPascalCase(string));
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalStringHelper} can be created.
-   */
-  private GlobalStringHelper() {
   }
 }

@@ -11,6 +11,10 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 //class
 public final class GlobalInputStreamHelper {
 
+  //constructor
+  private GlobalInputStreamHelper() {
+  }
+
   //static method
   /**
    * @param inputStream
@@ -42,9 +46,5 @@ public final class GlobalInputStreamHelper {
         return null;
       }
     }
-  }
-
-  //constructor
-  private GlobalInputStreamHelper() {
   }
 }

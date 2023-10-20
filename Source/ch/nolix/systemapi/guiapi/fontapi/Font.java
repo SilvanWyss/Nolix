@@ -24,6 +24,16 @@ public enum Font {
   //attribute
   private final String code;
 
+  //constructor
+  /**
+   * Creates a new {@link Font} with the given code.
+   * 
+   * @param code
+   */
+  Font(final String code) {
+    this.code = code;
+  }
+
   //static method
   /**
    * @param specification
@@ -33,16 +43,6 @@ public enum Font {
    */
   public static Font fromSpecification(final INode<?> specification) {
     return valueOf(specification.getSingleChildNodeHeader());
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link Font} with the given code.
-   * 
-   * @param code
-   */
-  Font(final String code) {
-    this.code = code;
   }
 
   //method

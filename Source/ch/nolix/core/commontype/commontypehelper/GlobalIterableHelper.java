@@ -7,6 +7,10 @@ import java.util.Objects;
 //class
 public final class GlobalIterableHelper {
 
+  //constructor
+  private GlobalIterableHelper() {
+  }
+
   //static method
   public static boolean containsAny(final Iterable<?> iterable) {
     return iterable != null
@@ -40,9 +44,5 @@ public final class GlobalIterableHelper {
     }
 
     return elementCount;
-  }
-
-  //constructor
-  private GlobalIterableHelper() {
   }
 }

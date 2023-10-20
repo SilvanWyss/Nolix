@@ -15,6 +15,10 @@ public final class GlobalLogger {
   //static multi-attribute
   private static final List<LogHandler> logHandlers = new List<>();
 
+  //constructor
+  private GlobalLogger() {
+  }
+
   //static initialization
   static {
     logHandlers.addAtBegin(new StandardConsoleLogHandler());
@@ -218,9 +222,5 @@ public final class GlobalLogger {
   //static method
   static synchronized void removeLogWorker() {
     logWorker = null;
-  }
-
-  //constructor
-  private GlobalLogger() {
   }
 }

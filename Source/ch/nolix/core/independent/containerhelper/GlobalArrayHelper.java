@@ -14,6 +14,13 @@ import ch.nolix.core.independent.container.List;
  */
 public final class GlobalArrayHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalArrayHelper} can be created.
+   */
+  private GlobalArrayHelper() {
+  }
+
   //static method
   /**
    * @param element
@@ -283,12 +290,5 @@ public final class GlobalArrayHelper {
     }
 
     return stringBuilder.toString();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalArrayHelper} can be created.
-   */
-  private GlobalArrayHelper() {
   }
 }

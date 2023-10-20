@@ -15,6 +15,14 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class GlobalCharacterHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalCharacterHelper} can be
+   * created.
+   */
+  private GlobalCharacterHelper() {
+  }
+
   //constant
   private static final String ARTICLE_A = "a";
 
@@ -71,13 +79,5 @@ public final class GlobalCharacterHelper {
    */
   public static boolean isHexadecimalDigit(final char character) {
     return (isDigit(character) || (character >= 65 && character <= 70));
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalCharacterHelper} can be
-   * created.
-   */
-  private GlobalCharacterHelper() {
   }
 }

@@ -11,6 +11,10 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //class
 public final class GlobalClassHelper {
 
+  //constructor
+  private GlobalClassHelper() {
+  }
+
   //static method
   public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> pClass) {
     return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(pClass));
@@ -49,9 +53,5 @@ public final class GlobalClassHelper {
     }
 
     return publicStaticFields;
-  }
-
-  //constructor
-  private GlobalClassHelper() {
   }
 }

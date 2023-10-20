@@ -8,6 +8,9 @@ import ch.nolix.system.graphic.image.Image;
 
 public final class GuiIconTutorial {
 
+  private GuiIconTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -32,8 +35,5 @@ public final class GuiIconTutorial {
     protected void initialize() {
       getStoredGui().setIcon(Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/matterhorn.jpg"));
     }
-  }
-
-  private GuiIconTutorial() {
   }
 }

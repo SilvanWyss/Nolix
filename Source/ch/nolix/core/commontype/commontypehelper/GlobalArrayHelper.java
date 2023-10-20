@@ -11,6 +11,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class GlobalArrayHelper {
 
+  //constructor
+  private GlobalArrayHelper() {
+  }
+
   //static method
   public static <E> E[] createArrayWithElement(final E element, final @SuppressWarnings("unchecked") E... elements) {
 
@@ -50,9 +54,5 @@ public final class GlobalArrayHelper {
   //static method
   public static ByteArrayMediator onArray(final byte[] byteArray) {
     return new ByteArrayMediator(byteArray);
-  }
-
-  //constructor
-  private GlobalArrayHelper() {
   }
 }

@@ -30,6 +30,13 @@ public final class GlobalSequencer {
   //constant
   private static final ActionMediator ACTION_MEDIATOR = new ActionMediator();
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalSequencer} can be created.
+   */
+  private GlobalSequencer() {
+  }
+
   //static method
   /**
    * @param condition
@@ -227,12 +234,5 @@ public final class GlobalSequencer {
     waitAsLongAs(() -> !condition.getAsBoolean());
 
     return ACTION_MEDIATOR;
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalSequencer} can be created.
-   */
-  private GlobalSequencer() {
   }
 }

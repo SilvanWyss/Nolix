@@ -11,15 +11,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> {
 
-  //static method
-  @SafeVarargs
-  public static <S2 extends Enum<S2>, V2> ForwardingProperty<S2, V2> withNameAndForProperty(
-      final String name,
-      final MaterializedProperty<S2, V2> materializedProperty,
-      final MaterializedProperty<S2, V2>... materializedProperties) {
-    return new ForwardingProperty<>(name, materializedProperty, materializedProperties);
-  }
-
   //multi-attribute
   private final IContainer<MaterializedProperty<S, V>> materializedProperties;
 
@@ -38,6 +29,15 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
     super(name);
 
     this.materializedProperties = LinkedList.fromIterable(materializedProperties);
+  }
+
+  //static method
+  @SafeVarargs
+  public static <S2 extends Enum<S2>, V2> ForwardingProperty<S2, V2> withNameAndForProperty(
+      final String name,
+      final MaterializedProperty<S2, V2> materializedProperty,
+      final MaterializedProperty<S2, V2>... materializedProperties) {
+    return new ForwardingProperty<>(name, materializedProperty, materializedProperties);
   }
 
   //method

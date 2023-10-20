@@ -14,6 +14,9 @@ import ch.nolix.template.webgui.dialog.EnterValueDialogBuilder;
 
 public final class EnterValueDialogBuilderTutorial {
 
+  private EnterValueDialogBuilderTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -67,8 +70,5 @@ public final class EnterValueDialogBuilderTutorial {
 
       nameLabel.setText(name);
     }
-  }
-
-  private EnterValueDialogBuilderTutorial() {
   }
 }

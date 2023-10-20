@@ -6,6 +6,9 @@ import ch.nolix.core.provider.implprovider.GlobalImplProvider;
 
 public final class GlobalImplProviderTutorial {
 
+  private GlobalImplProviderTutorial() {
+  }
+
   private interface ICity {
     String getName();
 
@@ -46,8 +49,5 @@ public final class GlobalImplProviderTutorial {
     //Prints out to the console the data of the instances.
     GlobalLogger.logInfo(paris.getName() + ", population: " + paris.getPopulation());
     GlobalLogger.logInfo(london.getName() + ", population: " + london.getPopulation());
-  }
-
-  private GlobalImplProviderTutorial() {
   }
 }

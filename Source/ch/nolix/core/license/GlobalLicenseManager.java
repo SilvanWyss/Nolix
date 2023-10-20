@@ -18,6 +18,13 @@ public final class GlobalLicenseManager {
   //constant
   private static final LicenseManager LICENSE_MANAGER = new LicenseManager();
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalLicenseManager} can be created.
+   */
+  private GlobalLicenseManager() {
+  }
+
   //static method
   /**
    * Adds the given license to the {@link GlobalLicenseManager}.
@@ -89,12 +96,5 @@ public final class GlobalLicenseManager {
    */
   public static LongMediator when(final long value) {
     return LICENSE_MANAGER.when(value);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalLicenseManager} can be created.
-   */
-  private GlobalLicenseManager() {
   }
 }

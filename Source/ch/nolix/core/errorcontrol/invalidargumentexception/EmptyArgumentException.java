@@ -15,6 +15,34 @@ public final class EmptyArgumentException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is empty";
 
+  //constructor
+  /**
+   * Creates a new {@link EmptyArgumentException} for the given argument.
+   * 
+   * @param argument
+   */
+  private EmptyArgumentException(final Object argument) {
+  
+    //Calls constructor of the base class.
+    super(argument, ERROR_PREDICATE);
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link EmptyArgumentException} for the given argumentName and
+   * argument.
+   * 
+   * @param argumentName
+   * @param argument
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  private EmptyArgumentException(final String argumentName, final Object argument) {
+  
+    //Calls constructor of the base class.
+    super(argumentName, argument, ERROR_PREDICATE);
+  }
+
   //static method
   /**
    * @param argumentName
@@ -35,33 +63,5 @@ public final class EmptyArgumentException extends InvalidArgumentException {
    */
   public static EmptyArgumentException forArgument(final Object argument) {
     return new EmptyArgumentException(argument);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link EmptyArgumentException} for the given argument.
-   * 
-   * @param argument
-   */
-  private EmptyArgumentException(final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argument, ERROR_PREDICATE);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link EmptyArgumentException} for the given argumentName and
-   * argument.
-   * 
-   * @param argumentName
-   * @param argument
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  private EmptyArgumentException(final String argumentName, final Object argument) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, ERROR_PREDICATE);
   }
 }

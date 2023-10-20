@@ -25,25 +25,6 @@ public final class GridCell extends MutableElement implements Clearable {
   //constant
   private static final String CONTROL_HEADER = "Control";
 
-  //static method
-  public static GridCell fromSpecification(final INode<?> specification) {
-
-    final var cell = new GridCell();
-    cell.resetFromSpecification(specification);
-
-    return cell;
-  }
-
-  //static method
-  public static GridCell with1BasedRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
-
-    final var cell = new GridCell();
-    cell.setRowIndex(rowIndex);
-    cell.setColumnIndex(columnIndex);
-
-    return cell;
-  }
-
   //attribute
   private final Value<Integer> rowIndex = Value.forInt(ROW_INDEX_HEADER, this::setRowIndex);
 
@@ -59,6 +40,25 @@ public final class GridCell extends MutableElement implements Clearable {
 
   //constructor
   private GridCell() {
+  }
+
+  //static method
+  public static GridCell fromSpecification(final INode<?> specification) {
+  
+    final var cell = new GridCell();
+    cell.resetFromSpecification(specification);
+  
+    return cell;
+  }
+
+  //static method
+  public static GridCell with1BasedRowIndexAndColumnIndex(final int rowIndex, final int columnIndex) {
+  
+    final var cell = new GridCell();
+    cell.setRowIndex(rowIndex);
+    cell.setColumnIndex(columnIndex);
+  
+    return cell;
   }
 
   //method

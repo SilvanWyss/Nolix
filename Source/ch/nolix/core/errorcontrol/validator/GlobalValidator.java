@@ -20,6 +20,13 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  */
 public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all validation methods.
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalValidator} can be created.
+   */
+  private GlobalValidator() {
+  }
+
   //static method
   /**
    * @param argument
@@ -232,12 +239,5 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
    */
   public static MultiStringMediator assertThatTheStrings(final Iterable<String> arguments) {
     return new MultiStringMediator(arguments);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalValidator} can be created.
-   */
-  private GlobalValidator() {
   }
 }

@@ -11,6 +11,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 //class
 public final class GlobalReflectionHelper {
 
+  //constructor
+  private GlobalReflectionHelper() {
+  }
+
   //static method
   public static String getFieldName(final Object object, final Object attribute) {
     return getStoredField(object, attribute).getName();
@@ -38,9 +42,5 @@ public final class GlobalReflectionHelper {
     }
 
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeType(object, attribute.getClass());
-  }
-
-  //constructor
-  private GlobalReflectionHelper() {
   }
 }

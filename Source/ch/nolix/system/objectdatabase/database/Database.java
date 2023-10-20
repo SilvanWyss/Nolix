@@ -19,13 +19,6 @@ public final class Database implements IDatabase {
   //constant
   private static final DatabaseTableLoader DATABASE_TABLE_LOADER = new DatabaseTableLoader();
 
-  //static method
-  public static Database withDataAndSchemaAdapterAndSchema(
-      final IDataAndSchemaAdapter dataAndSchemaAdapter,
-      final ISchema schema) {
-    return new Database(dataAndSchemaAdapter, schema);
-  }
-
   //attribute
   private final ITime schemaTimestamp;
 
@@ -48,6 +41,13 @@ public final class Database implements IDatabase {
     this.dataAndSchemaAdapter = dataAndSchemaAdapter;
     this.schema = schema;
     tables = loadTables();
+  }
+
+  //static method
+  public static Database withDataAndSchemaAdapterAndSchema(
+      final IDataAndSchemaAdapter dataAndSchemaAdapter,
+      final ISchema schema) {
+    return new Database(dataAndSchemaAdapter, schema);
   }
 
   //method

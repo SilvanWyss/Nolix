@@ -17,19 +17,6 @@ import ch.nolix.system.element.main.Element;
  */
 public final class Discrete2DPoint extends Element {
 
-  //static method
-  /**
-   * Creates a new {@link Discrete2DPoint} from the given specification.
-   * 
-   * @param specification
-   * @return a new {@link Discrete2DPoint} from the given specification.
-   */
-  public static Discrete2DPoint fromSpecification(final INode<?> specification) {
-    return new Discrete2DPoint(
-        specification.getStoredChildNodeAt1BasedIndex(1).toInt(),
-        specification.getStoredChildNodeAt1BasedIndex(2).toInt());
-  }
-
   //attribute
   private final int x;
 
@@ -46,6 +33,19 @@ public final class Discrete2DPoint extends Element {
   public Discrete2DPoint(final int x, final int y) {
     this.x = x;
     this.y = y;
+  }
+
+  //static method
+  /**
+   * Creates a new {@link Discrete2DPoint} from the given specification.
+   * 
+   * @param specification
+   * @return a new {@link Discrete2DPoint} from the given specification.
+   */
+  public static Discrete2DPoint fromSpecification(final INode<?> specification) {
+    return new Discrete2DPoint(
+        specification.getStoredChildNodeAt1BasedIndex(1).toInt(),
+        specification.getStoredChildNodeAt1BasedIndex(2).toInt());
   }
 
   //method

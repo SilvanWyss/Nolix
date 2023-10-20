@@ -15,6 +15,13 @@ import java.util.Objects;
  */
 public final class GlobalIterableHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link GlobalIterableHelper} can be created.
+   */
+  private GlobalIterableHelper() {
+  }
+
   //static method
   /**
    * @param iterable
@@ -116,12 +123,5 @@ public final class GlobalIterableHelper {
     }
 
     return false;
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link GlobalIterableHelper} can be created.
-   */
-  private GlobalIterableHelper() {
   }
 }
