@@ -13,6 +13,9 @@ import ch.nolix.tech.math.fractal.FractalBuilder;
 
 public final class JuliaFractalTutorial {
 
+  private JuliaFractalTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -69,8 +72,5 @@ public final class JuliaFractalTutorial {
           .afterEverySecond()
           .runInBackground(this::refresh);
     }
-  }
-
-  private JuliaFractalTutorial() {
   }
 }

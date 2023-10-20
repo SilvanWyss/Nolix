@@ -8,26 +8,6 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 //class
 public final class HtmlAttribute implements IHtmlAttribute {
 
-  //static method
-  public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
-
-    if (htmlAttribute instanceof HtmlAttribute concreteHtmlAttribute) {
-      return concreteHtmlAttribute;
-    }
-
-    return withNameAndValue(htmlAttribute.getName(), htmlAttribute.getValue());
-  }
-
-  //static method
-  public static HtmlAttribute withNameAndValue(final String name, final int value) {
-    return withNameAndValue(name, String.valueOf(value));
-  }
-
-  //static method
-  public static HtmlAttribute withNameAndValue(final String name, final String value) {
-    return new HtmlAttribute(name, value);
-  }
-
   //attribute
   private final String name;
 
@@ -49,6 +29,26 @@ public final class HtmlAttribute implements IHtmlAttribute {
 
     this.name = name;
     this.value = value;
+  }
+
+  //static method
+  public static HtmlAttribute fromHtmlAttribute(final IHtmlAttribute htmlAttribute) {
+  
+    if (htmlAttribute instanceof HtmlAttribute concreteHtmlAttribute) {
+      return concreteHtmlAttribute;
+    }
+  
+    return withNameAndValue(htmlAttribute.getName(), htmlAttribute.getValue());
+  }
+
+  //static method
+  public static HtmlAttribute withNameAndValue(final String name, final int value) {
+    return withNameAndValue(name, String.valueOf(value));
+  }
+
+  //static method
+  public static HtmlAttribute withNameAndValue(final String name, final String value) {
+    return new HtmlAttribute(name, value);
   }
 
   //method

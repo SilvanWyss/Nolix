@@ -4,12 +4,12 @@ package ch.nolix.coretest.webtest.htmltest;
 //class
 public final class Launcher {
 
+  //constructor
+  private Launcher() {
+  }
+
   //main method
   public static void main(String[] args) {
     new HtmlTestPool().run();
-  }
-
-  //constructor
-  private Launcher() {
   }
 }

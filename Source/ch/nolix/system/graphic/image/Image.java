@@ -19,21 +19,32 @@ import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 //class
 public final class Image extends Element implements IImage {
 
+  //attribute
+  private final MutableImage internalImage;
+
+  //constructor
+  private Image(final MutableImage internalImage) {
+
+    GlobalValidator.assertThat(internalImage).thatIsNamed("internal image").isNotNull();
+
+    this.internalImage = internalImage;
+  }
+
   //static method
   public static Image fromAnyImage(final IImage image) {
-
+  
     if (image instanceof Image lImage) {
       return lImage;
     }
-
+  
     return new Image(MutableImage.fromAnyImage(image));
   }
 
   //static method
   public static Image fromBytes(final byte[] bytes) {
-
+  
     final var mutableImage = MutableImage.fromBytes(bytes);
-
+  
     return fromAnyImage(mutableImage);
   }
 
@@ -55,17 +66,6 @@ public final class Image extends Element implements IImage {
   //static method
   public static Image withPixels(Matrix<IColor> pixels) {
     return new Image(MutableImage.withPixels(pixels));
-  }
-
-  //attribute
-  private final MutableImage internalImage;
-
-  //constructor
-  private Image(final MutableImage internalImage) {
-
-    GlobalValidator.assertThat(internalImage).thatIsNamed("internal image").isNotNull();
-
-    this.internalImage = internalImage;
   }
 
   //method

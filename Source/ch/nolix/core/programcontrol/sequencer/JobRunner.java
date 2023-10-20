@@ -22,11 +22,6 @@ final class JobRunner extends Thread {
   //constant
   private static final JobMerger JOB_MERGER = new JobMerger();
 
-  //static method
-  public static JobRunner forJobs(final IContainer<Runnable> jobs) {
-    return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
-  }
-
   //attribute
   private final Runnable job;
 
@@ -266,6 +261,11 @@ final class JobRunner extends Thread {
     this.timeIntervalInMilliseconds = timeIntervalInMilliseconds;
 
     start();
+  }
+
+  //static method
+  public static JobRunner forJobs(final IContainer<Runnable> jobs) {
+    return new JobRunner(JOB_MERGER.createMergedJobForJobs(jobs), 1);
   }
 
   //method

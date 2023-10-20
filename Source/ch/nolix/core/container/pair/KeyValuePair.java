@@ -10,11 +10,6 @@ import ch.nolix.coreapi.containerapi.pairapi.IKeyValuePair;
 //class
 public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 
-  //static method
-  public <LK, LV> KeyValuePair<LK, LV> withKeyAndValue(final LK key, final LV value) {
-    return new KeyValuePair<>(key, value);
-  }
-
   //attribute
   private final K key;
 
@@ -36,6 +31,11 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 
     this.key = key;
     this.value = value;
+  }
+
+  //static method
+  public <LK, LV> KeyValuePair<LK, LV> withKeyAndValue(final LK key, final LV value) {
+    return new KeyValuePair<>(key, value);
   }
 
   //method

@@ -21,18 +21,18 @@ public final class LicenseEnvironment {
   //constant
   public static final String LICENCSE_FILE_EXTENSION = "license";
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link LicenseEnvironment} can be created.
+   */
+  private LicenseEnvironment() {
+  }
+
   //static method
   /**
    * @return the path of the license folder on the local computer.
    */
   public static String getLocalLicenseFolderPath() {
     return (GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + "/" + LOCAL_LICENSE_FOLDER_NAME);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link LicenseEnvironment} can be created.
-   */
-  private LicenseEnvironment() {
   }
 }

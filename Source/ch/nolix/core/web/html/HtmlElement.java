@@ -15,6 +15,34 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 //class
 public final class HtmlElement implements IHtmlElement {
 
+  //attribute
+  private final String type;
+
+  //attribute
+  private final String innerText;
+
+  //multi-attribute
+  private final IContainer<HtmlAttribute> attributes;
+
+  //multi-attribute
+  private final IContainer<HtmlElement> childElements;
+
+  //constructor
+  private HtmlElement(
+      final String type,
+      final IContainer<? extends IHtmlAttribute> attributes,
+      final String innerText,
+      final IContainer<? extends IHtmlElement> childElements) {
+  
+    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
+    GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
+  
+    this.type = type;
+    this.attributes = attributes.to(HtmlAttribute::fromHtmlAttribute);
+    this.innerText = innerText;
+    this.childElements = childElements.to(HtmlElement::fromHtmlElement);
+  }
+
   //static method
   public static HtmlElement fromHtmlElement(final IHtmlElement htmlElement) {
 
@@ -108,34 +136,6 @@ public final class HtmlElement implements IHtmlElement {
   //static method
   public static HtmlElement withTypeAndInnerText(final String type, final String innerText) {
     return new HtmlElement(type, new ImmutableList<>(), innerText, new ImmutableList<>());
-  }
-
-  //attribute
-  private final String type;
-
-  //attribute
-  private final String innerText;
-
-  //multi-attribute
-  private final IContainer<HtmlAttribute> attributes;
-
-  //multi-attribute
-  private final IContainer<HtmlElement> childElements;
-
-  //constructor
-  private HtmlElement(
-      final String type,
-      final IContainer<? extends IHtmlAttribute> attributes,
-      final String innerText,
-      final IContainer<? extends IHtmlElement> childElements) {
-
-    GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
-    GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
-
-    this.type = type;
-    this.attributes = attributes.to(HtmlAttribute::fromHtmlAttribute);
-    this.innerText = innerText;
-    this.childElements = childElements.to(HtmlElement::fromHtmlElement);
   }
 
   //method

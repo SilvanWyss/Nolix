@@ -12,6 +12,13 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 public final class IntegerValidationTutorial1 {
 
   /**
+   * Prevents that an instance of the {@link IntegerValidationTutorial1} can be
+   * created.
+   */
+  private IntegerValidationTutorial1() {
+  }
+
+  /**
    * Lets the {@link GlobalValidator} once assert that 5 is positive and once
    * assert that 5 is negative.
    * 
@@ -26,12 +33,5 @@ public final class IntegerValidationTutorial1 {
     //Lets the GlobalValidator assert that 5 is negative, what will result in a
     //NegativeArgumentException.
     GlobalValidator.assertThat(5).isNegative();
-  }
-
-  /**
-   * Prevents that an instance of the {@link IntegerValidationTutorial1} can be
-   * created.
-   */
-  private IntegerValidationTutorial1() {
   }
 }

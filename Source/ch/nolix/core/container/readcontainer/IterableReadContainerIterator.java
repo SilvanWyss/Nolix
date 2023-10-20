@@ -11,11 +11,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class IterableReadContainerIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> IterableReadContainerIterator<E2> forIterable(final Iterable<E2> iterable) {
-    return new IterableReadContainerIterator<>(iterable);
-  }
-
   //attribute
   private final Iterable<E> parentIterable;
 
@@ -48,6 +43,11 @@ final class IterableReadContainerIterator<E> implements CopyableIterator<E> {
     }
 
     this.iterationCount = iterationCount;
+  }
+
+  //static method
+  public static <E2> IterableReadContainerIterator<E2> forIterable(final Iterable<E2> iterable) {
+    return new IterableReadContainerIterator<>(iterable);
   }
 
   //method

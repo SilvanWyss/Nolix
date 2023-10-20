@@ -10,6 +10,9 @@ import ch.nolix.system.webgui.atomiccontrol.Link;
 
 public final class LinkTutorial {
 
+  private LinkTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -46,8 +49,5 @@ public final class LinkTutorial {
       //Adds the Link to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(link);
     }
-  }
-
-  private LinkTutorial() {
   }
 }

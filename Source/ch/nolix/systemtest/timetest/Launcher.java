@@ -8,6 +8,13 @@ package ch.nolix.systemtest.timetest;
  */
 public final class Launcher {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link Launcher} can be created.
+   */
+  private Launcher() {
+  }
+
   //main method
   /**
    * Creates a new {@link TimeTestPool} and runs it.
@@ -16,12 +23,5 @@ public final class Launcher {
    */
   public static void main(String[] args) {
     new TimeTestPool().run();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link Launcher} can be created.
-   */
-  private Launcher() {
   }
 }

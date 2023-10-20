@@ -41,6 +41,72 @@ public class InvalidArgumentException extends RuntimeException {
   //constant
   private static final char ELLIPSIS = 0x2026;
 
+  //attribute
+  private final String argumentName;
+
+  //attribute
+  private final transient Object argument;
+
+  //attribute
+  private final String errorPredicate;
+
+  //constructor
+  /**
+   * Creates a new {@link InvalidArgumentException} for the given argument.
+   * 
+   * @param argument
+   */
+  protected InvalidArgumentException(final Object argument) {
+
+    //Calls other constructor.
+    this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link InvalidArgumentException} for the given argument and
+   * errorPredicate.
+   * 
+   * @param argument
+   * @param errorPredicate
+   * @throws IllegalArgumentException if the given errorPredicate is null.
+   * @throws IllegalArgumentException if the given errorPredicate is blank.
+   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+   */
+  protected InvalidArgumentException(final Object argument, final String errorPredicate) {
+
+    //Calls other constructor.
+    this(getNameOfArgument(argument), argument, errorPredicate);
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link InvalidArgumentException} for the given argumentName,
+   * argument and errorPredicate.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param errorPredicate
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given errorPredicate is null.
+   * @throws IllegalArgumentException if the given errorPredicate is blank.
+   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+   */
+  protected InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
+
+    super(
+        "The given "
+            + getValidArgumentNameOfArgumentName(argumentName)
+            + getStringRepresentationWithPufferToNextWordsOfArgument(argument)
+            + getValidErrorPredicateOfErrorPredicate(errorPredicate)
+            + ".");
+
+    this.argumentName = argumentName;
+    this.argument = argument;
+    this.errorPredicate = errorPredicate;
+  }
+
   //static method
   /**
    * @param argument
@@ -107,12 +173,12 @@ public class InvalidArgumentException extends RuntimeException {
    * @return a argument name for the given argument.
    */
   private static String getNameOfArgument(final Object argument) {
-
+  
     //Handles the case that the given argument is null.
     if (argument == null) {
       return DEFAULT_ARGUMENT_NAME;
     }
-
+  
     //Handles the case that the given argument is not null.
     return argument.getClass().getSimpleName();
   }
@@ -124,26 +190,26 @@ public class InvalidArgumentException extends RuntimeException {
    *         next words in text.
    */
   private static String getStringRepresentationWithPufferToNextWordsOfArgument(final Object argument) {
-
+  
     //Handles the case that the given argument is null.
     if (argument == null) {
       return " ";
     }
-
+  
     //Gets the String representation of the given argument.
     final var string = argument.toString();
-
+  
     //Handles the case that the String representation is null or blank.
     if (string == null || string.isBlank()) {
       return " ";
     }
-
+  
     //Handles the case that the length of the String representation is not bigger
     //than the max argument name length.
     if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
       return (" '" + string + "' ");
     }
-
+  
     //Handles the case that the length of the String representation is bigger than
     //the max argument name length.
     return (" '" + string.substring(0, MAX_ARGUMENT_NAME_LENGTH) + ELLIPSIS + "' ");
@@ -157,17 +223,17 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private static String getValidArgumentNameOfArgumentName(final String argumentName) {
-
+  
     //Asserts that the given argumentName is not null.
     if (argumentName == null) {
       throw new IllegalArgumentException("The given argument name is null.");
     }
-
+  
     //Asserts that the given argumentName is not blank.
     if (argumentName.isBlank()) {
       throw new IllegalArgumentException("The given argument name is blank.");
     }
-
+  
     return argumentName;
   }
 
@@ -180,89 +246,23 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
    */
   private static String getValidErrorPredicateOfErrorPredicate(final String errorPredicate) {
-
+  
     //Asserts that the given errorPredicate is not null.
     if (errorPredicate == null) {
       throw new IllegalArgumentException("The given error predicate is null.");
     }
-
+  
     //Asserts that the given errorPredicate is not blank.
     if (errorPredicate.isBlank()) {
       throw new IllegalArgumentException("The given error predicate is blank.");
     }
-
+  
     //Asserts that the given errorPredicate does not end with a dot.
     if (errorPredicate.charAt(errorPredicate.length() - 1) == DOT) {
       throw new IllegalArgumentException("The given error predicate '" + errorPredicate + "' ends with a dot.");
     }
-
+  
     return errorPredicate;
-  }
-
-  //attribute
-  private final String argumentName;
-
-  //attribute
-  private final transient Object argument;
-
-  //attribute
-  private final String errorPredicate;
-
-  //constructor
-  /**
-   * Creates a new {@link InvalidArgumentException} for the given argument.
-   * 
-   * @param argument
-   */
-  protected InvalidArgumentException(final Object argument) {
-
-    //Calls other constructor.
-    this(getNameOfArgument(argument), argument, DEFAULT_ERROR_PREDICATE);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link InvalidArgumentException} for the given argument and
-   * errorPredicate.
-   * 
-   * @param argument
-   * @param errorPredicate
-   * @throws IllegalArgumentException if the given errorPredicate is null.
-   * @throws IllegalArgumentException if the given errorPredicate is blank.
-   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
-   */
-  protected InvalidArgumentException(final Object argument, final String errorPredicate) {
-
-    //Calls other constructor.
-    this(getNameOfArgument(argument), argument, errorPredicate);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link InvalidArgumentException} for the given argumentName,
-   * argument and errorPredicate.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param errorPredicate
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given errorPredicate is null.
-   * @throws IllegalArgumentException if the given errorPredicate is blank.
-   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
-   */
-  protected InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
-
-    super(
-        "The given "
-            + getValidArgumentNameOfArgumentName(argumentName)
-            + getStringRepresentationWithPufferToNextWordsOfArgument(argument)
-            + getValidErrorPredicateOfErrorPredicate(errorPredicate)
-            + ".");
-
-    this.argumentName = argumentName;
-    this.argument = argument;
-    this.errorPredicate = errorPredicate;
   }
 
   //method

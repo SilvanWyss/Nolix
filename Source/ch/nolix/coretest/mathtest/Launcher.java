@@ -8,6 +8,13 @@ package ch.nolix.coretest.mathtest;
  */
 public final class Launcher {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link Launcher} can be created.
+   */
+  private Launcher() {
+  }
+
   //main method
   /**
    * Creates a new {@link MathTestPool} and executes it.
@@ -16,12 +23,5 @@ public final class Launcher {
    */
   public static void main(final String[] arguments) {
     new MathTestPool().run();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link Launcher} can be created.
-   */
-  private Launcher() {
   }
 }

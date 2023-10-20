@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class HorizontalStackWithBottomContentAlignmentTutorial {
 
+  private HorizontalStackWithBottomContentAlignmentTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -62,8 +65,5 @@ public final class HorizontalStackWithBottomContentAlignmentTutorial {
       //Adds the HorizontalStack to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(horizontalStack);
     }
-  }
-
-  private HorizontalStackWithBottomContentAlignmentTutorial() {
   }
 }

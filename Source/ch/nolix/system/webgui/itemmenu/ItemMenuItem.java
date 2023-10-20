@@ -32,6 +32,47 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
   //constant
   private static final String SELECTION_FLAG_HEADER = "Selected";
 
+  //attribute
+  private final OptionalValue<String> id = new OptionalValue<>(
+      ID_HEADER,
+      this::setId,
+      INode::getSingleChildNodeHeader,
+      Node::withChildNode);
+
+  //attribute
+  private final Value<String> text = new Value<>(
+      TEXT_HEADER,
+      this::setText,
+      INode::getSingleChildNodeHeader,
+      Node::withChildNode);
+
+  //attribute
+  private final MutableValue<Boolean> selectionFlag = new MutableValue<>(
+      SELECTION_FLAG_HEADER,
+      DEFAULT_SELECTION_FLAG,
+      this::setSelectionFlag,
+      INode::getSingleChildNodeAsBoolean,
+      Node::withChildNode);
+
+  //optional attribute
+  private IItemMenu<?, ?> parentMenu;
+
+  //optional attribute
+  private final Consumer<IItemMenuItem<?>> selectAction;
+
+  //constructor
+  private ItemMenuItem() {
+    selectAction = null;
+  }
+
+  //constructor
+  private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
+  
+    GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
+  
+    this.selectAction = selectAction;
+  }
+
   //static method
   public static ItemMenuItem createBlankItem() {
     return withText(StringCatalogue.EMPTY_STRING);
@@ -117,47 +158,6 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
     item.setText(text);
 
     return item;
-  }
-
-  //attribute
-  private final OptionalValue<String> id = new OptionalValue<>(
-      ID_HEADER,
-      this::setId,
-      INode::getSingleChildNodeHeader,
-      Node::withChildNode);
-
-  //attribute
-  private final Value<String> text = new Value<>(
-      TEXT_HEADER,
-      this::setText,
-      INode::getSingleChildNodeHeader,
-      Node::withChildNode);
-
-  //attribute
-  private final MutableValue<Boolean> selectionFlag = new MutableValue<>(
-      SELECTION_FLAG_HEADER,
-      DEFAULT_SELECTION_FLAG,
-      this::setSelectionFlag,
-      INode::getSingleChildNodeAsBoolean,
-      Node::withChildNode);
-
-  //optional attribute
-  private IItemMenu<?, ?> parentMenu;
-
-  //optional attribute
-  private final Consumer<IItemMenuItem<?>> selectAction;
-
-  //constructor
-  private ItemMenuItem() {
-    selectAction = null;
-  }
-
-  //constructor
-  private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
-
-    GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
-
-    this.selectAction = selectAction;
   }
 
   //method

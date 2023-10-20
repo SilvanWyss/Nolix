@@ -12,6 +12,13 @@ package ch.nolix.core.errorcontrol.validator;
  */
 final class IterableHelper {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link IterableHelper} can be created.
+   */
+  private IterableHelper() {
+  }
+
   //static method
   /**
    * @param iterableObject
@@ -32,12 +39,5 @@ final class IterableHelper {
    */
   public static <E> boolean isEmpty(final Iterable<E> iterableObject) {
     return !iterableObject.iterator().hasNext();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link IterableHelper} can be created.
-   */
-  private IterableHelper() {
   }
 }

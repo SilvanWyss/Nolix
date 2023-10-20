@@ -21,15 +21,15 @@ public final class InvalidPortException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is not valid";
 
+  //constructor
+  private InvalidPortException(final long port) {
+  
+    //Calls constructor of the base class.
+    super(ARGUMENT_NAME, port, ERROR_PREDICATE);
+  }
+
   //static method
   public static InvalidPortException forPort(final long port) {
     return new InvalidPortException(port);
-  }
-
-  //constructor
-  private InvalidPortException(final long port) {
-
-    //Calls constructor of the base class.
-    super(ARGUMENT_NAME, port, ERROR_PREDICATE);
   }
 }

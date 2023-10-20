@@ -11,6 +11,10 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class LocalComputer {
 
+  //constructor
+  private LocalComputer() {
+  }
+
   //static method
   public static String getLANIP() {
     try {
@@ -18,9 +22,5 @@ public final class LocalComputer {
     } catch (final UnknownHostException unknownHostException) {
       throw WrapperException.forError(unknownHostException);
     }
-  }
-
-  //constructor
-  private LocalComputer() {
   }
 }

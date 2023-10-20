@@ -11,6 +11,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class ImageControlTutorial {
 
+  private ImageControlTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -53,8 +56,5 @@ public final class ImageControlTutorial {
       //Adds the ImageControl to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(imageControl);
     }
-  }
-
-  private ImageControlTutorial() {
   }
 }

@@ -27,17 +27,6 @@ public final class IterableReadContainer<E> extends Container<E> {
   //attribute
   private final Iterable<E> container;
 
-  //static method
-  /**
-   * @param iterable
-   * @param <E2>     is the type of the elements of the given iterable.
-   * @return a new {@link IterableReadContainer} for the given iterable.
-   * @throws ArgumentIsNullException if the given iterable is null.
-   */
-  public static <E2> IterableReadContainer<E2> forIterable(final Iterable<? extends E2> iterable) {
-    return new IterableReadContainer<>(iterable);
-  }
-
   //constructor
   /**
    * Creates a new {@link IterableReadContainer} for a new empty container.
@@ -67,6 +56,17 @@ public final class IterableReadContainer<E> extends Container<E> {
 
     //Sets the container of the current IterableReadContainer.
     this.container = (Iterable<E>) container;
+  }
+
+  //static method
+  /**
+   * @param iterable
+   * @param <E2>     is the type of the elements of the given iterable.
+   * @return a new {@link IterableReadContainer} for the given iterable.
+   * @throws ArgumentIsNullException if the given iterable is null.
+   */
+  public static <E2> IterableReadContainer<E2> forIterable(final Iterable<? extends E2> iterable) {
+    return new IterableReadContainer<>(iterable);
   }
 
   //method

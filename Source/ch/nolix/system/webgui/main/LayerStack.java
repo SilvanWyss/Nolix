@@ -14,11 +14,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class LayerStack implements ILayerStack {
 
-  //static method
-  public static LayerStack forWebGui(final IWebGui<?> webGui) {
-    return new LayerStack(webGui);
-  }
-
   //attribute
   private final IWebGui<?> parentGui;
 
@@ -34,6 +29,11 @@ public final class LayerStack implements ILayerStack {
     GlobalValidator.assertThat(parentGui).thatIsNamed("parent gui").isNotNull();
 
     this.parentGui = parentGui;
+  }
+
+  //static method
+  public static LayerStack forWebGui(final IWebGui<?> webGui) {
+    return new LayerStack(webGui);
   }
 
   //method

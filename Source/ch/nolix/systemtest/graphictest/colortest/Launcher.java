@@ -10,6 +10,13 @@ package ch.nolix.systemtest.graphictest.colortest;
  */
 public final class Launcher {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link Launcher} can be created.
+   */
+  private Launcher() {
+  }
+
   //main method
   /**
    * Creates a new {@link ColorTestPool} and runs it.
@@ -18,12 +25,5 @@ public final class Launcher {
    */
   public static void main(String[] args) {
     new ColorTestPool().run();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link Launcher} can be created.
-   */
-  private Launcher() {
   }
 }

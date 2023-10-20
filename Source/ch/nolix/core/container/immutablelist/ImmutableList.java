@@ -28,61 +28,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class ImmutableList<E> extends Container<E> {
 
-  //static method
-  public static <E2> ImmutableList<E2> forArray(final E2[] array) {
-    return new ImmutableList<>(array.clone());
-  }
-
-  //static method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
-  /**
-   * @param <E2>
-   * @param container
-   * @return a new {@link ImmutableList} with the elements from the given
-   *         container.
-   * @throws ArgumentIsNullException if one of the elements of the given container
-   *                                 is null.
-   */
-  @SuppressWarnings("unchecked")
-  public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
-
-    if (container instanceof ImmutableList) {
-      return (ImmutableList<E2>) container;
-    }
-
-    final var elementCount = GlobalIterableHelper.getElementCount(container);
-    final var elements = new Object[elementCount];
-    var index = 0;
-    for (final var e : container) {
-
-      if (e == null) {
-        throw ArgumentIsNullException.forArgumentName((index + 1) + "th element");
-      }
-
-      elements[index] = e;
-
-      index++;
-    }
-
-    return new ImmutableList<>((E2[]) elements);
-  }
-
-  //static method
-  /**
-   * @param element
-   * @param elements
-   * @param <E2>     is the type of the given element and of the given elements.
-   * @return a new {@link ImmutableList} with the given element and elements.
-   * @throws ArgumentIsNullException if the given element is null.
-   * @throws ArgumentIsNullException if one of the given elements is null.
-   */
-  public static <E2> ImmutableList<E2> withElement(
-      final E2 element,
-      final @SuppressWarnings("unchecked") E2... elements) {
-    return new ImmutableList<>(element, elements);
-  }
-
   //multi-attribute
   private final E[] elements;
 
@@ -119,6 +64,61 @@ public final class ImmutableList<E> extends Container<E> {
     this.elements = GlobalArrayHelper.createArrayWithElement(element, elements);
 
     GlobalValidator.assertThatTheElements(elements).areNotNull();
+  }
+
+  //static method
+  public static <E2> ImmutableList<E2> forArray(final E2[] array) {
+    return new ImmutableList<>(array.clone());
+  }
+
+  //static method
+  //For a better performance, this implementation does not use all comfortable
+  //methods.
+  /**
+   * @param <E2>
+   * @param container
+   * @return a new {@link ImmutableList} with the elements from the given
+   *         container.
+   * @throws ArgumentIsNullException if one of the elements of the given container
+   *                                 is null.
+   */
+  @SuppressWarnings("unchecked")
+  public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
+  
+    if (container instanceof ImmutableList) {
+      return (ImmutableList<E2>) container;
+    }
+  
+    final var elementCount = GlobalIterableHelper.getElementCount(container);
+    final var elements = new Object[elementCount];
+    var index = 0;
+    for (final var e : container) {
+  
+      if (e == null) {
+        throw ArgumentIsNullException.forArgumentName((index + 1) + "th element");
+      }
+  
+      elements[index] = e;
+  
+      index++;
+    }
+  
+    return new ImmutableList<>((E2[]) elements);
+  }
+
+  //static method
+  /**
+   * @param element
+   * @param elements
+   * @param <E2>     is the type of the given element and of the given elements.
+   * @return a new {@link ImmutableList} with the given element and elements.
+   * @throws ArgumentIsNullException if the given element is null.
+   * @throws ArgumentIsNullException if one of the given elements is null.
+   */
+  public static <E2> ImmutableList<E2> withElement(
+      final E2 element,
+      final @SuppressWarnings("unchecked") E2... elements) {
+    return new ImmutableList<>(element, elements);
   }
 
   //method

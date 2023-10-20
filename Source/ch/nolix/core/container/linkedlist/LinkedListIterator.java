@@ -17,11 +17,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
  */
 final class LinkedListIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
-    return new LinkedListIterator<>(firstNode);
-  }
-
   //optional attribute
   private LinkedListNode<E> nextNode;
 
@@ -34,6 +29,11 @@ final class LinkedListIterator<E> implements CopyableIterator<E> {
    */
   private LinkedListIterator(final LinkedListNode<E> firstNode) {
     nextNode = firstNode;
+  }
+
+  //static method
+  public static <E2> LinkedListIterator<E2> withFirstNodeOrNull(final LinkedListNode<E2> firstNode) {
+    return new LinkedListIterator<>(firstNode);
   }
 
   //method

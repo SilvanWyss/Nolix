@@ -8,16 +8,6 @@ import java.util.NoSuchElementException;
 //class
 public final class ListIterator<E> implements Iterator<E> {
 
-  //static method
-  public static <E2> ListIterator<E2> forEmptyList() {
-    return new ListIterator<>();
-  }
-
-  //static method
-  public static <E2> ListIterator<E2> forStartNode(final ListNode<E2> startNode) {
-    return new ListIterator<>(startNode);
-  }
-
   //optional attribute
   private ListNode<E> nextNode;
 
@@ -28,6 +18,16 @@ public final class ListIterator<E> implements Iterator<E> {
   //constructor
   private ListIterator(final ListNode<E> startNode) {
     this.nextNode = startNode;
+  }
+
+  //static method
+  public static <E2> ListIterator<E2> forEmptyList() {
+    return new ListIterator<>();
+  }
+
+  //static method
+  public static <E2> ListIterator<E2> forStartNode(final ListNode<E2> startNode) {
+    return new ListIterator<>(startNode);
   }
 
   //method

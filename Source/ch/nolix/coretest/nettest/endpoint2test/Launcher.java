@@ -10,6 +10,13 @@ package ch.nolix.coretest.nettest.endpoint2test;
  */
 public final class Launcher {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link Launcher} can be created.
+   */
+  private Launcher() {
+  }
+
   //main method
   /**
    * Creates a new {@link EndPointTestPool} and runs it.
@@ -18,12 +25,5 @@ public final class Launcher {
    */
   public static void main(String[] args) {
     new EndPointTestPool().run();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link Launcher} can be created.
-   */
-  private Launcher() {
   }
 }

@@ -28,27 +28,6 @@ import ch.nolix.core.net.constant.PortCatalogue;
  */
 public class LongMediator extends Mediator {
 
-  //static method
-  /**
-   * @param argument
-   * @return a new {@link LongMediator} for the given argument.
-   */
-  public static LongMediator forArgument(final long argument) {
-    return new LongMediator(argument);
-  }
-
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link LongMediator} for the given argumentName and argument.
-   * @throws ArgumentIsNullException  if the given argumentName is null.
-   * @throws InvalidArgumentException if the given argumentName is blank.
-   */
-  public static LongMediator forArgumentNameAndArgument(final String argumentName, final long argument) {
-    return new LongMediator(argumentName, argument);
-  }
-
   //attribute
   private final long argument;
 
@@ -76,6 +55,27 @@ public class LongMediator extends Mediator {
     super(argumentName);
 
     this.argument = argument;
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @return a new {@link LongMediator} for the given argument.
+   */
+  public static LongMediator forArgument(final long argument) {
+    return new LongMediator(argument);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link LongMediator} for the given argumentName and argument.
+   * @throws ArgumentIsNullException  if the given argumentName is null.
+   * @throws InvalidArgumentException if the given argumentName is blank.
+   */
+  public static LongMediator forArgumentNameAndArgument(final String argumentName, final long argument) {
+    return new LongMediator(argumentName, argument);
   }
 
   //method

@@ -44,15 +44,6 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   //constant
   public static final ContentAlignment DEFAULT_CONTENT_POSITION = ContentAlignment.TOP;
 
-  //static method
-  public static Layer fromSpecification(final INode<?> specification) {
-
-    final var layer = new Layer();
-    layer.resetFromSpecification(specification);
-
-    return layer;
-  }
-
   //constant
   private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 
@@ -121,6 +112,15 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   //constructor
   public Layer() {
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+  }
+
+  //static method
+  public static Layer fromSpecification(final INode<?> specification) {
+  
+    final var layer = new Layer();
+    layer.resetFromSpecification(specification);
+  
+    return layer;
   }
 
   //method

@@ -13,6 +13,13 @@ import ch.nolix.core.errorcontrol.logger.GlobalLogger;
  */
 public final class Launcher {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link Launcher} can be created.
+   */
+  private Launcher() {
+  }
+
   //main method
   /**
    * Creates a new {@link NolixTestPool} and runs it.
@@ -24,12 +31,5 @@ public final class Launcher {
     GlobalLogger.disable();
 
     new NolixTestPool().run();
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link Launcher} can be created.
-   */
-  private Launcher() {
   }
 }
