@@ -40,60 +40,6 @@ public final class ColorGradient extends Element implements IColorGradient {
   //constant
   public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
-  //static method
-  /**
-   * @param specification
-   * @return a new {@link ColorGradient} from the given specification.
-   * @throws InvalidArgumentException if the given specification is not valid.
-   */
-  public static ColorGradient fromSpecification(final INode<?> specification) {
-
-    final var attributes = specification.getStoredChildNodes();
-
-    return switch (attributes.getElementCount()) {
-      case 2 ->
-        from2Attributes(attributes);
-      case 3 ->
-        from3Attributes(attributes);
-      default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
-    };
-  }
-
-  //static method
-  /**
-   * @param attributes
-   * @return a new {@link ColorGradient} from the given attributes.
-   * @throws InvalidArgumentException if the given attributes are not valid.
-   */
-  private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
-
-    final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
-    final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
-
-    return new ColorGradient(
-        Color.fromSpecification(color1Specification),
-        Color.fromSpecification(color2Specification));
-  }
-
-  //static method
-  /**
-   * @param attributes
-   * @return a new {@link ColorGradient} from the given attributes.
-   * @throws InvalidArgumentException if the given attributes are not valid.
-   */
-  private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
-
-    final var directionSpecification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
-    final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
-    final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
-
-    return new ColorGradient(
-        DirectionInRectangle.fromSpecification(directionSpecification),
-        Color.fromSpecification(color1Specification),
-        Color.fromSpecification(color2Specification));
-  }
-
   //attribute
   private final DirectionInRectangle direction;
 
@@ -168,6 +114,60 @@ public final class ColorGradient extends Element implements IColorGradient {
     this.direction = direction;
     this.color1 = color1;
     this.color2 = color2;
+  }
+
+  //static method
+  /**
+   * @param specification
+   * @return a new {@link ColorGradient} from the given specification.
+   * @throws InvalidArgumentException if the given specification is not valid.
+   */
+  public static ColorGradient fromSpecification(final INode<?> specification) {
+  
+    final var attributes = specification.getStoredChildNodes();
+  
+    return switch (attributes.getElementCount()) {
+      case 2 ->
+        from2Attributes(attributes);
+      case 3 ->
+        from3Attributes(attributes);
+      default ->
+        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.SPECIFICATION, specification);
+    };
+  }
+
+  //static method
+  /**
+   * @param attributes
+   * @return a new {@link ColorGradient} from the given attributes.
+   * @throws InvalidArgumentException if the given attributes are not valid.
+   */
+  private static ColorGradient from2Attributes(IContainer<? extends INode<?>> attributes) {
+  
+    final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
+    final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
+  
+    return new ColorGradient(
+        Color.fromSpecification(color1Specification),
+        Color.fromSpecification(color2Specification));
+  }
+
+  //static method
+  /**
+   * @param attributes
+   * @return a new {@link ColorGradient} from the given attributes.
+   * @throws InvalidArgumentException if the given attributes are not valid.
+   */
+  private static ColorGradient from3Attributes(IContainer<? extends INode<?>> attributes) {
+  
+    final var directionSpecification = Node.withChildNode(attributes.getStoredAt1BasedIndex(1));
+    final var color1Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
+    final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
+  
+    return new ColorGradient(
+        DirectionInRectangle.fromSpecification(directionSpecification),
+        Color.fromSpecification(color1Specification),
+        Color.fromSpecification(color2Specification));
   }
 
   //method

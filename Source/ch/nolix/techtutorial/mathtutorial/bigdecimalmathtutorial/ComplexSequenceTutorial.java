@@ -8,15 +8,18 @@ import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 
 public final class ComplexSequenceTutorial {
 
-  public static void main(String[] args) {
+  private ComplexSequenceTutorial() {
+  }
 
+  public static void main(String[] args) {
+  
     final var complexSequence = new ComplexSequenceDefinedBy1Predecessor(
         new ComplexNumber(0.0, 0.0),
         p -> p.getPower2().getSum(new ComplexNumber(0.0, 1.0)));
-
+  
     final IntConsumer printFunction = (int i) -> GlobalLogger
         .logInfo("a(" + i + ") = " + complexSequence.getValueAt1BasedIndex(i));
-
+  
     printFunction.accept(1);
     printFunction.accept(2);
     printFunction.accept(3);
@@ -25,8 +28,5 @@ public final class ComplexSequenceTutorial {
     printFunction.accept(10);
     printFunction.accept(100);
     printFunction.accept(1000);
-  }
-
-  private ComplexSequenceTutorial() {
   }
 }

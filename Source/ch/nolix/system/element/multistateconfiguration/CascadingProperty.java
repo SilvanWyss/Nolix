@@ -13,35 +13,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 
-  //static method
-  public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
-      final String name,
-      final Class<S2> stateClass,
-      final boolean defaultValue) {
-    return new CascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsBoolean,
-        Node::withChildNode,
-        defaultValue);
-  }
-
-  //static method
-  public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
-      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          final String name,
-          final Class<S2> stateClass,
-          final BiConsumer<S2, Integer> setterMethod,
-          final int defaultValue) {
-    return new CascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsInt,
-        Node::withChildNode,
-        setterMethod,
-        defaultValue);
-  }
-
   //attribute
   private final V defaultValue;
 
@@ -77,6 +48,35 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
     GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
+  }
+
+  //static method
+  public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
+      final String name,
+      final Class<S2> stateClass,
+      final boolean defaultValue) {
+    return new CascadingProperty<>(
+        name,
+        stateClass,
+        INode::getSingleChildNodeAsBoolean,
+        Node::withChildNode,
+        defaultValue);
+  }
+
+  //static method
+  public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
+      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+          final String name,
+          final Class<S2> stateClass,
+          final BiConsumer<S2, Integer> setterMethod,
+          final int defaultValue) {
+    return new CascadingProperty<>(
+        name,
+        stateClass,
+        INode::getSingleChildNodeAsInt,
+        Node::withChildNode,
+        setterMethod,
+        defaultValue);
   }
 
   //method

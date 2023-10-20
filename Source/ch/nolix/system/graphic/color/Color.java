@@ -1323,223 +1323,6 @@ public final class Color extends Element implements IColor {
     WEB_COLORS_AND_NAMES = new ColorNameConstantExtractor().getWebColorsAndNames();
   }
 
-  //static method
-  public static Color createAverageFrom(final IColor color, final IColor... colors) {
-    return createAverageFrom(ReadContainer.forElement(color, colors));
-  }
-
-  //static method
-  public static Color createAverageFrom(final IContainer<IColor> colors) {
-
-    final var colorCount = colors.getElementCount();
-
-    var averageRedValue = 0;
-    var averageGreenValue = 0;
-    var averageBlueValue = 0;
-    var averateAlphaValue = 0;
-
-    for (final var c : colors) {
-      averageRedValue += c.getRedValue();
-      averageGreenValue += c.getGreenValue();
-      averageBlueValue += c.getBlueValue();
-      averateAlphaValue += c.getAlphaValue();
-    }
-
-    return new Color(
-        averageRedValue / colorCount,
-        averageGreenValue / colorCount,
-        averageBlueValue / colorCount,
-        averateAlphaValue / colorCount);
-  }
-
-  //static method
-  /**
-   * @param pLong
-   * @return a new {@link Color} from the given pLong.
-   * @throws UnrepresentingArgumentException if the given pLong does not represent
-   *                                         a {@link Color}.
-   */
-  public static Color fromLong(final long pLong) {
-
-    //Asserts that the given pLong is a true color value.
-    GlobalValidator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
-
-    var lLong = pLong;
-
-    var alphaValue = DEFAULT_ALPHA_VALUE;
-
-    //Handles the case that the given pLong specifies an alpha value.
-    if (lLong >= 16_777_216) {
-      alphaValue = ((int) (lLong % 256));
-      lLong /= 256;
-    }
-
-    final var blueValue = (int) (lLong % 256);
-    lLong /= 256;
-
-    final var greenValue = ((int) (lLong % 256));
-    lLong /= 256;
-
-    final var redValue = (int) lLong;
-
-    return new Color(redValue, greenValue, blueValue, alphaValue);
-  }
-
-  //static method
-  /**
-   * @param specification
-   * @return a new {@link Color} from the given specification
-   * @throws InvalidArgumentException if the given specification is not valid.
-   */
-  public static Color fromSpecification(final INode<?> specification) {
-    return Color.fromString(specification.getSingleChildNodeHeader());
-  }
-
-  //static method
-  /**
-   * @param string
-   * @return a new {@link Color} from the given string.
-   * @throws UnrepresentingArgumentException if the given string does not
-   *                                         represent a {@link Color}.
-   */
-  public static Color fromString(final String string) {
-
-    final var webColorAndName = WEB_COLORS_AND_NAMES.getStoredFirstOrNull(p -> p.getStoredElement1().equals(string));
-
-    //Handles the case that the given string is not a color name.
-    if (webColorAndName == null) {
-
-      if ((string.length() != 8 || string.length() != 10)
-          && !string.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
-        throw UnrepresentingArgumentException.forArgumentAndType(string, Color.class);
-      }
-
-      final var redValue = getColorComponentFrom(string.substring(2, 4));
-      final var greenValue = getColorComponentFrom(string.substring(4, 6));
-      final var blueValue = getColorComponentFrom(string.substring(6, 8));
-
-      //Handles the case that the given string does not specify an alpha value.
-      if (string.length() == 8) {
-        return new Color(redValue, greenValue, blueValue);
-      }
-
-      //Handles the case that the given string specifies an alpha value.
-      final var alphaValue = getColorComponentFrom(string.substring(8, 10));
-      return new Color(redValue, greenValue, blueValue, alphaValue);
-    }
-
-    //Handles the case that the given value is a color name.
-    return webColorAndName.getStoredElement2();
-  }
-
-  //static method
-  /**
-   * @param redValue
-   * @param greenValue
-   * @param blueValue
-   * @return a new {@link Color} with the given redValue, greenValue and
-   *         blueValue.
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
-   *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
-   *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
-   *                                       color component (in [0, 255]).
-   */
-  public static Color withRedValueAndGreenValueAndBlueValue(
-      final int redValue,
-      final int greenValue,
-      final int blueValue) {
-    return new Color(redValue, greenValue, blueValue);
-  }
-
-  //static method
-  /**
-   * @param redValue
-   * @param greenValue
-   * @param blueValue
-   * @param alphaValue
-   * @return a new {@link Color} with the given redValue, greenValue, blueValue
-   *         and alphaValue.
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
-   *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
-   *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
-   *                                       color component (in [0, 255]).
-   * @throws ArgumentIsOutOfRangeException if the given alphaValue is not a true
-   *                                       color component (in [0, 255]).
-   */
-  public static Color withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-      final int redValue,
-      final int greenValue,
-      final int blueValue,
-      final int alphaValue) {
-    return new Color(redValue, greenValue, blueValue, alphaValue);
-  }
-
-  //method
-  /**
-   * @param string
-   * @return the color component the given string represents.
-   * @throws UnrepresentingArgumentException if the given string does not
-   *                                         represent a color component.
-   */
-  private static int getColorComponentFrom(final String string) {
-
-    var value = 0;
-    var base = 1;
-
-    //Iterates the given string.
-    for (var i = string.length() - 1; i >= 0; i--) {
-
-      final var tempValue =
-
-          //Enumerates the current character.
-          switch (string.charAt(i)) {
-            case '0' ->
-              0;
-            case '1' ->
-              1;
-            case '2' ->
-              2;
-            case '3' ->
-              3;
-            case '4' ->
-              4;
-            case '5' ->
-              5;
-            case '6' ->
-              6;
-            case '7' ->
-              7;
-            case '8' ->
-              8;
-            case '9' ->
-              9;
-            case 'A' ->
-              10;
-            case 'B' ->
-              11;
-            case 'C' ->
-              12;
-            case 'D' ->
-              13;
-            case 'E' ->
-              14;
-            case 'F' ->
-              15;
-            default ->
-              throw InvalidArgumentException.forArgument(string);
-          };
-
-      value += tempValue * base;
-      base *= 16;
-    }
-
-    return value;
-  }
-
   //attribute
   private final short redValue;
 
@@ -1617,6 +1400,223 @@ public final class Color extends Element implements IColor {
     this.greenValue = (short) greenValue;
     this.blueValue = (short) blueValue;
     this.alphaValue = (short) alphaValue;
+  }
+
+  //static method
+  public static Color createAverageFrom(final IColor color, final IColor... colors) {
+    return createAverageFrom(ReadContainer.forElement(color, colors));
+  }
+
+  //static method
+  public static Color createAverageFrom(final IContainer<IColor> colors) {
+  
+    final var colorCount = colors.getElementCount();
+  
+    var averageRedValue = 0;
+    var averageGreenValue = 0;
+    var averageBlueValue = 0;
+    var averateAlphaValue = 0;
+  
+    for (final var c : colors) {
+      averageRedValue += c.getRedValue();
+      averageGreenValue += c.getGreenValue();
+      averageBlueValue += c.getBlueValue();
+      averateAlphaValue += c.getAlphaValue();
+    }
+  
+    return new Color(
+        averageRedValue / colorCount,
+        averageGreenValue / colorCount,
+        averageBlueValue / colorCount,
+        averateAlphaValue / colorCount);
+  }
+
+  //static method
+  /**
+   * @param pLong
+   * @return a new {@link Color} from the given pLong.
+   * @throws UnrepresentingArgumentException if the given pLong does not represent
+   *                                         a {@link Color}.
+   */
+  public static Color fromLong(final long pLong) {
+  
+    //Asserts that the given pLong is a true color value.
+    GlobalValidator.assertThat(pLong).isBetween(MIN_COLOR_LONG, MAX_COLOR_LONG);
+  
+    var lLong = pLong;
+  
+    var alphaValue = DEFAULT_ALPHA_VALUE;
+  
+    //Handles the case that the given pLong specifies an alpha value.
+    if (lLong >= 16_777_216) {
+      alphaValue = ((int) (lLong % 256));
+      lLong /= 256;
+    }
+  
+    final var blueValue = (int) (lLong % 256);
+    lLong /= 256;
+  
+    final var greenValue = ((int) (lLong % 256));
+    lLong /= 256;
+  
+    final var redValue = (int) lLong;
+  
+    return new Color(redValue, greenValue, blueValue, alphaValue);
+  }
+
+  //static method
+  /**
+   * @param specification
+   * @return a new {@link Color} from the given specification
+   * @throws InvalidArgumentException if the given specification is not valid.
+   */
+  public static Color fromSpecification(final INode<?> specification) {
+    return Color.fromString(specification.getSingleChildNodeHeader());
+  }
+
+  //static method
+  /**
+   * @param string
+   * @return a new {@link Color} from the given string.
+   * @throws UnrepresentingArgumentException if the given string does not
+   *                                         represent a {@link Color}.
+   */
+  public static Color fromString(final String string) {
+  
+    final var webColorAndName = WEB_COLORS_AND_NAMES.getStoredFirstOrNull(p -> p.getStoredElement1().equals(string));
+  
+    //Handles the case that the given string is not a color name.
+    if (webColorAndName == null) {
+  
+      if ((string.length() != 8 || string.length() != 10)
+          && !string.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
+        throw UnrepresentingArgumentException.forArgumentAndType(string, Color.class);
+      }
+  
+      final var redValue = getColorComponentFrom(string.substring(2, 4));
+      final var greenValue = getColorComponentFrom(string.substring(4, 6));
+      final var blueValue = getColorComponentFrom(string.substring(6, 8));
+  
+      //Handles the case that the given string does not specify an alpha value.
+      if (string.length() == 8) {
+        return new Color(redValue, greenValue, blueValue);
+      }
+  
+      //Handles the case that the given string specifies an alpha value.
+      final var alphaValue = getColorComponentFrom(string.substring(8, 10));
+      return new Color(redValue, greenValue, blueValue, alphaValue);
+    }
+  
+    //Handles the case that the given value is a color name.
+    return webColorAndName.getStoredElement2();
+  }
+
+  //static method
+  /**
+   * @param redValue
+   * @param greenValue
+   * @param blueValue
+   * @return a new {@link Color} with the given redValue, greenValue and
+   *         blueValue.
+   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   *                                       color component (in [0, 255]).
+   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
+   *                                       color component (in [0, 255]).
+   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   *                                       color component (in [0, 255]).
+   */
+  public static Color withRedValueAndGreenValueAndBlueValue(
+      final int redValue,
+      final int greenValue,
+      final int blueValue) {
+    return new Color(redValue, greenValue, blueValue);
+  }
+
+  //static method
+  /**
+   * @param redValue
+   * @param greenValue
+   * @param blueValue
+   * @param alphaValue
+   * @return a new {@link Color} with the given redValue, greenValue, blueValue
+   *         and alphaValue.
+   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   *                                       color component (in [0, 255]).
+   * @throws ArgumentIsOutOfRangeException if the given greenValue is not a true
+   *                                       color component (in [0, 255]).
+   * @throws ArgumentIsOutOfRangeException if the given blueValue is not a true
+   *                                       color component (in [0, 255]).
+   * @throws ArgumentIsOutOfRangeException if the given alphaValue is not a true
+   *                                       color component (in [0, 255]).
+   */
+  public static Color withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+      final int redValue,
+      final int greenValue,
+      final int blueValue,
+      final int alphaValue) {
+    return new Color(redValue, greenValue, blueValue, alphaValue);
+  }
+
+  //method
+  /**
+   * @param string
+   * @return the color component the given string represents.
+   * @throws UnrepresentingArgumentException if the given string does not
+   *                                         represent a color component.
+   */
+  private static int getColorComponentFrom(final String string) {
+  
+    var value = 0;
+    var base = 1;
+  
+    //Iterates the given string.
+    for (var i = string.length() - 1; i >= 0; i--) {
+  
+      final var tempValue =
+  
+          //Enumerates the current character.
+          switch (string.charAt(i)) {
+            case '0' ->
+              0;
+            case '1' ->
+              1;
+            case '2' ->
+              2;
+            case '3' ->
+              3;
+            case '4' ->
+              4;
+            case '5' ->
+              5;
+            case '6' ->
+              6;
+            case '7' ->
+              7;
+            case '8' ->
+              8;
+            case '9' ->
+              9;
+            case 'A' ->
+              10;
+            case 'B' ->
+              11;
+            case 'C' ->
+              12;
+            case 'D' ->
+              13;
+            case 'E' ->
+              14;
+            case 'F' ->
+              15;
+            default ->
+              throw InvalidArgumentException.forArgument(string);
+          };
+  
+      value += tempValue * base;
+      base *= 16;
+    }
+  
+    return value;
   }
 
   //method

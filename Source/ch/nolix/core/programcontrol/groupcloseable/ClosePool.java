@@ -17,16 +17,6 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.IClosePool;
  */
 final class ClosePool implements IClosePool {
 
-  //static method
-  /**
-   * @param element
-   * @return a new {@link ClosePool} with the given element.
-   * @throws ArgumentIsNullException if the given element is null.
-   */
-  public static ClosePool forElement(final GroupCloseable element) {
-    return new ClosePool(element);
-  }
-
   //attribute
   private CloseState state = CloseState.OPEN;
 
@@ -42,6 +32,16 @@ final class ClosePool implements IClosePool {
    */
   public ClosePool(final GroupCloseable element) {
     addElement(element);
+  }
+
+  //static method
+  /**
+   * @param element
+   * @return a new {@link ClosePool} with the given element.
+   * @throws ArgumentIsNullException if the given element is null.
+   */
+  public static ClosePool forElement(final GroupCloseable element) {
+    return new ClosePool(element);
   }
 
   //method

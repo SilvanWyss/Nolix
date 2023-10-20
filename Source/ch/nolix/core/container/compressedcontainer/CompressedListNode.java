@@ -11,11 +11,6 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 final class CompressedListNode<E> {
 
-  //static method
-  public static <E2> CompressedListNode<E2> forElement(final E2 element) {
-    return new CompressedListNode<>(element, 1);
-  }
-
   //attribute
   private final E element;
 
@@ -40,6 +35,11 @@ final class CompressedListNode<E> {
 
     this.element = element;
     this.elementCount = elementCount;
+  }
+
+  //static method
+  public static <E2> CompressedListNode<E2> forElement(final E2 element) {
+    return new CompressedListNode<>(element, 1);
   }
 
   //method

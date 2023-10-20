@@ -13,15 +13,6 @@ import ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi.IDataAndSch
 //class
 public final class Column extends ImmutableDatabaseObject implements IColumn {
 
-  //static method
-  static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
-      final String name,
-      final String id,
-      final IParameterizedPropertyType parameterizedPropertyType,
-      final Table<IEntity> parentTable) {
-    return new Column(name, id, parameterizedPropertyType, parentTable);
-  }
-
   //attribute
   private final String name;
 
@@ -50,6 +41,15 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
     this.id = id;
     this.parameterizedPropertyType = parameterizedPropertyType;
     this.parentTable = parentTable;
+  }
+
+  //static method
+  static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
+      final String name,
+      final String id,
+      final IParameterizedPropertyType parameterizedPropertyType,
+      final Table<IEntity> parentTable) {
+    return new Column(name, id, parameterizedPropertyType, parentTable);
   }
 
   //method

@@ -13,17 +13,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class CompressedListIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> CompressedListIterator<E2> forCompressedListWithFirstNode(
-      final CompressedListNode<E2> firstNode) {
-    return new CompressedListIterator<>(firstNode);
-  }
-
-  //static method
-  public static <E2> CompressedListIterator<E2> forEmptyCompressedList() {
-    return new CompressedListIterator<>();
-  }
-
   //optional attribute
   private CompressedListNode<E> nextNode;
 
@@ -47,6 +36,17 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
 
     nextNode = firstNode;
     nextNodeIndex = 1;
+  }
+
+  //static method
+  public static <E2> CompressedListIterator<E2> forCompressedListWithFirstNode(
+      final CompressedListNode<E2> firstNode) {
+    return new CompressedListIterator<>(firstNode);
+  }
+
+  //static method
+  public static <E2> CompressedListIterator<E2> forEmptyCompressedList() {
+    return new CompressedListIterator<>();
   }
 
   //method

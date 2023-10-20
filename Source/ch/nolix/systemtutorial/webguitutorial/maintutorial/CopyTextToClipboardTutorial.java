@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class CopyTextToClipboardTutorial {
 
+  private CopyTextToClipboardTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -63,8 +66,5 @@ public final class CopyTextToClipboardTutorial {
       //Adds the rootControl to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(rootControl);
     }
-  }
-
-  private CopyTextToClipboardTutorial() {
   }
 }

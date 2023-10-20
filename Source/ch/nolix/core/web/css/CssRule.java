@@ -12,6 +12,23 @@ import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 //class
 public final class CssRule implements ICssRule {
 
+  //multi-attribute
+  private final String selector;
+
+  //multi-attribute
+  private final IContainer<CssProperty> properties;
+
+  //constructor
+  private CssRule(
+      final String selector,
+      final IContainer<? extends ICssProperty> properties) {
+
+    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
+
+    this.properties = properties.to(CssProperty::fromCssProperty);
+    this.selector = selector;
+  }
+
   //static method
   public static CssRule fromCssRule(final ICssRule cssRule) {
     return withSelectorAndProperties(cssRule.getSelector(), cssRule.getProperties());
@@ -30,23 +47,6 @@ public final class CssRule implements ICssRule {
       final ICssProperty property,
       final ICssProperty... properties) {
     return new CssRule(selector, ReadContainer.forElement(property, properties));
-  }
-
-  //multi-attribute
-  private final String selector;
-
-  //multi-attribute
-  private final IContainer<CssProperty> properties;
-
-  //constructor
-  private CssRule(
-      final String selector,
-      final IContainer<? extends ICssProperty> properties) {
-
-    GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
-
-    this.properties = properties.to(CssProperty::fromCssProperty);
-    this.selector = selector;
   }
 
   //method

@@ -16,16 +16,6 @@ import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.IClosePool;
  */
 public final class CloseController implements ICloseController {
 
-  //static method
-  /**
-   * @param element
-   * @return a new {@link CloseController} for the given element.
-   * @throws ArgumentIsNullException if the given element is null.
-   */
-  public static CloseController forElement(final GroupCloseable element) {
-    return new CloseController(element);
-  }
-
   //attribute
   private IClosePool parentClosePool;
 
@@ -38,6 +28,16 @@ public final class CloseController implements ICloseController {
    */
   private CloseController(final GroupCloseable element) {
     parentClosePool = new ClosePool(element);
+  }
+
+  //static method
+  /**
+   * @param element
+   * @return a new {@link CloseController} for the given element.
+   * @throws ArgumentIsNullException if the given element is null.
+   */
+  public static CloseController forElement(final GroupCloseable element) {
+    return new CloseController(element);
   }
 
   //method

@@ -49,302 +49,6 @@ public final class ChainedNode implements IChainedNode {
   //constant
   private static final String NEXT_NODE_VARIABLE_NAME = "next node";
 
-  //static method
-  /**
-   * @param node
-   * @return a new {@link ChainedNode} from the given node.
-   */
-  public static ChainedNode fromNode(final INode<?> node) {
-
-    final var chainedNode = new ChainedNode();
-
-    if (node.hasHeader()) {
-      chainedNode.setHeader(node.getHeader());
-    }
-
-    chainedNode.addChildNodesFromNodes(node.getStoredChildNodes());
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param string
-   * @return a new {@link ChainedNode} the given string represents.
-   * @throws UnrepresentingArgumentException if the given string does not
-   *                                         represent a {@link ChainedNode}.
-   */
-  public static ChainedNode fromString(final String string) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.resetFrom(string);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param string
-   * @return an escape {@link String} for the given string.
-   */
-  public static String getEscapeStringFor(final String string) {
-    return string
-
-        //It is essential to replace the dollar symbol at first.
-        .replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
-
-        .replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-        .replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
-        .replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-        .replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
-  }
-
-  //static method
-  /**
-   * @param escapeString
-   * @return an origin {@link String} from the given escapeString.
-   */
-  public static String getStoredginStringFromEscapeString(final String escapeString) {
-
-    return escapeString
-        .replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
-        .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-        .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-        .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
-
-        //It is essential to replace the dollar symbol code at last.
-        .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
-  }
-
-  //static method
-  /**
-   * @param childNode
-   * @param childNodes
-   * @return a new {@link ChainedNode} with the given childNodes.
-   * @throws ArgumentIsNullException if one of the given childNodes is null.
-   */
-  public static ChainedNode withChildNodesFromNodes(final INode<?> childNode, final INode<?>... childNodes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.addChildNode(childNode, childNodes);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * Creates a new {@link ChainedNode} with the given attributes.
-   * 
-   * @param attributes
-   * @return a new {@link ChainedNode} with the given attributes.
-   * @throws ArgumentIsNullException if one of the given attributes is null.
-   */
-  public static ChainedNode withChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.addChildNodesFromNodes(attributes);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param header
-   * @return a new {@link ChainedNode} with the given header.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   */
-  public static ChainedNode withHeader(final String header) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param header
-   * @param attribute
-   * @return a new {@link ChainedNode} with the given header and attribute.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if the given attribute is null.
-   */
-  public static ChainedNode withHeaderAndChildNode(final String header, final ChainedNode attribute) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNode(attribute);
-
-    return chainedNode;
-  }
-
-  public static ChainedNode withHeaderAndChildNodes(
-      final String header,
-      final ChainedNode childNode,
-      final ChainedNode... childNodes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNode(childNode, childNodes);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param header
-   * @param childNode
-   * @return a new {@link ChainedNode} with the given header and childNode.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   */
-  public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNode(childNode);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param header
-   * @param attributes
-   * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if one of the given attribute is null.
-   */
-  public static ChainedNode withHeaderAndChildNodes(
-      final String header,
-      final Iterable<? extends IChainedNode> attributes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNodes(attributes);
-
-    return chainedNode;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ChainedNode} with the given header and attributes.
-   * 
-   * @param header
-   * @param childNode
-   * @param childNodes
-   * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if one of the given attributes is null.
-   */
-  public static ChainedNode withHeaderAndChildNodesFromNodes(
-      final String header,
-      final INode<?> childNode,
-      final INode<?>... childNodes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNodesFromNodes(ReadContainer.forElement(childNode, childNodes));
-
-    return chainedNode;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ChainedNode} with the given header and attributes.
-   * 
-   * @param header
-   * @param attributes
-   * @return a new {@link ChainedNode} with the given header and attributes.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if one of the given attributes is null.
-   */
-  public static ChainedNode withHeaderAndChildNodesFromNodes(
-      final String header,
-      final Iterable<? extends INode<?>> attributes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNodesFromNodes(attributes);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param header
-   * @param nextNode
-   * @return a new {@link ChainedNode} with the given header and nextNode.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if the given nextNode is null.
-   */
-  public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.setNextNode(nextNode);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param header
-   * @param nextNode
-   * @param childNode
-   * @param childNodes
-   * @return a new {@link ChainedNode} with the given header and nextNode.
-   * @throws ArgumentIsNullException  if the given header is null.
-   * @throws InvalidArgumentException if the given header is blank.
-   * @throws ArgumentIsNullException  if the given nextNode is null.
-   * @throws ArgumentIsNullException  if one of the given childNodes is null.
-   */
-  public static ChainedNode withHeaderAndNextNodeAndChildNodes(
-      final String header,
-      ChainedNode nextNode,
-      final IChainedNode childNode,
-      final IChainedNode... childNodes) {
-
-    final var chainedNode = new ChainedNode();
-    chainedNode.setHeader(header);
-    chainedNode.addChildNode(childNode, childNodes);
-    chainedNode.setNextNode(nextNode);
-
-    return chainedNode;
-  }
-
-  //static method
-  /**
-   * @param chainedNode
-   * @return a {@link ChainedNode} from the given chainedNode.
-   */
-  private static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
-
-    if (chainedNode instanceof ChainedNode lChainedNode) {
-      return lChainedNode;
-    }
-
-    final var newChainedNode = new ChainedNode();
-
-    if (chainedNode.hasHeader()) {
-      newChainedNode.setHeader(chainedNode.getHeader());
-    }
-
-    newChainedNode.addChildNodes(chainedNode.getChildNodes());
-
-    if (chainedNode.hasNextNode()) {
-      newChainedNode.setNextNode(chainedNode.getNextNode());
-    }
-
-    return newChainedNode;
-  }
-
   //optional attribute
   private String header;
 
@@ -396,6 +100,302 @@ public final class ChainedNode implements IChainedNode {
     setHeader(header);
     addChildNodesFromNodes(attributes);
     setNextNode(nextNode);
+  }
+
+  //static method
+  /**
+   * @param node
+   * @return a new {@link ChainedNode} from the given node.
+   */
+  public static ChainedNode fromNode(final INode<?> node) {
+  
+    final var chainedNode = new ChainedNode();
+  
+    if (node.hasHeader()) {
+      chainedNode.setHeader(node.getHeader());
+    }
+  
+    chainedNode.addChildNodesFromNodes(node.getStoredChildNodes());
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param string
+   * @return a new {@link ChainedNode} the given string represents.
+   * @throws UnrepresentingArgumentException if the given string does not
+   *                                         represent a {@link ChainedNode}.
+   */
+  public static ChainedNode fromString(final String string) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.resetFrom(string);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param string
+   * @return an escape {@link String} for the given string.
+   */
+  public static String getEscapeStringFor(final String string) {
+    return string
+  
+        //It is essential to replace the dollar symbol at first.
+        .replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+  
+        .replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
+        .replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
+        .replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+        .replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+  }
+
+  //static method
+  /**
+   * @param escapeString
+   * @return an origin {@link String} from the given escapeString.
+   */
+  public static String getStoredginStringFromEscapeString(final String escapeString) {
+  
+    return escapeString
+        .replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
+        .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+        .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+        .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+  
+        //It is essential to replace the dollar symbol code at last.
+        .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+  }
+
+  //static method
+  /**
+   * @param childNode
+   * @param childNodes
+   * @return a new {@link ChainedNode} with the given childNodes.
+   * @throws ArgumentIsNullException if one of the given childNodes is null.
+   */
+  public static ChainedNode withChildNodesFromNodes(final INode<?> childNode, final INode<?>... childNodes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.addChildNode(childNode, childNodes);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * Creates a new {@link ChainedNode} with the given attributes.
+   * 
+   * @param attributes
+   * @return a new {@link ChainedNode} with the given attributes.
+   * @throws ArgumentIsNullException if one of the given attributes is null.
+   */
+  public static ChainedNode withChildNodesFromNodes(final Iterable<? extends INode<?>> attributes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.addChildNodesFromNodes(attributes);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param header
+   * @return a new {@link ChainedNode} with the given header.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   */
+  public static ChainedNode withHeader(final String header) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param header
+   * @param attribute
+   * @return a new {@link ChainedNode} with the given header and attribute.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   * @throws ArgumentIsNullException  if the given attribute is null.
+   */
+  public static ChainedNode withHeaderAndChildNode(final String header, final ChainedNode attribute) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNode(attribute);
+  
+    return chainedNode;
+  }
+
+  public static ChainedNode withHeaderAndChildNodes(
+      final String header,
+      final ChainedNode childNode,
+      final ChainedNode... childNodes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNode(childNode, childNodes);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param header
+   * @param childNode
+   * @return a new {@link ChainedNode} with the given header and childNode.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   */
+  public static ChainedNode withHeaderAndChildNode(final String header, final INode<?> childNode) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNode(childNode);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param header
+   * @param attributes
+   * @return a new {@link ChainedNode} with the given header and attributes.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   * @throws ArgumentIsNullException  if one of the given attribute is null.
+   */
+  public static ChainedNode withHeaderAndChildNodes(
+      final String header,
+      final Iterable<? extends IChainedNode> attributes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNodes(attributes);
+  
+    return chainedNode;
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ChainedNode} with the given header and attributes.
+   * 
+   * @param header
+   * @param childNode
+   * @param childNodes
+   * @return a new {@link ChainedNode} with the given header and attributes.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   * @throws ArgumentIsNullException  if one of the given attributes is null.
+   */
+  public static ChainedNode withHeaderAndChildNodesFromNodes(
+      final String header,
+      final INode<?> childNode,
+      final INode<?>... childNodes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNodesFromNodes(ReadContainer.forElement(childNode, childNodes));
+  
+    return chainedNode;
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ChainedNode} with the given header and attributes.
+   * 
+   * @param header
+   * @param attributes
+   * @return a new {@link ChainedNode} with the given header and attributes.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   * @throws ArgumentIsNullException  if one of the given attributes is null.
+   */
+  public static ChainedNode withHeaderAndChildNodesFromNodes(
+      final String header,
+      final Iterable<? extends INode<?>> attributes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNodesFromNodes(attributes);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param header
+   * @param nextNode
+   * @return a new {@link ChainedNode} with the given header and nextNode.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   * @throws ArgumentIsNullException  if the given nextNode is null.
+   */
+  public static ChainedNode withHeaderAndNextNode(final String header, ChainedNode nextNode) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.setNextNode(nextNode);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param header
+   * @param nextNode
+   * @param childNode
+   * @param childNodes
+   * @return a new {@link ChainedNode} with the given header and nextNode.
+   * @throws ArgumentIsNullException  if the given header is null.
+   * @throws InvalidArgumentException if the given header is blank.
+   * @throws ArgumentIsNullException  if the given nextNode is null.
+   * @throws ArgumentIsNullException  if one of the given childNodes is null.
+   */
+  public static ChainedNode withHeaderAndNextNodeAndChildNodes(
+      final String header,
+      ChainedNode nextNode,
+      final IChainedNode childNode,
+      final IChainedNode... childNodes) {
+  
+    final var chainedNode = new ChainedNode();
+    chainedNode.setHeader(header);
+    chainedNode.addChildNode(childNode, childNodes);
+    chainedNode.setNextNode(nextNode);
+  
+    return chainedNode;
+  }
+
+  //static method
+  /**
+   * @param chainedNode
+   * @return a {@link ChainedNode} from the given chainedNode.
+   */
+  private static ChainedNode fromChainedNode(final IChainedNode chainedNode) {
+  
+    if (chainedNode instanceof ChainedNode lChainedNode) {
+      return lChainedNode;
+    }
+  
+    final var newChainedNode = new ChainedNode();
+  
+    if (chainedNode.hasHeader()) {
+      newChainedNode.setHeader(chainedNode.getHeader());
+    }
+  
+    newChainedNode.addChildNodes(chainedNode.getChildNodes());
+  
+    if (chainedNode.hasNextNode()) {
+      newChainedNode.setNextNode(chainedNode.getNextNode());
+    }
+  
+    return newChainedNode;
   }
 
   //method

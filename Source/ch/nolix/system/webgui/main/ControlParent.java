@@ -10,21 +10,6 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 //class
 final class ControlParent {
 
-  //static method
-  public static ControlParent forControl(final IControl<?, ?> control) {
-    return new ControlParent(control);
-  }
-
-  //static method
-  public static ControlParent forLayer(final ILayer<?> layer) {
-    return new ControlParent(layer);
-  }
-
-  //static method
-  public ControlParent withLayer(final ILayer<?> layer) {
-    return new ControlParent(layer);
-  }
-
   //optional attribute
   private final ILayer<?> layer;
 
@@ -47,6 +32,21 @@ final class ControlParent {
 
     this.layer = layer;
     control = null;
+  }
+
+  //static method
+  public static ControlParent forControl(final IControl<?, ?> control) {
+    return new ControlParent(control);
+  }
+
+  //static method
+  public static ControlParent forLayer(final ILayer<?> layer) {
+    return new ControlParent(layer);
+  }
+
+  //static method
+  public static ControlParent withLayer(final ILayer<?> layer) {
+    return new ControlParent(layer);
   }
 
   //method

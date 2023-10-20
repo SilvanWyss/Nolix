@@ -9,36 +9,6 @@ import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 //class
 public final class CssProperty implements ICssProperty {
 
-  //static method
-  public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
-
-    if (cssProperty instanceof CssProperty localCssProperty) {
-      return localCssProperty;
-    }
-
-    return withNameAndValue(cssProperty.getName(), cssProperty.getValue());
-  }
-
-  //static method
-  public static CssProperty withNameAndValue(final String name, final double value) {
-    return new CssProperty(name, String.valueOf(value));
-  }
-
-  //static method
-  public static CssProperty withNameAndValue(final String name, final Enum<?> value) {
-    return new CssProperty(name, value.toString());
-  }
-
-  //static method
-  public static CssProperty withNameAndValue(final String name, final int value) {
-    return new CssProperty(name, String.valueOf(value));
-  }
-
-  //static method
-  public static CssProperty withNameAndValue(final String name, final String value) {
-    return new CssProperty(name, value);
-  }
-
   //attribute
   private final String name;
 
@@ -60,6 +30,36 @@ public final class CssProperty implements ICssProperty {
 
     this.name = name;
     this.value = value;
+  }
+
+  //static method
+  public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
+  
+    if (cssProperty instanceof CssProperty localCssProperty) {
+      return localCssProperty;
+    }
+  
+    return withNameAndValue(cssProperty.getName(), cssProperty.getValue());
+  }
+
+  //static method
+  public static CssProperty withNameAndValue(final String name, final double value) {
+    return new CssProperty(name, String.valueOf(value));
+  }
+
+  //static method
+  public static CssProperty withNameAndValue(final String name, final Enum<?> value) {
+    return new CssProperty(name, value.toString());
+  }
+
+  //static method
+  public static CssProperty withNameAndValue(final String name, final int value) {
+    return new CssProperty(name, String.valueOf(value));
+  }
+
+  //static method
+  public static CssProperty withNameAndValue(final String name, final String value) {
+    return new CssProperty(name, value);
   }
 
   //method

@@ -25,11 +25,6 @@ public final class Credential {
     }
   }
 
-  //static method
-  public static CredentialBuilder withLoginName(final String loginName) {
-    return new CredentialBuilder(loginName);
-  }
-
   //constructor
   Credential(final String loginName, final String password) {
 
@@ -38,6 +33,11 @@ public final class Credential {
 
     this.loginName = loginName;
     this.password = password;
+  }
+
+  //static method
+  public static CredentialBuilder withLoginName(final String loginName) {
+    return new CredentialBuilder(loginName);
   }
 
   //method
