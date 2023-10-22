@@ -1,7 +1,9 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
+//Java imports
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -45,7 +47,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public void setReplier(final Function<String, String> replier) {
+  public void setReplier(final UnaryOperator<String> replier) {
 
     //Asserts that the given replier is not null.
     GlobalValidator.assertThat(replier).thatIsNamed("replier").isNotNull();

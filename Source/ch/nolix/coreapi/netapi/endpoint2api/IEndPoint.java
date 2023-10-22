@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.coreapi.netapi.endpoint2api;
 
-import java.util.function.Function;
+//Java imports
+import java.util.function.UnaryOperator;
 
+//own imports
 import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 
 //interface
@@ -15,5 +17,5 @@ public interface IEndPoint extends IBaseEndPoint {
   boolean hasReplier();
 
   //method declaration
-  void setReplier(Function<String, String> replier);
+  void setReplier(UnaryOperator<String> replier);
 }

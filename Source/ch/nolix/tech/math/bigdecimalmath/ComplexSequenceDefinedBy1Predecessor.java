@@ -1,9 +1,12 @@
 //package declaration
 package ch.nolix.tech.math.bigdecimalmath;
 
+//Java imports
 import java.math.BigDecimal;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor;
@@ -22,7 +25,7 @@ public final class ComplexSequenceDefinedBy1Predecessor
   //constructor
   public ComplexSequenceDefinedBy1Predecessor(
       final IComplexNumber firstValue,
-      final Function<IComplexNumber, IComplexNumber> nextValueFunction) {
+      final UnaryOperator<IComplexNumber> nextValueFunction) {
 
     GlobalValidator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
     GlobalValidator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();
