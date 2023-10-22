@@ -19,7 +19,7 @@ public final class WebClientCounterpartUpdater {
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
   //attribute
-  private final BooleanSupplier openStateRequester;
+  private final BooleanSupplier openStateRequestable;
 
   //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
@@ -27,17 +27,17 @@ public final class WebClientCounterpartUpdater {
   //constructor
   private WebClientCounterpartUpdater(
       final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
-      final BooleanSupplier openStateRequester) {
+      final BooleanSupplier openStateRequestable) {
 
-    GlobalValidator.assertThat(openStateRequester).thatIsNamed("open state requester").isNotNull();
+    GlobalValidator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
-    this.openStateRequester = openStateRequester;
+    this.openStateRequestable = openStateRequestable;
     this.counterpartRunner = counterpartRunner;
   }
 
   //static method
-  public static WebClientCounterpartUpdater forCounterpartRunner(
+  public static WebClientCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
       final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
       final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
@@ -50,7 +50,7 @@ public final class WebClientCounterpartUpdater {
 
     final var updateCommands = createUpdateCommandsFromWebGui(webGui);
 
-    if (openStateRequester.getAsBoolean()) {
+    if (openStateRequestable.getAsBoolean()) {
       counterpartRunner.accept(updateCommands);
     }
   }
