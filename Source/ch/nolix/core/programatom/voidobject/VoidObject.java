@@ -10,9 +10,5 @@ package ch.nolix.core.programatom.voidobject;
  * @author Silvan Wyss
  * @date 2023-05-30
  */
-public final class VoidObject {
-
-  //constructor
-  public VoidObject() {
-  } //NOSONAR: A VoidObject does not have any functionality.
+public final class VoidObject { //NOSONAR: A Marker VoidObject to be instantiable.
 }
