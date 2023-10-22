@@ -12,6 +12,9 @@ import ch.nolix.template.webapplication.session.UnderConstructionPageSession;
 
 public final class UnderConstructionPageTutorial {
 
+  private UnderConstructionPageTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -48,8 +51,5 @@ public final class UnderConstructionPageTutorial {
                           .setText("Go")
                           .setLeftMouseButtonPressAction(() -> push(new UnderConstructionPageSession()))));
     }
-  }
-
-  private UnderConstructionPageTutorial() {
   }
 }

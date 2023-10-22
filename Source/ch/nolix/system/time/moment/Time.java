@@ -59,6 +59,27 @@ public final class Time extends Element implements ITime {
   //attribute
   private final ZonedDateTime zonedDateTime;
 
+  //constructor
+  /**
+   * Creates a new {@link Time} with default values.
+   */
+  private Time() {
+    this(
+        ZonedDateTime.of(
+            DEFAULT_YEAR,
+            DEFAULT_MONTH_OF_YEAR,
+            DEFAULT_DAY_OF_MONTH,
+            DEFAULT_HOUR_OF_DAY,
+            DEFAULT_MINUTE_OF_HOUR,
+            DEFAULT_SECOND_OF_MINUTE,
+            1000 * DEFAULT_MILLISECOND_OF_SECOND,
+            ZoneId.systemDefault()));
+  }
+
+  private Time(final ZonedDateTime zonedDateTime) {
+    this.zonedDateTime = zonedDateTime;
+  }
+
   //static method
   /**
    * @param specification
@@ -302,27 +323,6 @@ public final class Time extends Element implements ITime {
         Integer.valueOf(array[4]),
         Integer.valueOf(array[5]),
         Integer.valueOf(array[6]));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link Time} with default values.
-   */
-  private Time() {
-    this(
-        ZonedDateTime.of(
-            DEFAULT_YEAR,
-            DEFAULT_MONTH_OF_YEAR,
-            DEFAULT_DAY_OF_MONTH,
-            DEFAULT_HOUR_OF_DAY,
-            DEFAULT_MINUTE_OF_HOUR,
-            DEFAULT_SECOND_OF_MINUTE,
-            1000 * DEFAULT_MILLISECOND_OF_SECOND,
-            ZoneId.systemDefault()));
-  }
-
-  private Time(final ZonedDateTime zonedDateTime) {
-    this.zonedDateTime = zonedDateTime;
   }
 
   //method

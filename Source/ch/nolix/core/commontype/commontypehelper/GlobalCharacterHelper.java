@@ -15,6 +15,12 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
  */
 public final class GlobalCharacterHelper {
 
+  //constant
+  private static final String ARTICLE_A = "a";
+
+  //constant
+  private static final String ARTICLE_AN = "an";
+
   //constructor
   /**
    * Prevents that an instance of the {@link GlobalCharacterHelper} can be
@@ -22,12 +28,6 @@ public final class GlobalCharacterHelper {
    */
   private GlobalCharacterHelper() {
   }
-
-  //constant
-  private static final String ARTICLE_A = "a";
-
-  //constant
-  private static final String ARTICLE_AN = "an";
 
   //static method
   /**

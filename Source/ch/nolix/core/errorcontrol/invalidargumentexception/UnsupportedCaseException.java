@@ -18,6 +18,33 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is not supported";
 
+  //constructor
+  /**
+   * Creates a new {@link UnsupportedCaseException} for the given pCase.
+   *
+   * @param pCase
+   * @throws IllegalArgumentException if the given pCase is null.
+   */
+  private UnsupportedCaseException(final Enum<?> pCase) {
+  
+    //Calls constructor of the base class.
+    super(ARGUMENT_NAME, getNameOfCase(pCase), ERROR_PREDICATE);
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link UnsupportedCaseException} for the given pCase.
+   *
+   * @param pCase
+   * @throws IllegalArgumentException if the given pCase is null.
+   * @throws IllegalArgumentException if the given pCase is blank.
+   */
+  private UnsupportedCaseException(final String pCase) {
+  
+    //Calls constructor of the base class.
+    super(ARGUMENT_NAME, getValidCaseOfCase(pCase), ERROR_PREDICATE);
+  }
+
   //static method
   /**
    * @param pCase
@@ -75,32 +102,5 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
     }
 
     return pCase;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link UnsupportedCaseException} for the given pCase.
-   *
-   * @param pCase
-   * @throws IllegalArgumentException if the given pCase is null.
-   */
-  private UnsupportedCaseException(final Enum<?> pCase) {
-
-    //Calls constructor of the base class.
-    super(ARGUMENT_NAME, getNameOfCase(pCase), ERROR_PREDICATE);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link UnsupportedCaseException} for the given pCase.
-   *
-   * @param pCase
-   * @throws IllegalArgumentException if the given pCase is null.
-   * @throws IllegalArgumentException if the given pCase is blank.
-   */
-  private UnsupportedCaseException(final String pCase) {
-
-    //Calls constructor of the base class.
-    super(ARGUMENT_NAME, getValidCaseOfCase(pCase), ERROR_PREDICATE);
   }
 }

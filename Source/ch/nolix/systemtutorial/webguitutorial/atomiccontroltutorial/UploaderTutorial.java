@@ -19,6 +19,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class UploaderTutorial {
 
+  private UploaderTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -80,8 +83,5 @@ public final class UploaderTutorial {
 
       imageControl.setImage(image);
     }
-  }
-
-  private UploaderTutorial() {
   }
 }

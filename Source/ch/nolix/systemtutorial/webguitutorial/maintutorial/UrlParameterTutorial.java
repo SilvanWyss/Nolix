@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class UrlParameterTutorial {
 
+  private UrlParameterTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -50,8 +53,5 @@ public final class UrlParameterTutorial {
                           .setText("URL parameter 2: " + localUrlParameter2))
                   .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 50)));
     }
-  }
-
-  private UrlParameterTutorial() {
   }
 }

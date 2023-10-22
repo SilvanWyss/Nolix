@@ -18,6 +18,30 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class Value<V> extends SingleValue<V> {
 
+  //constructor
+  /**
+   * Creates a new {@link Value} with the given name, setterMethod, valueCreator
+   * and specificationCreator.
+   * 
+   * @param name
+   * @param setterMethod
+   * @param valueCreator
+   * @param specificationCreator
+   * @throws ArgumentIsNullException  if the given name is null.
+   * @throws InvalidArgumentException if the given setterMethod is blank.
+   * @throws ArgumentIsNullException  if the given valueCreator is null.
+   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   */
+  public Value(
+      final String name,
+      final Consumer<V> setterMethod,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
+  
+    //Calls constructor of the base class.
+    super(name, setterMethod, valueCreator, specificationCreator);
+  }
+
   //static method
   /**
    * @param name
@@ -79,30 +103,6 @@ public final class Value<V> extends SingleValue<V> {
     }
 
     return Node.withChildNode(string);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link Value} with the given name, setterMethod, valueCreator
-   * and specificationCreator.
-   * 
-   * @param name
-   * @param setterMethod
-   * @param valueCreator
-   * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given setterMethod is blank.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
-   */
-  public Value(
-      final String name,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
-
-    //Calls constructor of the base class.
-    super(name, setterMethod, valueCreator, specificationCreator);
   }
 
   //method

@@ -30,15 +30,6 @@ public final class Table<E extends IEntity> implements ITable<E> {
   //constant
   private static final EntityMapper ENTITY_MAPPER = new EntityMapper();
 
-  //static method
-  static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
-      final Database parentDatabase,
-      final String name,
-      final String id,
-      final Class<E2> entityClass) {
-    return new Table<>(parentDatabase, name, id, entityClass);
-  }
-
   //attribute
   private final Database parentDatabase;
 
@@ -80,6 +71,15 @@ public final class Table<E extends IEntity> implements ITable<E> {
     this.name = name;
     this.id = id;
     this.entityClass = entityClass;
+  }
+
+  //static method
+  static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
+      final Database parentDatabase,
+      final String name,
+      final String id,
+      final Class<E2> entityClass) {
+    return new Table<>(parentDatabase, name, id, entityClass);
   }
 
   //method

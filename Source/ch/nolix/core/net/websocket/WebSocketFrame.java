@@ -20,18 +20,6 @@ public final class WebSocketFrame {
   //constant
   private static final int MASK_LENGTH_IN_BYTES = 4;
 
-  //static method
-  public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
-
-    if (!pingFrame.isPingFrame()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "ping frame", pingFrame,
-          "is actually not a ping frame");
-    }
-
-    return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
-  }
-
   //attribute
   private final WebSocketFrameFirstNibble firstNibble;
 
@@ -100,6 +88,18 @@ public final class WebSocketFrame {
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
+  }
+
+  //static method
+  public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
+  
+    if (!pingFrame.isPingFrame()) {
+      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+          "ping frame", pingFrame,
+          "is actually not a ping frame");
+    }
+  
+    return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
   }
 
   //method

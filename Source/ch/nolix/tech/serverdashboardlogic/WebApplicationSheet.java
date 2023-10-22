@@ -12,11 +12,6 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public final class WebApplicationSheet implements IWebApplicationSheet {
 
-  //static method
-  public static WebApplicationSheet forWebApplication(final Application<WebClient<?>, ?> webApplication) {
-    return new WebApplicationSheet(webApplication);
-  }
-
   //attribute
   private final IApplicationInstanceTarget applicationInstanceTarget;
 
@@ -35,6 +30,11 @@ public final class WebApplicationSheet implements IWebApplicationSheet {
     } else {
       applicationLogo = null;
     }
+  }
+
+  //static method
+  public static WebApplicationSheet forWebApplication(final Application<WebClient<?>, ?> webApplication) {
+    return new WebApplicationSheet(webApplication);
   }
 
   //method

@@ -6,17 +6,17 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestResult {
 
-  //static method
-  public static TestResult forTestCaseResults(final Iterable<TestCaseResult> testCaseResults) {
-    return new TestResult(testCaseResults);
-  }
-
   //multi-attribute
   private final List<TestCaseResult> testCaseResults;
 
   //constructor
   private TestResult(final Iterable<TestCaseResult> testCaseResults) {
     this.testCaseResults = List.withElements(testCaseResults);
+  }
+
+  //static method
+  public static TestResult forTestCaseResults(final Iterable<TestCaseResult> testCaseResults) {
+    return new TestResult(testCaseResults);
   }
 
   //method

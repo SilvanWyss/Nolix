@@ -19,6 +19,39 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
   //constant
   private static final String PRONOUN_AN = "an";
 
+  //constructor
+  /**
+   * Creates a new {@link UnrepresentingArgumentException} for the given argument
+   * and type.
+   * 
+   * @param argument
+   * @param type
+   * @throws IllegalArgumentException if the given type is null.
+   */
+  private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
+  
+    //Calls constructor of the base class.
+    super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link UnrepresentingArgumentException} for the given
+   * argumentName, argument and type.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param type
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given type is null.
+   */
+  private UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
+  
+    //Calls constructor of the base class.
+    super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
+  }
+
   //static method
   /**
    * @param argument
@@ -113,38 +146,5 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     final var typeName = getNameOfType(type);
 
     return (getPronounForNoun(typeName) + " " + typeName);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link UnrepresentingArgumentException} for the given argument
-   * and type.
-   * 
-   * @param argument
-   * @param type
-   * @throws IllegalArgumentException if the given type is null.
-   */
-  private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link UnrepresentingArgumentException} for the given
-   * argumentName, argument and type.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param type
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given type is null.
-   */
-  private UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }
 }

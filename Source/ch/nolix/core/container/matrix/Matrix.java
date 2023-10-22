@@ -35,6 +35,9 @@ import ch.nolix.coreapi.containerapi.matrixapi.IMutableMatrix;
  */
 public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
+  //multi-attribute
+  private Object[][] elements = new Object[0][0];
+
   //static method
   /**
    * @param matrix
@@ -42,18 +45,15 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
   public static <E2> Matrix<E2> fromMatrix(final IMatrix<E2> matrix) {
-
+  
     final var newMatrix = new Matrix<E2>();
-
+  
     for (final var r : matrix.getRows()) {
       newMatrix.addRow(r);
     }
-
+  
     return newMatrix;
   }
-
-  //multi-attribute
-  private Object[][] elements = new Object[0][0];
 
   //method
   /**

@@ -18,22 +18,22 @@ public final class UnconnectedArgumentException extends InvalidArgumentException
 
   //constructor
   /**
-   * @param argument
-   * @return a new {@link UnconnectedArgumentException} for the given argument.
-   */
-  public static UnconnectedArgumentException forArgument(final Object argument) {
-    return new UnconnectedArgumentException(argument);
-  }
-
-  //constructor
-  /**
    * Creates a new {@link UnconnectedArgumentException} for the given argument.
    * 
    * @param argument
    */
   private UnconnectedArgumentException(final Object argument) {
-
+  
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
+  }
+
+  //constructor
+  /**
+   * @param argument
+   * @return a new {@link UnconnectedArgumentException} for the given argument.
+   */
+  public static UnconnectedArgumentException forArgument(final Object argument) {
+    return new UnconnectedArgumentException(argument);
   }
 }

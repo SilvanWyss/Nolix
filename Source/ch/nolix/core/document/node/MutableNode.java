@@ -15,6 +15,12 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class MutableNode extends BaseMutableNode<MutableNode> {
 
+  //optional attribute
+  private String header;
+
+  //multi-attribute
+  private final LinkedList<MutableNode> childNodes = new LinkedList<>();
+
   //static method
   /**
    * @param filePath
@@ -25,10 +31,10 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    *                                         {@link MutableNode}.
    */
   public static MutableNode fromFile(final String filePath) {
-
+  
     final var mutableNode = new MutableNode();
     mutableNode.resetFromFile(filePath);
-
+  
     return mutableNode;
   }
 
@@ -38,15 +44,15 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    * @return a new {@link MutableNode} from the given {@link INode}.
    */
   public static MutableNode fromNode(final INode<?> node) {
-
+  
     final var mutableNode = new MutableNode();
-
+  
     if (node.hasHeader()) {
       mutableNode.setHeader(node.getHeader());
     }
-
+  
     mutableNode.addChildNodes(node.getStoredChildNodes());
-
+  
     return mutableNode;
   }
 
@@ -58,18 +64,12 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    *                                         represent a {@link MutableNode}.
    */
   public static MutableNode fromString(final String string) {
-
+  
     final var mutableNode = new MutableNode();
     mutableNode.resetFromString(string);
-
+  
     return mutableNode;
   }
-
-  //optional attribute
-  private String header;
-
-  //multi-attribute
-  private final LinkedList<MutableNode> childNodes = new LinkedList<>();
 
   //method
   /**

@@ -18,13 +18,6 @@ public final class WebClientCounterpartUpdater {
   //constant
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
-  //static method
-  public static WebClientCounterpartUpdater forCounterpartRunner(
-      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
-      final BooleanSupplier openStateRequester) {
-    return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
-  }
-
   //attribute
   private final BooleanSupplier openStateRequester;
 
@@ -41,6 +34,13 @@ public final class WebClientCounterpartUpdater {
 
     this.openStateRequester = openStateRequester;
     this.counterpartRunner = counterpartRunner;
+  }
+
+  //static method
+  public static WebClientCounterpartUpdater forCounterpartRunner(
+      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+      final BooleanSupplier openStateRequester) {
+    return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
   //method

@@ -10,12 +10,6 @@ import ch.nolix.system.application.main.Session;
 public final class TestSession<BC extends BackendClient<BC, AC>, AC>
     extends Session<BC, AC> {
 
-  //static method
-  public static <BC2 extends BackendClient<BC2, AC2>, AC2> TestSession<BC2, AC2> withClientClass(
-      final Class<BC2> clientClass) {
-    return new TestSession<>(clientClass);
-  }
-
   //attribute
   private final Class<?> clientClass;
 
@@ -25,6 +19,12 @@ public final class TestSession<BC extends BackendClient<BC, AC>, AC>
     GlobalValidator.assertThat(clientClass).thatIsNamed("client class").isNotNull();
 
     this.clientClass = clientClass;
+  }
+
+  //static method
+  public static <BC2 extends BackendClient<BC2, AC2>, AC2> TestSession<BC2, AC2> withClientClass(
+      final Class<BC2> clientClass) {
+    return new TestSession<>(clientClass);
   }
 
   //method

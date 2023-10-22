@@ -9,6 +9,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class TextboxTutorial {
 
+  private TextboxTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -46,8 +49,5 @@ public final class TextboxTutorial {
       //Adds the Textbox to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(textBox);
     }
-  }
-
-  private TextboxTutorial() {
   }
 }

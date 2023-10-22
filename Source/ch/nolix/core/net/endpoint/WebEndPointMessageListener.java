@@ -9,11 +9,6 @@ import ch.nolix.core.programcontrol.worker.BatchWorker;
 //class
 final class WebEndPointMessageListener extends BatchWorker {
 
-  //static method
-  public static WebEndPointMessageListener forWebEndPoint(final WebSocketEndPoint webSocketEndPoint) {
-    return new WebEndPointMessageListener(webSocketEndPoint);
-  }
-
   //attribute
   private final WebSocketEndPoint parentWebEndPoint;
 
@@ -25,6 +20,11 @@ final class WebEndPointMessageListener extends BatchWorker {
     this.parentWebEndPoint = parentWebEndPoint;
 
     start();
+  }
+
+  //static method
+  public static WebEndPointMessageListener forWebEndPoint(final WebSocketEndPoint webSocketEndPoint) {
+    return new WebEndPointMessageListener(webSocketEndPoint);
   }
 
   //method

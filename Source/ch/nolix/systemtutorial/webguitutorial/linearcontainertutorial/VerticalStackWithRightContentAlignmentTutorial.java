@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class VerticalStackWithRightContentAlignmentTutorial {
 
+  private VerticalStackWithRightContentAlignmentTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -65,8 +68,5 @@ public final class VerticalStackWithRightContentAlignmentTutorial {
       //Adds the VerticalStack to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(verticalStack);
     }
-  }
-
-  private VerticalStackWithRightContentAlignmentTutorial() {
   }
 }

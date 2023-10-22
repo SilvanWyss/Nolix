@@ -10,6 +10,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class VerticalStackTutorial {
 
+  private VerticalStackTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -60,8 +63,5 @@ public final class VerticalStackTutorial {
       //Adds the VerticalStack to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(verticalStack);
     }
-  }
-
-  private VerticalStackTutorial() {
   }
 }

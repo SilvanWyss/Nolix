@@ -17,12 +17,6 @@ public final class WebClientPartialCounterpartUpdater {
   //constant
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
-  //static method
-  public static WebClientPartialCounterpartUpdater forCounterpartRunner(
-      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
-    return new WebClientPartialCounterpartUpdater(counterpartRunner);
-  }
-
   //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
@@ -33,6 +27,12 @@ public final class WebClientPartialCounterpartUpdater {
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
     this.counterpartRunner = counterpartRunner;
+  }
+
+  //static method
+  public static WebClientPartialCounterpartUpdater forCounterpartRunner(
+      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
+    return new WebClientPartialCounterpartUpdater(counterpartRunner);
   }
 
   //method

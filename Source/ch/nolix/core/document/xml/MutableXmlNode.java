@@ -17,82 +17,6 @@ import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 //class
 public final class MutableXmlNode implements IMutableXmlNode {
 
-  //static method
-  public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
-
-    final var mutableXmlNode = new MutableXmlNode();
-
-    if (pXmlNode.hasName()) {
-      mutableXmlNode.setName(pXmlNode.getName());
-    }
-
-    mutableXmlNode.addAttributes(pXmlNode.getAttributes());
-
-    for (final var cn : pXmlNode.getStoredChildNodes()) {
-      mutableXmlNode.addChildNode(fromXmlNode(cn));
-    }
-
-    if (pXmlNode.hasValue()) {
-      mutableXmlNode.setValue(pXmlNode.getValue());
-    }
-
-    return mutableXmlNode;
-  }
-
-  //method
-  private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
-
-    final var stringBuilder = new StringBuilder();
-
-    stringBuilder
-        .append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
-        .append('<')
-        .append(mutableXmlNode.getName());
-
-    if (mutableXmlNode.containsAttributes()) {
-      stringBuilder
-          .append(' ')
-          .append(mutableXmlNode.getAttributes().toStringWithSeparator(' '));
-    }
-
-    stringBuilder.append('>');
-
-    if (mutableXmlNode.hasValue()) {
-      if (!mutableXmlNode.hasMixedContent()) {
-        stringBuilder.append(mutableXmlNode.getValue());
-      } else {
-        stringBuilder
-            .append(CharacterCatalogue.NEW_LINE)
-            .append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
-            .append(mutableXmlNode.getValue())
-            .append(CharacterCatalogue.NEW_LINE);
-
-      }
-    }
-
-    if (mutableXmlNode.containsChildNodes()) {
-
-      for (final var cn : mutableXmlNode.getStoredChildNodes()) {
-        stringBuilder
-            .append(CharacterCatalogue.NEW_LINE)
-            .append(toFormatedString(cn, leadingTabulatorCount + 1));
-      }
-
-      stringBuilder.append(CharacterCatalogue.NEW_LINE);
-    }
-
-    if (mutableXmlNode.containsChildNodes()) {
-      stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
-    }
-
-    stringBuilder
-        .append("</")
-        .append(mutableXmlNode.getName())
-        .append('>');
-
-    return stringBuilder.toString();
-  }
-
   //optional attribute
   private String name;
 
@@ -104,6 +28,82 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //multi-attribute
   private final LinkedList<IMutableXmlNode> childNodes = new LinkedList<>();
+
+  //static method
+  public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
+  
+    final var mutableXmlNode = new MutableXmlNode();
+  
+    if (pXmlNode.hasName()) {
+      mutableXmlNode.setName(pXmlNode.getName());
+    }
+  
+    mutableXmlNode.addAttributes(pXmlNode.getAttributes());
+  
+    for (final var cn : pXmlNode.getStoredChildNodes()) {
+      mutableXmlNode.addChildNode(fromXmlNode(cn));
+    }
+  
+    if (pXmlNode.hasValue()) {
+      mutableXmlNode.setValue(pXmlNode.getValue());
+    }
+  
+    return mutableXmlNode;
+  }
+
+  //method
+  private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
+  
+    final var stringBuilder = new StringBuilder();
+  
+    stringBuilder
+        .append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
+        .append('<')
+        .append(mutableXmlNode.getName());
+  
+    if (mutableXmlNode.containsAttributes()) {
+      stringBuilder
+          .append(' ')
+          .append(mutableXmlNode.getAttributes().toStringWithSeparator(' '));
+    }
+  
+    stringBuilder.append('>');
+  
+    if (mutableXmlNode.hasValue()) {
+      if (!mutableXmlNode.hasMixedContent()) {
+        stringBuilder.append(mutableXmlNode.getValue());
+      } else {
+        stringBuilder
+            .append(CharacterCatalogue.NEW_LINE)
+            .append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
+            .append(mutableXmlNode.getValue())
+            .append(CharacterCatalogue.NEW_LINE);
+  
+      }
+    }
+  
+    if (mutableXmlNode.containsChildNodes()) {
+  
+      for (final var cn : mutableXmlNode.getStoredChildNodes()) {
+        stringBuilder
+            .append(CharacterCatalogue.NEW_LINE)
+            .append(toFormatedString(cn, leadingTabulatorCount + 1));
+      }
+  
+      stringBuilder.append(CharacterCatalogue.NEW_LINE);
+    }
+  
+    if (mutableXmlNode.containsChildNodes()) {
+      stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
+    }
+  
+    stringBuilder
+        .append("</")
+        .append(mutableXmlNode.getName())
+        .append('>');
+  
+    return stringBuilder.toString();
+  }
 
   //method
   @Override

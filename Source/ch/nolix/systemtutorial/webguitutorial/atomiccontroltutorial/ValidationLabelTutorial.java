@@ -15,6 +15,9 @@ import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 
 public final class ValidationLabelTutorial {
 
+  private ValidationLabelTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -58,8 +61,5 @@ public final class ValidationLabelTutorial {
 
       GlobalValidator.assertThat(number).thatIsNamed(LowerCaseCatalogue.NUMBER).isPositive();
     }
-  }
-
-  private ValidationLabelTutorial() {
   }
 }

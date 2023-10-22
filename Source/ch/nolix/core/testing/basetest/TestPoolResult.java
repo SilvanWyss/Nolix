@@ -6,13 +6,6 @@ import ch.nolix.core.independent.container.List;
 //class
 public final class TestPoolResult {
 
-  //static method
-  public static TestPoolResult forTestPoolResultsAndTestResults(
-      final Iterable<TestPoolResult> testPoolResults,
-      final Iterable<TestResult> testResults) {
-    return new TestPoolResult(testPoolResults, testResults);
-  }
-
   //multi-attribute
   private final List<TestPoolResult> testPoolResults;
 
@@ -25,6 +18,13 @@ public final class TestPoolResult {
     this.testPoolResults = List.withElements(testPoolResults);
 
     this.testResults = List.withElements(testResults);
+  }
+
+  //static method
+  public static TestPoolResult forTestPoolResultsAndTestResults(
+      final Iterable<TestPoolResult> testPoolResults,
+      final Iterable<TestResult> testResults) {
+    return new TestPoolResult(testPoolResults, testResults);
   }
 
   //method

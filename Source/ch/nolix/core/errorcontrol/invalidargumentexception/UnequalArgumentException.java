@@ -13,6 +13,37 @@ package ch.nolix.core.errorcontrol.invalidargumentexception;
 @SuppressWarnings("serial")
 public final class UnequalArgumentException extends InvalidArgumentException {
 
+  //constructor
+  /**
+   * Creates a new {@link UnequalArgumentException} for the given argument and
+   * value.
+   * 
+   * @param argument
+   * @param value
+   */
+  private UnequalArgumentException(final Object argument, final Object value) {
+  
+    //Calls constructor of the base class.
+    super(argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link UnequalArgumentException} for the given argument and
+   * value.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param value
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  private UnequalArgumentException(final String argumentName, final Object argument, final Object value) {
+  
+    //Calls constructor of the base class.
+    super(argumentName, argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
+  }
+
   //static method
   /**
    * @param argument
@@ -56,36 +87,5 @@ public final class UnequalArgumentException extends InvalidArgumentException {
 
     //Returns a name for the given value.
     return value.getClass().getSimpleName();
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link UnequalArgumentException} for the given argument and
-   * value.
-   * 
-   * @param argument
-   * @param value
-   */
-  private UnequalArgumentException(final Object argument, final Object value) {
-
-    //Calls constructor of the base class.
-    super(argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link UnequalArgumentException} for the given argument and
-   * value.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param value
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  private UnequalArgumentException(final String argumentName, final Object argument, final Object value) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }
 }

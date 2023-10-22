@@ -24,18 +24,18 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
   //constant
   private static final IValueValidator VALUE_VALIDATOR = new ValueValidator();
 
-  //static method
-  public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
-
-    final var value = new Value<V2>();
-
-    value.setValue(initialValue);
-
-    return value;
-  }
-
   //optional attribute
   private V internalValue;
+
+  //static method
+  public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
+  
+    final var value = new Value<V2>();
+  
+    value.setValue(initialValue);
+  
+    return value;
+  }
 
   //method
   @Override

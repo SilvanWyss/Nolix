@@ -17,21 +17,6 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
     extends MutableElement
     implements IStylableElement<SE> {
 
-  //method
-  @Override
-  public final void resetStyleRecursively() {
-
-    resetStyle();
-
-    getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
-  }
-
-  //method declaration
-  protected abstract void resetStylableElement();
-
-  //method declaration
-  protected abstract void resetStyle();
-
   //constant
   private static final String ID_HEADER = PascalCaseCatalogue.ID;
 
@@ -126,6 +111,15 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
 
   //method
   @Override
+  public final void resetStyleRecursively() {
+  
+    resetStyle();
+  
+    getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
+  }
+
+  //method
+  @Override
   public final SE setId(final String id) {
 
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
@@ -140,4 +134,10 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
   protected final SE asConcrete() {
     return (SE) this;
   }
+
+  //method declaration
+  protected abstract void resetStylableElement();
+
+  //method declaration
+  protected abstract void resetStyle();
 }

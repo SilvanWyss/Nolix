@@ -23,14 +23,6 @@ final class WebSocketFrameFirstNibble {
   //attribute
   private final int m7BitPayloadLength;
 
-  //static method
-  public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
-
-    GlobalValidator.assertThat(nibble).hasElementCount(2);
-
-    return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
-  }
-
   //constructor
   public WebSocketFrameFirstNibble(
       final boolean mFINBit,
@@ -71,6 +63,14 @@ final class WebSocketFrameFirstNibble {
     maskBit = wrapperByte2.getBitAt(1);
     payloadLengthSpecification = WebSocketFramePayloadLengthType.fromCode(byte2 & 0b01111111);
     m7BitPayloadLength = byte2 & 0x7F;
+  }
+
+  //static method
+  public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
+  
+    GlobalValidator.assertThat(nibble).hasElementCount(2);
+  
+    return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
   }
 
   //method

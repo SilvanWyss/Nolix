@@ -17,6 +17,13 @@ import ch.nolix.core.time.TimeUnitCatalogue;
  */
 final class Waiter {
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link Waiter} can be created.
+   */
+  private Waiter() {
+  }
+
   //static method
   /**
    * Waits for the given duractionInSeconds.
@@ -52,12 +59,5 @@ final class Waiter {
       Thread.currentThread().interrupt();
       throw WrapperException.forError(interruptedException);
     }
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link Waiter} can be created.
-   */
-  private Waiter() {
   }
 }

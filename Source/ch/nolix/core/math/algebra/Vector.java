@@ -23,6 +23,27 @@ public final class Vector {
   //constant
   public static final Vector EMPTY_VECTOR = new Vector();
 
+  //multi-attribute
+  private final double[] values;
+
+  //constructor
+  /**
+   * Creates a new empty {@link Vector}.
+   */
+  private Vector() {
+    values = new double[0];
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link Vector} with the given values.
+   * 
+   * @param values
+   */
+  private Vector(final double[] values) {
+    this.values = Arrays.copyOf(values, values.length);
+  }
+
   //static method
   /**
    * @param values
@@ -49,27 +70,6 @@ public final class Vector {
    */
   public static Vector withValues(final double[] values) {
     return new Vector(values);
-  }
-
-  //multi-attribute
-  private final double[] values;
-
-  //constructor
-  /**
-   * Creates a new empty {@link Vector}.
-   */
-  private Vector() {
-    values = new double[0];
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link Vector} with the given values.
-   * 
-   * @param values
-   */
-  private Vector(final double[] values) {
-    this.values = Arrays.copyOf(values, values.length);
   }
 
   //method

@@ -9,11 +9,6 @@ public final class WebSocketHandShakeRequest {
   //constant
   private static final String SEC_WEBSOCKET_KEY_HEADER = "Sec-WebSocket-Key";
 
-  //static method
-  public static boolean canBe(final IContainer<String> lines) {
-    return lines.containsAny(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
-  }
-
   //attribute
   private final String secWebSocketKey;
 
@@ -22,6 +17,11 @@ public final class WebSocketHandShakeRequest {
     secWebSocketKey = lines
         .getStoredFirst(l -> l.startsWith(SEC_WEBSOCKET_KEY_HEADER))
         .substring(SEC_WEBSOCKET_KEY_HEADER.length() + 2);
+  }
+
+  //static method
+  public static boolean canBe(final IContainer<String> lines) {
+    return lines.containsAny(l -> l.contains(WebSocketHandShakeRequest.SEC_WEBSOCKET_KEY_HEADER));
   }
 
   //method

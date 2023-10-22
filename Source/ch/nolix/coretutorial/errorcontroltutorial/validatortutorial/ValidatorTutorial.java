@@ -16,6 +16,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
  */
 public final class ValidatorTutorial {
 
+  /**
+   * Prevents that an instance of the {@link ValidatorTutorial} can be created.
+   */
+  private ValidatorTutorial() {
+  }
+
   public static void main(String[] args) {
     printAmount("apple", 5);
     printAmount("banana", 10);
@@ -40,11 +46,5 @@ public final class ValidatorTutorial {
     GlobalValidator.assertThat(amount).thatIsNamed("amount").isNotNegative();
 
     GlobalLogger.logInfo(productName + ": " + amount + " pieces");
-  }
-
-  /**
-   * Prevents that an instance of the {@link ValidatorTutorial} can be created.
-   */
-  private ValidatorTutorial() {
   }
 }

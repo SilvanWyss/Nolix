@@ -14,6 +14,9 @@ import ch.nolix.template.webgui.dialog.YesNoDialogBuilder;
 
 public final class YesNoDialogBuilderTutorial {
 
+  private YesNoDialogBuilderTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -91,8 +94,5 @@ public final class YesNoDialogBuilderTutorial {
                       .build())
               .build());
     }
-  }
-
-  private YesNoDialogBuilderTutorial() {
   }
 }

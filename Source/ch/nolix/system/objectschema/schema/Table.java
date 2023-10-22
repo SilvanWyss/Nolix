@@ -33,11 +33,6 @@ public final class Table extends SchemaObject implements ITable {
   //constant
   private static final ITableHelper TABLE_HELPER = new TableHelper();
 
-  //static method
-  public static Table fromFlatDto(final IFlatTableDto flatTableDto) {
-    return new Table(flatTableDto.getId(), flatTableDto.getName());
-  }
-
   //attribute
   private final String id;
 
@@ -67,6 +62,11 @@ public final class Table extends SchemaObject implements ITable {
 
     this.id = id;
     setName(name);
+  }
+
+  //static method
+  public static Table fromFlatDto(final IFlatTableDto flatTableDto) {
+    return new Table(flatTableDto.getId(), flatTableDto.getName());
   }
 
   //method

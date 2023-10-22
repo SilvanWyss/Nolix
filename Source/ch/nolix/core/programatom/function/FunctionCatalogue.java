@@ -17,13 +17,6 @@ import ch.nolix.core.errorcontrol.exception.GeneralException;
  */
 public final class FunctionCatalogue {
 
-  //constructor
-  /**
-   * Prevents that an instance of the {@link FunctionCatalogue} can be created.
-   */
-  private FunctionCatalogue() {
-  }
-
   //constant
   private static final long ZERO = 0L;
 
@@ -35,6 +28,13 @@ public final class FunctionCatalogue {
 
   //constant
   private static final boolean TRUE = true;
+
+  //constructor
+  /**
+   * Prevents that an instance of the {@link FunctionCatalogue} can be created.
+   */
+  private FunctionCatalogue() {
+  }
 
   //static method
   /**
