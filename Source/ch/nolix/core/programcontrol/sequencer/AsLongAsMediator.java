@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+//Java imports
 import java.util.function.BooleanSupplier;
 
 //own imports
@@ -19,7 +20,7 @@ import ch.nolix.core.time.TimeUnitCatalogue;
 public final class AsLongAsMediator {
 
   //attribute
-  private final java.util.function.BooleanSupplier condition;
+  private final BooleanSupplier condition;
 
   //optional attribute
   private final Integer maxRunCount;
