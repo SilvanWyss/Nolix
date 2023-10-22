@@ -92,13 +92,13 @@ public final class WebSocketFrame {
 
   //static method
   public static WebSocketFrame createPongFrameFor(final WebSocketFrame pingFrame) {
-  
+
     if (!pingFrame.isPingFrame()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
           "ping frame", pingFrame,
           "is actually not a ping frame");
     }
-  
+
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
   }
 
@@ -113,7 +113,7 @@ public final class WebSocketFrame {
   }
 
   //method
-  public boolean getFINBit() {
+  public boolean getFINBit() { //NOSONAR: This method returns a bit as a boolean.
     return firstNibble.getFINBit();
   }
 
@@ -156,7 +156,7 @@ public final class WebSocketFrame {
   }
 
   //method
-  public boolean getMaskBit() {
+  public boolean getMaskBit() { //NOSONAR: This method returns a bit as a boolean.
     return firstNibble.getMaskBit();
   }
 

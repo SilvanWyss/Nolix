@@ -15,7 +15,7 @@ public interface IControlHeadStyle<CS extends IControlHeadStyle<CS>>
   <CS2 extends IControlHeadStyle<CS2>> void addChild(final CS2 controlStyle);
 
   //method declaration
-  boolean getBoldTextFlagWhenHasState(ControlState state);
+  boolean getBoldTextFlagWhenHasState(ControlState state); //NOSONAR: This method returns a flag as a boolean.
 
   //method declaration
   Font getFontWhenHasState(ControlState state);

@@ -67,9 +67,9 @@ final class WebSocketFrameFirstNibble {
 
   //static method
   public static WebSocketFrameFirstNibble fromNibble(final byte[] nibble) {
-  
+
     GlobalValidator.assertThat(nibble).hasElementCount(2);
-  
+
     return new WebSocketFrameFirstNibble(nibble[0], nibble[1]);
   }
 
@@ -117,12 +117,12 @@ final class WebSocketFrameFirstNibble {
   }
 
   //method
-  public boolean getFINBit() {
+  public boolean getFINBit() { //NOSONAR: This method returns a bit as a boolean.
     return mFINBit;
   }
 
   //method
-  public boolean getMaskBit() {
+  public boolean getMaskBit() { //NOSONAR: This method returns a bit as a boolean.
     return maskBit;
   }
 

@@ -167,7 +167,7 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, Optiona
    * @throws RuntimeException if the single child {@link INode} of the current
    *                          {@link INode} does not represent a boolean.
    */
-  boolean getSingleChildNodeAsBoolean();
+  boolean getSingleChildNodeAsBoolean(); //NOSONAR: This method returns a boolean representation.
 
   //method declaration
   /**

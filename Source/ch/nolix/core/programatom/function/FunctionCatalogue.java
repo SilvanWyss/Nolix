@@ -58,7 +58,7 @@ public final class FunctionCatalogue {
   /**
    * @return false.
    */
-  public static boolean getFalse() {
+  public static boolean getFalse() { //NOSONAR: This method returns a boolean constant.
     return FALSE;
   }
 
@@ -120,7 +120,7 @@ public final class FunctionCatalogue {
   /**
    * @return true.
    */
-  public static boolean getTrue() {
+  public static boolean getTrue() { //NOSONAR: This method returns a boolean constant.
     return TRUE;
   }
 

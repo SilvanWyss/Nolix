@@ -76,7 +76,7 @@ public final class ByteWrapper {
    * @param index
    * @return the bit at the given index from the current {@link ByteWrapper}.
    */
-  public boolean getBitAt(final int index) {
+  public boolean getBitAt(final int index) { //NOSONAR: This method returns a bit as a boolean.
     return (getBitAtAsInt(index) == 1);
   }
 
