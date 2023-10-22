@@ -16,30 +16,6 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is not empty";
 
-  //static method
-  /**
-   * @param argument
-   * @return a new {@link NonEmptyArgumentException} for the given argument.
-   */
-  public static NonEmptyArgumentException forArgument(final Object argument) {
-    return new NonEmptyArgumentException(argument);
-  }
-
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link NonEmptyArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static NonEmptyArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final Object argument) {
-    return new NonEmptyArgumentException(argumentName, argument);
-  }
-
   //constructor
   /**
    * Creates a new {@link NonEmptyArgumentException} for the given argument.
@@ -66,5 +42,29 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
 
     //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @return a new {@link NonEmptyArgumentException} for the given argument.
+   */
+  public static NonEmptyArgumentException forArgument(final Object argument) {
+    return new NonEmptyArgumentException(argument);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link NonEmptyArgumentException} for the given argumentName
+   *         and argument.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static NonEmptyArgumentException forArgumentNameAndArgument(
+      final String argumentName,
+      final Object argument) {
+    return new NonEmptyArgumentException(argumentName, argument);
   }
 }

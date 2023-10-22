@@ -48,42 +48,6 @@ public final class Server extends BaseServer {
       </html>
       """;
 
-  //static method
-  /**
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
-   *         HTTP port (80).
-   */
-  public static Server forHttpPort() {
-    return new Server(PortCatalogue.HTTP, DEFAULT_HTTP_MESSAGE);
-  }
-
-  //static method
-  /**
-   * @param port
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
-   *         given port.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   */
-  public static Server forPort(final int port) {
-    return new Server(port, DEFAULT_HTTP_MESSAGE);
-  }
-
-  //static method
-  /**
-   * @param port
-   * @param httpMessage
-   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
-   *         given port. When a web browser connects to the {@link Server}, the
-   *         {@link Server} will send the given httpMessage and close the
-   *         connection.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   * @throws ArgumentIsNullException       if the given httpMessage is null.
-   * @throws EmptyArgumentException        if the given httpMessage is blank.
-   */
-  public static Server forPortAndHttpMessage(final int port, final String httpMessage) {
-    return new Server(port, httpMessage);
-  }
-
   //attribute
   private final int port;
 
@@ -135,6 +99,42 @@ public final class Server extends BaseServer {
 
     //Creates and starts a ServerListener for the current Server.
     new ServerListener(this);
+  }
+
+  //static method
+  /**
+   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   *         HTTP port (80).
+   */
+  public static Server forHttpPort() {
+    return new Server(PortCatalogue.HTTP, DEFAULT_HTTP_MESSAGE);
+  }
+
+  //static method
+  /**
+   * @param port
+   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   *         given port.
+   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   */
+  public static Server forPort(final int port) {
+    return new Server(port, DEFAULT_HTTP_MESSAGE);
+  }
+
+  //static method
+  /**
+   * @param port
+   * @param httpMessage
+   * @return a new {@link Server} that will listen to {@link NetEndPoint}s on the
+   *         given port. When a web browser connects to the {@link Server}, the
+   *         {@link Server} will send the given httpMessage and close the
+   *         connection.
+   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   * @throws ArgumentIsNullException       if the given httpMessage is null.
+   * @throws EmptyArgumentException        if the given httpMessage is blank.
+   */
+  public static Server forPortAndHttpMessage(final int port, final String httpMessage) {
+    return new Server(port, httpMessage);
   }
 
   //method

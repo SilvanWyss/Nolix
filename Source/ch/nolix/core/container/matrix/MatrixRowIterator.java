@@ -13,11 +13,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 //class
 final class MatrixRowIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> MatrixRowIterator<E2> forMatrixRow(final MatrixRow<E2> matrixRow) {
-    return new MatrixRowIterator<>(matrixRow);
-  }
-
   //attribute
   private final MatrixRow<E> parentMatrixRow;
 
@@ -45,6 +40,11 @@ final class MatrixRowIterator<E> implements CopyableIterator<E> {
 
     this.parentMatrixRow = parentMatrixRow;
     this.nextElement1BasedColumnIndex = nextElement1BasedColumnIndex;
+  }
+
+  //static method
+  public static <E2> MatrixRowIterator<E2> forMatrixRow(final MatrixRow<E2> matrixRow) {
+    return new MatrixRowIterator<>(matrixRow);
   }
 
   //method

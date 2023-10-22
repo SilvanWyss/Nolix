@@ -22,38 +22,6 @@ public final class SecureServer extends BaseServer<SecureServer> {
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
       new NolixConfigurationSSLCertificateReader();
 
-  //static method
-  public static SecureServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
-
-    final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
-
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
-
-    return new SecureServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
-  }
-
-  //static method
-  public static SecureServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
-      final String domain) {
-
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
-
-    return new SecureServer(DEFAULT_PORT, domain, paramSSLCertificate);
-  }
-
-  //static method
-  public static SecureServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
-      final int port,
-      final String domain) {
-
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
-
-    return new SecureServer(port, domain, paramSSLCertificate);
-  }
-
   //attribute
   private final ch.nolix.core.net.endpoint3.SecureServer internalWebSocketServer;
 
@@ -75,6 +43,38 @@ public final class SecureServer extends BaseServer<SecureServer> {
     this.port = port;
 
     createCloseDependencyTo(internalWebSocketServer);
+  }
+
+  //static method
+  public static SecureServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
+  
+    final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
+  
+    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
+        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+  
+    return new SecureServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
+  }
+
+  //static method
+  public static SecureServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
+      final String domain) {
+  
+    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
+        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+  
+    return new SecureServer(DEFAULT_PORT, domain, paramSSLCertificate);
+  }
+
+  //static method
+  public static SecureServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
+      final int port,
+      final String domain) {
+  
+    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
+        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+  
+    return new SecureServer(port, domain, paramSSLCertificate);
   }
 
   //method

@@ -19,39 +19,6 @@ public final class MultiReadContainer<E> extends Container<E> {
   //attribute
   private final IterableReadContainer<IContainer<E>> containers;
 
-  //static method
-  public static <E2> MultiReadContainer<E2> forArray(
-      final E2[] array,
-      @SuppressWarnings("unchecked") final E2[]... arrays) {
-
-    final var containers = new LinkedList<ArrayReadContainer<E2>>();
-
-    containers.addAtEnd(ArrayReadContainer.forArray(array));
-
-    for (final var a : arrays) {
-      containers.addAtEnd(ArrayReadContainer.forArray(a));
-    }
-
-    return new MultiReadContainer<>(containers);
-  }
-
-  //static method
-  @SafeVarargs
-  public static <E2> MultiReadContainer<E2> forIterable(
-      final Iterable<? extends E2> iterable,
-      final Iterable<? extends E2>... iterables) {
-
-    final var containers = new LinkedList<IterableReadContainer<E2>>();
-
-    containers.addAtEnd(IterableReadContainer.forIterable(iterable));
-
-    for (final var i : iterables) {
-      containers.addAtEnd(IterableReadContainer.forIterable(i));
-    }
-
-    return new MultiReadContainer<>(containers);
-  }
-
   //constructor
   public MultiReadContainer() {
     containers = new IterableReadContainer<>();
@@ -60,6 +27,39 @@ public final class MultiReadContainer<E> extends Container<E> {
   //constructor
   private MultiReadContainer(final IContainer<? extends IContainer<E>> container) {
     this.containers = IterableReadContainer.forIterable(container);
+  }
+
+  //static method
+  public static <E2> MultiReadContainer<E2> forArray(
+      final E2[] array,
+      @SuppressWarnings("unchecked") final E2[]... arrays) {
+  
+    final var containers = new LinkedList<ArrayReadContainer<E2>>();
+  
+    containers.addAtEnd(ArrayReadContainer.forArray(array));
+  
+    for (final var a : arrays) {
+      containers.addAtEnd(ArrayReadContainer.forArray(a));
+    }
+  
+    return new MultiReadContainer<>(containers);
+  }
+
+  //static method
+  @SafeVarargs
+  public static <E2> MultiReadContainer<E2> forIterable(
+      final Iterable<? extends E2> iterable,
+      final Iterable<? extends E2>... iterables) {
+  
+    final var containers = new LinkedList<IterableReadContainer<E2>>();
+  
+    containers.addAtEnd(IterableReadContainer.forIterable(iterable));
+  
+    for (final var i : iterables) {
+      containers.addAtEnd(IterableReadContainer.forIterable(i));
+    }
+  
+    return new MultiReadContainer<>(containers);
   }
 
   //method

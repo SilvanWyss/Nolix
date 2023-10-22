@@ -10,6 +10,9 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 public final class MsSqlSchemaAdapterTutorial {
 
+  private MsSqlSchemaAdapterTutorial() {
+  }
+
   public static void main(String[] args) {
     try (
         final var databaseSchemaAdapter = MsSqlSchemaAdapter
@@ -33,8 +36,5 @@ public final class MsSqlSchemaAdapterTutorial {
 
       databaseSchemaAdapter.addTable(cityTable).addTable(countryTable).saveChanges();
     }
-  }
-
-  private MsSqlSchemaAdapterTutorial() {
   }
 }

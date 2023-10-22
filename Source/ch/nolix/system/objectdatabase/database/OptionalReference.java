@@ -31,6 +31,14 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //constant
   private static final IOptionalReferenceHelper OPTIONAL_REFERENCE_HELPER = new OptionalReferenceHelper();
 
+  //optional attribute
+  private String referencedEntityId;
+
+  //constructor
+  private OptionalReference(final String referencedTableName) {
+    super(referencedTableName);
+  }
+
   //static method
   public static <E2 extends Entity> OptionalReference<E2> forEntity(final Class<E2> type) {
     return new OptionalReference<>(type.getSimpleName());
@@ -39,14 +47,6 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   //static method
   public static OptionalReference<BaseEntity> forEntityWithTableName(final String tableName) {
     return new OptionalReference<>(tableName);
-  }
-
-  //optional attribute
-  private String referencedEntityId;
-
-  //constructor
-  private OptionalReference(final String referencedTableName) {
-    super(referencedTableName);
   }
 
   //method

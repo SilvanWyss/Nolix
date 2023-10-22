@@ -30,16 +30,6 @@ public final class Polynom {
   //constant
   public static final String DEFAULT_PARAMTER_SYMBOL = "x";
 
-  //static method
-  public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
-    return new Polynom(GlobalArrayHelper.createArrayWithValue(coefficient, coefficients));
-  }
-
-  //static method
-  public static Polynom withCoefficients(final double[] coefficients) {
-    return new Polynom(coefficients);
-  }
-
   //optional attribute
   private Polynom derivedPolynom;
 
@@ -77,6 +67,16 @@ public final class Polynom {
 
     //Sets the coefficients of the current Polynom.
     coefficients = coefficientArray; //NOSONAR: A Polynom operates on the original instance.
+  }
+
+  //static method
+  public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
+    return new Polynom(GlobalArrayHelper.createArrayWithValue(coefficient, coefficients));
+  }
+
+  //static method
+  public static Polynom withCoefficients(final double[] coefficients) {
+    return new Polynom(coefficients);
   }
 
   //method

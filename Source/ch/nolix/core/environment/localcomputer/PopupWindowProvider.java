@@ -26,6 +26,13 @@ public final class PopupWindowProvider {
   //constant
   private static final String REQUEST_WINDOW_TITLE = "Request";
 
+  //constructor
+  /**
+   * Prevents that an instance of the {@link PopupWindowProvider} can be created.
+   */
+  private PopupWindowProvider() {
+  }
+
   //static method
   /**
    * Shows an error window with the given error message.
@@ -118,12 +125,5 @@ public final class PopupWindowProvider {
         JOptionPane.YES_NO_OPTION);
 
     return (result == 0);
-  }
-
-  //constructor
-  /**
-   * Prevents that an instance of the {@link PopupWindowProvider} can be created.
-   */
-  private PopupWindowProvider() {
   }
 }

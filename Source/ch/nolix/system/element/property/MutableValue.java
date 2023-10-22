@@ -18,6 +18,36 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
  */
 public final class MutableValue<V> extends SingleValue<V> {
 
+  //constructor
+  /**
+   * Creates a new {@link MutableValue} with the given name, defaultValue,
+   * setterMethod, valueCreator and specificationCreator.
+   * 
+   * @param name
+   * @param defaultValue
+   * @param setterMethod
+   * @param valueCreator
+   * @param specificationCreator
+   * @throws ArgumentIsNullException  if the given name is null.
+   * @throws InvalidArgumentException if the given name is blank.
+   * @throws ArgumentIsNullException  if the given defaultValue is null.
+   * @throws ArgumentIsNullException  if the given setterMethod is null.
+   * @throws ArgumentIsNullException  if the given valueCreator is null.
+   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   */
+  public MutableValue(
+      final String name,
+      final V defaultValue,
+      final Consumer<V> setterMethod,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
+  
+    //Calls constructor of the base class.
+    super(name, setterMethod, valueCreator, specificationCreator);
+  
+    setValue(defaultValue);
+  }
+
   //static method
   /**
    * @param name
@@ -101,36 +131,6 @@ public final class MutableValue<V> extends SingleValue<V> {
 
           return Node.withChildNode(s);
         });
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link MutableValue} with the given name, defaultValue,
-   * setterMethod, valueCreator and specificationCreator.
-   * 
-   * @param name
-   * @param defaultValue
-   * @param setterMethod
-   * @param valueCreator
-   * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given defaultValue is null.
-   * @throws ArgumentIsNullException  if the given setterMethod is null.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
-   */
-  public MutableValue(
-      final String name,
-      final V defaultValue,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
-
-    //Calls constructor of the base class.
-    super(name, setterMethod, valueCreator, specificationCreator);
-
-    setValue(defaultValue);
   }
 
   //method

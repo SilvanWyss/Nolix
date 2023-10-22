@@ -20,11 +20,6 @@ public abstract class MultiStateConfiguration<MSC extends IMultiStateConfigurati
     extends Element
     implements IMultiStateConfiguration<MSC, S> {
 
-  //static method
-  private static boolean fieldStoresProperty(final Field field) {
-    return Property.class.isAssignableFrom(field.getType());
-  }
-
   //attribute
   private final State<S> baseState;
 
@@ -41,6 +36,11 @@ public abstract class MultiStateConfiguration<MSC extends IMultiStateConfigurati
 
     availableStates = new StateExtractor<S>().createtStatesFromState(baseState);
     this.baseState = availableStates.getStoredFirst(s -> s.hasEnumValue(baseState));
+  }
+
+  //static method
+  private static boolean fieldStoresProperty(final Field field) {
+    return Property.class.isAssignableFrom(field.getType());
   }
 
   //method

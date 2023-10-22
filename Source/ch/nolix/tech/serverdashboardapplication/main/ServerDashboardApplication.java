@@ -15,14 +15,14 @@ public final class ServerDashboardApplication
   //constant
   public static final String APPLICATION_NAME = "Server Dashboard";
 
-  //static method
-  public static ServerDashboardApplication forServer(final BaseServer<?> server) {
-    return new ServerDashboardApplication(ServerDashboardContext.forServer(server));
-  }
-
   //constructor
   private ServerDashboardApplication(final IServerDashboardContext serverDashboardContext) {
     super(serverDashboardContext);
+  }
+
+  //static method
+  public static ServerDashboardApplication forServer(final BaseServer<?> server) {
+    return new ServerDashboardApplication(ServerDashboardContext.forServer(server));
   }
 
   //method

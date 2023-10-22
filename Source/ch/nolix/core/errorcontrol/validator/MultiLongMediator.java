@@ -16,18 +16,6 @@ import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
  */
 public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
-  //static method
-  public static MultiLongMediator forValue(final int value, final int[] values) {
-
-    final var allValues = new List<Long>();
-    allValues.addAtEnd((long) value);
-    for (final var v : values) {
-      allValues.addAtEnd((long) v);
-    }
-
-    return new MultiLongMediator(allValues);
-  }
-
   //constructor
   /**
    * Creates a new long container mediator with the given arguments.
@@ -45,6 +33,18 @@ public final class MultiLongMediator extends MultiArgumentMediator<Long> {
 
     //Calls constructor if the base class.
     super(GlobalArrayHelper.createIterable(arguments));
+  }
+
+  //static method
+  public static MultiLongMediator forValue(final int value, final int[] values) {
+  
+    final var allValues = new List<Long>();
+    allValues.addAtEnd((long) value);
+    for (final var v : values) {
+      allValues.addAtEnd((long) v);
+    }
+  
+    return new MultiLongMediator(allValues);
   }
 
   //method

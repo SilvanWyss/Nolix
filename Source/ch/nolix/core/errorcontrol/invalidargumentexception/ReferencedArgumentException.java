@@ -16,15 +16,6 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
   //constant
   private static final String ERROR_PREDICATE = "is referenced";
 
-  //static method
-  /**
-   * @param argument
-   * @return a new {@link ReferencedArgumentException} for the given argument.
-   */
-  public static ReferencedArgumentException forArgument(final Object argument) {
-    return new ReferencedArgumentException(argument);
-  }
-
   //constructor
   /**
    * Creates a new {@link ReferencedArgumentException} for the given argument.
@@ -32,8 +23,17 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
    * @param argument
    */
   private ReferencedArgumentException(final Object argument) {
-
+  
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @return a new {@link ReferencedArgumentException} for the given argument.
+   */
+  public static ReferencedArgumentException forArgument(final Object argument) {
+    return new ReferencedArgumentException(argument);
   }
 }

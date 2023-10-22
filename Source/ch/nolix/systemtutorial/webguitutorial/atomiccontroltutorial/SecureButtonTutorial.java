@@ -18,6 +18,9 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
  */
 public final class SecureButtonTutorial {
 
+  private SecureButtonTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -47,8 +50,5 @@ public final class SecureButtonTutorial {
       countLabel.setText(String.valueOf(count));
       refresh();
     }
-  }
-
-  private SecureButtonTutorial() {
   }
 }

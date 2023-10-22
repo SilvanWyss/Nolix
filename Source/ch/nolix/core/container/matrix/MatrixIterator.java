@@ -20,18 +20,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
  */
 final class MatrixIterator<E> implements CopyableIterator<E> {
 
-  //static method
-  public static <E2> MatrixIterator<E2> forMatrix(final Matrix<E2> matrix) {
-    return new MatrixIterator<>(matrix);
-  }
-
-  //static mehtod
-  public static <E2> MatrixIterator<E2> forMatrixAnd1BasedStartIndex(
-      final Matrix<E2> matrix,
-      final int p1BasedStartIndex) {
-    return new MatrixIterator<>(matrix, p1BasedStartIndex);
-  }
-
   //attribute
   private final Matrix<E> parentMatrix;
 
@@ -75,6 +63,18 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
 
     this.parentMatrix = parentMatrix;
     nextElement1BasedIndex = p1BasedStartIndex;
+  }
+
+  //static method
+  public static <E2> MatrixIterator<E2> forMatrix(final Matrix<E2> matrix) {
+    return new MatrixIterator<>(matrix);
+  }
+
+  //static mehtod
+  public static <E2> MatrixIterator<E2> forMatrixAnd1BasedStartIndex(
+      final Matrix<E2> matrix,
+      final int p1BasedStartIndex) {
+    return new MatrixIterator<>(matrix, p1BasedStartIndex);
   }
 
   //method

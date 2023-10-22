@@ -13,6 +13,10 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 //class
 public final class RunningJar {
 
+  //constructor
+  private RunningJar() {
+  }
+
   //static method
   public static String getResource(final String path) {
     final var stringBuilder = new StringBuilder();
@@ -38,9 +42,5 @@ public final class RunningJar {
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
-  }
-
-  //constructor
-  private RunningJar() {
   }
 }

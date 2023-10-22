@@ -16,19 +16,6 @@ import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 //class
 final class OneTypeElementFactory<E> {
 
-  //static method
-  private static <ME extends IMutableElement> ME createElementOf(final Class<ME> elementClass) {
-    try {
-      return elementClass.getConstructor().newInstance();
-    } catch (final
-        InstantiationException
-        | IllegalAccessException
-        | InvocationTargetException
-        | NoSuchMethodException exception) {
-      throw WrapperException.forError(exception);
-    }
-  }
-
   //attribute
   private final Class<E> elementClass;
 
@@ -57,6 +44,19 @@ final class OneTypeElementFactory<E> {
 
     this.elementClass = elementClass;
     this.creator = creator;
+  }
+
+  //static method
+  private static <ME extends IMutableElement> ME createElementOf(final Class<ME> elementClass) {
+    try {
+      return elementClass.getConstructor().newInstance();
+    } catch (final
+        InstantiationException
+        | IllegalAccessException
+        | InvocationTargetException
+        | NoSuchMethodException exception) {
+      throw WrapperException.forError(exception);
+    }
   }
 
   //method

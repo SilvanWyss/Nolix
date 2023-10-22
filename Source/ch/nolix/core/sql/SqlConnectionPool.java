@@ -24,11 +24,6 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
   //constant
   private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
 
-  //static method
-  public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
-    return new SqlConnectionPoolBuilder(ipOrDomain, DEFAULT_PORT);
-  }
-
   //attribute
   private final String ipOrDomain;
 
@@ -69,6 +64,11 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
     this.databaseName = databaseName;
     this.sqlDatabaseEngine = sqlDatabaseEngine;
     credential = Credential.withLoginName(loginName).andPassword(loginPassword);
+  }
+
+  //static method
+  public static SqlConnectionPoolBuilder forIpOrDomain(final String ipOrDomain) {
+    return new SqlConnectionPoolBuilder(ipOrDomain, DEFAULT_PORT);
   }
 
   //method

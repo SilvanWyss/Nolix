@@ -19,6 +19,9 @@ public final class PartialRefreshTutorial {
   private static final IImage IMAGE = Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/pilatus.jpg")
       .withWidthAndHeight(1200, 600);
 
+  private PartialRefreshTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -92,8 +95,5 @@ public final class PartialRefreshTutorial {
           time.getSecondOfMinute(),
           time.getMillisecondOfSecond() / 100);
     }
-  }
-
-  private PartialRefreshTutorial() {
   }
 }

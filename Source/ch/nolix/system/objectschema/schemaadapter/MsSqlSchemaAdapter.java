@@ -12,6 +12,13 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
   //constant
   public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 
+  //constructor
+  MsSqlSchemaAdapter(
+      String databaseName,
+      final ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter msSqlSchemaAdapter) {
+    super(databaseName, msSqlSchemaAdapter);
+  }
+
   //static method
   public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
       final String databaseName,
@@ -32,12 +39,5 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
   //static method
   public static MsSqlSchemaAdapterBuilder toLocalhost() {
     return toIpOrAddress(IPv4Catalogue.LOOP_BACK_ADDRESS);
-  }
-
-  //constructor
-  MsSqlSchemaAdapter(
-      String databaseName,
-      final ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter msSqlSchemaAdapter) {
-    super(databaseName, msSqlSchemaAdapter);
   }
 }

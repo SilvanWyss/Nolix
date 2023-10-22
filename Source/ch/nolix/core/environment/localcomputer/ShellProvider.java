@@ -18,6 +18,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public final class ShellProvider {
 
+  //constructor
+  private ShellProvider() {
+  }
+
   //static method
   public static void run(final String[] command) {
 
@@ -103,9 +107,5 @@ public final class ShellProvider {
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);
     }
-  }
-
-  //constructor
-  private ShellProvider() {
   }
 }

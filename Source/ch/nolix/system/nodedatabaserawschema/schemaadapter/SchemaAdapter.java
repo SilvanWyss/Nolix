@@ -22,16 +22,6 @@ public final class SchemaAdapter implements ISchemaAdapter {
   //constant
   private static final DatabaseInitializer DATABASE_INITIALIZER = new DatabaseInitializer();
 
-  //static method
-  public static SchemaAdapter forDatabaseNode(final IMutableNode<?> databaseNode) {
-    return new SchemaAdapter(databaseNode);
-  }
-
-  //static method
-  public static SchemaAdapter forDatabaseNodeInFile(final String filePath) {
-    return new SchemaAdapter(new FileNode(filePath));
-  }
-
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -51,6 +41,16 @@ public final class SchemaAdapter implements ISchemaAdapter {
 
     createCloseDependencyTo(schemaReader);
     createCloseDependencyTo(schemaWriter);
+  }
+
+  //static method
+  public static SchemaAdapter forDatabaseNode(final IMutableNode<?> databaseNode) {
+    return new SchemaAdapter(databaseNode);
+  }
+
+  //static method
+  public static SchemaAdapter forDatabaseNodeInFile(final String filePath) {
+    return new SchemaAdapter(new FileNode(filePath));
   }
 
   //method

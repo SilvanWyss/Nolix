@@ -8,11 +8,6 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //class
 final class SqlConnectionWrapper implements AutoCloseable {
 
-  //static method
-  public static SqlConnectionWrapper forSqlConnection(final SqlConnection sqlConnection) {
-    return new SqlConnectionWrapper(sqlConnection);
-  }
-
   //attribute
   private final SqlConnection sqlConnection;
 
@@ -26,6 +21,11 @@ final class SqlConnectionWrapper implements AutoCloseable {
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).fulfills(SqlConnection::isOpen);
 
     this.sqlConnection = sqlConnection;
+  }
+
+  //static method
+  public static SqlConnectionWrapper forSqlConnection(final SqlConnection sqlConnection) {
+    return new SqlConnectionWrapper(sqlConnection);
   }
 
   //method

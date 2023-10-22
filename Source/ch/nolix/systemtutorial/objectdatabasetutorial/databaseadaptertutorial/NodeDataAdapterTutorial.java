@@ -9,15 +9,7 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 
 public final class NodeDataAdapterTutorial {
 
-  private static final class Person extends Entity {
-
-    private final Value<String> firstName = new Value<>();
-    private final Value<String> lastName = new Value<>();
-
-    @Override
-    public String toString() {
-      return (firstName.getStoredValue() + " " + lastName.getStoredValue());
-    }
+  private NodeDataAdapterTutorial() {
   }
 
   public static void main(String[] args) {
@@ -41,6 +33,14 @@ public final class NodeDataAdapterTutorial {
     GlobalLogger.logInfo(loadedDonaldDuck.toString());
   }
 
-  private NodeDataAdapterTutorial() {
+  private static final class Person extends Entity {
+  
+    private final Value<String> firstName = new Value<>();
+    private final Value<String> lastName = new Value<>();
+  
+    @Override
+    public String toString() {
+      return (firstName.getStoredValue() + " " + lastName.getStoredValue());
+    }
   }
 }

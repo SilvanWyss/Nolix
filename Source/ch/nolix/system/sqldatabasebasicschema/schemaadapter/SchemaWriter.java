@@ -16,14 +16,6 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaStatemen
 //class
 public final class SchemaWriter implements ISchemaWriter {
 
-  //static method
-  public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaStatementCreator schemaStatementCreator) {
-    return new SchemaWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaStatementCreator);
-  }
-
   //attribute
   private int saveCount;
 
@@ -52,6 +44,14 @@ public final class SchemaWriter implements ISchemaWriter {
 
     getStoredCloseController().createCloseDependencyTo(sqlConnection);
     sqlCollector.addSqlStatement("USE " + databaseName);
+  }
+
+  //static method
+  public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool,
+      final ISchemaStatementCreator schemaStatementCreator) {
+    return new SchemaWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaStatementCreator);
   }
 
   //method

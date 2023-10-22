@@ -13,6 +13,12 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 public final class StringValidationTutorial {
 
   /**
+   * Prevents that an instance of the {@link GlobalValidator} can be created.
+   */
+  private StringValidationTutorial() {
+  }
+
+  /**
    * Lets the {@link GlobalValidator} validate the maximum length of a
    * {@link String}.
    * 
@@ -27,11 +33,5 @@ public final class StringValidationTutorial {
     //Lets the validator validate that he string 'Hello World!' has the max length
     //20.
     GlobalValidator.assertThat("Hello World!").isNotLongerThan(12);
-  }
-
-  /**
-   * Prevents that an instance of the {@link GlobalValidator} can be created.
-   */
-  private StringValidationTutorial() {
   }
 }

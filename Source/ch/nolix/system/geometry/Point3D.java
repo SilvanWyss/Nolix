@@ -31,21 +31,6 @@ public class Point3D extends Element {
   //constant
   public static final double DEFAULT_Z = 0.0;
 
-  //static method
-  /**
-   * @param specification
-   * @return a new {@link Point3D} from the given specification.
-   */
-  public static Point3D fromSpecification(final INode<?> specification) {
-
-    final var attributes = specification.getStoredChildNodes();
-
-    return new Point3D(
-        attributes.getStoredAt1BasedIndex(1).toDouble(),
-        attributes.getStoredAt1BasedIndex(2).toDouble(),
-        attributes.getStoredAt1BasedIndex(3).toDouble());
-  }
-
   //attribute
   private final double x;
 
@@ -77,6 +62,21 @@ public class Point3D extends Element {
     this.x = x;
     this.y = y;
     this.z = z;
+  }
+
+  //static method
+  /**
+   * @param specification
+   * @return a new {@link Point3D} from the given specification.
+   */
+  public static Point3D fromSpecification(final INode<?> specification) {
+  
+    final var attributes = specification.getStoredChildNodes();
+  
+    return new Point3D(
+        attributes.getStoredAt1BasedIndex(1).toDouble(),
+        attributes.getStoredAt1BasedIndex(2).toDouble(),
+        attributes.getStoredAt1BasedIndex(3).toDouble());
   }
 
   //method

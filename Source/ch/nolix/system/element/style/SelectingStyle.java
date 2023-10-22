@@ -21,6 +21,33 @@ public final class SelectingStyle extends BaseSelectingStyle {
   //constant
   public static final String TYPE_NAME = "SelectingStyle";
 
+  //constructor
+  /**
+   * Creates a new {@link SelectingStyle}.
+   * 
+   * @param selectorIdContainer
+   * @param selectorTypeContainer
+   * @param selectorRoles
+   * @param selectorTokens
+   * @param attachingAttributes
+   * @param subStyles
+   */
+  public SelectingStyle(
+      final ISingleContainer<String> selectorIdContainer,
+      final ISingleContainer<String> selectorTypeContainer,
+      final IContainer<String> selectorRoles,
+      final IContainer<String> selectorTokens,
+      final IContainer<? extends INode<?>> attachingAttributes,
+      final IContainer<BaseSelectingStyle> subStyles) {
+    super(
+        selectorIdContainer,
+        selectorTypeContainer,
+        selectorRoles,
+        selectorTokens,
+        attachingAttributes,
+        subStyles);
+  }
+
   //static method
   /**
    * @param specification
@@ -28,14 +55,14 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static SelectingStyle fromSpecification(final INode<?> specification) {
-
+  
     var selectorIdContainer = new SingleContainer<String>();
     var selectorTypeContainer = new SingleContainer<String>();
     final var selectorRoles = new LinkedList<String>();
     final var selectorTokens = new LinkedList<String>();
     final var attachingAttributes = new LinkedList<INode<?>>();
     final var subStyles = new LinkedList<BaseSelectingStyle>();
-
+  
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case SELECTOR_ID_HEADER:
@@ -65,35 +92,8 @@ public final class SelectingStyle extends BaseSelectingStyle {
               specification);
       }
     }
-
+  
     return new SelectingStyle(
-        selectorIdContainer,
-        selectorTypeContainer,
-        selectorRoles,
-        selectorTokens,
-        attachingAttributes,
-        subStyles);
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link SelectingStyle}.
-   * 
-   * @param selectorIdContainer
-   * @param selectorTypeContainer
-   * @param selectorRoles
-   * @param selectorTokens
-   * @param attachingAttributes
-   * @param subStyles
-   */
-  public SelectingStyle(
-      final ISingleContainer<String> selectorIdContainer,
-      final ISingleContainer<String> selectorTypeContainer,
-      final IContainer<String> selectorRoles,
-      final IContainer<String> selectorTokens,
-      final IContainer<? extends INode<?>> attachingAttributes,
-      final IContainer<BaseSelectingStyle> subStyles) {
-    super(
         selectorIdContainer,
         selectorTypeContainer,
         selectorRoles,

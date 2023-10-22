@@ -32,14 +32,6 @@ public final class SchemaReader implements ISchemaReader {
   //constant
   private static final ColumnDtoMapper COLUMN_DTO_MAPPER = new ColumnDtoMapper();
 
-  //static method
-  public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaAdapter schemaAdapter) {
-    return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaAdapter);
-  }
-
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -65,6 +57,14 @@ public final class SchemaReader implements ISchemaReader {
     createCloseDependencyTo(schemaAdapter);
 
     sqlConnection.execute("USE " + databaseName);
+  }
+
+  //static method
+  public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool,
+      final ISchemaAdapter schemaAdapter) {
+    return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaAdapter);
   }
 
   //method

@@ -15,28 +15,6 @@ public final class Schema implements ISchema {
   //constant
   public static final Schema EMPTY_SCHEMA = new Schema(new ImmutableList<>());
 
-  //static method
-  @SuppressWarnings("unchecked")
-  public static Schema withEntityType(
-      final Class<?> entityType,
-      final Class<?>... entityTypes) {
-
-    final var allEntityTypes = new LinkedList<Class<? extends IEntity>>();
-
-    allEntityTypes.addAtEnd((Class<IEntity>) entityType);
-
-    for (final var et : entityTypes) {
-      allEntityTypes.addAtEnd((Class<IEntity>) et);
-    }
-
-    return new Schema(allEntityTypes);
-  }
-
-  //static method
-  public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
-    return new Schema(entityTypes);
-  }
-
   //multi-attribute
   private final IContainer<Class<? extends IEntity>> entityTypes;
 
@@ -46,6 +24,28 @@ public final class Schema implements ISchema {
     assertContainsDifferentEntityTypesOnly(entityTypes);
 
     this.entityTypes = entityTypes;
+  }
+
+  //static method
+  @SuppressWarnings("unchecked")
+  public static Schema withEntityType(
+      final Class<?> entityType,
+      final Class<?>... entityTypes) {
+  
+    final var allEntityTypes = new LinkedList<Class<? extends IEntity>>();
+  
+    allEntityTypes.addAtEnd((Class<IEntity>) entityType);
+  
+    for (final var et : entityTypes) {
+      allEntityTypes.addAtEnd((Class<IEntity>) et);
+    }
+  
+    return new Schema(allEntityTypes);
+  }
+
+  //static method
+  public static Schema withEntityTypes(IContainer<Class<? extends IEntity>> entityTypes) {
+    return new Schema(entityTypes);
   }
 
   //method

@@ -7,13 +7,6 @@ import ch.nolix.core.sql.SqlConnectionPool;
 //class
 public final class MsSqlSchemaAdapter extends SchemaAdapter {
 
-  //static method
-  public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool) {
-    return new MsSqlSchemaAdapter(databaseName, sqlConnectionPool);
-  }
-
   //constructor
   private MsSqlSchemaAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
     super(
@@ -23,5 +16,12 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
             .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
                 databaseName,
                 sqlConnectionPool));
+  }
+
+  //static method
+  public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool) {
+    return new MsSqlSchemaAdapter(databaseName, sqlConnectionPool);
   }
 }

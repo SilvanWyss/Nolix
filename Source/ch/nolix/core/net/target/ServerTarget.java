@@ -11,14 +11,6 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 //class
 public class ServerTarget implements IServerTarget {
 
-  //static method
-  public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
-      final String ipOrDomain,
-      final int port,
-      final SecurityLevel securityLevelForConnections) {
-    return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
-  }
-
   //attribute
   private final String ipOrDomain;
 
@@ -45,6 +37,14 @@ public class ServerTarget implements IServerTarget {
     this.ipOrDomain = ipOrDomain;
     this.port = port;
     this.securityLevelForConnections = securityLevelForConnections;
+  }
+
+  //static method
+  public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
+      final String ipOrDomain,
+      final int port,
+      final SecurityLevel securityLevelForConnections) {
+    return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
   }
 
   //method

@@ -29,16 +29,6 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //constant
   private static final IMultiReferenceValidator MULTI_REFERENCE_VALIDATOR = new MultiReferenceValidator();
 
-  //static method
-  public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> type) {
-    return new MultiReference<>(type.getSimpleName());
-  }
-
-  //static method
-  public static MultiReference<BaseEntity> forEntityWithTableName(final String tableName) {
-    return new MultiReference<>(tableName);
-  }
-
   //attribute
   private boolean extractedReferencedEntityIds;
 
@@ -48,6 +38,16 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //constructor
   private MultiReference(final String referencedTableName) {
     super(referencedTableName);
+  }
+
+  //static method
+  public static <E2 extends Entity> MultiReference<E2> forEntity(final Class<E2> type) {
+    return new MultiReference<>(type.getSimpleName());
+  }
+
+  //static method
+  public static MultiReference<BaseEntity> forEntityWithTableName(final String tableName) {
+    return new MultiReference<>(tableName);
   }
 
   //method

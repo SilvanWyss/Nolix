@@ -14,11 +14,6 @@ import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
 //class
 public final class ServerDashboardContext implements IServerDashboardContext {
 
-  //static method
-  public static ServerDashboardContext forServer(final BaseServer<?> server) {
-    return new ServerDashboardContext(server);
-  }
-
   //attribute
   private final BaseServer<?> server;
 
@@ -28,6 +23,11 @@ public final class ServerDashboardContext implements IServerDashboardContext {
     GlobalValidator.assertThat(server).thatIsNamed(LowerCaseCatalogue.SERVER).isNotNull();
 
     this.server = server;
+  }
+
+  //static method
+  public static ServerDashboardContext forServer(final BaseServer<?> server) {
+    return new ServerDashboardContext(server);
   }
 
   //method

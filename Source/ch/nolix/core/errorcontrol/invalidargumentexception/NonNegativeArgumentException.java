@@ -16,36 +16,6 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
   //constant
   private static final String ERROR_PREDICATE = "is not negative";
 
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link NonNegativeArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static NonNegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final double argument) {
-    return new NonNegativeArgumentException(argumentName, argument);
-  }
-
-  //static method
-  /**
-   * @param argumentName
-   * @param argument
-   * @return a new {@link NonNegativeArgumentException} for the given argumentName
-   *         and argument.
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   */
-  public static NonNegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final long argument) {
-    return new NonNegativeArgumentException(argumentName, argument);
-  }
-
   //constructor
   /**
    * Creates a new {@link NonNegativeArgumentException} for the given argumentName
@@ -76,5 +46,35 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
 
     //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link NonNegativeArgumentException} for the given argumentName
+   *         and argument.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static NonNegativeArgumentException forArgumentNameAndArgument(
+      final String argumentName,
+      final double argument) {
+    return new NonNegativeArgumentException(argumentName, argument);
+  }
+
+  //static method
+  /**
+   * @param argumentName
+   * @param argument
+   * @return a new {@link NonNegativeArgumentException} for the given argumentName
+   *         and argument.
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   */
+  public static NonNegativeArgumentException forArgumentNameAndArgument(
+      final String argumentName,
+      final long argument) {
+    return new NonNegativeArgumentException(argumentName, argument);
   }
 }

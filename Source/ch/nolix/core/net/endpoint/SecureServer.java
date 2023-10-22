@@ -27,17 +27,6 @@ public final class SecureServer extends BaseServer {
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
       new NolixConfigurationSSLCertificateReader();
 
-  //static method
-  public static SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
-      final int port,
-      final String htmlPage) {
-
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
-
-    return new SecureServer(port, htmlPage, paramSSLCertificate);
-  }
-
   //constructor
   public SecureServer(final int port, final ISSLCertificate paramSSLCertificate) {
     this(port, DEFAULT_HTML_PAGE, paramSSLCertificate);
@@ -46,6 +35,17 @@ public final class SecureServer extends BaseServer {
   //constructor
   public SecureServer(final int port, final String htmlPage, final ISSLCertificate paramSSLCertificate) {
     new SecureServerWorker(this, port, htmlPage, paramSSLCertificate);
+  }
+
+  //static method
+  public static SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+      final int port,
+      final String htmlPage) {
+  
+    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
+        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+  
+    return new SecureServer(port, htmlPage, paramSSLCertificate);
   }
 
   //method

@@ -22,26 +22,6 @@ public final class Server extends BaseServer<Server> {
   //constant
   private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
 
-  //static method
-  /**
-   * @return a new {@link Server} that will listen to net {@link Client}s on the
-   *         HTTP port (80).
-   */
-  public static Server forHttpPort() {
-    return forPort(PortCatalogue.HTTP);
-  }
-
-  //static method
-  /**
-   * @param port
-   * @return a new {@link Server} that will listen to net {@link Client}s on the
-   *         given port.
-   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
-   */
-  public static Server forPort(final int port) {
-    return new Server(port);
-  }
-
   //attribute
   private ch.nolix.core.net.endpoint3.Server internalServer;
 
@@ -62,6 +42,26 @@ public final class Server extends BaseServer<Server> {
 
     //Creates a close dependency between the current Server and its internalServer.
     createCloseDependencyTo(internalServer);
+  }
+
+  //static method
+  /**
+   * @return a new {@link Server} that will listen to net {@link Client}s on the
+   *         HTTP port (80).
+   */
+  public static Server forHttpPort() {
+    return forPort(PortCatalogue.HTTP);
+  }
+
+  //static method
+  /**
+   * @param port
+   * @return a new {@link Server} that will listen to net {@link Client}s on the
+   *         given port.
+   * @throws ArgumentIsOutOfRangeException if the given port is not in [0, 65535].
+   */
+  public static Server forPort(final int port) {
+    return new Server(port);
   }
 
   //method

@@ -19,6 +19,30 @@ import ch.nolix.systemapi.elementapi.mainapi.Specified;
  */
 public final class MutableOptionalValue<V> extends SingleValue<V> {
 
+  //constructor
+  /**
+   * Creates a new {@link MutableOptionalValue} with the given name, setterMethod,
+   * valueCreator and specificationCreator.
+   * 
+   * @param name
+   * @param setterMethod
+   * @param valueCreator
+   * @param specificationCreator
+   * @throws ArgumentIsNullException  if the given name is null.
+   * @throws InvalidArgumentException if the given name is blank.
+   * @throws ArgumentIsNullException  if the given valueCreator is null.
+   * @throws ArgumentIsNullException  if the given specificationCreator is null.
+   */
+  public MutableOptionalValue(
+      final String name,
+      final Consumer<V> setterMethod,
+      final Function<INode<?>, V> valueCreator,
+      final Function<V, INode<?>> specificationCreator) {
+  
+    //Calls constructor of the base class.
+    super(name, setterMethod, valueCreator, specificationCreator);
+  }
+
   //static method
   /**
    * @param name
@@ -92,30 +116,6 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
 
           return Node.withChildNode(s);
         });
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link MutableOptionalValue} with the given name, setterMethod,
-   * valueCreator and specificationCreator.
-   * 
-   * @param name
-   * @param setterMethod
-   * @param valueCreator
-   * @param specificationCreator
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given valueCreator is null.
-   * @throws ArgumentIsNullException  if the given specificationCreator is null.
-   */
-  public MutableOptionalValue(
-      final String name,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
-
-    //Calls constructor of the base class.
-    super(name, setterMethod, valueCreator, specificationCreator);
   }
 
   //method

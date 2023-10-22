@@ -15,15 +15,6 @@ public final class NewArgumentException extends InvalidArgumentException {
   //constant
   private static final String ERROR_PREDICATE = "is new";
 
-  //static method
-  /**
-   * @param argument
-   * @return a new {@link NewArgumentException} for the given argument.
-   */
-  public static NewArgumentException forArgument(final Object argument) {
-    return new NewArgumentException(argument);
-  }
-
   //constructor
   /**
    * Creates a new {@link NewArgumentException} for the given argument.
@@ -31,8 +22,17 @@ public final class NewArgumentException extends InvalidArgumentException {
    * @param argument
    */
   private NewArgumentException(final Object argument) {
-
+  
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
+  }
+
+  //static method
+  /**
+   * @param argument
+   * @return a new {@link NewArgumentException} for the given argument.
+   */
+  public static NewArgumentException forArgument(final Object argument) {
+    return new NewArgumentException(argument);
   }
 }

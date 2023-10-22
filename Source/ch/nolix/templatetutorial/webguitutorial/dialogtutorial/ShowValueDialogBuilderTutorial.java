@@ -11,6 +11,9 @@ import ch.nolix.template.webgui.dialog.ShowValueDialogBuilder;
 
 public final class ShowValueDialogBuilderTutorial {
 
+  private ShowValueDialogBuilderTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -54,8 +57,5 @@ public final class ShowValueDialogBuilderTutorial {
 
       getStoredGui().pushLayer(showDateDialog);
     }
-  }
-
-  private ShowValueDialogBuilderTutorial() {
   }
 }

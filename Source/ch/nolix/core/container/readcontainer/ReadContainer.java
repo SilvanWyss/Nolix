@@ -27,6 +27,37 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
  */
 public final class ReadContainer<E> extends Container<E> {
 
+  //attribute
+  private final Container<E> container;
+
+  //constructor
+  /**
+   * Creates a new {@link ReadContainer} for an empty container.
+   */
+  public ReadContainer() {
+
+    //Calls other constructor.
+    this(new LinkedList<E>());
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link ReadContainer} for the given container.
+   * 
+   * @param container
+   * @param <E2>      is the type of the elements of the given container.
+   * @throws ArgumentIsNullException if the given container is null.
+   */
+  @SuppressWarnings("unchecked")
+  private <E2 extends E> ReadContainer(final Container<E2> container) {
+
+    //Asserts that the given container is not null.
+    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
+
+    //Sets the container of the current ReadContainer.
+    this.container = (Container<E>) container;
+  }
+
   //static method
   /**
    * @param array
@@ -72,37 +103,6 @@ public final class ReadContainer<E> extends Container<E> {
       final Iterable<? extends E2> container,
       final Iterable<? extends E2>... containers) {
     return new ReadContainer<>(MultiReadContainer.forIterable(container, containers));
-  }
-
-  //attribute
-  private final Container<E> container;
-
-  //constructor
-  /**
-   * Creates a new {@link ReadContainer} for an empty container.
-   */
-  public ReadContainer() {
-
-    //Calls other constructor.
-    this(new LinkedList<E>());
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ReadContainer} for the given container.
-   * 
-   * @param container
-   * @param <E2>      is the type of the elements of the given container.
-   * @throws ArgumentIsNullException if the given container is null.
-   */
-  @SuppressWarnings("unchecked")
-  private <E2 extends E> ReadContainer(final Container<E2> container) {
-
-    //Asserts that the given container is not null.
-    GlobalValidator.assertThat(container).thatIsNamed(LowerCaseCatalogue.CONTAINER).isNotNull();
-
-    //Sets the container of the current ReadContainer.
-    this.container = (Container<E>) container;
   }
 
   //method

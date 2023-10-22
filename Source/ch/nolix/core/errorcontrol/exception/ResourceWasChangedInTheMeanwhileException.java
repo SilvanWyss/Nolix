@@ -14,6 +14,19 @@ package ch.nolix.core.errorcontrol.exception;
 @SuppressWarnings("serial")
 public final class ResourceWasChangedInTheMeanwhileException extends RuntimeException {
 
+  //constructor
+  /**
+   * Creates a new {@link ResourceWasChangedInTheMeanwhileException} for the given
+   * resource.
+   * 
+   * @param resource
+   * @throws IllegalArgumentException if the given resource is null.
+   * @throws IllegalArgumentException if the given resource is blank.
+   */
+  private ResourceWasChangedInTheMeanwhileException(final String resource) {
+    super("The " + validateAndGetResource(resource) + " was changed in the meanwhile.");
+  }
+
   //static method
   /**
    * @param resource
@@ -44,18 +57,5 @@ public final class ResourceWasChangedInTheMeanwhileException extends RuntimeExce
     }
 
     return resource;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link ResourceWasChangedInTheMeanwhileException} for the given
-   * resource.
-   * 
-   * @param resource
-   * @throws IllegalArgumentException if the given resource is null.
-   * @throws IllegalArgumentException if the given resource is blank.
-   */
-  private ResourceWasChangedInTheMeanwhileException(final String resource) {
-    super("The " + validateAndGetResource(resource) + " was changed in the meanwhile.");
   }
 }

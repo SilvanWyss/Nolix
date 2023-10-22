@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 public final class NestedHorizontalStackTutorial {
 
+  private NestedHorizontalStackTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -65,8 +68,5 @@ public final class NestedHorizontalStackTutorial {
       //Adds the VerticalStack to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(verticalStack);
     }
-  }
-
-  private NestedHorizontalStackTutorial() {
   }
 }

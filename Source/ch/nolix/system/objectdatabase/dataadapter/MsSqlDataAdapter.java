@@ -13,16 +13,6 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class MsSqlDataAdapter extends DataAdapter {
 
-  //static method
-  public static MsSqlDataAdapterBuilder toIpOrAddress(final String ipOrDomain) {
-    return new MsSqlDataAdapterBuilder(ipOrDomain);
-  }
-
-  //static method
-  public static MsSqlDataAdapterBuilder toLocalHost() {
-    return new MsSqlDataAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
-  }
-
   //attribute
   private final SqlConnectionPool sqlConnectionPool;
 
@@ -61,6 +51,16 @@ public final class MsSqlDataAdapter extends DataAdapter {
             sqlConnectionPool));
 
     this.sqlConnectionPool = sqlConnectionPool;
+  }
+
+  //static method
+  public static MsSqlDataAdapterBuilder toIpOrAddress(final String ipOrDomain) {
+    return new MsSqlDataAdapterBuilder(ipOrDomain);
+  }
+
+  //static method
+  public static MsSqlDataAdapterBuilder toLocalHost() {
+    return new MsSqlDataAdapterBuilder(IPv4Catalogue.LOOP_BACK_ADDRESS);
   }
 
   //method

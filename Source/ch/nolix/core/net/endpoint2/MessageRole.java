@@ -16,6 +16,19 @@ public enum MessageRole {
   SUCCESS_RESPONSE(MessageRolePrefixCatalogue.SUCCESS_RESPONSE_PREFIX),
   ERROR_RESPONSE(MessageRolePrefixCatalogue.ERROR_RESPONSE_PREFIX);
 
+  //attribute
+  private final char prefix;
+
+  //constructor
+  /**
+   * Creates a new {@link MessageRole} with the given prefix.
+   * 
+   * @param prefix
+   */
+  MessageRole(final char prefix) {
+    this.prefix = prefix;
+  }
+
   //static method
   /**
    * @param prefix
@@ -24,7 +37,7 @@ public enum MessageRole {
    *                                         represent a {@link MessageRole}.
    */
   public static MessageRole fromPrefix(final char prefix) {
-
+  
     //Enumerates the given prefix.
     return switch (prefix) {
       case MessageRolePrefixCatalogue.TARGET_APPLICATION_PREFIX ->
@@ -51,19 +64,6 @@ public enum MessageRole {
         LowerCaseCatalogue.PREFIX,
         prefix,
         MessageRole.class);
-  }
-
-  //attribute
-  private final char prefix;
-
-  //constructor
-  /**
-   * Creates a new {@link MessageRole} with the given prefix.
-   * 
-   * @param prefix
-   */
-  MessageRole(final char prefix) {
-    this.prefix = prefix;
   }
 
   //method

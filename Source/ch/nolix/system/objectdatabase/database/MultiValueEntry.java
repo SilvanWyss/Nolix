@@ -15,20 +15,6 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
   //constant
   private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
 
-  //static method
-  public static <V2> MultiValueEntry<V2> loadedEntryForMultiValueAndValue(
-      final IMultiValue<V2> multiValue,
-      final V2 value) {
-    return new MultiValueEntry<>(multiValue, DatabaseObjectState.LOADED, value);
-  }
-
-  //static method
-  public static <V2> MultiValueEntry<V2> newEntryForMultiValueAndValue(
-      final IMultiValue<V2> multiValue,
-      final V2 value) {
-    return new MultiValueEntry<>(multiValue, DatabaseObjectState.NEW, value);
-  }
-
   //attribute
   private final IMultiValue<V> parentMultiValue;
 
@@ -51,6 +37,20 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
     this.parentMultiValue = parentMultiValue;
     state = initialState;
     this.value = value;
+  }
+
+  //static method
+  public static <V2> MultiValueEntry<V2> loadedEntryForMultiValueAndValue(
+      final IMultiValue<V2> multiValue,
+      final V2 value) {
+    return new MultiValueEntry<>(multiValue, DatabaseObjectState.LOADED, value);
+  }
+
+  //static method
+  public static <V2> MultiValueEntry<V2> newEntryForMultiValueAndValue(
+      final IMultiValue<V2> multiValue,
+      final V2 value) {
+    return new MultiValueEntry<>(multiValue, DatabaseObjectState.NEW, value);
   }
 
   //method

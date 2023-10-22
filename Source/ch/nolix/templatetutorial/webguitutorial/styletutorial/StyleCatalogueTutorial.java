@@ -21,6 +21,9 @@ import ch.nolix.template.webgui.style.StyleCatalogue;
 
 public final class StyleCatalogueTutorial {
 
+  private StyleCatalogueTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates a Server.
@@ -93,8 +96,5 @@ public final class StyleCatalogueTutorial {
                                       () -> getStoredGui().pushLayer(new ShowValueDialogBuilder().build())))))
           .resetStyleRecursively();
     }
-  }
-
-  private StyleCatalogueTutorial() {
   }
 }

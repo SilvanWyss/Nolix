@@ -11,11 +11,6 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 //class
 public final class NodeDataAdapter extends DataAdapter {
 
-  //static method
-  public static NodeDataAdapterBuilder forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-    return new NodeDataAdapterBuilder(nodeDatabase);
-  }
-
   //attribute
   private final IMutableNode<?> nodeDatabase;
 
@@ -32,6 +27,11 @@ public final class NodeDataAdapter extends DataAdapter {
         () -> DataAndSchemaAdapter.forNodeDatabase(nodeDatabase));
 
     this.nodeDatabase = nodeDatabase;
+  }
+
+  //static method
+  public static NodeDataAdapterBuilder forNodeDatabase(final IMutableNode<?> nodeDatabase) {
+    return new NodeDataAdapterBuilder(nodeDatabase);
   }
 
   //method

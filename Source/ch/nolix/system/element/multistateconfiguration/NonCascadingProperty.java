@@ -14,51 +14,6 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 //class
 public final class NonCascadingProperty<S extends Enum<S>, V> extends MaterializedProperty<S, V> {
 
-  //static method
-  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Double> //
-      forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          final String name,
-          final Class<S2> stateClass,
-          final BiConsumer<S2, Double> setterMethod,
-          final double defaultValue) {
-    return new NonCascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsDouble,
-        Node::withChildNode,
-        setterMethod,
-        defaultValue);
-  }
-
-  //static method
-  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
-      final String name,
-      final Class<S2> stateClass,
-      final BiConsumer<S2, Integer> setterMethod) {
-    return new NonCascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsInt,
-        Node::withChildNode,
-        setterMethod);
-  }
-
-  //static method
-  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>//
-      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          final String name,
-          final Class<S2> stateClass,
-          final BiConsumer<S2, Integer> setterMethod,
-          final int defaultValue) {
-    return new NonCascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsInt,
-        Node::withChildNode,
-        setterMethod,
-        defaultValue);
-  }
-
   //optional attribute
   private final V defaultValue;
 
@@ -116,6 +71,51 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     GlobalValidator.assertThat(defaultValue).thatIsNamed(LowerCaseCatalogue.DEFAULT_VALUE).isNotNull();
 
     this.defaultValue = defaultValue;
+  }
+
+  //static method
+  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Double> //
+      forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
+          final String name,
+          final Class<S2> stateClass,
+          final BiConsumer<S2, Double> setterMethod,
+          final double defaultValue) {
+    return new NonCascadingProperty<>(
+        name,
+        stateClass,
+        INode::getSingleChildNodeAsDouble,
+        Node::withChildNode,
+        setterMethod,
+        defaultValue);
+  }
+
+  //static method
+  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
+      final String name,
+      final Class<S2> stateClass,
+      final BiConsumer<S2, Integer> setterMethod) {
+    return new NonCascadingProperty<>(
+        name,
+        stateClass,
+        INode::getSingleChildNodeAsInt,
+        Node::withChildNode,
+        setterMethod);
+  }
+
+  //static method
+  public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>//
+      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+          final String name,
+          final Class<S2> stateClass,
+          final BiConsumer<S2, Integer> setterMethod,
+          final int defaultValue) {
+    return new NonCascadingProperty<>(
+        name,
+        stateClass,
+        INode::getSingleChildNodeAsInt,
+        Node::withChildNode,
+        setterMethod,
+        defaultValue);
   }
 
   //method

@@ -5,6 +5,9 @@ import ch.nolix.core.math.algebra.Matrix;
 
 public final class MatrixMultiplicationTutorial {
 
+  private MatrixMultiplicationTutorial() {
+  }
+
   public static void main(String[] args) {
 
     //Creates matrix1.
@@ -25,8 +28,5 @@ public final class MatrixMultiplicationTutorial {
             + matrix2.toString()
             + " = "
             + product.toString());
-  }
-
-  private MatrixMultiplicationTutorial() {
   }
 }

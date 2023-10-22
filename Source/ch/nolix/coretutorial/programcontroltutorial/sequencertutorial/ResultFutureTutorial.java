@@ -15,6 +15,12 @@ import ch.nolix.core.programcontrol.sequencer.ResultFuture;
 public final class ResultFutureTutorial {
 
   /**
+   * Prevents that an instance of the {@link ResultFutureTutorial} can be created.
+   */
+  private ResultFutureTutorial() {
+  }
+
+  /**
    * Calculates the rank of a {@link Matrix} in background.
    * 
    * @param args
@@ -31,11 +37,5 @@ public final class ResultFutureTutorial {
     resultFuture.waitUntilIsFinished();
 
     GlobalLogger.logInfo("rank: " + resultFuture.getResult());
-  }
-
-  /**
-   * Prevents that an instance of the {@link ResultFutureTutorial} can be created.
-   */
-  private ResultFutureTutorial() {
   }
 }

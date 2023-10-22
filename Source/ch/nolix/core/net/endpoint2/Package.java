@@ -17,18 +17,6 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
   //attribute
   private final MessageRole messageRole;
 
-  //static method
-  /**
-   * @param string
-   * @return a new zeta package the given string represents.
-   */
-  public static Package createPackageFromString(final String string) {
-    return new Package(
-        Integer.parseInt(string.substring(0, 8)),
-        MessageRole.fromPrefix(string.charAt(8)),
-        string.substring(9));
-  }
-
   //constructor
   /**
    * Creates a new zeta package with the given index and message and the role the
@@ -50,6 +38,18 @@ final class Package extends ch.nolix.core.net.messaging.IndexedPackage<String> {
 
     //Sets the message role of thsis zeta package.
     this.messageRole = messageRole;
+  }
+
+  //static method
+  /**
+   * @param string
+   * @return a new zeta package the given string represents.
+   */
+  public static Package createPackageFromString(final String string) {
+    return new Package(
+        Integer.parseInt(string.substring(0, 8)),
+        MessageRole.fromPrefix(string.charAt(8)),
+        string.substring(9));
   }
 
   //method

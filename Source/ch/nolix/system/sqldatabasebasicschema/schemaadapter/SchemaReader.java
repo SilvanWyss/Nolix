@@ -20,14 +20,6 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaQueryCre
 //class
 final class SchemaReader implements ISchemaReader {
 
-  //static method
-  public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaQueryCreator schemaQueryCreator) {
-    return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaQueryCreator);
-  }
-
   //attribute
   private final SqlConnection sqlConnection;
 
@@ -50,6 +42,14 @@ final class SchemaReader implements ISchemaReader {
 
     createCloseDependencyTo(sqlConnection);
     sqlConnection.execute("USE " + databaseName);
+  }
+
+  //static method
+  public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool,
+      final ISchemaQueryCreator schemaQueryCreator) {
+    return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaQueryCreator);
   }
 
   //method

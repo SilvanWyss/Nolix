@@ -14,17 +14,6 @@ public final class SecureServer extends BaseServer {
       //
       new NolixConfigurationSSLCertificateReader();
 
-  //static method
-  public SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
-      final int port,
-      final String htmlPage) {
-
-    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
-
-    return new SecureServer(port, htmlPage, paramSSLCertificate);
-  }
-
   //attribute
   private final ch.nolix.core.net.endpoint2.SecureServer internalWebSocketServer;
 
@@ -34,6 +23,17 @@ public final class SecureServer extends BaseServer {
     internalWebSocketServer = new ch.nolix.core.net.endpoint2.SecureServer(port, HtmlPage, paramSSLCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
+  }
+
+  //static method
+  public SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+      final int port,
+      final String htmlPage) {
+  
+    final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
+        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+  
+    return new SecureServer(port, htmlPage, paramSSLCertificate);
   }
 
   //method

@@ -17,17 +17,6 @@ import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdap
 //class
 public final class SchemaWriter implements ISchemaWriter {
 
-  //static method
-  public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaAdapter schemaAdapter) {
-    return new SchemaWriter(
-        databaseName,
-        sqlConnectionPool.borrowSqlConnection(),
-        schemaAdapter);
-  }
-
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
 
@@ -60,6 +49,17 @@ public final class SchemaWriter implements ISchemaWriter {
 
     createCloseDependencyTo(sqlConnection);
     sqlConnection.execute("USE " + databaseName);
+  }
+
+  //static method
+  public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
+      final String databaseName,
+      final SqlConnectionPool sqlConnectionPool,
+      final ISchemaAdapter schemaAdapter) {
+    return new SchemaWriter(
+        databaseName,
+        sqlConnectionPool.borrowSqlConnection(),
+        schemaAdapter);
   }
 
   //method

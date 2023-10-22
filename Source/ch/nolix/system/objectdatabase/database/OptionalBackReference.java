@@ -20,6 +20,14 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
   //constant
   private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
 
+  //optional attribute
+  private String backReferencedEntityId;
+
+  //constructor
+  private OptionalBackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
+    super(backReferencedTableName, backReferencedPropertyName);
+  }
+
   //static method
   public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedPropertyName(
       final Class<E2> type,
@@ -32,14 +40,6 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
       final String tableName,
       final String backReferencedPropertyName) {
     return new OptionalBackReference<>(tableName, backReferencedPropertyName);
-  }
-
-  //optional attribute
-  private String backReferencedEntityId;
-
-  //constructor
-  private OptionalBackReference(final String backReferencedTableName, final String backReferencedPropertyName) {
-    super(backReferencedTableName, backReferencedPropertyName);
   }
 
   //method

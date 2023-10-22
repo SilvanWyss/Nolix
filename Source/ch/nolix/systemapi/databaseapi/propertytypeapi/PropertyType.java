@@ -17,11 +17,6 @@ public enum PropertyType {
   OPTIONAL_BACK_REFERENCE(BasePropertyType.BASE_BACK_REFERENCE, Cardinality.TO_ONE_OR_NONE),
   MULTI_BACK_REFERENCE(BasePropertyType.BASE_BACK_REFERENCE, Cardinality.TO_MANY);
 
-  //static method
-  public static PropertyType fromSpecification(final INode<?> specification) {
-    return valueOf(specification.getSingleChildNodeHeader());
-  }
-
   //attribute
   private final BasePropertyType baseType;
 
@@ -32,6 +27,11 @@ public enum PropertyType {
   PropertyType(final BasePropertyType baseType, final Cardinality cardinality) {
     this.baseType = baseType;
     this.cardinality = cardinality;
+  }
+
+  //static method
+  public static PropertyType fromSpecification(final INode<?> specification) {
+    return valueOf(specification.getSingleChildNodeHeader());
   }
 
   //method

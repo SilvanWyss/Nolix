@@ -26,6 +26,14 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   //constant
   private static final IEntityHelper ENTITY_HELPER = new EntityHelper();
 
+  //optional attribute
+  private String referencedEntityId;
+
+  //constructor
+  private Reference(final String referencedTableName) {
+    super(referencedTableName);
+  }
+
   //static method
   public static <E2 extends Entity> Reference<E2> forEntity(final Class<? extends E2> type) {
     return new Reference<>(type.getSimpleName());
@@ -34,14 +42,6 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
   //static method
   public static Reference<BaseEntity> forEntityWithTableName(final String tableName) {
     return new Reference<>(tableName);
-  }
-
-  //optional attribute
-  private String referencedEntityId;
-
-  //constructor
-  private Reference(final String referencedTableName) {
-    super(referencedTableName);
   }
 
   //method

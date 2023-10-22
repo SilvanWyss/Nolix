@@ -13,6 +13,9 @@ import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
 
 public final class NodeSchemaAdapterTutorial {
 
+  private NodeSchemaAdapterTutorial() {
+  }
+
   public static void main(String[] args) {
 
     final var database = new MutableNode();
@@ -34,8 +37,5 @@ public final class NodeSchemaAdapterTutorial {
 
       GlobalLogger.logInfo(database.toFormattedString());
     }
-  }
-
-  private NodeSchemaAdapterTutorial() {
   }
 }

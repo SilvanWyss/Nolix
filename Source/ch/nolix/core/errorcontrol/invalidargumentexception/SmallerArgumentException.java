@@ -18,6 +18,42 @@ public final class SmallerArgumentException extends InvalidArgumentException {
 
   //constructor
   /**
+   * Creates a new {@link SmallerArgumentException} for the given argumentName,
+   * argument and limit.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param limit
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given limit is null.
+   */
+  private SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
+  
+    //Calls constructor of the base class.
+    super(argumentName, argument, "is smaller than " + getValidLimitOfLimit(limit));
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link SmallerArgumentException} for the given argumentName,
+   * argument and limit.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param limit
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given limit is null.
+   */
+  private SmallerArgumentException(final String argumentName, final double argument, final double limit) {
+  
+    //Calls constructor of the base class.
+    super(argumentName, argument, "is smaller than " + limit);
+  }
+
+  //constructor
+  /**
    * @param argumentName
    * @param argument
    * @param limit
@@ -65,41 +101,5 @@ public final class SmallerArgumentException extends InvalidArgumentException {
     }
 
     return limit;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link SmallerArgumentException} for the given argumentName,
-   * argument and limit.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param limit
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given limit is null.
-   */
-  private SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "is smaller than " + getValidLimitOfLimit(limit));
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link SmallerArgumentException} for the given argumentName,
-   * argument and limit.
-   * 
-   * @param argumentName
-   * @param argument
-   * @param limit
-   * @throws IllegalArgumentException if the given argumentName is null.
-   * @throws IllegalArgumentException if the given argumentName is blank.
-   * @throws IllegalArgumentException if the given limit is null.
-   */
-  private SmallerArgumentException(final String argumentName, final double argument, final double limit) {
-
-    //Calls constructor of the base class.
-    super(argumentName, argument, "is smaller than " + limit);
   }
 }

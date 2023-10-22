@@ -20,6 +20,19 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyle;
  */
 public final class Style extends BaseStyle implements IStyle {
 
+  //constructor
+  /**
+   * Creates a new {@link Style}.
+   * 
+   * @param attachingAttributes
+   * @param subStyles
+   */
+  public Style(
+      final IContainer<? extends INode<?>> attachingAttributes,
+      final IContainer<BaseSelectingStyle> subStyles) {
+    super(attachingAttributes, subStyles);
+  }
+
   //static method
   /**
    * @param filePath
@@ -29,9 +42,9 @@ public final class Style extends BaseStyle implements IStyle {
    *                                  not represent a standard configuration.
    */
   public static Style fromFile(final String filePath) {
-
+  
     final var specification = Node.fromFile(filePath);
-
+  
     return fromSpecification(specification);
   }
 
@@ -42,10 +55,10 @@ public final class Style extends BaseStyle implements IStyle {
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static Style fromSpecification(final INode<?> specification) {
-
+  
     final var attachingAttributes = new LinkedList<INode<?>>();
     final var subStyles = new LinkedList<BaseSelectingStyle>();
-
+  
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case ATTACHING_ATTRIBUTE_HEADER:
@@ -63,7 +76,7 @@ public final class Style extends BaseStyle implements IStyle {
               specification);
       }
     }
-
+  
     return new Style(attachingAttributes, subStyles);
   }
 
@@ -74,19 +87,6 @@ public final class Style extends BaseStyle implements IStyle {
    */
   private static BaseSelectingStyle toBaseSelectingStyle(ISelectingStyle selectingStyle) {
     return (BaseSelectingStyle) selectingStyle;
-  }
-
-  //constructor
-  /**
-   * Creates a new {@link Style}.
-   * 
-   * @param attachingAttributes
-   * @param subStyles
-   */
-  public Style(
-      final IContainer<? extends INode<?>> attachingAttributes,
-      final IContainer<BaseSelectingStyle> subStyles) {
-    super(attachingAttributes, subStyles);
   }
 
   //method

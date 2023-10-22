@@ -23,34 +23,6 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
  */
 public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 
-  //static method
-  /**
-   * @param name
-   * @param adderMethod
-   * @return a new {@link MultiValue} that will store {@link Integer}s and have
-   *         the given name and setterMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given adderMethod is null.
-   */
-  public static MultiValue<Integer> forInts(final String name, final Consumer<Integer> adderMethod) {
-    return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
-  }
-
-  //static method
-  /**
-   * @param name
-   * @param adderMethod
-   * @return a new {@link MultiValue} that will store {@link String}s and have the
-   *         given name and adderMethod.
-   * @throws ArgumentIsNullException  if the given name is null.
-   * @throws InvalidArgumentException if the given name is blank.
-   * @throws ArgumentIsNullException  if the given adderMethod is null.
-   */
-  public static MultiValue<String> forStrings(final String name, final Consumer<String> adderMethod) {
-    return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
-  }
-
   //attribute
   private final Consumer<V> adderMethod;
 
@@ -86,6 +58,34 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 
     //Sets the adderMethod of the current MultiProperty.
     this.adderMethod = adderMethod;
+  }
+
+  //static method
+  /**
+   * @param name
+   * @param adderMethod
+   * @return a new {@link MultiValue} that will store {@link Integer}s and have
+   *         the given name and setterMethod.
+   * @throws ArgumentIsNullException  if the given name is null.
+   * @throws InvalidArgumentException if the given name is blank.
+   * @throws ArgumentIsNullException  if the given adderMethod is null.
+   */
+  public static MultiValue<Integer> forInts(final String name, final Consumer<Integer> adderMethod) {
+    return new MultiValue<>(name, adderMethod, INode::toInt, Node::withHeader);
+  }
+
+  //static method
+  /**
+   * @param name
+   * @param adderMethod
+   * @return a new {@link MultiValue} that will store {@link String}s and have the
+   *         given name and adderMethod.
+   * @throws ArgumentIsNullException  if the given name is null.
+   * @throws InvalidArgumentException if the given name is blank.
+   * @throws ArgumentIsNullException  if the given adderMethod is null.
+   */
+  public static MultiValue<String> forStrings(final String name, final Consumer<String> adderMethod) {
+    return new MultiValue<>(name, adderMethod, INode::getHeader, Node::withHeader);
   }
 
   //method

@@ -38,90 +38,6 @@ public final class Matrix {
   //multi-attribute
   private double[][] values;
 
-  //static method
-  /**
-   * @param size
-   * @return a new identity {@link Matrix} with the given size.
-   * @throws NonPositiveArgumentException if the given size is not positive.
-   */
-  public static Matrix createIdendityMatrix(final int size) {
-    return new Matrix(size).setDiagonalValuesTo(1.0);
-  }
-
-  //static method
-  /**
-   * The values of the created {@link Matrix} will be all 1.0
-   * 
-   * @param size
-   * @return a new {@link Matrix} with the given size.
-   * @throws NonPositiveArgumentException if the given size is not positive.
-   */
-  public static Matrix createMatrixOfOnes(final int size) {
-    return new Matrix(size).setAllValuesTo(1.0);
-  }
-
-  //static method
-  /**
-   * The values of the created {@link Matrix} will be all 1.0
-   * 
-   * @param rowCount
-   * @param columnCount
-   * @return a new {@link Matrix} with the given number of rows and the given
-   *         number of columns.
-   * @throws NonPositiveArgumentException if the given rowCount is not positive.
-   * @throws NonPositiveArgumentException if the given columnCount is not
-   *                                      positive.
-   */
-  public static Matrix createMatrixOfOnes(final int rowCount, final int columnCount) {
-    return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
-  }
-
-  //static method
-  /**
-   * The values of the created {@link Matrix} will be all a whole random number in
-   * [0, 99].
-   * 
-   * @param size
-   * @return a new {@link Matrix} with the given size.
-   */
-  public static Matrix createRandomMatrix(final int size) {
-
-    //Asserts that the given size is positive.
-    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
-
-    return createRandomMatrix(size, size);
-  }
-
-  //static method
-  /**
-   * The values of the created {@link Matrix} will be all a whole random number in
-   * [0, 99].
-   * 
-   * @param rowCount
-   * @param columnCount
-   * @return a new {@link Matrix} with the given number of rows and the given
-   *         number of columns.
-   * @throws NonPositiveArgumentException if the given rowCount is not positive.
-   * @throws NonPositiveArgumentException if the given columnCount is not
-   *                                      positive.
-   */
-  public static Matrix createRandomMatrix(final int rowCount, final int columnCount) {
-
-    //Creates Matrix.
-    final var matrix = new Matrix(rowCount, columnCount);
-
-    //Iterates the rows of the matrix.
-    for (var i = 0; i < matrix.getRowCount(); i++) {
-
-      //Iterates the cells of the current row.
-      for (var j = 0; j < matrix.getColumnCount(); j++) {
-        matrix.values[i][j] = RANDOM.nextInt(100);
-      }
-    }
-
-    return matrix;
-  }
-
   //constructor
   /**
    * Creates a new {@link Matrix} with the given size. The values of the
@@ -178,6 +94,90 @@ public final class Matrix {
     this(rowCount, columnCount);
 
     setAllValuesTo(value);
+  }
+
+  //static method
+  /**
+   * @param size
+   * @return a new identity {@link Matrix} with the given size.
+   * @throws NonPositiveArgumentException if the given size is not positive.
+   */
+  public static Matrix createIdendityMatrix(final int size) {
+    return new Matrix(size).setDiagonalValuesTo(1.0);
+  }
+
+  //static method
+  /**
+   * The values of the created {@link Matrix} will be all 1.0
+   * 
+   * @param size
+   * @return a new {@link Matrix} with the given size.
+   * @throws NonPositiveArgumentException if the given size is not positive.
+   */
+  public static Matrix createMatrixOfOnes(final int size) {
+    return new Matrix(size).setAllValuesTo(1.0);
+  }
+
+  //static method
+  /**
+   * The values of the created {@link Matrix} will be all 1.0
+   * 
+   * @param rowCount
+   * @param columnCount
+   * @return a new {@link Matrix} with the given number of rows and the given
+   *         number of columns.
+   * @throws NonPositiveArgumentException if the given rowCount is not positive.
+   * @throws NonPositiveArgumentException if the given columnCount is not
+   *                                      positive.
+   */
+  public static Matrix createMatrixOfOnes(final int rowCount, final int columnCount) {
+    return new Matrix(rowCount, columnCount).setAllValuesTo(1.0);
+  }
+
+  //static method
+  /**
+   * The values of the created {@link Matrix} will be all a whole random number in
+   * [0, 99].
+   * 
+   * @param size
+   * @return a new {@link Matrix} with the given size.
+   */
+  public static Matrix createRandomMatrix(final int size) {
+  
+    //Asserts that the given size is positive.
+    GlobalValidator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
+  
+    return createRandomMatrix(size, size);
+  }
+
+  //static method
+  /**
+   * The values of the created {@link Matrix} will be all a whole random number in
+   * [0, 99].
+   * 
+   * @param rowCount
+   * @param columnCount
+   * @return a new {@link Matrix} with the given number of rows and the given
+   *         number of columns.
+   * @throws NonPositiveArgumentException if the given rowCount is not positive.
+   * @throws NonPositiveArgumentException if the given columnCount is not
+   *                                      positive.
+   */
+  public static Matrix createRandomMatrix(final int rowCount, final int columnCount) {
+  
+    //Creates Matrix.
+    final var matrix = new Matrix(rowCount, columnCount);
+  
+    //Iterates the rows of the matrix.
+    for (var i = 0; i < matrix.getRowCount(); i++) {
+  
+      //Iterates the cells of the current row.
+      for (var j = 0; j < matrix.getColumnCount(); j++) {
+        matrix.values[i][j] = RANDOM.nextInt(100);
+      }
+    }
+  
+    return matrix;
   }
 
   //method

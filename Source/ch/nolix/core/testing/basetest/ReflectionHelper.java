@@ -13,6 +13,10 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 //class
 final class ReflectionHelper {
 
+  //constructor
+  private ReflectionHelper() {
+  }
+
   //static method
   public static boolean firstIsSubClassOfSecond(final Class<?> class1, final Class<?> class2) {
     return (class1 != null && class2 != null && class2.isAssignableFrom(class1) && class1 != class2);
@@ -62,9 +66,5 @@ final class ReflectionHelper {
   //static method
   public static boolean isDefaultConstructor(final Constructor<?> constructor) {
     return (constructor != null && constructor.getParameterCount() == 0);
-  }
-
-  //constructor
-  private ReflectionHelper() {
   }
 }

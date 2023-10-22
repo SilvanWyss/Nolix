@@ -19,22 +19,6 @@ import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
  */
 public final class SingleContainer<E> implements ISingleContainer<E> {
 
-  //static method
-  /**
-   * @param <E2>    is the type of the given element.
-   * @param element
-   * @return a new {@link SingleContainer} with the given element if the given
-   *         element is not null, a new empty {@link SingleContainer} otherwise.
-   */
-  public static <E2> SingleContainer<E2> withElementOrEmpty(final E2 element) {
-
-    if (element == null) {
-      return new SingleContainer<>();
-    }
-
-    return new SingleContainer<>(element);
-  }
-
   //optional attribute
   private final E element;
 
@@ -58,6 +42,22 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
     GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 
     this.element = element;
+  }
+
+  //static method
+  /**
+   * @param <E2>    is the type of the given element.
+   * @param element
+   * @return a new {@link SingleContainer} with the given element if the given
+   *         element is not null, a new empty {@link SingleContainer} otherwise.
+   */
+  public static <E2> SingleContainer<E2> withElementOrEmpty(final E2 element) {
+  
+    if (element == null) {
+      return new SingleContainer<>();
+    }
+  
+    return new SingleContainer<>(element);
   }
 
   //method

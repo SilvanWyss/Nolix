@@ -16,20 +16,6 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   //constant
   private static final DatabaseObjectHelper DATABASE_OBJECT_HELPER = new DatabaseObjectHelper();
 
-  //static method
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
-      final IMultiReference<E2> multiReference,
-      final String referencedEntityId) {
-    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.LOADED, referencedEntityId);
-  }
-
-  //static method
-  public static <E2 extends IEntity> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
-      final IMultiReference<E2> multiReference,
-      final String referencedEntityId) {
-    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
-  }
-
   //attribute
   private final IMultiReference<E> parentMultiReference;
 
@@ -52,6 +38,20 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
     this.parentMultiReference = parentMultiReference;
     state = initialState;
     this.referencedEntityId = referencedEntityId;
+  }
+
+  //static method
+  public static <E2 extends IEntity> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
+      final IMultiReference<E2> multiReference,
+      final String referencedEntityId) {
+    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.LOADED, referencedEntityId);
+  }
+
+  //static method
+  public static <E2 extends IEntity> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
+      final IMultiReference<E2> multiReference,
+      final String referencedEntityId) {
+    return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
   }
 
   //method
