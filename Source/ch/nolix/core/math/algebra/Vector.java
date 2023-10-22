@@ -228,15 +228,22 @@ public final class Vector {
   //method
   /**
    * @param vector
+   * @return true if the current {@link Vector} can equal the given vector because
+   *         of the size.
+   */
+  private boolean canEqualVectorBecauseOfSize(final Vector vector) {
+    return vector != null
+        && getSize() == vector.getSize();
+  }
+
+  //method
+  /**
+   * @param vector
    * @return true if the current {@link Vector} equals the given vector.
    */
   private boolean equalsVector(final Vector vector) {
 
-    if (vector == null) {
-      return false;
-    }
-
-    if (getSize() != vector.getSize()) {
+    if (!canEqualVectorBecauseOfSize(vector)) {
       return false;
     }
 
