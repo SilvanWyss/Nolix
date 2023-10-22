@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.programstructure.caching;
 
+//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
@@ -29,8 +30,7 @@ public final class CachingProperty<V> {
   }
 
   //constructor
-  public CachingProperty(final Supplier<V> valueCreator,
-      final java.util.function.BooleanSupplier needToRefreshFunction) {
+  public CachingProperty(final Supplier<V> valueCreator, final BooleanSupplier needToRefreshFunction) {
 
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();
     GlobalValidator.assertThat(needToRefreshFunction).thatIsNamed("need-to-refresh-function").isNotNull();
