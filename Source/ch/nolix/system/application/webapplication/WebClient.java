@@ -16,6 +16,7 @@ import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPar
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
+import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
@@ -61,11 +62,22 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   }
 
   //method
+  private void refreshCounterpartGui() {
+    ((WebClientSession<AC>) getStoredCurrentSession()).refresh();
+  }
+
+  //method
+  private void refreshCounterpartGuiComponent(final IControl<?, ?> control) {
+    final var component = (IComponent) control.getStoredLinkedObjects().getStoredOne();
+    updateCounterpartWhenOpen(component);
+  }
+
+  //method
   private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
         runRunHtmlEventCommandOnControl(control, command);
-        updateCounterpartIfOpen();
+        updateCounterpartIfOpen(control);
         break;
       case ControlCommandProtocol.SET_FILE:
 
@@ -143,9 +155,32 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   }
 
   //method
-  private void updateCounterpartIfOpen() {
+  private void updateCounterpartIfOpen(final IControl<?, ?> control) {
     if (isOpen()) {
-      ((WebClientSession<AC>) getStoredCurrentSession()).refresh();
+      updateCounterpartWhenOpen(control);
+    }
+  }
+
+  //method
+  private void updateCounterpartWhenOpen(final IComponent component) {
+    switch (component.getRefreshBehavior()) {
+      case DO_NOT_REFRESH_ANYTHING:
+        break;
+      case REFRESH_GUI:
+        refreshCounterpartGui();
+        break;
+      case REFRESH_SELF:
+        ((WebClientSession<AC>) getStoredCurrentSession()).refreshControl(component.getStoredControl());
+        break;
+    }
+  }
+
+  //method
+  private void updateCounterpartWhenOpen(final IControl<?, ?> control) {
+    if (!control.isLinkedToAnObject()) {
+      refreshCounterpartGui();
+    } else {
+      refreshCounterpartGuiComponent(control);
     }
   }
 }
