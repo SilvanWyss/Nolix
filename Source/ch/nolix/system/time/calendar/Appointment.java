@@ -17,7 +17,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 public final class Appointment extends MutableElement implements IMutableAppointment<Appointment> {
 
   //constant
-  public static final String DEFAULT_SUBJECT = PascalCaseCatalogue.APPOINTMENT;
+  public static final String DEFAULT_TITLE = PascalCaseCatalogue.APPOINTMENT;
 
   //constant
   private static final Time DEFAULT_START_TIME = Time
@@ -27,7 +27,7 @@ public final class Appointment extends MutableElement implements IMutableAppoint
       1, 1, 11, 0);
 
   //constant
-  private static final String SUBJECT_HEADER = PascalCaseCatalogue.SUBJECT;
+  private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
 
   //constant
   private static final String START_TIME_HEADER = PascalCaseCatalogue.START_TIME;
@@ -36,8 +36,8 @@ public final class Appointment extends MutableElement implements IMutableAppoint
   private static final String END_TIME_HEADER = PascalCaseCatalogue.END_TIME;
 
   //attribute
-  private final MutableValue<String> subject = MutableValue.forString(SUBJECT_HEADER, DEFAULT_SUBJECT,
-      this::setSubject);
+  private final MutableValue<String> title = MutableValue.forString(TITLE_HEADER, DEFAULT_TITLE,
+      this::setTitle);
 
   //attribute
   private final MutableValue<ITime> startTime = new MutableValue<>(
@@ -69,20 +69,20 @@ public final class Appointment extends MutableElement implements IMutableAppoint
 
   //method
   @Override
-  public String getSubject() {
-    return subject.getValue();
+  public String getTitle() {
+    return title.getValue();
   }
 
   //method
   @Override
-  public String getSubjectInQuotes() {
-    return GlobalStringHelper.getInQuotes(getSubject());
+  public String getTitleInQuotes() {
+    return GlobalStringHelper.getInQuotes(getTitle());
   }
 
   //method
   @Override
   public void reset() {
-    setSubject(DEFAULT_SUBJECT);
+    setTitle(DEFAULT_TITLE);
   }
 
   //method
@@ -109,11 +109,11 @@ public final class Appointment extends MutableElement implements IMutableAppoint
 
   //method
   @Override
-  public Appointment setSubject(final String subject) {
+  public Appointment setTitle(final String title) {
 
-    GlobalValidator.assertThat(subject).thatIsNamed(LowerCaseCatalogue.SUBJECT).isNotBlank();
+    GlobalValidator.assertThat(title).thatIsNamed(LowerCaseCatalogue.TITLE).isNotBlank();
 
-    this.subject.setValue(subject);
+    this.title.setValue(title);
 
     return this;
   }
