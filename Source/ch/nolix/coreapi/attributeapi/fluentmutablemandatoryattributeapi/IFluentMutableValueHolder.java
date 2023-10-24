@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
 
 //interface
