@@ -2,17 +2,17 @@
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTextHolder;
 
 //interface
 /**
- * A {@link IMutableOptionalTextHolder} is a {@link ITextHolder} whose text can
- * be set and removed programmatically.
+ * A {@link IMutableOptionalTextHolder} is a {@link IOptionalTextHolder} whose
+ * text can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface IMutableOptionalTextHolder extends ITextHolder {
+public interface IMutableOptionalTextHolder extends IOptionalTextHolder {
 
   //method declaration
   /**
