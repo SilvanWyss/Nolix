@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Headered;
 
 //interface
 /**
- * A {@link IFluentMutableHeaderHolder} is a {@link Headered} whose header can be set
- * programmatically.
+ * A {@link IFluentMutableHeaderHolder} is a {@link Headered} whose header can
+ * be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2018-04-15
