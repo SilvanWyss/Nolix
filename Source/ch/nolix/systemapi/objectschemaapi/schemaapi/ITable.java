@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.FluentNameable;
+import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
@@ -15,7 +15,7 @@ public interface ITable
     Deletable,
     IDatabaseObject,
     Identified,
-    FluentNameable<ITable> {
+    IFluentMutableNameHolder<ITable> {
 
   //method declaration
   ITable addColumn(IColumn column);

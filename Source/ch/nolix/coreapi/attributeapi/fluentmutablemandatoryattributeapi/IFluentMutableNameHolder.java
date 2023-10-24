@@ -1,27 +1,28 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 
 //interface
 /**
- * A {@link FluentNameable} is a {@link Named} whose name can be set
+ * A {@link IFluentMutableNameHolder} is a {@link Named} whose name can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
- * @param <FN> is the type of a {@link FluentNameable}.
+ * @param <FMNH> is the type of a {@link IFluentMutableNameHolder}.
  */
-public interface FluentNameable<FN extends FluentNameable<FN>> extends Named {
+public interface IFluentMutableNameHolder<FMNH extends IFluentMutableNameHolder<FMNH>> extends Named {
 
   //method declaration
   /**
-   * Sets the name of the current {@link FluentNameable}.
+   * Sets the name of the current {@link IFluentMutableNameHolder}.
    * 
    * @param name
-   * @return the current {@link FluentNameable}.
+   * @return the current {@link IFluentMutableNameHolder}.
    * @throws RuntimeException if the given name is null.
    * @throws RuntimeException if the given name is blank.
    */
-  FN setName(String name);
+  FMNH setName(String name);
 }
