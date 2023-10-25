@@ -1,27 +1,28 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
 
 //interface
 /**
- * A {@link OptionalTitleable} is a {@link IOptionalTitleHolder} whose title can be
- * set and removed programmatically.
+ * A {@link IMutableOptionalTitleHolder} is a {@link IOptionalTitleHolder} whose
+ * title can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface OptionalTitleable extends IOptionalTitleHolder {
+public interface IMutableOptionalTitleHolder extends IOptionalTitleHolder {
 
   //method declaration
   /**
-   * Removes the title of the current {@link OptionalTitleable}.
+   * Removes the title of the current {@link IMutableOptionalTitleHolder}.
    */
   void removeTitle();
 
   //method declaration
   /**
-   * Sets the title of the current {@link OptionalTitleable}.
+   * Sets the title of the current {@link IMutableOptionalTitleHolder}.
    * 
    * @param title
    * @throws RuntimeException if the given title is null.
