@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
+//own imports
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link IOptionalNameHolder} can have a name.
@@ -8,6 +11,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * @author Silvan Wyss
  * @date 2020-03-29
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalNameHolder {
 
   //method declaration
@@ -16,11 +20,13 @@ public interface IOptionalNameHolder {
    */
   String getName();
 
-  //method declaration
+  //method
   /**
    * @return the name of the current {@link IOptionalNameHolder} in quotes.
    */
-  String getNameInQuotes();
+  default String getNameInQuotes() {
+    return ("'" + getName() + "'");
+  }
 
   //method declaration
   /**
@@ -33,5 +39,8 @@ public interface IOptionalNameHolder {
    * @param name
    * @return true if the current {@link IOptionalNameHolder} has the given name.
    */
-  boolean hasName(String name);
+  default boolean hasName(final String name) {
+    return hasName()
+        && getName().equals(name);
+  }
 }

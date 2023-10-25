@@ -31,44 +31,44 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //static method
   public static MutableXmlNode fromXmlNode(final IXmlNode<?> pXmlNode) {
-  
+
     final var mutableXmlNode = new MutableXmlNode();
-  
+
     if (pXmlNode.hasName()) {
       mutableXmlNode.setName(pXmlNode.getName());
     }
-  
+
     mutableXmlNode.addAttributes(pXmlNode.getAttributes());
-  
+
     for (final var cn : pXmlNode.getStoredChildNodes()) {
       mutableXmlNode.addChildNode(fromXmlNode(cn));
     }
-  
+
     if (pXmlNode.hasValue()) {
       mutableXmlNode.setValue(pXmlNode.getValue());
     }
-  
+
     return mutableXmlNode;
   }
 
   //method
   private static String toFormatedString(final IMutableXmlNode mutableXmlNode, final int leadingTabulatorCount) {
-  
+
     final var stringBuilder = new StringBuilder();
-  
+
     stringBuilder
         .append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
         .append('<')
         .append(mutableXmlNode.getName());
-  
+
     if (mutableXmlNode.containsAttributes()) {
       stringBuilder
           .append(' ')
           .append(mutableXmlNode.getAttributes().toStringWithSeparator(' '));
     }
-  
+
     stringBuilder.append('>');
-  
+
     if (mutableXmlNode.hasValue()) {
       if (!mutableXmlNode.hasMixedContent()) {
         stringBuilder.append(mutableXmlNode.getValue());
@@ -78,30 +78,30 @@ public final class MutableXmlNode implements IMutableXmlNode {
             .append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
             .append(mutableXmlNode.getValue())
             .append(CharacterCatalogue.NEW_LINE);
-  
+
       }
     }
-  
+
     if (mutableXmlNode.containsChildNodes()) {
-  
+
       for (final var cn : mutableXmlNode.getStoredChildNodes()) {
         stringBuilder
             .append(CharacterCatalogue.NEW_LINE)
             .append(toFormatedString(cn, leadingTabulatorCount + 1));
       }
-  
+
       stringBuilder.append(CharacterCatalogue.NEW_LINE);
     }
-  
+
     if (mutableXmlNode.containsChildNodes()) {
       stringBuilder.append(GlobalStringHelper.createTabulators(leadingTabulatorCount));
     }
-  
+
     stringBuilder
         .append("</")
         .append(mutableXmlNode.getName())
         .append('>');
-  
+
     return stringBuilder.toString();
   }
 
@@ -208,12 +208,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
   //method
   @Override
-  public String getNameInQuotes() {
-    return GlobalStringHelper.getInQuotes(getName());
-  }
-
-  //method
-  @Override
   public IContainer<IMutableXmlNode> getStoredChildNodes() {
     return childNodes;
   }
@@ -237,17 +231,6 @@ public final class MutableXmlNode implements IMutableXmlNode {
   @Override
   public boolean hasName() {
     return (name != null);
-  }
-
-  //method
-  @Override
-  public boolean hasName(final String name) {
-
-    if (!hasName()) {
-      return false;
-    }
-
-    return getName().equals(name);
   }
 
   //method
