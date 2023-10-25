@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Headered;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IHeaderHolder;
 
 //interface
 /**
- * A {@link Headerable} is a {@link Headered} whose header can be set
+ * A {@link Headerable} is a {@link IHeaderHolder} whose header can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-01-29
  */
-public interface Headerable extends Headered {
+public interface Headerable extends IHeaderHolder {
 
   //method declaration
   /**

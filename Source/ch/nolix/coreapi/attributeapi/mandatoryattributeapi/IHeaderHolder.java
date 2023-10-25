@@ -1,27 +1,28 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
- * A {@link Headered} has a header.
+ * A {@link IHeaderHolder} has a header.
  * 
  * @author Silvan Wyss
  * @date 2018-04-07
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Headered {
+public interface IHeaderHolder {
 
   //method declaration
   /**
-   * @return the header of the current {@link Headered}.
+   * @return the header of the current {@link IHeaderHolder}.
    */
   String getHeader();
 
   //method
   /**
-   * @return the header of the current {@link Headered} in quotes.
+   * @return the header of the current {@link IHeaderHolder} in quotes.
    */
   default String getHeaderInQuotes() {
     return ("'" + getHeader() + "'");
@@ -30,7 +31,7 @@ public interface Headered {
   //method
   /**
    * @param header
-   * @return true if the current {@link Headered} has the given header.
+   * @return true if the current {@link IHeaderHolder} has the given header.
    */
   default boolean hasHeader(final String header) {
     return getHeader().equals(header);
@@ -39,10 +40,10 @@ public interface Headered {
   //method
   /**
    * @param object
-   * @return true if the current {@link Headered} has the same header as the given
-   *         object.
+   * @return true if the current {@link IHeaderHolder} has the same header as the
+   *         given object.
    */
-  default boolean hasSameHeaderAs(final Headered object) {
+  default boolean hasSameHeaderAs(final IHeaderHolder object) {
 
     //Handles the case that the given object is null.
     if (object == null) {

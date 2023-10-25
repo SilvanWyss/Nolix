@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Headered;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IHeaderHolder;
 
 //interface
 /**
- * A {@link IFluentMutableHeaderHolder} is a {@link Headered} whose header can
+ * A {@link IFluentMutableHeaderHolder} is a {@link IHeaderHolder} whose header can
  * be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2018-04-15
  * @param <FMHH> is the type of a {@link IFluentMutableHeaderHolder}.
  */
-public interface IFluentMutableHeaderHolder<FMHH extends Headered> extends Headered {
+public interface IFluentMutableHeaderHolder<FMHH extends IHeaderHolder> extends IHeaderHolder {
 
   //method declaration
   /**
