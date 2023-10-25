@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
- * A {@link ShortDescripted} has a short description.
+ * A {@link IShortDescriptionHolder} has a short description.
  * 
  * A short description is a {@link String} representation of an object, that can
  * identify the object, but is mostly shorter than the object's common
@@ -24,18 +25,18 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * @date 2018-12-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface ShortDescripted {
+public interface IShortDescriptionHolder {
 
   //method declaration
   /**
-   * @return the short description of the current {@link ShortDescripted}.
+   * @return the short description of the current {@link IShortDescriptionHolder}.
    */
   String getShortDescription();
 
   //method
   /**
-   * @return the short description of the current {@link ShortDescripted} in
-   *         quotes.
+   * @return the short description of the current {@link IShortDescriptionHolder}
+   *         in quotes.
    */
   default String getShortDescriptionInQuotes() {
     return ("'" + getShortDescription() + "'");

@@ -2,13 +2,13 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ShortDescripted;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IShortDescriptionHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IEntity extends Deletable, IDatabaseObject, IIdHolder, ShortDescripted {
+public interface IEntity extends Deletable, IDatabaseObject, IIdHolder, IShortDescriptionHolder {
 
   //method declaration
   boolean belongsToTable();
