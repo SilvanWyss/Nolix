@@ -5,10 +5,10 @@ package ch.nolix.system.sqldatabaserawschema.structure;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //enum
-public enum SystemDataTable implements IQualifiedNameHolder {
+public enum SystemDataTable implements INameHolder {
   DATABASE_PROPERTY("DatabaseProperty"),
   TABLE(PascalCaseCatalogue.TABLE),
   COLUMN(PascalCaseCatalogue.COLUMN);
@@ -34,7 +34,11 @@ public enum SystemDataTable implements IQualifiedNameHolder {
   }
 
   //method
-  @Override
+  public String getQualifiedName() {
+    return (getQualifyingPrefix() + getName());
+  }
+
+  //method
   public String getQualifyingPrefix() {
     return NAME_PREFIX;
   }

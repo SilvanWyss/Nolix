@@ -1,14 +1,15 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawschema.multireferenceentrytable;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
 
 //enum
-public enum MultiReferenceEntryTableColumn implements IQualifiedNameHolder {
+public enum MultiReferenceEntryTableColumn implements INameHolder {
   MULTI_REFERENCE_COLUMN_ID("MultiReferenceColumnId"),
   ENTITY_ID("EntityId"),
   REFERENCED_ENTITY_ID("ReferencedEntityId");
@@ -35,7 +36,11 @@ public enum MultiReferenceEntryTableColumn implements IQualifiedNameHolder {
   }
 
   //method
-  @Override
+  public String getQualifiedName() {
+    return (getQualifyingPrefix() + getName());
+  }
+
+  //method
   public String getQualifyingPrefix() {
     return NAME_PREFIX;
   }

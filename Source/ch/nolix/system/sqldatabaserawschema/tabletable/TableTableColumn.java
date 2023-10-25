@@ -1,15 +1,16 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawschema.tabletable;
 
+//own imports
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 
 //enum
-public enum TableTableColumn implements IQualifiedNameHolder {
+public enum TableTableColumn implements INameHolder {
   ID(PascalCaseCatalogue.ID),
   NAME(PascalCaseCatalogue.NAME);
 
@@ -34,7 +35,11 @@ public enum TableTableColumn implements IQualifiedNameHolder {
   }
 
   //method
-  @Override
+  public String getQualifiedName() {
+    return (getQualifyingPrefix() + getName());
+  }
+
+  //method
   public String getQualifyingPrefix() {
     return NAME_PREFIX;
   }
