@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTitled;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
 
 //interface
 /**
- * A {@link OptionalTitleable} is a {@link OptionalTitled} whose title can be
+ * A {@link OptionalTitleable} is a {@link IOptionalTitleHolder} whose title can be
  * set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface OptionalTitleable extends OptionalTitled {
+public interface OptionalTitleable extends IOptionalTitleHolder {
 
   //method declaration
   /**

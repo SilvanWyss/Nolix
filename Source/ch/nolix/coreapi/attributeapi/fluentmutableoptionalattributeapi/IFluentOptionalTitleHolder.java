@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTitled;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
 
 //interface
 /**
- * A {@link IFluentOptionalTitleHolder} is a {@link OptionalTitled} whose title
+ * A {@link IFluentOptionalTitleHolder} is a {@link IOptionalTitleHolder} whose title
  * can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-06
  * @param <FOTH> is the type of a {@link IFluentOptionalTitleHolder}.
  */
-public interface IFluentOptionalTitleHolder<FOTH extends IFluentOptionalTitleHolder<FOTH>> extends OptionalTitled {
+public interface IFluentOptionalTitleHolder<FOTH extends IFluentOptionalTitleHolder<FOTH>> extends IOptionalTitleHolder {
 
   //method declaration
   /**
