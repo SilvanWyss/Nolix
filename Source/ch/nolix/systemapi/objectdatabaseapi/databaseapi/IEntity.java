@@ -1,20 +1,23 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IShortDescriptionHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 
 //interface
-public interface IEntity extends Deletable, IDatabaseObject, IIdHolder, IShortDescriptionHolder {
+public interface IEntity extends Deletable, IDatabaseObject, IIdHolder {
 
   //method declaration
   boolean belongsToTable();
 
   //method declaration
   String getParentTableName();
+
+  //method declaration
+  String getShortDescription();
 
   //method declaration
   IDatabase getStoredParentDatabase();
