@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalIdentified;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
 
 //interface
 /**
- * A {@link OptionalIdentifiable} is a {@link OptionalIdentified} whose id can
+ * A {@link OptionalIdentifiable} is a {@link IOptionalIdHolder} whose id can
  * be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface OptionalIdentifiable extends OptionalIdentified {
+public interface OptionalIdentifiable extends IOptionalIdHolder {
 
   //method declaration
   /**
