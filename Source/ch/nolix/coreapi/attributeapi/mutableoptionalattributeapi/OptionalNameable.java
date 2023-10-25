@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalNamed;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
 
 //interface
 /**
- * A {@link OptionalNameable} is a {@link OptionalNamed} whose name can be set
+ * A {@link OptionalNameable} is a {@link IOptionalNameHolder} whose name can be set
  * and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-07
  */
-public interface OptionalNameable extends OptionalNamed {
+public interface OptionalNameable extends IOptionalNameHolder {
 
   //method declaration
   /**
