@@ -116,10 +116,10 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
   //static method
   public static Layer fromSpecification(final INode<?> specification) {
-  
+
     final var layer = new Layer();
     layer.resetFromSpecification(specification);
-  
+
     return layer;
   }
 
@@ -268,12 +268,6 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   @Override
   public boolean hasBackground() {
     return background.containsAny();
-  }
-
-  //method
-  @Override
-  public boolean hasInternalId(final String internalId) {
-    return getInternalId().equals(internalId);
   }
 
   //method

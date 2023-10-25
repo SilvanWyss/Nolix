@@ -260,12 +260,6 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
 
   //method
   @Override
-  public final boolean hasInternalId(final String internalId) {
-    return getInternalId().equals(internalId);
-  }
-
-  //method
-  @Override
   public final boolean hasMaxHeight() {
     return maxHeight.containsAny();
   }

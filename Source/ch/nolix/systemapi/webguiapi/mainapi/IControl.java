@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 import java.util.function.Consumer;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.InternalIdentified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IInternalIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
@@ -22,7 +22,7 @@ public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS
     extends
     Dimensionable<C>,
     IHtmlGetter,
-    InternalIdentified,
+    IInternalIdHolder,
     IStylableElement<C>,
     IUserInputCell<C>,
     Linkable,
