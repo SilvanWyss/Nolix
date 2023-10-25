@@ -2,11 +2,11 @@
 package ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.multiattributeapi.MultiTokened;
+import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
 
 //interface
 /**
- * A {@link IFluentMutableMultiTokenHolder} is a {@link MultiTokened} whose
+ * A {@link IFluentMutableMultiTokenHolder} is a {@link IMultiTokenHolder} whose
  * tokens can be added and removed programmatically.
  * 
  * @author Silvan Wyss
@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.MultiTokened;
  * @param <FMMTH> is the type of a {@link IFluentMutableMultiTokenHolder}.
  */
 public interface IFluentMutableMultiTokenHolder<FMMTH extends IFluentMutableMultiTokenHolder<FMMTH>>
-    extends MultiTokened {
+    extends IMultiTokenHolder {
 
   //method declaration
   /**

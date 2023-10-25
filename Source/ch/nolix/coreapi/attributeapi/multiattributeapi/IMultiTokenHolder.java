@@ -6,16 +6,16 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
 /**
- * A {@link MultiTokened} can have several tokens.
+ * A {@link IMultiTokenHolder} can have several tokens.
  * 
  * @author Silvan Wyss
  * @date 2023-06-16
  */
-public interface MultiTokened {
+public interface IMultiTokenHolder {
 
   //method declaration
   /**
-   * @return the tokens of the current {@link MultiTokened}.
+   * @return the tokens of the current {@link IMultiTokenHolder}.
    */
   IContainer<String> getTokens();
 }

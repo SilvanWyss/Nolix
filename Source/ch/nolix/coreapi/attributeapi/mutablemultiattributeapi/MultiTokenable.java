@@ -2,17 +2,17 @@
 package ch.nolix.coreapi.attributeapi.mutablemultiattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.multiattributeapi.MultiTokened;
+import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
 
 //interface
 /**
- * A {@link MultiTokenable} is a {@link MultiTokened} whose tokens can be added
+ * A {@link MultiTokenable} is a {@link IMultiTokenHolder} whose tokens can be added
  * and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-07-16
  */
-public interface MultiTokenable extends MultiTokened {
+public interface MultiTokenable extends IMultiTokenHolder {
 
   //method declaration
   /**
