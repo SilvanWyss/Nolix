@@ -3,8 +3,6 @@ package ch.nolix.systemapi.webguiapi.mainapi;
 
 import java.util.function.Consumer;
 
-//own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IInternalIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
@@ -22,7 +20,6 @@ public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS
     extends
     Dimensionable<C>,
     IHtmlGetter,
-    IInternalIdHolder,
     IStylableElement<C>,
     IUserInputCell<C>,
     Linkable,
@@ -47,6 +44,9 @@ public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS
   CursorIcon getCursorIcon();
 
   //method declaration
+  String getInternalId();
+
+  //method declaration
   ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
 
   //method declaration
@@ -66,6 +66,9 @@ public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS
 
   //method declaration
   CS getStoredStyle();
+
+  //method declaration
+  boolean hasInternalId(String internalId);
 
   //method declaration
   void registerHtmlElementEventsAt(ILinkedList<IHtmlElementEvent> list);

@@ -272,6 +272,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
   //method
   @Override
+  public boolean hasInternalId(final String internalId) {
+    return getInternalId().equals(internalId);
+  }
+
+  //method
+  @Override
   public boolean hasRole() {
     return role.containsAny();
   }
