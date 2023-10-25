@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTokened;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
 
 //interface
 /**
- * A {@link OptionalTokenable} is a {@link OptionalTokened} whose token can be
+ * A {@link OptionalTokenable} is a {@link IOptionalTokenHolder} whose token can be
  * set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface OptionalTokenable extends OptionalTokened {
+public interface OptionalTokenable extends IOptionalTokenHolder {
 
   //method declaration
   /**

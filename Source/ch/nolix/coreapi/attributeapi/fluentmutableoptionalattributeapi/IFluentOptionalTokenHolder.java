@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalTokened;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
 
 //interface
 /**
- * A {@link IFluentOptionalTokenHolder} is a {@link OptionalTokened} whose token
+ * A {@link IFluentOptionalTokenHolder} is a {@link IOptionalTokenHolder} whose token
  * can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <FOTH> is the type of a {@link IFluentOptionalTokenHolder}.
  */
-public interface IFluentOptionalTokenHolder<FOTH extends IFluentOptionalTokenHolder<FOTH>> extends OptionalTokened {
+public interface IFluentOptionalTokenHolder<FOTH extends IFluentOptionalTokenHolder<FOTH>> extends IOptionalTokenHolder {
 
   //method declaration
   /**
