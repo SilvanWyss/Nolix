@@ -3,7 +3,6 @@ package ch.nolix.core.document.chainednode;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
@@ -528,42 +527,6 @@ public final class ChainedNode implements IChainedNode {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.HEADER);
     }
 
-    return header;
-  }
-
-  //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String getHeaderOrEmptyString() {
-
-    //Handles the case that current ChainedNode does not have a header.
-    if (header == null) {
-      return StringCatalogue.EMPTY_STRING;
-    }
-
-    //Handles the case that current ChainedNode has a header.
-    return header;
-  }
-
-  //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String getHeaderOrNull() {
-
-    //Handles the case that current ChainedNode does not have a header.
-    if (header == null) {
-      return null;
-    }
-
-    //Handles the case that current ChainedNode has a header.
     return header;
   }
 

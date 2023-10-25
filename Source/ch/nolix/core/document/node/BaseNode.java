@@ -5,7 +5,6 @@ import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.MutableXmlNode;
@@ -128,38 +127,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
   @Override
   public final int getChildNodeCount() {
     return getStoredChildNodes().getElementCount();
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final String getHeaderOrEmptyString() {
-
-    //Handles the case that current BaseNode does not have a header.
-    if (!hasHeader()) {
-      return StringCatalogue.EMPTY_STRING;
-    }
-
-    //Handles the case that current BaseNode has a header.
-    return getHeader();
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final String getHeaderOrNull() {
-
-    //Handles the case that current BaseNode does not have a header.
-    if (!hasHeader()) {
-      return null;
-    }
-
-    //Handles the case that current BaseNode has a header.
-    return getHeader();
   }
 
   //method

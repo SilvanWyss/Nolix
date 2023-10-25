@@ -27,14 +27,28 @@ public interface IOptionalHeaderHolder {
    * @return the header of the current {@link IOptionalHeaderHolder} if it has a
    *         header, otherwise an empty {@link String}.
    */
-  String getHeaderOrEmptyString();
+  default String getHeaderOrEmptyString() {
 
-  //method declaration
+    if (!hasHeader()) {
+      return "";
+    }
+
+    return getHeader();
+  }
+
+  //method
   /**
    * @return the header of the current {@link IOptionalHeaderHolder} if the
    *         current {@link IOptionalHeaderHolder} has a header, null otherwise.
    */
-  String getHeaderOrNull();
+  default String getHeaderOrNull() {
+
+    if (!hasHeader()) {
+      return null;
+    }
+
+    return getHeader();
+  }
 
   //method declaration
   /**
