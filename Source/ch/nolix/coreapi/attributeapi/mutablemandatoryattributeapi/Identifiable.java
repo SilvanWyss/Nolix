@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 
 //interface
 /**
- * A {@link Identifiable} is a {@link Identified} whose id can be set
+ * A {@link Identifiable} is a {@link IIdHolder} whose id can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface Identifiable extends Identified {
+public interface Identifiable extends IIdHolder {
 
   //method declaration
   /**

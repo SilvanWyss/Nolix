@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 
 //interface
 /**
- * A {@link IFluentMutableIdHolder} is a {@link Identified} whose id can be set
+ * A {@link IFluentMutableIdHolder} is a {@link IIdHolder} whose id can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2020-03-29
  * @param <FMIH> is the type of a {@link IFluentMutableIdHolder}.
  */
-public interface IFluentMutableIdHolder<FMIH> extends Identified {
+public interface IFluentMutableIdHolder<FMIH> extends IIdHolder {
 
   //method declaration
   /**

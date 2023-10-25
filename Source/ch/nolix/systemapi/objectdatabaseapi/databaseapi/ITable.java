@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Identified;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
@@ -10,7 +10,7 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 public interface ITable<
 
     E extends IEntity>
-    extends IDatabaseObject, Identified, Named {
+    extends IDatabaseObject, IIdHolder, Named {
 
   //method declaration
   boolean containsEntityWithId(String id);
