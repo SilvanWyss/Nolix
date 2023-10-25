@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutableoptionalattributeapi;
 
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 
 //interface
 /**
- * A {@link OptionalHeaderable} is a {@link OptionalHeadered} whose header can
+ * A {@link OptionalHeaderable} is a {@link IOptionalHeaderHolder} whose header can
  * be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-07
  */
-public interface OptionalHeaderable extends OptionalHeadered {
+public interface OptionalHeaderable extends IOptionalHeaderHolder {
 
   //method declaration
   /**

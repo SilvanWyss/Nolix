@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 
 //interface
 /**
- * A {@link IFluentOptionalHeaderHolder} is a {@link OptionalHeadered} whose
+ * A {@link IFluentOptionalHeaderHolder} is a {@link IOptionalHeaderHolder} whose
  * header can be set and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2019-02-24
  * @param <FOHH> is the type of a {@link IFluentOptionalHeaderHolder}.
  */
-public interface IFluentOptionalHeaderHolder<FOHH extends IFluentOptionalHeaderHolder<FOHH>> extends OptionalHeadered {
+public interface IFluentOptionalHeaderHolder<FOHH extends IFluentOptionalHeaderHolder<FOHH>> extends IOptionalHeaderHolder {
 
   //method declaration
   /**

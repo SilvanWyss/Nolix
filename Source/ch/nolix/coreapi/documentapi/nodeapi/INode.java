@@ -3,7 +3,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 
 import java.util.function.Predicate;
 
-import ch.nolix.coreapi.attributeapi.optionalattributeapi.OptionalHeadered;
+import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
@@ -23,7 +23,7 @@ import ch.nolix.coreapi.functionapi.requestapi.BlanknessRequestable;
  * @date 2022-06-24
  * @param <N> is the type of a {@link INode}.
  */
-public interface INode<N extends INode<N>> extends BlanknessRequestable, OptionalHeadered {
+public interface INode<N extends INode<N>> extends BlanknessRequestable, IOptionalHeaderHolder {
 
   //method declaration
   /**

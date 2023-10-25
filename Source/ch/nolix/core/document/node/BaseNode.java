@@ -284,22 +284,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    * {@inheritDoc}
    */
   @Override
-  public final boolean hasHeader(final String header) {
-
-    //Handles the case that current BaseNode<?> does not have a header.
-    if (!hasHeader()) {
-      return false;
-    }
-
-    //Handles the case that current BaseNode<?> has a header.
-    return getHeader().equals(header);
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public final boolean isBlank() {
     return (!hasHeader() && !containsChildNodes());
   }
