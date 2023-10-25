@@ -3,7 +3,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 
 import java.util.function.Predicate;
 
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalHeaderable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentOptionalHeaderHolder;
 
 //interface
 /**
@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOpt
  * @date 2022-06-25
  * @param <MN> is the type of a {@link IMutableNode}.
  */
-public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, FluentOptionalHeaderable<MN> {
+public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IFluentOptionalHeaderHolder<MN> {
 
   //method declaration
   /**
