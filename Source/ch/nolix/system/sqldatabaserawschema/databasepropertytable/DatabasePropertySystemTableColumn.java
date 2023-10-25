@@ -5,10 +5,10 @@ package ch.nolix.system.sqldatabaserawschema.databasepropertytable;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Labeled;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
 
 //class
-public enum DatabasePropertySystemTableColumn implements Labeled {
+public enum DatabasePropertySystemTableColumn implements ILabelHolder {
 
   //'Key' is a reserved word in MSSQL databases.
   KEY("ValueKey"),

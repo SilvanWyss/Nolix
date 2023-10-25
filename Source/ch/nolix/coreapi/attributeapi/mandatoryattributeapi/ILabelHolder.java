@@ -6,23 +6,23 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link Labeled} has a label.
+ * A {@link ILabelHolder} has a label.
  * 
  * @author Silvan Wyss
  * @date 2021-08-26
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Labeled {
+public interface ILabelHolder {
 
   //method declaration
   /**
-   * @return the label of the current {@link Labeled}.
+   * @return the label of the current {@link ILabelHolder}.
    */
   String getLabel();
 
   //method
   /**
-   * @return the label of the current {@link Labeled} in quotes.
+   * @return the label of the current {@link ILabelHolder} in quotes.
    */
   default String getLabelInQuotes() {
     return ("'" + getLabel() + "'");
