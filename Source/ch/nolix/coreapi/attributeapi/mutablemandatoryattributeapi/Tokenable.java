@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Tokened;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITokenHolder;
 
 //interface
 /**
- * A {@link Tokenable} is a {@link Tokened} whose token can be set
+ * A {@link Tokenable} is a {@link ITokenHolder} whose token can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface Tokenable extends Tokened {
+public interface Tokenable extends ITokenHolder {
 
   //method declaration
   /**
