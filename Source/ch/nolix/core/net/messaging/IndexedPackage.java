@@ -5,7 +5,6 @@ package ch.nolix.core.net.messaging;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIndexHolder;
 
 //class
 /**
@@ -15,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIndexHolder;
  * @date 2016-06-01
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
-public class IndexedPackage<C> implements IIndexHolder {
+public class IndexedPackage<C> {
 
   //attribute
   private final int index;
@@ -55,8 +54,16 @@ public class IndexedPackage<C> implements IIndexHolder {
   /**
    * @return the index of the current {@link IndexedPackage}.
    */
-  @Override
   public final int getIndex() {
     return index;
+  }
+
+  //method
+  /**
+   * @param index
+   * @return true if the current {@link IndexedPackage} has the given index.
+   */
+  public final boolean hasIndex(final int index) {
+    return (getIndex() == index);
   }
 }

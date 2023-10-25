@@ -5,11 +5,10 @@ package ch.nolix.system.element.multistateconfiguration;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIndexHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 
 //class
-final class State<S extends Enum<S>> implements IIndexHolder, IQualifiedNameHolder {
+final class State<S extends Enum<S>> implements IQualifiedNameHolder {
 
   //constant
   private static final String NAME = PascalCaseCatalogue.STATE;
@@ -49,7 +48,6 @@ final class State<S extends Enum<S>> implements IIndexHolder, IQualifiedNameHold
   }
 
   //method
-  @Override
   public int getIndex() {
     return index;
   }
