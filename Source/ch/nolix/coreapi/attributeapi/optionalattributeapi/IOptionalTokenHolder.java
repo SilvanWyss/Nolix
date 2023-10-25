@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
+//own imports
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link IOptionalTokenHolder} can have a token.
@@ -8,6 +11,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * @author Silvan Wyss
  * @date 2020-03-29
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalTokenHolder {
 
   //method declaration
@@ -22,10 +26,13 @@ public interface IOptionalTokenHolder {
    */
   boolean hasToken();
 
-  //method declaration
+  //method
   /**
    * @param token
    * @return true if the current {@link IOptionalTokenHolder} has the given token.
    */
-  boolean hasToken(String token);
+  default boolean hasToken(String token) {
+    return hasToken()
+        && getToken().equals(token);
+  }
 }
