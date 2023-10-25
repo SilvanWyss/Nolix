@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
+//own imports
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link IOptionalIdHolder} can have an id.
@@ -8,6 +11,7 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * @author Silvan Wyss
  * @date 2020-01-05
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalIdHolder {
 
   //method declaration
@@ -16,11 +20,13 @@ public interface IOptionalIdHolder {
    */
   String getId();
 
-  //method declaration
+  //method
   /**
    * @return the id of the current {@link IOptionalIdHolder} in quotes.
    */
-  String getIdInQuotes();
+  default String getIdInQuotes() {
+    return ("'" + getId() + "'");
+  }
 
   //method declaration
   /**
@@ -28,10 +34,13 @@ public interface IOptionalIdHolder {
    */
   boolean hasId();
 
-  //method declaration
+  //method
   /**
    * @param id
    * @return true if the current {@link IOptionalIdHolder} has the given id.
    */
-  boolean hasId(String id);
+  default boolean hasId(final String id) {
+    return hasId()
+        && getId().equals(id);
+  }
 }

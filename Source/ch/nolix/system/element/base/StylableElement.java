@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.element.base;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -48,12 +46,6 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
 
   //method
   @Override
-  public final String getIdInQuotes() {
-    return GlobalStringHelper.getInQuotes(getId());
-  }
-
-  //method
-  @Override
   public final IContainer<String> getTokens() {
     return tokens.getStoredValues();
   }
@@ -62,12 +54,6 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
   @Override
   public final boolean hasId() {
     return id.containsAny();
-  }
-
-  //method
-  @Override
-  public final boolean hasId(final String id) {
-    return (hasId() && getId().equals(id));
   }
 
   //method
@@ -112,9 +98,9 @@ public abstract class StylableElement<SE extends IStylableElement<SE>>
   //method
   @Override
   public final void resetStyleRecursively() {
-  
+
     resetStyle();
-  
+
     getStoredChildStylableElements().forEach(IStylableElement::resetStyleRecursively);
   }
 
