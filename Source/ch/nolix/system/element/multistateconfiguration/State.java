@@ -5,11 +5,11 @@ package ch.nolix.system.element.multistateconfiguration;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Indexed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIndexHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
 
 //class
-final class State<S extends Enum<S>> implements Indexed, QualifiedNamed {
+final class State<S extends Enum<S>> implements IIndexHolder, QualifiedNamed {
 
   //constant
   private static final String NAME = PascalCaseCatalogue.STATE;

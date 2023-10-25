@@ -5,7 +5,7 @@ package ch.nolix.core.net.messaging;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Indexed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIndexHolder;
 
 //class
 /**
@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Indexed;
  * @date 2016-06-01
  * @param <C> is the type of the content of a {@link IndexedPackage}.
  */
-public class IndexedPackage<C> implements Indexed {
+public class IndexedPackage<C> implements IIndexHolder {
 
   //attribute
   private final int index;

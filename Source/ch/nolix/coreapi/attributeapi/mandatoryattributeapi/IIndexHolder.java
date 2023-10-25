@@ -1,27 +1,28 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mandatoryattributeapi;
 
+//own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
- * A {@link Indexed} has an index.
+ * A {@link IIndexHolder} has an index.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Indexed {
+public interface IIndexHolder {
 
   //method declaration
   /**
-   * @return the index of the current {@link Indexed}.
+   * @return the index of the current {@link IIndexHolder}.
    */
   int getIndex();
 
   //method
   /**
-   * @return the index of the current {@link Indexed} as {@link String}.
+   * @return the index of the current {@link IIndexHolder} as {@link String}.
    */
   default String getIndexAsString() {
     return String.valueOf(getIndex());
@@ -29,7 +30,8 @@ public interface Indexed {
 
   //method
   /**
-   * @return the index of the current {@link Indexed} as {@link String} in quotes.
+   * @return the index of the current {@link IIndexHolder} as {@link String} in
+   *         quotes.
    */
   default String getIndexAsStringInQuotes() {
     return ("'" + getIndexAsString() + "'");
@@ -38,7 +40,7 @@ public interface Indexed {
   //method
   /**
    * @param index
-   * @return true if the current {@link Indexed} has the given index.
+   * @return true if the current {@link IIndexHolder} has the given index.
    */
   default boolean hasIndex(final int index) {
     return (getIndex() == index);
@@ -47,10 +49,10 @@ public interface Indexed {
   //method
   /**
    * @param object
-   * @return true if the current {@link Indexed} has the same index as the given
-   *         object.
+   * @return true if the current {@link IIndexHolder} has the same index as the
+   *         given object.
    */
-  default boolean hasSameIndexAs(final Indexed object) {
+  default boolean hasSameIndexAs(final IIndexHolder object) {
 
     //Handles the case that the given object is null.
     if (object == null) {
