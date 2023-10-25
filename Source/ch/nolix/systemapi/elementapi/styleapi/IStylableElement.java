@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.elementapi.styleapi;
 
 import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.IFluentMutableMultiTokenHolder;
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.FluentOptionalIdentifiable;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentOptionalIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.functionapi.requestapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 public interface IStylableElement<SE extends IStylableElement<SE>>
     extends
     IMutableElement,
-    FluentOptionalIdentifiable<SE>,
+    IFluentOptionalIdHolder<SE>,
     IFluentMutableMultiTokenHolder<SE>,
     TypeRequestable {
 
