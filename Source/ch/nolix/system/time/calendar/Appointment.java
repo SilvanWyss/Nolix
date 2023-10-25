@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.time.calendar;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
@@ -71,12 +69,6 @@ public final class Appointment extends MutableElement implements IMutableAppoint
   @Override
   public String getTitle() {
     return title.getValue();
-  }
-
-  //method
-  @Override
-  public String getTitleInQuotes() {
-    return GlobalStringHelper.getInQuotes(getTitle());
   }
 
   //method

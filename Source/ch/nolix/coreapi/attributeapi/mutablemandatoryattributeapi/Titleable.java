@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Titled;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
 
 //interface
 /**
- * A {@link Titleable} is a {@link Titled} whose title can be set
+ * A {@link Titleable} is a {@link ITitleHolder} whose title can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-09
  */
-public interface Titleable extends Titled {
+public interface Titleable extends ITitleHolder {
 
   //method declaration
   /**

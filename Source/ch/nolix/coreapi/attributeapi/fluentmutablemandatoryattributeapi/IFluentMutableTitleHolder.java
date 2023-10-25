@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Titled;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
 
 //interface
 /**
- * A {@link IFluentMutableTitleHolder} is a {@link Titled} whose title can be
+ * A {@link IFluentMutableTitleHolder} is a {@link ITitleHolder} whose title can be
  * set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2019-07-26
  * @param <FMTH> is the type of a {@link IFluentMutableTitleHolder}.
  */
-public interface IFluentMutableTitleHolder<FMTH extends IFluentMutableTitleHolder<FMTH>> extends Titled {
+public interface IFluentMutableTitleHolder<FMTH extends IFluentMutableTitleHolder<FMTH>> extends ITitleHolder {
 
   //method declaration
   /**

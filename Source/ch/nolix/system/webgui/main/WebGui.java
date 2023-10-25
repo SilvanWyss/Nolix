@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.system.webgui.main;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -227,12 +225,6 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
   @Override
   public String getTitle() {
     return title.getValue();
-  }
-
-  //method
-  @Override
-  public String getTitleInQuotes() {
-    return GlobalStringHelper.getInQuotes(getTitle());
   }
 
   //method
