@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
+//own imports
+import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+
 //interface
 /**
  * A {@link IOptionalTitleHolder} can have a title.
@@ -8,19 +11,26 @@ package ch.nolix.coreapi.attributeapi.optionalattributeapi;
  * @author Silvan Wyss
  * @date 2023-02-06
  */
+@AllowDefaultMethodsAsDesignPattern
 public interface IOptionalTitleHolder {
 
   //method declaration
   /**
    * @return the title of the current {@link IOptionalTitleHolder}.
+   * @throws RuntimeException if the current {@link IOptionalTitleHolder} does not
+   *                          have a title.
    */
   String getTitle();
 
-  //method declaration
+  //method
   /**
    * @return the title of the current {@link IOptionalTitleHolder} in quotes.
+   * @throws RuntimeException if the current {@link IOptionalTitleHolder} does not
+   *                          have a title.
    */
-  String getTitleInQuotes();
+  default String getTitleInQuotes() {
+    return ("'" + getTitle() + "'");
+  }
 
   //method declaration
   /**
