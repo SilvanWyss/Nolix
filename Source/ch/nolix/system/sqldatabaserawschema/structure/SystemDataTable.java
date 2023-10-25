@@ -5,10 +5,10 @@ package ch.nolix.system.sqldatabaserawschema.structure;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 
 //enum
-public enum SystemDataTable implements QualifiedNamed {
+public enum SystemDataTable implements IQualifiedNameHolder {
   DATABASE_PROPERTY("DatabaseProperty"),
   TABLE(PascalCaseCatalogue.TABLE),
   COLUMN(PascalCaseCatalogue.COLUMN);

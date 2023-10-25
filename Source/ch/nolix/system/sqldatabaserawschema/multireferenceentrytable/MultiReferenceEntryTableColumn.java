@@ -4,11 +4,11 @@ package ch.nolix.system.sqldatabaserawschema.multireferenceentrytable;
 import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
 
 //enum
-public enum MultiReferenceEntryTableColumn implements QualifiedNamed {
+public enum MultiReferenceEntryTableColumn implements IQualifiedNameHolder {
   MULTI_REFERENCE_COLUMN_ID("MultiReferenceColumnId"),
   ENTITY_ID("EntityId"),
   REFERENCED_ENTITY_ID("ReferencedEntityId");

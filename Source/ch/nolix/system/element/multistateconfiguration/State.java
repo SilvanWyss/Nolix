@@ -6,10 +6,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIndexHolder;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 
 //class
-final class State<S extends Enum<S>> implements IIndexHolder, QualifiedNamed {
+final class State<S extends Enum<S>> implements IIndexHolder, IQualifiedNameHolder {
 
   //constant
   private static final String NAME = PascalCaseCatalogue.STATE;

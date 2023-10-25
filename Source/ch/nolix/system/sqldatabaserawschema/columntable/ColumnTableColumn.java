@@ -5,11 +5,11 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 
 //enum
-public enum ColumnTableColumn implements QualifiedNamed {
+public enum ColumnTableColumn implements IQualifiedNameHolder {
   ID(PascalCaseCatalogue.ID),
   PARENT_TABLE_ID("ParentTableId"),
   NAME(PascalCaseCatalogue.NAME),

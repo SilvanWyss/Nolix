@@ -5,11 +5,11 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.QualifiedNamed;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
 
 //enum
-public enum MultiValueEntryTableColumn implements QualifiedNamed {
+public enum MultiValueEntryTableColumn implements IQualifiedNameHolder {
   MULTI_VALUE_COLUMN_ID("MultiValueColumnId"),
   ENTITY_ID("EntityId"),
   VALUE(PascalCaseCatalogue.VALUE);
