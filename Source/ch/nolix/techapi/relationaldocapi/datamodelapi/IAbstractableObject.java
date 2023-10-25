@@ -7,7 +7,8 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.techapi.relationaldocapi.baseapi.Abstractable;
 
 //interface
-public interface IAbstractableObject extends Abstractable<IAbstractableObject>, IFluentMutableNameHolder<IAbstractableObject> {
+public interface IAbstractableObject
+    extends Abstractable<IAbstractableObject>, IFluentMutableNameHolder<IAbstractableObject> {
 
   //method declaration
   IAbstractableObject addBaseType(IAbstractableObject baseType);
