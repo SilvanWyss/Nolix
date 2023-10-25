@@ -1,16 +1,16 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.mutablemandatoryattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //interface
 /**
- * A {@link Nameable} is a {@link Named} whose name can be set programmatically.
+ * A {@link Nameable} is a {@link INameHolder} whose name can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-01-27
  */
-public interface Nameable extends Named {
+public interface Nameable extends INameHolder {
 
   //method declaration
   /**

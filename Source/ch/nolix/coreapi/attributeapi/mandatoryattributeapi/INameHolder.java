@@ -6,23 +6,23 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link Named} has a name.
+ * A {@link INameHolder} has a name.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Named {
+public interface INameHolder {
 
   //method declaration
   /**
-   * @return the name of the current {@link Named}.
+   * @return the name of the current {@link INameHolder}.
    */
   String getName();
 
   //method
   /**
-   * @return the name of the current {@link Named} in quotes.
+   * @return the name of the current {@link INameHolder} in quotes.
    */
   default String getNameInQuotes() {
     return ("'" + getName() + "'");
@@ -31,7 +31,7 @@ public interface Named {
   //method
   /**
    * @param name
-   * @return true if the current {@link Named} has the given name.
+   * @return true if the current {@link INameHolder} has the given name.
    */
   default boolean hasName(final String name) {
     return getName().equals(name);
@@ -40,10 +40,10 @@ public interface Named {
   //method
   /**
    * @param object
-   * @return true if the current {@link Named} has the same name as the given
+   * @return true if the current {@link INameHolder} has the same name as the given
    *         object.
    */
-  default boolean hasSameNameAs(final Named object) {
+  default boolean hasSameNameAs(final INameHolder object) {
 
     //Handles the case that the given object is null.
     if (object == null) {

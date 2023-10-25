@@ -6,14 +6,14 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link IQualifiedNameHolder} is a {@link Named} that has a qualifying prefix that
+ * A {@link IQualifiedNameHolder} is a {@link INameHolder} that has a qualifying prefix that
  * completes the name of the {@link IQualifiedNameHolder} to a qualified name.
  * 
  * @author Silvan Wyss
  * @date 2022-01-28
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IQualifiedNameHolder extends Named {
+public interface IQualifiedNameHolder extends INameHolder {
 
   //method
   /**

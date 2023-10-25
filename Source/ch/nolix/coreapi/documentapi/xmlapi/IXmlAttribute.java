@@ -2,8 +2,8 @@
 package ch.nolix.coreapi.documentapi.xmlapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //interface
-public interface IXmlAttribute extends Named, IValueHolder<String> {
+public interface IXmlAttribute extends INameHolder, IValueHolder<String> {
 }

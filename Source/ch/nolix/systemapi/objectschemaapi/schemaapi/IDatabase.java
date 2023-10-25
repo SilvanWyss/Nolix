@@ -1,13 +1,13 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //interface
-public interface IDatabase extends IDatabaseObject, Named {
+public interface IDatabase extends IDatabaseObject, INameHolder {
 
   //method declaration
   IDatabase addTable(ITable table);

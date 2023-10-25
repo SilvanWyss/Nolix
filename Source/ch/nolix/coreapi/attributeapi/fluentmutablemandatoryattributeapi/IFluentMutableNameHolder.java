@@ -2,18 +2,18 @@
 package ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi;
 
 //own imports
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //interface
 /**
- * A {@link IFluentMutableNameHolder} is a {@link Named} whose name can be set
+ * A {@link IFluentMutableNameHolder} is a {@link INameHolder} whose name can be set
  * programmatically.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  * @param <FMNH> is the type of a {@link IFluentMutableNameHolder}.
  */
-public interface IFluentMutableNameHolder<FMNH extends IFluentMutableNameHolder<FMNH>> extends Named {
+public interface IFluentMutableNameHolder<FMNH extends IFluentMutableNameHolder<FMNH>> extends INameHolder {
 
   //method declaration
   /**

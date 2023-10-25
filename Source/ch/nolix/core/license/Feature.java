@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.license;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
  * @author Silvan Wyss
  * @date 2019-11-16
  */
-public abstract class Feature implements Named {
+public abstract class Feature implements INameHolder {
 
   //method declaration
   /**

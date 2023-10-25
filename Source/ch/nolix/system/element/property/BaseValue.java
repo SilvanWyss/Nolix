@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.functionapi.requestapi.MutabilityRequestable;
 import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.elementapi.propertyapi.IBaseValue;
  * @date 2017-10-29
  * @param <V> is the type of the values of a {@link BaseValue}.
  */
-public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable, Named {
+public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable, INameHolder {
 
   //attribute
   private final String name;

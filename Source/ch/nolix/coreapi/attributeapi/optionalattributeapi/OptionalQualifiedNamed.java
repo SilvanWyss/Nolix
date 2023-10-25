@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.optionalattributeapi;
 
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface
 /**
- * A {@link OptionalQualifiedNamed} is a {@link Named} that can have a
+ * A {@link OptionalQualifiedNamed} is a {@link INameHolder} that can have a
  * qualifying prefix that completes the name of the
  * {@link OptionalQualifiedNamed} to a qualified name.
  * 
@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * @date 2023-02-07
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface OptionalQualifiedNamed extends Named {
+public interface OptionalQualifiedNamed extends INameHolder {
 
   //method
   /**

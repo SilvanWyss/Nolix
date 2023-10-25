@@ -7,14 +7,14 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.Named;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2017-05-16
  */
-public abstract class License implements Named {
+public abstract class License implements INameHolder {
 
   //attribute
   private boolean activated;
