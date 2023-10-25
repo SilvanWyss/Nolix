@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.xmlapi;
 
-import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentOptionalNameHolder;
+import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalNameHolder;
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
-public interface IXmlNode<N extends IXmlNode<N>> extends IFluentOptionalNameHolder<N>, IOptionalValueHolder<String> {
+public interface IXmlNode<N extends IXmlNode<N>> extends IFluentMutableOptionalNameHolder<N>, IOptionalValueHolder<String> {
 
   //method declaration
   IContainer<IXmlAttribute> getAttributes();
