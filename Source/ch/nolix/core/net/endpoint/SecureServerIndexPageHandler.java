@@ -1,12 +1,6 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
-import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
-import static io.netty.handler.codec.http.HttpMethod.GET;
-import static io.netty.handler.codec.http.HttpResponseStatus.BAD_REQUEST;
-import static io.netty.handler.codec.http.HttpResponseStatus.FORBIDDEN;
-import static io.netty.handler.codec.http.HttpResponseStatus.OK;
-
 //Netty imports
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
@@ -18,6 +12,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpHeaderNames;
+import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.CharsetUtil;
@@ -36,20 +32,21 @@ final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<Ful
     //Handle a bad request.
     if (!req.decoderResult().isSuccess()) {
       sendHttpResponse(ctx, req,
-          new DefaultFullHttpResponse(req.protocolVersion(), BAD_REQUEST, ctx.alloc().buffer(0)));
+          new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.BAD_REQUEST, ctx.alloc().buffer(0)));
       return;
     }
 
     //Allow only GET methods.
-    if (!GET.equals(req.method())) {
-      sendHttpResponse(ctx, req, new DefaultFullHttpResponse(req.protocolVersion(), FORBIDDEN, ctx.alloc().buffer(0)));
+    if (!HttpMethod.GET.equals(req.method())) {
+      sendHttpResponse(ctx, req,
+          new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.FORBIDDEN, ctx.alloc().buffer(0)));
       return;
     }
 
     //Send the index page
     ByteBuf content = Unpooled.copiedBuffer(htmlPage, CharsetUtil.US_ASCII);
-    FullHttpResponse res = new DefaultFullHttpResponse(req.protocolVersion(), OK, content);
-    res.headers().set(CONTENT_TYPE, "text/html; charset=UTF-8");
+    FullHttpResponse res = new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.OK, content);
+    res.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
     HttpUtil.setContentLength(res, content.readableBytes());
     sendHttpResponse(ctx, req, res);
   }
