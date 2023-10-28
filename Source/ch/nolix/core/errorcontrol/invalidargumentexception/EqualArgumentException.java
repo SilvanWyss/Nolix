@@ -75,7 +75,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
       final String argumentName,
       final double argument,
       final double equalValue) {
-  
+
     //Calls constructor of the base class.
     return new EqualArgumentException(argumentName, argument, equalValue);
   }
@@ -94,7 +94,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
       final String argumentName,
       final long argument,
       final long equalValue) {
-  
+
     //Calls constructor of the base class.
     return new EqualArgumentException(argumentName, argument, equalValue);
   }
@@ -107,7 +107,7 @@ public final class EqualArgumentException extends InvalidArgumentException {
    *         equalValue.
    */
   public static EqualArgumentException forArgumentAndEqualValue(final Object argument, final Object equalValue) {
-  
+
     //Calls constructor of the base class.
     return new EqualArgumentException(argument, equalValue);
   }

@@ -29,7 +29,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given limit is null.
    */
   private SmallerArgumentException(final String argumentName, final BigDecimal argument, final BigDecimal limit) {
-  
+
     //Calls constructor of the base class.
     super(argumentName, argument, "is smaller than " + getValidLimitOfLimit(limit));
   }
@@ -47,7 +47,7 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given limit is null.
    */
   private SmallerArgumentException(final String argumentName, final double argument, final double limit) {
-  
+
     //Calls constructor of the base class.
     super(argumentName, argument, "is smaller than " + limit);
   }

@@ -6,8 +6,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITokenHolder;
 
 //interface
 /**
- * A {@link IFluentMutableTokenHolder} is a {@link ITokenHolder} whose token can be
- * set programmatically.
+ * A {@link IFluentMutableTokenHolder} is a {@link ITokenHolder} whose token can
+ * be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-02-06

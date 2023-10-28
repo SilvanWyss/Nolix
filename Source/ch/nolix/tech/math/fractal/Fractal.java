@@ -50,7 +50,7 @@ public final class Fractal implements IFractal {
 
   //constructor
   public Fractal( //NOSONAR: A Fractal has many parameters and therefore a FractalBuilder fills
-                  //them up.
+      //them up.
       final IClosedInterval realComponentInterval,
       final IClosedInterval imaginaryComponentInterval,
       final int widthInPixel,

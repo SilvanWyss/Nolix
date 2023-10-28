@@ -22,7 +22,7 @@ public final class NewArgumentException extends InvalidArgumentException {
    * @param argument
    */
   private NewArgumentException(final Object argument) {
-  
+
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }

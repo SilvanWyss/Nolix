@@ -51,19 +51,19 @@ public final class BlackWhiteMandelbrotFractalTutorial {
   }
 
   public static void main(String[] args) {
-  
+
     //Creates a Server.
     final var server = Server.forHttpPort();
-  
+
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
         "Black-white Mandelbrot fractal tutorial",
         MainSession.class,
         new VoidObject());
-  
+
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
-  
+
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
         .waitForSeconds(2)

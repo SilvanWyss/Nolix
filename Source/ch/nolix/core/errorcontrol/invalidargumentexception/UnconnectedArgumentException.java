@@ -23,7 +23,7 @@ public final class UnconnectedArgumentException extends InvalidArgumentException
    * @param argument
    */
   private UnconnectedArgumentException(final Object argument) {
-  
+
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }

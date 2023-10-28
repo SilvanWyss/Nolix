@@ -6,8 +6,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
 
 //interface
 /**
- * A {@link IFluentMutableTitleHolder} is a {@link ITitleHolder} whose title can be
- * set programmatically.
+ * A {@link IFluentMutableTitleHolder} is a {@link ITitleHolder} whose title can
+ * be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2019-07-26

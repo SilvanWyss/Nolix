@@ -35,12 +35,12 @@ public final class DataAdapter implements IDataAdapter {
 
   //static method
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
-  
+
     final var nodeDataAdapter = NodeDataAdapter
         .forNodeDatabase(nodeDatabase)
         .withName(LowerCaseCatalogue.DATABASE)
         .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
-  
+
     return new DataAdapter(nodeDataAdapter);
   }
 

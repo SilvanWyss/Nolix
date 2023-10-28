@@ -29,11 +29,11 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
   //static method
   public static <V2> Value<V2> withInitialValue(final V2 initialValue) {
-  
+
     final var value = new Value<V2>();
-  
+
     value.setValue(initialValue);
-  
+
     return value;
   }
 

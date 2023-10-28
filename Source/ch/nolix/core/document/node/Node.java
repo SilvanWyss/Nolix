@@ -138,15 +138,15 @@ public final class Node extends BaseNode<Node> {
    * @return a new {@link Node} from the given {@link INode}.
    */
   public static Node fromNode(final INode<?> node) {
-  
+
     if (node instanceof Node lNode) {
       return lNode;
     }
-  
+
     if (!node.hasHeader()) {
       return withChildNodes(node.getStoredChildNodes());
     }
-  
+
     return withHeaderAndChildNodes(node.getHeader(), node.getStoredChildNodes());
   }
 
@@ -343,13 +343,13 @@ public final class Node extends BaseNode<Node> {
    * @throws RuntimeException if one of the given nodes is null.
    */
   private static IContainer<Node> createNodesFromNodes(final Iterable<? extends INode<?>> nodes) {
-  
+
     final var lNodes = new LinkedList<Node>();
-  
+
     for (final var n : nodes) {
       lNodes.addAtEnd(fromNode(n));
     }
-  
+
     return lNodes;
   }
 
@@ -370,9 +370,9 @@ public final class Node extends BaseNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   private static String getValidHeaderFromHeader(final String header) {
-  
+
     GlobalValidator.assertThat(header).thatIsNamed(LowerCaseCatalogue.HEADER).isNotBlank();
-  
+
     return header;
   }
 

@@ -6,8 +6,8 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IHeaderHolder;
 
 //interface
 /**
- * A {@link IFluentMutableHeaderHolder} is a {@link IHeaderHolder} whose header can
- * be set programmatically.
+ * A {@link IFluentMutableHeaderHolder} is a {@link IHeaderHolder} whose header
+ * can be set programmatically.
  * 
  * @author Silvan Wyss
  * @date 2018-04-15

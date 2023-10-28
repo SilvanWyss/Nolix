@@ -45,13 +45,13 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    * @return a new {@link Matrix} with the size and elements of the given matrix.
    */
   public static <E2> Matrix<E2> fromMatrix(final IMatrix<E2> matrix) {
-  
+
     final var newMatrix = new Matrix<E2>();
-  
+
     for (final var r : matrix.getRows()) {
       newMatrix.addRow(r);
     }
-  
+
     return newMatrix;
   }
 

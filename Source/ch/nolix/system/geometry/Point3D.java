@@ -70,9 +70,9 @@ public class Point3D extends Element {
    * @return a new {@link Point3D} from the given specification.
    */
   public static Point3D fromSpecification(final INode<?> specification) {
-  
+
     final var attributes = specification.getStoredChildNodes();
-  
+
     return new Point3D(
         attributes.getStoredAt1BasedIndex(1).toDouble(),
         attributes.getStoredAt1BasedIndex(2).toDouble(),

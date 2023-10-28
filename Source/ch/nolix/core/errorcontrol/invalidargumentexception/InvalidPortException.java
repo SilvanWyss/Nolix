@@ -23,7 +23,7 @@ public final class InvalidPortException extends InvalidArgumentException {
 
   //constructor
   private InvalidPortException(final long port) {
-  
+
     //Calls constructor of the base class.
     super(ARGUMENT_NAME, port, ERROR_PREDICATE);
   }

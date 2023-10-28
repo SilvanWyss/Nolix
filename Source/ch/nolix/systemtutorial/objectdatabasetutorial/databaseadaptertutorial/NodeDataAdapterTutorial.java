@@ -34,10 +34,10 @@ public final class NodeDataAdapterTutorial {
   }
 
   private static final class Person extends Entity {
-  
+
     private final Value<String> firstName = new Value<>();
     private final Value<String> lastName = new Value<>();
-  
+
     @Override
     public String toString() {
       return (firstName.getStoredValue() + " " + lastName.getStoredValue());

@@ -40,8 +40,8 @@ public interface INameHolder {
   //method
   /**
    * @param object
-   * @return true if the current {@link INameHolder} has the same name as the given
-   *         object.
+   * @return true if the current {@link INameHolder} has the same name as the
+   *         given object.
    */
   default boolean hasSameNameAs(final INameHolder object) {
 

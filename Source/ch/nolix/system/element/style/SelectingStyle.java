@@ -55,14 +55,14 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static SelectingStyle fromSpecification(final INode<?> specification) {
-  
+
     var selectorIdContainer = new SingleContainer<String>();
     var selectorTypeContainer = new SingleContainer<String>();
     final var selectorRoles = new LinkedList<String>();
     final var selectorTokens = new LinkedList<String>();
     final var attachingAttributes = new LinkedList<INode<?>>();
     final var subStyles = new LinkedList<BaseSelectingStyle>();
-  
+
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case SELECTOR_ID_HEADER:
@@ -92,7 +92,7 @@ public final class SelectingStyle extends BaseSelectingStyle {
               specification);
       }
     }
-  
+
     return new SelectingStyle(
         selectorIdContainer,
         selectorTypeContainer,

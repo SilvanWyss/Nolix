@@ -26,7 +26,7 @@ public final class PositiveArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private PositiveArgumentException(final String argumentName, final long argument) {
-  
+
     //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }

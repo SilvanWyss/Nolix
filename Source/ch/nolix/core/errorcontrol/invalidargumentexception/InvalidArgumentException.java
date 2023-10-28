@@ -173,12 +173,12 @@ public class InvalidArgumentException extends RuntimeException {
    * @return a argument name for the given argument.
    */
   private static String getNameOfArgument(final Object argument) {
-  
+
     //Handles the case that the given argument is null.
     if (argument == null) {
       return DEFAULT_ARGUMENT_NAME;
     }
-  
+
     //Handles the case that the given argument is not null.
     return argument.getClass().getSimpleName();
   }
@@ -190,26 +190,26 @@ public class InvalidArgumentException extends RuntimeException {
    *         next words in text.
    */
   private static String getStringRepresentationWithPufferToNextWordsOfArgument(final Object argument) {
-  
+
     //Handles the case that the given argument is null.
     if (argument == null) {
       return " ";
     }
-  
+
     //Gets the String representation of the given argument.
     final var string = argument.toString();
-  
+
     //Handles the case that the String representation is null or blank.
     if (string == null || string.isBlank()) {
       return " ";
     }
-  
+
     //Handles the case that the length of the String representation is not bigger
     //than the max argument name length.
     if (string.length() <= MAX_ARGUMENT_NAME_LENGTH) {
       return (" '" + string + "' ");
     }
-  
+
     //Handles the case that the length of the String representation is bigger than
     //the max argument name length.
     return (" '" + string.substring(0, MAX_ARGUMENT_NAME_LENGTH) + ELLIPSIS + "' ");
@@ -223,17 +223,17 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private static String getValidArgumentNameOfArgumentName(final String argumentName) {
-  
+
     //Asserts that the given argumentName is not null.
     if (argumentName == null) {
       throw new IllegalArgumentException("The given argument name is null.");
     }
-  
+
     //Asserts that the given argumentName is not blank.
     if (argumentName.isBlank()) {
       throw new IllegalArgumentException("The given argument name is blank.");
     }
-  
+
     return argumentName;
   }
 
@@ -246,22 +246,22 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
    */
   private static String getValidErrorPredicateOfErrorPredicate(final String errorPredicate) {
-  
+
     //Asserts that the given errorPredicate is not null.
     if (errorPredicate == null) {
       throw new IllegalArgumentException("The given error predicate is null.");
     }
-  
+
     //Asserts that the given errorPredicate is not blank.
     if (errorPredicate.isBlank()) {
       throw new IllegalArgumentException("The given error predicate is blank.");
     }
-  
+
     //Asserts that the given errorPredicate does not end with a dot.
     if (errorPredicate.charAt(errorPredicate.length() - 1) == DOT) {
       throw new IllegalArgumentException("The given error predicate '" + errorPredicate + "' ends with a dot.");
     }
-  
+
     return errorPredicate;
   }
 

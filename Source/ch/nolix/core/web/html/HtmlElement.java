@@ -33,10 +33,10 @@ public final class HtmlElement implements IHtmlElement {
       final IContainer<? extends IHtmlAttribute> attributes,
       final String innerText,
       final IContainer<? extends IHtmlElement> childElements) {
-  
+
     GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
     GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
-  
+
     this.type = type;
     this.attributes = attributes.to(HtmlAttribute::fromHtmlAttribute);
     this.innerText = innerText;

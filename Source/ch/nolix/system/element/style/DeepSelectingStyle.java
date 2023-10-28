@@ -55,14 +55,14 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    * @throws InvalidArgumentException if the given specification is not valid.
    */
   public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
-  
+
     var selectorIdContainer = new SingleContainer<String>();
     var selectorTypeContainer = new SingleContainer<String>();
     final var selectorRoles = new LinkedList<String>();
     final var selectorTokens = new LinkedList<String>();
     final var attachingAttributes = new LinkedList<INode<?>>();
     final var subStyles = new LinkedList<BaseSelectingStyle>();
-  
+
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case SELECTOR_ID_HEADER:
@@ -92,7 +92,7 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
               specification);
       }
     }
-  
+
     return new DeepSelectingStyle(
         selectorIdContainer,
         selectorTypeContainer,

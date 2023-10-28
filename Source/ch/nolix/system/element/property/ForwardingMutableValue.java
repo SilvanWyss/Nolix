@@ -80,11 +80,11 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
         getter,
         s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
         (final String s) -> {
-  
+
           if (s.isEmpty()) {
             return Node.EMPTY_NODE;
           }
-  
+
           return Node.withChildNode(s);
         });
   }

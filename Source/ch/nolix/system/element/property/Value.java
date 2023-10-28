@@ -37,7 +37,7 @@ public final class Value<V> extends SingleValue<V> {
       final Consumer<V> setterMethod,
       final Function<INode<?>, V> valueCreator,
       final Function<V, INode<?>> specificationCreator) {
-  
+
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
   }

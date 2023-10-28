@@ -26,7 +26,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given pCase is null.
    */
   private UnsupportedCaseException(final Enum<?> pCase) {
-  
+
     //Calls constructor of the base class.
     super(ARGUMENT_NAME, getNameOfCase(pCase), ERROR_PREDICATE);
   }
@@ -40,7 +40,7 @@ public final class UnsupportedCaseException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given pCase is blank.
    */
   private UnsupportedCaseException(final String pCase) {
-  
+
     //Calls constructor of the base class.
     super(ARGUMENT_NAME, getValidCaseOfCase(pCase), ERROR_PREDICATE);
   }

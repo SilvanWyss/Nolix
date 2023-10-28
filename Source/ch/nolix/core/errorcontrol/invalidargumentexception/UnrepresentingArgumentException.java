@@ -29,7 +29,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * @throws IllegalArgumentException if the given type is null.
    */
   private UnrepresentingArgumentException(final Object argument, final Class<?> type) {
-  
+
     //Calls constructor of the base class.
     super(argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }
@@ -47,7 +47,7 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * @throws IllegalArgumentException if the given type is null.
    */
   private UnrepresentingArgumentException(final String argumentName, final Object argument, final Class<?> type) {
-  
+
     //Calls constructor of the base class.
     super(argumentName, argument, "does not represent " + getTypeNameWithPronounOfType(type));
   }

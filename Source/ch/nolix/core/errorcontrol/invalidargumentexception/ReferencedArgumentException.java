@@ -23,7 +23,7 @@ public final class ReferencedArgumentException extends InvalidArgumentException 
    * @param argument
    */
   private ReferencedArgumentException(final Object argument) {
-  
+
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }

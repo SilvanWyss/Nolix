@@ -34,11 +34,11 @@ public final class CssProperty implements ICssProperty {
 
   //static method
   public static CssProperty fromCssProperty(final ICssProperty cssProperty) {
-  
+
     if (cssProperty instanceof CssProperty localCssProperty) {
       return localCssProperty;
     }
-  
+
     return withNameAndValue(cssProperty.getName(), cssProperty.getValue());
   }
 

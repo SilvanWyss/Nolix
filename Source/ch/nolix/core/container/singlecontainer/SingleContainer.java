@@ -52,11 +52,11 @@ public final class SingleContainer<E> implements ISingleContainer<E> {
    *         element is not null, a new empty {@link SingleContainer} otherwise.
    */
   public static <E2> SingleContainer<E2> withElementOrEmpty(final E2 element) {
-  
+
     if (element == null) {
       return new SingleContainer<>();
     }
-  
+
     return new SingleContainer<>(element);
   }
 

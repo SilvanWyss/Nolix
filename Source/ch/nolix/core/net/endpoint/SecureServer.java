@@ -41,10 +41,10 @@ public final class SecureServer extends BaseServer {
   public static SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
       final int port,
       final String htmlPage) {
-  
+
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
         .getDefaultSSLCertificatefromLocalNolixConfiguration();
-  
+
     return new SecureServer(port, htmlPage, paramSSLCertificate);
   }
 

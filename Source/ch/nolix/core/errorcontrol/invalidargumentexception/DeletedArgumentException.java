@@ -22,7 +22,7 @@ public final class DeletedArgumentException extends InvalidArgumentException {
    * @param argument
    */
   private DeletedArgumentException(final Object argument) {
-  
+
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }

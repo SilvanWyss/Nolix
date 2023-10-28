@@ -22,7 +22,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @param value
    */
   private UnequalArgumentException(final Object argument, final Object value) {
-  
+
     //Calls constructor of the base class.
     super(argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }
@@ -39,7 +39,7 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private UnequalArgumentException(final String argumentName, final Object argument, final Object value) {
-  
+
     //Calls constructor of the base class.
     super(argumentName, argument, "does not equal the " + getNameForValue(value) + " '" + value + "'");
   }

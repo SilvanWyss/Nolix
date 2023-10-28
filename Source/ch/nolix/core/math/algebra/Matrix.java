@@ -143,10 +143,10 @@ public final class Matrix {
    * @return a new {@link Matrix} with the given size.
    */
   public static Matrix createRandomMatrix(final int size) {
-  
+
     //Asserts that the given size is positive.
     GlobalValidator.assertThat(size).thatIsNamed(LowerCaseCatalogue.SIZE).isPositive();
-  
+
     return createRandomMatrix(size, size);
   }
 
@@ -164,19 +164,19 @@ public final class Matrix {
    *                                      positive.
    */
   public static Matrix createRandomMatrix(final int rowCount, final int columnCount) {
-  
+
     //Creates Matrix.
     final var matrix = new Matrix(rowCount, columnCount);
-  
+
     //Iterates the rows of the matrix.
     for (var i = 0; i < matrix.getRowCount(); i++) {
-  
+
       //Iterates the cells of the current row.
       for (var j = 0; j < matrix.getColumnCount(); j++) {
         matrix.values[i][j] = RANDOM.nextInt(100);
       }
     }
-  
+
     return matrix;
   }
 

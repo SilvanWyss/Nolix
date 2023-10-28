@@ -92,7 +92,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   //static method
   public static MutableImage fromBufferedImage(final BufferedImage bufferedImage) {
-  
+
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(bufferedImage.getWidth(), bufferedImage.getHeight());
     for (var i = 1; i <= image.getWidth(); i++) {
       for (var j = 1; j <= image.getHeight(); j++) {
@@ -107,15 +107,15 @@ public final class MutableImage extends MutableElement implements IMutableImage<
                 (pixel >> 24) & 0xff));
       }
     }
-  
+
     return image;
   }
 
   //static method
   public static MutableImage fromFile(final String filePath) {
-  
+
     final var bufferedImage = GlobalBufferedImageHelper.fromFile(filePath);
-  
+
     return fromBufferedImage(bufferedImage);
   }
 
@@ -126,19 +126,19 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   //static method
   public static MutableImage fromSpecification(final INode<?> specification) {
-  
+
     if (specification.containsChildNodeWithHeader(JPG_STRING)) {
-  
+
       final var lJPGString = specification.getStoredFirstChildNodeWithHeader(JPG_STRING).getSingleChildNodeHeader();
-  
+
       return fromBytes(Base64.getDecoder().decode(lJPGString.substring(lJPGString.indexOf(',') + 1)));
     }
-  
+
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(
         specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
         specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt());
     image.setPixelArray(specification.getStoredFirstChildNodeThat(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
-  
+
     return image;
   }
 
@@ -154,25 +154,25 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   //static method
   public static MutableImage withWidthAndHeightAndColor(final int width, final int height, final Color color) {
-  
+
     GlobalValidator.assertThat(width).thatIsNamed(LowerCaseCatalogue.WIDTH).isPositive();
     GlobalValidator.assertThat(height).thatIsNamed(LowerCaseCatalogue.HEIGHT).isPositive();
     GlobalValidator.assertThat(color).thatIsNamed(Color.class).isNotNull();
-  
+
     var pixels = new Matrix<IColor>();
-  
+
     if (width > 0 && height > 0) {
-  
+
       final var row = new Color[width];
       for (var i = 0; i < width; i++) {
         row[i] = color;
       }
-  
+
       for (var i = 1; i <= height; i++) {
         pixels.addRow(ReadContainer.forArray(row));
       }
     }
-  
+
     return new MutableImage(pixels);
   }
 

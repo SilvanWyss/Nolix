@@ -49,7 +49,7 @@ public final class ForMaxMillisecondsMediator {
    *                                   negative.
    */
   static ForMaxMillisecondsMediator forMaxMilliseconds(final int maxDurationInMilliseconds) {
-  
+
     //Creates and returns a new ForMaxMillisecondsMediator.
     return new ForMaxMillisecondsMediator(maxDurationInMilliseconds);
   }
@@ -63,10 +63,10 @@ public final class ForMaxMillisecondsMediator {
    *                                   negative.
    */
   static ForMaxMillisecondsMediator forMaxSeconds(final int maxDurationInSeconds) {
-  
+
     //Asserts that the given maxDurationInSeconds is not negative.
     GlobalValidator.assertThat(maxDurationInSeconds).thatIsNamed("max duration in seconds").isNotNegative();
-  
+
     //Creates and returns a new ForMaxMillisecondsMediator.
     return new ForMaxMillisecondsMediator(maxDurationInSeconds * TimeUnitCatalogue.MILLISECONDS_PER_SECOND);
   }

@@ -23,7 +23,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
         .technicalGetRefEntitiesInLocalData()
         .containsOnly(
             e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a
-                                                                           //BootstrapMethodError.
+                                                                                                                                          //BootstrapMethodError.
         );
   }
 

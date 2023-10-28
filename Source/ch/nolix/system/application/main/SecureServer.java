@@ -47,22 +47,22 @@ public final class SecureServer extends BaseServer<SecureServer> {
 
   //static method
   public static SecureServer forHttpsPortAndDomainAndSSLCertificateFromNolixConfiguration() {
-  
+
     final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
-  
+
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
         .getDefaultSSLCertificatefromLocalNolixConfiguration();
-  
+
     return new SecureServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
   }
 
   //static method
   public static SecureServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
       final String domain) {
-  
+
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
         .getDefaultSSLCertificatefromLocalNolixConfiguration();
-  
+
     return new SecureServer(DEFAULT_PORT, domain, paramSSLCertificate);
   }
 
@@ -70,10 +70,10 @@ public final class SecureServer extends BaseServer<SecureServer> {
   public static SecureServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
       final int port,
       final String domain) {
-  
+
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
         .getDefaultSSLCertificatefromLocalNolixConfiguration();
-  
+
     return new SecureServer(port, domain, paramSSLCertificate);
   }
 

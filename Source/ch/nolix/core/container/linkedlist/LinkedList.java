@@ -51,10 +51,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    *                                 null.
    */
   public static <E2> LinkedList<E2> fromArray(final E2[] array) {
-  
+
     final var list = new LinkedList<E2>();
     list.addAtEnd(array);
-  
+
     return list;
   }
 
@@ -68,10 +68,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    *                                 is null.
    */
   public static <E2> LinkedList<E2> fromIterable(final Iterable<E2> container) {
-  
+
     final var list = new LinkedList<E2>();
     list.addAtEnd(container);
-  
+
     return list;
   }
 
@@ -86,10 +86,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @SuppressWarnings("unchecked")
   public static <E2> LinkedList<E2> withElement(final E2 element, final E2... elements) {
-  
+
     final var list = new LinkedList<E2>();
     list.addAtEnd(element, elements);
-  
+
     return list;
   }
 

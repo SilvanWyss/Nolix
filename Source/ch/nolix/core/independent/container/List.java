@@ -35,27 +35,27 @@ public final class List<E> implements Iterable<E> {
 
   //static method
   public static String[] createArrayFromList(final List<String> list) {
-  
+
     final var array = new String[list.getElementCount()];
-  
+
     var index = 0;
     for (final var ail : list) {
       array[index] = ail;
       index++;
     }
-  
+
     return array;
   }
 
   //static method
   public static <E2> List<E2> withElements(final Iterable<E2> elements) {
-  
+
     final var list = new List<E2>();
-  
+
     for (final var e : elements) {
       list.addAtEnd(e);
     }
-  
+
     return list;
   }
 

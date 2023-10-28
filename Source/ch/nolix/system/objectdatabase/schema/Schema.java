@@ -31,15 +31,15 @@ public final class Schema implements ISchema {
   public static Schema withEntityType(
       final Class<?> entityType,
       final Class<?>... entityTypes) {
-  
+
     final var allEntityTypes = new LinkedList<Class<? extends IEntity>>();
-  
+
     allEntityTypes.addAtEnd((Class<IEntity>) entityType);
-  
+
     for (final var et : entityTypes) {
       allEntityTypes.addAtEnd((Class<IEntity>) et);
     }
-  
+
     return new Schema(allEntityTypes);
   }
 

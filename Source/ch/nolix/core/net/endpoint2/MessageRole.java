@@ -37,7 +37,7 @@ public enum MessageRole {
    *                                         represent a {@link MessageRole}.
    */
   public static MessageRole fromPrefix(final char prefix) {
-  
+
     //Enumerates the given prefix.
     return switch (prefix) {
       case MessageRolePrefixCatalogue.TARGET_APPLICATION_PREFIX ->

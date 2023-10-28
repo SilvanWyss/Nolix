@@ -32,19 +32,19 @@ public final class Image extends Element implements IImage {
 
   //static method
   public static Image fromAnyImage(final IImage image) {
-  
+
     if (image instanceof Image lImage) {
       return lImage;
     }
-  
+
     return new Image(MutableImage.fromAnyImage(image));
   }
 
   //static method
   public static Image fromBytes(final byte[] bytes) {
-  
+
     final var mutableImage = MutableImage.fromBytes(bytes);
-  
+
     return fromAnyImage(mutableImage);
   }
 

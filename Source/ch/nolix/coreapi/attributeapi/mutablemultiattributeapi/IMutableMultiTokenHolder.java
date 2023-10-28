@@ -6,8 +6,8 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
 
 //interface
 /**
- * A {@link IMutableMultiTokenHolder} is a {@link IMultiTokenHolder} whose tokens can be added
- * and removed programmatically.
+ * A {@link IMutableMultiTokenHolder} is a {@link IMultiTokenHolder} whose
+ * tokens can be added and removed programmatically.
  * 
  * @author Silvan Wyss
  * @date 2023-07-16
@@ -26,8 +26,8 @@ public interface IMutableMultiTokenHolder extends IMultiTokenHolder {
   //method declaration
   /**
    * Removes the token that equals the given token from the current
-   * {@link IMutableMultiTokenHolder} if the current {@link IMutableMultiTokenHolder} contains such a
-   * token.
+   * {@link IMutableMultiTokenHolder} if the current
+   * {@link IMutableMultiTokenHolder} contains such a token.
    * 
    * @param token
    */

@@ -22,7 +22,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
    * @param argument
    */
   private EmptyArgumentException(final Object argument) {
-  
+
     //Calls constructor of the base class.
     super(argument, ERROR_PREDICATE);
   }
@@ -38,7 +38,7 @@ public final class EmptyArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private EmptyArgumentException(final String argumentName, final Object argument) {
-  
+
     //Calls constructor of the base class.
     super(argumentName, argument, ERROR_PREDICATE);
   }

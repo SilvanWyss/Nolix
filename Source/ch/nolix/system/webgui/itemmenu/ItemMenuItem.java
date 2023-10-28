@@ -67,9 +67,9 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //constructor
   private ItemMenuItem(final Consumer<IItemMenuItem<?>> selectAction) {
-  
+
     GlobalValidator.assertThat(selectAction).thatIsNamed("select action").isNotNull();
-  
+
     this.selectAction = selectAction;
   }
 

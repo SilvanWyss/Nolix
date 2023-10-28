@@ -84,25 +84,25 @@ public final class ImmutableList<E> extends Container<E> {
    */
   @SuppressWarnings("unchecked")
   public static <E2> ImmutableList<E2> forIterable(final Iterable<E2> container) {
-  
+
     if (container instanceof ImmutableList) {
       return (ImmutableList<E2>) container;
     }
-  
+
     final var elementCount = GlobalIterableHelper.getElementCount(container);
     final var elements = new Object[elementCount];
     var index = 0;
     for (final var e : container) {
-  
+
       if (e == null) {
         throw ArgumentIsNullException.forArgumentName((index + 1) + "th element");
       }
-  
+
       elements[index] = e;
-  
+
       index++;
     }
-  
+
     return new ImmutableList<>((E2[]) elements);
   }
 
