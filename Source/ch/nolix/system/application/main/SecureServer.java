@@ -20,7 +20,7 @@ public final class SecureServer extends BaseServer<SecureServer> {
 
   //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-      new NolixConfigurationSSLCertificateReader();
+  new NolixConfigurationSSLCertificateReader();
 
   //attribute
   private final ch.nolix.core.net.endpoint3.SecureServer internalWebSocketServer;
@@ -51,28 +51,28 @@ public final class SecureServer extends BaseServer<SecureServer> {
     final var domain = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER.getDefaultDomainFromLocalNolixConfiguration();
 
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+      .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SecureServer(PortCatalogue.HTTPS, domain, paramSSLCertificate);
   }
 
   //static method
   public static SecureServer forDefaultPortAndDomainAndSSLCertificateFromNolixConfiguration(
-      final String domain) {
+    final String domain) {
 
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+      .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SecureServer(DEFAULT_PORT, domain, paramSSLCertificate);
   }
 
   //static method
   public static SecureServer forPortAndDomainAndSSLCertificateFromNolixConfiguration(
-      final int port,
-      final String domain) {
+    final int port,
+    final String domain) {
 
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+      .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SecureServer(port, domain, paramSSLCertificate);
   }
@@ -81,9 +81,9 @@ public final class SecureServer extends BaseServer<SecureServer> {
   @Override
   public IServerTarget asTarget() {
     return ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
-        domain,
-        port,
-        SECURITY_LEVEL_FOR_CONNECTIONS);
+      domain,
+      port,
+      SECURITY_LEVEL_FOR_CONNECTIONS);
   }
 
   //method

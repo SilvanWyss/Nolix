@@ -17,13 +17,13 @@ public final class SingleContainerHtmlBuilder implements IControlHtmlBuilder<ISi
   @Override
   public IHtmlElement createHtmlElementForControl(final ISingleContainer control) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.DIV,
-        createHtmlElementsForChildControlsOfSingleContainer(control));
+      HtmlElementTypeCatalogue.DIV,
+      createHtmlElementsForChildControlsOfSingleContainer(control));
   }
 
   //method
   private IContainer<IHtmlElement> createHtmlElementsForChildControlsOfSingleContainer(
-      final ISingleContainer singleContainer) {
+    final ISingleContainer singleContainer) {
 
     if (singleContainer.isEmpty()) {
       return new ImmutableList<>();

@@ -50,9 +50,9 @@ public final class ValueTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.setValue(null))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given value is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given value is null.");
 
     //verification
     expect(testUnit.isEmpty());

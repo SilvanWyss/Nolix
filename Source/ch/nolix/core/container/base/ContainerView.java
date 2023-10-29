@@ -64,9 +64,9 @@ final class ContainerView<E> extends Container<E> {
     GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
 
     GlobalValidator
-        .assertThat(endIndex)
-        .thatIsNamed(LowerCaseCatalogue.END_INDEX)
-        .isNotBiggerThan(container.getElementCount());
+      .assertThat(endIndex)
+      .thatIsNamed(LowerCaseCatalogue.END_INDEX)
+      .isNotBiggerThan(container.getElementCount());
 
     this.container = container;
     this.startIndex = startIndex;
@@ -120,9 +120,9 @@ final class ContainerView<E> extends Container<E> {
   @Override
   public CopyableIterator<E> iterator() {
     return new ContainerViewIterator<>(
-        container,
-        startIndex,
-        endIndex);
+      container,
+      startIndex,
+      endIndex);
   }
 
   //method

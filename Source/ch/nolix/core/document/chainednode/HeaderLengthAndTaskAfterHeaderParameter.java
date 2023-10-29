@@ -9,8 +9,8 @@ record HeaderLengthAndTaskAfterHeaderParameter(int headerLength, TaskAfterHeader
 
   //constructor
   public HeaderLengthAndTaskAfterHeaderParameter( //NOSONAR: This constructor does more than the default one.
-      final int headerLength,
-      final TaskAfterHeader taskAfterHeader) {
+    final int headerLength,
+    final TaskAfterHeader taskAfterHeader) {
 
     if (taskAfterHeader == null) {
       throw ArgumentIsNullException.forArgumentName("task after header");

@@ -34,11 +34,11 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
 
   //constructor
   public ForwardingMutableValue(
-      final String name,
-      final Consumer<V> setter,
-      final Supplier<V> getter,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> setter,
+    final Supplier<V> getter,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();
@@ -55,38 +55,38 @@ public final class ForwardingMutableValue<V> implements IProperty, INameHolder {
 
   //static method
   public static ForwardingMutableValue<Boolean> forBoolean(
-      final String name,
-      final Consumer<Boolean> setter,
-      final Supplier<Boolean> getter) {
+    final String name,
+    final Consumer<Boolean> setter,
+    final Supplier<Boolean> getter) {
     return new ForwardingMutableValue<>(name, setter, getter, INode::getSingleChildNodeAsBoolean, Node::withChildNode);
   }
 
   //static method
   public static ForwardingMutableValue<Integer> forInt(
-      final String name,
-      final Consumer<Integer> setter,
-      final Supplier<Integer> getter) {
+    final String name,
+    final Consumer<Integer> setter,
+    final Supplier<Integer> getter) {
     return new ForwardingMutableValue<>(name, setter, getter, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
   //static method
   public static ForwardingMutableValue<String> forString(
-      final String name,
-      final Consumer<String> setter,
-      final Supplier<String> getter) {
+    final String name,
+    final Consumer<String> setter,
+    final Supplier<String> getter) {
     return new ForwardingMutableValue<>(
-        name,
-        setter,
-        getter,
-        s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
-        (final String s) -> {
+      name,
+      setter,
+      getter,
+      s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
+      (final String s) -> {
 
-          if (s.isEmpty()) {
-            return Node.EMPTY_NODE;
-          }
+        if (s.isEmpty()) {
+          return Node.EMPTY_NODE;
+        }
 
-          return Node.withChildNode(s);
-        });
+        return Node.withChildNode(s);
+      });
   }
 
   //method

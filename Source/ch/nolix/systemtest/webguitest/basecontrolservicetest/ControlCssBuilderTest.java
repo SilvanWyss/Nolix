@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ControlCssBuilderTest<CCB extends IControlCssBuilder<C, ?>, C extends IControl<C, ?>>
-    extends Test {
+extends Test {
 
   //method
   @TestCase

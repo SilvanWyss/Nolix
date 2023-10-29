@@ -16,13 +16,13 @@ public final class DatabaseNodeSearcher {
 
   //method
   public IMutableNode<?> getStoredColumnNodeByColumnIdFromDatabaseNode(
-      final IMutableNode<?> databaseNode,
-      final String columnId) {
+    final IMutableNode<?> databaseNode,
+    final String columnId) {
     return getStoredTableNodesFromDatabaseNode(databaseNode)
-        .toFromGroups(TABLE_NODE_SEARCHER::getStoredColumnNodesFromTableNode)
-        .getStoredFirst(
-            cn -> COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(cn).getStoredSingleChildNode()
-                .hasHeader(columnId));
+      .toFromGroups(TABLE_NODE_SEARCHER::getStoredColumnNodesFromTableNode)
+      .getStoredFirst(
+        cn -> COLUMN_NODE_SEARCHER.getStoredIdNodeFromColumnNode(cn).getStoredSingleChildNode()
+          .hasHeader(columnId));
   }
 
   //method
@@ -32,22 +32,22 @@ public final class DatabaseNodeSearcher {
 
   //method
   public IMutableNode<?> getStoredTableNodeByTableIdFromDatabaseNode(
-      final IMutableNode<?> databaseNode,
-      final String tableId) {
+    final IMutableNode<?> databaseNode,
+    final String tableId) {
     return getStoredTableNodesFromDatabaseNode(databaseNode).getStoredFirst(
-        tsn -> tsn.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getStoredSingleChildNode()
-            .hasHeader(tableId));
+      tsn -> tsn.getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.ID).getStoredSingleChildNode()
+        .hasHeader(tableId));
   }
 
   //method
   public IMutableNode<?> getStoredTableNodeByTableNameFromDatabaseNode(
-      final IMutableNode<?> databaseNode,
-      final String tableName) {
+    final IMutableNode<?> databaseNode,
+    final String tableName) {
     return getStoredTableNodesFromDatabaseNode(databaseNode).getStoredFirst(
-        tsn -> tsn
-            .getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME)
-            .getStoredSingleChildNode()
-            .hasHeader(tableName));
+      tsn -> tsn
+        .getStoredFirstChildNodeWithHeader(SubNodeHeaderCatalogue.NAME)
+        .getStoredSingleChildNode()
+        .hasHeader(tableName));
   }
 
   //method

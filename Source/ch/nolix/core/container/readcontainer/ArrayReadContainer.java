@@ -49,9 +49,9 @@ public final class ArrayReadContainer<E> extends Container<E> {
 
     //Asserts that the given array is not null.
     GlobalValidator
-        .assertThat(array)
-        .thatIsNamed(LowerCaseCatalogue.ARRAY)
-        .isNotNull();
+      .assertThat(array)
+      .thatIsNamed(LowerCaseCatalogue.ARRAY)
+      .isNotNull();
 
     //Sets the array of the current ArrayReadContainer.
     this.array = array; //NOSONAR: An ArrayReadContainer operates on the original instance.

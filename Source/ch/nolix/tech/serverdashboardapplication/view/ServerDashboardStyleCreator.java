@@ -20,78 +20,78 @@ final class ServerDashboardStyleCreator {
   //method
   public Style createServerDashboardStyle() {
     return new StyleBuilder()
-        .addSubStyle(
-            createLayerStyle(),
-            createImageControlStyle(),
-            createOverallVerticalStackContainerStyle(),
-            createMainContentFloatContainerStyle(),
-            createTitleLabelStyle(),
-            createLevel1HeaderLabelStyle())
-        .build();
+      .addSubStyle(
+        createLayerStyle(),
+        createImageControlStyle(),
+        createOverallVerticalStackContainerStyle(),
+        createMainContentFloatContainerStyle(),
+        createTitleLabelStyle(),
+        createLevel1HeaderLabelStyle())
+      .build();
   }
 
   //method
   private DeepSelectingStyle createLayerStyle() {
     return new DeepSelectingStyleBuilder()
-        .setSelectorType(Layer.class)
-        .addAttachingAttribute("ContentAlignment(TOP)")
-        .build();
+      .setSelectorType(Layer.class)
+      .addAttachingAttribute("ContentAlignment(TOP)")
+      .build();
   }
 
   //method
   private DeepSelectingStyle createImageControlStyle() {
     return new DeepSelectingStyleBuilder()
-        .setSelectorType(ImageControl.class)
-        .addAttachingAttribute(
-            "BaseWidth(250)",
-            "BaseHeight(200)",
-            "CursorIcon(Hand)",
-            "BaseOpacity(50%)",
-            "HoverOpacity(90%)")
-        .build();
+      .setSelectorType(ImageControl.class)
+      .addAttachingAttribute(
+        "BaseWidth(250)",
+        "BaseHeight(200)",
+        "CursorIcon(Hand)",
+        "BaseOpacity(50%)",
+        "HoverOpacity(90%)")
+      .build();
   }
 
   //method
   private DeepSelectingStyle createOverallVerticalStackContainerStyle() {
     return new DeepSelectingStyleBuilder()
-        .setSelectorType(VerticalStack.class)
-        .addSelectorRole(ContainerRole.OVERALL_CONTAINER)
-        .addAttachingAttribute(
-            "ContentAlignment(CENTER)",
-            "BaseChildControlMargin(50)",
-            "BaseTextColor(0x202020)")
-        .build();
+      .setSelectorType(VerticalStack.class)
+      .addSelectorRole(ContainerRole.OVERALL_CONTAINER)
+      .addAttachingAttribute(
+        "ContentAlignment(CENTER)",
+        "BaseChildControlMargin(50)",
+        "BaseTextColor(0x202020)")
+      .build();
   }
 
   //method
   private DeepSelectingStyle createMainContentFloatContainerStyle() {
     return new DeepSelectingStyleBuilder()
-        .setSelectorType(FloatContainer.class)
-        .addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-        .addAttachingAttribute("BaseChildControlMargin(20)")
-        .addSubStyle(
-            new DeepSelectingStyleBuilder()
-                .setSelectorType(VerticalStack.class)
-                .addAttachingAttribute("BaseChildControlMargin(10)")
-                .build())
-        .build();
+      .setSelectorType(FloatContainer.class)
+      .addSelectorRole(ContainerRole.MAIN_CONTENT_CONTAINER)
+      .addAttachingAttribute("BaseChildControlMargin(20)")
+      .addSubStyle(
+        new DeepSelectingStyleBuilder()
+          .setSelectorType(VerticalStack.class)
+          .addAttachingAttribute("BaseChildControlMargin(10)")
+          .build())
+      .build();
   }
 
   //method
   private DeepSelectingStyle createTitleLabelStyle() {
     return new DeepSelectingStyleBuilder()
-        .setSelectorType(Label.class)
-        .addSelectorRole(LabelRole.TITLE)
-        .addAttachingAttribute("BaseTextSize(50)")
-        .build();
+      .setSelectorType(Label.class)
+      .addSelectorRole(LabelRole.TITLE)
+      .addAttachingAttribute("BaseTextSize(50)")
+      .build();
   }
 
   //method
   private DeepSelectingStyle createLevel1HeaderLabelStyle() {
     return new DeepSelectingStyleBuilder()
-        .setSelectorType(Label.class)
-        .addSelectorRole(LabelRole.LEVEL1_HEADER)
-        .addAttachingAttribute("BaseTextSize(18)")
-        .build();
+      .setSelectorType(Label.class)
+      .addSelectorRole(LabelRole.LEVEL1_HEADER)
+      .addAttachingAttribute("BaseTextSize(18)")
+      .build();
   }
 }

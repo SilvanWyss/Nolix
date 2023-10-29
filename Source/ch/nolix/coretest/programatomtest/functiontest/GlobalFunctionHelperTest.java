@@ -39,8 +39,8 @@ public final class GlobalFunctionHelperTest extends Test {
 
     //execution & verification
     expectRunning(() -> GlobalFunctionHelper.createNegatorFor(null))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given condition is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given condition is null.");
   }
 }

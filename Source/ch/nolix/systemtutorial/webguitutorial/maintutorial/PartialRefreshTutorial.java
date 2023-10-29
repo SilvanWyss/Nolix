@@ -17,7 +17,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 public final class PartialRefreshTutorial {
 
   private static final IImage IMAGE = Image.fromResource("ch/nolix/systemtutorial/webguitutorial/resource/pilatus.jpg")
-      .withWidthAndHeight(1200, 600);
+    .withWidthAndHeight(1200, 600);
 
   private PartialRefreshTutorial() {
   }
@@ -29,51 +29,51 @@ public final class PartialRefreshTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-        "Partial refresh tutorial",
-        MainSession.class);
+      "Partial refresh tutorial",
+      MainSession.class);
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   public static final class MainSession //NOSONAR: A single-file-tutorial is allowed to have a long static class.
-      extends WebClientSession<Object> {
+  extends WebClientSession<Object> {
 
     private final ILabel timeLabel = new Label()
-        .editStyle(
-            s -> s
-                .setTextSizeForState(ControlState.BASE, 50)
-                .setTextColorForState(ControlState.BASE, Color.GREY));
+      .editStyle(
+        s -> s
+          .setTextSizeForState(ControlState.BASE, 50)
+          .setTextColorForState(ControlState.BASE, Color.GREY));
 
     @Override
     protected void initialize() {
 
       getStoredGui()
-          .pushLayerWithRootControl(
-              new VerticalStack()
-                  .addControl(
-                      new ImageControl().setImage(IMAGE),
-                      timeLabel));
+        .pushLayerWithRootControl(
+          new VerticalStack()
+            .addControl(
+              new ImageControl().setImage(IMAGE),
+              timeLabel));
 
       GlobalSequencer
-          .runInBackground(
-              () -> {
+        .runInBackground(
+          () -> {
 
-                //We must wait until the client has received the first version of the page.
-                GlobalSequencer.waitForMilliseconds(1000);
+            //We must wait until the client has received the first version of the page.
+            GlobalSequencer.waitForMilliseconds(1000);
 
-                GlobalSequencer
-                    .asLongAs(this::isAlive)
-                    .afterEveryMilliseconds(50)
-                    .runInBackground(this::updateTime);
-              });
+            GlobalSequencer
+              .asLongAs(this::isAlive)
+              .afterEveryMilliseconds(50)
+              .runInBackground(this::updateTime);
+          });
     }
 
     private void updateTime() {
@@ -89,11 +89,11 @@ public final class PartialRefreshTutorial {
 
     private String getTimeAsText(final Time time) {
       return String.format(
-          "%02d:%02d:%02d.%d",
-          time.getHourOfDay(),
-          time.getMinuteOfHour(),
-          time.getSecondOfMinute(),
-          time.getMillisecondOfSecond() / 100);
+        "%02d:%02d:%02d.%d",
+        time.getHourOfDay(),
+        time.getMinuteOfHour(),
+        time.getSecondOfMinute(),
+        time.getMillisecondOfSecond() / 100);
     }
   }
 }

@@ -60,14 +60,14 @@ public final class ShellProvider {
   public static void startFirefox(final String url, final int port) {
 
     GlobalValidator
-        .assertThat(url)
-        .thatIsNamed(LowerCaseCatalogue.URL)
-        .isNotBlank();
+      .assertThat(url)
+      .thatIsNamed(LowerCaseCatalogue.URL)
+      .isNotBlank();
 
     GlobalValidator
-        .assertThat(port)
-        .thatIsNamed(LowerCaseCatalogue.PORT)
-        .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .assertThat(port)
+      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     run(new String[] { "start", "firefox", "--url", url + ":" + port });
   }

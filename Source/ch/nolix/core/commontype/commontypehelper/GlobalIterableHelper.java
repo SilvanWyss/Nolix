@@ -14,7 +14,7 @@ public final class GlobalIterableHelper {
   //static method
   public static boolean containsAny(final Iterable<?> iterable) {
     return iterable != null
-        && iterable.iterator().hasNext();
+    && iterable.iterator().hasNext();
   }
 
   //static method

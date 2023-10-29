@@ -57,6 +57,6 @@ public final class ServerDashboardContext implements IServerDashboardContext {
   //method
   private boolean isWebApplication(final Application<?, ?> application) {
     return application != null
-        && application.getClientClass() == WebClient.class;
+    && application.getClientClass() == WebClient.class;
   }
 }

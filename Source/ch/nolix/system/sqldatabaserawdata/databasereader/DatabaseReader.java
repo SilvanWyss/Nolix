@@ -28,10 +28,10 @@ public final class DatabaseReader implements IDataReader {
 
   //constructor
   private DatabaseReader(
-      final String databaseName,
-      final SqlConnection sqlConnection,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnection sqlConnection,
+    final IContainer<ITableInfo> tableInfos,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 
@@ -43,10 +43,10 @@ public final class DatabaseReader implements IDataReader {
 
   //static method
   public static DatabaseReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final IContainer<ITableInfo> tableInfos,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
     return new DatabaseReader(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
   }
 
@@ -65,23 +65,23 @@ public final class DatabaseReader implements IDataReader {
   //method
   @Override
   public IContainer<String> loadMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
     return internalDatabaseReader.loadMultiReferenceEntries(
-        entityId,
-        getColumnInfoByTableNameAndColumnName(tableName, multiReferenceColumnName));
+      entityId,
+      getColumnInfoByTableNameAndColumnName(tableName, multiReferenceColumnName));
   }
 
   //method
   @Override
   public IContainer<Object> loadMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
     return internalDatabaseReader.loadMultiValueEntries(
-        entityId,
-        getColumnInfoByTableNameAndColumnName(tableName, multiValueColumnName));
+      entityId,
+      getColumnInfoByTableNameAndColumnName(tableName, multiValueColumnName));
   }
 
   //method
@@ -105,9 +105,9 @@ public final class DatabaseReader implements IDataReader {
   //method
   @Override
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
-      final String tableName,
-      final String columnName,
-      final String value) {
+    final String tableName,
+    final String columnName,
+    final String value) {
 
     final var columnInfo = getColumnInfoByTableNameAndColumnName(tableName, columnName);
 
@@ -122,8 +122,8 @@ public final class DatabaseReader implements IDataReader {
 
   //method
   private IColumnInfo getColumnInfoByTableNameAndColumnName(
-      final String tableName,
-      final String columnName) {
+    final String tableName,
+    final String columnName) {
     return getTableInfoByTableName(tableName).getColumnInfoByColumnName(columnName);
   }
 

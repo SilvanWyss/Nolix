@@ -37,65 +37,65 @@ public final class DatabaseWriter implements IDataWriter {
   //method
   @Override
   public void deleteMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     internalDatabaseWriter.deleteEntriesFromMultiReference(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
   }
 
   //method
   @Override
   public void deleteMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     internalDatabaseWriter.deleteEntriesFromMultiValue(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiValueColumnName));
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiValueColumnName));
   }
 
   //method
   @Override
   public void deleteMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiRefereceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiRefereceColumnName,
+    final String referencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     internalDatabaseWriter.deleteEntryFromMultiReference(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiRefereceColumnName),
-        referencedEntityId);
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiRefereceColumnName),
+      referencedEntityId);
   }
 
   //method
   @Override
   public void deleteMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName,
+    final String entry) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     internalDatabaseWriter.deleteEntryFromMultiValue(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiValueColumnName),
-        entry);
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiValueColumnName),
+      entry);
   }
 
   //method
@@ -131,35 +131,35 @@ public final class DatabaseWriter implements IDataWriter {
   //method
   @Override
   public void insertMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName,
+    final String referencedEntityId) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     internalDatabaseWriter.insertEntryIntoMultiReference(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiReferenceColumnName),
-        referencedEntityId);
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiReferenceColumnName),
+      referencedEntityId);
   }
 
   //method
   @Override
   public void insertMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName,
+    final String entry) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     internalDatabaseWriter.insertEntryIntoMultiValue(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiValueColumnName),
-        entry);
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiValueColumnName),
+      entry);
   }
 
   //method

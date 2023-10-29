@@ -10,9 +10,9 @@ public final class AbstractReferenceContentEvaluator {
 
   //method
   public boolean canSetReferenceType(
-      final AbstractReferenceContent abstractReferenceContent,
-      final IAbstractableObject referenceType) {
+    final AbstractReferenceContent abstractReferenceContent,
+    final IAbstractableObject referenceType) {
     return abstractReferenceContent != null
-        && referenceType != null;
+    && referenceType != null;
   }
 }

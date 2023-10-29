@@ -32,8 +32,8 @@ public final class FractalBuilder implements IFractalBuilder {
 
   //constant
   public static final Function<IComplexNumber, ISequence<IComplexNumber>> DEFAULT_SEQUENCE_CREATOR = //
-      z -> new ComplexSequenceDefinedBy1Predecessor(
-          z, p -> p.getPower2().getSum(z));
+  z -> new ComplexSequenceDefinedBy1Predecessor(
+    z, p -> p.getPower2().getSum(z));
 
   //constant
   public static final double DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE = 10.0;
@@ -43,7 +43,7 @@ public final class FractalBuilder implements IFractalBuilder {
 
   //constant
   public static final IntFunction<IColor> DEFAULT_COLOR_FUNCTION = i -> Color
-      .withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
+    .withRedValueAndGreenValueAndBlueValue(0, 0, (10 * i) % Color.MAX_COLOR_COMPONENT);
 
   //constant
   public static final int DEFAULT_BIG_DECIMAL_SCALE = 10;
@@ -62,7 +62,7 @@ public final class FractalBuilder implements IFractalBuilder {
 
   //attribute
   private Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator = //
-      DEFAULT_SEQUENCE_CREATOR;
+  DEFAULT_SEQUENCE_CREATOR;
 
   //attribute
   private BigDecimal sequencesMinDivergenceMagnitude = BigDecimal.valueOf(DEFAULT_SEQUENCES_MIN_DIVERGENCE_MAGNITUDE);
@@ -80,15 +80,15 @@ public final class FractalBuilder implements IFractalBuilder {
   @Override
   public Fractal build() {
     return new Fractal(
-        realComponentInterval,
-        imaginaryComponentInterval,
-        widthInPixel,
-        heightInPixel,
-        sequenceCreator,
-        sequencesMinDivergenceMagnitude,
-        sequencesMaxIterationCount,
-        colorFunction,
-        bigDecimalScale);
+      realComponentInterval,
+      imaginaryComponentInterval,
+      widthInPixel,
+      heightInPixel,
+      sequenceCreator,
+      sequencesMinDivergenceMagnitude,
+      sequencesMaxIterationCount,
+      colorFunction,
+      bigDecimalScale);
   }
 
   //method
@@ -181,7 +181,7 @@ public final class FractalBuilder implements IFractalBuilder {
   //method
   @Override
   public IFractalBuilder setSequenceCreator(
-      final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
+    final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator) {
 
     this.sequenceCreator = sequenceCreator;
 

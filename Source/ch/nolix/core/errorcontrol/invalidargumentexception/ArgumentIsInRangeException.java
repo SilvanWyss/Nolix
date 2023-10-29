@@ -56,10 +56,10 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argument name is blank.
    */
   private ArgumentIsInRangeException(
-      final String argumentName,
-      final double argument,
-      final double min,
-      final double max) {
+    final String argumentName,
+    final double argument,
+    final double min,
+    final double max) {
 
     //Calls constructor of the base class.
     super(argumentName, argument, "is in [" + min + ", " + max + "]");
@@ -78,10 +78,10 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argument name is blank.
    */
   private ArgumentIsInRangeException(
-      final String argumentName,
-      final long argument,
-      final long min,
-      final long max) {
+    final String argumentName,
+    final long argument,
+    final long min,
+    final long max) {
 
     //Calls constructor of the base class.
     super(argumentName, argument, "is in [" + min + ", " + max + "]");
@@ -96,9 +96,9 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    * @param max
    */
   public static ArgumentIsInRangeException forArgumentAndRangeWithMinAndMax(
-      final double argument,
-      final double min,
-      final double max) {
+    final double argument,
+    final double min,
+    final double max) {
     return new ArgumentIsInRangeException(argument, min, max);
   }
 
@@ -111,9 +111,9 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    * @param max
    */
   public static ArgumentIsInRangeException forArgumentAndRangeWithMinAndMax(
-      final long argument,
-      final long min,
-      final long max) {
+    final long argument,
+    final long min,
+    final long max) {
     return new ArgumentIsInRangeException(argument, min, max);
   }
 
@@ -129,10 +129,10 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argument name is blank.
    */
   public static ArgumentIsInRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      final String argumentName,
-      final double argument,
-      final double min,
-      final double max) {
+    final String argumentName,
+    final double argument,
+    final double min,
+    final double max) {
     return new ArgumentIsInRangeException(argumentName, argument, min, max);
   }
 
@@ -148,10 +148,10 @@ public final class ArgumentIsInRangeException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argument name is blank.
    */
   public static ArgumentIsInRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      final String argumentName,
-      final long argument,
-      final long min,
-      final long max) {
+    final String argumentName,
+    final long argument,
+    final long min,
+    final long max) {
     return new ArgumentIsInRangeException(argumentName, argument, min, max);
   }
 }

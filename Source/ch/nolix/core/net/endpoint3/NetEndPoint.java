@@ -323,8 +323,8 @@ public final class NetEndPoint extends EndPoint {
         return NetEndPointProtocol.DONE_HEADER;
       case NetEndPointProtocol.MULTI_DATA_REQUEST_HEADER:
         return NetEndPointProtocol.MULTI_DATA_HEADER
-            + GlobalStringHelper.getInParantheses(
-                receiverController.getDataForRequests(message.getChildNodes()).toString());
+        + GlobalStringHelper.getInParantheses(
+          receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.MESSAGE, message);
     }

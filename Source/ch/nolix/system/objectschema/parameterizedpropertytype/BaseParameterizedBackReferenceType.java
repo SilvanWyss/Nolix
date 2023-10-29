@@ -16,7 +16,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParameterizedBackReferenceType extends ParameterizedPropertyType
-    implements IBaseParameterizedBackReferenceType {
+implements IBaseParameterizedBackReferenceType {
 
   //attribute
   private final IColumn backReferencedColumn;
@@ -71,24 +71,24 @@ public abstract class BaseParameterizedBackReferenceType extends ParameterizedPr
   @Override
   public final IParameterizedPropertyTypeDto toDto() {
     return new BaseParameterizedBackReferenceTypeDto(
-        getPropertyType(),
-        getDataType(),
-        getBackReferencedColumn().getId());
+      getPropertyType(),
+      getDataType(),
+      getBackReferencedColumn().getId());
   }
 
   //method
   private void assertIsAnyReferenceColumn(IColumn backReferencedColumn) {
     if (!isAnyReferenceColumn(backReferencedColumn)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "back referenced column",
-          backReferencedColumn,
-          "is not any refence column");
+        "back referenced column",
+        backReferencedColumn,
+        "is not any refence column");
     }
   }
 
   //method
   private boolean isAnyReferenceColumn(IColumn backReferencedColumn) {
     return backReferencedColumn.getParameterizedPropertyType().getPropertyType()
-        .getBaseType() == BasePropertyType.BASE_REFERENCE;
+      .getBaseType() == BasePropertyType.BASE_REFERENCE;
   }
 }

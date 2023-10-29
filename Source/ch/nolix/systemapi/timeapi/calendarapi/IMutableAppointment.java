@@ -7,7 +7,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface
 public interface IMutableAppointment<MA extends IMutableAppointment<MA>>
-    extends IAppointment<MA>, IFluentMutableTitleHolder<MA> {
+extends IAppointment<MA>, IFluentMutableTitleHolder<MA> {
 
   //method declaration
   MA setEndTime(ITime endTime);

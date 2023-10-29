@@ -53,8 +53,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    * @throws EmptyArgumentException  if the given argument is empty.
    */
   ContainerMediator(
-      final String argumentName,
-      final Iterable<E> argument) {
+    final String argumentName,
+    final Iterable<E> argument) {
 
     //Calls constructor of the base class.
     super(argumentName, argument);
@@ -70,9 +70,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void contains(final Object element) {
     if (!GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
-          getArgumentName(),
-          getStoredArgument(),
-          element);
+        getArgumentName(),
+        getStoredArgument(),
+        element);
     }
   }
 
@@ -106,8 +106,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
     if (!found) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          getStoredArgument(),
-          "does not contain an element that fulfils the given condition");
+        getStoredArgument(),
+        "does not contain an element that fulfils the given condition");
     }
   }
 
@@ -171,9 +171,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
       if (!Objects.equals(e, elements[index])) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-            (index + 1) + "th element",
-            e,
-            "does not equal the element '" + elements[index] + "'");
+          (index + 1) + "th element",
+          e,
+          "does not equal the element '" + elements[index] + "'");
       }
 
       index++;
@@ -192,9 +192,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
 
       if (e != localElements[index]) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-            (index + 1) + "th element",
-            e,
-            "is not the same as the element '" + elements[index] + "'");
+          (index + 1) + "th element",
+          e,
+          "is not the same as the element '" + elements[index] + "'");
       }
 
       index++;
@@ -212,9 +212,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
   public void containsOnce(final Object element) {
     if (!GlobalIterableHelper.containsElementOnce(getStoredArgument(), element)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "does not contain the the given element once");
+        getArgumentName(),
+        getStoredArgument(),
+        "does not contain the the given element once");
     }
   }
 
@@ -231,8 +231,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     //Asserts that the given element count is not negative.
     if (elementCount < 0) {
       throw NegativeArgumentException.forArgumentNameAndArgument(
-          LowerCaseCatalogue.ELEMENT_COUNT,
-          elementCount);
+        LowerCaseCatalogue.ELEMENT_COUNT,
+        elementCount);
     }
 
     //Asserts that the argument of this container mediator is not null.
@@ -250,9 +250,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
       //contains not more elements than the given element count says.
       if (actualElementCount > elementCount) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-            getArgumentName(),
-            getStoredArgument(),
-            "contains more than " + elementCount + " elements");
+          getArgumentName(),
+          getStoredArgument(),
+          "contains more than " + elementCount + " elements");
       }
 
       iterator.next();
@@ -262,9 +262,9 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     //contains not less elements than the given element count says.
     if (actualElementCount < elementCount) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "contains less than " + elementCount + " elements");
+        getArgumentName(),
+        getStoredArgument(),
+        "contains less than " + elementCount + " elements");
     }
   }
 

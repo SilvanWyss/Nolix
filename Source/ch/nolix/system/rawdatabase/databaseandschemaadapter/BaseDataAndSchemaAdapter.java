@@ -31,8 +31,8 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
 
   //constructor
   protected BaseDataAndSchemaAdapter(
-      final IDataAdapter dataAdapter,
-      final ISchemaReader schemaReader) {
+    final IDataAdapter dataAdapter,
+    final ISchemaReader schemaReader) {
 
     GlobalValidator.assertThat(dataAdapter).thatIsNamed(IDataAdapter.class).isNotNull();
     GlobalValidator.assertThat(schemaReader).thatIsNamed(ISchemaReader.class).isNotNull();
@@ -53,38 +53,38 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   //method
   @Override
   public final void deleteMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
     dataAdapter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
   }
 
   //method
   @Override
   public final void deleteMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
     dataAdapter.deleteMultiValueEntries(tableName, entityId, multiValueColumnName);
   }
 
   //method
   @Override
   public final void deleteMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiRefereceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiRefereceColumnName,
+    final String referencedEntityId) {
     dataAdapter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
   }
 
   //method
   @Override
   public final void deleteMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName,
+    final String entry) {
     dataAdapter.deleteMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
   }
 
@@ -139,20 +139,20 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   //method
   @Override
   public final void insertMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName,
+    final String referencedEntityId) {
     dataAdapter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
   }
 
   //method
   @Override
   public final void insertMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName,
+    final String entry) {
     dataAdapter.insertMultiValueEntry(tableName, entityId, multiValueColumnName, entry);
   }
 
@@ -165,18 +165,18 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   //method
   @Override
   public final IContainer<String> loadMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
     return dataAdapter.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
   }
 
   //method
   @Override
   public final IContainer<Object> loadMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiFieldColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumnName) {
     return dataAdapter.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
   }
 
@@ -272,9 +272,9 @@ public abstract class BaseDataAndSchemaAdapter implements IDataAndSchemaAdapter 
   //method
   @Override
   public final boolean tableContainsEntityWithGivenValueAtGivenColumn(
-      final String tableName,
-      final String columnName,
-      final String value) {
+    final String tableName,
+    final String columnName,
+    final String value) {
     return dataAdapter.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
   }
 

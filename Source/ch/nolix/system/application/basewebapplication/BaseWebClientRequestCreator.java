@@ -11,8 +11,8 @@ final class BaseWebClientRequestCreator {
   //method
   public ChainedNode createGetCookieValueRequestForCookieName(final String cookieName) {
     return ChainedNode.withHeaderAndChildNode(
-        RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME,
-        ChainedNode.withHeader(cookieName));
+      RequestProtocol.GET_COOKIE_VALUE_BY_COOKIE_NAME,
+      ChainedNode.withHeader(cookieName));
   }
 
   //method
@@ -23,7 +23,7 @@ final class BaseWebClientRequestCreator {
   //method
   public ChainedNode createGetUrlParameterValueRequestForUrlParameterName(final String urlParameterName) {
     return ChainedNode.withHeaderAndChildNode(
-        RequestProtocol.GET_URL_PARARAMETER_VALUE,
-        ChainedNode.withHeader(urlParameterName));
+      RequestProtocol.GET_URL_PARARAMETER_VALUE,
+      ChainedNode.withHeader(urlParameterName));
   }
 }

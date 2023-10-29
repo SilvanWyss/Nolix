@@ -13,11 +13,11 @@ public final class SqlConnectionFactory {
     return switch (sqlDatabaseTarget.getSqlDatabaseEngine()) {
       case MSSQL ->
         new MsSqlConnection(
-            sqlDatabaseTarget.getIpOrDomain(),
-            sqlDatabaseTarget.getPort(),
-            sqlDatabaseTarget.getLoginName(),
-            sqlDatabaseTarget.getLoginPassword(),
-            sqlDatabaseTarget);
+          sqlDatabaseTarget.getIpOrDomain(),
+          sqlDatabaseTarget.getPort(),
+          sqlDatabaseTarget.getLoginName(),
+          sqlDatabaseTarget.getLoginPassword(),
+          sqlDatabaseTarget);
       case MYSQL, ORACLE ->
         throw UnsupportedCaseException.forCase(sqlDatabaseTarget.getSqlDatabaseEngine());
       default ->

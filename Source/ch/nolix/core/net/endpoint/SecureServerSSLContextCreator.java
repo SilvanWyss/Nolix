@@ -64,12 +64,12 @@ final class SecureServerSSLContextCreator {
     String filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
 
     return (X509Certificate) CertificateFactory
-        .getInstance("X509")
-        .generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
+      .getInstance("X509")
+      .generateCertificate(new ByteArrayInputStream(FileSystemAccessor.readFileToBytes(filePath)));
   }
 
   private PrivateKey getPrivateKey(final ISSLCertificate paramSSLCertificate)
-      throws Exception { //NOSONAR: This method can throw several different Exceptions.
+  throws Exception { //NOSONAR: This method can throw several different Exceptions.
 
     final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
 

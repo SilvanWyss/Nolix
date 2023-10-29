@@ -41,6 +41,6 @@ public interface IOptionalIdHolder {
    */
   default boolean hasId(final String id) {
     return hasId()
-        && getId().equals(id);
+    && getId().equals(id);
   }
 }

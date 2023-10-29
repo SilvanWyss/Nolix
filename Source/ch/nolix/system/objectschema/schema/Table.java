@@ -51,8 +51,8 @@ public final class Table extends SchemaObject implements ITable {
   //constructor
   public Table(final String name) {
     this(
-        GlobalIdCreator.createIdOf10HexadecimalCharacters(),
-        name);
+      GlobalIdCreator.createIdOf10HexadecimalCharacters(),
+      name);
   }
 
   //constructor
@@ -88,8 +88,8 @@ public final class Table extends SchemaObject implements ITable {
   //method
   @Override
   public Table createColumnWithNameAndParameterizedPropertyType(
-      final String name,
-      final IParameterizedPropertyType parameterizedPropertyType) {
+    final String name,
+    final IParameterizedPropertyType parameterizedPropertyType) {
     return addColumn(new Column(name, parameterizedPropertyType));
   }
 
@@ -228,7 +228,7 @@ public final class Table extends SchemaObject implements ITable {
     final var tables = getParentDatabase().getStoredTables();
 
     columns = LinkedList.fromIterable(
-        internalgetStoredRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables)));
+      internalgetStoredRawSchemaAdapter().loadColumnsOfTable(this).to(c -> Column.fromDto(c, tables)));
 
     for (final var c : columns) {
       final var column = (Column) c;

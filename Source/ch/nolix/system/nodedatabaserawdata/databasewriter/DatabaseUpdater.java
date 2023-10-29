@@ -28,7 +28,7 @@ final class DatabaseUpdater {
 
   //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
-      new DatabasePropertiesNodeSearcher();
+  new DatabasePropertiesNodeSearcher();
 
   //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
@@ -41,13 +41,13 @@ final class DatabaseUpdater {
 
   //method
   public void deleteEntriesFromMultiReference(
-      final IMutableNode<?> databaseNode,
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo) {
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -60,13 +60,13 @@ final class DatabaseUpdater {
 
   //method
   public void deleteEntriesFromMultiValue(
-      final IMutableNode<?> databaseNode,
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo) {
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -79,14 +79,14 @@ final class DatabaseUpdater {
 
   //method
   public void deleteEntryFromMultiReference(
-      final IMutableNode<?> databaseNode,
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferencedColumnInfo,
-      final String referencedEntityId) {
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferencedColumnInfo,
+    final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -99,14 +99,14 @@ final class DatabaseUpdater {
 
   //method
   public void deleteEntryFromMultiValue(
-      final IMutableNode<?> databaseNode,
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo,
-      final String entry) {
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo,
+    final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -119,9 +119,9 @@ final class DatabaseUpdater {
 
   //method
   public void deleteEntityFromTable(
-      final IMutableNode<?> database,
-      final String tableName,
-      final IEntityHeadDto entity) {
+    final IMutableNode<?> database,
+    final String tableName,
+    final IEntityHeadDto entity) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database, tableName);
 
@@ -138,10 +138,10 @@ final class DatabaseUpdater {
   public void expectGivenSchemaTimestamp(final IMutableNode<?> databaseNode, final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-        .getStoredDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+      .getStoredDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 
     final var actualSchemaTimestamp = DATABASE_PROPERTIES_NODE_SEARCHER
-        .getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
+      .getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
 
     if (!actualSchemaTimestamp.equals(schemaTimestamp)) {
       throw ResourceWasChangedInTheMeanwhileException.forResource("schema");
@@ -150,35 +150,35 @@ final class DatabaseUpdater {
 
   //method
   public void expectTableContainsEntity(
-      final IMutableNode<?> databaseNode,
-      final String tableName,
-      final String entityId) {
+    final IMutableNode<?> databaseNode,
+    final String tableName,
+    final String entityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode, tableName);
 
     final var containsEntity = TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
-        tableNode,
-        FieldIndexCatalogue.ID_INDEX,
-        entityId);
+      tableNode,
+      FieldIndexCatalogue.ID_INDEX,
+      entityId);
 
     if (!containsEntity) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.DATABASE,
-          databaseNode,
-          "does not contain a " + tableName + " with the id " + entityId);
+        LowerCaseCatalogue.DATABASE,
+        databaseNode,
+        "does not contain a " + tableName + " with the id " + entityId);
     }
   }
 
   //method
   public void insertEntryIntoMultiReference(
-      final IMutableNode<?> databaseNode,
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo,
-      final String referencedEntityId) {
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo,
+    final String referencedEntityId) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -191,14 +191,14 @@ final class DatabaseUpdater {
 
   //method
   public void insertEntryIntoMultiValue(
-      final IMutableNode<?> databaseNode,
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo,
-      final String entry) {
+    final IMutableNode<?> databaseNode,
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo,
+    final String entry) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -211,16 +211,16 @@ final class DatabaseUpdater {
 
   //method
   public void insertEntityIntoTable(
-      final IMutableNode<?> database,
-      final ITableInfo tableInfo,
-      final INewEntityDto newEntity) {
+    final IMutableNode<?> database,
+    final ITableInfo tableInfo,
+    final INewEntityDto newEntity) {
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     if (TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWithGivenId(tableNode, newEntity.getId())) {
       throw ArgumentHasAttributeException.forArgumentAndAttributeName(
-          "table " + tableInfo.getTableNameInQuotes(),
-          "entity with the id '" + newEntity.getId() + "'");
+        "table " + tableInfo.getTableNameInQuotes(),
+        "entity with the id '" + newEntity.getId() + "'");
     }
 
     final var entityNode = ENTITY_NODE_MAPPER.createNodeFromEntityWithSaveStamp(tableInfo, newEntity, 0);
@@ -251,12 +251,12 @@ final class DatabaseUpdater {
 
   //method
   public void updateEntityOnTable(
-      final IMutableNode<?> database,
-      final ITableInfo tableInfo,
-      final IEntityUpdateDto entityUpdate) {
+    final IMutableNode<?> database,
+    final ITableInfo tableInfo,
+    final IEntityUpdateDto entityUpdate) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(database,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNodeOrNull(tableNode, entityUpdate.getId());
     if (entityNode == null) {
@@ -278,9 +278,9 @@ final class DatabaseUpdater {
 
   //method
   private void updateEntityNode(
-      final IMutableNode<?> entityNode,
-      final ITableInfo tableInfo,
-      final IEntityUpdateDto entityUpdate) {
+    final IMutableNode<?> entityNode,
+    final ITableInfo tableInfo,
+    final IEntityUpdateDto entityUpdate) {
     for (final var ucf : entityUpdate.getUpdatedContentFields()) {
 
       final var columnInfo = tableInfo.getColumnInfoByColumnName(ucf.getColumnName());

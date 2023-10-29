@@ -21,17 +21,17 @@ public final class HorizontalStackWithBottomContentAlignmentTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-        "HorizontalStack tutorial",
-        MainSession.class);
+      "HorizontalStack tutorial",
+      MainSession.class);
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected).runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -53,8 +53,8 @@ public final class HorizontalStackWithBottomContentAlignmentTutorial {
 
       //Configures the style of the HorizontalStack.
       horizontalStack
-          .setContentAlignment(VerticalContentAlignment.BOTTOM)
-          .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20));
+        .setContentAlignment(VerticalContentAlignment.BOTTOM)
+        .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20));
 
       //Configures the style of the Labels.
       label1.editStyle(s -> s.setTextSizeForState(ControlState.BASE, 50));

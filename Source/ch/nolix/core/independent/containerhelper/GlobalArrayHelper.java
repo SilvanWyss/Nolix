@@ -30,8 +30,8 @@ public final class GlobalArrayHelper {
    * @return a new array with the given firstElement and elements.
    */
   public static <E> E[] createArrayWithElement(
-      final E element,
-      final @SuppressWarnings("unchecked") E... elements) {
+    final E element,
+    final @SuppressWarnings("unchecked") E... elements) {
 
     final @SuppressWarnings("unchecked") var array = (E[]) new Object[elements.length + 1];
     array[0] = element;

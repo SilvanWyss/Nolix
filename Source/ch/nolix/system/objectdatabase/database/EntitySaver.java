@@ -47,8 +47,8 @@ public final class EntitySaver {
   private void saveNewEntity(final IEntity newEntity, final Database database) {
 
     database.internalGetRefDataAndSchemaAdapter().insertNewEntity(
-        newEntity.getParentTableName(),
-        ENTITY_HELPER.createNewEntityDtoForEntity(newEntity));
+      newEntity.getParentTableName(),
+      ENTITY_HELPER.createNewEntityDtoForEntity(newEntity));
 
     saveMultiPropertyChangesOfEntity(newEntity, database);
   }
@@ -57,8 +57,8 @@ public final class EntitySaver {
   private void saveChangesOfEditedEntity(final IEntity editedEntity, final Database database) {
 
     database.internalGetRefDataAndSchemaAdapter().updateEntity(
-        editedEntity.getParentTableName(),
-        ENTITY_HELPER.createEntityUpdateDtoForEntity(editedEntity));
+      editedEntity.getParentTableName(),
+      ENTITY_HELPER.createEntityUpdateDtoForEntity(editedEntity));
 
     saveMultiPropertyChangesOfEntity(editedEntity, database);
   }
@@ -66,14 +66,14 @@ public final class EntitySaver {
   //method
   private void saveEntityDeletion(final IEntity deletedEntity, final Database database) {
     database.internalGetRefDataAndSchemaAdapter().deleteEntity(
-        deletedEntity.getStoredParentTable().getName(),
-        ENTITY_HELPER.createEntityHeadDtoForEntity(deletedEntity));
+      deletedEntity.getStoredParentTable().getName(),
+      ENTITY_HELPER.createEntityHeadDtoForEntity(deletedEntity));
   }
 
   //method
   private void saveMultiPropertyChangesOfEntity(
-      final IEntity entity,
-      final Database database) {
+    final IEntity entity,
+    final Database database) {
     for (final var p : entity.technicalGetRefProperties()) {
       saveChangesOfPotentialMultiProperty(database, p);
     }
@@ -88,7 +88,7 @@ public final class EntitySaver {
 
   //method
   private void saveChangesOfPotentialMultiPropertyWhenIsNewOrEdited(final Database database,
-      final IProperty p) {
+    final IProperty p) {
     switch (p.getType()) {
       case MULTI_VALUE:
         MULTI_VALUE_SAVER.saveChangesOfMultiValue((IMultiValue<?>) p, database);

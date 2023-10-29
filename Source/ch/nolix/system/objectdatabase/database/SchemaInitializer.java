@@ -27,8 +27,8 @@ public final class SchemaInitializer {
 
   //method
   public void initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
-      final ISchema schema,
-      final ISchemaAdapter schemaAdapter) {
+    final ISchema schema,
+    final ISchemaAdapter schemaAdapter) {
     if (databaseIsEmpty(schemaAdapter)) {
       initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(schema, schemaAdapter);
     }
@@ -41,8 +41,8 @@ public final class SchemaInitializer {
 
   //method
   private void initializeDatabaseToGivenSchemaUsingGivenSchemaAdapter(
-      final ISchema schema,
-      final ISchemaAdapter schemaAdapter) {
+    final ISchema schema,
+    final ISchemaAdapter schemaAdapter) {
 
     final var tables = TABLE_MAPPER.createEmptyTablesFromSchema(schema);
 
@@ -57,8 +57,8 @@ public final class SchemaInitializer {
 
   //method
   private void addBaseValueColumnsToTablesFromSchema(
-      final IContainer<ITable> tables,
-      final ISchema schema) {
+    final IContainer<ITable> tables,
+    final ISchema schema) {
     for (final var t : tables) {
       final var entityType = schema.getEntityTypeByName(t.getName());
       addBaseValueColumnsToTableFromEntityType(t, entityType);
@@ -67,19 +67,19 @@ public final class SchemaInitializer {
 
   //method
   private void addBaseValueColumnsToTableFromEntityType(
-      final ITable table,
-      final Class<? extends IEntity> entityType) {
+    final ITable table,
+    final Class<? extends IEntity> entityType) {
 
     final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
 
     final var baseValues = entity
-        .technicalGetRefProperties()
-        .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_VALUE);
+      .technicalGetRefProperties()
+      .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_VALUE);
 
     for (final var bv : baseValues) {
 
       final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bv,
-          new ImmutableList<>());
+        new ImmutableList<>());
 
       table.addColumn(column);
     }
@@ -87,9 +87,9 @@ public final class SchemaInitializer {
 
   //method
   private void addBaseReferenceColumnsToTablesFromSchema(
-      final IContainer<ITable> tables,
-      final ISchema schema,
-      final IContainer<ITable> referencableTables) {
+    final IContainer<ITable> tables,
+    final ISchema schema,
+    final IContainer<ITable> referencableTables) {
     for (final var t : tables) {
       final var entityType = schema.getEntityTypeByName(t.getName());
       addBaseReferenceColumnsToTableFromEntityType(t, entityType, referencableTables);
@@ -98,20 +98,20 @@ public final class SchemaInitializer {
 
   //method
   private void addBaseReferenceColumnsToTableFromEntityType(
-      final ITable table,
-      final Class<? extends IEntity> entityType,
-      final IContainer<ITable> referencableTables) {
+    final ITable table,
+    final Class<? extends IEntity> entityType,
+    final IContainer<ITable> referencableTables) {
 
     final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
 
     final var baseReferences = entity
-        .technicalGetRefProperties()
-        .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_REFERENCE);
+      .technicalGetRefProperties()
+      .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_REFERENCE);
 
     for (final var br : baseReferences) {
 
       final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(br,
-          referencableTables);
+        referencableTables);
 
       table.addColumn(column);
     }
@@ -119,9 +119,9 @@ public final class SchemaInitializer {
 
   //method
   private void addBaseBackReferenceColumnsToTablesFromSchema(
-      final IContainer<ITable> tables,
-      final ISchema schema,
-      final IContainer<ITable> referencableTables) {
+    final IContainer<ITable> tables,
+    final ISchema schema,
+    final IContainer<ITable> referencableTables) {
     for (final var t : tables) {
       final var entityType = schema.getEntityTypeByName(t.getName());
       addBaseBackReferenceColumnsToTableFromEntityType(t, entityType, referencableTables);
@@ -130,20 +130,20 @@ public final class SchemaInitializer {
 
   //method
   private void addBaseBackReferenceColumnsToTableFromEntityType(
-      final ITable table,
-      final Class<? extends IEntity> entityType,
-      final IContainer<ITable> referencableTables) {
+    final ITable table,
+    final Class<? extends IEntity> entityType,
+    final IContainer<ITable> referencableTables) {
 
     final var entity = ENTITY_CREATOR.createEmptyEntityOf(entityType);
 
     final var baseBackReferences = entity
-        .technicalGetRefProperties()
-        .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
+      .technicalGetRefProperties()
+      .getStoredSelected(p -> p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE);
 
     for (final var bbr : baseBackReferences) {
 
       final var column = COLUMN_MAPPER.createColumnFromGivenPropertyUsingGivenReferencableTables(bbr,
-          referencableTables);
+        referencableTables);
 
       table.addColumn(column);
     }

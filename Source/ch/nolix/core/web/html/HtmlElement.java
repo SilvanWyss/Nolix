@@ -29,10 +29,10 @@ public final class HtmlElement implements IHtmlElement {
 
   //constructor
   private HtmlElement(
-      final String type,
-      final IContainer<? extends IHtmlAttribute> attributes,
-      final String innerText,
-      final IContainer<? extends IHtmlElement> childElements) {
+    final String type,
+    final IContainer<? extends IHtmlAttribute> attributes,
+    final String innerText,
+    final IContainer<? extends IHtmlElement> childElements) {
 
     GlobalValidator.assertThat(type).thatIsNamed(LowerCaseCatalogue.TYPE).isNotBlank();
     GlobalValidator.assertThat(innerText).thatIsNamed("inner text").isNotNull();
@@ -51,9 +51,9 @@ public final class HtmlElement implements IHtmlElement {
     }
 
     return withTypeAndAttributesAndChildElements(
-        htmlElement.getType(),
-        htmlElement.getAttributes(),
-        htmlElement.getChildElements());
+      htmlElement.getType(),
+      htmlElement.getAttributes(),
+      htmlElement.getChildElements());
   }
 
   //static method
@@ -64,36 +64,36 @@ public final class HtmlElement implements IHtmlElement {
   //static method
   public static HtmlElement withTypeAndAttribute(final String type, final IHtmlAttribute attribute) {
     return new HtmlElement(
-        type,
-        ImmutableList.withElement(attribute),
-        StringCatalogue.EMPTY_STRING,
-        new ImmutableList<>());
+      type,
+      ImmutableList.withElement(attribute),
+      StringCatalogue.EMPTY_STRING,
+      new ImmutableList<>());
   }
 
   //static method
   public static HtmlElement withTypeAndAttributeAndChildElement(
-      final String type,
-      final IHtmlAttribute attribute,
-      final IHtmlElement childElement) {
+    final String type,
+    final IHtmlAttribute attribute,
+    final IHtmlElement childElement) {
     return new HtmlElement(
-        type,
-        ImmutableList.withElement(attribute),
-        StringCatalogue.EMPTY_STRING,
-        ImmutableList.withElement(childElement));
+      type,
+      ImmutableList.withElement(attribute),
+      StringCatalogue.EMPTY_STRING,
+      ImmutableList.withElement(childElement));
   }
 
   //static method
   public static HtmlElement withTypeAndAttributes(
-      final String type,
-      final IContainer<? extends IHtmlAttribute> attributes) {
+    final String type,
+    final IContainer<? extends IHtmlAttribute> attributes) {
     return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, new ImmutableList<>());
   }
 
   //static method
   public static HtmlElement withTypeAndAttributesAndChildElement(
-      final String type,
-      final IContainer<? extends IHtmlAttribute> attributes,
-      final IHtmlElement childElement) {
+    final String type,
+    final IContainer<? extends IHtmlAttribute> attributes,
+    final IHtmlElement childElement) {
 
     final var childElements = new LinkedList<IHtmlElement>();
     childElements.addAtEnd(childElement);
@@ -103,33 +103,33 @@ public final class HtmlElement implements IHtmlElement {
 
   //static method
   public static HtmlElement withTypeAndAttributesAndChildElements(
-      final String type,
-      final IContainer<? extends IHtmlAttribute> attributes,
-      final IContainer<? extends IHtmlElement> childElements) {
+    final String type,
+    final IContainer<? extends IHtmlAttribute> attributes,
+    final IContainer<? extends IHtmlElement> childElements) {
     return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
   }
 
   //static method
   public static HtmlElement withTypeAndAttributesAndInnerText(
-      final String type,
-      final IContainer<? extends IHtmlAttribute> attributes,
-      final String innerText) {
+    final String type,
+    final IContainer<? extends IHtmlAttribute> attributes,
+    final String innerText) {
     return new HtmlElement(type, attributes, innerText, new ImmutableList<>());
   }
 
   //static method
   public static HtmlElement withTypeAndChildElement(final String type, final IHtmlElement childElement) {
     return new HtmlElement(
-        type,
-        new ImmutableList<>(),
-        StringCatalogue.EMPTY_STRING,
-        ImmutableList.withElement(HtmlElement.fromHtmlElement(childElement)));
+      type,
+      new ImmutableList<>(),
+      StringCatalogue.EMPTY_STRING,
+      ImmutableList.withElement(HtmlElement.fromHtmlElement(childElement)));
   }
 
   //static method
   public static HtmlElement withTypeAndChildElements(
-      final String type,
-      final IContainer<? extends IHtmlElement> childElements) {
+    final String type,
+    final IContainer<? extends IHtmlElement> childElements) {
     return new HtmlElement(type, new ImmutableList<>(), StringCatalogue.EMPTY_STRING, childElements);
   }
 
@@ -180,9 +180,9 @@ public final class HtmlElement implements IHtmlElement {
 
     if (object instanceof HtmlElement htmlElement) {
       return getType().equals(htmlElement.getType())
-          && getAttributes().containsOnlyEqualingAndViceVersa(htmlElement.getAttributes())
-          && getChildElements().containsOnlyEqualingAndViceVersa(htmlElement.getChildElements())
-          && getInnerText().equals(htmlElement.getInnerText());
+      && getAttributes().containsOnlyEqualingAndViceVersa(htmlElement.getAttributes())
+      && getChildElements().containsOnlyEqualingAndViceVersa(htmlElement.getChildElements())
+      && getInnerText().equals(htmlElement.getInnerText());
     }
 
     return false;
@@ -210,7 +210,7 @@ public final class HtmlElement implements IHtmlElement {
   public IHtmlElement withAttribute(final IHtmlAttribute attribute, final IHtmlAttribute... attributes) {
 
     final var allAttributes = ReadContainer.forIterable(ReadContainer.forElement(attribute, attributes),
-        getAttributes());
+      getAttributes());
 
     if (containsChildElements()) {
       return withTypeAndAttributesAndChildElements(getType(), allAttributes, getChildElements());
@@ -243,26 +243,26 @@ public final class HtmlElement implements IHtmlElement {
 
     if (getInnerText().isEmpty()) {
       return "<"
-          + getType()
-          + " "
-          + getAttributesAsString()
-          + ">"
-          + getChildElementsAsString()
-          + "</"
-          + getType()
-          + ">";
+      + getType()
+      + " "
+      + getAttributesAsString()
+      + ">"
+      + getChildElementsAsString()
+      + "</"
+      + getType()
+      + ">";
     }
 
     return "<"
-        + getType()
-        + " "
-        + getAttributesAsString()
-        + ">"
-        + getInnerText()
-        + getChildElementsAsString()
-        + "</"
-        + getType()
-        + ">";
+    + getType()
+    + " "
+    + getAttributesAsString()
+    + ">"
+    + getInnerText()
+    + getChildElementsAsString()
+    + "</"
+    + getType()
+    + ">";
   }
 
   //method

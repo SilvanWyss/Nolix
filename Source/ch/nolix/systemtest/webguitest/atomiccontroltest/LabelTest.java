@@ -89,9 +89,9 @@ public final class LabelTest extends ControlTest<ILabel> {
 
     //execution & verification
     expectRunning(() -> testUnit.setText(null))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given text is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given text is null.");
 
     //verification
     expect(testUnit.getText()).isEqualTo("Lorem Ipsum");

@@ -33,9 +33,9 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
     GlobalValidator.assertThat(parentMatrixColumn).thatIsNamed("parent MatrixColumn").isNotNull();
 
     GlobalValidator
-        .assertThat(nextElement1BasedRowIndex)
-        .thatIsNamed("next element 1-based row index")
-        .isPositive();
+      .assertThat(nextElement1BasedRowIndex)
+      .thatIsNamed("next element 1-based row index")
+      .isPositive();
 
     this.parentMatrixColumn = parentMatrixColumn;
     this.nextElement1BasedRowIndex = nextElement1BasedRowIndex;
@@ -71,7 +71,7 @@ final class MatrixColumnIterator<E> implements CopyableIterator<E> {
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
-          .toNoSuchElementException();
+        .toNoSuchElementException();
     }
   }
 

@@ -9,16 +9,16 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceT
 
 //class
 public final class BaseParameterizedReferenceTypeDto extends ParameterizedPropertyTypeDto
-    implements IBaseParameterizedReferenceTypeDto {
+implements IBaseParameterizedReferenceTypeDto {
 
   //attribute
   private final String referencedTableId;
 
   //constructor
   public BaseParameterizedReferenceTypeDto(
-      final PropertyType propertyType,
-      final DataType dataType,
-      final String referencedTableId) {
+    final PropertyType propertyType,
+    final DataType dataType,
+    final String referencedTableId) {
 
     super(propertyType, dataType);
 

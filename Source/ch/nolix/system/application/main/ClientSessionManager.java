@@ -57,8 +57,8 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
   public Session<C, AC> getStoredCurrentSession() {
 
     GlobalSequencer
-        .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
-        .waitUntil(this::containsCurrentSession);
+      .forMaxMilliseconds(MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS)
+      .waitUntil(this::containsCurrentSession);
 
     assertContainsCurrentSession();
 
@@ -132,9 +132,9 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
 
     if (!currentSessionIsTopSession()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "current Session",
-          getStoredCurrentSession(),
-          "is not the top Session");
+        "current Session",
+        getStoredCurrentSession(),
+        "is not the top Session");
     }
   }
 

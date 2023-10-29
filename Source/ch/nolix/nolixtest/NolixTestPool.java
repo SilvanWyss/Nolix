@@ -25,11 +25,11 @@ public final class NolixTestPool extends TestPool {
    */
   public NolixTestPool() {
     super(
-        new CoreApiTestPool(),
-        new CoreTestPool(),
-        new SystemTestPool(),
-        new TechApiTestPool(),
-        new TechTestPool(),
-        new TemplateTestPool());
+      new CoreApiTestPool(),
+      new CoreTestPool(),
+      new SystemTestPool(),
+      new TechApiTestPool(),
+      new TechTestPool(),
+      new TemplateTestPool());
   }
 }

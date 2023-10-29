@@ -39,8 +39,8 @@ public final class ArgumentHasAttributeException extends InvalidArgumentExceptio
    * @throws IllegalArgumentException if the given attributeName is blank.
    */
   public static ArgumentHasAttributeException forArgumentAndAttributeName(
-      final Object argument,
-      final String attributeName) {
+    final Object argument,
+    final String attributeName) {
     return new ArgumentHasAttributeException(argument, attributeName);
   }
 

@@ -15,16 +15,16 @@ import ch.nolix.system.application.main.BackendClient;
 
 //class
 public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
-    extends BackendClient<BBWC, AC>
-    implements ICookieManager {
+extends BackendClient<BBWC, AC>
+implements ICookieManager {
 
   //constant
   private static final BaseWebClientCommandCreator BACKEND_WEB_CLIENT_COMMAND_CREATOR = //
-      new BaseWebClientCommandCreator();
+  new BaseWebClientCommandCreator();
 
   //constant
   private static final BaseWebClientRequestCreator BACKEND_WEB_CLIENT_REQUEST_CREATOR = //
-      new BaseWebClientRequestCreator();
+  new BaseWebClientRequestCreator();
 
   //attribute
   private final BaseWebClientFileReader fileReader = BaseWebClientFileReader.forBackendWebClient(this);
@@ -43,7 +43,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
   public final String getCookieValueByCookieNameOrNull(final String cookieName) {
 
     final var getCookieValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
-        .createGetCookieValueRequestForCookieName(cookieName);
+      .createGetCookieValueRequestForCookieName(cookieName);
 
     return getCookieValueByCookieNameOrNullFromData(getDataFromCounterpart(getCookieValueRequest));
   }
@@ -52,7 +52,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
   public final String getUrlParameterValueByUrlParameterNameOrNull(final String urlParameterName) {
 
     final var getUrlParameterValueRequest = BACKEND_WEB_CLIENT_REQUEST_CREATOR
-        .createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
+      .createGetUrlParameterValueRequestForUrlParameterName(urlParameterName);
 
     final var urlParameterValueReply = getDataFromCounterpart(getUrlParameterValueRequest);
 
@@ -64,7 +64,7 @@ public abstract class BaseWebClient<BBWC extends BaseWebClient<BBWC, AC>, AC>
   public final void setOrAddCookieWithNameAndValue(final String name, final String value) {
 
     final var setOrAddCookieCommand = BACKEND_WEB_CLIENT_COMMAND_CREATOR
-        .createSetOrAddCookieCommandForCookieWithNameAndValue(name, value);
+      .createSetOrAddCookieCommandForCookieWithNameAndValue(name, value);
 
     runOnCounterpart(setOrAddCookieCommand);
   }

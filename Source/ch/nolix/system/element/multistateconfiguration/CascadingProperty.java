@@ -21,11 +21,11 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 
   //constructor
   public CascadingProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator,
-      final V defaultValue) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator,
+    final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator);
 
@@ -36,12 +36,12 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 
   //constructor
   public CascadingProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator,
-      final BiConsumer<S, V> setterMethod,
-      final V defaultValue) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator,
+    final BiConsumer<S, V> setterMethod,
+    final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
@@ -52,31 +52,31 @@ public final class CascadingProperty<S extends Enum<S>, V> extends MaterializedP
 
   //static method
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Boolean> forBooleanWithNameAndStateClassAndDefaultValue(
-      final String name,
-      final Class<S2> stateClass,
-      final boolean defaultValue) {
+    final String name,
+    final Class<S2> stateClass,
+    final boolean defaultValue) {
     return new CascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsBoolean,
-        Node::withChildNode,
-        defaultValue);
+      name,
+      stateClass,
+      INode::getSingleChildNodeAsBoolean,
+      Node::withChildNode,
+      defaultValue);
   }
 
   //static method
   public static <S2 extends Enum<S2>> CascadingProperty<S2, Integer>//
-      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          final String name,
-          final Class<S2> stateClass,
-          final BiConsumer<S2, Integer> setterMethod,
-          final int defaultValue) {
+  forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+    final String name,
+    final Class<S2> stateClass,
+    final BiConsumer<S2, Integer> setterMethod,
+    final int defaultValue) {
     return new CascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsInt,
-        Node::withChildNode,
-        setterMethod,
-        defaultValue);
+      name,
+      stateClass,
+      INode::getSingleChildNodeAsInt,
+      Node::withChildNode,
+      setterMethod,
+      defaultValue);
   }
 
   //method

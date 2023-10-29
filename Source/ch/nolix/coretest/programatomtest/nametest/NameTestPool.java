@@ -10,9 +10,9 @@ public final class NameTestPool extends TestPool {
   //constructor
   public NameTestPool() {
     super(
-        LowerCaseCatalogueTest.class,
-        PascalCaseCatalogueTest.class,
-        PluralLowerCaseCatalogueTest.class,
-        PluralPascalCaseCatalogueTest.class);
+      LowerCaseCatalogueTest.class,
+      PascalCaseCatalogueTest.class,
+      PluralLowerCaseCatalogueTest.class,
+      PluralPascalCaseCatalogueTest.class);
   }
 }

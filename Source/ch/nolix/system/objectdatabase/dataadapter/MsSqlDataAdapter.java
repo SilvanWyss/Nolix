@@ -18,37 +18,37 @@ public final class MsSqlDataAdapter extends DataAdapter {
 
   //constructor
   MsSqlDataAdapter(
-      final String ipOrDomain,
-      final int port,
-      final String databaseName,
-      final String loginName,
-      final String loginPassword,
-      final ISchema schema) {
+    final String ipOrDomain,
+    final int port,
+    final String databaseName,
+    final String loginName,
+    final String loginPassword,
+    final ISchema schema) {
     this(
-        databaseName,
-        schema,
-        SqlConnectionPool
-            .forIpOrDomain(ipOrDomain)
-            .andPort(port)
-            .andDatabase(databaseName)
-            .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
-            .usingLoginName(loginName)
-            .andLoginPassword(loginPassword));
+      databaseName,
+      schema,
+      SqlConnectionPool
+        .forIpOrDomain(ipOrDomain)
+        .andPort(port)
+        .andDatabase(databaseName)
+        .withSqlDatabaseEngine(SqlDatabaseEngine.MSSQL)
+        .usingLoginName(loginName)
+        .andLoginPassword(loginPassword));
   }
 
   //constructor
   private MsSqlDataAdapter(
-      final String databaseName,
-      final ISchema schema,
-      final SqlConnectionPool sqlConnectionPool) {
+    final String databaseName,
+    final ISchema schema,
+    final SqlConnectionPool sqlConnectionPool) {
 
     super(
+      databaseName,
+      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
+      schema,
+      () -> MsSqlDataAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
         databaseName,
-        MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
-        schema,
-        () -> MsSqlDataAndSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-            databaseName,
-            sqlConnectionPool));
+        sqlConnectionPool));
 
     this.sqlConnectionPool = sqlConnectionPool;
   }

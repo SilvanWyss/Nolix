@@ -31,10 +31,10 @@ public final class MutableOptionalSpecificationValueExtractor implements IProper
 
   //constructor
   public MutableOptionalSpecificationValueExtractor(
-      final String name,
-      final Consumer<INode<?>> setter,
-      final BooleanSupplier valuePresenceChecker,
-      final Supplier<Node> getter) {
+    final String name,
+    final Consumer<INode<?>> setter,
+    final BooleanSupplier valuePresenceChecker,
+    final Supplier<Node> getter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();

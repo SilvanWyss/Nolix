@@ -16,7 +16,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
  *                {@link IFluentMutableMultiValueHolder}.
  */
 public interface IFluentMutableMultiValueHolder<FMMVH extends IFluentMutableMultiValueHolder<FMMVH, V>, V>
-    extends IMultiValueHolder<V> {
+extends IMultiValueHolder<V> {
 
   //method declaration
   /**

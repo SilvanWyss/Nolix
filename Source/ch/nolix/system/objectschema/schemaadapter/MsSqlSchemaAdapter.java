@@ -14,21 +14,21 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 
   //constructor
   MsSqlSchemaAdapter(
-      String databaseName,
-      final ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter msSqlSchemaAdapter) {
+    String databaseName,
+    final ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter msSqlSchemaAdapter) {
     super(databaseName, msSqlSchemaAdapter);
   }
 
   //static method
   public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool) {
     return new MsSqlSchemaAdapter(
-        databaseName,
-        ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter
-            .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-                databaseName,
-                sqlConnectionPool));
+      databaseName,
+      ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter
+        .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
+          databaseName,
+          sqlConnectionPool));
   }
 
   //static method

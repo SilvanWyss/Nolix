@@ -55,14 +55,14 @@ public abstract class BaseNodeTest<BN extends BaseNode<BN>> extends Test {
 
     //verification part 2
     expectRunning(
-        () -> testUnit.getStoredChildNodeAt1BasedIndex(-1)).throwsException()
-        .ofType(ArgumentIsOutOfRangeException.class);
+      () -> testUnit.getStoredChildNodeAt1BasedIndex(-1)).throwsException()
+      .ofType(ArgumentIsOutOfRangeException.class);
     expectRunning(
-        () -> testUnit.getStoredChildNodeAt1BasedIndex(0)).throwsException()
-        .ofType(ArgumentIsOutOfRangeException.class);
+      () -> testUnit.getStoredChildNodeAt1BasedIndex(0)).throwsException()
+      .ofType(ArgumentIsOutOfRangeException.class);
     expectRunning(
-        () -> testUnit.getStoredChildNodeAt1BasedIndex(4)).throwsException()
-        .ofType(ArgumentIsOutOfRangeException.class);
+      () -> testUnit.getStoredChildNodeAt1BasedIndex(4)).throwsException()
+      .ofType(ArgumentIsOutOfRangeException.class);
   }
 
   //method

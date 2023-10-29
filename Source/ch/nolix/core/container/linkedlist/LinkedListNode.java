@@ -109,9 +109,9 @@ final class LinkedListNode<E> {
 
     //Asserts that the given element is not null.
     GlobalValidator
-        .assertThat(element)
-        .thatIsNamed(LowerCaseCatalogue.ELEMENT)
-        .isNotNull();
+      .assertThat(element)
+      .thatIsNamed(LowerCaseCatalogue.ELEMENT)
+      .isNotNull();
 
     //Sets the element of the current list node.
     this.element = element;

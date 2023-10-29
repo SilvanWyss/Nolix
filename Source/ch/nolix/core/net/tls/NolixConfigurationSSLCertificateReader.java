@@ -40,32 +40,32 @@ public final class NolixConfigurationSSLCertificateReader {
 
   //method
   private String getDefaultDomainFromDefaultCertificateConfiguration(
-      final INode<?> defaultSSLCertificateConfiguration) {
+    final INode<?> defaultSSLCertificateConfiguration) {
     return defaultSSLCertificateConfiguration
-        .getStoredFirstChildNodeWithHeader(DOMAIN_HEADER)
-        .getSingleChildNodeHeader();
+      .getStoredFirstChildNodeWithHeader(DOMAIN_HEADER)
+      .getSingleChildNodeHeader();
   }
 
   //method
   private String getDefaultDomainFromNolixConfiguration(final INode<?> nolixConfiguration) {
 
     final var defaultSSLCertificateConfiguration = nolixConfiguration
-        .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
+      .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 
     return getDefaultDomainFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
   }
 
   //method
   private ISSLCertificate getDefaultSSLCertificateFromDefaultCertificateConfiguration(
-      final INode<?> defaultSSLCertificateConfiguration) {
+    final INode<?> defaultSSLCertificateConfiguration) {
 
     final var publicKeyPEMFilePath = defaultSSLCertificateConfiguration
-        .getStoredFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
-        .getSingleChildNodeHeader();
+      .getStoredFirstChildNodeWithHeader(PUBLIC_KEY_PEM_FILE_HEADER)
+      .getSingleChildNodeHeader();
 
     final var privateKeyPEMFilePath = defaultSSLCertificateConfiguration
-        .getStoredFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
-        .getSingleChildNodeHeader();
+      .getStoredFirstChildNodeWithHeader(PRIVATE_KEY_PEM_FILE_HEADER)
+      .getSingleChildNodeHeader();
 
     return new SSLCertificate(publicKeyPEMFilePath, privateKeyPEMFilePath);
   }
@@ -74,7 +74,7 @@ public final class NolixConfigurationSSLCertificateReader {
   private ISSLCertificate getDefaultSSLCertificateFromNolixConfiguration(final INode<?> nolixConfiguration) {
 
     final var defaultSSLCertificateConfiguration = nolixConfiguration
-        .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
+      .getStoredFirstChildNodeWithHeader(DEFAULT_SSL_CERTIFICATE_HEADER);
 
     return getDefaultSSLCertificateFromDefaultCertificateConfiguration(defaultSSLCertificateConfiguration);
   }

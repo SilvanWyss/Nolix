@@ -103,8 +103,8 @@ public final class LocalEndPoint extends EndPoint {
    * @throws EmptyArgumentException  if the given target is empty.
    */
   private LocalEndPoint(
-      final LocalEndPoint counterpart,
-      final String target) {
+    final LocalEndPoint counterpart,
+    final String target) {
 
     peerType = PeerType.BACKEND;
 

@@ -34,10 +34,10 @@ public final class LocalFrontEndReader implements IFrontEndReader {
     try {
       UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
     } catch (final
-        ClassNotFoundException
-        | InstantiationException
-        | IllegalAccessException
-        | UnsupportedLookAndFeelException exception) {
+    ClassNotFoundException
+    | InstantiationException
+    | IllegalAccessException
+    | UnsupportedLookAndFeelException exception) {
       throw WrapperException.forError(exception);
     }
 
@@ -79,7 +79,7 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 
       @SuppressWarnings("unchecked")
       final var files = (List<File>) (Toolkit.getDefaultToolkit().getSystemClipboard()
-          .getData(DataFlavor.javaFileListFlavor));
+        .getData(DataFlavor.javaFileListFlavor));
 
       return ReadContainer.forIterable(files).to(File::getPath);
     } catch (final IOException | UnsupportedFlavorException exception) {

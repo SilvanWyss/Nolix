@@ -100,12 +100,12 @@ public final class LicenseManager {
       final var feature = featureType.getConstructor().newInstance();
       return feature.getAuthorizedLicenseTypes().containsAnyOf(getLicenseTypes());
     } catch (final
-        InstantiationException
-        | IllegalAccessException
-        | IllegalArgumentException
-        | InvocationTargetException
-        | NoSuchMethodException
-        | SecurityException exception) {
+    InstantiationException
+    | IllegalAccessException
+    | IllegalArgumentException
+    | InvocationTargetException
+    | NoSuchMethodException
+    | SecurityException exception) {
       throw WrapperException.forError(exception);
     }
   }
@@ -200,10 +200,10 @@ public final class LicenseManager {
   private String readKeyFromLicenseFile(final String licenseName) {
     try {
       return new FolderAccessor(LicenseEnvironment.LOCAL_LICENSE_FOLDER_NAME)
-          .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
+        .readFile(licenseName + "." + LicenseEnvironment.LICENCSE_FILE_EXTENSION);
     } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
       throw GeneralException.withErrorMessage(
-          "There does not exist a license file with the key for the License '" + licenseName + "'");
+        "There does not exist a license file with the key for the License '" + licenseName + "'");
     }
   }
 }

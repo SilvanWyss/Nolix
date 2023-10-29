@@ -17,15 +17,15 @@ public interface IDataReader extends GroupCloseable {
 
   //method declaration
   IContainer<String> loadMultiReferenceEntries(
-      String tableName,
-      String entityId,
-      String multiReferenceColumnName);
+    String tableName,
+    String entityId,
+    String multiReferenceColumnName);
 
   //method declaration
   IContainer<Object> loadMultiValueEntries(
-      String tableName,
-      String entityId,
-      String multiValueColumnName);
+    String tableName,
+    String entityId,
+    String multiValueColumnName);
 
   //method declaration
   ILoadedEntityDto loadEntity(String tableName, String id);

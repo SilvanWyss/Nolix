@@ -28,10 +28,10 @@ public final class CookieTutorial {
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   public static final class MainSession extends WebClientSession<Object> {
@@ -47,12 +47,12 @@ public final class CookieTutorial {
       }
 
       getStoredGui().pushLayerWithRootControl(
-          new HorizontalStack()
-              .addControl(
-                  textbox,
-                  new Button()
-                      .setText("Save input in cookie")
-                      .setLeftMouseButtonPressAction(this::saveInputInCookie)));
+        new HorizontalStack()
+          .addControl(
+            textbox,
+            new Button()
+              .setText("Save input in cookie")
+              .setLeftMouseButtonPressAction(this::saveInputInCookie)));
     }
 
     private void saveInputInCookie() {

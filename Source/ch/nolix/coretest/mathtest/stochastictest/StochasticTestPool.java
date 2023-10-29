@@ -10,6 +10,6 @@ public final class StochasticTestPool extends TestPool {
   //constructor
   public StochasticTestPool() {
     super(
-        ARModelTest.class);
+      ARModelTest.class);
   }
 }

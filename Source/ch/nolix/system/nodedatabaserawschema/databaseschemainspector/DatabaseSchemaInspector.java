@@ -26,7 +26,7 @@ public final class DatabaseSchemaInspector {
   //method
   private boolean databaseIsInitialized(final IMutableNode<?> databaseNode) {
     return databaseNode.hasHeader(SubNodeHeaderCatalogue.DATABASE)
-        && databaseNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
+    && databaseNode.containsChildNodeWithHeader(SubNodeHeaderCatalogue.DATABASE_PROPERTIES);
   }
 
   //method

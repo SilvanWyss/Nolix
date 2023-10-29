@@ -16,8 +16,8 @@ public final class ContentFieldDtoMapper {
 
   //method
   public ILoadedContentFieldDto createContentFieldDtoFromContentFieldNode(
-      final IMutableNode<?> contentFieldNode,
-      final IColumnInfo columnInfo) {
+    final IMutableNode<?> contentFieldNode,
+    final IColumnInfo columnInfo) {
 
     if (contentFieldNode.containsChildNodes()) {
       return new LoadedContentFieldDto(columnInfo.getColumnName());
@@ -28,7 +28,7 @@ public final class ContentFieldDtoMapper {
     }
 
     return new LoadedContentFieldDto(
-        columnInfo.getColumnName(),
-        VALUE_MAPPER.createValueFromString(contentFieldNode.getHeader(), columnInfo));
+      columnInfo.getColumnName(),
+      VALUE_MAPPER.createValueFromString(contentFieldNode.getHeader(), columnInfo));
   }
 }

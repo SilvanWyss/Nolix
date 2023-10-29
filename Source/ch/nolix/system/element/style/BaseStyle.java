@@ -36,8 +36,8 @@ abstract class BaseStyle extends Element implements IBaseStyle {
    * @param subStyles
    */
   protected BaseStyle(
-      final IContainer<? extends INode<?>> attachingAttributes,
-      final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends INode<?>> attachingAttributes,
+    final IContainer<BaseSelectingStyle> subStyles) {
 
     this.attachingAttributes = ImmutableList.forIterable(attachingAttributes.to(Node::fromNode));
 
@@ -86,9 +86,9 @@ abstract class BaseStyle extends Element implements IBaseStyle {
       } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 
         final var invalidArgumentException = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-            "attaching attribute",
-            aa,
-            "could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'");
+          "attaching attribute",
+          aa,
+          "could not be added to the given " + element.getType() + " '" + element.getSpecification() + "'");
 
         invalidArgumentException.initCause(error);
 

@@ -23,7 +23,7 @@ final class BaseWebClientFrontendReader implements IFrontEndReader {
 
   //static method
   public static BaseWebClientFrontendReader forBackendWebClient(
-      final BaseWebClient<?, ?> backendWebClient) {
+    final BaseWebClient<?, ?> backendWebClient) {
     return new BaseWebClientFrontendReader(backendWebClient);
   }
 

@@ -24,26 +24,26 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IGrid control,
-      final LinkedList<CssProperty> list) {
+    final IGrid control,
+    final LinkedList<CssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IGrid control,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IGrid control,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final IGrid control,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final IGrid control,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
 
     final var style = control.getStoredStyle();
     final var gridThickness = style.getGridThicknessWhenHasState(state);
@@ -51,26 +51,26 @@ public final class GridCssBuilder extends ControlCssBuilder<IGrid, IGridStyle> {
     final var childControlMargin = style.getChildControlMarginWhenHasState(state);
 
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            "table, th, td",
-            ImmutableList.withElement(
-                CssProperty.withNameAndValue("border-collapse", "collapse"),
-                CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
-                CssProperty.withNameAndValue("border-color",
-                    CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor)))));
+      CssRule.withSelectorAndProperties(
+        "table, th, td",
+        ImmutableList.withElement(
+          CssProperty.withNameAndValue("border-collapse", "collapse"),
+          CssProperty.withNameAndValue("border", "solid " + gridThickness + "px"),
+          CssProperty.withNameAndValue("border-color",
+            CONTROL_CSS_VALUE_HELPER.getCssValueFromColor(gridcolor)))));
 
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            HtmlElementTypeCatalogue.TD,
-            ImmutableList.withElement(
-                CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
+      CssRule.withSelectorAndProperties(
+        HtmlElementTypeCatalogue.TD,
+        ImmutableList.withElement(
+          CssProperty.withNameAndValue("padding", childControlMargin + "px"))));
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final IGrid control,
-      final LinkedList<? super ICssRule> list) {
+    final IGrid control,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 }

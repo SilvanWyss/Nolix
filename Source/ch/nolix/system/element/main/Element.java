@@ -19,8 +19,8 @@ public abstract class Element implements Specified {
   @Override
   public final boolean equals(final Object object) {
     return object != null
-        && getClass() == object.getClass()
-        && hasSameSpecificationAs((Element) object);
+    && getClass() == object.getClass()
+    && hasSameSpecificationAs((Element) object);
   }
 
   //method

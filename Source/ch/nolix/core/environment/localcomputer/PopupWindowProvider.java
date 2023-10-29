@@ -41,10 +41,10 @@ public final class PopupWindowProvider {
    */
   public static void showErrorWindow(final String errorMessage) {
     JOptionPane.showMessageDialog(
-        null,
-        errorMessage,
-        ERROR_WINDOW_TITLE,
-        JOptionPane.ERROR_MESSAGE);
+      null,
+      errorMessage,
+      ERROR_WINDOW_TITLE,
+      JOptionPane.ERROR_MESSAGE);
   }
 
   //static method
@@ -72,7 +72,7 @@ public final class PopupWindowProvider {
       //Handles the case that the given exception has a message.
       if (error.getMessage() != null && !error.getMessage().isEmpty()) {
         textStringBuilder.append(
-            error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE);
+          error.getMessage() + CharacterCatalogue.NEW_LINE + CharacterCatalogue.NEW_LINE);
       }
 
       //Iterates the stack trace of the given exception.
@@ -90,10 +90,10 @@ public final class PopupWindowProvider {
     }
 
     JOptionPane.showMessageDialog(
-        null,
-        textStringBuilder.toString(),
-        title,
-        JOptionPane.ERROR_MESSAGE);
+      null,
+      textStringBuilder.toString(),
+      title,
+      JOptionPane.ERROR_MESSAGE);
   }
 
   /**
@@ -103,10 +103,10 @@ public final class PopupWindowProvider {
    */
   public static void showMessageWindow(final String message) {
     JOptionPane.showMessageDialog(
-        null,
-        message,
-        MESSAGE_WINDOW_TITLE,
-        JOptionPane.INFORMATION_MESSAGE);
+      null,
+      message,
+      MESSAGE_WINDOW_TITLE,
+      JOptionPane.INFORMATION_MESSAGE);
   }
 
   //static method
@@ -119,10 +119,10 @@ public final class PopupWindowProvider {
   public static boolean showRequestWindow(final String question) {
 
     final var result = JOptionPane.showConfirmDialog(
-        null,
-        question,
-        REQUEST_WINDOW_TITLE,
-        JOptionPane.YES_NO_OPTION);
+      null,
+      question,
+      REQUEST_WINDOW_TITLE,
+      JOptionPane.YES_NO_OPTION);
 
     return (result == 0);
   }

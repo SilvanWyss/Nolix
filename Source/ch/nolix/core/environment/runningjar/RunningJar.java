@@ -22,7 +22,7 @@ public final class RunningJar {
     final var stringBuilder = new StringBuilder();
     final var inputStream = RunningJar.class.getResourceAsStream("/" + path);
     try (
-        final var bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+    final var bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
       var line = bufferedReader.readLine();
       while (line != null) {
         stringBuilder.append(line).append("\n");

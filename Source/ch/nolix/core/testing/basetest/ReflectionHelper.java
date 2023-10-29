@@ -37,8 +37,8 @@ final class ReflectionHelper {
 
   //static method
   public static <A extends Annotation> boolean elementHasAnnotation(
-      final AnnotatedElement element,
-      final Class<A> annotation) {
+    final AnnotatedElement element,
+    final Class<A> annotation) {
     return (element.getAnnotation(annotation) != null);
   }
 

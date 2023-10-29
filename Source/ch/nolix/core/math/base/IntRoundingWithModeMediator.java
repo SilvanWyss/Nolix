@@ -18,9 +18,9 @@ public final class IntRoundingWithModeMediator {
   IntRoundingWithModeMediator(final int value, final RoundingMode roundingMode) {
 
     GlobalValidator
-        .assertThat(roundingMode)
-        .thatIsNamed("rounding mode")
-        .isNotNull();
+      .assertThat(roundingMode)
+      .thatIsNamed("rounding mode")
+      .isNotNull();
 
     this.value = value;
     this.roundingMode = roundingMode;

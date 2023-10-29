@@ -73,16 +73,16 @@ public final class ClosureMediator extends Mediator {
 
       if (message == null || message.isBlank()) {
         addCurrentTestCaseError(
-            "An exception was not expected, but a "
-                + exception.getClass().getName()
-                + " was thrown.");
+          "An exception was not expected, but a "
+          + exception.getClass().getName()
+          + " was thrown.");
       } else {
         addCurrentTestCaseError(
-            "An exception was not expected, but a "
-                + exception.getClass().getName()
-                + " was thrown with the message '"
-                + message
-                + "'");
+          "An exception was not expected, but a "
+          + exception.getClass().getName()
+          + " was thrown with the message '"
+          + message
+          + "'");
       }
     }
   }

@@ -62,7 +62,7 @@ public final class MultiStringMediator extends MultiArgumentMediator<String> {
       //Asserts that the current argument is not blank.
       if (a.isBlank()) {
         throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(index + "th argument", a,
-            "is blank");
+          "is blank");
       }
 
       //Increments index.

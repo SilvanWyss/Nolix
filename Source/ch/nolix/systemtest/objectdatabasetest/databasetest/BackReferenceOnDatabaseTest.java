@@ -31,7 +31,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 
     //attribute
     public final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
-        "pet");
+      "pet");
 
     //constructor
     public Pet() {
@@ -92,7 +92,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 
     //execution
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     final var result = loadedGarfield.owner.getBackReferencedEntity();
 
     //verification
@@ -160,7 +160,7 @@ public final class BackReferenceOnDatabaseTest extends Test {
 
     //setup verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     expect(loadedGarfield.owner.isEmpty());
 
     //execution & verification

@@ -20,7 +20,7 @@ final class SecureServerWorker extends Worker {
 
   //constant
   private static final SecureServerSSLContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
-      new SecureServerSSLContextCreator();
+  new SecureServerSSLContextCreator();
 
   //attribute
   private final SecureServer parentWebSocketServer;
@@ -36,10 +36,10 @@ final class SecureServerWorker extends Worker {
 
   //constructor
   public SecureServerWorker(
-      final SecureServer parentWebSocketServer,
-      final int port,
-      final String htmlPage,
-      final ISSLCertificate paramSSLCertificate) {
+    final SecureServer parentWebSocketServer,
+    final int port,
+    final String htmlPage,
+    final ISSLCertificate paramSSLCertificate) {
 
     GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
     GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
@@ -64,11 +64,11 @@ final class SecureServerWorker extends Worker {
     try {
 
       final var serverBootstrab = new ServerBootstrap()
-          .childOption(ChannelOption.TCP_NODELAY, true)
-          .group(bossGroup, workerGroup)
-          .channel(NioServerSocketChannel.class)
-          .handler(new LoggingHandler(LogLevel.INFO))
-          .childHandler(new SecureServerInitializer(parentWebSocketServer, htmlPage, sslContext));
+        .childOption(ChannelOption.TCP_NODELAY, true)
+        .group(bossGroup, workerGroup)
+        .channel(NioServerSocketChannel.class)
+        .handler(new LoggingHandler(LogLevel.INFO))
+        .childHandler(new SecureServerInitializer(parentWebSocketServer, htmlPage, sslContext));
 
       final var channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();

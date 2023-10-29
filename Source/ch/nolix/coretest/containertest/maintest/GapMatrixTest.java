@@ -146,8 +146,8 @@ public final class GapMatrixTest extends ContainerTest {
 
   @Override
   protected <E> IContainer<E> createContainerWithElements(
-      final E element,
-      final @SuppressWarnings("unchecked") E... elements) {
+    final E element,
+    final @SuppressWarnings("unchecked") E... elements) {
 
     final var size = 1 + elements.length;
 

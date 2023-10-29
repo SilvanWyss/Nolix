@@ -16,13 +16,13 @@ public final class HorizontalStackHtmlBuilder implements IControlHtmlBuilder<IHo
   @Override
   public HtmlElement createHtmlElementForControl(final IHorizontalStack horizontalStack) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.DIV,
-        createHtmlElementsForChildControlsOfHorizontalStack(horizontalStack));
+      HtmlElementTypeCatalogue.DIV,
+      createHtmlElementsForChildControlsOfHorizontalStack(horizontalStack));
   }
 
   //method
   private IContainer<HtmlElement> createHtmlElementsForChildControlsOfHorizontalStack(
-      final IHorizontalStack horizontalStack) {
+    final IHorizontalStack horizontalStack) {
     return horizontalStack.getStoredChildControls().to(this::createHtmlElementsForChildControl);
   }
 

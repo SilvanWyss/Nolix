@@ -31,8 +31,8 @@ public final class TestReceivingDataProviderController implements IDataProviderC
   //method
   @Override
   public IContainer<? extends INode<?>> getDataForRequests(
-      final IChainedNode request,
-      final IChainedNode... requests) {
+    final IChainedNode request,
+    final IChainedNode... requests) {
     return getDataForRequests(ImmutableList.withElement(request, requests));
   }
 

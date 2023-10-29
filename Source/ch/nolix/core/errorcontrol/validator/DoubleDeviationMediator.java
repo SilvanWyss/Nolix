@@ -33,9 +33,9 @@ public final class DoubleDeviationMediator extends Mediator {
    * @throws NegativeArgumentException if the given max deviation is negative.
    */
   DoubleDeviationMediator(
-      final String argumentName,
-      final Double argument,
-      final double maxDeviation) {
+    final String argumentName,
+    final Double argument,
+    final double maxDeviation) {
 
     //Calls constructor of the base class.
     super(argumentName);

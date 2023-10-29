@@ -50,9 +50,9 @@ public final class IterableReadContainer<E> extends Container<E> {
 
     //Asserts that the given container is not null.
     GlobalValidator
-        .assertThat(container)
-        .thatIsNamed(LowerCaseCatalogue.CONTAINER)
-        .isNotNull();
+      .assertThat(container)
+      .thatIsNamed(LowerCaseCatalogue.CONTAINER)
+      .isNotNull();
 
     //Sets the container of the current IterableReadContainer.
     this.container = (Iterable<E>) container;
@@ -108,10 +108,10 @@ public final class IterableReadContainer<E> extends Container<E> {
     }
 
     throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-        "1-based index",
-        p1BasedIndex,
-        1,
-        getElementCount());
+      "1-based index",
+      p1BasedIndex,
+      1,
+      getElementCount());
   }
 
   //method

@@ -19,18 +19,18 @@ public final class TextboxTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-        "Textbox tutorial",
-        MainSession.class);
+      "Textbox tutorial",
+      MainSession.class);
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -43,8 +43,8 @@ public final class TextboxTutorial {
 
       //Configures the style of the Textbox.
       textBox
-          .getStoredStyle()
-          .setBorderThicknessForState(ControlState.BASE, 1);
+        .getStoredStyle()
+        .setBorderThicknessForState(ControlState.BASE, 1);
 
       //Adds the Textbox to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(textBox);

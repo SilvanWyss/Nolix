@@ -13,7 +13,7 @@ import ch.nolix.systemtest.webguitest.basecontrolservicetest.ControlHtmlBuilderT
 
 //class
 public final class HorizontalStackHtmlBuilderTest
-    extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
+extends ControlHtmlBuilderTest<HorizontalStackHtmlBuilder, IHorizontalStack> {
 
   //method
   @TestCase

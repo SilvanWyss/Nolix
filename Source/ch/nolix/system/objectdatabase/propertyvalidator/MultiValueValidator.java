@@ -35,8 +35,8 @@ public final class MultiValueValidator extends PropertyValidator implements IMul
   public <V> void assertCanRemoveValue(final IMultiValue<V> multiValue, final V value) {
     if (!MULTI_VALUE_HELPER.canRemoveValue(multiValue, value)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          multiValue,
-          "cannot remove the given value '" + value + "'");
+        multiValue,
+        "cannot remove the given value '" + value + "'");
     }
   }
 }

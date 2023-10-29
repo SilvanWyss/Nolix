@@ -32,14 +32,14 @@ final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<Ful
     //Handle a bad request.
     if (!req.decoderResult().isSuccess()) {
       sendHttpResponse(ctx, req,
-          new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.BAD_REQUEST, ctx.alloc().buffer(0)));
+        new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.BAD_REQUEST, ctx.alloc().buffer(0)));
       return;
     }
 
     //Allow only GET methods.
     if (!HttpMethod.GET.equals(req.method())) {
       sendHttpResponse(ctx, req,
-          new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.FORBIDDEN, ctx.alloc().buffer(0)));
+        new DefaultFullHttpResponse(req.protocolVersion(), HttpResponseStatus.FORBIDDEN, ctx.alloc().buffer(0)));
       return;
     }
 

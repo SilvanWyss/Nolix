@@ -42,9 +42,9 @@ public final class CssPropertyTest extends Test {
 
     //execution & verification
     expectRunning(() -> CssProperty.withNameAndValue(null, "200px"))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given name is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given name is null.");
   }
 
   //method
@@ -56,8 +56,8 @@ public final class CssPropertyTest extends Test {
 
     //execution & verification
     expectRunning(() -> CssProperty.withNameAndValue("width", value))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given value is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given value is null.");
   }
 }

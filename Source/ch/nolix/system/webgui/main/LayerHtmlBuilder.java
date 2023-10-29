@@ -20,9 +20,9 @@ public final class LayerHtmlBuilder {
   //method
   public IHtmlElement getHtmlElementForLayer(final ILayer<?> layer) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
-        HtmlElementTypeCatalogue.DIV,
-        getHtmlAttributesForLayer(layer),
-        getHtmlChildElementsForLayer(layer));
+      HtmlElementTypeCatalogue.DIV,
+      getHtmlAttributesForLayer(layer),
+      getHtmlChildElementsForLayer(layer));
   }
 
   //method

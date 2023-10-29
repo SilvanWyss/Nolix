@@ -33,9 +33,9 @@ public final class SchemaWriter implements ISchemaWriter {
 
   //constructor
   private SchemaWriter(
-      final String databaseName,
-      final SqlConnection sqlConnection,
-      final ISchemaStatementCreator schemaStatementCreator) {
+    final String databaseName,
+    final SqlConnection sqlConnection,
+    final ISchemaStatementCreator schemaStatementCreator) {
 
     GlobalValidator.assertThat(schemaStatementCreator).thatIsNamed(ISchemaStatementCreator.class).isNotNull();
 
@@ -48,9 +48,9 @@ public final class SchemaWriter implements ISchemaWriter {
 
   //static method
   public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaStatementCreator schemaStatementCreator) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final ISchemaStatementCreator schemaStatementCreator) {
     return new SchemaWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaStatementCreator);
   }
 
@@ -112,7 +112,7 @@ public final class SchemaWriter implements ISchemaWriter {
   @Override
   public void renameColumn(final String tableName, final String columnName, final String newColumnName) {
     sqlCollector.addSqlStatement(
-        schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName));
+      schemaStatementCreator.createStatementToRenameColumn(tableName, columnName, newColumnName));
   }
 
   //method

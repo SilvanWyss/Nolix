@@ -8,7 +8,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeD
 
 //class
 public final class BaseParameterizedValueTypeDto extends ParameterizedPropertyTypeDto
-    implements IBaseParameterizedValueTypeDto {
+implements IBaseParameterizedValueTypeDto {
 
   //constructor
   public BaseParameterizedValueTypeDto(final PropertyType propertyType, final DataType dataType) {

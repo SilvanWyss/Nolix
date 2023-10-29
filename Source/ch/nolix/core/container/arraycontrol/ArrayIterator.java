@@ -73,7 +73,7 @@ public final class ArrayIterator<E> implements CopyableIterator<E> {
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
-          .toNoSuchElementException();
+        .toNoSuchElementException();
     }
   }
 

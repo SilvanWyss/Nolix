@@ -31,9 +31,9 @@ final class SchemaReader implements ISchemaReader {
 
   //constructor
   private SchemaReader(
-      final String databaseName,
-      final SqlConnection sqlConnection,
-      final ISchemaQueryCreator schemaQueryCreator) {
+    final String databaseName,
+    final SqlConnection sqlConnection,
+    final ISchemaQueryCreator schemaQueryCreator) {
 
     GlobalValidator.assertThat(schemaQueryCreator).thatIsNamed(ISchemaQueryCreator.class).isNotNull();
 
@@ -46,9 +46,9 @@ final class SchemaReader implements ISchemaReader {
 
   //static method
   public static SchemaReader forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaQueryCreator schemaQueryCreator) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final ISchemaQueryCreator schemaQueryCreator) {
     return new SchemaReader(databaseName, sqlConnectionPool.borrowSqlConnection(), schemaQueryCreator);
   }
 
@@ -56,8 +56,8 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public boolean columnsIsEmpty(final String tableName, final String columnName) {
     return sqlConnection
-        .getRecords(schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
-        .isEmpty();
+      .getRecords(schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
+      .isEmpty();
   }
 
   //method
@@ -70,16 +70,16 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public IContainer<IColumnDto> loadColumns(final String tableName) {
     return sqlConnection
-        .getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
-        .to(r -> new ColumnDto(r.get(0), new DataTypeDto(r.get(1))));
+      .getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
+      .to(r -> new ColumnDto(r.get(0), new DataTypeDto(r.get(1))));
   }
 
   //method
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return sqlConnection
-        .getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
-        .to(FlatTableDto::new);
+      .getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
+      .to(FlatTableDto::new);
   }
 
   //method
@@ -98,7 +98,7 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public boolean tableExists(String tableName) {
     return sqlConnection
-        .getRecords(schemaQueryCreator.createQueryToLoadTable(tableName))
-        .containsAny();
+      .getRecords(schemaQueryCreator.createQueryToLoadTable(tableName))
+      .containsAny();
   }
 }

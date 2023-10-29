@@ -17,8 +17,8 @@ abstract class Sequence<V> implements ISequence<V> {
   //method
   @Override
   public int getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-      final BigDecimal limit,
-      final int maxIterationCount) {
+    final BigDecimal limit,
+    final int maxIterationCount) {
 
     for (var i = 1; i <= maxIterationCount; i++) {
       if (getSquaredMagnitudeOfValueAt1BasedIndex(i).compareTo(limit) > 0) {

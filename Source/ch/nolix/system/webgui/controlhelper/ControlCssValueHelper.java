@@ -15,8 +15,8 @@ public final class ControlCssValueHelper {
 
   //method
   public String getCssValueFromRelativeOrAbsoluteInt(
-      final IAbsoluteOrRelativeInt absoluteOrRelativeInt,
-      final String relativeIntCssUnit) {
+    final IAbsoluteOrRelativeInt absoluteOrRelativeInt,
+    final String relativeIntCssUnit) {
 
     if (absoluteOrRelativeInt.isAbsolute()) {
       return absoluteOrRelativeInt.getAbsoluteValue() + "px";

@@ -34,18 +34,18 @@ public final class WebSocketFrame {
 
   //constructor
   public WebSocketFrame(
-      final boolean mFINBit,
-      final WebSocketFrameOpcodeMeaning opcode,
-      final boolean maskBit,
-      final byte[] payload) {
+    final boolean mFINBit,
+    final WebSocketFrameOpcodeMeaning opcode,
+    final boolean maskBit,
+    final byte[] payload) {
 
     GlobalValidator.assertThat(payload).thatIsNamed("payload").isNotNull();
 
     firstNibble = new WebSocketFrameFirstNibble(
-        mFINBit,
-        opcode,
-        maskBit,
-        payload.length);
+      mFINBit,
+      opcode,
+      maskBit,
+      payload.length);
 
     payloadLength = new WebSocketFramePayloadLength(payload.length);
     this.payload = payload; //NOSONAR: A WebSocketFrame operates on the original instance.
@@ -54,10 +54,10 @@ public final class WebSocketFrame {
 
   //constructor
   public WebSocketFrame(
-      final boolean mFINBit,
-      final WebSocketFrameOpcodeMeaning opcode,
-      final boolean maskBit,
-      final String payload) {
+    final boolean mFINBit,
+    final WebSocketFrameOpcodeMeaning opcode,
+    final boolean maskBit,
+    final String payload) {
     this(mFINBit, opcode, maskBit, payload.getBytes(StandardCharsets.UTF_8));
   }
 
@@ -95,8 +95,8 @@ public final class WebSocketFrame {
 
     if (!pingFrame.isPingFrame()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "ping frame", pingFrame,
-          "is actually not a ping frame");
+        "ping frame", pingFrame,
+        "is actually not a ping frame");
     }
 
     return new WebSocketFrame(true, WebSocketFrameOpcodeMeaning.PONG, false, pingFrame.getPayload());
@@ -297,29 +297,31 @@ public final class WebSocketFrame {
 
   //method
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs16Bits(
-      final InputStream inputStream) throws IOException {
+    final InputStream inputStream)
+  throws IOException {
 
     final var headerNext2Bytes = inputStream.readNBytes(2);
 
     return new WebSocketFramePayloadLength(
-        (0x100L * (headerNext2Bytes[0] & 0b11111111))
-            + (headerNext2Bytes[1] & 0b11111111));
+      (0x100L * (headerNext2Bytes[0] & 0b11111111))
+      + (headerNext2Bytes[1] & 0b11111111));
   }
 
   //method
   private WebSocketFramePayloadLength calculatePayloadLengthWhenPayloadLengthIs64Bits(
-      final InputStream inputStream) throws IOException {
+    final InputStream inputStream)
+  throws IOException {
 
     final var headerNext8Bytes = inputStream.readNBytes(8);
 
     return new WebSocketFramePayloadLength(
-        (0x100_000_000_000_000L * (headerNext8Bytes[0] & 0b11111111))
-            + (0x1_000_000_000_000L * (headerNext8Bytes[1] & 0b11111111))
-            + (0x10_000_000_000L * (headerNext8Bytes[2] & 0b11111111))
-            + (0x100_000_000L * (headerNext8Bytes[3] & 0b11111111))
-            + (0x1_000_000L * (headerNext8Bytes[4] & 0b11111111))
-            + (0x10_000L * (headerNext8Bytes[5] & 0b11111111))
-            + (0x100L * (headerNext8Bytes[6] & 0b11111111))
-            + (headerNext8Bytes[7] & 0b11111111));
+      (0x100_000_000_000_000L * (headerNext8Bytes[0] & 0b11111111))
+      + (0x1_000_000_000_000L * (headerNext8Bytes[1] & 0b11111111))
+      + (0x10_000_000_000L * (headerNext8Bytes[2] & 0b11111111))
+      + (0x100_000_000L * (headerNext8Bytes[3] & 0b11111111))
+      + (0x1_000_000L * (headerNext8Bytes[4] & 0b11111111))
+      + (0x10_000L * (headerNext8Bytes[5] & 0b11111111))
+      + (0x100L * (headerNext8Bytes[6] & 0b11111111))
+      + (headerNext8Bytes[7] & 0b11111111));
   }
 }

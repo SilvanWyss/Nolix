@@ -10,7 +10,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 
 //interface
 public interface IColumn
-    extends Deletable, EmptinessRequestable, IDatabaseObject, IIdHolder, IFluentMutableNameHolder<IColumn> {
+extends Deletable, EmptinessRequestable, IDatabaseObject, IIdHolder, IFluentMutableNameHolder<IColumn> {
 
   //method declaration
   boolean belongsToTable();

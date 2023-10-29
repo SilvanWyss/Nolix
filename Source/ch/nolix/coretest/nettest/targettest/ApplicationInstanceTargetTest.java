@@ -17,12 +17,12 @@ public final class ApplicationInstanceTargetTest extends Test {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-        .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-            "nolix.tech",
-            PortCatalogue.HTTP,
-            "Demo Application",
-            "demo_application",
-            SecurityLevel.UNSECURE);
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+        "nolix.tech",
+        PortCatalogue.HTTP,
+        "Demo Application",
+        "demo_application",
+        SecurityLevel.UNSECURE);
 
     //execution
     final var result = testUnit.toUrl();
@@ -37,12 +37,12 @@ public final class ApplicationInstanceTargetTest extends Test {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-        .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-            "nolix.tech",
-            PortCatalogue.HTTPS,
-            "Demo Application",
-            "demo_application",
-            SecurityLevel.SECURE);
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+        "nolix.tech",
+        PortCatalogue.HTTPS,
+        "Demo Application",
+        "demo_application",
+        SecurityLevel.SECURE);
 
     //execution
     final var result = testUnit.toUrl();
@@ -57,12 +57,12 @@ public final class ApplicationInstanceTargetTest extends Test {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-        .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-            "nolix.tech",
-            50000,
-            "Demo Application",
-            "demo_application",
-            SecurityLevel.UNSECURE);
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+        "nolix.tech",
+        50000,
+        "Demo Application",
+        "demo_application",
+        SecurityLevel.UNSECURE);
 
     //execution
     final var result = testUnit.toUrl();
@@ -77,12 +77,12 @@ public final class ApplicationInstanceTargetTest extends Test {
 
     //setup
     final var testUnit = ApplicationInstanceTarget
-        .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-            "nolix.tech",
-            50000,
-            "Demo Application",
-            "demo_application",
-            SecurityLevel.SECURE);
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+        "nolix.tech",
+        50000,
+        "Demo Application",
+        "demo_application",
+        SecurityLevel.SECURE);
 
     //execution
     final var result = testUnit.toUrl();

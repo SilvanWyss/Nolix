@@ -34,8 +34,8 @@ final class StackTraceElementFinder {
 
   //method
   private StackTraceElement getStackTraceElementOfMethodInStackTrace(
-      final Method method,
-      final StackTraceElement[] stackTrace) {
+    final Method method,
+    final StackTraceElement[] stackTrace) {
 
     for (final var ste : stackTrace) {
       if (ste.getMethodName().equals(method.getName())) {
@@ -44,7 +44,7 @@ final class StackTraceElementFinder {
     }
 
     throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        method,
-        "is not called the given stackTrace '" + stackTrace + "'");
+      method,
+      "is not called the given stackTrace '" + stackTrace + "'");
   }
 }

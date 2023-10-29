@@ -14,7 +14,7 @@ import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 
 //class
 public abstract class BaseBackReference<E extends IEntity> extends Property
-    implements IBaseBackReference<E> {
+implements IBaseBackReference<E> {
 
   //constant
   private static final IPropertyHelper PROPERTY_HELPER = new PropertyHelper();
@@ -34,9 +34,9 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
     GlobalValidator.assertThat(backReferencedTableName).thatIsNamed("back referenced table name").isNotBlank();
 
     GlobalValidator
-        .assertThat(backReferencedPropertyName)
-        .thatIsNamed("back referenced property name")
-        .isNotBlank();
+      .assertThat(backReferencedPropertyName)
+      .thatIsNamed("back referenced property name")
+      .isNotBlank();
 
     this.backReferencedTableName = backReferencedTableName;
     this.backReferencedPropertyName = backReferencedPropertyName;
@@ -79,10 +79,10 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
   @Override
   public final boolean referencesBackProperty(final IProperty property) {
     return PROPERTY_HELPER.belongsToEntity(property)
-        && belongsToEntity()
-        && getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
-        && getBackReferencedPropertyName().equals(property.getName())
-        && referencesBackEntityWithId(property.getStoredParentEntity().getId());
+    && belongsToEntity()
+    && getBackReferencedTableName().equals(property.getStoredParentEntity().getParentTableName())
+    && getBackReferencedPropertyName().equals(property.getName())
+    && referencesBackEntityWithId(property.getStoredParentEntity().getId());
   }
 
   //method
@@ -121,8 +121,8 @@ public abstract class BaseBackReference<E extends IEntity> extends Property
   @SuppressWarnings("unchecked")
   private Table<E> loadBackReferencedTable() {
     return (Table<E>) getStoredParentEntity()
-        .getStoredParentTable()
-        .getStoredParentDatabase()
-        .getStoredTableByName(getBackReferencedTableName());
+      .getStoredParentTable()
+      .getStoredParentDatabase()
+      .getStoredTableByName(getBackReferencedTableName());
   }
 }

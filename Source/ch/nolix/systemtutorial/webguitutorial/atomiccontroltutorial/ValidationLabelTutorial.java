@@ -25,19 +25,19 @@ public final class ValidationLabelTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "ValidationLabel tutorial",
-        MainSession.class,
-        new VoidObject());
+      "ValidationLabel tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -47,12 +47,12 @@ public final class ValidationLabelTutorial {
     @Override
     protected void initialize() {
       getStoredGui().pushLayerWithRootControl(
-          new VerticalStack()
-              .addControl(
-                  new Label().setText("Enter a positive number"),
-                  new ValidationLabel(),
-                  positiveNumberTextbox,
-                  new Button().setText("Ok").setLeftMouseButtonPressAction(this::enterPositiveNumber)));
+        new VerticalStack()
+          .addControl(
+            new Label().setText("Enter a positive number"),
+            new ValidationLabel(),
+            positiveNumberTextbox,
+            new Button().setText("Ok").setLeftMouseButtonPressAction(this::enterPositiveNumber)));
     }
 
     private void enterPositiveNumber() {

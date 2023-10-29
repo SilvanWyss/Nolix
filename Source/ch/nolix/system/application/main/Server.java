@@ -37,8 +37,8 @@ public final class Server extends BaseServer<Server> {
 
     //Creates the internalServer of the current Server.
     internalServer = ch.nolix.core.net.endpoint3.Server.forPortAndHttpMessage(
-        port,
-        new ServerHttpMessage(getIp(), port).toString());
+      port,
+      new ServerHttpMessage(getIp(), port).toString());
 
     //Creates a close dependency between the current Server and its internalServer.
     createCloseDependencyTo(internalServer);
@@ -71,9 +71,9 @@ public final class Server extends BaseServer<Server> {
   @Override
   public IServerTarget asTarget() {
     return ServerTarget.forIpOrDomainAndPortAndSecurityLevelForConnections(
-        getIp(),
-        getPort(),
-        SECURITY_LEVEL_FOR_CONNECTIONS);
+      getIp(),
+      getPort(),
+      SECURITY_LEVEL_FOR_CONNECTIONS);
   }
 
   //method

@@ -41,37 +41,37 @@ public final class GridStyle extends ControlStyle<IGridStyle> implements IGridSt
 
   //attribute
   private final NonCascadingProperty<ControlState, GridType> gridType = new NonCascadingProperty<>(
-      GRID_TYPE_HEADER,
-      ControlState.class,
-      GridType::fromSpecification,
-      Node::fromEnum,
-      this::setGridTypeForState,
-      DEFAULT_GRID_TYPE);
+    GRID_TYPE_HEADER,
+    ControlState.class,
+    GridType::fromSpecification,
+    Node::fromEnum,
+    this::setGridTypeForState,
+    DEFAULT_GRID_TYPE);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> gridThickness = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          GRID_THICKNESS_HEADER,
-          ControlState.class,
-          this::setGridThicknessForState,
-          DEFAULT_GRID_THICKNESS);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      GRID_THICKNESS_HEADER,
+      ControlState.class,
+      this::setGridThicknessForState,
+      DEFAULT_GRID_THICKNESS);
 
   //attribute
   private final NonCascadingProperty<ControlState, IColor> gridColor = new NonCascadingProperty<>(
-      GRID_COLOR_HEADER,
-      ControlState.class,
-      Color::fromSpecification,
-      IColor::getSpecification,
-      this::setGridColorForState,
-      DEFAULT_GRID_COLOR);
+    GRID_COLOR_HEADER,
+    ControlState.class,
+    Color::fromSpecification,
+    IColor::getSpecification,
+    this::setGridColorForState,
+    DEFAULT_GRID_COLOR);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> childControlMargin = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          CHILD_CONTROL_MARGIN_HEADER,
-          ControlState.class,
-          this::setChildControlMarginForState,
-          DEFAULT_CHILD_CONTROL_MARGIN);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      CHILD_CONTROL_MARGIN_HEADER,
+      ControlState.class,
+      this::setChildControlMarginForState,
+      DEFAULT_CHILD_CONTROL_MARGIN);
 
   //constructor
   public GridStyle() {

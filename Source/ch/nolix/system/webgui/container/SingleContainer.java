@@ -18,8 +18,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class SingleContainer
-    extends Container<ISingleContainer, ISingleContainerStyle>
-    implements ISingleContainer {
+extends Container<ISingleContainer, ISingleContainerStyle>
+implements ISingleContainer {
 
   //constant
   private static final String CONTROL_HEADER = "Control";
@@ -32,10 +32,10 @@ public final class SingleContainer
 
   //attribute
   private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
-      CONTROL_HEADER,
-      this::setControl,
-      GlobalControlFactory::createControlFromSpecification,
-      IControl::getSpecification);
+    CONTROL_HEADER,
+    this::setControl,
+    GlobalControlFactory::createControlFromSpecification,
+    IControl::getSpecification);
 
   //method
   @Override

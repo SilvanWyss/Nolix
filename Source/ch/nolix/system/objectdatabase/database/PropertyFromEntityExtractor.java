@@ -23,8 +23,8 @@ final class PropertyFromEntityExtractor {
 
   //method
   private void fillUpPropertiesFromGivenObjectIntoGivenList(
-      final Object object,
-      final LinkedList<Property> list) {
+    final Object object,
+    final LinkedList<Property> list) {
     Class<?> lClass = object.getClass();
     while (lClass != null) {
       fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(object, lClass, list);
@@ -34,9 +34,9 @@ final class PropertyFromEntityExtractor {
 
   //method
   private void fillUpPropertiesFromGivenObjectAndForGivenClassIntoGivenList(
-      final Object object,
-      final Class<?> pClass,
-      final LinkedList<Property> list) {
+    final Object object,
+    final Class<?> pClass,
+    final LinkedList<Property> list) {
     for (final var f : pClass.getDeclaredFields()) {
       fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(object, f, list);
     }
@@ -44,9 +44,9 @@ final class PropertyFromEntityExtractor {
 
   //method
   private void fillUpPotentialPropertyFromGivenObjectForGivenFieldIntoGivenList(
-      final Object object,
-      final Field field,
-      final LinkedList<Property> list) {
+    final Object object,
+    final Field field,
+    final LinkedList<Property> list) {
     if (fieldIsProperty(field)) {
       fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(object, field, list);
     }
@@ -59,9 +59,9 @@ final class PropertyFromEntityExtractor {
 
   //method
   private void fillUpPropertyFromGivenObjectForGivenFieldIntoGivenList(
-      final Object object,
-      final Field field,
-      final LinkedList<Property> list) {
+    final Object object,
+    final Field field,
+    final LinkedList<Property> list) {
 
     field.setAccessible(true);
 

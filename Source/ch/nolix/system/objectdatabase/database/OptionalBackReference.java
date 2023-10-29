@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class OptionalBackReference<E extends IEntity> extends BaseBackReference<E>
-    implements IOptionalBackReference<E> {
+implements IOptionalBackReference<E> {
 
   //constant
   private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
@@ -30,15 +30,15 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
 
   //static method
   public static <E2 extends Entity> OptionalBackReference<E2> forEntityAndBackReferencedPropertyName(
-      final Class<E2> type,
-      final String backReferencedPropertyName) {
+    final Class<E2> type,
+    final String backReferencedPropertyName) {
     return new OptionalBackReference<>(type.getSimpleName(), backReferencedPropertyName);
   }
 
   //static method
   public static OptionalBackReference<BaseEntity> forEntityWithTableNameAndBackReferencedPropertyName(
-      final String tableName,
-      final String backReferencedPropertyName) {
+    final String tableName,
+    final String backReferencedPropertyName) {
     return new OptionalBackReference<>(tableName, backReferencedPropertyName);
   }
 
@@ -66,8 +66,8 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
     }
 
     return ImmutableList.withElement(
-        getBackReferencedEntity().technicalGetRefProperties()
-            .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
+      getBackReferencedEntity().technicalGetRefProperties()
+        .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
   }
 
   //method
@@ -92,8 +92,8 @@ public final class OptionalBackReference<E extends IEntity> extends BaseBackRefe
   @Override
   public boolean referencesBackEntity(IEntity entity) {
     return containsAny()
-        && entity != null
-        && getBackReferencedEntityId().equals(entity.getId());
+    && entity != null
+    && getBackReferencedEntityId().equals(entity.getId());
   }
 
   //method

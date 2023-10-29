@@ -76,9 +76,9 @@ public class ArgumentMediator<A> extends Mediator {
     //condition.
     if (!condition.test(getStoredArgument())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "does not fulfil the given condition");
+        getArgumentName(),
+        getStoredArgument(),
+        "does not fulfil the given condition");
     }
   }
 
@@ -97,10 +97,10 @@ public class ArgumentMediator<A> extends Mediator {
 
     if (!Objects.equals(actualStringRepresentation, stringRepresentation)) {
       throw InvalidArgumentException
-          .forArgumentNameAndArgumentAndErrorPredicate(
-              getArgumentName(),
-              getStoredArgument(),
-              "does not have the String representation '" + stringRepresentation + "'");
+        .forArgumentNameAndArgumentAndErrorPredicate(
+          getArgumentName(),
+          getStoredArgument(),
+          "does not have the String representation '" + stringRepresentation + "'");
     }
   }
 
@@ -133,9 +133,9 @@ public class ArgumentMediator<A> extends Mediator {
     //object.
     if (argument != object) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "is not the given object");
+        getArgumentName(),
+        getStoredArgument(),
+        "is not the given object");
     }
   }
 
@@ -152,9 +152,9 @@ public class ArgumentMediator<A> extends Mediator {
     //object.
     if (argument == object) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "is the given object");
+        getArgumentName(),
+        getStoredArgument(),
+        "is the given object");
     }
   }
 
@@ -218,9 +218,9 @@ public class ArgumentMediator<A> extends Mediator {
     //type.
     if (!type.isAssignableFrom(getStoredArgument().getClass())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "is not a " + type);
+        getArgumentName(),
+        getStoredArgument(),
+        "is not a " + type);
     }
   }
 

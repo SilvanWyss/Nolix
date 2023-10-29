@@ -63,8 +63,8 @@ public final class NonEmptyArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NonEmptyArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final Object argument) {
+    final String argumentName,
+    final Object argument) {
     return new NonEmptyArgumentException(argumentName, argument);
   }
 }

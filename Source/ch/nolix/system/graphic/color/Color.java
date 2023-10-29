@@ -1377,24 +1377,24 @@ public final class Color extends Element implements IColor {
   private Color(final int redValue, final int greenValue, final int blueValue, final int alphaValue) {
 
     GlobalValidator
-        .assertThat(redValue)
-        .thatIsNamed("red value")
-        .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
+      .assertThat(redValue)
+      .thatIsNamed("red value")
+      .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
     GlobalValidator
-        .assertThat(greenValue)
-        .thatIsNamed("green value")
-        .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
+      .assertThat(greenValue)
+      .thatIsNamed("green value")
+      .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
     GlobalValidator
-        .assertThat(blueValue)
-        .thatIsNamed("blue value")
-        .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
+      .assertThat(blueValue)
+      .thatIsNamed("blue value")
+      .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
     GlobalValidator
-        .assertThat(blueValue)
-        .thatIsNamed("alpha value")
-        .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
+      .assertThat(blueValue)
+      .thatIsNamed("alpha value")
+      .isBetween(MIN_COLOR_COMPONENT, MAX_COLOR_COMPONENT);
 
     this.redValue = (short) redValue;
     this.greenValue = (short) greenValue;
@@ -1425,10 +1425,10 @@ public final class Color extends Element implements IColor {
     }
 
     return new Color(
-        averageRedValue / colorCount,
-        averageGreenValue / colorCount,
-        averageBlueValue / colorCount,
-        averateAlphaValue / colorCount);
+      averageRedValue / colorCount,
+      averageGreenValue / colorCount,
+      averageBlueValue / colorCount,
+      averateAlphaValue / colorCount);
   }
 
   //static method
@@ -1489,7 +1489,7 @@ public final class Color extends Element implements IColor {
     if (webColorAndName == null) {
 
       if ((string.length() != 8 || string.length() != 10)
-          && !string.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
+      && !string.substring(0, 2).equals(StringCatalogue.HEXADECIMAL_PREFIX)) {
         throw UnrepresentingArgumentException.forArgumentAndType(string, Color.class);
       }
 
@@ -1526,9 +1526,9 @@ public final class Color extends Element implements IColor {
    *                                       color component (in [0, 255]).
    */
   public static Color withRedValueAndGreenValueAndBlueValue(
-      final int redValue,
-      final int greenValue,
-      final int blueValue) {
+    final int redValue,
+    final int greenValue,
+    final int blueValue) {
     return new Color(redValue, greenValue, blueValue);
   }
 
@@ -1550,10 +1550,10 @@ public final class Color extends Element implements IColor {
    *                                       color component (in [0, 255]).
    */
   public static Color withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-      final int redValue,
-      final int greenValue,
-      final int blueValue,
-      final int alphaValue) {
+    final int redValue,
+    final int greenValue,
+    final int blueValue,
+    final int alphaValue) {
     return new Color(redValue, greenValue, blueValue, alphaValue);
   }
 
@@ -1574,43 +1574,43 @@ public final class Color extends Element implements IColor {
 
       final var tempValue =
 
-          //Enumerates the current character.
-          switch (string.charAt(i)) {
-            case '0' ->
-              0;
-            case '1' ->
-              1;
-            case '2' ->
-              2;
-            case '3' ->
-              3;
-            case '4' ->
-              4;
-            case '5' ->
-              5;
-            case '6' ->
-              6;
-            case '7' ->
-              7;
-            case '8' ->
-              8;
-            case '9' ->
-              9;
-            case 'A' ->
-              10;
-            case 'B' ->
-              11;
-            case 'C' ->
-              12;
-            case 'D' ->
-              13;
-            case 'E' ->
-              14;
-            case 'F' ->
-              15;
-            default ->
-              throw InvalidArgumentException.forArgument(string);
-          };
+      //Enumerates the current character.
+      switch (string.charAt(i)) {
+        case '0' ->
+          0;
+        case '1' ->
+          1;
+        case '2' ->
+          2;
+        case '3' ->
+          3;
+        case '4' ->
+          4;
+        case '5' ->
+          5;
+        case '6' ->
+          6;
+        case '7' ->
+          7;
+        case '8' ->
+          8;
+        case '9' ->
+          9;
+        case 'A' ->
+          10;
+        case 'B' ->
+          11;
+        case 'C' ->
+          12;
+        case 'D' ->
+          13;
+        case 'E' ->
+          14;
+        case 'F' ->
+          15;
+        default ->
+          throw InvalidArgumentException.forArgument(string);
+      };
 
       value += tempValue * base;
       base *= 16;
@@ -1708,10 +1708,10 @@ public final class Color extends Element implements IColor {
   @Override
   public Color getInvertedColor() {
     return new Color(
-        MAX_COLOR_COMPONENT - redValue,
-        MAX_COLOR_COMPONENT - greenValue,
-        MAX_COLOR_COMPONENT - blueValue,
-        alphaValue);
+      MAX_COLOR_COMPONENT - redValue,
+      MAX_COLOR_COMPONENT - greenValue,
+      MAX_COLOR_COMPONENT - blueValue,
+      alphaValue);
   }
 
   //method
@@ -1793,9 +1793,9 @@ public final class Color extends Element implements IColor {
   public String toHexadecimalString() {
 
     var string = StringCatalogue.HEXADECIMAL_PREFIX
-        + String.format("%02X", redValue)
-        + String.format("%02X", greenValue)
-        + String.format("%02X", blueValue);
+    + String.format("%02X", redValue)
+    + String.format("%02X", greenValue)
+    + String.format("%02X", blueValue);
 
     //Handles the case that the current color does not have a full alpha value.
     if (!hasFullAlphaValue()) {
@@ -1812,10 +1812,10 @@ public final class Color extends Element implements IColor {
   @Override
   public String toHexadecimalStringWithAlphaValue() {
     return StringCatalogue.HEXADECIMAL_PREFIX
-        + String.format("%02X", redValue)
-        + String.format("%02X", greenValue)
-        + String.format("%02X", blueValue)
-        + String.format("%02X", alphaValue);
+    + String.format("%02X", redValue)
+    + String.format("%02X", greenValue)
+    + String.format("%02X", blueValue)
+    + String.format("%02X", alphaValue);
   }
 
   //method
@@ -1828,15 +1828,15 @@ public final class Color extends Element implements IColor {
     //Handles the case that the current Color does not have a full alpha value.
     if (!hasFullAlphaValue()) {
       return 16_777_216L * getRedValue()
-          + 65536 * getGreenValue()
-          + 256 * getBlueValue()
-          + getAlphaValue();
+      + 65536 * getGreenValue()
+      + 256 * getBlueValue()
+      + getAlphaValue();
     }
 
     //Handles the case that the current Color has a full alpha value.
     return 65536L * getRedValue()
-        + 256 * getGreenValue()
-        + getBlueValue();
+    + 256 * getGreenValue()
+    + getBlueValue();
   }
 
   //method
@@ -1849,15 +1849,15 @@ public final class Color extends Element implements IColor {
   public IColor withFloatingPointAlphaValue(final double floatingPointAlphaValue) {
 
     GlobalValidator
-        .assertThat(floatingPointAlphaValue)
-        .thatIsNamed("floating point number alpha value")
-        .isBetween(0.0, 1.0);
+      .assertThat(floatingPointAlphaValue)
+      .thatIsNamed("floating point number alpha value")
+      .isBetween(0.0, 1.0);
 
     return withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-        redValue,
-        greenValue,
-        blueValue,
-        (int) (MAX_COLOR_COMPONENT * floatingPointAlphaValue));
+      redValue,
+      greenValue,
+      blueValue,
+      (int) (MAX_COLOR_COMPONENT * floatingPointAlphaValue));
   }
 
   //method

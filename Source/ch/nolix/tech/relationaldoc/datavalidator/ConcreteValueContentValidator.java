@@ -13,7 +13,7 @@ public final class ConcreteValueContentValidator {
 
   //constant
   private static final ConcreteValueContentEvaluator CONCRETE_VALUE_CONTENT_EVALUATOR = //
-      new ConcreteValueContentEvaluator();
+  new ConcreteValueContentEvaluator();
 
   //method
   public void assertCanAddValue(final IConcreteValueContent concreteValueContent, final String value) {

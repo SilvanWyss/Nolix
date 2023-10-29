@@ -71,6 +71,6 @@ public final class ValidationLabelTest extends ControlTest<IValidationLabel> {
     }
 
     throw GeneralException
-        .withErrorMessage("The throwException method of the FunctionCatalogue did not throw an Exception.");
+      .withErrorMessage("The throwException method of the FunctionCatalogue did not throw an Exception.");
   }
 }

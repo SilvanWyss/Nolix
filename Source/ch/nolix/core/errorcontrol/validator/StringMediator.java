@@ -76,9 +76,9 @@ public class StringMediator extends ArgumentMediator<String> {
     //given length.
     if (getStoredArgument().length() != length) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "does not have the length " + length);
+        getArgumentName(),
+        getStoredArgument(),
+        "does not have the length " + length);
     }
   }
 
@@ -97,9 +97,9 @@ public class StringMediator extends ArgumentMediator<String> {
     //Asserts that the argument of the current StringMediator is blank.
     if (!getStoredArgument().isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "is not blank");
+        getArgumentName(),
+        getStoredArgument(),
+        "is not blank");
     }
   }
 
@@ -154,9 +154,9 @@ public class StringMediator extends ArgumentMediator<String> {
     //Asserts that the the argument of the current StringMediator is not blank.
     if (getStoredArgument().isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "is blank");
+        getArgumentName(),
+        getStoredArgument(),
+        "is blank");
     }
   }
 
@@ -178,9 +178,9 @@ public class StringMediator extends ArgumentMediator<String> {
     //the given max length says.
     if (getStoredArgument().length() > maxLength) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "is longer than " + maxLength);
+        getArgumentName(),
+        getStoredArgument(),
+        "is longer than " + maxLength);
     }
   }
 
@@ -202,9 +202,9 @@ public class StringMediator extends ArgumentMediator<String> {
     //the given min length says.
     if (getStoredArgument().length() < minLength) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "has the length " + getStoredArgument().length() + " and is therefore shorter than " + minLength);
+        getArgumentName(),
+        getStoredArgument(),
+        "has the length " + getStoredArgument().length() + " and is therefore shorter than " + minLength);
     }
   }
 
@@ -256,8 +256,8 @@ public class StringMediator extends ArgumentMediator<String> {
 
     if (!specifiesProbableDirectoryOnLocalMachine) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          directory,
-          "is not a probable directory on the local machine");
+        directory,
+        "is not a probable directory on the local machine");
     }
   }
 
@@ -282,9 +282,9 @@ public class StringMediator extends ArgumentMediator<String> {
 
     if (!getStoredArgument().startsWith(sequence)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          getStoredArgument(),
-          "does not start with the sequence '" + sequence + "'");
+        getArgumentName(),
+        getStoredArgument(),
+        "does not start with the sequence '" + sequence + "'");
     }
   }
 }

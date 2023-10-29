@@ -126,9 +126,9 @@ public final class FileSystemAccessor {
             return new FileAccessor(path);
           case THROW_EXCEPTION_WHEN_TARGET_EXISTS_ALREADY:
             throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-                "file system item",
-                path,
-                "exists already");
+              "file system item",
+              path,
+              "exists already");
         }
       }
 
@@ -242,9 +242,9 @@ public final class FileSystemAccessor {
     //path.
     if (exists(path)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "file system item",
-          path,
-          "exists already");
+        "file system item",
+        path,
+        "exists already");
     }
 
     //Creates folder.
@@ -285,8 +285,8 @@ public final class FileSystemAccessor {
    */
   public static IContainer<FileAccessor> getFileAccessors(final String path) {
     return ReadContainer.forArray(new File(path).listFiles())
-        .getStoredSelected(File::isFile)
-        .to(f -> new FileAccessor(f.getAbsolutePath()));
+      .getStoredSelected(File::isFile)
+      .to(f -> new FileAccessor(f.getAbsolutePath()));
   }
 
   //static method
@@ -331,7 +331,7 @@ public final class FileSystemAccessor {
    */
   public static IContainer<FileSystemItemAccessor> getFileSystemItemAccessors(final String path) {
     return ReadContainer.forArray(new File(path).listFiles())
-        .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
+      .to(f -> new FileSystemItemAccessor(f.getAbsolutePath()));
   }
 
   //static method

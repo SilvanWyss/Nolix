@@ -33,10 +33,10 @@ public final class Value<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   public Value(
-      final String name,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> setterMethod,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
@@ -82,10 +82,10 @@ public final class Value<V> extends SingleValue<V> {
    */
   public static Value<String> forString(final String name, final Consumer<String> setterMethod) {
     return new Value<>(
-        name,
-        setterMethod,
-        s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
-        Value::getStringValueSpecificationForAValueFromString);
+      name,
+      setterMethod,
+      s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
+      Value::getStringValueSpecificationForAValueFromString);
   }
 
   //static method

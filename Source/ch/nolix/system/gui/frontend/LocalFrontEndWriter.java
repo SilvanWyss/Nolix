@@ -46,7 +46,7 @@ public final class LocalFrontEndWriter implements IFrontEndWriter {
 
       if (FileSystemAccessor.exists(path)) {
         if (PopupWindowProvider.showRequestWindow(
-            "The file '" + path + "' exists already. Do you want to overwrite it?")) {
+          "The file '" + path + "' exists already. Do you want to overwrite it?")) {
           FileSystemAccessor.createFile(path, WriteMode.OVERWRITE_WHEN_TARGET_EXISTS_ALREADY, bytes);
         }
       } else {

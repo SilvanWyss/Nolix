@@ -195,15 +195,15 @@ public final class Matrix {
 
     //Asserts that the given Matrix has as many rows as the current Matrix.
     GlobalValidator
-        .assertThat(matrix.getRowCount())
-        .thatIsNamed("number of rows of the given matrix")
-        .isEqualTo(getRowCount());
+      .assertThat(matrix.getRowCount())
+      .thatIsNamed("number of rows of the given matrix")
+      .isEqualTo(getRowCount());
 
     //Asserts that the given Matrix has as many columns as the current Matrix.
     GlobalValidator
-        .assertThat(matrix.getColumnCount())
-        .thatIsNamed("number of columns of the given matrix")
-        .isEqualTo(getColumnCount());
+      .assertThat(matrix.getColumnCount())
+      .thatIsNamed("number of columns of the given matrix")
+      .isEqualTo(getColumnCount());
 
     //Iterates the rows of the current Matrix.
     for (var i = 0; i < getRowCount(); i++) {
@@ -230,9 +230,9 @@ public final class Matrix {
 
     //Asserts that the given Matrix has as many rows as the current Matrix.
     GlobalValidator
-        .assertThat(matrix.getRowCount())
-        .thatIsNamed("number of rows of the given matrix")
-        .isEqualTo(getRowCount());
+      .assertThat(matrix.getRowCount())
+      .thatIsNamed("number of rows of the given matrix")
+      .isEqualTo(getRowCount());
 
     final var newColumnCount = getColumnCount() + matrix.getColumnCount();
     var newValues = new double[getRowCount()][newColumnCount];
@@ -363,8 +363,8 @@ public final class Matrix {
     assertIsQuadratic();
 
     final var matrix = getClone()
-        .appendAtRight(Matrix.createIdendityMatrix(getRowCount()))
-        .tranformFirstPartToIdentityMatrix();
+      .appendAtRight(Matrix.createIdendityMatrix(getRowCount()))
+      .tranformFirstPartToIdentityMatrix();
 
     if (matrix.getRowCount() < getRowCount()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not regular");
@@ -383,9 +383,9 @@ public final class Matrix {
 
     //Asserts that the given column count is valid.
     GlobalValidator
-        .assertThat(columnCount)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT)
-        .isBetween(1, getColumnCount());
+      .assertThat(columnCount)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT)
+      .isBetween(1, getColumnCount());
 
     final var matrix = new Matrix(getRowCount(), columnCount);
 
@@ -406,9 +406,9 @@ public final class Matrix {
 
     //Asserts that the given column count is valid.
     GlobalValidator
-        .assertThat(columnCount)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT)
-        .isBetween(1, getColumnCount());
+      .assertThat(columnCount)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_COUNT)
+      .isBetween(1, getColumnCount());
 
     final var matrix = new Matrix(getRowCount(), columnCount);
 
@@ -438,16 +438,16 @@ public final class Matrix {
 
     //Asserts that the given solution Matrix has 1 column.
     GlobalValidator
-        .assertThat(solutionMatrix.getColumnCount())
-        .thatIsNamed("number of columns of the given soluction matrix")
-        .isEqualTo(1);
+      .assertThat(solutionMatrix.getColumnCount())
+      .thatIsNamed("number of columns of the given soluction matrix")
+      .isEqualTo(1);
 
     //Asserts that the given solution Matrix has as many rows as the current
     //Matrix.
     GlobalValidator
-        .assertThat(solutionMatrix.getRowCount())
-        .thatIsNamed("number of rows of the given solution matrix")
-        .isEqualTo(getRowCount());
+      .assertThat(solutionMatrix.getRowCount())
+      .thatIsNamed("number of rows of the given solution matrix")
+      .isEqualTo(getRowCount());
 
     final var transposedMatrix = getTransposed();
     final var matrix = transposedMatrix.getProduct(this);
@@ -462,8 +462,8 @@ public final class Matrix {
     }
 
     return inverseMatrix
-        .getProduct(transposedMatrix)
-        .getProduct(solutionMatrix);
+      .getProduct(transposedMatrix)
+      .getProduct(solutionMatrix);
   }
 
   //method
@@ -478,9 +478,9 @@ public final class Matrix {
     //Asserts that the given Matrix has as many rows as the number of columns of
     //the current Matrix.
     GlobalValidator
-        .assertThat(matrix.getRowCount())
-        .thatIsNamed("number of rows of the given matrix")
-        .isEqualTo(getColumnCount());
+      .assertThat(matrix.getRowCount())
+      .thatIsNamed("number of rows of the given matrix")
+      .isEqualTo(getColumnCount());
 
     final var product = new Matrix(getRowCount(), matrix.getColumnCount());
 
@@ -507,8 +507,8 @@ public final class Matrix {
     assertIsQuadratic();
 
     return getSum(new Matrix(getRowCount())
-        .setDiagonalValuesTo(0.001))
-        .getInverse();
+      .setDiagonalValuesTo(0.001))
+      .getInverse();
   }
 
   //method
@@ -640,16 +640,16 @@ public final class Matrix {
 
     //Asserts that the current Matrix contains a row with the given row index.
     GlobalValidator
-        .assertThat(rowIndex)
-        .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
-        .isBetween(1, getRowCount());
+      .assertThat(rowIndex)
+      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .isBetween(1, getRowCount());
 
     //Asserts that the current Matrix contains a column with the given column
     //index.
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isBetween(1, getColumnCount());
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isBetween(1, getColumnCount());
 
     return values[rowIndex - 1][columnIndex - 1];
   }
@@ -822,16 +822,16 @@ public final class Matrix {
 
     //Asserts that the current Matrix contains a row with the given row index.
     GlobalValidator
-        .assertThat(rowIndex)
-        .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
-        .isBetween(1, getRowCount());
+      .assertThat(rowIndex)
+      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .isBetween(1, getRowCount());
 
     //Asserts that the current Matrix contains a column with the given column
     //index.
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isBetween(1, getColumnCount());
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isBetween(1, getColumnCount());
 
     values[rowIndex - 1][columnIndex - 1] = value;
 
@@ -1180,8 +1180,8 @@ public final class Matrix {
   private void assertIsQuadratic() {
     if (!isQuadratic()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "is not quadratic");
+        this,
+        "is not quadratic");
     }
   }
 

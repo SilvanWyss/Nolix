@@ -29,46 +29,46 @@ public final class ParameterizedPropertyTypeNodeMapper {
 
   //method
   private Node createParameterizedPropertyTypeNodeFrom(
-      IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
+    IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.PROPERTY_TYPE,
-            baseParameterizedBackReferenceType.getPropertyType().toString()),
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.DATA_TYPE,
-            baseParameterizedBackReferenceType.getDataType().name()),
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
-            baseParameterizedBackReferenceType.getBackReferencedColumnId()));
+      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.PROPERTY_TYPE,
+        baseParameterizedBackReferenceType.getPropertyType().toString()),
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.DATA_TYPE,
+        baseParameterizedBackReferenceType.getDataType().name()),
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.BACK_REFERENCED_COLUMN_ID,
+        baseParameterizedBackReferenceType.getBackReferencedColumnId()));
   }
 
   //method
   private Node createParameterizedPropertyTypeNodeFrom(
-      final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
+    final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.PROPERTY_TYPE,
-            baseParameterizedReferenceType.getPropertyType().toString()),
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.DATA_TYPE,
-            baseParameterizedReferenceType.getDataType().name()),
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
-            baseParameterizedReferenceType.getReferencedTableId()));
+      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.PROPERTY_TYPE,
+        baseParameterizedReferenceType.getPropertyType().toString()),
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.DATA_TYPE,
+        baseParameterizedReferenceType.getDataType().name()),
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.REFERENCED_TABLE_ID,
+        baseParameterizedReferenceType.getReferencedTableId()));
   }
 
   //method
   private Node createParameterizedPropertyTypeNodeFrom(
-      final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
+    final IBaseParameterizedValueTypeDto baseParameterizedValueType) {
     return Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.PROPERTY_TYPE,
-            baseParameterizedValueType.getPropertyType().toString()),
-        Node.withHeaderAndChildNode(
-            SubNodeHeaderCatalogue.DATA_TYPE,
-            baseParameterizedValueType.getDataType().name()));
+      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.PROPERTY_TYPE,
+        baseParameterizedValueType.getPropertyType().toString()),
+      Node.withHeaderAndChildNode(
+        SubNodeHeaderCatalogue.DATA_TYPE,
+        baseParameterizedValueType.getDataType().name()));
   }
 }

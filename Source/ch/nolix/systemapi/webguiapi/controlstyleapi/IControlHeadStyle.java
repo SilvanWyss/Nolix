@@ -9,7 +9,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
 public interface IControlHeadStyle<CS extends IControlHeadStyle<CS>>
-    extends IMultiStateConfiguration<CS, ControlState> {
+extends IMultiStateConfiguration<CS, ControlState> {
 
   //method declaration
   <CS2 extends IControlHeadStyle<CS2>> void addChild(final CS2 controlStyle);

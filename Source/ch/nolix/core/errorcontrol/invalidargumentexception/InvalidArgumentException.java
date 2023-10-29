@@ -96,11 +96,11 @@ public class InvalidArgumentException extends RuntimeException {
   protected InvalidArgumentException(final String argumentName, final Object argument, final String errorPredicate) {
 
     super(
-        "The given "
-            + getValidArgumentNameOfArgumentName(argumentName)
-            + getStringRepresentationWithPufferToNextWordsOfArgument(argument)
-            + getValidErrorPredicateOfErrorPredicate(errorPredicate)
-            + ".");
+      "The given "
+      + getValidArgumentNameOfArgumentName(argumentName)
+      + getStringRepresentationWithPufferToNextWordsOfArgument(argument)
+      + getValidErrorPredicateOfErrorPredicate(errorPredicate)
+      + ".");
 
     this.argumentName = argumentName;
     this.argument = argument;
@@ -127,8 +127,8 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
    */
   public static InvalidArgumentException forArgumentAndErrorPredicate(
-      final Object argument,
-      final String errorPredicate) {
+    final Object argument,
+    final String errorPredicate) {
     return new InvalidArgumentException(argument, errorPredicate);
   }
 
@@ -142,8 +142,8 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static InvalidArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final Object argument) {
+    final String argumentName,
+    final Object argument) {
     return new InvalidArgumentException(argumentName, argument, DEFAULT_ERROR_PREDICATE);
   }
 
@@ -161,9 +161,9 @@ public class InvalidArgumentException extends RuntimeException {
    * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
    */
   public static InvalidArgumentException forArgumentNameAndArgumentAndErrorPredicate(
-      final String argumentName,
-      final Object argument,
-      final String errorPredicate) {
+    final String argumentName,
+    final Object argument,
+    final String errorPredicate) {
     return new InvalidArgumentException(argumentName, argument, errorPredicate);
   }
 

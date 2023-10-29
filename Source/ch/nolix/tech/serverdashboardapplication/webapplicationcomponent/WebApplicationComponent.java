@@ -26,17 +26,17 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
 
   //constant
   private static final String DEFAULT_APPLICATION_LOGO_RESOURCE_PATH = //
-      "ch/nolix/tech/serverdashboardapplication/resource/default_application_logo.jpg";
+  "ch/nolix/tech/serverdashboardapplication/resource/default_application_logo.jpg";
 
   //constant
   public static final IImage DEFAULT_APPLICATION_LOGO = MutableImage
-      .fromResource(DEFAULT_APPLICATION_LOGO_RESOURCE_PATH)
-      .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
+    .fromResource(DEFAULT_APPLICATION_LOGO_RESOURCE_PATH)
+    .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
 
   //constructor
   public WebApplicationComponent(
-      final WebApplicationController webApplicationController,
-      final WebClientSession<IServerDashboardContext> session) {
+    final WebApplicationController webApplicationController,
+    final WebClientSession<IServerDashboardContext> session) {
     super(webApplicationController, session);
   }
 
@@ -50,18 +50,18 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
   @Override
   protected IControl<?, ?> createControl(final WebApplicationController controller) {
     return new VerticalStack()
-        .addControl(
-            new ImageControl()
-                .setImage(getApplicationLogoOrDefaultApplicationLogo(controller.getWebApplicationSheet()))
-                .setLeftMouseButtonPressAction(
-                    ic -> ic
-                        .getStoredParentGui()
-                        .onFrontEnd()
-                        .redirectTo(controller.getWebApplicationSheet().getApplicationInstanceTarget())),
-            new Label()
-                .setRole(LabelRole.LEVEL1_HEADER)
-                .setText(
-                    controller.getWebApplicationSheet().getApplicationInstanceTarget().getApplicationInstanceName()));
+      .addControl(
+        new ImageControl()
+          .setImage(getApplicationLogoOrDefaultApplicationLogo(controller.getWebApplicationSheet()))
+          .setLeftMouseButtonPressAction(
+            ic -> ic
+              .getStoredParentGui()
+              .onFrontEnd()
+              .redirectTo(controller.getWebApplicationSheet().getApplicationInstanceTarget())),
+        new Label()
+          .setRole(LabelRole.LEVEL1_HEADER)
+          .setText(
+            controller.getWebApplicationSheet().getApplicationInstanceTarget().getApplicationInstanceName()));
   }
 
   @Override
@@ -77,7 +77,7 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
     }
 
     return webApplicationSheet
-        .getApplicationLogo()
-        .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
+      .getApplicationLogo()
+      .withWidthAndHeight(APPLICATION_LOGO_IMAGE_WIDTH, APPLICATION_LOGO_IMAGE_HEIGHT);
   }
 }

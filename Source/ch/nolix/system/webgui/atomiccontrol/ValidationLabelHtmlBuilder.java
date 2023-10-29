@@ -15,8 +15,8 @@ public final class ValidationLabelHtmlBuilder implements IControlHtmlBuilder<IVa
   @Override
   public IHtmlElement createHtmlElementForControl(final IValidationLabel control) {
     return HtmlElement.withTypeAndInnerText(
-        HtmlElementTypeCatalogue.DIV,
-        getHtmlDivInnerTextForControl(control));
+      HtmlElementTypeCatalogue.DIV,
+      getHtmlDivInnerTextForControl(control));
   }
 
   //method

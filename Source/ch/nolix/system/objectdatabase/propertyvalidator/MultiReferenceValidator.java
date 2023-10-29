@@ -34,8 +34,8 @@ public final class MultiReferenceValidator extends PropertyValidator implements 
   //method
   @Override
   public <E extends IEntity> void assertCanRemoveEntity(
-      final IMultiReference<E> multiReference,
-      final E entity) {
+    final IMultiReference<E> multiReference,
+    final E entity) {
     if (!MULTI_REFERENCE_HELPER.canRemoveEntity(multiReference, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(multiReference, "cannot remove the given " + entity);
     }

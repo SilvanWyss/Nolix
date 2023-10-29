@@ -21,11 +21,11 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 
   //constant
   private static final AbstractValueContentValidator ABSTRACT_VALUE_CONTENT_VALIDATOR = //
-      new AbstractValueContentValidator();
+  new AbstractValueContentValidator();
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-      .forEntityAndBackReferencedPropertyName(AbstractableField.class, "abstractValueContent");
+    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "abstractValueContent");
 
   //attribute
   private final Value<String> dataType = Value.withInitialValue(DEFAULT_DATA_TYPE.toString());

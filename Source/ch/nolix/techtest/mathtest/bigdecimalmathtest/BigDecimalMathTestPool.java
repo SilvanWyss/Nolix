@@ -10,9 +10,9 @@ public final class BigDecimalMathTestPool extends TestPool {
   //constructor
   public BigDecimalMathTestPool() {
     super(
-        ClosedIntervalTest.class,
-        ComplexNumberTest.class,
-        ComplexSequenceDefinedBy1PredecessorTest.class,
-        ComplexSequenceDefinedBy2PredecessorTest.class);
+      ClosedIntervalTest.class,
+      ComplexNumberTest.class,
+      ComplexSequenceDefinedBy1PredecessorTest.class,
+      ComplexSequenceDefinedBy2PredecessorTest.class);
   }
 }

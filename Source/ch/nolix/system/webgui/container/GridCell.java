@@ -33,10 +33,10 @@ public final class GridCell extends MutableElement implements Clearable {
 
   //attribute
   private final MutableOptionalValue<IControl<?, ?>> control = new MutableOptionalValue<>(
-      CONTROL_HEADER,
-      this::setControl,
-      GlobalControlFactory::createControlFromSpecification,
-      IControl::getSpecification);
+    CONTROL_HEADER,
+    this::setControl,
+    GlobalControlFactory::createControlFromSpecification,
+    IControl::getSpecification);
 
   //constructor
   private GridCell() {

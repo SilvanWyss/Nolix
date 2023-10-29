@@ -13,8 +13,8 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //class
 public abstract class BaseParameterizedBackReferenceType<
 
-    C extends IColumn>
-    implements IBaseParameterizedBackReferenceType<C> {
+C extends IColumn>
+implements IBaseParameterizedBackReferenceType<C> {
 
   //attribute
   private final C backReferencedColumn;

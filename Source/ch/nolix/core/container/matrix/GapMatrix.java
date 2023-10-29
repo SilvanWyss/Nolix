@@ -77,15 +77,15 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
   //method
   public boolean containsAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
     return containsCellAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex)
-        && rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] != null;
+    && rows[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] != null;
   }
 
   //method
   public boolean containsCellAt1BasedRowIndexAndColumnIndex(final int p1BasedRowIndex, final int p1BasedColumnIndex) {
     return p1BasedRowIndex > 0
-        && p1BasedRowIndex <= getRowCount()
-        && p1BasedColumnIndex > 0
-        && p1BasedColumnIndex <= getColumnCount();
+    && p1BasedRowIndex <= getRowCount()
+    && p1BasedColumnIndex > 0
+    && p1BasedColumnIndex <= getColumnCount();
   }
 
   //method
@@ -160,9 +160,9 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 
   //method
   public void setAt1BasedRowIndexAndColumnIndex(
-      final int p1BasedRowIndex,
-      final int p1BasedColumnIndex,
-      final E element) {
+    final int p1BasedRowIndex,
+    final int p1BasedColumnIndex,
+    final E element) {
 
     GlobalValidator.assertThat(element).thatIsNamed(LowerCaseCatalogue.ELEMENT).isNotNull();
 
@@ -209,24 +209,24 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
   private void assertCanContainElementAt(final int rowIndex, final int columnIndex) {
 
     GlobalValidator
-        .assertThat(rowIndex)
-        .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
-        .isPositive();
+      .assertThat(rowIndex)
+      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .isPositive();
 
     GlobalValidator
-        .assertThat(rowIndex)
-        .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
-        .isNotBiggerThan(getRowCount());
+      .assertThat(rowIndex)
+      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .isNotBiggerThan(getRowCount());
 
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isPositive();
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isPositive();
 
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isNotBiggerThan(getColumnCount());
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isNotBiggerThan(getColumnCount());
   }
 
   //method
@@ -236,8 +236,8 @@ public final class GapMatrix<E> extends Container<E> implements Clearable {
 
     if (rows[rowIndex - 1][columnIndex - 1] == null) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          "(" + rowIndex + "," + columnIndex + ")",
-          "is no position of an element");
+        "(" + rowIndex + "," + columnIndex + ")",
+        "is no position of an element");
     }
   }
 }

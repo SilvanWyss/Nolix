@@ -122,9 +122,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
       //Asserts that as many elements are given as the number of rows of the current
       //matrix.
       GlobalValidator
-          .assertThat(lElements.getElementCount())
-          .thatIsNamed("number of the given elements")
-          .isEqualTo(getRowCount());
+        .assertThat(lElements.getElementCount())
+        .thatIsNamed("number of the given elements")
+        .isEqualTo(getRowCount());
 
       final var columnCount = getColumnCount();
 
@@ -211,9 +211,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
       //Asserts that as many elements are given as the number of columns of the
       //current matrix.
       GlobalValidator
-          .assertThat(lElements.getElementCount())
-          .thatIsNamed("number of the given elements")
-          .isEqualTo(getColumnCount());
+        .assertThat(lElements.getElementCount())
+        .thatIsNamed("number of the given elements")
+        .isEqualTo(getColumnCount());
 
       final var rowCount = getRowCount();
       final var newElements = Arrays.copyOf(this.elements, rowCount + 1);
@@ -538,9 +538,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     //Asserts that the given element is not null.
     GlobalValidator
-        .assertThat(element)
-        .thatIsNamed(LowerCaseCatalogue.ELEMENT)
-        .isNotNull();
+      .assertThat(element)
+      .thatIsNamed(LowerCaseCatalogue.ELEMENT)
+      .isNotNull();
 
     //Sets the given element at the given index to the current matrix.
     elements[getRowIndexOf(index) - 1][getColumnIndexOf(index) - 1] = element;
@@ -569,9 +569,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
    */
   @Override
   public void setAt1BasedRowIndexAndColumnIndex(
-      final int p1BasedRowIndex,
-      final int p1BasedColumnIndex,
-      final E element) {
+    final int p1BasedRowIndex,
+    final int p1BasedColumnIndex,
+    final E element) {
 
     //Asserts that the current matrix contains an element at the given row index
     //and column index.
@@ -579,9 +579,9 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
 
     //Asserts that the given element is not null.
     GlobalValidator
-        .assertThat(element)
-        .thatIsNamed(LowerCaseCatalogue.ELEMENT)
-        .isNotNull();
+      .assertThat(element)
+      .thatIsNamed(LowerCaseCatalogue.ELEMENT)
+      .isNotNull();
 
     elements[p1BasedRowIndex - 1][p1BasedColumnIndex - 1] = element;
   }
@@ -740,14 +740,14 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   private void assertContainsAt(final int index) {
 
     GlobalValidator
-        .assertThat(index)
-        .thatIsNamed(LowerCaseCatalogue.INDEX)
-        .isPositive();
+      .assertThat(index)
+      .thatIsNamed(LowerCaseCatalogue.INDEX)
+      .isPositive();
 
     GlobalValidator
-        .assertThat(index)
-        .thatIsNamed(LowerCaseCatalogue.INDEX)
-        .isNotBiggerThan(getElementCount());
+      .assertThat(index)
+      .thatIsNamed(LowerCaseCatalogue.INDEX)
+      .isNotBiggerThan(getElementCount());
   }
 
   //method
@@ -767,23 +767,23 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   private void assertContainsAt(final int rowIndex, final int columnIndex) {
 
     GlobalValidator
-        .assertThat(rowIndex)
-        .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
-        .isPositive();
+      .assertThat(rowIndex)
+      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .isPositive();
 
     GlobalValidator
-        .assertThat(rowIndex)
-        .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
-        .isNotBiggerThan(getRowCount());
+      .assertThat(rowIndex)
+      .thatIsNamed(LowerCaseCatalogue.ROW_INDEX)
+      .isNotBiggerThan(getRowCount());
 
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isPositive();
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isPositive();
 
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isNotBiggerThan(getColumnCount());
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isNotBiggerThan(getColumnCount());
   }
 }

@@ -184,8 +184,8 @@ public abstract class BaseServer implements IServer {
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains already an EndPointTaker with the name '" + name + "'");
+        this,
+        "contains already an EndPointTaker with the name '" + name + "'");
     }
   }
 

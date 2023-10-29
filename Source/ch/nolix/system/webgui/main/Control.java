@@ -36,8 +36,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
-    extends StylableElement<C>
-    implements IControl<C, CS> {
+extends StylableElement<C>
+implements IControl<C, CS> {
 
   //constant
   public static final Presence DEFAULT_PRESENCE = Presence.VISIBLE;
@@ -68,7 +68,7 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
 
   //constant
   private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
-      new AbsoluteOrRelativeIntValidator();
+  new AbsoluteOrRelativeIntValidator();
 
   //attribute
   //An id works correctly for CSS only when it begins with a letter.
@@ -76,43 +76,43 @@ public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyl
 
   //attribute
   private final MutableValue<Presence> presence = new MutableValue<>(
-      PRESENCE_HEADER,
-      DEFAULT_PRESENCE,
-      this::setPresence,
-      Presence::fromSpecification,
-      Node::fromEnum);
+    PRESENCE_HEADER,
+    DEFAULT_PRESENCE,
+    this::setPresence,
+    Presence::fromSpecification,
+    Node::fromEnum);
 
   //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> minWidth = MutableOptionalValue.forElement(
-      MIN_WIDTH_HEADER,
-      this::setMinWidth,
-      AbsoluteOrRelativeInt::fromSpecification);
+    MIN_WIDTH_HEADER,
+    this::setMinWidth,
+    AbsoluteOrRelativeInt::fromSpecification);
 
   //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> minHeight = MutableOptionalValue.forElement(
-      MIN_HEIGHT_HEADER,
-      this::setMinHeight,
-      AbsoluteOrRelativeInt::fromSpecification);
+    MIN_HEIGHT_HEADER,
+    this::setMinHeight,
+    AbsoluteOrRelativeInt::fromSpecification);
 
   //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> maxWidth = MutableOptionalValue.forElement(
-      MAX_WIDTH_HEADER,
-      this::setMaxWidth,
-      AbsoluteOrRelativeInt::fromSpecification);
+    MAX_WIDTH_HEADER,
+    this::setMaxWidth,
+    AbsoluteOrRelativeInt::fromSpecification);
 
   //attribute
   private final MutableOptionalValue<AbsoluteOrRelativeInt> maxHeight = MutableOptionalValue.forElement(
-      MAX_HEIGHT_HEADER,
-      this::setMaxHeight,
-      AbsoluteOrRelativeInt::fromSpecification);
+    MAX_HEIGHT_HEADER,
+    this::setMaxHeight,
+    AbsoluteOrRelativeInt::fromSpecification);
 
   //attribute
   private final MutableValue<CursorIcon> cursorIcon = new MutableValue<>(
-      CURSOR_ICON_HEADER,
-      DEFAULT_CURSOR_ICON,
-      this::setCursorIcon,
-      CursorIcon::fromSpecification,
-      Node::fromEnum);
+    CURSOR_ICON_HEADER,
+    DEFAULT_CURSOR_ICON,
+    this::setCursorIcon,
+    CursorIcon::fromSpecification,
+    Node::fromEnum);
 
   //attribute
   private final ExtensionElement<CS> style = new ExtensionElement<>(createStyle());

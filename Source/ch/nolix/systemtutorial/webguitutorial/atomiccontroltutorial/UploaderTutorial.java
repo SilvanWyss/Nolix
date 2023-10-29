@@ -29,19 +29,19 @@ public final class UploaderTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "Uploader tutorial",
-        MainSession.class,
-        new VoidObject());
+      "Uploader tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -55,22 +55,22 @@ public final class UploaderTutorial {
 
       //Adds the Uploader to the GUI of the current MainSession.
       getStoredGui()
-          .pushLayerWithRootControl(
-              new VerticalStack()
-                  .addControl(
-                      imageControl,
-                      new ValidationLabel(),
-                      uploader,
-                      new Button()
-                          .setText("Upload image")
-                          .setLeftMouseButtonPressAction(this::displayImage)));
+        .pushLayerWithRootControl(
+          new VerticalStack()
+            .addControl(
+              imageControl,
+              new ValidationLabel(),
+              uploader,
+              new Button()
+                .setText("Upload image")
+                .setLeftMouseButtonPressAction(this::displayImage)));
 
       //Configures the style of the imageControl.
       imageControl.editStyle(
-          s -> s
-              .setWidthForState(ControlState.BASE, 500)
-              .setHeightForState(ControlState.BASE, 300)
-              .setBackgroundColorForState(ControlState.BASE, Color.GREY));
+        s -> s
+          .setWidthForState(ControlState.BASE, 500)
+          .setHeightForState(ControlState.BASE, 300)
+          .setBackgroundColorForState(ControlState.BASE, Color.GREY));
     }
 
     private void displayImage() {

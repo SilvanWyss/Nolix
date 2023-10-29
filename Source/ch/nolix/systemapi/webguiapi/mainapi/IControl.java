@@ -17,13 +17,13 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //interface
 public interface IControl<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
-    extends
-    Dimensionable<C>,
-    IHtmlGetter,
-    IStylableElement<C>,
-    IUserInputCell<C>,
-    Linkable,
-    PresenceSettable<C> {
+extends
+Dimensionable<C>,
+IHtmlGetter,
+IStylableElement<C>,
+IUserInputCell<C>,
+Linkable,
+PresenceSettable<C> {
 
   //method declaration
   boolean belongsToControl();

@@ -14,7 +14,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
 
   //method
   public ParameterizedPropertyTypeSqlRecord createParameterizedPropertyTypeRecordFrom(
-      final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
     return switch (parameterizedPropertyType.getPropertyType().getBaseType()) {
       case BASE_VALUE ->
         createBaseParameterizedValueTypeRecord((IBaseParameterizedValueTypeDto) parameterizedPropertyType);
@@ -22,7 +22,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
         createBaseParameterizedReferenceTypeRecord((IBaseParameterizedReferenceTypeDto) parameterizedPropertyType);
       case BASE_BACK_REFERENCE ->
         createBaseParameterizedBackReferenceRecord(
-            (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType);
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyType);
       default ->
         throw InvalidArgumentException.forArgument(parameterizedPropertyType);
     };
@@ -30,31 +30,31 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
 
   //method
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedBackReferenceRecord(
-      final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
+    final IBaseParameterizedBackReferenceTypeDto baseParameterizedBackReferenceType) {
     return new ParameterizedPropertyTypeSqlRecord(
-        "'" + baseParameterizedBackReferenceType.getPropertyType().toString() + "'",
-        "'" + baseParameterizedBackReferenceType.getDataType().name() + "'",
-        SqlSyntaxCatalogue.NULL,
-        "'" + baseParameterizedBackReferenceType.getBackReferencedColumnId() + "'");
+      "'" + baseParameterizedBackReferenceType.getPropertyType().toString() + "'",
+      "'" + baseParameterizedBackReferenceType.getDataType().name() + "'",
+      SqlSyntaxCatalogue.NULL,
+      "'" + baseParameterizedBackReferenceType.getBackReferencedColumnId() + "'");
   }
 
   //method
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedReferenceTypeRecord(
-      final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
+    final IBaseParameterizedReferenceTypeDto baseParameterizedReferenceType) {
     return new ParameterizedPropertyTypeSqlRecord(
-        "'" + baseParameterizedReferenceType.getPropertyType().toString() + "'",
-        "'" + baseParameterizedReferenceType.getDataType().name() + "'",
-        "'" + baseParameterizedReferenceType.getReferencedTableId() + "'",
-        SqlSyntaxCatalogue.NULL);
+      "'" + baseParameterizedReferenceType.getPropertyType().toString() + "'",
+      "'" + baseParameterizedReferenceType.getDataType().name() + "'",
+      "'" + baseParameterizedReferenceType.getReferencedTableId() + "'",
+      SqlSyntaxCatalogue.NULL);
   }
 
   //method
   private ParameterizedPropertyTypeSqlRecord createBaseParameterizedValueTypeRecord(
-      final IBaseParameterizedValueTypeDto baseParameterizedPropertyType) {
+    final IBaseParameterizedValueTypeDto baseParameterizedPropertyType) {
     return new ParameterizedPropertyTypeSqlRecord(
-        "'" + baseParameterizedPropertyType.getPropertyType().toString() + "'",
-        "'" + baseParameterizedPropertyType.getDataType().name() + "'",
-        SqlSyntaxCatalogue.NULL,
-        SqlSyntaxCatalogue.NULL);
+      "'" + baseParameterizedPropertyType.getPropertyType().toString() + "'",
+      "'" + baseParameterizedPropertyType.getDataType().name() + "'",
+      SqlSyntaxCatalogue.NULL,
+      SqlSyntaxCatalogue.NULL);
   }
 }

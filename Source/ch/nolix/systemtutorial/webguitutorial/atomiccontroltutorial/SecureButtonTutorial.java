@@ -39,10 +39,10 @@ public final class SecureButtonTutorial {
     @Override
     protected void initialize() {
       getStoredGui().pushLayerWithRootControl(
-          new VerticalStack()
-              .addControl(
-                  countLabel,
-                  new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)));
+        new VerticalStack()
+          .addControl(
+            countLabel,
+            new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)));
     }
 
     private void incrementCount() {

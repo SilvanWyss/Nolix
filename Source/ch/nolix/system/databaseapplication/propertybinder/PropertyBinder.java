@@ -46,15 +46,15 @@ public abstract class PropertyBinder<P extends IProperty, W extends IControl<?, 
     property.setUpdateAction(() -> updateControlFromProperty(control, property));
 
     setNoteUpdateActionToControl(
-        control,
-        () -> updatePropertyFromControlCatchingErrors(property, control, propertyBinding));
+      control,
+      () -> updatePropertyFromControlCatchingErrors(property, control, propertyBinding));
   }
 
   //method
   private void updatePropertyFromControlCatchingErrors(
-      final P property,
-      final W control,
-      final PropertyBinding propertyBinding) {
+    final P property,
+    final W control,
+    final PropertyBinding propertyBinding) {
     try {
       updatePropertyFromControl(property, control);
       propertyBinding.removeCurrentError();

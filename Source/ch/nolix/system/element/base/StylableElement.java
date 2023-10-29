@@ -12,8 +12,8 @@ import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
 public abstract class StylableElement<SE extends IStylableElement<SE>>
-    extends MutableElement
-    implements IStylableElement<SE> {
+extends MutableElement
+implements IStylableElement<SE> {
 
   //constant
   private static final String ID_HEADER = PascalCaseCatalogue.ID;

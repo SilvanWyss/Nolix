@@ -23,11 +23,11 @@ public final class DataAdapter extends BaseDataAdapter {
 
   //constructor
   private DataAdapter(
-      final IMutableNode<?> nodeDatabase,
-      final IContainer<ITableInfo> tableInfos) {
+    final IMutableNode<?> nodeDatabase,
+    final IContainer<ITableInfo> tableInfos) {
     super(
-        new DatabaseReader(nodeDatabase, tableInfos),
-        new DatabaseWriter(nodeDatabase, tableInfos));
+      new DatabaseReader(nodeDatabase, tableInfos),
+      new DatabaseWriter(nodeDatabase, tableInfos));
   }
 
   //static method

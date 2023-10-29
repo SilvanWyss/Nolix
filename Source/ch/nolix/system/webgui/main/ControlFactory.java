@@ -39,8 +39,8 @@ public final class ControlFactory {
 
   //method
   public void registerControlClass(
-      final Class<Control<?, ?>> controlClass,
-      final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
+    final Class<Control<?, ?>> controlClass,
+    final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
 
     final var allControlClasses = ReadContainer.forElement(controlClass, controlClasses);
 
@@ -56,8 +56,8 @@ public final class ControlFactory {
   private void assertDoesNotContainControlClassWithName(final String name) {
     if (containsControlClassWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains already a Control class with the name '" + name + "'");
+        this,
+        "contains already a Control class with the name '" + name + "'");
     }
   }
 

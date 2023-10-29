@@ -17,54 +17,54 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class HorizontalStackCssBuilder
-    extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
+extends ControlCssBuilder<IHorizontalStack, IHorizontalStackStyle> {
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final IHorizontalStack horizontalStack,
-      final LinkedList<? super ICssRule> list) {
+    final IHorizontalStack horizontalStack,
+    final LinkedList<? super ICssRule> list) {
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            "> " + HtmlElementTypeCatalogue.DIV,
-            LinkedList.withElement(
-                CssProperty.withNameAndValue(
-                    CssPropertyNameCatalogue.FLOAT,
-                    "left"))));
+      CssRule.withSelectorAndProperties(
+        "> " + HtmlElementTypeCatalogue.DIV,
+        LinkedList.withElement(
+          CssProperty.withNameAndValue(
+            CssPropertyNameCatalogue.FLOAT,
+            "left"))));
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final IHorizontalStack horizontalStack,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final IHorizontalStack horizontalStack,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            "> " + HtmlElementTypeCatalogue.DIV,
-            LinkedList.withElement(
-                CssProperty.withNameAndValue(
-                    CssPropertyNameCatalogue.MARGIN_RIGHT,
-                    horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
+      CssRule.withSelectorAndProperties(
+        "> " + HtmlElementTypeCatalogue.DIV,
+        LinkedList.withElement(
+          CssProperty.withNameAndValue(
+            CssPropertyNameCatalogue.MARGIN_RIGHT,
+            horizontalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IHorizontalStack control,
-      final LinkedList<CssProperty> list) {
+    final IHorizontalStack control,
+    final LinkedList<CssProperty> list) {
     list.addAtEnd(
-        CssProperty.withNameAndValue("display", "flex"),
-        CssProperty.withNameAndValue("overflow", "auto"),
-        createCssPropertyForContentAlignmentOfControl(control));
+      CssProperty.withNameAndValue("display", "flex"),
+      CssProperty.withNameAndValue("overflow", "auto"),
+      createCssPropertyForContentAlignmentOfControl(control));
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IHorizontalStack horizontalStack,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IHorizontalStack horizontalStack,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 

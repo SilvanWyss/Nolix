@@ -82,8 +82,8 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
     if (value == null) {
       throw ArgumentDoesNotContainElementException.forArgumentAndElement(
-          this,
-          "session variable with the key + '" + key + "'");
+        this,
+        "session variable with the key + '" + key + "'");
     }
 
     return value;

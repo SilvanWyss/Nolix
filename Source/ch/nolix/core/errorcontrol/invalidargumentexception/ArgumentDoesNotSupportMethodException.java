@@ -39,8 +39,8 @@ public final class ArgumentDoesNotSupportMethodException extends InvalidArgument
    * @throws IllegalArgumentException if the given methodName is blank.
    */
   public static ArgumentDoesNotSupportMethodException forArgumentAndMethodName(
-      final Object argument,
-      final String methodName) {
+    final Object argument,
+    final String methodName) {
     return new ArgumentDoesNotSupportMethodException(argument, methodName);
   }
 

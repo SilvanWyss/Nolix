@@ -13,8 +13,8 @@ public final class IterableReadContainerTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
-      final E element,
-      final @SuppressWarnings("unchecked") E... elements) {
+    final E element,
+    final @SuppressWarnings("unchecked") E... elements) {
     return IterableReadContainer.forIterable(LinkedList.withElement(element, elements));
   }
 

@@ -39,17 +39,17 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   //attribute
   @SuppressWarnings("unused")
   private final MultiValueExtractor<GridCell> cellExtractor = new MultiValueExtractor<>(
-      CELL_HEADER,
-      this::addCell,
-      () -> cells.getStoredSelected(GridCell::containsAny),
-      GridCell::fromSpecification,
-      GridCell::getSpecification);
+    CELL_HEADER,
+    this::addCell,
+    () -> cells.getStoredSelected(GridCell::containsAny),
+    GridCell::fromSpecification,
+    GridCell::getSpecification);
 
   //constructor
   public Grid() {
     getStoredStyle()
-        .setGridThicknessForState(ControlState.BASE, 1)
-        .setChildControlMarginForState(ControlState.BASE, 10);
+      .setGridThicknessForState(ControlState.BASE, 1)
+      .setChildControlMarginForState(ControlState.BASE, 10);
   }
 
   //method
@@ -73,8 +73,8 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   //method
   @Override
   public IControl<?, ?> getStoredChildControlAt1BasedRowAndColumnIndex(
-      final int p1BasedRowIndex,
-      final int p1BasedColumnIndex) {
+    final int p1BasedRowIndex,
+    final int p1BasedColumnIndex) {
     return cells.getStoredAt1BasedRowIndexAndColumnIndex(p1BasedRowIndex, p1BasedColumnIndex).getStoredControl();
   }
 
@@ -101,9 +101,9 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   //method
   @Override
   public IGrid insertComponentAtRowAndColumn(
-      final int param1BasedRowIndex,
-      final int param1BasedColumnIndex,
-      final IControlGetter component) {
+    final int param1BasedRowIndex,
+    final int param1BasedColumnIndex,
+    final IControlGetter component) {
 
     final var control = component.getStoredControl();
 
@@ -113,9 +113,9 @@ public final class Grid extends Container<IGrid, IGridStyle> implements IGrid {
   //method
   @Override
   public IGrid insertControlAtRowAndColumn(
-      final int param1BasedRowIndex,
-      final int param1BasedColumnIndex,
-      final IControl<?, ?> control) {
+    final int param1BasedRowIndex,
+    final int param1BasedColumnIndex,
+    final IControl<?, ?> control) {
 
     final var cell = GridCell.with1BasedRowIndexAndColumnIndex(param1BasedRowIndex, param1BasedColumnIndex);
     cell.setControl(control);

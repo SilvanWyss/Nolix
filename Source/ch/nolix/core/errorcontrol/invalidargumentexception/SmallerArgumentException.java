@@ -64,9 +64,9 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given limit is null.
    */
   public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
-      final String argumentName,
-      final BigDecimal argument,
-      final BigDecimal limit) {
+    final String argumentName,
+    final BigDecimal argument,
+    final BigDecimal limit) {
     return new SmallerArgumentException(argumentName, argument, limit);
   }
 
@@ -82,9 +82,9 @@ public final class SmallerArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given limit is null.
    */
   public static SmallerArgumentException forArgumentNameAndArgumentAndLimit(
-      final String argumentName,
-      final double argument,
-      final double limit) {
+    final String argumentName,
+    final double argument,
+    final double limit) {
     return new SmallerArgumentException(argumentName, argument, limit);
   }
 

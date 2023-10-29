@@ -50,61 +50,61 @@ public final class Fractal implements IFractal {
 
   //constructor
   public Fractal( //NOSONAR: A Fractal has many parameters and therefore a FractalBuilder fills
-      //them up.
-      final IClosedInterval realComponentInterval,
-      final IClosedInterval imaginaryComponentInterval,
-      final int widthInPixel,
-      final int heightInPixel,
-      final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
-      final BigDecimal sequencesMinDivergenceMagnitude,
-      final int sequencesMaxIterationCount,
-      final IntFunction<IColor> colorFunction,
-      final int bigDecimalScale) {
+    //them up.
+    final IClosedInterval realComponentInterval,
+    final IClosedInterval imaginaryComponentInterval,
+    final int widthInPixel,
+    final int heightInPixel,
+    final Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator,
+    final BigDecimal sequencesMinDivergenceMagnitude,
+    final int sequencesMaxIterationCount,
+    final IntFunction<IColor> colorFunction,
+    final int bigDecimalScale) {
 
     GlobalValidator
-        .assertThat(realComponentInterval)
-        .thatIsNamed("real component interval")
-        .isNotNull();
+      .assertThat(realComponentInterval)
+      .thatIsNamed("real component interval")
+      .isNotNull();
 
     GlobalValidator
-        .assertThat(imaginaryComponentInterval)
-        .thatIsNamed("imaginary component interval")
-        .isNotNull();
+      .assertThat(imaginaryComponentInterval)
+      .thatIsNamed("imaginary component interval")
+      .isNotNull();
 
     GlobalValidator
-        .assertThat(widthInPixel)
-        .thatIsNamed("width in pixel")
-        .isPositive();
+      .assertThat(widthInPixel)
+      .thatIsNamed("width in pixel")
+      .isPositive();
 
     GlobalValidator
-        .assertThat(heightInPixel)
-        .thatIsNamed("height in pixel")
-        .isPositive();
+      .assertThat(heightInPixel)
+      .thatIsNamed("height in pixel")
+      .isPositive();
 
     GlobalValidator
-        .assertThat(sequenceCreator)
-        .thatIsNamed("sequence creator")
-        .isNotNull();
+      .assertThat(sequenceCreator)
+      .thatIsNamed("sequence creator")
+      .isNotNull();
 
     GlobalValidator
-        .assertThat(sequencesMinDivergenceMagnitude)
-        .thatIsNamed("sequences min divergence magnitude")
-        .isPositive();
+      .assertThat(sequencesMinDivergenceMagnitude)
+      .thatIsNamed("sequences min divergence magnitude")
+      .isPositive();
 
     GlobalValidator
-        .assertThat(sequencesMaxIterationCount)
-        .thatIsNamed("sequences max iteration count")
-        .isPositive();
+      .assertThat(sequencesMaxIterationCount)
+      .thatIsNamed("sequences max iteration count")
+      .isPositive();
 
     GlobalValidator
-        .assertThat(colorFunction)
-        .thatIsNamed("color function")
-        .isNotNull();
+      .assertThat(colorFunction)
+      .thatIsNamed("color function")
+      .isNotNull();
 
     GlobalValidator
-        .assertThat(bigDecimalScale)
-        .thatIsNamed("big decimal scale")
-        .isPositive();
+      .assertThat(bigDecimalScale)
+      .thatIsNamed("big decimal scale")
+      .isPositive();
 
     this.imaginaryComponentInterval = imaginaryComponentInterval.inBigDecimalScale(bigDecimalScale);
     this.realComponentInterval = realComponentInterval.inBigDecimalScale(bigDecimalScale);

@@ -33,11 +33,11 @@ public final class MutableValueExtractor<V> implements IProperty, INameHolder {
 
   //constructor
   public MutableValueExtractor(
-      final String name,
-      final Consumer<V> setter,
-      final Supplier<V> getter,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> setter,
+    final Supplier<V> getter,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();

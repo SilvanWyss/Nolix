@@ -53,15 +53,15 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
 
   //attribute
   private final MutableValue<String> displayText = MutableValue.forString(DISPLAY_TEXT_HEADER, DEFAULT_DISPLAY_TEXT,
-      this::setDisplayText);
+    this::setDisplayText);
 
   //attribute
   private final MutableValue<LinkTarget> target = new MutableValue<>(
-      TARGET_HEADER,
-      DEFAULT_TARGET,
-      this::setTarget,
-      s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
-      Node::fromEnum);
+    TARGET_HEADER,
+    DEFAULT_TARGET,
+    this::setTarget,
+    s -> LinkTarget.valueOf(s.getSingleChildNodeHeader()),
+    Node::fromEnum);
 
   //attribute
   private final MutableOptionalValue<String> url = MutableOptionalValue.forString(URL_HEADER, this::setUrl);

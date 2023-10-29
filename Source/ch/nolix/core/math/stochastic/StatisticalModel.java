@@ -67,9 +67,9 @@ public abstract class StatisticalModel {
     GlobalValidator.assertThat(index).thatIsNamed(LowerCaseCatalogue.INDEX).isPositive();
 
     GlobalValidator
-        .assertThat(index)
-        .thatIsNamed(LowerCaseCatalogue.INDEX)
-        .isNotBiggerThan(inputValues.length + forecasts.getElementCount());
+      .assertThat(index)
+      .thatIsNamed(LowerCaseCatalogue.INDEX)
+      .isNotBiggerThan(inputValues.length + forecasts.getElementCount());
 
     if (index > forecasts.getElementCount()) {
       return inputValues[getInputValuesCount() + forecasts.getElementCount() - index];

@@ -11,10 +11,10 @@ final class ColumnDefinitionMapper {
   //method
   public IColumnInfo createColumnDefinitionFrom(final IColumnDto column) {
     return new ColumnInfo(
-        column.getId(),
-        column.getName(),
-        column.getParameterizedPropertyType().getPropertyType(),
-        column.getParameterizedPropertyType().getDataType(),
-        0);
+      column.getId(),
+      column.getName(),
+      column.getParameterizedPropertyType().getPropertyType(),
+      column.getParameterizedPropertyType().getDataType(),
+      0);
   }
 }

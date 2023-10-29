@@ -70,9 +70,9 @@ public final class InvalidArgumentExceptionTest extends Test {
 
     //execution
     final var result = InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        "amount",
-        amount,
-        "is not a whole number");
+      "amount",
+      amount,
+      "is not a whole number");
 
     //verification
     expect(result.getArgumentName()).isEqualTo("amount");

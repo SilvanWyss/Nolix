@@ -23,7 +23,7 @@ public final class EntityQueryCreatorTest extends Test {
 
     //execution
     final var result = testUnit.createQueryToCountEntitiesWithGivenValueAtGivenColumn("MyTable", "MyColumn",
-        "my_value");
+      "my_value");
 
     //verification
     final var expectedResult = "SELECT COUNT(MyColumn) FROM EMyTable WHERE MyColumn = 'my_value';";
@@ -37,11 +37,11 @@ public final class EntityQueryCreatorTest extends Test {
     //setup
     final var testUnit = new EntityQueryCreator();
     final var tableInfo = new TableInfo(
-        "ttttttt1",
-        "Cat",
-        ImmutableList.withElement(
-            new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
-            new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)));
+      "ttttttt1",
+      "Cat",
+      ImmutableList.withElement(
+        new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
+        new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntitiesOfTable(tableInfo);
@@ -58,11 +58,11 @@ public final class EntityQueryCreatorTest extends Test {
     //setup
     final var testUnit = new EntityQueryCreator();
     final var tableInfo = new TableInfo(
-        "ttttttt1",
-        "Cat",
-        ImmutableList.withElement(
-            new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
-            new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)));
+      "ttttttt1",
+      "Cat",
+      ImmutableList.withElement(
+        new ColumnInfo("ccccccc1", "name", PropertyType.VALUE, DataType.STRING, 0),
+        new ColumnInfo("ccccccc2", "year_of_birth", PropertyType.VALUE, DataType.INTEGER_4BYTE, 0)));
 
     //execution
     final var result = testUnit.createQueryToLoadEntity("eeeeeee1", tableInfo);

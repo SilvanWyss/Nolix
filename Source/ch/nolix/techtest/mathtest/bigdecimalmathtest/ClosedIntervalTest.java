@@ -102,9 +102,9 @@ public final class ClosedIntervalTest extends Test {
 
     //execution & verification
     expectRunning(() -> new ClosedInterval(null, BigDecimal.valueOf(1.0)))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given minimum is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given minimum is null.");
   }
 
   //method
@@ -113,9 +113,9 @@ public final class ClosedIntervalTest extends Test {
 
     //execution & verification
     expectRunning(() -> new ClosedInterval(BigDecimal.valueOf(1.0), null))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given maximum is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given maximum is null.");
   }
 
   //method

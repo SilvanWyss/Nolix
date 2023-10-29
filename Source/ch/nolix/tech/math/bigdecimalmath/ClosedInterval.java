@@ -56,8 +56,8 @@ public final class ClosedInterval implements IClosedInterval {
   @Override
   public boolean containsValue(final BigDecimal value) {
     return value != null
-        && value.compareTo(min) >= 0
-        && value.compareTo(max) <= 0;
+    && value.compareTo(min) >= 0
+    && value.compareTo(max) <= 0;
   }
 
   //method
@@ -71,7 +71,7 @@ public final class ClosedInterval implements IClosedInterval {
     final var closedInterval = (ClosedInterval) object;
 
     return min.equals(closedInterval.min)
-        && max.equals(closedInterval.max);
+    && max.equals(closedInterval.max);
   }
 
   //method
@@ -88,8 +88,8 @@ public final class ClosedInterval implements IClosedInterval {
     final var midPoint = getMidPoint();
 
     return new Pair<>(
-        new ClosedInterval(min, midPoint, bigDecimalScale),
-        new ClosedInterval(midPoint, max, bigDecimalScale));
+      new ClosedInterval(min, midPoint, bigDecimalScale),
+      new ClosedInterval(midPoint, max, bigDecimalScale));
   }
 
   //method
@@ -132,7 +132,7 @@ public final class ClosedInterval implements IClosedInterval {
   @Override
   public boolean intersectsWith(final IClosedInterval closedInterval) {
     return getMin().compareTo(closedInterval.getMax()) < 0
-        && getMax().compareTo(closedInterval.getMin()) > 0;
+    && getMax().compareTo(closedInterval.getMin()) > 0;
   }
 
   //method

@@ -13,8 +13,8 @@ final class InternalDatabaseInitializer {
   //method
   public void initializeDatabase(final IMutableNode<?> databaseNode) {
     databaseNode
-        .setHeader(SubNodeHeaderCatalogue.DATABASE)
-        .addChildNode(createDatabasePropertiesNode());
+      .setHeader(SubNodeHeaderCatalogue.DATABASE)
+      .addChildNode(createDatabasePropertiesNode());
   }
 
   //method
@@ -25,7 +25,7 @@ final class InternalDatabaseInitializer {
   //method
   private Node createSchemaTimestampNode() {
     return Node.withHeaderAndChildNode(
-        SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP,
-        Time.ofNow().getSpecification().getStoredSingleChildNode());
+      SubNodeHeaderCatalogue.SCHEMA_TIMESTAMP,
+      Time.ofNow().getSpecification().getStoredSingleChildNode());
   }
 }

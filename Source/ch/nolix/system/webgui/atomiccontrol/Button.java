@@ -54,10 +54,10 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
 
   //attribute
   private final MutableOptionalValue<ButtonRole> role = new MutableOptionalValue<>(
-      ROLE_HEADER,
-      this::setRole,
-      ButtonRole::fromSpecification,
-      Node::fromEnum);
+    ROLE_HEADER,
+    this::setRole,
+    ButtonRole::fromSpecification,
+    Node::fromEnum);
 
   //attribute
   private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);
@@ -76,11 +76,11 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
     reset();
 
     getStoredStyle()
-        .setBorderThicknessForState(ControlState.BASE, 1)
-        .setLeftPaddingForState(ControlState.BASE, 20)
-        .setRightPaddingForState(ControlState.BASE, 20)
-        .setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY)
-        .setBackgroundColorForState(ControlState.FOCUS, Color.LIGHT_GREY);
+      .setBorderThicknessForState(ControlState.BASE, 1)
+      .setLeftPaddingForState(ControlState.BASE, 20)
+      .setRightPaddingForState(ControlState.BASE, 20)
+      .setBackgroundColorForState(ControlState.HOVER, Color.LIGHT_GREY)
+      .setBackgroundColorForState(ControlState.FOCUS, Color.LIGHT_GREY);
   }
 
   //method
@@ -130,8 +130,8 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public void pressLeftMouseButton() {
     if (hasLeftMouseButtonPressAction()) {
       VALIDATION_LABEL_HELPER.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-          this,
-          leftMouseButtonPressAction);
+        this,
+        leftMouseButtonPressAction);
     }
   }
 
@@ -153,8 +153,8 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public void releaseLeftMouseButton() {
     if (hasLeftMouseButtonReleaseAction()) {
       VALIDATION_LABEL_HELPER.executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-          this,
-          leftMouseButtonReleaseAction);
+        this,
+        leftMouseButtonReleaseAction);
     }
   }
 
@@ -194,9 +194,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public IButton setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonPressAction)
-        .thatIsNamed("left mouse button press action")
-        .isNotNull();
+      .assertThat(leftMouseButtonPressAction)
+      .thatIsNamed("left mouse button press action")
+      .isNotNull();
 
     return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
   }
@@ -206,9 +206,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public IButton setLeftMouseButtonPressAction(final Consumer<IButton> leftMouseButtonPressAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonPressAction)
-        .thatIsNamed("left mouse button press action")
-        .isNotNull();
+      .assertThat(leftMouseButtonPressAction)
+      .thatIsNamed("left mouse button press action")
+      .isNotNull();
 
     this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 
@@ -220,9 +220,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public IButton setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonReleaseAction)
-        .thatIsNamed("left mouse button release action")
-        .isNotNull();
+      .assertThat(leftMouseButtonReleaseAction)
+      .thatIsNamed("left mouse button release action")
+      .isNotNull();
 
     return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
   }
@@ -232,9 +232,9 @@ public final class Button extends Control<IButton, IButtonStyle> implements IBut
   public IButton setLeftMouseButtonRelaseAction(final Consumer<IButton> leftMouseButtonReleaseAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonReleaseAction)
-        .thatIsNamed("left mouse button release action")
-        .isNotNull();
+      .assertThat(leftMouseButtonReleaseAction)
+      .thatIsNamed("left mouse button release action")
+      .isNotNull();
 
     this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
 

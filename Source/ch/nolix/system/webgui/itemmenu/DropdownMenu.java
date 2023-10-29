@@ -31,9 +31,9 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
     reset();
 
     getStoredStyle()
-        .setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
-        .setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
-        .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
+      .setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
+      .setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
+      .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
   }
 
   //method

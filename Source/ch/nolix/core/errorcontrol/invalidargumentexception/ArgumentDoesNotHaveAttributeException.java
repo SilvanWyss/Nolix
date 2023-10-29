@@ -60,9 +60,9 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeType is null.
    */
   private ArgumentDoesNotHaveAttributeException(
-      final String argumentName,
-      final Object argument,
-      final Class<?> attributeType) {
+    final String argumentName,
+    final Object argument,
+    final Class<?> attributeType) {
 
     //Calls constructor of the base class.
     super(argumentName, argument, "does not have a " + getNameOfAttributeType(attributeType));
@@ -82,9 +82,9 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeName is blank.
    */
   private ArgumentDoesNotHaveAttributeException(
-      final String argumentName,
-      final Object argument,
-      final String attributeName) {
+    final String argumentName,
+    final Object argument,
+    final String attributeName) {
 
     //Calls constructor of the base class.
     super(argumentName, argument, "does not have a " + getValidAttributeNameOfAttributeName(attributeName));
@@ -100,8 +100,8 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeName is blank.
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeName(
-      final Object argument,
-      final String attributeName) {
+    final Object argument,
+    final String attributeName) {
     return new ArgumentDoesNotHaveAttributeException(argument, attributeName);
   }
 
@@ -114,8 +114,8 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeType is null.
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentAndAttributeType(
-      final Object argument,
-      final Class<?> attributeType) {
+    final Object argument,
+    final Class<?> attributeType) {
     return new ArgumentDoesNotHaveAttributeException(argument, attributeType);
   }
 
@@ -132,9 +132,9 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeName is blank.
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentNameAndArgumentAndAttributeName(
-      final String argumentName,
-      final Object argument,
-      final String attributeName) {
+    final String argumentName,
+    final Object argument,
+    final String attributeName) {
     return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeName);
   }
 
@@ -150,9 +150,9 @@ public final class ArgumentDoesNotHaveAttributeException extends InvalidArgument
    * @throws IllegalArgumentException if the given attributeType is null.
    */
   public static ArgumentDoesNotHaveAttributeException forArgumentNameAndArgumentAndAttributeType(
-      final String argumentName,
-      final Object argument,
-      final Class<?> attributeType) {
+    final String argumentName,
+    final Object argument,
+    final Class<?> attributeType) {
     return new ArgumentDoesNotHaveAttributeException(argumentName, argument, attributeType);
   }
 

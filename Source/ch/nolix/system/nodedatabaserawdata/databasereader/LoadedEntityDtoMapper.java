@@ -22,18 +22,18 @@ public final class LoadedEntityDtoMapper {
 
   //method
   public ILoadedEntityDto createLoadedEntityDtoFromEntityNode(
-      final IMutableNode<?> entityNode,
-      final ITableInfo tableInfo) {
+    final IMutableNode<?> entityNode,
+    final ITableInfo tableInfo) {
     return new LoadedEntityDto(
-        getIdFromEntityNode(entityNode),
-        getSaveStampFromEntityNode(entityNode),
-        createContentFieldsFromEntityNode(entityNode, tableInfo));
+      getIdFromEntityNode(entityNode),
+      getSaveStampFromEntityNode(entityNode),
+      createContentFieldsFromEntityNode(entityNode, tableInfo));
   }
 
   //method
   private IContainer<ILoadedContentFieldDto> createContentFieldsFromEntityNode(
-      final IMutableNode<?> entityNode,
-      final ITableInfo tableInfo) {
+    final IMutableNode<?> entityNode,
+    final ITableInfo tableInfo) {
 
     final var contentFields = new LinkedList<ILoadedContentFieldDto>();
     for (final var ci : tableInfo.getColumnInfos()) {

@@ -22,7 +22,7 @@ final class BaseWebClientFrontendWriter implements IFrontEndWriter {
 
   //static method
   public static BaseWebClientFrontendWriter forBackendWebClient(
-      final BaseWebClient<?, ?> backendWebClient) {
+    final BaseWebClient<?, ?> backendWebClient) {
     return new BaseWebClientFrontendWriter(backendWebClient);
   }
 

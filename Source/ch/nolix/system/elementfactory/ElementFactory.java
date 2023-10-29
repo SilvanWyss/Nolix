@@ -38,14 +38,14 @@ public class ElementFactory<E> {
 
   //method
   protected final <E2 extends E, ME extends IMutableElement> void registerElementClass_(
-      final Class<ME> elementClass) {
+    final Class<ME> elementClass) {
     registerOneTypeElementFactory(new OneTypeElementFactory<E2>(elementClass));
   }
 
   //method
   protected final <E2 extends E> void registerElementClass_(
-      final Class<E2> elementClass,
-      final Function<INode<?>, E2> creator) {
+    final Class<E2> elementClass,
+    final Function<INode<?>, E2> creator) {
     registerOneTypeElementFactory(new OneTypeElementFactory<>(elementClass, creator));
   }
 

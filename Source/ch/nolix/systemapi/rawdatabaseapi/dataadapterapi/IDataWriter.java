@@ -47,10 +47,10 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param referencedEntityId
    */
   void deleteMultiReferenceEntry(
-      String tableName,
-      String entityId,
-      String multiRefereceColumnName,
-      String referencedEntityId);
+    String tableName,
+    String entityId,
+    String multiRefereceColumnName,
+    String referencedEntityId);
 
   //method declaration
   /**
@@ -63,10 +63,10 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param entry
    */
   void deleteMultiValueEntry(
-      String tableName,
-      String entityId,
-      String multiValueColumnName,
-      String entry);
+    String tableName,
+    String entityId,
+    String multiValueColumnName,
+    String entry);
 
   //method declaration
   /**
@@ -108,10 +108,10 @@ public interface IDataWriter extends IResettableChangeSaver {
    * @param referencedEntityId
    */
   void insertMultiReferenceEntry(
-      String tableName,
-      String entityId,
-      String multiReferenceColumnName,
-      String referencedEntityId);
+    String tableName,
+    String entityId,
+    String multiReferenceColumnName,
+    String referencedEntityId);
 
   //method declaration
   /**

@@ -42,12 +42,12 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 
   //constructor
   protected BaseSelectingStyle(
-      final ISingleContainer<String> selectorIdContainer,
-      final ISingleContainer<String> selectorTypeContainer,
-      IContainer<String> selectorRoles,
-      IContainer<String> selectorTokens,
-      final IContainer<? extends INode<?>> attachingAttributes,
-      final IContainer<BaseSelectingStyle> subStyles) {
+    final ISingleContainer<String> selectorIdContainer,
+    final ISingleContainer<String> selectorTypeContainer,
+    IContainer<String> selectorRoles,
+    IContainer<String> selectorTokens,
+    final IContainer<? extends INode<?>> attachingAttributes,
+    final IContainer<BaseSelectingStyle> subStyles) {
 
     super(attachingAttributes, subStyles);
 
@@ -181,9 +181,9 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
   @Override
   public final boolean selectsElement(IStylableElement<?> element) {
     return selectorIdAllowsToSelectElement(element)
-        && selectorTypeAllowsToSelectElement(element)
-        && selectorRolesAllowToSelectElement(element)
-        && selectorTokensAllowToSelectElement(element);
+    && selectorTypeAllowsToSelectElement(element)
+    && selectorRolesAllowToSelectElement(element)
+    && selectorTokensAllowToSelectElement(element);
   }
 
   //method

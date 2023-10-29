@@ -18,16 +18,16 @@ public final class ArrayReadContainerTest extends ContainerTest {
 
     //execution & verification
     expectRunning(() -> ArrayReadContainer
-        .forArray(null)).throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given array is null.");
+      .forArray(null)).throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given array is null.");
   }
 
   //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
-      final E element,
-      final @SuppressWarnings("unchecked") E... elements) {
+    final E element,
+    final @SuppressWarnings("unchecked") E... elements) {
     return ArrayReadContainer.forArray(GlobalArrayHelper.createArrayWithElement(element, elements));
   }
 

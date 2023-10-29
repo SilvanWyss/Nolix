@@ -146,7 +146,7 @@ public abstract class BaseEntity implements IEntity {
   @Override
   public final boolean isLinkedWithRealDatabase() {
     return belongsToTable()
-        && getStoredParentTable().isLinkedWithRealDatabase();
+    && getStoredParentTable().isLinkedWithRealDatabase();
   }
 
   //method
@@ -298,8 +298,8 @@ public abstract class BaseEntity implements IEntity {
     final var lId = getId();
 
     return ((Table<?>) getStoredParentTable())
-        .internalGetColumnsThatReferencesCurrentTable()
-        .containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
+      .internalGetColumnsThatReferencesCurrentTable()
+      .containsAny(c -> c.technicalContainsGivenValueInPersistedData(lId));
   }
 
   //method
@@ -327,13 +327,13 @@ public abstract class BaseEntity implements IEntity {
 
   //method
   private void updateBackReferencingPropertyForDeletion(
-      final IProperty backReferencingProperty) {
+    final IProperty backReferencingProperty) {
     updateBackReferencingPropertyForDeletion((IBaseBackReference<?>) backReferencingProperty);
   }
 
   //method
   private void updateBackReferencingPropertyForDeletion(
-      final IBaseBackReference<?> baseBackReference) {
+    final IBaseBackReference<?> baseBackReference) {
     switch (baseBackReference.getType()) {
       case BACK_REFERENCE:
         updateBackReferenceForDeletion((BackReference<?>) baseBackReference);

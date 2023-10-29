@@ -14,7 +14,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParameterizedValueType<V> extends ParameterizedPropertyType
-    implements IBaseParameterizedValueType<V> {
+implements IBaseParameterizedValueType<V> {
 
   //constructor
   protected BaseParameterizedValueType(final DataType dataType) {

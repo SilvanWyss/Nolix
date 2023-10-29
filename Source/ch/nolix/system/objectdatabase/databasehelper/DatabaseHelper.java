@@ -26,8 +26,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   @Override
   public boolean canSaveChanges(final IDatabase database) {
     return database.isOpen()
-        && database.isLinkedWithRealDatabase()
-        && allNewAndEditedMandatoryPropertiesAreSet(database);
+    && database.isLinkedWithRealDatabase()
+    && allNewAndEditedMandatoryPropertiesAreSet(database);
   }
 
   //method
@@ -40,8 +40,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableForGivenEntity(
-      final IDatabase database,
-      final E entity) {
+    final IDatabase database,
+    final E entity) {
     return database.getStoredTableByEntityType((Class<E>) entity.getClass());
   }
 

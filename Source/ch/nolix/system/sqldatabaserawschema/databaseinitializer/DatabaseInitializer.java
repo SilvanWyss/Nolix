@@ -18,9 +18,9 @@ public final class DatabaseInitializer {
 
   //method
   public void initializeDatabaseIfNotInitialized(
-      final String databaseName,
-      final ISchemaAdapter schemaAdapter,
-      final SqlConnectionPool sqlConnectionPool) {
+    final String databaseName,
+    final ISchemaAdapter schemaAdapter,
+    final SqlConnectionPool sqlConnectionPool) {
     switch (DATABASE_SCHEMA_INSPECTOR.getDatabaseSchemaState(schemaAdapter)) {
       case UNINITIALIZED:
         INTERNAL_DATABASE_INITIALIZER.initializeDatabase(databaseName, schemaAdapter, sqlConnectionPool);

@@ -39,9 +39,9 @@ public final class ComplexNumber implements IComplexNumber {
 
   //constructor
   public ComplexNumber(
-      final BigDecimal realComponent,
-      final BigDecimal imaginaryComponent,
-      final int bigDecimalScale) {
+    final BigDecimal realComponent,
+    final BigDecimal imaginaryComponent,
+    final int bigDecimalScale) {
 
     GlobalValidator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
     GlobalValidator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
@@ -58,7 +58,7 @@ public final class ComplexNumber implements IComplexNumber {
     final var imaginaryComponentBigDecimal = BigDecimal.valueOf(imaginaryComponent);
 
     final var bigDecimalScale = GlobalCalculator.getMax(realComponentBigDecimal.scale(),
-        imaginaryComponentBigDecimal.scale(), 10);
+      imaginaryComponentBigDecimal.scale(), 10);
 
     this.realComponent = realComponentBigDecimal.setScale(bigDecimalScale, RoundingMode.HALF_UP);
     this.imaginaryComponent = imaginaryComponentBigDecimal.setScale(bigDecimalScale, RoundingMode.HALF_UP);
@@ -96,7 +96,7 @@ public final class ComplexNumber implements IComplexNumber {
     final var complexNumber = (ComplexNumber) object;
 
     return realComponent.equals(complexNumber.realComponent)
-        && imaginaryComponent.equals(complexNumber.imaginaryComponent);
+    && imaginaryComponent.equals(complexNumber.imaginaryComponent);
   }
 
   //method
@@ -121,10 +121,10 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public BigDecimal getMagnitude() {
     return realComponent
-        .pow(2)
-        .add(imaginaryComponent.pow(2))
-        .sqrt(MathContext.DECIMAL128)
-        .setScale(getScale(), RoundingMode.HALF_UP);
+      .pow(2)
+      .add(imaginaryComponent.pow(2))
+      .sqrt(MathContext.DECIMAL128)
+      .setScale(getScale(), RoundingMode.HALF_UP);
   }
 
   //method
@@ -145,43 +145,43 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public ComplexNumber getPower2() {
     return new ComplexNumber(
-        realComponent
-            .multiply(realComponent)
-            .subtract(imaginaryComponent.multiply(imaginaryComponent)),
-        BigDecimal.valueOf(2.0)
-            .multiply(realComponent)
-            .multiply(imaginaryComponent),
-        getBigDecimalScale());
+      realComponent
+        .multiply(realComponent)
+        .subtract(imaginaryComponent.multiply(imaginaryComponent)),
+      BigDecimal.valueOf(2.0)
+        .multiply(realComponent)
+        .multiply(imaginaryComponent),
+      getBigDecimalScale());
   }
 
   //method
   @Override
   public ComplexNumber getPower3() {
     return new ComplexNumber(
-        realComponent
-            .pow(3)
-            .subtract(BigDecimal.valueOf(3.0).multiply(realComponent).multiply(imaginaryComponent.pow(2))),
-        BigDecimal.valueOf(3.0)
-            .multiply(realComponent)
-            .pow(2)
-            .multiply(imaginaryComponent)
-            .subtract(imaginaryComponent.pow(3)),
-        getBigDecimalScale());
+      realComponent
+        .pow(3)
+        .subtract(BigDecimal.valueOf(3.0).multiply(realComponent).multiply(imaginaryComponent.pow(2))),
+      BigDecimal.valueOf(3.0)
+        .multiply(realComponent)
+        .pow(2)
+        .multiply(imaginaryComponent)
+        .subtract(imaginaryComponent.pow(3)),
+      getBigDecimalScale());
   }
 
   //method
   @Override
   public ComplexNumber getPower4() {
     return new ComplexNumber(
-        realComponent
-            .pow(4)
-            .subtract(BigDecimal.valueOf(6.0).multiply(realComponent.pow(2)).multiply(imaginaryComponent.pow(2)))
-            .add(imaginaryComponent.pow(4)),
-        BigDecimal.valueOf(4.0)
-            .multiply(realComponent.pow(3))
-            .multiply(imaginaryComponent)
-            .subtract(BigDecimal.valueOf(4.0).multiply(realComponent).multiply(imaginaryComponent.pow(3))),
-        getBigDecimalScale());
+      realComponent
+        .pow(4)
+        .subtract(BigDecimal.valueOf(6.0).multiply(realComponent.pow(2)).multiply(imaginaryComponent.pow(2)))
+        .add(imaginaryComponent.pow(4)),
+      BigDecimal.valueOf(4.0)
+        .multiply(realComponent.pow(3))
+        .multiply(imaginaryComponent)
+        .subtract(BigDecimal.valueOf(4.0).multiply(realComponent).multiply(imaginaryComponent.pow(3))),
+      getBigDecimalScale());
   }
 
   //method
@@ -200,15 +200,15 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public ComplexNumber getProduct(final IComplexNumber complexNumber) {
     return new ComplexNumber(
-        realComponent
-            .multiply(complexNumber.getRealComponent())
-            .subtract(imaginaryComponent.multiply(complexNumber.getImaginaryComponent()))
-            .setScale(getScale(), RoundingMode.HALF_UP),
-        realComponent
-            .multiply(complexNumber.getImaginaryComponent())
-            .add(imaginaryComponent.multiply(complexNumber.getRealComponent()))
-            .setScale(getScale(), RoundingMode.HALF_UP),
-        getBigDecimalScale());
+      realComponent
+        .multiply(complexNumber.getRealComponent())
+        .subtract(imaginaryComponent.multiply(complexNumber.getImaginaryComponent()))
+        .setScale(getScale(), RoundingMode.HALF_UP),
+      realComponent
+        .multiply(complexNumber.getImaginaryComponent())
+        .add(imaginaryComponent.multiply(complexNumber.getRealComponent()))
+        .setScale(getScale(), RoundingMode.HALF_UP),
+      getBigDecimalScale());
   }
 
   //method
@@ -227,9 +227,9 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public BigDecimal getSquaredMagnitude() {
     return realComponent
-        .multiply(realComponent)
-        .add(imaginaryComponent.multiply(imaginaryComponent))
-        .setScale(getScale(), RoundingMode.HALF_UP);
+      .multiply(realComponent)
+      .add(imaginaryComponent.multiply(imaginaryComponent))
+      .setScale(getScale(), RoundingMode.HALF_UP);
   }
 
   //method
@@ -242,9 +242,9 @@ public final class ComplexNumber implements IComplexNumber {
   @Override
   public ComplexNumber getSum(final IComplexNumber complexNumber) {
     return new ComplexNumber(
-        realComponent.add(complexNumber.getRealComponent()),
-        imaginaryComponent.add(complexNumber.getImaginaryComponent()),
-        getBigDecimalScale());
+      realComponent.add(complexNumber.getRealComponent()),
+      imaginaryComponent.add(complexNumber.getImaginaryComponent()),
+      getBigDecimalScale());
   }
 
   //method

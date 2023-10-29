@@ -48,8 +48,8 @@ public final class ColorNameConstantExtractor {
       final var colorField = colorFields.removeAndGetRefFirst(cf -> colorStringFieldName.startsWith(cf.getName()));
 
       lColorNames.addAtEnd(
-          new Pair<>(GlobalFieldHelper.getValueFromStaticField(csf),
-              GlobalFieldHelper.getValueFromStaticField(colorField)));
+        new Pair<>(GlobalFieldHelper.getValueFromStaticField(csf),
+          GlobalFieldHelper.getValueFromStaticField(colorField)));
     }
 
     return lColorNames;

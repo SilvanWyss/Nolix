@@ -26,8 +26,8 @@ public final class WebClientCounterpartUpdater {
 
   //constructor
   private WebClientCounterpartUpdater(
-      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
-      final BooleanSupplier openStateRequestable) {
+    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+    final BooleanSupplier openStateRequestable) {
 
     GlobalValidator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
@@ -38,8 +38,8 @@ public final class WebClientCounterpartUpdater {
 
   //static method
   public static WebClientCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
-      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
-      final BooleanSupplier openStateRequester) {
+    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+    final BooleanSupplier openStateRequester) {
     return new WebClientCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
@@ -58,11 +58,11 @@ public final class WebClientCounterpartUpdater {
   //method
   private IContainer<ChainedNode> createUpdateCommandsFromWebGui(final IWebGui<?> webGui) {
     return ImmutableList.withElement(
-        UPDATE_COMMAND_CREATOR.createSetTitleCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetIconCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+      UPDATE_COMMAND_CREATOR.createSetTitleCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetIconCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
   }
 }

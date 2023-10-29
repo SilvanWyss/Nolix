@@ -208,25 +208,25 @@ public abstract class TestPool implements Runnable {
     //Asserts that the given testClass is a sub class of BaseTest.
     if (!ReflectionHelper.firstIsSubClassOfSecond(testClass, BaseTest.class)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.TEST_CLASS,
-          testClass,
-          "is not a sub class of " + BaseTest.class.getName());
+        LowerCaseCatalogue.TEST_CLASS,
+        testClass,
+        "is not a sub class of " + BaseTest.class.getName());
     }
 
     //Asserts that the given testClass is not abstract.
     if (ReflectionHelper.isAbstract(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.TEST_CLASS,
-          testClass,
-          "is abstract");
+        LowerCaseCatalogue.TEST_CLASS,
+        testClass,
+        "is abstract");
     }
 
     //Asserts that the given testClass has a default constructor.
     if (!ReflectionHelper.hasDefaultConstructor(testClass)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.TEST_CLASS,
-          testClass,
-          "does not have a default constructor");
+        LowerCaseCatalogue.TEST_CLASS,
+        testClass,
+        "does not have a default constructor");
     }
 
     testClasses.addAtEnd((Class<BaseTest>) testClass);

@@ -11,7 +11,7 @@ public final class RunningJarTutorial {
   public static void main(String[] args) {
 
     final var resourcePath = //
-        "ch/nolix/coretutorial/environmenttutorial/runningjartutorialresource/willkommen_und_abschied.txt";
+    "ch/nolix/coretutorial/environmenttutorial/runningjartutorialresource/willkommen_und_abschied.txt";
 
     GlobalLogger.logInfo(RunningJar.getResource(resourcePath));
   }

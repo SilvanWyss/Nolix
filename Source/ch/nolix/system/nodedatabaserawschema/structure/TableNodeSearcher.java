@@ -13,11 +13,11 @@ public final class TableNodeSearcher {
 
   //method
   public IMutableNode<?> getStoredColumnNodeFromTableNodeByColumnName(
-      final IMutableNode<?> tableNode,
-      final String columnName) {
+    final IMutableNode<?> tableNode,
+    final String columnName) {
     return getStoredColumnNodesFromTableNode(tableNode).getStoredFirst(
-        csn -> COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(csn).getStoredSingleChildNode()
-            .hasHeader(columnName));
+      csn -> COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(csn).getStoredSingleChildNode()
+        .hasHeader(columnName));
   }
 
   //method

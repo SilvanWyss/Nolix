@@ -29,10 +29,10 @@ public final class ClassWrapper<T> {
     try {
       return getConstructor().newInstance();
     } catch (final
-        InstantiationException
-        | IllegalAccessException
-        | IllegalArgumentException
-        | InvocationTargetException exception) {
+    InstantiationException
+    | IllegalAccessException
+    | IllegalArgumentException
+    | InvocationTargetException exception) {
       throw WrapperException.forError(exception);
     }
   }

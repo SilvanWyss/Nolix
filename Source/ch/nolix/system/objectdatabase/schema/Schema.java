@@ -29,8 +29,8 @@ public final class Schema implements ISchema {
   //static method
   @SuppressWarnings("unchecked")
   public static Schema withEntityType(
-      final Class<?> entityType,
-      final Class<?>... entityTypes) {
+    final Class<?> entityType,
+    final Class<?>... entityTypes) {
 
     final var allEntityTypes = new LinkedList<Class<? extends IEntity>>();
 
@@ -62,18 +62,18 @@ public final class Schema implements ISchema {
 
   //method
   private void assertContainsDifferentEntityTypesOnly(
-      final IContainer<Class<? extends IEntity>> entityTypes) {
+    final IContainer<Class<? extends IEntity>> entityTypes) {
     if (!containsDifferentEntityTypesOnly(entityTypes)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          "list of entity types",
-          entityTypes,
-          "does not contain different entity types only");
+        "list of entity types",
+        entityTypes,
+        "does not contain different entity types only");
     }
   }
 
   //method
   private boolean containsDifferentEntityTypesOnly(
-      final IContainer<Class<? extends IEntity>> entityTypes) {
+    final IContainer<Class<? extends IEntity>> entityTypes) {
     return entityTypes.getStoredGroups(Class::getSimpleName).containsAsManyAs(entityTypes);
   }
 }

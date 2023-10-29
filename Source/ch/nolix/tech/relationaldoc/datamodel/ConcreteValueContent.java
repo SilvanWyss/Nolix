@@ -20,11 +20,11 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 
   //constant
   private static final ConcreteValueContentValidator CONCRETE_VALUE_CONTENT_VALIDATOR = //
-      new ConcreteValueContentValidator();
+  new ConcreteValueContentValidator();
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-      .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteValueContent");
+    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteValueContent");
 
   //attribute
   private final OptionalValue<String> dataType = new OptionalValue<>();

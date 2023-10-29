@@ -18,8 +18,8 @@ record SecureServerHtmlPage(String serverDomain, int serverPort) {
 
   //constructor
   public SecureServerHtmlPage( //NOSONAR: This constructor does more than the default one.
-      final String serverDomain,
-      final int serverPort) {
+    final String serverDomain,
+    final int serverPort) {
 
     GlobalValidator.assertThat(serverDomain).thatIsNamed("server domain").isNotBlank();
     GlobalValidator.assertThat(serverPort).thatIsNamed("server port").isPort();
@@ -32,26 +32,26 @@ record SecureServerHtmlPage(String serverDomain, int serverPort) {
   @Override
   public String toString() {
     return "<!DOCTYPE html>\n"
-        + "<html>\n"
-        + "<head>\n"
+    + "<html>\n"
+    + "<head>\n"
 
-        //The 'data:,' link avoids that a browser requests a favorite icon.
-        + "<link id=\"icon\" rel=\"icon\" href=\"data:,\">\n"
+    //The 'data:,' link avoids that a browser requests a favorite icon.
+    + "<link id=\"icon\" rel=\"icon\" href=\"data:,\">\n"
 
-        + "<script>\n"
-        + REQUIRE_JS_SCRIPT
-        + "</script>\n"
-        + "<script>\n"
-        + NOLIX_SCRIPT
-        + "</script>\n"
-        + getStartScript()
-        + "<title\n>"
-        + "Nolix\n"
-        + "</title>\n"
-        + "</head>\n"
-        + "<body>\n"
-        + "</body>\n"
-        + "</html>\n";
+    + "<script>\n"
+    + REQUIRE_JS_SCRIPT
+    + "</script>\n"
+    + "<script>\n"
+    + NOLIX_SCRIPT
+    + "</script>\n"
+    + getStartScript()
+    + "<title\n>"
+    + "Nolix\n"
+    + "</title>\n"
+    + "</head>\n"
+    + "<body>\n"
+    + "</body>\n"
+    + "</html>\n";
   }
 
   //method
@@ -72,13 +72,13 @@ record SecureServerHtmlPage(String serverDomain, int serverPort) {
   //method
   private String getStartScript() {
     return "<script>\n"
-        + "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
-        + "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURLOnSecureWebSocket("
-        + getServerDomainInQuotes()
-        + ", "
-        + getServerPort()
-        + ");"
-        + "});\n"
-        + "</script>\n";
+    + "require(['System/Application/WebApplication/FrontendWebClient'], function (FrontendWebClient_) {"
+    + "var client = FrontendWebClient_.FrontendWebClient.toIpAndPortAndApplicationFromURLOnSecureWebSocket("
+    + getServerDomainInQuotes()
+    + ", "
+    + getServerPort()
+    + ");"
+    + "});\n"
+    + "</script>\n";
   }
 }

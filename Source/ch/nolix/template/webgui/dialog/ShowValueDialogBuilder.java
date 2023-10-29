@@ -44,29 +44,29 @@ public final class ShowValueDialogBuilder implements IBuilder<ILayer<?>> {
   @Override
   public ILayer<?> build() {
     return new Layer()
-        .setRole(LayerRole.DIALOG_LAYER)
-        .setRootControl(
-            new VerticalStack()
-                .setRole(ContainerRole.DIALOG_CONTAINER)
-                .addControl(
-                    new Label()
-                        .setText(getValueName() + ":"),
-                    new HorizontalStack()
-                        .addControl(
-                            new Label()
-                                .setText(getValue()),
-                            new Button()
-                                .setVisibility(hasValueCopier())
-                                .setText("Copy")
-                                .setLeftMouseButtonPressAction(
-                                    (IButton button) -> {
-                                      getValueCopier().accept(value);
-                                      button.getStoredParentLayer().removeSelfFromGui();
-                                    })),
-                    new Button()
-                        .setRole(ButtonRole.CONFIRM_BUTTON)
-                        .setText(getConfirmButtonText())
-                        .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui())));
+      .setRole(LayerRole.DIALOG_LAYER)
+      .setRootControl(
+        new VerticalStack()
+          .setRole(ContainerRole.DIALOG_CONTAINER)
+          .addControl(
+            new Label()
+              .setText(getValueName() + ":"),
+            new HorizontalStack()
+              .addControl(
+                new Label()
+                  .setText(getValue()),
+                new Button()
+                  .setVisibility(hasValueCopier())
+                  .setText("Copy")
+                  .setLeftMouseButtonPressAction(
+                    (IButton button) -> {
+                      getValueCopier().accept(value);
+                      button.getStoredParentLayer().removeSelfFromGui();
+                    })),
+            new Button()
+              .setRole(ButtonRole.CONFIRM_BUTTON)
+              .setText(getConfirmButtonText())
+              .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui())));
   }
 
   //method

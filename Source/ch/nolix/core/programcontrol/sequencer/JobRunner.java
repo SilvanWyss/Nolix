@@ -104,9 +104,9 @@ final class JobRunner extends Thread {
    *                                   negative.
    */
   public JobRunner(
-      final Runnable job,
-      final BooleanSupplier condition,
-      final int timeIntervalInMilliseconds) {
+    final Runnable job,
+    final BooleanSupplier condition,
+    final int timeIntervalInMilliseconds) {
     //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
@@ -115,7 +115,7 @@ final class JobRunner extends Thread {
 
     //Asserts that the given timeIntervalInMilliseconds is not negative.
     GlobalValidator.assertThat(timeIntervalInMilliseconds).thatIsNamed("time interval in milliseoconds")
-        .isNotNegative();
+      .isNotNegative();
 
     this.job = job;
     this.maxRunCount = null;
@@ -136,8 +136,8 @@ final class JobRunner extends Thread {
    * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
   public JobRunner(
-      final Runnable job,
-      final int maxRunCount) {
+    final Runnable job,
+    final int maxRunCount) {
 
     //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -166,9 +166,9 @@ final class JobRunner extends Thread {
    * @throws ArgumentIsNullException   if the given condition is null.
    */
   public JobRunner(
-      final Runnable job,
-      final int maxRunCount,
-      final BooleanSupplier condition) {
+    final Runnable job,
+    final int maxRunCount,
+    final BooleanSupplier condition) {
 
     //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
@@ -204,10 +204,10 @@ final class JobRunner extends Thread {
    *                                   negative.
    */
   public JobRunner(
-      final Runnable job,
-      final int maxRunCount,
-      final BooleanSupplier condition,
-      final int timeIntervalInMilliseconds) {
+    final Runnable job,
+    final int maxRunCount,
+    final BooleanSupplier condition,
+    final int timeIntervalInMilliseconds) {
     //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
 
@@ -242,9 +242,9 @@ final class JobRunner extends Thread {
    *                                   negative.
    */
   public JobRunner(
-      final Runnable job,
-      final int maxRunCount,
-      final int timeIntervalInMilliseconds) {
+    final Runnable job,
+    final int maxRunCount,
+    final int timeIntervalInMilliseconds) {
 
     //Asserts that the given job is not null.
     GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();

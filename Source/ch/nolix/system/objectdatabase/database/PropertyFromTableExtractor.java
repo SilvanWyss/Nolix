@@ -13,7 +13,7 @@ final class PropertyFromTableExtractor {
 
   //method
   public IContainer<Property> createPropertiesFromTable(
-      final ITable<IEntity> table) {
+    final ITable<IEntity> table) {
     return table.getStoredColumns().to(this::createPropertyFromColumn);
   }
 
@@ -29,28 +29,28 @@ final class PropertyFromTableExtractor {
       case REFERENCE:
 
         final var referencedtableName = column
-            .getParameterizedPropertyType()
-            .asBaseParameterizedReferenceType()
-            .getStoredencedTable()
-            .getName();
+          .getParameterizedPropertyType()
+          .asBaseParameterizedReferenceType()
+          .getStoredencedTable()
+          .getName();
 
         return Reference.forEntityWithTableName(referencedtableName);
       case OPTIONAL_REFERENCE:
 
         final var referencedtableName2 = column
-            .getParameterizedPropertyType()
-            .asBaseParameterizedReferenceType()
-            .getStoredencedTable()
-            .getName();
+          .getParameterizedPropertyType()
+          .asBaseParameterizedReferenceType()
+          .getStoredencedTable()
+          .getName();
 
         return OptionalReference.forEntityWithTableName(referencedtableName2);
       case MULTI_REFERENCE:
 
         final var referencedtableName3 = column
-            .getParameterizedPropertyType()
-            .asBaseParameterizedReferenceType()
-            .getStoredencedTable()
-            .getName();
+          .getParameterizedPropertyType()
+          .asBaseParameterizedReferenceType()
+          .getStoredencedTable()
+          .getName();
 
         return MultiReference.forEntityWithTableName(referencedtableName3);
       case BACK_REFERENCE, OPTIONAL_BACK_REFERENCE, MULTI_BACK_REFERENCE:

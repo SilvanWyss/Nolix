@@ -17,48 +17,48 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class VerticalStackCssBuilder
-    extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
+extends ControlCssBuilder<IVerticalStack, IVerticalStackStyle> {
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final IVerticalStack verticalStack,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final IVerticalStack verticalStack,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            "> " + HtmlElementTypeCatalogue.DIV,
-            LinkedList.withElement(
-                CssProperty.withNameAndValue(
-                    CssPropertyNameCatalogue.MARGIN_BOTTOM,
-                    verticalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
+      CssRule.withSelectorAndProperties(
+        "> " + HtmlElementTypeCatalogue.DIV,
+        LinkedList.withElement(
+          CssProperty.withNameAndValue(
+            CssPropertyNameCatalogue.MARGIN_BOTTOM,
+            verticalStack.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final IVerticalStack verticalStack,
-      final LinkedList<? super ICssRule> list) {
+    final IVerticalStack verticalStack,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IVerticalStack control,
-      final LinkedList<CssProperty> list) {
+    final IVerticalStack control,
+    final LinkedList<CssProperty> list) {
     list.addAtEnd(
-        CssProperty.withNameAndValue("display", "flex"),
-        CssProperty.withNameAndValue("flex-direction", "column"),
-        createCssPropertyForContentAlignmentOfControl(control));
+      CssProperty.withNameAndValue("display", "flex"),
+      CssProperty.withNameAndValue("flex-direction", "column"),
+      createCssPropertyForContentAlignmentOfControl(control));
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IVerticalStack verticalStack,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IVerticalStack verticalStack,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 

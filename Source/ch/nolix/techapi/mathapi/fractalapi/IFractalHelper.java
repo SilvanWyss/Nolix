@@ -17,9 +17,9 @@ public interface IFractalHelper {
 
   //method declaration
   int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-      IFractal fractal,
-      IComplexNumber complexNumber,
-      BigDecimal limit);
+    IFractal fractal,
+    IComplexNumber complexNumber,
+    BigDecimal limit);
 
   //method declaration
   BigDecimal getMaxXOf(IFractal fractal);

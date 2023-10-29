@@ -42,9 +42,9 @@ public final class FolderAccessor extends FileSystemItemAccessor {
     //Asserts that the file system item with the given path is actually a folder.
     if (!FileSystemAccessor.isFolder(path)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.PATH,
-          path,
-          "is not a folder");
+        LowerCaseCatalogue.PATH,
+        path,
+        "is not a folder");
     }
   }
 
@@ -126,7 +126,7 @@ public final class FolderAccessor extends FileSystemItemAccessor {
    */
   public IContainer<FileAccessor> getFileAccessorsRecursively(final String extension) {
     return getFileAccessorsRecursively()
-        .getStoredSelected(fa -> fa.hasExtension(extension));
+      .getStoredSelected(fa -> fa.hasExtension(extension));
   }
 
   //method

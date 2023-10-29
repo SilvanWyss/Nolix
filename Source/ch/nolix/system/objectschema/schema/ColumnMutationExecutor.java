@@ -39,15 +39,15 @@ final class ColumnMutationExecutor {
 
   //method
   public void setParameterizedPropertyTypeToColumn(
-      final Column column,
-      final IParameterizedPropertyType parameterizedPropertyType) {
+    final Column column,
+    final IParameterizedPropertyType parameterizedPropertyType) {
 
     column.setParameterizedPropertyTypeAttribute(parameterizedPropertyType);
 
     if (column.isLinkedWithRealDatabase()) {
       column
-          .internalGetRefRawSchemaAdapter()
-          .setColumnParameterizedPropertyType(column, parameterizedPropertyType);
+        .internalGetRefRawSchemaAdapter()
+        .setColumnParameterizedPropertyType(column, parameterizedPropertyType);
     }
 
     column.internalSetEdited();

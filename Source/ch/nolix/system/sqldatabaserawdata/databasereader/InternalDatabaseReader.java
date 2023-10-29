@@ -38,9 +38,9 @@ final class InternalDatabaseReader {
 
   //constructor
   public InternalDatabaseReader(
-      final String databaseName,
-      final SqlConnection sqlConnection,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnection sqlConnection,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 
@@ -55,58 +55,58 @@ final class InternalDatabaseReader {
   //method
   public Time getSchemaTimestamp() {
     return Time.fromString(
-        sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0));
+      sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0));
   }
 
   //method
   public IContainer<String> loadMultiReferenceEntries(
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo) {
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo) {
     return sqlConnection
-        .getRecords(
-            multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
-                entityId,
-                multiReferenceColumnInfo.getColumnId()))
-        .to(r -> r.get(0));
+      .getRecords(
+        multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
+          entityId,
+          multiReferenceColumnInfo.getColumnId()))
+      .to(r -> r.get(0));
   }
 
   //method
   public IContainer<Object> loadMultiValueEntries(
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo) {
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo) {
     return sqlConnection
-        .getRecords(
-            multiValueQueryCreator.createQueryToLoadMultiValueEntries(
-                entityId,
-                multiValueColumnInfo.getColumnId()))
-        .to(r -> VALUE_MAPPER.createValueFromString(r.get(0), multiValueColumnInfo));
+      .getRecords(
+        multiValueQueryCreator.createQueryToLoadMultiValueEntries(
+          entityId,
+          multiValueColumnInfo.getColumnId()))
+      .to(r -> VALUE_MAPPER.createValueFromString(r.get(0), multiValueColumnInfo));
   }
 
   //method
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
     return sqlConnection
-        .getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
-        .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
+      .getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
+      .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
   }
 
   //method
   public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
-        sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
-        tableInfo);
+      sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
+      tableInfo);
   }
 
   //method
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
-      final String tableName,
-      final IColumnInfo columnInfo,
-      final String value) {
+    final String tableName,
+    final IColumnInfo columnInfo,
+    final String value) {
     return switch (columnInfo.getColumnPropertyType()) {
       case VALUE, OPTIONAL_VALUE, REFERENCE, OPTIONAL_REFERENCE, BACK_REFERENCE, OPTIONAL_BACK_REFERENCE ->
         tableContainsEntityWithGivenValueAtGivenSingleColumn(
-            tableName,
-            columnInfo.getColumnName(),
-            value);
+          tableName,
+          columnInfo.getColumnName(),
+          value);
       case MULTI_VALUE ->
         multiValueEntryExistsForGivenColumnAndValue(columnInfo.getColumnId(), value);
       case MULTI_REFERENCE ->
@@ -120,47 +120,47 @@ final class InternalDatabaseReader {
   public boolean tableContainsEntityWithGivenId(final String tableName, final String id) {
 
     final var entityCount = Integer.valueOf(
-        sqlConnection
-            .getOneRecord(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
-            .get(0));
+      sqlConnection
+        .getOneRecord(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
+        .get(0));
 
     return entityCount > 0;
   }
 
   //method
   private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntity(
-      final String columnId,
-      final String referencedEntityId) {
+    final String columnId,
+    final String referencedEntityId) {
     return sqlConnection.getRecords(
-        multiReferenceQueryCreator
-            .createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
-                columnId,
-                referencedEntityId))
-        .containsAny();
+      multiReferenceQueryCreator
+        .createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
+          columnId,
+          referencedEntityId))
+      .containsAny();
   }
 
   //method
   private boolean multiValueEntryExistsForGivenColumnAndValue(
-      final String columnId,
-      final String value) {
+    final String columnId,
+    final String value) {
     return sqlConnection.getRecords(
-        multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
-            columnId,
-            value))
-        .containsAny();
+      multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
+        columnId,
+        value))
+      .containsAny();
   }
 
   //method
   private boolean tableContainsEntityWithGivenValueAtGivenSingleColumn(
-      final String tableName,
-      final String singleColumnName,
-      final String value) {
+    final String tableName,
+    final String singleColumnName,
+    final String value) {
     return Integer.valueOf(
-        sqlConnection.getOneRecord(
-            entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
-                tableName,
-                singleColumnName,
-                value))
-            .get(0)) > 0;
+      sqlConnection.getOneRecord(
+        entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
+          tableName,
+          singleColumnName,
+          value))
+        .get(0)) > 0;
   }
 }

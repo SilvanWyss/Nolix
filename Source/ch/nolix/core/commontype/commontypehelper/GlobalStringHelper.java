@@ -55,16 +55,16 @@ public final class GlobalStringHelper {
     //Asserts that the given string is not longer than the given length.
     if (string.length() > length) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.STRING,
-          string,
-          "is longer than " + length + " with a length of " + string.length());
+        LowerCaseCatalogue.STRING,
+        string,
+        "is longer than " + length + " with a length of " + string.length());
     }
 
     final var stringBuilder = new StringBuilder(string);
 
     GlobalSequencer
-        .forCount(length - string.length())
-        .run(() -> stringBuilder.append(CharacterCatalogue.SPACE));
+      .forCount(length - string.length())
+      .run(() -> stringBuilder.append(CharacterCatalogue.SPACE));
 
     return stringBuilder.toString();
   }

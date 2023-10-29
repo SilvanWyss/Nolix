@@ -19,7 +19,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
 
   //constant
   private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = //
-      new ParameterizedPropertyTypeHelper();
+  new ParameterizedPropertyTypeHelper();
 
   //method
   @Override
@@ -106,7 +106,7 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
     final var parameterizedPropertyType = column.getParameterizedPropertyType();
 
     final var backReferencedColumn = parameterizedPropertyType.asBaseParameterizedBackReferenceType()
-        .getBackReferencedColumn();
+      .getBackReferencedColumn();
 
     final var backReferencedColumnParameterizedPropertyType = backReferencedColumn.getParameterizedPropertyType();
 
@@ -120,8 +120,8 @@ public final class ColumnHelper extends DatabaseObjectHelper implements IColumnH
   //method
   @Override
   public boolean referencesBackGivenColumn(
-      final IColumn column,
-      final IColumn probableBackReferencedColumn) {
+    final IColumn column,
+    final IColumn probableBackReferencedColumn) {
     return column.getParameterizedPropertyType().referencesBackColumn(probableBackReferencedColumn);
   }
 

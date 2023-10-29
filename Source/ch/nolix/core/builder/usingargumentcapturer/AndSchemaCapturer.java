@@ -6,7 +6,7 @@ import ch.nolix.core.builder.main.ArgumentCapturer;
 
 //class
 public class AndSchemaCapturer<S, N>
-    extends ArgumentCapturer<S, N> {
+extends ArgumentCapturer<S, N> {
 
   //constructor
   public AndSchemaCapturer(final N nextArgumentCapturer) {

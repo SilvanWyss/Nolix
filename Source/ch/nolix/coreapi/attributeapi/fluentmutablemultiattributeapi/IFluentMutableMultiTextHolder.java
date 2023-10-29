@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
  * @param <FMMTH> is the type of a {@link IFluentMutableMultiTextHolder}.
  */
 public interface IFluentMutableMultiTextHolder<FMMTH extends IFluentMutableMultiTextHolder<FMMTH>>
-    extends IMultiTextHolder {
+extends IMultiTextHolder {
 
   //method declaration
   /**

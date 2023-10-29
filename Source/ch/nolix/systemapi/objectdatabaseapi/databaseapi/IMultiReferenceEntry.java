@@ -7,8 +7,8 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //interface
 public interface IMultiReferenceEntry<
 
-    E extends IEntity>
-    extends IDatabaseObject {
+E extends IEntity>
+extends IDatabaseObject {
 
   //method declaration
   IProperty getStoredBackReferencingPropertyOrNull();

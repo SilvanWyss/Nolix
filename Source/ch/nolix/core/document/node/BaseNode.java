@@ -76,12 +76,12 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
   public static String getStoredginStringFromEscapeString(final String escapeString) {
 
     return escapeString
-        .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-        .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-        .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+      .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
 
-        //It is essential to replace the dollar symbol code at last.
-        .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+      //It is essential to replace the dollar symbol code at last.
+      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
   }
 
   //method
@@ -365,9 +365,9 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     //Handles the case that the current BaseNode contains child nodes.
     if (containsChildNodes()) {
       stringBuilder
-          .append(CharacterCatalogue.OPEN_BRACKET)
-          .append(getStoredChildNodes().toString())
-          .append(CharacterCatalogue.CLOSED_BRACKET);
+        .append(CharacterCatalogue.OPEN_BRACKET)
+        .append(getStoredChildNodes().toString())
+        .append(CharacterCatalogue.CLOSED_BRACKET);
     }
 
     return stringBuilder.toString();
@@ -382,7 +382,7 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
 
     //Creates an XmlNode.
     final var xmlNode = new MutableXmlNode()
-        .setName(getHeader());
+      .setName(getHeader());
 
     //Iterates the child nodes of the current BaseNode.
     for (final BaseNode<?> cn : getStoredChildNodes()) {
@@ -408,29 +408,29 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
    */
   protected final boolean equalsNode(final BaseNode<?> node) {
     return hasEqualHeaderSettingLikeNode(node)
-        && hasEqualChildNodeSettingLikeNode(node);
+    && hasEqualChildNodeSettingLikeNode(node);
   }
 
   //method
   private void appendFormattedStringRepresentationOfChildNodesToStringBuilder(
-      final int leadingTabulators,
-      final StringBuilder stringBuilder) {
+    final int leadingTabulators,
+    final StringBuilder stringBuilder) {
 
     //Handles the case that all child nodes of the current BaseNode themselves do
     //not contain child nodes.
     if (getStoredChildNodes().containsNone(INode::containsChildNodes)) {
       stringBuilder
-          .append(CharacterCatalogue.OPEN_BRACKET)
-          .append(getStoredChildNodes().toString())
-          .append(CharacterCatalogue.CLOSED_BRACKET);
+        .append(CharacterCatalogue.OPEN_BRACKET)
+        .append(getStoredChildNodes().toString())
+        .append(CharacterCatalogue.CLOSED_BRACKET);
 
       //Handles the case that the current BaseNode contains child nodes that
       //themselves contains child nodes.
     } else {
 
       stringBuilder
-          .append(CharacterCatalogue.OPEN_BRACKET)
-          .append(CharacterCatalogue.NEW_LINE);
+        .append(CharacterCatalogue.OPEN_BRACKET)
+        .append(CharacterCatalogue.NEW_LINE);
 
       //Iterates the child nodes of the current BaseNode.
       final var attributeCount = getChildNodeCount();
@@ -449,8 +449,8 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
       }
 
       stringBuilder
-          .append(GlobalStringHelper.createTabulators(leadingTabulators))
-          .append(CharacterCatalogue.CLOSED_BRACKET);
+        .append(GlobalStringHelper.createTabulators(leadingTabulators))
+        .append(CharacterCatalogue.CLOSED_BRACKET);
     }
   }
 

@@ -101,7 +101,7 @@ public final class MultiReferenceOnDatabaseTest extends Test {
 
     //setup part 2: prepare changes
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
 
     //execution & verification
     expectRunning(loadedGarfield::delete).throwsException();
@@ -129,13 +129,13 @@ public final class MultiReferenceOnDatabaseTest extends Test {
     //setup part 2: remove Entity from MultiReference
     final var loadedJohn = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     loadedJohn.pets.removeEntity(loadedGarfield);
     nodeDataAdapter.saveChanges();
 
     //setup part 3: prepare deleting Entity
     final var loadedGarfield2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     loadedGarfield2.delete();
 
     //execution & verification

@@ -16,7 +16,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
  *                {@link IFluentMutableOptionalValueHolder}.
  */
 public interface IFluentMutableOptionalValueHolder<FMOVH extends IFluentMutableOptionalValueHolder<FMOVH, V>, V>
-    extends IOptionalValueHolder<V> {
+extends IOptionalValueHolder<V> {
 
   //method declaration
   /**

@@ -30,7 +30,7 @@ public final class SqlSyntaxProvider implements ISqlSyntaxProvider {
 
   //constant
   private static final IMultiReferenceStatementCreator MULTI_REFERENCE_STATEMENT_CREATOR = //
-      new MultiReferenceStatementCreator();
+  new MultiReferenceStatementCreator();
 
   //method
   @Override

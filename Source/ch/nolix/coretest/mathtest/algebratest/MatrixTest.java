@@ -105,14 +105,14 @@ public final class MatrixTest extends Test {
 
     //setup
     final var testUnit = new Matrix(4, 4).setValues(3.0, 1.0, 7.0, 3.0, 5.0, 9.0, 8.0, 7.0, 8.0, 6.0, 8.0, 4.0, 5.0,
-        9.0, 3.0, 2.0);
+      9.0, 3.0, 2.0);
 
     //execution
     final var result = testUnit.getInverse();
 
     //verification
     final var expectedResult = new Matrix(4, 4).setValues(1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
-        0.0, 0.0, 0.0, 1.0);
+      0.0, 0.0, 0.0, 1.0);
     expect(testUnit.getProduct(result).equalsApproximatively(expectedResult, GlobalCalculator.DEFAULT_MAX_DEVIATION));
   }
 
@@ -219,7 +219,7 @@ public final class MatrixTest extends Test {
 
     //verification
     final var expectedResult = new Matrix(3, 4).setValues(20.0, 10.0, 20.0, 10.0, 10.0, 20.0, 10.0, 20.0, 1.0, 1.0, 1.0,
-        1.0);
+      1.0);
     expect(result).isEqualTo(expectedResult);
   }
 

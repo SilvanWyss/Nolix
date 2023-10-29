@@ -12,8 +12,8 @@ public record OccurancePlace(String className, int lineNumber) {
 
   //constructor
   public OccurancePlace( //NOSONAR: This constructor does more than the default one.
-      final String className,
-      final int lineNumber) {
+    final String className,
+    final int lineNumber) {
 
     if (className == null) {
       throw ArgumentIsNullException.forArgumentName("class name");

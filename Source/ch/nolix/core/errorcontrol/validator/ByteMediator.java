@@ -31,9 +31,9 @@ public class ByteMediator extends Mediator {
 
     if (!actualBits.equals(expectedBits)) {
       throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(
-          getArgumentName(),
-          new ByteWrapper(argument).toBitString(),
-          expectedBits);
+        getArgumentName(),
+        new ByteWrapper(argument).toBitString(),
+        expectedBits);
     }
   }
 

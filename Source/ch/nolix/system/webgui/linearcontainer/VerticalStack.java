@@ -12,8 +12,8 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.IVerticalStackStyle;
 
 //class
 public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer.
-    extends LinearContainer<IVerticalStack, IVerticalStackStyle>
-    implements IVerticalStack {
+extends LinearContainer<IVerticalStack, IVerticalStackStyle>
+implements IVerticalStack {
 
   //constant
   public static final HorizontalContentAlignment DEFAULT_CONTENT_ALIGNMENT = HorizontalContentAlignment.LEFT;
@@ -29,11 +29,11 @@ public final class VerticalStack //NOSONAR: A VerticalStack is a LinearContainer
 
   //attribute
   private final MutableValue<HorizontalContentAlignment> contentAlignment = new MutableValue<>(
-      CONTENT_ALIGNMENT_HEADER,
-      DEFAULT_CONTENT_ALIGNMENT,
-      this::setContentAlignment,
-      HorizontalContentAlignment::fromSpecification,
-      Node::fromEnum);
+    CONTENT_ALIGNMENT_HEADER,
+    DEFAULT_CONTENT_ALIGNMENT,
+    this::setContentAlignment,
+    HorizontalContentAlignment::fromSpecification,
+    Node::fromEnum);
 
   //method
   @Override

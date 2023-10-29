@@ -20,9 +20,9 @@ public final class GlobalConstructorHelper {
     try {
       return defaultConstructor.newInstance();
     } catch (final
-        InstantiationException
-        | IllegalAccessException
-        | InvocationTargetException exception) {
+    InstantiationException
+    | IllegalAccessException
+    | InvocationTargetException exception) {
       throw WrapperException.forError(exception);
     }
   }

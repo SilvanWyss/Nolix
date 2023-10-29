@@ -75,11 +75,11 @@ public final class ExtendedThrownExceptionMediator extends ThrownExceptionMediat
     //exception.
     if (!type.isAssignableFrom(getException().getClass())) {
       addCurrentTestCaseError(
-          "An exception of the type "
-              + type.getName()
-              + " was expected, but an exception of the type "
-              + getException().getClass().getName()
-              + " was thrown.");
+        "An exception of the type "
+        + type.getName()
+        + " was expected, but an exception of the type "
+        + getException().getClass().getName()
+        + " was thrown.");
     }
 
     return new ExtendedThrownExceptionMediator(getStoredExpectationErrorTaker(), getException());

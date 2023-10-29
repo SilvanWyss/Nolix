@@ -22,9 +22,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.hasLength(-1))
-        .throwsException()
-        .ofType(NegativeArgumentException.class)
-        .withMessage("The given length '-1' is negative.");
+      .throwsException()
+      .ofType(NegativeArgumentException.class)
+      .withMessage("The given length '-1' is negative.");
   }
 
   //method
@@ -36,9 +36,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.hasLength(4))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given argument is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given argument is null.");
   }
 
   //method
@@ -50,9 +50,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.hasLength(4))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given argument 'aaa' does not have the length 4.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given argument 'aaa' does not have the length 4.");
   }
 
   //method
@@ -75,9 +75,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.hasLength(4))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given argument 'aaaaa' does not have the length 4.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given argument 'aaaaa' does not have the length 4.");
   }
 
   //method
@@ -89,9 +89,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isNotEmpty)
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given argument is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given argument is null.");
   }
 
   //method
@@ -103,9 +103,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isNotEmpty)
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given argument is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given argument is empty.");
   }
 
   //method
@@ -139,9 +139,9 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isNotBlank)
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given argument is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given argument is null.");
   }
 
   //method
@@ -153,8 +153,8 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isNotBlank)
-        .throwsException()
-        .ofType(InvalidArgumentException.class);
+      .throwsException()
+      .ofType(InvalidArgumentException.class);
   }
 
   //method
@@ -166,8 +166,8 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isNotBlank)
-        .throwsException()
-        .ofType(InvalidArgumentException.class);
+      .throwsException()
+      .ofType(InvalidArgumentException.class);
   }
 
   //method
@@ -212,8 +212,8 @@ public final class StringMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.isNotLongerThan(10))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given argument 'lorem ipsum dolor' is longer than 10.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given argument 'lorem ipsum dolor' is longer than 10.");
   }
 }

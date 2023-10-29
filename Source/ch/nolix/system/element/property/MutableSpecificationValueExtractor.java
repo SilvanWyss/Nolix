@@ -26,9 +26,9 @@ public final class MutableSpecificationValueExtractor implements IProperty, INam
 
   //constructor
   public MutableSpecificationValueExtractor(
-      final String name,
-      final Consumer<INode<?>> setter,
-      final Supplier<INode<?>> getter) {
+    final String name,
+    final Consumer<INode<?>> setter,
+    final Supplier<INode<?>> getter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();

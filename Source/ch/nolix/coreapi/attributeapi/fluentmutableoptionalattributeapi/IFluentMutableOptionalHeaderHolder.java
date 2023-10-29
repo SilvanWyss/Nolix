@@ -15,7 +15,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
  * @param <FMOHH> is the type of a {@link IFluentMutableOptionalHeaderHolder}.
  */
 public interface IFluentMutableOptionalHeaderHolder<FMOHH extends IFluentMutableOptionalHeaderHolder<FMOHH>>
-    extends IOptionalHeaderHolder {
+extends IOptionalHeaderHolder {
 
   //method declaration
   /**

@@ -4,8 +4,8 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 //interface
 public interface IBaseParameterizedValueType<
 
-    V>
-    extends IParameterizedPropertyType {
+V>
+extends IParameterizedPropertyType {
 
   //method declaration
   Class<V> getValueType();

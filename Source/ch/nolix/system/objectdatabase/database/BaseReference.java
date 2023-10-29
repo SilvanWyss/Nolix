@@ -12,7 +12,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
 public abstract class BaseReference<E extends IEntity> extends Property
-    implements IBaseReference<E> {
+implements IBaseReference<E> {
 
   //attribute
   private final String referencedTableName;
@@ -113,8 +113,8 @@ public abstract class BaseReference<E extends IEntity> extends Property
   @SuppressWarnings("unchecked")
   private Table<E> loadReferencedTable() {
     return (Table<E>) getStoredParentEntity()
-        .getStoredParentTable()
-        .getStoredParentDatabase()
-        .getStoredTableByName(getReferencedTableName());
+      .getStoredParentTable()
+      .getStoredParentDatabase()
+      .getStoredTableByName(getReferencedTableName());
   }
 }

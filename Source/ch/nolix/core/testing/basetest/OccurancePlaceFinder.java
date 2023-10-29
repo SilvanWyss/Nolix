@@ -9,8 +9,8 @@ final class OccurancePlaceFinder {
 
   //method
   public <O extends Object> OccurancePlace findOccurancePlaceOfStackTraceInClass(
-      final StackTraceElement[] stackTrace,
-      final Class<O> pClass) {
+    final StackTraceElement[] stackTrace,
+    final Class<O> pClass) {
 
     Class<?> lClass = pClass;
     while (lClass != null) {
@@ -29,22 +29,22 @@ final class OccurancePlaceFinder {
 
   //method
   public OccurancePlace findOccurancePlaceOfStackTraceInInstance(
-      final StackTraceElement[] stackTrace,
-      final BaseTest test) {
+    final StackTraceElement[] stackTrace,
+    final BaseTest test) {
     return findOccurancePlaceOfStackTraceInClass(stackTrace, test.getClass());
   }
 
   //method
   public <O extends Object> OccurancePlace findOccurancePlaceOfThrowableInInstance(
-      final Throwable throwable,
-      final O instance) {
+    final Throwable throwable,
+    final O instance) {
     return findOccurancePlaceOfThrowableInClass(throwable, instance.getClass());
   }
 
   //method
   public <O extends Object> OccurancePlace findOccurancePlaceOfThrowableInClass(
-      final Throwable throwable,
-      final Class<O> pClass) {
+    final Throwable throwable,
+    final Class<O> pClass) {
     return findOccurancePlaceOfStackTraceInClass(throwable.getStackTrace(), pClass);
   }
 }

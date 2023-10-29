@@ -37,7 +37,7 @@ final class BaseWebClientFileReader {
 
   //static method
   public static BaseWebClientFileReader forBackendWebClient(
-      final BaseWebClient<?, ?> backendWebClient) {
+    final BaseWebClient<?, ?> backendWebClient) {
     return new BaseWebClientFileReader(backendWebClient);
   }
 
@@ -51,8 +51,8 @@ final class BaseWebClientFileReader {
     parentBackendWebClient.internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
 
     GlobalSequencer
-        .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
-        .waitAsLongAs(this::isWaitingForFileFromCounterpart);
+      .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
+      .waitAsLongAs(this::isWaitingForFileFromCounterpart);
 
     isWaitingForFileFromCounterpart = false;
 
@@ -73,12 +73,12 @@ final class BaseWebClientFileReader {
         final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
         receiveOptionalFileFromCounterpart(
-            new SingleContainer<>(bytes));
+          new SingleContainer<>(bytes));
         break;
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(
-            "receive optional file commoand",
-            receiveOptionalFileCommand);
+          "receive optional file commoand",
+          receiveOptionalFileCommand);
     }
   }
 
@@ -86,8 +86,8 @@ final class BaseWebClientFileReader {
   private void assertIsNotWaitingForFileFromCounterpart() {
     if (isWaitingForFileFromCounterpart()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "is already waiting for a file from the counterpart");
+        this,
+        "is already waiting for a file from the counterpart");
     }
   }
 

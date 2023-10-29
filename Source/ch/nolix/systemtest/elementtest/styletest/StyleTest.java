@@ -24,10 +24,10 @@ public final class StyleTest extends Test {
 
     //setup part 2: create testUnit
     final var testUnit = new Style(
-        ImmutableList.withElement(
-            Node.fromString("Title(my_title)"),
-            Node.fromString("Background(Color(Blue))")),
-        new ImmutableList<>());
+      ImmutableList.withElement(
+        Node.fromString("Title(my_title)"),
+        Node.fromString("Background(Color(Blue))")),
+      new ImmutableList<>());
 
     //execution
     testUnit.styleElement(webGui);
@@ -48,8 +48,8 @@ public final class StyleTest extends Test {
 
     //execution
     final var result = testUnit.withAttachingAttributesAndSubStyles(
-        ImmutableList.withElement("p1(v1)", "p2(v2)"),
-        ImmutableList.withElement(subStyle1, subStyle2));
+      ImmutableList.withElement("p1(v1)", "p2(v2)"),
+      ImmutableList.withElement(subStyle1, subStyle2));
 
     //verification
     expect(result.getAttachingAttributes().toStrings()).containsExactlyEqualing("p1(v1)", "p2(v2)");
@@ -69,18 +69,18 @@ public final class StyleTest extends Test {
     final var subStyle3 = new SelectingStyleBuilder().build();
     final var subStyle4 = new SelectingStyleBuilder().build();
     final var testUnit = new StyleBuilder()
-        .addAttachingAttribute("p1(v1)", "p2(v2)")
-        .addSubStyle(subStyle1, subStyle2)
-        .build();
+      .addAttachingAttribute("p1(v1)", "p2(v2)")
+      .addSubStyle(subStyle1, subStyle2)
+      .build();
 
     //execution
     final var result = testUnit.withAttachingAttributesAndSubStyles(
-        ImmutableList.withElement("p3(v3)", "p4(v4)"),
-        ImmutableList.withElement(subStyle3, subStyle4));
+      ImmutableList.withElement("p3(v3)", "p4(v4)"),
+      ImmutableList.withElement(subStyle3, subStyle4));
 
     //verification
     expect(result.getAttachingAttributes().toStrings())
-        .containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
+      .containsExactlyEqualing("p1(v1)", "p2(v2)", "p3(v3)", "p4(v4)");
     final var subStyles = result.getSubStyles();
     expect(subStyles).hasElementCount(4);
     expect(subStyles.getStoredAt1BasedIndex(1)).is(subStyle1);

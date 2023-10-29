@@ -18,9 +18,9 @@ public final class AbstractableObjectValidator {
   public void assertCanAddBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject baseType) {
     if (!ABSTRACTABLE_OBJECT_EVALUATOR.canAddBaseType(abstractableObject, baseType)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.BASE_TYPE,
-          baseType,
-          "cannot be added to the AbstractableObject");
+        LowerCaseCatalogue.BASE_TYPE,
+        baseType,
+        "cannot be added to the AbstractableObject");
     }
   }
 
@@ -28,9 +28,9 @@ public final class AbstractableObjectValidator {
   public void assertCanAddField(final IAbstractableObject abstractableObject, final IAbstractableField field) {
     if (!ABSTRACTABLE_OBJECT_EVALUATOR.canAddField(abstractableObject, field)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.FIELD,
-          field,
-          "cannot be added to the AbstractableObject");
+        LowerCaseCatalogue.FIELD,
+        field,
+        "cannot be added to the AbstractableObject");
     }
   }
 

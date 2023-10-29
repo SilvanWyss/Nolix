@@ -10,9 +10,9 @@ public final class WebSocketTestPool extends TestPool {
   //constructor
   public WebSocketTestPool() {
     super(
-        WebSocketFramePayloadLengthTest.class,
-        WebSocketFrameTest.class,
-        WebSocketHandShakeRequestTest.class,
-        WebSocketHandShakeResponseTest.class);
+      WebSocketFramePayloadLengthTest.class,
+      WebSocketFrameTest.class,
+      WebSocketHandShakeRequestTest.class,
+      WebSocketHandShakeResponseTest.class);
   }
 }

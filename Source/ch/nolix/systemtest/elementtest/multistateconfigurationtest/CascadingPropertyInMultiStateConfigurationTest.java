@@ -21,17 +21,17 @@ public final class CascadingPropertyInMultiStateConfigurationTest extends Test {
 
   //constant
   private static final class CustomMultiStateConfiguration
-      extends MultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
+  extends MultiStateConfiguration<CustomMultiStateConfiguration, CustomState> {
 
     public static final CustomState BASE_STATE = CustomState.A;
 
     //attribute
     public final CascadingProperty<CustomState, Color> testUnit = new CascadingProperty<>(
-        "Color",
-        CustomState.class,
-        Color::fromSpecification,
-        Color::getSpecification,
-        Color.WHITE);
+      "Color",
+      CustomState.class,
+      Color::fromSpecification,
+      Color::getSpecification,
+      Color.WHITE);
 
     //constructor
     public CustomMultiStateConfiguration() {

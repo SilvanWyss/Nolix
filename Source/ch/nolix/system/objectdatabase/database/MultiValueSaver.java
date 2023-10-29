@@ -30,8 +30,8 @@ final class MultiValueSaver {
         break;
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(
-            "state of multi value",
-            multiValueEntryState);
+          "state of multi value",
+          multiValueEntryState);
     }
   }
 
@@ -41,10 +41,10 @@ final class MultiValueSaver {
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
 
     database.internalGetRefDataAndSchemaAdapter().insertMultiValueEntry(
-        entity.getParentTableName(),
-        entity.getId(),
-        multiValueEntry.getStoredParentMultiValue().getName(),
-        multiValueEntry.getStoredValue().toString());
+      entity.getParentTableName(),
+      entity.getId(),
+      multiValueEntry.getStoredParentMultiValue().getName(),
+      multiValueEntry.getStoredValue().toString());
   }
 
   //method
@@ -53,9 +53,9 @@ final class MultiValueSaver {
     final var entity = multiValueEntry.getStoredParentMultiValue().getStoredParentEntity();
 
     database.internalGetRefDataAndSchemaAdapter().deleteMultiValueEntry(
-        entity.getParentTableName(),
-        entity.getId(),
-        multiValueEntry.getStoredParentMultiValue().getName(),
-        multiValueEntry.toString());
+      entity.getParentTableName(),
+      entity.getId(),
+      multiValueEntry.getStoredParentMultiValue().getName(),
+      multiValueEntry.toString());
   }
 }

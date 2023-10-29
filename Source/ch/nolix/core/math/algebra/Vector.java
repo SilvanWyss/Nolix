@@ -146,12 +146,12 @@ public final class Vector {
 
     if (!vector.hasSameSizeAs(this)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          vector,
-          "does not have the same size (which is "
-              + vector.getSize()
-              + ") as the current Vector (which has the size "
-              + getSize()
-              + ")");
+        vector,
+        "does not have the same size (which is "
+        + vector.getSize()
+        + ") as the current Vector (which has the size "
+        + getSize()
+        + ")");
     }
 
     final var size = getSize();
@@ -233,7 +233,7 @@ public final class Vector {
    */
   private boolean canEqualVectorBecauseOfSize(final Vector vector) {
     return vector != null
-        && getSize() == vector.getSize();
+    && getSize() == vector.getSize();
   }
 
   //method

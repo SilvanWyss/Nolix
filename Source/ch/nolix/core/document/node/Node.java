@@ -291,9 +291,9 @@ public final class Node extends BaseNode<Node> {
    * @throws InvalidArgumentException if the given header is blank.
    */
   public static Node withHeaderAndChildNode(
-      final String header,
-      final INode<?> childNode,
-      final INode<?>... childNodes) {
+    final String header,
+    final INode<?> childNode,
+    final INode<?>... childNodes) {
     return new Node(header, childNode, childNodes);
   }
 

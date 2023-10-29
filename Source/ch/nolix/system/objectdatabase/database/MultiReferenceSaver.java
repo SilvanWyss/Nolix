@@ -18,8 +18,8 @@ final class MultiReferenceSaver {
 
   //method
   private void saveChangeOfMultiReferenceEntry(
-      final IMultiReferenceEntry<?> multiReferenceEntry,
-      final Database database) {
+    final IMultiReferenceEntry<?> multiReferenceEntry,
+    final Database database) {
 
     final var multiReferenceEntryState = multiReferenceEntry.getState();
 
@@ -34,36 +34,36 @@ final class MultiReferenceSaver {
         break;
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(
-            "state of multi reference",
-            multiReferenceEntryState);
+          "state of multi reference",
+          multiReferenceEntryState);
     }
   }
 
   //method
   private void saveMultiReferenceEntryCreation(
-      final IMultiReferenceEntry<?> multiReferenceEntry,
-      final Database database) {
+    final IMultiReferenceEntry<?> multiReferenceEntry,
+    final Database database) {
 
     final var entity = multiReferenceEntry.getStoredParentMultiReference().getStoredParentEntity();
 
     database.internalGetRefDataAndSchemaAdapter().insertMultiReferenceEntry(
-        entity.getParentTableName(),
-        entity.getId(),
-        multiReferenceEntry.getStoredParentMultiReference().getName(),
-        multiReferenceEntry.getReferencedEntityId());
+      entity.getParentTableName(),
+      entity.getId(),
+      multiReferenceEntry.getStoredParentMultiReference().getName(),
+      multiReferenceEntry.getReferencedEntityId());
   }
 
   //method
   private void saveMultiReferenceEntryDeletion(
-      final IMultiReferenceEntry<?> multiReferenceEntry,
-      final Database database) {
+    final IMultiReferenceEntry<?> multiReferenceEntry,
+    final Database database) {
 
     final var entity = multiReferenceEntry.getStoredParentMultiReference().getStoredParentEntity();
 
     database.internalGetRefDataAndSchemaAdapter().deleteMultiReferenceEntry(
-        entity.getParentTableName(),
-        entity.getId(),
-        multiReferenceEntry.getStoredParentMultiReference().getName(),
-        multiReferenceEntry.getReferencedEntityId());
+      entity.getParentTableName(),
+      entity.getId(),
+      multiReferenceEntry.getStoredParentMultiReference().getName(),
+      multiReferenceEntry.getReferencedEntityId());
   }
 }

@@ -27,10 +27,10 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 
   //constructor
   private Column(
-      final String name,
-      final String id,
-      final IParameterizedPropertyType parameterizedPropertyType,
-      final Table<IEntity> parentTable) {
+    final String name,
+    final String id,
+    final IParameterizedPropertyType parameterizedPropertyType,
+    final Table<IEntity> parentTable) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(id).thatIsNamed(LowerCaseCatalogue.ID).isNotBlank();
@@ -45,10 +45,10 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
 
   //static method
   static Column withNameAndIdAndParameterizedPropertyTypeAndParentTable(
-      final String name,
-      final String id,
-      final IParameterizedPropertyType parameterizedPropertyType,
-      final Table<IEntity> parentTable) {
+    final String name,
+    final String id,
+    final IParameterizedPropertyType parameterizedPropertyType,
+    final Table<IEntity> parentTable) {
     return new Column(name, id, parameterizedPropertyType, parentTable);
   }
 
@@ -80,9 +80,9 @@ public final class Column extends ImmutableDatabaseObject implements IColumn {
   @Override
   public boolean technicalContainsGivenValueInPersistedData(final String value) {
     return getStoredDataAndSchemaAdapter().tableContainsEntityWithGivenValueAtGivenColumn(
-        getStoredParentTable().getName(),
-        getName(),
-        value);
+      getStoredParentTable().getName(),
+      getName(),
+      value);
   }
 
   //method

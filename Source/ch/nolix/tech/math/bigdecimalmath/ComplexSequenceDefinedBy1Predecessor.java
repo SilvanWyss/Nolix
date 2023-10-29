@@ -13,8 +13,8 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.ISequenceDefinedBy1Predecessor
 
 //class
 public final class ComplexSequenceDefinedBy1Predecessor
-    extends Sequence<IComplexNumber>
-    implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
+extends Sequence<IComplexNumber>
+implements ISequenceDefinedBy1Predecessor<IComplexNumber> {
 
   //attribute
   private final IComplexNumber firstValue;
@@ -24,8 +24,8 @@ public final class ComplexSequenceDefinedBy1Predecessor
 
   //constructor
   public ComplexSequenceDefinedBy1Predecessor(
-      final IComplexNumber firstValue,
-      final UnaryOperator<IComplexNumber> nextValueFunction) {
+    final IComplexNumber firstValue,
+    final UnaryOperator<IComplexNumber> nextValueFunction) {
 
     GlobalValidator.assertThat(firstValue).thatIsNamed("first value").isNotNull();
     GlobalValidator.assertThat(nextValueFunction).thatIsNamed("next value function").isNotNull();

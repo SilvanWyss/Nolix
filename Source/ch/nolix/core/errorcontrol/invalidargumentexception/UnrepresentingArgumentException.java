@@ -76,9 +76,9 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
    * @throws IllegalArgumentException if the given type is null.
    */
   public static UnrepresentingArgumentException forArgumentNameAndArgumentAndType(
-      final String argumentName,
-      final Object argument,
-      final Class<?> type) {
+    final String argumentName,
+    final Object argument,
+    final Class<?> type) {
     return new UnrepresentingArgumentException(argumentName, argument, type);
   }
 
@@ -119,16 +119,16 @@ public final class UnrepresentingArgumentException extends InvalidArgumentExcept
     //Enumerates the first character of the given noun.
     return switch (noun.charAt(0)) {
       case
-          'A',
-          'a',
-          'E',
-          'e',
-          'I',
-          'i',
-          'O',
-          'o',
-          'U',
-          'u' ->
+      'A',
+      'a',
+      'E',
+      'e',
+      'I',
+      'i',
+      'O',
+      'o',
+      'U',
+      'u' ->
         PRONOUN_AN;
       default ->
         PRONOUN_A;

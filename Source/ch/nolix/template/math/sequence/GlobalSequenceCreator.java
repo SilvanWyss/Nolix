@@ -15,18 +15,18 @@ public final class GlobalSequenceCreator {
 
   //static method
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(
-      final IComplexNumber increment) {
+    final IComplexNumber increment) {
     return new ComplexSequenceDefinedBy1Predecessor(
-        new ComplexNumber(0.0, 0.0, increment.getBigDecimalScale()),
-        z -> z.getPower2().getSum(increment));
+      new ComplexNumber(0.0, 0.0, increment.getBigDecimalScale()),
+      z -> z.getPower2().getSum(increment));
   }
 
   //static method
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForStartValueAndIncrement(
-      final IComplexNumber startValue,
-      final IComplexNumber increment) {
+    final IComplexNumber startValue,
+    final IComplexNumber increment) {
     return new ComplexSequenceDefinedBy1Predecessor(
-        startValue,
-        z -> z.getPower2().getSum(increment));
+      startValue,
+      z -> z.getPower2().getSum(increment));
   }
 }

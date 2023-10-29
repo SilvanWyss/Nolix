@@ -22,30 +22,30 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
   @Override
   protected void initialize() {
     getStoredGui()
-        .pushLayerWithRootControl(
-            new VerticalStack()
-                .setRole(ContainerRole.OVERALL_CONTAINER)
-                .addControl(
-                    new Label()
-                        .setRole(LabelRole.TITLE)
-                        .setText(getApplicationName()),
-                    new FloatContainer()
-                        .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-                        .addComponents(createApplicationComponents())))
-        .setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
+      .pushLayerWithRootControl(
+        new VerticalStack()
+          .setRole(ContainerRole.OVERALL_CONTAINER)
+          .addControl(
+            new Label()
+              .setRole(LabelRole.TITLE)
+              .setText(getApplicationName()),
+            new FloatContainer()
+              .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
+              .addComponents(createApplicationComponents())))
+      .setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
   }
 
   //method
   private IContainer<IComponent> createApplicationComponents() {
     return getWebApplicationSheets()
-        .to(was -> new WebApplicationComponent(new WebApplicationController(was), this));
+      .to(was -> new WebApplicationComponent(new WebApplicationController(was), this));
   }
 
   //method
   private IContainer<IWebApplicationSheet> getWebApplicationSheets() {
     return getStoredApplicationContext()
-        .getWebApplicationSheets()
-        .getStoredOther(
-            as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName()));
+      .getWebApplicationSheets()
+      .getStoredOther(
+        as -> as.getApplicationInstanceTarget().getApplicationInstanceName().equals(getApplicationName()));
   }
 }

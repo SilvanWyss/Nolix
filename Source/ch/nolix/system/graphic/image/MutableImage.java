@@ -45,17 +45,17 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
   //attribute
   private final Value<Integer> width = new Value<>(
-      PascalCaseCatalogue.WIDTH,
-      this::setWidth,
-      INode::getSingleChildNodeAsInt,
-      Node::withChildNode);
+    PascalCaseCatalogue.WIDTH,
+    this::setWidth,
+    INode::getSingleChildNodeAsInt,
+    Node::withChildNode);
 
   //attribute
   private final Value<Integer> height = new Value<>(
-      PascalCaseCatalogue.HEIGHT,
-      this::setHeight,
-      INode::getSingleChildNodeAsInt,
-      Node::withChildNode);
+    PascalCaseCatalogue.HEIGHT,
+    this::setHeight,
+    INode::getSingleChildNodeAsInt,
+    Node::withChildNode);
 
   //attribute
   private final Matrix<IColor> pixels;
@@ -63,7 +63,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //attribute
   @SuppressWarnings("unused")
   private final MutableSpecificationValueExtractor pixelsExtractor = new MutableSpecificationValueExtractor(
-      PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
+    PIXEL_ARRAY_HEADER, this::setPixelArray, this::getPixelArraySpecification);
 
   //optional attribute
   private Node pixelArraySpecification;
@@ -98,13 +98,13 @@ public final class MutableImage extends MutableElement implements IMutableImage<
       for (var j = 1; j <= image.getHeight(); j++) {
         final var pixel = bufferedImage.getRGB(i - 1, j - 1);
         image.setPixel(
-            i,
-            j,
-            Color.withRedValueAndGreenValueAndBlueValueAndAlphaValue(
-                (pixel >> 16) & 0xff,
-                (pixel >> 8) & 0xff,
-                pixel & 0xFF,
-                (pixel >> 24) & 0xff));
+          i,
+          j,
+          Color.withRedValueAndGreenValueAndBlueValueAndAlphaValue(
+            (pixel >> 16) & 0xff,
+            (pixel >> 8) & 0xff,
+            pixel & 0xFF,
+            (pixel >> 24) & 0xff));
       }
     }
 
@@ -135,8 +135,8 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     }
 
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(
-        specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
-        specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt());
+      specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.WIDTH).getSingleChildNodeAsInt(),
+      specification.getStoredFirstChildNodeWithHeader(PascalCaseCatalogue.HEIGHT).getSingleChildNodeAsInt());
     image.setPixelArray(specification.getStoredFirstChildNodeThat(a -> a.hasHeader(PIXEL_ARRAY_HEADER)));
 
     return image;
@@ -197,10 +197,10 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   @Override
   public Node getCompressedSpecification() {
     return Node.withHeaderAndChildNode(
-        getSpecificationHeader(),
-        width.getSpecification(),
-        height.getSpecification(),
-        Node.withHeaderAndChildNode(JPG_STRING, Node.withHeader(toJPGString())));
+      getSpecificationHeader(),
+      width.getSpecification(),
+      height.getSpecification(),
+      Node.withHeaderAndChildNode(JPG_STRING, Node.withHeader(toJPGString())));
   }
 
   //method
@@ -307,7 +307,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     final var lPixelArray = pixelArray.getStoredChildNodes();
 
     GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels")
-        .isEqualTo(getPixelCount());
+      .isEqualTo(getPixelCount());
 
     deletePixelArraySpecificationAndBufferedImage();
 
@@ -324,7 +324,7 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     final var lPixelArray = ReadContainer.forIterable(pixelArray);
 
     GlobalValidator.assertThat(lPixelArray.getElementCount()).thatIsNamed("number of pixels")
-        .isEqualTo(getPixelCount());
+      .isEqualTo(getPixelCount());
 
     deletePixelArraySpecificationAndBufferedImage();
 
@@ -449,8 +449,8 @@ public final class MutableImage extends MutableElement implements IMutableImage<
     GlobalValidator.assertThat(heightFactor).thatIsNamed("height factor").isPositive();
 
     final var image = MutableImage.withWidthAndHeightAndWhiteColor(
-        (int) (widthFactor * getWidth()),
-        (int) (heightFactor * getHeight()));
+      (int) (widthFactor * getWidth()),
+      (int) (heightFactor * getHeight()));
 
     final var reziprocalWidthFactor = 1.0 / widthFactor;
     final var reziprocalHeightFactor = 1.0 / heightFactor;
@@ -528,8 +528,8 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   //method
   private Node createPixelArraySpecification() {
     return Node.withHeaderAndChildNodes(
-        PIXEL_ARRAY_HEADER,
-        pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue())));
+      PIXEL_ARRAY_HEADER,
+      pixels.to(p -> Node.withHeader(p.toHexadecimalStringWithAlphaValue())));
   }
 
   //method

@@ -71,10 +71,10 @@ public class DoubleMediator extends Mediator {
     //is between the given min and max.
     if (argument < min || argument > max) {
       throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-          getArgumentName(),
-          argument,
-          min,
-          max);
+        getArgumentName(),
+        argument,
+        min,
+        max);
     }
   }
 
@@ -90,9 +90,9 @@ public class DoubleMediator extends Mediator {
     //value.
     if (argument <= value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not bigger than " + value);
+        getArgumentName(),
+        argument,
+        "is not bigger than " + value);
     }
   }
 
@@ -219,9 +219,9 @@ public class DoubleMediator extends Mediator {
     //value.
     if (argument >= value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not smaller than " + value);
+        getArgumentName(),
+        argument,
+        "is not smaller than " + value);
     }
   }
 

@@ -12,16 +12,16 @@ public final class MsSqlDataAdapter extends DataAdapter {
   //constructor
   private MsSqlDataAdapter(final String databaseName, final SqlConnectionPool sqlConnectionPool) {
     super(
-        databaseName,
-        sqlConnectionPool,
-        MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
-        new SqlSyntaxProvider());
+      databaseName,
+      sqlConnectionPool,
+      MsSqlSchemaAdapter.forDatabaseWithGivenNameUsingConnectionFromGivenPool(databaseName, sqlConnectionPool),
+      new SqlSyntaxProvider());
   }
 
   //static method
   public static MsSqlDataAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool) {
     return new MsSqlDataAdapter(databaseName, sqlConnectionPool);
   }
 }

@@ -16,8 +16,8 @@ final class EntityMapper {
   //method
   @SuppressWarnings("unchecked")
   public <E extends IEntity> E createLoadedEntityFromDto(
-      final ILoadedEntityDto loadedEntityDto,
-      final ITable<E> table) {
+    final ILoadedEntityDto loadedEntityDto,
+    final ITable<E> table) {
 
     final var loadedEntity = ENTITY_CREATOR.createEmptyEntityFor(table);
 
@@ -32,8 +32,8 @@ final class EntityMapper {
   //method
   private void addDataFromContentFieldToEntity(final ILoadedContentFieldDto contentField, final BaseEntity entity) {
     addDataFromContentFieldToProperty(
-        contentField,
-        entity.internalGetRefPropertyByName(contentField.getColumnName()));
+      contentField,
+      entity.internalGetRefPropertyByName(contentField.getColumnName()));
   }
 
   //method

@@ -18,9 +18,9 @@ public final class WebGuiHtmlBuilder {
   //method
   public IHtmlElement createHtmlForWebGui(final IWebGui<?> webGui) {
     return HtmlElement.withTypeAndAttributesAndChildElements(
-        HtmlElementTypeCatalogue.DIV,
-        ReadContainer.forElement(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, "root")),
-        createLayerHtmlElementsForWebGui(webGui));
+      HtmlElementTypeCatalogue.DIV,
+      ReadContainer.forElement(HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.ID, "root")),
+      createLayerHtmlElementsForWebGui(webGui));
   }
 
   //method

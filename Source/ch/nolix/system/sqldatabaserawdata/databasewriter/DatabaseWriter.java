@@ -30,10 +30,10 @@ public final class DatabaseWriter implements IDataWriter {
 
   //constructor
   private DatabaseWriter(
-      final String databaseName,
-      final SqlConnection sqlConnection,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnection sqlConnection,
+    final IContainer<ITableInfo> tableInfos,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
 
     GlobalValidator.assertThat(tableInfos).thatIsNamed("table definitions").isNotNull();
 
@@ -45,59 +45,59 @@ public final class DatabaseWriter implements IDataWriter {
 
   //static method
   public static DatabaseWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final IContainer<ITableInfo> tableInfos,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
     return new DatabaseWriter(databaseName, sqlConnectionPool.borrowSqlConnection(), tableInfos, sqlSyntaxProvider);
   }
 
   //method
   @Override
   public void deleteMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
     internalDatabaseWriter.deleteEntriesFromMultiReference(
-        entityId,
-        getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId());
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId());
   }
 
   //method
   @Override
   public void deleteMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
     internalDatabaseWriter.deleteEntriesFromMultiValue(
-        entityId,
-        getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId());
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId());
   }
 
   //method
   @Override
   public void deleteMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiRefereceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiRefereceColumnName,
+    final String referencedEntityId) {
     internalDatabaseWriter.deleteEntryFromMultiReference(
-        entityId,
-        getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).getColumnId(),
-        referencedEntityId);
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiRefereceColumnName).getColumnId(),
+      referencedEntityId);
   }
 
   //method
   @Override
   public void deleteMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName,
+    final String entry) {
     internalDatabaseWriter.deleteEntryFromMultiValue(
-        entityId,
-        getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
-        entry);
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
+      entry);
   }
 
   //method
@@ -139,27 +139,27 @@ public final class DatabaseWriter implements IDataWriter {
   //method
   @Override
   public void insertMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName,
+    final String referencedEntityId) {
     internalDatabaseWriter.insertEntryIntoMultiReference(
-        entityId,
-        getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId(),
-        referencedEntityId);
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiReferenceColumnName).getColumnId(),
+      referencedEntityId);
   }
 
   //method
   @Override
   public void insertMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName,
+    final String entry) {
     internalDatabaseWriter.insertEntryIntoMultiValue(
-        entityId,
-        getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
-        entry);
+      entityId,
+      getColumnDefinitionByTableNameAndColumnName(tableName, multiValueColumnName).getColumnId(),
+      entry);
   }
 
   //method
@@ -200,8 +200,8 @@ public final class DatabaseWriter implements IDataWriter {
 
   //method
   private IColumnInfo getColumnDefinitionByTableNameAndColumnName(
-      final String tableName,
-      final String columnName) {
+    final String tableName,
+    final String columnName) {
     return getTableDefinitionByTableName(tableName).getColumnInfoByColumnName(columnName);
   }
 

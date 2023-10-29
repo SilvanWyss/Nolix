@@ -22,14 +22,14 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
   @Override
   public boolean belongsToEntity(final IProperty property) {
     return property != null
-        && property.belongsToEntity();
+    && property.belongsToEntity();
   }
 
   //method
   @Override
   public final boolean belongsToLoadedEntity(final IProperty property) {
     return property.belongsToEntity()
-        && isLoaded(property.getStoredParentEntity());
+    && isLoaded(property.getStoredParentEntity());
   }
 
   //method
@@ -61,15 +61,15 @@ public class PropertyHelper extends DatabaseObjectHelper implements IPropertyHel
   @Override
   public final boolean isMandatoryAndEmptyBoth(final IProperty property) {
     return property.isMandatory()
-        && property.isEmpty();
+    && property.isEmpty();
   }
 
   //method
   @Override
   public final boolean isSetForCaseIsNewOrEditedAndMandatory(final IProperty property) {
     return !property.isMandatory()
-        || !isNewOrEdited(property)
-        || property.containsAny();
+    || !isNewOrEdited(property)
+    || property.containsAny();
   }
 
   //method

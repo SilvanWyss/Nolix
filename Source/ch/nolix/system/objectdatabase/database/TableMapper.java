@@ -16,27 +16,27 @@ final class TableMapper {
   //method
   @SuppressWarnings("unchecked")
   public Table<IEntity> createEmptyTableFromTableDtoForDatabase(
-      final ITableDto tableDto,
-      final Database database) {
+    final ITableDto tableDto,
+    final Database database) {
     return Table.withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
-        database,
-        tableDto.getName(),
-        tableDto.getId(),
-        (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.getName()));
+      database,
+      tableDto.getName(),
+      tableDto.getId(),
+      (Class<IEntity>) database.internalGetSchema().getEntityTypeByName(tableDto.getName()));
   }
 
   //method
   public ITable<IEntity> createTableFromTableDtoForDatabaseUsingGivenReferencableTables(
-      final ITableDto tableDto,
-      final Database database,
-      final IContainer<ITable<IEntity>> referencableTables) {
+    final ITableDto tableDto,
+    final Database database,
+    final IContainer<ITable<IEntity>> referencableTables) {
 
     final var table = createEmptyTableFromTableDtoForDatabase(tableDto, database);
 
     final var columns = tableDto.getColumns()
-        .to(
-            c -> COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table,
-                referencableTables));
+      .to(
+        c -> COLUMN_MAPPER.createColumnFromDtoForParentTableUsingGivenReferencableTables(c, table,
+          referencableTables));
 
     table.internalSetColumns(columns);
 

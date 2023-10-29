@@ -21,8 +21,8 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
 
   //constructor
   protected BaseSubElement(
-      final String attributePrefix,
-      final ME internalSubElement) {
+    final String attributePrefix,
+    final ME internalSubElement) {
 
     GlobalValidator.assertThat(attributePrefix).thatIsNamed("attribute prefix").isNotBlank();
 
@@ -50,9 +50,9 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
     if (attribute.hasHeader() && attribute.getHeader().startsWith(attributePrefix)) {
 
       internalSubElement.addOrChangeAttribute(
-          Node.withHeaderAndChildNodes(
-              attribute.getHeader().substring(attributePrefix.length()),
-              attribute.getStoredChildNodes()));
+        Node.withHeaderAndChildNodes(
+          attribute.getHeader().substring(attributePrefix.length()),
+          attribute.getStoredChildNodes()));
 
       return true;
     }
@@ -65,7 +65,7 @@ public abstract class BaseSubElement<ME extends IMutableElement> implements IPro
   public void fillUpAttributesInto(final ILinkedList<INode<?>> list) {
     for (final var a : internalSubElement.getAttributes()) {
       list.addAtEnd(
-          Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getStoredChildNodes()));
+        Node.withHeaderAndChildNodes(attributePrefix + a.getHeader(), a.getStoredChildNodes()));
     }
   }
 

@@ -43,9 +43,9 @@ public final class FileAccessor extends FileSystemItemAccessor {
     //file.
     if (!FileSystemAccessor.isFile(filePath)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.FILE_PATH,
-          filePath,
-          "is not a file");
+        LowerCaseCatalogue.FILE_PATH,
+        filePath,
+        "is not a file");
     }
   }
 
@@ -128,7 +128,7 @@ public final class FileAccessor extends FileSystemItemAccessor {
     final var lines = new LinkedList<String>();
 
     try (
-        final var bufferedReader = new BufferedReader(new FileReader(getInternalAccessor(), StandardCharsets.UTF_8))) {
+    final var bufferedReader = new BufferedReader(new FileReader(getInternalAccessor(), StandardCharsets.UTF_8))) {
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         lines.addAtEnd(line);

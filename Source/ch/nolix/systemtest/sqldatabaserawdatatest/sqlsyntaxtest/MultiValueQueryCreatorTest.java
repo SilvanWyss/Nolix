@@ -20,9 +20,9 @@ public final class MultiValueQueryCreatorTest extends Test {
 
     //verification
     final var expectedResult = "SELECT Value "
-        + "FROM MMultiValueEntry "
-        + "WHERE EntityId = 'my_entity_id' "
-        + "AND MultiValueColumnId = 'my_column_id';";
+    + "FROM MMultiValueEntry "
+    + "WHERE EntityId = 'my_entity_id' "
+    + "AND MultiValueColumnId = 'my_column_id';";
     expect(result).isEqualTo(expectedResult);
   }
 }

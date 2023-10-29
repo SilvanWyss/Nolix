@@ -82,8 +82,8 @@ public final class OptionalValue<V> extends BaseValue<V> implements IOptionalVal
 
     @SuppressWarnings("unchecked")
     final var value = (V) VALUE_CREATOR.createValueOfDataTypeFromString(
-        DataType.forType(OPTIONAL_VALUE_HELPER.getDataType(this)),
-        string);
+      DataType.forType(OPTIONAL_VALUE_HELPER.getDataType(this)),
+      string);
 
     setValue(value);
   }

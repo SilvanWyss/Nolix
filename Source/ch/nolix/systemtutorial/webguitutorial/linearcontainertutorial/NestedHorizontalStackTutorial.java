@@ -22,19 +22,19 @@ public final class NestedHorizontalStackTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "Nested HorizontalStack tutorial",
-        MainSession.class,
-        new VoidObject());
+      "Nested HorizontalStack tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -47,11 +47,11 @@ public final class NestedHorizontalStackTutorial {
 
       //Creates 3 HorizontalStacks with 2 Texts each.
       final var horizontalStack1 = new HorizontalStack().addControl(new Label().setText("A1"),
-          new Label().setText("A2"));
+        new Label().setText("A2"));
       final var horizontalStack2 = new HorizontalStack().addControl(new Label().setText("B1"),
-          new Label().setText("B2"));
+        new Label().setText("B2"));
       final var horizontalStack3 = new HorizontalStack().addControl(new Label().setText("C1"),
-          new Label().setText("C2"));
+        new Label().setText("C2"));
 
       //Adds the HorizontalStacks to the VerticalStack.
       verticalStack.addControl(horizontalStack1, horizontalStack2, horizontalStack3);

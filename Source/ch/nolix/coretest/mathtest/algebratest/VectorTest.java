@@ -180,11 +180,11 @@ public final class VectorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.getSum(addend))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage(
-            "The given Vector '(2.0,5.0,10.0,-3.0,-8.0)' does not have the same size (which is 5) as "
-                + "the current Vector (which has the size 6).");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage(
+        "The given Vector '(2.0,5.0,10.0,-3.0,-8.0)' does not have the same size (which is 5) as "
+        + "the current Vector (which has the size 6).");
   }
 
   //method

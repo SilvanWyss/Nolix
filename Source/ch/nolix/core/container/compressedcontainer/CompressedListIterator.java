@@ -40,7 +40,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
 
   //static method
   public static <E2> CompressedListIterator<E2> forCompressedListWithFirstNode(
-      final CompressedListNode<E2> firstNode) {
+    final CompressedListNode<E2> firstNode) {
     return new CompressedListIterator<>(firstNode);
   }
 
@@ -78,7 +78,7 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
-          .toNoSuchElementException();
+        .toNoSuchElementException();
     }
   }
 

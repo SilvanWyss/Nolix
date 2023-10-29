@@ -67,35 +67,35 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 
   //attribute
   private final MutableValue<String> title = new MutableValue<>(
-      TITLE_HEADER,
-      DEFAULT_TITLE,
-      this::setTitle,
-      INode::getSingleChildNodeHeader,
-      Node::withChildNode);
+    TITLE_HEADER,
+    DEFAULT_TITLE,
+    this::setTitle,
+    INode::getSingleChildNodeHeader,
+    Node::withChildNode);
 
   //attribute
   private final MutableValue<Image> icon = new MutableValue<>(
-      ICON_HEADER,
-      DEFAULT_ICON,
-      this::setIcon,
-      Image::fromSpecification,
-      Image::getSpecification);
+    ICON_HEADER,
+    DEFAULT_ICON,
+    this::setIcon,
+    Image::fromSpecification,
+    Image::getSpecification);
 
   //attribute
   private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
-      BACKGROUND_HEADER,
-      this::setBackground,
-      Background::fromSpecification,
-      IBackground::getSpecification);
+    BACKGROUND_HEADER,
+    this::setBackground,
+    Background::fromSpecification,
+    IBackground::getSpecification);
 
   //attribute
   @SuppressWarnings("unused")
   private final MultiValueExtractor<ILayer<?>> layerExtractor = new MultiValueExtractor<>(
-      LAYER_HEADER,
-      this::pushLayer,
-      this::getStoredLayers,
-      Layer::fromSpecification,
-      ILayer::getSpecification);
+    LAYER_HEADER,
+    this::pushLayer,
+    this::getStoredLayers,
+    Layer::fromSpecification,
+    ILayer::getSpecification);
 
   //attribute
   private final ILayerStack layerStack = LayerStack.forWebGui(this);
@@ -328,8 +328,8 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
   //method
   @Override
   public WebGui setFrontEndReaderAndFrontEndWriter(
-      final IFrontEndReader frontEndReader,
-      final IFrontEndWriter frontEndWriter) {
+    final IFrontEndReader frontEndReader,
+    final IFrontEndWriter frontEndWriter) {
 
     GlobalValidator.assertThat(frontEndReader).thatIsNamed(IFrontEndReader.class).isNotNull();
     GlobalValidator.assertThat(frontEndWriter).thatIsNamed(IFrontEndWriter.class).isNotNull();

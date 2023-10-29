@@ -17,11 +17,11 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 
   //constructor
   protected ApplicationInstanceTarget(
-      final String ipOrDomain,
-      final int port,
-      final String applicationInstanceName,
-      final String applicationUrlInstanceName,
-      final SecurityLevel securityLevelForConnections) {
+    final String ipOrDomain,
+    final int port,
+    final String applicationInstanceName,
+    final String applicationUrlInstanceName,
+    final SecurityLevel securityLevelForConnections) {
 
     super(ipOrDomain, port, securityLevelForConnections);
 
@@ -34,18 +34,18 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
 
   //static method
   public static ApplicationInstanceTarget//
-      forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-          final String ipOrDomain,
-          final int port,
-          final String applicationInstanceName,
-          final String applicationUrlInstanceName,
-          final SecurityLevel securityLevelForConnections) {
+  forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+    final String ipOrDomain,
+    final int port,
+    final String applicationInstanceName,
+    final String applicationUrlInstanceName,
+    final SecurityLevel securityLevelForConnections) {
     return new ApplicationInstanceTarget(
-        ipOrDomain,
-        port,
-        applicationInstanceName,
-        applicationUrlInstanceName,
-        securityLevelForConnections);
+      ipOrDomain,
+      port,
+      applicationInstanceName,
+      applicationUrlInstanceName,
+      securityLevelForConnections);
   }
 
   //method

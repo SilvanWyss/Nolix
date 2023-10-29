@@ -17,8 +17,8 @@ import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfi
 
 //class
 public abstract class MultiStateConfiguration<MSC extends IMultiStateConfiguration<MSC, S>, S extends Enum<S>>
-    extends Element
-    implements IMultiStateConfiguration<MSC, S> {
+extends Element
+implements IMultiStateConfiguration<MSC, S> {
 
   //attribute
   private final State<S> baseState;
@@ -256,6 +256,6 @@ public abstract class MultiStateConfiguration<MSC extends IMultiStateConfigurati
     }
 
     GlobalValidator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties")
-        .isEmpty();
+      .isEmpty();
   }
 }

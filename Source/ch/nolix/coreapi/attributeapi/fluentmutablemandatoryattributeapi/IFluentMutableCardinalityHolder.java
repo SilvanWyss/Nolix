@@ -15,7 +15,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
  * @param <FMCH> is the type of a {@link IFluentMutableCardinalityHolder}.
  */
 public interface IFluentMutableCardinalityHolder<FMCH extends IFluentMutableCardinalityHolder<FMCH>>
-    extends ICardinalityHolder {
+extends ICardinalityHolder {
 
   //method declaration
   /**

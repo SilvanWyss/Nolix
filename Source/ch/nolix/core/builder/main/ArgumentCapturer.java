@@ -10,7 +10,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public abstract class ArgumentCapturer< //NOSONAR: ArgumentCapturer does not have abstract methods.
-    A, N> {
+A, N> {
 
   //attribute
   private boolean hasArgument;

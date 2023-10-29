@@ -45,8 +45,8 @@ public final class Database implements IDatabase {
 
   //static method
   public static Database withDataAndSchemaAdapterAndSchema(
-      final IDataAndSchemaAdapter dataAndSchemaAdapter,
-      final ISchema schema) {
+    final IDataAndSchemaAdapter dataAndSchemaAdapter,
+    final ISchema schema) {
     return new Database(dataAndSchemaAdapter, schema);
   }
 
@@ -60,7 +60,7 @@ public final class Database implements IDatabase {
   @Override
   @SuppressWarnings("unchecked")
   public <E extends IEntity> ITable<E> getStoredTableByEntityType(
-      final Class<E> entityClass) {
+    final Class<E> entityClass) {
     return (ITable<E>) getStoredTableByName(entityClass.getSimpleName());
   }
 

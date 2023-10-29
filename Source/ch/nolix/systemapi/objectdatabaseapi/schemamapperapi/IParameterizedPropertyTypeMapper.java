@@ -11,6 +11,6 @@ public interface IParameterizedPropertyTypeMapper {
 
   //method declaration
   IParameterizedPropertyType createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
-      IProperty property,
-      IContainer<ITable> referencableTables);
+    IProperty property,
+    IContainer<ITable> referencableTables);
 }

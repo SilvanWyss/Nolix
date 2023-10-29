@@ -10,22 +10,22 @@ public final class SecureServer extends BaseServer {
 
   //constant
   public static final String DEFAULT_HTML_PAGE = """
-      <!DOCTYPE html>
-      <html>
-      <head>
-      <title>Nolix</title>
-      <style>*{font-family: Calibri;}</style>
-      </head>
-      <body>
-      <h1>Nolix</h1>
-      <p>The requested server does not support web clients.</p>
-      </body>
-      </html>
-      """;
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Nolix</title>
+  <style>*{font-family: Calibri;}</style>
+  </head>
+  <body>
+  <h1>Nolix</h1>
+  <p>The requested server does not support web clients.</p>
+  </body>
+  </html>
+  """;
 
   //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
-      new NolixConfigurationSSLCertificateReader();
+  new NolixConfigurationSSLCertificateReader();
 
   //constructor
   public SecureServer(final int port, final ISSLCertificate paramSSLCertificate) {
@@ -39,11 +39,11 @@ public final class SecureServer extends BaseServer {
 
   //static method
   public static SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
-      final int port,
-      final String htmlPage) {
+    final int port,
+    final String htmlPage) {
 
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
-        .getDefaultSSLCertificatefromLocalNolixConfiguration();
+      .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SecureServer(port, htmlPage, paramSSLCertificate);
   }

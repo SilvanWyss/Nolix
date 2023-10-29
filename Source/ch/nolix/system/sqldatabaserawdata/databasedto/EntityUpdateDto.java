@@ -24,9 +24,9 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
 
   //constructor
   public EntityUpdateDto(
-      final String id,
-      final String saveStamp,
-      final IContainer<IContentFieldDto> updatedContentFields) {
+    final String id,
+    final String saveStamp,
+    final IContainer<IContentFieldDto> updatedContentFields) {
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);
@@ -47,18 +47,18 @@ public final class EntityUpdateDto implements IEntityUpdateDto {
 
   //constructor
   public EntityUpdateDto(
-      final String id,
-      final String saveStamp,
-      final IContentFieldDto updatedContentField) {
+    final String id,
+    final String saveStamp,
+    final IContentFieldDto updatedContentField) {
     this(id, saveStamp, LinkedList.withElement(updatedContentField));
   }
 
   //constructor
   public EntityUpdateDto(
-      final String id,
-      final String saveStamp,
-      final IContentFieldDto updatedContentField,
-      final IContentFieldDto... updatedContentFields) {
+    final String id,
+    final String saveStamp,
+    final IContentFieldDto updatedContentField,
+    final IContentFieldDto... updatedContentFields) {
     this(id, saveStamp, ReadContainer.forElement(updatedContentField, updatedContentFields));
   }
 

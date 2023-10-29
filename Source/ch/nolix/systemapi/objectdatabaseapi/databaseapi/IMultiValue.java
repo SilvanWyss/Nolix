@@ -7,8 +7,8 @@ import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 //interface
 public interface IMultiValue<
 
-    V>
-    extends Clearable, IBaseValue<V> {
+V>
+extends Clearable, IBaseValue<V> {
 
   //method declaration
   void addValue(V value);

@@ -71,40 +71,40 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
   //attribute
   private final MutableOptionalValue<LayerRole> role = new MutableOptionalValue<>(
-      ROLE_HEADER,
-      this::setRole,
-      LayerRole::fromSpecification,
-      Node::fromEnum);
+    ROLE_HEADER,
+    this::setRole,
+    LayerRole::fromSpecification,
+    Node::fromEnum);
 
   //attribute
   private final MutableValue<Double> opacity = new MutableValue<>(
-      OPACITY_HEADER,
-      DEFAULT_OPACITY,
-      this::setOpacity,
-      s -> getOpacityFromString(s.getSingleChildNodeHeader()),
-      Node::withChildNode);
+    OPACITY_HEADER,
+    DEFAULT_OPACITY,
+    this::setOpacity,
+    s -> getOpacityFromString(s.getSingleChildNodeHeader()),
+    Node::withChildNode);
 
   //attribute
   private final MutableOptionalValue<IBackground> background = new MutableOptionalValue<>(
-      BACKGROUND_HEADER,
-      this::setBackground,
-      Background::fromSpecification,
-      IBackground::getSpecification);
+    BACKGROUND_HEADER,
+    this::setBackground,
+    Background::fromSpecification,
+    IBackground::getSpecification);
 
   //attribute
   private final MutableValue<ContentAlignment> contentAlignment = new MutableValue<>(
-      CONTENT_ALIGNMENT_HEADER,
-      DEFAULT_CONTENT_POSITION,
-      this::setContentAlignment,
-      ContentAlignment::fromSpecification,
-      Node::fromEnum);
+    CONTENT_ALIGNMENT_HEADER,
+    DEFAULT_CONTENT_POSITION,
+    this::setContentAlignment,
+    ContentAlignment::fromSpecification,
+    Node::fromEnum);
 
   //attribute
   private final MutableOptionalValue<IControl<?, ?>> rootControl = new MutableOptionalValue<>(
-      ROOT_CONTROL_HEADER,
-      this::setRootControl,
-      GlobalControlFactory::createControlFromSpecification,
-      IControl::getSpecification);
+    ROOT_CONTROL_HEADER,
+    this::setRootControl,
+    GlobalControlFactory::createControlFromSpecification,
+    IControl::getSpecification);
 
   //optional attribute
   private IWebGui<?> parentGui;
@@ -429,8 +429,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
   //method
   private void fillUpChildControlsOfControlIntoListRecursively(
-      final IControl<?, ?> control,
-      final LinkedList<IControl<?, ?>> list) {
+    final IControl<?, ?> control,
+    final LinkedList<IControl<?, ?>> list) {
 
     final var childControls = control.getStoredChildControls();
 

@@ -37,21 +37,21 @@ public final class StyleCatalogueTest extends Test {
   //method
   private WebGui createWebGuiWithVariousContent() {
     return new WebGui()
-        .pushLayer(
-            new Layer()
-                .setRootControl(
-                    new VerticalStack()
-                        .addControl(
-                            new Button(),
-                            new DropdownMenu(),
-                            new FloatContainer(),
-                            new HorizontalStack(),
-                            new ImageControl(),
-                            new Label(),
-                            new Link(),
-                            new SingleContainer(),
-                            new Textbox(),
-                            new ValidationLabel(),
-                            new VerticalStack())));
+      .pushLayer(
+        new Layer()
+          .setRootControl(
+            new VerticalStack()
+              .addControl(
+                new Button(),
+                new DropdownMenu(),
+                new FloatContainer(),
+                new HorizontalStack(),
+                new ImageControl(),
+                new Label(),
+                new Link(),
+                new SingleContainer(),
+                new Textbox(),
+                new ValidationLabel(),
+                new VerticalStack())));
   }
 }

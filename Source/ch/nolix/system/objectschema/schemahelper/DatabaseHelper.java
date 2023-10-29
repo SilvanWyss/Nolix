@@ -48,8 +48,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
       }
 
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          database,
-          "cannot add the given table '" + table.getName() + "'");
+        database,
+        "cannot add the given table '" + table.getName() + "'");
     }
   }
 
@@ -58,9 +58,9 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   public void assertCanSetGivenNameToDatabase(final String name) {
     if (!canSetGivenNameToDatabase(name)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.NAME,
-          name,
-          "cannot be set to database");
+        LowerCaseCatalogue.NAME,
+        name,
+        "cannot be set to database");
     }
   }
 
@@ -75,24 +75,24 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   //method
   @Override
   public void assertContainsTableReferencedByGivenColumn(
-      final IDatabase database,
-      final IColumn column) {
+    final IDatabase database,
+    final IColumn column) {
     if (!containsTableReferencedByGivenColumn(database, column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          database,
-          "does not contain a table that is referenced by the column " + column.getNameInQuotes());
+        database,
+        "does not contain a table that is referenced by the column " + column.getNameInQuotes());
     }
   }
 
   //method
   @Override
   public void assertContainsTableWithColumnBackReferencedByGivenColumn(
-      final IDatabase database,
-      final IColumn column) {
+    final IDatabase database,
+    final IColumn column) {
     if (!containsTableWithColumnBackReferencedByGivenColumn(database, column)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "does not contain a table with a column that references back the column " + column.getName());
+        this,
+        "does not contain a table with a column that references back the column " + column.getName());
     }
 
   }
@@ -110,7 +110,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   public void assertDoesNotContainTableWithGivenName(final IDatabase database, final String name) {
     if (containsTableWithGivenName(database, name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this,
-          "contains a table with the name '" + name + "'");
+        "contains a table with the name '" + name + "'");
     }
   }
 
@@ -118,16 +118,16 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   @Override
   public boolean canAddGivenTable(final IDatabase database, final ITable table) {
     return canAddTable(database)
-        && TABLE_HELPER.canBeAddedToDatabase(table)
-        && !containsTableWithGivenName(database, table.getName())
-        && canAddGivenTableBecauseOfColumns(database, table);
+    && TABLE_HELPER.canBeAddedToDatabase(table)
+    && !containsTableWithGivenName(database, table.getName())
+    && canAddGivenTableBecauseOfColumns(database, table);
   }
 
   //method
   @Override
   public boolean canAddTable(final IDatabase database) {
     return database != null
-        && database.isOpen();
+    && database.isOpen();
   }
 
   //method
@@ -145,8 +145,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   //method
   @Override
   public boolean containsTableReferencedByGivenColumn(
-      final IDatabase database,
-      final IColumn column) {
+    final IDatabase database,
+    final IColumn column) {
 
     //This check is theoretically not necessary, but provides a better performance
     //for some cases.
@@ -160,8 +160,8 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
   //method
   @Override
   public boolean containsTableWithColumnBackReferencedByGivenColumn(
-      final IDatabase database,
-      final IColumn column) {
+    final IDatabase database,
+    final IColumn column) {
 
     //This check is theoretically not necessary, but provides a better performance
     //for some cases.
@@ -170,7 +170,7 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
     }
 
     return database.getStoredTables()
-        .containsAny(t -> TABLE_HELPER.containsColumnBackReferencedByGivenColumn(t, column));
+      .containsAny(t -> TABLE_HELPER.containsColumnBackReferencedByGivenColumn(t, column));
   }
 
   //method
@@ -216,9 +216,9 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 
   //method
   private boolean canAddGivenTableBecauseOfGivenColumn(
-      final IDatabase database,
-      final ITable table,
-      final IColumn column) {
+    final IDatabase database,
+    final ITable table,
+    final IColumn column) {
     return switch (COLUMN_HELPER.getBasePropertyType(column)) {
       case BASE_VALUE ->
         true;
@@ -233,10 +233,10 @@ public final class DatabaseHelper extends DatabaseObjectHelper implements IDatab
 
   //method
   private boolean canAddGivenTableBecauseOfGivenReferenceColumn(
-      final IDatabase database,
-      final ITable table,
-      final IColumn referenceColumn) {
+    final IDatabase database,
+    final ITable table,
+    final IColumn referenceColumn) {
     return containsTableReferencedByGivenColumn(database, referenceColumn)
-        || COLUMN_HELPER.referencesGivenTable(referenceColumn, table);
+    || COLUMN_HELPER.referencesGivenTable(referenceColumn, table);
   }
 }

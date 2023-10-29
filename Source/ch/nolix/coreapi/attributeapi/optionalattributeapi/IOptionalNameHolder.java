@@ -41,6 +41,6 @@ public interface IOptionalNameHolder {
    */
   default boolean hasName(final String name) {
     return hasName()
-        && getName().equals(name);
+    && getName().equals(name);
   }
 }

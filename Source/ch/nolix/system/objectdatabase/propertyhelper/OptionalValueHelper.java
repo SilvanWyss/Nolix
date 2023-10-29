@@ -13,26 +13,26 @@ public final class OptionalValueHelper extends PropertyHelper implements IOption
   @Override
   public boolean canSetGivenValue(final IOptionalValue<?> optionalValue, final Object value) {
     return canSetValue(optionalValue)
-        && value != null;
+    && value != null;
   }
 
   //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetValue(
-      final IOptionalValue<?> optionalValue,
-      final Object value) {
+    final IOptionalValue<?> optionalValue,
+    final Object value) {
 
     final var parentEntity = optionalValue.getStoredParentEntity();
 
     return new EntityUpdateDto(
-        parentEntity.getId(),
-        parentEntity.getSaveStamp(),
-        new ContentFieldDto(optionalValue.getName(), value.toString()));
+      parentEntity.getId(),
+      parentEntity.getSaveStamp(),
+      new ContentFieldDto(optionalValue.getName(), value.toString()));
   }
 
   //method
   private boolean canSetValue(final IOptionalValue<?> optionalValue) {
     return optionalValue != null
-        && optionalValue.isOpen();
+    && optionalValue.isOpen();
   }
 }

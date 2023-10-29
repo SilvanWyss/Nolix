@@ -18,8 +18,8 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
   @Override
   public HtmlElement createHtmlElementForControl(final IImageControl imageControl) {
     return HtmlElement.withTypeAndAttributes(
-        HtmlElementTypeCatalogue.IMG,
-        createHtmlAttributesFromImageControl(imageControl));
+      HtmlElementTypeCatalogue.IMG,
+      createHtmlAttributesFromImageControl(imageControl));
   }
 
   //method
@@ -29,9 +29,9 @@ public final class ImageControlHtmlBuilder implements IControlHtmlBuilder<IImage
 
     if (imageControl.containsAny()) {
       htmlAttributes.addAtEnd(
-          HtmlAttribute.withNameAndValue(
-              HtmlAttributeNameCatalogue.SRC,
-              "data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString()));
+        HtmlAttribute.withNameAndValue(
+          HtmlAttributeNameCatalogue.SRC,
+          "data:image/jpeg;base64," + imageControl.getStoredImage().toJPGString()));
     }
 
     return htmlAttributes;

@@ -17,34 +17,34 @@ public final class UploaderCssBuilder extends ControlCssBuilder<IUploader, IUplo
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final IUploader button,
-      final LinkedList<? super ICssRule> list) {
+    final IUploader button,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final IUploader button,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final IUploader button,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IUploader control,
-      final LinkedList<CssProperty> list) {
+    final IUploader control,
+    final LinkedList<CssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IUploader button,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IUploader button,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

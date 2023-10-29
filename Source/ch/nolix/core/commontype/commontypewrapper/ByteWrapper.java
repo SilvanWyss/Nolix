@@ -46,14 +46,14 @@ public final class ByteWrapper {
    * @param bit8
    */
   public ByteWrapper( //NOSONAR: A byte consists of 8 bits.
-      final int bit1,
-      final int bit2,
-      final int bit3,
-      final int bit4,
-      final int bit5,
-      final int bit6,
-      final int bit7,
-      final int bit8) {
+    final int bit1,
+    final int bit2,
+    final int bit3,
+    final int bit4,
+    final int bit5,
+    final int bit6,
+    final int bit7,
+    final int bit8) {
     mByte = 128 * bit1 + 64 * bit2 + 32 * bit3 + 16 * bit4 + 8 * bit5 + 4 * bit6 + 2 * bit7 + bit8;
   }
 
@@ -99,15 +99,15 @@ public final class ByteWrapper {
    */
   public String toBitString() {
     return String.format(
-        "%d%d%d%d%d%d%d%d",
-        getBitAtAsInt(1),
-        getBitAtAsInt(2),
-        getBitAtAsInt(3),
-        getBitAtAsInt(4),
-        getBitAtAsInt(5),
-        getBitAtAsInt(6),
-        getBitAtAsInt(7),
-        getBitAtAsInt(8));
+      "%d%d%d%d%d%d%d%d",
+      getBitAtAsInt(1),
+      getBitAtAsInt(2),
+      getBitAtAsInt(3),
+      getBitAtAsInt(4),
+      getBitAtAsInt(5),
+      getBitAtAsInt(6),
+      getBitAtAsInt(7),
+      getBitAtAsInt(8));
   }
 
   //method

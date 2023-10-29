@@ -27,9 +27,9 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //constructor
   private MultiReferenceEntry(
-      final IMultiReference<E> parentMultiReference,
-      final DatabaseObjectState initialState,
-      final String referencedEntityId) {
+    final IMultiReference<E> parentMultiReference,
+    final DatabaseObjectState initialState,
+    final String referencedEntityId) {
 
     GlobalValidator.assertThat(parentMultiReference).thatIsNamed("parent MultiReference").isNotNull();
     GlobalValidator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
@@ -42,15 +42,15 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
 
   //static method
   public static <E2 extends IEntity> MultiReferenceEntry<E2> loadedEntryForMultiReferenceAndReferencedEntityId(
-      final IMultiReference<E2> multiReference,
-      final String referencedEntityId) {
+    final IMultiReference<E2> multiReference,
+    final String referencedEntityId) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.LOADED, referencedEntityId);
   }
 
   //static method
   public static <E2 extends IEntity> MultiReferenceEntry<E2> newEntryForMultiReferenceAndReferencedEntityId(
-      final IMultiReference<E2> multiReference,
-      final String referencedEntityId) {
+    final IMultiReference<E2> multiReference,
+    final String referencedEntityId) {
     return new MultiReferenceEntry<>(multiReference, DatabaseObjectState.NEW, referencedEntityId);
   }
 
@@ -58,8 +58,8 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   @Override
   public IProperty getStoredBackReferencingPropertyOrNull() {
     return getReferencedEntity()
-        .technicalGetRefProperties()
-        .getStoredFirstOrNull(p -> p.referencesBackProperty(getStoredParentMultiReference()));
+      .technicalGetRefProperties()
+      .getStoredFirstOrNull(p -> p.referencesBackProperty(getStoredParentMultiReference()));
   }
 
   //method

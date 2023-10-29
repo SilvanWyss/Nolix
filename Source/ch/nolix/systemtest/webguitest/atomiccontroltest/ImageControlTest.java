@@ -31,8 +31,8 @@ public final class ImageControlTest extends ControlTest<IImageControl> {
 
     //execution & verification
     expectRunning(testUnit::getStoredImage)
-        .throwsException()
-        .ofType(ArgumentDoesNotHaveAttributeException.class);
+      .throwsException()
+      .ofType(ArgumentDoesNotHaveAttributeException.class);
   }
 
   //method

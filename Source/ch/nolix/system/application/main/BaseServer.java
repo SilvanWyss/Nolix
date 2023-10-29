@@ -107,16 +107,16 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR//
-      addApplicationWithNameAndInitialSessionClassAndContext(
-          final String applicationName,
-          final Class<S> initialSessionClass,
-          final AC applicationContext) {
+  addApplicationWithNameAndInitialSessionClassAndContext(
+    final String applicationName,
+    final Class<S> initialSessionClass,
+    final AC applicationContext) {
 
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
-        applicationName,
-        initialSessionClass,
-        applicationContext);
+      applicationName,
+      initialSessionClass,
+      applicationContext);
 
     //Calls other method.
     return addApplication(application);
@@ -141,15 +141,15 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR //
-      addApplicationWithNameAndInitialSessionClassAndVoidContext(
-          final String name,
-          final Class<S> initialSessionClass) {
+  addApplicationWithNameAndInitialSessionClassAndVoidContext(
+    final String name,
+    final Class<S> initialSessionClass) {
 
     //Creates Application.
     final var application = BasicApplication.withNameAndInitialSessionClassAndContext(
-        name,
-        initialSessionClass,
-        new VoidObject());
+      name,
+      initialSessionClass,
+      new VoidObject());
 
     //Calls other method.
     return addApplication(application);
@@ -170,7 +170,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    * @throws ArgumentIsNullException if the given defaultApplication is null.
    */
   public final <BC extends BackendClient<BC, AC>, AC> SR addDefaultApplication(
-      final Application<BC, AC> defaultApplication) {
+    final Application<BC, AC> defaultApplication) {
 
     defaultApplication.internalSetParentServer(this);
 
@@ -204,16 +204,16 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <S extends Session<BC, AC>, BC extends BackendClient<BC, AC>, AC> SR //
-      addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-          final String applicationName,
-          final Class<S> initialSessionClass,
-          final AC applicationContext) {
+  addDefaultApplicationWithNameAndInitialSessionClassAndContext(
+    final String applicationName,
+    final Class<S> initialSessionClass,
+    final AC applicationContext) {
 
     //Creates default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
-        applicationName,
-        initialSessionClass,
-        applicationContext);
+      applicationName,
+      initialSessionClass,
+      applicationContext);
 
     //Calls other method.
     return addDefaultApplication(localDefaultApplication);
@@ -238,15 +238,15 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
    * @throws ArgumentIsNullException  if the given initialSessionClass is null.
    */
   public final <S extends Session<BC, Object>, BC extends BackendClient<BC, Object>> SR//
-      addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-          final String name,
-          final Class<S> initialSessionClass) {
+  addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
+    final String name,
+    final Class<S> initialSessionClass) {
 
     //Creates a default Application.
     final var localDefaultApplication = BasicApplication.withNameAndInitialSessionClassAndContext(
-        name,
-        initialSessionClass,
-        new VoidObject());
+      name,
+      initialSessionClass,
+      new VoidObject());
 
     //Calls other method.
     return addDefaultApplication(localDefaultApplication);
@@ -469,8 +469,8 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
   private void assertDoesNotContainApplicationWithName(final String name) {
     if (containsApplicationWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains already an Application with the name '" + name + "'");
+        this,
+        "contains already an Application with the name '" + name + "'");
     }
   }
 }

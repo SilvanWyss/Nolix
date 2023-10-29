@@ -99,8 +99,8 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
     }
 
     GlobalSequencer
-        .forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS)
-        .waitUntil(this::hasReceivingDataProviderController);
+      .forMaxMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS)
+      .waitUntil(this::hasReceivingDataProviderController);
 
     if (!hasReceivingDataProviderController()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.RECEIVER);

@@ -18,18 +18,18 @@ import ch.nolix.systemapi.elementapi.styleapi.IStyleElement;
  * @param <SE> is the type of a {@link StyleElement}.
  */
 public abstract class StyleElement<SE extends StyleElement<SE>>
-    extends StylableElement<SE>
-    implements IStyleElement<SE> {
+extends StylableElement<SE>
+implements IStyleElement<SE> {
 
   //constant
   private static final String CONFIGURATION_HEADER = PascalCaseCatalogue.CONFIGURATION;
 
   //attribute
   private final MutableOptionalValue<IStyle> style = new MutableOptionalValue<>(
-      CONFIGURATION_HEADER,
-      this::setStyle,
-      Style::fromSpecification,
-      IStyle::getSpecification);
+    CONFIGURATION_HEADER,
+    this::setStyle,
+    Style::fromSpecification,
+    IStyle::getSpecification);
 
   //method
   /**

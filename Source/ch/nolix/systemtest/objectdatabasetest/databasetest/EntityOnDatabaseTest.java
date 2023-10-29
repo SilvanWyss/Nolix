@@ -97,9 +97,9 @@ public final class EntityOnDatabaseTest extends Test {
 
     //execution: Tries to save changes.
     expectRunning(nodeDataAdapterB::saveChanges)
-        .throwsException()
-        .ofType(ResourceWasChangedInTheMeanwhileException.class)
-        .withMessage("The data was changed in the meanwhile.");
+      .throwsException()
+      .ofType(ResourceWasChangedInTheMeanwhileException.class)
+      .withMessage("The data was changed in the meanwhile.");
   }
 
   //method
@@ -128,9 +128,9 @@ public final class EntityOnDatabaseTest extends Test {
 
     //execution & verification: Tries to save changes.
     expectRunning(nodeDataAdapterB::saveChanges)
-        .throwsException()
-        .ofType(ResourceWasChangedInTheMeanwhileException.class)
-        .withMessage("The data was changed in the meanwhile.");
+      .throwsException()
+      .ofType(ResourceWasChangedInTheMeanwhileException.class)
+      .withMessage("The data was changed in the meanwhile.");
   }
 
   //method
@@ -148,7 +148,7 @@ public final class EntityOnDatabaseTest extends Test {
 
     //setup part 2
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
 
     //execution part 1
     loadedGarfield.delete();
@@ -162,10 +162,10 @@ public final class EntityOnDatabaseTest extends Test {
     //verification part 2
     expect(loadedGarfield.isClosed());
     expect(
-        nodeDataAdapter
-            .getStoredTableByEntityType(Pet.class)
-            .getStoredEntities()
-            .containsNone(e -> e.hasId(garfield.getId())));
+      nodeDataAdapter
+        .getStoredTableByEntityType(Pet.class)
+        .getStoredEntities()
+        .containsNone(e -> e.hasId(garfield.getId())));
   }
 
   //method

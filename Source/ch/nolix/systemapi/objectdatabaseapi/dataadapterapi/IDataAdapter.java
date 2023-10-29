@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //interface
 public interface IDataAdapter<DA extends IDataAdapter<DA>>
-    extends EmptyCopyable<DA>, IResettableChangeSaver {
+extends EmptyCopyable<DA>, IResettableChangeSaver {
 
   //method declaration
   <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType);

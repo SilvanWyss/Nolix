@@ -45,10 +45,10 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   public MultiValue(
-      final String name,
-      final Consumer<V> adderMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> adderMethod,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     //Calls constructor of the base class
     super(name, valueCreator, specificationCreator);
@@ -192,7 +192,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
 
       //Creates a specification from the current value.
       final var specification = Node.withHeaderAndChildNodes(getName(),
-          specificationCreator.apply(v).getStoredChildNodes());
+        specificationCreator.apply(v).getStoredChildNodes());
 
       //Adds the specification to the given list.
       list.addAtEnd(specification);

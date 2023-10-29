@@ -66,7 +66,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
     }
 
     final var backReferencingProperty = getReferencedEntity().technicalGetRefProperties()
-        .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
+      .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
 
     if (backReferencingProperty != null) {
       return ImmutableList.withElement(backReferencingProperty);
@@ -112,15 +112,15 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
   @Override
   public boolean referencesEntity(IEntity entity) {
     return containsAny()
-        && entity != null
-        && getReferencedEntityId().equals(entity.getId());
+    && entity != null
+    && getReferencedEntityId().equals(entity.getId());
   }
 
   //method
   @Override
   public boolean referencesUninsertedEntity() {
     return containsAny()
-        && !getReferencedEntity().belongsToTable();
+    && !getReferencedEntity().belongsToTable();
   }
 
   //method
@@ -252,7 +252,7 @@ public final class OptionalReference<E extends IEntity> extends BaseReference<E>
         final var baseBackReference = (BaseBackReference<?>) p;
 
         if (baseBackReference.getBackReferencedTableName().equals(getStoredParentEntity().getParentTableName())
-            && baseBackReference.getBackReferencedPropertyName().equals(getName())) {
+        && baseBackReference.getBackReferencedPropertyName().equals(getName())) {
 
           switch (baseBackReference.getType()) {
             case BACK_REFERENCE:

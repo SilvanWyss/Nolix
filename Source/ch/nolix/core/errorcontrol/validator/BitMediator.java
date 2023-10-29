@@ -27,9 +27,9 @@ public class BitMediator extends Mediator {
   public final void isCleared() {
     if (argument) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not cleared");
+        getArgumentName(),
+        argument,
+        "is not cleared");
     }
   }
 
@@ -37,9 +37,9 @@ public class BitMediator extends Mediator {
   public final void isSet() {
     if (!argument) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not set");
+        getArgumentName(),
+        argument,
+        "is not set");
     }
   }
 }

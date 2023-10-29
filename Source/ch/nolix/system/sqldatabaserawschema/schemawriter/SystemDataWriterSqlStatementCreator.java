@@ -20,7 +20,7 @@ final class SystemDataWriterSqlStatementCreator {
 
   //constant
   private static final ParameterizedPropertyTypeSqlRecordMapper PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER = //
-      new ParameterizedPropertyTypeSqlRecordMapper();
+  new ParameterizedPropertyTypeSqlRecordMapper();
 
   //constant
   private static final TableTableRecordMapper TABLE_TABLE_RECORD_MAPPER = new TableTableRecordMapper();
@@ -29,46 +29,46 @@ final class SystemDataWriterSqlStatementCreator {
   public String createStatementToAddColumn(final String parentTableName, final IColumnDto column) {
 
     final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
-        .createParameterizedPropertyTypeRecordFrom(
-            column.getParameterizedPropertyType());
+      .createParameterizedPropertyTypeRecordFrom(
+        column.getParameterizedPropertyType());
 
     return "INSERT INTO "
-        + SystemDataTable.COLUMN.getQualifiedName()
-        + " ("
-        + ColumnTableColumn.ID.getName()
-        + ", "
-        + ColumnTableColumn.PARENT_TABLE_ID.getName()
-        + ", "
-        + ColumnTableColumn.NAME.getName()
-        + ", "
-        + ColumnTableColumn.PROPERTY_TYPE.getName()
-        + ", "
-        + ColumnTableColumn.DATA_TYPE.getName()
-        + ", "
-        + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
-        + ", "
-        + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
-        + ") SELECT '"
-        + column.getId()
-        + "', "
-        + TableTableColumn.ID.getQualifiedName()
-        + ", '"
-        + column.getName()
-        + "', "
-        + parameterizedPropertyTypeRecord.getPropertyTypeValue()
-        + ", "
-        + parameterizedPropertyTypeRecord.getDataTypeValue()
-        + ", "
-        + parameterizedPropertyTypeRecord.getReferencedTableIdValue()
-        + ", "
-        + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
-        + " FROM "
-        + SystemDataTable.TABLE.getQualifiedName()
-        + " WHERE "
-        + TableTableColumn.NAME.getQualifiedName()
-        + " = '"
-        + parentTableName
-        + "'";
+    + SystemDataTable.COLUMN.getQualifiedName()
+    + " ("
+    + ColumnTableColumn.ID.getName()
+    + ", "
+    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + ", "
+    + ColumnTableColumn.NAME.getName()
+    + ", "
+    + ColumnTableColumn.PROPERTY_TYPE.getName()
+    + ", "
+    + ColumnTableColumn.DATA_TYPE.getName()
+    + ", "
+    + ColumnTableColumn.REFERENCED_TABLE_ID.getName()
+    + ", "
+    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
+    + ") SELECT '"
+    + column.getId()
+    + "', "
+    + TableTableColumn.ID.getQualifiedName()
+    + ", '"
+    + column.getName()
+    + "', "
+    + parameterizedPropertyTypeRecord.getPropertyTypeValue()
+    + ", "
+    + parameterizedPropertyTypeRecord.getDataTypeValue()
+    + ", "
+    + parameterizedPropertyTypeRecord.getReferencedTableIdValue()
+    + ", "
+    + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
+    + " FROM "
+    + SystemDataTable.TABLE.getQualifiedName()
+    + " WHERE "
+    + TableTableColumn.NAME.getQualifiedName()
+    + " = '"
+    + parentTableName
+    + "'";
   }
 
   //method
@@ -88,104 +88,104 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return "DELETE FROM "
-        + SystemDataTable.COLUMN.getQualifiedName()
-        + " WHERE "
-        + ColumnTableColumn.PARENT_TABLE_ID.getName()
-        + " = "
-        + tableName
-        + " AND "
-        + ColumnTableColumn.NAME.getName()
-        + " = '"
-        + columnName
-        + "'";
+    + SystemDataTable.COLUMN.getQualifiedName()
+    + " WHERE "
+    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + " = "
+    + tableName
+    + " AND "
+    + ColumnTableColumn.NAME.getName()
+    + " = '"
+    + columnName
+    + "'";
   }
 
   //method
   public String createStatementToDeleteTable(final String tableName) {
     return "DELETE FROM "
-        + SystemDataTable.TABLE.getQualifiedName()
-        + " WHERE "
-        + TableTableColumn.NAME
-        + " = '"
-        + tableName
-        + "'";
+    + SystemDataTable.TABLE.getQualifiedName()
+    + " WHERE "
+    + TableTableColumn.NAME
+    + " = '"
+    + tableName
+    + "'";
   }
 
   //method
   public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
     return "UPDATE "
-        + SystemDataTable.COLUMN.getQualifiedName()
-        + " SET "
-        + ColumnTableColumn.NAME
-        + " = '"
-        + newColumnName
-        + "' WHERE "
-        + ColumnTableColumn.PARENT_TABLE_ID.getName()
-        + " = '"
-        + tableName
-        + "' AND "
-        + ColumnTableColumn.NAME.getName()
-        + " = '"
-        + columnName
-        + "'";
+    + SystemDataTable.COLUMN.getQualifiedName()
+    + " SET "
+    + ColumnTableColumn.NAME
+    + " = '"
+    + newColumnName
+    + "' WHERE "
+    + ColumnTableColumn.PARENT_TABLE_ID.getName()
+    + " = '"
+    + tableName
+    + "' AND "
+    + ColumnTableColumn.NAME.getName()
+    + " = '"
+    + columnName
+    + "'";
   }
 
   //method
   public String createStatementToSetColumnParameterizedPropertyType(
-      final String columnID,
-      final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final String columnID,
+    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
 
     final var parameterizedPropertyTypeRecord = PARAMETERIZED_PROPERTY_TYPE_SQL_RECORD_MAPPER
-        .createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);
+      .createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);
 
     return "UPDATE "
-        + SystemDataTable.COLUMN.getQualifiedName()
-        + " SET "
-        + ColumnTableColumn.DATA_TYPE
-        + " = "
-        + parameterizedPropertyTypeRecord.getDataTypeValue()
-        + ", "
-        + ColumnTableColumn.REFERENCED_TABLE_ID
-        + " = "
-        + parameterizedPropertyTypeRecord.getReferencedTableIdValue()
-        + ", "
-        + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
-        + " = "
-        + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
-        + "WHERE"
-        + ColumnTableColumn.ID
-        + " = '"
-        + columnID
-        + "'";
+    + SystemDataTable.COLUMN.getQualifiedName()
+    + " SET "
+    + ColumnTableColumn.DATA_TYPE
+    + " = "
+    + parameterizedPropertyTypeRecord.getDataTypeValue()
+    + ", "
+    + ColumnTableColumn.REFERENCED_TABLE_ID
+    + " = "
+    + parameterizedPropertyTypeRecord.getReferencedTableIdValue()
+    + ", "
+    + ColumnTableColumn.BACK_REFERENCED_COLUM_ID
+    + " = "
+    + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
+    + "WHERE"
+    + ColumnTableColumn.ID
+    + " = '"
+    + columnID
+    + "'";
   }
 
   //method
   public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
     return "UPDATE "
-        + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
-        + " SET "
-        + DatabasePropertySystemTableColumn.VALUE.getLabel()
-        + " = '"
-        + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
-        + "' WHERE "
-        + DatabasePropertySystemTableColumn.KEY.getLabel()
-        + " = "
-        + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
+    + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
+    + " SET "
+    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + " = '"
+    + schemaTimestamp.getSpecification().getSingleChildNodeHeader()
+    + "' WHERE "
+    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + " = "
+    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes();
   }
 
   //method
   public String createStatementToSetTableName(String tableName, String newTableName) {
     return "UPDATE "
-        + SystemDataTable.TABLE.getQualifiedName()
-        + " SET "
-        + TableTableColumn.NAME.getName()
-        + " = '"
-        + newTableName
-        + "' WHERE "
-        + TableTableColumn.NAME.getName()
-        + " = '"
-        + tableName
-        + "'";
+    + SystemDataTable.TABLE.getQualifiedName()
+    + " SET "
+    + TableTableColumn.NAME.getName()
+    + " = '"
+    + newTableName
+    + "' WHERE "
+    + TableTableColumn.NAME.getName()
+    + " = '"
+    + tableName
+    + "'";
   }
 
   //method
@@ -194,15 +194,15 @@ final class SystemDataWriterSqlStatementCreator {
     final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);
 
     return "INSERT INTO "
-        + SystemDataTable.TABLE.getQualifiedName()
-        + " ("
-        + TableTableColumn.ID.getName()
-        + ", "
-        + TableTableColumn.NAME.getName()
-        + ") VALUES ("
-        + tableSystemTableRecord.getIdValue()
-        + ", "
-        + tableSystemTableRecord.getNameValue()
-        + ")";
+    + SystemDataTable.TABLE.getQualifiedName()
+    + " ("
+    + TableTableColumn.ID.getName()
+    + ", "
+    + TableTableColumn.NAME.getName()
+    + ") VALUES ("
+    + tableSystemTableRecord.getIdValue()
+    + ", "
+    + tableSystemTableRecord.getNameValue()
+    + ")";
   }
 }

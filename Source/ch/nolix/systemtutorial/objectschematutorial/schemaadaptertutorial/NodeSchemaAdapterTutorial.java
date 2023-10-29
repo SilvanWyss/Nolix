@@ -23,11 +23,11 @@ public final class NodeSchemaAdapterTutorial {
     try (final var nodeDatabaseSchemaAdapter = NodeSchemaAdapter.forDatabaseNode("CountryDatabase", database)) {
 
       final var cityTable = new Table("City")
-          .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)))
-          .addColumn(new Column("Population", new ParameterizedValueType<>(DataType.INTEGER_4BYTE)));
+        .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)))
+        .addColumn(new Column("Population", new ParameterizedValueType<>(DataType.INTEGER_4BYTE)));
 
       final var countryTable = new Table("Country")
-          .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
+        .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
 
       final var citiesColumn = new Column("Cities", new ParameterizedMultiReferenceType(cityTable));
       countryTable.addColumn(citiesColumn);

@@ -28,7 +28,7 @@ public final class NodeDataAdapterTutorial {
     nodeDataAdapter.saveChanges();
 
     final var loadedDonaldDuck = nodeDataAdapter.getStoredTableByEntityType(Person.class)
-        .getStoredEntityById(donaldDuck.getId());
+      .getStoredEntityById(donaldDuck.getId());
 
     GlobalLogger.logInfo(loadedDonaldDuck.toString());
   }

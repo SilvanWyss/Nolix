@@ -40,9 +40,9 @@ final class WebSocketEndPoint extends NetEndPoint {
 
   //constructor
   public WebSocketEndPoint(
-      final Socket socket,
-      final InputStream socketInputStream,
-      final OutputStream socketOutputStream) {
+    final Socket socket,
+    final InputStream socketInputStream,
+    final OutputStream socketOutputStream) {
 
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 

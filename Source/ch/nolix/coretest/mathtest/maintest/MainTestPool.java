@@ -10,6 +10,6 @@ public final class MainTestPool extends TestPool {
   //constructor
   public MainTestPool() {
     super(
-        GlobalCalculatorTest.class);
+      GlobalCalculatorTest.class);
   }
 }

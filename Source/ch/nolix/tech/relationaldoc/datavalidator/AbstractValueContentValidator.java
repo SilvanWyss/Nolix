@@ -13,7 +13,7 @@ public final class AbstractValueContentValidator {
 
   //constant
   private static final AbstractValueContentEvaluator ABSTRACT_VALUE_CONTENT_EVALUATOR = //
-      new AbstractValueContentEvaluator();
+  new AbstractValueContentEvaluator();
 
   //method
   public void assertCanSetDataType(final IAbstractValueContent abstractValueContent, final DataType dataType) {

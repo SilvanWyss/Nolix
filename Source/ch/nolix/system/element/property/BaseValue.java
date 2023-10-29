@@ -44,9 +44,9 @@ public abstract class BaseValue<V> implements IBaseValue, MutabilityRequestable,
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   BaseValue(
-      final String name,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(valueCreator).thatIsNamed("value creator").isNotNull();

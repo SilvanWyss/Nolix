@@ -24,8 +24,8 @@ public record HttpRequest(String content) {
   //static method
   public static boolean canBe(final IContainer<String> lines) {
     return lines.containsAny(l -> l.contains(HTTP_HEADER))
-        && lines.containsAny(l -> l.contains(HOST_HEADER))
-        && lines.containsAny(l -> l.contains(ACCEPT_HEADER + ": text/html"));
+    && lines.containsAny(l -> l.contains(HOST_HEADER))
+    && lines.containsAny(l -> l.contains(ACCEPT_HEADER + ": text/html"));
   }
 
   //constructor

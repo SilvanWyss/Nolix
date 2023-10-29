@@ -12,13 +12,13 @@ public final class AbstractValueContentEvaluator {
   //method
   public boolean canSetDataType(final IAbstractValueContent abstractValueContent, final DataType dataType) {
     return canSetDataType(dataType)
-        && canSetDataTypeBecauseOfCardinality(abstractValueContent, dataType);
+    && canSetDataTypeBecauseOfCardinality(abstractValueContent, dataType);
   }
 
   private boolean canSetDataTypeBecauseOfCardinality(IAbstractValueContent abstractValueContent, DataType dataType) {
     return abstractValueContent != null
-        && (abstractValueContent.getDataType() == dataType
-            || abstractValueContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE);
+    && (abstractValueContent.getDataType() == dataType
+    || abstractValueContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE);
   }
 
   //method

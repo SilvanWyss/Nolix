@@ -77,8 +77,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NonPositiveArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final BigDecimal argument) {
+    final String argumentName,
+    final BigDecimal argument) {
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
@@ -92,8 +92,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NonPositiveArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final double argument) {
+    final String argumentName,
+    final double argument) {
     return new NonPositiveArgumentException(argumentName, argument);
   }
 
@@ -107,8 +107,8 @@ public final class NonPositiveArgumentException extends InvalidArgumentException
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NonPositiveArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final long argument) {
+    final String argumentName,
+    final long argument) {
     return new NonPositiveArgumentException(argumentName, argument);
   }
 }

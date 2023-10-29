@@ -22,17 +22,17 @@ public class ServerTarget implements IServerTarget {
 
   //constructor
   protected ServerTarget(
-      final String ipOrDomain,
-      final int port,
-      final SecurityLevel securityLevelForConnections) {
+    final String ipOrDomain,
+    final int port,
+    final SecurityLevel securityLevelForConnections) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
     GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
 
     GlobalValidator
-        .assertThat(securityLevelForConnections)
-        .thatIsNamed("security level for connections")
-        .isNotNull();
+      .assertThat(securityLevelForConnections)
+      .thatIsNamed("security level for connections")
+      .isNotNull();
 
     this.ipOrDomain = ipOrDomain;
     this.port = port;
@@ -41,9 +41,9 @@ public class ServerTarget implements IServerTarget {
 
   //static method
   public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
-      final String ipOrDomain,
-      final int port,
-      final SecurityLevel securityLevelForConnections) {
+    final String ipOrDomain,
+    final int port,
+    final SecurityLevel securityLevelForConnections) {
     return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
   }
 

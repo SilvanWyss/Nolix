@@ -17,34 +17,34 @@ public final class ButtonCssBuilder extends ControlCssBuilder<IButton, IButtonSt
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final IButton button,
-      final LinkedList<? super ICssRule> list) {
+    final IButton button,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final IButton button,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final IButton button,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IButton control,
-      final LinkedList<CssProperty> list) {
+    final IButton control,
+    final LinkedList<CssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IButton button,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IButton button,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

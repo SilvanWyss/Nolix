@@ -78,9 +78,9 @@ public final class LinkedListTest extends ContainerTest {
 
     //execution & verification
     expectRunning(() -> testUnit.addAtBegin(nullElement))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given element is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given element is null.");
   }
 
   //method
@@ -93,9 +93,9 @@ public final class LinkedListTest extends ContainerTest {
 
     //execution & verification
     expectRunning(() -> testUnit.addAtEnd(nullElement))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given element is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given element is null.");
   }
 
   //method
@@ -143,8 +143,8 @@ public final class LinkedListTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
-      final E element,
-      final @SuppressWarnings("unchecked") E... elements) {
+    final E element,
+    final @SuppressWarnings("unchecked") E... elements) {
     return LinkedList.withElement(element, elements);
   }
 

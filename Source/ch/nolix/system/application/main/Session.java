@@ -20,7 +20,7 @@ import ch.nolix.coreapi.programcontrolapi.triggerapi.IRefreshableSubscriber;
  *             the parent {@link BackendClient} of a {@link Session}.
  */
 public abstract class Session<BC extends BackendClient<BC, AC>, AC>
-    implements IRefreshableSubscriber {
+implements IRefreshableSubscriber {
 
   //attribute
   private BC parentClient;
@@ -88,7 +88,7 @@ public abstract class Session<BC extends BackendClient<BC, AC>, AC>
   @Override
   public final boolean isAlive() {
     return parentClient != null
-        && parentClient.isOpen();
+    && parentClient.isOpen();
   }
 
   //method

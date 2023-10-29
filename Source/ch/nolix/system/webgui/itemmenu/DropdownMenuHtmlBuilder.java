@@ -19,28 +19,28 @@ public final class DropdownMenuHtmlBuilder implements IControlHtmlBuilder<IDropd
   @Override
   public HtmlElement createHtmlElementForControl(final IDropdownMenu dropdownMenu) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.SELECT,
-        createHtmlChildElementsForDropdownMenu(dropdownMenu));
+      HtmlElementTypeCatalogue.SELECT,
+      createHtmlChildElementsForDropdownMenu(dropdownMenu));
   }
 
   //method
   private IContainer<IHtmlElement> createHtmlChildElementsForDropdownMenu(
-      final IDropdownMenu dropdownMenu) {
+    final IDropdownMenu dropdownMenu) {
     return createHtmlElementsFromItems(dropdownMenu.getStoredItems());
   }
 
   //method
   private IContainer<IHtmlElement> createHtmlElementsFromItems(
-      final IContainer<? extends IItemMenuItem<?>> items) {
+    final IContainer<? extends IItemMenuItem<?>> items) {
     return items.to(this::createHtmlElementForItem);
   }
 
   //method
   private IHtmlElement createHtmlElementForItem(final IItemMenuItem<?> item) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
-        HtmlElementTypeCatalogue.OPTION,
-        createHtmlAttributesForItem(item),
-        item.getText());
+      HtmlElementTypeCatalogue.OPTION,
+      createHtmlAttributesForItem(item),
+      item.getText());
   }
 
   //method

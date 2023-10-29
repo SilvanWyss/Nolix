@@ -47,12 +47,12 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 
   //constructor
   SqlConnectionPool(
-      final String ipOrDomain,
-      final int port,
-      final String databaseName,
-      final SqlDatabaseEngine sqlDatabaseEngine,
-      final String loginName,
-      final String loginPassword) {
+    final String ipOrDomain,
+    final int port,
+    final String databaseName,
+    final SqlDatabaseEngine sqlDatabaseEngine,
+    final String loginName,
+    final String loginPassword) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
     GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isBetween(0, 65_535);
@@ -158,7 +158,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
   private SqlConnectionWrapper createQslConnectionWrapper() {
 
     final var sqlConnectionWrapper = SqlConnectionWrapper
-        .forSqlConnection(SQL_CONNECTION_FACTORY.createQslConnectionFor(this));
+      .forSqlConnection(SQL_CONNECTION_FACTORY.createQslConnectionFor(this));
 
     sqlConnections.addAtEnd(sqlConnectionWrapper);
 

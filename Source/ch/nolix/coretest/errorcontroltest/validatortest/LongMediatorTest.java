@@ -23,9 +23,9 @@ public final class LongMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.isBetween(0, 100))
-        .throwsException()
-        .ofType(ArgumentIsOutOfRangeException.class)
-        .withMessage("The given value '-20' is not in [0, 100].");
+      .throwsException()
+      .ofType(ArgumentIsOutOfRangeException.class)
+      .withMessage("The given value '-20' is not in [0, 100].");
   }
 
   //method
@@ -70,9 +70,9 @@ public final class LongMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.isBetween(0, 100))
-        .throwsException()
-        .ofType(ArgumentIsOutOfRangeException.class)
-        .withMessage("The given value '120' is not in [0, 100].");
+      .throwsException()
+      .ofType(ArgumentIsOutOfRangeException.class)
+      .withMessage("The given value '120' is not in [0, 100].");
   }
 
   //method
@@ -84,9 +84,9 @@ public final class LongMediatorTest extends Test {
 
     //verification & execution
     expectRunning(() -> testUnit.isBiggerThan(100))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given value '20' is not bigger than 100.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given value '20' is not bigger than 100.");
   }
 
   //method
@@ -98,9 +98,9 @@ public final class LongMediatorTest extends Test {
 
     //verification & execution
     expectRunning(() -> testUnit.isBiggerThan(100))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given value '100' is not bigger than 100.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given value '100' is not bigger than 100.");
   }
 
   //method
@@ -123,9 +123,9 @@ public final class LongMediatorTest extends Test {
 
     //verification & execution
     expectRunning(() -> testUnit.isBiggerThanOrEquals(100))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given value '20' is not bigger than or equal to 100.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given value '20' is not bigger than or equal to 100.");
   }
 
   //method
@@ -159,8 +159,8 @@ public final class LongMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.isEqualTo(9))
-        .throwsException()
-        .ofType(UnequalArgumentException.class);
+      .throwsException()
+      .ofType(UnequalArgumentException.class);
   }
 
   //method
@@ -183,9 +183,9 @@ public final class LongMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isNotNegative)
-        .throwsException()
-        .ofType(NegativeArgumentException.class)
-        .withMessage("The given value '-1' is negative.");
+      .throwsException()
+      .ofType(NegativeArgumentException.class)
+      .withMessage("The given value '-1' is negative.");
   }
 
   //method
@@ -219,9 +219,9 @@ public final class LongMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isPositive)
-        .throwsException()
-        .ofType(NonPositiveArgumentException.class)
-        .withMessage("The given value '-1' is not positive.");
+      .throwsException()
+      .ofType(NonPositiveArgumentException.class)
+      .withMessage("The given value '-1' is not positive.");
   }
 
   //method
@@ -233,9 +233,9 @@ public final class LongMediatorTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::isPositive)
-        .throwsException()
-        .ofType(NonPositiveArgumentException.class)
-        .withMessage("The given value '0' is not positive.");
+      .throwsException()
+      .ofType(NonPositiveArgumentException.class)
+      .withMessage("The given value '0' is not positive.");
   }
 
   //method
@@ -269,9 +269,9 @@ public final class LongMediatorTest extends Test {
 
     //verification & execution
     expectRunning(() -> testUnit.isSmallerThan(100))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given value '100' is not smaller than 100.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given value '100' is not smaller than 100.");
   }
 
   //method
@@ -283,8 +283,8 @@ public final class LongMediatorTest extends Test {
 
     //verification & execution
     expectRunning(() -> testUnit.isSmallerThan(100))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given value '120' is not smaller than 100.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given value '120' is not smaller than 100.");
   }
 }

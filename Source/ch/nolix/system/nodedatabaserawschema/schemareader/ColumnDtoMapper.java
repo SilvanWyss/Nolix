@@ -15,14 +15,14 @@ final class ColumnDtoMapper {
 
   //constant
   private static final ParameterizedPropertyTypeDtoMapper PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER = //
-      new ParameterizedPropertyTypeDtoMapper();
+  new ParameterizedPropertyTypeDtoMapper();
 
   //method
   public ColumnDto createColumnDtoFromColumnNode(final IMutableNode<?> columnNode) {
     return new ColumnDto(
-        getIdFromColumnNode(columnNode),
-        getNameFromColumnNode(columnNode),
-        createParameterizedPropertyTypeFromColumnNode(columnNode));
+      getIdFromColumnNode(columnNode),
+      getNameFromColumnNode(columnNode),
+      createParameterizedPropertyTypeFromColumnNode(columnNode));
   }
 
   //method
@@ -39,9 +39,9 @@ final class ColumnDtoMapper {
   private ParameterizedPropertyTypeDto createParameterizedPropertyTypeFromColumnNode(final IMutableNode<?> columnNode) {
 
     final var parameterizedPropertyTypeNode = COLUMN_NODE_SEARCHER
-        .getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode);
+      .getStoredParameterizedPropertyTypeNodeFromColumnNode(columnNode);
 
     return PARAMETERIZED_PROPERTY_TYPE_DTO_MAPPER.createParameterizedProeprtyTypeDtoFromParameterizedPropertyTypeNode(
-        parameterizedPropertyTypeNode);
+      parameterizedPropertyTypeNode);
   }
 }

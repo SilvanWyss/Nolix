@@ -17,9 +17,9 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
   //constructor
   @SafeVarargs
   private ForwardingProperty(
-      final String name,
-      final MaterializedProperty<S, V> materializedProperty,
-      final MaterializedProperty<S, V>... materializedProperties) {
+    final String name,
+    final MaterializedProperty<S, V> materializedProperty,
+    final MaterializedProperty<S, V>... materializedProperties) {
     this(name, ImmutableList.withElement(materializedProperty, materializedProperties));
   }
 
@@ -34,9 +34,9 @@ public final class ForwardingProperty<S extends Enum<S>, V> extends Property<S> 
   //static method
   @SafeVarargs
   public static <S2 extends Enum<S2>, V2> ForwardingProperty<S2, V2> withNameAndForProperty(
-      final String name,
-      final MaterializedProperty<S2, V2> materializedProperty,
-      final MaterializedProperty<S2, V2>... materializedProperties) {
+    final String name,
+    final MaterializedProperty<S2, V2> materializedProperty,
+    final MaterializedProperty<S2, V2>... materializedProperties) {
     return new ForwardingProperty<>(name, materializedProperty, materializedProperties);
   }
 

@@ -22,9 +22,9 @@ final class TableDefinitionMapper {
   //method
   public ITableInfo createTableDefinitionFromTableNode(final IMutableNode<?> tableNode) {
     return new TableInfo(
-        getTableIdFromTableNode(tableNode),
-        getTableNameFromTableNode(tableNode),
-        getContentColumnDefinitionsFromTableNode(tableNode));
+      getTableIdFromTableNode(tableNode),
+      getTableNameFromTableNode(tableNode),
+      getContentColumnDefinitionsFromTableNode(tableNode));
   }
 
   //method
@@ -35,9 +35,9 @@ final class TableDefinitionMapper {
     for (final var cn : getStoredColumnNodesInOrderFromTableNode(tableNode)) {
 
       columnInfos.addAtEnd(
-          COLUMN_DEFINITION_MAPPER.createColumnDefinitionFromColumnNode(
-              cn,
-              columnIndexOnEntityNode));
+        COLUMN_DEFINITION_MAPPER.createColumnDefinitionFromColumnNode(
+          cn,
+          columnIndexOnEntityNode));
 
       columnIndexOnEntityNode++;
     }
@@ -47,7 +47,7 @@ final class TableDefinitionMapper {
 
   //method
   private IContainer<? extends IMutableNode<?>> getStoredColumnNodesInOrderFromTableNode(
-      final IMutableNode<?> tableNode) {
+    final IMutableNode<?> tableNode) {
     return TABLE_NODE_SEARCHER.getStoredColumnNodesFromTableNode(tableNode);
   }
 

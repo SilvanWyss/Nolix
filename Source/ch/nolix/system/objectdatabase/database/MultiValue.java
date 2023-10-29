@@ -137,10 +137,10 @@ public final class MultiValue<V> extends BaseValue<V> implements IMultiValue<V> 
   @SuppressWarnings("unchecked")
   private IContainer<MultiValueEntry<V>> loadEntries() {
     return internalGetRefDataAndSchemaAdapter().loadMultiValueEntries(
-        getStoredParentEntity().getParentTableName(),
-        getStoredParentEntity().getId(),
-        getName())
-        .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
+      getStoredParentEntity().getParentTableName(),
+      getStoredParentEntity().getId(),
+      getName())
+      .to(mve -> MultiValueEntry.loadedEntryForMultiValueAndValue(this, (V) mve));
   }
 
   //method

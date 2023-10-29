@@ -20,9 +20,9 @@ public final class ByteArrayMediatorWithStartIndex {
     GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
     GlobalValidator
-        .assertThat(startIndex)
-        .thatIsNamed(LowerCaseCatalogue.START_INDEX)
-        .isBetween(0, byteArray.length);
+      .assertThat(startIndex)
+      .thatIsNamed(LowerCaseCatalogue.START_INDEX)
+      .isBetween(0, byteArray.length);
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediatorWithStartIndex operates on the original instance.
     index = startIndex;

@@ -78,9 +78,9 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   @Override
   public IContainer<? extends IAbstractableObject> getStoredBaseTypes() {
     return ReadContainer
-        .forIterable(
-            getStoredDirectBaseTypes(),
-            getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredBaseTypes));
+      .forIterable(
+        getStoredDirectBaseTypes(),
+        getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredBaseTypes));
   }
 
   //method
@@ -107,17 +107,17 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
     //TODO: Create MultiBackReference.
     return getStoredParentDatabase()
-        .getStoredTableByEntityType(AbstractableObject.class)
-        .getStoredEntities()
-        .getStoredSelected(ao -> ao.getStoredDirectBaseTypes().contains(this));
+      .getStoredTableByEntityType(AbstractableObject.class)
+      .getStoredEntities()
+      .getStoredSelected(ao -> ao.getStoredDirectBaseTypes().contains(this));
   }
 
   //method
   @Override
   public IContainer<? extends IAbstractableField> getStoredFields() {
     return ReadContainer.forIterable(
-        getStoredDeclaredFields().getStoredOther(IAbstractableField::inheritsFromBaseField),
-        getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
+      getStoredDeclaredFields().getStoredOther(IAbstractableField::inheritsFromBaseField),
+      getStoredDirectBaseTypes().toFromGroups(IAbstractableObject::getStoredFields));
   }
 
   //method
@@ -126,9 +126,9 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
 
     //TODO: Create MultiBackReference.
     return getStoredParentDatabase()
-        .getStoredTableByEntityType(AbstractableObject.class)
-        .getStoredEntities()
-        .getStoredSelected(ao -> ao.getStoredBaseTypes().contains(this));
+      .getStoredTableByEntityType(AbstractableObject.class)
+      .getStoredEntities()
+      .getStoredSelected(ao -> ao.getStoredBaseTypes().contains(this));
   }
 
   //method
@@ -141,7 +141,7 @@ public final class AbstractableObject extends Entity implements IAbstractableObj
   @Override
   public boolean isSubTypeOfObject(final IAbstractableObject object) {
     return object != null
-        && isSubTypeOfObjectWhenObjectIsNotNull(object);
+    && isSubTypeOfObjectWhenObjectIsNotNull(object);
   }
 
   //method

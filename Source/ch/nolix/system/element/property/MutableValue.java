@@ -36,11 +36,11 @@ public final class MutableValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   public MutableValue(
-      final String name,
-      final V defaultValue,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final V defaultValue,
+    final Consumer<V> setterMethod,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
@@ -60,11 +60,11 @@ public final class MutableValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
   public static MutableValue<Boolean> forBoolean(
-      final String name,
-      final boolean defaultValue,
-      final Consumer<Boolean> setterMethod) {
+    final String name,
+    final boolean defaultValue,
+    final Consumer<Boolean> setterMethod) {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsBoolean,
-        Node::withChildNode);
+      Node::withChildNode);
   }
 
   //static method
@@ -79,9 +79,9 @@ public final class MutableValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
   public static MutableValue<Double> forDouble(
-      final String name,
-      final double defaultValue,
-      final Consumer<Double> setterMethod) {
+    final String name,
+    final double defaultValue,
+    final Consumer<Double> setterMethod) {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsDouble, Node::withChildNode);
   }
 
@@ -97,9 +97,9 @@ public final class MutableValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
   public static MutableValue<Integer> forInt(
-      final String name,
-      final int defaultValue,
-      final Consumer<Integer> setterMethod) {
+    final String name,
+    final int defaultValue,
+    final Consumer<Integer> setterMethod) {
     return new MutableValue<>(name, defaultValue, setterMethod, INode::getSingleChildNodeAsInt, Node::withChildNode);
   }
 
@@ -115,22 +115,22 @@ public final class MutableValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    */
   public static MutableValue<String> forString(
-      final String name,
-      final String defaultValue,
-      final Consumer<String> setterMethod) {
+    final String name,
+    final String defaultValue,
+    final Consumer<String> setterMethod) {
     return new MutableValue<>(
-        name,
-        defaultValue,
-        setterMethod,
-        s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
-        (final String s) -> {
+      name,
+      defaultValue,
+      setterMethod,
+      s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
+      (final String s) -> {
 
-          if (s.isEmpty()) {
-            return Node.EMPTY_NODE;
-          }
+        if (s.isEmpty()) {
+          return Node.EMPTY_NODE;
+        }
 
-          return Node.withChildNode(s);
-        });
+        return Node.withChildNode(s);
+      });
   }
 
   //method

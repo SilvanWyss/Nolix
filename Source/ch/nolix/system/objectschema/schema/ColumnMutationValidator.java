@@ -30,7 +30,7 @@ final class ColumnMutationValidator {
 
   //constant
   private static final IParameterizedPropertyTypeHelper PARAMETERIZED_PROPERTY_TYPE_HELPER = //
-      new ParameterizedPropertyTypeHelper();
+  new ParameterizedPropertyTypeHelper();
 
   //method
   public void assertCanDeleteColumn(final Column column) {
@@ -53,14 +53,14 @@ final class ColumnMutationValidator {
 
   //method
   public void assertCanSetParameterizedPropertyTypeToColumn(
-      final Column column,
-      final IParameterizedPropertyType parameterizedPropertyType) {
+    final Column column,
+    final IParameterizedPropertyType parameterizedPropertyType) {
 
     COLUMN_HELPER.assertIsOpen(column);
     column.assertIsEmpty();
 
     if (PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseReferenceType(parameterizedPropertyType)
-        && COLUMN_HELPER.belongsToDatabase(column)) {
+    && COLUMN_HELPER.belongsToDatabase(column)) {
 
       final var baseParameterizedReferenceType = (BaseParameterizedReferenceType) parameterizedPropertyType;
       final var referencedTable = baseParameterizedReferenceType.getReferencedTable();
@@ -73,14 +73,14 @@ final class ColumnMutationValidator {
     }
 
     if (PARAMETERIZED_PROPERTY_TYPE_HELPER.isABaseBackReferenceType(parameterizedPropertyType)
-        && COLUMN_HELPER.belongsToDatabase(column)) {
+    && COLUMN_HELPER.belongsToDatabase(column)) {
 
       final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) parameterizedPropertyType;
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 
       DATABASE_HELPER.assertContainsTableWithGivenColumn(
-          COLUMN_HELPER.getParentDatabase(column),
-          backReferencedColumn);
+        COLUMN_HELPER.getParentDatabase(column),
+        backReferencedColumn);
     }
   }
 

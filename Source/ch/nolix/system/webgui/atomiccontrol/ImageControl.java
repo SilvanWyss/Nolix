@@ -39,10 +39,10 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
 
   //attribute
   private final MutableOptionalValue<MutableImage> image = new MutableOptionalValue<>(
-      IMAGE_HEADER,
-      this::setImage,
-      MutableImage::fromSpecification,
-      MutableImage::getSpecification);
+    IMAGE_HEADER,
+    this::setImage,
+    MutableImage::fromSpecification,
+    MutableImage::getSpecification);
 
   //optional attribute
   private Consumer<IImageControl> leftMouseButtonPressAction;
@@ -151,9 +151,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   public IImageControl setLeftMouseButtonPressAction(final Runnable leftMouseButtonPressAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonPressAction)
-        .thatIsNamed("left mouse button press action")
-        .isNotNull();
+      .assertThat(leftMouseButtonPressAction)
+      .thatIsNamed("left mouse button press action")
+      .isNotNull();
 
     return setLeftMouseButtonPressAction(b -> leftMouseButtonPressAction.run());
   }
@@ -163,9 +163,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   public IImageControl setLeftMouseButtonPressAction(final Consumer<IImageControl> leftMouseButtonPressAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonPressAction)
-        .thatIsNamed("left mouse button press action")
-        .isNotNull();
+      .assertThat(leftMouseButtonPressAction)
+      .thatIsNamed("left mouse button press action")
+      .isNotNull();
 
     this.leftMouseButtonPressAction = leftMouseButtonPressAction;
 
@@ -177,9 +177,9 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   public IImageControl setLeftMouseButtonRelaseAction(final Runnable leftMouseButtonReleaseAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonReleaseAction)
-        .thatIsNamed("left mouse button release action")
-        .isNotNull();
+      .assertThat(leftMouseButtonReleaseAction)
+      .thatIsNamed("left mouse button release action")
+      .isNotNull();
 
     return setLeftMouseButtonRelaseAction(b -> leftMouseButtonReleaseAction.run());
   }
@@ -187,12 +187,12 @@ public final class ImageControl extends Control<IImageControl, IImageControlStyl
   //method
   @Override
   public IImageControl setLeftMouseButtonRelaseAction(
-      final Consumer<IImageControl> leftMouseButtonReleaseAction) {
+    final Consumer<IImageControl> leftMouseButtonReleaseAction) {
 
     GlobalValidator
-        .assertThat(leftMouseButtonReleaseAction)
-        .thatIsNamed("left mouse button release action")
-        .isNotNull();
+      .assertThat(leftMouseButtonReleaseAction)
+      .thatIsNamed("left mouse button release action")
+      .isNotNull();
 
     this.leftMouseButtonReleaseAction = leftMouseButtonReleaseAction;
 

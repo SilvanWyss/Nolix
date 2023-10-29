@@ -116,8 +116,8 @@ public final class ImmutableList<E> extends Container<E> {
    * @throws ArgumentIsNullException if one of the given elements is null.
    */
   public static <E2> ImmutableList<E2> withElement(
-      final E2 element,
-      final @SuppressWarnings("unchecked") E2... elements) {
+    final E2 element,
+    final @SuppressWarnings("unchecked") E2... elements) {
     return new ImmutableList<>(element, elements);
   }
 

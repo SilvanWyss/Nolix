@@ -101,6 +101,6 @@ public final class UpdateCommandCreatorTest extends Test {
 
     //verification
     expect(result).hasStringRepresentation(
-        "GUI.SetUserInputFunctions((" + textbox.getInternalId() + ",return x$Dvalue;))");
+      "GUI.SetUserInputFunctions((" + textbox.getInternalId() + ",return x$Dvalue;))");
   }
 }

@@ -36,10 +36,10 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   //constructor
   @SuppressWarnings("unchecked")
   protected MaterializedProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     super(name);
 
@@ -57,11 +57,11 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   //constructor
   @SuppressWarnings("unchecked")
   protected MaterializedProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator,
-      final BiConsumer<S, V> setterMethod) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator,
+    final BiConsumer<S, V> setterMethod) {
 
     super(name);
 
@@ -148,8 +148,8 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
         case STORING_VALUE:
 
           final var valueSpecification = Node.withHeaderAndChildNode(
-              s.getQualifyingPrefix() + getName(),
-              specificationCreator.apply(stateProperty.getValue()).getStoredSingleChildNode());
+            s.getQualifyingPrefix() + getName(),
+            specificationCreator.apply(stateProperty.getValue()).getStoredSingleChildNode());
 
           list.addAtEnd(valueSpecification);
 

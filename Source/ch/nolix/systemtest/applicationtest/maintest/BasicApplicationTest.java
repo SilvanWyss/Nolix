@@ -22,9 +22,9 @@ public final class BasicApplicationTest extends Test {
     //execution
     @SuppressWarnings("unchecked")
     final var result = BasicApplication.withNameAndInitialSessionClassAndContext(
-        "My application",
-        TestSession.withClientClass(WebClient.class).getClass(),
-        applicationContext);
+      "My application",
+      TestSession.withClientClass(WebClient.class).getClass(),
+      applicationContext);
 
     //verification
     expect(result.getApplicationName()).isEqualTo("My application");

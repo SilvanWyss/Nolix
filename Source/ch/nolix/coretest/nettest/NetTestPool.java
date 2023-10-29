@@ -13,11 +13,11 @@ public final class NetTestPool extends TestPool {
   //constructor
   public NetTestPool() {
     super(
-        new ch.nolix.coretest.nettest.endpointtest.EndPointTestPool(),
-        new ch.nolix.coretest.nettest.endpoint2test.EndPointTestPool(),
-        new ch.nolix.coretest.nettest.endpoint3test.EndPointTestPool(),
-        new NetPropertyTestPool(),
-        new TargetTestPool(),
-        new WebSocketTestPool());
+      new ch.nolix.coretest.nettest.endpointtest.EndPointTestPool(),
+      new ch.nolix.coretest.nettest.endpoint2test.EndPointTestPool(),
+      new ch.nolix.coretest.nettest.endpoint3test.EndPointTestPool(),
+      new NetPropertyTestPool(),
+      new TargetTestPool(),
+      new WebSocketTestPool());
   }
 }

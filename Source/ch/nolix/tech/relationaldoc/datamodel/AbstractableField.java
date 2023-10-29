@@ -27,7 +27,7 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
   //attribute
   private final BackReference<AbstractableObject> parentObject = BackReference
-      .forEntityAndBackReferencedPropertyName(AbstractableObject.class, "declaredFields");
+    .forEntityAndBackReferencedPropertyName(AbstractableObject.class, "declaredFields");
 
   //attribute
   private final Value<String> name = Value.withInitialValue(DEFAULT_NAME);
@@ -38,22 +38,22 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
   //TODO: Make Reference able to reference base types.
   //attribute
   private final OptionalReference<AbstractValueContent> abstractValueContent = OptionalReference
-      .forEntity(AbstractValueContent.class);
+    .forEntity(AbstractValueContent.class);
 
   //TODO: Make Reference able to reference base types.
   //attribute
   private final OptionalReference<AbstractReferenceContent> abstractReferenceContent = OptionalReference
-      .forEntity(AbstractReferenceContent.class);
+    .forEntity(AbstractReferenceContent.class);
 
   //TODO: Make Reference able to reference base types.
   //attribute
   private final OptionalReference<ConcreteValueContent> concreteValueContent = OptionalReference
-      .forEntity(ConcreteValueContent.class);
+    .forEntity(ConcreteValueContent.class);
 
   //TODO: Make Reference able to reference base types.
   //attribute
   private final OptionalReference<ConcreteReferenceContent> concreteReferenceContent = OptionalReference
-      .forEntity(ConcreteReferenceContent.class);
+    .forEntity(ConcreteReferenceContent.class);
 
   //constructor
   public AbstractableField() {
@@ -88,9 +88,9 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
     //TODO: Use a BackReference for a better performance.
     return getStoredParentObject()
-        .getStoredDirectBaseTypes()
-        .toFromGroups(IAbstractableObject::getStoredFields)
-        .getStoredFirst(f -> f.hasSameNameAs(this));
+      .getStoredDirectBaseTypes()
+      .toFromGroups(IAbstractableObject::getStoredFields)
+      .getStoredFirst(f -> f.hasSameNameAs(this));
   }
 
   //method
@@ -132,8 +132,8 @@ public final class AbstractableField extends Entity implements IAbstractableFiel
 
     //TODO: Use a BackReference for a better performance.
     return getStoredParentObject()
-        .getStoredDirectBaseTypes()
-        .containsAny(bt -> bt.getStoredFields().containsAny(f -> f.hasSameNameAs(this)));
+      .getStoredDirectBaseTypes()
+      .containsAny(bt -> bt.getStoredFields().containsAny(f -> f.hasSameNameAs(this)));
   }
 
   //method

@@ -27,12 +27,12 @@ public final class NetEndPointTest extends Test {
 
       //execution & verification
       expectRunning(
-          () -> {
-            try (final var result = new NetEndPoint(port)) {
-              GlobalSequencer.waitForMilliseconds(1);
-            }
-          })
-          .doesNotThrowException();
+        () -> {
+          try (final var result = new NetEndPoint(port)) {
+            GlobalSequencer.waitForMilliseconds(1);
+          }
+        })
+        .doesNotThrowException();
     }
   }
 
@@ -56,7 +56,7 @@ public final class NetEndPointTest extends Test {
 
         //verification
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedCommand())
-            .hasStringRepresentation("test_command");
+          .hasStringRepresentation("test_command");
       }
     }
   }
@@ -81,7 +81,7 @@ public final class NetEndPointTest extends Test {
 
         //verification
         expect(slot.getLatestCreatedReceivingDataProviderController().getLatestReceivedRequest())
-            .hasStringRepresentation("test_request");
+          .hasStringRepresentation("test_request");
         expect(result).isEqualTo(Node.withHeader("test_data"));
       }
     }

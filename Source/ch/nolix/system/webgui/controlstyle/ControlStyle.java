@@ -21,8 +21,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>>
-    extends ControlHeadStyle<ECS>
-    implements IControlStyle<ECS> {
+extends ControlHeadStyle<ECS>
+implements IControlStyle<ECS> {
 
   //constant
   public static final int DEFAULT_BORDER_THICKNESS = 0;
@@ -92,147 +92,147 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
 
   //constant
   private static final AbsoluteOrRelativeIntValidator ABSOLUTE_OR_RELATIVE_INT_VALIDATOR = //
-      new AbsoluteOrRelativeIntValidator();
+  new AbsoluteOrRelativeIntValidator();
 
   //attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> width = new NonCascadingProperty<>(
-      WIDTH_HEADER,
-      ControlState.class,
-      AbsoluteOrRelativeInt::fromSpecification,
-      IAbsoluteOrRelativeInt::getSpecification,
-      this::setWidthForState);
+    WIDTH_HEADER,
+    ControlState.class,
+    AbsoluteOrRelativeInt::fromSpecification,
+    IAbsoluteOrRelativeInt::getSpecification,
+    this::setWidthForState);
 
   //attribute
   private final NonCascadingProperty<ControlState, IAbsoluteOrRelativeInt> height = new NonCascadingProperty<>(
-      HEIGHT_HEADER,
-      ControlState.class,
-      AbsoluteOrRelativeInt::fromSpecification,
-      IAbsoluteOrRelativeInt::getSpecification,
-      this::setHeightForState);
+    HEIGHT_HEADER,
+    ControlState.class,
+    AbsoluteOrRelativeInt::fromSpecification,
+    IAbsoluteOrRelativeInt::getSpecification,
+    this::setHeightForState);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> leftBorderThickness = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          LEFT_BORDER_THICKNESS_HEADER,
-          ControlState.class,
-          this::setLeftBorderThicknessForState,
-          DEFAULT_BORDER_THICKNESS);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      LEFT_BORDER_THICKNESS_HEADER,
+      ControlState.class,
+      this::setLeftBorderThicknessForState,
+      DEFAULT_BORDER_THICKNESS);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> rightBorderThickness = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          RIGHT_BORDER_THICKNESS_HEADER,
-          ControlState.class,
-          this::setRightBorderThicknessForState,
-          DEFAULT_BORDER_THICKNESS);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      RIGHT_BORDER_THICKNESS_HEADER,
+      ControlState.class,
+      this::setRightBorderThicknessForState,
+      DEFAULT_BORDER_THICKNESS);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> topBorderThickness = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          TOP_BORDER_THICKNESS_HEADER,
-          ControlState.class,
-          this::setTopBorderThicknessForState,
-          DEFAULT_BORDER_THICKNESS);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      TOP_BORDER_THICKNESS_HEADER,
+      ControlState.class,
+      this::setTopBorderThicknessForState,
+      DEFAULT_BORDER_THICKNESS);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> bottomBorderThickness = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          BOTTOM_BORDER_THICKNESS_HEADER,
-          ControlState.class,
-          this::setBottomBorderThicknessForState,
-          DEFAULT_BORDER_THICKNESS);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      BOTTOM_BORDER_THICKNESS_HEADER,
+      ControlState.class,
+      this::setBottomBorderThicknessForState,
+      DEFAULT_BORDER_THICKNESS);
 
   //attribute
   private final NonCascadingProperty<ControlState, IColor> leftBorderColor = new NonCascadingProperty<>(
-      LEFT_BORDER_COLOR_HEADER,
-      ControlState.class,
-      Color::fromSpecification,
-      IColor::getSpecification,
-      DEFAULT_BORDER_COLOR);
+    LEFT_BORDER_COLOR_HEADER,
+    ControlState.class,
+    Color::fromSpecification,
+    IColor::getSpecification,
+    DEFAULT_BORDER_COLOR);
 
   //attribute
   private final NonCascadingProperty<ControlState, IColor> rightBorderColor = new NonCascadingProperty<>(
-      RIGHT_BORDER_COLOR_HEADER,
-      ControlState.class,
-      Color::fromSpecification,
-      IColor::getSpecification,
-      DEFAULT_BORDER_COLOR);
+    RIGHT_BORDER_COLOR_HEADER,
+    ControlState.class,
+    Color::fromSpecification,
+    IColor::getSpecification,
+    DEFAULT_BORDER_COLOR);
 
   //attribute
   private final NonCascadingProperty<ControlState, IColor> topBorderColor = new NonCascadingProperty<>(
-      TOP_BORDER_COLOR_HEADER,
-      ControlState.class,
-      Color::fromSpecification,
-      IColor::getSpecification,
-      DEFAULT_BORDER_COLOR);
+    TOP_BORDER_COLOR_HEADER,
+    ControlState.class,
+    Color::fromSpecification,
+    IColor::getSpecification,
+    DEFAULT_BORDER_COLOR);
 
   //attribute
   private final NonCascadingProperty<ControlState, IColor> bottomBorderColor = new NonCascadingProperty<>(
-      BOTTOM_BORDER_COLOR_HEADER,
-      ControlState.class,
-      Color::fromSpecification,
-      IColor::getSpecification,
-      DEFAULT_BORDER_COLOR);
+    BOTTOM_BORDER_COLOR_HEADER,
+    ControlState.class,
+    Color::fromSpecification,
+    IColor::getSpecification,
+    DEFAULT_BORDER_COLOR);
 
   //attribute
   private final NonCascadingProperty<ControlState, IBackground> background = new NonCascadingProperty<>(
-      BACKGROUND_HEADER,
-      ControlState.class,
-      Background::fromSpecification,
-      IBackground::getSpecification,
-      DEFAULT_BACKGROUND);
+    BACKGROUND_HEADER,
+    ControlState.class,
+    Background::fromSpecification,
+    IBackground::getSpecification,
+    DEFAULT_BACKGROUND);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> leftPadding = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          LEFT_PADDING_HEADER,
-          ControlState.class,
-          this::setLeftPaddingForState,
-          DEFAULT_PADDING);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      LEFT_PADDING_HEADER,
+      ControlState.class,
+      this::setLeftPaddingForState,
+      DEFAULT_PADDING);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> rightPadding = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          RIGHT_PADDING_HEADER,
-          ControlState.class,
-          this::setRightPaddingForState,
-          DEFAULT_PADDING);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      RIGHT_PADDING_HEADER,
+      ControlState.class,
+      this::setRightPaddingForState,
+      DEFAULT_PADDING);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> topPadding = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          TOP_PADDING_HEADER,
-          ControlState.class,
-          this::setTopPaddingForState,
-          DEFAULT_PADDING);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      TOP_PADDING_HEADER,
+      ControlState.class,
+      this::setTopPaddingForState,
+      DEFAULT_PADDING);
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> bottomPadding = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          BOTTOM_PADDING_HEADER,
-          ControlState.class,
-          this::setBottomPaddingForState,
-          DEFAULT_PADDING);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      BOTTOM_PADDING_HEADER,
+      ControlState.class,
+      this::setBottomPaddingForState,
+      DEFAULT_PADDING);
 
   //attribute
   private final ForwardingProperty<ControlState, Integer> borderThickness = ForwardingProperty.withNameAndForProperty(
-      BORDER_THICKNESS_HEADER,
-      leftBorderThickness,
-      rightBorderThickness,
-      topBorderThickness,
-      bottomBorderThickness);
+    BORDER_THICKNESS_HEADER,
+    leftBorderThickness,
+    rightBorderThickness,
+    topBorderThickness,
+    bottomBorderThickness);
 
   //attribute
   private final ForwardingProperty<ControlState, IColor> borderColor = ForwardingProperty.withNameAndForProperty(
-      BORDER_COLOR_HEADER,
-      leftBorderColor,
-      rightBorderColor,
-      topBorderColor,
-      bottomBorderColor);
+    BORDER_COLOR_HEADER,
+    leftBorderColor,
+    rightBorderColor,
+    topBorderColor,
+    bottomBorderColor);
 
   //attribute
   private final ForwardingProperty<ControlState, Integer> padding = ForwardingProperty
-      .withNameAndForProperty(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
+    .withNameAndForProperty(PADDING_HEADER, leftPadding, rightPadding, topPadding, bottomPadding);
 
   //method
   @Override
@@ -459,8 +459,8 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
   //method
   @Override
   public final ECS setBackgroundColorGradientForState(
-      final ControlState state,
-      final IColorGradient backgroundColorGradient) {
+    final ControlState state,
+    final IColorGradient backgroundColorGradient) {
     return setBackgroundForState(state, Background.withColorGradient(backgroundColorGradient));
   }
 
@@ -475,12 +475,12 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
   //method
   @Override
   public final ECS setBackgroundImageForState(
-      final ControlState state,
-      final IImage backgroundImage,
-      final ImageApplication imageApplication) {
+    final ControlState state,
+    final IImage backgroundImage,
+    final ImageApplication imageApplication) {
     return setBackgroundForState(
-        state,
-        Background.withImageAndImageApplication(backgroundImage, imageApplication));
+      state,
+      Background.withImageAndImageApplication(backgroundImage, imageApplication));
   }
 
   //method
@@ -544,8 +544,8 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
   //method
   @Override
   public final ECS setHeightInPercentOfViewAreaForState(
-      final ControlState state,
-      final double heightInPercentOfViewAreaHeight) {
+    final ControlState state,
+    final double heightInPercentOfViewAreaHeight) {
 
     setHeightForState(state, AbsoluteOrRelativeInt.withPercentage(heightInPercentOfViewAreaHeight));
 
@@ -666,8 +666,8 @@ public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateC
   //method
   @Override
   public ECS setWidthInPercentOfViewAreaWidthForState(
-      final ControlState state,
-      final double widthInPercentOfViewAreaWidth) {
+    final ControlState state,
+    final double widthInPercentOfViewAreaWidth) {
 
     setWidthForState(state, AbsoluteOrRelativeInt.withPercentage(widthInPercentOfViewAreaWidth));
 

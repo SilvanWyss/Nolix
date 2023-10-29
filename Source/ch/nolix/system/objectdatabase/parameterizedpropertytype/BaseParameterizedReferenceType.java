@@ -13,8 +13,8 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //class
 public abstract class BaseParameterizedReferenceType<
 
-    E extends IEntity>
-    implements IBaseParameterizedReferenceType<E> {
+E extends IEntity>
+implements IBaseParameterizedReferenceType<E> {
 
   //attribute
   private final ITable<E> referencedTable;

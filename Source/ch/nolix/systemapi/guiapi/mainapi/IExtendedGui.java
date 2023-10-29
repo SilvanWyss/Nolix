@@ -13,7 +13,7 @@ import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
  * @param <G> is the type of a {@link IExtendedGui}.
  */
 public interface IExtendedGui<G extends IExtendedGui<G>>
-    extends GroupCloseable, IGui<G>, Refreshable {
+extends GroupCloseable, IGui<G>, Refreshable {
 
   //method declaration
   /**

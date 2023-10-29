@@ -20,8 +20,8 @@ public final class MathTestPool extends TestPool {
    */
   public MathTestPool() {
     super(
-        new AlgebraTestPool(),
-        new MainTestPool(),
-        new StochasticTestPool());
+      new AlgebraTestPool(),
+      new MainTestPool(),
+      new StochasticTestPool());
   }
 }

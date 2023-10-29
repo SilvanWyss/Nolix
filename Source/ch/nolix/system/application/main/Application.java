@@ -35,7 +35,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
  * @param <AC> is the type of the application context of a {@link Application}.
  */
 public abstract class Application<BC extends BackendClient<BC, AC>, AC>
-    implements IApplication<AC> {
+implements IApplication<AC> {
 
   //attribute
   private final AC applicationContext;
@@ -200,10 +200,10 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
     try {
       return (Session<BC, AC>) getInitialSessionConstructor().newInstance();
     } catch (final
-        InstantiationException
-        | IllegalAccessException
-        | IllegalArgumentException
-        | InvocationTargetException exception) {
+    InstantiationException
+    | IllegalAccessException
+    | IllegalArgumentException
+    | InvocationTargetException exception) {
       throw WrapperException.forError(exception);
     }
   }
@@ -306,12 +306,12 @@ public abstract class Application<BC extends BackendClient<BC, AC>, AC>
    */
   private IApplicationInstanceTarget asTargetWithServerTarget(final IServerTarget serverTarget) {
     return ApplicationInstanceTarget
-        .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
-            serverTarget.getIpOrDomain(),
-            serverTarget.getPort(),
-            getInstanceName(),
-            getUrlInstanceName(),
-            serverTarget.getSecurityLevelForConnections());
+      .forIpOrDomainAndPortAndApplicationInstanceNameAndApplicationUrlInstanceNameAndSecurityLevelForConnections(
+        serverTarget.getIpOrDomain(),
+        serverTarget.getPort(),
+        getInstanceName(),
+        getUrlInstanceName(),
+        serverTarget.getSecurityLevelForConnections());
   }
 
   //method

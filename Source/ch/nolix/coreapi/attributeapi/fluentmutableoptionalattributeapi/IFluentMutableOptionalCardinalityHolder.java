@@ -16,7 +16,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
  *                {@link IFluentMutableOptionalCardinalityHolder}.
  */
 public interface IFluentMutableOptionalCardinalityHolder<FMOCH extends IFluentMutableOptionalCardinalityHolder<FMOCH>>
-    extends ICardinalityHolder {
+extends ICardinalityHolder {
 
   //method declaration
   /**

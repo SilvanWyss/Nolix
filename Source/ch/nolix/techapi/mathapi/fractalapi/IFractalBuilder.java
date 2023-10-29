@@ -52,7 +52,7 @@ public interface IFractalBuilder {
 
   //method declaration
   IFractalBuilder setSequenceCreator(
-      Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator);
+    Function<IComplexNumber, ISequence<IComplexNumber>> sequenceCreator);
 
   //method declaration
   IFractalBuilder setWidthInPixel(int widthInPixel);

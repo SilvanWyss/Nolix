@@ -54,12 +54,12 @@ public final class LayerTest extends Test {
 
     //setup
     final var testUnit = new Layer()
-        .setId("id")
-        .setRole(LayerRole.MAIN_LAYER)
-        .setOpacity(0.5)
-        .setBackgroundColor(Color.AQUA)
-        .setContentAlignment(ContentAlignment.BOTTOM_RIGHT)
-        .setRootControl(new Label());
+      .setId("id")
+      .setRole(LayerRole.MAIN_LAYER)
+      .setOpacity(0.5)
+      .setBackgroundColor(Color.AQUA)
+      .setContentAlignment(ContentAlignment.BOTTOM_RIGHT)
+      .setRootControl(new Label());
 
     //execution
     testUnit.reset();

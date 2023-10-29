@@ -45,10 +45,10 @@ public final class ColumnDto implements IColumnDto {
 
   //constructor
   public ColumnDto(
-      final String name,
-      final IDataTypeDto dataType,
-      final IConstraintDto constraint,
-      final IConstraintDto... constraints) {
+    final String name,
+    final IDataTypeDto dataType,
+    final IConstraintDto constraint,
+    final IConstraintDto... constraints) {
     this(name, dataType, ReadContainer.forElement(constraint, constraints));
   }
 

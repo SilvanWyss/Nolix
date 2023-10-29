@@ -44,10 +44,10 @@ abstract class SingleValue<V> extends BaseValue<V> {
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   protected SingleValue(
-      final String name,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> setterMethod,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     //Calls constructor of the base class.
     super(name, valueCreator, specificationCreator);
@@ -82,9 +82,9 @@ abstract class SingleValue<V> extends BaseValue<V> {
     //Asserts that the current SingleProperty has a value.
     if (value == null) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentNameAndArgumentAndAttributeName(
-          getName(),
-          this,
-          LowerCaseCatalogue.VALUE);
+        getName(),
+        this,
+        LowerCaseCatalogue.VALUE);
     }
 
     return value;

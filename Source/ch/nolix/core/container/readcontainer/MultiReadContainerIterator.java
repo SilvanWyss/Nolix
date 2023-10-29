@@ -29,8 +29,8 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
 
   //constructor
   private MultiReadContainerIterator(
-      final CopyableIterator<IContainer<E>> rootIterator,
-      final CopyableIterator<E> currentIterator) {
+    final CopyableIterator<IContainer<E>> rootIterator,
+    final CopyableIterator<E> currentIterator) {
     this.rootIterator = rootIterator;
     this.currentIterator = currentIterator;
   }

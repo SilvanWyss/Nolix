@@ -11,10 +11,10 @@ public final class AbstractableObjectEvaluator {
   //method
   public boolean canAddBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject baseType) {
     return canAddBaseType(baseType)
-        && abstractableObject != null
-        && !abstractableObject.hasSameNameAs(baseType)
-        && canAddBaseTypeBecauseOfBaseTypes(abstractableObject, baseType)
-        && canAddBaseTypeBecauseOfSubTypes(abstractableObject, baseType);
+    && abstractableObject != null
+    && !abstractableObject.hasSameNameAs(baseType)
+    && canAddBaseTypeBecauseOfBaseTypes(abstractableObject, baseType)
+    && canAddBaseTypeBecauseOfSubTypes(abstractableObject, baseType);
   }
 
   //method
@@ -29,39 +29,39 @@ public final class AbstractableObjectEvaluator {
     }
 
     return abstractableObject.getStoredFields().containsNone(f -> f.hasSameNameAs(field))
-        && canAddFieldBecauseOfSubTypes(abstractableObject, field);
+    && canAddFieldBecauseOfSubTypes(abstractableObject, field);
   }
 
   //method
   public boolean canBeSetAsConcrete(final IAbstractableObject abstractableObject) {
     return abstractableObject != null
-        && abstractableObject.getStoredFields().containsNone(IAbstractableField::isAbstract);
+    && abstractableObject.getStoredFields().containsNone(IAbstractableField::isAbstract);
   }
 
   //method
   public boolean canSetName(final IAbstractableObject abstractableObject, final String name) {
     return canSetName(name)
-        && abstractableObject != null
-        && abstractableObject.getStoredBaseTypes().containsNone(ao -> ao.hasName(name))
-        && abstractableObject.getStoredSubTypes().containsNone(ao -> ao.hasName(name));
+    && abstractableObject != null
+    && abstractableObject.getStoredBaseTypes().containsNone(ao -> ao.hasName(name))
+    && abstractableObject.getStoredSubTypes().containsNone(ao -> ao.hasName(name));
   }
 
   //method
   public boolean hasBaseType(final IAbstractableObject abstractableObject, final IAbstractableObject probableBaseType) {
     return abstractableObject != null
-        && !abstractableObject.getStoredBaseTypes().contains(probableBaseType);
+    && !abstractableObject.getStoredBaseTypes().contains(probableBaseType);
   }
 
   //method
   public boolean hasBaseTypes(final IAbstractableObject abstractableObject) {
     return abstractableObject != null
-        && abstractableObject.getStoredDirectBaseTypes().containsAny();
+    && abstractableObject.getStoredDirectBaseTypes().containsAny();
   }
 
   //method
   private boolean canAddBaseTypeBecauseOfBaseTypes(
-      final IAbstractableObject abstractableObject,
-      final IAbstractableObject baseType) {
+    final IAbstractableObject abstractableObject,
+    final IAbstractableObject baseType) {
 
     if (abstractableObject == null) {
       return false;
@@ -73,8 +73,8 @@ public final class AbstractableObjectEvaluator {
 
   //method
   private boolean canAddBaseTypeBecauseOfSubTypes(
-      final IAbstractableObject abstractableObject,
-      final IAbstractableObject baseType) {
+    final IAbstractableObject abstractableObject,
+    final IAbstractableObject baseType) {
 
     if (abstractableObject == null) {
       return false;
@@ -87,7 +87,7 @@ public final class AbstractableObjectEvaluator {
   //method
   private boolean canAddBaseType(final IAbstractableObject baseType) {
     return baseType != null
-        && baseType.isAbstract();
+    && baseType.isAbstract();
   }
 
   //method
@@ -97,16 +97,16 @@ public final class AbstractableObjectEvaluator {
 
   //method
   private boolean canAddFieldBecauseOfSubTypes(
-      final IAbstractableObject abstractableObject,
-      final IAbstractableField field) {
+    final IAbstractableObject abstractableObject,
+    final IAbstractableField field) {
     return abstractableObject
-        .getStoredSubTypes()
-        .containsNone(st -> st.getStoredFields().containsAny(f -> f.hasSameNameAs(field)));
+      .getStoredSubTypes()
+      .containsNone(st -> st.getStoredFields().containsAny(f -> f.hasSameNameAs(field)));
   }
 
   //method
   private boolean canSetName(final String name) {
     return name != null
-        && !name.isBlank();
+    && !name.isBlank();
   }
 }

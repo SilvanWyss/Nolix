@@ -14,20 +14,20 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
   //method
   @Override
   public void assertDoesNotContainDatabaseWithGivenName(
-      final IDatabaseEngine databaseEngine,
-      final String name) {
+    final IDatabaseEngine databaseEngine,
+    final String name) {
     if (!containsDatabaseWithGivenName(databaseEngine, name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains a database with the name '" + name + "'");
+        this,
+        "contains a database with the name '" + name + "'");
     }
   }
 
   //method
   @Override
   public boolean containsDatabaseWithGivenName(
-      final IDatabaseEngine databaseEngine,
-      final String name) {
+    final IDatabaseEngine databaseEngine,
+    final String name) {
     return databaseEngine.getStoredDatabases().containsAny(db -> db.hasName(name));
   }
 
@@ -40,8 +40,8 @@ public final class DatabaseEngineHelper extends DatabaseObjectHelper implements 
   //method
   @Override
   public IDatabase getStoredDatabaseWithGivenName(
-      final IDatabaseEngine databaseEngine,
-      final String name) {
+    final IDatabaseEngine databaseEngine,
+    final String name) {
     return databaseEngine.getStoredDatabases().getStoredFirst(db -> db.hasName(name));
   }
 }

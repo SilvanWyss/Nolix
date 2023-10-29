@@ -16,8 +16,8 @@ public interface IValidationLabelHelper {
 
   //method declaration
   <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-      C control,
-      Consumer<? super C> action);
+    C control,
+    Consumer<? super C> action);
 
   //method declaration
   IValidationLabel getStoredNearestValidationLabelOfControlOrNull(IControl<?, ?> control);

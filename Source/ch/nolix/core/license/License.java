@@ -113,8 +113,8 @@ public abstract class License implements INameHolder {
     GlobalValidator.assertThat(key).thatIsNamed(LowerCaseCatalogue.KEY).isNotNull();
 
     return key
-        .replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING)
-        .replace(StringCatalogue.SPACE, StringCatalogue.EMPTY_STRING)
-        .replace(StringCatalogue.TABULATOR, StringCatalogue.EMPTY_STRING);
+      .replace(StringCatalogue.MINUS, StringCatalogue.EMPTY_STRING)
+      .replace(StringCatalogue.SPACE, StringCatalogue.EMPTY_STRING)
+      .replace(StringCatalogue.TABULATOR, StringCatalogue.EMPTY_STRING);
   }
 }

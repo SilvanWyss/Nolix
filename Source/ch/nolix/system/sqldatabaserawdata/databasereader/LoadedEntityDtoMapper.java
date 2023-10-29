@@ -21,25 +21,25 @@ final class LoadedEntityDtoMapper {
 
   //method
   public ILoadedEntityDto createLoadedEntityDtoFrosqlRecord(
-      final List<String> sqlRecordValues,
-      final ITableInfo tableInfo) {
+    final List<String> sqlRecordValues,
+    final ITableInfo tableInfo) {
     return new LoadedEntityDto(
-        sqlRecordValues.get(0),
-        sqlRecordValues.get(1),
-        getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo));
+      sqlRecordValues.get(0),
+      sqlRecordValues.get(1),
+      getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo));
   }
 
   //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
-      final List<String> sqlRecordValues,
-      final ITableInfo tableInfo) {
+    final List<String> sqlRecordValues,
+    final ITableInfo tableInfo) {
     return getContentFieldsFrosqlRecord(sqlRecordValues, tableInfo.getColumnInfos());
   }
 
   //method
   private IContainer<ILoadedContentFieldDto> getContentFieldsFrosqlRecord(
-      final List<String> sqlRecordValues,
-      final IContainer<IColumnInfo> contentColumnDefinitions) {
+    final List<String> sqlRecordValues,
+    final IContainer<IColumnInfo> contentColumnDefinitions) {
 
     final var contentFields = new LinkedList<ILoadedContentFieldDto>();
     var sqlRecordValueIterator = sqlRecordValues.iterator();
@@ -50,9 +50,9 @@ final class LoadedEntityDtoMapper {
 
     for (final var ccd : contentColumnDefinitions) {
       contentFields.addAtEnd(
-          CONTENT_FIELD_MAPPER.createContentFieldFromString(
-              sqlRecordValueIterator.next(),
-              ccd));
+        CONTENT_FIELD_MAPPER.createContentFieldFromString(
+          sqlRecordValueIterator.next(),
+          ccd));
     }
 
     return contentFields;

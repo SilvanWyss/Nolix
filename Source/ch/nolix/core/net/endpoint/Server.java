@@ -32,21 +32,21 @@ public final class Server extends BaseServer {
 
   //constant
   private static final String DEFAULT_HTTP_MESSAGE = """
-      HTTP/1.1 200 OK
-      Content-Type: text/html; charset=UTF-8
+  HTTP/1.1 200 OK
+  Content-Type: text/html; charset=UTF-8
 
-      <!DOCTYPE html>
-      <html>
-      <head>
-      <title>Nolix</title>
-      <style>*{font-family: Calibri;}</style>
-      </head>
-      <body>
-      <h1>Nolix</h1>
-      <p>The requested server does not support web clients.</p>
-      </body>
-      </html>
-      """;
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Nolix</title>
+  <style>*{font-family: Calibri;}</style>
+  </head>
+  <body>
+  <h1>Nolix</h1>
+  <p>The requested server does not support web clients.</p>
+  </body>
+  </html>
+  """;
 
   //attribute
   private final int port;

@@ -103,7 +103,7 @@ public final class JobPool {
     final var workerCount = getWorkerCount();
 
     return jobWrappers.containsAny()
-        && workerCount < getOptimalWorkerCount()
-        && 10 * workerCount < jobWrappers.getElementCount();
+    && workerCount < getOptimalWorkerCount()
+    && 10 * workerCount < jobWrappers.getElementCount();
   }
 }

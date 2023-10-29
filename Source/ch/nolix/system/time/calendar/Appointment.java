@@ -19,10 +19,10 @@ public final class Appointment extends MutableElement implements IMutableAppoint
 
   //constant
   private static final Time DEFAULT_START_TIME = Time
-      .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2020, 1, 1, 10, 0);
+    .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2020, 1, 1, 10, 0);
 
   private static final Time DEFAULT_END_TIME = Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(2020,
-      1, 1, 11, 0);
+    1, 1, 11, 0);
 
   //constant
   private static final String TITLE_HEADER = PascalCaseCatalogue.TITLE;
@@ -35,23 +35,23 @@ public final class Appointment extends MutableElement implements IMutableAppoint
 
   //attribute
   private final MutableValue<String> title = MutableValue.forString(TITLE_HEADER, DEFAULT_TITLE,
-      this::setTitle);
+    this::setTitle);
 
   //attribute
   private final MutableValue<ITime> startTime = new MutableValue<>(
-      START_TIME_HEADER,
-      DEFAULT_START_TIME,
-      this::setStartTime,
-      Time::fromSpecification,
-      ITime::getSpecification);
+    START_TIME_HEADER,
+    DEFAULT_START_TIME,
+    this::setStartTime,
+    Time::fromSpecification,
+    ITime::getSpecification);
 
   //attribute
   private final MutableValue<ITime> endTime = new MutableValue<>(
-      END_TIME_HEADER,
-      DEFAULT_END_TIME,
-      this::setEndTime,
-      Time::fromSpecification,
-      ITime::getSpecification);
+    END_TIME_HEADER,
+    DEFAULT_END_TIME,
+    this::setEndTime,
+    Time::fromSpecification,
+    ITime::getSpecification);
 
   //method
   @Override

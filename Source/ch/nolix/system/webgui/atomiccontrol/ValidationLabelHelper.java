@@ -24,8 +24,8 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
   //method
   @Override
   public void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-      final IControl<?, ?> control,
-      final Runnable action) {
+    final IControl<?, ?> control,
+    final Runnable action) {
     try {
       action.run();
       clearNearestValidationLabelOfControl(control);
@@ -37,8 +37,8 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
   //method
   @Override
   public <C extends IControl<C, ?>> void executeActionOfControlAndShowProbableErrorInNearestValidationLabel(
-      C control,
-      Consumer<? super C> action) {
+    C control,
+    Consumer<? super C> action) {
     try {
       action.accept(control);
       clearNearestValidationLabelOfControl(control);
@@ -70,8 +70,8 @@ public final class ValidationLabelHelper implements IValidationLabelHelper {
   //method
   @Override
   public void showErrorInNearestValidationLabelOfControlOrSwallowError(
-      final IControl<?, ?> control,
-      final Throwable error) {
+    final IControl<?, ?> control,
+    final Throwable error) {
 
     final var validationLabel = getStoredNearestValidationLabelOfControlOrNull(control);
 

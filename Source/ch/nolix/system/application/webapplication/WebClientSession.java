@@ -28,8 +28,8 @@ public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClien
   protected final void fullInitialize() {
 
     getStoredGui()
-        .setTitle(getApplicationName())
-        .setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
+      .setTitle(getApplicationName())
+      .setFrontEndReaderAndFrontEndWriter(createFrontendReader(), createFrontendWriter());
 
     initialize();
   }

@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 //interface
 //An IItemMenu can contain 0 or 1 selected item.
 public interface IItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-    extends Clearable, IControl<IM, IMS> {
+extends Clearable, IControl<IM, IMS> {
 
   //method declaration
   IM addItem(IItemMenuItem<?> item, IItemMenuItem<?>... items);

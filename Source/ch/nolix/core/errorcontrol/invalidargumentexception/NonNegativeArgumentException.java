@@ -58,8 +58,8 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NonNegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final double argument) {
+    final String argumentName,
+    final double argument) {
     return new NonNegativeArgumentException(argumentName, argument);
   }
 
@@ -73,8 +73,8 @@ public final class NonNegativeArgumentException extends InvalidArgumentException
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NonNegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final long argument) {
+    final String argumentName,
+    final long argument) {
     return new NonNegativeArgumentException(argumentName, argument);
   }
 }

@@ -56,10 +56,10 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private ArgumentIsOutOfRangeException(
-      final String argumentName,
-      final double argument,
-      final double min,
-      final double max) {
+    final String argumentName,
+    final double argument,
+    final double min,
+    final double max) {
     //Calls constructor of the base class.
     super(argumentName, argument, "is not in [" + min + ", " + max + "]");
   }
@@ -77,10 +77,10 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   private ArgumentIsOutOfRangeException(
-      final String argumentName,
-      final long argument,
-      final long min,
-      final long max) {
+    final String argumentName,
+    final long argument,
+    final long min,
+    final long max) {
 
     //Calls constructor of the base class.
     super(argumentName, argument, "is not in [" + min + ", " + max + "]");
@@ -95,9 +95,9 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @param max
    */
   public static ArgumentIsOutOfRangeException forArgumentAndRangeWithMinAndMax(
-      final double argument,
-      final double min,
-      final double max) {
+    final double argument,
+    final double min,
+    final double max) {
     return new ArgumentIsOutOfRangeException(argument, min, max);
   }
 
@@ -110,9 +110,9 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @param max
    */
   public static ArgumentIsOutOfRangeException forArgumentAndRangeWithMinAndMax(
-      final long argument,
-      final long min,
-      final long max) {
+    final long argument,
+    final long min,
+    final long max) {
     return new ArgumentIsOutOfRangeException(argument, min, max);
   }
 
@@ -128,10 +128,10 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @throws IllegalArgumentException if the given argument name is blank.
    */
   public static ArgumentIsOutOfRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      final String argumentName,
-      final double argument,
-      final double min,
-      final double max) {
+    final String argumentName,
+    final double argument,
+    final double min,
+    final double max) {
     return new ArgumentIsOutOfRangeException(argumentName, argument, min, max);
   }
 
@@ -147,10 +147,10 @@ public final class ArgumentIsOutOfRangeException extends InvalidArgumentExceptio
    * @throws IllegalArgumentException if the given argument name is blank.
    */
   public static ArgumentIsOutOfRangeException forArgumentNameAndArgumentAndRangeWithMinAndMax(
-      final String argumentName,
-      final long argument,
-      final long min,
-      final long max) {
+    final String argumentName,
+    final long argument,
+    final long min,
+    final long max) {
     return new ArgumentIsOutOfRangeException(argumentName, argument, min, max);
   }
 }

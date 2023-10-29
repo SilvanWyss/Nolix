@@ -14,8 +14,8 @@ public final class AsSoonAsMethodTutorial {
 
   public static void main(String[] args) {
     GlobalSequencer
-        .asSoonAs(() -> getRandomNumberBetween1And100() == 100)
-        .runInBackground(() -> GlobalLogger.logInfo("Number 100 occured!"));
+      .asSoonAs(() -> getRandomNumberBetween1And100() == 100)
+      .runInBackground(() -> GlobalLogger.logInfo("Number 100 occured!"));
   }
 
   private static int getRandomNumberBetween1And100() {

@@ -5,7 +5,7 @@ import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
 
 //class
 public final class ExchangableExtensionElement<E extends IRespondingMutableElement<E>>
-    extends BaseExtensionElement<E> {
+extends BaseExtensionElement<E> {
 
   //constructor
   public ExchangableExtensionElement(final E internalExtensionElement) {

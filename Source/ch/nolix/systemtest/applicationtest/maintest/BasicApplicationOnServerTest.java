@@ -22,9 +22,9 @@ public final class BasicApplicationOnServerTest extends Test {
       final var applicationContext = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
-          "My application",
-          TestSession.withClientClass(WebClient.class).getClass(),
-          applicationContext);
+        "My application",
+        TestSession.withClientClass(WebClient.class).getClass(),
+        applicationContext);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution
@@ -43,9 +43,9 @@ public final class BasicApplicationOnServerTest extends Test {
     final var applicationContext = new VoidObject();
     @SuppressWarnings("unchecked")
     final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
-        "My application",
-        TestSession.withClientClass(WebClient.class).getClass(),
-        applicationContext);
+      "My application",
+      TestSession.withClientClass(WebClient.class).getClass(),
+      applicationContext);
 
     //execution
     final var result = testUnit.getInstanceName();
@@ -63,9 +63,9 @@ public final class BasicApplicationOnServerTest extends Test {
       final var applicationContext = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
-          "My application",
-          TestSession.withClientClass(WebClient.class).getClass(),
-          applicationContext);
+        "My application",
+        TestSession.withClientClass(WebClient.class).getClass(),
+        applicationContext);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution
@@ -85,9 +85,9 @@ public final class BasicApplicationOnServerTest extends Test {
       final var applicationContext = new VoidObject();
       @SuppressWarnings("unchecked")
       final var testUnit = BasicApplication.withNameAndInitialSessionClassAndContext(
-          "My application",
-          TestSession.withClientClass(WebClient.class).getClass(),
-          applicationContext);
+        "My application",
+        TestSession.withClientClass(WebClient.class).getClass(),
+        applicationContext);
       localServer.addApplicationWithNameAddendum(testUnit, "Instance1");
 
       //execution

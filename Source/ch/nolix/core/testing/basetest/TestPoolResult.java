@@ -22,8 +22,8 @@ public final class TestPoolResult {
 
   //static method
   public static TestPoolResult forTestPoolResultsAndTestResults(
-      final Iterable<TestPoolResult> testPoolResults,
-      final Iterable<TestResult> testResults) {
+    final Iterable<TestPoolResult> testPoolResults,
+    final Iterable<TestResult> testResults) {
     return new TestPoolResult(testPoolResults, testResults);
   }
 

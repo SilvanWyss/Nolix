@@ -47,7 +47,7 @@ final class PascalCaseCreator {
           break;
         case UPPER_CASE_LETTER:
           if (previousCharacterType == CharacterType.LOWER_CASE_LETTER
-              || previousCharacterType == CharacterType.UNDERSCORE) {
+          || previousCharacterType == CharacterType.UNDERSCORE) {
             stringBuilder.append(character);
           } else {
             stringBuilder.append(Character.toLowerCase(character));

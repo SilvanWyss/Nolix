@@ -18,15 +18,15 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 
   //constant
   private static final ConcreteReferenceContentValidator CONCRETE_REFERENCE_CONTENT_VALIDATOR = //
-      new ConcreteReferenceContentValidator();
+  new ConcreteReferenceContentValidator();
 
   //attribute
   private final BackReference<AbstractableField> parentField = BackReference
-      .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteReferenceContent");
+    .forEntityAndBackReferencedPropertyName(AbstractableField.class, "concreteReferenceContent");
 
   //multi-attribute
   private final MultiReference<AbstractableObject> referencedObjects = MultiReference
-      .forEntity(AbstractableObject.class);
+    .forEntity(AbstractableObject.class);
 
   //constructor
   public ConcreteReferenceContent() {

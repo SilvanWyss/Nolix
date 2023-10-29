@@ -101,10 +101,10 @@ public class LongMediator extends Mediator {
   public final void isBetween(final long min, final long max) {
     if (argument < min || argument > max) {
       throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-          getArgumentName(),
-          argument,
-          min,
-          max);
+        getArgumentName(),
+        argument,
+        min,
+        max);
     }
   }
 
@@ -118,9 +118,9 @@ public class LongMediator extends Mediator {
   public final void isBiggerThan(final long value) {
     if (argument <= value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not bigger than " + value);
+        getArgumentName(),
+        argument,
+        "is not bigger than " + value);
     }
   }
 
@@ -134,9 +134,9 @@ public class LongMediator extends Mediator {
   public final void isBiggerThanOrEquals(final long value) {
     if (argument < value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not bigger than or equal to " + value);
+        getArgumentName(),
+        argument,
+        "is not bigger than or equal to " + value);
     }
   }
 
@@ -185,9 +185,9 @@ public class LongMediator extends Mediator {
     }
 
     throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
-        argument,
-        "does not equal one of {" + GlobalArrayHelper.createString(values) + "}");
+      getArgumentName(),
+      argument,
+      "does not equal one of {" + GlobalArrayHelper.createString(values) + "}");
   }
 
   //method
@@ -212,10 +212,10 @@ public class LongMediator extends Mediator {
   public final void isNotBetween(final long min, final long max) {
     if (argument >= min && argument <= max) {
       throw ArgumentIsInRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-          getArgumentName(),
-          argument,
-          min,
-          max);
+        getArgumentName(),
+        argument,
+        min,
+        max);
     }
   }
 
@@ -309,9 +309,9 @@ public class LongMediator extends Mediator {
   public final void isSmallerThan(final long value) {
     if (argument >= value) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          getArgumentName(),
-          argument,
-          "is not smaller than " + value);
+        getArgumentName(),
+        argument,
+        "is not smaller than " + value);
     }
   }
 

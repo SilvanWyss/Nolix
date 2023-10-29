@@ -39,24 +39,24 @@ public final class GlobalCharacterHelper {
 
     //Asserts that the given letter is valid.
     if (letter < 65
-        || (letter > 90 && letter < 97)
-        || letter > 122) {
+    || (letter > 90 && letter < 97)
+    || letter > 122) {
       throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.LETTER, letter);
     }
 
     //Enumerates the given letter.
     return switch (letter) {
       case
-          'A',
-          'a',
-          'E',
-          'e',
-          'I',
-          'i',
-          'O',
-          'o',
-          'U',
-          'u' ->
+      'A',
+      'a',
+      'E',
+      'e',
+      'I',
+      'i',
+      'O',
+      'o',
+      'U',
+      'u' ->
         ARTICLE_AN;
       default ->
         ARTICLE_A;

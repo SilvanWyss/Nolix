@@ -16,15 +16,15 @@ public final class NodeDataAdapter extends DataAdapter {
 
   //constructor
   NodeDataAdapter(
-      final String databaseName,
-      final IMutableNode<?> nodeDatabase,
-      final ISchema schema) {
+    final String databaseName,
+    final IMutableNode<?> nodeDatabase,
+    final ISchema schema) {
 
     super(
-        databaseName,
-        NodeSchemaAdapter.forDatabaseNode(databaseName, nodeDatabase),
-        schema,
-        () -> DataAndSchemaAdapter.forNodeDatabase(nodeDatabase));
+      databaseName,
+      NodeSchemaAdapter.forDatabaseNode(databaseName, nodeDatabase),
+      schema,
+      () -> DataAndSchemaAdapter.forNodeDatabase(nodeDatabase));
 
     this.nodeDatabase = nodeDatabase;
   }

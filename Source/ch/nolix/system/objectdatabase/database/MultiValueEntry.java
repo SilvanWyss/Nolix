@@ -26,9 +26,9 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //constructor
   private MultiValueEntry(
-      final IMultiValue<V> parentMultiValue,
-      final DatabaseObjectState initialState,
-      final V value) {
+    final IMultiValue<V> parentMultiValue,
+    final DatabaseObjectState initialState,
+    final V value) {
 
     GlobalValidator.assertThat(parentMultiValue).thatIsNamed("parent MultiValue").isNotNull();
     GlobalValidator.assertThat(initialState).thatIsNamed("initial state").isNotNull();
@@ -41,15 +41,15 @@ public final class MultiValueEntry<V> implements IMultiValueEntry<V> {
 
   //static method
   public static <V2> MultiValueEntry<V2> loadedEntryForMultiValueAndValue(
-      final IMultiValue<V2> multiValue,
-      final V2 value) {
+    final IMultiValue<V2> multiValue,
+    final V2 value) {
     return new MultiValueEntry<>(multiValue, DatabaseObjectState.LOADED, value);
   }
 
   //static method
   public static <V2> MultiValueEntry<V2> newEntryForMultiValueAndValue(
-      final IMultiValue<V2> multiValue,
-      final V2 value) {
+    final IMultiValue<V2> multiValue,
+    final V2 value) {
     return new MultiValueEntry<>(multiValue, DatabaseObjectState.NEW, value);
   }
 

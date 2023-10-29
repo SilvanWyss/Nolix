@@ -34,10 +34,10 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   public MutableOptionalValue(
-      final String name,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> setterMethod,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
@@ -73,9 +73,9 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given valueCreator is null.
    */
   public static <E extends Specified> MutableOptionalValue<E> forElement(
-      final String name,
-      final Consumer<E> setterMethod,
-      final Function<INode<?>, E> valueCreator) {
+    final String name,
+    final Consumer<E> setterMethod,
+    final Function<INode<?>, E> valueCreator) {
     return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
   }
 
@@ -105,17 +105,17 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    */
   public static MutableOptionalValue<String> forString(final String name, final Consumer<String> setterMethod) {
     return new MutableOptionalValue<>(
-        name,
-        setterMethod,
-        s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
-        (final String s) -> {
+      name,
+      setterMethod,
+      s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
+      (final String s) -> {
 
-          if (s.isEmpty()) {
-            return Node.EMPTY_NODE;
-          }
+        if (s.isEmpty()) {
+          return Node.EMPTY_NODE;
+        }
 
-          return Node.withChildNode(s);
-        });
+        return Node.withChildNode(s);
+      });
   }
 
   //method

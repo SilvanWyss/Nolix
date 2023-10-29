@@ -93,9 +93,9 @@ public final class SocketEndPoint extends NetEndPoint {
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
     GlobalValidator
-        .assertThat(port)
-        .thatIsNamed(LowerCaseCatalogue.PORT)
-        .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .assertThat(port)
+      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     peerType = PeerType.FRONTEND;
 
@@ -128,9 +128,9 @@ public final class SocketEndPoint extends NetEndPoint {
     super(target);
 
     GlobalValidator
-        .assertThat(port)
-        .thatIsNamed(LowerCaseCatalogue.PORT)
-        .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .assertThat(port)
+      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     peerType = PeerType.FRONTEND;
 
@@ -160,9 +160,9 @@ public final class SocketEndPoint extends NetEndPoint {
    * @throws ArgumentIsNullException if the given socketOutputStream is null.
    */
   SocketEndPoint(
-      final Socket socket,
-      final InputStream socketInputStream,
-      final OutputStream socketOutputStream) {
+    final Socket socket,
+    final InputStream socketInputStream,
+    final OutputStream socketOutputStream) {
 
     super(TargetInfoState.RECEIVED_TARGET_INFO);
 
@@ -195,10 +195,10 @@ public final class SocketEndPoint extends NetEndPoint {
    * @throws InvalidArgumentException if the given target is blank.
    */
   SocketEndPoint(
-      final Socket socket,
-      final InputStream socketInputStream,
-      final OutputStream socketOutputStream,
-      final String target) {
+    final Socket socket,
+    final InputStream socketInputStream,
+    final OutputStream socketOutputStream,
+    final String target) {
 
     super(target);
 

@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 
 //class
 public final class BackReference<E extends IEntity> extends BaseBackReference<E>
-    implements IBackReference<E> {
+implements IBackReference<E> {
 
   //constant
   private static final IPropertyValidator PROPERTY_VALIDATOR = new PropertyValidator();
@@ -30,15 +30,15 @@ public final class BackReference<E extends IEntity> extends BaseBackReference<E>
 
   //static method
   public static <E2 extends Entity> BackReference<E2> forEntityAndBackReferencedPropertyName(
-      final Class<E2> type,
-      final String backReferencedPropertyName) {
+    final Class<E2> type,
+    final String backReferencedPropertyName) {
     return new BackReference<>(type.getSimpleName(), backReferencedPropertyName);
   }
 
   //static method
   public static BackReference<BaseEntity> forEntityWithTableNameAndBackReferencedPropertyName(
-      final String tableName,
-      final String backReferencedPropertyName) {
+    final String tableName,
+    final String backReferencedPropertyName) {
     return new BackReference<>(tableName, backReferencedPropertyName);
   }
 
@@ -51,8 +51,8 @@ public final class BackReference<E extends IEntity> extends BaseBackReference<E>
     }
 
     return ImmutableList.withElement(
-        getBackReferencedEntity().technicalGetRefProperties()
-            .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
+      getBackReferencedEntity().technicalGetRefProperties()
+        .getStoredFirst(p -> p.hasName(getBackReferencedPropertyName())));
   }
 
   //method
@@ -92,8 +92,8 @@ public final class BackReference<E extends IEntity> extends BaseBackReference<E>
   @Override
   public boolean referencesBackEntity(final IEntity entity) {
     return containsAny()
-        && entity != null
-        && getBackReferencedEntityId().equals(entity.getId());
+    && entity != null
+    && getBackReferencedEntityId().equals(entity.getId());
   }
 
   //method

@@ -13,7 +13,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
  * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTextHolder}.
  */
 public interface IFluentMutableOptionalTextHolder<FMOTH extends IFluentMutableOptionalTextHolder<FMOTH>>
-    extends ITextHolder {
+extends ITextHolder {
 
   //method declaration
   /**

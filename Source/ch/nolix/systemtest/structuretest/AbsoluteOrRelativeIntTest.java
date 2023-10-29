@@ -51,9 +51,9 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::getAbsoluteValue)
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(20%)' does not have a absolute value.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(20%)' does not have a absolute value.");
   }
 
   //method
@@ -65,9 +65,9 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::getPercentage)
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(500)' does not have a percentage.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given AbsoluteOrRelativeInt 'AbsoluteOrRelativeInt(500)' does not have a percentage.");
   }
 
   //method
@@ -156,8 +156,8 @@ public final class AbsoluteOrRelativeIntTest extends Test {
 
     //execution & verification
     expectRunning(() -> AbsoluteOrRelativeInt.withPercentage(-0.2))
-        .throwsException()
-        .ofType(NegativeArgumentException.class)
-        .withMessage("The given percentage '-0.2' is negative.");
+      .throwsException()
+      .ofType(NegativeArgumentException.class)
+      .withMessage("The given percentage '-0.2' is negative.");
   }
 }

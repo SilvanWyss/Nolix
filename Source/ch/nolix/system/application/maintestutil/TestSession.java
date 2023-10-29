@@ -8,7 +8,7 @@ import ch.nolix.system.application.main.Session;
 
 //class
 public final class TestSession<BC extends BackendClient<BC, AC>, AC>
-    extends Session<BC, AC> {
+extends Session<BC, AC> {
 
   //attribute
   private final Class<?> clientClass;
@@ -23,7 +23,7 @@ public final class TestSession<BC extends BackendClient<BC, AC>, AC>
 
   //static method
   public static <BC2 extends BackendClient<BC2, AC2>, AC2> TestSession<BC2, AC2> withClientClass(
-      final Class<BC2> clientClass) {
+    final Class<BC2> clientClass) {
     return new TestSession<>(clientClass);
   }
 

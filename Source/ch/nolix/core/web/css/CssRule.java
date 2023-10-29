@@ -20,8 +20,8 @@ public final class CssRule implements ICssRule {
 
   //constructor
   private CssRule(
-      final String selector,
-      final IContainer<? extends ICssProperty> properties) {
+    final String selector,
+    final IContainer<? extends ICssProperty> properties) {
 
     GlobalValidator.assertThat(selector).thatIsNamed("selector").isNotNull();
 
@@ -36,16 +36,16 @@ public final class CssRule implements ICssRule {
 
   //static method
   public static CssRule withSelectorAndProperties(
-      final String selector,
-      final IContainer<? extends ICssProperty> properties) {
+    final String selector,
+    final IContainer<? extends ICssProperty> properties) {
     return new CssRule(selector, properties);
   }
 
   //static method
   public static CssRule withSelectorAndProperty(
-      final String selector,
-      final ICssProperty property,
-      final ICssProperty... properties) {
+    final String selector,
+    final ICssProperty property,
+    final ICssProperty... properties) {
     return new CssRule(selector, ReadContainer.forElement(property, properties));
   }
 
@@ -65,7 +65,7 @@ public final class CssRule implements ICssRule {
   @Override
   public String toString() {
     return getSelector()
-        + GlobalStringHelper.getInBraces(getProperties().toConcatenatedString());
+    + GlobalStringHelper.getInBraces(getProperties().toConcatenatedString());
   }
 
   //method

@@ -41,8 +41,9 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
   //method
   @Override
   protected void channelRead0(
-      final ChannelHandlerContext channelHandlerContext,
-      final WebSocketFrame webSocketFrame) throws Exception {
+    final ChannelHandlerContext channelHandlerContext,
+    final WebSocketFrame webSocketFrame)
+  throws Exception {
     if (parentWebSocketServerEndPoint == null) {
 
       parentWebSocketServerEndPoint = new SecureServerEndPoint(channelHandlerContext);

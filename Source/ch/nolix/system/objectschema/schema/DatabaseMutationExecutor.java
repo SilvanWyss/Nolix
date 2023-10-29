@@ -6,8 +6,8 @@ final class DatabaseMutationExecutor {
 
   //method
   public void addTableToDatabase(
-      final Database database,
-      final Table table) {
+    final Database database,
+    final Table table) {
 
     database.addTableAttribute(table);
     table.setParentDatabase(database);

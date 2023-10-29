@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
  * @param <FMOTH> is the type of a {@link IFluentMutableOptionalTitleHolder}.
  */
 public interface IFluentMutableOptionalTitleHolder<FMOTH extends IFluentMutableOptionalTitleHolder<FMOTH>>
-    extends IOptionalTitleHolder {
+extends IOptionalTitleHolder {
 
   //method declaration
   /**

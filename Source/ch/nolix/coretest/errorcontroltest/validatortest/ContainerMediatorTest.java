@@ -25,9 +25,9 @@ public final class ContainerMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.contains(condition))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given condition is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given condition is null.");
   }
 
   //method
@@ -40,11 +40,11 @@ public final class ContainerMediatorTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.contains(e -> e.startsWith("e")))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage(
-            "The given ImmutableList 'ax,ax,bx,bx,cx,cx,dx,dx' does not contain "
-                + "an element that fulfils the given condition.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage(
+        "The given ImmutableList 'ax,ax,bx,bx,cx,cx,dx,dx' does not contain "
+        + "an element that fulfils the given condition.");
   }
 
   //method

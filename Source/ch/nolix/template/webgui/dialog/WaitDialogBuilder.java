@@ -33,14 +33,14 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
   public ILayer<?> build() {
 
     final var waitDialog = new Layer()
-        .setRole(LayerRole.DIALOG_LAYER)
-        .setRootControl(
-            new VerticalStack()
-                .setRole(ContainerRole.DIALOG_CONTAINER)
-                .addControl(
-                    new Label()
-                        .setRole(LabelRole.MAIN_LABEL)
-                        .setText("Please wait...")));
+      .setRole(LayerRole.DIALOG_LAYER)
+      .setRootControl(
+        new VerticalStack()
+          .setRole(ContainerRole.DIALOG_CONTAINER)
+          .addControl(
+            new Label()
+              .setRole(LabelRole.MAIN_LABEL)
+              .setText("Please wait...")));
 
     GlobalSequencer.runInBackgroundAndOrder(getJob(), waitDialog::removeSelfFromGui, getTerminalAction());
 

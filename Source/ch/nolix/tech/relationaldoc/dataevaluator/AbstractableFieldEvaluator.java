@@ -13,14 +13,14 @@ public final class AbstractableFieldEvaluator {
   //method
   public boolean canBeSetAsAbstract(final IAbstractableField abstractableField) {
     return abstractableField != null
-        && !abstractableField.inheritsFromBaseField()
-        && canBeSetAsAbstractBecauseOfParentObject(abstractableField);
+    && !abstractableField.inheritsFromBaseField()
+    && canBeSetAsAbstractBecauseOfParentObject(abstractableField);
   }
 
   //method
   public boolean canBeSetAsConcrete(final IAbstractableField abstractableField) {
     return abstractableField != null
-        && canBeSetAsConcreteWhenIsNotNull(abstractableField);
+    && canBeSetAsConcreteWhenIsNotNull(abstractableField);
   }
 
   //method
@@ -45,7 +45,7 @@ public final class AbstractableFieldEvaluator {
   //method
   public boolean canBeSetForValues(final IAbstractableField abstractableField) {
     return abstractableField != null
-        && canBeSetForValuesWhenIsNotNull(abstractableField);
+    && canBeSetForValuesWhenIsNotNull(abstractableField);
   }
 
   //method
@@ -72,9 +72,9 @@ public final class AbstractableFieldEvaluator {
   //method
   public boolean canSetName(final IAbstractableField abstractableField, final String name) {
     return canSetName(name)
-        && abstractableField != null
-        && abstractableField.getStoredParentObject().getStoredFields().containsNone(f -> f.hasName(name))
-        && canSetNameBecauseOfSubTypesOfParentObject(abstractableField, name);
+    && abstractableField != null
+    && abstractableField.getStoredParentObject().getStoredFields().containsNone(f -> f.hasName(name))
+    && canSetNameBecauseOfSubTypesOfParentObject(abstractableField, name);
   }
 
   //method
@@ -90,7 +90,7 @@ public final class AbstractableFieldEvaluator {
   //method
   private boolean canBeSetAsAbstractBecauseOfParentObject(final IAbstractableField abstractableField) {
     return abstractableField != null
-        && abstractableField.getStoredParentObject().isAbstract();
+    && abstractableField.getStoredParentObject().isAbstract();
   }
 
   //method
@@ -142,24 +142,24 @@ public final class AbstractableFieldEvaluator {
   //method
   private boolean canSetName(final String name) {
     return name != null
-        && !name.isBlank();
+    && !name.isBlank();
   }
 
   //method
   private boolean canSetNameBecauseOfSubTypesOfParentObject(
-      final IAbstractableField abstractableField,
-      final String name) {
+    final IAbstractableField abstractableField,
+    final String name) {
     return abstractableField != null
-        &&
-        abstractableField.getStoredParentObject().getStoredSubTypes().containsNone(cst -> cst.hasName(name));
+    &&
+    abstractableField.getStoredParentObject().getStoredSubTypes().containsNone(cst -> cst.hasName(name));
   }
 
   //method
   private IContainer<? extends IAbstractableField> getStoredRealisingFieldsWhenIsAbstract(
-      final IAbstractableField field) {
+    final IAbstractableField field) {
     return field
-        .getStoredParentObject()
-        .getStoredSubTypes()
-        .toFromGroups(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
+      .getStoredParentObject()
+      .getStoredSubTypes()
+      .toFromGroups(st -> st.getStoredDeclaredFields().getStoredSelected(df -> df.hasSameNameAs(field)));
   }
 }

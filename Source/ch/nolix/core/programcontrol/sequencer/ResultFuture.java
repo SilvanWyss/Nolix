@@ -90,8 +90,8 @@ public final class ResultFuture<R> extends BaseFuture implements IResultFuture<R
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     GlobalSequencer.waitAsLongAs(
-        () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
-            && isRunning());
+      () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+      && isRunning());
 
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");

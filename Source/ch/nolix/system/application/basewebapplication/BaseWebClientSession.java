@@ -8,7 +8,7 @@ import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndWriter;
 
 //class
 public abstract class BaseWebClientSession<BBWC extends BaseWebClient<BBWC, AC>, AC>
-    extends Session<BBWC, AC> {
+extends Session<BBWC, AC> {
 
   //method
   protected final IFrontEndReader createFrontendReader() {

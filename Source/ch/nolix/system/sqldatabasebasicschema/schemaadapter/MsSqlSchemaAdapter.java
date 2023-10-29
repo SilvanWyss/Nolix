@@ -16,8 +16,8 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
 
   //static method
   public static MsSqlSchemaAdapter forDatabaseWithGivenNameUsingConnectionFromGivenPool(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool) {
     return new MsSqlSchemaAdapter(databaseName, sqlConnectionPool);
   }
 }

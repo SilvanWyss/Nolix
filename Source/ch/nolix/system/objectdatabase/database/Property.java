@@ -162,7 +162,7 @@ public abstract class Property implements IProperty {
   final void internalSetParentColumnFromParentTable() {
     final var name = getName();
     parentColumn = getStoredParentEntity().getStoredParentTable().getStoredColumns()
-        .getStoredFirst(c -> c.hasName(name));
+      .getStoredFirst(c -> c.hasName(name));
   }
 
   //method
@@ -196,8 +196,8 @@ public abstract class Property implements IProperty {
         DatabaseObjectState.CLOSED;
       default ->
         throw InvalidArgumentException.forArgumentNameAndArgument(
-            LowerCaseCatalogue.STATE,
-            getStoredParentEntity().getState());
+          LowerCaseCatalogue.STATE,
+          getStoredParentEntity().getState());
     };
   }
 

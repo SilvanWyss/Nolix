@@ -17,34 +17,34 @@ public final class LinkCssBuilder extends ControlCssBuilder<ILink, ILinkStyle> {
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final ILink control,
-      final LinkedList<? super ICssRule> list) {
+    final ILink control,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final ILink control,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final ILink control,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final ILink control,
-      final LinkedList<CssProperty> list) {
+    final ILink control,
+    final LinkedList<CssProperty> list) {
     list.addAtEnd(CssProperty.withNameAndValue("text-decoration", "none"));
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final ILink control,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final ILink control,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

@@ -117,8 +117,8 @@ public final class Background extends Element implements IBackground {
         withColorGradient(ColorGradient.fromSpecification(childNode));
       case IMAGE_HEADER ->
         withImageAndImageApplication(
-            Image.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(1)),
-            ImageApplication.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(2)));
+          Image.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(1)),
+          ImageApplication.fromSpecification(specification.getStoredChildNodeAt1BasedIndex(2)));
       case TRANSPARENCY_HEADER ->
         TRANSPARENT_BACKGROUND;
       default ->
@@ -143,18 +143,18 @@ public final class Background extends Element implements IBackground {
 
   //static method
   public static Background withImageAndImageApplication(
-      final IImage image,
-      final ImageApplication imageApplication) {
+    final IImage image,
+    final ImageApplication imageApplication) {
     return new Background(image, imageApplication);
   }
 
   //method
   private static UnrepresentingArgumentException createExceptionForSpecificationDoesNotSpecifyBackground(
-      final INode<?> specification) {
+    final INode<?> specification) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-        LowerCaseCatalogue.SPECIFICATION,
-        specification,
-        Background.class);
+      LowerCaseCatalogue.SPECIFICATION,
+      specification,
+      Background.class);
   }
 
   //method
@@ -296,12 +296,12 @@ public final class Background extends Element implements IBackground {
     }
 
     return String.format(
-        Locale.ENGLISH,
-        "rgba(%d, %d, %d, %f)",
-        color.getRedValue(),
-        color.getGreenValue(),
-        color.getBlueValue(),
-        color.getAlphaPercentage());
+      Locale.ENGLISH,
+      "rgba(%d, %d, %d, %f)",
+      color.getRedValue(),
+      color.getGreenValue(),
+      color.getBlueValue(),
+      color.getAlphaPercentage());
   }
 
   //method
@@ -345,7 +345,7 @@ public final class Background extends Element implements IBackground {
     final var linearGradientCode = "linear-gradient(" + degreeCode + "," + color1Code + "," + color2Code + ")";
 
     return ImmutableList.withElement(
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode));
+      CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_IMAGE, linearGradientCode));
   }
 
   //method
@@ -353,10 +353,10 @@ public final class Background extends Element implements IBackground {
     final var backgroundImage = "data:image/jpeg;base64," + image.toJPGString();
 
     return ImmutableList.withElement(
-        CssProperty.withNameAndValue(
-            CssPropertyNameCatalogue.BACKGROUND_IMAGE,
-            "url('" + backgroundImage + "')"),
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%"));
+      CssProperty.withNameAndValue(
+        CssPropertyNameCatalogue.BACKGROUND_IMAGE,
+        "url('" + backgroundImage + "')"),
+      CssProperty.withNameAndValue(CssPropertyNameCatalogue.BACKGROUND_SIZE, "100% 100%"));
   }
 
   //method

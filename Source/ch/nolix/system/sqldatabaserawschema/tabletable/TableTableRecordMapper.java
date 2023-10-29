@@ -10,7 +10,7 @@ public final class TableTableRecordMapper {
   //method
   public TableTableRecord createTableSystemTableRecordFrom(final ITableDto table) {
     return new TableTableRecord(
-        "'" + table.getId() + "'",
-        "'" + table.getName() + "'");
+      "'" + table.getId() + "'",
+      "'" + table.getName() + "'");
   }
 }

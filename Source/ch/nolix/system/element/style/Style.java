@@ -28,8 +28,8 @@ public final class Style extends BaseStyle implements IStyle {
    * @param subStyles
    */
   public Style(
-      final IContainer<? extends INode<?>> attachingAttributes,
-      final IContainer<BaseSelectingStyle> subStyles) {
+    final IContainer<? extends INode<?>> attachingAttributes,
+    final IContainer<BaseSelectingStyle> subStyles) {
     super(attachingAttributes, subStyles);
   }
 
@@ -72,8 +72,8 @@ public final class Style extends BaseStyle implements IStyle {
           break;
         default:
           throw InvalidArgumentException.forArgumentNameAndArgument(
-              LowerCaseCatalogue.SPECIFICATION,
-              specification);
+            LowerCaseCatalogue.SPECIFICATION,
+            specification);
       }
     }
 
@@ -96,8 +96,8 @@ public final class Style extends BaseStyle implements IStyle {
   @Override
   public IContainer<INode<?>> getAttributes() {
     return ReadContainer.forIterable(
-        getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
-        getSubStyles().to(ISelectingStyle::getSpecification));
+      getAttachingAttributes().to(a -> Node.withHeaderAndChildNode(ATTACHING_ATTRIBUTE_HEADER, a)),
+      getSubStyles().to(ISelectingStyle::getSpecification));
   }
 
   //method
@@ -116,8 +116,8 @@ public final class Style extends BaseStyle implements IStyle {
    */
   @Override
   public IStyle withAttachingAttributesAndSubStyles(
-      final IContainer<String> attachingAttributes,
-      final IContainer<ISelectingStyle> subStyles) {
+    final IContainer<String> attachingAttributes,
+    final IContainer<ISelectingStyle> subStyles) {
 
     final var allAttachingAttributes = new LinkedList<Node>();
 

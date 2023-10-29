@@ -66,9 +66,9 @@ public final class UnequalArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static UnequalArgumentException forArgumentNameAndArgumentAndValue(
-      final String argumentName,
-      final Object argument,
-      final Object value) {
+    final String argumentName,
+    final Object argument,
+    final Object value) {
     return new UnequalArgumentException(argumentName, argument, value);
   }
 

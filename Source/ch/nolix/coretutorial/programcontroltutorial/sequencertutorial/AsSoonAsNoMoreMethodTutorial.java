@@ -14,8 +14,8 @@ public final class AsSoonAsNoMoreMethodTutorial {
     final var cats = LinkedList.withElement("Garfield", "Simba", "Smokey");
 
     GlobalSequencer
-        .asSoonAsNoMore(cats::containsAny)
-        .runInBackground(() -> GlobalLogger.logInfo("Couch is not scratched anymore!"));
+      .asSoonAsNoMore(cats::containsAny)
+      .runInBackground(() -> GlobalLogger.logInfo("Couch is not scratched anymore!"));
 
     cats.clear();
   }

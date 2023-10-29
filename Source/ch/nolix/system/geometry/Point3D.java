@@ -74,9 +74,9 @@ public class Point3D extends Element {
     final var attributes = specification.getStoredChildNodes();
 
     return new Point3D(
-        attributes.getStoredAt1BasedIndex(1).toDouble(),
-        attributes.getStoredAt1BasedIndex(2).toDouble(),
-        attributes.getStoredAt1BasedIndex(3).toDouble());
+      attributes.getStoredAt1BasedIndex(1).toDouble(),
+      attributes.getStoredAt1BasedIndex(2).toDouble(),
+      attributes.getStoredAt1BasedIndex(3).toDouble());
   }
 
   //method
@@ -86,9 +86,9 @@ public class Point3D extends Element {
   @Override
   public IContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(
-        Node.withHeader(GlobalDoubleHelper.toString(getX())),
-        Node.withHeader(GlobalDoubleHelper.toString(getY())),
-        Node.withHeader(GlobalDoubleHelper.toString(getZ())));
+      Node.withHeader(GlobalDoubleHelper.toString(getX())),
+      Node.withHeader(GlobalDoubleHelper.toString(getY())),
+      Node.withHeader(GlobalDoubleHelper.toString(getZ())));
   }
 
   //method
@@ -98,9 +98,9 @@ public class Point3D extends Element {
    */
   public double getDistanceTo(final Point3D point) {
     return Math.sqrt(
-        Math.pow(getX() - point.getX(), 2) +
-            Math.pow(getY() - point.getY(), 2) +
-            Math.pow(getZ() - point.getZ(), 2));
+      Math.pow(getX() - point.getX(), 2) +
+      Math.pow(getY() - point.getY(), 2) +
+      Math.pow(getZ() - point.getZ(), 2));
   }
 
   //method

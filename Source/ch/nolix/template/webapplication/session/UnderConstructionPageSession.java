@@ -27,26 +27,26 @@ public final class UnderConstructionPageSession extends WebClientSession<Object>
   @Override
   protected void initialize() {
     getStoredGui()
-        .pushLayerWithRootControl(
-            new VerticalStack()
-                .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-                .addControl(
-                    new Label()
-                        .setRole(LabelRole.TITLE)
-                        .setText(getApplicationName()),
-                    new ImageControl()
-                        .setImage(CRANE_IMAGE)
-                        .editStyle(s -> s.setHeightForState(ControlState.BASE, 500)),
-                    new Label()
-                        .setText("This is page is under construction.")
-                        .editStyle(
-                            s -> s
-                                .setTextSizeForState(ControlState.BASE, 30)
-                                .setTextColorForState(ControlState.BASE, Color.GREY)),
-                    new Button()
-                        .setVisibility(hasParentSession())
-                        .setText("<-- Go back")
-                        .setLeftMouseButtonPressAction(b -> pop()))
-                .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20)));
+      .pushLayerWithRootControl(
+        new VerticalStack()
+          .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
+          .addControl(
+            new Label()
+              .setRole(LabelRole.TITLE)
+              .setText(getApplicationName()),
+            new ImageControl()
+              .setImage(CRANE_IMAGE)
+              .editStyle(s -> s.setHeightForState(ControlState.BASE, 500)),
+            new Label()
+              .setText("This is page is under construction.")
+              .editStyle(
+                s -> s
+                  .setTextSizeForState(ControlState.BASE, 30)
+                  .setTextColorForState(ControlState.BASE, Color.GREY)),
+            new Button()
+              .setVisibility(hasParentSession())
+              .setText("<-- Go back")
+              .setLeftMouseButtonPressAction(b -> pop()))
+          .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20)));
   }
 }

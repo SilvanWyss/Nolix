@@ -16,12 +16,12 @@ public final class MsSqlDataAdapterTutorial {
     final var schema = Schema.withEntityType(Person.class);
 
     final var msSqlDataAdapter = MsSqlDataAdapter
-        .toLocalHost()
-        .andDefaultPort()
-        .toDatabase("TestDB")
-        .usingLoginName("sa")
-        .andLoginPassword("sa1234")
-        .andSchema(schema);
+      .toLocalHost()
+      .andDefaultPort()
+      .toDatabase("TestDB")
+      .usingLoginName("sa")
+      .andLoginPassword("sa1234")
+      .andSchema(schema);
 
     final var donaldDuck = new Person();
     donaldDuck.firstName.setValue("Donald");
@@ -31,7 +31,7 @@ public final class MsSqlDataAdapterTutorial {
     msSqlDataAdapter.saveChanges();
 
     final var loadedDonaldDuck = msSqlDataAdapter.getStoredTableByEntityType(Person.class)
-        .getStoredEntityById(donaldDuck.getId());
+      .getStoredEntityById(donaldDuck.getId());
 
     GlobalLogger.logInfo(loadedDonaldDuck.toString());
   }

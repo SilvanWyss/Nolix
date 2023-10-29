@@ -16,17 +16,17 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
   @Override
   public boolean canClear(final IOptionalReference<?> optionalReference) {
     return optionalReference != null
-        && optionalReference.belongsToEntity()
-        && optionalReference.getStoredParentEntity().isOpen();
+    && optionalReference.belongsToEntity()
+    && optionalReference.getStoredParentEntity().isOpen();
   }
 
   //method
   @Override
   public boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, final IEntity entity) {
     return canSetEntity(optionalReference)
-        && entity != null
-        && entity.isOpen()
-        && optionalReference.getReferencedTableName().equals(entity.getParentTableName());
+    && entity != null
+    && entity.isOpen()
+    && optionalReference.getReferencedTableName().equals(entity.getParentTableName());
   }
 
   //method
@@ -36,39 +36,39 @@ public final class OptionalReferenceHelper extends PropertyHelper implements IOp
     final var parentEntity = optionalReference.getStoredParentEntity();
 
     return new EntityUpdateDto(
-        parentEntity.getId(),
-        parentEntity.getSaveStamp(),
-        new ContentFieldDto(optionalReference.getName()));
+      parentEntity.getId(),
+      parentEntity.getSaveStamp(),
+      new ContentFieldDto(optionalReference.getName()));
   }
 
   //method
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForSetEntity(
-      final IOptionalReference<?> optionalReference,
-      final IEntity entity) {
+    final IOptionalReference<?> optionalReference,
+    final IEntity entity) {
 
     final var parentEntity = optionalReference.getStoredParentEntity();
 
     return new EntityUpdateDto(
-        parentEntity.getId(),
-        parentEntity.getSaveStamp(),
-        new ContentFieldDto(optionalReference.getName(), entity.getId()));
+      parentEntity.getId(),
+      parentEntity.getSaveStamp(),
+      new ContentFieldDto(optionalReference.getName(), entity.getId()));
   }
 
   //method
   @Override
   public IProperty getStoredBackReferencingPropertyOrNull(
-      final IOptionalReference<?> optionalReference) {
+    final IOptionalReference<?> optionalReference) {
     return optionalReference
-        .getReferencedEntity()
-        .technicalGetRefProperties()
-        .getStoredFirstOrNull(p -> p.referencesBackProperty(optionalReference));
+      .getReferencedEntity()
+      .technicalGetRefProperties()
+      .getStoredFirstOrNull(p -> p.referencesBackProperty(optionalReference));
   }
 
   //method
   private boolean canSetEntity(final IOptionalReference<?> optionalReference) {
     return optionalReference != null
-        && optionalReference.belongsToEntity()
-        && optionalReference.getStoredParentEntity().isOpen();
+    && optionalReference.belongsToEntity()
+    && optionalReference.getStoredParentEntity().isOpen();
   }
 }

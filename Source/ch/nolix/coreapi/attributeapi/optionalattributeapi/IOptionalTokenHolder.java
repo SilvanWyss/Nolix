@@ -33,6 +33,6 @@ public interface IOptionalTokenHolder {
    */
   default boolean hasToken(String token) {
     return hasToken()
-        && getToken().equals(token);
+    && getToken().equals(token);
   }
 }

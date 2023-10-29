@@ -26,10 +26,10 @@ public final class LayerTutorial {
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -47,13 +47,13 @@ public final class LayerTutorial {
 
       //Configures the style of labelA.
       labelA.getStoredStyle()
-          .setTextSizeForState(ControlState.BASE, 200)
-          .setTextColorForState(ControlState.BASE, Color.GREY);
+        .setTextSizeForState(ControlState.BASE, 200)
+        .setTextColorForState(ControlState.BASE, Color.GREY);
 
       //Configures the look of labelB.
       labelB.getStoredStyle()
-          .setTextSizeForState(ControlState.BASE, 180)
-          .setTextColorForState(ControlState.BASE, Color.BLACK);
+        .setTextSizeForState(ControlState.BASE, 180)
+        .setTextColorForState(ControlState.BASE, Color.BLACK);
 
       //Adds a new layer with labelA to the Frame.
       getStoredGui().pushLayerWithRootControl(labelA);

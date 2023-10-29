@@ -26,9 +26,9 @@ public final class CatchingProperty<V> implements IProperty, INameHolder {
 
   //constructor
   public CatchingProperty(
-      final String name,
-      final Consumer<V> setter,
-      final Function<INode<?>, V> valueCreator) {
+    final String name,
+    final Consumer<V> setter,
+    final Function<INode<?>, V> valueCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(setter).thatIsNamed("setter").isNotNull();

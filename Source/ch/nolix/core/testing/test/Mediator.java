@@ -42,7 +42,7 @@ public abstract class Mediator { //NOSONAR: Mediator does not have abstract meth
   @Override
   public final boolean equals(final Object object) {
     throw new IllegalCallerException(
-        "Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method.");
+      "Do not use the equals method of a mediator. For expecting equality, use the 'isEqualTo' method.");
   }
 
   //method

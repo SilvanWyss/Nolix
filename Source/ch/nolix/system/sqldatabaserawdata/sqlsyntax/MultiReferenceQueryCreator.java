@@ -11,38 +11,38 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
   //method
   @Override
   public String createQueryToLoadMultiReferenceEntries(
-      final String entityId,
-      final String multiReferenceColumnId) {
+    final String entityId,
+    final String multiReferenceColumnId) {
     return "SELECT "
-        + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
-        + " FROM "
-        + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
-        + " WHERE "
-        + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
-        + " = '"
-        + entityId
-        + "' AND "
-        + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
-        + " = '"
-        + multiReferenceColumnId
-        + "';";
+    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + " FROM "
+    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + " WHERE "
+    + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
+    + " = '"
+    + entityId
+    + "' AND "
+    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + " = '"
+    + multiReferenceColumnId
+    + "';";
   }
 
   //method
   @Override
   public String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
-      final String columnId,
-      final String referencedEntityId) {
+    final String columnId,
+    final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
-        + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
-        + " WHERE "
-        + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
-        + " = '"
-        + columnId
-        + "' AND "
-        + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
-        + " = '"
-        + referencedEntityId
-        + "';";
+    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + " WHERE "
+    + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
+    + " = '"
+    + columnId
+    + "' AND "
+    + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
+    + " = '"
+    + referencedEntityId
+    + "';";
   }
 }

@@ -34,9 +34,9 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
 
   //constructor
   private GapMatrixIterator(
-      final GapMatrix<E> parentGapMatrix,
-      final int p1BasedNextElementRowIndex,
-      final int p1BasedNextElementColumnIndex) {
+    final GapMatrix<E> parentGapMatrix,
+    final int p1BasedNextElementRowIndex,
+    final int p1BasedNextElementColumnIndex) {
     GlobalValidator.assertThat(parentGapMatrix).thatIsNamed("parent GapMatrix").isNotNull();
 
     this.parentGapMatrix = parentGapMatrix;
@@ -51,9 +51,9 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
 
   //static method
   private static <E2> GapMatrixIterator<E2> forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
-      final GapMatrix<E2> gapMatrix,
-      final int p1BasedNextElementRowIndex,
-      final int p1BasedNextElementColumnIndex) {
+    final GapMatrix<E2> gapMatrix,
+    final int p1BasedNextElementRowIndex,
+    final int p1BasedNextElementColumnIndex) {
     return new GapMatrixIterator<>(gapMatrix, p1BasedNextElementRowIndex, p1BasedNextElementColumnIndex);
   }
 
@@ -61,9 +61,9 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   @Override
   public CopyableIterator<E> getCopy() {
     return forGapMatrixAnd1BasedNextElementRowIndexAndColumnIndex(
-        parentGapMatrix,
-        nextElementRowIndex,
-        nextElementColumnIndex);
+      parentGapMatrix,
+      nextElementRowIndex,
+      nextElementColumnIndex);
   }
 
   //method
@@ -85,7 +85,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   private void assertHasNextElement() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
-          .toNoSuchElementException();
+        .toNoSuchElementException();
     }
   }
 
@@ -117,7 +117,7 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   private E nextWhenHasNext() {
 
     final var element = parentGapMatrix.getStoredAt1BasedRowIndexAndColumnIndex(nextElementRowIndex,
-        nextElementColumnIndex);
+      nextElementColumnIndex);
 
     incrementNextElementRowAndColumnIndex();
 

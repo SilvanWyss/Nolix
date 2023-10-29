@@ -10,6 +10,6 @@ public final class StructureTestPool extends TestPool {
   //constructor
   public StructureTestPool() {
     super(
-        AbsoluteOrRelativeIntTest.class);
+      AbsoluteOrRelativeIntTest.class);
   }
 }

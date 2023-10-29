@@ -88,8 +88,8 @@ public final class Future extends BaseFuture {
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     GlobalSequencer.asLongAs(
-        () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
-            && isRunning());
+      () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+      && isRunning());
 
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");

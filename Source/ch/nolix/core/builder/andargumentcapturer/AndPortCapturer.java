@@ -19,9 +19,9 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
     super(nextArgumentCapturer);
 
     GlobalValidator
-        .assertThat(defaultPort)
-        .thatIsNamed("default port")
-        .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .assertThat(defaultPort)
+      .thatIsNamed("default port")
+      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     this.defaultPort = defaultPort;
   }
@@ -35,9 +35,9 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
   public final N andPort(final int port) {
 
     GlobalValidator
-        .assertThat(port)
-        .thatIsNamed(LowerCaseCatalogue.PORT)
-        .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+      .assertThat(port)
+      .thatIsNamed(LowerCaseCatalogue.PORT)
+      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
 
     return setArgumentAndGetNext(port);
   }

@@ -31,70 +31,70 @@ public final class StyleCatalogueTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "StyleCatalogue tutorial",
-        MainSession.class,
-        new VoidObject());
+      "StyleCatalogue tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession //NOSONAR: A single-file-tutorial is allowed to have a long static class.
-      extends WebClientSession<Object> {
+  extends WebClientSession<Object> {
 
     @Override
     protected void initialize() {
       getStoredGui()
-          .pushLayerWithRootControl(
-              new VerticalStack()
-                  .addControl(
-                      new Label()
-                          .setRole(LabelRole.TITLE)
-                          .setText(getApplicationName()),
-                      new HorizontalStack()
-                          .addControl(
-                              new Label()
-                                  .setText("Select style:"),
-                              new DropdownMenu()
-                                  .addItemWithTextAndSelectAction("none", () -> getStoredGui().removeStyle())
-                                  .addItemWithTextAndSelectAction(
-                                      "Dark mode",
-                                      () -> getStoredGui().setStyle(StyleCatalogue.DARK_STYLE))),
-                      new Grid()
-                          .insertTextAtRowAndColumn(1, 1, "Button")
-                          .insertControlAtRowAndColumn(1, 2, new Button())
-                          .insertTextAtRowAndColumn(2, 1, "Textbox")
-                          .insertControlAtRowAndColumn(2, 2, new Textbox())
-                          .insertTextAtRowAndColumn(3, 1, "Link")
-                          .insertControlAtRowAndColumn(
-                              3,
-                              2,
-                              new Link()
-                                  .setDisplayText("nolix.ch")
-                                  .setUrl("https://nolix.ch"))
-                          .insertTextAtRowAndColumn(4, 1, "ImageControl")
-                          .insertControlAtRowAndColumn(
-                              4,
-                              2,
-                              new ImageControl()
-                                  .setImage(
-                                      Image.fromResource(
-                                          "ch/nolix/systemtutorial/webguitutorial/resource/singer_building.jpg")))
-                          .insertTextAtRowAndColumn(5, 1, "Open show value dialog")
-                          .insertControlAtRowAndColumn(
-                              5,
-                              2,
-                              new Button()
-                                  .setLeftMouseButtonPressAction(
-                                      () -> getStoredGui().pushLayer(new ShowValueDialogBuilder().build())))))
-          .resetStyleRecursively();
+        .pushLayerWithRootControl(
+          new VerticalStack()
+            .addControl(
+              new Label()
+                .setRole(LabelRole.TITLE)
+                .setText(getApplicationName()),
+              new HorizontalStack()
+                .addControl(
+                  new Label()
+                    .setText("Select style:"),
+                  new DropdownMenu()
+                    .addItemWithTextAndSelectAction("none", () -> getStoredGui().removeStyle())
+                    .addItemWithTextAndSelectAction(
+                      "Dark mode",
+                      () -> getStoredGui().setStyle(StyleCatalogue.DARK_STYLE))),
+              new Grid()
+                .insertTextAtRowAndColumn(1, 1, "Button")
+                .insertControlAtRowAndColumn(1, 2, new Button())
+                .insertTextAtRowAndColumn(2, 1, "Textbox")
+                .insertControlAtRowAndColumn(2, 2, new Textbox())
+                .insertTextAtRowAndColumn(3, 1, "Link")
+                .insertControlAtRowAndColumn(
+                  3,
+                  2,
+                  new Link()
+                    .setDisplayText("nolix.ch")
+                    .setUrl("https://nolix.ch"))
+                .insertTextAtRowAndColumn(4, 1, "ImageControl")
+                .insertControlAtRowAndColumn(
+                  4,
+                  2,
+                  new ImageControl()
+                    .setImage(
+                      Image.fromResource(
+                        "ch/nolix/systemtutorial/webguitutorial/resource/singer_building.jpg")))
+                .insertTextAtRowAndColumn(5, 1, "Open show value dialog")
+                .insertControlAtRowAndColumn(
+                  5,
+                  2,
+                  new Button()
+                    .setLeftMouseButtonPressAction(
+                      () -> getStoredGui().pushLayer(new ShowValueDialogBuilder().build())))))
+        .resetStyleRecursively();
     }
   }
 }

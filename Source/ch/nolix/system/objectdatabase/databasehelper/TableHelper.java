@@ -20,11 +20,11 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
   @Override
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final ITable<?> table) {
     return table
-        .technicalGetRefEntitiesInLocalData()
-        .containsOnly(
-            e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a
-                                                                                                                                          //BootstrapMethodError.
-        );
+      .technicalGetRefEntitiesInLocalData()
+      .containsOnly(
+        e -> ENTITY_HELPER.allNewAndEditedMandatoryPropertiesAreSet(e) //NOSONAR: A method reference will rise a
+                                                                                                                                      //BootstrapMethodError.
+      );
   }
 
   //method
@@ -37,8 +37,8 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
   @Override
   public boolean canInsertGivenEntity(ITable<?> table, IEntity entity) {
     return canInsertEntity(table)
-        && ENTITY_HELPER.canBeInsertedIntoTable(entity)
-        && !hasInsertedGivenEntityInLocalData(table, entity);
+    && ENTITY_HELPER.canBeInsertedIntoTable(entity)
+    && !hasInsertedGivenEntityInLocalData(table, entity);
   }
 
   //method
@@ -50,7 +50,7 @@ public final class TableHelper extends DatabaseObjectHelper implements ITableHel
   //method
   @Override
   public <E extends IEntity> IContainer<IColumn> getColumsThatReferenceGivenTable(
-      final ITable<E> table) {
+    final ITable<E> table) {
 
     final var columns = new LinkedList<IColumn>();
     for (final var t : table.getStoredParentDatabase().getStoredTables()) {

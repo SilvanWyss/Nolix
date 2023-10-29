@@ -22,9 +22,9 @@ public final class LinkHtmlBuilder implements IControlHtmlBuilder<ILink> {
   @Override
   public IHtmlElement createHtmlElementForControl(final ILink control) {
     return HtmlElement.withTypeAndAttributesAndInnerText(
-        HtmlElementTypeCatalogue.A,
-        createHtmlAttributesForControl(control),
-        control.getDisplayText());
+      HtmlElementTypeCatalogue.A,
+      createHtmlAttributesForControl(control),
+      control.getDisplayText());
   }
 
   //method

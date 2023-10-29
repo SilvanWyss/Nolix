@@ -32,21 +32,21 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   //constructor
   protected SchemaAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter sqlSchemaAdapter) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter sqlSchemaAdapter) {
 
     DATABASE_INITIALIZER.initializeDatabaseIfNotInitialized(databaseName, sqlSchemaAdapter, sqlConnectionPool);
 
     rawSchemaReader = SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
-        databaseName,
-        sqlConnectionPool,
-        sqlSchemaAdapter);
+      databaseName,
+      sqlConnectionPool,
+      sqlSchemaAdapter);
 
     rawSchemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
-        databaseName,
-        sqlConnectionPool,
-        sqlSchemaAdapter);
+      databaseName,
+      sqlConnectionPool,
+      sqlSchemaAdapter);
 
     getStoredCloseController().createCloseDependencyTo(rawSchemaReader);
     getStoredCloseController().createCloseDependencyTo(rawSchemaWriter);
@@ -186,8 +186,8 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
   //method
   @Override
   public final void setColumnParameterizedPropertyType(
-      final String columnId,
-      final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final String columnId,
+    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
     rawSchemaWriter.setColumnParameterizedPropertyType(columnId, parameterizedPropertyType);
   }
 

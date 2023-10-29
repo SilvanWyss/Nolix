@@ -99,11 +99,11 @@ final class ServerSocketProcessor extends Worker {
         return new SingleContainer<>(new SocketEndPoint(socket, socketInputStream, socketOutputStream));
       case REGULAR_SOCKET_WITH_CUSTOM_TARGET:
         return new SingleContainer<>(
-            new SocketEndPoint(
-                socket,
-                socketInputStream,
-                socketOutputStream,
-                Node.fromString(firstReveivedLine.substring(1)).getHeader()));
+          new SocketEndPoint(
+            socket,
+            socketInputStream,
+            socketOutputStream,
+            Node.fromString(firstReveivedLine.substring(1)).getHeader()));
       case WEB_SOCKET_OR_HTTP:
 
         final var lines = LinkedList.withElement(firstReveivedLine);
@@ -114,7 +114,7 @@ final class ServerSocketProcessor extends Worker {
           GlobalLogger.logInfo("Received a web socket opening handshake request: " + lines.toString());
 
           final var openingHandshakeResponse = new WebSocketHandShakeRequest(lines).getWebSocketHandShakeResponse()
-              .toString();
+            .toString();
 
           GlobalLogger.logInfo("Send opening handshake response: " + openingHandshakeResponse);
           sendRawMessage(openingHandshakeResponse);

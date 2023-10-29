@@ -106,9 +106,9 @@ public final class TestPoolRun {
     try {
       return ReflectionHelper.getDefaultConstructor(testClass).newInstance();
     } catch (final //NOSONAR: The exception is logged.
-        IllegalAccessException
-        | InstantiationException
-        | InvocationTargetException exception) {
+    IllegalAccessException
+    | InstantiationException
+    | InvocationTargetException exception) {
       linePrinter.printErrorLine("-->Could not create a " + testClass.getName() + ".");
       return null;
     }
@@ -118,14 +118,14 @@ public final class TestPoolRun {
   private void printSummaryOfTestPoolResult(final TestPoolResult testPoolResult) {
 
     linePrinter.printInfoLine(
-        "   FINISHED: "
-            + testPoolResult.getPassedTestCaseCount()
-            + " of "
-            + testPoolResult.getTestCaseCount()
-            + " test cases of "
-            + parentTestPool.getSimpleName()
-            + " passed "
-            + getRuntimeAndUnitAsStringInBrackets());
+      "   FINISHED: "
+      + testPoolResult.getPassedTestCaseCount()
+      + " of "
+      + testPoolResult.getTestCaseCount()
+      + " test cases of "
+      + parentTestPool.getSimpleName()
+      + " passed "
+      + getRuntimeAndUnitAsStringInBrackets());
 
     linePrinter.printEmptyLine();
   }

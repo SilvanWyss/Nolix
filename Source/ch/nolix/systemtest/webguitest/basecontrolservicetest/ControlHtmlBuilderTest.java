@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ControlHtmlBuilderTest<CHB extends IControlHtmlBuilder<C>, C extends IControl<C, ?>>
-    extends Test {
+extends Test {
 
   //method
   @TestCase

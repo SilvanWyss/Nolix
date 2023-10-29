@@ -17,17 +17,17 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 
 //class
 public abstract class Container<C extends IContainer<C, ECS>, ECS extends IControlStyle<ECS>>
-    extends Control<C, ECS> implements IContainer<C, ECS> {
+extends Control<C, ECS> implements IContainer<C, ECS> {
 
   //constant
   private static final String ROLE_HEADER = PascalCaseCatalogue.ROLE;
 
   //attribute
   private final MutableOptionalValue<ContainerRole> role = new MutableOptionalValue<>(
-      ROLE_HEADER,
-      this::setRole,
-      ContainerRole::fromSpecification,
-      Node::fromEnum);
+    ROLE_HEADER,
+    this::setRole,
+    ContainerRole::fromSpecification,
+    Node::fromEnum);
 
   //method
   @Override

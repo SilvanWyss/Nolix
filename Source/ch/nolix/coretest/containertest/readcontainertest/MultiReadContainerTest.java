@@ -30,8 +30,8 @@ public final class MultiReadContainerTest extends ContainerTest {
   //method
   @Override
   protected <E> IContainer<E> createContainerWithElements(
-      final E element,
-      final @SuppressWarnings("unchecked") E... elements) {
+    final E element,
+    final @SuppressWarnings("unchecked") E... elements) {
 
     final var container = ImmutableList.withElement(element, elements);
 

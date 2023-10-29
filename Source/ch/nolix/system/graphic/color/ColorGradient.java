@@ -25,11 +25,11 @@ public final class ColorGradient extends Element implements IColorGradient {
 
   //constant
   public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT = new ColorGradient(
-      DirectionInRectangle.VERTICAL, Color.BLACK, Color.WHITE);
+    DirectionInRectangle.VERTICAL, Color.BLACK, Color.WHITE);
 
   //constant
   public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT = new ColorGradient(DirectionInRectangle.VERTICAL,
-      Color.RED, Color.WHITE);
+    Color.RED, Color.WHITE);
 
   //constant
   public static final DirectionInRectangle DEFAULT_DIRECTION = DirectionInRectangle.VERTICAL;
@@ -148,8 +148,8 @@ public final class ColorGradient extends Element implements IColorGradient {
     final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(2));
 
     return new ColorGradient(
-        Color.fromSpecification(color1Specification),
-        Color.fromSpecification(color2Specification));
+      Color.fromSpecification(color1Specification),
+      Color.fromSpecification(color2Specification));
   }
 
   //static method
@@ -165,9 +165,9 @@ public final class ColorGradient extends Element implements IColorGradient {
     final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
 
     return new ColorGradient(
-        DirectionInRectangle.fromSpecification(directionSpecification),
-        Color.fromSpecification(color1Specification),
-        Color.fromSpecification(color2Specification));
+      DirectionInRectangle.fromSpecification(directionSpecification),
+      Color.fromSpecification(color1Specification),
+      Color.fromSpecification(color2Specification));
   }
 
   //method
@@ -177,9 +177,9 @@ public final class ColorGradient extends Element implements IColorGradient {
   @Override
   public IContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(
-        Node.withHeader(getDirection().toString()),
-        Node.withHeader(getColor1().toHexadecimalString()),
-        Node.withHeader(getColor2().toHexadecimalString()));
+      Node.withHeader(getDirection().toString()),
+      Node.withHeader(getColor1().toHexadecimalString()),
+      Node.withHeader(getColor2().toHexadecimalString()));
   }
 
   //method

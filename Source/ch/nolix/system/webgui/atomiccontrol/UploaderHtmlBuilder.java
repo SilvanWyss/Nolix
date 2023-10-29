@@ -18,10 +18,10 @@ public final class UploaderHtmlBuilder implements IControlHtmlBuilder<IUploader>
   @Override
   public IHtmlElement createHtmlElementForControl(final IUploader control) {
     return HtmlElement.withTypeAndAttributes(
-        HtmlElementTypeCatalogue.INPUT,
-        ImmutableList.withElement(
-            HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.TYPE, "file"),
-            HtmlAttribute.withNameAndValue("multiple", "none"),
-            HtmlAttribute.withNameAndValue("data-uploader", "any")));
+      HtmlElementTypeCatalogue.INPUT,
+      ImmutableList.withElement(
+        HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.TYPE, "file"),
+        HtmlAttribute.withNameAndValue("multiple", "none"),
+        HtmlAttribute.withNameAndValue("data-uploader", "any")));
   }
 }

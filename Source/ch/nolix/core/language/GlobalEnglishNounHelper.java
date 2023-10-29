@@ -49,11 +49,11 @@ public final class GlobalEnglishNounHelper {
     }
 
     if (noun.endsWith("ay")
-        || noun.endsWith("ey")
-        || noun.endsWith("iy")
-        || noun.endsWith("oy")
-        || noun.endsWith("uy")
-        || noun.endsWith("ff")) {
+    || noun.endsWith("ey")
+    || noun.endsWith("iy")
+    || noun.endsWith("oy")
+    || noun.endsWith("uy")
+    || noun.endsWith("ff")) {
       return (noun + "s");
     }
 

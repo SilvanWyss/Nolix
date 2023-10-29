@@ -10,7 +10,7 @@ import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
 
 //class
 public final class ServerDashboardApplication
-    extends Application<WebClient<IServerDashboardContext>, IServerDashboardContext> {
+extends Application<WebClient<IServerDashboardContext>, IServerDashboardContext> {
 
   //constant
   public static final String APPLICATION_NAME = "Server Dashboard";

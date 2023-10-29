@@ -20,8 +20,8 @@ public class BuilderTutorial {
   }
 
   private static class PetBuilder
-      extends
-      WithNameCapturer<WithAgeInYearsCapturer<WithWeightInKilogramCapturer<Pet>>> {
+  extends
+  WithNameCapturer<WithAgeInYearsCapturer<WithWeightInKilogramCapturer<Pet>>> {
 
     public PetBuilder() {
 

@@ -57,14 +57,14 @@ public final class MutableXmlNode implements IMutableXmlNode {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
-        .append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
-        .append('<')
-        .append(mutableXmlNode.getName());
+      .append(GlobalStringHelper.createTabulators(leadingTabulatorCount))
+      .append('<')
+      .append(mutableXmlNode.getName());
 
     if (mutableXmlNode.containsAttributes()) {
       stringBuilder
-          .append(' ')
-          .append(mutableXmlNode.getAttributes().toStringWithSeparator(' '));
+        .append(' ')
+        .append(mutableXmlNode.getAttributes().toStringWithSeparator(' '));
     }
 
     stringBuilder.append('>');
@@ -74,10 +74,10 @@ public final class MutableXmlNode implements IMutableXmlNode {
         stringBuilder.append(mutableXmlNode.getValue());
       } else {
         stringBuilder
-            .append(CharacterCatalogue.NEW_LINE)
-            .append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
-            .append(mutableXmlNode.getValue())
-            .append(CharacterCatalogue.NEW_LINE);
+          .append(CharacterCatalogue.NEW_LINE)
+          .append(GlobalStringHelper.createTabulators(leadingTabulatorCount + 1))
+          .append(mutableXmlNode.getValue())
+          .append(CharacterCatalogue.NEW_LINE);
 
       }
     }
@@ -86,8 +86,8 @@ public final class MutableXmlNode implements IMutableXmlNode {
 
       for (final var cn : mutableXmlNode.getStoredChildNodes()) {
         stringBuilder
-            .append(CharacterCatalogue.NEW_LINE)
-            .append(toFormatedString(cn, leadingTabulatorCount + 1));
+          .append(CharacterCatalogue.NEW_LINE)
+          .append(toFormatedString(cn, leadingTabulatorCount + 1));
       }
 
       stringBuilder.append(CharacterCatalogue.NEW_LINE);
@@ -98,9 +98,9 @@ public final class MutableXmlNode implements IMutableXmlNode {
     }
 
     stringBuilder
-        .append("</")
-        .append(mutableXmlNode.getName())
-        .append('>');
+      .append("</")
+      .append(mutableXmlNode.getName())
+      .append('>');
 
     return stringBuilder.toString();
   }
@@ -307,33 +307,33 @@ public final class MutableXmlNode implements IMutableXmlNode {
     final var stringBuilder = new StringBuilder();
 
     stringBuilder
-        .append('<')
-        .append(getName());
+      .append('<')
+      .append(getName());
 
     if (containsAttributes()) {
       stringBuilder
-          .append(' ')
-          .append(getAttributes().toStringWithSeparator(' '));
+        .append(' ')
+        .append(getAttributes().toStringWithSeparator(' '));
     }
 
     stringBuilder.append('>');
 
     if (hasValue()) {
       stringBuilder
-          .append(getValue());
+        .append(getValue());
     }
 
     if (containsChildNodes()) {
       for (final var cn : getStoredChildNodes()) {
         stringBuilder
-            .append(cn.toString());
+          .append(cn.toString());
       }
     }
 
     stringBuilder
-        .append("</")
-        .append(getName())
-        .append('>');
+      .append("</")
+      .append(getName())
+      .append('>');
 
     return stringBuilder.toString();
   }

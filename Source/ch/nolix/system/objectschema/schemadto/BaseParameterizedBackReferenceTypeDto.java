@@ -11,7 +11,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackRefere
 
 //class
 public final class BaseParameterizedBackReferenceTypeDto extends ParameterizedPropertyTypeDto
-    implements IBaseParameterizedBackReferenceTypeDto {
+implements IBaseParameterizedBackReferenceTypeDto {
 
   //attribute
   private final String backReferencedColumnId;
@@ -20,9 +20,9 @@ public final class BaseParameterizedBackReferenceTypeDto extends ParameterizedPr
   //For a better performance, this implementation does not use all comfortable
   //methods.
   public BaseParameterizedBackReferenceTypeDto(
-      final PropertyType propertyType,
-      final DataType dataType,
-      final String backReferencedColumnId) {
+    final PropertyType propertyType,
+    final DataType dataType,
+    final String backReferencedColumnId) {
 
     super(propertyType, dataType);
 

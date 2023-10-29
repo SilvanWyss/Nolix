@@ -103,8 +103,8 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     GlobalSequencer.waitAsLongAs(
-        () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
-            && isRunning());
+      () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds
+      && isRunning());
 
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");
@@ -129,10 +129,10 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   private void fillImagePixel(final int x, final int y) {
 
     final var color = Color.createAverageFrom(
-        getColorOfPixel(x - 0.75, y - 0.75),
-        getColorOfPixel(x - 0.75, y - 0.25),
-        getColorOfPixel(x - 0.25, y - 0.75),
-        getColorOfPixel(x - 0.25, y - 0.25));
+      getColorOfPixel(x - 0.75, y - 0.75),
+      getColorOfPixel(x - 0.75, y - 0.25),
+      getColorOfPixel(x - 0.25, y - 0.75),
+      getColorOfPixel(x - 0.25, y - 0.25));
 
     image.setPixel(x, y, color);
   }
@@ -150,17 +150,17 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   //method
   private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
     return new ComplexNumber(
-        FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
-        FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
+      FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
+      FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
   }
 
   //method
   private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-      final IComplexNumber complexNumber) {
+    final IComplexNumber complexNumber) {
     return FRACTAL_HELPER.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
-        fractal,
-        complexNumber,
-        squaredMinMagnitudeForDivergence);
+      fractal,
+      complexNumber,
+      squaredMinMagnitudeForDivergence);
   }
 
   //method
@@ -177,7 +177,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
       final var endImageRow = GlobalCalculator.getMin(heightInpixel, y + IMAGE_ROWS_PER_THREAD - 1);
 
       lFutures.addAtEnd(
-          jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow)));
+        jobPool.enqueue(() -> fillImageRows(startImageRow, endImageRow)));
     }
 
     return lFutures;

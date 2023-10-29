@@ -18,9 +18,9 @@ final class InternalDatabaseInitializer {
 
   //method
   public void initializeDatabase(
-      final String databaseName,
-      final ISchemaAdapter schemaAdapter,
-      final SqlConnectionPool sqlConnectionPool) {
+    final String databaseName,
+    final ISchemaAdapter schemaAdapter,
+    final SqlConnectionPool sqlConnectionPool) {
 
     schemaAdapter.addTable(DatabasePropertyTableSqlDtoCatalogue.DATABASE_PROPERTY_TABLE_SQL_DTO);
     schemaAdapter.addTable(TableTableSqlDtoCatalogue.TABLE_TABLE_SQL_DTO);
@@ -43,15 +43,15 @@ final class InternalDatabaseInitializer {
 
   private String createQslStatementToCreateSchemaTimestampEntry() {
     return "INSERT INTO "
-        + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
-        + " ("
-        + DatabasePropertySystemTableColumn.KEY.getLabel()
-        + ", "
-        + DatabasePropertySystemTableColumn.VALUE.getLabel()
-        + ") VALUES ("
-        + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
-        + ", '"
-        + Time.ofNow().getSpecification().getStoredSingleChildNode()
-        + "');";
+    + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
+    + " ("
+    + DatabasePropertySystemTableColumn.KEY.getLabel()
+    + ", "
+    + DatabasePropertySystemTableColumn.VALUE.getLabel()
+    + ") VALUES ("
+    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
+    + ", '"
+    + Time.ofNow().getSpecification().getStoredSingleChildNode()
+    + "');";
   }
 }

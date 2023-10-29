@@ -59,8 +59,8 @@ public final class ArgumentDoesNotBelongToParentException extends InvalidArgumen
    *         argument and parentType.
    */
   public static ArgumentDoesNotBelongToParentException forArgumentAndParentType(
-      final Object argument,
-      final Class<?> parentType) {
+    final Object argument,
+    final Class<?> parentType) {
     return new ArgumentDoesNotBelongToParentException(argument, parentType);
   }
 

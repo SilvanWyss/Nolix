@@ -76,8 +76,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final BigDecimal argument) {
+    final String argumentName,
+    final BigDecimal argument) {
     return new NegativeArgumentException(argumentName, argument);
   }
 
@@ -91,8 +91,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final double argument) {
+    final String argumentName,
+    final double argument) {
     return new NegativeArgumentException(argumentName, argument);
   }
 
@@ -106,8 +106,8 @@ public final class NegativeArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static NegativeArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final long argument) {
+    final String argumentName,
+    final long argument) {
     return new NegativeArgumentException(argumentName, argument);
   }
 }

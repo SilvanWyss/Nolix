@@ -61,9 +61,9 @@ public enum MessageRole {
    */
   private static UnrepresentingArgumentException createUnrepresentingArgumentExceptionForPrefix(final char prefix) {
     return UnrepresentingArgumentException.forArgumentNameAndArgumentAndType(
-        LowerCaseCatalogue.PREFIX,
-        prefix,
-        MessageRole.class);
+      LowerCaseCatalogue.PREFIX,
+      prefix,
+      MessageRole.class);
   }
 
   //method

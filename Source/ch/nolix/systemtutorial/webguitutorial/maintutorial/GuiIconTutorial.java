@@ -18,8 +18,8 @@ public final class GuiIconTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-        "GUI icon tutorial",
-        MainSession.class);
+      "GUI icon tutorial",
+      MainSession.class);
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();

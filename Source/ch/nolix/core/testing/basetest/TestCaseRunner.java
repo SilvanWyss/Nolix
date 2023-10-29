@@ -173,16 +173,16 @@ public final class TestCaseRunner extends Thread {
 
     if (!hasExceptionError()) {
       return new TestCaseResult(
-          testCaseWrapper.getStoredTestCase(),
-          getRuntimeInMilliseconds(),
-          testInstance.getExpectationErrors());
+        testCaseWrapper.getStoredTestCase(),
+        getRuntimeInMilliseconds(),
+        testInstance.getExpectationErrors());
     }
 
     return new TestCaseResult(
-        testCaseWrapper.getStoredTestCase(),
-        getRuntimeInMilliseconds(),
-        testInstance.getExpectationErrors(),
-        getExceptionError());
+      testCaseWrapper.getStoredTestCase(),
+      getRuntimeInMilliseconds(),
+      testInstance.getExpectationErrors(),
+      getExceptionError());
   }
 
   //method
@@ -197,7 +197,7 @@ public final class TestCaseRunner extends Thread {
     } catch (final InvocationTargetException invocationTargetException) {
       if (!hasExceptionError()) {
         exceptionError = ERROR_CREATOR.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException,
-            testInstance);
+          testInstance);
       }
     } catch (final IllegalAccessException illegalAccessException) {
       throw WrapperException.forError(illegalAccessException);
@@ -225,7 +225,7 @@ public final class TestCaseRunner extends Thread {
     } catch (final InvocationTargetException invocationTargetException) {
       if (!hasExceptionError()) {
         exceptionError = ERROR_CREATOR.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException,
-            testInstance);
+          testInstance);
       }
     } catch (final IllegalAccessException illegalAccessException) {
       throw WrapperException.forError(illegalAccessException);
@@ -239,7 +239,7 @@ public final class TestCaseRunner extends Thread {
     } catch (final InvocationTargetException invocationTargetException) {
       if (!hasExceptionError()) {
         exceptionError = ERROR_CREATOR.createErrorFromInvocationTargetExceptionInInstance(invocationTargetException,
-            testInstance);
+          testInstance);
       }
     } catch (final IllegalAccessException illegalAccessException) {
       throw WrapperException.forError(illegalAccessException);

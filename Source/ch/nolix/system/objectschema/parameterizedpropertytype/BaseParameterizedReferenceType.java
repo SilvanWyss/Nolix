@@ -15,7 +15,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public abstract class BaseParameterizedReferenceType extends ParameterizedPropertyType
-    implements IBaseParameterizedReferenceType {
+implements IBaseParameterizedReferenceType {
 
   //attribute
   private final ITable referencedTable;
@@ -70,8 +70,8 @@ public abstract class BaseParameterizedReferenceType extends ParameterizedProper
   @Override
   public final IParameterizedPropertyTypeDto toDto() {
     return new BaseParameterizedReferenceTypeDto(
-        getPropertyType(),
-        getDataType(),
-        getReferencedTable().getId());
+      getPropertyType(),
+      getDataType(),
+      getReferencedTable().getId());
   }
 }

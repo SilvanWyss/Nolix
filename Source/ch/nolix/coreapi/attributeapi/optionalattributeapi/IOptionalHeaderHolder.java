@@ -64,6 +64,6 @@ public interface IOptionalHeaderHolder {
    */
   default boolean hasHeader(String header) {
     return hasHeader()
-        && getHeader().equals(header);
+    && getHeader().equals(header);
   }
 }

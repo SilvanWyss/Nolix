@@ -164,8 +164,8 @@ public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extend
 
     //execution & verification
     expectRunning(() -> testUnit.resetFromString("a(b).c"))
-        .throwsException()
-        .ofType(UnrepresentingArgumentException.class);
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class);
   }
 
   //method

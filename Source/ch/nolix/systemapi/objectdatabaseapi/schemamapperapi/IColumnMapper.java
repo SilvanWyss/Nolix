@@ -12,16 +12,16 @@ public interface IColumnMapper {
 
   //method declaration
   IColumn createColumnFromGivenPropertyUsingGivenReferencableTables(
-      IProperty property,
-      IContainer<ITable> referencableTables);
+    IProperty property,
+    IContainer<ITable> referencableTables);
 
   //method declaration
   <E extends IEntity> IContainer<IColumn> createColumnsFromGivenEntityTypeUsingGivenReferencableTables(
-      Class<E> entityType,
-      IContainer<ITable> referencableTables);
+    Class<E> entityType,
+    IContainer<ITable> referencableTables);
 
   //method declaration
   IContainer<IColumn> createColumnsFromGivenEntityUsingGivenReferencableTables(
-      IEntity entity,
-      IContainer<ITable> referencableTables);
+    IEntity entity,
+    IContainer<ITable> referencableTables);
 }

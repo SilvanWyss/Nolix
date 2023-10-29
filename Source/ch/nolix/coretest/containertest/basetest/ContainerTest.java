@@ -179,7 +179,7 @@ public abstract class ContainerTest extends Test {
   //method
   @TestCase
   public final void //
-      testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
+  testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInSameOrder() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -195,7 +195,7 @@ public abstract class ContainerTest extends Test {
   //method
   @TestCase
   public final void //
-      testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
+  testCase_containsExactlyInSameOrder_whenContainsElementsAndGivenContainerContainsSameElementsInOtherOrder() {
 
     //setup
     final var testUnit = createContainerWithElements("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -322,9 +322,9 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.getAverage(FunctionCatalogue::getSelf))
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
   }
 
   //method
@@ -498,8 +498,8 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.get1BasedIndexOfFirst(e -> e.startsWith("x")))
-        .throwsException()
-        .ofType(ArgumentDoesNotContainElementException.class);
+      .throwsException()
+      .ofType(ArgumentDoesNotContainElementException.class);
   }
 
   //method
@@ -525,9 +525,9 @@ public abstract class ContainerTest extends Test {
 
     //execution
     expectRunning(() -> testUnit.getMax(String::length))
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
   }
 
   //method
@@ -578,10 +578,10 @@ public abstract class ContainerTest extends Test {
 
     //setup
     final var testUnit = createContainerWithElements(
-        BigDecimal.valueOf(10.0),
-        BigDecimal.valueOf(10.0),
-        BigDecimal.valueOf(11.5),
-        BigDecimal.valueOf(9.5));
+      BigDecimal.valueOf(10.0),
+      BigDecimal.valueOf(10.0),
+      BigDecimal.valueOf(11.5),
+      BigDecimal.valueOf(9.5));
 
     //execution
     final var result = testUnit.getMaxOrZero(FunctionCatalogue::getSelf);
@@ -599,8 +599,8 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.getMedian(FunctionCatalogue::getSelf))
-        .throwsException()
-        .ofType(EmptyArgumentException.class);
+      .throwsException()
+      .ofType(EmptyArgumentException.class);
   }
 
   //method
@@ -654,9 +654,9 @@ public abstract class ContainerTest extends Test {
 
     //execution
     expectRunning(() -> testUnit.getMin(String::length))
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
   }
 
   //method
@@ -707,10 +707,10 @@ public abstract class ContainerTest extends Test {
 
     //setup
     final var testUnit = createContainerWithElements(
-        BigDecimal.valueOf(10.0),
-        BigDecimal.valueOf(10.0),
-        BigDecimal.valueOf(11.5),
-        BigDecimal.valueOf(9.5));
+      BigDecimal.valueOf(10.0),
+      BigDecimal.valueOf(10.0),
+      BigDecimal.valueOf(11.5),
+      BigDecimal.valueOf(9.5));
 
     //execution
     final var result = testUnit.getMinOrZero(FunctionCatalogue::getSelf);
@@ -728,9 +728,9 @@ public abstract class ContainerTest extends Test {
 
     //execution
     expectRunning(() -> testUnit.getStoredByMax(String::length))
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
   }
 
   //method
@@ -770,9 +770,9 @@ public abstract class ContainerTest extends Test {
 
     //execution
     expectRunning(() -> testUnit.getStoredByMin(String::length))
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
   }
 
   //method
@@ -826,9 +826,9 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::getStoredFirst)
-        .throwsException()
-        .ofType(EmptyArgumentException.class)
-        .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
   }
 
   //method
@@ -886,12 +886,12 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 7))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage(
-            "The given "
-                + testUnit.getClass().getSimpleName()
-                + " 'x,xx,xxx,xxxx,xxxxx,xxxxxx' does not contain an element the given selector selects.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage(
+        "The given "
+        + testUnit.getClass().getSimpleName()
+        + " 'x,xx,xxx,xxxx,xxxxx,xxxxxx' does not contain an element the given selector selects.");
   }
 
   //method
@@ -917,12 +917,12 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification
     expectRunning(() -> testUnit.getStoredOne(e -> e.length() == 3))
-        .throwsException()
-        .ofType(InvalidArgumentException.class)
-        .withMessage(
-            "The given "
-                + testUnit.getClass().getSimpleName()
-                + " 'x,y,xx,yy,xxx,yyy' contains several elements the given selector selects.");
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage(
+        "The given "
+        + testUnit.getClass().getSimpleName()
+        + " 'x,y,xx,yy,xxx,yyy' contains several elements the given selector selects.");
   }
 
   //method
@@ -1234,21 +1234,21 @@ public abstract class ContainerTest extends Test {
 
     //execution & verification part 1
     expect(
-        result.containsAny(s -> s.equals("x")),
-        result.containsAny(s -> s.equals("xx")),
-        result.containsAny(s -> s.equals("xxx")),
-        result.containsAny(s -> s.equals("xxxx")),
-        result.containsAny(s -> s.equals("xxxxx")),
-        result.containsAny(s -> s.equals("xxxxxx")));
+      result.containsAny(s -> s.equals("x")),
+      result.containsAny(s -> s.equals("xx")),
+      result.containsAny(s -> s.equals("xxx")),
+      result.containsAny(s -> s.equals("xxxx")),
+      result.containsAny(s -> s.equals("xxxxx")),
+      result.containsAny(s -> s.equals("xxxxxx")));
 
     //execution & verification part 2
     expectNot(
-        result.containsAny(s -> s.equals("xxxxxxx")),
-        result.containsAny(s -> s.equals("xxxxxxxx")),
-        result.containsAny(s -> s.equals("xxxxxxxxx")),
-        result.containsAny(s -> s.equals("xxxxxxxxxx")),
-        result.containsAny(s -> s.equals("xxxxxxxxxxx")),
-        result.containsAny(s -> s.equals("xxxxxxxxxxxx")));
+      result.containsAny(s -> s.equals("xxxxxxx")),
+      result.containsAny(s -> s.equals("xxxxxxxx")),
+      result.containsAny(s -> s.equals("xxxxxxxxx")),
+      result.containsAny(s -> s.equals("xxxxxxxxxx")),
+      result.containsAny(s -> s.equals("xxxxxxxxxxx")),
+      result.containsAny(s -> s.equals("xxxxxxxxxxxx")));
   }
 
   //method
@@ -1272,8 +1272,8 @@ public abstract class ContainerTest extends Test {
 
   //method declaration
   protected abstract <E> IContainer<E> createContainerWithElements(
-      E element,
-      @SuppressWarnings("unchecked") E... elements);
+    E element,
+    @SuppressWarnings("unchecked") E... elements);
 
   //method declaration
   protected abstract <E> IContainer<E> createEmptyContainerForType(Class<E> type);

@@ -57,9 +57,9 @@ public final class MutableXmlNodeTest extends Test {
 
     //setup
     final var testUnit = new MutableXmlNode()
-        .setName("Node")
-        .addAttributeWithNameAndValue("key1", "value1")
-        .addAttributeWithNameAndValue("key2", "value2");
+      .setName("Node")
+      .addAttributeWithNameAndValue("key1", "value1")
+      .addAttributeWithNameAndValue("key2", "value2");
 
     //execution
     final var result = testUnit.toString();
@@ -74,9 +74,9 @@ public final class MutableXmlNodeTest extends Test {
 
     //setup
     final var testUnit = new MutableXmlNode()
-        .setName("Node")
-        .addChildNode(new MutableXmlNode().setName("ChildNode1"))
-        .addChildNode(new MutableXmlNode().setName("ChildNode2"));
+      .setName("Node")
+      .addChildNode(new MutableXmlNode().setName("ChildNode1"))
+      .addChildNode(new MutableXmlNode().setName("ChildNode2"));
 
     //execution
     final var result = testUnit.toString();

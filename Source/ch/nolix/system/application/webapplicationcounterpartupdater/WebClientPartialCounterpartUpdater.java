@@ -22,7 +22,7 @@ public final class WebClientPartialCounterpartUpdater {
 
   //constructor
   private WebClientPartialCounterpartUpdater(
-      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
+    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
 
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
@@ -31,7 +31,7 @@ public final class WebClientPartialCounterpartUpdater {
 
   //static method
   public static WebClientPartialCounterpartUpdater forCounterpartRunner(
-      final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
+    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
     return new WebClientPartialCounterpartUpdater(counterpartRunner);
   }
 
@@ -52,9 +52,9 @@ public final class WebClientPartialCounterpartUpdater {
     final var webGui = control.getStoredParentGui();
 
     return ImmutableList.withElement(
-        UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromControl(control),
-        UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
-        UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+      UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromControl(control),
+      UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
   }
 }

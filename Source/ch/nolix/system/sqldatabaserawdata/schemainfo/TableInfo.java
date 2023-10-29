@@ -11,21 +11,21 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
 
 //class
 public record TableInfo(String tableId, String tableName, ImmutableList<IColumnInfo> columnInfos)
-    implements ITableInfo {
+implements ITableInfo {
 
   //constructor
   public TableInfo(
-      final String tableId,
-      final String tableName,
-      final IContainer<IColumnInfo> columnInfos) {
+    final String tableId,
+    final String tableName,
+    final IContainer<IColumnInfo> columnInfos) {
     this(tableId, tableName, ImmutableList.forIterable(columnInfos));
   }
 
   //constructor
   public TableInfo( //NOSONAR: This implementations checks the given arguments.
-      final String tableId,
-      final String tableName,
-      final ImmutableList<IColumnInfo> columnInfos) {
+    final String tableId,
+    final String tableName,
+    final ImmutableList<IColumnInfo> columnInfos) {
 
     if (tableId == null) {
       throw ArgumentIsNullException.forArgumentName("table id");

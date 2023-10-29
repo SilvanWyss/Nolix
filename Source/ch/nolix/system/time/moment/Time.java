@@ -65,15 +65,15 @@ public final class Time extends Element implements ITime {
    */
   private Time() {
     this(
-        ZonedDateTime.of(
-            DEFAULT_YEAR,
-            DEFAULT_MONTH_OF_YEAR,
-            DEFAULT_DAY_OF_MONTH,
-            DEFAULT_HOUR_OF_DAY,
-            DEFAULT_MINUTE_OF_HOUR,
-            DEFAULT_SECOND_OF_MINUTE,
-            1000 * DEFAULT_MILLISECOND_OF_SECOND,
-            ZoneId.systemDefault()));
+      ZonedDateTime.of(
+        DEFAULT_YEAR,
+        DEFAULT_MONTH_OF_YEAR,
+        DEFAULT_DAY_OF_MONTH,
+        DEFAULT_HOUR_OF_DAY,
+        DEFAULT_MINUTE_OF_HOUR,
+        DEFAULT_SECOND_OF_MINUTE,
+        1000 * DEFAULT_MILLISECOND_OF_SECOND,
+        ZoneId.systemDefault()));
   }
 
   private Time(final ZonedDateTime zonedDateTime) {
@@ -155,9 +155,9 @@ public final class Time extends Element implements ITime {
    * @return a new {@link Time} with the given year, monthOfYear and dayOfMonth.
    */
   public static Time withYearAndMonthOfYearAndDayOfMonth(
-      final int year,
-      final int monthOfYear,
-      final int dayOfMonth) {
+    final int year,
+    final int monthOfYear,
+    final int dayOfMonth) {
     return new Time(DEFAULT_TIME.zonedDateTime.withYear(year).withMonth(monthOfYear).withDayOfMonth(dayOfMonth));
   }
 
@@ -171,16 +171,16 @@ public final class Time extends Element implements ITime {
    *         hourOfDay.
    */
   public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
-      final int year,
-      final int monthOfYear,
-      final int dayOfMonth,
-      final int hourOfDay) {
+    final int year,
+    final int monthOfYear,
+    final int dayOfMonth,
+    final int hourOfDay) {
     return new Time(
-        DEFAULT_TIME.zonedDateTime
-            .withYear(year)
-            .withMonth(monthOfYear)
-            .withDayOfMonth(dayOfMonth)
-            .withHour(hourOfDay));
+      DEFAULT_TIME.zonedDateTime
+        .withYear(year)
+        .withMonth(monthOfYear)
+        .withDayOfMonth(dayOfMonth)
+        .withHour(hourOfDay));
   }
 
   //static method
@@ -194,18 +194,18 @@ public final class Time extends Element implements ITime {
    *         hourOfDay and minuteOfHour.
    */
   public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
-      final int year,
-      final int monthOfYear,
-      final int dayOfMonth,
-      final int hourOfDay,
-      final int minuteOfHour) {
+    final int year,
+    final int monthOfYear,
+    final int dayOfMonth,
+    final int hourOfDay,
+    final int minuteOfHour) {
     return new Time(
-        DEFAULT_TIME.zonedDateTime
-            .withYear(year)
-            .withMonth(monthOfYear)
-            .withDayOfMonth(dayOfMonth)
-            .withHour(hourOfDay)
-            .withMinute(minuteOfHour));
+      DEFAULT_TIME.zonedDateTime
+        .withYear(year)
+        .withMonth(monthOfYear)
+        .withDayOfMonth(dayOfMonth)
+        .withHour(hourOfDay)
+        .withMinute(minuteOfHour));
   }
 
   //static method
@@ -220,20 +220,20 @@ public final class Time extends Element implements ITime {
    *         hourOfDay, minuteOfHour and secondOfMinute.
    */
   public static Time withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
-      final int year,
-      final int monthOfYear,
-      final int dayOfMonth,
-      final int hourOfDay,
-      final int minuteOfHour,
-      final int secondOfMinute) {
+    final int year,
+    final int monthOfYear,
+    final int dayOfMonth,
+    final int hourOfDay,
+    final int minuteOfHour,
+    final int secondOfMinute) {
     return new Time(
-        DEFAULT_TIME.zonedDateTime
-            .withYear(year)
-            .withMonth(monthOfYear)
-            .withDayOfMonth(dayOfMonth)
-            .withHour(hourOfDay)
-            .withMinute(minuteOfHour)
-            .withSecond(secondOfMinute));
+      DEFAULT_TIME.zonedDateTime
+        .withYear(year)
+        .withMonth(monthOfYear)
+        .withDayOfMonth(dayOfMonth)
+        .withHour(hourOfDay)
+        .withMinute(minuteOfHour)
+        .withSecond(secondOfMinute));
   }
 
   //static method
@@ -249,23 +249,23 @@ public final class Time extends Element implements ITime {
    *         hourOfDay, minuteOfHour, secondOfMinute and millisecondOfSecond.
    */
   public static Time //
-      withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
-          final int year,
-          final int monthOfYear,
-          final int dayOfMonth,
-          final int hourOfDay,
-          final int minuteOfHour,
-          final int secondOfMinute,
-          final int millisecondOfSecond) {
+  withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+    final int year,
+    final int monthOfYear,
+    final int dayOfMonth,
+    final int hourOfDay,
+    final int minuteOfHour,
+    final int secondOfMinute,
+    final int millisecondOfSecond) {
     return new Time(
-        DEFAULT_TIME.zonedDateTime
-            .withYear(year)
-            .withMonth(monthOfYear)
-            .withDayOfMonth(dayOfMonth)
-            .withHour(hourOfDay)
-            .withMinute(minuteOfHour)
-            .withSecond(secondOfMinute)
-            .withNano(1_000_000 * millisecondOfSecond));
+      DEFAULT_TIME.zonedDateTime
+        .withYear(year)
+        .withMonth(monthOfYear)
+        .withDayOfMonth(dayOfMonth)
+        .withHour(hourOfDay)
+        .withMinute(minuteOfHour)
+        .withSecond(secondOfMinute)
+        .withNano(1_000_000 * millisecondOfSecond));
   }
 
   //static method
@@ -275,9 +275,9 @@ public final class Time extends Element implements ITime {
    */
   private static Time fromArrayWith3Values(final String[] array) {
     return withYearAndMonthOfYearAndDayOfMonth(
-        Integer.valueOf(array[0]),
-        Integer.valueOf(array[1]),
-        Integer.valueOf(array[2]));
+      Integer.valueOf(array[0]),
+      Integer.valueOf(array[1]),
+      Integer.valueOf(array[2]));
   }
 
   //static method
@@ -287,11 +287,11 @@ public final class Time extends Element implements ITime {
    */
   private static Time fromArrayWith5Values(final String[] array) {
     return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
-        Integer.valueOf(array[0]),
-        Integer.valueOf(array[1]),
-        Integer.valueOf(array[2]),
-        Integer.valueOf(array[3]),
-        Integer.valueOf(array[4]));
+      Integer.valueOf(array[0]),
+      Integer.valueOf(array[1]),
+      Integer.valueOf(array[2]),
+      Integer.valueOf(array[3]),
+      Integer.valueOf(array[4]));
   }
 
   //static method
@@ -301,12 +301,12 @@ public final class Time extends Element implements ITime {
    */
   private static Time fromArrayWith6Values(final String[] array) {
     return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
-        Integer.valueOf(array[0]),
-        Integer.valueOf(array[1]),
-        Integer.valueOf(array[2]),
-        Integer.valueOf(array[3]),
-        Integer.valueOf(array[4]),
-        Integer.valueOf(array[5]));
+      Integer.valueOf(array[0]),
+      Integer.valueOf(array[1]),
+      Integer.valueOf(array[2]),
+      Integer.valueOf(array[3]),
+      Integer.valueOf(array[4]),
+      Integer.valueOf(array[5]));
   }
 
   //static method
@@ -316,13 +316,13 @@ public final class Time extends Element implements ITime {
    */
   private static Time fromArrayWith7Values(final String[] array) {
     return withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
-        Integer.valueOf(array[0]),
-        Integer.valueOf(array[1]),
-        Integer.valueOf(array[2]),
-        Integer.valueOf(array[3]),
-        Integer.valueOf(array[4]),
-        Integer.valueOf(array[5]),
-        Integer.valueOf(array[6]));
+      Integer.valueOf(array[0]),
+      Integer.valueOf(array[1]),
+      Integer.valueOf(array[2]),
+      Integer.valueOf(array[3]),
+      Integer.valueOf(array[4]),
+      Integer.valueOf(array[5]),
+      Integer.valueOf(array[6]));
   }
 
   //method
@@ -332,15 +332,15 @@ public final class Time extends Element implements ITime {
   @Override
   public IContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(
-        Node.fromString(String.format(
-            "%04d-%02d-%02d-%02d-%02d-%02d-%03d",
-            getYearAsInt(),
-            getMonthOfYearAsInt(),
-            getDayOfMonth(),
-            getHourOfDay(),
-            getMinuteOfHour(),
-            getSecondOfMinute(),
-            getMillisecondOfSecond())));
+      Node.fromString(String.format(
+        "%04d-%02d-%02d-%02d-%02d-%02d-%03d",
+        getYearAsInt(),
+        getMonthOfYearAsInt(),
+        getDayOfMonth(),
+        getHourOfDay(),
+        getMinuteOfHour(),
+        getSecondOfMinute(),
+        getMillisecondOfSecond())));
   }
 
   //method
@@ -349,9 +349,9 @@ public final class Time extends Element implements ITime {
    */
   public Time getDay() {
     return Time.withYearAndMonthOfYearAndDayOfMonth(
-        getYearAsInt(),
-        getMonthOfYearAsInt(),
-        getDayOfMonth());
+      getYearAsInt(),
+      getMonthOfYearAsInt(),
+      getDayOfMonth());
   }
 
   //method
@@ -380,10 +380,10 @@ public final class Time extends Element implements ITime {
    */
   public Time getHour() {
     return Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDay(
-        getYearAsInt(),
-        getMonthOfYearAsInt(),
-        getDayOfMonth(),
-        getHourOfDay());
+      getYearAsInt(),
+      getMonthOfYearAsInt(),
+      getDayOfMonth(),
+      getHourOfDay());
   }
 
   //method
@@ -430,11 +430,11 @@ public final class Time extends Element implements ITime {
    */
   public Time getMinute() {
     return Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHour(
-        getYearAsInt(),
-        getMonthOfYearAsInt(),
-        getDayOfMonth(),
-        getHourOfDay(),
-        getMinuteOfHour());
+      getYearAsInt(),
+      getMonthOfYearAsInt(),
+      getDayOfMonth(),
+      getHourOfDay(),
+      getMinuteOfHour());
   }
 
   //method
@@ -533,12 +533,12 @@ public final class Time extends Element implements ITime {
    */
   public Time getSecond() {
     return Time.withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinute(
-        getYearAsInt(),
-        getMonthOfYearAsInt(),
-        getDayOfMonth(),
-        getHourOfDay(),
-        getMinuteOfHour(),
-        getSecondOfMinute());
+      getYearAsInt(),
+      getMonthOfYearAsInt(),
+      getDayOfMonth(),
+      getHourOfDay(),
+      getMinuteOfHour(),
+      getSecondOfMinute());
   }
 
   //method

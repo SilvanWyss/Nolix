@@ -19,10 +19,10 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
   //constructor
   public NonCascadingProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     super(name, stateClass, valueCreator, specificationCreator);
 
@@ -31,11 +31,11 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
   //constructor
   public NonCascadingProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator,
-      final V defaultValue) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator,
+    final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator);
 
@@ -46,11 +46,11 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
   //constructor
   public NonCascadingProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator,
-      final BiConsumer<S, V> setterMethod) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator,
+    final BiConsumer<S, V> setterMethod) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
@@ -59,12 +59,12 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
   //constructor
   public NonCascadingProperty(
-      final String name,
-      final Class<S> stateClass,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator,
-      final BiConsumer<S, V> setterMethod,
-      final V defaultValue) {
+    final String name,
+    final Class<S> stateClass,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator,
+    final BiConsumer<S, V> setterMethod,
+    final V defaultValue) {
 
     super(name, stateClass, valueCreator, specificationCreator, setterMethod);
 
@@ -75,47 +75,47 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
 
   //static method
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Double> //
-      forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          final String name,
-          final Class<S2> stateClass,
-          final BiConsumer<S2, Double> setterMethod,
-          final double defaultValue) {
+  forDoubleWithNameAndStateClassAndSetterMethodAndDefaultValue(
+    final String name,
+    final Class<S2> stateClass,
+    final BiConsumer<S2, Double> setterMethod,
+    final double defaultValue) {
     return new NonCascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsDouble,
-        Node::withChildNode,
-        setterMethod,
-        defaultValue);
+      name,
+      stateClass,
+      INode::getSingleChildNodeAsDouble,
+      Node::withChildNode,
+      setterMethod,
+      defaultValue);
   }
 
   //static method
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer> forIntWithNameAndStateClassAndSetterMethod(
-      final String name,
-      final Class<S2> stateClass,
-      final BiConsumer<S2, Integer> setterMethod) {
+    final String name,
+    final Class<S2> stateClass,
+    final BiConsumer<S2, Integer> setterMethod) {
     return new NonCascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsInt,
-        Node::withChildNode,
-        setterMethod);
+      name,
+      stateClass,
+      INode::getSingleChildNodeAsInt,
+      Node::withChildNode,
+      setterMethod);
   }
 
   //static method
   public static <S2 extends Enum<S2>> NonCascadingProperty<S2, Integer>//
-      forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          final String name,
-          final Class<S2> stateClass,
-          final BiConsumer<S2, Integer> setterMethod,
-          final int defaultValue) {
+  forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+    final String name,
+    final Class<S2> stateClass,
+    final BiConsumer<S2, Integer> setterMethod,
+    final int defaultValue) {
     return new NonCascadingProperty<>(
-        name,
-        stateClass,
-        INode::getSingleChildNodeAsInt,
-        Node::withChildNode,
-        setterMethod,
-        defaultValue);
+      name,
+      stateClass,
+      INode::getSingleChildNodeAsInt,
+      Node::withChildNode,
+      setterMethod,
+      defaultValue);
   }
 
   //method
@@ -147,8 +147,8 @@ public final class NonCascadingProperty<S extends Enum<S>, V> extends Materializ
     }
 
     throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(
-        this,
-        "value for the" + state.getQualifyingPrefix() + " state");
+      this,
+      "value for the" + state.getQualifyingPrefix() + " state");
   }
 
   //method

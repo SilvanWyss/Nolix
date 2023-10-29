@@ -28,10 +28,10 @@ public final class TableDto implements ITableDto {
   //For a better performance, this implementation does not use all comfortable
   //methods.
   public TableDto(
-      final String id,
-      final String name,
-      final ISaveStampConfigurationDto saveStampConfiguration,
-      final IContainer<IColumnDto> columnDtos) {
+    final String id,
+    final String name,
+    final ISaveStampConfigurationDto saveStampConfiguration,
+    final IContainer<IColumnDto> columnDtos) {
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);

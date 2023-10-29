@@ -7,8 +7,8 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //interface
 public interface IMultiValueEntry<
 
-    V>
-    extends IDatabaseObject {
+V>
+extends IDatabaseObject {
 
   //method declaration
   IMultiValue<V> getStoredParentMultiValue();

@@ -21,17 +21,17 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-    extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
+extends Control<IM, IMS> implements IItemMenu<IM, IMS> {
 
   //constant
   private static final String ITEM_HEADER = PascalCaseCatalogue.ITEM;
 
   //attribute
   private final MultiValue<IItemMenuItem<?>> items = new MultiValue<>(
-      ITEM_HEADER,
-      this::addItem,
-      ItemMenuItem::fromSpecification,
-      IItemMenuItem::getSpecification);
+    ITEM_HEADER,
+    this::addItem,
+    ItemMenuItem::fromSpecification,
+    IItemMenuItem::getSpecification);
 
   //optional attribute
   private Consumer<IItemMenuItem<?>> selectAction;
@@ -74,9 +74,9 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   //method
   @Override
   public final IM addItemWithIdAndTextAndSelectAction(
-      final String id,
-      final String text,
-      final Consumer<IItemMenuItem<?>> selectAction) {
+    final String id,
+    final String text,
+    final Consumer<IItemMenuItem<?>> selectAction) {
     return addItem(ItemMenuItem.withIdAndTextAndSelectAction(id, text, selectAction));
   }
 
@@ -102,8 +102,8 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   //method
   @Override
   public final IM addItemWithTextAndSelectAction(
-      final String text,
-      final Consumer<IItemMenuItem<?>> selectAction) {
+    final String text,
+    final Consumer<IItemMenuItem<?>> selectAction) {
     return addItem(ItemMenuItem.withTextAndSelectAction(text, selectAction));
   }
 
@@ -305,8 +305,8 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   private void assertDoesNotContainItemWithId(final String id) {
     if (containsItemWithId(id)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains already an item with the id '" + id + "'");
+        this,
+        "contains already an item with the id '" + id + "'");
     }
   }
 
@@ -314,8 +314,8 @@ public abstract class ItemMenu<IM extends IItemMenu<IM, IMS>, IMS extends IItemM
   private void assertDoesNotContainItemWithText(final String text) {
     if (containsItemWithText(text)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains already an item with the text '" + text + "'");
+        this,
+        "contains already an item with the text '" + text + "'");
     }
   }
 

@@ -45,15 +45,15 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   //method
   void internalUpdateControlOnCounterpart(final IControl<?, ?> control) {
     WebClientPartialCounterpartUpdater
-        .forCounterpartRunner(this::runOnCounterpart)
-        .updateControlOnCounterpart(control);
+      .forCounterpartRunner(this::runOnCounterpart)
+      .updateControlOnCounterpart(control);
   }
 
   //method
   void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui) {
     WebClientCounterpartUpdater
-        .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen)
-        .updateCounterpartFromWebGui(webGui);
+      .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen)
+      .updateCounterpartFromWebGui(webGui);
   }
 
   //method

@@ -3,10 +3,10 @@ package ch.nolix.system.sqldatabaserawschema.columntable;
 
 //class
 public record ParameterizedPropertyTypeSqlRecord(
-    String propertyTypeValue,
-    String dataTypeValue,
-    String referencedTableIdValue,
-    String backReferencedColumnIdValue) { //NOSONAR: The left curly brace is at the right place.
+String propertyTypeValue,
+String dataTypeValue,
+String referencedTableIdValue,
+String backReferencedColumnIdValue) { //NOSONAR: The left curly brace is at the right place.
 
   //method
   public String getBackReferencedColumnIdValue() {

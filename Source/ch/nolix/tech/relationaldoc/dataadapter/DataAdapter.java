@@ -26,9 +26,9 @@ public final class DataAdapter implements IDataAdapter {
   private DataAdapter(final ch.nolix.system.objectdatabase.database.DataAdapter internalDataAdapter) {
 
     GlobalValidator
-        .assertThat(internalDataAdapter)
-        .thatIsNamed("internal data adapter")
-        .isNotNull();
+      .assertThat(internalDataAdapter)
+      .thatIsNamed("internal data adapter")
+      .isNotNull();
 
     this.internalDataAdapter = internalDataAdapter;
   }
@@ -37,9 +37,9 @@ public final class DataAdapter implements IDataAdapter {
   public static DataAdapter forNodeDatabase(final IMutableNode<?> nodeDatabase) {
 
     final var nodeDataAdapter = NodeDataAdapter
-        .forNodeDatabase(nodeDatabase)
-        .withName(LowerCaseCatalogue.DATABASE)
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(nodeDatabase)
+      .withName(LowerCaseCatalogue.DATABASE)
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     return new DataAdapter(nodeDataAdapter);
   }

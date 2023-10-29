@@ -27,8 +27,8 @@ public final class SchemaQueryCreator implements ISchemaQueryCreator {
   //method
   @Override
   public String createQueryToLoadTopFirstRecordWhereColumnIsNotNull(
-      final String tableName,
-      final String columnName) {
+    final String tableName,
+    final String columnName) {
     return ("SELECT TOP 1 " + columnName + " FROM " + tableName + " WHERE " + columnName + " NOT NULL");
   }
 }

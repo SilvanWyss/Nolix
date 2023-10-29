@@ -63,9 +63,9 @@ public final class AfterEveryMediator {
    *                                   negative.
    */
   AfterEveryMediator(
-      final int maxRunCount,
-      final BooleanSupplier condition,
-      final int timeIntervalInMilliseconds) {
+    final int maxRunCount,
+    final BooleanSupplier condition,
+    final int timeIntervalInMilliseconds) {
 
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
     GlobalValidator.assertThat(condition).thatIsNamed("condition").isNotNull();

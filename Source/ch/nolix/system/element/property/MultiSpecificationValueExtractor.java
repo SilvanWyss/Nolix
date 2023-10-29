@@ -27,9 +27,9 @@ public final class MultiSpecificationValueExtractor implements IProperty, INameH
 
   //constructor
   public MultiSpecificationValueExtractor(
-      final String name,
-      final Consumer<INode<?>> adder,
-      final Supplier<IContainer<INode<?>>> getter) {
+    final String name,
+    final Consumer<INode<?>> adder,
+    final Supplier<IContainer<INode<?>>> getter) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();

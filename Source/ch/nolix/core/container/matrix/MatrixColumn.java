@@ -27,14 +27,14 @@ public final class MatrixColumn<E> extends Container<E> {
   MatrixColumn(final Matrix<E> parentMatrix, final int columnIndex) {
 
     GlobalValidator
-        .assertThat(parentMatrix)
-        .thatIsNamed("parent matrix")
-        .isNotNull();
+      .assertThat(parentMatrix)
+      .thatIsNamed("parent matrix")
+      .isNotNull();
 
     GlobalValidator
-        .assertThat(columnIndex)
-        .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
-        .isPositive();
+      .assertThat(columnIndex)
+      .thatIsNamed(LowerCaseCatalogue.COLUMN_INDEX)
+      .isPositive();
 
     this.parentMatrix = parentMatrix;
     this.columnIndex = columnIndex;

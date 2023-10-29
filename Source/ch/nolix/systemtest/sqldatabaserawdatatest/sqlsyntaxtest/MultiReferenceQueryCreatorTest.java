@@ -20,9 +20,9 @@ public final class MultiReferenceQueryCreatorTest extends Test {
 
     //verification
     final var expectedResult = "SELECT ReferencedEntityId "
-        + "FROM MMultiReferenceEntry "
-        + "WHERE EntityId = 'my_entity_id' "
-        + "AND MultiReferenceColumnId = 'my_column_id';";
+    + "FROM MMultiReferenceEntry "
+    + "WHERE EntityId = 'my_entity_id' "
+    + "AND MultiReferenceColumnId = 'my_column_id';";
     expect(result).isEqualTo(expectedResult);
   }
 }

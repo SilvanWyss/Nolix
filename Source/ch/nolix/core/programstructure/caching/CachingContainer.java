@@ -157,8 +157,8 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   private void assertDoesNotContain(final E element) {
     if (contains(element)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "contains already the given element '" + element + "'");
+        this,
+        "contains already the given element '" + element + "'");
     }
   }
 
@@ -166,9 +166,9 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   private void assertDoesNotContainId(final String id) {
     if (containsWithId(id)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.ID,
-          id,
-          "is already used");
+        LowerCaseCatalogue.ID,
+        id,
+        "is already used");
     }
   }
 

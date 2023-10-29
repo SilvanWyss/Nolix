@@ -14,19 +14,19 @@ final class EntityNodeMapper {
 
   //method
   public Node createNodeFromEntityWithSaveStamp(
-      final ITableInfo tableInfo,
-      final INewEntityDto newEntity,
-      final long saveStamp) {
+    final ITableInfo tableInfo,
+    final INewEntityDto newEntity,
+    final long saveStamp) {
     return Node.withHeaderAndChildNodes(
-        SubNodeHeaderCatalogue.ENTITY,
-        createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo));
+      SubNodeHeaderCatalogue.ENTITY,
+      createAttributesFromNewEntityWithSaveStamp(newEntity, saveStamp, tableInfo));
   }
 
   //method
   private IContainer<Node> createAttributesFromNewEntityWithSaveStamp(
-      final INewEntityDto newEntity,
-      final long saveStamp,
-      final ITableInfo tableInfo) {
+    final INewEntityDto newEntity,
+    final long saveStamp,
+    final ITableInfo tableInfo) {
 
     final var attributes = new Node[2 + tableInfo.getColumnInfos().getElementCount()];
 

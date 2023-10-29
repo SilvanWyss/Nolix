@@ -8,7 +8,7 @@ import ch.nolix.core.sql.SqlDatabaseEngine;
 
 //class
 public class WithSqlDatabaseEngineCapturer<N>
-    extends ArgumentCapturer<SqlDatabaseEngine, N> {
+extends ArgumentCapturer<SqlDatabaseEngine, N> {
 
   //constructor
   public WithSqlDatabaseEngineCapturer(final N nextArgumentCapturer) {

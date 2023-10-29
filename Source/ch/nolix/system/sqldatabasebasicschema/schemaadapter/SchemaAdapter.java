@@ -28,20 +28,20 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   //constructor
   protected SchemaAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaQueryCreator schemaQueryCreator,
-      final ISchemaStatementCreator schemaStatementCreator) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final ISchemaQueryCreator schemaQueryCreator,
+    final ISchemaStatementCreator schemaStatementCreator) {
 
     schemaReader = SchemaReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaQueryCreator(
-        databaseName,
-        sqlConnectionPool,
-        schemaQueryCreator);
+      databaseName,
+      sqlConnectionPool,
+      schemaQueryCreator);
 
     schemaWriter = SchemaWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaStatementCreator(
-        databaseName,
-        sqlConnectionPool,
-        schemaStatementCreator);
+      databaseName,
+      sqlConnectionPool,
+      schemaStatementCreator);
 
     getStoredCloseController().createCloseDependencyTo(schemaReader);
     getStoredCloseController().createCloseDependencyTo(schemaWriter);

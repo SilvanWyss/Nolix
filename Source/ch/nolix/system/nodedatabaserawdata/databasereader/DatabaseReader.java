@@ -48,31 +48,31 @@ public final class DatabaseReader implements IDataReader {
   //method
   @Override
   public IContainer<String> loadMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     return internalDatabaseReader.loadMultiReferenceEntries(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiReferenceColumnName));
   }
 
   //method
   @Override
   public IContainer<Object> loadMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiValueColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiValueColumnName) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     return internalDatabaseReader.loadMultiValueEntries(
-        tableInfo,
-        entityId,
-        tableInfo.getColumnInfoByColumnName(multiValueColumnName));
+      tableInfo,
+      entityId,
+      tableInfo.getColumnInfoByColumnName(multiValueColumnName));
   }
 
   //method
@@ -96,16 +96,16 @@ public final class DatabaseReader implements IDataReader {
   //method
   @Override
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
-      final String tableName,
-      final String columnName,
-      final String value) {
+    final String tableName,
+    final String columnName,
+    final String value) {
 
     final var tableInfo = getTableInfoByTableName(tableName);
 
     return internalDatabaseReader.tableContainsEntityWithGivenValueAtGivenColumn(
-        getTableInfoByTableName(tableName),
-        tableInfo.getColumnInfoByColumnName(columnName),
-        value);
+      getTableInfoByTableName(tableName),
+      tableInfo.getColumnInfoByColumnName(columnName),
+      value);
   }
 
   //method

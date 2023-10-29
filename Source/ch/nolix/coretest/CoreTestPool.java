@@ -29,17 +29,17 @@ public final class CoreTestPool extends TestPool {
    */
   public CoreTestPool() {
     super(
-        new CommonTypeTestPool(),
-        new ContainerTestPool(),
-        new DocumentTestPool(),
-        new EnvironmentTestPool(),
-        new ErrorControlTestPool(),
-        new LicenseTestPool(),
-        new MathTestPool(),
-        new NetTestPool(),
-        new ProgramAtomTestPool(),
-        new ProgramControlTestPool(),
-        new ProgramStructureTestPool(),
-        new WebTestPool());
+      new CommonTypeTestPool(),
+      new ContainerTestPool(),
+      new DocumentTestPool(),
+      new EnvironmentTestPool(),
+      new ErrorControlTestPool(),
+      new LicenseTestPool(),
+      new MathTestPool(),
+      new NetTestPool(),
+      new ProgramAtomTestPool(),
+      new ProgramControlTestPool(),
+      new ProgramStructureTestPool(),
+      new WebTestPool());
   }
 }

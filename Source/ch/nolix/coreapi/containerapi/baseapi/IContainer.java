@@ -22,13 +22,13 @@ import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
  * @param <E> is the type of the elements a {@link IContainer}.
  */
 public interface IContainer<E>
-    extends
-    EmptinessRequestable,
-    IterableWithCopyableIterator<E>,
-    ISearchableContainer<E>,
-    IMappableContainer<E>,
-    MaterializationRequestable,
-    StoringRequestable<E> {
+extends
+EmptinessRequestable,
+IterableWithCopyableIterator<E>,
+ISearchableContainer<E>,
+IMappableContainer<E>,
+MaterializationRequestable,
+StoringRequestable<E> {
 
   //method declaration
   /**

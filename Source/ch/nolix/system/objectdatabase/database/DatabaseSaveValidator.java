@@ -41,8 +41,8 @@ public final class DatabaseSaveValidator {
 
   //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
-      final IEntity entity,
-      final Database database) {
+    final IEntity entity,
+    final Database database) {
     if (ENTITY_HELPER.isNewOrEdited(entity)) {
       addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(entity, database);
     }
@@ -50,8 +50,8 @@ public final class DatabaseSaveValidator {
 
   //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(
-      final IEntity entity,
-      final Database database) {
+    final IEntity entity,
+    final Database database) {
     for (final var p : entity.technicalGetRefProperties()) {
       addExpectionsThatNewlyReferencedEntitiesExistToDatabase(database, p);
     }
@@ -59,8 +59,8 @@ public final class DatabaseSaveValidator {
 
   //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
-      final Database database,
-      final IProperty property) {
+    final Database database,
+    final IProperty property) {
     if (PROPERTY_HELPER.isNewOrEdited(property)) {
       addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(property, database);
     }
@@ -68,16 +68,16 @@ public final class DatabaseSaveValidator {
 
   //method
   private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(
-      final IProperty property,
-      final Database database) {
+    final IProperty property,
+    final Database database) {
     switch (property.getType()) {
       case REFERENCE:
 
         final var reference = (IReference<?>) property;
 
         database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-            reference.getReferencedTableName(),
-            reference.getReferencedEntityId());
+          reference.getReferencedTableName(),
+          reference.getReferencedEntityId());
 
         break;
       case OPTIONAL_REFERENCE:
@@ -86,8 +86,8 @@ public final class DatabaseSaveValidator {
 
         if (optionalReference.containsAny()) {
           database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-              optionalReference.getReferencedTableName(),
-              optionalReference.getReferencedEntityId());
+            optionalReference.getReferencedTableName(),
+            optionalReference.getReferencedEntityId());
         }
 
         break;
@@ -99,8 +99,8 @@ public final class DatabaseSaveValidator {
         for (final var le : multiReference.getStoredLocalEntries()) {
           if (MULTI_REFERENCE_ENTRY_HELPER.isNewOrEdited(le)) {
             database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-                referencedTableName,
-                le.getReferencedEntityId());
+              referencedTableName,
+              le.getReferencedEntityId());
           }
         }
 

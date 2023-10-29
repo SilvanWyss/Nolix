@@ -69,8 +69,8 @@ public final class PropertyBinding {
     currentError = null;
 
     errorText
-        .setInvisible()
-        .setText(Label.DEFAULT_TEXT);
+      .setInvisible()
+      .setText(Label.DEFAULT_TEXT);
   }
 
   //method
@@ -102,7 +102,7 @@ public final class PropertyBinding {
   //method
   private void updateErrorLabelFrom(final Throwable error) {
     errorText
-        .setVisible()
-        .setText(getErrorMessageFrom(error));
+      .setVisible()
+      .setText(getErrorMessageFrom(error));
   }
 }

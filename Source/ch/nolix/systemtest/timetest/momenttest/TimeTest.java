@@ -16,14 +16,14 @@ public final class TimeTest extends Test {
 
     //setup
     final var testUnit = Time
-        .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
-            2020,
-            1,
-            2,
-            10,
-            15,
-            30,
-            500);
+      .withYearAndMonthOfYearAndDayOfMonthAndHourOfDayAndMinuteOfHourAndSecondOfMinuteAndMillisecondOfSecond(
+        2020,
+        1,
+        2,
+        10,
+        15,
+        30,
+        500);
 
     //execution
     final Time result = testUnit.getDay();

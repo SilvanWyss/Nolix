@@ -41,12 +41,12 @@ public final class LayerCssBuilder {
     }
 
     cssProperties.addAtEnd(
-        getZIndexCssPropertyForLayer(layer),
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_WIDTH, "100vw"),
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh"),
-        CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "flex"),
-        getJustifyContentCssPropertyForLayer(layer),
-        getAlignItemsCssPropertyForLayer(layer));
+      getZIndexCssPropertyForLayer(layer),
+      CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_WIDTH, "100vw"),
+      CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh"),
+      CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "flex"),
+      getJustifyContentCssPropertyForLayer(layer),
+      getAlignItemsCssPropertyForLayer(layer));
 
     if (layer.hasBackground()) {
       cssProperties.addAtEnd(layer.getBackground().toCssProperties());

@@ -93,9 +93,9 @@ public final class ChainedNode implements IChainedNode {
    * @throws ArgumentIsNullException  if the given nextNode is null.
    */
   public ChainedNode(
-      final String header,
-      final Iterable<INode<?>> attributes,
-      final ChainedNode nextNode) {
+    final String header,
+    final Iterable<INode<?>> attributes,
+    final ChainedNode nextNode) {
     setHeader(header);
     addChildNodesFromNodes(attributes);
     setNextNode(nextNode);
@@ -142,13 +142,13 @@ public final class ChainedNode implements IChainedNode {
   public static String getEscapeStringFor(final String string) {
     return string
 
-        //It is essential to replace the dollar symbol at first.
-        .replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
+      //It is essential to replace the dollar symbol at first.
+      .replace(String.valueOf(CharacterCatalogue.DOLLAR), DOLLAR_SYMBOL_CODE)
 
-        .replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
-        .replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
-        .replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
-        .replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
+      .replace(String.valueOf(CharacterCatalogue.DOT), DOT_CODE)
+      .replace(String.valueOf(CharacterCatalogue.COMMA), COMMA_CODE)
+      .replace(String.valueOf(CharacterCatalogue.OPEN_BRACKET), OPEN_BRACKET_CODE)
+      .replace(String.valueOf(CharacterCatalogue.CLOSED_BRACKET), CLOSED_BRACKET_CODE);
   }
 
   //static method
@@ -159,13 +159,13 @@ public final class ChainedNode implements IChainedNode {
   public static String getStoredginStringFromEscapeString(final String escapeString) {
 
     return escapeString
-        .replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
-        .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
-        .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
-        .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
+      .replace(DOT_CODE, String.valueOf(CharacterCatalogue.DOT))
+      .replace(COMMA_CODE, String.valueOf(CharacterCatalogue.COMMA))
+      .replace(OPEN_BRACKET_CODE, String.valueOf(CharacterCatalogue.OPEN_BRACKET))
+      .replace(CLOSED_BRACKET_CODE, String.valueOf(CharacterCatalogue.CLOSED_BRACKET))
 
-        //It is essential to replace the dollar symbol code at last.
-        .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
+      //It is essential to replace the dollar symbol code at last.
+      .replace(DOLLAR_SYMBOL_CODE, String.valueOf(CharacterCatalogue.DOLLAR));
   }
 
   //static method
@@ -233,9 +233,9 @@ public final class ChainedNode implements IChainedNode {
   }
 
   public static ChainedNode withHeaderAndChildNodes(
-      final String header,
-      final ChainedNode childNode,
-      final ChainedNode... childNodes) {
+    final String header,
+    final ChainedNode childNode,
+    final ChainedNode... childNodes) {
 
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
@@ -271,8 +271,8 @@ public final class ChainedNode implements IChainedNode {
    * @throws ArgumentIsNullException  if one of the given attribute is null.
    */
   public static ChainedNode withHeaderAndChildNodes(
-      final String header,
-      final Iterable<? extends IChainedNode> attributes) {
+    final String header,
+    final Iterable<? extends IChainedNode> attributes) {
 
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
@@ -294,9 +294,9 @@ public final class ChainedNode implements IChainedNode {
    * @throws ArgumentIsNullException  if one of the given attributes is null.
    */
   public static ChainedNode withHeaderAndChildNodesFromNodes(
-      final String header,
-      final INode<?> childNode,
-      final INode<?>... childNodes) {
+    final String header,
+    final INode<?> childNode,
+    final INode<?>... childNodes) {
 
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
@@ -317,8 +317,8 @@ public final class ChainedNode implements IChainedNode {
    * @throws ArgumentIsNullException  if one of the given attributes is null.
    */
   public static ChainedNode withHeaderAndChildNodesFromNodes(
-      final String header,
-      final Iterable<? extends INode<?>> attributes) {
+    final String header,
+    final Iterable<? extends INode<?>> attributes) {
 
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
@@ -358,10 +358,10 @@ public final class ChainedNode implements IChainedNode {
    * @throws ArgumentIsNullException  if one of the given childNodes is null.
    */
   public static ChainedNode withHeaderAndNextNodeAndChildNodes(
-      final String header,
-      ChainedNode nextNode,
-      final IChainedNode childNode,
-      final IChainedNode... childNodes) {
+    final String header,
+    ChainedNode nextNode,
+    final IChainedNode childNode,
+    final IChainedNode... childNodes) {
 
     final var chainedNode = new ChainedNode();
     chainedNode.setHeader(header);
@@ -684,7 +684,7 @@ public final class ChainedNode implements IChainedNode {
   @Override
   public boolean isBlank() {
     return !hasHeader()
-        && !containsChildNodes();
+    && !containsChildNodes();
   }
 
   //method
@@ -878,7 +878,7 @@ public final class ChainedNode implements IChainedNode {
    */
   private boolean equals(final ChainedNode chainedNode) {
     return canEqualBecauseOfHeader(chainedNode)
-        && canEqualBecauseOfChildNodes(chainedNode);
+    && canEqualBecauseOfChildNodes(chainedNode);
   }
 
   //method
@@ -942,16 +942,16 @@ public final class ChainedNode implements IChainedNode {
    *         given string represents starting from the given startIndex.
    */
   private HeaderLengthAndTaskAfterHeaderParameter getHeaderLengthAndTaskAfterHeader(
-      final String string,
-      final int startIndex) {
+    final String string,
+    final int startIndex) {
 
     var nextIndex = startIndex;
     while (nextIndex < string.length()) {
       switch (string.charAt(nextIndex)) {
         case CharacterCatalogue.OPEN_BRACKET:
           return new HeaderLengthAndTaskAfterHeaderParameter(
-              nextIndex - startIndex,
-              TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE);
+            nextIndex - startIndex,
+            TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE);
         case CharacterCatalogue.COMMA:
           return new HeaderLengthAndTaskAfterHeaderParameter(nextIndex - startIndex, TaskAfterHeader.DO_NOTHING);
         case CharacterCatalogue.CLOSED_BRACKET:
@@ -1012,7 +1012,7 @@ public final class ChainedNode implements IChainedNode {
     var nextIndex = startIndex + headerLengthAndTaskAfterHeader.getHeaderLength();
     final var taskAfterHeader = headerLengthAndTaskAfterHeader.getTaskAfterHeader();
     if (taskAfterHeader == TaskAfterHeader.READ_ATTRIBUTES_AND_CHECK_FOR_NEXT_NODE
-        || taskAfterHeader == TaskAfterHeader.READ_NEXT_NODE) {
+    || taskAfterHeader == TaskAfterHeader.READ_NEXT_NODE) {
       nextIndex++;
     }
 
@@ -1076,9 +1076,9 @@ public final class ChainedNode implements IChainedNode {
     //Asserts that the given header is not blank.
     if (header.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.HEADER,
-          header,
-          "is blank");
+        LowerCaseCatalogue.HEADER,
+        header,
+        "is blank");
     }
 
     this.header = header;
@@ -1118,7 +1118,7 @@ public final class ChainedNode implements IChainedNode {
   private void setProbableHeader(final String string, final int startIndex, final int headerLength) {
     if (headerLength > 0) {
       this.header = getStoredginStringFromEscapeString(
-          string.substring(startIndex, startIndex + headerLength));
+        string.substring(startIndex, startIndex + headerLength));
     }
   }
 }

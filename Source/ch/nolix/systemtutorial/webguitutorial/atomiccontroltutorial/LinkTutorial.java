@@ -20,19 +20,19 @@ public final class LinkTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "Link tutorial",
-        MainSession.class,
-        new VoidObject());
+      "Link tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -42,9 +42,9 @@ public final class LinkTutorial {
 
       //Creates a Link.
       final var link = new Link()
-          .setDisplayText("Nolix")
-          .setTarget(LinkTarget.NEW_TAB)
-          .setUrl("https://nolix.ch");
+        .setDisplayText("Nolix")
+        .setTarget(LinkTarget.NEW_TAB)
+        .setUrl("https://nolix.ch");
 
       //Adds the Link to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(link);

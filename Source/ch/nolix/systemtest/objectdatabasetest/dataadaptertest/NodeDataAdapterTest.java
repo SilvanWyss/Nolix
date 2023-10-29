@@ -34,7 +34,7 @@ public final class NodeDataAdapterTest extends Test {
     final var nodeDatabase = new MutableNode();
     @SuppressWarnings("resource")
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
-        .andSchema(Schema.EMPTY_SCHEMA);
+      .andSchema(Schema.EMPTY_SCHEMA);
 
     //setup verification
     expect(testUnit.isOpen());
@@ -54,7 +54,7 @@ public final class NodeDataAdapterTest extends Test {
     final var nodeDatabase = new MutableNode();
     @SuppressWarnings("resource")
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
-        .andSchema(Schema.EMPTY_SCHEMA);
+      .andSchema(Schema.EMPTY_SCHEMA);
     testUnit.close();
 
     //setup verification
@@ -76,7 +76,7 @@ public final class NodeDataAdapterTest extends Test {
 
     //execution
     final var result = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase")
-        .andSchema(Schema.EMPTY_SCHEMA);
+      .andSchema(Schema.EMPTY_SCHEMA);
 
     //verification
     expect(result.getSaveCount()).isEqualTo(0);
@@ -147,10 +147,10 @@ public final class NodeDataAdapterTest extends Test {
     final var nodeDatabase = new MutableNode();
     final var schema = Schema.withEntityType(Pet.class);
     NodeDataAdapter
-        .forNodeDatabase(nodeDatabase)
-        .withName("my_database")
-        .andSchema(schema)
-        .saveChanges();
+      .forNodeDatabase(nodeDatabase)
+      .withName("my_database")
+      .andSchema(schema)
+      .saveChanges();
 
     //setup part 2: Prepare changes for the database.
     final var testUnit = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
@@ -159,14 +159,14 @@ public final class NodeDataAdapterTest extends Test {
     //setup part 3: Edit the schema of the database.
     final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
     schemaAdapter
-        .getStoredTableByName("Pet")
-        .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
+      .getStoredTableByName("Pet")
+      .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
     schemaAdapter.saveChanges();
 
     //execution & verification: Try to save the the changes to the database.
     expectRunning(testUnit::saveChanges)
-        .throwsException()
-        .ofType(ResourceWasChangedInTheMeanwhileException.class)
-        .withMessage("The schema was changed in the meanwhile.");
+      .throwsException()
+      .ofType(ResourceWasChangedInTheMeanwhileException.class)
+      .withMessage("The schema was changed in the meanwhile.");
   }
 }

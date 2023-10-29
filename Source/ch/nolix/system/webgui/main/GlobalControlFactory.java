@@ -31,8 +31,8 @@ public final class GlobalControlFactory {
 
   //static method
   public static void registerControlClass(
-      final Class<Control<?, ?>> controlClass,
-      final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
+    final Class<Control<?, ?>> controlClass,
+    final @SuppressWarnings("unchecked") Class<Control<?, ?>>... controlClasses) {
     CONTROL_FACTORY.registerControlClass(controlClass, controlClasses);
   }
 }

@@ -25,10 +25,10 @@ final class WebSocketFrameFirstNibble {
 
   //constructor
   public WebSocketFrameFirstNibble(
-      final boolean mFINBit,
-      final WebSocketFrameOpcodeMeaning opcodeMeaning,
-      final boolean maskBit,
-      final int payloadLength) {
+    final boolean mFINBit,
+    final WebSocketFrameOpcodeMeaning opcodeMeaning,
+    final boolean maskBit,
+    final int payloadLength) {
 
     GlobalValidator.assertThat(opcodeMeaning).thatIsNamed("opcode meaning").isNotNull();
 

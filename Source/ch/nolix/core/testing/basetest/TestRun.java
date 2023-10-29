@@ -103,14 +103,14 @@ public final class TestRun {
   private void printSummaryOfTestResult(final TestResult testResult) {
 
     linePrinter.printInfoLine(
-        "   FINISHED: "
-            + testResult.getPassedTestCaseCount()
-            + " of "
-            + testResult.getTestCaseCount()
-            + " test cases of "
-            + parentTest.getSimpleName()
-            + " passed "
-            + getRuntimeAndUnitAsStringInBrackets());
+      "   FINISHED: "
+      + testResult.getPassedTestCaseCount()
+      + " of "
+      + testResult.getTestCaseCount()
+      + " test cases of "
+      + parentTest.getSimpleName()
+      + " passed "
+      + getRuntimeAndUnitAsStringInBrackets());
 
     linePrinter.printEmptyLine();
   }

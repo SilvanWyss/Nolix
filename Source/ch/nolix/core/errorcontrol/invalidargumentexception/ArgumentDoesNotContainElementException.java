@@ -49,9 +49,9 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    * @param element
    */
   private ArgumentDoesNotContainElementException(
-      final String argumentName,
-      final Object argument,
-      final Object element) {
+    final String argumentName,
+    final Object argument,
+    final Object element) {
     super(argumentName, argument, "does not contain the given " + getNameForElement(element));
   }
 
@@ -73,8 +73,8 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    *         argument and element.
    */
   public static ArgumentDoesNotContainElementException forArgumentAndElement(
-      final Object argument,
-      final Object element) {
+    final Object argument,
+    final Object element) {
     return new ArgumentDoesNotContainElementException(argument, element);
   }
 
@@ -87,9 +87,9 @@ public final class ArgumentDoesNotContainElementException extends InvalidArgumen
    *         argumentName, argument and element.
    */
   public static ArgumentDoesNotContainElementException forArgumentNameAndArgumentAndElement(
-      final String argumentName,
-      final Object argument,
-      final Object element) {
+    final String argumentName,
+    final Object argument,
+    final Object element) {
     return new ArgumentDoesNotContainElementException(argumentName, argument, element);
   }
 

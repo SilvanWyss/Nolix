@@ -14,39 +14,39 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class ImageControlCssBuilder
-    extends ControlCssBuilder<IImageControl, IImageControlStyle> {
+extends ControlCssBuilder<IImageControl, IImageControlStyle> {
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final IImageControl imageControl,
-      final LinkedList<? super ICssRule> list) {
+    final IImageControl imageControl,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final IImageControl imageControl,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final IImageControl imageControl,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IImageControl control,
-      final LinkedList<CssProperty> list) {
+    final IImageControl control,
+    final LinkedList<CssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IImageControl imageControl,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IImageControl imageControl,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     list.addAtEnd(CssProperty.withNameAndValue(CssPropertyNameCatalogue.DISPLAY, "block"));
   }
 }

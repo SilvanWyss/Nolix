@@ -23,9 +23,9 @@ public final class ColumnDto implements IColumnDto {
   //For a better performance, this implementation does not use all comfortable
   //methods.
   public ColumnDto(
-      final String id,
-      final String name,
-      final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto) {
+    final String id,
+    final String name,
+    final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto) {
 
     if (id == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.ID);

@@ -30,8 +30,8 @@ final class InternalSchemaWriter implements ChangeRequestable {
   //method
   public void addColumn(final String tableName, final IColumnDto column) {
     sqlSchemaWriter.addColumn(
-        TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-        SCHEMA_DTO_MAPPER.createQslColumnDtoFrom(column));
+      TableType.ENTITY_TABLE.getNamePrefix() + tableName,
+      SCHEMA_DTO_MAPPER.createQslColumnDtoFrom(column));
   }
 
   //method
@@ -68,15 +68,15 @@ final class InternalSchemaWriter implements ChangeRequestable {
   //method
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
     sqlSchemaWriter.renameColumn(
-        TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-        columnName,
-        newColumnName);
+      TableType.ENTITY_TABLE.getNamePrefix() + tableName,
+      columnName,
+      newColumnName);
   }
 
   //method
   public void setTableName(final String tableName, final String newTableName) {
     sqlSchemaWriter.renameTable(
-        TableType.ENTITY_TABLE.getNamePrefix() + tableName,
-        TableType.ENTITY_TABLE.getNamePrefix() + newTableName);
+      TableType.ENTITY_TABLE.getNamePrefix() + tableName,
+      TableType.ENTITY_TABLE.getNamePrefix() + newTableName);
   }
 }

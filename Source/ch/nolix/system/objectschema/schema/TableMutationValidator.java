@@ -45,7 +45,7 @@ final class TableMutationValidator {
     if (COLUMN_HELPER.isABackReferenceColumn(column) && table.belongsToDatabase()) {
 
       final var baseParameterizedBackReferenceType = (BaseParameterizedBackReferenceType) column
-          .getParameterizedPropertyType();
+        .getParameterizedPropertyType();
 
       final var backReferencedColumn = baseParameterizedBackReferenceType.getBackReferencedColumn();
 

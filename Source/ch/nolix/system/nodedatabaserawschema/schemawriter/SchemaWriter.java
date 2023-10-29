@@ -26,7 +26,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
-      new DatabasePropertiesNodeSearcher();
+  new DatabasePropertiesNodeSearcher();
 
   //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
@@ -42,7 +42,7 @@ public final class SchemaWriter implements ISchemaWriter {
 
   //constant
   private static final ParameterizedPropertyTypeNodeMapper parameterizedPropertyTypeNodeMapper = //
-      new ParameterizedPropertyTypeNodeMapper();
+  new ParameterizedPropertyTypeNodeMapper();
 
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
@@ -74,7 +74,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void addColumn(final String tableName, final IColumnDto column) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
-        tableName);
+      tableName);
 
     tableNode.addChildNode(columnNodeMapper.createColumnNodeFrom(column));
 
@@ -95,12 +95,12 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteColumn(final String tableName, final String columnName) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
-        tableName);
+      tableName);
 
     tableNode.removeFirstChildNodeThat(
-        (final IMutableNode<?> a) -> a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
-            && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(a).getStoredSingleChildNode()
-                .hasHeader(columnName));
+      (final IMutableNode<?> a) -> a.hasHeader(SubNodeHeaderCatalogue.COLUMN)
+      && COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(a).getStoredSingleChildNode()
+        .hasHeader(columnName));
 
     hasChanges = true;
   }
@@ -110,8 +110,8 @@ public final class SchemaWriter implements ISchemaWriter {
   public void deleteTable(final String tableName) {
 
     editedDatabaseNode.removeFirstChildNodeThat(
-        (final IMutableNode<?> a) -> a.hasHeader(SubNodeHeaderCatalogue.TABLE)
-            && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(a).getStoredSingleChildNode().hasHeader(tableName));
+      (final IMutableNode<?> a) -> a.hasHeader(SubNodeHeaderCatalogue.TABLE)
+      && TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(a).getStoredSingleChildNode().hasHeader(tableName));
 
     hasChanges = true;
   }
@@ -168,7 +168,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void setColumnName(final String tableName, final String columnName, final String newColumnName) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
-        tableName);
+      tableName);
 
     final var columnNode = TABLE_NODE_SEARCHER.getStoredColumnNodeFromTableNodeByColumnName(tableNode, columnName);
     final var headerNode = COLUMN_NODE_SEARCHER.getStoredNameNodeFromColumnNode(columnNode);
@@ -180,14 +180,14 @@ public final class SchemaWriter implements ISchemaWriter {
   //method
   @Override
   public void setColumnParameterizedPropertyType(
-      final String columnId,
-      final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final String columnId,
+    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
 
     final var columnNode = DATABASE_NODE_SEARCHER.getStoredColumnNodeByColumnIdFromDatabaseNode(databaseNode, columnId);
 
     columnNode.replaceFirstChildNodeWithGivenHeaderByGivenNode(
-        SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
-        parameterizedPropertyTypeNodeMapper.createParameterizedPropertyTypeNodeFrom(parameterizedPropertyType));
+      SubNodeHeaderCatalogue.PARAMETERIZED_PROPERTY_TYPE,
+      parameterizedPropertyTypeNodeMapper.createParameterizedPropertyTypeNodeFrom(parameterizedPropertyType));
 
     hasChanges = true;
   }
@@ -197,7 +197,7 @@ public final class SchemaWriter implements ISchemaWriter {
   public void setTableName(final String tableName, final String newTableName) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(editedDatabaseNode,
-        tableName);
+      tableName);
 
     final var nameNode = TABLE_NODE_SEARCHER.getStoredNameNodeFromTableNode(tableNode);
     nameNode.getStoredSingleChildNode().setHeader(newTableName);
@@ -209,14 +209,14 @@ public final class SchemaWriter implements ISchemaWriter {
   private void setSchemaTimestamp(final ITime schemaTimestamp) {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-        .getStoredDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
+      .getStoredDatabasePropertiesNodeFromDatabaseNode(editedDatabaseNode);
 
     final var schemaTimestampNode = DATABASE_PROPERTIES_NODE_SEARCHER
-        .getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
+      .getStoredSchemaTimestampNodeFromDatabasePropertiesNode(databasePropertiesNode);
 
     schemaTimestampNode
-        .getStoredSingleChildNode()
-        .setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
+      .getStoredSingleChildNode()
+      .setHeader(schemaTimestamp.getSpecification().getSingleChildNodeHeader());
 
     hasChanges = true;
   }

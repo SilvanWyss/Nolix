@@ -10,7 +10,7 @@ import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
 //interface
 public interface IAccordion
-    extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<IAccordion, IAccordionStyle> {
+extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<IAccordion, IAccordionStyle> {
 
   //method declaration
   IAccordion addTab(IAccordionTab tab, IAccordionTab... tabs);

@@ -25,17 +25,17 @@ public final class ServerDashboardTutorial {
 
     //Adds further Applications to the Server.
     server.addApplicationWithNameAndInitialSessionClassAndContext(
-        "Hello World GUI tutorial",
-        HelloWorldGuiTutorial.MainSession.class,
-        new WebApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON));
+      "Hello World GUI tutorial",
+      HelloWorldGuiTutorial.MainSession.class,
+      new WebApplicationContext().setApplicationLogo(IconCatalogue.NOLIX_ICON));
     server.addApplicationWithNameAndInitialSessionClassAndContext(
-        "ImageControl tutorial",
-        ImageControlTutorial.MainSession.class,
-        new VoidObject());
+      "ImageControl tutorial",
+      ImageControlTutorial.MainSession.class,
+      new VoidObject());
     server.addApplicationWithNameAndInitialSessionClassAndContext(
-        "Partial refresh tutorial",
-        PartialRefreshTutorial.MainSession.class,
-        new VoidObject());
+      "Partial refresh tutorial",
+      PartialRefreshTutorial.MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();

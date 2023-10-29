@@ -56,7 +56,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 
     //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     expectNot(loadedGarfield.hasName());
   }
 
@@ -94,7 +94,7 @@ public final class OptionalValueOnDatabaseTest extends Test {
 
     //setup part 2
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
 
     //execution
     final var result = loadedGarfield.getName();

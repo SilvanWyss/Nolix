@@ -32,13 +32,13 @@ public abstract class SchemaAdapter implements ISchemaAdapter {
 
   //constructor
   protected SchemaAdapter(
-      final String databaseName,
-      final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter) {
+    final String databaseName,
+    final ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter rawSchemaAdapter) {
 
     GlobalValidator
-        .assertThat(rawSchemaAdapter)
-        .thatIsNamed(ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter.class)
-        .isNotNull();
+      .assertThat(rawSchemaAdapter)
+      .thatIsNamed(ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaAdapter.class)
+      .isNotNull();
 
     this.rawSchemaAdapter = rawSchemaAdapter;
 

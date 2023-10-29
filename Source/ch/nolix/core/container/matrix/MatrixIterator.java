@@ -57,9 +57,9 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
     GlobalValidator.assertThat(parentMatrix).thatIsNamed("parent Matrix").isNotNull();
 
     GlobalValidator
-        .assertThat(p1BasedStartIndex)
-        .thatIsNamed("start index")
-        .isNotBiggerThan(parentMatrix.getElementCount());
+      .assertThat(p1BasedStartIndex)
+      .thatIsNamed("start index")
+      .isNotBiggerThan(parentMatrix.getElementCount());
 
     this.parentMatrix = parentMatrix;
     nextElement1BasedIndex = p1BasedStartIndex;
@@ -72,8 +72,8 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
 
   //static mehtod
   public static <E2> MatrixIterator<E2> forMatrixAnd1BasedStartIndex(
-      final Matrix<E2> matrix,
-      final int p1BasedStartIndex) {
+    final Matrix<E2> matrix,
+    final int p1BasedStartIndex) {
     return new MatrixIterator<>(matrix, p1BasedStartIndex);
   }
 
@@ -115,7 +115,7 @@ final class MatrixIterator<E> implements CopyableIterator<E> {
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
       throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.NEXT_ELEMENT)
-          .toNoSuchElementException();
+        .toNoSuchElementException();
     }
   }
 

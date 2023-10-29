@@ -15,20 +15,20 @@ public final class FloatContainerHtmlBuilder implements IControlHtmlBuilder<Floa
   @Override
   public HtmlElement createHtmlElementForControl(final FloatContainer floatContainer) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.DIV,
-        createHtmlElementsForChildControlsOfFloatContainer(floatContainer));
+      HtmlElementTypeCatalogue.DIV,
+      createHtmlElementsForChildControlsOfFloatContainer(floatContainer));
   }
 
   //method
   private IContainer<HtmlElement> createHtmlElementsForChildControlsOfFloatContainer(
-      final FloatContainer floatContainer) {
+    final FloatContainer floatContainer) {
     return floatContainer.getStoredChildControls().to(this::createHtmlElementsForChildControl);
   }
 
   //method
   private HtmlElement createHtmlElementsForChildControl(final IControl<?, ?> childControl) {
     return HtmlElement.withTypeAndChildElement(
-        HtmlElementTypeCatalogue.DIV,
-        childControl.getHtml());
+      HtmlElementTypeCatalogue.DIV,
+      childControl.getHtml());
   }
 }

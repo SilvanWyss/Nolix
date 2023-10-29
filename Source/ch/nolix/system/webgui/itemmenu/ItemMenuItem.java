@@ -34,25 +34,25 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //attribute
   private final OptionalValue<String> id = new OptionalValue<>(
-      ID_HEADER,
-      this::setId,
-      INode::getSingleChildNodeHeader,
-      Node::withChildNode);
+    ID_HEADER,
+    this::setId,
+    INode::getSingleChildNodeHeader,
+    Node::withChildNode);
 
   //attribute
   private final Value<String> text = new Value<>(
-      TEXT_HEADER,
-      this::setText,
-      INode::getSingleChildNodeHeader,
-      Node::withChildNode);
+    TEXT_HEADER,
+    this::setText,
+    INode::getSingleChildNodeHeader,
+    Node::withChildNode);
 
   //attribute
   private final MutableValue<Boolean> selectionFlag = new MutableValue<>(
-      SELECTION_FLAG_HEADER,
-      DEFAULT_SELECTION_FLAG,
-      this::setSelectionFlag,
-      INode::getSingleChildNodeAsBoolean,
-      Node::withChildNode);
+    SELECTION_FLAG_HEADER,
+    DEFAULT_SELECTION_FLAG,
+    this::setSelectionFlag,
+    INode::getSingleChildNodeAsBoolean,
+    Node::withChildNode);
 
   //optional attribute
   private IItemMenu<?, ?> parentMenu;
@@ -89,8 +89,8 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //static method
   public static ItemMenuItem withIdAndText(
-      final String id,
-      final String text) {
+    final String id,
+    final String text) {
 
     final var item = new ItemMenuItem();
     item.setId(id);
@@ -101,9 +101,9 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //static method
   public static ItemMenuItem withIdAndTextAndSelectAction(
-      final String id,
-      final String text,
-      final Runnable selectAction) {
+    final String id,
+    final String text,
+    final Runnable selectAction) {
 
     final var item = new ItemMenuItem(i -> selectAction.run());
     item.setId(id);
@@ -114,9 +114,9 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //static method
   public static ItemMenuItem withIdAndTextAndSelectAction(
-      final String id,
-      final String text,
-      final Consumer<IItemMenuItem<?>> selectAction) {
+    final String id,
+    final String text,
+    final Consumer<IItemMenuItem<?>> selectAction) {
 
     final var item = new ItemMenuItem(selectAction);
     item.setId(id);
@@ -127,7 +127,7 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //static method
   public static ItemMenuItem withText(
-      final String text) {
+    final String text) {
 
     final var item = new ItemMenuItem();
     item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
@@ -138,8 +138,8 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //static method
   public static ItemMenuItem withTextAndSelectAction(
-      final String text,
-      final Runnable selectAction) {
+    final String text,
+    final Runnable selectAction) {
 
     final var item = new ItemMenuItem(i -> selectAction.run());
     item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());
@@ -150,8 +150,8 @@ public final class ItemMenuItem extends MutableElement implements IItemMenuItem<
 
   //static method
   public static ItemMenuItem withTextAndSelectAction(
-      final String text,
-      final Consumer<IItemMenuItem<?>> selectAction) {
+    final String text,
+    final Consumer<IItemMenuItem<?>> selectAction) {
 
     final var item = new ItemMenuItem(selectAction);
     item.setId(GlobalIdCreator.createIdOf10HexadecimalCharacters());

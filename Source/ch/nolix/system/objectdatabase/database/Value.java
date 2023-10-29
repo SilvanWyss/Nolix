@@ -81,8 +81,8 @@ public final class Value<V> extends BaseValue<V> implements IValue<V> {
 
     @SuppressWarnings("unchecked")
     final var value = (V) VALUE_CREATOR.createValueOfDataTypeFromString(
-        DataType.forType(VALUE_HELPER.getDataType(this)),
-        string);
+      DataType.forType(VALUE_HELPER.getDataType(this)),
+      string);
 
     setValue(value);
   }

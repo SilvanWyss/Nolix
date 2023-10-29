@@ -45,10 +45,10 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   //attribute
   private final MutableOptionalValue<LabelRole> role = new MutableOptionalValue<>(
-      ROLE_HEADER,
-      this::setRole,
-      LabelRole::fromSpecification,
-      Node::fromEnum);
+    ROLE_HEADER,
+    this::setRole,
+    LabelRole::fromSpecification,
+    Node::fromEnum);
 
   //attribute
   private final MutableValue<String> text = MutableValue.forString(TEXT_HEADER, DEFAULT_TEXT, this::setText);

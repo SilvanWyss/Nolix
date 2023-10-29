@@ -31,7 +31,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 
     //attribute
     public final OptionalBackReference<Person> owner = OptionalBackReference
-        .forEntityAndBackReferencedPropertyName(Person.class, "pet");
+      .forEntityAndBackReferencedPropertyName(Person.class, "pet");
 
     //constructor
     public Pet() {
@@ -95,7 +95,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 
     //execution
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     final var result = loadedGarfield.owner.getBackReferencedEntity();
 
     //verification
@@ -138,7 +138,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 
     //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     expect(loadedGarfield.owner.isEmpty());
     expectRunning(nodeDataAdapter::saveChanges).doesNotThrowException();
   }
@@ -166,7 +166,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 
     //setup part 2 verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     expect(loadedGarfield.owner.isEmpty());
 
     //execution & verification
@@ -206,7 +206,7 @@ public final class OptionalBackReferenceOnDatabaseTest extends Test {
 
     //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     expect(loadedJohn.pet.getReferencedEntity()).is(loadedOdie);
     expect(loadedGarfield.owner.isEmpty());
     expect(loadedOdie.owner.getBackReferencedEntity()).is(loadedJohn);

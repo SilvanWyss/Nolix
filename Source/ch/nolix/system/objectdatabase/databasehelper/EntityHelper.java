@@ -44,7 +44,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   @Override
   public boolean canBeInsertedIntoTable(final IEntity entity) {
     return isNew(entity)
-        && entity.belongsToTable();
+    && entity.belongsToTable();
   }
 
   //method
@@ -57,9 +57,9 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   @Override
   public IEntityUpdateDto createEntityUpdateDtoForEntity(final IEntity entity) {
     return new EntityUpdateDto(
-        entity.getId(),
-        entity.getSaveStamp(),
-        getStoredEditedProperties(entity).to(IProperty::technicalToContentField));
+      entity.getId(),
+      entity.getSaveStamp(),
+      getStoredEditedProperties(entity).to(IProperty::technicalToContentField));
   }
 
   //method
@@ -133,12 +133,12 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
     final var baseType = property.getType().getBaseType();
 
     return baseType == BasePropertyType.BASE_VALUE
-        || baseType == BasePropertyType.BASE_REFERENCE;
+    || baseType == BasePropertyType.BASE_REFERENCE;
   }
 
   //method
   private boolean isMandatoryAndEmptyBaseValueOrBaseReference(final IProperty property) {
     return isBaseValueOrBaseReference(property)
-        && PROPERTY_HELPER.isMandatoryAndEmptyBoth(property);
+    && PROPERTY_HELPER.isMandatoryAndEmptyBoth(property);
   }
 }

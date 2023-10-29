@@ -10,7 +10,7 @@ import ch.nolix.systemtest.webguitest.maintest.ControlTest;
 
 //class
 public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends IItemMenuStyle<IMS>>
-    extends ControlTest<IM> {
+extends ControlTest<IM> {
 
   //method
   @TestCase
@@ -24,15 +24,15 @@ public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends II
 
     //execution
     testUnit
-        .addItemWithIdAndText("my_id_1", "my_text_1")
-        .addItemWithIdAndText("my_id_2", "my_text_2")
-        .addItemWithIdAndText("my_id_3", "my_text_3");
+      .addItemWithIdAndText("my_id_1", "my_text_1")
+      .addItemWithIdAndText("my_id_2", "my_text_2")
+      .addItemWithIdAndText("my_id_3", "my_text_3");
 
     //verification
     expect(testUnit.getStoredItems()).containsExactlyEqualing(
-        ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
-        ItemMenuItem.withIdAndText("my_id_2", "my_text_2"),
-        ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
+      ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
+      ItemMenuItem.withIdAndText("my_id_2", "my_text_2"),
+      ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
   }
 
   //method
@@ -42,10 +42,10 @@ public abstract class ItemMenuTest<IM extends IItemMenu<IM, IMS>, IMS extends II
     //setup
     final var item = ItemMenuItem.withIdAndText("my_id_2", "my_text_2");
     final var testUnit = createTestUnit()
-        .addItem(
-            ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
-            item,
-            ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
+      .addItem(
+        ItemMenuItem.withIdAndText("my_id_1", "my_text_1"),
+        item,
+        ItemMenuItem.withIdAndText("my_id_3", "my_text_3"));
 
     //setup verification
     expectNot(item.isSelected());

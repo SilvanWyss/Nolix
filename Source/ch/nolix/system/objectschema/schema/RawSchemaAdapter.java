@@ -78,18 +78,18 @@ final class RawSchemaAdapter {
 
   //method
   public void setColumnName(
-      final IColumn column,
-      final String columnName,
-      final String newColumnName) {
+    final IColumn column,
+    final String columnName,
+    final String newColumnName) {
     internalRawSchemaAdapter.setColumnName(column.getParentTable().getName(), columnName, newColumnName);
   }
 
   public void setColumnParameterizedPropertyType(
-      final IColumn column,
-      final IParameterizedPropertyType parameterizedPropertyType) {
+    final IColumn column,
+    final IParameterizedPropertyType parameterizedPropertyType) {
     internalRawSchemaAdapter.setColumnParameterizedPropertyType(
-        column.getId(),
-        parameterizedPropertyType.toDto());
+      column.getId(),
+      parameterizedPropertyType.toDto());
   }
 
   //method

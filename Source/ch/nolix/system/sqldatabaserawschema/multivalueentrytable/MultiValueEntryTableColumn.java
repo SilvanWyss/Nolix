@@ -16,7 +16,7 @@ public enum MultiValueEntryTableColumn implements INameHolder {
 
   //constant
   private static final String NAME_PREFIX = MultiContentTable.MULTI_VALUE_ENTRY.getQualifiedName()
-      + StringCatalogue.DOT;
+  + StringCatalogue.DOT;
 
   //attribute
   private final String name;

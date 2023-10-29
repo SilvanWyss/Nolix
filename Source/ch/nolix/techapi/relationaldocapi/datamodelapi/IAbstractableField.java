@@ -11,13 +11,13 @@ import ch.nolix.techapi.relationaldocapi.baseapi.ContentTypeAssignable;
 
 //interface
 public interface IAbstractableField
-    extends
-    Abstractable<IAbstractableField>,
-    ContentTypeAssignable<IAbstractableField>,
-    EmptinessRequestable,
-    IFluentMutableNameHolder<IAbstractableField>,
-    IFluentMutableCardinalityHolder<IAbstractableField>,
-    MandatorynessRequestable {
+extends
+Abstractable<IAbstractableField>,
+ContentTypeAssignable<IAbstractableField>,
+EmptinessRequestable,
+IFluentMutableNameHolder<IAbstractableField>,
+IFluentMutableCardinalityHolder<IAbstractableField>,
+MandatorynessRequestable {
 
   //method declaration
   IAbstractableField getStoredBaseField();

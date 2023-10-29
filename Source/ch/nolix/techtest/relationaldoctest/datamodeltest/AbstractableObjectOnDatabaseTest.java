@@ -22,9 +22,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 2: Create databaseAdapter.
     final var databaseAdapter = NodeDataAdapter
-        .forNodeDatabase(database)
-        .withName("test_database")
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
@@ -46,9 +46,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 2: Create databaseAdapter.
     final var databaseAdapter = NodeDataAdapter
-        .forNodeDatabase(database)
-        .withName("test_database")
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create baseType1.
     final var baseType1 = new AbstractableObject();
@@ -85,9 +85,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 2: Create databaseAdapter.
     final var databaseAdapter = NodeDataAdapter
-        .forNodeDatabase(database)
-        .withName("test_database")
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create level1Type.
     final var level1Oject = new AbstractableObject();
@@ -124,9 +124,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 2: Create databaseAdapter.
     final var databaseAdapter = NodeDataAdapter
-        .forNodeDatabase(database)
-        .withName("test_database")
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();
@@ -148,9 +148,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 2: Create databaseAdapter.
     final var databaseAdapter = NodeDataAdapter
-        .forNodeDatabase(database)
-        .withName("test_database")
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create subType1.
     final var subType1 = new AbstractableObject();
@@ -186,9 +186,9 @@ public final class AbstractableObjectOnDatabaseTest extends Test {
 
     //setup part 2: Create databaseAdapter.
     final var databaseAdapter = NodeDataAdapter
-        .forNodeDatabase(database)
-        .withName("test_database")
-        .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
+      .forNodeDatabase(database)
+      .withName("test_database")
+      .andSchema(SchemaCatalogue.RELATIONAL_DOC_SCHEMA);
 
     //setup part 3: Create testUnit.
     final var testUnit = new AbstractableObject();

@@ -22,7 +22,7 @@ public final class InternalDatabaseReader {
 
   //constant
   private static final DatabasePropertiesNodeSearcher DATABASE_PROPERTIES_NODE_SEARCHER = //
-      new DatabasePropertiesNodeSearcher();
+  new DatabasePropertiesNodeSearcher();
 
   //constant
   private static final TableNodeSearcher TABLE_NODE_SEARCHER = new TableNodeSearcher();
@@ -48,7 +48,7 @@ public final class InternalDatabaseReader {
   public Time getSchemaTimestamp() {
 
     final var databasePropertiesNode = DATABASE_NODE_SEARCHER
-        .getStoredDatabasePropertiesNodeFromDatabaseNode(databaseNode);
+      .getStoredDatabasePropertiesNodeFromDatabaseNode(databaseNode);
 
     return DATABASE_PROPERTIES_NODE_SEARCHER.getSchemaTimestampFromDatabasePropertiesNode(databasePropertiesNode);
   }
@@ -57,21 +57,21 @@ public final class InternalDatabaseReader {
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     return TABLE_NODE_SEARCHER
-        .getStoredEntityNodesFromTableNode(tableNode)
-        .to(rn -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFromEntityNode(rn, tableInfo));
+      .getStoredEntityNodesFromTableNode(tableNode)
+      .to(rn -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFromEntityNode(rn, tableInfo));
   }
 
   //method
   public IContainer<String> loadMultiReferenceEntries(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -84,12 +84,12 @@ public final class InternalDatabaseReader {
 
   //method
   public IContainer<Object> loadMultiValueEntries(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, entityId);
 
@@ -98,15 +98,15 @@ public final class InternalDatabaseReader {
     final var multiValueNode = entityNode.getStoredChildNodeAt1BasedIndex(multiValueColumnIndex);
 
     return multiValueNode
-        .getStoredChildNodes()
-        .to(a -> VALUE_MAPPER.createValueFromString(a.getHeader(), multiValueColumnInfo));
+      .getStoredChildNodes()
+      .to(a -> VALUE_MAPPER.createValueFromString(a.getHeader(), multiValueColumnInfo));
   }
 
   //method
   public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var entityNode = TABLE_NODE_SEARCHER.getStoredEntityNodeFromTableNode(tableNode, id);
 
@@ -115,19 +115,19 @@ public final class InternalDatabaseReader {
 
   //method
   public boolean tableContainsEntityWithGivenValueAtGivenColumn(
-      final ITableInfo tableInfo,
-      final IColumnInfo columnInfo,
-      final String value) {
+    final ITableInfo tableInfo,
+    final IColumnInfo columnInfo,
+    final String value) {
 
     final var tableNode = DATABASE_NODE_SEARCHER.getStoredTableNodeByTableNameFromDatabaseNode(databaseNode,
-        tableInfo.getTableName());
+      tableInfo.getTableName());
 
     final var columnIndex = columnInfo.getColumnIndexOnEntityNode();
 
     return TABLE_NODE_SEARCHER.tableNodeContainsEntityNodeWhoseFieldAtGivenIndexContainsGivenValue(
-        tableNode,
-        columnIndex,
-        value);
+      tableNode,
+      columnIndex,
+      value);
   }
 
   //method

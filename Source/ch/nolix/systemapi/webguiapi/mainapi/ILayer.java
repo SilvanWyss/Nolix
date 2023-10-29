@@ -9,11 +9,11 @@ import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
 
 //interface
 public interface ILayer<L extends ILayer<L>>
-    extends
-    IHtmlGetter,
-    ICanvas<L>,
-    IStylableElement<L>,
-    IRootControlOwner<L> {
+extends
+IHtmlGetter,
+ICanvas<L>,
+IStylableElement<L>,
+IRootControlOwner<L> {
 
   //method declaration
   boolean belongsToGui();

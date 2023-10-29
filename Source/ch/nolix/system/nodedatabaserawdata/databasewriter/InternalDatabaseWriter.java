@@ -40,45 +40,45 @@ final class InternalDatabaseWriter {
 
   //method
   public void deleteEntriesFromMultiReference(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo) {
     addChangeAction(
-        d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo));
+      d -> DATABASE_UPDATER.deleteEntriesFromMultiReference(d, tableInfo, entityId, multiReferenceColumnInfo));
   }
 
   //method
   public void deleteEntriesFromMultiValue(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo) {
     addChangeAction(
-        d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo));
+      d -> DATABASE_UPDATER.deleteEntriesFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo));
   }
 
   //method
   public void deleteEntryFromMultiReference(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo,
-      final String referencedEntityId) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo,
+    final String referencedEntityId) {
     addChangeAction(
-        d -> DATABASE_UPDATER.deleteEntryFromMultiReference(
-            d,
-            tableInfo,
-            entityId,
-            multiReferenceColumnInfo,
-            referencedEntityId));
+      d -> DATABASE_UPDATER.deleteEntryFromMultiReference(
+        d,
+        tableInfo,
+        entityId,
+        multiReferenceColumnInfo,
+        referencedEntityId));
   }
 
   //method
   public void deleteEntryFromMultiValue(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo,
-      final String entry) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo,
+    final String entry) {
     addChangeAction(
-        d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
+      d -> DATABASE_UPDATER.deleteEntryFromMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
   }
 
   //method
@@ -108,27 +108,27 @@ final class InternalDatabaseWriter {
 
   //method
   public void insertEntryIntoMultiReference(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiReferenceColumnInfo,
-      final String referencedEntityId) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiReferenceColumnInfo,
+    final String referencedEntityId) {
     addChangeAction(
-        d -> DATABASE_UPDATER.insertEntryIntoMultiReference(
-            d,
-            tableInfo,
-            entityId,
-            multiReferenceColumnInfo,
-            referencedEntityId));
+      d -> DATABASE_UPDATER.insertEntryIntoMultiReference(
+        d,
+        tableInfo,
+        entityId,
+        multiReferenceColumnInfo,
+        referencedEntityId));
   }
 
   //method
   public void insertEntryIntoMultiValue(
-      final ITableInfo tableInfo,
-      final String entityId,
-      final IColumnInfo multiValueColumnInfo,
-      final String entry) {
+    final ITableInfo tableInfo,
+    final String entityId,
+    final IColumnInfo multiValueColumnInfo,
+    final String entry) {
     addChangeAction(
-        d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
+      d -> DATABASE_UPDATER.insertEntryIntoMultiValue(d, tableInfo, entityId, multiValueColumnInfo, entry));
   }
 
   //method

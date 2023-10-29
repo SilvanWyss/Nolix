@@ -17,27 +17,27 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   @Override
   public IHtmlElement createHtmlElementForControl(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
-        HtmlElementTypeCatalogue.DIV,
-        createHtmlElementForTableOfGrid(control));
+      HtmlElementTypeCatalogue.DIV,
+      createHtmlElementForTableOfGrid(control));
   }
 
   //method
   public HtmlElement createHtmlElementForTableOfGrid(final IGrid control) {
     return HtmlElement.withTypeAndChildElement(
-        HtmlElementTypeCatalogue.TABLE,
-        createHtmlElementForTableBodyOfGrid(control));
+      HtmlElementTypeCatalogue.TABLE,
+      createHtmlElementForTableBodyOfGrid(control));
   }
 
   //method
   private HtmlElement createHtmlElementForTableBodyOfGrid(final IGrid grid) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.TBODY,
-        createHtmlElementsForChildControlsOfGrid(grid));
+      HtmlElementTypeCatalogue.TBODY,
+      createHtmlElementsForChildControlsOfGrid(grid));
   }
 
   //method
   private IContainer<HtmlElement> createHtmlElementsForChildControlsOfGrid(
-      final IGrid grid) {
+    final IGrid grid) {
 
     final var htmlElements = new LinkedList<HtmlElement>();
 
@@ -51,8 +51,8 @@ public final class GridHtmlBuilder implements IControlHtmlBuilder<IGrid> {
   //method
   private HtmlElement createHtmlElementForRowOfGrid(final IGrid grid, final int rowIndex) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.TR,
-        createHtmlElementsForCellsOfRowOfGrid(grid, rowIndex));
+      HtmlElementTypeCatalogue.TR,
+      createHtmlElementsForCellsOfRowOfGrid(grid, rowIndex));
   }
 
   //method

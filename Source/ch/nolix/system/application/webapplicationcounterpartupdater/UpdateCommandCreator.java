@@ -36,8 +36,8 @@ public final class UpdateCommandCreator {
   //method
   public ChainedNode createSetIconCommandForIcon(final IImage icon) {
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNode(CommandProtocol.SET_ICON, icon.getSpecification()));
   }
 
   //method
@@ -58,10 +58,10 @@ public final class UpdateCommandCreator {
   //method
   public ChainedNode createSetTitleCommandForTitle(final String title) {
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNodesFromNodes(
-            CommandProtocol.SET_TITLE,
-            Node.withHeader(title)));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNodesFromNodes(
+        CommandProtocol.SET_TITLE,
+        Node.withHeader(title)));
   }
 
   //method
@@ -77,45 +77,45 @@ public final class UpdateCommandCreator {
   //method
   private ChainedNode createSetCssCommandFromCss(final String css) {
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNode(
-            CommandProtocol.SET_CSS,
-            ChainedNode.withHeader(css)));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNode(
+        CommandProtocol.SET_CSS,
+        ChainedNode.withHeader(css)));
   }
 
   //method
   private ChainedNode createSetHtmlElementCommandFromHtmlElement(
-      final String htmlElementId,
-      final IHtmlElement htmlElement) {
+    final String htmlElementId,
+    final IHtmlElement htmlElement) {
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNodes(
-            CommandProtocol.SET_HTML_ELEMENT,
-            ChainedNode.withHeader(htmlElementId),
-            ChainedNode.withHeader(htmlElement.toString())));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNodes(
+        CommandProtocol.SET_HTML_ELEMENT,
+        ChainedNode.withHeader(htmlElementId),
+        ChainedNode.withHeader(htmlElement.toString())));
   }
 
   //method
   private ChainedNode createSetEventFunctionsCommandFromHtmlElementEventRegistrations(
-      final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
+    final IContainer<IHtmlElementEvent> htmlElementEventRegistrations) {
 
     final var eventFunctions = htmlElementEventRegistrations.to(
-        e -> Node.withChildNode(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
+      e -> Node.withChildNode(Node.withHeader(e.getHtmlElementId()), Node.withHeader(e.getHtmlEvent())));
 
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNodesFromNodes(
-            CommandProtocol.SET_EVENT_FUNCTIONS,
-            eventFunctions));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNodesFromNodes(
+        CommandProtocol.SET_EVENT_FUNCTIONS,
+        eventFunctions));
   }
 
   //method
   private ChainedNode createSetRootHtmlElementCommandFromHtmlElement(final IHtmlElement htmlElement) {
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNode(
-            CommandProtocol.SET_ROOT_HTML_ELEMENT,
-            ChainedNode.withHeader(htmlElement.toString())));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNode(
+        CommandProtocol.SET_ROOT_HTML_ELEMENT,
+        ChainedNode.withHeader(htmlElement.toString())));
   }
 
   //method
@@ -127,15 +127,15 @@ public final class UpdateCommandCreator {
       final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();
       if (userInputFunction.containsAny()) {
         userInputFunctions.addAtEnd(
-            createUserInputFunctionFromControlAndString(c, userInputFunction.getStoredElement()));
+          createUserInputFunctionFromControlAndString(c, userInputFunction.getStoredElement()));
       }
     }
 
     return ChainedNode.withHeaderAndNextNode(
-        ObjectProtocol.GUI,
-        ChainedNode.withHeaderAndChildNodes(
-            CommandProtocol.SET_USER_INPUT_FUNCTIONS,
-            userInputFunctions));
+      ObjectProtocol.GUI,
+      ChainedNode.withHeaderAndChildNodes(
+        CommandProtocol.SET_USER_INPUT_FUNCTIONS,
+        userInputFunctions));
   }
 
   //method

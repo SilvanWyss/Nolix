@@ -34,11 +34,11 @@ public final class MultiValueExtractor<V> implements IProperty, INameHolder {
 
   //constructor
   public MultiValueExtractor(
-      final String name,
-      final Consumer<V> adder,
-      final Supplier<IContainer<V>> getter,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> adder,
+    final Supplier<IContainer<V>> getter,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     GlobalValidator.assertThat(name).thatIsNamed(PascalCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(adder).thatIsNamed("adder").isNotNull();

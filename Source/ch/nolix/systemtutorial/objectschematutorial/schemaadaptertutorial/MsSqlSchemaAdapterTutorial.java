@@ -15,19 +15,19 @@ public final class MsSqlSchemaAdapterTutorial {
 
   public static void main(String[] args) {
     try (
-        final var databaseSchemaAdapter = MsSqlSchemaAdapter
-            .toLocalhost()
-            .andDefaultPort()
-            .toDatabase("CountryDatabase")
-            .usingLoginName("sa")
-            .andLoginPassword("sa1234")) {
+    final var databaseSchemaAdapter = MsSqlSchemaAdapter
+      .toLocalhost()
+      .andDefaultPort()
+      .toDatabase("CountryDatabase")
+      .usingLoginName("sa")
+      .andLoginPassword("sa1234")) {
 
       final var cityTable = new Table("City")
-          .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)))
-          .addColumn(new Column("Population", new ParameterizedValueType<>(DataType.STRING)));
+        .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)))
+        .addColumn(new Column("Population", new ParameterizedValueType<>(DataType.STRING)));
 
       final var countryTable = new Table("Country")
-          .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
+        .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
 
       final var citiesColumn = new Column("Cities", new ParameterizedMultiReferenceType(cityTable));
       countryTable.addColumn(citiesColumn);

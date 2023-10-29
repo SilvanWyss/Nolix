@@ -22,19 +22,19 @@ public final class VerticalStackWithRightContentAlignmentTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "VerticalStack with right content alignment tutorial",
-        MainSession.class,
-        new VoidObject());
+      "VerticalStack with right content alignment tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -56,8 +56,8 @@ public final class VerticalStackWithRightContentAlignmentTutorial {
 
       //Configures the style of the VerticalStack.
       verticalStack
-          .setContentAlignment(HorizontalContentAlignment.RIGHT)
-          .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20));
+        .setContentAlignment(HorizontalContentAlignment.RIGHT)
+        .editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 20));
 
       //Configures the style of the Labels.
       label1.getStoredStyle().setTextSizeForState(ControlState.BASE, 50);

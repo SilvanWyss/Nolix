@@ -27,10 +27,10 @@ public final class ButtonTutorial {
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -42,10 +42,10 @@ public final class ButtonTutorial {
     @Override
     protected void initialize() {
       getStoredGui().pushLayerWithRootControl(
-          new VerticalStack()
-              .addControl(
-                  countLabel,
-                  new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)));
+        new VerticalStack()
+          .addControl(
+            countLabel,
+            new Button().setText("Increment").setLeftMouseButtonPressAction(this::incrementCount)));
     }
 
     private void incrementCount() {

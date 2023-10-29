@@ -33,10 +33,10 @@ public final class OptionalValue<V> extends SingleValue<V> {
    * @throws ArgumentIsNullException  if the given specificationCreator is null.
    */
   public OptionalValue(
-      final String name,
-      final Consumer<V> setterMethod,
-      final Function<INode<?>, V> valueCreator,
-      final Function<V, INode<?>> specificationCreator) {
+    final String name,
+    final Consumer<V> setterMethod,
+    final Function<INode<?>, V> valueCreator,
+    final Function<V, INode<?>> specificationCreator) {
 
     //Calls constructor of the base class.
     super(name, setterMethod, valueCreator, specificationCreator);
@@ -96,17 +96,17 @@ public final class OptionalValue<V> extends SingleValue<V> {
    */
   public static OptionalValue<String> forString(final String name, final Consumer<String> setterMethod) {
     return new OptionalValue<>(
-        name,
-        setterMethod,
-        s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
-        (final String s) -> {
+      name,
+      setterMethod,
+      s -> s.getStoredSingleChildNode().getHeaderOrEmptyString(),
+      (final String s) -> {
 
-          if (s.isEmpty()) {
-            return Node.EMPTY_NODE;
-          }
+        if (s.isEmpty()) {
+          return Node.EMPTY_NODE;
+        }
 
-          return Node.withChildNode(s);
-        });
+        return Node.withChildNode(s);
+      });
   }
 
   //method

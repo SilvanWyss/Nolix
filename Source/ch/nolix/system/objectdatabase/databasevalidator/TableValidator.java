@@ -20,8 +20,8 @@ public final class TableValidator implements ITableValidator {
   public void assertCanInsertGivenEntity(final ITable<?> table, final IEntity entity) {
     if (!TABLE_HELPER.canInsertGivenEntity(table, entity)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          entity,
-          "cannot be inserted into the table " + table.getNameInQuotes());
+        entity,
+        "cannot be inserted into the table " + table.getNameInQuotes());
     }
   }
 }

@@ -10,9 +10,9 @@ public final class AlgebraTestPool extends TestPool {
   //constructor
   public AlgebraTestPool() {
     super(
-        MatrixTest.class,
-        PolynomTest.class,
-        QuadraticFunctionTest.class,
-        VectorTest.class);
+      MatrixTest.class,
+      PolynomTest.class,
+      QuadraticFunctionTest.class,
+      VectorTest.class);
   }
 }

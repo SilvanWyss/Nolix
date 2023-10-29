@@ -25,10 +25,10 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends T
 
     //attribute
     public final NonCascadingProperty<CustomState, Color> color = new NonCascadingProperty<>(
-        "Color",
-        CustomState.class,
-        Color::fromSpecification,
-        Color::getSpecification);
+      "Color",
+      CustomState.class,
+      Color::fromSpecification,
+      Color::getSpecification);
 
     //constructor
     public CustomFormatElement() {
@@ -122,6 +122,6 @@ public final class MultiStateConfigurationWithNonCascadingPropertyTest extends T
 
     //verification
     expect(result).hasStringRepresentation(
-        "CustomFormatElement(AColor(0x000000),BColor(0x0000FF),CColor(0xFF0000),DColor(0x008000))");
+      "CustomFormatElement(AColor(0x000000),BColor(0x0000FF),CColor(0xFF0000),DColor(0x008000))");
   }
 }

@@ -13,8 +13,8 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 //class
 public abstract class BaseParameterizedValueType<
 
-    V>
-    implements IBaseParameterizedValueType<V> {
+V>
+implements IBaseParameterizedValueType<V> {
 
   //attribute
   private final Class<V> valueType;

@@ -16,13 +16,13 @@ public final class VerticalStackHtmlBuilder implements IControlHtmlBuilder<IVert
   @Override
   public HtmlElement createHtmlElementForControl(final IVerticalStack verticalStack) {
     return HtmlElement.withTypeAndChildElements(
-        HtmlElementTypeCatalogue.DIV,
-        createHtmlElementsForChildControlsOfVerticalStack(verticalStack));
+      HtmlElementTypeCatalogue.DIV,
+      createHtmlElementsForChildControlsOfVerticalStack(verticalStack));
   }
 
   //method
   private IContainer<HtmlElement> createHtmlElementsForChildControlsOfVerticalStack(
-      final IVerticalStack verticalStack) {
+    final IVerticalStack verticalStack) {
     return verticalStack.getStoredChildControls().to(this::createHtmlElementsForChildControl);
   }
 

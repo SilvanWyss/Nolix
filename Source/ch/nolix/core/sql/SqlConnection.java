@@ -46,25 +46,25 @@ public abstract class SqlConnection implements GroupCloseable {
 
   //constructor
   protected SqlConnection(
-      final SqlDatabaseEngine sqlDatabaseEngine,
-      final int port,
-      final String userName,
-      final String userPassword) {
+    final SqlDatabaseEngine sqlDatabaseEngine,
+    final int port,
+    final String userName,
+    final String userPassword) {
     this(
-        sqlDatabaseEngine,
-        IPv4Catalogue.LOOP_BACK_ADDRESS,
-        port,
-        userName,
-        userPassword);
+      sqlDatabaseEngine,
+      IPv4Catalogue.LOOP_BACK_ADDRESS,
+      port,
+      userName,
+      userPassword);
   }
 
   //constructor
   protected SqlConnection(
-      final SqlDatabaseEngine sqlDatabaseEngine,
-      final String ip,
-      final int port,
-      final String userName,
-      final String userPassword) {
+    final SqlDatabaseEngine sqlDatabaseEngine,
+    final String ip,
+    final int port,
+    final String userName,
+    final String userPassword) {
 
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
 
@@ -83,20 +83,20 @@ public abstract class SqlConnection implements GroupCloseable {
 
   //constructor
   protected SqlConnection(
-      final SqlDatabaseEngine sqlDatabaseEngine,
-      final String ip,
-      final int port,
-      final String userName,
-      final String userPassword,
-      final SqlConnectionPool parentQslConnectionPool) {
+    final SqlDatabaseEngine sqlDatabaseEngine,
+    final String ip,
+    final int port,
+    final String userName,
+    final String userPassword,
+    final SqlConnectionPool parentQslConnectionPool) {
 
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
     GlobalValidator.assertThat(parentQslConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
 
     GlobalValidator
-        .assertThat(parentQslConnectionPool)
-        .thatIsNamed("parent SQLConnectionPool")
-        .fulfills(SqlConnectionPool::isOpen);
+      .assertThat(parentQslConnectionPool)
+      .thatIsNamed("parent SQLConnectionPool")
+      .fulfills(SqlConnectionPool::isOpen);
 
     this.sqlDatabaseEngine = sqlDatabaseEngine;
 
@@ -104,9 +104,9 @@ public abstract class SqlConnection implements GroupCloseable {
 
     try {
       connection = DriverManager.getConnection(
-          "jdbc:sqlserver://" + ip + ':' + port,
-          userName,
-          userPassword);
+        "jdbc:sqlserver://" + ip + ':' + port,
+        userName,
+        userPassword);
     } catch (final SQLException sqlException) {
       throw WrapperException.forError(sqlException);
     }
@@ -250,7 +250,7 @@ public abstract class SqlConnection implements GroupCloseable {
   private void registerSqlDatabaseEngineDriver() {
     try {
       Class.forName( //NOSONAR: Dynamic class loading is needed to gain driver class.
-          getSqlDatabaseEngineDriverClass());
+        getSqlDatabaseEngineDriverClass());
     } catch (final ClassNotFoundException classNotFoundException) {
       throw WrapperException.forError(classNotFoundException);
     }

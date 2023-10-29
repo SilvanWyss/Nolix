@@ -90,13 +90,13 @@ final class TestCaseRun {
 
       if (testCaseRunner.getRuntimeInMilliseconds() > MAX_DURATION_IN_MILLISECONDS) {
         testCaseRunner.stop(
-            new Error(
-                "Reached timeout.",
-                testCaseWrapper.getStoredTestCase().getName(),
-                STACK_TRACE_ELEMENT_FINDER
-                    .getStackTraceElementsOfRunningMethod(testCaseWrapper.getStoredTestCase())
-                    .getStoredFirst()
-                    .getLineNumber()));
+          new Error(
+            "Reached timeout.",
+            testCaseWrapper.getStoredTestCase().getName(),
+            STACK_TRACE_ELEMENT_FINDER
+              .getStackTraceElementsOfRunningMethod(testCaseWrapper.getStoredTestCase())
+              .getStoredFirst()
+              .getLineNumber()));
       }
     }
 

@@ -28,6 +28,6 @@ public interface IStyle extends IBaseStyle {
    * @throws RuntimeException if the given subStyles is null.
    */
   IStyle withAttachingAttributesAndSubStyles(
-      IContainer<String> attachingAttributes,
-      IContainer<ISelectingStyle> subStyles);
+    IContainer<String> attachingAttributes,
+    IContainer<ISelectingStyle> subStyles);
 }

@@ -31,8 +31,8 @@ public final class GlobalMethodHelper {
    *         annotationType.
    */
   public static <A extends Annotation> boolean methodHasAnnotation(
-      final Method method,
-      final Class<A> annotationType) {
+    final Method method,
+    final Class<A> annotationType) {
     return (method.getAnnotation(annotationType) != null);
   }
 }

@@ -15,8 +15,8 @@ public final class ComplexSequenceDefinedBy1PredecessorTest extends Test {
 
     //setup
     final var testUnit = new ComplexSequenceDefinedBy1Predecessor(
-        new ComplexNumber(0.0, 0.0, 20),
-        p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
+      new ComplexNumber(0.0, 0.0, 20),
+      p -> p.getPower2().getSum(new ComplexNumber(1.0, 0.0)));
 
     //execution & verification
     expect(testUnit.getValueAt1BasedIndex(1)).isEqualTo(new ComplexNumber(0.0, 0.0, 20));

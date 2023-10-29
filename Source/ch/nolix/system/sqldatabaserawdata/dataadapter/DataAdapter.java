@@ -20,36 +20,36 @@ public abstract class DataAdapter extends BaseDataAdapter {
 
   //constructor
   protected DataAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaAdapter schemaAdapter,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final ISchemaAdapter schemaAdapter,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
 
     this(
-        databaseName,
-        sqlConnectionPool,
-        DATABASE_INSPECTOR.createTableDefinitionsFrom(schemaAdapter),
-        sqlSyntaxProvider);
+      databaseName,
+      sqlConnectionPool,
+      DATABASE_INSPECTOR.createTableDefinitionsFrom(schemaAdapter),
+      sqlSyntaxProvider);
 
     schemaAdapter.close();
   }
 
   //constructor
   private DataAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final IContainer<ITableInfo> tableInfos,
-      final ISqlSyntaxProvider sqlSyntaxProvider) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final IContainer<ITableInfo> tableInfos,
+    final ISqlSyntaxProvider sqlSyntaxProvider) {
     super(
-        DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
-            databaseName,
-            sqlConnectionPool,
-            tableInfos,
-            sqlSyntaxProvider),
-        DatabaseWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
-            databaseName,
-            sqlConnectionPool,
-            tableInfos,
-            sqlSyntaxProvider));
+      DatabaseReader.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+        databaseName,
+        sqlConnectionPool,
+        tableInfos,
+        sqlSyntaxProvider),
+      DatabaseWriter.forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndTableInfosAndSqlSyntaxProvider(
+        databaseName,
+        sqlConnectionPool,
+        tableInfos,
+        sqlSyntaxProvider));
   }
 }

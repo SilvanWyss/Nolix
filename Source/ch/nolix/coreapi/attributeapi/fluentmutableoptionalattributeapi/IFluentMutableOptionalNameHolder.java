@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
  * @param <FMONH> is the type of a {@link IFluentMutableOptionalNameHolder}.
  */
 public interface IFluentMutableOptionalNameHolder<FMONH extends IFluentMutableOptionalNameHolder<FMONH>>
-    extends IOptionalNameHolder {
+extends IOptionalNameHolder {
 
   //method declaration
   /**

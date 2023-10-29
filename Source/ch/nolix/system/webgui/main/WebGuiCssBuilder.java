@@ -28,24 +28,24 @@ public final class WebGuiCssBuilder {
 
   //method
   private void fillUpCssRulesOfWebGuiIntoList(
-      final IWebGui<?> webGui,
-      final LinkedList<ICssRule> cssRules) {
+    final IWebGui<?> webGui,
+    final LinkedList<ICssRule> cssRules) {
 
     cssRules.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            HtmlElementTypeCatalogue.BODY,
-            ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"))));
+      CssRule.withSelectorAndProperties(
+        HtmlElementTypeCatalogue.BODY,
+        ImmutableList.withElement(CssProperty.withNameAndValue(CssPropertyNameCatalogue.MARGIN, "0px"))));
 
     cssRules.addAtEnd(
-        CssRule.withSelectorAndProperty(
-            "#root",
-            CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")));
+      CssRule.withSelectorAndProperty(
+        "#root",
+        CssProperty.withNameAndValue(CssPropertyNameCatalogue.MIN_HEIGHT, "100vh")));
 
     if (webGui.hasBackground()) {
       cssRules.addAtEnd(
-          CssRule.withSelectorAndProperties(
-              "#root",
-              webGui.getBackground().toCssProperties()));
+        CssRule.withSelectorAndProperties(
+          "#root",
+          webGui.getBackground().toCssProperties()));
     }
 
     fillUpCssRulesOfLayersOfWebGuiIntoList(webGui, cssRules);
@@ -53,8 +53,8 @@ public final class WebGuiCssBuilder {
 
   //method
   private void fillUpCssRulesOfLayersOfWebGuiIntoList(
-      final IWebGui<?> webGui,
-      final LinkedList<ICssRule> cssRules) {
+    final IWebGui<?> webGui,
+    final LinkedList<ICssRule> cssRules) {
     for (final var l : webGui.getStoredLayers()) {
       fillUpCssRulesOfLayerIntoList(l, cssRules);
     }

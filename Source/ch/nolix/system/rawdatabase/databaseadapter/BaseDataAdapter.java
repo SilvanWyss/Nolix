@@ -42,38 +42,38 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   //method
   @Override
   public final void deleteMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
     dataWriter.deleteMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
   }
 
   //method
   @Override
   public final void deleteMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiFieldColumn) {
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumn) {
     dataWriter.deleteMultiValueEntries(tableName, entityId, multiFieldColumn);
   }
 
   //method
   @Override
   public final void deleteMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiRefereceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiRefereceColumnName,
+    final String referencedEntityId) {
     dataWriter.deleteMultiReferenceEntry(tableName, entityId, multiRefereceColumnName, referencedEntityId);
   }
 
   //method
   @Override
   public final void deleteMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiFieldColumn,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumn,
+    final String entry) {
     dataWriter.deleteMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
   }
 
@@ -122,20 +122,20 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   //method
   @Override
   public final void insertMultiReferenceEntry(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName,
-      final String referencedEntityId) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName,
+    final String referencedEntityId) {
     dataWriter.insertMultiReferenceEntry(tableName, entityId, multiReferenceColumnName, referencedEntityId);
   }
 
   //method
   @Override
   public final void insertMultiValueEntry(
-      final String tableName,
-      final String entityId,
-      final String multiFieldColumn,
-      final String entry) {
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumn,
+    final String entry) {
     dataWriter.insertMultiValueEntry(tableName, entityId, multiFieldColumn, entry);
   }
 
@@ -147,18 +147,18 @@ public abstract class BaseDataAdapter implements IDataAdapter {
 
   @Override
   public final IContainer<String> loadMultiReferenceEntries(
-      final String tableName,
-      final String entityId,
-      final String multiReferenceColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiReferenceColumnName) {
     return dataReader.loadMultiReferenceEntries(tableName, entityId, multiReferenceColumnName);
   }
 
   //method
   @Override
   public final IContainer<Object> loadMultiValueEntries(
-      final String tableName,
-      final String entityId,
-      final String multiFieldColumnName) {
+    final String tableName,
+    final String entityId,
+    final String multiFieldColumnName) {
     return dataReader.loadMultiValueEntries(tableName, entityId, multiFieldColumnName);
   }
 
@@ -200,9 +200,9 @@ public abstract class BaseDataAdapter implements IDataAdapter {
   //method
   @Override
   public final boolean tableContainsEntityWithGivenValueAtGivenColumn(
-      final String tableName,
-      final String columnName,
-      final String value) {
+    final String tableName,
+    final String columnName,
+    final String value) {
     return dataReader.tableContainsEntityWithGivenValueAtGivenColumn(tableName, columnName, value);
   }
 

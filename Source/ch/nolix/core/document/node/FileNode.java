@@ -72,13 +72,13 @@ public final class FileNode extends BaseMutableNode<FileNode> {
 
     //Asserts that the given simple persistent specification is not null.
     GlobalValidator
-        .assertThat(parentFileNode)
-        .isOfType(FileNode.class);
+      .assertThat(parentFileNode)
+      .isOfType(FileNode.class);
 
     //Asserts that the given internal specification is not null.
     GlobalValidator.assertThat(internalSpecification)
-        .thatIsNamed("internal specification")
-        .isNotNull();
+      .thatIsNamed("internal specification")
+      .isNotNull();
 
     //Sets the simple persistent specification of the current SubNode.
     this.parentFileNode = parentFileNode;
@@ -180,8 +180,8 @@ public final class FileNode extends BaseMutableNode<FileNode> {
   @Override
   public ReadContainer<FileNode> getStoredChildNodes() {
     return ReadContainer.forIterable(
-        internalSpecification.getStoredChildNodes().to(
-            a -> new FileNode(getStoredRootFileNode(), a)));
+      internalSpecification.getStoredChildNodes().to(
+        a -> new FileNode(getStoredRootFileNode(), a)));
   }
 
   //method

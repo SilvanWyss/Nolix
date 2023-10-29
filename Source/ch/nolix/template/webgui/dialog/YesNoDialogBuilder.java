@@ -35,27 +35,27 @@ public final class YesNoDialogBuilder implements IBuilder<ILayer<?>> {
   @Override
   public ILayer<?> build() {
     return new Layer()
-        .setRole(LayerRole.DIALOG_LAYER)
-        .setRootControl(
-            new VerticalStack()
-                .setRole(ContainerRole.DIALOG_CONTAINER)
-                .addControl(
-                    new Label()
-                        .setText(getYesNoQuestion()),
-                    new HorizontalStack()
-                        .addControl(
-                            new Button()
-                                .setRole(ButtonRole.CANCEL_BUTTON)
-                                .setText("No")
-                                .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui()),
-                            new Button()
-                                .setRole(ButtonRole.CONFIRM_BUTTON)
-                                .setText("Yes")
-                                .setLeftMouseButtonPressAction(
-                                    (final IButton b) -> {
-                                      b.getStoredParentLayer().removeSelfFromGui();
-                                      getConfirmAction().run();
-                                    }))));
+      .setRole(LayerRole.DIALOG_LAYER)
+      .setRootControl(
+        new VerticalStack()
+          .setRole(ContainerRole.DIALOG_CONTAINER)
+          .addControl(
+            new Label()
+              .setText(getYesNoQuestion()),
+            new HorizontalStack()
+              .addControl(
+                new Button()
+                  .setRole(ButtonRole.CANCEL_BUTTON)
+                  .setText("No")
+                  .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui()),
+                new Button()
+                  .setRole(ButtonRole.CONFIRM_BUTTON)
+                  .setText("Yes")
+                  .setLeftMouseButtonPressAction(
+                    (final IButton b) -> {
+                      b.getStoredParentLayer().removeSelfFromGui();
+                      getConfirmAction().run();
+                    }))));
   }
 
   //method

@@ -21,29 +21,29 @@ public final class WebSocketFrameTest extends Test {
 
     //setup
     final var bytes = new byte[] {
-        new ByteWrapper(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
-        new ByteWrapper(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
-        new ByteWrapper(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
-        new ByteWrapper(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
+    new ByteWrapper(1, 0, 0, 0, 0, 0, 0, 1).toByte(),
+    new ByteWrapper(0, 0, 0, 0, 0, 0, 1, 0).toByte(),
+    new ByteWrapper(0, 0, 0, 1, 0, 0, 0, 0).toByte(),
+    new ByteWrapper(0, 0, 1, 0, 0, 0, 0, 0).toByte(),
     };
 
     //setup
     final var webSocketFrame = new WebSocketFrame(
-        new InputStream() {
+      new InputStream() {
 
-          private int counter;
+        private int counter;
 
-          @Override
-          public int read() throws IOException {
+        @Override
+        public int read() throws IOException {
 
-            //The mask 0xFF makes a byte unsigned.
-            final var lByte = 0xFF & bytes[counter];
+          //The mask 0xFF makes a byte unsigned.
+          final var lByte = 0xFF & bytes[counter];
 
-            counter++;
+          counter++;
 
-            return lByte;
-          }
-        });
+          return lByte;
+        }
+      });
 
     //execution
     final var resultFINBit = webSocketFrame.getFINBit();
@@ -98,9 +98,9 @@ public final class WebSocketFrameTest extends Test {
 
     //setup
     final var testUnit = new WebSocketFrame(
-        true,
-        WebSocketFrameOpcodeMeaning.TEXT_FRAME, false,
-        new byte[] { 0b00000001, 0b00000010, 0b00000011, 0b00000100 });
+      true,
+      WebSocketFrameOpcodeMeaning.TEXT_FRAME, false,
+      new byte[] { 0b00000001, 0b00000010, 0b00000011, 0b00000100 });
 
     //execution
     final var result = testUnit.toBytes();

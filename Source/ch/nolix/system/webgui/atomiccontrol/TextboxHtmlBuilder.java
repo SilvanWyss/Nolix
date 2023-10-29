@@ -17,8 +17,8 @@ public final class TextboxHtmlBuilder implements IControlHtmlBuilder<ITextbox> {
   @Override
   public HtmlElement createHtmlElementForControl(final ITextbox textbox) {
     return HtmlElement.withTypeAndAttributes(
-        HtmlElementTypeCatalogue.INPUT,
-        ImmutableList.withElement(
-            HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.VALUE, textbox.getText())));
+      HtmlElementTypeCatalogue.INPUT,
+      ImmutableList.withElement(
+        HtmlAttribute.withNameAndValue(HtmlAttributeNameCatalogue.VALUE, textbox.getText())));
   }
 }

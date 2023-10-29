@@ -17,9 +17,9 @@ public final class Error {
 
   //constructor
   public Error(
-      final String errorMessage,
-      final String occuranceClassName,
-      final int occuranceLineNumber) {
+    final String errorMessage,
+    final String occuranceClassName,
+    final int occuranceLineNumber) {
     this(errorMessage, new OccurancePlace(occuranceClassName, occuranceLineNumber));
   }
 
@@ -32,9 +32,9 @@ public final class Error {
 
     if (errorMessage.isBlank()) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-          LowerCaseCatalogue.ERROR_MESSAGE,
-          errorMessage,
-          "is blank");
+        LowerCaseCatalogue.ERROR_MESSAGE,
+        errorMessage,
+        "is blank");
     }
 
     if (occurancePlace == null) {

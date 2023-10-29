@@ -15,15 +15,15 @@ final class ErrorCreator {
 
   //method
   public Error createErrorFromInvocationTargetExceptionInInstance(
-      final InvocationTargetException invocationTargetException,
-      final Object instance) {
+    final InvocationTargetException invocationTargetException,
+    final Object instance) {
     return createErrorFromThrowableInInstance(invocationTargetException.getCause(), instance);
   }
 
   //method
   public Error createErrorFromThrowableInInstance(final Throwable throwable, final Object instance) {
     return new Error(
-        THROWABLE_HELPER.getMessageFromThrowableOrDefaultErrorMessage(throwable),
-        OCCURANCE_PLACE_FINDER.findOccurancePlaceOfThrowableInInstance(throwable, instance));
+      THROWABLE_HELPER.getMessageFromThrowableOrDefaultErrorMessage(throwable),
+      OCCURANCE_PLACE_FINDER.findOccurancePlaceOfThrowableInInstance(throwable, instance));
   }
 }

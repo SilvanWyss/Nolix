@@ -73,8 +73,8 @@ public abstract class MutableElement implements IMutableElement {
   @Override
   public final boolean equals(final Object object) {
     return object != null
-        && getClass() == object.getClass()
-        && hasSameSpecificationAs((Specified) object);
+    && getClass() == object.getClass()
+    && hasSameSpecificationAs((Specified) object);
   }
 
   //method

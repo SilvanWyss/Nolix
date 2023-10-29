@@ -78,8 +78,8 @@ public abstract class ThrownExceptionMediator extends Mediator {
     //methods.
     if (exception != null && exception.getMessage() == null) {
       addCurrentTestCaseError(
-          "An exception with a message was expected,"
-              + "but an exception without messag was received.");
+        "An exception with a message was expected,"
+        + "but an exception without messag was received.");
     }
   }
 
@@ -107,20 +107,20 @@ public abstract class ThrownExceptionMediator extends Mediator {
       //message.
       if (exception.getMessage() == null) {
         addCurrentTestCaseError(
-            "An exception with the message '"
-                + message
-                + "' was expected, but an exception without messag was received.");
+          "An exception with the message '"
+          + message
+          + "' was expected, but an exception without messag was received.");
       }
 
       //Asserts that the exception of the current ThrownExceptionMediator has the
       //given message.
       if (!exception.getMessage().equals(message)) {
         addCurrentTestCaseError(
-            "An exception with the message '"
-                + message
-                + "' was expected, but an exception with the message '"
-                + exception.getMessage()
-                + "' was thrown.");
+          "An exception with the message '"
+          + message
+          + "' was expected, but an exception with the message '"
+          + exception.getMessage()
+          + "' was thrown.");
       }
     }
   }
@@ -137,9 +137,9 @@ public abstract class ThrownExceptionMediator extends Mediator {
     //methods.
     if (exception != null && exception.getMessage() != null) {
       addCurrentTestCaseError(
-          "An exception without message was expected, but an exception with the message '"
-              + exception.getMessage()
-              + "' was received.");
+        "An exception without message was expected, but an exception with the message '"
+        + exception.getMessage()
+        + "' was received.");
     }
   }
 

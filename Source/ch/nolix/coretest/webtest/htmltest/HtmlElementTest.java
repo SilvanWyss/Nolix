@@ -21,24 +21,24 @@ public final class HtmlElementTest extends Test {
     final var attribute3 = HtmlAttribute.withNameAndValue("n3", "v3");
     final var attribute4 = HtmlAttribute.withNameAndValue("n4", "v4");
     final var testUnit = HtmlElement.withTypeAndAttributesAndInnerText(
-        HtmlElementTypeCatalogue.DIV,
-        ImmutableList.withElement(attribute1, attribute2),
-        "my inner text");
+      HtmlElementTypeCatalogue.DIV,
+      ImmutableList.withElement(attribute1, attribute2),
+      "my inner text");
 
     //execution
     final var result = testUnit.withAttribute(attribute3, attribute4);
 
     //verification
     expect(testUnit)
-        .isEqualTo(
-            HtmlElement.withTypeAndAttributesAndInnerText(
-                HtmlElementTypeCatalogue.DIV,
-                ImmutableList.withElement(attribute1, attribute2),
-                "my inner text"));
-    expect(result).isEqualTo(
+      .isEqualTo(
         HtmlElement.withTypeAndAttributesAndInnerText(
-            HtmlElementTypeCatalogue.DIV,
-            ImmutableList.withElement(attribute1, attribute2, attribute3, attribute4),
-            "my inner text"));
+          HtmlElementTypeCatalogue.DIV,
+          ImmutableList.withElement(attribute1, attribute2),
+          "my inner text"));
+    expect(result).isEqualTo(
+      HtmlElement.withTypeAndAttributesAndInnerText(
+        HtmlElementTypeCatalogue.DIV,
+        ImmutableList.withElement(attribute1, attribute2, attribute3, attribute4),
+        "my inner text"));
   }
 }

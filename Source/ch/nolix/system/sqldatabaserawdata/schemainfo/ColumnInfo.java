@@ -11,22 +11,22 @@ import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 
 //class
 public record ColumnInfo(
-    String columnId,
-    String columnName,
-    PropertyType columnPropertyType,
-    DataType columnDataType,
-    int columnIndexOnEntityNode)
-    implements IColumnInfo {
+String columnId,
+String columnName,
+PropertyType columnPropertyType,
+DataType columnDataType,
+int columnIndexOnEntityNode)
+implements IColumnInfo {
 
   //constructor
   //For a better performance, this implementation does not use all comfortable
   //methods.
   public ColumnInfo( //NOSONAR: This implementations checks the given arguments.
-      final String columnId,
-      final String columnName,
-      final PropertyType columnPropertyType,
-      final DataType columnDataType,
-      final int columnIndexOnEntityNode) {
+    final String columnId,
+    final String columnName,
+    final PropertyType columnPropertyType,
+    final DataType columnDataType,
+    final int columnIndexOnEntityNode) {
 
     if (columnId == null) {
       throw ArgumentIsNullException.forArgumentName("column id");
@@ -46,8 +46,8 @@ public record ColumnInfo(
 
     if (columnIndexOnEntityNode < 0) {
       throw NegativeArgumentException.forArgumentNameAndArgument(
-          "column index on entity node",
-          columnIndexOnEntityNode);
+        "column index on entity node",
+        columnIndexOnEntityNode);
     }
 
     this.columnId = columnId;

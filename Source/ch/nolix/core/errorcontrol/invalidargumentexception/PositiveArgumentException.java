@@ -41,8 +41,8 @@ public final class PositiveArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static PositiveArgumentException forArgumentNameAndArgument(
-      final String argumentName,
-      final long argument) {
+    final String argumentName,
+    final long argument) {
     return new PositiveArgumentException(argumentName, argument);
   }
 }

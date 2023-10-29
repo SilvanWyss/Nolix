@@ -9,6 +9,6 @@ public interface IMultiReferenceQueryCreator {
 
   //method declaration
   String createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
-      String columnId,
-      String referencedEntityId);
+    String columnId,
+    String referencedEntityId);
 }

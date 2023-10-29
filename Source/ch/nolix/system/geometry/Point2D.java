@@ -63,8 +63,8 @@ public final class Point2D extends Element {
   @Override
   public IContainer<INode<?>> getAttributes() {
     return LinkedList.withElement(
-        Node.withHeader(GlobalDoubleHelper.toString(getX())),
-        Node.withHeader(GlobalDoubleHelper.toString(getY())));
+      Node.withHeader(GlobalDoubleHelper.toString(getX())),
+      Node.withHeader(GlobalDoubleHelper.toString(getY())));
   }
 
   //method
@@ -74,8 +74,8 @@ public final class Point2D extends Element {
    */
   public double getDistanceTo(final Point2D point) {
     return Math.sqrt(
-        Math.pow(getX() - point.getY(), 2)
-            + Math.pow(getY() - point.getY(), 2));
+      Math.pow(getX() - point.getY(), 2)
+      + Math.pow(getY() - point.getY(), 2));
   }
 
   //method

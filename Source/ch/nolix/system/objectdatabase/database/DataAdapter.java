@@ -44,17 +44,17 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
 
   //constructor
   protected DataAdapter(
-      final String databaseName,
-      final ISchemaAdapter schemaAdapter,
-      final ISchema schema,
-      final Supplier<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator) {
+    final String databaseName,
+    final ISchemaAdapter schemaAdapter,
+    final ISchema schema,
+    final Supplier<IDataAndSchemaAdapter> dataAndSchemaAdapterCreator) {
 
     GlobalValidator.assertThat(databaseName).thatIsNamed("database name").isNotBlank();
     GlobalValidator.assertThat(schema).thatIsNamed("schema").isNotNull();
 
     SCHEMA_INITIALIZER.initializeDatabaseFromSchemaUsingSchemaAdapterIfDatabaseIsEmpty(
-        schema,
-        schemaAdapter);
+      schema,
+      schemaAdapter);
     schemaAdapter.close();
 
     this.schema = schema;
@@ -73,7 +73,7 @@ public abstract class DataAdapter implements IDataAdapter<DataAdapter> {
   //method
   @Override
   public final <E extends IEntity> ITable<E> getStoredTableByEntityType(
-      final Class<E> entityType) {
+    final Class<E> entityType) {
     return database.getStoredTableByEntityType(entityType);
   }
 

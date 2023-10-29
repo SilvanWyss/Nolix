@@ -77,7 +77,7 @@ public final class SequencePattern<E> implements ISequencePattern<E> {
    * 
    */
   public SequencePattern<E> addSequenceCondition(
-      final Predicate<LinkedList<E>> sequenceCondition) {
+    final Predicate<LinkedList<E>> sequenceCondition) {
 
     sequenceConditions.addAtEnd(sequenceCondition);
 

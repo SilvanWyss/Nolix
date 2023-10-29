@@ -31,8 +31,8 @@ public final class MultiReadContainer<E> extends Container<E> {
 
   //static method
   public static <E2> MultiReadContainer<E2> forArray(
-      final E2[] array,
-      @SuppressWarnings("unchecked") final E2[]... arrays) {
+    final E2[] array,
+    @SuppressWarnings("unchecked") final E2[]... arrays) {
 
     final var containers = new LinkedList<ArrayReadContainer<E2>>();
 
@@ -48,8 +48,8 @@ public final class MultiReadContainer<E> extends Container<E> {
   //static method
   @SafeVarargs
   public static <E2> MultiReadContainer<E2> forIterable(
-      final Iterable<? extends E2> iterable,
-      final Iterable<? extends E2>... iterables) {
+    final Iterable<? extends E2> iterable,
+    final Iterable<? extends E2>... iterables) {
 
     final var containers = new LinkedList<IterableReadContainer<E2>>();
 
@@ -89,10 +89,10 @@ public final class MultiReadContainer<E> extends Container<E> {
     }
 
     throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-        "1-based index",
-        p1BasedIndex,
-        1,
-        getElementCount());
+      "1-based index",
+      p1BasedIndex,
+      1,
+      getElementCount());
   }
 
   //method

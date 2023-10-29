@@ -9,8 +9,8 @@ import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
 //interface
 public interface ITable<
 
-    E extends IEntity>
-    extends IDatabaseObject, IIdHolder, INameHolder {
+E extends IEntity>
+extends IDatabaseObject, IIdHolder, INameHolder {
 
   //method declaration
   boolean containsEntityWithId(String id);

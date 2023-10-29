@@ -120,8 +120,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   @SafeVarargs
   public final void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
-      final E element,
-      final E... elements) {
+    final E element,
+    final E... elements) {
 
     addAtBegin(element);
 
@@ -219,8 +219,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   @SafeVarargs
   public final void addAtEnd( //NOSONAR: final keyword is required for SaveVarargs annotation.
-      final E element,
-      final E... elements) {
+    final E element,
+    final E... elements) {
 
     addAtEnd(element);
 
@@ -352,10 +352,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
 
     throw ArgumentIsOutOfRangeException.forArgumentNameAndArgumentAndRangeWithMinAndMax(
-        "1-based index",
-        p1BasedIndex,
-        1,
-        getElementCount());
+      "1-based index",
+      p1BasedIndex,
+      1,
+      getElementCount());
   }
 
   //method
@@ -622,9 +622,9 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @SuppressWarnings({ "unchecked", "rawtypes" })
   private <C extends Comparable<C>> LinkedList<E> getOrderedSubList(
-      final int startIndex,
-      final int endIndex,
-      final Function<E, C> norm) {
+    final int startIndex,
+    final int endIndex,
+    final Function<E, C> norm) {
 
     //Searches for the start node.
     var startNode = firstNode;

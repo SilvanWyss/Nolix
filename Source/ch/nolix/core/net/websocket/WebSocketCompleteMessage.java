@@ -22,9 +22,9 @@ public final class WebSocketCompleteMessage implements CompletenessRequestable {
 
   //constructor
   public WebSocketCompleteMessage(
-      final BooleanSupplier isOpenFunction,
-      final InputStream inputStream,
-      final Consumer<WebSocketFrame> controlFrameTaker) {
+    final BooleanSupplier isOpenFunction,
+    final InputStream inputStream,
+    final Consumer<WebSocketFrame> controlFrameTaker) {
     while (isOpenFunction.getAsBoolean() && isIncomplete()) {
 
       final var frame = new WebSocketFrame(inputStream);

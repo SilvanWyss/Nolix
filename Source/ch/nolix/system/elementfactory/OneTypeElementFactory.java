@@ -26,14 +26,14 @@ final class OneTypeElementFactory<E> {
   @SuppressWarnings("unchecked")
   public <ME extends IMutableElement> OneTypeElementFactory(final Class<ME> elementClass) {
     this(
-        (Class<E>) elementClass,
-        (final INode<?> s) -> {
+      (Class<E>) elementClass,
+      (final INode<?> s) -> {
 
-          final var element = createElementOf(elementClass);
-          element.resetFromSpecification(s);
+        final var element = createElementOf(elementClass);
+        element.resetFromSpecification(s);
 
-          return (E) element;
-        });
+        return (E) element;
+      });
   }
 
   //constructor
@@ -51,10 +51,10 @@ final class OneTypeElementFactory<E> {
     try {
       return elementClass.getConstructor().newInstance();
     } catch (final
-        InstantiationException
-        | IllegalAccessException
-        | InvocationTargetException
-        | NoSuchMethodException exception) {
+    InstantiationException
+    | IllegalAccessException
+    | InvocationTargetException
+    | NoSuchMethodException exception) {
       throw WrapperException.forError(exception);
     }
   }

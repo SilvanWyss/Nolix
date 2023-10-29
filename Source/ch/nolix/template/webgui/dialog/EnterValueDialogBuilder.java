@@ -64,25 +64,25 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
     final var valueTextbox = new Textbox().setText(originalValue);
 
     return new Layer()
-        .setRole(LayerRole.DIALOG_LAYER)
-        .setRootControl(
-            new VerticalStack()
-                .setRole(ContainerRole.DIALOG_CONTAINER)
-                .addControl(
-                    new Label()
-                        .setText(getInfoText()),
-                    new ValidationLabel(),
-                    valueTextbox,
-                    new HorizontalStack()
-                        .addControl(
-                            new Button()
-                                .setRole(ButtonRole.CANCEL_BUTTON)
-                                .setText(getCancelButtonText())
-                                .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui()),
-                            new Button()
-                                .setRole(ButtonRole.CONFIRM_BUTTON)
-                                .setText(getConfirmButtonText())
-                                .setLeftMouseButtonPressAction(b -> confirmNewValue(b, valueTextbox, valueTaker)))));
+      .setRole(LayerRole.DIALOG_LAYER)
+      .setRootControl(
+        new VerticalStack()
+          .setRole(ContainerRole.DIALOG_CONTAINER)
+          .addControl(
+            new Label()
+              .setText(getInfoText()),
+            new ValidationLabel(),
+            valueTextbox,
+            new HorizontalStack()
+              .addControl(
+                new Button()
+                  .setRole(ButtonRole.CANCEL_BUTTON)
+                  .setText(getCancelButtonText())
+                  .setLeftMouseButtonPressAction(b -> b.getStoredParentLayer().removeSelfFromGui()),
+                new Button()
+                  .setRole(ButtonRole.CONFIRM_BUTTON)
+                  .setText(getConfirmButtonText())
+                  .setLeftMouseButtonPressAction(b -> confirmNewValue(b, valueTextbox, valueTaker)))));
   }
 
   //method
@@ -127,9 +127,9 @@ public final class EnterValueDialogBuilder implements IBuilder<ILayer<?>> {
 
   //method
   private void confirmNewValue(
-      final IButton confirmButton,
-      final ITextbox valueTextbox,
-      final Consumer<String> valueTaker) {
+    final IButton confirmButton,
+    final ITextbox valueTextbox,
+    final Consumer<String> valueTaker) {
 
     final var newValue = valueTextbox.getText();
 

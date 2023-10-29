@@ -70,19 +70,19 @@ public final class MutableImageTest extends Test {
 
     //setup
     final var testUnit = MutableImage
-        .withWidthAndHeightAndWhiteColor(2, 2)
-        .setPixel(1, 1, Color.YELLOW)
-        .setPixel(1, 2, Color.RED)
-        .setPixel(2, 1, Color.GREEN)
-        .setPixel(2, 2, Color.BLUE);
+      .withWidthAndHeightAndWhiteColor(2, 2)
+      .setPixel(1, 1, Color.YELLOW)
+      .setPixel(1, 2, Color.RED)
+      .setPixel(2, 1, Color.GREEN)
+      .setPixel(2, 2, Color.BLUE);
 
     //execution
     final var result = testUnit.getCopy();
     testUnit
-        .setPixel(1, 1, Color.BLACK)
-        .setPixel(1, 2, Color.BLACK)
-        .setPixel(2, 1, Color.BLACK)
-        .setPixel(2, 2, Color.BLACK);
+      .setPixel(1, 1, Color.BLACK)
+      .setPixel(1, 2, Color.BLACK)
+      .setPixel(2, 1, Color.BLACK)
+      .setPixel(2, 2, Color.BLACK);
 
     //verification
     expect(result.getWidth()).isEqualTo(2);
@@ -158,11 +158,11 @@ public final class MutableImageTest extends Test {
 
     //setup
     final var testUnit = MutableImage
-        .withWidthAndHeightAndWhiteColor(2, 2)
-        .setPixel(1, 1, Color.YELLOW)
-        .setPixel(1, 2, Color.RED)
-        .setPixel(2, 1, Color.GREEN)
-        .setPixel(2, 2, Color.BLUE);
+      .withWidthAndHeightAndWhiteColor(2, 2)
+      .setPixel(1, 1, Color.YELLOW)
+      .setPixel(1, 2, Color.RED)
+      .setPixel(2, 1, Color.GREEN)
+      .setPixel(2, 2, Color.BLUE);
 
     //execution
     final var result = testUnit.toLeftRotatedImage();
@@ -182,11 +182,11 @@ public final class MutableImageTest extends Test {
 
     //setup
     final var testUnit = MutableImage
-        .withWidthAndHeightAndWhiteColor(2, 2)
-        .setPixel(1, 1, Color.YELLOW)
-        .setPixel(1, 2, Color.RED)
-        .setPixel(2, 1, Color.GREEN)
-        .setPixel(2, 2, Color.BLUE);
+      .withWidthAndHeightAndWhiteColor(2, 2)
+      .setPixel(1, 1, Color.YELLOW)
+      .setPixel(1, 2, Color.RED)
+      .setPixel(2, 1, Color.GREEN)
+      .setPixel(2, 2, Color.BLUE);
 
     //execution
     final var result = testUnit.toRepeatedImage(4, 4);
@@ -218,11 +218,11 @@ public final class MutableImageTest extends Test {
 
     //setup
     final var testUnit = MutableImage
-        .withWidthAndHeightAndWhiteColor(2, 2)
-        .setPixel(1, 1, Color.YELLOW)
-        .setPixel(1, 2, Color.RED)
-        .setPixel(2, 1, Color.GREEN)
-        .setPixel(2, 2, Color.BLUE);
+      .withWidthAndHeightAndWhiteColor(2, 2)
+      .setPixel(1, 1, Color.YELLOW)
+      .setPixel(1, 2, Color.RED)
+      .setPixel(2, 1, Color.GREEN)
+      .setPixel(2, 2, Color.BLUE);
 
     //execution
     final var result = testUnit.toRightRotatedImage();
@@ -242,11 +242,11 @@ public final class MutableImageTest extends Test {
 
     //setup
     final var testUnit = MutableImage
-        .withWidthAndHeightAndWhiteColor(2, 2)
-        .setPixel(1, 1, Color.YELLOW)
-        .setPixel(1, 2, Color.RED)
-        .setPixel(2, 1, Color.GREEN)
-        .setPixel(2, 2, Color.BLUE);
+      .withWidthAndHeightAndWhiteColor(2, 2)
+      .setPixel(1, 1, Color.YELLOW)
+      .setPixel(1, 2, Color.RED)
+      .setPixel(2, 1, Color.GREEN)
+      .setPixel(2, 2, Color.BLUE);
 
     //execution
     final var result = testUnit.toScaledImage(2.0);

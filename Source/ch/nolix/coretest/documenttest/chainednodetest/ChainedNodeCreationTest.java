@@ -258,9 +258,9 @@ public final class ChainedNodeCreationTest extends Test {
 
     //execution & verification
     expectRunning(() -> ChainedNode.withHeader(null))
-        .throwsException()
-        .ofType(ArgumentIsNullException.class)
-        .withMessage("The given header is null.");
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given header is null.");
   }
 
   //method

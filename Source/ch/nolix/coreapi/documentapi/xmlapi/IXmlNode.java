@@ -8,7 +8,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //interface
 public interface IXmlNode<N extends IXmlNode<N>>
-    extends IFluentMutableOptionalNameHolder<N>, IOptionalValueHolder<String> {
+extends IFluentMutableOptionalNameHolder<N>, IOptionalValueHolder<String> {
 
   //method declaration
   IContainer<IXmlAttribute> getAttributes();

@@ -13,13 +13,13 @@ public final class ConcreteReferenceContentValidator {
 
   //constant
   private static final ConcreteReferenceContentEvaluator CONCRETE_REFERENCE_CONTENT_EVALUATOR = //
-      new ConcreteReferenceContentEvaluator();
+  new ConcreteReferenceContentEvaluator();
 
   public void assertCanAddObject(ConcreteReferenceContent concreteReferenceContent, IAbstractableObject object) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canAddObject(concreteReferenceContent, object)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          concreteReferenceContent.getStoredParentField(),
-          "cannot add the given object");
+        concreteReferenceContent.getStoredParentField(),
+        "cannot add the given object");
     }
   }
 
@@ -27,8 +27,8 @@ public final class ConcreteReferenceContentValidator {
   public void assertCanRemoveObjects(final IConcreteReferenceContent concreteReferenceContent) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canRemoveObjects(concreteReferenceContent)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          concreteReferenceContent.getStoredParentField(),
-          "cannot remove its objects");
+        concreteReferenceContent.getStoredParentField(),
+        "cannot remove its objects");
     }
   }
 
@@ -36,8 +36,8 @@ public final class ConcreteReferenceContentValidator {
   public void assertCanRemoveOneObject(final IConcreteReferenceContent concreteReferenceContent) {
     if (!CONCRETE_REFERENCE_CONTENT_EVALUATOR.canRemoveOneObject(concreteReferenceContent)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          concreteReferenceContent.getStoredParentField(),
-          "cannot remove an object");
+        concreteReferenceContent.getStoredParentField(),
+        "cannot remove an object");
     }
   }
 }

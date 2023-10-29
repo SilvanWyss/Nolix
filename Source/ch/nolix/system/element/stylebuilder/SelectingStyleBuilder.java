@@ -10,12 +10,12 @@ public final class SelectingStyleBuilder extends BaseSelectingStyleBuilder<Selec
   //method
   public SelectingStyle build() {
     return new SelectingStyle(
-        getSelectorIdContainer(),
-        getSelectorTypeContainer(),
-        getSelectorRoles(),
-        getSelectorTokens(),
-        getAttachingAttributes(),
-        getSubStyles());
+      getSelectorIdContainer(),
+      getSelectorTypeContainer(),
+      getSelectorRoles(),
+      getSelectorTokens(),
+      getAttachingAttributes(),
+      getSubStyles());
   }
 
   //method

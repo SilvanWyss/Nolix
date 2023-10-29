@@ -9,8 +9,8 @@ import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class
 public final class NodeDataAdapterBuilder
-    extends
-    WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> {
+extends
+WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> {
 
   //constructor
   public NodeDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
@@ -23,8 +23,8 @@ public final class NodeDataAdapterBuilder
   //method
   private NodeDataAdapter build(final IMutableNode<?> nodeDatabase) {
     return new NodeDataAdapter(
-        getName(),
-        nodeDatabase,
-        next().getStoredSchema());
+      getName(),
+      nodeDatabase,
+      next().getStoredSchema());
   }
 }

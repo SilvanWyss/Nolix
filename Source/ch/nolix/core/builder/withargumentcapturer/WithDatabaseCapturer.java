@@ -6,7 +6,7 @@ import ch.nolix.core.builder.main.ArgumentCapturer;
 
 //class
 public class WithDatabaseCapturer<D, N>
-    extends ArgumentCapturer<D, N> {
+extends ArgumentCapturer<D, N> {
 
   //constructor
   public WithDatabaseCapturer(final N nextArgumentCapturer) {

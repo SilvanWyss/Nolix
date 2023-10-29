@@ -53,11 +53,11 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
 
   //attribute
   private MutableValue<TextMode> textMode = new MutableValue<>(
-      TEXT_MODE_HEADER,
-      DEFAULT_TEXT_MODE,
-      this::setTextMode,
-      TextMode::fromSpecification,
-      Node::fromEnum);
+    TEXT_MODE_HEADER,
+    DEFAULT_TEXT_MODE,
+    this::setTextMode,
+    TextMode::fromSpecification,
+    Node::fromEnum);
 
   //optional attribute
   private Consumer<String> updateTextAction;
@@ -70,10 +70,10 @@ public final class Textbox extends Control<ITextbox, ITextboxStyle> implements I
     reset();
 
     getStoredStyle()
-        .setBorderThicknessForState(ControlState.BASE, 1)
-        .setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
-        .setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
-        .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
+      .setBorderThicknessForState(ControlState.BASE, 1)
+      .setBackgroundColorForState(ControlState.BASE, Color.AQUAMARINE)
+      .setBackgroundColorForState(ControlState.HOVER, Color.MEDIUM_AQUA_MARINE)
+      .setBackgroundColorForState(ControlState.FOCUS, Color.MEDIUM_AQUA_MARINE);
   }
 
   //method

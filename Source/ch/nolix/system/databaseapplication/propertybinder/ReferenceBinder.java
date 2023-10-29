@@ -18,8 +18,8 @@ public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, I
   //method
   @Override
   protected void addSelectionOptionsToControlForProperty(
-      final IDropdownMenu dropdownMenu,
-      final IReference<IEntity> reference) {
+    final IDropdownMenu dropdownMenu,
+    final IReference<IEntity> reference) {
     for (final var e : reference.getReferencedTable().getStoredEntities()) {
       dropdownMenu.addItemWithIdAndText(e.getId(), e.getShortDescription());
     }
@@ -28,16 +28,16 @@ public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, I
   //method
   @Override
   protected void setNoteUpdateActionToControl(
-      final IDropdownMenu dropdownMenu,
-      final Runnable noteUpdateValueAction) {
+    final IDropdownMenu dropdownMenu,
+    final Runnable noteUpdateValueAction) {
     dropdownMenu.setSelectAction(noteUpdateValueAction);
   }
 
   //method
   @Override
   protected void updatePropertyFromControl(
-      final IReference<IEntity> reference,
-      final IDropdownMenu dropdownMenu) {
+    final IReference<IEntity> reference,
+    final IDropdownMenu dropdownMenu) {
 
     final var selectedEntityId = dropdownMenu.getStoredSelectedItem().getId();
 
@@ -47,8 +47,8 @@ public final class ReferenceBinder extends PropertyBinder<IReference<IEntity>, I
   //method
   @Override
   protected void updateControlFromProperty(
-      final IDropdownMenu dropdownMenu,
-      final IReference<IEntity> reference) {
+    final IDropdownMenu dropdownMenu,
+    final IReference<IEntity> reference) {
     if (reference.containsAny()) {
       dropdownMenu.selectItemById(reference.getReferencedEntityId());
     }

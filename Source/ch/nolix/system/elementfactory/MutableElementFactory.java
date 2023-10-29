@@ -12,7 +12,7 @@ public final class MutableElementFactory<E> extends ElementFactory<E> {
 
   //method
   public <ME extends IMutableElement> MutableElementFactory<E> registerElementClass(
-      final Class<ME> elementClass) {
+    final Class<ME> elementClass) {
 
     registerElementClass_(elementClass);
 
@@ -21,8 +21,8 @@ public final class MutableElementFactory<E> extends ElementFactory<E> {
 
   //method
   public MutableElementFactory<E> registerElementClass(
-      final Class<E> elementClass,
-      final Function<INode<?>, E> creator) {
+    final Class<E> elementClass,
+    final Function<INode<?>, E> creator) {
 
     registerElementClass_(elementClass, creator);
 

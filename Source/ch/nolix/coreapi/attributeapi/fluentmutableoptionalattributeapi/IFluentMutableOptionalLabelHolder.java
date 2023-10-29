@@ -14,7 +14,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalLabelHolder;
  * @param <FMOLH> is the type of a {@link IFluentMutableOptionalLabelHolder}.
  */
 public interface IFluentMutableOptionalLabelHolder<FMOLH extends IFluentMutableOptionalLabelHolder<FMOLH>>
-    extends IOptionalLabelHolder {
+extends IOptionalLabelHolder {
 
   //method declaration
   /**

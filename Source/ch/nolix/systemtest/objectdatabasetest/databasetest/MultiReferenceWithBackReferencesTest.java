@@ -31,7 +31,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 
     //attribute
     public final BackReference<Person> owner = BackReference.forEntityAndBackReferencedPropertyName(Person.class,
-        "pets");
+      "pets");
 
     //constructor
     public Pet() {
@@ -65,7 +65,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
 
     //verification
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     final var loadedSimba = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
     final var loadedOdie = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(odie.getId());
     expect(loadedJohn.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield, loadedSimba, loadedOdie);
@@ -110,7 +110,7 @@ public final class MultiReferenceWithBackReferencesTest extends Test {
     //verification part 2
     final var loadedJohn2 = nodeDataAdapter.getStoredTableByEntityType(Person.class).getStoredEntityById(john.getId());
     final var loadedGarfield2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     final var loadedSimba2 = nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(simba.getId());
     expect(loadedJohn2.pets.getReferencedEntities()).containsExactlyInSameOrder(loadedGarfield2, loadedSimba2);
   }

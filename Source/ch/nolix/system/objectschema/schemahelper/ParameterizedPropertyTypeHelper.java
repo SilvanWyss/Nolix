@@ -9,7 +9,7 @@ import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedProperty
 
 //class
 public final class ParameterizedPropertyTypeHelper extends DatabaseObjectHelper
-    implements IParameterizedPropertyTypeHelper {
+implements IParameterizedPropertyTypeHelper {
 
   //method
   @Override

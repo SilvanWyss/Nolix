@@ -37,9 +37,9 @@ public final class SchemaWriter implements ISchemaWriter {
 
   //constructor
   public SchemaWriter(
-      final String databaseName,
-      final SqlConnection sqlConnection,
-      final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter schemaWriter) {
+    final String databaseName,
+    final SqlConnection sqlConnection,
+    final ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter schemaWriter) {
 
     GlobalValidator.assertThat(sqlConnection).thatIsNamed(SqlConnection.class).isNotNull();
 
@@ -53,13 +53,13 @@ public final class SchemaWriter implements ISchemaWriter {
 
   //static method
   public static SchemaWriter forDatabaseWithGivenNameUsingConnectionFromGivenPoolAndSchemaAdapter(
-      final String databaseName,
-      final SqlConnectionPool sqlConnectionPool,
-      final ISchemaAdapter schemaAdapter) {
+    final String databaseName,
+    final SqlConnectionPool sqlConnectionPool,
+    final ISchemaAdapter schemaAdapter) {
     return new SchemaWriter(
-        databaseName,
-        sqlConnectionPool.borrowSqlConnection(),
-        schemaAdapter);
+      databaseName,
+      sqlConnectionPool.borrowSqlConnection(),
+      schemaAdapter);
   }
 
   //method
@@ -146,8 +146,8 @@ public final class SchemaWriter implements ISchemaWriter {
   //method
   @Override
   public void setColumnParameterizedPropertyType(
-      final String columnId,
-      final IParameterizedPropertyTypeDto parameterizedPropertyType) {
+    final String columnId,
+    final IParameterizedPropertyTypeDto parameterizedPropertyType) {
     systemDataWriter.setColumnParameterizedPropertyType(columnId, parameterizedPropertyType);
   }
 

@@ -36,9 +36,9 @@ final class State<S extends Enum<S>> implements INameHolder {
 
   //static method
   public static <S2 extends Enum<S2>> State<S2> withQualifyingPrefixAndIndexAndEnumValue(
-      final String qualifyingPrefix,
-      final int index,
-      final S2 enumValue) {
+    final String qualifyingPrefix,
+    final int index,
+    final S2 enumValue) {
     return new State<>(qualifyingPrefix, index, enumValue);
   }
 

@@ -109,7 +109,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
     //setup part 2: Prepares a change.
     final var nodeDataAdapterB = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var loadedGarfieldB = nodeDataAdapterB.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     final var johnB = new Person();
     johnB.pet.setEntity(loadedGarfieldB);
     nodeDataAdapterB.insert(johnB);
@@ -117,7 +117,7 @@ public final class OptionalReferenceOnDatabaseTest extends Test {
     //setup part 3: Deletes the referenced Entity.
     final var nodeDataAdapterC = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("MyDatabase").andSchema(schema);
     final var loadedGarfieldC = nodeDataAdapterC.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
     loadedGarfieldC.delete();
     nodeDataAdapterC.saveChanges();
 

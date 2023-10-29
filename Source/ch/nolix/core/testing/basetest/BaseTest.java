@@ -194,9 +194,9 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
     try {
       return ReflectionHelper.getDefaultConstructor(getClass()).newInstance();
     } catch (final
-        IllegalAccessException
-        | InstantiationException
-        | InvocationTargetException exception) {
+    IllegalAccessException
+    | InstantiationException
+    | InvocationTargetException exception) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "could not be copied");
     }
   }

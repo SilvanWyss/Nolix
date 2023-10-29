@@ -90,7 +90,7 @@ final class JobWrapper implements Runnable {
     final var startTimeInMilliseconds = System.currentTimeMillis();
 
     GlobalSequencer.waitAsLongAs(
-        () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds && !isFinished());
+      () -> System.currentTimeMillis() - startTimeInMilliseconds < timeoutInMilliseconds && !isFinished());
 
     if (!isFinished()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "reached timeout before having finished");

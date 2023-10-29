@@ -15,17 +15,17 @@ public final class DropdownMenuCssBuilder extends ItemMenuCssBuilder<IDropdownMe
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final IDropdownMenu control,
-      final LinkedList<CssProperty> list) {
+    final IDropdownMenu control,
+    final LinkedList<CssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final IDropdownMenu dropdownMenu,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final IDropdownMenu dropdownMenu,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }

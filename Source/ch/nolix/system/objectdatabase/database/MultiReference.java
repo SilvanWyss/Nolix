@@ -77,7 +77,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     for (final var re : getReferencedEntities()) {
 
       final var backReferencingProperty = re.technicalGetRefProperties()
-          .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
+        .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
 
       if (backReferencingProperty != null) {
         backReferencingProperties.addAtEnd(backReferencingProperty);
@@ -100,8 +100,8 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
     extractReferencedEntityIdsIfNeeded();
 
     return localEntries
-        .getStoredSelected(MULTI_REFERENCE_HELPER::isNewOrLoaded)
-        .to(IMultiReferenceEntry::getReferencedEntityId);
+      .getStoredSelected(MULTI_REFERENCE_HELPER::isNewOrLoaded)
+      .to(IMultiReferenceEntry::getReferencedEntityId);
   }
 
   //method
@@ -228,16 +228,16 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
   //method
   private IContainer<MultiReferenceEntry<E>> loadReferencedEntityIds() {
     return internalGetRefDataAndSchemaAdapter().loadMultiReferenceEntries(
-        getStoredParentEntity().getParentTableName(),
-        getStoredParentEntity().getId(),
-        getName())
-        .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
+      getStoredParentEntity().getParentTableName(),
+      getStoredParentEntity().getId(),
+      getName())
+      .to(rei -> MultiReferenceEntry.loadedEntryForMultiReferenceAndReferencedEntityId(this, rei));
   }
 
   //method
   private boolean shouldExtractReferencedEntityIds() {
     return !extractedReferencedEntityIds()
-        && MULTI_REFERENCE_HELPER.belongsToLoadedEntity(this);
+    && MULTI_REFERENCE_HELPER.belongsToLoadedEntity(this);
   }
 
   //method
@@ -248,7 +248,7 @@ public final class MultiReference<E extends IEntity> extends BaseReference<E> im
         final var baseBackReference = (BaseBackReference<?>) p;
 
         if (baseBackReference.getBackReferencedTableName().equals(getStoredParentEntity().getParentTableName())
-            && baseBackReference.getBackReferencedPropertyName().equals(getName())) {
+        && baseBackReference.getBackReferencedPropertyName().equals(getName())) {
 
           switch (baseBackReference.getType()) {
             case BACK_REFERENCE:

@@ -11,10 +11,10 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public abstract class LinearContainerStyle< //
-    LCS extends ILinearContainerStyle<LCS> & IMultiStateConfiguration<LCS, ControlState> //
+LCS extends ILinearContainerStyle<LCS> & IMultiStateConfiguration<LCS, ControlState> //
 >
-    extends ControlStyle<LCS>
-    implements ILinearContainerStyle<LCS> {
+extends ControlStyle<LCS>
+implements ILinearContainerStyle<LCS> {
 
   //constant
   public static final int DEFAULT_CHILD_CONTROL_MARGIN = 0;
@@ -24,11 +24,11 @@ public abstract class LinearContainerStyle< //
 
   //attribute
   private final NonCascadingProperty<ControlState, Integer> childControlMargin = NonCascadingProperty
-      .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
-          CHILD_CONTROL_MARGIN_HEADER,
-          ControlState.class,
-          this::setChildControlMarginForState,
-          DEFAULT_CHILD_CONTROL_MARGIN);
+    .forIntWithNameAndStateClassAndSetterMethodAndDefaultValue(
+      CHILD_CONTROL_MARGIN_HEADER,
+      ControlState.class,
+      this::setChildControlMarginForState,
+      DEFAULT_CHILD_CONTROL_MARGIN);
 
   //method
   @Override

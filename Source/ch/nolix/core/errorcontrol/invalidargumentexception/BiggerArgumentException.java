@@ -58,9 +58,9 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static BiggerArgumentException forArgumentNameAndArgumentAndMax(
-      final String argumentName,
-      final double argument,
-      final double max) {
+    final String argumentName,
+    final double argument,
+    final double max) {
     return new BiggerArgumentException(argumentName, argument, max);
   }
 
@@ -75,9 +75,9 @@ public final class BiggerArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static BiggerArgumentException forArgumentNameAndArgumentAndMax(
-      final String argumentName,
-      final long argument,
-      final long max) {
+    final String argumentName,
+    final long argument,
+    final long max) {
     return new BiggerArgumentException(argumentName, argument, max);
   }
 }

@@ -33,19 +33,19 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    * @param subStyles
    */
   public DeepSelectingStyle(
-      final ISingleContainer<String> selectorIdContainer,
-      final ISingleContainer<String> selectorTypeContainer,
-      final IContainer<String> selectorRoles,
-      final IContainer<String> selectorTokens,
-      final IContainer<? extends INode<?>> attachingAttributes,
-      final IContainer<BaseSelectingStyle> subStyles) {
+    final ISingleContainer<String> selectorIdContainer,
+    final ISingleContainer<String> selectorTypeContainer,
+    final IContainer<String> selectorRoles,
+    final IContainer<String> selectorTokens,
+    final IContainer<? extends INode<?>> attachingAttributes,
+    final IContainer<BaseSelectingStyle> subStyles) {
     super(
-        selectorIdContainer,
-        selectorTypeContainer,
-        selectorRoles,
-        selectorTokens,
-        attachingAttributes,
-        subStyles);
+      selectorIdContainer,
+      selectorTypeContainer,
+      selectorRoles,
+      selectorTokens,
+      attachingAttributes,
+      subStyles);
   }
 
   //static method
@@ -88,18 +88,18 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
           break;
         default:
           throw InvalidArgumentException.forArgumentNameAndArgument(
-              LowerCaseCatalogue.SPECIFICATION,
-              specification);
+            LowerCaseCatalogue.SPECIFICATION,
+            specification);
       }
     }
 
     return new DeepSelectingStyle(
-        selectorIdContainer,
-        selectorTypeContainer,
-        selectorRoles,
-        selectorTokens,
-        attachingAttributes,
-        subStyles);
+      selectorIdContainer,
+      selectorTypeContainer,
+      selectorRoles,
+      selectorTokens,
+      attachingAttributes,
+      subStyles);
   }
 
   //method

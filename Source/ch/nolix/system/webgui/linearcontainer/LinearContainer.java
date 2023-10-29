@@ -16,18 +16,18 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public abstract class LinearContainer<LC extends ILinearContainer<LC, LCS>, LCS extends ILinearContainerStyle<LCS>>
-    extends Container<LC, LCS>
-    implements ILinearContainer<LC, LCS> {
+extends Container<LC, LCS>
+implements ILinearContainer<LC, LCS> {
 
   //constant
   private static final String CHILD_CONTROL_HEADER = "ChildControl";
 
   //attribute
   private final MultiValue<IControl<?, ?>> childControls = new MultiValue<>(
-      CHILD_CONTROL_HEADER,
-      this::addControl,
-      GlobalControlFactory::createControlFromSpecification,
-      IControl::getSpecification);
+    CHILD_CONTROL_HEADER,
+    this::addControl,
+    GlobalControlFactory::createControlFromSpecification,
+    IControl::getSpecification);
 
   //method
   @Override

@@ -24,7 +24,7 @@ public final class FileLogHandler extends LogHandler {
   public static String getLocalNolixLogFilePath() {
 
     final var localNolixFilePath = GlobalNolixEnvironmentHelper.getLocalNolixFolderPath() + FOLDER_DELIMITER
-        + NOLIX_LOG_FILE_NAME;
+    + NOLIX_LOG_FILE_NAME;
     createFileIfDoesNotExist(localNolixFilePath);
 
     return localNolixFilePath;
@@ -50,15 +50,15 @@ public final class FileLogHandler extends LogHandler {
     try {
 
       Files.writeString(
-          Paths.get(getLocalNolixLogFilePath()),
-          logEntry.toString() + System.lineSeparator(),
-          StandardOpenOption.APPEND);
+        Paths.get(getLocalNolixLogFilePath()),
+        logEntry.toString() + System.lineSeparator(),
+        StandardOpenOption.APPEND);
 
       for (final var ail : logEntry.getAdditionalInfoLines()) {
         Files.writeString(
-            Paths.get(getLocalNolixLogFilePath()),
-            "  " + ail + System.lineSeparator(),
-            StandardOpenOption.APPEND);
+          Paths.get(getLocalNolixLogFilePath()),
+          "  " + ail + System.lineSeparator(),
+          StandardOpenOption.APPEND);
       }
     } catch (final IOException pIOException) {
       throw WrapperException.forError(pIOException);

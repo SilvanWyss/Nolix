@@ -18,18 +18,18 @@ public final class DropdownMenuTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndVoidContext(
-        "DropdownMenu tutorial",
-        MainSession.class);
+      "DropdownMenu tutorial",
+      MainSession.class);
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   public static final class MainSession extends WebClientSession<Object> {
@@ -39,13 +39,13 @@ public final class DropdownMenuTutorial {
 
       //Creates a DropdownMenu.
       final var dropdownMenu = new DropdownMenu()
-          .addItemWithText(
-              "red",
-              "blue",
-              "green",
-              "yellow",
-              "orange",
-              "purple");
+        .addItemWithText(
+          "red",
+          "blue",
+          "green",
+          "yellow",
+          "orange",
+          "purple");
 
       //Adds the DropdownMenu to the GUI of the current MainSession.
       getStoredGui().pushLayerWithRootControl(dropdownMenu);

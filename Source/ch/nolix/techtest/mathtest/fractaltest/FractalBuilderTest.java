@@ -17,12 +17,12 @@ public final class FractalBuilderTest extends Test {
     //setup
     final var testUnit = new FractalBuilder();
     testUnit
-        .setWidthInPixel(1_200)
-        .setHeightInPixel(800)
-        .setRealComponentInterval(-1.0, 1.0)
-        .setImaginaryComponentInterval(0.5, 2.5)
-        .setMaxIterationCount(150)
-        .setBigDecimalScale(30);
+      .setWidthInPixel(1_200)
+      .setHeightInPixel(800)
+      .setRealComponentInterval(-1.0, 1.0)
+      .setImaginaryComponentInterval(0.5, 2.5)
+      .setMaxIterationCount(150)
+      .setBigDecimalScale(30);
 
     //execution
     final var result = testUnit.build();

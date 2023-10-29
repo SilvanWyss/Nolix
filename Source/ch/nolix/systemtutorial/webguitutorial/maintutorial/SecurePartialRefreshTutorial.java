@@ -13,8 +13,8 @@ public class SecurePartialRefreshTutorial {
 
     //Adds a default Application to the SecureServer.
     secureServer.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "Secure partial refresh tutorial",
-        MainSession.class,
-        new VoidObject());
+      "Secure partial refresh tutorial",
+      MainSession.class,
+      new VoidObject());
   }
 }

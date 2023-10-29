@@ -44,7 +44,7 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //attribute
   private final CachingProperty<IContainer<IColumn>> columnsThatReferenceCurrentTable = new CachingProperty<>(
-      () -> TABLE_HELPER.getColumsThatReferenceGivenTable(this));
+    () -> TABLE_HELPER.getColumsThatReferenceGivenTable(this));
 
   //attribute
   private boolean loadedAllEntitiesInLocalData;
@@ -57,10 +57,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //constructor
   private Table(
-      final Database parentDatabase,
-      final String name,
-      final String id,
-      final Class<E> entityClass) {
+    final Database parentDatabase,
+    final String name,
+    final String id,
+    final Class<E> entityClass) {
 
     GlobalValidator.assertThat(parentDatabase).thatIsNamed("parent Database").isNotNull();
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
@@ -75,10 +75,10 @@ public final class Table<E extends IEntity> implements ITable<E> {
 
   //static method
   static <E2 extends IEntity> Table<E2> withParentDatabaseAndNameAndIdAndEntityClassAndColumns(
-      final Database parentDatabase,
-      final String name,
-      final String id,
-      final Class<E2> entityClass) {
+    final Database parentDatabase,
+    final String name,
+    final String id,
+    final Class<E2> entityClass) {
     return new Table<>(parentDatabase, name, id, entityClass);
   }
 

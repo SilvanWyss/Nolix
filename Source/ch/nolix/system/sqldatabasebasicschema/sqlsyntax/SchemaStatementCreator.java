@@ -21,9 +21,9 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   @Override
   public String createStatementToAddTable(ITableDto table) {
     return "CREATE TABLE "
-        + table.getName()
-        + " (" + table.getColumns().to(this::getColumnAsSql).toStringWithSeparator(",")
-        + ");";
+    + table.getName()
+    + " (" + table.getColumns().to(this::getColumnAsSql).toStringWithSeparator(",")
+    + ");";
   }
 
   //method
@@ -41,9 +41,9 @@ public final class SchemaStatementCreator implements ISchemaStatementCreator {
   //method
   @Override
   public String createStatementToRenameColumn(
-      final String tableName,
-      final String columnName,
-      final String newColumnName) {
+    final String tableName,
+    final String columnName,
+    final String newColumnName) {
     return ("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + " TO " + newColumnName + ";");
   }
 

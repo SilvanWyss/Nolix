@@ -98,7 +98,7 @@ public final class TestCaseWrapper {
 
         if (lCleanup != null) {
           throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(),
-              "contains more than 1 cleanup");
+            "contains more than 1 cleanup");
         }
 
         lCleanup = m;
@@ -118,7 +118,7 @@ public final class TestCaseWrapper {
 
         if (lSetup != null) {
           throw InvalidArgumentException.forArgumentAndErrorPredicate(parentTest.getClass(),
-              "contains more than 1 setup");
+            "contains more than 1 setup");
         }
 
         lSetup = m;

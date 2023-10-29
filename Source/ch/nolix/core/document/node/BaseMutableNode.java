@@ -64,10 +64,10 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
   @Override
   public final void resetFromFile(final String filePath) {
     resetFromString(
-        new FileAccessor(filePath)
-            .readFile()
-            .replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
-            .replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING));
+      new FileAccessor(filePath)
+        .readFile()
+        .replace(String.valueOf(CharacterCatalogue.TABULATOR), StringCatalogue.EMPTY_STRING)
+        .replace(String.valueOf(CharacterCatalogue.NEW_LINE), StringCatalogue.EMPTY_STRING));
   }
 
   //method

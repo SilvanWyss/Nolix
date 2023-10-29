@@ -22,19 +22,19 @@ public final class CopyTextToClipboardTutorial {
 
     //Adds a default Application to the Server.
     server.addDefaultApplicationWithNameAndInitialSessionClassAndContext(
-        "Copy text to clipboard tutorial",
-        MainSession.class,
-        new VoidObject());
+      "Copy text to clipboard tutorial",
+      MainSession.class,
+      new VoidObject());
 
     //Starts a web browser that will connect to the Server.
     ShellProvider.startDefaultWebBrowserOpeningLoopBackAddress();
 
     //Closes the Server as soon as it does not have a client connected any more.
     GlobalSequencer
-        .waitForSeconds(2)
-        .andThen()
-        .asSoonAsNoMore(server::hasClientConnected)
-        .runInBackground(server::close);
+      .waitForSeconds(2)
+      .andThen()
+      .asSoonAsNoMore(server::hasClientConnected)
+      .runInBackground(server::close);
   }
 
   private static final class MainSession extends WebClientSession<Object> {
@@ -50,12 +50,12 @@ public final class CopyTextToClipboardTutorial {
 
       //Creates rootControl.
       final var rootControl = new HorizontalStack()
-          .addControl(
-              inputTextbox,
-              new Button()
-                  .setText("Copy text")
-                  .setLeftMouseButtonPressAction(
-                      () -> getStoredGui().onFrontEnd().writeTextToClipboard(inputTextbox.getText())));
+        .addControl(
+          inputTextbox,
+          new Button()
+            .setText("Copy text")
+            .setLeftMouseButtonPressAction(
+              () -> getStoredGui().onFrontEnd().writeTextToClipboard(inputTextbox.getText())));
 
       //Configures the style of the rootControl.
       rootControl.editStyle(s -> s.setChildControlMarginForState(ControlState.BASE, 10));

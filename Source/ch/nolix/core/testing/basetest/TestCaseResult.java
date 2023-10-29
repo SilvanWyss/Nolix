@@ -27,9 +27,9 @@ public final class TestCaseResult {
 
   //constructor
   public TestCaseResult(
-      final Method testCase,
-      final int runtimeInMilliseconds,
-      final List<Error> expectationErrors) {
+    final Method testCase,
+    final int runtimeInMilliseconds,
+    final List<Error> expectationErrors) {
 
     if (testCase == null) {
       throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.TEST_CASE);
@@ -51,10 +51,10 @@ public final class TestCaseResult {
 
   //constructor
   public TestCaseResult(
-      final Method testCase,
-      final int runtimeInMilliseconds,
-      final List<Error> expectationErrors,
-      final Error exceptionError) {
+    final Method testCase,
+    final int runtimeInMilliseconds,
+    final List<Error> expectationErrors,
+    final Error exceptionError) {
 
     if (testCase == null) {
       throw ArgumentIsNullException.forArgumentName("test case method");

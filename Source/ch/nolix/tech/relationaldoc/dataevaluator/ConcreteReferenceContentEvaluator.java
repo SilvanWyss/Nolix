@@ -12,12 +12,12 @@ public final class ConcreteReferenceContentEvaluator {
 
   //method
   public boolean canAddObject(
-      final IConcreteReferenceContent concreteReferenceContent,
-      final IAbstractableObject object) {
+    final IConcreteReferenceContent concreteReferenceContent,
+    final IAbstractableObject object) {
     return concreteReferenceContent != null
-        && object != null
-        && canAddObjectBecauseOfCardinality(concreteReferenceContent)
-        && canAddObjectBecauseOfReferencedType(concreteReferenceContent, object);
+    && object != null
+    && canAddObjectBecauseOfCardinality(concreteReferenceContent)
+    && canAddObjectBecauseOfReferencedType(concreteReferenceContent, object);
   }
 
   //method
@@ -33,14 +33,14 @@ public final class ConcreteReferenceContentEvaluator {
   //method
   private boolean canAddObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
-        && (concreteReferenceContent.getStoredParentField().getCardinality() == Cardinality.TO_MANY
-            || concreteReferenceContent.getStoredReferencedObjects().isEmpty());
+    && (concreteReferenceContent.getStoredParentField().getCardinality() == Cardinality.TO_MANY
+    || concreteReferenceContent.getStoredReferencedObjects().isEmpty());
   }
 
   //mehtod
   private boolean canAddObjectBecauseOfReferencedType(
-      final IConcreteReferenceContent concreteReferenceContent,
-      final IAbstractableObject object) {
+    final IConcreteReferenceContent concreteReferenceContent,
+    final IAbstractableObject object) {
 
     if (concreteReferenceContent == null) {
       return false;
@@ -63,13 +63,13 @@ public final class ConcreteReferenceContentEvaluator {
   //mehod
   private boolean canRemoveObjectsBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
-        && concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE;
+    && concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE;
   }
 
   //method
   private boolean canRemoveOneObjectBecauseOfCardinality(final IConcreteReferenceContent concreteReferenceContent) {
     return concreteReferenceContent != null
-        && (concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE
-            || concreteReferenceContent.getStoredReferencedObjects().getElementCount() > 1);
+    && (concreteReferenceContent.getStoredParentField().getCardinality() != Cardinality.TO_ONE
+    || concreteReferenceContent.getStoredReferencedObjects().getElementCount() > 1);
   }
 }

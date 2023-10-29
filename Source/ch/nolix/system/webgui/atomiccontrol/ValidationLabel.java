@@ -26,18 +26,18 @@ import ch.nolix.systemapi.webguiapi.mainapi.IHtmlElementEvent;
 
 //class
 public final class ValidationLabel
-    extends Control<IValidationLabel, IValidationLabelStyle>
-    implements IValidationLabel {
+extends Control<IValidationLabel, IValidationLabelStyle>
+implements IValidationLabel {
 
   //constant
   private static final String ERROR_HEADER = PascalCaseCatalogue.ERROR;
 
   //attribute
   private final MutableOptionalValue<Throwable> error = new MutableOptionalValue<>(
-      ERROR_HEADER,
-      this::showError,
-      s -> GeneralException.withErrorMessage(s.getHeader()),
-      e -> Node.withHeader(e.getMessage()));
+    ERROR_HEADER,
+    this::showError,
+    s -> GeneralException.withErrorMessage(s.getHeader()),
+    e -> Node.withHeader(e.getMessage()));
 
   //constructor
   public ValidationLabel() {

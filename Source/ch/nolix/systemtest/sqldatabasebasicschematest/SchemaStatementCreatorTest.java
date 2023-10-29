@@ -33,9 +33,9 @@ public final class SchemaStatementCreatorTest extends Test {
 
     //setup
     final var tableDto = new TableDto(
-        "Pet",
-        new ColumnDto("Name", new DataTypeDto("nvarchar(100)")),
-        new ColumnDto("WeightInKilogram", new DataTypeDto("Float")));
+      "Pet",
+      new ColumnDto("Name", new DataTypeDto("nvarchar(100)")),
+      new ColumnDto("WeightInKilogram", new DataTypeDto("Float")));
     final var testUnit = new SchemaStatementCreator();
 
     //execution

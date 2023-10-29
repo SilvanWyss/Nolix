@@ -52,8 +52,8 @@ public final class ChainedNodeTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
-        .throwsException()
-        .ofType(EmptyArgumentException.class);
+      .throwsException()
+      .ofType(EmptyArgumentException.class);
   }
 
   //method
@@ -68,8 +68,8 @@ public final class ChainedNodeTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
-        .throwsException()
-        .ofType(UnrepresentingArgumentException.class);
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class);
   }
 
   //method
@@ -101,8 +101,8 @@ public final class ChainedNodeTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::getSingleChildNodeAsInt)
-        .throwsException()
-        .ofType(InvalidArgumentException.class);
+      .throwsException()
+      .ofType(InvalidArgumentException.class);
   }
 
   //method
@@ -142,9 +142,9 @@ public final class ChainedNodeTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::toInt)
-        .throwsException()
-        .ofType(UnrepresentingArgumentException.class)
-        .withMessage("The given ChainedNode does not represent an Integer.");
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given ChainedNode does not represent an Integer.");
   }
 
   //method
@@ -156,9 +156,9 @@ public final class ChainedNodeTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::toInt)
-        .throwsException()
-        .ofType(UnrepresentingArgumentException.class)
-        .withMessage("The given ChainedNode '100(x)' does not represent an Integer.");
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given ChainedNode '100(x)' does not represent an Integer.");
   }
 
   //method
@@ -240,8 +240,8 @@ public final class ChainedNodeTest extends Test {
 
     //execution & verification
     expectRunning(testUnit::toNode)
-        .throwsException()
-        .ofType(UnrepresentingArgumentException.class)
-        .withMessage("The given ChainedNode 'a.b' does not represent a Node.");
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given ChainedNode 'a.b' does not represent a Node.");
   }
 }

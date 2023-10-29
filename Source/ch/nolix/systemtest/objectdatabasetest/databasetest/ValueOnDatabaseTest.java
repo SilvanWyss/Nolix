@@ -75,7 +75,7 @@ public final class ValueOnDatabaseTest extends Test {
 
     //setup part 2
     final var loadedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
 
     //execution
     final var result = loadedGarfield.name.getStoredValue();
@@ -157,7 +157,7 @@ public final class ValueOnDatabaseTest extends Test {
 
     //setup part 2
     final var loaedGarfield = nodeDataAdapter.getStoredTableByEntityType(Pet.class)
-        .getStoredEntityById(garfield.getId());
+      .getStoredEntityById(garfield.getId());
 
     //setup verification
     expect(loaedGarfield.getState()).is(DatabaseObjectState.LOADED);

@@ -72,9 +72,9 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static EqualArgumentException forArgumentNameAndArgumentAndEqualValue(
-      final String argumentName,
-      final double argument,
-      final double equalValue) {
+    final String argumentName,
+    final double argument,
+    final double equalValue) {
 
     //Calls constructor of the base class.
     return new EqualArgumentException(argumentName, argument, equalValue);
@@ -91,9 +91,9 @@ public final class EqualArgumentException extends InvalidArgumentException {
    * @throws IllegalArgumentException if the given argumentName is blank.
    */
   public static EqualArgumentException forArgumentNameAndArgumentAndEqualValue(
-      final String argumentName,
-      final long argument,
-      final long equalValue) {
+    final String argumentName,
+    final long argument,
+    final long equalValue) {
 
     //Calls constructor of the base class.
     return new EqualArgumentException(argumentName, argument, equalValue);

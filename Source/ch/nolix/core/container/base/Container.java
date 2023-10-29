@@ -1034,8 +1034,8 @@ public abstract class Container<E> implements IContainer<E> {
         //Handles the case that the given selector selected already an element.
         if (selectedElement != null) {
           throw InvalidArgumentException.forArgumentAndErrorPredicate(
-              this,
-              "contains several elements the given selector selects");
+            this,
+            "contains several elements the given selector selects");
         }
 
         //Handles the case that the given selector did not selected already an element.
@@ -1046,8 +1046,8 @@ public abstract class Container<E> implements IContainer<E> {
     //Handles the case that the given selector did not select an element.
     if (selectedElement == null) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-          this,
-          "does not contain an element the given selector selects");
+        this,
+        "does not contain an element the given selector selects");
     }
 
     //Handles the case that the given selector selected an element.
@@ -1161,13 +1161,13 @@ public abstract class Container<E> implements IContainer<E> {
       final var squaredDevication = Math.pow(deviation, 2);
 
       sumOfSquaredDeviationsAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal
-          .add(BigDecimal.valueOf(squaredDevication));
+        .add(BigDecimal.valueOf(squaredDevication));
     }
 
     final var elementCountAsBigDecimal = BigDecimal.valueOf(getElementCount());
 
     final var varianceAsBigDecimal = sumOfSquaredDeviationsAsBigDecimal.divide(elementCountAsBigDecimal,
-        MathContext.DECIMAL32);
+      MathContext.DECIMAL32);
 
     return varianceAsBigDecimal.doubleValue();
   }
@@ -1679,8 +1679,8 @@ public abstract class Container<E> implements IContainer<E> {
    */
   //method
   private IContainer<E> getSubContainerFromStartIndexToEndIndex(
-      final int p1BasedStartIndex,
-      final int p1BasedEndIndex) {
+    final int p1BasedStartIndex,
+    final int p1BasedEndIndex) {
     return new ContainerView<>(this, p1BasedStartIndex, p1BasedEndIndex);
   }
 

@@ -14,10 +14,10 @@ public final class ContentFieldMapper {
 
   //method
   public ILoadedContentFieldDto createContentFieldFromString(
-      final String string,
-      final IColumnInfo contentColumnDefinition) {
+    final String string,
+    final IColumnInfo contentColumnDefinition) {
     return new LoadedContentFieldDto(
-        contentColumnDefinition.getColumnName(),
-        VALUE_MAPPER.createValueFromString(string, contentColumnDefinition));
+      contentColumnDefinition.getColumnName(),
+      VALUE_MAPPER.createValueFromString(string, contentColumnDefinition));
   }
 }

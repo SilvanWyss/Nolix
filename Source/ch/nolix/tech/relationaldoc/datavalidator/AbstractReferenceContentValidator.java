@@ -12,12 +12,12 @@ public final class AbstractReferenceContentValidator {
 
   //constant
   private static final AbstractReferenceContentEvaluator ABSTRACT_REFERENCE_CONTENT_EVALUATOR = //
-      new AbstractReferenceContentEvaluator();
+  new AbstractReferenceContentEvaluator();
 
   //method
   public void assertCanSetReferenceType(
-      final AbstractReferenceContent abstractReferenceContent,
-      final IAbstractableObject referenceType) {
+    final AbstractReferenceContent abstractReferenceContent,
+    final IAbstractableObject referenceType) {
     if (!ABSTRACT_REFERENCE_CONTENT_EVALUATOR.canSetReferenceType(abstractReferenceContent, referenceType)) {
       throw InvalidArgumentException.forArgumentNameAndArgument("reference type", referenceType);
     }

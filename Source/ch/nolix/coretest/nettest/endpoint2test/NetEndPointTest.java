@@ -57,12 +57,12 @@ public final class NetEndPointTest extends Test {
 
       //execution & verification
       expectRunning(
-          () -> {
-            try (final var result = new NetEndPoint(port)) {
-              GlobalSequencer.waitForMilliseconds(1);
-            }
-          })
-          .doesNotThrowException();
+        () -> {
+          try (final var result = new NetEndPoint(port)) {
+            GlobalSequencer.waitForMilliseconds(1);
+          }
+        })
+        .doesNotThrowException();
     }
   }
 

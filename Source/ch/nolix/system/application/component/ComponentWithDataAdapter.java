@@ -11,7 +11,7 @@ import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC extends IDataAdapterFactory<DA>, DA>
-    implements IComponent {
+implements IComponent {
 
   //attribute
   private final SingleContainer rootControl = new SingleContainer();
@@ -21,9 +21,9 @@ public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC exte
 
   //constructor
   protected ComponentWithDataAdapter(
-      final C controller,
-      final DA initialDataAdapter,
-      final WebClientSession<AC> session) {
+    final C controller,
+    final DA initialDataAdapter,
+    final WebClientSession<AC> session) {
 
     GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 

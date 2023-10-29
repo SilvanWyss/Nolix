@@ -14,53 +14,53 @@ import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
 public final class FloatContainerCssBuilder
-    extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
+extends ControlCssBuilder<FloatContainer, FloatContainerStyle> {
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndAllStatesIntoList(
-      final FloatContainer floatContainer,
-      final LinkedList<? super ICssRule> list) {
+    final FloatContainer floatContainer,
+    final LinkedList<? super ICssRule> list) {
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            "> "
-                + HtmlElementTypeCatalogue.DIV,
-            LinkedList.withElement(
-                CssProperty.withNameAndValue(
-                    CssPropertyNameCatalogue.FLOAT,
-                    "left"))));
+      CssRule.withSelectorAndProperties(
+        "> "
+        + HtmlElementTypeCatalogue.DIV,
+        LinkedList.withElement(
+          CssProperty.withNameAndValue(
+            CssPropertyNameCatalogue.FLOAT,
+            "left"))));
   }
 
   //method
   @Override
   protected void fillUpAdditionalCssRulesForControlAndStateIntoList(
-      final FloatContainer floatContainer,
-      final ControlState state,
-      final LinkedList<? super ICssRule> list) {
+    final FloatContainer floatContainer,
+    final ControlState state,
+    final LinkedList<? super ICssRule> list) {
     list.addAtEnd(
-        CssRule.withSelectorAndProperties(
-            "> "
-                + HtmlElementTypeCatalogue.DIV,
-            LinkedList.withElement(
-                CssProperty.withNameAndValue(
-                    CssPropertyNameCatalogue.MARGIN,
-                    floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
+      CssRule.withSelectorAndProperties(
+        "> "
+        + HtmlElementTypeCatalogue.DIV,
+        LinkedList.withElement(
+          CssProperty.withNameAndValue(
+            CssPropertyNameCatalogue.MARGIN,
+            floatContainer.getStoredStyle().getChildControlMarginWhenHasState(state) + "px"))));
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndAllStatesIntoList(
-      final FloatContainer control,
-      final LinkedList<CssProperty> list) {
+    final FloatContainer control,
+    final LinkedList<CssProperty> list) {
     //Does nothing.
   }
 
   //method
   @Override
   protected void fillUpCssPropertiesForControlAndStateIntoList(
-      final FloatContainer floatContainer,
-      final ControlState state,
-      final LinkedList<ICssProperty> list) {
+    final FloatContainer floatContainer,
+    final ControlState state,
+    final LinkedList<ICssProperty> list) {
     //Does nothing.
   }
 }
