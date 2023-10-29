@@ -5,8 +5,6 @@ package ch.nolix.system.webgui.main;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
@@ -19,6 +17,7 @@ import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
@@ -64,6 +63,9 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
   //constant
   private static final LayerCssBuilder CSS_RULE_CREATOR = new LayerCssBuilder();
+
+  //constant
+  private static final LayerValidator LAYER_VALIDATOR = new LayerValidator();
 
   //attribute
   //For CSS an id works only when it begins with a letter.
@@ -234,7 +236,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   @Override
   public IWebGui<?> getStoredParentGui() {
 
-    assertBelongsToGui();
+    LAYER_VALIDATOR.assertBelongsToGui(this);
 
     return parentGui;
   }
@@ -388,7 +390,7 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   public void technicalSetParentGui(final IWebGui<?> parentGui) {
 
     GlobalValidator.assertThat(parentGui).thatIsNamed("parent GUI").isNotNull();
-    assertDoesNotBelongToGui();
+    LAYER_VALIDATOR.assertDoesNotBelongToGui(this);
 
     this.parentGui = parentGui;
   }
@@ -406,20 +408,6 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     setOpacity(DEFAULT_OPACITY);
     removeBackground();
     setContentAlignment(DEFAULT_CONTENT_POSITION);
-  }
-
-  //method
-  private void assertBelongsToGui() {
-    if (!belongsToGui()) {
-      throw ArgumentDoesNotBelongToParentException.forArgumentAndParentType(this, IWebGui.class);
-    }
-  }
-
-  //method
-  private void assertDoesNotBelongToGui() {
-    if (belongsToGui()) {
-      throw ArgumentBelongsToParentException.forArgumentAndParent(this, getStoredParentGui());
-    }
   }
 
   //method
