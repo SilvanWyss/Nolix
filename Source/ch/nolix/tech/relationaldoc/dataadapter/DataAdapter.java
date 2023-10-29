@@ -92,6 +92,12 @@ public final class DataAdapter implements IDataAdapter {
 
   //method
   @Override
+  public boolean isClosed() {
+    return internalDataAdapter.isClosed();
+  }
+
+  //method
+  @Override
   public void saveChanges() {
     internalDataAdapter.saveChanges();
   }

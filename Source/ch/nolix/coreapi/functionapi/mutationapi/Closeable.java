@@ -1,4 +1,8 @@
+//package declaration
 package ch.nolix.coreapi.functionapi.mutationapi;
+
+//own imports
+import ch.nolix.coreapi.functionapi.requestapi.CloseStateRequestable;
 
 //interface
 /**
@@ -8,7 +12,7 @@ package ch.nolix.coreapi.functionapi.mutationapi;
  * @author Silvan Wyss
  * @date 2023-09-10
  */
-public interface Closeable extends AutoCloseable {
+public interface Closeable extends AutoCloseable, CloseStateRequestable {
 
   //method declaration
   /**
