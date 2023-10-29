@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
 //interface
 /**
  * A {@link IFluentMutableTextHolder} is a {@link ITextHolder} whose text can be
- * set programmatically.
+ * set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2021-06-19

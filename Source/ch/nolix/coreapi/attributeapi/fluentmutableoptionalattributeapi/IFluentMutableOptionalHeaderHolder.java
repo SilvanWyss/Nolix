@@ -8,7 +8,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 /**
  * A {@link IFluentMutableOptionalHeaderHolder} is a
  * {@link IOptionalHeaderHolder} whose header can be set and removed
- * programmatically.
+ * programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2019-02-24

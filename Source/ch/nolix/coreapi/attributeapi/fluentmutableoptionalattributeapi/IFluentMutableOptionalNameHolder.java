@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalNameHolder;
 //interface
 /**
  * A {@link IFluentMutableOptionalNameHolder} is a {@link IOptionalNameHolder}
- * whose name can be set and removed programmatically.
+ * whose name can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01

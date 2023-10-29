@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ILabelHolder;
 //interface
 /**
  * A {@link IFluentMutableLabelHolder} is a {@link ILabelHolder} whose label can
- * be set programmatically.
+ * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-10-25

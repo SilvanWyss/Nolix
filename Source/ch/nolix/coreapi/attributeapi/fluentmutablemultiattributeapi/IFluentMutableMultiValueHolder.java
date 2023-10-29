@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiValueHolder;
 //interface
 /**
  * A {@link IFluentMutableMultiValueHolder} is a {@link IMultiValueHolder} whose
- * values can be added and removed programmatically.
+ * values can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-08-25

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalLabelHolder;
 //interface
 /**
  * A {@link IFluentMutableOptionalLabelHolder} is a {@link IOptionalLabelHolder}
- * whose label can be set and removed programmatically.
+ * whose label can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-10-25

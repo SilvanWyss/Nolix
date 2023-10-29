@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTitleHolder;
 //interface
 /**
  * A {@link IFluentMutableOptionalTitleHolder} is a {@link IOptionalTitleHolder}
- * whose title can be set and removed programmatically.
+ * whose title can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-02-06

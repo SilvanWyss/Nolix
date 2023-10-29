@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITextHolder;
 
 //interface
 /**
  * A {@link IFluentMutableOptionalTextHolder} is a {@link ITextHolder} whose
- * text can be set and removed programmatically.
+ * text can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-02-06

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalTokenHolder;
 //interface
 /**
  * A {@link IFluentMutableOptionalTokenHolder} is a {@link IOptionalTokenHolder}
- * whose token can be set and removed programmatically.
+ * whose token can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01

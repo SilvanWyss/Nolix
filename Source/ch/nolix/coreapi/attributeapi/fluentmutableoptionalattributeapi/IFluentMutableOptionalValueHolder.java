@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalValueHolder;
 //interface
 /**
  * A {@link IFluentMutableOptionalValueHolder} is a {@link IOptionalValueHolder}
- * whose value can be set and removed programmatically.
+ * whose value can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-02-03

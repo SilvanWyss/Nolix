@@ -8,7 +8,7 @@ import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 //interface
 /**
  * A {@link IFluentMutableCardinalityHolder} is a {@link ICardinalityHolder}
- * whose {@link Cardinality} can be set programmatically.
+ * whose {@link Cardinality} can be set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-08-25

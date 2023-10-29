@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalIdHolder;
 //interface
 /**
  * A {@link IFluentMutableOptionalIdHolder} is a {@link IOptionalIdHolder} whose
- * id can be set and removed programmatically.
+ * id can be set and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2020-02-01

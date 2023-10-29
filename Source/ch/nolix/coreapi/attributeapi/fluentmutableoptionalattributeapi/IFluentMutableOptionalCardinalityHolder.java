@@ -8,7 +8,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ICardinalityHolder;
 /**
  * A {@link IFluentMutableOptionalCardinalityHolder} is a
  * {@link ICardinalityHolder} whose cardinality can be set and removed
- * programmatically.
+ * programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-10-23

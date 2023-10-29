@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTokenHolder;
 //interface
 /**
  * A {@link IFluentMutableMultiTokenHolder} is a {@link IMultiTokenHolder} whose
- * tokens can be added and removed programmatically.
+ * tokens can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-06-16

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IValueHolder;
 //interface
 /**
  * A {@link IFluentMutableValueHolder} is a {@link IValueHolder} whose value can
- * be set programmatically.
+ * be set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2018-09-06

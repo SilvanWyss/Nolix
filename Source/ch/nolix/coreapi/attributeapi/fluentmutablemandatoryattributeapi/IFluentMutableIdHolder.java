@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 //interface
 /**
  * A {@link IFluentMutableIdHolder} is a {@link IIdHolder} whose id can be set
- * programmatically.
+ * programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2020-03-29

@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 //interface
 /**
  * A {@link IFluentMutableNameHolder} is a {@link INameHolder} whose name can be
- * set programmatically.
+ * set programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
