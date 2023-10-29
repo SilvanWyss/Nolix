@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.controlstyle;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
@@ -20,7 +21,8 @@ import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //class
-public abstract class ControlStyle<ECS extends IControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>>
+public abstract class ControlStyle< //NOSONAR: A ControlStyle has many methods per se.
+ECS extends IControlStyle<ECS> & IMultiStateConfiguration<ECS, ControlState>>
 extends ControlHeadStyle<ECS>
 implements IControlStyle<ECS> {
 
