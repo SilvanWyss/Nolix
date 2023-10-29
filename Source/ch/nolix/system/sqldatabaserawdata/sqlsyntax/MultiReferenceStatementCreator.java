@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
-import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
+import ch.nolix.system.sqldatabaserawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceStatementCreator;
 
 //class
@@ -14,7 +14,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String entityId,
     final String multiReferenceColumnId) {
     return "DELETE FROM "
-    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -33,7 +33,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String multiReferenceColumnId,
     final String referencedEntityId) {
     return "DELETE FROM "
-    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -56,7 +56,7 @@ public final class MultiReferenceStatementCreator implements IMultiReferenceStat
     final String multiReferenceColumnId,
     final String referencedEntityId) {
     return "INSERT INTO "
-    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " ("
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + ", "

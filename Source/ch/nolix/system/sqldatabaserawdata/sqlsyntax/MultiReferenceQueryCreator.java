@@ -2,7 +2,7 @@
 package ch.nolix.system.sqldatabaserawdata.sqlsyntax;
 
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
-import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
+import ch.nolix.system.sqldatabaserawschema.structure.MultiEntryTableType;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
 
 //class
@@ -16,7 +16,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     return "SELECT "
     + MultiReferenceEntryTableColumn.REFERENCED_ENTITY_ID.getName()
     + " FROM "
-    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiReferenceEntryTableColumn.ENTITY_ID.getName()
     + " = '"
@@ -34,7 +34,7 @@ public final class MultiReferenceQueryCreator implements IMultiReferenceQueryCre
     final String columnId,
     final String referencedEntityId) {
     return "SELECT TOP 1 * FROM "
-    + MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+    + MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
     + " WHERE "
     + MultiReferenceEntryTableColumn.MULTI_REFERENCE_COLUMN_ID.getName()
     + " = '"

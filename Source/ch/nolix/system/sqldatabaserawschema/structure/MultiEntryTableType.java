@@ -7,7 +7,7 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //enum
-public enum MultiContentTable implements INameHolder {
+public enum MultiEntryTableType implements INameHolder {
   MULTI_VALUE_ENTRY("MultiValueEntry"),
   MULTI_REFERENCE_ENTRY("MultiReferenceEntry"),
   MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
@@ -19,7 +19,7 @@ public enum MultiContentTable implements INameHolder {
   private final String name;
 
   //constructor
-  MultiContentTable(final String name) {
+  MultiEntryTableType(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 

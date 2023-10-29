@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
+import ch.nolix.system.sqldatabaserawschema.structure.MultiEntryTableType;
 
 //enum
 public enum MultiReferenceEntryTableColumn implements INameHolder {
@@ -15,7 +15,7 @@ public enum MultiReferenceEntryTableColumn implements INameHolder {
   REFERENCED_ENTITY_ID("ReferencedEntityId");
 
   //constant
-  private static final String NAME_PREFIX = MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName()
+  private static final String NAME_PREFIX = MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName()
   + StringCatalogue.DOT;
 
   //attribute

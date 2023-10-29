@@ -3,7 +3,7 @@ package ch.nolix.system.sqldatabaserawschema.multireferenceentrytable;
 
 import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
-import ch.nolix.system.sqldatabaserawschema.structure.MultiContentTable;
+import ch.nolix.system.sqldatabaserawschema.structure.MultiEntryTableType;
 import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
@@ -27,7 +27,7 @@ public final class MultiReferenceEntryTableSqlDtoCatalogue {
 
   //constant
   public static final ITableDto MULTI_REFERENCE_ENTRY_TABLE_SQL_DTO = new TableDto(
-    MultiContentTable.MULTI_REFERENCE_ENTRY.getQualifiedName(),
+    MultiEntryTableType.MULTI_REFERENCE_ENTRY.getQualifiedName(),
     MULTI_REFERENCE_COLUMN_COLUMN_SQL_DTO,
     ENTITY_COLUMN_SQL_DTO,
     REFERENCED_ENTITY_COLUMN_SQL_DTO);
