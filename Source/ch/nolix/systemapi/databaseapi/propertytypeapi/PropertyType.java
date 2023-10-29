@@ -35,12 +35,12 @@ public enum PropertyType {
   }
 
   //method
-  public final BasePropertyType getBaseType() {
+  public BasePropertyType getBaseType() {
     return baseType;
   }
 
   //method
-  public final Cardinality getCardinality() {
+  public Cardinality getCardinality() {
     return cardinality;
   }
 }

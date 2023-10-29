@@ -80,7 +80,7 @@ public interface IImage extends Specified {
   IMutableImage<?> toScaledImage(double widthFactor, double heightFactor);
 
   //method declaration
-  IMutableImage<?> withAlphaValue(final double alphaValue);
+  IMutableImage<?> withAlphaValue(double alphaValue);
 
   //method declaration
   IMutableImage<?> withWidthAndHeight(int width, int height);

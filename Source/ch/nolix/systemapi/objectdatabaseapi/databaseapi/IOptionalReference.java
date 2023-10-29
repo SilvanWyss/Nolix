@@ -19,5 +19,5 @@ extends Clearable, IBaseReference<E> {
   void setEntity(E entity);
 
   //method declaration
-  void setEntityById(final String id);
+  void setEntityById(String id);
 }

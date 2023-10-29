@@ -21,7 +21,7 @@ public enum Cardinality {
   }
 
   //method
-  public final BaseCardinality getBaseCardinality() {
+  public BaseCardinality getBaseCardinality() {
     return baseCardinality;
   }
 }

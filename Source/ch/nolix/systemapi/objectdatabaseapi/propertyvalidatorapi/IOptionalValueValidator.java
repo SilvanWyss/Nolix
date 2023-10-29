@@ -8,7 +8,7 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
 public interface IOptionalValueValidator extends IPropertyValidator {
 
   //method declaration
-  <V> void assertCanSetGivenValue(IOptionalValue<V> optionalValue, final V value);
+  <V> void assertCanSetGivenValue(IOptionalValue<V> optionalValue, V value);
 
   //method declaration
   void assertHasValue(IOptionalValue<?> optionalValue);

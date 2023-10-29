@@ -11,7 +11,7 @@ public interface IDataAdapter<DA extends IDataAdapter<DA>>
 extends EmptyCopyable<DA>, IResettableChangeSaver {
 
   //method declaration
-  <E extends IEntity> ITable<E> getStoredTableByEntityType(final Class<E> entityType);
+  <E extends IEntity> ITable<E> getStoredTableByEntityType(Class<E> entityType);
 
   //method declaration
   <E extends IEntity> DA insert(E entity);

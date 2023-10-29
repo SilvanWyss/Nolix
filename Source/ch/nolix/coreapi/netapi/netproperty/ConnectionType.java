@@ -16,7 +16,7 @@ public enum ConnectionType {
   }
 
   //method
-  public final BaseConnectionType getBaseType() {
+  public BaseConnectionType getBaseType() {
     return baseType;
   }
 }

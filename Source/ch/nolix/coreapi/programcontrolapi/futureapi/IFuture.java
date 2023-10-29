@@ -51,7 +51,7 @@ public interface IFuture extends FinishRequestable {
    * 
    * @param timeoutInMilliseconds
    */
-  void waitUntilIsFinished(final int timeoutInMilliseconds);
+  void waitUntilIsFinished(int timeoutInMilliseconds);
 
   //method declaration
   /**

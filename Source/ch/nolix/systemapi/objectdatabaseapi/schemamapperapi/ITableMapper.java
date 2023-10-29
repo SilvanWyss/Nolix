@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.schemamapperapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
@@ -9,7 +10,7 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 public interface ITableMapper {
 
   //method declaration
-  IContainer<ITable> createEmptyTablesFromSchema(final ISchema schema);
+  IContainer<ITable> createEmptyTablesFromSchema(ISchema schema);
 
   //method declaration
   IContainer<ITable> createTablesFrom(ISchema schema);

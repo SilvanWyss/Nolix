@@ -14,7 +14,7 @@ public interface IOptionalReferenceHelper {
   boolean canClear(IOptionalReference<?> optionalReference);
 
   //method declaration
-  boolean canSetGivenEntity(final IOptionalReference<?> optionalReference, IEntity entity);
+  boolean canSetGivenEntity(IOptionalReference<?> optionalReference, IEntity entity);
 
   //method
   IEntityUpdateDto createEntityUpdateDtoForClear(IOptionalReference<?> optionalReference);

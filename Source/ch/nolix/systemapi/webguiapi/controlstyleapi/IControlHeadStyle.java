@@ -12,7 +12,7 @@ public interface IControlHeadStyle<CS extends IControlHeadStyle<CS>>
 extends IMultiStateConfiguration<CS, ControlState> {
 
   //method declaration
-  <CS2 extends IControlHeadStyle<CS2>> void addChild(final CS2 controlStyle);
+  <CS2 extends IControlHeadStyle<CS2>> void addChild(CS2 controlStyle);
 
   //method declaration
   boolean getBoldTextFlagWhenHasState(ControlState state); //NOSONAR: This method returns a flag as a boolean.

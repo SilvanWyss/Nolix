@@ -95,7 +95,7 @@ public interface IDataWriter extends IResettableChangeSaver {
    * 
    * @param schemaTimestamp
    */
-  void expectGivenSchemaTimestamp(final ITime schemaTimestamp);
+  void expectGivenSchemaTimestamp(ITime schemaTimestamp);
 
   //method declaration
   /**

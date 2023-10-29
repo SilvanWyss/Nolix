@@ -41,7 +41,7 @@ public interface ITableHelper extends IDatabaseObjectHelper {
   boolean containsColumnThatReferencesGivenTable(ITable table, ITable probableReferencedTable);
 
   //method declaration
-  boolean containsColumnWithGivenName(ITable table, final String name);
+  boolean containsColumnWithGivenName(ITable table, String name);
 
   //method declaration
   int getColumnCount(ITable table);

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
+//Java imports
 import java.util.function.Predicate;
 
 //interface
@@ -26,7 +27,7 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} contains the given
    *         element and all of the given elements.
    */
-  boolean containsAll(final Object element, final Object... elements);
+  boolean containsAll(Object element, Object... elements);
 
   //method declaration
   /**
@@ -83,7 +84,7 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} contains exactly the
    *         elements of the given container in the same order, false otherwise.
    */
-  boolean containsExactlyInSameOrder(final Iterable<?> container);
+  boolean containsExactlyInSameOrder(Iterable<?> container);
 
   //method declaration
   /**
@@ -171,5 +172,5 @@ public interface StoringRequestable<E> {
    * @return true if the current {@link StoringRequestable} contains only elements
    *         that equal an element in the given container and vice versa.
    */
-  boolean containsOnlyEqualingAndViceVersa(final Iterable<?> container);
+  boolean containsOnlyEqualingAndViceVersa(Iterable<?> container);
 }
