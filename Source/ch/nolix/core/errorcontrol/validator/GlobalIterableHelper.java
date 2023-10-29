@@ -3,20 +3,20 @@ package ch.nolix.core.errorcontrol.validator;
 
 //class
 /**
- * The {@link IterableHelper} provides methods to analyse {@link Iterable}s. The
- * {@link IterableHelper} is not useful for public because it does not use
- * dependencies. Of the {@link IterableHelper} an instance cannot be created.
+ * The {@link GlobalIterableHelper} provides methods to analyse {@link Iterable}s. The
+ * {@link GlobalIterableHelper} is not useful for public because it does not use
+ * dependencies. Of the {@link GlobalIterableHelper} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-09-30
  */
-final class IterableHelper {
+final class GlobalIterableHelper {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link IterableHelper} can be created.
+   * Prevents that an instance of the {@link GlobalIterableHelper} can be created.
    */
-  private IterableHelper() {
+  private GlobalIterableHelper() {
   }
 
   //static method

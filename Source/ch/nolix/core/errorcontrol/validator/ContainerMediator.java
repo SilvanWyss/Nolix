@@ -14,7 +14,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
-import ch.nolix.core.independent.containerhelper.GlobalIterableHelper;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 
@@ -68,7 +67,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                                not contain the given element.
    */
   public void contains(final Object element) {
-    if (!GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
+    if (!ch.nolix.core.independent.containerhelper.GlobalIterableHelper.containsElement(getStoredArgument(), element)) {
       throw ArgumentDoesNotContainElementException.forArgumentNameAndArgumentAndElement(
         getArgumentName(),
         getStoredArgument(),
@@ -210,7 +209,8 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
    *                                  element for several times.
    */
   public void containsOnce(final Object element) {
-    if (!GlobalIterableHelper.containsElementOnce(getStoredArgument(), element)) {
+    if (!ch.nolix.core.independent.containerhelper.GlobalIterableHelper.containsElementOnce(getStoredArgument(),
+      element)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
         getStoredArgument(),
@@ -300,7 +300,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is empty.
-    if (IterableHelper.containsAny(getStoredArgument())) {
+    if (GlobalIterableHelper.containsAny(getStoredArgument())) {
       throw NonEmptyArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
     }
   }
@@ -318,7 +318,7 @@ public class ContainerMediator<E> extends ArgumentMediator<Iterable<E>> {
     isNotNull();
 
     //Asserts that the argument of this container mediator is not empty.
-    if (IterableHelper.isEmpty(getStoredArgument())) {
+    if (GlobalIterableHelper.isEmpty(getStoredArgument())) {
       throw EmptyArgumentException.forArgument(getStoredArgument());
     }
   }
