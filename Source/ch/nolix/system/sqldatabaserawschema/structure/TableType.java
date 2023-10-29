@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 public enum TableType {
   SYSTEM_TABLE("S"),
   ENTITY_TABLE("E"),
-  MULTI_FIELD_TABLE("M");
+  MULTI_ENTRY_TABLE("M");
 
   //attribute
   private final String namePrefix;
