@@ -39,18 +39,18 @@ public interface INameHolder {
 
   //method
   /**
-   * @param object
+   * @param nameHolder
    * @return true if the current {@link INameHolder} has the same name as the
-   *         given object.
+   *         given nameHolder.
    */
-  default boolean hasSameNameAs(final INameHolder object) {
+  default boolean hasSameNameAs(final INameHolder nameHolder) {
 
-    //Handles the case that the given object is null.
-    if (object == null) {
+    //Handles the case that the given nameHolder is null.
+    if (nameHolder == null) {
       return false;
     }
 
-    //Handles the case that the given object is not null.
-    return hasName(object.getName());
+    //Handles the case that the given nameHolder is not null.
+    return hasName(nameHolder.getName());
   }
 }
