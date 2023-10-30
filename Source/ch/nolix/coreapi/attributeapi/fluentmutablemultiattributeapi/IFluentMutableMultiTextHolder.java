@@ -6,8 +6,8 @@ import ch.nolix.coreapi.attributeapi.multiattributeapi.IMultiTextHolder;
 
 //interface
 /**
- * A {@link IFluentMutableMultiTextHolder} is a {@link MultiTexted} whose texts
- * can be added and removed programmatically and fluently.
+ * A {@link IFluentMutableMultiTextHolder} is a {@link IMultiTextHolder} whose
+ * texts can be added and removed programmatically and fluently.
  * 
  * @author Silvan Wyss
  * @date 2023-10-25
