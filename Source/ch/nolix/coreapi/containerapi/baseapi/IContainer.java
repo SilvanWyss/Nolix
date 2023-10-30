@@ -2,12 +2,10 @@
 package ch.nolix.coreapi.containerapi.baseapi;
 
 //Java imports
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.ToIntFunction;
 
+//own imports
 import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
 
@@ -28,6 +26,7 @@ IterableWithCopyableIterator<E>,
 ISearchableContainer<E>,
 IMappableContainer<E>,
 MaterializationRequestable,
+IStatisticalConainer<E>,
 StoringRequestable<E> {
 
   //method declaration
@@ -58,46 +57,6 @@ StoringRequestable<E> {
 
   //method declaration
   /**
-   * @param norm
-   * @return the average of the values the given norm returns from the elements of
-   *         the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  double getAverage(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the average of the values the given norm returns from the elements of
-   *         the current {@link IContainer} if the current {@link IContainer}
-   *         contains elements, 0.0 otherwise.
-   */
-  double getAverageOrZero(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param selector
-   * @return the number of elements the given selector selects from the current
-   *         {@link IContainer}.
-   */
-  int getCount(Predicate<E> selector);
-
-  //method declaration
-  /**
-   * @param element
-   * @return the number how many times the current {@link IContainer} contains the
-   *         given element.
-   */
-  int getCount(Object element);
-
-  //method declaration declaration
-  /**
-   * @return the number of elements of the current {@link IContainer}.
-   */
-  int getElementCount();
-
-  //method declaration
-  /**
    * @param selector
    * @return the 1 based index of the first element the given selector selects
    *         from the current {@link IContainer}.
@@ -125,96 +84,6 @@ StoringRequestable<E> {
    *                          the given element.
    */
   int get1BasedIndexOfFirstOccuranceOf(E element);
-
-  //method declaration
-  /**
-   * @param norm
-   * @param <C>  is the type of the {@link Comparable}s the given norm returns.
-   * @return the biggest {@link Comparable} the given norm returns from the
-   *         elements of the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  <C extends Comparable<C>> C getMax(Function<E, C> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the biggest value the given norm returns from the elements of the
-   *         current {@link IContainer} if the current {@link IContainer} contains
-   *         elements, 0.0 otherwise.
-   */
-  double getMaxOrZero(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the median of the values the given norm returns from the elements of
-   *         the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  double getMedian(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the median of the values the given norm returns from the elements of
-   *         the current {@link IContainer} if the current {@link IContainer}
-   *         contains elements, 0.0 otherwise.
-   */
-  double getMedianOrZero(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @param <C>  is the type of the {@link Comparable}s the given norm returns.
-   * @return the smallest {@link Comparable} the given norm returns from the
-   *         elements of the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  <C extends Comparable<C>> C getMin(Function<E, C> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the smallest value the given norm returns from the elements of the
-   *         current {@link IContainer} if the current {@link IContainer} contains
-   *         elements, 0.0 otherwise.
-   */
-  double getMinOrZero(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the standard deviation of the values the given norm returns from the
-   *         elements of the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  double getStandardDeviation(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the sum of the values the given norm returns from the elements of the
-   *         current {@link IContainer}.
-   */
-  BigDecimal getSum(Function<E, Number> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the sum of the integers the given norm returns from the elements of
-   *         the current {@link IContainer}.
-   */
-  BigInteger getSumOfIntegers(ToIntFunction<E> norm);
-
-  //method declaration
-  /**
-   * @param norm
-   * @return the variance of the values the given norm returns from the elements
-   *         of the current {@link IContainer}.
-   * @throws RuntimeException if the current {@link IContainer} is empty.
-   */
-  double getVariance(Function<E, Number> norm);
 
   //method declaration
   /**
