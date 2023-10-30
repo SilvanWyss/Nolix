@@ -1,0 +1,82 @@
+//package declaration
+package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
+
+//own imports
+import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.core.testing.test.Test;
+
+//class
+public final class NameHolderTest extends Test {
+
+  //method
+  @TestCase
+  public void testCase_getNameInQuotes() {
+
+    //setup
+    final var testUnit = NameHolderStub.withName("my_name");
+
+    //execution
+    final var result = testUnit.getNameInQuotes();
+
+    //verification
+    expect(result).isEqualTo("'my_name'");
+  }
+
+  //method
+  @TestCase
+  public void testCase_hasName_whenDoesNotHaveTheGivenName() {
+
+    //setup
+    final var testUnit = NameHolderStub.withName("my_name");
+
+    //execution
+    final var result = testUnit.hasName("My_name");
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @TestCase
+  public void testCase_hasName_whenHasTheGivenName() {
+
+    //setup
+    final var testUnit = NameHolderStub.withName("my_name");
+
+    //execution
+    final var result = testUnit.hasName("my_name");
+
+    //verification
+    expect(result);
+  }
+
+  //method
+  @TestCase
+  public void testCase_hasSameNameAs_whenDoesNotHaveTheSameName() {
+
+    //setup
+    final var nameHolder = NameHolderStub.withName("My_name");
+    final var testUnit = NameHolderStub.withName("my_name");
+
+    //execution
+    final var result = testUnit.hasSameNameAs(nameHolder);
+
+    //verification
+    expectNot(result);
+  }
+
+  //method
+  @TestCase
+  public void testCase_hasSameNameAs_whenHasTheSameName() {
+
+    //setup
+    final var nameHolder = NameHolderStub.withName("my_name");
+    final var testUnit = NameHolderStub.withName("my_name");
+
+    //execution
+    final var result = testUnit.hasSameNameAs(nameHolder);
+
+    //verification
+    expect(result);
+  }
+}
