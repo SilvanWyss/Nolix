@@ -36,8 +36,8 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
   //constructor
   public WebApplicationComponent(
     final WebApplicationController webApplicationController,
-    final WebClientSession<IServerDashboardContext> session) {
-    super(webApplicationController, session);
+    final WebClientSession<IServerDashboardContext> webClientSession) {
+    super(webApplicationController, webClientSession);
   }
 
   //method

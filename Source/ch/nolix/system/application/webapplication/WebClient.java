@@ -101,8 +101,8 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
     final var command = guiCommand.getNextNode();
     final var internalControlId = guiCommand.getSingleChildNodeHeader();
-    final var session = (WebClientSession<AC>) getStoredCurrentSession();
-    final var gui = session.getStoredGui();
+    final var webClientSession = (WebClientSession<AC>) getStoredCurrentSession();
+    final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
     final var control = controls.getStoredFirstOrNull(c -> c.hasInternalId(internalControlId));
 
@@ -137,8 +137,8 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   //method
   private void runSetUserInputsCommand(final IChainedNode guiCommand) {
 
-    final var session = (WebClientSession<AC>) getStoredCurrentSession();
-    final var gui = session.getStoredGui();
+    final var webClientSession = (WebClientSession<AC>) getStoredCurrentSession();
+    final var gui = webClientSession.getStoredGui();
     final var controls = gui.getStoredControls();
 
     for (final var p : guiCommand.getChildNodes()) {

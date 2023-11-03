@@ -19,12 +19,12 @@ implements IComponent {
   private final C controller;
 
   //constructor
-  protected Component(final C controller, final WebClientSession<AC> session) {
+  protected Component(final C controller, final WebClientSession<AC> webClientSession) {
 
     GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 
     this.controller = controller;
-    this.controller.internalSetSession(session);
+    this.controller.internalSetSession(webClientSession);
 
     rootControl.linkTo(this);
 
@@ -42,7 +42,7 @@ implements IComponent {
   //method
   @Override
   public final boolean isAlive() {
-    return getStoredSession().isAlive();
+    return getStoredWebClientSession().isAlive();
   }
 
   //method
@@ -51,11 +51,11 @@ implements IComponent {
     switch (getRefreshBehavior()) {
       case REFRESH_GUI:
         fillUpRootControl();
-        getStoredSession().refresh();
+        getStoredWebClientSession().refresh();
         break;
       case REFRESH_SELF:
         fillUpRootControl();
-        getStoredSession().updateControlOnCounterpart(rootControl);
+        getStoredWebClientSession().updateControlOnCounterpart(rootControl);
         break;
       case DO_NOT_REFRESH_ANYTHING:
         break;
@@ -77,7 +77,7 @@ implements IComponent {
   }
 
   //method
-  private final WebClientSession<AC> getStoredSession() {
-    return controller.getStoredSession();
+  private final WebClientSession<AC> getStoredWebClientSession() {
+    return controller.getStoredWebClientSession();
   }
 }

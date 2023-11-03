@@ -23,12 +23,12 @@ implements IComponent {
   protected ComponentWithDataAdapter(
     final C controller,
     final DA initialDataAdapter,
-    final WebClientSession<AC> session) {
+    final WebClientSession<AC> webClientSession) {
 
     GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
 
     this.controller = controller;
-    this.controller.internalSetSession(session);
+    this.controller.internalSetSession(webClientSession);
 
     rootControl.linkTo(this);
 
@@ -46,7 +46,7 @@ implements IComponent {
   //method
   @Override
   public final boolean isAlive() {
-    return getStoredSession().isAlive();
+    return getStoredWebClientSession().isAlive();
   }
 
   //method
@@ -92,7 +92,7 @@ implements IComponent {
   }
 
   //method
-  private WebClientSession<AC> getStoredSession() {
-    return controller.getStoredSession();
+  private WebClientSession<AC> getStoredWebClientSession() {
+    return controller.getStoredWebClientSession();
   }
 }
