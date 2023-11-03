@@ -2,22 +2,17 @@
 package ch.nolix.system.application.component;
 
 //own imports
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.container.SingleContainer;
 import ch.nolix.systemapi.applicationapi.applicationcontextapi.IDataAdapterFactory;
-import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ComponentWithDataAdapter<C extends Controller<AC>, AC extends IDataAdapterFactory<DA>, DA>
-implements IComponent {
+extends BaseComponent<C, AC> {
 
   //attribute
   private final SingleContainer rootControl = new SingleContainer();
-
-  //attribute
-  private final C controller;
 
   //constructor
   protected ComponentWithDataAdapter(
@@ -25,10 +20,7 @@ implements IComponent {
     final DA initialDataAdapter,
     final WebClientSession<AC> webClientSession) {
 
-    GlobalValidator.assertThat(controller).thatIsNamed(Controller.class).isNotNull();
-
-    this.controller = controller;
-    this.controller.internalSetSession(webClientSession);
+    super(controller, webClientSession);
 
     rootControl.linkTo(this);
 
@@ -45,18 +37,22 @@ implements IComponent {
 
   //method
   @Override
-  public final boolean isAlive() {
-    return getStoredWebClientSession().isAlive();
-  }
-
-  //method
-  @Override
   public final void refresh() {
 
     fillUpRootControl();
 
-    //TODO: Lets a Component update the web client with the required CSS.
-    //getStoredSession().updateControlOnCounterpart(rootControl);
+    switch (getRefreshBehavior()) {
+      case REFRESH_GUI:
+        fillUpRootControl();
+        getStoredWebClientSession().refresh();
+        break;
+      case REFRESH_SELF:
+        fillUpRootControl();
+        getStoredWebClientSession().updateControlOnCounterpart(rootControl);
+        break;
+      case DO_NOT_REFRESH_ANYTHING:
+        break;
+    }
   }
 
   //method declaration
@@ -81,18 +77,8 @@ implements IComponent {
   //method
   private void fillUpRootControl(final DA dataAdapter) {
 
-    final var control = createControl(controller, dataAdapter);
+    final var control = createControl(getStoredController(), dataAdapter);
 
     rootControl.setControl(control);
-  }
-
-  //method
-  private AC getStoredApplicationContext() {
-    return controller.getStoredApplicationContext();
-  }
-
-  //method
-  private WebClientSession<AC> getStoredWebClientSession() {
-    return controller.getStoredWebClientSession();
   }
 }
