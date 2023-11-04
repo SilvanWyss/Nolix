@@ -28,6 +28,26 @@ public abstract class BaseComponent<C extends Controller<AC>, AC> implements ICo
   }
 
   //method
+  public abstract void rebuild();
+
+  //method
+  @Override
+  public final void refresh() {
+    switch (getRefreshBehavior()) {
+      case REFRESH_GUI:
+        rebuild();
+        getStoredWebClientSession().refresh();
+        break;
+      case REFRESH_SELF:
+        rebuild();
+        getStoredWebClientSession().updateControlOnCounterpart(getStoredControl());
+        break;
+      case DO_NOT_REFRESH_ANYTHING:
+        break;
+    }
+  }
+
+  //method
   protected final AC getStoredApplicationContext() {
     return getStoredController().getStoredApplicationContext();
   }

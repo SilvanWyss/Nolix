@@ -19,7 +19,7 @@ public abstract class Component<C extends Controller<AC>, AC> extends BaseCompon
 
     rootControl.linkTo(this);
 
-    fillUpRootControl();
+    rebuild();
 
     doRegistrations(controller);
   }
@@ -32,19 +32,11 @@ public abstract class Component<C extends Controller<AC>, AC> extends BaseCompon
 
   //method
   @Override
-  public final void refresh() {
-    switch (getRefreshBehavior()) {
-      case REFRESH_GUI:
-        fillUpRootControl();
-        getStoredWebClientSession().refresh();
-        break;
-      case REFRESH_SELF:
-        fillUpRootControl();
-        getStoredWebClientSession().updateControlOnCounterpart(rootControl);
-        break;
-      case DO_NOT_REFRESH_ANYTHING:
-        break;
-    }
+  public final void rebuild() {
+
+    final var control = createControl(getStoredController());
+
+    rootControl.setControl(control);
   }
 
   //method declaration
@@ -52,12 +44,4 @@ public abstract class Component<C extends Controller<AC>, AC> extends BaseCompon
 
   //method declaration
   protected abstract void doRegistrations(C controller);
-
-  //method
-  private void fillUpRootControl() {
-
-    final var control = createControl(getStoredController());
-
-    rootControl.setControl(control);
-  }
 }

@@ -24,7 +24,7 @@ extends BaseComponent<C, AC> {
 
     rootControl.linkTo(this);
 
-    fillUpRootControl(initialDataAdapter);
+    rebuild(initialDataAdapter);
 
     doRegistrations(controller);
   }
@@ -37,22 +37,11 @@ extends BaseComponent<C, AC> {
 
   //method
   @Override
-  public final void refresh() {
+  public final void rebuild() {
 
-    fillUpRootControl();
+    final var dataAdapter = createDataAdapter();
 
-    switch (getRefreshBehavior()) {
-      case REFRESH_GUI:
-        fillUpRootControl();
-        getStoredWebClientSession().refresh();
-        break;
-      case REFRESH_SELF:
-        fillUpRootControl();
-        getStoredWebClientSession().updateControlOnCounterpart(rootControl);
-        break;
-      case DO_NOT_REFRESH_ANYTHING:
-        break;
-    }
+    rebuild(dataAdapter);
   }
 
   //method declaration
@@ -67,15 +56,7 @@ extends BaseComponent<C, AC> {
   }
 
   //method
-  private void fillUpRootControl() {
-
-    final var dataAdapter = createDataAdapter();
-
-    fillUpRootControl(dataAdapter);
-  }
-
-  //method
-  private void fillUpRootControl(final DA dataAdapter) {
+  private void rebuild(final DA dataAdapter) {
 
     final var control = createControl(getStoredController(), dataAdapter);
 
