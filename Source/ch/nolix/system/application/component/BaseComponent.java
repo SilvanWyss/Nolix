@@ -28,9 +28,6 @@ public abstract class BaseComponent<C extends Controller<AC>, AC> implements ICo
   }
 
   //method
-  public abstract void rebuild();
-
-  //method
   @Override
   public final void refresh() {
     switch (getRefreshBehavior()) {
