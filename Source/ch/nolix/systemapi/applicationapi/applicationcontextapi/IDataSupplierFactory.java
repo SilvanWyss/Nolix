@@ -2,8 +2,8 @@
 package ch.nolix.systemapi.applicationapi.applicationcontextapi;
 
 //interface
-public interface IDataAdapterFactory<DA> {
+public interface IDataSupplierFactory<DA> {
 
   //method declaration
-  DA createDataAdapter();
+  DA createDataSupplier();
 }
