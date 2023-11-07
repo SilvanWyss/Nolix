@@ -62,14 +62,23 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   }
 
   //method
-  private void refreshCounterpartGui() {
-    ((WebClientSession<AC>) getStoredCurrentSession()).refresh();
+  private IComponent getStoredParentComponentOrNullOfControl(final IControl<?, ?> control) {
+  
+    if (control.isLinkedToAnObject()
+    && control.getStoredLinkedObjects().getStoredFirst() instanceof IComponent component) {
+      return component;
+    }
+  
+    if (control.belongsToControl()) {
+      return getStoredParentComponentOrNullOfControl(control.getStoredParentControl());
+    }
+  
+    return null;
   }
 
   //method
-  private void refreshCounterpartGuiComponent(final IControl<?, ?> control) {
-    final var component = (IComponent) control.getStoredLinkedObjects().getStoredOne();
-    updateCounterpartWhenOpen(component);
+  private void refreshCounterpartGui() {
+    ((WebClientSession<AC>) getStoredCurrentSession()).refresh();
   }
 
   //method
@@ -177,10 +186,11 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
   //method
   private void updateCounterpartWhenOpen(final IControl<?, ?> control) {
-    if (!control.isLinkedToAnObject()) {
+    final var component = getStoredParentComponentOrNullOfControl(control);
+    if (component == null) {
       refreshCounterpartGui();
     } else {
-      refreshCounterpartGuiComponent(control);
+      updateCounterpartWhenOpen(component);
     }
   }
 }
