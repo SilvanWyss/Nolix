@@ -111,11 +111,6 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   //optional attribute
   private IWebGui<?> parentGui;
 
-  //constructor
-  public Layer() {
-    setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-  }
-
   //static method
   public static Layer fromSpecification(final INode<?> specification) {
 
