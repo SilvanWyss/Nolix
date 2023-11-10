@@ -1567,8 +1567,14 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
                 try {
                     return this.receiveDocumentNodeMessageAndGetReply(ChainedNode_1.ChainedNode.fromString(message));
                 }
-                catch (exception) {
-                    return (Protocol_2.Protocol.ERROR_HEADER + '(' + Node_2.Node.createReproducingString(exception.getMessage()) + ')');
+                catch (error) {
+                    if (error === undefined || error == null) {
+                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured.').toString());
+                    }
+                    if (error instanceof Error) {
+                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader(error.message).toString());
+                    }
+                    return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured: ' + error).toString());
                 }
             };
             this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget, webSocketType);
@@ -2171,8 +2177,11 @@ define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System
         getHTMLElementId() {
             return this.mHTMLElementId;
         }
-        getUserInputUsingDocument(document) {
+        getUserInputOrNullUsingDocument(document) {
             const pHTMLElement = document.getElementById(this.getHTMLElementId());
+            if (pHTMLElement === null) {
+                return null;
+            }
             const userInput = this.userInputFunction(pHTMLElement);
             return UserInput_1.UserInput.withHTMLElementIdAndUserInput(this.getHTMLElementId(), userInput);
         }
@@ -2219,7 +2228,14 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             return this.title;
         }
         getUserInputs() {
-            return this.userInputFunctions.to(f => f.getUserInputUsingDocument(this.window.document));
+            const userInputs = new LinkedList_9.LinkedList();
+            for (const uif of this.userInputFunctions) {
+                const userInput = uif.getUserInputOrNullUsingDocument(this.window.document);
+                if (userInput !== null) {
+                    userInputs.addAtEnd(userInput);
+                }
+            }
+            return userInputs;
         }
         openNewTabWithURL(pURL) {
             if (!pURL.startsWith('http://') && !pURL.startsWith('https://')) {
