@@ -1569,12 +1569,12 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
                 }
                 catch (error) {
                     if (error === undefined || error == null) {
-                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured.').toString());
+                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured.'));
                     }
                     if (error instanceof Error) {
-                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader(error.message).toString());
+                        return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader(error.message));
                     }
-                    return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured: ' + error).toString());
+                    return (Protocol_2.Protocol.ERROR_HEADER + Node_2.Node.withHeader('An error occured: ' + error));
                 }
             };
             this.internalNetEndPoint = new NetEndPoint2_1.NetEndPoint2(ip, port, optionalTarget, webSocketType);
