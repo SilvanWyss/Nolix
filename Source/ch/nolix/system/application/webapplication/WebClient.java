@@ -63,16 +63,16 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
   //method
   private IComponent getStoredParentComponentOrNullOfControl(final IControl<?, ?> control) {
-  
+
     if (control.isLinkedToAnObject()
     && control.getStoredLinkedObjects().getStoredFirst() instanceof IComponent component) {
       return component;
     }
-  
+
     if (control.belongsToControl()) {
       return getStoredParentComponentOrNullOfControl(control.getStoredParentControl());
     }
-  
+
     return null;
   }
 
@@ -85,8 +85,19 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
+
+        final var webGui = control.getStoredParentGui();
+        final var originalLayerCount = webGui.getStoredLayers().getElementCount();
+
+        //This step can change the number of layers of the webGui.
         runRunHtmlEventCommandOnControl(control, command);
-        updateCounterpartIfOpen(control);
+
+        if (webGui.getStoredLayers().getElementCount() != originalLayerCount) {
+          refreshCounterpartGui();
+        } else {
+          updateCounterpartIfOpen(control);
+        }
+
         break;
       case ControlCommandProtocol.SET_FILE:
 
