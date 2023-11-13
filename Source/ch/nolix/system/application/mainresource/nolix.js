@@ -68,9 +68,9 @@ define("Core/Container/Base/Container", ["require", "exports"], function (requir
             }
         }
         getOneAsString() {
-            return this.getRefOne().toString();
+            return this.getStoredOne().toString();
         }
-        getRefOne() {
+        getStoredOne() {
             var element = undefined;
             for (const e of this) {
                 if (element !== undefined) {
@@ -134,10 +134,10 @@ define("Core/Container/LinkedList/LinkedListNode", ["require", "exports"], funct
         contains(element) {
             return (Object.is(this.element, element));
         }
-        getRefElement() {
+        getStoredElement() {
             return this.element;
         }
-        getRefNextNode() {
+        getStoredNextNode() {
             if (this.nextNode === undefined) {
                 throw new Error('The current list node does not have a next node.');
             }
@@ -177,12 +177,12 @@ define("Core/Container/LinkedList/LinkedListIterator", ["require", "exports"], f
             if (this.currentNode === undefined) {
                 return { done: true, value: undefined };
             }
-            this.lastElement = this.currentNode.getRefElement();
+            this.lastElement = this.currentNode.getStoredElement();
             if (!this.currentNode.hasNextNode()) {
                 this.currentNode = undefined;
                 return { done: false, value: this.lastElement };
             }
-            this.currentNode = this.currentNode.getRefNextNode();
+            this.currentNode = this.currentNode.getStoredNextNode();
             return { done: false, value: this.lastElement };
         }
         return() {
@@ -240,7 +240,7 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
                 this.elementCount = 0;
             }
         }
-        getRefAt(index) {
+        getStoredAt(index) {
             if (index < 1) {
                 throw new Error('The given index is not positive.');
             }
@@ -253,13 +253,13 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
             }
             throw new Error('The given index is bigger than the size of the current List.');
         }
-        getRefFirst() {
+        getStoredFirst() {
             if (this.elementCount === 0) {
                 throw new Error("The current List is empty.");
             }
-            return this.beginNode.getRefElement();
+            return this.beginNode.getStoredElement();
         }
-        getRefFirstByCondition(selector) {
+        getStoredFirstByCondition(selector) {
             for (const e of this) {
                 if (selector(e)) {
                     return e;
@@ -267,7 +267,7 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
             }
             throw new Error("The current List does not contain an element the given selector selects.");
         }
-        getRefFirstByConditionOrNull(selector) {
+        getStoredFirstByConditionOrNull(selector) {
             for (const e of this) {
                 if (selector(e)) {
                     return e;
@@ -275,19 +275,19 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
             }
             return null;
         }
-        getRefFirstOrNull() {
+        getStoredFirstOrNull() {
             if (this.elementCount === 0) {
                 return null;
             }
-            return this.beginNode.getRefElement();
+            return this.beginNode.getStoredElement();
         }
-        getRefLast() {
+        getStoredLast() {
             if (this.elementCount === 0) {
                 throw new Error("The current List is empty.");
             }
-            return this.endNode.getRefElement();
+            return this.endNode.getStoredElement();
         }
-        getRefSelected(selector) {
+        getStoredSelected(selector) {
             const selectedElements = new LinkedList();
             for (const e of this) {
                 if (selector(e)) {
@@ -311,7 +311,7 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
                 this.clear();
             }
             else {
-                this.beginNode = this.beginNode.getRefNextNode();
+                this.beginNode = this.beginNode.getStoredNextNode();
                 this.elementCount--;
             }
         }
@@ -319,7 +319,7 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
             if (this.elementCount === 0) {
                 return;
             }
-            if (element === this.getRefFirst()) {
+            if (element === this.getStoredFirst()) {
                 this.removeFirst();
                 return;
             }
@@ -329,7 +329,7 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
                     this.removeNextNode(iteratorNode);
                     return;
                 }
-                iteratorNode = iteratorNode.getRefNextNode();
+                iteratorNode = iteratorNode.getStoredNextNode();
             }
             throw new Error('The current List does not contain the given element.');
         }
@@ -351,13 +351,13 @@ define("Core/Container/LinkedList/LinkedList", ["require", "exports", "Core/Cont
             return new LinkedListIterator_1.LinkedListIterator(this.beginNode);
         }
         removeNextNode(node) {
-            const nextNode = node.getRefNextNode();
+            const nextNode = node.getStoredNextNode();
             if (!nextNode.hasNextNode()) {
                 nextNode.removeNextNode();
                 this.endNode = node;
             }
             else {
-                node.setNextNode(nextNode.getRefNextNode());
+                node.setNextNode(nextNode.getStoredNextNode());
             }
             this.elementCount--;
             nextNode.removeNextNode();
@@ -386,7 +386,7 @@ define("Core/Container/Matrix/MatrixIterator", ["require", "exports"], function 
             this.currentElementIndex++;
             return {
                 done: this.currentElementIndex > this.parentMatrix.getSize(),
-                value: this.parentMatrix.getRefAt(this.currentElementIndex - 1)
+                value: this.parentMatrix.getStoredAt(this.currentElementIndex - 1)
             };
         }
     }
@@ -435,10 +435,10 @@ define("Core/Container/Matrix/Matrix", ["require", "exports", "Core/Container/Ba
             }
             return matrix;
         }
-        getRefAt(index) {
-            return this.getRefAtRowAndColumn(this.getRowIndexOf(index), this.getColumnIndexOf(index));
+        getStoredAt(index) {
+            return this.getStoredAtRowAndColumn(this.getRowIndexOf(index), this.getColumnIndexOf(index));
         }
-        getRefAtRowAndColumn(rowIndex, columnIndex) {
+        getStoredAtRowAndColumn(rowIndex, columnIndex) {
             this.assertContainsAtRowAndColumn(rowIndex, columnIndex);
             return this.elements[rowIndex - 1][columnIndex - 1];
         }
@@ -562,10 +562,10 @@ define("Core/Container/Pair/Pair", ["require", "exports"], function (require, ex
             this.element1 = element1;
             this.element2 = element2;
         }
-        getRefElement1() {
+        getStoredElement1() {
             return this.element1;
         }
-        getRefElement2() {
+        getStoredElement2() {
             return this.element2;
         }
     }
@@ -596,7 +596,7 @@ define("Core/Container/SingleContainer/SingleContainer", ["require", "exports"],
         containsAny() {
             return (this.element !== undefined);
         }
-        getRefElement() {
+        getStoredElement() {
             if (this.element === undefined) {
                 throw new Error('The current SingleContainer does not contain an element.');
             }
@@ -658,15 +658,14 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
             }
             return string
                 .replace('$', this.DOLLAR_SYMBOL_CODE)
-                .replace('.', this.DOT_CODE)
                 .replace(',', this.COMMA_CODE)
                 .replace('(', this.OPEN_BRACKET_CODE)
                 .replace(')', this.CLOSED_BRACKET_CODE);
         }
         static fromNumberPair(numberPair) {
             return new Node()
-                .addAttribute(Node.withHeaderFromNumber(numberPair.getRefElement1()))
-                .addAttribute(Node.withHeaderFromNumber(numberPair.getRefElement2()));
+                .addAttribute(Node.withHeaderFromNumber(numberPair.getStoredElement1()))
+                .addAttribute(Node.withHeaderFromNumber(numberPair.getStoredElement2()));
         }
         static fromString(string) {
             return new Node().resetFrom(string);
@@ -719,22 +718,22 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
             return this.header;
         }
         getOneAttributeAsNumber() {
-            return this.getRefOneAttribute().toNumber();
+            return this.getStoredOneAttribute().toNumber();
         }
         getOneAttributeHeader() {
-            return this.getRefOneAttribute().getHeader();
+            return this.getStoredOneAttribute().getHeader();
         }
-        getRefAttributeAtIndex(index) {
-            return this.attributes.getRefAt(index);
+        getStoredAttributeAtIndex(index) {
+            return this.attributes.getStoredAt(index);
         }
-        getRefAttributes() {
+        getStoredAttributes() {
             return this.attributes;
         }
-        getRefFirstAttributeWithHeader(header) {
-            return this.attributes.getRefFirstByCondition(a => a.hasGivenHeader(header));
+        getStoredFirstAttributeWithHeader(header) {
+            return this.attributes.getStoredFirstByCondition(a => a.hasGivenHeader(header));
         }
-        getRefOneAttribute() {
-            return this.attributes.getRefOne();
+        getStoredOneAttribute() {
+            return this.attributes.getStoredOne();
         }
         getReproducingHeader() {
             return Node.createReproducingString(this.getHeader());
@@ -790,7 +789,7 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
                 string += this.getReproducingHeader();
             }
             if (this.attributes.containsAny()) {
-                string += '(' + this.getRefAttributes().toString() + ')';
+                string += '(' + this.getStoredAttributes().toString() + ')';
             }
             return string;
         }
@@ -837,7 +836,6 @@ define("Core/Document/Node/Node", ["require", "exports", "Core/Container/LinkedL
             }
         }
     }
-    Node.DOT_CODE = '$D';
     Node.COMMA_CODE = '$M';
     Node.DOLLAR_SYMBOL_CODE = '$X';
     Node.OPEN_BRACKET_CODE = '$O';
@@ -895,7 +893,7 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             if (node.hasHeader()) {
                 chainedNode.setHeader(node.getHeader());
             }
-            for (const a of node.getRefAttributes()) {
+            for (const a of node.getStoredAttributes()) {
                 chainedNode.addAttributeFromNode(a);
             }
             return chainedNode;
@@ -959,7 +957,7 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             return this.attributes.getSize();
         }
         getAttributeAt(index) {
-            return this.attributes.getRefAt(index);
+            return this.attributes.getStoredAt(index);
         }
         getAttributeAtAsNode(index) {
             return this.getAttributeAt(index).toNode();
@@ -977,7 +975,7 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             return this.attributes.toStrings();
         }
         getFirstAttribute() {
-            return this.attributes.getRefFirst();
+            return this.attributes.getStoredFirst();
         }
         getFirstAttribtueAsNode() {
             return this.getFirstAttribute().toNode();
@@ -1007,7 +1005,7 @@ define("Core/Document/ChainedNode/ChainedNode", ["require", "exports", "Core/Con
             return this.getNextNode().toString();
         }
         getOneAttribute() {
-            return this.attributes.getRefOne();
+            return this.attributes.getStoredOne();
         }
         getOneAttributeAsNumber() {
             return this.getOneAttribute().toNumber();
@@ -1288,10 +1286,10 @@ define("Core/Net/EndPoint/NetEndPoint", ["require", "exports", "Core/Net/EndPoin
                 throw new Error('The given webSocketType is undefined.');
             }
             if (optionalTarget.containsAny()) {
-                if (optionalTarget.getRefElement().length === 0) {
+                if (optionalTarget.getStoredElement().length === 0) {
                     throw new Error('The given target is empty.');
                 }
-                this.target = optionalTarget.getRefElement();
+                this.target = optionalTarget.getStoredElement();
             }
             else {
                 this.target = undefined;
@@ -1530,7 +1528,7 @@ define("Core/Net/EndPoint2/NetEndPoint2", ["require", "exports", "Core/Container
         waitToAndGetAndRemoveReceivedPackage(index) {
             const startTimeInMilliseconds = new Date().getMilliseconds();
             while (new Date().getMilliseconds() - startTimeInMilliseconds < NetEndPoint2.TIMEOUT_IN_MILLISECONDS) {
-                const package_ = this.receivedPackages.getRefFirstByConditionOrNull(rp => rp.hasIndex(index));
+                const package_ = this.receivedPackages.getStoredFirstByConditionOrNull(rp => rp.hasIndex(index));
                 if (package_ !== null) {
                     this.receivedPackages.removeFirst2(package_);
                     return package_;
@@ -1582,14 +1580,14 @@ define("Core/Net/EndPoint3/NetEndPoint3", ["require", "exports", "Core/Document/
         }
         getData(request) {
             const requests = LinkedList_4.LinkedList.withElement(request);
-            return this.getMultiData(requests).getRefOne();
+            return this.getMultiData(requests).getStoredOne();
         }
         getMultiData(requests) {
             const message = Protocol_2.Protocol.MULTI_DATA_REQUEST_HEADER + requests.toStringInBrackets();
             const reply = Node_2.Node.fromString(this.internalNetEndPoint.sendAndGetReply(message));
             switch (reply.getHeader()) {
                 case Protocol_2.Protocol.MULTI_DATA_HEADER:
-                    return reply.getRefAttributes();
+                    return reply.getStoredAttributes();
                 case Protocol_2.Protocol.ERROR_HEADER:
                     throw new Error(reply.getOneAttributeHeader());
                 default:
@@ -1663,10 +1661,10 @@ define("Core/ProgramStructure/Caching/CachingContainer", ["require", "exports", 
             return this.elements.contains(e => Object.is(e, element));
         }
         containsWithId(id) {
-            return this.elements.contains(e => e.getRefElement1() === id);
+            return this.elements.contains(e => e.getStoredElement1() === id);
         }
-        getRefById(id) {
-            return this.elements.getRefFirstByCondition(e => e.getRefElement1() === id).getRefElement2();
+        getStoredById(id) {
+            return this.elements.getStoredFirstByCondition(e => e.getStoredElement1() === id).getStoredElement2();
         }
         registerAtId(id, element) {
             console.log('The current CachingContainer registers an element at the given id \'' + id + '\'.');
@@ -1711,7 +1709,7 @@ define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/
         }
         run() {
             console.log('Start ' + this.constructor.name);
-            for (const tc of this.getRefTestCases()) {
+            for (const tc of this.getStoredTestCases()) {
                 this.runTestCase(tc);
             }
             console.log();
@@ -1719,7 +1717,7 @@ define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/
         addErrorForCurrentTestCase(error) {
             this.currentTestCaseErrors.addAtEnd(error);
         }
-        getRefProperties() {
+        getStoredProperties() {
             var properties = [];
             var prototype = this;
             do {
@@ -1727,9 +1725,9 @@ define("Core/Testing/BaseTest/BaseTest", ["require", "exports", "Core/Container/
             } while (prototype = Object.getPrototypeOf(prototype));
             return properties;
         }
-        getRefTestCases() {
+        getStoredTestCases() {
             var testCases = [];
-            for (const p of this.getRefProperties()) {
+            for (const p of this.getStoredProperties()) {
                 const name = p;
                 if (name.startsWith('testCase_')) {
                     testCases = testCases.concat(name);
@@ -2038,8 +2036,8 @@ define("System/FrontendWebGUI/EventFunction", ["require", "exports", "Core/Docum
     Object.defineProperty(exports, "__esModule", { value: true });
     class EventFunction {
         static fromSpecification(specification) {
-            const lHTMLElementId = specification.getRefAttributeAtIndex(1).getHeader();
-            const lHTMLEventName = specification.getRefAttributeAtIndex(2).getHeader();
+            const lHTMLElementId = specification.getStoredAttributeAtIndex(1).getHeader();
+            const lHTMLEventName = specification.getStoredAttributeAtIndex(2).getHeader();
             return this.withHTMLElementIdAndHtmlEventName(lHTMLElementId, lHTMLEventName);
         }
         static withHTMLElementIdAndHtmlEventName(pHTMLElementId, pHTMLEventName) {
@@ -2151,8 +2149,8 @@ define("System/FrontendWebGUI/UserInputFunction", ["require", "exports", "System
     Object.defineProperty(exports, "__esModule", { value: true });
     class UserInputFunction {
         static fromSpecification(specification) {
-            const lHTMLElementId = specification.getRefAttributeAtIndex(1).getHeader();
-            const userInputFunctionString = specification.getRefAttributeAtIndex(2).getHeader();
+            const lHTMLElementId = specification.getStoredAttributeAtIndex(1).getHeader();
+            const userInputFunctionString = specification.getStoredAttributeAtIndex(2).getHeader();
             return this.withHTMLElementIdAndUserInputFunctionFromString(lHTMLElementId, userInputFunctionString);
         }
         static withHTMLElementIdAndUserInputFunctionFromString(pHTMLElementId, userInputFunctionString) {
@@ -2279,7 +2277,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
             iconHTMLElement.href = icon.toCanvas().toDataURL('image/png');
         }
         setRootHTMLElementFromString(rootHTMLElementAsString) {
-            const rootElement = this.getRefRootElement();
+            const rootElement = this.getStoredRootElement();
             rootElement.outerHTML = rootHTMLElementAsString;
         }
         setTitle(title) {
@@ -2307,7 +2305,7 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
         getOriHTMLElementById(paramHTMLElementId) {
             return this.window.document.getElementById(paramHTMLElementId);
         }
-        getRefRootElement() {
+        getStoredRootElement() {
             var rootElement = this.window.document.getElementById('root');
             if (rootElement === null) {
                 rootElement = this.window.document.createElement('div');
@@ -2431,10 +2429,10 @@ define("System/Graphic/Image/Image", ["require", "exports", "System/Graphic/Colo
         }
         static fromSpecification(specification) {
             const pixels = new Matrix_1.Matrix();
-            const width = specification.getRefFirstAttributeWithHeader(PascalCaseCatalogue_1.PascalCaseCatalogue.WIDTH).getOneAttributeAsNumber();
+            const width = specification.getStoredFirstAttributeWithHeader(PascalCaseCatalogue_1.PascalCaseCatalogue.WIDTH).getOneAttributeAsNumber();
             var row = new Array();
             var i = 1;
-            for (const a of specification.getRefFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getRefAttributes()) {
+            for (const a of specification.getStoredFirstAttributeWithHeader(Image.PIXEL_ARRAY_HEADER).getStoredAttributes()) {
                 row.push(Color_1.Color.fromSpecification(Node_5.Node.withAttribute(a)));
                 i++;
                 if (i > width) {
@@ -2452,10 +2450,10 @@ define("System/Graphic/Image/Image", ["require", "exports", "System/Graphic/Colo
             return this.pixels.getRowCount();
         }
         getPixelAtIndex(index) {
-            return this.pixels.getRefAt(index);
+            return this.pixels.getStoredAt(index);
         }
         getPixelAtPosition(xPosition, yPosition) {
-            return this.pixels.getRefAtRowAndColumn(xPosition, yPosition);
+            return this.pixels.getStoredAtRowAndColumn(xPosition, yPosition);
         }
         getSizeInPixel() {
             return (this.getWidth() * this.getHeight());
@@ -2616,7 +2614,7 @@ define("System/Application/WebApplication/TargetApplicationExtractor", ["require
         getOptionalTargetApplicationFromURL() {
             const appContainer = URLLineReader_1.URLLineReader.INSTANCE.getOptionalValueOfURLParameterByName('app');
             if (appContainer.containsAny()) {
-                const targetApplication = appContainer.getRefElement();
+                const targetApplication = appContainer.getStoredElement();
                 return SingleContainer_2.SingleContainer.withElement(targetApplication);
             }
             return SingleContainer_2.SingleContainer.withoutElement();
@@ -2671,7 +2669,7 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
                     const conURLParamterName = request.getOneAttribute().getHeader();
                     const conURLParameterValue = URLLineReader_2.URLLineReader.INSTANCE.getOptionalValueOfURLParameterByName(conURLParamterName);
                     if (conURLParameterValue.containsAny()) {
-                        return Node_6.Node.withHeader(conURLParameterValue.getRefElement());
+                        return Node_6.Node.withHeader(conURLParameterValue.getStoredElement());
                     }
                     return new Node_6.Node();
                 default:
@@ -2715,7 +2713,7 @@ define("System/Application/WebApplication/FrontendWebClient", ["require", "expor
         runOpenNewTabCommand(openNewTabCommand) {
             const lURL = openNewTabCommand
                 .getAttributes()
-                .getRefFirstByCondition(a => a.hasGivenHeader(ObjectProtocol_1.ObjectProtocol.URL))
+                .getStoredFirstByCondition(a => a.hasGivenHeader(ObjectProtocol_1.ObjectProtocol.URL))
                 .getOneAttribute()
                 .getHeader();
             this.openNewTabWithURL(lURL);
@@ -2764,7 +2762,7 @@ define("System/Graphic/Color/ColorGradient", ["require", "exports", "System/Grap
     Object.defineProperty(exports, "__esModule", { value: true });
     class ColorGradient {
         static fromSpecification(specification) {
-            return new ColorGradient(DirectionInRectangle_1.DirectionInRectangle[specification.getRefAttributeAtIndex(1).getHeader()], Color_2.Color.fromString(specification.getRefAttributeAtIndex(2).getHeader()), Color_2.Color.fromString(specification.getRefAttributeAtIndex(3).getHeader()));
+            return new ColorGradient(DirectionInRectangle_1.DirectionInRectangle[specification.getStoredAttributeAtIndex(1).getHeader()], Color_2.Color.fromString(specification.getStoredAttributeAtIndex(2).getHeader()), Color_2.Color.fromString(specification.getStoredAttributeAtIndex(3).getHeader()));
         }
         static withDirectionAndColor1AndColor2(direction, color1, color2) {
             return new ColorGradient(direction, color1, color2);
