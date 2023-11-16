@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.analysis;
+package ch.nolix.core.time;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
