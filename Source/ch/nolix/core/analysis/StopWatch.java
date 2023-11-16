@@ -3,13 +3,9 @@ package ch.nolix.core.analysis;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.errorcontrol.logger.GlobalLogger;
 
 //class
 public final class StopWatch {
-
-  //attribute
-  private int finishedRoundCount;
 
   //attribute
   private long totalRunningTimeInMilliseconds;
@@ -19,11 +15,6 @@ public final class StopWatch {
 
   //attribute
   private long latestStartInMilliseconds;
-
-  //method
-  public synchronized int getFinishedRoundCount() {
-    return finishedRoundCount;
-  }
 
   //method
   public synchronized long getTotalRunningTimeInMilliseconds() {
@@ -36,17 +27,37 @@ public final class StopWatch {
   }
 
   //method
+  public synchronized void stop() {
+
+    assertIsRunning();
+
+    final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
+    totalRunningTimeInMilliseconds += durationInMilliseconds;
+    running = false;
+  }
+
+  //method
   public synchronized long stopAndGetMillisecondsSinceLatestStart() {
 
     assertIsRunning();
 
     final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
-    finishedRoundCount++;
     totalRunningTimeInMilliseconds += durationInMilliseconds;
     running = false;
-    GlobalLogger.logInfo("Stop watch run for " + durationInMilliseconds + " ms.");
 
     return durationInMilliseconds;
+  }
+
+  //method
+  public synchronized long stopAndGetTotalRunningTimeInMilliseconds() {
+
+    assertIsRunning();
+
+    final var durationInMilliseconds = System.currentTimeMillis() - latestStartInMilliseconds;
+    totalRunningTimeInMilliseconds += durationInMilliseconds;
+    running = false;
+
+    return totalRunningTimeInMilliseconds;
   }
 
   //method
@@ -59,16 +70,15 @@ public final class StopWatch {
   }
 
   //method
-  //method
   private void assertIsNotRunning() {
-    if (running) {
+    if (isRunning()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is started");
     }
   }
 
   //method
   private void assertIsRunning() {
-    if (!running) {
+    if (!isRunning()) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "is not started");
     }
   }
