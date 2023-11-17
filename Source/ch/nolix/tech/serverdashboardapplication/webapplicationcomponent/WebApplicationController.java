@@ -4,8 +4,8 @@ package ch.nolix.tech.serverdashboardapplication.webapplicationcomponent;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.component.Controller;
-import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
+import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
+import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
 public class WebApplicationController extends Controller<IServerDashboardContext> {

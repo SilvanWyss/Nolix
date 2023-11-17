@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.serverdashboardlogicapi;
+package ch.nolix.techapi.serverdashboardapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

@@ -12,8 +12,8 @@ import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.basecontainerapi.ContainerRole;
 import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationComponent;
 import ch.nolix.tech.serverdashboardapplication.webapplicationcomponent.WebApplicationController;
-import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
+import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
+import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
 public final class ServerDashboardSession extends WebClientSession<IServerDashboardContext> {

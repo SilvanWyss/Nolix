@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.techapi.serverdashboardlogicapi;
+package ch.nolix.techapi.serverdashboardapi;
 
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;

@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.tech.serverdashboardlogic} package provides an
- * implementation of the {@link ch.nolix.techapi.serverdashboardlogicapi}
+ * implementation of the {@link ch.nolix.techapi.serverdashboardapi}
  * package.
  * 
  * @author Silvan Wyss

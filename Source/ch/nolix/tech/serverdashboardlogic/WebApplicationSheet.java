@@ -7,7 +7,7 @@ import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.webapplication.WebClient;
 import ch.nolix.systemapi.applicationapi.webapplicationapi.IWebApplicationContext;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
-import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
+import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
 public final class WebApplicationSheet implements IWebApplicationSheet {

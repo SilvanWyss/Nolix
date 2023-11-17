@@ -12,8 +12,8 @@ import ch.nolix.systemapi.applicationapi.componentapi.RefreshBehavior;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
-import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
+import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
+import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
 public final class WebApplicationComponent extends Component<WebApplicationController, IServerDashboardContext> {

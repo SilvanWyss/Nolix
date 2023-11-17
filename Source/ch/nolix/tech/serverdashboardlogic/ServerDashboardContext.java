@@ -8,8 +8,8 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;
-import ch.nolix.techapi.serverdashboardlogicapi.IServerDashboardContext;
-import ch.nolix.techapi.serverdashboardlogicapi.IWebApplicationSheet;
+import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
+import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
 public final class ServerDashboardContext implements IServerDashboardContext {
