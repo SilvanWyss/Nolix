@@ -119,12 +119,12 @@ public abstract class BaseServer implements IServer {
    *                                               have a target and the current
    *                                               {@link BaseServer} does not
    *                                               contain a default
-   *                                               {@link IEndPointTaker}.
+   *                                               {@link ISlot}.
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
    *                                               {@link BaseServer} does not
    *                                               contain a
-   *                                               {@link IEndPointTaker} with a
+   *                                               {@link ISlot} with a
    *                                               name that equals the target of
    *                                               the given endPoint.
    */
@@ -148,7 +148,7 @@ public abstract class BaseServer implements IServer {
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
    *                                               contain a default
-   *                                               {@link IEndPointTaker}.
+   *                                               {@link ISlot}.
    */
   private void assertContainsDefaultSlot() {
     if (!containsDefaultSlot()) {
@@ -160,7 +160,7 @@ public abstract class BaseServer implements IServer {
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
-   *                                  already a {@link IEndPointTaker} with the
+   *                                  already a {@link ISlot} with the
    *                                  same name as the given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
@@ -184,11 +184,11 @@ public abstract class BaseServer implements IServer {
 
   //method
   /**
-   * @return the default {@link IEndPointTaker} of the current {@link BaseServer}.
+   * @return the default {@link ISlot} of the current {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
    *                                               contain a default
-   *                                               {@link IEndPointTaker}.
+   *                                               {@link ISlot}.
    */
   private ISlot getStoredDefaultSlot() {
 
@@ -201,12 +201,12 @@ public abstract class BaseServer implements IServer {
   /**
    * 
    * @param name
-   * @return the {@link IEndPointTaker} with the given name from the current
+   * @return the {@link ISlot} with the given name from the current
    *         {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
    *                                               contain a
-   *                                               {@link IEndPointTaker} with the
+   *                                               {@link ISlot} with the
    *                                               given name.
    */
   private ISlot getStoredSlotName(final String name) {
