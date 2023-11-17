@@ -107,7 +107,7 @@ public final class Server extends BaseServer<Server> {
    */
   @Override
   protected void noteAddedApplication(final Application<?, ?> application) {
-    internalServer.addSlot(new ServerEndPointTaker(application.getUrlInstanceName(), this));
+    internalServer.addSlot(new ServerSlot(application.getUrlInstanceName(), this));
   }
 
   //method
@@ -116,6 +116,6 @@ public final class Server extends BaseServer<Server> {
    */
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
-    internalServer.addDefaultSlot(new ServerEndPointTaker(defaultApplication.getUrlInstanceName(), this));
+    internalServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));
   }
 }
