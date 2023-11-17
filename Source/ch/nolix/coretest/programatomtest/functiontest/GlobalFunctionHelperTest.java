@@ -13,7 +13,7 @@ public final class GlobalFunctionHelperTest extends Test {
 
   //method
   @TestCase
-  public void testCase_createNegatorFor_whenTrueFunctionIsGiven() {
+  public void testCase_createNegatorForBooleanSupplier_whenTrueSupplierIsGiven() {
 
     //execution
     final var result = GlobalFunctionHelper.createNegatorForBooleanSupplier(FunctionCatalogue::getTrue);
@@ -24,7 +24,7 @@ public final class GlobalFunctionHelperTest extends Test {
 
   //method
   @TestCase
-  public void testCase_createNegatorFor_whenFalseFunctionIsGiven() {
+  public void testCase_createNegatorForBooleanSupplier_whenFalseSupplierIsGiven() {
 
     //execution
     final var result = GlobalFunctionHelper.createNegatorForBooleanSupplier(FunctionCatalogue::getFalse);
@@ -35,12 +35,12 @@ public final class GlobalFunctionHelperTest extends Test {
 
   //method
   @TestCase
-  public void testCase_createNegatorFor_whenNullIsGiven() {
+  public void testCase_createNegatorForBooleanSupplier_whenTheGivenBooleanSupplierIsNull() {
 
     //execution & verification
     expectRunning(() -> GlobalFunctionHelper.createNegatorForBooleanSupplier(null))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
-      .withMessage("The given condition is null.");
+      .withMessage("The given BooleanSupplier is null.");
   }
 }
