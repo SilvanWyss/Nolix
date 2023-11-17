@@ -2,6 +2,7 @@
 package ch.nolix.core.commontype.commontypehelper;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.commontypeapi.commontypeproperty.CharacterType;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 

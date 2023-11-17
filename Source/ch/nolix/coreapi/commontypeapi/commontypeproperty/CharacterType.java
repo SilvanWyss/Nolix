@@ -1,10 +1,11 @@
 //package declaration
-package ch.nolix.core.commontype.commontypehelper;
+package ch.nolix.coreapi.commontypeapi.commontypeproperty;
 
+//own imports
 import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
 
 //enum
-enum CharacterType {
+public enum CharacterType {
   UPPER_CASE_LETTER,
   LOWER_CASE_LETTER,
   UNDERSCORE,
