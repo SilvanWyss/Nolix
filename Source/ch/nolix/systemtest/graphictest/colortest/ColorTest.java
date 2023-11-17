@@ -189,20 +189,6 @@ public final class ColorTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getSpecificationAs() {
-
-    //setup
-    final var testUnit = Color.fromString("0x102030");
-
-    //execution
-    final var result = testUnit.getSpecificationWithHeader("BackgroundColor");
-
-    //verification
-    expect(result).hasStringRepresentation("BackgroundColor(0x102030)");
-  }
-
-  //method
-  @TestCase
   public void testCase_toHexadecimalStringWithAlphaValue_1A() {
 
     //setup

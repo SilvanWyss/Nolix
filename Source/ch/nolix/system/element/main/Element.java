@@ -3,6 +3,7 @@ package ch.nolix.system.element.main;
 
 //own imports
 import ch.nolix.core.document.node.Node;
+import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //class
@@ -48,6 +49,15 @@ public abstract class Element implements Specified {
   @Override
   public final String toString() {
     return getSpecification().toString();
+  }
+
+  //method
+  /**
+   * @return the header for the specification of the current
+   *         {@link MutableElement}.
+   */
+  protected final String getSpecificationHeader() {
+    return getClass().getSimpleName();
   }
 
   //method

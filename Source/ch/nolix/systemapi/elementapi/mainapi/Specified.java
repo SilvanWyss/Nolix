@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
@@ -14,37 +15,17 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 @AllowDefaultMethodsAsDesignPattern
 public interface Specified {
 
-  //method
+  //method declaration
   /**
    * @return the attributes of the current {@link Specified}.
    */
   IContainer<INode<?>> getAttributes();
 
-  //method
+  //method declaration
   /**
    * @return the specification of the current {@link Specified}.
    */
   INode<?> getSpecification();
-
-  //method
-  /**
-   * @return the header of the specification of the current {@link Specified}.
-   */
-  default String getSpecificationHeader() {
-    return getClass().getSimpleName();
-  }
-
-  //method
-  /**
-   * @param header
-   * @return the specification of the current {@link Specified} with the given
-   *         header.
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   */
-  default INode<?> getSpecificationWithHeader(final String header) {
-    return getSpecification().asWithHeader(header);
-  }
 
   //method
   /**
@@ -61,17 +42,5 @@ public interface Specified {
    */
   default IXmlNode<?> toXml() {
     return getSpecification().toXml();
-  }
-
-  //method
-  /**
-   * @return a XML representation of the current {@link Specified} with the given
-   *         header.
-   * @param header
-   * @throws RuntimeException if the given header is null.
-   * @throws RuntimeException if the given header is blank.
-   */
-  default IXmlNode<?> toXmlWithHeader(final String header) {
-    return getSpecificationWithHeader(header).toXml();
   }
 }
