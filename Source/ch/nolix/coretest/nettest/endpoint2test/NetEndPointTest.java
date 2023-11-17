@@ -76,8 +76,8 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(50000)) {
 
       //setup
-      final var endPointTaker = new EndPointTaker();
-      server.addDefaultSlot(endPointTaker);
+      final var slot = new EndPointTaker();
+      server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
 
@@ -85,7 +85,7 @@ public final class NetEndPointTest extends Test {
         final var result = testUnit.getReplyForRequest("MESSAGE");
 
         //verification
-        expect(endPointTaker.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
+        expect(slot.getReceivedMessageOrNull()).isEqualTo("MESSAGE");
         expect(result).isEqualTo("REPLY");
       }
     }

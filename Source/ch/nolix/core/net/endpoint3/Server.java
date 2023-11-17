@@ -111,7 +111,7 @@ public final class Server extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteAddedSlot(final ISlot endPointTaker) {
-    internalServer.addSlot(new ServerEndPointTaker(endPointTaker.getName(), this));
+  protected void noteAddedSlot(final ISlot slot) {
+    internalServer.addSlot(new ServerEndPointTaker(slot.getName(), this));
   }
 }

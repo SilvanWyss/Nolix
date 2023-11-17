@@ -161,7 +161,7 @@ public abstract class BaseServer implements IServer {
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
    *                                  already a {@link IEndPointTaker} with the
-   *                                  same name as the given endPointTaker.
+   *                                  same name as the given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
@@ -215,17 +215,17 @@ public abstract class BaseServer implements IServer {
 
   //method
   /**
-   * Removes the given endPointTaker from the current {@link BaseServer}.
+   * Removes the given slot from the current {@link BaseServer}.
    * 
-   * @param endPointTaker
+   * @param slot
    * @throws InvalidArgumentException if the current {@link BaseServer} does not
-   *                                  contain the given endPointTaker.
+   *                                  contain the given slot.
    */
-  private void removeSlot(final ISlot endPointTaker) {
+  private void removeSlot(final ISlot slot) {
 
-    slots.removeFirstOccurrenceOf(endPointTaker);
+    slots.removeFirstOccurrenceOf(slot);
 
-    if (endPointTaker == defaultSlot) {
+    if (slot == defaultSlot) {
       defaultSlot = null;
     }
   }

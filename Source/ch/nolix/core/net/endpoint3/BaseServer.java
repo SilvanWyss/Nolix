@@ -45,11 +45,11 @@ public abstract class BaseServer implements IServer {
    * {@inheritDoc}
    */
   @Override
-  public final void addSlot(final ISlot endPointTaker) {
+  public final void addSlot(final ISlot slot) {
 
-    addSlotToList(endPointTaker);
+    addSlotToList(slot);
 
-    noteAddedSlot(endPointTaker);
+    noteAddedSlot(slot);
   }
 
   //method
@@ -98,11 +98,11 @@ public abstract class BaseServer implements IServer {
 
   //method declaration
   /**
-   * Notes that the current {@link BaseServer} has added the given endPointTaker.
+   * Notes that the current {@link BaseServer} has added the given slot.
    * 
-   * @param endPointTaker
+   * @param slot
    */
-  protected abstract void noteAddedSlot(ISlot endPointTaker);
+  protected abstract void noteAddedSlot(ISlot slot);
 
   //method
   /**
@@ -141,25 +141,25 @@ public abstract class BaseServer implements IServer {
 
   //method
   /**
-   * Adds the given endPointTaker to the list of {@link IEndPointTaker}s of the
+   * Adds the given slot to the list of {@link IEndPointTaker}s of the
    * current {@link BaseServer}.
    * 
-   * @param endPointTaker
+   * @param slot
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
    *                                  already a {@link IEndPointTaker} with the
-   *                                  same name as the given endPointTaker.
+   *                                  same name as the given slot.
    */
-  private void addSlotToList(final ISlot endPointTaker) {
+  private void addSlotToList(final ISlot slot) {
 
-    //Extracts the name of the given endPointTaker.
-    final var name = endPointTaker.getName();
+    //Extracts the name of the given slot.
+    final var name = slot.getName();
 
     //Asserts that the current Server does not contain
-    //an EndPointTaker with the same name as the given endPointTaker.
+    //an EndPointTaker with the same name as the given slot.
     assertDoesNotContainSlotWithName(name);
 
-    //Adds the given endPointTaker to the current Server.
-    this.slots.addAtEnd(endPointTaker);
+    //Adds the given slot to the current Server.
+    this.slots.addAtEnd(slot);
   }
 
   //method
@@ -180,7 +180,7 @@ public abstract class BaseServer implements IServer {
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
    *                                  already a {@link IEndPointTaker} with the
-   *                                  same name as the given endPointTaker.
+   *                                  same name as the given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {

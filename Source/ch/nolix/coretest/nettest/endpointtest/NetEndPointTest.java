@@ -79,8 +79,8 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(port)) {
 
       //setup
-      final var endPointTaker = new TestEndPointTaker();
-      server.addDefaultSlot(endPointTaker);
+      final var slot = new TestEndPointTaker();
+      server.addDefaultSlot(slot);
 
       try (final var testUnit = new SocketEndPoint(port)) {
 
@@ -89,7 +89,7 @@ public final class NetEndPointTest extends Test {
         GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
 
         //verification
-        expect(endPointTaker.getReceivedMessage()).isEqualTo("MESSAGE");
+        expect(slot.getReceivedMessage()).isEqualTo("MESSAGE");
       }
     }
   }
