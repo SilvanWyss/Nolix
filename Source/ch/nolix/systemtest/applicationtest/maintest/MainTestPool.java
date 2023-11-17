@@ -9,6 +9,6 @@ public final class MainTestPool extends TestPool {
 
   //constructor
   public MainTestPool() {
-    super(BasicApplicationTest.class, BasicApplicationOnServerTest.class);
+    super(BasicApplicationTest.class, BasicApplicationOnServerTest.class, ServerTest.class);
   }
 }
