@@ -1,12 +1,11 @@
 //package declaration
 package ch.nolix.core.sql;
 
-//own imports
-import ch.nolix.core.builder.andargumentcapturer.AndDatabaseNameCapturer;
-import ch.nolix.core.builder.andargumentcapturer.AndLoginPasswordCapturer;
-import ch.nolix.core.builder.andargumentcapturer.AndPortCapturer;
-import ch.nolix.core.builder.usingargumentcapturer.UsingLoginNameCapturer;
-import ch.nolix.core.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
+import ch.nolix.core.programstructure.builder.usingargumentcapturer.UsingLoginNameCapturer;
+import ch.nolix.core.programstructure.builder.withargumentcapturer.WithSqlDatabaseEngineCapturer;
 
 //class
 public final class SqlConnectionPoolBuilder

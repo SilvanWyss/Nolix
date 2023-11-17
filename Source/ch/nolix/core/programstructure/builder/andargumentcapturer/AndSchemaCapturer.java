@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.core.builder.andargumentcapturer;
+package ch.nolix.core.programstructure.builder.andargumentcapturer;
 
-//own imports
-import ch.nolix.core.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
 
 //class
 public class AndSchemaCapturer<S, N> extends ArgumentCapturer<S, N> {

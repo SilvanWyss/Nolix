@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.programcontrol.usercontrol;
 
-//own imports
-import ch.nolix.core.builder.andargumentcapturer.AndPasswordCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPasswordCapturer;
 
 //class
 public final class Credential {

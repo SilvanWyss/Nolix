@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.builder.main;
+package ch.nolix.core.programstructure.builder.main;
 
 import java.util.function.Supplier;
 

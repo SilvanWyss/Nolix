@@ -1,11 +1,10 @@
 //package declaration
-package ch.nolix.core.builder.andargumentcapturer;
+package ch.nolix.core.programstructure.builder.andargumentcapturer;
 
-//own imports
-import ch.nolix.core.builder.main.ArgumentCapturer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
 
 //class
 public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {

@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.core.builder.withargumentcapturer;
+package ch.nolix.core.programstructure.builder.withargumentcapturer;
 
-//own imports
-import ch.nolix.core.builder.main.ArgumentCapturer;
+import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
 
 //class
 public class WithNameCapturer<N> extends ArgumentCapturer<String, N> {
