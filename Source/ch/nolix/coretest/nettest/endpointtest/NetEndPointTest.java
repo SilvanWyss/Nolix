@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.coretest.nettest.endpointtest;
 
-import ch.nolix.core.net.endpoint.Server;
 //own imports
+import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.net.endpoint.SocketEndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.basetest.TestCase;
@@ -17,7 +17,7 @@ public final class NetEndPointTest extends Test {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   //constant
-  private static final class TestEndPointTaker implements ISlot {
+  private static final class SlotMock implements ISlot {
 
     //optional attribute
     private String receivedMessage;
@@ -25,7 +25,7 @@ public final class NetEndPointTest extends Test {
     //method
     @Override
     public String getName() {
-      return "EndPointTaker";
+      return "slot";
     }
 
     //method
@@ -56,7 +56,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(port)) {
 
       //setup
-      server.addDefaultSlot(new TestEndPointTaker());
+      server.addDefaultSlot(new SlotMock());
 
       //execution & verification
       expectRunning(
@@ -79,7 +79,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(port)) {
 
       //setup
-      final var slot = new TestEndPointTaker();
+      final var slot = new SlotMock();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new SocketEndPoint(port)) {
