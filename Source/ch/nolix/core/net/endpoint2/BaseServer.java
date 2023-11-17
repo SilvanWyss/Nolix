@@ -56,6 +56,15 @@ public abstract class BaseServer implements IServer {
    * {@inheritDoc}
    */
   @Override
+  public final void clear() {
+    slots.forEach(this::removeSlot);
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public final boolean containsDefaultSlot() {
     return (defaultSlot != null);
   }
@@ -76,6 +85,15 @@ public abstract class BaseServer implements IServer {
   @Override
   public final CloseController getStoredCloseController() {
     return closeController;
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean isEmpty() {
+    return slots.isEmpty();
   }
 
   //method
