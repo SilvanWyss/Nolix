@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.core.programatom.function;
 
+//Java imports
 import java.util.function.BooleanSupplier;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 
 //class
 public final class GlobalFunctionHelper {
@@ -15,10 +15,10 @@ public final class GlobalFunctionHelper {
   }
 
   //static method
-  public static BooleanSupplier createNegatorFor(final BooleanSupplier condition) {
+  public static BooleanSupplier createNegatorForBooleanSupplier(final BooleanSupplier booleanSupplier) {
 
-    GlobalValidator.assertThat(condition).thatIsNamed(LowerCaseCatalogue.CONDITION).isNotNull();
+    GlobalValidator.assertThat(booleanSupplier).thatIsNamed(BooleanSupplier.class).isNotNull();
 
-    return (() -> !condition.getAsBoolean());
+    return (() -> !booleanSupplier.getAsBoolean());
   }
 }

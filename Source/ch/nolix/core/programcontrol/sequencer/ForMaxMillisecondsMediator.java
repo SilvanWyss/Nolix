@@ -103,7 +103,7 @@ public final class ForMaxMillisecondsMediator {
   public AsLongAsMediator until(final BooleanSupplier condition) {
 
     //Calls other method.
-    return asLongAs(GlobalFunctionHelper.createNegatorFor(condition));
+    return asLongAs(GlobalFunctionHelper.createNegatorForBooleanSupplier(condition));
   }
 
   //method
@@ -135,6 +135,6 @@ public final class ForMaxMillisecondsMediator {
   public void waitUntil(final BooleanSupplier condition) {
 
     //Calls other method.
-    waitAsLongAs(GlobalFunctionHelper.createNegatorFor(condition));
+    waitAsLongAs(GlobalFunctionHelper.createNegatorForBooleanSupplier(condition));
   }
 }
