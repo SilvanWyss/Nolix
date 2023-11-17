@@ -22,4 +22,7 @@ public interface IServer extends GroupCloseable {
 
   //method declaration
   SecurityLevel getSecurityLevel();
+
+  //method declaration
+  void removeSlotByName(String name);
 }

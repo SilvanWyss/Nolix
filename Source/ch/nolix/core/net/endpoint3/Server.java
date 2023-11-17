@@ -124,4 +124,13 @@ public final class Server extends BaseServer {
   protected void noteAddedSlot(final ISlot slot) {
     internalServer.addSlot(new ServerSlot(slot.getName(), this));
   }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteRemovedSlot(final ISlot slot) {
+    internalServer.removeSlotByName(slot.getName());
+  }
 }

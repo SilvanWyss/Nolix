@@ -38,9 +38,6 @@ public final class SecureServer extends BaseServer {
   }
 
   //method
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public SecurityLevel getSecurityLevel() {
     return SecurityLevel.SECURE;
@@ -56,5 +53,11 @@ public final class SecureServer extends BaseServer {
   @Override
   protected void noteAddedSlot(final ISlot slot) {
     internalWebSocketServer.addSlot(new ServerSlot(slot.getName(), this));
+  }
+
+  //method
+  @Override
+  protected void noteRemovedSlot(final ISlot slot) {
+    internalWebSocketServer.removeSlotByName(slot.getName());
   }
 }
