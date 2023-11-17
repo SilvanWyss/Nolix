@@ -13,7 +13,7 @@ public final class ChangeRequestableTest extends Test {
   public void testCase_isChangeFree_whenIsChangeFree() {
 
     //setup
-    final var testUnit = ChangeRequestableStub.withHasChangesFlag(false);
+    final var testUnit = ChangeRequestableMock.withHasChangesFlag(false);
 
     //execution
     final var result = testUnit.isChangeFree();
@@ -27,7 +27,7 @@ public final class ChangeRequestableTest extends Test {
   public void testCase_isChangeFree_whenHasChanges() {
 
     //setup
-    final var testUnit = ChangeRequestableStub.withHasChangesFlag(true);
+    final var testUnit = ChangeRequestableMock.withHasChangesFlag(true);
 
     //execution
     final var result = testUnit.isChangeFree();

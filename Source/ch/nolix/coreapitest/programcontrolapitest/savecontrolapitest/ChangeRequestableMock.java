@@ -5,19 +5,19 @@ package ch.nolix.coreapitest.programcontrolapitest.savecontrolapitest;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.ChangeRequestable;
 
 //class
-public final class ChangeRequestableStub implements ChangeRequestable {
+public final class ChangeRequestableMock implements ChangeRequestable {
 
   //attribute
   private final boolean hasChanges;
 
   //constructor
-  private ChangeRequestableStub(final boolean hasChanges) {
+  private ChangeRequestableMock(final boolean hasChanges) {
     this.hasChanges = hasChanges;
   }
 
   //static method
-  public static ChangeRequestableStub withHasChangesFlag(final boolean hasChanges) {
-    return new ChangeRequestableStub(hasChanges);
+  public static ChangeRequestableMock withHasChangesFlag(final boolean hasChanges) {
+    return new ChangeRequestableMock(hasChanges);
   }
 
   //method
