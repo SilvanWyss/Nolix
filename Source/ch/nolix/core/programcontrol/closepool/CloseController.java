@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.programcontrol.groupcloseable;
+package ch.nolix.core.programcontrol.closepool;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

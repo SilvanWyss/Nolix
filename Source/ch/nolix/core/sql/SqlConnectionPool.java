@@ -6,7 +6,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;

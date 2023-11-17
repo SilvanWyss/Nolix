@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.net.baseendpoint;
 
-//own imports
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;

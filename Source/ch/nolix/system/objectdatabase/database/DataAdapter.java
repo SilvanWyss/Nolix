@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.system.objectdatabase.databasehelper.DatabaseHelper;
 import ch.nolix.systemapi.objectdatabaseapi.dataadapterapi.IDataAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;

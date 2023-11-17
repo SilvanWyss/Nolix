@@ -4,7 +4,7 @@ package ch.nolix.system.nodedatabaserawschema.schemawriter;
 //own imports
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programcontrol.groupcloseable.CloseController;
+import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.system.nodedatabaserawschema.structure.ColumnNodeSearcher;
 import ch.nolix.system.nodedatabaserawschema.structure.DatabaseNodeSearcher;
