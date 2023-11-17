@@ -71,7 +71,7 @@ final class WebSocketEndPoint extends NetEndPoint {
 
   //method
   @Override
-  public SecurityLevel getConnectionSecurityLevel() {
+  public SecurityLevel getSecurityLevel() {
     return SecurityLevel.UNSECURE;
   }
 

@@ -14,13 +14,13 @@ public interface IBaseEndPoint extends GroupCloseable {
   ConnectionType getConnectionType();
 
   //method declaration
-  SecurityLevel getConnectionSecurityLevel();
-
-  //method declaration
   String getCustomTargetSlot();
 
   //method declaration
   PeerType getPeerType();
+
+  //method declaration
+  SecurityLevel getSecurityLevel();
 
   //method declaration
   TargetSlotDefinition getTargetSlotDefinition();

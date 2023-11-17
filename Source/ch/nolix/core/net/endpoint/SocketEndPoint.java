@@ -234,7 +234,7 @@ public final class SocketEndPoint extends NetEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getConnectionSecurityLevel() {
+  public SecurityLevel getSecurityLevel() {
     return SecurityLevel.UNSECURE;
   }
 

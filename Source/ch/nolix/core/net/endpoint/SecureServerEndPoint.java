@@ -43,7 +43,7 @@ final class SecureServerEndPoint extends NetEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getConnectionSecurityLevel() {
+  public SecurityLevel getSecurityLevel() {
     return SecurityLevel.SECURE;
   }
 

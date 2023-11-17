@@ -212,7 +212,7 @@ public final class LocalEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getConnectionSecurityLevel() {
+  public SecurityLevel getSecurityLevel() {
     return SecurityLevel.UNSECURE;
   }
 

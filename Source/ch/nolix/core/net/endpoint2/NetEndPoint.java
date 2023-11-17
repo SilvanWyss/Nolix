@@ -162,8 +162,8 @@ public final class NetEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getConnectionSecurityLevel() {
-    return internalEndPoint.getConnectionSecurityLevel();
+  public SecurityLevel getSecurityLevel() {
+    return internalEndPoint.getSecurityLevel();
   }
 
   //method
