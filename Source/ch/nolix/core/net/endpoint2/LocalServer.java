@@ -44,7 +44,7 @@ public final class LocalServer extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemoveSlot(final ISlot slot) {
+  protected void noteRemovedSlot(final ISlot slot) {
     //Does nothing.
   }
 }

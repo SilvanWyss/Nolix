@@ -62,7 +62,7 @@ public final class SecureServer extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemoveSlot(final ISlot slot) {
+  protected void noteRemovedSlot(final ISlot slot) {
     internalWebSocketServer.removeSlotByName(slot.getName());
   }
 }

@@ -130,7 +130,7 @@ public final class Server extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  protected void noteRemoveSlot(final ISlot slot) {
+  protected void noteRemovedSlot(final ISlot slot) {
     internalServer.removeSlotByName(slot.getName());
   }
 }
