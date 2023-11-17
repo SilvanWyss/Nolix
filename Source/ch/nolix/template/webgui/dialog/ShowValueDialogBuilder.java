@@ -3,10 +3,9 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
-//own imports
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;

@@ -13,8 +13,6 @@ import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
-//own imports
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.commontype.commontypehelper.GlobalBufferedImageHelper;
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.readcontainer.ReadContainer;
@@ -24,6 +22,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableElement;

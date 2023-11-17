@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.core.document.node;
 
-import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 

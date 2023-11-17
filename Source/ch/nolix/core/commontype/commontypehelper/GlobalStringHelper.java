@@ -4,10 +4,6 @@ package ch.nolix.core.commontype.commontypehelper;
 //Java imports
 import java.util.Locale;
 
-//own imports
-import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.commontype.commontypeconstant.RegularExpressionPatternCatalogue;
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
@@ -15,6 +11,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumen
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.RegularExpressionPatternCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 
 //class
 /**

@@ -4,7 +4,7 @@ package ch.nolix.core.programstructure.data;
 //Java imports
 import java.util.UUID;
 
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 
 //class
 public final class GlobalIdCreator {

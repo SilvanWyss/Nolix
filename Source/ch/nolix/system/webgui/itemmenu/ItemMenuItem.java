@@ -3,12 +3,12 @@ package ch.nolix.system.webgui.itemmenu;
 
 import java.util.function.Consumer;
 
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.core.programstructure.data.GlobalIdCreator;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MutableValue;

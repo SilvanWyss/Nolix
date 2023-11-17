@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
-//own imports
-import ch.nolix.core.commontype.commontypeconstant.RegularExpressionPatternCatalogue;
 import ch.nolix.core.document.node.MutableNode;
 import ch.nolix.core.environment.filesystem.FileAccessor;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.RegularExpressionPatternCatalogue;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
 
 //class

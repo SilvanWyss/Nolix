@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
-import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 
 //class
 final class CapitalSnakeCaseCreator {

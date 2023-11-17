@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontype.commontypeconstant;
+package ch.nolix.coreapi.commontypeapi.stringutilapi;
 
 //class
 /**

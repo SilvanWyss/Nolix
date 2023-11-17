@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
 
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
 import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;

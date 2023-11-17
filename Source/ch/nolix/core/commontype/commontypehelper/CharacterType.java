@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.commontype.commontypehelper;
 
-//own imports
-import ch.nolix.core.commontype.commontypeconstant.CharacterCatalogue;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
 
 //enum
 enum CharacterType {

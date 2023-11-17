@@ -4,9 +4,8 @@ package ch.nolix.core.programatom.function;
 //Java imports
 import java.util.Objects;
 
-//own imports
-import ch.nolix.core.commontype.commontypeconstant.StringCatalogue;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
+import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 
 //class
 /**
