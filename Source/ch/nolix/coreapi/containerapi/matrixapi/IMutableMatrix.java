@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.matrixapi;
 
-//own imports
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
+import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 
 //interface
 public interface IMutableMatrix<E> extends Clearable, IMatrix<E> {

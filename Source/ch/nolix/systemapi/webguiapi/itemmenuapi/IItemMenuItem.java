@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
-import ch.nolix.coreapi.functionapi.requestapi.BlanknessRequestable;
+import ch.nolix.coreapi.methodapi.requestapi.BlanknessRequestable;
 import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
 import ch.nolix.systemapi.guiapi.processapi.Selectable;
 

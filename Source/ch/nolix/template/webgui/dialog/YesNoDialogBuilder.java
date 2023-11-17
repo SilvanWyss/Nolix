@@ -4,7 +4,7 @@ package ch.nolix.template.webgui.dialog;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
+import ch.nolix.coreapi.methodapi.skillapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;

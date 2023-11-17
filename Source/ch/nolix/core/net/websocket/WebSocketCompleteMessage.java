@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.coreapi.functionapi.requestapi.CompletenessRequestable;
+import ch.nolix.coreapi.methodapi.requestapi.CompletenessRequestable;
 
 //class
 public final class WebSocketCompleteMessage implements CompletenessRequestable {

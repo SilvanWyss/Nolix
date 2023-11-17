@@ -3,8 +3,8 @@ package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
 import java.util.function.Predicate;
 
-import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
-import ch.nolix.coreapi.functionapi.skillapi.IBuilder;
+import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.methodapi.skillapi.IBuilder;
 
 //interface
 /**

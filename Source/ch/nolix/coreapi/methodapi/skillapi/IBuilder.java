@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.functionapi.skillapi;
+package ch.nolix.coreapi.methodapi.skillapi;
 
 //interface
 /**

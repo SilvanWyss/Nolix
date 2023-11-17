@@ -3,7 +3,7 @@ package ch.nolix.systemapi.elementapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.functionapi.mutationapi.Resettable;
+import ch.nolix.coreapi.methodapi.mutationapi.Resettable;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
 
 //interface

@@ -5,8 +5,8 @@ import java.util.function.Predicate;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
-import ch.nolix.coreapi.functionapi.skillapi.Copyable;
+import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
+import ch.nolix.coreapi.methodapi.skillapi.Copyable;
 
 //interface
 /**
