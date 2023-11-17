@@ -97,6 +97,15 @@ public final class Server extends BaseServer<Server> {
    * {@inheritDoc}
    */
   @Override
+  public SecurityLevel getSecurityLevel() {
+    return internalServer.getSecurityLevel();
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   protected Server asConcrete() {
     return this;
   }

@@ -11,6 +11,7 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
@@ -276,6 +277,12 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
   public final boolean containsApplicationWithName(final String name) {
     return applications.containsAny(a -> a.getInstanceName().equals(name));
   }
+
+  //method declaration
+  /**
+   * @return the {@link SecurityLevel} of the current {@link BaseServer}.
+   */
+  public abstract SecurityLevel getSecurityLevel();
 
   //method
   /**

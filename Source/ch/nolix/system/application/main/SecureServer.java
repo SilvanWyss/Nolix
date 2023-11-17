@@ -91,6 +91,15 @@ public final class SecureServer extends BaseServer<SecureServer> {
    * {@inheritDoc}
    */
   @Override
+  public SecurityLevel getSecurityLevel() {
+    return internalWebSocketServer.getSecurityLevel();
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   protected SecureServer asConcrete() {
     return this;
   }
