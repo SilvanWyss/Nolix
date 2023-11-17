@@ -3,7 +3,7 @@ package ch.nolix.core.net.target;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 
 //class

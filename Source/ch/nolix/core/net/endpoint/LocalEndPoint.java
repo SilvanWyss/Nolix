@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 
 //class
 /**

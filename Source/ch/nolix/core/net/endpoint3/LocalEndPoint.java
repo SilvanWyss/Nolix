@@ -14,7 +14,7 @@ import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 
 //class
 /**

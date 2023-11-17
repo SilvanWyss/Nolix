@@ -4,8 +4,8 @@ package ch.nolix.core.net.target;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class

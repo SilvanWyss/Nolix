@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.targetapi;
 
-//own imports
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 
 //interface
 public interface IServerTarget {

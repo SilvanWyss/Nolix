@@ -5,8 +5,8 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
-import ch.nolix.coreapi.programcontrolapi.processproperty.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
 //class
