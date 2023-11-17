@@ -35,6 +35,7 @@ public abstract class BaseServer implements IServer {
   public final void addDefaultSlot(final ISlot defaultSlot) {
 
     addSlotToList(defaultSlot);
+
     this.defaultSlot = defaultSlot;
 
     noteAddedDefaultSlot(defaultSlot);
@@ -89,8 +90,8 @@ public abstract class BaseServer implements IServer {
 
   //method declaration
   /**
-   * Notes that the current {@link BaseServer} has added the given
-   * defaultSlot.
+   * Notes that the given defaultSlot has been added to the current
+   * {@link BaseServer}.
    * 
    * @param defaultSlot
    */
@@ -98,7 +99,7 @@ public abstract class BaseServer implements IServer {
 
   //method declaration
   /**
-   * Notes that the current {@link BaseServer} has added the given slot.
+   * Notes that the given slot has been added to the current {@link BaseServer}.
    * 
    * @param slot
    */
@@ -119,21 +120,16 @@ public abstract class BaseServer implements IServer {
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
    *                                               {@link BaseServer} does not
-   *                                               contain a
-   *                                               {@link ISlot} with a
+   *                                               contain a {@link ISlot} with a
    *                                               name that equals the target of
    *                                               the given endPoint.
    */
   final void internalTakeBackendEndPoint(final IEndPoint endPoint) {
 
-    //Asserts that the given endPoint is open.
     assertIsOpen(endPoint);
 
-    //Handles the case that the given endPoint does not have a target.
     if (!endPoint.hasCustomTargetSlot()) {
       getStoredDefaultSlot().takeBackendEndPoint(endPoint);
-
-      //Handles the case that the given endPoint has a target.
     } else {
       getStoredSlotByName(endPoint.getCustomTargetSlot()).takeBackendEndPoint(endPoint);
     }
@@ -141,24 +137,18 @@ public abstract class BaseServer implements IServer {
 
   //method
   /**
-   * Adds the given slot to the list of {@link ISlot}s of the
-   * current {@link BaseServer}.
+   * Adds the given slot to the list of {@link ISlot}s of the current
+   * {@link BaseServer}.
    * 
    * @param slot
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
-   *                                  already a {@link ISlot} with the
-   *                                  same name as the given slot.
+   *                                  already a {@link ISlot} with the same name
+   *                                  like the given slot.
    */
   private void addSlotToList(final ISlot slot) {
 
-    //Extracts the name of the given slot.
-    final var name = slot.getName();
+    assertDoesNotContainSlotWithName(slot.getName());
 
-    //Asserts that the current Server does not contain
-    //an EndPointTaker with the same name as the given slot.
-    assertDoesNotContainSlotWithName(name);
-
-    //Adds the given slot to the current Server.
     this.slots.addAtEnd(slot);
   }
 
@@ -179,13 +169,13 @@ public abstract class BaseServer implements IServer {
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
-   *                                  already a {@link ISlot} with the
-   *                                  same name as the given slot.
+   *                                  already a {@link ISlot} with the same name
+   *                                  like the given slot.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        this, "contains already an EndPointTaker with the name '" + name + "'");
+        this, "contains already a slot with the name '" + name + "'");
     }
   }
 
@@ -223,9 +213,8 @@ public abstract class BaseServer implements IServer {
    *         {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
-   *                                               contain a
-   *                                               {@link ISlot} with the
-   *                                               given name.
+   *                                               contain a {@link ISlot} with
+   *                                               the given name.
    */
   private ISlot getStoredSlotByName(final String name) {
     return slots.getStoredFirst(ept -> ept.hasName(name));
