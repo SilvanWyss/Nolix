@@ -2,6 +2,7 @@
 package ch.nolix.coreapi.netapi.endpoint2api;
 
 //own imports
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //interface
@@ -18,6 +19,9 @@ public interface IServer extends GroupCloseable {
 
   //method declaration
   boolean containsSlotWithName(String name);
+
+  //method declaration
+  SecurityLevel getSecurityLevel();
 
   //method declaration
   void removeSlotByName(String name);

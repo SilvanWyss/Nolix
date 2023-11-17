@@ -3,6 +3,7 @@ package ch.nolix.core.net.endpoint2;
 
 //own imports
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 
 //class
 /**
@@ -10,6 +11,15 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
  * @date 2021-06-27
  */
 public final class LocalServer extends BaseServer {
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public SecurityLevel getSecurityLevel() {
+    return SecurityLevel.UNSECURE;
+  }
 
   //method
   /**

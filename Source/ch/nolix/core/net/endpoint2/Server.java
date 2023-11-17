@@ -6,6 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 
 //class
 /**
@@ -95,6 +96,15 @@ public final class Server extends BaseServer {
    */
   public int getPort() {
     return internalServer.getPort();
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public SecurityLevel getSecurityLevel() {
+    return SecurityLevel.UNSECURE;
   }
 
   //method
