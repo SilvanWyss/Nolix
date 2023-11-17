@@ -1,8 +1,10 @@
 //package declaration
 package ch.nolix.coreapi.netapi.endpointapi;
 
+//Java imports
 import java.util.function.Consumer;
 
+//own imports
 import ch.nolix.coreapi.netapi.baseendpointapi.IBaseEndPoint;
 
 //interface
