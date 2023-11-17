@@ -32,12 +32,12 @@ public abstract class BaseServer implements IServer {
    * {@inheritDoc}
    */
   @Override
-  public final void addDefaultSlot(final ISlot defaultEndPointTaker) {
+  public final void addDefaultSlot(final ISlot defaultSlot) {
 
-    addSlotToList(defaultEndPointTaker);
-    this.defaultSlot = defaultEndPointTaker;
+    addSlotToList(defaultSlot);
+    this.defaultSlot = defaultSlot;
 
-    noteAddedDefaultSlot(defaultEndPointTaker);
+    noteAddedDefaultSlot(defaultSlot);
   }
 
   //method
@@ -90,11 +90,11 @@ public abstract class BaseServer implements IServer {
   //method declaration
   /**
    * Notes that the current {@link BaseServer} has added the given
-   * defaultEndPointTaker.
+   * defaultSlot.
    * 
-   * @param defaultEndPointTaker
+   * @param defaultSlot
    */
-  protected abstract void noteAddedDefaultSlot(ISlot defaultEndPointTaker);
+  protected abstract void noteAddedDefaultSlot(ISlot defaultSlot);
 
   //method declaration
   /**
