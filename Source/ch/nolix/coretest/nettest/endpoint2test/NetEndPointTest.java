@@ -14,7 +14,7 @@ import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 public final class NetEndPointTest extends Test {
 
   //constant
-  private static final class EndPointTaker implements ISlot {
+  private static final class SlotMock implements ISlot {
 
     //optional attribute
     private String receivedMessage;
@@ -22,7 +22,7 @@ public final class NetEndPointTest extends Test {
     //method
     @Override
     public String getName() {
-      return "EndPointTaker";
+      return "slot";
     }
 
     //method
@@ -53,7 +53,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(50000)) {
 
       //setup
-      server.addDefaultSlot(new EndPointTaker());
+      server.addDefaultSlot(new SlotMock());
 
       //execution & verification
       expectRunning(
@@ -76,7 +76,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(50000)) {
 
       //setup
-      final var slot = new EndPointTaker();
+      final var slot = new SlotMock();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new NetEndPoint(port)) {
