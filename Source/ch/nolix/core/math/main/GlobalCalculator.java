@@ -12,7 +12,7 @@ import ch.nolix.core.math.algebra.Matrix;
 import ch.nolix.core.math.algebra.Polynom;
 import ch.nolix.core.math.base.GlobalBasicCalculator;
 import ch.nolix.core.math.stochastic.ARModel;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 /**

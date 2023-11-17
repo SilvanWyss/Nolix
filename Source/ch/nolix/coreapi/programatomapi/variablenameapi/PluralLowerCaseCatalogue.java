@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.programatom.name;
+package ch.nolix.coreapi.programatomapi.variablenameapi;
 
 //class
 /**

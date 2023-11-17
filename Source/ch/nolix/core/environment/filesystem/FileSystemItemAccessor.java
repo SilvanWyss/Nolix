@@ -5,8 +5,8 @@ package ch.nolix.core.environment.filesystem;
 import java.io.File;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.RegularExpressionPatternCatalogue;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 /**

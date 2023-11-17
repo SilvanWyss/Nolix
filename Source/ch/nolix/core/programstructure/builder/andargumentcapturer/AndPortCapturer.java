@@ -3,8 +3,8 @@ package ch.nolix.core.programstructure.builder.andargumentcapturer;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {

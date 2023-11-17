@@ -4,8 +4,8 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.reflection.GlobalReflectionHelper;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.objectdatabase.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyflyweight.VoidPropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;

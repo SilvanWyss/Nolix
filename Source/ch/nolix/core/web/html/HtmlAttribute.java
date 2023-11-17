@@ -2,7 +2,7 @@ package ch.nolix.core.web.html;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlAttribute;
 
 //class

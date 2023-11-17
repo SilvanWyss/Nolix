@@ -3,9 +3,9 @@ package ch.nolix.system.element.multistateconfiguration;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 
 //class
 final class State<S extends Enum<S>> implements INameHolder {

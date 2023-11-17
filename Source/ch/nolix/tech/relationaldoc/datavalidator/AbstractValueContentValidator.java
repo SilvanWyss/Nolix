@@ -3,7 +3,7 @@ package ch.nolix.tech.relationaldoc.datavalidator;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractValueContentEvaluator;
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractValueContent;

@@ -6,10 +6,10 @@ import java.util.Base64;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.application.basewebapplication.BaseWebClient;
 import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientCounterpartUpdater;
 import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPartialCounterpartUpdater;

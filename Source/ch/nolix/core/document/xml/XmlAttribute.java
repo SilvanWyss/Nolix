@@ -2,9 +2,9 @@
 package ch.nolix.core.document.xml;
 
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlAttribute;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 public final class XmlAttribute implements IXmlAttribute {

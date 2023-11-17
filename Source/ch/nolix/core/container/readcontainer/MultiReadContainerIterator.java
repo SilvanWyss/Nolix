@@ -4,9 +4,9 @@ package ch.nolix.core.container.readcontainer;
 //own imports
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 final class MultiReadContainerIterator<E> implements CopyableIterator<E> {

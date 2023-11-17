@@ -2,8 +2,8 @@
 package ch.nolix.system.sqldatabaserawschema.schemawriter;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.programatom.name.PascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
 import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;

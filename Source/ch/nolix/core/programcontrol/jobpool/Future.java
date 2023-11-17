@@ -3,8 +3,8 @@ package ch.nolix.core.programcontrol.jobpool;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.core.programcontrol.future.BaseFuture;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 final class Future extends BaseFuture {

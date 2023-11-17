@@ -4,9 +4,9 @@ package ch.nolix.system.objectschema.schemadto;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
-import ch.nolix.core.programatom.name.PluralLowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programatomapi.variablenameapi.PluralLowerCaseCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IDatabaseDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 

@@ -3,9 +3,9 @@ package ch.nolix.tech.relationaldoc.dataadapter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.tech.relationaldoc.dataevaluator.AbstractableObjectEvaluator;
 import ch.nolix.tech.relationaldoc.datamodel.AbstractableObject;

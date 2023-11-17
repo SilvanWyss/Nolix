@@ -3,8 +3,8 @@ package ch.nolix.tech.relationaldoc.datamodel;
 
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.programatom.name.PluralPascalCaseCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programatomapi.variablenameapi.PluralPascalCaseCatalogue;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.MultiReference;
 import ch.nolix.system.objectdatabase.database.Value;
