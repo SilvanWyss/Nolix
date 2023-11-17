@@ -17,7 +17,7 @@ public final class ServerTest extends Test {
     try (final var testUnit = Server.forHttpPort()) {
 
       //verification
-      expect(testUnit.getIp()).isEqualTo(LocalComputer.getLANIP());
+      expect(testUnit.getIp()).isEqualTo(LocalComputer.getLanIp());
       expect(testUnit.getPort()).isEqualTo(PortCatalogue.HTTP);
       //TODO: expect(testUnit.getSecurityLevel()).is(SecurityLevel.UNSECURE)
       expect(testUnit.getStoredApplications()).isEmpty();

@@ -81,7 +81,7 @@ public final class Server extends BaseServer<Server> {
    * @return the Ip of the current {@link Server}.
    */
   public String getIp() {
-    return LocalComputer.getLANIP();
+    return LocalComputer.getLanIp();
   }
 
   //method

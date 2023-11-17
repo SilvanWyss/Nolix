@@ -16,7 +16,7 @@ public final class LocalComputer {
   }
 
   //static method
-  public static String getLANIP() {
+  public static String getLanIp() {
     try {
       return InetAddress.getLocalHost().getHostAddress();
     } catch (final UnknownHostException unknownHostException) {
