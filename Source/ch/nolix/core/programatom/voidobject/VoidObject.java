@@ -3,12 +3,11 @@ package ch.nolix.core.programatom.voidobject;
 
 //class
 /**
- * A {@link VoidObject} is there to have a {@link Object} where needed. A
- * {@link VoidObject} does not have any functionality. A {@link VoidObject} does
- * not have any meaning as for example a null object has.
+ * A {@link VoidObject} is useful where just a {@link Object} is needed. A
+ * {@link VoidObject} does not have any functionality.
  * 
  * @author Silvan Wyss
  * @date 2023-05-30
  */
-public final class VoidObject { //NOSONAR: A Marker VoidObject to be instantiable.
+public final class VoidObject { //NOSONAR: A VoidObject must be instantiable.
 }
