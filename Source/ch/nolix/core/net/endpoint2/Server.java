@@ -113,7 +113,7 @@ public final class Server extends BaseServer {
    */
   @Override
   protected void noteAddedDefaultSlot(final ISlot defaultSlot) {
-    internalServer.addDefaultSlot(new ServerEndPointTaker(defaultSlot.getName(), this));
+    internalServer.addDefaultSlot(new ServerSlot(defaultSlot.getName(), this));
   }
 
   //method
@@ -122,7 +122,7 @@ public final class Server extends BaseServer {
    */
   @Override
   protected void noteAddedSlot(final ISlot slot) {
-    internalServer.addSlot(new ServerEndPointTaker(slot.getName(), this));
+    internalServer.addSlot(new ServerSlot(slot.getName(), this));
   }
 
   //method

@@ -14,7 +14,7 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
  * @author Silvan Wyss
  * @date 2016-06-01
  */
-final class ServerEndPointTaker implements ISlot {
+final class ServerSlot implements ISlot {
 
   //attribute
   private final String name;
@@ -24,8 +24,7 @@ final class ServerEndPointTaker implements ISlot {
 
   //constructor
   /**
-   * Creates a new {@ServerEndPointTaker} that will belong to the given
-   * parentServer.
+   * Creates a new {@ServerSlot} that will belong to the given parentServer.
    * 
    * @param name
    * @param parentServer
@@ -33,7 +32,7 @@ final class ServerEndPointTaker implements ISlot {
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given parentServer is null.
    */
-  public ServerEndPointTaker(final String name, final BaseServer parentServer) {
+  public ServerSlot(final String name, final BaseServer parentServer) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
     GlobalValidator.assertThat(parentServer).thatIsNamed("parent server").isNotNull();
