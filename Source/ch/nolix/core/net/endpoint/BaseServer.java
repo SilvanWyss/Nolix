@@ -123,8 +123,7 @@ public abstract class BaseServer implements IServer {
    * @throws ArgumentDoesNotHaveAttributeException if the given endPoint has a
    *                                               target and the current
    *                                               {@link BaseServer} does not
-   *                                               contain a
-   *                                               {@link ISlot} with a
+   *                                               contain a {@link ISlot} with a
    *                                               name that equals the target of
    *                                               the given endPoint.
    */
@@ -160,14 +159,13 @@ public abstract class BaseServer implements IServer {
   /**
    * @param name
    * @throws InvalidArgumentException if the current {@link BaseServer} contains
-   *                                  already a {@link ISlot} with the
-   *                                  same name as the given slot.
+   *                                  already a {@link ISlot} with the given name.
    */
   private void assertDoesNotContainSlotWithName(final String name) {
     if (containsSlotWithName(name)) {
       throw InvalidArgumentException.forArgumentAndErrorPredicate(
         this,
-        "contains already an EndPointTaker with the name '" + name + "'");
+        "contains already a slot with the name '" + name + "'");
     }
   }
 
@@ -205,9 +203,8 @@ public abstract class BaseServer implements IServer {
    *         {@link BaseServer}.
    * @throws ArgumentDoesNotHaveAttributeException if the current
    *                                               {@link BaseServer} does not
-   *                                               contain a
-   *                                               {@link ISlot} with the
-   *                                               given name.
+   *                                               contain a {@link ISlot} with
+   *                                               the given name.
    */
   private ISlot getStoredSlotName(final String name) {
     return slots.getStoredFirst(ept -> ept.hasName(name));
