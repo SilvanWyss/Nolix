@@ -88,6 +88,15 @@ public abstract class BaseServer implements IServer {
 
   //method
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeSlotByName(final String name) {
+    removeSlot(slots.getStoredFirst(s -> s.hasName(name)));
+  }
+
+  //method
+  /**
    * Lets the current {@link BaseServer} take the given endPoint.
    * 
    * @param endPoint
@@ -137,6 +146,15 @@ public abstract class BaseServer implements IServer {
    * @param endPointTaker
    */
   protected abstract void noteAddedSlot(ISlot endPointTaker);
+
+  //method declaration
+  /**
+   * Lets the current {@link BaseServer} note that the given slot has been
+   * removed.
+   * 
+   * @param slot
+   */
+  protected abstract void noteRemoveSlot(ISlot slot);
 
   //method
   /**
@@ -218,5 +236,24 @@ public abstract class BaseServer implements IServer {
    */
   private ISlot getStoredSlotByName(final String name) {
     return slots.getStoredFirst(ept -> ept.hasName(name));
+  }
+
+  //method
+  /**
+   * Removes the given slot from the current {@link BaseServer}.
+   * 
+   * @param slot
+   * @throws InvalidArgumentException if the current {@link BaseServer} does not
+   *                                  contain the given slot.
+   */
+  private void removeSlot(final ISlot slot) {
+
+    slots.removeFirstOccurrenceOf(slot);
+
+    if (slot == defaultSlot) {
+      defaultSlot = null;
+    }
+
+    noteRemoveSlot(slot);
   }
 }

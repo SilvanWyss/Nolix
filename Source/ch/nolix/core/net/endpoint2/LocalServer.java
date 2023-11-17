@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint2;
 
+//own imports
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 
 //class
@@ -25,6 +26,15 @@ public final class LocalServer extends BaseServer {
    */
   @Override
   protected void noteAddedSlot(final ISlot endPointTaker) {
+    //Does nothing.
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteRemoveSlot(final ISlot slot) {
     //Does nothing.
   }
 }

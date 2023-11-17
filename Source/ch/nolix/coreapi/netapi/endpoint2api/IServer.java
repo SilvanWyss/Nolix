@@ -18,4 +18,7 @@ public interface IServer extends GroupCloseable {
 
   //method declaration
   boolean containsSlotWithName(String name);
+
+  //method declaration
+  void removeSlotByName(String name);
 }

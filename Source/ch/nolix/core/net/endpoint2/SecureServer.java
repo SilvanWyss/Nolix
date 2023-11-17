@@ -46,4 +46,13 @@ public final class SecureServer extends BaseServer {
   protected void noteAddedSlot(final ISlot slot) {
     internalWebSocketServer.addSlot(new ServerEndPointTaker(slot.getName(), this));
   }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteRemoveSlot(final ISlot slot) {
+    internalWebSocketServer.removeSlotByName(slot.getName());
+  }
 }
