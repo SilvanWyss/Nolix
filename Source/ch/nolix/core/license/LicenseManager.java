@@ -4,8 +4,6 @@ package ch.nolix.core.license;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
-//own imports
-import ch.nolix.core.commontype.commontypewrapper.ClassWrapper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.environment.filesystem.FolderAccessor;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
@@ -15,6 +13,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programatom.name.LowerCaseCatalogue;
+import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class
@@ -51,7 +50,7 @@ public final class LicenseManager {
 
     final var key = readKeyFromLicenseFile(licenseType);
 
-    final var license = new ClassWrapper<>(License.class).createInstance();
+    final var license = GlobalClassHelper.createInstanceFromDefaultConstructorOf(License.class);
     license.activate(key);
 
     addLicense(license);
