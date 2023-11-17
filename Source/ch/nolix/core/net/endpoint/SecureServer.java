@@ -3,6 +3,7 @@ package ch.nolix.core.net.endpoint;
 
 //own imports
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
+import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
@@ -46,6 +47,15 @@ public final class SecureServer extends BaseServer {
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
     return new SecureServer(port, htmlPage, paramSSLCertificate);
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public SecurityLevel getSecurityLevel() {
+    return SecurityLevel.SECURE;
   }
 
   //method
