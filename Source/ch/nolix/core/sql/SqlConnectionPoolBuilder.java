@@ -26,7 +26,7 @@ SqlConnectionPool //
       new AndDatabaseNameCapturer<>(
         new WithSqlDatabaseEngineCapturer<>(
           new UsingLoginNameCapturer<>(
-            new AndLoginPasswordCapturer<>(null)))));
+            new AndLoginPasswordCapturer<>()))));
 
     setBuilder(() -> build(ipOrDomain));
   }

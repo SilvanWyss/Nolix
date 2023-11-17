@@ -10,6 +10,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public class ToDatabaseNameCapturer<N> extends ArgumentCapturer<String, N> {
 
   //constructor
+  public ToDatabaseNameCapturer() {
+  }
+
+  //constructor
   public ToDatabaseNameCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }

@@ -10,6 +10,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 public class AndLoginPasswordCapturer<N> extends ArgumentCapturer<String, N> {
 
   //constructor
+  public AndLoginPasswordCapturer() {
+  }
+
+  //constructor
   public AndLoginPasswordCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }

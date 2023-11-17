@@ -14,6 +14,17 @@ public class AndPortCapturer<N> extends ArgumentCapturer<Integer, N> {
   private final int defaultPort;
 
   //constructor
+  public AndPortCapturer(final int defaultPort) {
+
+    GlobalValidator
+      .assertThat(defaultPort)
+      .thatIsNamed("default port")
+      .isBetween(PortCatalogue.MIN_PORT, PortCatalogue.MAX_PORT);
+
+    this.defaultPort = defaultPort;
+  }
+
+  //constructor
   public AndPortCapturer(final int defaultPort, final N nextArgumentCapturer) {
 
     super(nextArgumentCapturer);

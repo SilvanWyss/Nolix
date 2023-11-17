@@ -8,6 +8,10 @@ import ch.nolix.core.builder.main.ArgumentCapturer;
 public class AndPasswordCapturer<N> extends ArgumentCapturer<String, N> {
 
   //constructor
+  public AndPasswordCapturer() {
+  }
+
+  //constructor
   public AndPasswordCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);
   }

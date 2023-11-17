@@ -15,7 +15,7 @@ WithNameCapturer<AndSchemaCapturer<ISchema, NodeDataAdapter>> {
   //constructor
   public NodeDataAdapterBuilder(final IMutableNode<?> nodeDatabase) {
 
-    super(new AndSchemaCapturer<>(null));
+    super(new AndSchemaCapturer<>());
 
     setBuilder(() -> build(nodeDatabase));
   }

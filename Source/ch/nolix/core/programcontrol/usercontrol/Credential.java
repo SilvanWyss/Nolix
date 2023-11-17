@@ -20,7 +20,6 @@ public final class Credential {
 
     //constructor
     private CredentialBuilder(final String loginName) {
-      super(null);
       this.setBuilder(() -> new Credential(loginName, super.getPassword()));
     }
   }

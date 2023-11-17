@@ -9,6 +9,10 @@ import ch.nolix.core.programatom.name.LowerCaseCatalogue;
 //class
 public class UsingLoginNameCapturer<N> extends ArgumentCapturer<String, N> {
 
+  //constructor
+  public UsingLoginNameCapturer() {
+  }
+
   //method
   public UsingLoginNameCapturer(final N nextArgumentCapturer) {
     super(nextArgumentCapturer);

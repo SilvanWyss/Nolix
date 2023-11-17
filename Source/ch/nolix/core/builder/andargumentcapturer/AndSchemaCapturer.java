@@ -5,8 +5,11 @@ package ch.nolix.core.builder.andargumentcapturer;
 import ch.nolix.core.builder.main.ArgumentCapturer;
 
 //class
-public class AndSchemaCapturer<S, N>
-extends ArgumentCapturer<S, N> {
+public class AndSchemaCapturer<S, N> extends ArgumentCapturer<S, N> {
+
+  //constructor
+  public AndSchemaCapturer() {
+  }
 
   //constructor
   public AndSchemaCapturer(final N nextArgumentCapturer) {

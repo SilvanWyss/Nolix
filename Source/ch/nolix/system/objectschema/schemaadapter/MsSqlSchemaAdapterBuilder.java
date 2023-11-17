@@ -20,7 +20,7 @@ AndPortCapturer<ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCa
       defaultPort,
       new ToDatabaseNameCapturer<>(
         new UsingLoginNameCapturer<>(
-          new AndLoginPasswordCapturer<>(null))));
+          new AndLoginPasswordCapturer<>())));
 
     setBuilder(() -> build(ipOrDomain));
   }

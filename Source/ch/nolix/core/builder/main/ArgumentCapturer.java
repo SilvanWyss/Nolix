@@ -25,7 +25,15 @@ A, N> {
   private Supplier<N> builder;
 
   //constructor
+  protected ArgumentCapturer() {
+    nextArgumentCapturer = null;
+  }
+
+  //constructor
   protected ArgumentCapturer(final N nextArgumentCapturer) {
+
+    GlobalValidator.assertThat(nextArgumentCapturer).thatIsNamed("next argument capturer").isNotNull();
+
     this.nextArgumentCapturer = nextArgumentCapturer;
   }
 
