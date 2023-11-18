@@ -2,7 +2,7 @@
 package ch.nolix.core.errorcontrol.validator;
 
 //own imports
-import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
+import ch.nolix.core.commontype.commontypewrapper.UnsignedByte;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 //class
@@ -27,12 +27,12 @@ public class ByteMediator extends Mediator {
   //method
   public void consistsOfBits(final String expectedBits) {
 
-    final var actualBits = new ByteWrapper(argument).toBitString();
+    final var actualBits = new UnsignedByte(argument).toBitString();
 
     if (!actualBits.equals(expectedBits)) {
       throw UnequalArgumentException.forArgumentNameAndArgumentAndValue(
         getArgumentName(),
-        new ByteWrapper(argument).toBitString(),
+        new UnsignedByte(argument).toBitString(),
         expectedBits);
     }
   }

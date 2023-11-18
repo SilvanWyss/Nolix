@@ -2,7 +2,7 @@
 package ch.nolix.core.net.websocket;
 
 //own imports
-import ch.nolix.core.commontype.commontypewrapper.ByteWrapper;
+import ch.nolix.core.commontype.commontypewrapper.UnsignedByte;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
@@ -47,8 +47,8 @@ final class WebSocketFrameFirstNibble {
   //constructor
   public WebSocketFrameFirstNibble(final byte byte1, final byte byte2) {
 
-    final var wrapperByte1 = new ByteWrapper(byte1);
-    final var wrapperByte2 = new ByteWrapper(byte2);
+    final var wrapperByte1 = new UnsignedByte(byte1);
+    final var wrapperByte2 = new UnsignedByte(byte2);
 
     final var RSV1Bit = wrapperByte1.getBitAt(2);
     final var RSV2Bit = wrapperByte1.getBitAt(3);
