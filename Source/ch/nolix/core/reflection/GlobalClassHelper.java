@@ -4,6 +4,7 @@ package ch.nolix.core.reflection;
 //Java imports
 import java.lang.reflect.Constructor;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -16,15 +17,15 @@ public final class GlobalClassHelper {
   }
 
   //static method
-  public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> pClass) {
-    return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(pClass));
+  public static <T> T createInstanceFromDefaultConstructorOf(final Class<T> paramClass) {
+    return GlobalConstructorHelper.createInstanceFromDefaultConstructor(getDefaultConstructorOfClass(paramClass));
   }
 
   //static method
-  public static <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> pClass) {
+  public static <T> Constructor<T> getDefaultConstructorOfClass(final Class<T> paramClass) {
     try {
 
-      final var defaultConstructor = pClass.getDeclaredConstructor();
+      final var defaultConstructor = paramClass.getDeclaredConstructor();
 
       defaultConstructor.setAccessible(true);
 
@@ -35,12 +36,12 @@ public final class GlobalClassHelper {
   }
 
   //static method
-  public static IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> pClass) {
+  public static IContainer<Object> getPublicStaticFieldValuesOfClass(final Class<?> paramClass) {
 
     final var publicStaticFields = new LinkedList<>();
 
     //Iterates the fields of the given Class.
-    for (final var f : pClass.getDeclaredFields()) {
+    for (final var f : paramClass.getDeclaredFields()) {
 
       //Handles the case that the current field is static.
       if (GlobalFieldHelper.isStatic(f) && GlobalMemberHelper.isPublic(f)) {
