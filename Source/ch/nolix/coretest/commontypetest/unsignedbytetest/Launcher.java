@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.commontypetest.commontypewrappertest;
+package ch.nolix.coretest.commontypetest.unsignedbytetest;
 
 //class
 public final class Launcher {
@@ -10,6 +10,6 @@ public final class Launcher {
 
   //main method
   public static void main(String[] args) {
-    new CommonTypeWrapperTestPool().run();
+    new UnsignedTypeTestPool().run();
   }
 }

@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.coretest.commontypetest.commontypewrappertest;
+package ch.nolix.coretest.commontypetest.unsignedbytetest;
 
 import ch.nolix.core.commontype.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-public final class WrapperByteTest extends Test {
+public final class UnsignedByteTest extends Test {
 
   //method
   @TestCase
