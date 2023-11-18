@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.net.websocket;
 
-//own imports
-import ch.nolix.core.commontype.commontypewrapper.UnsignedByte;
+import ch.nolix.core.commontype.unsignedbyte.UnsignedByte;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
