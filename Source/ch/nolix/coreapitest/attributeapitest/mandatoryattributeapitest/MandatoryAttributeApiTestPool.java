@@ -9,6 +9,6 @@ public final class MandatoryAttributeApiTestPool extends TestPool {
 
   //constructor
   public MandatoryAttributeApiTestPool() {
-    super(NameHolderTest.class);
+    super(NameHolderTest.class, TitleHolderTest.class);
   }
 }
