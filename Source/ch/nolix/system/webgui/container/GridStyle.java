@@ -8,7 +8,7 @@ import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.controlstyle.ControlStyle;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.structureproperty.GridType;
+import ch.nolix.systemapi.webguiapi.containerapi.GridType;
 import ch.nolix.systemapi.webguiapi.containerapi.IGridStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 

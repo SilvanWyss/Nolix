@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.structureproperty;
+package ch.nolix.systemapi.webguiapi.containerapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

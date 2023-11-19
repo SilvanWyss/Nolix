@@ -3,7 +3,6 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 
 //own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.guiapi.structureproperty.GridType;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
