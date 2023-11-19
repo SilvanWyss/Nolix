@@ -274,7 +274,7 @@ public final class NetEndPoint extends EndPoint {
    *                                  received a package with the given index.
    */
   private Package getAndRemoveReceivedPackage(final int index) {
-    return getStoredReceivedPackages().removeAndGetRefFirst(rp -> rp.hasIndex(index));
+    return getStoredReceivedPackages().removeAndGetStoredFirst(rp -> rp.hasIndex(index));
   }
 
   //method

@@ -252,7 +252,7 @@ implements IMultiStateConfiguration<MSC, S> {
     final var parentCascadingProperties = LinkedList.fromIterable(parentElement.getStoredCascadingProperties());
 
     for (final var cp : getStoredCascadingProperties()) {
-      cp.setParentProperty(parentCascadingProperties.removeAndGetRefFirst(pp -> pp.hasSameNameAs(cp)));
+      cp.setParentProperty(parentCascadingProperties.removeAndGetStoredFirst(pp -> pp.hasSameNameAs(cp)));
     }
 
     GlobalValidator.assertThat(parentCascadingProperties).thatIsNamed("remaining parent cascading properties")

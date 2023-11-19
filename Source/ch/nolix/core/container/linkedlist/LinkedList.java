@@ -440,7 +440,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public E removeAndGetRefFirst() {
+  public E removeAndGetStoredFirst() {
 
     final var element = getStoredFirst();
 
@@ -457,7 +457,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public E removeAndGetRefFirst(final Predicate<E> selector) {
+  public E removeAndGetStoredFirst(final Predicate<E> selector) {
 
     final var element = getStoredFirst(selector);
 
@@ -473,7 +473,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public E removeAndGetRefLast() {
+  public E removeAndGetStoredLast() {
 
     final var element = getStoredLast();
 

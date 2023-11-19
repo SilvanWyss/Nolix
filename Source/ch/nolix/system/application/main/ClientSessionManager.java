@@ -191,7 +191,7 @@ final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
 
   //method
   private void popTopSessionFromSessionStackWhenContainsCurrentSessionAsTopSession() {
-    final var topSession = sessionStack.removeAndGetRefLast();
+    final var topSession = sessionStack.removeAndGetStoredLast();
     topSession.internalRemoveParentClient();
   }
 

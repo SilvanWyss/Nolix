@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.listapi;
 
+//Java imports
 import java.util.function.Predicate;
 
 //own imports
@@ -10,8 +11,8 @@ import ch.nolix.coreapi.methodapi.skillapi.Copyable;
 
 //interface
 /**
- * A {@link ILinkedList} is a {@link IContainer} where elements can be added or
- * removed.
+ * A {@link ILinkedList} is a {@link IContainer} that can add and remove
+ * elements.
  * 
  * @author Silvan Wyss
  * @date 2022-07-04
@@ -117,7 +118,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * @return the first element of the current {@link ILinkedList}.
    * @throws RuntimeException if the current {@link ILinkedList} is empty.
    */
-  E removeAndGetRefFirst();
+  E removeAndGetStoredFirst();
 
   //method declaration
   /**
@@ -130,7 +131,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * @throws RuntimeException if the current {@link ILinkedList} does not contain
    *                          an element the given selector selects.
    */
-  E removeAndGetRefFirst(Predicate<E> selector);
+  E removeAndGetStoredFirst(Predicate<E> selector);
 
   //method declaration
   /**
@@ -139,7 +140,7 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
    * @return the last element of the current {@link ILinkedList}.
    * @throws RuntimeException if the current {@link ILinkedList} is empty.
    */
-  E removeAndGetRefLast();
+  E removeAndGetStoredLast();
 
   //method declaration
   /**

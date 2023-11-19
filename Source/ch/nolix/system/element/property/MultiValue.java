@@ -156,7 +156,7 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    * @throws EmptyArgumentException if the current {@link MultiValue} is empty.
    */
   public V removeAndGetRefLast() {
-    return values.removeAndGetRefLast();
+    return values.removeAndGetStoredLast();
   }
 
   //method
