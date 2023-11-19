@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.databaseobject.databaseobjecthelper} package defines the
- * types that are declared in the
+ * The {@link ch.nolix.system.databaseobject.databaseobjecthelper} package
+ * defines the types that are declared in the
  * {@link ch.nolix.systemapi.databaseobjectapi.databaseobjecthelperapi}.
  * 
  * @author Silvan Wyss

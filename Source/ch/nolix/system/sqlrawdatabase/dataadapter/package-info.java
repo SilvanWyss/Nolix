@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.sqlrawdatabase.dataadapter} package defines
- * the types that are declared in the
+ * The {@link ch.nolix.system.sqlrawdatabase.dataadapter} package defines the
+ * types that are declared in the
  * {@link ch.nolix.systemapi.rawdatabaseapi.dataadapterapi} package for SQL
  * databases.
  * 

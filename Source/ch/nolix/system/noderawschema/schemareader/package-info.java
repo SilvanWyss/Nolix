@@ -1,7 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.noderawschema.schemareader} package
- * defines a
+ * The {@link ch.nolix.system.noderawschema.schemareader} package defines a
  * {@link ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaReader}.
  * 
  * @author Silvan Wyss

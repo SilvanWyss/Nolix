@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.systemapi.databaseobjectapi.databaseobjecthelperapi} package
- * declares helpers for the types of
+ * The {@link ch.nolix.systemapi.databaseobjectapi.databaseobjecthelperapi}
+ * package declares helpers for the types of
  * {@link ch.nolix.systemapi.databaseobjectapi.databaseobjectapi}.
  * 
  * @author Silvan Wyss

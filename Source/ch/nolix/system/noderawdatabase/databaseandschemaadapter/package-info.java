@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.noderawdatabase.databaseandschemaadapter}
- * package defines the types that are declared in the
+ * The {@link ch.nolix.system.noderawdatabase.databaseandschemaadapter} package
+ * defines the types that are declared in the
  * {@link ch.nolix.systemapi.rawdatabaseapi.databaseandschemaadapterapi} package
  * for databases that base on {@link ch.nolix.core.document.node.BaseNode}s.
  * 

@@ -1,7 +1,7 @@
 //package info
 /**
- * The {@link ch.nolix.system.noderawschema.databaseschemainspector}
- * package defines a database schema inspector.
+ * The {@link ch.nolix.system.noderawschema.databaseschemainspector} package
+ * defines a database schema inspector.
  * 
  * @author Silvan Wyss
  * @date 2021-09-12

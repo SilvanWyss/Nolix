@@ -3,9 +3,10 @@ package ch.nolix.core.errorcontrol.validator;
 
 //class
 /**
- * The {@link GlobalIterableHelper} provides methods to analyse {@link Iterable}s. The
- * {@link GlobalIterableHelper} is not useful for public because it does not use
- * dependencies. Of the {@link GlobalIterableHelper} an instance cannot be created.
+ * The {@link GlobalIterableHelper} provides methods to analyse
+ * {@link Iterable}s. The {@link GlobalIterableHelper} is not useful for public
+ * because it does not use dependencies. Of the {@link GlobalIterableHelper} an
+ * instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2017-09-30

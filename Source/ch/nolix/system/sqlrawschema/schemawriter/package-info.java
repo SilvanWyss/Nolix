@@ -1,7 +1,6 @@
 //package info
 /**
- * The {@link ch.nolix.system.sqlrawschema.schemaadapter} package
- * defines a
+ * The {@link ch.nolix.system.sqlrawschema.schemaadapter} package defines a
  * {@link ch.nolix.systemapi.rawschemaapi.schemaadapterapi.ISchemaWriter}.
  * 
  * @author Silvan Wyss
