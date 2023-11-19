@@ -9,6 +9,6 @@ public final class ServerDashboardTestPool extends TestPool {
 
   //constructor
   public ServerDashboardTestPool() {
-    super();
+    super(WebApplicationExtractorTest.class);
   }
 }
