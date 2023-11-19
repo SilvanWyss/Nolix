@@ -839,7 +839,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
         if (nextNode.contains(element)) {
           removeNextNode(iterator);
-          break;
+          return;
         }
 
         iterator = nextNode;
