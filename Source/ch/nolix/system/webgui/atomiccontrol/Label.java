@@ -15,7 +15,7 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.webgui.main.Control;
-import ch.nolix.systemapi.guiapi.structureproperty.CursorIcon;
+import ch.nolix.systemapi.guiapi.guiproperty.CursorIcon;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabelStyle;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;
