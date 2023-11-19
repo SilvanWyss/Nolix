@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 
 //class

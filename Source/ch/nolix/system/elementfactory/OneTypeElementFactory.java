@@ -11,7 +11,7 @@ import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 
 //class
 final class OneTypeElementFactory<E> {

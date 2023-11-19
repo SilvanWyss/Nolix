@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.multistateconfigurationapi;
 
-import ch.nolix.systemapi.elementapi.mainapi.IRespondingMutableElement;
+import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 
 //interface
 public interface IMultiStateConfiguration<MSC extends IMultiStateConfiguration<MSC, S>, S extends Enum<S>>

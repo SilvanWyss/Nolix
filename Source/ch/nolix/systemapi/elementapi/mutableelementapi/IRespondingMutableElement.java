@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.elementapi.mainapi;
+package ch.nolix.systemapi.elementapi.mutableelementapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

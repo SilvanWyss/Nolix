@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainapi.IMutableElement;
+import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 
 //class
 public final class MutableElementFactory<E> extends ElementFactory<E> {

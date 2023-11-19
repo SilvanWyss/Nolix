@@ -1,10 +1,11 @@
 //package declaration
-package ch.nolix.systemapi.elementapi.mainapi;
+package ch.nolix.systemapi.elementapi.mutableelementapi;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.methodapi.mutationapi.Resettable;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
+import ch.nolix.systemapi.elementapi.mainapi.Specified;
 
 //interface
 /**
