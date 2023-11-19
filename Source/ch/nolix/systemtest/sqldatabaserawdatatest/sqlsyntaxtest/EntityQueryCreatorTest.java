@@ -8,8 +8,8 @@ import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.sqldatabaserawdata.schemainfo.ColumnInfo;
 import ch.nolix.system.sqldatabaserawdata.schemainfo.TableInfo;
 import ch.nolix.system.sqldatabaserawdata.sqlsyntax.EntityQueryCreator;
-import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
-import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
+import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 
 //class
 public final class EntityQueryCreatorTest extends Test {

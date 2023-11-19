@@ -3,7 +3,7 @@ package ch.nolix.system.objectschema.schemahelper;
 
 //own imports
 import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
-import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemahelperapi.IParameterizedPropertyTypeHelper;
 

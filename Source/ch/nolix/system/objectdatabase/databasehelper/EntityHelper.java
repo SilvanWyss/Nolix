@@ -8,7 +8,7 @@ import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDto;
 import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
 import ch.nolix.system.sqldatabaserawdata.databasedto.NewEntityDto;
-import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IEntityHelper;

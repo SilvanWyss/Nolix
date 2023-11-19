@@ -12,7 +12,7 @@ import ch.nolix.system.objectdatabase.schema.Schema;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
 import ch.nolix.system.objectschema.schema.Column;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
-import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 
 //class
 public final class NodeDataAdapterTest extends Test {

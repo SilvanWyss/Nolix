@@ -14,7 +14,7 @@ import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedOptio
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedReferenceType;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedValueType;
-import ch.nolix.systemapi.databaseapi.datatypeapi.DataType;
+import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiBackReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;

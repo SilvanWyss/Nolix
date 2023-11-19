@@ -5,7 +5,7 @@ package ch.nolix.system.objectdatabase.database;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.schemamapper.ColumnMapper;
-import ch.nolix.systemapi.databaseapi.propertytypeapi.BasePropertyType;
+import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 import ch.nolix.systemapi.objectdatabaseapi.schemamapperapi.IColumnMapper;

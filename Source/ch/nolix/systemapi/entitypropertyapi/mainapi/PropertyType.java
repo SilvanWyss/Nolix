@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.databaseapi.propertytypeapi;
+package ch.nolix.systemapi.entitypropertyapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;

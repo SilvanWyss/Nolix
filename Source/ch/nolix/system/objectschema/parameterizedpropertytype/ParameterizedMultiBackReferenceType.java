@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parameterizedpropertytype;
 
-//own imports
-import ch.nolix.systemapi.databaseapi.propertytypeapi.PropertyType;
+import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 
 //class
