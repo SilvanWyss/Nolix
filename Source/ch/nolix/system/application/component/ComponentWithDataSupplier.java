@@ -25,8 +25,6 @@ extends BaseComponent<C, AC> {
     rootControl.linkTo(this);
 
     rebuild(initialDataSupplier);
-
-    doRegistrations(controller, initialDataSupplier);
   }
 
   //method
@@ -46,9 +44,6 @@ extends BaseComponent<C, AC> {
 
   //method declaration
   protected abstract IControl<?, ?> createControl(C controller, DS dataAdapter);
-
-  //method declaration
-  protected abstract void doRegistrations(C controller, DS dataSupplier);
 
   //method
   private DS createDataSupplier() {
