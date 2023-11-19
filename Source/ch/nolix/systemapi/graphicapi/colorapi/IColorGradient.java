@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.graphicapi.colorapi;
 
 import ch.nolix.systemapi.elementapi.specificationapi.Specified;
-import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
+import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
 //interface
 /**
@@ -27,5 +27,5 @@ public interface IColorGradient extends Specified {
   /**
    * @return the direction of the current {@link IColorGradient}.
    */
-  DirectionInRectangle getDirection();
+  DirectionInCanvas getDirection();
 }

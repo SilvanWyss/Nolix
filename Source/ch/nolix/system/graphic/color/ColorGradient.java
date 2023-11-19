@@ -12,7 +12,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.element.main.Element;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
-import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
+import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
 //class
 /**
@@ -25,14 +25,14 @@ public final class ColorGradient extends Element implements IColorGradient {
 
   //constant
   public static final ColorGradient VERTICAL_BLACK_WHITE_COLOR_GRADIENT = new ColorGradient(
-    DirectionInRectangle.VERTICAL, Color.BLACK, Color.WHITE);
+    DirectionInCanvas.VERTICAL, Color.BLACK, Color.WHITE);
 
   //constant
-  public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT = new ColorGradient(DirectionInRectangle.VERTICAL,
+  public static final ColorGradient VERTICAL_RED_WHITE_COLOR_GRADIENT = new ColorGradient(DirectionInCanvas.VERTICAL,
     Color.RED, Color.WHITE);
 
   //constant
-  public static final DirectionInRectangle DEFAULT_DIRECTION = DirectionInRectangle.VERTICAL;
+  public static final DirectionInCanvas DEFAULT_DIRECTION = DirectionInCanvas.VERTICAL;
 
   //constant
   public static final Color DEFAULT_COLOR1 = Color.BLACK;
@@ -41,7 +41,7 @@ public final class ColorGradient extends Element implements IColorGradient {
   public static final Color DEFAULT_COLOR2 = Color.WHITE;
 
   //attribute
-  private final DirectionInRectangle direction;
+  private final DirectionInCanvas direction;
 
   //attribute
   private final Color color1;
@@ -82,7 +82,7 @@ public final class ColorGradient extends Element implements IColorGradient {
    * @param direction
    * @throws ArgumentIsNullException if the given direction is null.
    */
-  public ColorGradient(final DirectionInRectangle direction) {
+  public ColorGradient(final DirectionInCanvas direction) {
 
     //Calls other constructor.
     this(direction, DEFAULT_COLOR1, DEFAULT_COLOR2);
@@ -100,7 +100,7 @@ public final class ColorGradient extends Element implements IColorGradient {
    * @throws ArgumentIsNullException if the given color 1 is null.
    * @throws ArgumentIsNullException if the given color 2 is null.
    */
-  public ColorGradient(final DirectionInRectangle direction, final Color color1, final Color color2) {
+  public ColorGradient(final DirectionInCanvas direction, final Color color1, final Color color2) {
 
     //Asserts that the given direction is not null.
     GlobalValidator.assertThat(direction).thatIsNamed("direction").isNotNull();
@@ -165,7 +165,7 @@ public final class ColorGradient extends Element implements IColorGradient {
     final var color2Specification = Node.withChildNode(attributes.getStoredAt1BasedIndex(3));
 
     return new ColorGradient(
-      DirectionInRectangle.fromSpecification(directionSpecification),
+      DirectionInCanvas.fromSpecification(directionSpecification),
       Color.fromSpecification(color1Specification),
       Color.fromSpecification(color2Specification));
   }
@@ -205,7 +205,7 @@ public final class ColorGradient extends Element implements IColorGradient {
    * {@inheritDoc}
    */
   @Override
-  public DirectionInRectangle getDirection() {
+  public DirectionInCanvas getDirection() {
     return direction;
   }
 }

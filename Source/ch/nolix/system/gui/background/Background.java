@@ -28,7 +28,7 @@ import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
-import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
+import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
 //class
 public final class Background extends Element implements IBackground {
@@ -315,7 +315,7 @@ public final class Background extends Element implements IBackground {
   }
 
   //method
-  private int getDegreeOfDirection(final DirectionInRectangle direction) {
+  private int getDegreeOfDirection(final DirectionInCanvas direction) {
     return switch (direction) {
       case VERTICAL ->
         180;
