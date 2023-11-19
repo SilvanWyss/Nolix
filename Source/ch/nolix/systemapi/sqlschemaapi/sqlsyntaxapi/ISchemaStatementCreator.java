@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi;
+package ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi;
 
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 
 //interface
 public interface ISchemaStatementCreator {

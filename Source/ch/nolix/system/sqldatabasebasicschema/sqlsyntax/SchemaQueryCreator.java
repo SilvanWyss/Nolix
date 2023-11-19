@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
 
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
+import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
 //class
 public final class SchemaQueryCreator implements ISchemaQueryCreator {

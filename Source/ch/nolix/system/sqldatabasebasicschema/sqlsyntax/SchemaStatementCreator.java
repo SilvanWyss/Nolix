@@ -2,11 +2,11 @@
 package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
 
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 //class
 public final class SchemaStatementCreator implements ISchemaStatementCreator {

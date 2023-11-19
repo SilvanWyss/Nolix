@@ -8,10 +8,10 @@ import ch.nolix.core.sql.SqlCollector;
 import ch.nolix.core.sql.SqlConnection;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaWriter;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaWriter;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaStatementCreator;
 
 //class
 public final class SchemaWriter implements ISchemaWriter {

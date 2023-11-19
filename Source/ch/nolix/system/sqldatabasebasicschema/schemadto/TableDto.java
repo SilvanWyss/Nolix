@@ -7,8 +7,8 @@ import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 
 //class
 public final class TableDto implements ITableDto {

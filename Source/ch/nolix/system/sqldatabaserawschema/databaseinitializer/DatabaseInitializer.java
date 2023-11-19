@@ -5,7 +5,7 @@ package ch.nolix.system.sqldatabaserawschema.databaseinitializer;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.sqldatabaserawschema.databaseschemainspector.DatabaseSchemaInspector;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 public final class DatabaseInitializer {

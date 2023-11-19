@@ -2,7 +2,7 @@
 /**
  * The {@link ch.nolix.system.sqldatabasebasicschema.schemaadapter} package
  * defines base types of the types that are declared in the
- * {@link ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi}
+ * {@link ch.nolix.systemapi.sqlschemaapi.schemaadapterapi}
  * package.
  * 
  * @author Silvan Wyss

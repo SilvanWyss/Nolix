@@ -11,11 +11,11 @@ import ch.nolix.system.sqldatabasebasicschema.flatschemadto.FlatTableDto;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDto;
 import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaReader;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
+import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaReader;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
 //class
 final class SchemaReader implements ISchemaReader {

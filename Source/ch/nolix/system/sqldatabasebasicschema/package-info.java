@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.system.sqldatabasebasicschema} package defines the types
- * that are declared in the {@link ch.nolix.systemapi.sqldatabasebasicschemaapi}
+ * that are declared in the {@link ch.nolix.systemapi.sqlschemaapi}
  * package.
  * 
  * @author Silvan Wyss

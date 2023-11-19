@@ -6,8 +6,8 @@ import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiEntryTableType;
 import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IColumnDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 
 //class
 public final class MultiValueEntryTableSqlDtoCatalogue {

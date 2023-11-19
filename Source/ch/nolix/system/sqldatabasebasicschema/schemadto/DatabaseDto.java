@@ -6,8 +6,8 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDatabaseDto;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ITableDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDatabaseDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 
 //class
 public record DatabaseDto(String name, ImmutableList<ITableDto> tables) implements IDatabaseDto {

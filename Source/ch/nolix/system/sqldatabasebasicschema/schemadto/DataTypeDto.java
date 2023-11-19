@@ -5,7 +5,7 @@ package ch.nolix.system.sqldatabasebasicschema.schemadto;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IDataTypeDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IDataTypeDto;
 
 //class
 public final class DataTypeDto implements IDataTypeDto {

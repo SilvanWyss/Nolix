@@ -11,7 +11,7 @@ import ch.nolix.system.sqldatabaserawschema.multivalueentrytable.MultiValueEntry
 import ch.nolix.system.sqldatabaserawschema.structure.SystemDataTable;
 import ch.nolix.system.sqldatabaserawschema.tabletable.TableTableSqlDtoCatalogue;
 import ch.nolix.system.time.moment.Time;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemaadapterapi.ISchemaAdapter;
+import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class InternalDatabaseInitializer {

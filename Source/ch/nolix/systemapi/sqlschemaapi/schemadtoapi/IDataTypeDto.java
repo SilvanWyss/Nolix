@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi;
+package ch.nolix.systemapi.sqlschemaapi.schemadtoapi;
 
 //interface
 public interface IDataTypeDto {

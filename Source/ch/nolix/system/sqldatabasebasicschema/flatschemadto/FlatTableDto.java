@@ -4,7 +4,7 @@ package ch.nolix.system.sqldatabasebasicschema.flatschemadto;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi.IFlatTableDto;
+import ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi.IFlatTableDto;
 
 //class
 public record FlatTableDto(String name) implements IFlatTableDto {

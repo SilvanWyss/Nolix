@@ -5,8 +5,8 @@ package ch.nolix.system.sqldatabasebasicschema.schemadto;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.ConstraintType;
-import ch.nolix.systemapi.sqldatabasebasicschemaapi.schemadtoapi.IConstraintDto;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ConstraintType;
+import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IConstraintDto;
 
 //class
 public record ConstraintDto(ConstraintType type, ImmutableList<String> parameters) implements IConstraintDto {

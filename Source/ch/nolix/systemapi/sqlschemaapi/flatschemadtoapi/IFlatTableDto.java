@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.sqldatabasebasicschemaapi.flatschemadtoapi;
+package ch.nolix.systemapi.sqlschemaapi.flatschemadtoapi;
 
 //interface
 public interface IFlatTableDto {
