@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.gui.canvas;
+package ch.nolix.system.gui.background;
 
 //Java imports
 import java.util.Locale;

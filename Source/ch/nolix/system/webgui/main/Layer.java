@@ -16,7 +16,7 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.webgui.mainvalidator.LayerValidator;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;

@@ -16,7 +16,7 @@ import ch.nolix.system.element.property.MutableValue;
 import ch.nolix.system.element.style.StyleElement;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.Image;
-import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.gui.frontend.LocalFrontEndReader;
 import ch.nolix.system.gui.frontend.LocalFrontEndWriter;
 import ch.nolix.system.gui.iconresource.IconCatalogue;

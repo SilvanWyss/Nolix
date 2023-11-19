@@ -7,7 +7,7 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.element.multistateconfiguration.ForwardingProperty;
 import ch.nolix.system.element.multistateconfiguration.NonCascadingProperty;
 import ch.nolix.system.graphic.color.Color;
-import ch.nolix.system.gui.canvas.Background;
+import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
