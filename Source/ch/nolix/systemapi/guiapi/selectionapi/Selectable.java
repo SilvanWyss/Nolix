@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.guiapi.processapi;
+package ch.nolix.systemapi.guiapi.selectionapi;
 
 //interface
 public interface Selectable extends SelectionRequestable {

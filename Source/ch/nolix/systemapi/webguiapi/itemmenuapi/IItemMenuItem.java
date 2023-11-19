@@ -4,7 +4,7 @@ package ch.nolix.systemapi.webguiapi.itemmenuapi;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.methodapi.requestapi.BlanknessRequestable;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
-import ch.nolix.systemapi.guiapi.processapi.Selectable;
+import ch.nolix.systemapi.guiapi.selectionapi.Selectable;
 
 //interface
 public interface IItemMenuItem<IMI extends IItemMenuItem<IMI>>
