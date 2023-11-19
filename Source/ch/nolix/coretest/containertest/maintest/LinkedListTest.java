@@ -3,7 +3,9 @@ package ch.nolix.coretest.containertest.maintest;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
@@ -100,7 +102,21 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
-  public void testCase_clear() {
+  public void testCase_clear_whenIsEmpty() {
+
+    //setup
+    final var testUnit = new LinkedList<String>();
+
+    //execution
+    testUnit.clear();
+
+    //verification
+    expect(testUnit.isEmpty());
+  }
+
+  //method
+  @TestCase
+  public void testCase_clear_whenContainsAny() {
 
     //setup
     final var testUnit = LinkedList.withElement("x", "xx", "xxx", "xxxx", "xxxxx", "xxxxxx");
@@ -110,6 +126,79 @@ public final class LinkedListTest extends ContainerTest {
 
     //verification
     expect(testUnit.isEmpty());
+  }
+
+  //method
+  @TestCase
+  public void testCase_removeFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
+
+    //setup
+    final var element1 = new VoidObject();
+    final var element2 = new VoidObject();
+    final var element3 = new VoidObject();
+    final var element4 = new VoidObject();
+    final var element5 = new VoidObject();
+    final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
+
+    //execution
+    testUnit.removeFirstOccurrenceOf(element5);
+
+    //verification
+    expect(testUnit).containsExactly(element1, element2, element3, element4);
+  }
+
+  //method
+  @TestCase
+  public void testCase_removeFirstOccurrenceOf_whenContainsTheGivenElement() {
+
+    //setup
+    final var element1 = new VoidObject();
+    final var element2 = new VoidObject();
+    final var element3 = new VoidObject();
+    final var element4 = new VoidObject();
+    final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
+
+    //execution
+    testUnit.removeFirstOccurrenceOf(element3);
+
+    //verification
+    expect(testUnit).containsExactly(element1, element2, element4);
+  }
+
+  //method
+  @TestCase
+  public void testCase_removeStrictlyFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
+
+    //setup
+    final var element1 = new VoidObject();
+    final var element2 = new VoidObject();
+    final var element3 = new VoidObject();
+    final var element4 = new VoidObject();
+    final var element5 = new VoidObject();
+    final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
+
+    //execution & verification
+    expectRunning(() -> testUnit.removeStrictlyFirstOccurrenceOf(element5))
+      .throwsException()
+      .ofType(ArgumentDoesNotContainElementException.class);
+  }
+
+  //method
+  @TestCase
+  public void testCase_removeStrictlyFirstOccurrenceOf_whenContainsTheGivenElement() {
+
+    //setup
+    final var element1 = new VoidObject();
+    final var element2 = new VoidObject();
+    final var element3 = new VoidObject();
+    final var element4 = new VoidObject();
+    final var testUnit = LinkedList.withElement(element1, element2, element3, element4);
+
+    //execution
+    testUnit.removeStrictlyFirstOccurrenceOf(element3);
+
+    //verification
+    expect(testUnit).containsExactly(element1, element2, element4);
   }
 
   //method
