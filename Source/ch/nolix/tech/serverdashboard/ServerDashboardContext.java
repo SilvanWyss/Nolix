@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.tech.serverdashboard;
 
-import ch.nolix.core.container.linkedlist.LinkedList;
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
@@ -13,6 +13,9 @@ import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
 public final class ServerDashboardContext implements IServerDashboardContext {
+
+  //constant
+  private static final WebApplicationExtractor WEB_APPLICATION_EXTRACTOR = new WebApplicationExtractor();
 
   //attribute
   private final BaseServer<?> server;
@@ -38,25 +41,6 @@ public final class ServerDashboardContext implements IServerDashboardContext {
 
   //method
   private IContainer<Application<WebClient<?>, ?>> getStoredWebApplications() {
-
-    final var webApplications = new LinkedList<Application<WebClient<?>, ?>>();
-
-    for (final var a : server.getStoredApplications()) {
-      if (isWebApplication(a)) {
-
-        @SuppressWarnings("unchecked")
-        final var webApplication = (Application<WebClient<?>, ?>) a;
-
-        webApplications.addAtEnd(webApplication);
-      }
-    }
-
-    return webApplications;
-  }
-
-  //method
-  private boolean isWebApplication(final Application<?, ?> application) {
-    return application != null
-    && application.getClientClass() == WebClient.class;
+    return WEB_APPLICATION_EXTRACTOR.getStoredWebApplicationsOfServer(server);
   }
 }
