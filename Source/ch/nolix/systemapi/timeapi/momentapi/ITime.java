@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.momentapi;
 
-import ch.nolix.systemapi.elementapi.mainapi.Specified;
+import ch.nolix.systemapi.elementapi.specificationapi.Specified;
 import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 

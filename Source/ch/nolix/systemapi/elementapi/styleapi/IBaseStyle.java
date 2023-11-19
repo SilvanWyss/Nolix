@@ -4,7 +4,7 @@ package ch.nolix.systemapi.elementapi.styleapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.mainapi.Specified;
+import ch.nolix.systemapi.elementapi.specificationapi.Specified;
 
 //interface
 /**

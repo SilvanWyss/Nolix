@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.structureapi;
 
-import ch.nolix.systemapi.elementapi.mainapi.Specified;
+import ch.nolix.systemapi.elementapi.specificationapi.Specified;
 
 //interface
 /**

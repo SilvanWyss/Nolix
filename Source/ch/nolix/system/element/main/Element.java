@@ -4,7 +4,7 @@ package ch.nolix.system.element.main;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.system.element.mutableelement.MutableElement;
-import ch.nolix.systemapi.elementapi.mainapi.Specified;
+import ch.nolix.systemapi.elementapi.specificationapi.Specified;
 
 //class
 /**
