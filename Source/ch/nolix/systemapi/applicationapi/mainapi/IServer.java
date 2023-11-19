@@ -2,6 +2,7 @@
 package ch.nolix.systemapi.applicationapi.mainapi;
 
 //own imports
+import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
@@ -13,7 +14,7 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  * @author Silvan Wyss
  * @date 2023-11-19
  */
-public interface IServer extends GroupCloseable {
+public interface IServer extends Clearable, GroupCloseable {
 
   //method declaration
   /**

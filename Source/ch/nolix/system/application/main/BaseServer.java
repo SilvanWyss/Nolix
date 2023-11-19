@@ -254,6 +254,12 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
   }
 
   //method
+  @Override
+  public final void clear() {
+    getStoredApplications().forEach(this::removeApplication);
+  }
+
+  //method
   /**
    * @return true if the current {@link BaseServer} contains a default
    *         {@link Application}.
@@ -331,6 +337,15 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
     assertContainsDefaultApplication();
 
     return defaultApplication;
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final boolean isEmpty() {
+    return getStoredApplications().isEmpty();
   }
 
   //method

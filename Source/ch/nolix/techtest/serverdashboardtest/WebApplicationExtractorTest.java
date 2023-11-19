@@ -10,7 +10,6 @@ import ch.nolix.tech.serverdashboard.WebApplicationExtractor;
 //class
 public final class WebApplicationExtractorTest extends Test {
 
-  //TODO: Make BaseServer a Clearable.
   @TestCase
   public void testCase_whenTheGivenServerDoesNotContainWebApplications() {
 
@@ -19,7 +18,7 @@ public final class WebApplicationExtractorTest extends Test {
     final var testUnit = new WebApplicationExtractor();
 
     //setup verification
-    expect(server.getStoredApplications()).isEmpty();
+    expect(server.isEmpty());
 
     //execution
     final var result = testUnit.getStoredWebApplicationsOfServer(server);
