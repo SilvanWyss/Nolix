@@ -5,11 +5,11 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDto;
-import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
-import ch.nolix.system.sqldatabaserawdata.databasedto.NewEntityDto;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntax.EntityStatementCreator;
+import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
+import ch.nolix.system.sqlrawdatabase.databasedto.EntityHeadDto;
+import ch.nolix.system.sqlrawdatabase.databasedto.EntityUpdateDto;
+import ch.nolix.system.sqlrawdatabase.databasedto.NewEntityDto;
+import ch.nolix.system.sqlrawdatabase.sqlsyntax.EntityStatementCreator;
 
 //class
 public final class EntityStatementCreatorTest extends Test {

@@ -29,7 +29,7 @@ AndPortCapturer<ToDatabaseNameCapturer<UsingLoginNameCapturer<AndLoginPasswordCa
   private MsSqlSchemaAdapter build(final String ipOrDomain) {
     return new MsSqlSchemaAdapter(
       next().getDatabaseName(),
-      ch.nolix.system.sqldatabaserawschema.schemaadapter.MsSqlSchemaAdapter
+      ch.nolix.system.sqlrawschema.schemaadapter.MsSqlSchemaAdapter
         .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
           next().getDatabaseName(),
           SqlConnectionPool

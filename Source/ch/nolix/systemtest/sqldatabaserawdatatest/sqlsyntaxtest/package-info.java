@@ -1,7 +1,7 @@
 //package info
 /**
  * The {@link ch.nolix.systemtest.sqldatabaserawdatatest.sqlsyntaxtest} package
- * defines tests for the {@link ch.nolix.system.sqldatabaserawdata.sqlsyntax}
+ * defines tests for the {@link ch.nolix.system.sqlrawdatabase.sqlsyntax}
  * package.
  * 
  * @author Silvan Wyss

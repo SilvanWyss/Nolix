@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.objectdatabase.propertyhelper.OptionalValueHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.OptionalValueValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;

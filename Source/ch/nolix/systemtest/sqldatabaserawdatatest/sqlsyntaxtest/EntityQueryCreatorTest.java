@@ -5,9 +5,9 @@ package ch.nolix.systemtest.sqldatabaserawdatatest.sqlsyntaxtest;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.sqldatabaserawdata.schemainfo.ColumnInfo;
-import ch.nolix.system.sqldatabaserawdata.schemainfo.TableInfo;
-import ch.nolix.system.sqldatabaserawdata.sqlsyntax.EntityQueryCreator;
+import ch.nolix.system.sqlrawdatabase.schemainfo.ColumnInfo;
+import ch.nolix.system.sqlrawdatabase.schemainfo.TableInfo;
+import ch.nolix.system.sqlrawdatabase.sqlsyntax.EntityQueryCreator;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 

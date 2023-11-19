@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.dataadapter;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;
-import ch.nolix.system.nodedatabaserawdata.databaseandschemaadapter.DataAndSchemaAdapter;
+import ch.nolix.system.noderawdatabase.databaseandschemaadapter.DataAndSchemaAdapter;
 import ch.nolix.system.objectdatabase.database.DataAdapter;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;

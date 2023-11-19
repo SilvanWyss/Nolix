@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.database;
 //own imports
 import ch.nolix.system.objectdatabase.propertyhelper.ValueHelper;
 import ch.nolix.system.objectdatabase.propertyvalidator.ValueValidator;
-import ch.nolix.system.sqldatabaserawdata.databasedto.ContentFieldDto;
+import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IValue;
