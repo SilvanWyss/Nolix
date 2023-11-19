@@ -5,7 +5,7 @@ package ch.nolix.systemtest.objectdatabasetest.databasetest;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.objectdatabase.database.Value;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 
 //class
 public final class ValueTest extends Test {

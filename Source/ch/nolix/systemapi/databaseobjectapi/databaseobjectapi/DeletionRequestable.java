@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.databaseapi.databaseobjectapi;
+package ch.nolix.systemapi.databaseobjectapi.databaseobjectapi;
 
 //interface
 public interface DeletionRequestable {

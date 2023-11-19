@@ -9,7 +9,7 @@ import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.schema.Schema;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 
 //class
 public final class ValueOnDatabaseTest extends Test {

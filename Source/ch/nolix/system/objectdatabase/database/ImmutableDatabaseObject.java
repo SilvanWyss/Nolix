@@ -3,8 +3,8 @@ package ch.nolix.system.objectdatabase.database;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
 //class
 abstract class ImmutableDatabaseObject implements GroupCloseable, IDatabaseObject {

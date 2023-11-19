@@ -2,7 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.timeapi.momentapi.ITime;
 
 //interface

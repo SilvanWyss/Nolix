@@ -1,5 +1,5 @@
 //package
-package ch.nolix.systemapi.databaseapi.databaseobjectapi;
+package ch.nolix.systemapi.databaseobjectapi.databaseobjectapi;
 
 import ch.nolix.coreapi.methodapi.requestapi.CloseStateRequestable;
 

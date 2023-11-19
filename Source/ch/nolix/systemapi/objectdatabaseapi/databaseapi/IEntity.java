@@ -4,8 +4,8 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.Deletable;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.Deletable;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IEntity extends Deletable, IDatabaseObject, IIdHolder {

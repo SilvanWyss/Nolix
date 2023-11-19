@@ -9,7 +9,7 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.objectdatabase.propertyflyweight.PropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyflyweight.VoidPropertyFlyWeight;
 import ch.nolix.system.objectdatabase.propertyvalidator.PropertyValidator;
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.DatabaseObjectState;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;

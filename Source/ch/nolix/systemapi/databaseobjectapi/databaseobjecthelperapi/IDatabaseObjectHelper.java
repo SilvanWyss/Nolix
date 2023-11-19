@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.systemapi.databaseapi.databaseobjecthelperapi;
+package ch.nolix.systemapi.databaseobjectapi.databaseobjecthelperapi;
 
-//own imports
-import ch.nolix.systemapi.databaseapi.databaseobjectapi.IDatabaseObject;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
 //interface
 public interface IDatabaseObjectHelper {
