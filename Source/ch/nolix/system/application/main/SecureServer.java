@@ -8,6 +8,7 @@ import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class
 public final class SecureServer extends BaseServer<SecureServer> {
@@ -114,5 +115,14 @@ public final class SecureServer extends BaseServer<SecureServer> {
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
     internalWebSocketServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteRemovedApplication(final IApplication<?> application) {
+    internalWebSocketServer.removeSlotByName(application.getUrlInstanceName());
   }
 }

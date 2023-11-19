@@ -26,4 +26,15 @@ public interface IServer extends GroupCloseable {
    * @return the {@link SecurityLevel} of the current {@link IServer}.
    */
   SecurityLevel getSecurityLevel();
+
+  //method
+  /**
+   * Removes the {@link IApplication} with the given instanceName from the current
+   * {@link IServer}.
+   * 
+   * @param instanceName
+   * @throws RuntimeException if the current {@link IServer} does not contain a
+   *                          {@link IApplication} with the given instance name.
+   */
+  void removeApplicationByInstanceName(final String instanceName);
 }

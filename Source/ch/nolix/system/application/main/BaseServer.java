@@ -4,6 +4,7 @@ package ch.nolix.system.application.main;
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -11,6 +12,7 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
 //class
@@ -350,6 +352,18 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
   //method
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final void removeApplicationByInstanceName(final String instanceName) {
+
+    final var application = getStoredApplicationByInstanceName(instanceName);
+
+    removeApplication(application);
+  }
+
+  //method
+  /**
    * Lets the current {@link BaseServer} take the given client.
    * 
    * @param client
@@ -385,7 +399,8 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
   //method declaration
   /**
-   * Notes that the curent {@link BaseServer} has added the given application.
+   * Notes that the given application has been added to the current
+   * {@link BaseServer}.
    * 
    * @param application
    */
@@ -393,12 +408,21 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
   //method declaration
   /**
-   * Notes that the curent {@link BaseServer} has added the given
-   * defaultApplication2.
+   * Notes that the given defaultApplication has been added to the current
+   * {@link BaseServer}.
    * 
-   * @param defaultApplication2
+   * @param defaultApplication
    */
-  protected abstract void noteAddedDefaultApplication(Application<?, ?> defaultApplication2);
+  protected abstract void noteAddedDefaultApplication(Application<?, ?> defaultApplication);
+
+  //method declaration
+  /**
+   * Notes that the given application has been removed fromt the current
+   * {@link BaseServer}.
+   * 
+   * @param application
+   */
+  protected abstract void noteRemovedApplication(IApplication<?> application);
 
   //method
   /**
@@ -465,5 +489,25 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
         this,
         "contains already an Application with the name '" + name + "'");
     }
+  }
+
+  //method
+  /**
+   * Removes the given application from the current {@link BaseServer}
+   * 
+   * @param application
+   * @throws ArgumentDoesNotContainElementException if the current
+   *                                                {@link BaseServer} does not
+   *                                                contain the given application.
+   */
+  private void removeApplication(final IApplication<?> application) {
+
+    applications.removeFirstOccurrenceOf(application);
+
+    if (application == defaultApplication) {
+      defaultApplication = null;
+    }
+
+    noteRemovedApplication(application);
   }
 }

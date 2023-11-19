@@ -5,6 +5,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class
 /**
@@ -52,6 +53,15 @@ public final class LocalServer extends BaseServer<LocalServer> {
    */
   @Override
   protected void noteAddedDefaultApplication(Application<?, ?> defaultApplication2) {
+    //Does nothing.
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteRemovedApplication(IApplication<?> application) {
     //Does nothing.
   }
 }

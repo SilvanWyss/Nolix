@@ -8,6 +8,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
+import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
 //class
 /**
@@ -126,5 +127,14 @@ public final class Server extends BaseServer<Server> {
   @Override
   protected void noteAddedDefaultApplication(final Application<?, ?> defaultApplication) {
     internalServer.addDefaultSlot(new ServerSlot(defaultApplication.getUrlInstanceName(), this));
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected void noteRemovedApplication(final IApplication<?> application) {
+    internalServer.removeSlotByName(application.getUrlInstanceName());
   }
 }
