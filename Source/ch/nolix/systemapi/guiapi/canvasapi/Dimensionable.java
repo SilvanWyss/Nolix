@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.canvasapi;
 
-//own imports
-import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 
 //interface
 public interface Dimensionable<D extends Dimensionable<D>> {

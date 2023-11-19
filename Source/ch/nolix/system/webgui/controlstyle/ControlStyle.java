@@ -11,12 +11,12 @@ import ch.nolix.system.gui.background.Background;
 import ch.nolix.system.structure.AbsoluteOrRelativeInt;
 import ch.nolix.system.structure.AbsoluteOrRelativeIntValidator;
 import ch.nolix.systemapi.elementapi.multistateconfigurationapi.IMultiStateConfiguration;
+import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
-import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 

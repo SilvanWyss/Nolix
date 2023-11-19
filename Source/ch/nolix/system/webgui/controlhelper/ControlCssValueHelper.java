@@ -1,9 +1,9 @@
 //package declaration
 package ch.nolix.system.webgui.controlhelper;
 
+import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 //own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
-import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
 
 //class
 public final class ControlCssValueHelper {

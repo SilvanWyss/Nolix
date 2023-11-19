@@ -3,7 +3,7 @@ package ch.nolix.system.structure;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 
 //class
 public final class AbsoluteOrRelativeIntValidator {

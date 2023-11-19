@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.controlstyleapi;
 
-//own imports
-import ch.nolix.systemapi.structureapi.IAbsoluteOrRelativeInt;
+import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 import ch.nolix.systemapi.webguiapi.mainapi.ControlState;
 
 //interface
