@@ -11,9 +11,7 @@ import ch.nolix.core.programatom.voidobject.VoidObject;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
-import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
-import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
+import ch.nolix.systemapi.applicationapi.mainapi.IServer;
 
 //class
 /**
@@ -24,7 +22,7 @@ import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
  * @author Silvan Wyss
  * @date 2016-11-01
  */
-public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupCloseable {
+public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
 
   //attribute
   private final CloseController closeController = CloseController.forElement(this);
@@ -255,12 +253,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
 
   //method
   /**
-   * @return the current {@link Server} as {@link IServerTarget}.
-   */
-  public abstract IServerTarget asTarget();
-
-  //method
-  /**
    * @return true if the current {@link BaseServer} contains a default
    *         {@link Application}.
    */
@@ -277,12 +269,6 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements GroupClos
   public final boolean containsApplicationWithName(final String name) {
     return applications.containsAny(a -> a.getInstanceName().equals(name));
   }
-
-  //method declaration
-  /**
-   * @return the {@link SecurityLevel} of the current {@link BaseServer}.
-   */
-  public abstract SecurityLevel getSecurityLevel();
 
   //method
   /**
