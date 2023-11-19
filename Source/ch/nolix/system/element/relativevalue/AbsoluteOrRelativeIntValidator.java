@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.structure;
+package ch.nolix.system.element.relativevalue;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

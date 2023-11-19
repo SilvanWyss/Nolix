@@ -7,7 +7,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.structure.AbsoluteOrRelativeInt;
+import ch.nolix.system.element.relativevalue.AbsoluteOrRelativeInt;
 
 //class
 public final class AbsoluteOrRelativeIntTest extends Test {
