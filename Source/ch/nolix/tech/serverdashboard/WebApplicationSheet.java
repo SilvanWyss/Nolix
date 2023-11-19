@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.tech.serverdashboardlogic;
+package ch.nolix.tech.serverdashboard;
 
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;

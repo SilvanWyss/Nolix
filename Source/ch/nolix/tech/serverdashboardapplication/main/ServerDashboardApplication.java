@@ -4,8 +4,8 @@ package ch.nolix.tech.serverdashboardapplication.main;
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;
+import ch.nolix.tech.serverdashboard.ServerDashboardContext;
 import ch.nolix.tech.serverdashboardapplication.view.ServerDashboardSession;
-import ch.nolix.tech.serverdashboardlogic.ServerDashboardContext;
 import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
 
 //class
