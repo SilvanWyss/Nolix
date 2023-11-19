@@ -1,14 +1,14 @@
 //package declaration
-package ch.nolix.systemtest.structuretest;
+package ch.nolix.systemtest.elementtest.relativevaluetest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
 
 //class
-public final class StructureTestPool extends TestPool {
+public final class RelativeValueTestPool extends TestPool {
 
   //constructor
-  public StructureTestPool() {
+  public RelativeValueTestPool() {
     super(
       AbsoluteOrRelativeIntTest.class);
   }

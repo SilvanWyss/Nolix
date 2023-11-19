@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.structuretest;
+package ch.nolix.systemtest.elementtest.relativevaluetest;
 
 //class
 public final class Launcher {
@@ -10,6 +10,6 @@ public final class Launcher {
 
   //main method
   public static void main(String[] args) {
-    new StructureTestPool().run();
+    new RelativeValueTestPool().run();
   }
 }

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.structuretest;
+package ch.nolix.systemtest.elementtest.relativevaluetest;
 
 //own imports
 import ch.nolix.core.document.node.Node;

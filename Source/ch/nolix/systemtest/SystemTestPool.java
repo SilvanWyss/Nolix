@@ -12,7 +12,6 @@ import ch.nolix.systemtest.objectdatabasetest.ObjectDatabaseTestPool;
 import ch.nolix.systemtest.objectschematest.ObjectSchemaTestPool;
 import ch.nolix.systemtest.sqldatabasebasicschematest.SqlDatabaseBasicSchemaTestPool;
 import ch.nolix.systemtest.sqldatabaserawdatatest.SqlDatabaseRawDataTestPool;
-import ch.nolix.systemtest.structuretest.StructureTestPool;
 import ch.nolix.systemtest.timetest.TimeTestPool;
 import ch.nolix.systemtest.webguitest.WebGuiTestPool;
 
@@ -31,7 +30,6 @@ public final class SystemTestPool extends TestPool {
       new ObjectSchemaTestPool(),
       new SqlDatabaseBasicSchemaTestPool(),
       new SqlDatabaseRawDataTestPool(),
-      new StructureTestPool(),
       new TimeTestPool(),
       new WebGuiTestPool());
   }
