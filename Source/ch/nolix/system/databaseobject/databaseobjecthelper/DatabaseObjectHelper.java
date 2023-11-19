@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.database.databaseobjecthelper;
+package ch.nolix.system.databaseobject.databaseobjecthelper;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;

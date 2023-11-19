@@ -5,7 +5,7 @@ package ch.nolix.system.objectschema.schemahelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.BasePropertyType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;

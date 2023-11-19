@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.databasehelper;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.database.databaseobjecthelper.DatabaseObjectHelper;
+import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.sqldatabaserawdata.databasedto.EntityHeadDto;
 import ch.nolix.system.sqldatabaserawdata.databasedto.EntityUpdateDto;
