@@ -4,7 +4,6 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 import java.util.function.Consumer;
 
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableTextHolder;
-import ch.nolix.systemapi.guiapi.processproperty.TextMode;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
