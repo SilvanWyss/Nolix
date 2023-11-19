@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.guiapi.processproperty.TabExpansionBehavior;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 
 //interface
