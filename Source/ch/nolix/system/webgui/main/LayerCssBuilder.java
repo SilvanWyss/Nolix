@@ -9,7 +9,7 @@ import ch.nolix.core.web.css.CssRule;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.systemapi.guiapi.structureproperty.ContentAlignment;
+import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 
 //class

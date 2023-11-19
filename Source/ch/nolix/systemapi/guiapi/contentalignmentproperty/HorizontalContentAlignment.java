@@ -1,5 +1,5 @@
 //package decalration
-package ch.nolix.systemapi.guiapi.structureproperty;
+package ch.nolix.systemapi.guiapi.contentalignmentproperty;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
