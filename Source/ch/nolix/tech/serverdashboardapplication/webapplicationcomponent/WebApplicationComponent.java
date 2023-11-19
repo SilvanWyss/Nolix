@@ -64,11 +64,6 @@ public final class WebApplicationComponent extends Component<WebApplicationContr
             controller.getWebApplicationSheet().getApplicationInstanceTarget().getApplicationInstanceName()));
   }
 
-  @Override
-  protected void doRegistrations(final WebApplicationController controller) {
-    //Does nothing.
-  }
-
   //method
   private IImage getApplicationLogoOrDefaultApplicationLogo(final IWebApplicationSheet webApplicationSheet) {
 

@@ -20,8 +20,6 @@ public abstract class Component<C extends Controller<AC>, AC> extends BaseCompon
     rootControl.linkTo(this);
 
     rebuild();
-
-    doRegistrations(controller);
   }
 
   //method
@@ -41,7 +39,4 @@ public abstract class Component<C extends Controller<AC>, AC> extends BaseCompon
 
   //method declaration
   protected abstract IControl<?, ?> createControl(C controller);
-
-  //method declaration
-  protected abstract void doRegistrations(C controller);
 }
