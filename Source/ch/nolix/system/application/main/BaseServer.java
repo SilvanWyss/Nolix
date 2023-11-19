@@ -517,7 +517,7 @@ public abstract class BaseServer<SR extends BaseServer<SR>> implements IServer {
    */
   private void removeApplication(final IApplication<?> application) {
 
-    applications.removeFirstOccurrenceOf(application);
+    applications.removeStrictlyFirstOccurrenceOf(application);
 
     if (application == defaultApplication) {
       defaultApplication = null;

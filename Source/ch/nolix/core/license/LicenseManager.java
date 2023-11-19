@@ -8,6 +8,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.environment.filesystem.FolderAccessor;
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -133,11 +134,12 @@ public final class LicenseManager {
    * Removes the given license from the current {@link LicenseManager}.
    * 
    * @param license
-   * @throws InvalidArgumentException if the current {@link LicenseManager} does
-   *                                  not contain the given license.
+   * @throws ArgumentDoesNotContainElementException if the current
+   *                                                {@link LicenseManager} does
+   *                                                not contain the given license.
    */
   public void removeLicense(final License license) {
-    licenses.removeFirstOccurrenceOf(license);
+    licenses.removeStrictlyFirstOccurrenceOf(license);
   }
 
   //method

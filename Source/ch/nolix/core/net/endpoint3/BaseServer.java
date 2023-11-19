@@ -3,6 +3,7 @@ package ch.nolix.core.net.endpoint3;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -262,12 +263,13 @@ public abstract class BaseServer implements IServer {
    * Removes the given slot from the current {@link BaseServer}.
    * 
    * @param slot
-   * @throws InvalidArgumentException if the current {@link BaseServer} does not
-   *                                  contain the given slot.
+   * @throws ArgumentDoesNotContainElementException if the current
+   *                                                {@link BaseServer} does not
+   *                                                contain the given slot.
    */
   private void removeSlot(final ISlot slot) {
 
-    slots.removeFirstOccurrenceOf(slot);
+    slots.removeStrictlyFirstOccurrenceOf(slot);
 
     if (slot == defaultSlot) {
       defaultSlot = null;

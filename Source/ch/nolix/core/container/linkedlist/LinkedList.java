@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -529,7 +530,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public void removeFirstOccurrenceOf(final Object element) {
 
-    //Handles the case that the current LinkedList contains elements.
+    //Handles the case that the current LinkedList contains any.
     if (containsAny()) {
       removeFirstOccurrenceOfWhenContainsAny(element);
     }
@@ -547,6 +548,21 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     //Handles the case that the current LinkedList contains elements.
     if (containsAny()) {
       removeLastWhenContainsAny();
+    }
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(n).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeStrictlyFirstOccurrenceOf(Object element) {
+
+    //Handles the case that the current LinkedList contains any.
+    if (containsAny()) {
+      removeStrictlyFirstOccurrenceOfWhenContainsAny(element);
     }
   }
 
@@ -795,5 +811,41 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
     }
 
     elementCount--;
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(n) if the current
+   * {@link LinkedList} contains n elements.
+   * 
+   * Removes the first occurrence of the given element from the current
+   * {@link ILinkedList} for the case that the current {@link ILinkedList}
+   * contains elements.
+   * 
+   * @param element
+   * @throws ArgumentDoesNotContainElementException if the current
+   *                                                {@link LinkedList} does not
+   *                                                contain the given element.
+   */
+  private void removeStrictlyFirstOccurrenceOfWhenContainsAny(final Object element) {
+    if (firstNode.contains(element)) {
+      removeFirst();
+    } else {
+
+      var iterator = firstNode;
+      while (iterator.hasNextNode()) {
+
+        final var nextNode = iterator.getNextNode();
+
+        if (nextNode.contains(element)) {
+          removeNextNode(iterator);
+          break;
+        }
+
+        iterator = nextNode;
+      }
+
+      throw ArgumentDoesNotContainElementException.forArgumentAndElement(this, element);
+    }
   }
 }

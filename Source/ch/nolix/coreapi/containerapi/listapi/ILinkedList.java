@@ -173,6 +173,17 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
 
   //method declaration
   /**
+   * Removes the first occurrence of the given element from the current
+   * {@link ILinkedList}.
+   * 
+   * @param element
+   * @throws RuntimeException if the current {@link ILinkedList} does not contain
+   *                          the given element.
+   */
+  void removeStrictlyFirstOccurrenceOf(Object element);
+
+  //method declaration
+  /**
    * Replaces the first element the given selector selects from the current
    * {@link ILinkedList} with the given element.
    * 

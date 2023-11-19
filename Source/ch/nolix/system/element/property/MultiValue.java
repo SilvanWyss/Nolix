@@ -6,6 +6,7 @@ import java.util.function.Function;
 
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -139,11 +140,12 @@ public final class MultiValue<V> extends BaseValue<V> implements Clearable {
    * Removes the given value of the current {@link MultiValue}.
    * 
    * @param value
-   * @throws InvalidArgumentException if the current {@link MultiValue} does not
-   *                                  contain the given value.
+   * @throws ArgumentDoesNotContainElementException if the current
+   *                                                {@link MultiValue} does not
+   *                                                contain the given value.
    */
   public void remove(final V value) {
-    values.removeFirstOccurrenceOf(value);
+    values.removeStrictlyFirstOccurrenceOf(value);
   }
 
   //method

@@ -111,7 +111,7 @@ public final class LayerStack implements ILayerStack {
   @Override
   public void removeLayer(final ILayer<?> layer) {
 
-    layers.removeFirstOccurrenceOf(layer);
+    layers.removeStrictlyFirstOccurrenceOf(layer);
 
     runProbableRemoveLayerAction();
   }
