@@ -1,10 +1,10 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
+package ch.nolix.system.sqlschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.system.sqldatabasebasicschema.sqlsyntax.SchemaQueryCreator;
-import ch.nolix.system.sqldatabasebasicschema.sqlsyntax.SchemaStatementCreator;
+import ch.nolix.system.sqlschema.sqlsyntax.SchemaQueryCreator;
+import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
 
 //class
 public final class MsSqlSchemaAdapter extends SchemaAdapter {

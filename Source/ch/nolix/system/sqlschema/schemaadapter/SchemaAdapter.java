@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
+package ch.nolix.system.sqlschema.schemaadapter;
 
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.SqlConnectionPool;

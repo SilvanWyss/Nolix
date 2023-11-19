@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.flatschemadto;
+package ch.nolix.system.sqlschema.flatschemadto;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

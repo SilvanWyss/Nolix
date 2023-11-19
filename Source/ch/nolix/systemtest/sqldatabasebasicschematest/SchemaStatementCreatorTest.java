@@ -4,10 +4,10 @@ package ch.nolix.systemtest.sqldatabasebasicschematest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDto;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
-import ch.nolix.system.sqldatabasebasicschema.sqlsyntax.SchemaStatementCreator;
+import ch.nolix.system.sqlschema.schemadto.ColumnDto;
+import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
+import ch.nolix.system.sqlschema.schemadto.TableDto;
+import ch.nolix.system.sqlschema.sqlsyntax.SchemaStatementCreator;
 
 //class
 public final class SchemaStatementCreatorTest extends Test {

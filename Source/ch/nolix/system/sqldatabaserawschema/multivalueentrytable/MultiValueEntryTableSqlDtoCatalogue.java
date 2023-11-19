@@ -1,11 +1,11 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawschema.multivalueentrytable;
 
-import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
 import ch.nolix.system.sqldatabaserawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
 import ch.nolix.system.sqldatabaserawschema.structure.MultiEntryTableType;
 import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;
+import ch.nolix.system.sqlschema.schemadto.ColumnDto;
+import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 

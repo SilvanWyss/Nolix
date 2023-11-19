@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.schemadto;
+package ch.nolix.system.sqlschema.schemadto;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;

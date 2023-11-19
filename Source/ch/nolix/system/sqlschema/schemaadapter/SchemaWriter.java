@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.schemaadapter;
+package ch.nolix.system.sqlschema.schemaadapter;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;

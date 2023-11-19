@@ -12,7 +12,7 @@ public final class MsSqlSchemaAdapter extends SchemaAdapter {
     super(
       databaseName,
       sqlConnectionPool,
-      ch.nolix.system.sqldatabasebasicschema.schemaadapter.MsSqlSchemaAdapter
+      ch.nolix.system.sqlschema.schemaadapter.MsSqlSchemaAdapter
         .forDatabaseWithGivenNameUsingConnectionFromGivenPool(
           databaseName,
           sqlConnectionPool));

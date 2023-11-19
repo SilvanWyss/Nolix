@@ -4,10 +4,10 @@ package ch.nolix.system.sqldatabaserawschema.schemawriter;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.ColumnDto;
-import ch.nolix.system.sqldatabasebasicschema.schemadto.TableDto;
 import ch.nolix.system.sqldatabaserawschema.structure.SqlDatatypeCatalogue;
 import ch.nolix.system.sqldatabaserawschema.structure.TableType;
+import ch.nolix.system.sqlschema.schemadto.ColumnDto;
+import ch.nolix.system.sqlschema.schemadto.TableDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.ITableDto;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.sqldatabasebasicschema.sqlsyntax;
+package ch.nolix.system.sqlschema.sqlsyntax;
 
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 

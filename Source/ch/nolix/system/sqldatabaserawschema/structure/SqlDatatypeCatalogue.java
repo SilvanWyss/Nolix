@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqldatabaserawschema.structure;
 
-import ch.nolix.system.sqldatabasebasicschema.schemadto.DataTypeDto;
+import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
 
 //class
 public final class SqlDatatypeCatalogue {
