@@ -26,8 +26,8 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
-import ch.nolix.systemapi.guiapi.canvasapi.IBackground;
-import ch.nolix.systemapi.guiapi.structureproperty.BackgroundType;
+import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;
+import ch.nolix.systemapi.guiapi.backgroundapi.IBackground;
 import ch.nolix.systemapi.guiapi.structureproperty.DirectionInRectangle;
 
 //class
