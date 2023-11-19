@@ -1,5 +1,5 @@
 //package delcaration
-package ch.nolix.systemtest.sqldatabaserawdatatest.sqlsyntaxtest;
+package ch.nolix.systemtest.sqlrawdatabasetest.sqlsyntaxtest;
 
 //class
 public final class Launcher {

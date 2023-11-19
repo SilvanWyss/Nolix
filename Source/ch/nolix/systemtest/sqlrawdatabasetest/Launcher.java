@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.sqldatabaserawdatatest;
+package ch.nolix.systemtest.sqlrawdatabasetest;
 
 //class
 public final class Launcher {
@@ -10,6 +10,6 @@ public final class Launcher {
 
   //main method
   public static void main(String[] args) {
-    new SqlDatabaseRawDataTestPool().run();
+    new SqlRawDatabaseTestPool().run();
   }
 }
