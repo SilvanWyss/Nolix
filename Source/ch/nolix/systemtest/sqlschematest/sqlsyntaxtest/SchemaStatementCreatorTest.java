@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemtest.sqlschematest;
+package ch.nolix.systemtest.sqlschematest.sqlsyntaxtest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
