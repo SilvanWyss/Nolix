@@ -1,10 +1,10 @@
 //package declaration
 package ch.nolix.system.application.component;
 
+import ch.nolix.coreapi.programstructureapi.dataapi.IDataSupplierFactory;
 //own imports
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.container.SingleContainer;
-import ch.nolix.systemapi.applicationapi.applicationcontextapi.IDataSupplierFactory;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class

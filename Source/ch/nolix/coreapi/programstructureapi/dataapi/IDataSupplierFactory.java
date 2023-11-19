@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.applicationapi.applicationcontextapi;
+package ch.nolix.coreapi.programstructureapi.dataapi;
 
 //interface
 public interface IDataSupplierFactory<DS> {
