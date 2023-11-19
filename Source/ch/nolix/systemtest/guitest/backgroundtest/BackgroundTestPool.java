@@ -9,6 +9,6 @@ public final class BackgroundTestPool extends TestPool {
 
   //constructor
   public BackgroundTestPool() {
-    super();
+    super(BackgroundTest.class);
   }
 }
