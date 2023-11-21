@@ -2,6 +2,7 @@
 package ch.nolix.system.application.webapplication;
 
 //own imports
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.application.basewebapplication.BaseWebClientSession;
 import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -19,8 +20,13 @@ public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClien
   }
 
   //method
-  public void updateControlOnCounterpart(final IControl<?, ?> control) {
+  public final void updateControlOnCounterpart(final IControl<?, ?> control) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control);
+  }
+
+  //method
+  public final void updateControlsOnCounterpart(final IContainer<IControl<?, ?>> controls) {
+    getStoredParentClient().internalUpdateControlsOnCounterpart(controls);
   }
 
   //method

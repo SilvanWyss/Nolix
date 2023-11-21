@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
+//Java imports
 import java.util.function.Consumer;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -41,13 +43,25 @@ public final class WebClientPartialCounterpartUpdater {
     final var webGui = control.getStoredParentGui();
     webGui.applyStyleIfHasStyle();
 
-    final var updateCommands = createUpdateCommandsFromControl(control);
+    final var updateCommands = createUpdateCommandsForControl(control);
 
     counterpartRunner.accept(updateCommands);
   }
 
   //method
-  private IContainer<ChainedNode> createUpdateCommandsFromControl(final IControl<?, ?> control) {
+  public void updateControlsOnCounterpart(final IContainer<IControl<?, ?>> controls) {
+
+    GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
+
+    final var webGui = controls.getStoredFirst().getStoredParentGui();
+    webGui.applyStyleIfHasStyle();
+
+    final var updateCommands = createUpdateCommandsForControls(controls);
+    counterpartRunner.accept(updateCommands);
+  }
+
+  //method
+  private IContainer<ChainedNode> createUpdateCommandsForControl(final IControl<?, ?> control) {
 
     final var webGui = control.getStoredParentGui();
 
@@ -56,5 +70,24 @@ public final class WebClientPartialCounterpartUpdater {
       UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
       UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
       UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+  }
+
+  //method
+  private IContainer<ChainedNode> createUpdateCommandsForControls(final IContainer<IControl<?, ?>> controls) {
+
+    GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
+
+    final var webGui = controls.getStoredFirst().getStoredParentGui();
+
+    final var updatedCommands = new LinkedList<ChainedNode>();
+
+    updatedCommands.addAtEnd(controls.to(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
+
+    updatedCommands.addAtEnd(
+      UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
+      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+
+    return updatedCommands;
   }
 }
