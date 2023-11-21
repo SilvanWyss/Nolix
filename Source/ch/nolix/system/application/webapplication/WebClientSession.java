@@ -20,6 +20,12 @@ public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClien
   }
 
   //method
+  @Override
+  public final void refresh() {
+    getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());
+  }
+
+  //method
   public final void updateControlOnCounterpart(final IControl<?, ?> control) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control);
   }
@@ -52,11 +58,5 @@ public abstract class WebClientSession<AC> extends BaseWebClientSession<WebClien
   //method
   protected final void refreshControl(final IControl<?, ?> control) {
     getStoredParentClient().internalUpdateControlOnCounterpart(control);
-  }
-
-  //method
-  @Override
-  public final void refresh() {
-    getStoredParentClient().internalUpdateCounterpartFromWebGui(getStoredGui());
   }
 }
