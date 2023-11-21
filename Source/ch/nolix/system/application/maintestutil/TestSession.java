@@ -29,6 +29,12 @@ extends Session<BC, AC> {
 
   //method
   @Override
+  public void refresh() {
+    //Does nothing.
+  }
+
+  //method
+  @Override
   protected void fullInitialize() {
     //Does nothing.
   }
@@ -37,11 +43,5 @@ extends Session<BC, AC> {
   @Override
   protected Class<?> getClientClass() {
     return clientClass;
-  }
-
-  //method
-  @Override
-  protected void updateCounterpart() {
-    //Does nothing.
   }
 }

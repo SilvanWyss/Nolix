@@ -25,12 +25,6 @@ implements IRefreshableSubscriber {
   //attribute
   private BC parentClient;
 
-  //attribute
-  private boolean isRefreshing;
-
-  //attribute
-  private boolean refreshIsRequired;
-
   //optional attribute
   private Object result;
 
@@ -139,20 +133,6 @@ implements IRefreshableSubscriber {
 
   //method
   /**
-   * Updates the counterpart of the {@link Client} of the current {@link Session}.
-   */
-  @Override
-  public final synchronized void refresh() {
-
-    setRefreshAsRequired();
-
-    if (!isRefreshing()) {
-      refreshAsLongAsRequired();
-    }
-  }
-
-  //method
-  /**
    * Sets the next session of the parent {@link Client} of the current
    * {@link Session}. That means the current {@link Session} will be popped from
    * its parent {@link Client} and the given session is pushed to the parent
@@ -176,13 +156,6 @@ implements IRefreshableSubscriber {
    * @return the {@link Client} class of the current {@link Session}.
    */
   protected abstract Class<?> getClientClass();
-
-  //method declaration
-  /**
-   * Updates the counterpart of the {@link Client} of the current {@link Session}
-   * actually.
-   */
-  protected abstract void updateCounterpart();
 
   //method
   final Object internalGetStoredResult() {
@@ -264,73 +237,5 @@ implements IRefreshableSubscriber {
    */
   private Application<BC, AC> getStoredParentApplication() {
     return getStoredParentClient().getStoredParentApplication();
-  }
-
-  //method
-  /**
-   * @return true if the current {@link Session} is refreshing.
-   */
-  private boolean isRefreshing() {
-    return isRefreshing;
-  }
-
-  //method
-  /**
-   * Refreshes the current {@link Session} as long as required.
-   */
-  private void refreshAsLongAsRequired() {
-    try {
-      setAsRefreshing();
-
-      while (refreshIsRequired()) {
-
-        setRefreshAsUnrequired();
-
-        updateCounterpart();
-      }
-    } finally {
-      setAsFinishedRefreshing();
-    }
-  }
-
-  //method
-  /**
-   * @return true if a refresh is required for the current {@link Session}.
-   */
-  private boolean refreshIsRequired() {
-    return (isAlive() && refreshIsRequired);
-  }
-
-  //method
-  /**
-   * Sets the current {@link Session} as finished refreshing.
-   */
-  private void setAsFinishedRefreshing() {
-    isRefreshing = false;
-
-  }
-
-  //method
-  /**
-   * Sets the current {@link Session} as refreshing.
-   */
-  private void setAsRefreshing() {
-    isRefreshing = true;
-  }
-
-  //method
-  /**
-   * Sets a refresh required for the current {@link Session}.
-   */
-  private void setRefreshAsRequired() {
-    refreshIsRequired = true;
-  }
-
-  //method
-  /**
-   * Sets a refresh as unrequired for the current {@link Session}.
-   */
-  private void setRefreshAsUnrequired() {
-    refreshIsRequired = false;
   }
 }
