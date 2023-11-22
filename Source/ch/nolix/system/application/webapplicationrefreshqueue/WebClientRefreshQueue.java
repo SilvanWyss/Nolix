@@ -164,7 +164,7 @@ public final class WebClientRefreshQueue {
         .updateCounterpartFromWebGui(updateTicket.getStoredWebGui());
     } else {
       WebClientPartialCounterpartUpdater
-        .forCounterpartRunner(counterpartRunner)
+        .forCounterpartRunnerAndOpenStateRequestable(counterpartRunner, openStateRequestable)
         .updateControlsOnCounterpart(updateTicket.getStoredControls());
     }
   }

@@ -2,6 +2,7 @@
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
 //Java imports
+import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
 //own imports
@@ -20,32 +21,36 @@ public final class WebClientPartialCounterpartUpdater {
   private static final UpdateCommandCreator UPDATE_COMMAND_CREATOR = new UpdateCommandCreator();
 
   //attribute
+  private final BooleanSupplier openStateRequestable;
+
+  //attribute
   private final Consumer<IContainer<? extends IChainedNode>> counterpartRunner;
 
   //constructor
   private WebClientPartialCounterpartUpdater(
-    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
+    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+    final BooleanSupplier openStateRequestable) {
 
+    GlobalValidator.assertThat(openStateRequestable).thatIsNamed("open state requestable").isNotNull();
     GlobalValidator.assertThat(counterpartRunner).thatIsNamed("counterpart runner").isNotNull();
 
+    this.openStateRequestable = openStateRequestable;
     this.counterpartRunner = counterpartRunner;
   }
 
   //static method
-  public static WebClientPartialCounterpartUpdater forCounterpartRunner(
-    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner) {
-    return new WebClientPartialCounterpartUpdater(counterpartRunner);
+  public static WebClientPartialCounterpartUpdater forCounterpartRunnerAndOpenStateRequestable(
+    final Consumer<IContainer<? extends IChainedNode>> counterpartRunner,
+    final BooleanSupplier openStateRequester) {
+    return new WebClientPartialCounterpartUpdater(counterpartRunner, openStateRequester);
   }
 
   //method
   public void updateControlOnCounterpart(final IControl<?, ?> control) {
 
-    final var webGui = control.getStoredParentGui();
-    webGui.applyStyleIfHasStyle();
+    final IContainer<IControl<?, ?>> controls = ImmutableList.withElement(control);
 
-    final var updateCommands = createUpdateCommandsForControl(control);
-
-    counterpartRunner.accept(updateCommands);
+    updateControlsOnCounterpart(controls);
   }
 
   //method
@@ -57,19 +62,10 @@ public final class WebClientPartialCounterpartUpdater {
     webGui.applyStyleIfHasStyle();
 
     final var updateCommands = createUpdateCommandsForControls(controls);
-    counterpartRunner.accept(updateCommands);
-  }
 
-  //method
-  private IContainer<ChainedNode> createUpdateCommandsForControl(final IControl<?, ?> control) {
-
-    final var webGui = control.getStoredParentGui();
-
-    return ImmutableList.withElement(
-      UPDATE_COMMAND_CREATOR.createSetRootHtmlElementCommandFromControl(control),
-      UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+    if (openStateRequestable.getAsBoolean()) {
+      counterpartRunner.accept(updateCommands);
+    }
   }
 
   //method
