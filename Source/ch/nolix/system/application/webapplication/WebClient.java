@@ -96,7 +96,8 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
         //This step can change the number of layers of the webGui.
         runRunHtmlEventCommandOnControl(control, command);
 
-        if (webGui.getStoredLayers().getElementCount() != originalLayerCount) {
+        if (webGui.getStoredLayers().getElementCount() != originalLayerCount
+        || webGui.getStoredControlOrNullByInternalId(control.getInternalId()) == null) {
           refreshCounterpartGui();
         } else {
           updateCounterpartIfOpen(control);
