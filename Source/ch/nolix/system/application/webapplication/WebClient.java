@@ -11,11 +11,10 @@ import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.application.basewebapplication.BaseWebClient;
-import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientCounterpartUpdater;
-import ch.nolix.system.application.webapplicationcounterpartupdater.WebClientPartialCounterpartUpdater;
 import ch.nolix.system.application.webapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ControlCommandProtocol;
 import ch.nolix.system.application.webapplicationprotocol.ObjectProtocol;
+import ch.nolix.system.application.webapplicationrefreshqueue.WebClientRefreshQueue;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IUploader;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -23,6 +22,10 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
 public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
+
+  //attribute
+  private final WebClientRefreshQueue refreshQueue = WebClientRefreshQueue
+    .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
 
   //method
   @Override
@@ -44,23 +47,17 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
   //method
   void internalUpdateControlOnCounterpart(final IControl<?, ?> control) {
-    WebClientPartialCounterpartUpdater
-      .forCounterpartRunner(this::runOnCounterpart)
-      .updateControlOnCounterpart(control);
+    refreshQueue.updateControlOnCounterpart(control);
   }
 
   //method
   void internalUpdateControlsOnCounterpart(final IContainer<IControl<?, ?>> controls) {
-    WebClientPartialCounterpartUpdater
-      .forCounterpartRunner(this::runOnCounterpart)
-      .updateControlsOnCounterpart(controls);
+    refreshQueue.updateControlsOnCounterpart(controls);
   }
 
   //method
   void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui) {
-    WebClientCounterpartUpdater
-      .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen)
-      .updateCounterpartFromWebGui(webGui);
+    refreshQueue.updateWebGuiOfCounterpart(webGui);
   }
 
   //method
