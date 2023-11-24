@@ -52,17 +52,21 @@ public final class WebClientRefreshQueue {
   }
 
   //method
-  public void updateControlOnCounterpart(final IControl<?, ?> control) {
+  public void updateControlOnCounterpart(
+    final IControl<?, ?> control,
+    final boolean updateConstellationOrStyle) {
 
     final IContainer<IControl<?, ?>> controls = ImmutableList.withElement(control);
 
-    updateControlsOnCounterpart(controls);
+    updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   //method
-  public void updateControlsOnCounterpart(final IContainer<IControl<?, ?>> controls) {
+  public void updateControlsOnCounterpart(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
 
-    setUpdatingControlsOnCounterpartAsRequired(controls);
+    setUpdatingControlsOnCounterpartAsRequired(controls, updateConstellationOrStyle);
 
     if (!isUpdatingCounterpart()) {
       updateCounterpartAsLongAsRequired();
@@ -70,9 +74,11 @@ public final class WebClientRefreshQueue {
   }
 
   //method
-  public void updateWebGuiOfCounterpart(final IWebGui<?> webGui) {
+  public void updateWebGuiOfCounterpart(
+    final IWebGui<?> webGui,
+    final boolean updateConstellationOrStyle) {
 
-    setUpdatingWebGuiOfCounterpartAsRequired(webGui);
+    setUpdatingWebGuiOfCounterpartAsRequired(webGui, updateConstellationOrStyle);
 
     if (!isUpdatingCounterpart()) {
       updateCounterpartAsLongAsRequired();
@@ -126,23 +132,27 @@ public final class WebClientRefreshQueue {
   }
 
   //method
-  private synchronized void setUpdatingControlsOnCounterpartAsRequired(final IContainer<IControl<?, ?>> controls) {
+  private synchronized void setUpdatingControlsOnCounterpartAsRequired(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
     if (updatingCounterpartIsRequired()) {
       if (updateTicket.isForSpecificControls()) {
 
         final var allControls = getStoredAllControlsFromUpdateTicketAndGivenControls(controls);
 
-        updateTicket = UpdateTicket.forControls(allControls);
+        updateTicket = UpdateTicket.forControls(allControls, updateConstellationOrStyle);
       }
     } else {
-      updateTicket = UpdateTicket.forControls(controls);
+      updateTicket = UpdateTicket.forControls(controls, updateConstellationOrStyle);
     }
   }
 
   //method
-  private synchronized void setUpdatingWebGuiOfCounterpartAsRequired(final IWebGui<?> webGui) {
+  private synchronized void setUpdatingWebGuiOfCounterpartAsRequired(
+    final IWebGui<?> webGui,
+    final boolean updateConstellationOrStyle) {
     if (!updatingCounterpartIsRequired() || updateTicket.isForSpecificControls()) {
-      updateTicket = UpdateTicket.forWebGui(webGui);
+      updateTicket = UpdateTicket.forWebGui(webGui, updateConstellationOrStyle);
     }
   }
 
@@ -165,7 +175,7 @@ public final class WebClientRefreshQueue {
     } else {
       WebClientPartialCounterpartUpdater
         .forCounterpartRunnerAndOpenStateRequestable(counterpartRunner, openStateRequestable)
-        .updateControlsOnCounterpart(updateTicket.getStoredControls());
+        .updateControlsOnCounterpart(updateTicket.getStoredControls(), updateTicket.shouldUpdateConstellationOrStyle());
     }
   }
 

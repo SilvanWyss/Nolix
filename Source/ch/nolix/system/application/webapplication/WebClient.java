@@ -46,18 +46,20 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   }
 
   //method
-  void internalUpdateControlOnCounterpart(final IControl<?, ?> control) {
-    refreshQueue.updateControlOnCounterpart(control);
+  void internalUpdateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
+    refreshQueue.updateControlOnCounterpart(control, updateConstellationOrStyle);
   }
 
   //method
-  void internalUpdateControlsOnCounterpart(final IContainer<IControl<?, ?>> controls) {
-    refreshQueue.updateControlsOnCounterpart(controls);
+  void internalUpdateControlsOnCounterpart(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
+    refreshQueue.updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   //method
-  void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui) {
-    refreshQueue.updateWebGuiOfCounterpart(webGui);
+  void internalUpdateCounterpartFromWebGui(final IWebGui<?> webGui, final boolean updateConstellationOrStyle) {
+    refreshQueue.updateWebGuiOfCounterpart(webGui, updateConstellationOrStyle);
   }
 
   //method
@@ -195,7 +197,8 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
         refreshCounterpartGui();
         break;
       case REFRESH_SELF:
-        ((WebClientSession<AC>) getStoredCurrentSession()).refreshControl(component.getStoredControl());
+        ((WebClientSession<AC>) getStoredCurrentSession())
+          .updateControlOnCounterpart(component.getStoredControl(), true);
         break;
     }
   }

@@ -12,6 +12,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class UpdateTicket {
 
+  //attribute
+  private final boolean updateConstellationOrStyle;
+
   //optional attribute
   private final IWebGui<?> webGui;
 
@@ -19,28 +22,34 @@ public final class UpdateTicket {
   private final ImmutableList<IControl<?, ?>> controls;
 
   //constructor
-  private UpdateTicket(final IWebGui<?> webGui) {
+  private UpdateTicket(final IWebGui<?> webGui, final boolean updateConstellationOrStyle) {
 
     GlobalValidator.assertThat(webGui).thatIsNamed(IWebGui.class).isNotNull();
 
+    this.updateConstellationOrStyle = updateConstellationOrStyle;
     this.webGui = webGui;
     controls = null;
   }
 
   //constructor
-  private UpdateTicket(final IContainer<IControl<?, ?>> controls) {
+  private UpdateTicket(final IContainer<IControl<?, ?>> controls, final boolean updateConstellationOrStyle) {
+    this.updateConstellationOrStyle = updateConstellationOrStyle;
     webGui = null;
     this.controls = ImmutableList.forIterable(controls);
   }
 
   //static method
-  public static UpdateTicket forControls(final IContainer<IControl<?, ?>> controls) {
-    return new UpdateTicket(controls);
+  public static UpdateTicket forControls(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
+    return new UpdateTicket(controls, updateConstellationOrStyle);
   }
 
   //static method
-  public static UpdateTicket forWebGui(final IWebGui<?> webGui) {
-    return new UpdateTicket(webGui);
+  public static UpdateTicket forWebGui(
+    final IWebGui<?> webGui,
+    final boolean updateConstellationOrStyle) {
+    return new UpdateTicket(webGui, updateConstellationOrStyle);
   }
 
   //method
@@ -67,6 +76,11 @@ public final class UpdateTicket {
   //method
   public boolean isForSpecificControls() {
     return !isForWholeWebGui();
+  }
+
+  //method
+  public boolean shouldUpdateConstellationOrStyle() {
+    return updateConstellationOrStyle;
   }
 
   //method

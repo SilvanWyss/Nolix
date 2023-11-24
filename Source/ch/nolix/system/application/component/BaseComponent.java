@@ -37,7 +37,7 @@ public abstract class BaseComponent<C extends Controller<AC>, AC> implements ICo
         break;
       case REFRESH_SELF:
         rebuild();
-        getStoredWebClientSession().updateControlOnCounterpart(getStoredControl());
+        getStoredWebClientSession().updateControlOnCounterpart(getStoredControl(), true);
         break;
       case DO_NOT_REFRESH_ANYTHING:
         break;

@@ -46,22 +46,24 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   //method
-  public void updateControlOnCounterpart(final IControl<?, ?> control) {
+  public void updateControlOnCounterpart(final IControl<?, ?> control, final boolean updateConstellationOrStyle) {
 
     final IContainer<IControl<?, ?>> controls = ImmutableList.withElement(control);
 
-    updateControlsOnCounterpart(controls);
+    updateControlsOnCounterpart(controls, updateConstellationOrStyle);
   }
 
   //method
-  public void updateControlsOnCounterpart(final IContainer<IControl<?, ?>> controls) {
+  public void updateControlsOnCounterpart(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
 
     GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
     final var webGui = controls.getStoredFirst().getStoredParentGui();
     webGui.applyStyleIfHasStyle();
 
-    final var updateCommands = createUpdateCommandsForControls(controls);
+    final var updateCommands = createUpdateCommandsForControls(controls, updateConstellationOrStyle);
 
     if (openStateRequestable.getAsBoolean()) {
       counterpartRunner.accept(updateCommands);
@@ -69,7 +71,9 @@ public final class WebClientPartialCounterpartUpdater {
   }
 
   //method
-  private IContainer<ChainedNode> createUpdateCommandsForControls(final IContainer<IControl<?, ?>> controls) {
+  private IContainer<ChainedNode> createUpdateCommandsForControls(
+    final IContainer<IControl<?, ?>> controls,
+    final boolean updateConstellationOrStyle) {
 
     GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
@@ -79,10 +83,12 @@ public final class WebClientPartialCounterpartUpdater {
 
     updatedCommands.addAtEnd(controls.to(UPDATE_COMMAND_CREATOR::createSetRootHtmlElementCommandFromControl));
 
-    updatedCommands.addAtEnd(
-      UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
-      UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+    if (updateConstellationOrStyle) {
+      updatedCommands.addAtEnd(
+        UPDATE_COMMAND_CREATOR.createSetCssCommandFromWebGui(webGui),
+        UPDATE_COMMAND_CREATOR.createSetEventFunctionsCommandFromWebGui(webGui),
+        UPDATE_COMMAND_CREATOR.createSetUserInputFunctionsCommandFromWebGui(webGui));
+    }
 
     return updatedCommands;
   }
