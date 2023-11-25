@@ -60,8 +60,10 @@ public final class WebClientPartialCounterpartUpdater {
 
     GlobalValidator.assertThat(controls).thatIsNamed("controls").isNotEmpty();
 
-    final var webGui = controls.getStoredFirst().getStoredParentGui();
-    webGui.applyStyleIfHasStyle();
+    if (updateConstellationOrStyle) {
+      final var webGui = controls.getStoredFirst().getStoredParentGui();
+      webGui.applyStyleIfHasStyle();
+    }
 
     final var updateCommands = createUpdateCommandsForControls(controls, updateConstellationOrStyle);
 
