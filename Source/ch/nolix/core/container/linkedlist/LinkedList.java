@@ -460,6 +460,18 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
+   * The complexity of this implementation is O(n) if the current
+   * {@link LinkedList} contains n elements.
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeAllOccurrencesOf(final Object element) {
+    removeAll(e -> e == element);
+  }
+
+  //method
+  /**
    * The complexity of this implementation is O(1).
    * 
    * {@inheritDoc}

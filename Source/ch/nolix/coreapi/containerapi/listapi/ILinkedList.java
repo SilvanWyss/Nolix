@@ -113,6 +113,15 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
 
   //method declaration
   /**
+   * Removes all occurrences of the given element from the current
+   * {@link ILinkedList}.
+   * 
+   * @param element
+   */
+  void removeAllOccurrencesOf(Object element);
+
+  //method declaration
+  /**
    * Removes and returns the first element of the current {@link ILinkedList}.
    * 
    * @return the first element of the current {@link ILinkedList}.
