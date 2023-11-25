@@ -1,9 +1,11 @@
 //package declaration
 package ch.nolix.core.container.linkedlist;
 
+//Java imports
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
@@ -98,9 +100,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  public void addAtBegin(E element) {
+  public void addAtBegin(final E element) {
 
-    //Creates new node.
     final var node = new LinkedListNode<>(element);
 
     if (isEmpty()) {
@@ -110,6 +111,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       node.setNextNode(firstNode);
       firstNode = node;
     }
+
     elementCount++;
   }
 
@@ -118,17 +120,40 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
-  @SafeVarargs
-  public final void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
+  public void addAtBegin( //NOSONAR: final keyword is required for SaveVarargs annotation.
     final E element,
-    final E... elements) {
+    @SuppressWarnings("unchecked") final E... elements) {
 
-    addAtBegin(element);
+    var node = new LinkedListNode<>(element);
 
-    //Iterates the given elements.
-    for (final E e : elements) {
-      addAtBegin(e);
+    if (isEmpty()) {
+
+      firstNode = node;
+
+      for (final var e : elements) {
+        final var nextNode = new LinkedListNode<>(e);
+        node.setNextNode(nextNode);
+        node = nextNode;
+      }
+
+      lastNode = node;
+
+    } else {
+
+      final var oldFirstNode = firstNode;
+
+      firstNode = node;
+
+      for (final var e : elements) {
+        final var nextNode = new LinkedListNode<>(e);
+        node.setNextNode(nextNode);
+        node = nextNode;
+      }
+
+      node.setNextNode(oldFirstNode);
     }
+
+    elementCount += (1 + elements.length);
   }
 
   //method
