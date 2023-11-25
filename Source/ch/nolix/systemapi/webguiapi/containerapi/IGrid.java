@@ -3,7 +3,6 @@ package ch.nolix.systemapi.webguiapi.containerapi;
 
 //own imports
 import ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
@@ -20,9 +19,6 @@ public interface IGrid extends IContainer<IGrid, IGridStyle> {
 
   //method declaration
   int getRowCount();
-
-  //method declaration
-  IGrid insertComponentAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, IControlGetter component);
 
   //method declaration
   IGrid insertControlAtRowAndColumn(int param1BasedRowIndex, int param1BasedColumnIndex, IControl<?, ?> control);

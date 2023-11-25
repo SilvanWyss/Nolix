@@ -8,7 +8,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainer;
 import ch.nolix.systemapi.webguiapi.linearcontainerapi.ILinearContainerStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -36,24 +35,6 @@ implements ILinearContainer<LC, LCS> {
     final var allControls = ReadContainer.forElement(control, controls);
 
     return addControls(allControls);
-  }
-
-  //method
-  @Override
-  public final LC addComponent(final IControlGetter component, final IControlGetter... components) {
-
-    final var allComponents = ReadContainer.forElement(component, components);
-
-    return addComponents(allComponents);
-  }
-
-  //method
-  @Override
-  public final LC addComponents(IContainer<? extends IControlGetter> components) {
-
-    components.forEach(this::addComponent);
-
-    return asConcrete();
   }
 
   //method
@@ -93,14 +74,6 @@ implements ILinearContainer<LC, LCS> {
   @Override
   public final void removeControl(final IControl<?, ?> control) {
     childControls.remove(control);
-  }
-
-  //method
-  private void addComponent(final IControlGetter component) {
-
-    final var control = component.getStoredControl();
-
-    addControl(control);
   }
 
   //method

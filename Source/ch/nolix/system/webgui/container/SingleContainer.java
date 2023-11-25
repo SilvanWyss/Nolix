@@ -8,7 +8,6 @@ import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.system.webgui.basecontainer.Container;
 import ch.nolix.system.webgui.main.GlobalControlFactory;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainer;
 import ch.nolix.systemapi.webguiapi.containerapi.ISingleContainerStyle;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
@@ -70,15 +69,6 @@ implements ISingleContainer {
   @Override
   public void registerHtmlElementEventsAt(final ILinkedList<IHtmlElementEvent> list) {
     //Does nothing.
-  }
-
-  //method
-  @Override
-  public ISingleContainer setComponent(final IControlGetter component) {
-
-    final var localControl = component.getStoredControl();
-
-    return setControl(localControl);
   }
 
   //method

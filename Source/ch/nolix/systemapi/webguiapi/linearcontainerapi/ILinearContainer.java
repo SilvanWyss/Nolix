@@ -3,18 +3,11 @@ package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.systemapi.webguiapi.basecontainerapi.IControlGetter;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //interface
 public interface ILinearContainer<LC extends ILinearContainer<LC, LCL>, LCL extends ILinearContainerStyle<LCL>>
 extends ch.nolix.systemapi.webguiapi.basecontainerapi.IContainer<LC, LCL> {
-
-  //method declaration
-  LC addComponent(IControlGetter component, IControlGetter... components);
-
-  //method declaration
-  LC addComponents(IContainer<? extends IControlGetter> components);
 
   //method declaration
   LC addControl(IControl<?, ?> control, IControl<?, ?>... controls);
