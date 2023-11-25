@@ -31,7 +31,7 @@ public final class ServerDashboardSession extends WebClientSession<IServerDashbo
               .setText(getApplicationName()),
             new FloatContainer()
               .setRole(ContainerRole.MAIN_CONTENT_CONTAINER)
-              .addComponents(createApplicationComponents())))
+              .addControls(createApplicationComponents())))
       .setStyle(ServerDashboardStyleCatalogue.SERVER_DASHBOARD_STYLE);
   }
 

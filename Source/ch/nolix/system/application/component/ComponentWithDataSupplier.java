@@ -1,18 +1,19 @@
 //package declaration
 package ch.nolix.system.application.component;
 
-import ch.nolix.coreapi.programstructureapi.dataapi.IDataSupplierFactory;
 //own imports
+import ch.nolix.core.container.immutablelist.ImmutableList;
+import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programstructureapi.dataapi.IDataSupplierFactory;
 import ch.nolix.system.application.webapplication.WebClientSession;
-import ch.nolix.system.webgui.container.SingleContainer;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 
 //class
 public abstract class ComponentWithDataSupplier<C extends Controller<AC>, AC extends IDataSupplierFactory<DS>, DS>
 extends BaseComponent<C, AC> {
 
-  //attribute
-  private final SingleContainer rootControl = new SingleContainer();
+  //optional attribute
+  private IControl<?, ?> childControl;
 
   //constructor
   protected ComponentWithDataSupplier(
@@ -22,15 +23,18 @@ extends BaseComponent<C, AC> {
 
     super(controller, webClientSession);
 
-    rootControl.linkTo(this);
-
     rebuild(initialDataSupplier);
   }
 
   //method
   @Override
-  public final IControl<?, ?> getStoredControl() {
-    return rootControl;
+  public final IContainer<IControl<?, ?>> getStoredChildControls() {
+
+    if (childControl == null) {
+      return new ImmutableList<>();
+    }
+
+    return ImmutableList.withElement(childControl);
   }
 
   //method
@@ -52,9 +56,8 @@ extends BaseComponent<C, AC> {
 
   //method
   private void rebuild(final DS dataSupplier) {
-
-    final var control = createControl(getStoredController(), dataSupplier);
-
-    rootControl.setControl(control);
+    childControl = createControl(getStoredController(), dataSupplier);
+    childControl.technicalSetParentControl(this);
+    childControl.linkTo(this);
   }
 }

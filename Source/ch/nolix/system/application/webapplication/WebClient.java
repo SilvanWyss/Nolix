@@ -197,8 +197,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
         refreshCounterpartGui();
         break;
       case REFRESH_SELF:
-        ((WebClientSession<AC>) getStoredCurrentSession())
-          .updateControlOnCounterpart(component.getStoredControl(), true);
+        ((WebClientSession<AC>) getStoredCurrentSession()).updateControlOnCounterpart(component, true);
         break;
     }
   }
