@@ -1,12 +1,12 @@
 //package declaration
 package ch.nolix.system.element.multistateconfiguration;
 
+import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -83,15 +83,15 @@ public abstract class MaterializedProperty<S extends Enum<S>, V> extends Propert
   }
 
   //method
-  public final SingleContainer<V> getOptionalValueOfState(final S state) {
+  public final Optional<V> getOptionalValueOfState(final S state) {
 
     final var stateProperty = stateProperties[getStateOf(state).getIndex()];
 
     if (!stateProperty.hasValue()) {
-      return new SingleContainer<>();
+      return Optional.empty();
     }
 
-    return new SingleContainer<>(stateProperty.getValue());
+    return Optional.of(stateProperty.getValue());
   }
 
   //method
