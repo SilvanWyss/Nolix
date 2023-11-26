@@ -1,13 +1,14 @@
 //package declaration
 package ch.nolix.system.application.component;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.main.Control;
 import ch.nolix.systemapi.applicationapi.componentapi.IComponent;
@@ -41,8 +42,8 @@ implements IComponent {
 
   //method
   @Override
-  public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
-    return new SingleContainer<>();
+  public Optional<String> getOptionalJavaScriptUserInputFunction() {
+    return Optional.empty();
   }
 
   //method

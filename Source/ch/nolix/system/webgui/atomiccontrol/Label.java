@@ -1,15 +1,17 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
+//Java imports
+import java.util.Optional;
+
+//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
@@ -62,8 +64,8 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
 
   //method
   @Override
-  public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
-    return new SingleContainer<>();
+  public Optional<String> getOptionalJavaScriptUserInputFunction() {
+    return Optional.empty();
   }
 
   //method

@@ -1,10 +1,11 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.main.HtmlElementEvent;
 import ch.nolix.systemapi.webguiapi.controlserviceapi.IControlCssBuilder;
@@ -38,8 +39,8 @@ public final class DropdownMenu extends ItemMenu<IDropdownMenu, IDropdownMenuSty
 
   //method
   @Override
-  public ISingleContainer<String> getOptionalJavaScriptUserInputFunction() {
-    return new SingleContainer<>("if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;");
+  public Optional<String> getOptionalJavaScriptUserInputFunction() {
+    return Optional.of("if (x.selectedIndex == -1) {return '';} return x.options[x.selectedIndex].text;");
   }
 
   //method

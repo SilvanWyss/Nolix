@@ -125,9 +125,9 @@ public final class UpdateCommandCreator {
 
     for (final var c : controls) {
       final var userInputFunction = c.getOptionalJavaScriptUserInputFunction();
-      if (userInputFunction.containsAny()) {
+      if (userInputFunction.isPresent()) {
         userInputFunctions.addAtEnd(
-          createUserInputFunctionFromControlAndString(c, userInputFunction.getStoredElement()));
+          createUserInputFunctionFromControlAndString(c, userInputFunction.get()));
       }
     }
 

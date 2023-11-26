@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+//Java imports
+import java.util.Optional;
 import java.util.function.Consumer;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.programstructureapi.linkingapi.Linkable;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
@@ -47,7 +49,7 @@ PresenceSettable<C> {
   String getInternalId();
 
   //method declaration
-  ISingleContainer<String> getOptionalJavaScriptUserInputFunction();
+  Optional<String> getOptionalJavaScriptUserInputFunction();
 
   //method declaration
   IControl<?, ?> getStoredChildControlOrNullByInternalId(String internalId);
