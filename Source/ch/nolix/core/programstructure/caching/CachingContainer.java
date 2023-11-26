@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.core.programstructure.caching;
 
+//Java imports
+import java.util.Optional;
 import java.util.function.Function;
 
 //own imports
@@ -8,7 +10,6 @@ import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.pair.Pair;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
@@ -48,15 +49,15 @@ public final class CachingContainer<E> extends Container<E> implements ICachingC
   }
 
   //method
-  public SingleContainer<String> getOptionalIdOf(final E element) {
+  public Optional<String> getOptionalIdOf(final E element) {
 
     final var pair = elements.getStoredFirstOrNull(e -> e.getStoredElement2() == element);
 
     if (pair == null) {
-      return new SingleContainer<>();
+      return Optional.empty();
     }
 
-    return new SingleContainer<>(pair.getStoredElement1());
+    return Optional.of(pair.getStoredElement1());
   }
 
   //method
