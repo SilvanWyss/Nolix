@@ -7,11 +7,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 //own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalInputStreamHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -68,7 +68,7 @@ final class ServerSocketProcessor extends Worker {
       if (netEndPoint.isEmpty()) {
         closeSocket();
       } else {
-        parentServer.internalTakeBackendEndPoint(netEndPoint.getStoredElement());
+        parentServer.internalTakeBackendEndPoint(netEndPoint.get());
       }
     } catch (final Throwable error) { //NOSONAR: All Throwables must be caught here.
 
@@ -88,7 +88,7 @@ final class ServerSocketProcessor extends Worker {
   }
 
   //method
-  private SingleContainer<NetEndPoint> createOptionalNetEndPoint() {
+  private Optional<NetEndPoint> createOptionalNetEndPoint() {
 
     final var firstReveivedLine = GlobalInputStreamHelper.readLineFrom(socketInputStream);
 
@@ -96,9 +96,9 @@ final class ServerSocketProcessor extends Worker {
 
     switch (getNetEndPointCreationTypeFromFirstReceivedLine(firstReveivedLine)) {
       case REGULAR_SOCKET_WITH_DEFAULT_TARGET:
-        return new SingleContainer<>(new SocketEndPoint(socket, socketInputStream, socketOutputStream));
+        return Optional.of(new SocketEndPoint(socket, socketInputStream, socketOutputStream));
       case REGULAR_SOCKET_WITH_CUSTOM_TARGET:
-        return new SingleContainer<>(
+        return Optional.of(
           new SocketEndPoint(
             socket,
             socketInputStream,
@@ -119,12 +119,12 @@ final class ServerSocketProcessor extends Worker {
           GlobalLogger.logInfo("Send opening handshake response: " + openingHandshakeResponse);
           sendRawMessage(openingHandshakeResponse);
 
-          return new SingleContainer<>(new WebSocketEndPoint(socket, socketInputStream, socketOutputStream));
+          return Optional.of(new WebSocketEndPoint(socket, socketInputStream, socketOutputStream));
         }
 
         if (HttpRequest.canBe(lines)) {
           sendRawMessage(parentServer.getHttpMessage());
-          return new SingleContainer<>();
+          return Optional.empty();
         }
 
         throw InvalidArgumentException.forArgumentNameAndArgument("first received line", firstReveivedLine);
