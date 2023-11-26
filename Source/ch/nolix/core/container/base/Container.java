@@ -938,24 +938,6 @@ public abstract class Container<E> implements IContainer<E> {
    * {@inheritDoc}
    */
   @Override
-  public final E getStoredFirstOrNull() {
-
-    //Handles the case that this list is empty.
-    if (isEmpty()) {
-      return null;
-    }
-
-    //Handles the case that this list is not empty.
-    return getStoredFirst();
-  }
-
-  //method
-  /**
-   * The complexity of this implementation is O(1).
-   * 
-   * {@inheritDoc}
-   */
-  @Override
   public final E getStoredFirstOrNull(final Predicate<? super E> selector) {
 
     //Iterates the current IContainer.

@@ -85,13 +85,6 @@ public interface ISearchableContainer<E> {
 
   //method declaration
   /**
-   * @return the first element of the current {@link ISearchableContainer} or
-   *         null.
-   */
-  E getStoredFirstOrNull();
-
-  //method declaration
-  /**
    * @param selector
    * @return the first element the given selector selects from the current
    *         {@link ISearchableContainer} or null.
