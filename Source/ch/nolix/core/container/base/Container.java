@@ -5,6 +5,7 @@ package ch.nolix.core.container.base;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -12,6 +13,7 @@ import java.util.function.ToDoubleFunction;
 import java.util.function.ToIntFunction;
 import java.util.function.ToLongFunction;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
@@ -796,6 +798,28 @@ public abstract class Container<E> implements IContainer<E> {
 
     //Handles the case that the current Container contains elements.
     return getMinWhenContainsAny(norm);
+  }
+
+  //method
+  //For a better performance, this implementation does not use all comfortable methods.
+  /**
+   * The complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public final Optional<E> getOptionalStoredFirst() {
+
+    //Creates iterator.
+    final var iterator = iterator();
+
+    //Handles the case that the current Container is not empty.
+    if (iterator.hasNext()) {
+      return Optional.of(iterator.next());
+    }
+
+    //Handles the case that the current Container is empty.
+    return Optional.empty();
   }
 
   //method

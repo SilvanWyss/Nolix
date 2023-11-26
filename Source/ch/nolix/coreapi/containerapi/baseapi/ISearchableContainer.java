@@ -1,6 +1,8 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.baseapi;
 
+//Java imports
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -11,6 +13,15 @@ import java.util.function.Predicate;
  * @param <E> is the type of the elements a {@link ISearchableContainer}.
  */
 public interface ISearchableContainer<E> {
+
+  //method declaration
+  /**
+   * @return a {@link Optional} with the first element of the current
+   *         {@link ISearchableContainer} if the current
+   *         {@link ISearchableContainer} contains any, an empty {@link Optional}
+   *         otherwise.
+   */
+  Optional<E> getOptionalStoredFirst();
 
   //method declaration
   /**
