@@ -2265,6 +2265,9 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
         setHTMLElementFromString(paramHTMLElementId, paramHTMLElementAsString) {
             const localHTMLElement = this.getOriHTMLElementById(paramHTMLElementId);
             localHTMLElement.outerHTML = paramHTMLElementAsString;
+            if (localHTMLElement.id !== paramHTMLElementId) {
+                throw new Error('The given HtmlElementAsString is not valid.');
+            }
         }
         setIcon(icon) {
             if (icon === null) {
@@ -2279,6 +2282,9 @@ define("System/FrontendWebGUI/FrontendWebGUI", ["require", "exports", "Core/Cont
         setRootHTMLElementFromString(rootHTMLElementAsString) {
             const rootElement = this.getStoredRootElement();
             rootElement.outerHTML = rootHTMLElementAsString;
+            if (rootElement.id !== 'root') {
+                throw new Error('The given rootHtmlElementAsString is not valid.');
+            }
         }
         setTitle(title) {
             if (title === null) {
