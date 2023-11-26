@@ -1,11 +1,13 @@
 //package declaration
 package ch.nolix.system.application.basewebapplication;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
@@ -115,7 +117,7 @@ implements ICookieManager {
   }
 
   //method
-  final ISingleContainer<byte[]> internalReadOptionalFileFromCounterpart() {
+  final Optional<byte[]> internalReadOptionalFileFromCounterpart() {
     return fileReader.readOptionalFileFromCounterpart();
   }
 

@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.system.application.basewebapplication;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.systemapi.guiapi.frontendapi.IFrontEndReader;
 
 //class
@@ -41,7 +43,7 @@ final class BaseWebClientFrontendReader implements IFrontEndReader {
 
   //method
   @Override
-  public ISingleContainer<byte[]> readFileToBytes() {
+  public Optional<byte[]> readFileToBytes() {
     return parentBackendWebClient.internalReadOptionalFileFromCounterpart();
   }
 }

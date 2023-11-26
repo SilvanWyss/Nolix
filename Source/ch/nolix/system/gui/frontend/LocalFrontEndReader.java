@@ -8,14 +8,15 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
+//Javax imports
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.environment.filesystem.FileAccessor;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
@@ -62,15 +63,15 @@ public final class LocalFrontEndReader implements IFrontEndReader {
 
   //method
   @Override
-  public SingleContainer<byte[]> readFileToBytes() {
+  public Optional<byte[]> readFileToBytes() {
 
     if (FILE_CHOOSER.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) {
-      return new SingleContainer<>();
+      return Optional.empty();
     }
 
     final var filePath = FILE_CHOOSER.getSelectedFile().getPath();
 
-    return new SingleContainer<>(new FileAccessor(filePath).readFileToBytes());
+    return Optional.of(new FileAccessor(filePath).readFileToBytes());
   }
 
   //method

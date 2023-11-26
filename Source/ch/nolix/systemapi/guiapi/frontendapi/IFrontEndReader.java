@@ -1,8 +1,11 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.frontendapi;
 
+//Java imports
+import java.util.Optional;
+
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 
 //interface
 public interface IFrontEndReader {
@@ -14,5 +17,5 @@ public interface IFrontEndReader {
   String getTextFromClipboard();
 
   //method declaration
-  ISingleContainer<byte[]> readFileToBytes();
+  Optional<byte[]> readFileToBytes();
 }

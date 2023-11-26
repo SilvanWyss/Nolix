@@ -3,8 +3,9 @@ package ch.nolix.system.application.basewebapplication;
 
 //Java imports
 import java.util.Base64;
+import java.util.Optional;
 
-import ch.nolix.core.container.singlecontainer.SingleContainer;
+//own imports
 import ch.nolix.core.document.chainednode.ChainedNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
@@ -25,7 +26,7 @@ final class BaseWebClientFileReader {
   private boolean isWaitingForFileFromCounterpart;
 
   //optional attribute
-  private SingleContainer<byte[]> latestOptionalFileFromCounterpart;
+  private Optional<byte[]> latestOptionalFileFromCounterpart;
 
   //constructor
   private BaseWebClientFileReader(final BaseWebClient<?, ?> parentBackendWebClient) {
@@ -42,7 +43,7 @@ final class BaseWebClientFileReader {
   }
 
   //method
-  public SingleContainer<byte[]> readOptionalFileFromCounterpart() {
+  public Optional<byte[]> readOptionalFileFromCounterpart() {
 
     assertIsNotWaitingForFileFromCounterpart();
 
@@ -63,7 +64,7 @@ final class BaseWebClientFileReader {
   public void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
     switch (receiveOptionalFileCommand.getChildNodeCount()) {
       case 0:
-        receiveOptionalFileFromCounterpart(new SingleContainer<>());
+        receiveOptionalFileFromCounterpart(Optional.empty());
         break;
       case 1:
 
@@ -72,8 +73,7 @@ final class BaseWebClientFileReader {
         //Important: The received fileString is a Base 64 encoded string.
         final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
-        receiveOptionalFileFromCounterpart(
-          new SingleContainer<>(bytes));
+        receiveOptionalFileFromCounterpart(Optional.of(bytes));
         break;
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(
@@ -104,7 +104,7 @@ final class BaseWebClientFileReader {
   }
 
   //method
-  private void receiveOptionalFileFromCounterpart(final SingleContainer<byte[]> optionalFile) {
+  private void receiveOptionalFileFromCounterpart(final Optional<byte[]> optionalFile) {
 
     GlobalValidator.assertThat(optionalFile).thatIsNamed("optional file").isNotNull();
     assertIsWaitingForFileFromCounterpart();
