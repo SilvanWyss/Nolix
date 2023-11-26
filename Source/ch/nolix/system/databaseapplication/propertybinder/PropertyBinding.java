@@ -1,7 +1,10 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
-import ch.nolix.core.container.singlecontainer.SingleContainer;
+//Java imports
+import java.util.Optional;
+
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
@@ -34,13 +37,13 @@ public final class PropertyBinding {
   }
 
   //method
-  public SingleContainer<Throwable> getOptionalCurrentError() {
+  public Optional<Throwable> getOptionalCurrentError() {
 
     if (!hasCurrentError()) {
-      return new SingleContainer<>();
+      return Optional.empty();
     }
 
-    return new SingleContainer<>(currentError);
+    return Optional.of(currentError);
   }
 
   //method
