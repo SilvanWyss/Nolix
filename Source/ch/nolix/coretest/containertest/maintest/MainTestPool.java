@@ -13,7 +13,6 @@ public final class MainTestPool extends TestPool {
       GapMatrixTest.class,
       ImmutableListTest.class,
       LinkedListTest.class,
-      MatrixTest.class,
-      ReadContainerTest.class);
+      MatrixTest.class);
   }
 }

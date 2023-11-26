@@ -9,6 +9,10 @@ public final class ReadContainerTestPool extends TestPool {
 
   //constructor
   public ReadContainerTestPool() {
-    super(ArrayReadContainerTest.class, IterableReadContainerTest.class, MultiReadContainerTest.class);
+    super(
+      ArrayReadContainerTest.class,
+      IterableReadContainerTest.class,
+      MultiReadContainerTest.class,
+      ReadContainerTest.class);
   }
 }
