@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element.stylebuilder;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 
 //class
 abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<SSB>> extends BaseStyleBuilder<SSB> {
@@ -74,8 +75,8 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
   }
 
   //method
-  protected final ISingleContainer<String> getSelectorIdContainer() {
-    return SingleContainer.withElementOrEmpty(selectorId);
+  protected final Optional<String> getSelectorIdContainer() {
+    return Optional.ofNullable(selectorId);
   }
 
   //method
@@ -89,7 +90,7 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
   }
 
   //method
-  protected final ISingleContainer<String> getSelectorTypeContainer() {
-    return SingleContainer.withElementOrEmpty(selectorType);
+  protected final Optional<String> getSelectorTypeContainer() {
+    return Optional.ofNullable(selectorType);
   }
 }

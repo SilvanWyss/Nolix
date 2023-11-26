@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -8,7 +11,6 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -42,8 +44,8 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 
   //constructor
   protected BaseSelectingStyle(
-    final ISingleContainer<String> selectorIdContainer,
-    final ISingleContainer<String> selectorTypeContainer,
+    final Optional<String> selectorIdContainer,
+    final Optional<String> selectorTypeContainer,
     IContainer<String> selectorRoles,
     IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
@@ -58,7 +60,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
       selectorId = null;
     } else {
 
-      selectorId = selectorIdContainer.getStoredElement();
+      selectorId = selectorIdContainer.get();
 
       GlobalValidator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
     }
@@ -67,7 +69,7 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
       selectorType = null;
     } else {
 
-      selectorType = selectorTypeContainer.getStoredElement();
+      selectorType = selectorTypeContainer.get();
 
       GlobalValidator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
     }

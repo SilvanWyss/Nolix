@@ -1,12 +1,13 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+//Java imports
+import java.util.Optional;
+
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
-import ch.nolix.core.container.singlecontainer.SingleContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.singlecontainerapi.ISingleContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
@@ -33,8 +34,8 @@ public final class SelectingStyle extends BaseSelectingStyle {
    * @param subStyles
    */
   public SelectingStyle(
-    final ISingleContainer<String> selectorIdContainer,
-    final ISingleContainer<String> selectorTypeContainer,
+    final Optional<String> selectorIdContainer,
+    final Optional<String> selectorTypeContainer,
     final IContainer<String> selectorRoles,
     final IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
@@ -56,8 +57,8 @@ public final class SelectingStyle extends BaseSelectingStyle {
    */
   public static SelectingStyle fromSpecification(final INode<?> specification) {
 
-    var selectorIdContainer = new SingleContainer<String>();
-    var selectorTypeContainer = new SingleContainer<String>();
+    Optional<String> selectorIdContainer = Optional.empty();
+    Optional<String> selectorTypeContainer = Optional.empty();
     final var selectorRoles = new LinkedList<String>();
     final var selectorTokens = new LinkedList<String>();
     final var attachingAttributes = new LinkedList<INode<?>>();
@@ -66,10 +67,10 @@ public final class SelectingStyle extends BaseSelectingStyle {
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case SELECTOR_ID_HEADER:
-          selectorIdContainer = new SingleContainer<>(a.getSingleChildNodeHeader());
+          selectorIdContainer = Optional.of(a.getSingleChildNodeHeader());
           break;
         case SELECTOR_TYPE_HEADER:
-          selectorTypeContainer = new SingleContainer<>(a.getSingleChildNodeHeader());
+          selectorTypeContainer = Optional.of(a.getSingleChildNodeHeader());
           break;
         case SELECTOR_ROLE_HEADER:
           selectorRoles.addAtEnd(a.getSingleChildNodeHeader());
