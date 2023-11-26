@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.containertest.maintest;
+package ch.nolix.coretest.containertest.matrixtest;
 
 //Java imports
 import java.util.NoSuchElementException;

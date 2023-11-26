@@ -9,10 +9,6 @@ public final class MainTestPool extends TestPool {
 
   //constructor
   public MainTestPool() {
-    super(
-      GapMatrixTest.class,
-      ImmutableListTest.class,
-      LinkedListTest.class,
-      MatrixTest.class);
+    super(ImmutableListTest.class, LinkedListTest.class);
   }
 }
