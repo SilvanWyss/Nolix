@@ -543,6 +543,28 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
 
   //method
   /**
+   * The complexity of this implementation is O(1).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
+  public void removeFirstStrictly() {
+
+    //Enumerates the element count of the current LinkedList.
+    switch (getElementCount()) {
+      case 0:
+        throw EmptyArgumentException.forArgument(this);
+      case 1:
+        clear();
+        break;
+      default:
+        firstNode = firstNode.getNextNode();
+        elementCount--;
+    }
+  }
+
+  //method
+  /**
    * The complexity of this implementation is O(n) if the current
    * {@link LinkedList} contains n elements.
    * 

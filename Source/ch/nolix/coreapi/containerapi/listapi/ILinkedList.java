@@ -159,6 +159,14 @@ public interface ILinkedList<E> extends Clearable, Copyable<ILinkedList<E>>, ICo
 
   //method declaration
   /**
+   * Removes the first element from the current {@link ILinkedList}.
+   * 
+   * @throws RuntimeException if the current {@link ILinkedList} is empty.
+   */
+  void removeFirstStrictly();
+
+  //method declaration
+  /**
    * Removes the first element the given selector selects from the current
    * {@link ILinkedList}
    * 
