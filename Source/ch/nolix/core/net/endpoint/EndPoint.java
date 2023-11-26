@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
+//Java imports
 import java.util.function.Consumer;
 
 //own imports

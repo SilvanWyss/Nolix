@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.errorcontrol.validator;
 
+//Java imports
 import java.util.function.Predicate;
 
 //own imports

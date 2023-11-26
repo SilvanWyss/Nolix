@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.containertest.basetest;
 
+//Java imports
 import java.math.BigDecimal;
 
 //own imports

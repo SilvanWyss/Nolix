@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.element.property;
 
+//Java imports
 import java.util.function.Function;
 
 //own imports

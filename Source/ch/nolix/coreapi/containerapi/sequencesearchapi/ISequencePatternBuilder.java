@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
+//Java imports
 import java.util.function.Predicate;
 
 //own imports

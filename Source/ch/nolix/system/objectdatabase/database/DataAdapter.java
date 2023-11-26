@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//Java imports
 import java.util.function.Supplier;
 
 //own imports

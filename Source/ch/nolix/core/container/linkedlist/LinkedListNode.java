@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.container.linkedlist;
 
+//Java imports
 import java.util.function.Predicate;
 
 //own imports

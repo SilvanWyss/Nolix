@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.template.webgui.dialog;
 
+//Java imports
 import java.util.function.Consumer;
 
 //own imports

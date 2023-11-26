@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.programcontrol.sequencer;
 
+//Java imports
 import java.util.function.Supplier;
 
 //own imports

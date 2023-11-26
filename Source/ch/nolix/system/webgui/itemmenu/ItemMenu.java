@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//Java imports
 import java.util.function.Consumer;
 
 //own imports

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.application.webapplicationcounterpartupdater;
 
+//Java imports
 import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
 
