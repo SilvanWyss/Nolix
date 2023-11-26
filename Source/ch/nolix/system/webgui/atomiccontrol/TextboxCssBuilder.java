@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.atomiccontrol;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;

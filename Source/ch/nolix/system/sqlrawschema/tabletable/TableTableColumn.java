@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.tabletable;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;

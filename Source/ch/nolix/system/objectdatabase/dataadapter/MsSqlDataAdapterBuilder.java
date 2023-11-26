@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.dataadapter;
 
+//own imports
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;

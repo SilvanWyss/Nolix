@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemawriter;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;

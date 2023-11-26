@@ -3,6 +3,7 @@ package ch.nolix.template.webgui.dialog;
 
 import java.util.function.Consumer;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.methodapi.skillapi.IBuilder;

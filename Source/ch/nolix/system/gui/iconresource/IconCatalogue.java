@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.gui.iconresource;
 
+//own imports
 import ch.nolix.system.graphic.image.Image;
 
 //class

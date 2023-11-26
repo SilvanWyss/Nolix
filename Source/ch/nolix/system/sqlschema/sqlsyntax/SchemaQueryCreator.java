@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlschema.sqlsyntax;
 
+//own imports
 import ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi.ISchemaQueryCreator;
 
 //class

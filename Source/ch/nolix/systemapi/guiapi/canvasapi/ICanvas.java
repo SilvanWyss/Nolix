@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.canvasapi;
 
+//own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.linearcontainerapi;
 
+//own imports
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.VerticalContentAlignment;
 
 //interface

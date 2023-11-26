@@ -5,6 +5,7 @@ package ch.nolix.tech.math.fractal;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.fractalapi.IFractal;
 import ch.nolix.techapi.mathapi.fractalapi.IFractalHelper;

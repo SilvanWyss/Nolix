@@ -4,6 +4,7 @@ package ch.nolix.core.environment.filesystem;
 //Java imports
 import java.io.File;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.RegularExpressionPatternCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;

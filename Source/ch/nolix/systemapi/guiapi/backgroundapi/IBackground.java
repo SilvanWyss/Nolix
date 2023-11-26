@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.guiapi.backgroundapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
 import ch.nolix.systemapi.elementapi.specificationapi.Specified;

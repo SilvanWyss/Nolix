@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.license;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnacceptedKeyException;

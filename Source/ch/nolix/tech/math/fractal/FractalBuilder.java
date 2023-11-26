@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
+//own imports
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;

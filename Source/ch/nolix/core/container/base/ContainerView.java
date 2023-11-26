@@ -3,6 +3,7 @@ package ch.nolix.core.container.base;
 
 import java.util.function.Function;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.BiggerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NonPositiveArgumentException;

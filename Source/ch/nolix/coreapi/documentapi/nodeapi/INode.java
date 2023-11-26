@@ -3,6 +3,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.pairapi.IIntPair;

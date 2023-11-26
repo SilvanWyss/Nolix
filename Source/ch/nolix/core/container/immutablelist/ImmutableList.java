@@ -3,6 +3,7 @@ package ch.nolix.core.container.immutablelist;
 
 import java.util.function.Function;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;

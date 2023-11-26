@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectschemaapi.schemaapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.fluentmutablemandatoryattributeapi.IFluentMutableNameHolder;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;

@@ -5,6 +5,7 @@ package ch.nolix.tech.math.bigdecimalmath;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.core.container.pair.Pair;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;

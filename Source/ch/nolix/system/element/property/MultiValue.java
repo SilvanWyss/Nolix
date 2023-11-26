@@ -4,6 +4,7 @@ package ch.nolix.system.element.property;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;

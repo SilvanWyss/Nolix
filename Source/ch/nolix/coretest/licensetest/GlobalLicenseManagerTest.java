@@ -4,6 +4,7 @@ package ch.nolix.coretest.licensetest;
 //Java imports
 import java.util.Objects;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.license.Feature;
 import ch.nolix.core.license.GlobalLicenseManager;

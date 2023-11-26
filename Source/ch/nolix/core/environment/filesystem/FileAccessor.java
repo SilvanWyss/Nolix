@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

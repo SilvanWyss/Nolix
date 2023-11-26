@@ -1,6 +1,7 @@
 //package declaraiton
 package ch.nolix.system.element.property;
 
+//own imports
 import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 
 //class

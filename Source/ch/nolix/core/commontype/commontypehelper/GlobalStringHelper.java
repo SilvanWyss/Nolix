@@ -4,6 +4,7 @@ package ch.nolix.core.commontype.commontypehelper;
 //Java imports
 import java.util.Locale;
 
+//own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;

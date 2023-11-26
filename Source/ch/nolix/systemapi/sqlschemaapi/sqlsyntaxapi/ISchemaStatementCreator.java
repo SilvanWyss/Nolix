@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.sqlschemaapi.sqlsyntaxapi;
 
+//own imports
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto;
 

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.databasedto;
 
+//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

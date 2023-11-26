@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.methodapi.mutationapi;
 
+//own imports
 import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
 
 //interface

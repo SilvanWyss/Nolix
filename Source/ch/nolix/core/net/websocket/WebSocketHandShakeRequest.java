@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.net.websocket;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 
 //class

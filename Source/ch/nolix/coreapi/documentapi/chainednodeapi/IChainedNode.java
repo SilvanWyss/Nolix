@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.documentapi.chainednodeapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;

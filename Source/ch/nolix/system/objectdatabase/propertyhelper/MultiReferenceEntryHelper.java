@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
+//own imports
 import ch.nolix.system.databaseobject.databaseobjecthelper.DatabaseObjectHelper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IMultiReferenceEntryHelper;
 

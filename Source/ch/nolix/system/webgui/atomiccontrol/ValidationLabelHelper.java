@@ -3,6 +3,7 @@ package ch.nolix.system.webgui.atomiccontrol;
 
 import java.util.function.Consumer;
 
+//own imports
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IValidationLabelHelper;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;

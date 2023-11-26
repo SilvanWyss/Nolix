@@ -4,6 +4,7 @@ package ch.nolix.techapi.mathapi.fractalapi;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IClosedInterval;

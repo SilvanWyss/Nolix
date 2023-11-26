@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;

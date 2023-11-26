@@ -4,6 +4,7 @@ package ch.nolix.tech.math.fractal;
 //Java import
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

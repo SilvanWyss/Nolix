@@ -4,6 +4,7 @@ package ch.nolix.techapi.mathapi.fractalapi;
 //Java imports
 import java.math.BigDecimal;
 
+//own imports
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 //interface

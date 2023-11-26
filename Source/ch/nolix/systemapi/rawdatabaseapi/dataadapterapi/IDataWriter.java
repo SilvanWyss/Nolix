@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawdatabaseapi.dataadapterapi;
 
+//own imports
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;

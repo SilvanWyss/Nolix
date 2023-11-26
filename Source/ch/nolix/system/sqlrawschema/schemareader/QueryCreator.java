@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemareader;
 
+//own imports
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;

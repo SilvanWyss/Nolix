@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.template.math.sequence;
 
+//own imports
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.tech.math.bigdecimalmath.ComplexSequenceDefinedBy1Predecessor;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;

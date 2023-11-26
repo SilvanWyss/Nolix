@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.databaseinspector;
 
+//own imports
 import ch.nolix.system.sqlrawdatabase.schemainfo.ColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;

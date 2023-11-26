@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.sqlschemaapi.schemaadapterapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto;

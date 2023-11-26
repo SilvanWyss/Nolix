@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.dataevaluator;
 
+//own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 //own imports
 import ch.nolix.techapi.relationaldocapi.baseapi.DataType;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.structure;
 
+//own imports
 import ch.nolix.system.sqlschema.schemadto.DataTypeDto;
 
 //class

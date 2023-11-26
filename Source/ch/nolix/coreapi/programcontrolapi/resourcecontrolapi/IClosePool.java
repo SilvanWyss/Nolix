@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.programcontrolapi.resourcecontrolapi;
 
+//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.processproperty.CloseState;
 

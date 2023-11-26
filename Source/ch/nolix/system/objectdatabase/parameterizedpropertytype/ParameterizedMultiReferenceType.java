@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 
+//own imports
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.document.chainednode;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.itemmenuapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IIdHolder;
 import ch.nolix.coreapi.methodapi.requestapi.BlanknessRequestable;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;

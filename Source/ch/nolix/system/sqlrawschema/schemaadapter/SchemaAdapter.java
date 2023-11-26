@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

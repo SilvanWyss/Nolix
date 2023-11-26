@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.propertyhelper;
 
+//own imports
 import ch.nolix.system.sqlrawdatabase.databasedto.ContentFieldDto;
 import ch.nolix.system.sqlrawdatabase.databasedto.EntityUpdateDto;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;

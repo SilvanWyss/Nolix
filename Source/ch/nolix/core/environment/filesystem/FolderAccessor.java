@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.environment.filesystem;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

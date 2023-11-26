@@ -6,6 +6,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentBelongsToParentException;

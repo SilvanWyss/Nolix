@@ -4,6 +4,7 @@ package ch.nolix.system.element.relativevalue;
 //Java imports
 import java.text.DecimalFormat;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;

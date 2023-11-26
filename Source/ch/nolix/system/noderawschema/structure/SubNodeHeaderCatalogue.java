@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.noderawschema.structure;
 
+//own imports
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 
 //class

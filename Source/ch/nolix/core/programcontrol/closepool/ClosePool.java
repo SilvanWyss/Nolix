@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.programcontrol.closepool;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentContainsElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

@@ -3,6 +3,7 @@ package ch.nolix.core.container.readcontainer;
 
 import java.util.function.Function;
 
+//own imports
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;

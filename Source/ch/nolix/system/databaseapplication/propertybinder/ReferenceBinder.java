@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.databaseapplication.propertybinder;
 
+//own imports
 import ch.nolix.system.webgui.itemmenu.DropdownMenu;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;

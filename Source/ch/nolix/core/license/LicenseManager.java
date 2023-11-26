@@ -4,6 +4,7 @@ package ch.nolix.core.license;
 //Java imports
 import java.lang.reflect.InvocationTargetException;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.environment.filesystem.FolderAccessor;
 import ch.nolix.core.errorcontrol.exception.GeneralException;

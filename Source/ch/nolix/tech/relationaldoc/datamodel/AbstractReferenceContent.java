@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 //own imports

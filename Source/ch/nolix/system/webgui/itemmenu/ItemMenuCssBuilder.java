@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.itemmenu;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.system.webgui.basecontrolservice.ControlCssBuilder;

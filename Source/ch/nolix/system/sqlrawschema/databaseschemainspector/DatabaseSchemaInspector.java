@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databaseschemainspector;
 
+//own imports
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;

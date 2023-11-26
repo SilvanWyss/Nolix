@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.schemaadapter;
 
+//own imports
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;

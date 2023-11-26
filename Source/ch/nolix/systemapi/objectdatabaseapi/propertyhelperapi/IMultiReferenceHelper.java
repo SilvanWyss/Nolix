@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi;
 
+//own imports
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityUpdateDto;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.sql;
 
+//own imports
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndDatabaseNameCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;

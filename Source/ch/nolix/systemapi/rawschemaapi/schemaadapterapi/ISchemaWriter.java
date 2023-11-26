@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.rawschemaapi.schemaadapterapi;
 
+//own imports
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;

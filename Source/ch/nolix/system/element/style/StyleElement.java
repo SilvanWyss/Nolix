@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.element.style;
 
+//own imports
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.system.element.property.MutableOptionalValue;

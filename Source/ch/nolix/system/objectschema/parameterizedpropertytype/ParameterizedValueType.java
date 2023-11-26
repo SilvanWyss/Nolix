@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectschema.parameterizedpropertytype;
 
+//own imports
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 

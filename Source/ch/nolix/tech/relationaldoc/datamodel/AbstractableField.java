@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//own imports
 import ch.nolix.coreapi.datamodelapi.cardinalityapi.Cardinality;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PluralPascalCaseCatalogue;
 import ch.nolix.system.objectdatabase.database.BackReference;

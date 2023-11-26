@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
+//own imports
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 
 //interface

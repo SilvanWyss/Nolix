@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.webtest.htmltest;
 
+//own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

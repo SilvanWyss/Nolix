@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.nettest.websockettest;
 
+//own imports
 import ch.nolix.core.commontype.unsignedbyte.UnsignedByte;
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLengthType;

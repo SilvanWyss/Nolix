@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;

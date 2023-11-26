@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.multistateconfigurationapi;
 
+//own imports
 import ch.nolix.systemapi.elementapi.mutableelementapi.IRespondingMutableElement;
 
 //interface

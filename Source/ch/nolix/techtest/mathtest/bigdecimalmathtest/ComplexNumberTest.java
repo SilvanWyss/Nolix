@@ -5,6 +5,7 @@ package ch.nolix.techtest.mathtest.bigdecimalmathtest;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+//own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;

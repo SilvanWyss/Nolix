@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.database;
 
+//own imports
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;

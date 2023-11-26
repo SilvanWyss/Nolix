@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.mathtest.stochastictest;
 
+//own imports
 import ch.nolix.core.math.stochastic.ARModel;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

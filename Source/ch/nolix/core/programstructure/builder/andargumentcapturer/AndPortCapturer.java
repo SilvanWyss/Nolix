@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.programstructure.builder.andargumentcapturer;
 
+//own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;

@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;

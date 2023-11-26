@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.objectdatabase.dataadapter;
 
+//own imports
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
 import ch.nolix.core.programstructure.builder.withargumentcapturer.WithNameCapturer;
 import ch.nolix.coreapi.documentapi.nodeapi.IMutableNode;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.tech.serverdashboardapplication.main;
 
+//own imports
 import ch.nolix.system.application.main.Application;
 import ch.nolix.system.application.main.BaseServer;
 import ch.nolix.system.application.webapplication.WebClient;

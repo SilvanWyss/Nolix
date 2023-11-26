@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.webgui.controlhelper;
 
+//own imports
 import ch.nolix.systemapi.elementapi.relativevalueapi.IAbsoluteOrRelativeInt;
 //own imports
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;

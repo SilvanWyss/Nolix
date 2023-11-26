@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.databasereader;
 
+//own imports
 import ch.nolix.system.sqlrawdatabase.databasedto.LoadedContentFieldDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.ILoadedContentFieldDto;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coretest.mathtest.maintest;
 
+//own imports
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;

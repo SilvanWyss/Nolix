@@ -3,6 +3,7 @@ package ch.nolix.coreapi.containerapi.sequencesearchapi;
 
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
 import ch.nolix.coreapi.methodapi.skillapi.IBuilder;
 

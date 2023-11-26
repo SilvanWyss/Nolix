@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.containerapi.matrixapi;
 
+//own imports
 import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 
 //interface

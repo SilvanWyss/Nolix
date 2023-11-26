@@ -5,6 +5,7 @@ package ch.nolix.coretest.nettest.websockettest;
 import java.io.IOException;
 import java.io.InputStream;
 
+//own imports
 import ch.nolix.core.commontype.unsignedbyte.UnsignedByte;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;

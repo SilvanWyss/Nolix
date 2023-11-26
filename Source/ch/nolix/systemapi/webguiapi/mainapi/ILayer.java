@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.mainapi;
 
+//own imports
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlGetter;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
+//own imports
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;

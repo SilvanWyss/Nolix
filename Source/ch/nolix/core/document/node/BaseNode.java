@@ -3,6 +3,7 @@ package ch.nolix.core.document.node;
 
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.MutableXmlNode;

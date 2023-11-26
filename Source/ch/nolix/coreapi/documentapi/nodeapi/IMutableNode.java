@@ -3,6 +3,7 @@ package ch.nolix.coreapi.documentapi.nodeapi;
 
 import java.util.function.Predicate;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalHeaderHolder;
 
 //interface

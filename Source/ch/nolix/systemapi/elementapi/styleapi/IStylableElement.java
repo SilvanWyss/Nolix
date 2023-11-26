@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.styleapi;
 
+//own imports
 import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.IFluentMutableMultiTokenHolder;
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

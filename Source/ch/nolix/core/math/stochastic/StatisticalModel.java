@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.core.math.stochastic;
 
+//own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;

@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 
+//own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;

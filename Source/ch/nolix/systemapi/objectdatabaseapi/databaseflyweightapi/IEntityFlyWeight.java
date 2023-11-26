@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.objectdatabaseapi.databaseflyweightapi;
 
+//own imports
 import ch.nolix.coreapi.methodapi.requestapi.VoidnessRequestable;
 
 //interface
