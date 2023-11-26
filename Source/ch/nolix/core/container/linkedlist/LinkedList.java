@@ -617,6 +617,20 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    * {@inheritDoc}
    */
   @Override
+  public void removeLastStrictly() {
+
+    assertContainsAny();
+
+    removeLastWhenContainsAny();
+  }
+
+  //method
+  /**
+   * The complexity of this implementation is O(n).
+   * 
+   * {@inheritDoc}
+   */
+  @Override
   public void removeStrictlyFirstOccurrenceOf(Object element) {
 
     //Handles the case that the current LinkedList contains any.
@@ -682,6 +696,16 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   protected <E2> ILinkedList<E2> createEmptyMutableList(final Marker<E2> marker) {
     return new LinkedList<>();
+  }
+
+  //method
+  /**
+   * @throws EmptyArgumentException if the current {@link LinkedList} is empty.
+   */
+  private void assertContainsAny() {
+    if (isEmpty()) {
+      throw EmptyArgumentException.forArgument(this);
+    }
   }
 
   //method
