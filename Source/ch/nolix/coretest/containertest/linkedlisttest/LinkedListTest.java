@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.containertest.maintest;
+package ch.nolix.coretest.containertest.linkedlisttest;
 
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;

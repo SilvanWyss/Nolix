@@ -9,6 +9,6 @@ public final class MainTestPool extends TestPool {
 
   //constructor
   public MainTestPool() {
-    super(ImmutableListTest.class, LinkedListTest.class);
+    super(ImmutableListTest.class);
   }
 }
