@@ -6,7 +6,7 @@ import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.math.main.GlobalCalculator;
@@ -50,7 +50,7 @@ public final class Polynom {
    * 
    * @param coefficientArray
    * @throws ArgumentIsNullException if the given coefficients is null.
-   * @throws ArgumentIsZeroException if the highest of the given coefficients is
+   * @throws EqualArgumentException  if the highest of the given coefficients is
    *                                 0.0.
    */
   private Polynom(final double[] coefficientArray) {

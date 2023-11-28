@@ -3,7 +3,7 @@ package ch.nolix.core.math.algebra;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsZeroException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.EqualArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 
 //class
@@ -30,7 +30,7 @@ public final class QuadraticFunction {
    * {@link QuadraticFunction} will be 0.0.
    * 
    * @param a
-   * @throws ArgumentIsZeroException if the given a is 0.0.
+   * @throws EqualArgumentException if the given a is 0.0.
    */
   public QuadraticFunction(final double a) {
 
@@ -45,7 +45,7 @@ public final class QuadraticFunction {
    * @param a
    * @param b
    * @param c
-   * @throws ArgumentIsZeroException if the given a is 0.0.
+   * @throws EqualArgumentException if the given a is 0.0.
    */
   public QuadraticFunction(final double a, final double b, final double c) {
 
