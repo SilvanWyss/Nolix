@@ -10,8 +10,8 @@ public final class DeepSelectingStyleBuilder extends BaseSelectingStyleBuilder<D
   //method
   public DeepSelectingStyle build() {
     return new DeepSelectingStyle(
-      getSelectorIdContainer(),
-      getSelectorTypeContainer(),
+      getOptionalSelectorId().orElse(null),
+      getOptionalSelectorType().orElse(null),
       getSelectorRoles(),
       getSelectorTokens(),
       getAttachingAttributes(),

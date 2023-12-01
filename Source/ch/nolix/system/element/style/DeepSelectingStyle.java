@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.element.style;
 
-//Java imports
-import java.util.Optional;
-
 //own imports
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -26,23 +23,23 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
   /**
    * Creates a new {@link DeepSelectingStyle}.
    * 
-   * @param selectorIdContainer
-   * @param selectorTypeContainer
+   * @param optionalSelectorId
+   * @param optionalSelectorType
    * @param selectorRoles
    * @param selectorTokens
    * @param attachingAttributes
    * @param subStyles
    */
   public DeepSelectingStyle(
-    final Optional<String> selectorIdContainer,
-    final Optional<String> selectorTypeContainer,
+    final String optionalSelectorId,
+    final String optionalSelectorType,
     final IContainer<String> selectorRoles,
     final IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
     final IContainer<BaseSelectingStyle> subStyles) {
     super(
-      selectorIdContainer,
-      selectorTypeContainer,
+      optionalSelectorId,
+      optionalSelectorType,
       selectorRoles,
       selectorTokens,
       attachingAttributes,
@@ -57,8 +54,8 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
    */
   public static DeepSelectingStyle fromSpecification(final INode<?> specification) {
 
-    Optional<String> selectorIdContainer = Optional.empty();
-    Optional<String> selectorTypeContainer = Optional.empty();
+    String optionalselectorId = null;
+    String optionalSelectorType = null;
     final var selectorRoles = new LinkedList<String>();
     final var selectorTokens = new LinkedList<String>();
     final var attachingAttributes = new LinkedList<INode<?>>();
@@ -67,10 +64,10 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     for (final var a : specification.getStoredChildNodes()) {
       switch (a.getHeader()) {
         case SELECTOR_ID_HEADER:
-          selectorIdContainer = Optional.of(a.getSingleChildNodeHeader());
+          optionalselectorId = a.getSingleChildNodeHeader();
           break;
         case SELECTOR_TYPE_HEADER:
-          selectorTypeContainer = Optional.of(a.getSingleChildNodeHeader());
+          optionalSelectorType = a.getSingleChildNodeHeader();
           break;
         case SELECTOR_ROLE_HEADER:
           selectorRoles.addAtEnd(a.getSingleChildNodeHeader());
@@ -95,8 +92,8 @@ public final class DeepSelectingStyle extends BaseSelectingStyle {
     }
 
     return new DeepSelectingStyle(
-      selectorIdContainer,
-      selectorTypeContainer,
+      optionalselectorId,
+      optionalSelectorType,
       selectorRoles,
       selectorTokens,
       attachingAttributes,

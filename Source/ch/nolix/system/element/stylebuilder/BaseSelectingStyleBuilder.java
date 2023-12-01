@@ -75,8 +75,13 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
   }
 
   //method
-  protected final Optional<String> getSelectorIdContainer() {
+  protected final Optional<String> getOptionalSelectorId() {
     return Optional.ofNullable(selectorId);
+  }
+
+  //method
+  protected final Optional<String> getOptionalSelectorType() {
+    return Optional.ofNullable(selectorType);
   }
 
   //method
@@ -87,10 +92,5 @@ abstract class BaseSelectingStyleBuilder<SSB extends BaseSelectingStyleBuilder<S
   //method
   protected final IContainer<String> getSelectorTokens() {
     return selectorTokens;
-  }
-
-  //method
-  protected final Optional<String> getSelectorTypeContainer() {
-    return Optional.ofNullable(selectorType);
   }
 }

@@ -1,9 +1,6 @@
 //package declaration
 package ch.nolix.system.element.style;
 
-//Java imports
-import java.util.Optional;
-
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
@@ -44,8 +41,8 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
 
   //constructor
   protected BaseSelectingStyle(
-    final Optional<String> selectorIdContainer,
-    final Optional<String> selectorTypeContainer,
+    final String optionalSelectorId,
+    final String optionalSelectorType,
     IContainer<String> selectorRoles,
     IContainer<String> selectorTokens,
     final IContainer<? extends INode<?>> attachingAttributes,
@@ -56,24 +53,8 @@ public abstract class BaseSelectingStyle extends BaseStyle implements ISelecting
     GlobalValidator.assertThatTheStrings(selectorRoles).areNotBlank();
     GlobalValidator.assertThatTheStrings(selectorTokens).areNotBlank();
 
-    if (selectorIdContainer.isEmpty()) {
-      selectorId = null;
-    } else {
-
-      selectorId = selectorIdContainer.get();
-
-      GlobalValidator.assertThat(selectorId).thatIsNamed("selector id").isNotBlank();
-    }
-
-    if (selectorTypeContainer.isEmpty()) {
-      selectorType = null;
-    } else {
-
-      selectorType = selectorTypeContainer.get();
-
-      GlobalValidator.assertThat(selectorType).thatIsNamed("selector type").isNotBlank();
-    }
-
+    selectorId = optionalSelectorId;
+    selectorType = optionalSelectorType;
     this.selectorRoles = ImmutableList.forIterable(selectorRoles);
     this.selectorTokens = ImmutableList.forIterable(selectorTokens);
   }

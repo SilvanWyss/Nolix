@@ -10,8 +10,8 @@ public final class SelectingStyleBuilder extends BaseSelectingStyleBuilder<Selec
   //method
   public SelectingStyle build() {
     return new SelectingStyle(
-      getSelectorIdContainer(),
-      getSelectorTypeContainer(),
+      getOptionalSelectorId().orElse(null),
+      getOptionalSelectorType().orElse(null),
       getSelectorRoles(),
       getSelectorTokens(),
       getAttachingAttributes(),
