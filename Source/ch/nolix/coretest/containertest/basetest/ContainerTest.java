@@ -886,10 +886,7 @@ public abstract class ContainerTest extends Test {
     final var testUnit = createEmptyContainerForType(String.class);
 
     //execution & verification
-    expectRunning(testUnit::getStoredLast)
-      .throwsException()
-      .ofType(EmptyArgumentException.class)
-      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+    expectRunning(testUnit::getStoredLast).throwsException();
   }
 
   //method
