@@ -880,6 +880,38 @@ public abstract class ContainerTest extends Test {
 
   //method
   @TestCase
+  public void testCase_getStoredLast_whenIsEmpty() {
+
+    //setup
+    final var testUnit = createEmptyContainerForType(String.class);
+
+    //execution & verification
+    expectRunning(testUnit::getStoredLast)
+      .throwsException()
+      .ofType(EmptyArgumentException.class)
+      .withMessage("The given " + testUnit.getClass().getSimpleName() + " is empty.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_getStoredLast_whenContainsSeveralElements() {
+
+    //setup
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = createContainerWithElements(elephant, lion, rhino, zebra);
+
+    //execution
+    final var result = testUnit.getStoredLast();
+
+    //verification
+    expect(result).is(zebra);
+  }
+
+  //method
+  @TestCase
   public final void testCase_getStoredOne_whenDoesNotContainAMatchingElement() {
 
     //setup
