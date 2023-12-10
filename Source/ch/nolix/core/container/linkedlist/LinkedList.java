@@ -650,8 +650,10 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   @Override
   public void replaceFirst(final Predicate<E> selector, final E element) {
+
     var iterator = firstNode;
-    while (iterator != null) {
+
+    while (true) { //NOSONAR: In this case, break statements are nicer than a terminal condition.
 
       if (selector.test(iterator.getElement())) {
         iterator.setElement(element);
@@ -661,7 +663,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
       if (iterator.hasNextNode()) {
         iterator = iterator.getNextNode();
       } else {
-        iterator = null;
+        break;
       }
     }
   }
