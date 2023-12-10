@@ -15,7 +15,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
-  public void testCase_addAtBegin() {
+  public void testCase_addAtBegin_forIterable() {
 
     //setup
     final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
@@ -36,7 +36,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
-  public void testCase_addAtBegin_whenGivenListIsEmpty() {
+  public void testCase_addAtBegin_forIterable_whenGivenListIsEmpty() {
 
     //setup
     final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
@@ -55,7 +55,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
-  public void testCase_addAtBegin_whenIsEmpty() {
+  public void testCase_addAtBegin_forIterable_whenIsEmpty() {
 
     //setup
     final var testUnit = new LinkedList<String>();
@@ -72,7 +72,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
-  public void testCase_addAtBegin_whenTheGivenElementIsNull() {
+  public void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
 
     //setup
     final var testUnit = new LinkedList<>();
