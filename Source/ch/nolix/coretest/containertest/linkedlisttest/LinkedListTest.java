@@ -66,39 +66,18 @@ public final class LinkedListTest extends ContainerTest {
   public void testCase_addAtBegin_forIterable() {
 
     //setup
-    final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
-    final var list = LinkedList.withElement("b1", "b2");
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = LinkedList.withElement(rhino, zebra);
+    final var list = LinkedList.withElement(elephant, lion);
 
     //execution
     testUnit.addAtBegin(list);
 
     //verification
-    expect(testUnit.getElementCount()).isEqualTo(6);
-    expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("b1");
-    expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("b2");
-    expect(testUnit.getStoredAt1BasedIndex(3)).isEqualTo("a1");
-    expect(testUnit.getStoredAt1BasedIndex(4)).isEqualTo("a2");
-    expect(testUnit.getStoredAt1BasedIndex(5)).isEqualTo("a3");
-    expect(testUnit.getStoredAt1BasedIndex(6)).isEqualTo("a4");
-  }
-
-  //method
-  @TestCase
-  public void testCase_addAtBegin_forIterable_whenGivenListIsEmpty() {
-
-    //setup
-    final var testUnit = LinkedList.withElement("a1", "a2", "a3", "a4");
-    final var list = new LinkedList<String>();
-
-    //execution
-    testUnit.addAtBegin(list);
-
-    //verification
-    expect(testUnit.getElementCount()).isEqualTo(4);
-    expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("a1");
-    expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("a2");
-    expect(testUnit.getStoredAt1BasedIndex(3)).isEqualTo("a3");
-    expect(testUnit.getStoredAt1BasedIndex(4)).isEqualTo("a4");
+    expect(testUnit).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
   }
 
   //method
@@ -106,16 +85,33 @@ public final class LinkedListTest extends ContainerTest {
   public void testCase_addAtBegin_forIterable_whenIsEmpty() {
 
     //setup
+    final var elephant = "elephant";
+    final var lion = "lion";
     final var testUnit = new LinkedList<String>();
-    final var list = LinkedList.withElement("b1", "b2");
+    final var list = LinkedList.withElement(elephant, lion);
 
     //execution
     testUnit.addAtBegin(list);
 
     //verification
-    expect(testUnit.getElementCount()).isEqualTo(2);
-    expect(testUnit.getStoredAt1BasedIndex(1)).isEqualTo("b1");
-    expect(testUnit.getStoredAt1BasedIndex(2)).isEqualTo("b2");
+    expect(testUnit).containsExactlyInSameOrder(elephant, lion);
+  }
+
+  //method
+  @TestCase
+  public void testCase_addAtBegin_forIterable_whenTheGivenListIsEmpty() {
+
+    //setup
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = LinkedList.withElement(rhino, zebra);
+    final var list = new LinkedList<String>();
+
+    //execution
+    testUnit.addAtBegin(list);
+
+    //verification
+    expect(testUnit).containsExactlyInSameOrder(rhino, zebra);
   }
 
   //method
@@ -123,14 +119,14 @@ public final class LinkedListTest extends ContainerTest {
   public void testCase_addAtBegin_forIterable_whenTheGivenElementIsNull() {
 
     //setup
-    final var testUnit = new LinkedList<>();
-    final Object nullElement = null;
+    final var testUnit = new LinkedList<String>();
+    final Iterable<String> element = null;
 
     //execution & verification
-    expectRunning(() -> testUnit.addAtBegin(nullElement))
+    expectRunning(() -> testUnit.addAtBegin(element))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
-      .withMessage("The given element is null.");
+      .withMessage("The given elements is null.");
   }
 
   //method
@@ -138,11 +134,11 @@ public final class LinkedListTest extends ContainerTest {
   public void testCase_addAtEnd_whenTheGivenElementIsNull() {
 
     //setup
-    final var testUnit = new LinkedList<>();
-    final Object nullElement = null;
+    final var testUnit = new LinkedList<String>();
+    final String element = null;
 
     //execution & verification
-    expectRunning(() -> testUnit.addAtEnd(nullElement))
+    expectRunning(() -> testUnit.addAtEnd(element))
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given element is null.");
@@ -223,14 +219,15 @@ public final class LinkedListTest extends ContainerTest {
     //setup
     final var elephant = "elephant";
     final var lion = "lion";
+    final var rhino = "rhino";
     final var zebra = "zebra";
-    final var array = new String[] { elephant, lion, zebra };
+    final var array = new String[] { elephant, lion, rhino, zebra };
 
     //execution
     final var result = LinkedList.fromArray(array);
 
     //verification
-    expect(result).containsExactlyInSameOrder(elephant, lion, zebra);
+    expect(result).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
   }
 
   //method
@@ -335,7 +332,7 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
-  public void testCase_toString_whenLikedListIsEmpty() {
+  public void testCase_toString_whenIsEmpty() {
 
     //setup
     final var testUnit = new LinkedList<>();
@@ -344,7 +341,7 @@ public final class LinkedListTest extends ContainerTest {
     final var result = testUnit.toString();
 
     //verification
-    expect(result).isEmpty();
+    expect(result).isEqualTo("");
   }
 
   //method
