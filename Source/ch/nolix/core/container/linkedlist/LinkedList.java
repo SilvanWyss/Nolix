@@ -54,6 +54,8 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
    */
   public static <E2> LinkedList<E2> fromArray(final E2[] array) {
 
+    GlobalValidator.assertThat(array).thatIsNamed(LowerCaseCatalogue.ARRAY).isNotNull();
+
     final var list = new LinkedList<E2>();
     list.addAtEnd(array);
 
