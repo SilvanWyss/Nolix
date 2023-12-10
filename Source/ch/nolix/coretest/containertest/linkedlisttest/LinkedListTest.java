@@ -130,6 +130,76 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
+  public void testCase_fromArray_whenTheGivenArrayIsNull() {
+
+    //execution & verification
+    expectRunning(() -> LinkedList.fromArray(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given array is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_fromArray_whenTheGivenArrayIsEmpty() {
+
+    //setup
+    final var array = new String[0];
+
+    //execution
+    final var result = LinkedList.fromArray(array);
+
+    //verification
+    expect(result.isEmpty());
+  }
+
+  //method
+  @TestCase
+  public void testCase_fromArray_whenTheGivenArrayContains1Element() {
+
+    //setup
+    final var elephant = "elephant";
+    final var array = new String[] { elephant };
+
+    //execution
+    final var result = LinkedList.fromArray(array);
+
+    //verification
+    expect(result).containsExactlyInSameOrder(elephant);
+  }
+
+  //method
+  @TestCase
+  public void testCase_fromArray_whenTheGivenArrayContainsSeveralElements() {
+
+    //setup
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var zebra = "zebra";
+    final var array = new String[] { elephant, lion, zebra };
+
+    //execution
+    final var result = LinkedList.fromArray(array);
+
+    //verification
+    expect(result).containsExactlyInSameOrder(elephant, lion, zebra);
+  }
+
+  //method
+  @TestCase
+  public void testCase_fromArray_whenTheGivenArrayContainsANullElement() {
+
+    //setup
+    final var array = new String[] { "lephant", "lion", null, "zebra" };
+
+    //execution & verification
+    expectRunning(() -> LinkedList.fromArray(array))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class);
+  }
+
+  //method
+  @TestCase
   public void testCase_removeFirstOccurrenceOf_whenDoesNotContainTheGivenElement() {
 
     //setup
