@@ -395,10 +395,7 @@ public final class LinkedList<E> extends Container<E> implements ILinkedList<E> 
   @Override
   public E getStoredLast() {
 
-    //Asserts that the current list is not empty.
-    if (isEmpty()) {
-      throw EmptyArgumentException.forArgument(this);
-    }
+    assertContainsAny();
 
     return lastNode.getElement();
   }
