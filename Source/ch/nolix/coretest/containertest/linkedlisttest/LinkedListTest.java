@@ -15,6 +15,54 @@ public final class LinkedListTest extends ContainerTest {
 
   //method
   @TestCase
+  public void testCase_addAtBegin_whenIsEmpty() {
+
+    //setup
+    final var elephant = "elephant";
+    final var testUnit = new LinkedList<String>();
+
+    //execution
+    testUnit.addAtBegin(elephant);
+
+    //verification
+    expect(testUnit).containsExactlyInSameOrder(elephant);
+  }
+
+  //method
+  @TestCase
+  public void testCase_addAtBegin_whenContainsSeveralElements() {
+
+    //setup
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = LinkedList.withElement(lion, rhino, zebra);
+
+    //execution
+    testUnit.addAtBegin(elephant);
+
+    //verification
+    expect(testUnit).containsExactlyInSameOrder(elephant, lion, rhino, zebra);
+  }
+
+  //method
+  @TestCase
+  public void testCase_addAtBegin_whenTheGivenElementIsNull() {
+
+    //setup
+    final String element = null;
+    final var testUnit = new LinkedList<String>();
+
+    //execution & verification
+    expectRunning(() -> testUnit.addAtBegin(element))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given element is null.");
+  }
+
+  //method
+  @TestCase
   public void testCase_addAtBegin_forIterable() {
 
     //setup
