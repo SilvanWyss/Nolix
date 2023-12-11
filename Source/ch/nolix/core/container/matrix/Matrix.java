@@ -426,7 +426,7 @@ public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
   @Override
   @SuppressWarnings("unchecked")
   public E getStoredLast() {
-    return (E) elements[getRowCount()][getColumnCount()];
+    return (E) elements[getRowCount() - 1][getColumnCount() - 1];
   }
 
   //method
