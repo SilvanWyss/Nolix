@@ -722,6 +722,38 @@ public abstract class ContainerTest extends Test {
 
   //method
   @TestCase
+  public void testCase_getOptionalStoredFirst_whenIsEmpty() {
+
+    //setup
+    final var testUnit = createEmptyContainerForType(String.class);
+
+    //execution
+    final var result = testUnit.getOptionalStoredFirst();
+
+    //verification
+    expect(result.isEmpty());
+  }
+
+  //method
+  @TestCase
+  public void testCase_getOptionalStoredFirst_whenContainsSeveralElements() {
+
+    //setup
+    final var elephant = "elephant";
+    final var lion = "lion";
+    final var rhino = "rhino";
+    final var zebra = "zebra";
+    final var testUnit = createContainerWithElements(elephant, lion, rhino, zebra);
+
+    //execution
+    final var result = testUnit.getOptionalStoredFirst();
+
+    //verification
+    expect(result.orElseThrow()).is(elephant);
+  }
+
+  //method
+  @TestCase
   public final void testCase_getStoredByMax_whenIsEmptyAndGivenNormIsInteger() {
 
     //setup
