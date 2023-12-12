@@ -2,7 +2,9 @@
 package ch.nolix.coretest.mathtest.algebratest;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.math.algebra.Matrix;
+import ch.nolix.core.math.algebra.Vector;
 import ch.nolix.core.math.main.GlobalCalculator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
@@ -334,5 +336,47 @@ public final class MatrixTest extends Test {
 
     //execution
     expect(result).isEqualTo("[0,0,0,0;0,0,0,0;0,0,0,0;0,0,0,0]");
+  }
+
+  //method
+  @TestCase
+  public void testCase_toVector_whenContains1Row() {
+
+    //setup
+    final var testUnit = new Matrix(1, 4).setValues(1.0, 2.0, 3.0, 4.0);
+
+    //execution
+    final var result = testUnit.toVector();
+
+    //verification
+    expect(result).isEqualTo(Vector.withValue(1.0, 2.0, 3.0, 4.0));
+  }
+
+  //method
+  @TestCase
+  public void testCase_toVector_whenContains1Column() {
+
+    //setup
+    final var testUnit = new Matrix(4, 1).setValues(1.0, 2.0, 3.0, 4.0);
+
+    //execution
+    final var result = testUnit.toVector();
+
+    //verification
+    expect(result).isEqualTo(Vector.withValue(1.0, 2.0, 3.0, 4.0));
+  }
+
+  //method
+  @TestCase
+  public void testCase_toVector_whenIs2x2Matrix() {
+
+    //setup
+    final var testUnit = new Matrix(2, 2).setValues(1.0, 2.0, 3.0, 4.0);
+
+    //execution & verification
+    expectRunning(testUnit::toVector)
+      .throwsException()
+      .ofType(UnrepresentingArgumentException.class)
+      .withMessage("The given Matrix '[1,2;3,4]' does not represent a Vector.");
   }
 }
