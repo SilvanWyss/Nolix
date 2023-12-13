@@ -2,11 +2,13 @@
 package ch.nolix.systemtest.webguitest.maintest;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.guiapi.contentalignmentproperty.ContentAlignment;
 import ch.nolix.systemapi.webguiapi.mainapi.LayerRole;
 
@@ -46,6 +48,43 @@ public final class LayerTest extends Test {
 
     //verification
     expect(testUnit.isEmpty());
+  }
+
+  //method
+  @TestCase
+  public void testCase_removeSelfFromGui_whenDoesNotBelongToGui() {
+
+    //setup
+    final var testUnit = new Layer();
+
+    //setup verification
+    expectNot(testUnit.belongsToGui());
+
+    //execution
+    expectRunning(testUnit::removeSelfFromGui)
+      .throwsException()
+      .ofType(ArgumentDoesNotBelongToParentException.class);
+  }
+
+  //method
+  @TestCase
+  public void testCase_removeSelfFromGui_whenBelongsToGui() {
+
+    //setup
+    final var webGui = new WebGui();
+    final var testUnit = new Layer();
+    webGui.pushLayer(testUnit);
+
+    //setup verification
+    expect(webGui.getStoredLayers()).contains(testUnit);
+    expect(testUnit.belongsToGui());
+
+    //execution
+    testUnit.removeSelfFromGui();
+
+    //verification
+    expectNot(webGui.getStoredLayers().contains(testUnit));
+    expectNot(testUnit.belongsToGui());
   }
 
   //method
