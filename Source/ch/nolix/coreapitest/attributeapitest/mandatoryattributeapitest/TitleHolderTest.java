@@ -13,7 +13,7 @@ public final class TitleHolderTest extends Test {
   public void testCase_getTitleInQuotes() {
 
     //setup
-    final var testUnit = TitleHolderMock.withTitle("my_title");
+    final var testUnit = MockTitleHolder.withTitle("my_title");
 
     //execution
     final var result = testUnit.getTitleInQuotes();

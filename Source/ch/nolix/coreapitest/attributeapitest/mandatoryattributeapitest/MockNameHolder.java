@@ -5,19 +5,19 @@ package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 
 //class
-public final class NameHolderMock implements INameHolder {
+public final class MockNameHolder implements INameHolder {
 
   //attribute
   private final String name;
 
   //constructor
-  private NameHolderMock(final String name) {
+  private MockNameHolder(final String name) {
     this.name = name;
   }
 
   //static method
-  public static NameHolderMock withName(final String name) {
-    return new NameHolderMock(name);
+  public static MockNameHolder withName(final String name) {
+    return new MockNameHolder(name);
   }
 
   //method

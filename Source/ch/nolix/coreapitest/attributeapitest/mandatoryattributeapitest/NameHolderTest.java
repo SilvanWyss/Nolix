@@ -13,7 +13,7 @@ public final class NameHolderTest extends Test {
   public void testCase_getNameInQuotes() {
 
     //setup
-    final var testUnit = NameHolderMock.withName("my_name");
+    final var testUnit = MockNameHolder.withName("my_name");
 
     //execution
     final var result = testUnit.getNameInQuotes();
@@ -27,7 +27,7 @@ public final class NameHolderTest extends Test {
   public void testCase_hasName_whenDoesNotHaveTheGivenName() {
 
     //setup
-    final var testUnit = NameHolderMock.withName("my_name");
+    final var testUnit = MockNameHolder.withName("my_name");
 
     //execution
     final var result = testUnit.hasName("My_name");
@@ -41,7 +41,7 @@ public final class NameHolderTest extends Test {
   public void testCase_hasName_whenHasTheGivenName() {
 
     //setup
-    final var testUnit = NameHolderMock.withName("my_name");
+    final var testUnit = MockNameHolder.withName("my_name");
 
     //execution
     final var result = testUnit.hasName("my_name");
@@ -55,8 +55,8 @@ public final class NameHolderTest extends Test {
   public void testCase_hasSameNameAs_whenDoesNotHaveTheSameName() {
 
     //setup
-    final var nameHolder = NameHolderMock.withName("My_name");
-    final var testUnit = NameHolderMock.withName("my_name");
+    final var nameHolder = MockNameHolder.withName("My_name");
+    final var testUnit = MockNameHolder.withName("my_name");
 
     //execution
     final var result = testUnit.hasSameNameAs(nameHolder);
@@ -70,8 +70,8 @@ public final class NameHolderTest extends Test {
   public void testCase_hasSameNameAs_whenHasTheSameName() {
 
     //setup
-    final var nameHolder = NameHolderMock.withName("my_name");
-    final var testUnit = NameHolderMock.withName("my_name");
+    final var nameHolder = MockNameHolder.withName("my_name");
+    final var testUnit = MockNameHolder.withName("my_name");
 
     //execution
     final var result = testUnit.hasSameNameAs(nameHolder);

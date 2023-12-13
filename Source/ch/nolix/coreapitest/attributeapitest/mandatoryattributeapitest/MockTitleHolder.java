@@ -5,19 +5,19 @@ package ch.nolix.coreapitest.attributeapitest.mandatoryattributeapitest;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.ITitleHolder;
 
 //class
-public final class TitleHolderMock implements ITitleHolder {
+public final class MockTitleHolder implements ITitleHolder {
 
   //attribute
   private final String title;
 
   //constructor
-  private TitleHolderMock(final String title) {
+  private MockTitleHolder(final String title) {
     this.title = title;
   }
 
   //static method
-  public static TitleHolderMock withTitle(final String title) {
-    return new TitleHolderMock(title);
+  public static MockTitleHolder withTitle(final String title) {
+    return new MockTitleHolder(title);
   }
 
   //method

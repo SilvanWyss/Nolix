@@ -17,7 +17,7 @@ public final class NetEndPointTest extends Test {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   //constant
-  private static final class SlotMock implements ISlot {
+  private static final class MockSlot implements ISlot {
 
     //optional attribute
     private String receivedMessage;
@@ -56,7 +56,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(port)) {
 
       //setup
-      server.addDefaultSlot(new SlotMock());
+      server.addDefaultSlot(new MockSlot());
 
       //execution & verification
       expectRunning(
@@ -79,7 +79,7 @@ public final class NetEndPointTest extends Test {
     try (final var server = Server.forPort(port)) {
 
       //setup
-      final var slot = new SlotMock();
+      final var slot = new MockSlot();
       server.addDefaultSlot(slot);
 
       try (final var testUnit = new SocketEndPoint(port)) {
