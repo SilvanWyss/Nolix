@@ -11,6 +11,26 @@ public final class ServerTest extends Test {
 
   //method
   @TestCase
+  public void testCase_addDefaultSlot() {
+
+    //parameter definition
+    final var port = 50000;
+
+    try (final var server = Server.forPort(port)) {
+
+      //setup
+      final var mockSlot = new MockSlot();
+
+      //execution
+      server.addDefaultSlot(mockSlot);
+
+      //verification
+      expect(server.containsDefaultSlot());
+    }
+  }
+
+  //method
+  @TestCase
   public void testCase_close() {
 
     //parameter definition
@@ -28,6 +48,22 @@ public final class ServerTest extends Test {
 
       //verification
       expect(server.isClosed());
+    }
+  }
+
+  //method
+  @TestCase
+  public void testCase_forPort() {
+
+    //parameter definition
+    final var port = 50000;
+
+    try (final var server = Server.forPort(port)) {
+
+      //verification
+      expect(server.getPort()).isEqualTo(port);
+      expectNot(server.containsDefaultSlot());
+      expect(server.isOpen());
     }
   }
 }
