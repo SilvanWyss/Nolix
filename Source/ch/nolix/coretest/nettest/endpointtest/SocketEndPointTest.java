@@ -9,7 +9,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
-public final class NetEndPointTest extends Test {
+public final class SocketEndPointTest extends Test {
 
   //constant
   private static final int WAITING_TIME_IN_MILLISECONDS = 100;
