@@ -12,7 +12,7 @@ import ch.nolix.core.testing.test.Test;
 public final class NetEndPointTest extends Test {
 
   //constant
-  private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
+  private static final int WAITING_TIME_IN_MILLISECONDS = 100;
 
   //method
   @TestCase
@@ -40,7 +40,7 @@ public final class NetEndPointTest extends Test {
 
   //method
   @TestCase
-  public void testCase_send() {
+  public void testCase_sendMessage() {
 
     //parameter definition
     final var port = 50000;
@@ -55,7 +55,7 @@ public final class NetEndPointTest extends Test {
 
         //execution
         testUnit.sendMessage("MESSAGE");
-        GlobalSequencer.waitForMilliseconds(CONNECT_TIMEOUT_IN_MILLISECONDS);
+        GlobalSequencer.waitForMilliseconds(WAITING_TIME_IN_MILLISECONDS);
 
         //verification
         expect(slot.getLatestReceivedMessage()).isEqualTo("MESSAGE");
