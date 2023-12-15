@@ -2,6 +2,7 @@
 package ch.nolix.systemtest.applicationtest.maintest;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.system.application.main.BackendClientSessionManager;
@@ -25,5 +26,16 @@ public final class BackendClientSessionManagerTest extends Test {
     expectNot(testUnit.containsPreviousSession());
     expectNot(testUnit.containsCurrentSession());
     expectNot(testUnit.containsNextSession());
+  }
+
+  //method
+  @TestCase
+  public void testCase_forClient_whenTheGivenClientIsNull() {
+
+    //execution & verification
+    expectRunning(() -> BackendClientSessionManager.forClient(null))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given parent client is null.");
   }
 }
