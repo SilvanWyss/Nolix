@@ -7,7 +7,6 @@ import java.util.Optional;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.element.property.MutableOptionalValue;
@@ -84,10 +83,7 @@ extends Control<C, ECS> implements IContainer<C, ECS> {
   //method
   @Override
   public final C setUserInput(final String userInput) {
-
-    GlobalValidator.assertThat(userInput).thatIsNamed("user input").isEmpty();
-
-    return asConcrete();
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
   //method declaration

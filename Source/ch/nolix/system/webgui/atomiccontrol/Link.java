@@ -177,10 +177,7 @@ public final class Link extends Control<ILink, ILinkStyle> implements ILink {
   //method
   @Override
   public ILink setUserInput(final String userInput) {
-
-    GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
-
-    return this;
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
   //method

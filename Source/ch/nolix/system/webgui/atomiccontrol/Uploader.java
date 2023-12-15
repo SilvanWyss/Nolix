@@ -7,6 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -85,10 +86,7 @@ public final class Uploader extends Control<IUploader, IUploaderStyle> implement
   //method
   @Override
   public IUploader setUserInput(final String userInput) {
-
-    //Does nothing.
-
-    return this;
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
   //method

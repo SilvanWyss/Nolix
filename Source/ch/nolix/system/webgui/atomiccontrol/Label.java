@@ -145,10 +145,7 @@ public final class Label extends Control<ILabel, ILabelStyle> implements ILabel 
   //method
   @Override
   public ILabel setUserInput(final String userInput) {
-
-    GlobalValidator.assertThat(userInput).thatIsNamed("user input").isBlank();
-
-    return this;
+    throw ArgumentDoesNotSupportMethodException.forArgumentAndMethodName(this, "setUserInput");
   }
 
   //method
