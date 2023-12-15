@@ -19,7 +19,7 @@ import ch.nolix.core.net.endpoint3.EndPoint;
 public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extends Client<BC> {
 
   //attribute
-  private final ClientSessionManager<BC, AC> sessionManager = new ClientSessionManager<>(this);
+  private final BackendClientSessionManager<BC, AC> sessionManager = new BackendClientSessionManager<>(this);
 
   //optional attribute
   /**

@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
-public final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
+public final class BackendClientSessionManager<C extends BackendClient<C, AC>, AC> {
 
   //constant
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
@@ -24,7 +24,7 @@ public final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
   private final LinkedList<Session<C, AC>> sessionStack = new LinkedList<>();
 
   //constructor
-  public ClientSessionManager(final Client<C> parentClient) {
+  public BackendClientSessionManager(final Client<C> parentClient) {
 
     //Asserts that the given parentClient is not null.
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();

@@ -12,7 +12,7 @@ public final class MainTestPool extends TestPool {
     super(
       BasicApplicationTest.class,
       BasicApplicationOnServerTest.class,
-      ClientSessionManagerTest.class,
+      BackendClientSessionManagerTest.class,
       ServerTest.class);
   }
 }
