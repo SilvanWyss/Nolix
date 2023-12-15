@@ -253,7 +253,7 @@ public final class NetEndPoint extends EndPoint {
     final var replyAsString = internalEndPoint.getReplyForRequest(message);
 
     if (replyAsString == null) {
-      //When one of the givne commands is a redirect command, the counterpart will
+      //When one of the given commands is a redirect command, the counterpart will
       //redirect and leave null.
     } else {
 
