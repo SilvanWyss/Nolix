@@ -218,7 +218,7 @@ public class StringMediator extends ArgumentMediator<String> {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
         getStoredArgument(),
-        "does not start with the sequence '" + prefix + "'");
+        "does not start with the prefix '" + prefix + "'");
     }
   }
 }
