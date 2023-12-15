@@ -270,4 +270,68 @@ public final class StringMediatorTest extends Test {
       .ofType(InvalidArgumentException.class)
       .withMessage("The given argument 'lorem ipsum dolor' is longer than 10.");
   }
+
+  //method
+  @TestCase
+  public void testCase_startsWith_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = new StringMediator(null);
+
+    //execution & verification
+    expectRunning(() -> testUnit.startsWith("Mada"))
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given argument is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_startsWith_whenTheGivenArgumentStartWithTheGivenPrefix() {
+
+    //setup
+    final var testUnit = new StringMediator("Madagascar");
+
+    //execution & verification
+    expectRunning(() -> testUnit.startsWith("Mada")).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_startsWith_whenTheGivenArgumentEqualsTheGivenPrefix() {
+
+    //setup
+    final var testUnit = new StringMediator("Madagascar");
+
+    //execution & verification
+    expectRunning(() -> testUnit.startsWith("Madagascar")).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_1() {
+
+    //setup
+    final var testUnit = new StringMediator("Madagascar");
+
+    //execution & verification
+    expectRunning(() -> testUnit.startsWith("mada"))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given argument 'Madagascar' does not start with the prefix 'mada'.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_startsWith_whenTheGivenArgumentDoesNotStartWithTheGivenPrefix_2() {
+
+    //setup
+    final var testUnit = new StringMediator("Madagascar");
+
+    //execution & verification
+    expectRunning(() -> testUnit.startsWith("Madu"))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given argument 'Madagascar' does not start with the prefix 'Madu'.");
+  }
 }
