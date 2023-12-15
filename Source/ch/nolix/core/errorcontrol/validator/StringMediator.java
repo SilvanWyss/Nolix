@@ -1,11 +1,6 @@
 //package declaration
 package ch.nolix.core.errorcontrol.validator;
 
-//Java imports
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
@@ -202,41 +197,6 @@ public class StringMediator extends ArgumentMediator<String> {
     //regularExpression.
     if (!getStoredArgument().matches(regularExpression)) {
       throw InvalidArgumentException.forArgumentNameAndArgument(getArgumentName(), getStoredArgument());
-    }
-  }
-
-  //method
-  /**
-   * @param directory
-   * @throws ArgumentIsNullException  if the argument of the current
-   *                                  {@link StringMediator} is null.
-   * @throws InvalidArgumentException if the given directory does not exist on the
-   *                                  local machine or cannot be created on the
-   *                                  local machine.
-   */
-  public void specifiesProbableDirectoryOnLocalMachine(final String directory) {
-
-    //Asserts that the argument of the current StringMediator is not null.
-    isNotNull();
-
-    var specifiesProbableDirectoryOnLocalMachine = true;
-
-    final var path = Path.of(directory);
-    if (!Files.exists(path)) {
-      try {
-        Files.createFile(path);
-        Files.delete(path);
-        Files.createDirectory(path);
-        Files.delete(path);
-      } catch (final IOException pIOExceptione) {
-        specifiesProbableDirectoryOnLocalMachine = false;
-      }
-    }
-
-    if (!specifiesProbableDirectoryOnLocalMachine) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(
-        directory,
-        "is not a probable directory on the local machine");
     }
   }
 
