@@ -202,28 +202,23 @@ public class StringMediator extends ArgumentMediator<String> {
 
   //method
   /**
-   * @param sequence
-   * @throws ArgumentIsNullException  if the given sequence is null.
+   * @param prefix
+   * @throws ArgumentIsNullException  if the given prefix is null.
    * @throws ArgumentIsNullException  if the argument of the current
    *                                  {@link StringMediator} is null.
    * @throws InvalidArgumentException if the argument of the current
-   *                                  {@link StringMediator} does not starts with
-   *                                  the givne sequence.
+   *                                  {@link StringMediator} does not start with
+   *                                  the given prefix.
    */
-  public void startsWith(final String sequence) {
-
-    //Asserts that the given sequence is not null.
-    if (sequence == null) {
-      throw ArgumentIsNullException.forArgumentName(LowerCaseCatalogue.SEQUENCE);
-    }
+  public void startsWith(final String prefix) {
 
     isNotNull();
 
-    if (!getStoredArgument().startsWith(sequence)) {
+    if (!getStoredArgument().startsWith(prefix)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
         getStoredArgument(),
-        "does not start with the sequence '" + sequence + "'");
+        "does not start with the sequence '" + prefix + "'");
     }
   }
 }
