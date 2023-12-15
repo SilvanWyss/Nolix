@@ -15,7 +15,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AC>, A
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
 
   //attribute
-  private final Client<C> parentClient;
+  private final C parentClient;
 
   //optional attribute
   private Session<C, AC> currentSession;
@@ -24,7 +24,7 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AC>, A
   private final LinkedList<Session<C, AC>> sessionStack = new LinkedList<>();
 
   //constructor
-  public BackendClientSessionManager(final Client<C> parentClient) {
+  public BackendClientSessionManager(final C parentClient) {
 
     //Asserts that the given parentClient is not null.
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
