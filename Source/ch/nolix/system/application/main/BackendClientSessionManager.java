@@ -24,13 +24,19 @@ public final class BackendClientSessionManager<C extends BackendClient<C, AC>, A
   private final LinkedList<Session<C, AC>> sessionStack = new LinkedList<>();
 
   //constructor
-  public BackendClientSessionManager(final C parentClient) {
+  private BackendClientSessionManager(final C parentClient) {
 
     //Asserts that the given parentClient is not null.
     GlobalValidator.assertThat(parentClient).thatIsNamed("parent client").isNotNull();
 
     //Sets the parentClient of the current ClientSessionManager.
     this.parentClient = parentClient;
+  }
+
+  //static method
+  public static <C2 extends BackendClient<C2, AC2>, AC2> BackendClientSessionManager<C2, AC2> forClient(
+    final C2 client) {
+    return new BackendClientSessionManager<>(client);
   }
 
   //method

@@ -20,7 +20,7 @@ public abstract class BackendClient<BC extends BackendClient<BC, AC>, AC> extend
 
   //attribute
   @SuppressWarnings("unchecked")
-  private final BackendClientSessionManager<BC, AC> sessionManager = new BackendClientSessionManager<>((BC) this);
+  private final BackendClientSessionManager<BC, AC> sessionManager = BackendClientSessionManager.forClient((BC) this);
 
   //optional attribute
   /**

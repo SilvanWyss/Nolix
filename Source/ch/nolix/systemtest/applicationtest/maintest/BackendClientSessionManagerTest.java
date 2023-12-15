@@ -12,13 +12,13 @@ public final class BackendClientSessionManagerTest extends Test {
 
   //method
   @TestCase
-  public void testCase_constructor() {
+  public void testCase_forClient() {
 
     //setup
     final var client = new WebClient<>(); //TODO: Create MockClient
 
     //execution
-    final var testUnit = new BackendClientSessionManager<>(client);
+    final var testUnit = BackendClientSessionManager.forClient(client);
 
     //verification
     expect(testUnit.getSessionStackSize()).isEqualTo(0);
