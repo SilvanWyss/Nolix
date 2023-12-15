@@ -6,12 +6,66 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.NonEmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 
 //class
 public final class StringMediatorTest extends Test {
+
+  //method
+  @TestCase
+  public void testCase_isEmpty_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = new StringMediator(null);
+
+    //execution & verification
+    expectRunning(testUnit::isEmpty)
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given argument is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEmpty_whenTheGivenArgumentIsEmpty() {
+
+    //setup
+    final var testUnit = new StringMediator("");
+
+    //execution & verification
+    expectRunning(testUnit::isEmpty).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEmpty_whenTheGivenArgumentConsistsOfASpace() {
+
+    //setup
+    final var testUnit = new StringMediator(" ");
+
+    //execution & verification
+    expectRunning(testUnit::isEmpty)
+      .throwsException()
+      .ofType(NonEmptyArgumentException.class)
+      .withMessage("The given argument is not empty.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEmpty_whenTheGivenArgumentConsistsOfLetters() {
+
+    //setup
+    final var testUnit = new StringMediator("aaa");
+
+    //execution & verification
+    expectRunning(testUnit::isEmpty)
+      .throwsException()
+      .ofType(NonEmptyArgumentException.class)
+      .withMessage("The given argument 'aaa' is not empty.");
+  }
 
   //method
   @TestCase
