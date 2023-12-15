@@ -84,27 +84,6 @@ public class StringMediator extends ArgumentMediator<String> {
 
   //method
   /**
-   * @throws ArgumentIsNullException  if the argument of the current
-   *                                  {@link StringMediator} is null.
-   * @throws InvalidArgumentException if the argument of the current
-   *                                  {@link StringMediator} is not blank.
-   */
-  public void isBlank() {
-
-    //Asserts that the argument of the current StringMediator is not null.
-    isNotNull();
-
-    //Asserts that the argument of the current StringMediator is blank.
-    if (!getStoredArgument().isBlank()) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
-        getStoredArgument(),
-        "is not blank");
-    }
-  }
-
-  //method
-  /**
    * @throws ArgumentIsNullException   if the argument of the current
    *                                   {@link StringMediator} is null.
    * @throws NonEmptyArgumentException if the argument of the current
