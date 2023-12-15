@@ -9,7 +9,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 
 //class
-final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
+public final class ClientSessionManager<C extends BackendClient<C, AC>, AC> {
 
   //constant
   private static final int MAX_WAIT_TIME_FOR_SESSION_IN_MILLISECONDS = 10_000;
