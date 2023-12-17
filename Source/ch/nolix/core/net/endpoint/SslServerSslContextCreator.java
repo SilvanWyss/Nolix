@@ -10,6 +10,7 @@ import java.security.KeyFactory;
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -40,7 +41,7 @@ final class SslServerSslContextCreator {
       final var key = getPrivateKey(paramSSLCertificate);
 
       final var keystore = KeyStore.getInstance("JKS");
-      keystore.load(null, "my_password".toCharArray());
+      keystore.load(null, password.toCharArray());
       keystore.setCertificateEntry("cert-alias", cert);
       keystore.setKeyEntry("key-alias", key, password.toCharArray(), new Certificate[] { cert });
 
@@ -59,9 +60,9 @@ final class SslServerSslContextCreator {
   }
 
   //method
-  private X509Certificate getCert(final ISSLCertificate paramSSLCertificate) throws Exception {
+  private X509Certificate getCert(final ISSLCertificate paramSSLCertificate) throws CertificateException {
 
-    String filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
+    final var filePath = paramSSLCertificate.getPublicKeyPEMFilePath();
 
     return (X509Certificate) CertificateFactory
       .getInstance("X509")
@@ -69,7 +70,7 @@ final class SslServerSslContextCreator {
   }
 
   private PrivateKey getPrivateKey(final ISSLCertificate paramSSLCertificate)
-  throws Exception { //NOSONAR: This method can throw several different Exceptions.
+  throws Exception { //NOSONAR: This method can throw Exceptions of several types.
 
     final var filePath = paramSSLCertificate.getPrivateKeyPEMFilePath();
 
