@@ -64,7 +64,7 @@ final class DatabaseSaver {
 
   //method
   private void assertNewlyReferencedEntitiesExists(final Database database) {
-    DATABASE_SAVE_VALIDATOR.addExpectionsThatNewlyReferencedEntitiesExistToDatabase(database);
+    DATABASE_SAVE_VALIDATOR.addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database);
   }
 
   //method

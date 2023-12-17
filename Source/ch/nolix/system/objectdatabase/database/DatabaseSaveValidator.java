@@ -30,44 +30,44 @@ public final class DatabaseSaveValidator {
   private static final IMultiReferenceEntryHelper MULTI_REFERENCE_ENTRY_HELPER = new MultiReferenceEntryHelper();
 
   //method
-  public void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(final Database database) {
+  public void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(final Database database) {
 
     final var entitiesInLocalData = DATABASE_HELPER.getStoredEntitiesInLocalData(database);
 
     for (final var e : entitiesInLocalData) {
-      addExpectionsThatNewlyReferencedEntitiesExistToDatabase(e, database);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExist(e, database);
     }
   }
 
   //method
-  private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final IEntity entity,
     final Database database) {
     if (ENTITY_HELPER.isNewOrEdited(entity)) {
-      addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(entity, database);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(entity, database);
     }
   }
 
   //method
-  private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenEntityIsNewOrEdited(
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
     final Database database) {
     for (final var p : entity.technicalGetRefProperties()) {
-      addExpectionsThatNewlyReferencedEntitiesExistToDatabase(database, p);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, p);
     }
   }
 
   //method
-  private void addExpectionsThatNewlyReferencedEntitiesExistToDatabase(
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExist(
     final Database database,
     final IProperty property) {
     if (PROPERTY_HELPER.isNewOrEdited(property)) {
-      addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(property, database);
+      addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(property, database);
     }
   }
 
   //method
-  private void addExpectionsThatNewlyReferencedEntitiesExistToDatabaseWhenPropertyIsNewOrEdited(
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenPropertyIsNewOrEdited(
     final IProperty property,
     final Database database) {
     switch (property.getType()) {
