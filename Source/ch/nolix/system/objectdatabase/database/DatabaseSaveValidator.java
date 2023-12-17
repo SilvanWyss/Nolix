@@ -7,6 +7,8 @@ import ch.nolix.system.objectdatabase.databasehelper.EntityHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.MultiReferenceEntryHelper;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
+import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalReference;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IProperty;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IReference;
 import ch.nolix.systemapi.objectdatabaseapi.databasehelperapi.IDatabaseHelper;
@@ -75,38 +77,62 @@ public final class DatabaseSaveValidator {
 
         final var reference = (IReference<?>) property;
 
-        database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-          reference.getReferencedTableName(),
-          reference.getReferencedEntityId());
+        addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(reference, database);
 
         break;
       case OPTIONAL_REFERENCE:
 
-        final var optionalReference = (OptionalReference<?>) property;
+        final var optionalReference = (IOptionalReference<?>) property;
 
-        if (optionalReference.containsAny()) {
-          database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-            optionalReference.getReferencedTableName(),
-            optionalReference.getReferencedEntityId());
-        }
+        addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
+          optionalReference,
+          database);
 
         break;
       case MULTI_REFERENCE:
 
         final var multiReference = (MultiReference<?>) property;
-        final var referencedTableName = multiReference.getReferencedTableName();
 
-        for (final var le : multiReference.getStoredLocalEntries()) {
-          if (MULTI_REFERENCE_ENTRY_HELPER.isNewOrEdited(le)) {
-            database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
-              referencedTableName,
-              le.getReferencedEntityId());
-          }
-        }
+        addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
+          multiReference,
+          database);
 
         break;
       default:
         //Does nothing.
     }
+  }
+
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenMultiReferenceIsNewOrEdited(
+    final IMultiReference<?> multiReference, final Database database) {
+
+    final var referencedTableName = multiReference.getReferencedTableName();
+
+    for (final var le : multiReference.getStoredLocalEntries()) {
+      if (MULTI_REFERENCE_ENTRY_HELPER.isNewOrEdited(le)) {
+        database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+          referencedTableName,
+          le.getReferencedEntityId());
+      }
+    }
+  }
+
+  //method
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenOptionalReferenceIsNewOrEdited(
+    final IOptionalReference<?> optionalReference,
+    final Database database) {
+    if (optionalReference.containsAny()) {
+      database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+        optionalReference.getReferencedTableName(),
+        optionalReference.getReferencedEntityId());
+    }
+  }
+
+  //method
+  private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenReferenceIsNewOrEdited(
+    final IReference<?> reference, final Database database) {
+    database.internalGetRefDataAndSchemaAdapter().expectTableContainsEntity(
+      reference.getReferencedTableName(),
+      reference.getReferencedEntityId());
   }
 }
