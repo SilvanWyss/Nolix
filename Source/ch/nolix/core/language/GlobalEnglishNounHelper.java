@@ -8,6 +8,8 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 //class
 public final class GlobalEnglishNounHelper {
 
+  private static final EnglishPostfixAnalyser ENGLISH_POSTFIX_ANALYSER = new EnglishPostfixAnalyser();
+
   //constructor
   private GlobalEnglishNounHelper() {
   }
@@ -48,12 +50,7 @@ public final class GlobalEnglishNounHelper {
       return (noun + "es");
     }
 
-    if (noun.endsWith("ay")
-    || noun.endsWith("ey")
-    || noun.endsWith("iy")
-    || noun.endsWith("oy")
-    || noun.endsWith("uy")
-    || noun.endsWith("ff")) {
+    if (ENGLISH_POSTFIX_ANALYSER.endsWithVocalAndY(noun) || noun.endsWith("ff")) {
       return (noun + "s");
     }
 
