@@ -16,14 +16,14 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 //class
-final class SecureServerWorker extends Worker {
+final class SslServerWorker extends Worker {
 
   //constant
-  private static final SecureServerSSLContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
-  new SecureServerSSLContextCreator();
+  private static final SslServerSslContextCreator SECURE_SERVER_SSL_CONTEXT_CREATOR = //
+  new SslServerSslContextCreator();
 
   //attribute
-  private final SecureServer parentWebSocketServer;
+  private final SslServer parentWebSocketServer;
 
   //attribute
   private final int port;
@@ -35,8 +35,8 @@ final class SecureServerWorker extends Worker {
   private final ISSLCertificate mSSLCertificate;
 
   //constructor
-  public SecureServerWorker(
-    final SecureServer parentWebSocketServer,
+  public SslServerWorker(
+    final SslServer parentWebSocketServer,
     final int port,
     final String htmlPage,
     final ISSLCertificate paramSSLCertificate) {
@@ -68,7 +68,7 @@ final class SecureServerWorker extends Worker {
         .group(bossGroup, workerGroup)
         .channel(NioServerSocketChannel.class)
         .handler(new LoggingHandler(LogLevel.INFO))
-        .childHandler(new SecureServerInitializer(parentWebSocketServer, htmlPage, sslContext));
+        .childHandler(new SslServerInitializer(parentWebSocketServer, htmlPage, sslContext));
 
       final var channel = serverBootstrab.bind(port).sync().channel();
       channel.closeFuture().sync();

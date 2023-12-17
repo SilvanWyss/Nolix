@@ -12,12 +12,12 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 
 //class
-final class SecureServerEndPoint extends NetEndPoint {
+final class SslServerEndPoint extends NetEndPoint {
 
   private final ChannelHandlerContext channelHandlerContext;
 
   //constructor
-  public SecureServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
+  public SslServerEndPoint(final ChannelHandlerContext channelHandlerContext) {
 
     super(TargetInfoState.WAITS_TO_TARGET_INFO);
 

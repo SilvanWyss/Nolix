@@ -11,16 +11,16 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 
 //class
-final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
+final class SslServerChannelInboundHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 
   //attribute
-  private final SecureServer parentWebSocketServer;
+  private final SslServer parentWebSocketServer;
 
   //optional attribute
-  private SecureServerEndPoint parentWebSocketServerEndPoint;
+  private SslServerEndPoint parentWebSocketServerEndPoint;
 
   //constructor
-  public SecureServerChannelInboundHandler(final SecureServer parentWebSocketServer) {
+  public SslServerChannelInboundHandler(final SslServer parentWebSocketServer) {
 
     GlobalValidator.assertThat(parentWebSocketServer).thatIsNamed("parent web-socket server").isNotNull();
 
@@ -30,8 +30,8 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
   //method
   /**
    * Is triggered when the communication is stopped. For example when the client
-   * closes the connections. Closes the parent {@link SecureServerEndPoint} of the
-   * current {@link SecureServerChannelInboundHandler}.
+   * closes the connections. Closes the parent {@link SslServerEndPoint} of the
+   * current {@link SslServerChannelInboundHandler}.
    */
   @Override
   public void channelInactive(final ChannelHandlerContext channelHandlerContext) throws Exception {
@@ -46,7 +46,7 @@ final class SecureServerChannelInboundHandler extends SimpleChannelInboundHandle
   throws Exception {
     if (parentWebSocketServerEndPoint == null) {
 
-      parentWebSocketServerEndPoint = new SecureServerEndPoint(channelHandlerContext);
+      parentWebSocketServerEndPoint = new SslServerEndPoint(channelHandlerContext);
 
       //The end point must receive the current message to know its content before it
       //is added to the server.

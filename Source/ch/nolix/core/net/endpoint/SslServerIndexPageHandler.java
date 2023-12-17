@@ -19,11 +19,11 @@ import io.netty.handler.codec.http.HttpUtil;
 import io.netty.util.CharsetUtil;
 
 //class
-final class SecureServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
+final class SslServerIndexPageHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
   private final String htmlPage;
 
-  public SecureServerIndexPageHandler(String htmlPage) {
+  public SslServerIndexPageHandler(String htmlPage) {
     this.htmlPage = htmlPage;
   }
 

@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;
 
 //class
-record SecureServerHtmlPage(String serverDomain, int serverPort) {
+record SslServerHtmlPage(String serverDomain, int serverPort) {
 
   //constant
   private static final String REQUIRE_JS_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.REQUIRE_JS);
@@ -17,7 +17,7 @@ record SecureServerHtmlPage(String serverDomain, int serverPort) {
   private static final String NOLIX_SCRIPT = RunningJar.getResource(ResourcePathCatalogue.NOLIX_JS);
 
   //constructor
-  public SecureServerHtmlPage( //NOSONAR: This constructor does more than the default one.
+  public SslServerHtmlPage( //NOSONAR: This constructor does more than the default one.
     final String serverDomain,
     final int serverPort) {
 

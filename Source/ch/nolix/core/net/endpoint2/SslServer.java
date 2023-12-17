@@ -8,32 +8,32 @@ import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
-public final class SecureServer extends BaseServer {
+public final class SslServer extends BaseServer {
 
   //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
   new NolixConfigurationSSLCertificateReader();
 
   //attribute
-  private final ch.nolix.core.net.endpoint.SecureServer internalWebSocketServer;
+  private final ch.nolix.core.net.endpoint.SslServer internalWebSocketServer;
 
   //constructor
-  public SecureServer(final int port, final String HtmlPage, final ISSLCertificate paramSSLCertificate) {
+  public SslServer(final int port, final String HtmlPage, final ISSLCertificate paramSSLCertificate) {
 
-    internalWebSocketServer = new ch.nolix.core.net.endpoint.SecureServer(port, HtmlPage, paramSSLCertificate);
+    internalWebSocketServer = new ch.nolix.core.net.endpoint.SslServer(port, HtmlPage, paramSSLCertificate);
 
     createCloseDependencyTo(internalWebSocketServer);
   }
 
   //static method
-  public SecureServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
+  public SslServer forPortAndHtmlPageAndSSLCertificateFromNolixConfiguration(
     final int port,
     final String htmlPage) {
 
     final var paramSSLCertificate = NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER
       .getDefaultSSLCertificatefromLocalNolixConfiguration();
 
-    return new SecureServer(port, htmlPage, paramSSLCertificate);
+    return new SslServer(port, htmlPage, paramSSLCertificate);
   }
 
   //method

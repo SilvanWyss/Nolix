@@ -28,7 +28,7 @@ import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 
 //class
-final class SecureServerSSLContextCreator {
+final class SslServerSslContextCreator {
 
   //method
   public SslContext createSSLContext(final ISSLCertificate paramSSLCertificate) {

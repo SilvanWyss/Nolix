@@ -12,12 +12,12 @@ import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketSe
 import io.netty.handler.ssl.SslContext;
 
 //class
-final class SecureServerInitializer extends ChannelInitializer<SocketChannel> {
+final class SslServerInitializer extends ChannelInitializer<SocketChannel> {
 
   private static final String WEBSOCKET_PATH = "/websocket";
 
   //attribute
-  private final SecureServer parentWebSocketServer;
+  private final SslServer parentWebSocketServer;
 
   //attribute
   private final String htmlPage;
@@ -25,7 +25,7 @@ final class SecureServerInitializer extends ChannelInitializer<SocketChannel> {
   //attribute
   private final SslContext sslCtx;
 
-  public SecureServerInitializer(SecureServer parentWebSocketServer, String htmlPage, SslContext sslCtx) {
+  public SslServerInitializer(SslServer parentWebSocketServer, String htmlPage, SslContext sslCtx) {
     this.parentWebSocketServer = parentWebSocketServer;
     this.htmlPage = htmlPage;
     this.sslCtx = sslCtx;
@@ -41,7 +41,7 @@ final class SecureServerInitializer extends ChannelInitializer<SocketChannel> {
     pipeline.addLast(new HttpObjectAggregator(65536));
     pipeline.addLast(new WebSocketServerCompressionHandler());
     pipeline.addLast(new WebSocketServerProtocolHandler(WEBSOCKET_PATH, null, true));
-    pipeline.addLast(new SecureServerIndexPageHandler(htmlPage));
-    pipeline.addLast(new SecureServerChannelInboundHandler(parentWebSocketServer));
+    pipeline.addLast(new SslServerIndexPageHandler(htmlPage));
+    pipeline.addLast(new SslServerChannelInboundHandler(parentWebSocketServer));
   }
 }
