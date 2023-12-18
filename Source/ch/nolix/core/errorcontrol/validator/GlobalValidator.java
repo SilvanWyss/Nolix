@@ -71,7 +71,7 @@ public final class GlobalValidator { //NOSONAR: The GlobalValidator bundles all 
    * @return a new {@link ExtendedTypeMediator} for the given argument.
    */
   public static <T> ExtendedTypeMediator<T> assertThat(final Class<T> argument) {
-    return new ExtendedTypeMediator<>(argument);
+    return ExtendedTypeMediator.forArgument(argument);
   }
 
   //static method

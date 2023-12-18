@@ -19,7 +19,7 @@ public final class TypeMediatorTest extends Test {
   public void testCase_isAbstract_whenTheGivenArgumentIsNull() {
 
     //setup
-    final var testUnit = new TypeMediator<>(null);
+    final var testUnit = TypeMediator.forArgument(null);
 
     //execution & verify
     expectRunning(testUnit::isAbstract)
@@ -33,7 +33,7 @@ public final class TypeMediatorTest extends Test {
   public void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
 
     //setup
-    final var testUnit = new TypeMediator<>(String.class);
+    final var testUnit = TypeMediator.forArgument(String.class);
 
     //execution & verify
     expectRunning(testUnit::isAbstract)
@@ -47,7 +47,7 @@ public final class TypeMediatorTest extends Test {
   public void testCase_isAbstract_whenTheGivenArgumentIsAbstract() {
 
     //setup
-    final var testUnit = new TypeMediator<>(List.class);
+    final var testUnit = TypeMediator.forArgument(List.class);
 
     //execution & verify
     expectRunning(testUnit::isAbstract).doesNotThrowException();
