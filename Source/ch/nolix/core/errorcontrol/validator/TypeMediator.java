@@ -114,34 +114,24 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   //method
-  public final void isSubClassOf(final Class<?> pClass) {
-
-    new TypeMediator<>(pClass).isClass();
-
-    isClass();
-
-    if (!pClass.isAssignableFrom(getStoredArgument())
-    || getStoredArgument().isAssignableFrom(pClass)) {
+  public final void isSubTypeOf(final Class<?> type) {
+    if (!type.isAssignableFrom(getStoredArgument())
+    || getStoredArgument().isAssignableFrom(type)) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
         getStoredArgument(),
-        "is not a sub class of " + pClass.getName());
+        "is not a sub type of " + type.getName());
     }
   }
 
   //method
-  public final void isSuperClassOf(final Class<?> pClass) {
-
-    new TypeMediator<>(pClass).isClass();
-
-    isClass();
-
-    if (!getStoredArgument().isAssignableFrom(pClass)
-    || pClass.isAssignableFrom(getStoredArgument())) {
+  public final void isSuperTypeOf(final Class<?> type) {
+    if (!getStoredArgument().isAssignableFrom(type)
+    || type.isAssignableFrom(getStoredArgument())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
         getStoredArgument(),
-        "is not a super class of " + pClass.getName());
+        "is not a super type of " + type.getName());
     }
   }
 }
