@@ -12,12 +12,12 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 
   //constructor
-  TypeMediator(final Class<T> argument) {
+  public TypeMediator(final Class<T> argument) {
     super(LowerCaseCatalogue.TYPE, argument);
   }
 
   //constructor
-  TypeMediator(final String argumentName, final Class<T> argument) {
+  public TypeMediator(final String argumentName, final Class<T> argument) {
     super(argumentName, argument);
   }
 
