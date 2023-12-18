@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.TypeMediator;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode;
 
 //class
 public final class TypeMediatorTest extends Test {
@@ -43,10 +44,10 @@ public final class TypeMediatorTest extends Test {
   //method
   @TestCase
   public void testCase_isAbstract_whenTheGivenArgumentIsNull() {
-  
+
     //setup
     final var testUnit = TypeMediator.forArgument(null);
-  
+
     //execution & verify
     expectRunning(testUnit::isAbstract)
       .throwsException()
@@ -81,13 +82,81 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
-  public void testCase_isClass_whenTheGivenArgumentIsNull() {
-  
+  public void testCase_isClass_whenTheGivenArgumentIsAnEnum() {
+
     //setup
-    final var testUnit = TypeMediator.forArgument(null);
-  
+    final var testUnit = TypeMediator.forArgument(WriteMode.class);
+
     //execution & verify
     expectRunning(testUnit::isClass)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage(
+        "The given type 'class ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode' is not a class.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isClass_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(null);
+
+    //execution & verify
+    expectRunning(testUnit::isClass)
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given type is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEnum_whenTheGivenArgumentIsAClas() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(ArrayList.class);
+
+    //execution & verify
+    expectRunning(testUnit::isEnum)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'class java.util.ArrayList' is not an enum.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEnum_whenTheGivenArgumentIsAnInterface() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(Iterable.class);
+
+    //execution & verify
+    expectRunning(testUnit::isEnum)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'interface java.lang.Iterable' is not an enum.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEnum_whenTheGivenArgumentIsAnEnum() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(WriteMode.class);
+
+    //execution & verify
+    expectRunning(testUnit::isEnum).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isEnum_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(null);
+
+    //execution & verify
+    expectRunning(testUnit::isEnum)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given type is null.");
@@ -120,11 +189,26 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
+  public void testCase_isInterface_whenTheGivenArgumentIsAnEnum() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(WriteMode.class);
+
+    //execution & verify
+    expectRunning(testUnit::isInterface)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage(
+        "The given type 'class ch.nolix.coreapi.programcontrolapi.processproperty.WriteMode' is not an interface.");
+  }
+
+  //method
+  @TestCase
   public void testCase_isInterface_whenTheGivenArgumentIsNull() {
-  
+
     //setup
     final var testUnit = TypeMediator.forArgument(null);
-  
+
     //execution & verify
     expectRunning(testUnit::isInterface)
       .throwsException()
