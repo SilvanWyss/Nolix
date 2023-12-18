@@ -17,20 +17,6 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
-  public void testCase_isAbstract_whenTheGivenArgumentIsNull() {
-
-    //setup
-    final var testUnit = TypeMediator.forArgument(null);
-
-    //execution & verify
-    expectRunning(testUnit::isAbstract)
-      .throwsException()
-      .ofType(ArgumentIsNullException.class)
-      .withMessage("The given type is null.");
-  }
-
-  //method
-  @TestCase
   public void testCase_isAbstract_whenTheGivenArgumentIsNotAbstract() {
 
     //setup
@@ -56,13 +42,13 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
-  public void testCase_isInterface_whenTheGivenArgumentIsNull() {
-
+  public void testCase_isAbstract_whenTheGivenArgumentIsNull() {
+  
     //setup
     final var testUnit = TypeMediator.forArgument(null);
-
+  
     //execution & verify
-    expectRunning(testUnit::isInterface)
+    expectRunning(testUnit::isAbstract)
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given type is null.");
@@ -96,10 +82,10 @@ public final class TypeMediatorTest extends Test {
   //method
   @TestCase
   public void testCase_isClass_whenTheGivenArgumentIsNull() {
-
+  
     //setup
     final var testUnit = TypeMediator.forArgument(null);
-
+  
     //execution & verify
     expectRunning(testUnit::isClass)
       .throwsException()
@@ -130,6 +116,20 @@ public final class TypeMediatorTest extends Test {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given type 'class java.util.ArrayList' is not an interface.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isInterface_whenTheGivenArgumentIsNull() {
+  
+    //setup
+    final var testUnit = TypeMediator.forArgument(null);
+  
+    //execution & verify
+    expectRunning(testUnit::isInterface)
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given type is null.");
   }
 
   //method
