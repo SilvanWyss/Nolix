@@ -2,6 +2,7 @@
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //Java imports
+import java.util.ArrayList;
 import java.util.List;
 
 //own imports
@@ -51,5 +52,55 @@ public final class TypeMediatorTest extends Test {
 
     //execution & verify
     expectRunning(testUnit::isAbstract).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(List.class);
+
+    //execution & verify
+    expectRunning(() -> testUnit.isSubTypeOf(ArrayList.class))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'interface java.util.List' is not a sub type of java.util.ArrayList.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isSubTypeOf_whenTheGivenArgumentIsASubTypeOfTheGivenType() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(List.class);
+
+    //execution & verify
+    expectRunning(() -> testUnit.isSubTypeOf(Iterable.class)).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isSuperTypeOf_whenTheGivenArgumentIsNotASuperTypeOfTheGivenType() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(List.class);
+
+    //execution & verify
+    expectRunning(() -> testUnit.isSuperTypeOf(Iterable.class))
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'interface java.util.List' is not a super type of java.lang.Iterable.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isSuperTypeOf_whenTheGivenArgumentIsASuperTypeOfTheGivenType() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(List.class);
+
+    //execution & verify
+    expectRunning(() -> testUnit.isSuperTypeOf(ArrayList.class)).doesNotThrowException();
   }
 }
