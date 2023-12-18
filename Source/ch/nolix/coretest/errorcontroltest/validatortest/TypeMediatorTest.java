@@ -56,6 +56,84 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
+  public void testCase_isInterface_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(null);
+
+    //execution & verify
+    expectRunning(testUnit::isInterface)
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given type is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isClass_whenTheGivenArgumentIsAClass() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(ArrayList.class);
+
+    //execution & verify
+    expectRunning(testUnit::isClass).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isClass_whenTheGivenArgumentIsAnInterface() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(Iterable.class);
+
+    //execution & verify
+    expectRunning(testUnit::isClass)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'interface java.lang.Iterable' is not a class.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isClass_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(null);
+
+    //execution & verify
+    expectRunning(testUnit::isClass)
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given type is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isInterface_whenTheGivenArgumentIsAnInterface() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(Iterable.class);
+
+    //execution & verify
+    expectRunning(testUnit::isInterface).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isInterface_whenTheGivenArgumentIsAClass() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(ArrayList.class);
+
+    //execution & verify
+    expectRunning(testUnit::isInterface)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'class java.util.ArrayList' is not an interface.");
+  }
+
+  //method
+  @TestCase
   public void testCase_isSubTypeOf_whenTheGivenArgumentIsNotASubTypeOfTheGivenType() {
 
     //setup
