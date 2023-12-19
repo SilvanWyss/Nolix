@@ -53,7 +53,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
 
     this.fractal = fractal;
 
-    squaredMinMagnitudeForDivergence = FRACTAL_HELPER.getSquaredMinMagnitudeForDivergenceOf(fractal);
+    squaredMinMagnitudeForDivergence = FRACTAL_HELPER.getSquaredMinMagnitudeForDivergence(fractal);
 
     image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 
@@ -151,8 +151,8 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   //method
   private IComplexNumber getComplexNumberOfPixel(final double x, final double y) {
     return new ComplexNumber(
-      FRACTAL_HELPER.getMinXOf(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
-      FRACTAL_HELPER.getMinYOf(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
+      FRACTAL_HELPER.getMinX(fractal).add(FRACTAL_HELPER.getUnitsForHorizontalPixelCount(fractal, x)),
+      FRACTAL_HELPER.getMinY(fractal).add(FRACTAL_HELPER.getUnitsForVerticalPixelCount(fractal, y)));
   }
 
   //method

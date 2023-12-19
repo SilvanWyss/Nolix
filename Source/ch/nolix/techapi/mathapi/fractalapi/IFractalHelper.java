@@ -11,10 +11,10 @@ import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 public interface IFractalHelper {
 
   //method declaration
-  BigDecimal getHeightInPixelAsBigDecimalOf(IFractal fractal);
+  BigDecimal getHeightInPixelAsBigDecimal(IFractal fractal);
 
   //method declaration
-  BigDecimal getHeightInUnitsOf(IFractal fractal);
+  BigDecimal getHeightInUnits(IFractal fractal);
 
   //method declaration
   int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
@@ -23,31 +23,31 @@ public interface IFractalHelper {
     BigDecimal limit);
 
   //method declaration
-  BigDecimal getMaxXOf(IFractal fractal);
+  BigDecimal getMaxX(IFractal fractal);
 
   //method declaration
-  BigDecimal getMaxYOf(IFractal fractal);
+  BigDecimal getMaxY(IFractal fractal);
 
   //method declaration
-  BigDecimal getMinXOf(IFractal fractal);
+  BigDecimal getMinX(IFractal fractal);
 
   //method declaration
-  BigDecimal getMinYOf(IFractal fractal);
+  BigDecimal getMinY(IFractal fractal);
 
   //method declaration
-  BigDecimal getPixelCountPerHorizontalUnitOf(IFractal fractal);
+  BigDecimal getPixelCountPerHorizontalUnit(IFractal fractal);
 
   //method declaration
-  BigDecimal getPixelCountPerVerticalUnitOf(IFractal fractal);
+  BigDecimal getPixelCountPerVerticalUnit(IFractal fractal);
 
   //method declaration
-  BigDecimal getSquaredMinMagnitudeForDivergenceOf(IFractal fractal);
+  BigDecimal getSquaredMinMagnitudeForDivergence(IFractal fractal);
 
   //method declaration
-  BigDecimal getUnitsPerHorizontalPixelOf(IFractal fractal);
+  BigDecimal getUnitsPerHorizontalPixel(IFractal fractal);
 
   //method declaration
-  BigDecimal getUnitsPerVerticalPixelOf(IFractal fractal);
+  BigDecimal getUnitsPerVerticalPixel(IFractal fractal);
 
   //method declaration
   BigDecimal getUnitsForHorizontalPixelCount(IFractal fractal, double horizontalPixelCount);
@@ -56,8 +56,8 @@ public interface IFractalHelper {
   BigDecimal getUnitsForVerticalPixelCount(IFractal fractal, double verticalPixelCount);
 
   //method declaration
-  BigDecimal getWidthInPixelAsBigDecimalOf(IFractal fractal);
+  BigDecimal getWidthInPixelAsBigDecimal(IFractal fractal);
 
   //method declaration
-  BigDecimal getWidthInUnitsOf(IFractal fractal);
+  BigDecimal getWidthInUnits(IFractal fractal);
 }
