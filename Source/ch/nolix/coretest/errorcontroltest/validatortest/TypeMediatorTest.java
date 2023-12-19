@@ -2,6 +2,7 @@
 package ch.nolix.coretest.errorcontroltest.validatortest;
 
 //Java imports
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,6 +112,45 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
+  public void testCase_isConcrete_whenTheGivenArgumentIsNotConcrete() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(AbstractList.class);
+
+    //execution & verify
+    expectRunning(testUnit::isConcrete)
+      .throwsException()
+      .ofType(InvalidArgumentException.class)
+      .withMessage("The given type 'class java.util.AbstractList' is not concrete.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isConcrete_whenTheGivenArgumentIsConcrete() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(ArrayList.class);
+
+    //execution & verify
+    expectRunning(testUnit::isConcrete).doesNotThrowException();
+  }
+
+  //method
+  @TestCase
+  public void testCase_isConcrete_whenTheGivenArgumentIsNull() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(null);
+
+    //execution & verify
+    expectRunning(testUnit::isConcrete)
+      .throwsException()
+      .ofType(ArgumentIsNullException.class)
+      .withMessage("The given type is null.");
+  }
+
+  //method
+  @TestCase
   public void testCase_isEnum_whenTheGivenArgumentIsAClas() {
 
     //setup
@@ -164,17 +204,6 @@ public final class TypeMediatorTest extends Test {
 
   //method
   @TestCase
-  public void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
-
-    //setup
-    final var testUnit = TypeMediator.forArgument(ArrayList.class);
-
-    //execution & verify
-    expectRunning(() -> testUnit.isImplementing(Iterable.class)).doesNotThrowException();
-  }
-
-  //method
-  @TestCase
   public void testCase_isImplementing_whenTheGivenArgumentDoesNotImplementTheGivenInterface() {
 
     //setup
@@ -185,6 +214,17 @@ public final class TypeMediatorTest extends Test {
       .throwsException()
       .ofType(InvalidArgumentException.class)
       .withMessage("The given type 'class java.lang.String' does not implement java.lang.Iterable.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_isImplementing_whenTheGivenArgumentImplementsTheGivenInterface() {
+
+    //setup
+    final var testUnit = TypeMediator.forArgument(ArrayList.class);
+
+    //execution & verify
+    expectRunning(() -> testUnit.isImplementing(Iterable.class)).doesNotThrowException();
   }
 
   //method
