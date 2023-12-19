@@ -112,7 +112,7 @@ public final class Fractal implements IFractal {
     this.widthInPixel = widthInPixel;
     this.heightInPixel = heightInPixel;
     this.sequenceCreator = sequenceCreator;
-    this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude;
+    this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude.setScale(bigDecimalScale);
     this.sequencesMaxIterationCount = sequencesMaxIterationCount;
     this.colorFunction = colorFunction;
     this.bigDecimalScale = bigDecimalScale;
