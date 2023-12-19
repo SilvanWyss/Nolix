@@ -60,6 +60,19 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
   }
 
   //method
+  public final void isConcrete() {
+  
+    isNotNull();
+  
+    if (Modifier.isAbstract(getStoredArgument().getModifiers())) {
+      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
+        getArgumentName(),
+        getStoredArgument(),
+        "is abstract");
+    }
+  }
+
+  //method
   public final void isEnum() {
 
     isNotNull();
@@ -97,19 +110,6 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
         getArgumentName(),
         getStoredArgument(),
         "is not an interface");
-    }
-  }
-
-  //method
-  public final void isNotAbstract() {
-
-    isNotNull();
-
-    if (Modifier.isAbstract(getStoredArgument().getModifiers())) {
-      throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
-        getArgumentName(),
-        getStoredArgument(),
-        "is abstract");
     }
   }
 
