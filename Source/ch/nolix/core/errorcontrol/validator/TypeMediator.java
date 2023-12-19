@@ -61,14 +61,14 @@ public class TypeMediator<T> extends ArgumentMediator<Class<T>> {
 
   //method
   public final void isConcrete() {
-  
+
     isNotNull();
-  
+
     if (Modifier.isAbstract(getStoredArgument().getModifiers())) {
       throw InvalidArgumentException.forArgumentNameAndArgumentAndErrorPredicate(
         getArgumentName(),
         getStoredArgument(),
-        "is abstract");
+        "is not concrete");
     }
   }
 
