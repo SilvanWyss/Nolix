@@ -16,7 +16,8 @@ import ch.nolix.techapi.serverdashboardapi.IServerDashboardContext;
 import ch.nolix.techapi.serverdashboardapi.IWebApplicationSheet;
 
 //class
-public final class WebApplicationComponent extends Component<WebApplicationController, IServerDashboardContext> {
+public final class WebApplicationComponent //NOSONAR: A WebApplicationComponent is a Component.
+extends Component<WebApplicationController, IServerDashboardContext> {
 
   //constant
   public static final int APPLICATION_LOGO_IMAGE_WIDTH = 250;
