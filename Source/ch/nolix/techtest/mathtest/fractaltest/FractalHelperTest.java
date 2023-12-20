@@ -15,6 +15,74 @@ public final class FractalHelperTest extends Test {
 
   //method
   @TestCase
+  public void testCase_getMaxX() {
+
+    //setup
+    final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractal = fractalBuilder.build();
+    final var testUnit = new FractalHelper();
+
+    //execution
+    final var result = testUnit.getMaxX(fractal);
+
+    //verification
+    final var expectedResult = BigDecimal.valueOf(2.5).setScale(12);
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
+  public void testCase_getMaxY() {
+
+    //setup
+    final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractal = fractalBuilder.build();
+    final var testUnit = new FractalHelper();
+
+    //execution
+    final var result = testUnit.getMaxY(fractal);
+
+    //verification
+    final var expectedResult = BigDecimal.valueOf(2.5).setScale(12);
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
+  public void testCase_getMinX() {
+
+    //setup
+    final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractal = fractalBuilder.build();
+    final var testUnit = new FractalHelper();
+
+    //execution
+    final var result = testUnit.getMinX(fractal);
+
+    //verification
+    final var expectedResult = BigDecimal.valueOf(-1.5).setScale(12);
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
+  public void testCase_getMinY() {
+
+    //setup
+    final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractal = fractalBuilder.build();
+    final var testUnit = new FractalHelper();
+
+    //execution
+    final var result = testUnit.getMinY(fractal);
+
+    //verification
+    final var expectedResult = BigDecimal.valueOf(-1.5).setScale(12);
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
   public void testCase_getSquaredMinMagnitudeForDivergence_1() {
 
     //setup
