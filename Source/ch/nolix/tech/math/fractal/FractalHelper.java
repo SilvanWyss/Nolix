@@ -78,7 +78,7 @@ public final class FractalHelper implements IFractalHelper {
   //method
   @Override
   public BigDecimal getSquaredMinMagnitudeForDivergence(final IFractal fractal) {
-    return fractal.getMinMagnitudeForDivergence().pow(2).setScale(fractal.getBigDecimalScale());
+    return fractal.getMinMagnitudeForDivergence().pow(2).setScale(fractal.getDecimalPlaces());
   }
 
   //method

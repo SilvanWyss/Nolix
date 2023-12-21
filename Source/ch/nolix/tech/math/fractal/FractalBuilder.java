@@ -75,7 +75,7 @@ public final class FractalBuilder implements IFractalBuilder {
   private IntFunction<IColor> colorFunction = DEFAULT_COLOR_FUNCTION;
 
   //attribute
-  private int bigDecimalScale = DEFAULT_BIG_DECIMAL_SCALE;
+  private int decimalPlaces = DEFAULT_BIG_DECIMAL_SCALE;
 
   //method
   @Override
@@ -89,7 +89,7 @@ public final class FractalBuilder implements IFractalBuilder {
       sequencesMinDivergenceMagnitude,
       sequencesMaxIterationCount,
       colorFunction,
-      bigDecimalScale);
+      decimalPlaces);
   }
 
   //method
@@ -100,9 +100,9 @@ public final class FractalBuilder implements IFractalBuilder {
 
   //method
   @Override
-  public IFractalBuilder setBigDecimalScale(final int bigDecumalScale) {
+  public IFractalBuilder setDecimalPlaces(final int decimalPlaces) {
 
-    this.bigDecimalScale = bigDecumalScale;
+    this.decimalPlaces = decimalPlaces;
 
     return this;
   }

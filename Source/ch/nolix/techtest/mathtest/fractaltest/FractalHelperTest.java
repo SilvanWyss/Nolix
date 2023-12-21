@@ -18,7 +18,7 @@ public final class FractalHelperTest extends Test {
   public void testCase_getMaxX() {
 
     //setup
-    final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -35,7 +35,7 @@ public final class FractalHelperTest extends Test {
   public void testCase_getMaxY() {
 
     //setup
-    final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -52,7 +52,7 @@ public final class FractalHelperTest extends Test {
   public void testCase_getMinX() {
 
     //setup
-    final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -69,7 +69,7 @@ public final class FractalHelperTest extends Test {
   public void testCase_getMinY() {
 
     //setup
-    final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setBigDecimalScale(12);
+    final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -86,7 +86,7 @@ public final class FractalHelperTest extends Test {
   public void testCase_getSquaredMinMagnitudeForDivergence_1() {
 
     //setup
-    final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(1.0).setBigDecimalScale(12);
+    final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(1.0).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -103,7 +103,7 @@ public final class FractalHelperTest extends Test {
   public void testCase_getSquaredMinMagnitudeForDivergence_2() {
 
     //setup
-    final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(2.0).setBigDecimalScale(12);
+    final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(2.0).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -121,7 +121,7 @@ public final class FractalHelperTest extends Test {
 
     //setup
     final var fractalBuilder = //
-    new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(400).setBigDecimalScale(12);
+    new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(400).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 
@@ -139,7 +139,7 @@ public final class FractalHelperTest extends Test {
 
     //setup
     final var fractalBuilder = //
-    new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(400).setBigDecimalScale(12);
+    new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(400).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
     final var testUnit = new FractalHelper();
 

@@ -22,7 +22,7 @@ public final class FractalBuilderTest extends Test {
       .setRealComponentInterval(-1.0, 1.0)
       .setImaginaryComponentInterval(0.5, 2.5)
       .setMaxIterationCount(150)
-      .setBigDecimalScale(30);
+      .setDecimalPlaces(30);
 
     //execution
     final var result = testUnit.build();
@@ -33,6 +33,6 @@ public final class FractalBuilderTest extends Test {
     expect(result.getRealComponentInterval()).isEqualTo(new ClosedInterval(-1.0, 1.0, 30));
     expect(result.getImaginaryComponentInterval()).isEqualTo(new ClosedInterval(0.5, 2.5, 30));
     expect(result.getMaxIterationCount()).isEqualTo(150);
-    expect(result.getBigDecimalScale()).isEqualTo(30);
+    expect(result.getDecimalPlaces()).isEqualTo(30);
   }
 }

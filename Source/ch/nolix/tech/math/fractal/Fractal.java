@@ -126,7 +126,7 @@ public final class Fractal implements IFractal {
 
   //method
   @Override
-  public int getBigDecimalScale() {
+  public int getDecimalPlaces() {
     return bigDecimalScale;
   }
 

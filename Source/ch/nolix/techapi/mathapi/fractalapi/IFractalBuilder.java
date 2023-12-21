@@ -22,7 +22,7 @@ public interface IFractalBuilder {
   int getMaxIterationCount();
 
   //method declaration
-  IFractalBuilder setBigDecimalScale(int bigDecumalScale);
+  IFractalBuilder setDecimalPlaces(int decimalPlaces);
 
   //method declaration
   IFractalBuilder setColorFunction(IntFunction<IColor> colorFunction);

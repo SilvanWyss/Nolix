@@ -18,10 +18,10 @@ public interface IFractal {
   ISequence<IComplexNumber> createSequenceFor(IComplexNumber complexNumber);
 
   //method declaration
-  int getBigDecimalScale();
+  IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);
 
   //method declaration
-  IColor getColorForIterationCountWhereValueMagnitudeExceedsMaxMagnitude(int iterationCount);
+  int getDecimalPlaces();
 
   //method declaration
   int getHeightInPixel();
