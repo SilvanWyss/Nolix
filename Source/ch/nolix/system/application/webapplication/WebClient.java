@@ -29,7 +29,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
   //method
   @Override
-  protected INode<?> getDataFromHereFromBaseBackendWebClient(final IChainedNode request) {
+  protected INode<?> getDataFromHere(final IChainedNode request) {
     throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REQUEST, request);
   }
 

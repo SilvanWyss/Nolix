@@ -73,15 +73,6 @@ implements ICookieManager {
 
   //method
   @Override
-  protected final INode<?> getDataFromHere(final IChainedNode request) {
-    return getDataFromHereFromBaseBackendWebClient(request);
-  }
-
-  //method declaration
-  protected abstract INode<?> getDataFromHereFromBaseBackendWebClient(final IChainedNode request);
-
-  //method
-  @Override
   protected final void runHere(final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case CommandProtocol.RECEIVE_OPTIONAL_FILE:
