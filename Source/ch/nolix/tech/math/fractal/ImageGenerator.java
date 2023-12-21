@@ -158,7 +158,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   //method
   private int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
     final IComplexNumber complexNumber) {
-    return FRACTAL_HELPER.getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+    return FRACTAL_HELPER.getIterationCountForStartNumberWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
       fractal,
       complexNumber,
       squaredMinMagnitudeForDivergence);

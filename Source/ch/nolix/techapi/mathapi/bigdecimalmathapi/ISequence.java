@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public interface ISequence<V> {
 
   //method declaration
-  int getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(BigDecimal limit, int maxIndex);
+  int getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(BigDecimal limit, int maxIndex);
 
   //method declaration
   BigDecimal getSquaredMagnitudeOfValueAt1BasedIndex(int p1BasedIndex);

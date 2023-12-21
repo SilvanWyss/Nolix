@@ -27,14 +27,14 @@ public final class FractalHelper implements IFractalHelper {
 
   //method
   @Override
-  public int getIterationCountForComplexNumberUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+  public int getIterationCountForStartNumberWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
     final IFractal fractal,
-    final IComplexNumber complexNumber,
+    final IComplexNumber startNumber,
     final BigDecimal limit) {
 
-    final var sequence = fractal.createSequenceFor(complexNumber);
+    final var sequence = fractal.createSequenceFor(startNumber);
 
-    return sequence.getIterationCountUntilValueSquaredMagnitudeExceedsLimitOrMinusOne(
+    return sequence.getIterationCountWhereSquaredMagnitudeOfValueExceedsLimitOrMinusOne(
       limit,
       fractal.getMaxIterationCount());
   }
