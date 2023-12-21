@@ -16,7 +16,7 @@ public final class FractalHelper implements IFractalHelper {
   //method
   @Override
   public BigDecimal getHeightInPixelAsBigDecimal(final IFractal fractal) {
-    return BigDecimal.valueOf(fractal.getHeightInPixel());
+    return BigDecimal.valueOf(fractal.getHeightInPixel()).setScale(fractal.getDecimalPlaces());
   }
 
   //method
@@ -66,13 +66,13 @@ public final class FractalHelper implements IFractalHelper {
   //method
   @Override
   public BigDecimal getPixelCountPerHorizontalUnit(final IFractal fractal) {
-    return getWidthInPixelAsBigDecimal(fractal).divide(getWidthInUnits(fractal));
+    return getWidthInPixelAsBigDecimal(fractal).divide(getWidthInUnits(fractal), RoundingMode.HALF_UP);
   }
 
   //method
   @Override
   public BigDecimal getPixelCountPerVerticalUnit(final IFractal fractal) {
-    return getHeightInPixelAsBigDecimal(fractal).divide(getHeightInUnits(fractal));
+    return getHeightInPixelAsBigDecimal(fractal).divide(getHeightInUnits(fractal), RoundingMode.HALF_UP);
   }
 
   //method
@@ -108,7 +108,7 @@ public final class FractalHelper implements IFractalHelper {
   //method
   @Override
   public BigDecimal getWidthInPixelAsBigDecimal(final IFractal fractal) {
-    return BigDecimal.valueOf(fractal.getWidthInPixel());
+    return BigDecimal.valueOf(fractal.getWidthInPixel()).setScale(fractal.getDecimalPlaces());
   }
 
   //method
