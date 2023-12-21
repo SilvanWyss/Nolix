@@ -83,6 +83,42 @@ public final class FractalHelperTest extends Test {
 
   //method
   @TestCase
+  public void testCase_getPixelCountPerHorizontalUnit() {
+
+    //setup
+    final var fractalBuilder = //
+    new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(500).setDecimalPlaces(12);
+    final var fractal = fractalBuilder.build();
+    final var testUnit = new FractalHelper();
+
+    //execution
+    final var result = testUnit.getPixelCountPerHorizontalUnit(fractal);
+
+    //verification
+    final var expectedResult = BigDecimal.valueOf(250).setScale(12);
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
+  public void testCase_getPixelCountPerVerticalUnit() {
+
+    //setup
+    final var fractalBuilder = //
+    new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(500).setDecimalPlaces(12);
+    final var fractal = fractalBuilder.build();
+    final var testUnit = new FractalHelper();
+
+    //execution
+    final var result = testUnit.getPixelCountPerVerticalUnit(fractal);
+
+    //verification
+    final var expectedResult = BigDecimal.valueOf(250).setScale(12);
+    expect(result).isEqualTo(expectedResult);
+  }
+
+  //method
+  @TestCase
   public void testCase_getSquaredMinMagnitudeForDivergence_1() {
 
     //setup
