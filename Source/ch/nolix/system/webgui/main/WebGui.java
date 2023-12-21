@@ -194,6 +194,12 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
 
   //method
   @Override
+  public int getLayerCount() {
+    return getStoredLayers().getElementCount();
+  }
+
+  //method
+  @Override
   public IContainer<? extends IStylableElement<?>> getStoredChildStylableElements() {
     return getStoredLayers();
   }

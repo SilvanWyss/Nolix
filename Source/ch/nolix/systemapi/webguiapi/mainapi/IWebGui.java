@@ -25,6 +25,9 @@ public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>,
   IContainer<IHtmlElementEvent> getHtmlElementEventRegistrations();
 
   //method declaration
+  int getLayerCount();
+
+  //method declaration
   IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
 
   //method declaration
