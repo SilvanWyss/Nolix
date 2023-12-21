@@ -317,16 +317,16 @@ public final class ComplexNumberTest extends Test {
 
   //method
   @TestCase
-  public void testCase_inBigDecimalScale() {
+  public void testCase_inDecimalPlaces() {
 
     //setup
     final var testUnit = new ComplexNumber(3.0, 2.0, 10);
 
     //execution
-    final var result = testUnit.inBigDecimalScale(50);
+    final var result = testUnit.inDecimalPlaces(50);
 
     //verification
-    expect(result.getBigDecimalScale()).isEqualTo(50);
+    expect(result.getDecimalPlaces()).isEqualTo(50);
     expect(result.getRealComponent().scale()).isEqualTo(50);
     expect(result.getImaginaryComponent().scale()).isEqualTo(50);
   }

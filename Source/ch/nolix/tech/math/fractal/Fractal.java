@@ -47,7 +47,7 @@ public final class Fractal implements IFractal {
   private final IntFunction<IColor> colorFunction;
 
   //attribute
-  private final int bigDecimalScale;
+  private final int decimalPlaces;
 
   //constructor
   public Fractal( //NOSONAR: A Fractal has many parameters and therefore a FractalBuilder fills
@@ -60,7 +60,7 @@ public final class Fractal implements IFractal {
     final BigDecimal sequencesMinDivergenceMagnitude,
     final int sequencesMaxIterationCount,
     final IntFunction<IColor> colorFunction,
-    final int bigDecimalScale) {
+    final int decimalPlaces) {
 
     GlobalValidator
       .assertThat(realComponentInterval)
@@ -103,19 +103,19 @@ public final class Fractal implements IFractal {
       .isNotNull();
 
     GlobalValidator
-      .assertThat(bigDecimalScale)
+      .assertThat(decimalPlaces)
       .thatIsNamed("big decimal scale")
       .isPositive();
 
-    this.imaginaryComponentInterval = imaginaryComponentInterval.inBigDecimalScale(bigDecimalScale);
-    this.realComponentInterval = realComponentInterval.inBigDecimalScale(bigDecimalScale);
+    this.imaginaryComponentInterval = imaginaryComponentInterval.inDecimalPlaces(decimalPlaces);
+    this.realComponentInterval = realComponentInterval.inDecimalPlaces(decimalPlaces);
     this.widthInPixel = widthInPixel;
     this.heightInPixel = heightInPixel;
     this.sequenceCreator = sequenceCreator;
-    this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude.setScale(bigDecimalScale);
+    this.sequencesMinDivergenceMagnitude = sequencesMinDivergenceMagnitude.setScale(decimalPlaces);
     this.sequencesMaxIterationCount = sequencesMaxIterationCount;
     this.colorFunction = colorFunction;
-    this.bigDecimalScale = bigDecimalScale;
+    this.decimalPlaces = decimalPlaces;
   }
 
   //method
@@ -127,7 +127,7 @@ public final class Fractal implements IFractal {
   //method
   @Override
   public int getDecimalPlaces() {
-    return bigDecimalScale;
+    return decimalPlaces;
   }
 
   //method

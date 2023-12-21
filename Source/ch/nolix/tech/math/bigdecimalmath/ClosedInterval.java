@@ -27,20 +27,20 @@ public final class ClosedInterval implements IClosedInterval {
     GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
     GlobalValidator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
 
-    final var bigDecimalScale = GlobalCalculator.getMax(min.scale(), max.scale());
-    this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
-    this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    final var decimalPlaces = GlobalCalculator.getMax(min.scale(), max.scale());
+    this.min = min.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.max = max.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
   //constructor
-  public ClosedInterval(final BigDecimal min, final BigDecimal max, final int bigDecimalScale) {
+  public ClosedInterval(final BigDecimal min, final BigDecimal max, final int decimalPlaces) {
 
     GlobalValidator.assertThat(min).thatIsNamed(LowerCaseCatalogue.MINIMUM).isNotNull();
     GlobalValidator.assertThat(max).thatIsNamed(LowerCaseCatalogue.MAXIMUM).isNotSmallerThan(min);
-    GlobalValidator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
+    GlobalValidator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
 
-    this.min = min.setScale(bigDecimalScale, RoundingMode.HALF_UP);
-    this.max = max.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    this.min = min.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.max = max.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
   //constructor
@@ -49,8 +49,8 @@ public final class ClosedInterval implements IClosedInterval {
   }
 
   //constructor
-  public ClosedInterval(final double min, final double max, final int bigDecimalScale) {
-    this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), bigDecimalScale);
+  public ClosedInterval(final double min, final double max, final int decimalPlaces) {
+    this(BigDecimal.valueOf(min), BigDecimal.valueOf(max), decimalPlaces);
   }
 
   //method
@@ -77,7 +77,7 @@ public final class ClosedInterval implements IClosedInterval {
 
   //method
   @Override
-  public int getBigDecimalScale() {
+  public int getDecimalPlaces() {
     return min.scale();
   }
 
@@ -85,12 +85,12 @@ public final class ClosedInterval implements IClosedInterval {
   @Override
   public Pair<IClosedInterval, IClosedInterval> getHalfs() {
 
-    final var bigDecimalScale = getBigDecimalScale();
+    final var decimalPlaces = getDecimalPlaces();
     final var midPoint = getMidPoint();
 
     return new Pair<>(
-      new ClosedInterval(min, midPoint, bigDecimalScale),
-      new ClosedInterval(midPoint, max, bigDecimalScale));
+      new ClosedInterval(min, midPoint, decimalPlaces),
+      new ClosedInterval(midPoint, max, decimalPlaces));
   }
 
   //method
@@ -125,8 +125,8 @@ public final class ClosedInterval implements IClosedInterval {
 
   //method
   @Override
-  public ClosedInterval inBigDecimalScale(final int bigDecimalScale) {
-    return new ClosedInterval(min, max, bigDecimalScale);
+  public ClosedInterval inDecimalPlaces(final int decimalPlaces) {
+    return new ClosedInterval(min, max, decimalPlaces);
   }
 
   //method

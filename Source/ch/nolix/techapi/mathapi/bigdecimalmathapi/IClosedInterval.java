@@ -14,7 +14,7 @@ public interface IClosedInterval {
   boolean containsValue(BigDecimal value);
 
   //method declaration
-  int getBigDecimalScale();
+  int getDecimalPlaces();
 
   //method declaration
   IPair<IClosedInterval, IClosedInterval> getHalfs();
@@ -32,7 +32,7 @@ public interface IClosedInterval {
   BigDecimal getMin();
 
   //method declaration
-  IClosedInterval inBigDecimalScale(int bigDecimalScale);
+  IClosedInterval inDecimalPlaces(int decimalPlaces);
 
   //method declaration
   boolean intersectsWith(IClosedInterval closedInterval);

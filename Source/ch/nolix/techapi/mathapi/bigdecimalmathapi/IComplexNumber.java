@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 public interface IComplexNumber extends Comparable<IComplexNumber> {
 
   //method declaration
-  int getBigDecimalScale();
+  IComplexNumber getConjugate();
 
   //method declaration
-  IComplexNumber getConjugate();
+  int getDecimalPlaces();
 
   //method declaration
   BigDecimal getImaginaryComponent();
@@ -59,7 +59,7 @@ public interface IComplexNumber extends Comparable<IComplexNumber> {
   IComplexNumber getSum(IComplexNumber complexNumber);
 
   //method declaration
-  IComplexNumber inBigDecimalScale(int bigDecimalScale);
+  IComplexNumber inDecimalPlaces(int decimalPlaces);
 
   //method declaration
   boolean isPureImaginary();

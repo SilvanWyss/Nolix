@@ -33,23 +33,23 @@ public final class ComplexNumber implements IComplexNumber {
     GlobalValidator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
     GlobalValidator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
 
-    final var bigDecimalScale = GlobalCalculator.getMax(realComponent.scale(), imaginaryComponent.scale(), 10);
-    this.realComponent = realComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
-    this.imaginaryComponent = imaginaryComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    final var decimalPlaces = GlobalCalculator.getMax(realComponent.scale(), imaginaryComponent.scale(), 10);
+    this.realComponent = realComponent.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.imaginaryComponent = imaginaryComponent.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
   //constructor
   public ComplexNumber(
     final BigDecimal realComponent,
     final BigDecimal imaginaryComponent,
-    final int bigDecimalScale) {
+    final int decimalPlaces) {
 
     GlobalValidator.assertThat(realComponent).thatIsNamed("real component").isNotNull();
     GlobalValidator.assertThat(imaginaryComponent).thatIsNamed("imaginary component").isNotNull();
-    GlobalValidator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
+    GlobalValidator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
 
-    this.realComponent = realComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
-    this.imaginaryComponent = imaginaryComponent.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    this.realComponent = realComponent.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.imaginaryComponent = imaginaryComponent.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
   //constructor
@@ -58,21 +58,21 @@ public final class ComplexNumber implements IComplexNumber {
     final var realComponentBigDecimal = BigDecimal.valueOf(realComponent);
     final var imaginaryComponentBigDecimal = BigDecimal.valueOf(imaginaryComponent);
 
-    final var bigDecimalScale = GlobalCalculator.getMax(realComponentBigDecimal.scale(),
+    final var decimalPlaces = GlobalCalculator.getMax(realComponentBigDecimal.scale(),
       imaginaryComponentBigDecimal.scale(), 10);
 
-    this.realComponent = realComponentBigDecimal.setScale(bigDecimalScale, RoundingMode.HALF_UP);
-    this.imaginaryComponent = imaginaryComponentBigDecimal.setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    this.realComponent = realComponentBigDecimal.setScale(decimalPlaces, RoundingMode.HALF_UP);
+    this.imaginaryComponent = imaginaryComponentBigDecimal.setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
   //constructor
-  public ComplexNumber(final double realComponent, final double imaginaryComponent, final int bigDecimalScale) {
+  public ComplexNumber(final double realComponent, final double imaginaryComponent, final int decimalPlaces) {
 
-    GlobalValidator.assertThat(bigDecimalScale).thatIsNamed("big decimal scale").isPositive();
+    GlobalValidator.assertThat(decimalPlaces).thatIsNamed("big decimal scale").isPositive();
 
-    this.realComponent = BigDecimal.valueOf(realComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    this.realComponent = BigDecimal.valueOf(realComponent).setScale(decimalPlaces, RoundingMode.HALF_UP);
 
-    this.imaginaryComponent = BigDecimal.valueOf(imaginaryComponent).setScale(bigDecimalScale, RoundingMode.HALF_UP);
+    this.imaginaryComponent = BigDecimal.valueOf(imaginaryComponent).setScale(decimalPlaces, RoundingMode.HALF_UP);
   }
 
   //method
@@ -102,14 +102,14 @@ public final class ComplexNumber implements IComplexNumber {
 
   //method
   @Override
-  public int getBigDecimalScale() {
-    return realComponent.scale();
+  public ComplexNumber getConjugate() {
+    return new ComplexNumber(realComponent, imaginaryComponent.negate(), getDecimalPlaces());
   }
 
   //method
   @Override
-  public ComplexNumber getConjugate() {
-    return new ComplexNumber(realComponent, imaginaryComponent.negate(), getBigDecimalScale());
+  public int getDecimalPlaces() {
+    return realComponent.scale();
   }
 
   //method
@@ -152,7 +152,7 @@ public final class ComplexNumber implements IComplexNumber {
       BigDecimal.valueOf(2.0)
         .multiply(realComponent)
         .multiply(imaginaryComponent),
-      getBigDecimalScale());
+      getDecimalPlaces());
   }
 
   //method
@@ -167,7 +167,7 @@ public final class ComplexNumber implements IComplexNumber {
         .pow(2)
         .multiply(imaginaryComponent)
         .subtract(imaginaryComponent.pow(3)),
-      getBigDecimalScale());
+      getDecimalPlaces());
   }
 
   //method
@@ -182,13 +182,13 @@ public final class ComplexNumber implements IComplexNumber {
         .multiply(realComponent.pow(3))
         .multiply(imaginaryComponent)
         .subtract(BigDecimal.valueOf(4.0).multiply(realComponent).multiply(imaginaryComponent.pow(3))),
-      getBigDecimalScale());
+      getDecimalPlaces());
   }
 
   //method
   @Override
   public ComplexNumber getProduct(final BigDecimal number) {
-    return new ComplexNumber(realComponent.multiply(number), imaginaryComponent.multiply(number), getBigDecimalScale());
+    return new ComplexNumber(realComponent.multiply(number), imaginaryComponent.multiply(number), getDecimalPlaces());
   }
 
   //method
@@ -209,7 +209,7 @@ public final class ComplexNumber implements IComplexNumber {
         .multiply(complexNumber.getImaginaryComponent())
         .add(imaginaryComponent.multiply(complexNumber.getRealComponent()))
         .setScale(getScale(), RoundingMode.HALF_UP),
-      getBigDecimalScale());
+      getDecimalPlaces());
   }
 
   //method
@@ -236,7 +236,7 @@ public final class ComplexNumber implements IComplexNumber {
   //method
   @Override
   public IComplexNumber getSum(final BigDecimal number) {
-    return new ComplexNumber(realComponent.add(number), imaginaryComponent, getBigDecimalScale());
+    return new ComplexNumber(realComponent.add(number), imaginaryComponent, getDecimalPlaces());
   }
 
   //method
@@ -245,7 +245,7 @@ public final class ComplexNumber implements IComplexNumber {
     return new ComplexNumber(
       realComponent.add(complexNumber.getRealComponent()),
       imaginaryComponent.add(complexNumber.getImaginaryComponent()),
-      getBigDecimalScale());
+      getDecimalPlaces());
   }
 
   //method
@@ -262,8 +262,8 @@ public final class ComplexNumber implements IComplexNumber {
 
   //method
   @Override
-  public IComplexNumber inBigDecimalScale(final int bigDecimalScale) {
-    return new ComplexNumber(realComponent, imaginaryComponent, bigDecimalScale);
+  public IComplexNumber inDecimalPlaces(final int decimalPlaces) {
+    return new ComplexNumber(realComponent, imaginaryComponent, decimalPlaces);
   }
 
   //method

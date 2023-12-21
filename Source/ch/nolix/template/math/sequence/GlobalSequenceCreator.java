@@ -18,7 +18,7 @@ public final class GlobalSequenceCreator {
   public static ISequenceDefinedBy1Predecessor<IComplexNumber> createMandelbrotSequenceForIncrement(
     final IComplexNumber increment) {
     return new ComplexSequenceDefinedBy1Predecessor(
-      new ComplexNumber(0.0, 0.0, increment.getBigDecimalScale()),
+      new ComplexNumber(0.0, 0.0, increment.getDecimalPlaces()),
       z -> z.getPower2().getSum(increment));
   }
 
