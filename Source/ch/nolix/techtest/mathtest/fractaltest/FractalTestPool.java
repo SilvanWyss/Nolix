@@ -9,6 +9,6 @@ public final class FractalTestPool extends TestPool {
 
   //constructor
   public FractalTestPool() {
-    super(FractalBuilderTest.class, FractalHelperTest.class);
+    super(FractalBuilderTest.class, FractalHelperTest.class, ImageGeneratorTest.class);
   }
 }
