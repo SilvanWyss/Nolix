@@ -16,6 +16,9 @@ import ch.nolix.systemapi.guiapi.mainapi.IGui;
 public interface IWebGui<WG extends IWebGui<WG>> extends Clearable, ICanvas<WG>, IGui<WG>, IStyleElement<WG> {
 
   //method declaration
+  boolean containsControl(IControl<?, ?> control);
+
+  //method declaration
   ICss getCss();
 
   //method declaration

@@ -38,6 +38,12 @@ public final class LayerStack implements ILayerStack {
 
   //method
   @Override
+  public boolean containsControl(final IControl<?, ?> control) {
+    return getStoredLayers().containsAny(l -> l.containsControl(control));
+  }
+
+  //method
+  @Override
   public void clear() {
     while (containsAny()) {
       removeLayer(getStoredTopLayer());

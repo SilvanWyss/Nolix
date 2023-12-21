@@ -20,6 +20,9 @@ IRootControlOwner<L> {
   boolean belongsToGui();
 
   //method declaration
+  boolean containsControl(IControl<?, ?> control);
+
+  //method declaration
   ContentAlignment getContentAlignment();
 
   //method declaration

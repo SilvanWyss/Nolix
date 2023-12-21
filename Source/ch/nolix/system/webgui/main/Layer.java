@@ -128,6 +128,12 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
   //method
   @Override
+  public boolean containsControl(final IControl<?, ?> control) {
+    return (containsAny() && containsControlWhenContainsAny(control));
+  }
+
+  //method
+  @Override
   public void clear() {
     if (containsAny()) {
       clearWhenIsNotEmpty();
@@ -411,6 +417,18 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   }
 
   //method
+  private boolean containsControlWhenContainsAny(final IControl<?, ?> control) {
+
+    final var rootControl = getStoredRootControl();
+
+    if (rootControl == control) {
+      return true;
+    }
+
+    return firstControlContainsSecondControl(rootControl, control);
+  }
+
+  //method
   private void fillUpChildControlsOfControlIntoListRecursively(
     final IControl<?, ?> control,
     final LinkedList<IControl<?, ?>> list) {
@@ -419,6 +437,19 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
 
     list.addAtEnd(childControls);
     childControls.forEach(cc -> fillUpChildControlsOfControlIntoListRecursively(cc, list));
+  }
+
+  //TODO: Create ControlHelper.
+  //method
+  private boolean firstControlContainsSecondControl(final IControl<?, ?> control1, final IControl<?, ?> control2) {
+
+    for (final var cc : control1.getStoredChildControls()) {
+      if (cc == control2 || firstControlContainsSecondControl(cc, control2)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   //method

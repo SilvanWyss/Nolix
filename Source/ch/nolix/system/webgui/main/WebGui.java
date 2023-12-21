@@ -115,6 +115,12 @@ public final class WebGui extends StyleElement<WebGui> implements IWebGui<WebGui
     setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
   }
 
+  //mehtod
+  @Override
+  public boolean containsControl(final IControl<?, ?> control) {
+    return layerStack.containsControl(control);
+  }
+
   //method
   @Override
   public void clear() {
