@@ -47,7 +47,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   private final IContainer<IFuture> futures;
 
   //constructor
-  public ImageGenerator(final IFractal fractal) {
+  private ImageGenerator(final IFractal fractal) {
 
     GlobalValidator.assertThat(fractal).thatIsNamed(Fractal.class).isNotNull();
 
@@ -58,6 +58,11 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
     image = MutableImage.withWidthAndHeightAndColor(fractal.getWidthInPixel(), fractal.getHeightInPixel(), Color.WHITE);
 
     futures = startFillImageAndGetFutures();
+  }
+
+  //static method
+  public static ImageGenerator forFractal(final IFractal fractal) {
+    return new ImageGenerator(fractal);
   }
 
   //method
