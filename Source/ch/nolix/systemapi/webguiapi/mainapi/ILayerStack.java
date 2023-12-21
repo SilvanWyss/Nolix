@@ -9,6 +9,9 @@ import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 public interface ILayerStack extends Clearable {
 
   //method declaration
+  int getLayerCount();
+
+  //method declaration
   IControl<?, ?> getStoredControlOrNullByInternalId(String internalId);
 
   //method declaration

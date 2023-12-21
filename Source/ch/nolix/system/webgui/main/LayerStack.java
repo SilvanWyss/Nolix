@@ -46,6 +46,12 @@ public final class LayerStack implements ILayerStack {
 
   //method
   @Override
+  public int getLayerCount() {
+    return getStoredLayers().getElementCount();
+  }
+
+  //method
+  @Override
   public IControl<?, ?> getStoredControlOrNullByInternalId(String internalId) {
 
     for (final var l : getStoredLayers()) {
