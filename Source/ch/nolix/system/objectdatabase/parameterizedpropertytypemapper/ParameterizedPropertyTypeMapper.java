@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.objectdatabase.database;
+package ch.nolix.system.objectdatabase.parameterizedpropertytypemapper;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
@@ -19,7 +19,7 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceT
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
-final class ParameterizedPropertyTypeMapper {
+public final class ParameterizedPropertyTypeMapper {
 
   //method
   public IParameterizedPropertyType createParameterizedPropertyTypeFromDtoUsingGivenReferencableTables(
