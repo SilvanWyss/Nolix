@@ -23,6 +23,9 @@ import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 //class
 public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
 
+  //constant
+  private static final WebClientHtmlEventExecutor WEB_CLIENT_HTML_EVENT_EXECUTOR = new WebClientHtmlEventExecutor();
+
   //attribute
   private final WebClientRefreshQueue refreshQueue = WebClientRefreshQueue
     .forCounterpartRunnerAndOpenStateRequestable(this::runOnCounterpart, this::isOpen);
@@ -91,20 +94,7 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
   private void runCommandOnControl(final IControl<?, ?> control, final IChainedNode command) {
     switch (command.getHeader()) { //NOSONAR: A switch-statement allows to add probable additional cases.
       case ControlCommandProtocol.RUN_HTML_EVENT:
-
-        final var webGui = control.getStoredParentGui();
-        final var originalLayerCount = webGui.getStoredLayers().getElementCount();
-
-        //This step can change the number of layers of the webGui.
-        runRunHtmlEventCommandOnControl(control, command);
-
-        if (webGui.getStoredLayers().getElementCount() != originalLayerCount
-        || webGui.getStoredControlOrNullByInternalId(control.getInternalId()) == null) {
-          refreshCounterpartGui();
-        } else {
-          updateCounterpartIfOpen(control);
-        }
-
+        runHtmlEventCommand(control, command);
         break;
       case ControlCommandProtocol.SET_FILE:
 
@@ -153,12 +143,16 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
     }
   }
 
-  //method
-  private void runRunHtmlEventCommandOnControl(final IControl<?, ?> control, final IChainedNode runHtmlEventCommand) {
+  private void runHtmlEventCommand(final IControl<?, ?> triggeredControl, final IChainedNode htmlEventCommand) {
 
-    final var htmlEvent = runHtmlEventCommand.getSingleChildNodeHeader();
+    final var htmlEvent = htmlEventCommand.getSingleChildNodeHeader();
 
-    control.runHtmlEvent(htmlEvent);
+    WEB_CLIENT_HTML_EVENT_EXECUTOR.runHtmlEventOfTriggeredControlAndUpdateAccordingly(
+      triggeredControl,
+      htmlEvent,
+      this::isOpen,
+      this::refreshCounterpartGui,
+      this::updateCounterpartWhenOpen);
   }
 
   //method
@@ -178,13 +172,6 @@ public final class WebClient<AC> extends BaseWebClient<WebClient<AC>, AC> {
       if (control != null) {
         control.setUserInput(userInput);
       }
-    }
-  }
-
-  //method
-  private void updateCounterpartIfOpen(final IControl<?, ?> control) {
-    if (isOpen()) {
-      updateCounterpartWhenOpen(control);
     }
   }
 
