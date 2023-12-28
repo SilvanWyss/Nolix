@@ -6,14 +6,18 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IColumn;
 
 //class
-public final class ParameterizedOptionalBackReferenceType<
-
-C extends IColumn>
+public final class ParameterizedOptionalBackReferenceType<C extends IColumn>
 extends BaseParameterizedBackReferenceType<C> {
 
   //constructor
-  public ParameterizedOptionalBackReferenceType(final C backReferencedColumn) {
+  private ParameterizedOptionalBackReferenceType(final C backReferencedColumn) {
     super(backReferencedColumn);
+  }
+
+  //static method
+  public static <C2 extends IColumn> ParameterizedOptionalBackReferenceType<C2> forBackReferencedColumn(
+    final C2 backReferencedColumn) {
+    return new ParameterizedOptionalBackReferenceType<>(backReferencedColumn);
   }
 
   //method

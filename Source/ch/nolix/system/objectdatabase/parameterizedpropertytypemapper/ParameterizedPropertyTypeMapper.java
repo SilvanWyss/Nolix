@@ -7,6 +7,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedBackReferenceType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiValueType;
+import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalBackReferenceType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalReferenceType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedReferenceType;
@@ -86,7 +87,7 @@ public final class ParameterizedPropertyTypeMapper {
           .toFromGroups(ITable::getStoredColumns)
           .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto2.getBackReferencedColumnId()));
 
-        return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn2);
+        return ParameterizedOptionalBackReferenceType.forBackReferencedColumn(backReferencedColumn2);
       case MULTI_BACK_REFERENCE:
 
         final var baseParameterizedBackRefenceTypeDto3 = //
