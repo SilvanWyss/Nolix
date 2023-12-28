@@ -57,7 +57,7 @@ public final class ParameterizedPropertyTypeMapper {
         final var referencedTable2 = referencableTables
           .getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto2.getReferencedTableId()));
 
-        return new ParameterizedOptionalReferenceType<>(referencedTable2);
+        return ParameterizedOptionalReferenceType.forReferencedTable(referencedTable2);
       case MULTI_REFERENCE:
 
         final var baseParameterizedReferenceTypeDto3 = //
