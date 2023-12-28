@@ -5,6 +5,7 @@ package ch.nolix.system.objectdatabase.parameterizedpropertytypemapper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedBackReferenceType;
+import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiBackReferenceType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiValueType;
 import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalBackReferenceType;
@@ -97,7 +98,7 @@ public final class ParameterizedPropertyTypeMapper {
           .toFromGroups(ITable::getStoredColumns)
           .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto3.getBackReferencedColumnId()));
 
-        return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn3);
+        return ParameterizedMultiBackReferenceType.forBackReferencedColumn(backReferencedColumn3);
       default:
         throw InvalidArgumentException.forArgument(parameterizedPropertyTypeDto);
     }
