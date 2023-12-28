@@ -7,14 +7,17 @@ import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
 //class
-public final class ParameterizedMultiReferenceType<
-
-E extends IEntity>
-extends BaseParameterizedReferenceType<E> {
+public final class ParameterizedMultiReferenceType<E extends IEntity> extends BaseParameterizedReferenceType<E> {
 
   //constructor
-  public ParameterizedMultiReferenceType(final ITable<E> referencedTable) {
+  private ParameterizedMultiReferenceType(final ITable<E> referencedTable) {
     super(referencedTable);
+  }
+
+  //static method
+  public static <E2 extends IEntity> ParameterizedMultiReferenceType<E2> forReferencedTable(
+    final ITable<E2> referencedTable) {
+    return new ParameterizedMultiReferenceType<>(referencedTable);
   }
 
   //method
