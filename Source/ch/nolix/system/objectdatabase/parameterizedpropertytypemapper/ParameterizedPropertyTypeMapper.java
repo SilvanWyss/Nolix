@@ -76,7 +76,7 @@ public final class ParameterizedPropertyTypeMapper {
           .toFromGroups(ITable::getStoredColumns)
           .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto.getBackReferencedColumnId()));
 
-        return new ParameterizedBackReferenceType<>(backReferencedColumn);
+        return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn);
       case OPTIONAL_BACK_REFERENCE:
 
         final var baseParameterizedBackRefenceTypeDto2 = //
@@ -86,7 +86,7 @@ public final class ParameterizedPropertyTypeMapper {
           .toFromGroups(ITable::getStoredColumns)
           .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto2.getBackReferencedColumnId()));
 
-        return new ParameterizedBackReferenceType<>(backReferencedColumn2);
+        return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn2);
       case MULTI_BACK_REFERENCE:
 
         final var baseParameterizedBackRefenceTypeDto3 = //
@@ -96,7 +96,7 @@ public final class ParameterizedPropertyTypeMapper {
           .toFromGroups(ITable::getStoredColumns)
           .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto3.getBackReferencedColumnId()));
 
-        return new ParameterizedBackReferenceType<>(backReferencedColumn3);
+        return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn3);
       default:
         throw InvalidArgumentException.forArgument(parameterizedPropertyTypeDto);
     }
