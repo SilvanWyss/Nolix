@@ -40,7 +40,7 @@ public final class ParameterizedPropertyTypeMapper {
 
         final var valueType3 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 
-        return new ParameterizedMultiValueType<>(valueType3);
+        return ParameterizedMultiValueType.forValueType(valueType3);
       case REFERENCE:
 
         final var baseParameterizedReferenceTypeDto = (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto;
