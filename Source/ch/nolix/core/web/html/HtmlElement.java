@@ -199,7 +199,7 @@ public final class HtmlElement implements IHtmlElement {
   public String toString() {
 
     if (!containsChildElements()) {
-      toStringWhenDoesNotContainChildElements();
+      return toStringWhenDoesNotContainChildElements();
     }
 
     return toStringWhenContainsChildElements();
