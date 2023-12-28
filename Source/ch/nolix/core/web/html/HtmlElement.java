@@ -282,7 +282,7 @@ public final class HtmlElement implements IHtmlElement {
     }
 
     if (getInnerText().isEmpty()) {
-      return ("<" + getType() + " " + getAttributesAsString() + "/>");
+      return ("<" + getType() + " " + getAttributesAsString() + " />");
     }
 
     return ("<" + getType() + " " + getAttributesAsString() + ">" + getInnerText() + "</" + getType() + ">");
