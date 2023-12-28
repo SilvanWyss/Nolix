@@ -62,10 +62,14 @@ public final class HtmlElement implements IHtmlElement {
   }
 
   //static method
-  public static HtmlElement withTypeAndAttribute(final String type, final IHtmlAttribute attribute) {
-    return new HtmlElement(
+  public static HtmlElement withTypeAndAttribute(
+    final String type,
+    final IHtmlAttribute attribute,
+    final IHtmlAttribute... attributes) {
+    return //
+    new HtmlElement(
       type,
-      ImmutableList.withElement(attribute),
+      ImmutableList.withElement(attribute, attributes),
       StringCatalogue.EMPTY_STRING,
       new ImmutableList<>());
   }
