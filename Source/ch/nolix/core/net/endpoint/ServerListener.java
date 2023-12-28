@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 //own imports
+import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.worker.Worker;
@@ -62,8 +63,9 @@ final class ServerListener extends Worker {
         final var socket = parentServer.getStoredServerSocket().accept();
         takeSocket(socket);
       }
-    } catch (final IOException exception) {
+    } catch (final IOException ioException) {
       parentServer.close();
+      throw WrapperException.forError(ioException);
     }
   }
 
