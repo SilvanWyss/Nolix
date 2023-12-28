@@ -122,12 +122,16 @@ public final class HtmlElement implements IHtmlElement {
   }
 
   //static method
-  public static HtmlElement withTypeAndChildElement(final String type, final IHtmlElement childElement) {
-    return new HtmlElement(
+  public static HtmlElement withTypeAndChildElement(
+    final String type,
+    final IHtmlElement childElement,
+    final IHtmlElement... childElements) {
+    return //
+    new HtmlElement(
       type,
       new ImmutableList<>(),
       StringCatalogue.EMPTY_STRING,
-      ImmutableList.withElement(HtmlElement.fromHtmlElement(childElement)));
+      ImmutableList.withElement(childElement, childElements));
   }
 
   //static method
