@@ -197,7 +197,7 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
     IllegalAccessException
     | InstantiationException
     | InvocationTargetException exception) {
-      throw InvalidArgumentException.forArgumentAndErrorPredicate(this, "could not be copied");
+      throw InvalidArgumentException.forArgumentAndErrorPredicateAndCause(this, "could not be copied", exception);
     }
   }
 
