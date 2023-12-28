@@ -419,13 +419,13 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   //method
   private boolean containsControlWhenContainsAny(final IControl<?, ?> control) {
 
-    final var rootControl = getStoredRootControl();
+    final var localRootControl = getStoredRootControl();
 
-    if (rootControl == control) {
+    if (localRootControl == control) {
       return true;
     }
 
-    return firstControlContainsSecondControl(rootControl, control);
+    return firstControlContainsSecondControl(localRootControl, control);
   }
 
   //method
