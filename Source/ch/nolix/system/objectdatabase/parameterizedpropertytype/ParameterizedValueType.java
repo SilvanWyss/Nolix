@@ -14,7 +14,7 @@ public final class ParameterizedValueType<V> extends BaseParameterizedValueType<
 
   //static method
   public static <V2> ParameterizedValueType<V2> forValueType(final Class<V2> valueType) {
-    return new ParameterizedValueType<V2>(valueType);
+    return new ParameterizedValueType<>(valueType);
   }
 
   //method
