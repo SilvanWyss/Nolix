@@ -24,7 +24,7 @@ final class ColumnMapper {
     return Column.withNameAndIdAndParameterizedPropertyTypeAndParentTable(
       columnDto.getName(),
       columnDto.getId(),
-      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDtoUsingGivenReferencableTables(
+      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
         columnDto.getParameterizedPropertyType(),
         referencableTables),
       parentTable);

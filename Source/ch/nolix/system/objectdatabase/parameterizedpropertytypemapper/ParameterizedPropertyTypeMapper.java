@@ -4,103 +4,101 @@ package ch.nolix.system.objectdatabase.parameterizedpropertytypemapper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedBackReferenceType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiBackReferenceType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiReferenceType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedMultiValueType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalBackReferenceType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalReferenceType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedOptionalValueType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedReferenceType;
-import ch.nolix.system.objectdatabase.parameterizedpropertytype.ParameterizedValueType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IParameterizedPropertyType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
+import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDto;
 
 //class
 public final class ParameterizedPropertyTypeMapper {
 
+  //constant
+  private static final ParameterizedValueTypeMapper PARAMETERIZED_VALUE_TYPE_MAPPER = //
+  new ParameterizedValueTypeMapper();
+
+  //constant
+  private static final ParameterizedOptionalValueTypeMapper PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER = //
+  new ParameterizedOptionalValueTypeMapper();
+
+  //constant
+  private static final ParameterizedMultiValueTypeMapper PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER = //
+  new ParameterizedMultiValueTypeMapper();
+
+  //constant
+  private static final ParameterizedReferenceTypeMapper PARAMETERIZED_REFERENCE_TYPE_MAPPER = //
+  new ParameterizedReferenceTypeMapper();
+
+  //constant
+  private static final ParameterizedOptionalReferenceTypeMapper PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER = //
+  new ParameterizedOptionalReferenceTypeMapper();
+
+  //constant
+  private static final ParameterizedMultiReferenceTypeMapper PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER = //
+  new ParameterizedMultiReferenceTypeMapper();
+
+  //constant
+  private static final ParameterizedBackReferenceTypeMapper PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER = //
+  new ParameterizedBackReferenceTypeMapper();
+
+  //constant
+  private static final ParameterizedOptionalBackReferenceTypeMapper //
+  PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER = //
+  new ParameterizedOptionalBackReferenceTypeMapper();
+
+  //constant
+  private static final ParameterizedMultiBackReferenceTypeMapper PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER = //
+  new ParameterizedMultiBackReferenceTypeMapper();
+
   //method
-  public IParameterizedPropertyType createParameterizedPropertyTypeFromDtoUsingGivenReferencableTables(
+  public IParameterizedPropertyType createParameterizedPropertyTypeFromDto(
     final IParameterizedPropertyTypeDto parameterizedPropertyTypeDto,
     final IContainer<? extends ITable<IEntity>> referencableTables) {
-    switch (parameterizedPropertyTypeDto.getPropertyType()) {
-      case VALUE:
 
-        final var valueType = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
+    final var propertyType = parameterizedPropertyTypeDto.getPropertyType();
 
-        return ParameterizedValueType.forValueType(valueType);
-      case OPTIONAL_VALUE:
-
-        final var valueType2 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
-
-        return ParameterizedOptionalValueType.forValueType(valueType2);
-      case MULTI_VALUE:
-
-        final var valueType3 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
-
-        return ParameterizedMultiValueType.forValueType(valueType3);
-      case REFERENCE:
-
-        final var baseParameterizedReferenceTypeDto = (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto;
-
-        final var referencedTable = referencableTables
-          .getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto.getReferencedTableId()));
-
-        return ParameterizedReferenceType.forReferencedTable(referencedTable);
-      case OPTIONAL_REFERENCE:
-
-        final var baseParameterizedReferenceTypeDto2 = //
-        (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto;
-
-        final var referencedTable2 = referencableTables
-          .getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto2.getReferencedTableId()));
-
-        return ParameterizedOptionalReferenceType.forReferencedTable(referencedTable2);
-      case MULTI_REFERENCE:
-
-        final var baseParameterizedReferenceTypeDto3 = //
-        (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto;
-
-        final var referencedTable3 = referencableTables
-          .getStoredFirst(t -> t.hasId(baseParameterizedReferenceTypeDto3.getReferencedTableId()));
-
-        return ParameterizedMultiReferenceType.forReferencedTable(referencedTable3);
-      case BACK_REFERENCE:
-
-        final var baseParameterizedBackRefenceTypeDto = //
-        (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto;
-
-        final var backReferencedColumn = referencableTables
-          .toFromGroups(ITable::getStoredColumns)
-          .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto.getBackReferencedColumnId()));
-
-        return ParameterizedBackReferenceType.forBackReferencedColumn(backReferencedColumn);
-      case OPTIONAL_BACK_REFERENCE:
-
-        final var baseParameterizedBackRefenceTypeDto2 = //
-        (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto;
-
-        final var backReferencedColumn2 = referencableTables
-          .toFromGroups(ITable::getStoredColumns)
-          .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto2.getBackReferencedColumnId()));
-
-        return ParameterizedOptionalBackReferenceType.forBackReferencedColumn(backReferencedColumn2);
-      case MULTI_BACK_REFERENCE:
-
-        final var baseParameterizedBackRefenceTypeDto3 = //
-        (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto;
-
-        final var backReferencedColumn3 = referencableTables
-          .toFromGroups(ITable::getStoredColumns)
-          .getStoredFirst(c -> c.hasId(baseParameterizedBackRefenceTypeDto3.getBackReferencedColumnId()));
-
-        return ParameterizedMultiBackReferenceType.forBackReferencedColumn(backReferencedColumn3);
-      default:
+    return //
+    switch (propertyType) {
+      case VALUE ->
+        PARAMETERIZED_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedValueTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case OPTIONAL_VALUE ->
+        PARAMETERIZED_OPTIONAL_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedValueTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case MULTI_VALUE ->
+        PARAMETERIZED_MULTI_VALUE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedValueTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case REFERENCE ->
+        PARAMETERIZED_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case OPTIONAL_REFERENCE ->
+        PARAMETERIZED_OPTIONAL_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case MULTI_REFERENCE ->
+        PARAMETERIZED_MULTI_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedReferenceTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case BACK_REFERENCE ->
+        PARAMETERIZED_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case OPTIONAL_BACK_REFERENCE ->
+        PARAMETERIZED_OPTIONAL_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      case MULTI_BACK_REFERENCE ->
+        PARAMETERIZED_MULTI_BACK_REFERENCE_TYPE_MAPPER.createParameterizedPropertyTypeFromDto(
+          (IBaseParameterizedBackReferenceTypeDto) parameterizedPropertyTypeDto,
+          referencableTables);
+      default ->
         throw InvalidArgumentException.forArgument(parameterizedPropertyTypeDto);
-    }
+    };
   }
 }
