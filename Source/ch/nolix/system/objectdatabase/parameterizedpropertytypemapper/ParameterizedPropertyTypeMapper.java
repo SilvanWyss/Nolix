@@ -30,7 +30,7 @@ public final class ParameterizedPropertyTypeMapper {
 
         final var valueType = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
 
-        return new ParameterizedValueType<>(valueType);
+        return ParameterizedValueType.forValueType(valueType);
       case OPTIONAL_VALUE:
 
         final var valueType2 = parameterizedPropertyTypeDto.getDataType().getDataTypeClass();
