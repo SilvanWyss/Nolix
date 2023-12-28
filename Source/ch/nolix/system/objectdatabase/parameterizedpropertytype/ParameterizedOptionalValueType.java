@@ -5,14 +5,16 @@ package ch.nolix.system.objectdatabase.parameterizedpropertytype;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 
 //class
-public final class ParameterizedOptionalValueType<
-
-V>
-extends BaseParameterizedValueType<V> {
+public final class ParameterizedOptionalValueType<V> extends BaseParameterizedValueType<V> {
 
   //constructor
-  public ParameterizedOptionalValueType(final Class<V> valueType) {
+  private ParameterizedOptionalValueType(final Class<V> valueType) {
     super(valueType);
+  }
+
+  //static method
+  public static <V2> ParameterizedOptionalValueType<V2> forValueType(final Class<V2> valueType) {
+    return new ParameterizedOptionalValueType<>(valueType);
   }
 
   //method
