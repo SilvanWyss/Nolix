@@ -3,7 +3,6 @@ package ch.nolix.core.web.html;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
@@ -97,12 +96,12 @@ public final class HtmlElement implements IHtmlElement {
   public static HtmlElement withTypeAndAttributesAndChildElement(
     final String type,
     final IContainer<? extends IHtmlAttribute> attributes,
-    final IHtmlElement childElement) {
+    final IHtmlElement childElement,
+    final IHtmlElement... childElements) {
 
-    final var childElements = new LinkedList<IHtmlElement>();
-    childElements.addAtEnd(childElement);
+    final var allChildElements = ImmutableList.withElement(childElement, childElements);
 
-    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, childElements);
+    return new HtmlElement(type, attributes, StringCatalogue.EMPTY_STRING, allChildElements);
   }
 
   //static method
