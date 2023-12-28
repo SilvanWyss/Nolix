@@ -81,6 +81,25 @@ public class InvalidArgumentException extends RuntimeException {
 
   //constructor
   /**
+   * Creates a new {@link InvalidArgumentException} for the given argument,
+   * errorPredicate and cause.
+   * 
+   * @param argument
+   * @param errorPredicate
+   * @param cause
+   * @throws IllegalArgumentException if the given errorPredicate is null.
+   * @throws IllegalArgumentException if the given errorPredicate is blank.
+   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+   * @throws IllegalArgumentException if the given cause is null.
+   */
+  protected InvalidArgumentException(final Object argument, final String errorPredicate, final Throwable cause) {
+
+    //Calls other constructor.
+    this(getNameOfArgument(argument), argument, errorPredicate, cause);
+  }
+
+  //constructor
+  /**
    * Creates a new {@link InvalidArgumentException} for the given argumentName,
    * argument and errorPredicate.
    * 
@@ -101,6 +120,40 @@ public class InvalidArgumentException extends RuntimeException {
       + getStringRepresentationWithPufferToNextWordsOfArgument(argument)
       + getValidErrorPredicateOfErrorPredicate(errorPredicate)
       + ".");
+
+    this.argumentName = argumentName;
+    this.argument = argument;
+    this.errorPredicate = errorPredicate;
+  }
+
+  //constructor
+  /**
+   * Creates a new {@link InvalidArgumentException} for the given argumentName,
+   * argument, errorPredicate and cause.
+   * 
+   * @param argumentName
+   * @param argument
+   * @param errorPredicate
+   * @throws IllegalArgumentException if the given argumentName is null.
+   * @throws IllegalArgumentException if the given argumentName is blank.
+   * @throws IllegalArgumentException if the given errorPredicate is null.
+   * @throws IllegalArgumentException if the given errorPredicate is blank.
+   * @throws IllegalArgumentException if the given errorPredicate ends with a dot.
+   * @throws IllegalArgumentException if the given cause is null.
+   */
+  protected InvalidArgumentException(
+    final String argumentName,
+    final Object argument,
+    final String errorPredicate,
+    final Throwable cause) {
+
+    super(
+      "The given "
+      + getValidArgumentNameOfArgumentName(argumentName)
+      + getStringRepresentationWithPufferToNextWordsOfArgument(argument)
+      + getValidErrorPredicateOfErrorPredicate(errorPredicate)
+      + ".",
+      getValidCauseOfCause(cause));
 
     this.argumentName = argumentName;
     this.argument = argument;
@@ -235,6 +288,23 @@ public class InvalidArgumentException extends RuntimeException {
     }
 
     return argumentName;
+  }
+
+  //static method
+  /**
+   * @param cause
+   * @return a valid cause of the given cause
+   * @throws IllegalArgumentException if the given cause is null.
+   * 
+   */
+  private static Throwable getValidCauseOfCause(final Throwable cause) {
+
+    //Asserts that the given cause is not null.
+    if (cause == null) {
+      throw new IllegalArgumentException("The given cause is null.");
+    }
+
+    return cause;
   }
 
   //static method
