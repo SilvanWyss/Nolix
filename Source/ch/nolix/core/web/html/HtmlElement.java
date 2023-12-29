@@ -14,6 +14,10 @@ import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 //class
 public final class HtmlElement implements IHtmlElement {
 
+  //constant
+  private static final HtmlElementStringRepresentator HTML_ELEMENT_STRING_REPRESENTATOR = //
+  new HtmlElementStringRepresentator();
+
   //attribute
   private final String type;
 
@@ -204,12 +208,7 @@ public final class HtmlElement implements IHtmlElement {
   //method
   @Override
   public String toString() {
-
-    if (!containsChildElements()) {
-      return toStringWhenDoesNotContainChildElements();
-    }
-
-    return toStringWhenContainsChildElements();
+    return HTML_ELEMENT_STRING_REPRESENTATOR.toString(this);
   }
 
   //method
@@ -224,70 +223,5 @@ public final class HtmlElement implements IHtmlElement {
     }
 
     return withTypeAndAttributesAndInnerText(getType(), allAttributes, getInnerText());
-  }
-
-  //method
-  private String getAttributesAsString() {
-    return getAttributes().toStringWithSeparator(" ");
-  }
-
-  //method
-  private String getChildElementsAsString() {
-    return getChildElements().toStringWithSeparator("");
-  }
-
-  //method
-  private String toStringWhenContainsChildElements() {
-
-    if (!containsAttributes()) {
-
-      if (getInnerText().isEmpty()) {
-        return "<" + getType() + ">" + getChildElementsAsString() + "</" + getType() + ">";
-      }
-
-      return "<" + getType() + ">" + getInnerText() + getChildElementsAsString() + "</" + getType() + ">";
-    }
-
-    if (getInnerText().isEmpty()) {
-      return "<"
-      + getType()
-      + " "
-      + getAttributesAsString()
-      + ">"
-      + getChildElementsAsString()
-      + "</"
-      + getType()
-      + ">";
-    }
-
-    return "<"
-    + getType()
-    + " "
-    + getAttributesAsString()
-    + ">"
-    + getInnerText()
-    + getChildElementsAsString()
-    + "</"
-    + getType()
-    + ">";
-  }
-
-  //method
-  private String toStringWhenDoesNotContainChildElements() {
-
-    if (!containsAttributes()) {
-
-      if (getInnerText().isEmpty()) {
-        return ("<" + getType() + " />");
-      }
-
-      return ("<" + getType() + ">" + getInnerText() + "</" + getType() + ">");
-    }
-
-    if (getInnerText().isEmpty()) {
-      return ("<" + getType() + " " + getAttributesAsString() + " />");
-    }
-
-    return ("<" + getType() + " " + getAttributesAsString() + ">" + getInnerText() + "</" + getType() + ">");
   }
 }
