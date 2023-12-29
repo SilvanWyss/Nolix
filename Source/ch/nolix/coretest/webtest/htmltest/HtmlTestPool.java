@@ -9,6 +9,6 @@ public final class HtmlTestPool extends TestPool {
 
   //constructor
   public HtmlTestPool() {
-    super(HtmlElementTest.class);
+    super(HtmlElementStringRepresentatorTest.class, HtmlElementTest.class);
   }
 }
