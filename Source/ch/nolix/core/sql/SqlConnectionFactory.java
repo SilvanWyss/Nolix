@@ -9,19 +9,25 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseExcept
 public final class SqlConnectionFactory {
 
   //method
-  public SqlConnection createQslConnectionFor(final SqlConnectionPool sqlDatabaseTarget) {
-    return switch (sqlDatabaseTarget.getSqlDatabaseEngine()) {
+  public SqlConnection createSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
+    return switch (sqlConnectionPool.getSqlDatabaseEngine()) {
       case MSSQL ->
-        new MsSqlConnection(
-          sqlDatabaseTarget.getIpOrDomain(),
-          sqlDatabaseTarget.getPort(),
-          sqlDatabaseTarget.getLoginName(),
-          sqlDatabaseTarget.getLoginPassword(),
-          sqlDatabaseTarget);
+        createMsSqlConnectionForSqlConnectionPool(sqlConnectionPool);
       case MYSQL, ORACLE ->
-        throw UnsupportedCaseException.forCase(sqlDatabaseTarget.getSqlDatabaseEngine());
+        throw UnsupportedCaseException.forCase(sqlConnectionPool.getSqlDatabaseEngine());
       default ->
-        throw InvalidArgumentException.forArgument(sqlDatabaseTarget.getSqlDatabaseEngine());
+        throw InvalidArgumentException.forArgument(sqlConnectionPool.getSqlDatabaseEngine());
     };
+  }
+
+  //method
+  private MsSqlConnection createMsSqlConnectionForSqlConnectionPool(final SqlConnectionPool sqlConnectionPool) {
+    return //
+    new MsSqlConnection(
+      sqlConnectionPool.getIpOrDomain(),
+      sqlConnectionPool.getPort(),
+      sqlConnectionPool.getLoginName(),
+      sqlConnectionPool.getLoginPassword(),
+      sqlConnectionPool);
   }
 }

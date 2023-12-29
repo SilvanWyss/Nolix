@@ -158,7 +158,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
   private SqlConnectionWrapper createQslConnectionWrapper() {
 
     final var sqlConnectionWrapper = SqlConnectionWrapper
-      .forSqlConnection(SQL_CONNECTION_FACTORY.createQslConnectionFor(this));
+      .forSqlConnection(SQL_CONNECTION_FACTORY.createSqlConnectionForSqlConnectionPool(this));
 
     sqlConnections.addAtEnd(sqlConnectionWrapper);
 
