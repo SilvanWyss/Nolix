@@ -47,8 +47,9 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
 
   //method
   private boolean canSetEntity(final IReference<?> reference) {
-    return reference != null
+    return //
+    reference != null
     && reference.belongsToEntity()
-    && reference.getStoredParentEntity().isOpen();
+    && reference.isOpen();
   }
 }
