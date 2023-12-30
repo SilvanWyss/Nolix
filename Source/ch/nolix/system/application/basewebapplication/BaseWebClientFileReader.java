@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 
 //class
@@ -26,7 +27,7 @@ final class BaseWebClientFileReader {
   private boolean isWaitingForFileFromCounterpart;
 
   //optional attribute
-  private Optional<byte[]> latestOptionalFileFromCounterpart;
+  private byte[] latestOptionalFileFromCounterpart;
 
   //constructor
   private BaseWebClientFileReader(final BaseWebClient<?, ?> parentBackendWebClient) {
@@ -47,33 +48,23 @@ final class BaseWebClientFileReader {
 
     assertIsNotWaitingForFileFromCounterpart();
 
-    isWaitingForFileFromCounterpart = true;
-
-    parentBackendWebClient.internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
-
-    GlobalSequencer
-      .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
-      .waitAsLongAs(this::isWaitingForFileFromCounterpart);
-
-    isWaitingForFileFromCounterpart = false;
-
-    return latestOptionalFileFromCounterpart;
+    return readOptionalFileFromCounterpartWhenIsNotWaitingForFileFromCounterpart();
   }
 
   //method
   public void receiveOptionalFileFromCounterpart(final IChainedNode receiveOptionalFileCommand) {
     switch (receiveOptionalFileCommand.getChildNodeCount()) {
       case 0:
-        receiveOptionalFileFromCounterpart(Optional.empty());
+        receiveEmptyFileSelectionFromCounterpart();
         break;
       case 1:
 
         final var fileString = receiveOptionalFileCommand.getSingleChildNode().getHeader();
 
-        //Important: The received fileString is a Base 64 encoded string.
-        final var bytes = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
+        //Info: The received fileString is a Base64 encoded String.
+        final var file = Base64.getDecoder().decode(fileString.substring(fileString.indexOf(',') + 1));
 
-        receiveOptionalFileFromCounterpart(Optional.of(bytes));
+        receiveFileFromCounterpart(file);
         break;
       default:
         throw InvalidArgumentException.forArgumentNameAndArgument(
@@ -103,13 +94,39 @@ final class BaseWebClientFileReader {
     return isWaitingForFileFromCounterpart;
   }
 
-  //method
-  private void receiveOptionalFileFromCounterpart(final Optional<byte[]> optionalFile) {
+  private Optional<byte[]> readOptionalFileFromCounterpartWhenIsNotWaitingForFileFromCounterpart() {
+    try {
 
-    GlobalValidator.assertThat(optionalFile).thatIsNamed("optional file").isNotNull();
+      isWaitingForFileFromCounterpart = true;
+
+      parentBackendWebClient.internalRunOnCounterpart(ChainedNode.withHeader(CommandProtocol.SEND_OPTIONAL_FILE));
+
+      GlobalSequencer
+        .forMaxSeconds(MAX_WAITING_TIME_FOR_FILE_FROM_COUNTERPART_IN_SECONDS)
+        .waitAsLongAs(this::isWaitingForFileFromCounterpart);
+
+      return Optional.ofNullable(latestOptionalFileFromCounterpart);
+    } finally {
+      isWaitingForFileFromCounterpart = false;
+    }
+  }
+
+  //method
+  private void receiveEmptyFileSelectionFromCounterpart() {
+
     assertIsWaitingForFileFromCounterpart();
 
     isWaitingForFileFromCounterpart = false;
-    latestOptionalFileFromCounterpart = optionalFile;
+    latestOptionalFileFromCounterpart = null;
+  }
+
+  //method
+  private void receiveFileFromCounterpart(final byte[] file) {
+
+    GlobalValidator.assertThat(file).thatIsNamed(LowerCaseCatalogue.FILE).isNotNull();
+    assertIsWaitingForFileFromCounterpart();
+
+    isWaitingForFileFromCounterpart = false;
+    latestOptionalFileFromCounterpart = file; //NOSONAR: The given file can be stored instead of a copy.
   }
 }
