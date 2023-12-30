@@ -90,12 +90,9 @@ public abstract class Property implements IProperty {
   //method
   @Override
   public final boolean isClosed() {
-
-    if (!belongsToEntity()) {
-      return false;
-    }
-
-    return getStoredParentEntity().isClosed();
+    return //
+    belongsToEntity()
+    && getStoredParentEntity().isClosed();
   }
 
   //method
