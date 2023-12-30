@@ -46,27 +46,33 @@ public final class MatrixTest extends Test {
 
   //method
   @TestCase
-  public void testCase_createIdendityMatrix() {
+  public void testCase_createIdendityMatrix_with1Row() {
 
-    //parameter definition
-    final var n = 100;
+    //execution
+    final var result = Matrix.createIdendityMatrix(1);
 
-    //test loop
-    for (var k = 1; k <= n; k++) {
+    //verification
+    expect(result.getRowCount()).isEqualTo(1);
+    expect(result.getColumnCount()).isEqualTo(1);
+    expect(result.getValue(1, 1)).isEqualTo(1.0);
+  }
 
-      //execution
-      final var result = Matrix.createIdendityMatrix(k);
+  //method
+  @TestCase
+  public void testCase_createIdendityMatrix_with10Rows() {
 
-      //verification
-      expect(result.getRowCount()).isEqualTo(k);
-      expect(result.getColumnCount()).isEqualTo(k);
-      for (var i = 1; i <= k; i++) {
-        for (var j = 1; j <= k; j++) {
-          if (i != j) {
-            expect(result.getValue(i, j)).isEqualTo(0.0);
-          } else {
-            expect(result.getValue(i, j)).isEqualTo(1.0);
-          }
+    //execution
+    final var result = Matrix.createIdendityMatrix(10);
+
+    //verification
+    expect(result.getRowCount()).isEqualTo(10);
+    expect(result.getColumnCount()).isEqualTo(10);
+    for (var i = 1; i <= 10; i++) {
+      for (var j = 1; j <= 10; j++) {
+        if (i != j) {
+          expect(result.getValue(i, j)).isEqualTo(0.0);
+        } else {
+          expect(result.getValue(i, j)).isEqualTo(1.0);
         }
       }
     }
