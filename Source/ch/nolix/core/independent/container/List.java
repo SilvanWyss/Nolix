@@ -3,7 +3,6 @@ package ch.nolix.core.independent.container;
 
 //Java imports
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 //class
 public final class List<E> implements Iterable<E> {
@@ -156,34 +155,8 @@ public final class List<E> implements Iterable<E> {
 
   //method
   public void removeFirstOccurrenceOf(final E element) {
-
     if (!isEmpty()) {
-
-      if (beginNode.contains(element)) {
-        removeFirst();
-        return;
-      }
-
-      var iteratorNode = beginNode;
-      while (iteratorNode.hasNextNode()) {
-
-        if (iteratorNode.getStoredNextNodeOrNull().contains(element)) {
-
-          if (!iteratorNode.getStoredNextNodeOrNull().hasNextNode()) {
-            iteratorNode.removeNextNode();
-            endNode = iteratorNode;
-          } else {
-            iteratorNode.setNextNode(iteratorNode.getStoredNextNodeOrNull().getStoredNextNodeOrNull());
-          }
-
-          elementCount--;
-          return;
-        }
-
-        iteratorNode = iteratorNode.getStoredNextNodeOrNull();
-      }
-
-      throw new NoSuchElementException("The current List does not contain the given element '" + element + "'.");
+      removeFirstOccuranceOfWhenContainsAny(element);
     }
   }
 
@@ -191,6 +164,39 @@ public final class List<E> implements Iterable<E> {
   private void assertIsNotEmpty() {
     if (isEmpty()) {
       throw new IllegalStateException("The current List is empty.");
+    }
+  }
+
+  //method
+  private void removeFirstOccuranceOfWhenContainsAny(final E element) {
+    if (beginNode.contains(element)) {
+      removeFirst();
+    } else {
+      removeFirstOccuranceOfWhenIsNotFirst(element);
+    }
+  }
+
+  //method
+  private void removeFirstOccuranceOfWhenIsNotFirst(final E element) {
+    var iteratorNode = beginNode;
+    while (iteratorNode.hasNextNode()) {
+
+      final var nextNode = iteratorNode.getStoredNextNodeOrNull();
+
+      if (nextNode.contains(element)) {
+
+        if (!nextNode.hasNextNode()) {
+          iteratorNode.removeNextNode();
+          endNode = iteratorNode;
+        } else {
+          iteratorNode.setNextNode(nextNode.getStoredNextNodeOrNull());
+        }
+
+        elementCount--;
+        return;
+      }
+
+      iteratorNode = nextNode;
     }
   }
 }
