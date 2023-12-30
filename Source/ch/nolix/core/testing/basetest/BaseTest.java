@@ -157,7 +157,7 @@ public abstract class BaseTest { //NOSONAR: BaseTest does not have abstract meth
         }
       }
 
-      testCases.removeFirst(testCase);
+      testCases.removeFirstOccurrenceOf(testCase);
       testCasesOrderedAlphabetically.addAtEnd(testCase);
     }
 

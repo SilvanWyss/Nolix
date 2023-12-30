@@ -155,7 +155,7 @@ public final class List<E> implements Iterable<E> {
   }
 
   //method
-  public void removeFirst(final E element) {
+  public void removeFirstOccurrenceOf(final E element) {
 
     if (!isEmpty()) {
 
