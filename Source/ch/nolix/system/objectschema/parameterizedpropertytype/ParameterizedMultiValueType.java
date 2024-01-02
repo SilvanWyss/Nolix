@@ -9,8 +9,13 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 public final class ParameterizedMultiValueType<V> extends BaseParameterizedValueType<V> {
 
   //constructor
-  public ParameterizedMultiValueType(final DataType dataType) {
+  private ParameterizedMultiValueType(final DataType dataType) {
     super(dataType);
+  }
+
+  //static method
+  public static <V2> ParameterizedMultiValueType<V2> forDataType(final DataType dataType) {
+    return new ParameterizedMultiValueType<>(dataType);
   }
 
   //method

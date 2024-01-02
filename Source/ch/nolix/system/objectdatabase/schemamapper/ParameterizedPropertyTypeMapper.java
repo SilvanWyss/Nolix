@@ -44,7 +44,7 @@ public final class ParameterizedPropertyTypeMapper implements IParameterizedProp
       case OPTIONAL_VALUE:
         return ParameterizedOptionalValueType.forDataType(DataType.forType(PROPERTY_HELPER.getDataType(property)));
       case MULTI_VALUE:
-        return new ParameterizedMultiValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
+        return ParameterizedMultiValueType.forDataType(DataType.forType(PROPERTY_HELPER.getDataType(property)));
       case REFERENCE:
 
         final var reference = (IReference<?>) property;
