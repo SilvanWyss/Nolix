@@ -160,7 +160,7 @@ public final class NodeDataAdapterTest extends Test {
     final var schemaAdapter = NodeSchemaAdapter.forDatabaseNode("MyDatabase", nodeDatabase);
     schemaAdapter
       .getStoredTableByName("Pet")
-      .addColumn(new Column("Name", new ParameterizedValueType<>(DataType.STRING)));
+      .addColumn(new Column("Name", ParameterizedValueType.forDataType(DataType.STRING)));
     schemaAdapter.saveChanges();
 
     //execution & verification: Try to save the the changes to the database.

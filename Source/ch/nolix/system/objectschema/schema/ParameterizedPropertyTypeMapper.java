@@ -28,7 +28,7 @@ public final class ParameterizedPropertyTypeMapper {
     final IContainer<ITable> tables) {
     return switch (parameterizedPropertyType.getPropertyType()) {
       case VALUE ->
-        new ParameterizedValueType<>(parameterizedPropertyType.getDataType());
+        ParameterizedValueType.forDataType(parameterizedPropertyType.getDataType());
       case OPTIONAL_VALUE ->
         new ParameterizedOptionalValueType<>(parameterizedPropertyType.getDataType());
       case MULTI_VALUE ->

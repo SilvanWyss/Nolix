@@ -40,7 +40,7 @@ public final class ParameterizedPropertyTypeMapper implements IParameterizedProp
     final IContainer<ITable> referencableTables) {
     switch (property.getType()) {
       case VALUE:
-        return new ParameterizedValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
+        return ParameterizedValueType.forDataType(DataType.forType(PROPERTY_HELPER.getDataType(property)));
       case OPTIONAL_VALUE:
         return new ParameterizedOptionalValueType<>(DataType.forType(PROPERTY_HELPER.getDataType(property)));
       case MULTI_VALUE:

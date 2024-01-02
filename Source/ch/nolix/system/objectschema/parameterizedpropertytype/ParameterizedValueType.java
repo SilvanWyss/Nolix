@@ -9,8 +9,13 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 public final class ParameterizedValueType<V> extends BaseParameterizedValueType<V> {
 
   //constructor
-  public ParameterizedValueType(final DataType dataType) {
+  private ParameterizedValueType(final DataType dataType) {
     super(dataType);
+  }
+
+  //static method
+  public static <V2> ParameterizedValueType<V2> forDataType(final DataType dataType) {
+    return new ParameterizedValueType<V2>(dataType);
   }
 
   //method

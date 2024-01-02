@@ -28,8 +28,8 @@ public final class Column extends SchemaObject implements IColumn {
   private static final String INITIAL_HEADER = StringCatalogue.DEFAULT_STRING;
 
   //constant
-  private static final ParameterizedPropertyType INITIAL_PROPERTY_TYPE = new ParameterizedValueType<>(
-    DataType.INTEGER_4BYTE);
+  private static final ParameterizedPropertyType INITIAL_PROPERTY_TYPE = //
+  ParameterizedValueType.forDataType(DataType.INTEGER_4BYTE);
 
   //constant
   private static final ParameterizedPropertyTypeMapper PARAMETERIZED_PROPERTY_TYPE_MAPPER = //
