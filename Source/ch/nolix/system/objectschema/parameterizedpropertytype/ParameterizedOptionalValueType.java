@@ -9,8 +9,13 @@ import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;
 public final class ParameterizedOptionalValueType<V> extends BaseParameterizedValueType<V> {
 
   //constructor
-  public ParameterizedOptionalValueType(final DataType dataType) {
+  private ParameterizedOptionalValueType(final DataType dataType) {
     super(dataType);
+  }
+
+  //static method
+  public static <V2> ParameterizedOptionalValueType<V2> forDataType(final DataType dataType) {
+    return new ParameterizedOptionalValueType<>(dataType);
   }
 
   //method
