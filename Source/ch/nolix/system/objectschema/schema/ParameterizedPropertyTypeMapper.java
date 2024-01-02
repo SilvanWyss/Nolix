@@ -49,7 +49,7 @@ public final class ParameterizedPropertyTypeMapper {
         ParameterizedOptionalBackReferenceType.forBackReferencedColumn(
           getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables));
       case MULTI_BACK_REFERENCE ->
-        new ParameterizedMultiBackReferenceType(
+        ParameterizedMultiBackReferenceType.forBackReferencedColumn(
           getStoredBackReferencedColumnFromParameterizedPropertyType(parameterizedPropertyType, tables));
       default ->
         throw InvalidArgumentException.forArgument(parameterizedPropertyType);

@@ -85,7 +85,7 @@ public final class ParameterizedPropertyTypeMapper implements IParameterizedProp
 
         final var multiBackReference = (IMultiBackReference<?>) property;
 
-        return new ParameterizedMultiBackReferenceType(
+        return ParameterizedMultiBackReferenceType.forBackReferencedColumn(
           referencableTables
             .getStoredFirst(t -> t.hasName(multiBackReference.getBackReferencedTableName()))
             .getStoredColumns()
