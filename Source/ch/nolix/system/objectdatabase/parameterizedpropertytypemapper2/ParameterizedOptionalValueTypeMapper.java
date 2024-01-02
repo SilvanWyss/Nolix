@@ -6,12 +6,11 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.system.objectdatabase.propertyhelper.PropertyHelper;
 import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedOptionalValueType;
 import ch.nolix.systemapi.entitypropertyapi.datatypeapi.DataType;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IOptionalValue;
-import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 import ch.nolix.systemapi.objectdatabaseapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
 import ch.nolix.systemapi.objectdatabaseapi.propertyhelperapi.IPropertyHelper;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.IParameterizedPropertyType;
+import ch.nolix.systemapi.objectschemaapi.schemaapi.ITable;
 
 //class
 public final class ParameterizedOptionalValueTypeMapper
@@ -24,7 +23,7 @@ implements IParameterizedPropertyTypeMapper<IOptionalValue<?>> {
   @Override
   public IParameterizedPropertyType createParameterizedPropertyTypeFromProperty(
     final IOptionalValue<?> property,
-    final IContainer<? extends ITable<IEntity>> referencedTables) {
+    final IContainer<ITable> referencedTables) {
 
     final var dataType = DataType.forType(PROPERTY_HELPER.getDataType(property));
 
