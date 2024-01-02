@@ -28,7 +28,7 @@ public final class ColumnMapper implements IColumnMapper {
     final IContainer<ITable> referencableTables) {
     return new Column(
       property.getName(),
-      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromGivenPropertyUsingGivenReferencableTables(
+      PARAMETERIZED_PROPERTY_TYPE_MAPPER.createParameterizedPropertyTypeFromProperty(
         property,
         referencableTables));
   }
