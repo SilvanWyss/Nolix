@@ -49,7 +49,7 @@ public final class ParameterizedPropertyTypeMapper implements IParameterizedProp
 
         final var reference = (IReference<?>) property;
 
-        return new ParameterizedReferenceType(
+        return ParameterizedReferenceType.forReferencedTable(
           referencableTables.getStoredFirst(t -> t.hasName(reference.getReferencedTableName())));
       case OPTIONAL_REFERENCE:
 

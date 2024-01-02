@@ -34,7 +34,7 @@ public final class ParameterizedPropertyTypeMapper {
       case MULTI_VALUE ->
         ParameterizedMultiValueType.forDataType(parameterizedPropertyType.getDataType());
       case REFERENCE ->
-        new ParameterizedReferenceType(
+        ParameterizedReferenceType.forReferencedTable(
           getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables));
       case OPTIONAL_REFERENCE ->
         new ParameterizedOptionalReferenceType(
