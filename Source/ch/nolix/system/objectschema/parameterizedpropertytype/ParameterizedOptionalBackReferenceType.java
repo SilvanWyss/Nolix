@@ -9,8 +9,13 @@ import ch.nolix.systemapi.objectschemaapi.schemaapi.IColumn;
 public final class ParameterizedOptionalBackReferenceType extends BaseParameterizedBackReferenceType {
 
   //constructor
-  public ParameterizedOptionalBackReferenceType(final IColumn backReferencedColumn) {
+  private ParameterizedOptionalBackReferenceType(final IColumn backReferencedColumn) {
     super(backReferencedColumn);
+  }
+
+  //static method
+  public static ParameterizedOptionalBackReferenceType forBackReferencedColumn(final IColumn backReferencedColumn) {
+    return new ParameterizedOptionalBackReferenceType(backReferencedColumn);
   }
 
   //method

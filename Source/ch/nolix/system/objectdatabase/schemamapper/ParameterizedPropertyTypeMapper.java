@@ -76,7 +76,7 @@ public final class ParameterizedPropertyTypeMapper implements IParameterizedProp
 
         final var optionalBackReference = (IOptionalBackReference<?>) property;
 
-        return new ParameterizedOptionalBackReferenceType(
+        return ParameterizedOptionalBackReferenceType.forBackReferencedColumn(
           referencableTables
             .getStoredFirst(t -> t.hasName(optionalBackReference.getBackReferencedTableName()))
             .getStoredColumns()
