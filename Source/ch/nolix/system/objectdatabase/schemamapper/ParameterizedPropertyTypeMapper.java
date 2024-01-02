@@ -55,7 +55,7 @@ public final class ParameterizedPropertyTypeMapper implements IParameterizedProp
 
         final var optionalReference = (IOptionalReference<?>) property;
 
-        return new ParameterizedOptionalReferenceType(
+        return ParameterizedOptionalReferenceType.forReferencedTable(
           referencableTables.getStoredFirst(t -> t.hasName(optionalReference.getReferencedTableName())));
       case MULTI_REFERENCE:
 

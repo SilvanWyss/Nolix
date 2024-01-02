@@ -37,7 +37,7 @@ public final class ParameterizedPropertyTypeMapper {
         ParameterizedReferenceType.forReferencedTable(
           getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables));
       case OPTIONAL_REFERENCE ->
-        new ParameterizedOptionalReferenceType(
+        ParameterizedOptionalReferenceType.forReferencedTable(
           getStoredReferencedTableFromParameterizedPropertyType(parameterizedPropertyType, tables));
       case MULTI_REFERENCE ->
         new ParameterizedMultiReferenceType(
