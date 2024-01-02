@@ -3,7 +3,7 @@ package ch.nolix.system.objectdatabase.parameterizedpropertytypemapper2;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedReferenceType;
+import ch.nolix.system.objectschema.parameterizedpropertytype.ParameterizedMultiReferenceType;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IMultiReference;
 import ch.nolix.systemapi.objectdatabaseapi.parameterizedpropertytypemapper2api.IParameterizedPropertyTypeMapper;
@@ -23,6 +23,6 @@ implements IParameterizedPropertyTypeMapper<IMultiReference<IEntity>> {
     final var referencedTableName = property.getReferencedTableName();
     final var referencedTable = referencedTables.getStoredFirst(t -> t.hasName(referencedTableName));
 
-    return ParameterizedReferenceType.forReferencedTable(referencedTable);
+    return ParameterizedMultiReferenceType.forReferencedTable(referencedTable);
   }
 }
