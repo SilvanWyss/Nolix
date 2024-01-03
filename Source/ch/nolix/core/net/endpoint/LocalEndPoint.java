@@ -132,14 +132,6 @@ public final class LocalEndPoint extends EndPoint {
 
   //method
   /**
-   * @return the counterpart of the current {@link LocalEndPoint}.
-   */
-  public LocalEndPoint getStoredCounterPart() {
-    return counterpart;
-  }
-
-  //method
-  /**
    * {@inheritDoc}
    */
   @Override
@@ -185,6 +177,14 @@ public final class LocalEndPoint extends EndPoint {
   @Override
   public void noteClose() {
     //Does nothing.
+  }
+
+  //method
+  /**
+   * @return the counterpart of the current {@link LocalEndPoint}.
+   */
+  private LocalEndPoint getStoredCounterPart() {
+    return counterpart;
   }
 
   //method
