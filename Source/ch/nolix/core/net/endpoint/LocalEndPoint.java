@@ -43,27 +43,6 @@ public final class LocalEndPoint extends EndPoint {
 
   //constructor
   /**
-   * Creates a new {@link LocalEndPoint} that will connect to the given slot.
-   * 
-   * @param slot
-   * @throws ArgumentIsNullException if the given target is null.
-   */
-  public LocalEndPoint(final ISlot slot) {
-
-    peerType = PeerType.FRONTEND;
-
-    //Creates the counterpart of the current LocalEndPoint.
-    counterpart = new LocalEndPoint(this);
-
-    //Sets the target of the counterpart of the current LocalEndPoint.
-    getStoredCounterPart().setTarget(slot.getName());
-
-    //Lets the given slot take the counterpart of the current LocalEndPoint.
-    slot.takeBackendEndPoint(getStoredCounterPart());
-  }
-
-  //constructor
-  /**
    * Creates a new {@link LocalEndPoint} that will connect to the given target on
    * the given server.
    * 
@@ -88,6 +67,30 @@ public final class LocalEndPoint extends EndPoint {
 
   //constructor
   /**
+   * Creates a new {@link LocalEndPoint} that will connect to the given slot.
+   * 
+   * @param slot
+   * @throws ArgumentIsNullException if the given target is null.
+   */
+  private LocalEndPoint(final ISlot slot) {
+
+    //Asserts that the given slot is not null.
+    GlobalValidator.assertThat(slot).thatIsNamed(ISlot.class).isNotNull();
+
+    peerType = PeerType.FRONTEND;
+
+    //Creates the counterpart of the current LocalEndPoint.
+    counterpart = new LocalEndPoint(this);
+
+    //Sets the target of the counterpart of the current LocalEndPoint.
+    getStoredCounterPart().setTarget(slot.getName());
+
+    //Lets the given slot take the counterpart of the current LocalEndPoint.
+    slot.takeBackendEndPoint(getStoredCounterPart());
+  }
+
+  //constructor
+  /**
    * Creates a new {@link LocalEndPoint} with the given counterpart.
    * 
    * @param counterpart
@@ -106,6 +109,16 @@ public final class LocalEndPoint extends EndPoint {
 
     //Sets the counterpart of the current LocalEndPoint.
     this.counterpart = counterpart;
+  }
+
+  //static method
+  /**
+   * @param slot
+   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @throws ArgumentIsNullException if the given target is null.
+   */
+  public static LocalEndPoint toSlot(final ISlot slot) {
+    return new LocalEndPoint(slot);
   }
 
   //method
