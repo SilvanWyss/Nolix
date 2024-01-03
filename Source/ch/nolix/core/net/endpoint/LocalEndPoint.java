@@ -126,15 +126,6 @@ public final class LocalEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public PeerType getPeerType() {
-    return peerType;
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
   public ConnectionType getConnectionType() {
     return ConnectionType.LOCAL;
   }
@@ -144,8 +135,26 @@ public final class LocalEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
+  public PeerType getPeerType() {
+    return peerType;
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public SecurityLevel getSecurityLevel() {
     return SecurityLevel.UNSECURE;
+  }
+
+  //method
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void noteClose() {
+    //Does nothing.
   }
 
   //method
@@ -168,15 +177,6 @@ public final class LocalEndPoint extends EndPoint {
 
     //Lets the counterpart of the current LocalEndPoint receive the given message.
     counterpart.receiveMessage(message);
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void noteClose() {
-    //Does nothing.
   }
 
   //method
