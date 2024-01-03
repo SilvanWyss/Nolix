@@ -9,6 +9,6 @@ public final class EndPointTestPool extends TestPool {
 
   //constructor
   public EndPointTestPool() {
-    super(SocketEndPointTest.class, ServerTest.class);
+    super(LocalEndPointTest.class, SocketEndPointTest.class, ServerTest.class);
   }
 }
