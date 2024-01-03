@@ -10,10 +10,12 @@ import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 /**
- * A local end point can send messages to an other local end point.
+ * A {@link LocalEndPoint} is an {@link EndPoint} that can send messages to
+ * another {@link LocalEndPoint}.
  * 
  * @author Silvan Wyss
  * @date 2017-05-06
@@ -28,65 +30,65 @@ public final class LocalEndPoint extends EndPoint {
 
   //constructor
   /**
-   * Creates a new local end point that will connect to an other new local end
-   * point.
+   * Creates a new {@link LocalEndPoint} that will connect to an other new
+   * {@link LocalEndPoint}.
    */
   public LocalEndPoint() {
 
     peerType = PeerType.FRONTEND;
 
-    //Creates the counterpart of this local end point.
+    //Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
   }
 
   //constructor
   /**
-   * Creates a new local end point that will connect to the given target.
+   * Creates a new {@link LocalEndPoint} that will connect to the given slot.
    * 
-   * @param target
+   * @param slot
    * @throws ArgumentIsNullException if the given target is null.
    */
-  public LocalEndPoint(final ISlot target) {
+  public LocalEndPoint(final ISlot slot) {
 
     peerType = PeerType.FRONTEND;
 
-    //Creates the counterpart of this local end point.
+    //Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
 
-    //Sets the target of the counterpart of htis local end point.
-    getStoredCounterPart().setTarget(target.getName());
+    //Sets the target of the counterpart of the current LocalEndPoint.
+    getStoredCounterPart().setTarget(slot.getName());
 
-    //Lets the given target take the counterpart of this local end point.
-    target.takeBackendEndPoint(getStoredCounterPart());
+    //Lets the given slot take the counterpart of the current LocalEndPoint.
+    slot.takeBackendEndPoint(getStoredCounterPart());
   }
 
   //constructor
   /**
-   * Creates a new local end point that will connect to the given target on the
-   * given server.
+   * Creates a new {@link LocalEndPoint} that will connect to the given target on
+   * the given server.
    * 
-   * @param baseServer
+   * @param server
    * @param target
    * @throws ArgumentIsNullException if the given target is null.
    * @throws EmptyArgumentException  if the given target is empty.
    */
-  public LocalEndPoint(final BaseServer baseServer, final String target) {
+  public LocalEndPoint(final BaseServer server, final String target) {
 
     peerType = PeerType.FRONTEND;
 
-    //Creates the counterpart of this local end point.
+    //Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
 
-    //Sets the target of the counterpart of this local end point.
+    //Sets the target of the counterpart of the current LocalEndPoint.
     getStoredCounterPart().setTarget(target);
 
-    //Lets the given server take the counterpart of this local end point.
-    baseServer.internalTakeBackendEndPoint(getStoredCounterPart());
+    //Lets the given server take the counterpart of the current LocalEndPoint.
+    server.internalTakeBackendEndPoint(getStoredCounterPart());
   }
 
   //constructor
   /**
-   * Creates a new local end point with the given counterpart.
+   * Creates a new {@link LocalEndPoint} with the given counterpart.
    * 
    * @param counterpart
    * @throws ArgumentIsNullException if the given counterpart is null.
@@ -102,11 +104,14 @@ public final class LocalEndPoint extends EndPoint {
     //counterpart.
     createCloseDependencyTo(counterpart);
 
-    //Sets the counterpart of this local end point.
+    //Sets the counterpart of the current LocalEndPoint.
     this.counterpart = counterpart;
   }
 
   //method
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public PeerType getPeerType() {
     return peerType;
@@ -114,7 +119,7 @@ public final class LocalEndPoint extends EndPoint {
 
   //method
   /**
-   * @return the counterpart of this local end point.
+   * @return the counterpart of the current {@link LocalEndPoint}.
    */
   public LocalEndPoint getStoredCounterPart() {
     return counterpart;
@@ -140,22 +145,24 @@ public final class LocalEndPoint extends EndPoint {
 
   //method
   /**
-   * Lets this local send the given message.
+   * Lets the current {@link LocalEndPoint} send the given message.
    * 
    * @param message
    * @throws ArgumentIsNullException if the given message is null.
-   * @throws ClosedArgumentException if this local end point is closed.
+   * @throws ClosedArgumentException if the current {@link LocalEndPoint} is
+   *                                 closed.
    */
   @Override
   public void sendMessage(final String message) {
 
     //Asserts that the given message is not null.
-    GlobalValidator.assertThat(message).thatIsNamed("message").isNotNull();
+    GlobalValidator.assertThat(message).thatIsNamed(LowerCaseCatalogue.MESSAGE).isNotNull();
 
-    //Asserts that this local end point is open.
+    //Asserts that the current LocalEndPoint is open.
     assertIsOpen();
 
-    counterpart.receiveRawMessage(message);
+    //Lets the counterpart of the current LocalEndPoint receive the given message.
+    counterpart.receiveMessage(message);
   }
 
   //method
@@ -169,11 +176,11 @@ public final class LocalEndPoint extends EndPoint {
 
   //method
   /**
-   * Lets the current {@link EndPoint} receive the given message.
+   * Lets the current {@link LocalEndPoint} receive the given message.
    * 
    * @param message
    */
-  private void receiveRawMessage(final String message) {
+  private void receiveMessage(final String message) {
     getStoredReceiver().accept(message);
   }
 }
