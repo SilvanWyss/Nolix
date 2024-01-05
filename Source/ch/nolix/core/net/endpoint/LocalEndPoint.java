@@ -30,19 +30,6 @@ public final class LocalEndPoint extends EndPoint {
 
   //constructor
   /**
-   * Creates a new {@link LocalEndPoint} that will connect to an other new
-   * {@link LocalEndPoint}.
-   */
-  public LocalEndPoint() {
-
-    peerType = PeerType.FRONTEND;
-
-    //Creates the counterpart of the current LocalEndPoint.
-    counterpart = new LocalEndPoint(this);
-  }
-
-  //constructor
-  /**
    * Creates a new {@link LocalEndPoint} that will connect to the given slot on
    * the given server.
    * 
