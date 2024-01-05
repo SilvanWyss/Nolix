@@ -151,7 +151,7 @@ public final class Server extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return SecurityMode.NONE;
   }
 

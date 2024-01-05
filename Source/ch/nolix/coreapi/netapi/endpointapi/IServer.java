@@ -22,7 +22,7 @@ public interface IServer extends Clearable, GroupCloseable {
   boolean containsSlotWithName(String name);
 
   //method declaration
-  SecurityMode getSecurityLevel();
+  SecurityMode getSecurityMode();
 
   //method declaration
   void removeSlotByName(String name);

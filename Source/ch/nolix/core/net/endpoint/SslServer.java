@@ -54,7 +54,7 @@ public final class SslServer extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  public SecurityMode getSecurityLevel() {
+  public SecurityMode getSecurityMode() {
     return SecurityMode.SSL;
   }
 
