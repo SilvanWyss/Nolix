@@ -24,14 +24,16 @@ public final class YesNoDialogBuilderTest extends Test {
     final var result = testUnit.build();
 
     //verification
+    expect(result.getStructureSpecification())
+      .hasStringRepresentation("Layer(VerticalStack(Label,HorizontalStack(Button,Button)))");
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
-    expect(controls.containsAny(this::isNoButton));
-    expect(controls.containsAny(this::isYesButton));
+    expect(controls.containsAny(this::isConfirmButton));
+    expect(controls.containsAny(this::isCancelButton));
   }
 
   //method
-  private boolean isNoButton(final IControl<?, ?> control) {
+  private boolean isCancelButton(final IControl<?, ?> control) {
 
     if (control instanceof IButton button) {
       return (button.getRole() == ButtonRole.CANCEL_BUTTON);
@@ -41,7 +43,7 @@ public final class YesNoDialogBuilderTest extends Test {
   }
 
   //method
-  private boolean isYesButton(final IControl<?, ?> control) {
+  private boolean isConfirmButton(final IControl<?, ?> control) {
 
     if (control instanceof IButton button) {
       return (button.getRole() == ButtonRole.CONFIRM_BUTTON);
