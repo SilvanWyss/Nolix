@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.basetestutil;
+package ch.nolix.systemtest.elementtest.styletest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
@@ -10,7 +10,7 @@ import ch.nolix.system.element.base.StylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
-public final class TestStylableElement extends StylableElement<TestStylableElement> {
+public final class MockStylableElement extends StylableElement<MockStylableElement> {
 
   //optional attribute
   private String role;

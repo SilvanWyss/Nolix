@@ -4,7 +4,6 @@ package ch.nolix.systemtest.elementtest.styletest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.system.element.basetestutil.TestStylableElement;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
 import ch.nolix.system.graphic.image.Image;
@@ -16,17 +15,17 @@ public final class SelectingStyleTest extends Test {
   @TestCase
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementDoesNotHaveAnId() {
 
-    //setup testStylableElement
-    final var testStylableElement = new TestStylableElement();
+    //setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorId("x").build();
 
     //setup verification
-    expectNot(testStylableElement.hasId());
+    expectNot(mockStylableElement.hasId());
 
     //execution
-    final var result = testUnit.selectsElement(testStylableElement);
+    final var result = testUnit.selectsElement(mockStylableElement);
 
     //verification
     expectNot(result);
@@ -36,18 +35,18 @@ public final class SelectingStyleTest extends Test {
   @TestCase
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasThatId() {
 
-    //setup testStylableElement
-    final var testStylableElement = new TestStylableElement();
-    testStylableElement.setId("x");
+    //setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
+    mockStylableElement.setId("x");
 
     //setup
     final var testUnit = new SelectingStyleBuilder().setSelectorId("x").build();
 
     //setup verification
-    expect(testStylableElement.hasId());
+    expect(mockStylableElement.hasId());
 
     //execution
-    final var result = testUnit.selectsElement(testStylableElement);
+    final var result = testUnit.selectsElement(mockStylableElement);
 
     //verification
     expect(result);
@@ -57,18 +56,18 @@ public final class SelectingStyleTest extends Test {
   @TestCase
   public void testCase_selects_whenHasSelectorIdAndTheGivenElementHasOtherId() {
 
-    //setup testStylableElement
-    final var testStylableElement = new TestStylableElement();
-    testStylableElement.setId("x");
+    //setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
+    mockStylableElement.setId("x");
 
     //setup
     final var testUnit = new SelectingStyleBuilder().setSelectorId("y").build();
 
     //setup verification
-    expect(testStylableElement.hasId());
+    expect(mockStylableElement.hasId());
 
     //execution
-    final var result = testUnit.selectsElement(testStylableElement);
+    final var result = testUnit.selectsElement(mockStylableElement);
 
     //verification
     expectNot(result);
@@ -78,14 +77,14 @@ public final class SelectingStyleTest extends Test {
   @TestCase
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfAntoherType() {
 
-    //setup testStylableElement
-    final var testStylableElement = new TestStylableElement();
+    //setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorType(Image.class).build();
 
     //execution
-    final var result = testUnit.selectsElement(testStylableElement);
+    final var result = testUnit.selectsElement(mockStylableElement);
 
     //verification
     expectNot(result);
@@ -95,14 +94,14 @@ public final class SelectingStyleTest extends Test {
   @TestCase
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfTheSameType() {
 
-    //setup testStylableElement
-    final var testStylableElement = new TestStylableElement();
+    //setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
-    final var testUnit = new SelectingStyleBuilder().setSelectorType(TestStylableElement.class).build();
+    final var testUnit = new SelectingStyleBuilder().setSelectorType(MockStylableElement.class).build();
 
     //execution
-    final var result = testUnit.selectsElement(testStylableElement);
+    final var result = testUnit.selectsElement(mockStylableElement);
 
     //verification
     expect(result);
@@ -112,14 +111,14 @@ public final class SelectingStyleTest extends Test {
   @TestCase
   public void testCase_selects_whenHasSelectorTypeAndTheGivenElementIsOfASubType() {
 
-    //setup testStylableElement
-    final var testStylableElement = new TestStylableElement();
+    //setup mockStylableElement
+    final var mockStylableElement = new MockStylableElement();
 
     //setup testUnit
     final var testUnit = new SelectingStyleBuilder().setSelectorType(MutableElement.class).build();
 
     //execution
-    final var result = testUnit.selectsElement(testStylableElement);
+    final var result = testUnit.selectsElement(mockStylableElement);
 
     //verification
     expect(result);
