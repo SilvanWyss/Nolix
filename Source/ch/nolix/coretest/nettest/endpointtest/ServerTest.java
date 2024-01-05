@@ -66,4 +66,15 @@ public final class ServerTest extends Test {
       expect(server.isOpen());
     }
   }
+
+  //method
+  @TestCase
+  public void testCase_forHttpPort() {
+    try (final var result = Server.forHttpPort()) {
+
+      //verification
+      expect(result.getPort()).isEqualTo(80);
+      expect(result.isOpen());
+    }
+  }
 }
