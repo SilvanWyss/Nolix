@@ -5,11 +5,11 @@ package ch.nolix.systemapi.elementapi.mutableelementapi;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.methodapi.mutationapi.Resettable;
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //interface
 /**
- * A {@link IMutableElement} is a {@link Specified}. The attributes of a
+ * A {@link IMutableElement} is a {@link IElement}. The attributes of a
  * {@link IMutableElement} can be mutated separately. The attributes of a
  * {@link IMutableElement} can be reset together.
  * 
@@ -17,7 +17,7 @@ import ch.nolix.systemapi.elementapi.specificationapi.Specified;
  * @date 2017-01-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface IMutableElement extends Resettable, Specified {
+public interface IMutableElement extends Resettable, IElement {
 
   //method declaration
   /**

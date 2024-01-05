@@ -10,7 +10,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //class
 /**
@@ -66,18 +66,18 @@ public final class MutableOptionalValue<V> extends SingleValue<V> {
    * @param <E>          is the type of the value of the created
    *                     {@link MutableOptionalValue}.
    * @return a new {@link MutableOptionalValue} that will store a
-   *         {@link Specified} and have the given name, setterMethod and
+   *         {@link IElement} and have the given name, setterMethod and
    *         valueCreator.
    * @throws ArgumentIsNullException  if the given name is null.
    * @throws InvalidArgumentException if the given name is blank.
    * @throws ArgumentIsNullException  if the given setterMethod is null.
    * @throws ArgumentIsNullException  if the given valueCreator is null.
    */
-  public static <E extends Specified> MutableOptionalValue<E> forElement(
+  public static <E extends IElement> MutableOptionalValue<E> forElement(
     final String name,
     final Consumer<E> setterMethod,
     final Function<INode<?>, E> valueCreator) {
-    return new MutableOptionalValue<>(name, setterMethod, valueCreator, Specified::getSpecification);
+    return new MutableOptionalValue<>(name, setterMethod, valueCreator, IElement::getSpecification);
   }
 
   //static method

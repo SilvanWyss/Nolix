@@ -4,18 +4,18 @@ package ch.nolix.system.element.specificationtool;
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //class
 public final class SpecificationCreator {
 
   //method
-  public INode<?> getSpecificationOf(final Specified element) {
+  public INode<?> getSpecificationOf(final IElement element) {
     return Node.withHeaderAndChildNodes(getSpecificationHeaderOf(element), element.getAttributes());
   }
 
   //method
-  private String getSpecificationHeaderOf(final Specified element) {
+  private String getSpecificationHeaderOf(final IElement element) {
     return element.getClass().getSimpleName();
   }
 }

@@ -4,7 +4,7 @@ package ch.nolix.systemapi.elementapi.styleapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //interface
 /**
@@ -15,7 +15,7 @@ import ch.nolix.systemapi.elementapi.specificationapi.Specified;
  * @author Silvan Wyss
  * @date 2023-07-09
  */
-public interface IBaseStyle extends Specified {
+public interface IBaseStyle extends IElement {
 
   //method declaration
   /**

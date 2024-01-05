@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //interface
 /**
@@ -14,7 +13,7 @@ import ch.nolix.systemapi.elementapi.specificationapi.Specified;
  * @author Silvan
  * @date 2022-05-28
  */
-public interface IColor extends Specified {
+public interface IColor extends IElement {
 
   //method declaration
   /**

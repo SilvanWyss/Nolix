@@ -4,14 +4,14 @@ package ch.nolix.systemapi.guiapi.backgroundapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.systemapi.graphicapi.colorapi.IColorGradient;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.ImageApplication;
 
 //interface
-public interface IBackground extends Specified {
+public interface IBackground extends IElement {
 
   //method declaration
   IColor getColor();

@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.systemapi.timeapi.momentapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.timeapi.timestructure.Month;
 import ch.nolix.systemapi.timeapi.timestructure.Weekday;
 
 //interface
-public interface ITime extends Specified {
+public interface ITime extends IElement {
 
   //method declaration
   /**

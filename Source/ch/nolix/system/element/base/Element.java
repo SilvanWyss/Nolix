@@ -5,14 +5,14 @@ package ch.nolix.system.element.base;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.specificationtool.SpecificationCreator;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //class
 /**
  * @author Silvan Wyss
  * @date 2022-07-08
  */
-public abstract class Element implements Specified {
+public abstract class Element implements IElement {
 
   //constant
   private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.graphicapi.colorapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
 
 //interface
@@ -10,7 +9,7 @@ import ch.nolix.systemapi.guiapi.canvasapi.DirectionInCanvas;
  * @author Silvan Wyss
  * @date 2022-05-28
  */
-public interface IColorGradient extends Specified {
+public interface IColorGradient extends IElement {
 
   //method declaration
   /**

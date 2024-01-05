@@ -12,9 +12,9 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.specificationtool.SpecificationCreator;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
 
 //class
 /**
@@ -79,7 +79,7 @@ public abstract class MutableElement implements IMutableElement {
   public final boolean equals(final Object object) {
     return object != null
     && getClass() == object.getClass()
-    && hasSameSpecificationAs((Specified) object);
+    && hasSameSpecificationAs((IElement) object);
   }
 
   //method
@@ -264,7 +264,7 @@ public abstract class MutableElement implements IMutableElement {
    * @return true if the current {@link MutableElement} has the same specification
    *         as the given element.
    */
-  private boolean hasSameSpecificationAs(final Specified element) {
+  private boolean hasSameSpecificationAs(final IElement element) {
     return getSpecification().equals(element.getSpecification());
   }
 }

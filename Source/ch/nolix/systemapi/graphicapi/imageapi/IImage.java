@@ -6,11 +6,11 @@ import java.awt.image.BufferedImage;
 
 //own imports
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 
 //interface
-public interface IImage extends Specified {
+public interface IImage extends IElement {
 
   //method declaration
   IColor getBottomLeftPixel();

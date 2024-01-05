@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.systemapi.elementapi.specificationapi;
+package ch.nolix.systemapi.elementapi.baseapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -13,24 +13,24 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
  * @date 2016-01-01
  */
 @AllowDefaultMethodsAsDesignPattern
-public interface Specified {
+public interface IElement {
 
   //method declaration
   /**
-   * @return the attributes of the current {@link Specified}.
+   * @return the attributes of the current {@link IElement}.
    */
   IContainer<INode<?>> getAttributes();
 
   //method declaration
   /**
-   * @return the specification of the current {@link Specified}.
+   * @return the specification of the current {@link IElement}.
    */
   INode<?> getSpecification();
 
   //method
   /**
    * @return a formated {@link String} representation of the current
-   *         {@link Specified}.
+   *         {@link IElement}.
    */
   default String toFormatedString() {
     return getSpecification().toFormattedString();
@@ -38,7 +38,7 @@ public interface Specified {
 
   //method
   /**
-   * @return a XML representation of the current {@link Specified}.
+   * @return a XML representation of the current {@link IElement}.
    */
   default IXmlNode<?> toXml() {
     return getSpecification().toXml();

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.elementapi.relativevalueapi;
 
-//own imports
-import ch.nolix.systemapi.elementapi.specificationapi.Specified;
+import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //interface
 /**
@@ -11,7 +10,7 @@ import ch.nolix.systemapi.elementapi.specificationapi.Specified;
  * @author Silvan Wyss
  * @date 2022-10-15
  */
-public interface IAbsoluteOrRelativeInt extends Specified {
+public interface IAbsoluteOrRelativeInt extends IElement {
 
   //method declaration
   /**
