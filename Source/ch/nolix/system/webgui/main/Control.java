@@ -36,7 +36,8 @@ import ch.nolix.systemapi.webguiapi.mainapi.ILayer;
 import ch.nolix.systemapi.webguiapi.mainapi.IWebGui;
 
 //class
-public abstract class Control<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
+public abstract class Control //NOSONAR: A Control is a central object with many dependencies.
+<C extends IControl<C, CS>, CS extends IControlStyle<CS>>
 extends StylableElement<C>
 implements IControl<C, CS> {
 
