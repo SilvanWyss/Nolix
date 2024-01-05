@@ -1,11 +1,12 @@
 //package declaration
-package ch.nolix.system.element.mutableelement;
+package ch.nolix.system.element.style;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.element.property.MutableOptionalValue;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
