@@ -6,7 +6,7 @@ import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 
 //class
 public final class ApplicationInstanceTargetTest extends Test {
@@ -22,7 +22,7 @@ public final class ApplicationInstanceTargetTest extends Test {
         PortCatalogue.HTTP,
         "Demo Application",
         "demo_application",
-        SecurityLevel.UNSECURE);
+        SecurityMode.NONE);
 
     //execution
     final var result = testUnit.toUrl();
@@ -42,7 +42,7 @@ public final class ApplicationInstanceTargetTest extends Test {
         PortCatalogue.HTTPS,
         "Demo Application",
         "demo_application",
-        SecurityLevel.SECURE);
+        SecurityMode.SSL);
 
     //execution
     final var result = testUnit.toUrl();
@@ -62,7 +62,7 @@ public final class ApplicationInstanceTargetTest extends Test {
         50000,
         "Demo Application",
         "demo_application",
-        SecurityLevel.UNSECURE);
+        SecurityMode.NONE);
 
     //execution
     final var result = testUnit.toUrl();
@@ -82,7 +82,7 @@ public final class ApplicationInstanceTargetTest extends Test {
         50000,
         "Demo Application",
         "demo_application",
-        SecurityLevel.SECURE);
+        SecurityMode.SSL);
 
     //execution
     final var result = testUnit.toUrl();

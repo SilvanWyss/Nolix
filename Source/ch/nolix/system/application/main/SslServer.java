@@ -5,7 +5,7 @@ package ch.nolix.system.application.main;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ServerTarget;
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
@@ -17,7 +17,7 @@ public final class SslServer extends BaseServer<SslServer> {
   public static final int DEFAULT_PORT = PortCatalogue.HTTPS;
 
   //constant
-  private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.SECURE;
+  private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.SSL;
 
   //constant
   private static final NolixConfigurationSSLCertificateReader NOLIX_CONFIUGEATION_SSL_CERTIFICATE_READER = //
@@ -92,7 +92,7 @@ public final class SslServer extends BaseServer<SslServer> {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
+  public SecurityMode getSecurityLevel() {
     return internalWebSocketServer.getSecurityLevel();
   }
 

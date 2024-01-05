@@ -2,7 +2,7 @@
 package ch.nolix.core.net.endpoint;
 
 //own imports
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 
 //class
 /**
@@ -16,8 +16,8 @@ public final class LocalServer extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
-    return SecurityLevel.UNSECURE;
+  public SecurityMode getSecurityLevel() {
+    return SecurityMode.NONE;
   }
 
   //method

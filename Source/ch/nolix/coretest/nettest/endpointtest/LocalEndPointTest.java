@@ -10,7 +10,7 @@ import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 
 //class
 public final class LocalEndPointTest extends Test {
@@ -79,7 +79,7 @@ public final class LocalEndPointTest extends Test {
     //verification
     expect(result.getConnectionType()).is(ConnectionType.LOCAL);
     expect(result.getPeerType()).is(PeerType.FRONTEND);
-    expect(result.getSecurityLevel()).is(SecurityLevel.UNSECURE);
+    expect(result.getSecurityLevel()).is(SecurityMode.NONE);
   }
 
   //method
@@ -112,7 +112,7 @@ public final class LocalEndPointTest extends Test {
       expect(result.getCustomTargetSlot()).is(slot.getName());
       expect(result.getConnectionType()).is(ConnectionType.LOCAL);
       expect(result.getPeerType()).is(PeerType.FRONTEND);
-      expect(result.getSecurityLevel()).is(SecurityLevel.UNSECURE);
+      expect(result.getSecurityLevel()).is(SecurityMode.NONE);
     }
   }
 

@@ -8,7 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.core.programcontrol.usercontrol.Credential;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
@@ -19,7 +19,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
   public static final int DEFAULT_PORT = PortCatalogue.MSSQL;
 
   //constant
-  private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
+  private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.NONE;
 
   //constant
   private static final SqlConnectionFactory SQL_CONNECTION_FACTORY = new SqlConnectionFactory();
@@ -125,7 +125,7 @@ public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarg
 
   //method
   @Override
-  public SecurityLevel getSecurityLevelForConnections() {
+  public SecurityMode getSecurityLevelForConnections() {
     return SECURITY_LEVEL_FOR_CONNECTIONS;
   }
 

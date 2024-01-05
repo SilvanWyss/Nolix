@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
@@ -161,7 +161,7 @@ public final class NetEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
+  public SecurityMode getSecurityLevel() {
     return internalEndPoint.getSecurityLevel();
   }
 

@@ -12,7 +12,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeE
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 
 //class
 /**
@@ -151,8 +151,8 @@ public final class Server extends BaseServer {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
-    return SecurityLevel.UNSECURE;
+  public SecurityMode getSecurityLevel() {
+    return SecurityMode.NONE;
   }
 
   //method

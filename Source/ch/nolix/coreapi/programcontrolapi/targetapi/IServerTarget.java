@@ -2,7 +2,7 @@
 package ch.nolix.coreapi.programcontrolapi.targetapi;
 
 //own imports
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 
 //interface
 public interface IServerTarget {
@@ -14,7 +14,7 @@ public interface IServerTarget {
   int getPort();
 
   //method declaration
-  SecurityLevel getSecurityLevelForConnections();
+  SecurityMode getSecurityLevelForConnections();
 
   //method declaration
   String toUrl();

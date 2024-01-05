@@ -3,7 +3,7 @@ package ch.nolix.core.net.target;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
 
 //class
@@ -21,7 +21,7 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
-    final SecurityLevel securityLevelForConnections) {
+    final SecurityMode securityLevelForConnections) {
 
     super(ipOrDomain, port, securityLevelForConnections);
 
@@ -39,7 +39,7 @@ public class ApplicationInstanceTarget extends ServerTarget implements IApplicat
     final int port,
     final String applicationInstanceName,
     final String applicationUrlInstanceName,
-    final SecurityLevel securityLevelForConnections) {
+    final SecurityMode securityLevelForConnections) {
     return new ApplicationInstanceTarget(
       ipOrDomain,
       port,

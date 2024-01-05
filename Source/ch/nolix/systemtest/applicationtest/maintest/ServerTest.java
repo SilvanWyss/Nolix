@@ -6,7 +6,7 @@ import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 //class
@@ -20,7 +20,7 @@ public final class ServerTest extends Test {
       //verification
       expect(testUnit.getIp()).isEqualTo(LocalComputer.getLanIp());
       expect(testUnit.getPort()).isEqualTo(PortCatalogue.HTTP);
-      expect(testUnit.getSecurityLevel()).is(SecurityLevel.UNSECURE);
+      expect(testUnit.getSecurityLevel()).is(SecurityMode.NONE);
       expect(testUnit.getStoredApplications()).isEmpty();
       expectNot(testUnit.containsDefaultApplication());
     }

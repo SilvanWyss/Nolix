@@ -4,7 +4,7 @@ package ch.nolix.core.net.endpoint3;
 //own imports
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class
@@ -39,8 +39,8 @@ public final class SslServer extends BaseServer {
 
   //method
   @Override
-  public SecurityLevel getSecurityLevel() {
-    return SecurityLevel.SECURE;
+  public SecurityMode getSecurityLevel() {
+    return SecurityMode.SSL;
   }
 
   //method

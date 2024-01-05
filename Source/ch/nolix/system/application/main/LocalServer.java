@@ -3,7 +3,7 @@ package ch.nolix.system.application.main;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
@@ -25,8 +25,8 @@ public final class LocalServer extends BaseServer<LocalServer> {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
-    return SecurityLevel.UNSECURE;
+  public SecurityMode getSecurityLevel() {
+    return SecurityMode.NONE;
   }
 
   //method

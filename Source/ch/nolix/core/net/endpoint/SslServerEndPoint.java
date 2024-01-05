@@ -5,7 +5,7 @@ package ch.nolix.core.net.endpoint;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 //Netty imports
 import io.netty.channel.ChannelHandlerContext;
@@ -43,8 +43,8 @@ final class SslServerEndPoint extends NetEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
-    return SecurityLevel.SECURE;
+  public SecurityMode getSecurityLevel() {
+    return SecurityMode.SSL;
   }
 
   //method

@@ -4,7 +4,7 @@ package ch.nolix.core.net.target;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.constant.PortCatalogue;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
@@ -18,13 +18,13 @@ public class ServerTarget implements IServerTarget {
   private final int port;
 
   //attribute
-  private final SecurityLevel securityLevelForConnections;
+  private final SecurityMode securityLevelForConnections;
 
   //constructor
   protected ServerTarget(
     final String ipOrDomain,
     final int port,
-    final SecurityLevel securityLevelForConnections) {
+    final SecurityMode securityLevelForConnections) {
 
     GlobalValidator.assertThat(ipOrDomain).thatIsNamed("ip or address name").isNotBlank();
     GlobalValidator.assertThat(port).thatIsNamed(LowerCaseCatalogue.PORT).isPort();
@@ -43,7 +43,7 @@ public class ServerTarget implements IServerTarget {
   public static ServerTarget forIpOrDomainAndPortAndSecurityLevelForConnections(
     final String ipOrDomain,
     final int port,
-    final SecurityLevel securityLevelForConnections) {
+    final SecurityMode securityLevelForConnections) {
     return new ServerTarget(ipOrDomain, port, securityLevelForConnections);
   }
 
@@ -61,7 +61,7 @@ public class ServerTarget implements IServerTarget {
 
   //method
   @Override
-  public final SecurityLevel getSecurityLevelForConnections() {
+  public final SecurityMode getSecurityLevelForConnections() {
     return securityLevelForConnections;
   }
 
@@ -69,9 +69,9 @@ public class ServerTarget implements IServerTarget {
   @Override
   public String toUrl() {
     return switch (getSecurityLevelForConnections()) {
-      case UNSECURE ->
+      case NONE ->
         toHttpUrl();
-      case SECURE ->
+      case SSL ->
         toHttpsUrl();
     };
   }

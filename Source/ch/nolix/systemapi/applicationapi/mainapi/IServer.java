@@ -3,7 +3,7 @@ package ch.nolix.systemapi.applicationapi.mainapi;
 
 //own imports
 import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 
@@ -24,9 +24,9 @@ public interface IServer extends Clearable, GroupCloseable {
 
   //method declaration
   /**
-   * @return the {@link SecurityLevel} of the current {@link IServer}.
+   * @return the {@link SecurityMode} of the current {@link IServer}.
    */
-  SecurityLevel getSecurityLevel();
+  SecurityMode getSecurityLevel();
 
   //method
   /**

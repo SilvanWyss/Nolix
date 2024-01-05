@@ -17,7 +17,7 @@ import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.netapi.endpoint3api.IEndPoint;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
@@ -60,10 +60,10 @@ public abstract class Client<C extends Client<C>> implements GroupCloseable {
 
   //method
   /**
-   * @return the {@link SecurityLevel} of the connection of the current
+   * @return the {@link SecurityMode} of the connection of the current
    *         {@link Client}.
    */
-  public SecurityLevel getConnectionSecurityLevel() {
+  public SecurityMode getConnectionSecurityLevel() {
     return endPoint.getSecurityLevel();
   }
 

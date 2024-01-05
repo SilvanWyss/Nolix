@@ -6,7 +6,7 @@ import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 
@@ -21,7 +21,7 @@ import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 public final class Server extends BaseServer<Server> {
 
   //constant
-  private static final SecurityLevel SECURITY_LEVEL_FOR_CONNECTIONS = SecurityLevel.UNSECURE;
+  private static final SecurityMode SECURITY_LEVEL_FOR_CONNECTIONS = SecurityMode.NONE;
 
   //attribute
   private ch.nolix.core.net.endpoint3.Server internalServer;
@@ -98,7 +98,7 @@ public final class Server extends BaseServer<Server> {
    * {@inheritDoc}
    */
   @Override
-  public SecurityLevel getSecurityLevel() {
+  public SecurityMode getSecurityLevel() {
     return internalServer.getSecurityLevel();
   }
 
