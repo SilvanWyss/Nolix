@@ -142,15 +142,6 @@ public abstract class MutableElement implements IMutableElement {
 
   //method
   /**
-   * @return the header for the specification of the current
-   *         {@link MutableElement}.
-   */
-  protected final String getSpecificationHeader() {
-    return getClass().getSimpleName();
-  }
-
-  //method
-  /**
    * @param illegalAccessException
    * @return a new {@link IllegalAccessError} for the given
    *         illegalAccessException.
