@@ -6,7 +6,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.system.element.base.StylableElement;
+import ch.nolix.system.element.mutableelement.StylableElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
