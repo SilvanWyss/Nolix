@@ -23,8 +23,13 @@ public abstract class BaseEndPoint implements IBaseEndPoint {
 
   //method
   @Override
-  public final boolean hasCustomTargetSlot() {
-    return (getTargetSlotDefinition() == TargetSlotDefinition.CUSTOM);
+  public final TargetSlotDefinition getTargetSlotDefinition() {
+
+    if (hasCustomTargetSlot()) {
+      return TargetSlotDefinition.CUSTOM;
+    }
+
+    return TargetSlotDefinition.DEFAULT;
   }
 
   //method

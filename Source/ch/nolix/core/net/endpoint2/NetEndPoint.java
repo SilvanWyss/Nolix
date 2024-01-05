@@ -9,7 +9,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
@@ -192,8 +191,8 @@ public final class NetEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public TargetSlotDefinition getTargetSlotDefinition() {
-    return internalEndPoint.getTargetSlotDefinition();
+  public boolean hasCustomTargetSlot() {
+    return internalEndPoint.hasCustomTargetSlot();
   }
 
   //method

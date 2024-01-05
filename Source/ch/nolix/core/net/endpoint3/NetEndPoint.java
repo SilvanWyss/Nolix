@@ -20,7 +20,6 @@ import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityapi.SecurityLevel;
@@ -227,8 +226,8 @@ public final class NetEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public TargetSlotDefinition getTargetSlotDefinition() {
-    return internalEndPoint.getTargetSlotDefinition();
+  public boolean hasCustomTargetSlot() {
+    return internalEndPoint.hasCustomTargetSlot();
   }
 
   //method

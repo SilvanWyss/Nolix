@@ -12,7 +12,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.net.baseendpoint.BaseEndPoint;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.endpointapi.IEndPoint;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
@@ -49,13 +48,8 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    * {@inheritDoc}
    */
   @Override
-  public final TargetSlotDefinition getTargetSlotDefinition() {
-
-    if (customTargetSlot == null) {
-      return TargetSlotDefinition.DEFAULT;
-    }
-
-    return TargetSlotDefinition.CUSTOM;
+  public final boolean hasCustomTargetSlot() {
+    return (customTargetSlot != null);
   }
 
   //method

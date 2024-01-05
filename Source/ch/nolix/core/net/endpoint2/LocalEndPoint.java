@@ -7,7 +7,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.netapi.baseendpointapi.TargetSlotDefinition;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
@@ -221,13 +220,8 @@ public final class LocalEndPoint extends EndPoint {
    * {@inheritDoc}
    */
   @Override
-  public TargetSlotDefinition getTargetSlotDefinition() {
-
-    if (target == null) {
-      return TargetSlotDefinition.DEFAULT;
-    }
-
-    return TargetSlotDefinition.CUSTOM;
+  public boolean hasCustomTargetSlot() {
+    return (target != null);
   }
 
   //method
