@@ -3,7 +3,9 @@ package ch.nolix.coretest.nettest.endpointtest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint.LocalEndPoint;
+import ch.nolix.core.net.endpoint.LocalServer;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
@@ -89,5 +91,41 @@ public final class LocalEndPointTest extends Test {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given ISlot is null.");
+  }
+
+  //method
+  @TestCase
+  public void testCase_toTargetSlotOnServer() {
+    try (final var server = new LocalServer()) {
+
+      //setup
+      final var slot = new MockSlot();
+      server.addSlot(slot);
+
+      //setup verification
+      expectNot(server.containsDefaultSlot());
+
+      //execution
+      final var result = LocalEndPoint.toTargetSlotOnServer(server, slot.getName());
+
+      //verification
+      expect(result.getCustomTargetSlot()).is(slot.getName());
+      expect(result.getConnectionType()).is(ConnectionType.LOCAL);
+      expect(result.getPeerType()).is(PeerType.FRONTEND);
+      expect(result.getSecurityLevel()).is(SecurityLevel.UNSECURE);
+    }
+  }
+
+  //method
+  @TestCase
+  public void testCase_toTargetSlotOnServer_whenTheGivenTargetSlotIsBlank() {
+    try (final var server = new LocalServer()) {
+
+      //execution & verification
+      expectRunning(() -> LocalEndPoint.toTargetSlotOnServer(server, " "))
+        .throwsException()
+        .ofType(InvalidArgumentException.class)
+        .withMessage("The given target slot is blank.");
+    }
   }
 }

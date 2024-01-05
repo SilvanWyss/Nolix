@@ -4,7 +4,7 @@ package ch.nolix.core.net.endpoint;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
-import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.netapi.endpointapi.ISlot;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
@@ -43,23 +43,28 @@ public final class LocalEndPoint extends EndPoint {
 
   //constructor
   /**
-   * Creates a new {@link LocalEndPoint} that will connect to the given target on
+   * Creates a new {@link LocalEndPoint} that will connect to the given slot on
    * the given server.
    * 
    * @param server
-   * @param target
-   * @throws ArgumentIsNullException if the given target is null.
-   * @throws EmptyArgumentException  if the given target is empty.
+   * @param slot
+   * @throws NullPointerException     if the given server is null.
+   * @throws ArgumentIsNullException  if the given slot is null.
+   * @throws InvalidArgumentException if the given slot is blank.
    */
-  public LocalEndPoint(final BaseServer server, final String target) {
+  private LocalEndPoint(final BaseServer server, final String slot) {
 
+    //Sets the peerType of the current LocalEndPoint.
     peerType = PeerType.FRONTEND;
+
+    //Sets the slot of the current LocalEndPoint.
+    setTarget(slot);
 
     //Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
 
-    //Sets the target of the counterpart of the current LocalEndPoint.
-    getStoredCounterPart().setTarget(target);
+    //Sets the slot of the counterpart of the current LocalEndPoint.
+    getStoredCounterPart().setTarget(slot);
 
     //Lets the given server take the counterpart of the current LocalEndPoint.
     server.internalTakeBackendEndPoint(getStoredCounterPart());
@@ -109,6 +114,20 @@ public final class LocalEndPoint extends EndPoint {
 
     //Sets the counterpart of the current LocalEndPoint.
     this.counterpart = counterpart;
+  }
+
+  //static method
+  /**
+   * @param server
+   * @param targetSlot
+   * @return a new {@link LocalEndPoint} that will connect to the given slot on
+   *         the given server.
+   * @throws NullPointerException     if the given server is null.
+   * @throws ArgumentIsNullException  if the given targetSlot is null.
+   * @throws InvalidArgumentException if the given targetSlot is blank.
+   */
+  public static LocalEndPoint toTargetSlotOnServer(final BaseServer server, final String targetSlot) {
+    return new LocalEndPoint(server, targetSlot);
   }
 
   //static method
