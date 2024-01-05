@@ -3,6 +3,7 @@ package ch.nolix.coretest.nettest.endpointtest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
+import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint.LocalEndPoint;
 import ch.nolix.core.net.endpoint.LocalServer;
@@ -63,6 +64,33 @@ public final class LocalEndPointTest extends Test {
       .throwsException()
       .ofType(ArgumentIsNullException.class)
       .withMessage("The given message is null.");
+    expect(slot.getLatestReceivedMessage()).isNull();
+  }
+
+  //method
+  @TestCase
+  public void testCase_sendMessage_whenIsClosed() {
+
+    //setup part 1: Creates slot.
+    final var slot = new MockSlot();
+
+    try (final var testUnit = LocalEndPoint.toSlot(slot)) {
+
+      //setup part 2: Closes testUnit.
+      testUnit.close(); //NOSONAR: This test case tests the close method.
+
+      //setup verification
+      expect(testUnit.isClosed());
+      expect(slot.getLatestReceivedMessage()).isNull();
+
+      //execution & verification
+      expectRunning(() -> testUnit.sendMessage("my_message"))
+        .throwsException()
+        .ofType(ClosedArgumentException.class)
+        .withMessageThatMatches("The given LocalEndPoint .* is closed.");
+    }
+
+    //verification
     expect(slot.getLatestReceivedMessage()).isNull();
   }
 
