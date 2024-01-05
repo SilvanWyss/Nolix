@@ -125,7 +125,7 @@ public final class LocalEndPointTest extends Test {
       expectRunning(() -> LocalEndPoint.toTargetSlotOnServer(server, " "))
         .throwsException()
         .ofType(InvalidArgumentException.class)
-        .withMessage("The given target slot is blank.");
+        .withMessage("The given custom target slot is blank.");
     }
   }
 }

@@ -59,7 +59,7 @@ public abstract class NetEndPoint extends EndPoint {
   NetEndPoint(final String target) {
 
     //Calls constructor of the base class.
-    setTarget(target);
+    setCustomTargetSlot(target);
 
     confirmReceivedTargetInfo();
   }
@@ -191,7 +191,7 @@ public abstract class NetEndPoint extends EndPoint {
 
         break;
       case NetEndPointProtocol.TARGET_PREFIX:
-        setTarget(rawMessage.substring(1));
+        setCustomTargetSlot(rawMessage.substring(1));
         confirmReceivedTargetInfo();
         break;
       case NetEndPointProtocol.MESSAGE_PREFIX:

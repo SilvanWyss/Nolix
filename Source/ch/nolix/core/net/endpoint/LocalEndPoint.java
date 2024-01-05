@@ -58,13 +58,13 @@ public final class LocalEndPoint extends EndPoint {
     peerType = PeerType.FRONTEND;
 
     //Sets the slot of the current LocalEndPoint.
-    setTarget(slot);
+    setCustomTargetSlot(slot);
 
     //Creates the counterpart of the current LocalEndPoint.
     counterpart = new LocalEndPoint(this);
 
     //Sets the slot of the counterpart of the current LocalEndPoint.
-    getStoredCounterPart().setTarget(slot);
+    getStoredCounterPart().setCustomTargetSlot(slot);
 
     //Lets the given server take the counterpart of the current LocalEndPoint.
     server.internalTakeBackendEndPoint(getStoredCounterPart());
@@ -88,7 +88,7 @@ public final class LocalEndPoint extends EndPoint {
     counterpart = new LocalEndPoint(this);
 
     //Sets the target of the counterpart of the current LocalEndPoint.
-    getStoredCounterPart().setTarget(slot.getName());
+    getStoredCounterPart().setCustomTargetSlot(slot.getName());
 
     //Lets the given slot take the counterpart of the current LocalEndPoint.
     slot.takeBackendEndPoint(getStoredCounterPart());

@@ -18,9 +18,6 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
 /**
- * A {@link EndPoint} can send messages to an other {@link EndPoint} of the same
- * type. A {@link EndPoint} is closable.
- * 
  * @author Silvan Wyss
  * @date 2017-05-06
  */
@@ -30,35 +27,31 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
   private static final int CONNECT_TIMEOUT_IN_MILLISECONDS = 500;
 
   //optional attribute
-  private String target;
+  private String customTargetSlot;
 
   //optional attribute
   private Consumer<String> receiver;
 
   //method
-  //For a better performance, this implementation does not use all comfortable
-  //methods.
   /**
-   * @return the target of the current {@link EndPoint}.
-   * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
-   *                                               does not have a target.
+   * {@inheritDoc}
    */
   @Override
   public final String getCustomTargetSlot() {
 
-    //Asserts that the current EndPoint has a target.
-    if (this.target == null) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.TARGET);
-    }
+    assertHasCustomTargetSlot();
 
-    return target;
+    return customTargetSlot;
   }
 
   //method
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public final TargetSlotDefinition getTargetSlotDefinition() {
 
-    if (target == null) {
+    if (customTargetSlot == null) {
       return TargetSlotDefinition.DEFAULT;
     }
 
@@ -67,7 +60,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
   //method
   /**
-   * @return true if the current {@link EndPoint} has a receiver.
+   * {@inheritDoc}
    */
   @Override
   public final boolean hasReceiver() {
@@ -76,11 +69,7 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
   //method
   /**
-   * Sets the receiver of the current {@link EndPoint}.
-   * 
-   * @param receiver
-   * @throws ArgumentIsNullException if the given receiver is null.
-   * @throws ClosedArgumentException if the current {@link EndPoint} is closed.
+   * {@inheritDoc}
    */
   @Override
   public final void setReceiver(final Consumer<String> receiver) {
@@ -126,23 +115,34 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
 
   //method
   /**
-   * Sets the target of the current {@link EndPoint}.
+   * Sets the custom target slot of the current {@link EndPoint}.
    * 
-   * @param target
-   * @throws ArgumentIsNullException  if the given target is null.
-   * @throws InvalidArgumentException if the given target is blank.
+   * @param customTargetSlot
+   * @throws ArgumentIsNullException  if the given customTargetSlot is null.
+   * @throws InvalidArgumentException if the given customTargetSlot is blank.
    * @throws ClosedArgumentException  if the current {@link EndPoint} is closed.
    */
-  protected final void setTarget(final String target) {
+  protected final void setCustomTargetSlot(final String customTargetSlot) {
 
-    //Asserts that the given target is not null or blank.
-    GlobalValidator.assertThat(target).thatIsNamed(LowerCaseCatalogue.TARGET).isNotBlank();
+    //Asserts that the given customTargetSlot is not blank.
+    GlobalValidator.assertThat(customTargetSlot).thatIsNamed("custom target slot").isNotBlank();
 
-    //Asserts that the current net EndPoint is open.
+    //Asserts that the current EndPoint is open.
     assertIsOpen();
 
-    //Sets the target of the current EndPoint.
-    this.target = target;
+    //Sets the customTargetSlot of the current EndPoint.
+    this.customTargetSlot = customTargetSlot;
+  }
+
+  /**
+   * @throws ArgumentDoesNotHaveAttributeException if the current {@link EndPoint}
+   *                                               does not have a custom target
+   *                                               slot.
+   */
+  private void assertHasCustomTargetSlot() {
+    if (!hasCustomTargetSlot()) {
+      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseCatalogue.TARGET);
+    }
   }
 
   //method
