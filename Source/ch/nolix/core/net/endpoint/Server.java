@@ -108,7 +108,7 @@ public final class Server extends BaseServer {
    *         HTTP port (80).
    */
   public static Server forHttpPort() {
-    return new Server(PortCatalogue.HTTP, DEFAULT_HTTP_MESSAGE);
+    return forPort(PortCatalogue.HTTP);
   }
 
   //static method
