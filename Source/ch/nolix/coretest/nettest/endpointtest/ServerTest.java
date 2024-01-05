@@ -17,16 +17,17 @@ public final class ServerTest extends Test {
     //parameter definition
     final var port = 50000;
 
-    try (final var server = Server.forPort(port)) {
+    //setup
+    final var mockSlot = new MockSlot();
 
-      //setup
-      final var mockSlot = new MockSlot();
+    try (final var testUnit = Server.forPort(port)) {
 
       //execution
-      server.addDefaultSlot(mockSlot);
+      testUnit.addDefaultSlot(mockSlot);
 
       //verification
-      expect(server.containsDefaultSlot());
+      expect(testUnit.containsAny());
+      expect(testUnit.containsDefaultSlot());
     }
   }
 
@@ -38,17 +39,28 @@ public final class ServerTest extends Test {
     final var port = 50000;
 
     //setup
-    try (final var server = Server.forPort(port)) {
+    try (final var testUnit = Server.forPort(port)) {
 
-      //setup verification
-      expect(server.getPort()).isEqualTo(port);
-      expect(server.isOpen());
-
-      //execution & verification
-      expectRunning(server::close).doesNotThrowException();
+      //execution
+      testUnit.close(); //NOSONAR: This test case tests the close method.
 
       //verification
-      expect(server.isClosed());
+      expect(testUnit.isClosed());
+    }
+  }
+
+  //method
+  @TestCase
+  public void testCase_forHttpPort() {
+    try (final var result = Server.forHttpPort()) {
+
+      //verification
+      expect(result.getPort()).isEqualTo(80);
+      expect(result.getSecurityMode()).is(SecurityMode.NONE);
+      expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
+      expect(result.isOpen());
+      expect(result.isEmpty());
+      expectNot(result.containsDefaultSlot());
     }
   }
 
@@ -64,20 +76,10 @@ public final class ServerTest extends Test {
       //verification
       expect(result.getPort()).isEqualTo(port);
       expect(result.getSecurityMode()).is(SecurityMode.NONE);
+      expect(result.getInitialHttpMessage()).is(Server.DEFAULT_INITIAL_HTTP_MESSAGE);
+      expect(result.isOpen());
+      expect(result.isEmpty());
       expectNot(result.containsDefaultSlot());
-      expect(result.isOpen());
-    }
-  }
-
-  //method
-  @TestCase
-  public void testCase_forHttpPort() {
-    try (final var result = Server.forHttpPort()) {
-
-      //verification
-      expect(result.getPort()).isEqualTo(80);
-      expect(result.getSecurityMode()).is(SecurityMode.NONE);
-      expect(result.isOpen());
     }
   }
 }
