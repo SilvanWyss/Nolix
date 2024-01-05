@@ -10,12 +10,12 @@ import ch.nolix.systemapi.elementapi.baseapi.IElement;
 public final class SpecificationCreator {
 
   //method
-  public INode<?> getSpecificationOf(final IElement element) {
-    return Node.withHeaderAndChildNodes(getSpecificationHeaderOf(element), element.getAttributes());
+  public INode<?> getSpecificationOfElement(final IElement element) {
+    return Node.withHeaderAndChildNodes(getSpecificationHeaderOfElement(element), element.getAttributes());
   }
 
   //method
-  private String getSpecificationHeaderOf(final IElement element) {
+  private String getSpecificationHeaderOfElement(final IElement element) {
     return element.getClass().getSimpleName();
   }
 }

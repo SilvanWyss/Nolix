@@ -32,7 +32,7 @@ public abstract class Element implements IElement {
    */
   @Override
   public final INode<?> getSpecification() {
-    return SPECIFICATION_CREATOR.getSpecificationOf(this);
+    return SPECIFICATION_CREATOR.getSpecificationOfElement(this);
   }
 
   //method

@@ -107,7 +107,7 @@ public abstract class MutableElement implements IMutableElement {
    */
   @Override
   public final INode<?> getSpecification() {
-    return SPECIFICATION_CREATOR.getSpecificationOf(this);
+    return SPECIFICATION_CREATOR.getSpecificationOfElement(this);
   }
 
   //method
