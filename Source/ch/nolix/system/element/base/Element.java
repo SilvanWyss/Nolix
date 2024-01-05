@@ -3,7 +3,6 @@ package ch.nolix.system.element.base;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.specificationtool.SpecificationCreator;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
@@ -53,15 +52,6 @@ public abstract class Element implements IElement {
   @Override
   public final String toString() {
     return getSpecification().toString();
-  }
-
-  //method
-  /**
-   * @return the header for the specification of the current
-   *         {@link MutableElement}.
-   */
-  protected final String getSpecificationHeader() {
-    return getClass().getSimpleName();
   }
 
   //method
