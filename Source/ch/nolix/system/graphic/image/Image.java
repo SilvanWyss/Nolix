@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.document.node.Node;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -84,12 +83,6 @@ public final class Image extends Element implements IImage {
   @Override
   public IColor getBottomRightPixel() {
     return internalImage.getBottomRightPixel();
-  }
-
-  //method
-  @Override
-  public Node getCompressedSpecification() {
-    return internalImage.getCompressedSpecification();
   }
 
   //method

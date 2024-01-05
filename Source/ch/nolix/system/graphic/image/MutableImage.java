@@ -194,16 +194,6 @@ public final class MutableImage extends MutableElement implements IMutableImage<
   }
 
   //method
-  @Override
-  public Node getCompressedSpecification() {
-    return Node.withHeaderAndChildNode(
-      getSpecificationHeader(),
-      width.getSpecification(),
-      height.getSpecification(),
-      Node.withHeaderAndChildNode(JPG_STRING, Node.withHeader(toJPGString())));
-  }
-
-  //method
   public MutableImage getCopy() {
     return new MutableImage(pixels.getCopy());
   }
