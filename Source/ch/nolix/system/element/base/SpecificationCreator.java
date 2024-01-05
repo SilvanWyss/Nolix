@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.system.element.specificationtool;
+package ch.nolix.system.element.base;
 
 //own imports
 import ch.nolix.core.document.node.Node;

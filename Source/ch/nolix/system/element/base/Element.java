@@ -3,7 +3,6 @@ package ch.nolix.system.element.base;
 
 //own imports
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.specificationtool.SpecificationCreator;
 import ch.nolix.systemapi.elementapi.baseapi.IElement;
 
 //class
