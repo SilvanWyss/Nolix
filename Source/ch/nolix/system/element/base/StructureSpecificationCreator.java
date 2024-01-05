@@ -13,7 +13,7 @@ public final class StructureSpecificationCreator {
   public INode<?> getStructureSpecificationOfElement(final IStructureElement element) {
 
     final var header = getSpecificationHeaderOfElement(element);
-    final var attributes = element.getStoredChildStructureElements().to(this::getStructureSpecificationOfElement);
+    final var attributes = element.getChildStructureElements().to(this::getStructureSpecificationOfElement);
 
     return Node.withHeaderAndChildNodes(header, attributes);
   }

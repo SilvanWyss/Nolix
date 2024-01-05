@@ -17,7 +17,7 @@ public interface IStructureElement extends IElement {
    * @return the child {@link IStructureElement}s of the current
    *         {@link IStructureElement}.
    */
-  IContainer<IStructureElement> getStoredChildStructureElements();
+  IContainer<? extends IStructureElement> getChildStructureElements();
 
   //method declaration
   /**
