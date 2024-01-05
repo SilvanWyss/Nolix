@@ -6,6 +6,7 @@ import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.IFluentMutab
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.methodapi.requestapi.TypeRequestable;
+import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 
 //interface
@@ -19,9 +20,10 @@ import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
  */
 public interface IStylableElement<SE extends IStylableElement<SE>>
 extends
-IMutableElement,
-IFluentMutableOptionalIdHolder<SE>,
 IFluentMutableMultiTokenHolder<SE>,
+IFluentMutableOptionalIdHolder<SE>,
+IMutableElement,
+IStructureElement,
 TypeRequestable {
 
   //method declaration

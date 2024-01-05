@@ -4,11 +4,14 @@ package ch.nolix.system.element.style;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.system.element.base.StructureSpecificationCreator;
 import ch.nolix.system.element.mutableelement.MutableElement;
 import ch.nolix.system.element.property.MultiValue;
 import ch.nolix.system.element.property.MutableOptionalValue;
+import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;
 
 //class
@@ -21,6 +24,10 @@ implements IStylableElement<SE> {
 
   //constant
   private static final String TOKEN_HEADER = PascalCaseCatalogue.TOKEN;
+
+  //constant
+  private static final StructureSpecificationCreator STRUCTURE_SPECIFICATION_CREATOR = //
+  new StructureSpecificationCreator();
 
   //attribute
   private final MutableOptionalValue<String> id = MutableOptionalValue.forString(ID_HEADER, this::setId);
@@ -41,6 +48,12 @@ implements IStylableElement<SE> {
 
   //method
   @Override
+  public final IContainer<? extends IStructureElement> getChildStructureElements() {
+    return getStoredChildStylableElements();
+  }
+
+  //method
+  @Override
   public final String getId() {
     return id.getValue();
   }
@@ -49,6 +62,12 @@ implements IStylableElement<SE> {
   @Override
   public final IContainer<String> getTokens() {
     return tokens.getStoredValues();
+  }
+
+  //method
+  @Override
+  public final INode<?> getStructureSpecification() {
+    return STRUCTURE_SPECIFICATION_CREATOR.getStructureSpecificationOfElement(this);
   }
 
   //method
