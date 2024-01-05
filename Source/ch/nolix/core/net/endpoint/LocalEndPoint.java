@@ -105,6 +105,16 @@ public final class LocalEndPoint extends EndPoint {
 
   //static method
   /**
+   * @param slot
+   * @return a new {@link LocalEndPoint} that will connect to the given slot.
+   * @throws ArgumentIsNullException if the given target is null.
+   */
+  public static LocalEndPoint toSlot(final ISlot slot) {
+    return new LocalEndPoint(slot);
+  }
+
+  //static method
+  /**
    * @param server
    * @param targetSlot
    * @return a new {@link LocalEndPoint} that will connect to the given slot on
@@ -115,16 +125,6 @@ public final class LocalEndPoint extends EndPoint {
    */
   public static LocalEndPoint toTargetSlotOnServer(final BaseServer server, final String targetSlot) {
     return new LocalEndPoint(server, targetSlot);
-  }
-
-  //static method
-  /**
-   * @param slot
-   * @return a new {@link LocalEndPoint} that will connect to the given slot.
-   * @throws ArgumentIsNullException if the given target is null.
-   */
-  public static LocalEndPoint toSlot(final ISlot slot) {
-    return new LocalEndPoint(slot);
   }
 
   //method
