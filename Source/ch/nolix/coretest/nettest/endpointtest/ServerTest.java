@@ -5,6 +5,7 @@ package ch.nolix.coretest.nettest.endpointtest;
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
 
 //class
 public final class ServerTest extends Test {
@@ -58,12 +59,13 @@ public final class ServerTest extends Test {
     //parameter definition
     final var port = 50000;
 
-    try (final var server = Server.forPort(port)) {
+    try (final var result = Server.forPort(port)) {
 
       //verification
-      expect(server.getPort()).isEqualTo(port);
-      expectNot(server.containsDefaultSlot());
-      expect(server.isOpen());
+      expect(result.getPort()).isEqualTo(port);
+      expect(result.getSecurityMode()).is(SecurityMode.NONE);
+      expectNot(result.containsDefaultSlot());
+      expect(result.isOpen());
     }
   }
 
@@ -74,6 +76,7 @@ public final class ServerTest extends Test {
 
       //verification
       expect(result.getPort()).isEqualTo(80);
+      expect(result.getSecurityMode()).is(SecurityMode.NONE);
       expect(result.isOpen());
     }
   }
