@@ -129,6 +129,40 @@ public abstract class ThrownExceptionMediator extends Mediator {
   //method
   /**
    * Generates an error if the exception of the current
+   * {@link ThrownExceptionMediator} does not have a message that matches the
+   * given regex
+   * 
+   * @param regex
+   * @throws ArgumentIsNullException if the given regex is null.
+   */
+  public final void withMessageThatMatches(final String regex) {
+
+    if (regex == null) {
+      throw ArgumentIsNullException.forArgumentName("regex");
+    }
+
+    final var message = exception.getMessage();
+
+    if (message == null) {
+      addCurrentTestCaseError(
+        "An exception with a message that matches the regex '"
+        + regex
+        + "' was expected, but an exception without message was thrown.");
+    } else if (!message.matches(regex)) {
+      addCurrentTestCaseError(
+        "An exception with a message that matches the regex '"
+        + regex
+        + "' was expected, but an exception with the message '"
+        + message
+        + "' was thrown.");
+    } else {
+      //Does nothing because there was not found any error.
+    }
+  }
+
+  //method
+  /**
+   * Generates an error if the exception of the current
    * {@link ThrownExceptionMediator} has a message.
    */
   public final void withoutMessage() {
