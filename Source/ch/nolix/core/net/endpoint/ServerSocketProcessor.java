@@ -123,7 +123,7 @@ final class ServerSocketProcessor extends Worker {
         }
 
         if (HttpRequest.canBe(lines)) {
-          sendRawMessage(parentServer.getHttpMessage());
+          sendRawMessage(parentServer.getInitialHttpMessage());
           return Optional.empty();
         }
 

@@ -56,7 +56,7 @@ public final class Server extends BaseServer {
   private Server(final int port, final String httpMessage) {
 
     //Creates the internal net server of the current net server.
-    internalServer = ch.nolix.core.net.endpoint.Server.forPortAndHttpMessage(port, httpMessage);
+    internalServer = ch.nolix.core.net.endpoint.Server.forPortAndInitialHttpMessage(port, httpMessage);
 
     //Creates a close dependency to the internal net server of the current net
     //server.
