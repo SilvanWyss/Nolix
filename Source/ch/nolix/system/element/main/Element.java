@@ -2,8 +2,9 @@
 package ch.nolix.system.element.main;
 
 //own imports
-import ch.nolix.core.document.node.Node;
+import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.system.element.mutableelement.MutableElement;
+import ch.nolix.system.element.specificationtool.SpecificationCreator;
 import ch.nolix.systemapi.elementapi.specificationapi.Specified;
 
 //class
@@ -12,6 +13,9 @@ import ch.nolix.systemapi.elementapi.specificationapi.Specified;
  * @date 2022-07-08
  */
 public abstract class Element implements Specified {
+
+  //constant
+  private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
   //method
   /**
@@ -29,8 +33,8 @@ public abstract class Element implements Specified {
    * {@inheritDoc}
    */
   @Override
-  public final Node getSpecification() {
-    return Node.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
+  public final INode<?> getSpecification() {
+    return SPECIFICATION_CREATOR.getSpecificationOf(this);
   }
 
   //method

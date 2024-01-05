@@ -11,6 +11,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
+import ch.nolix.system.element.specificationtool.SpecificationCreator;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 import ch.nolix.systemapi.elementapi.propertyapi.IProperty;
 import ch.nolix.systemapi.elementapi.specificationapi.Specified;
@@ -21,6 +22,9 @@ import ch.nolix.systemapi.elementapi.specificationapi.Specified;
  * @date 2017-10-29
  */
 public abstract class MutableElement implements IMutableElement {
+
+  //constant
+  private static final SpecificationCreator SPECIFICATION_CREATOR = new SpecificationCreator();
 
   //multi-attribute
   private LinkedList<IProperty> properties;
@@ -102,8 +106,8 @@ public abstract class MutableElement implements IMutableElement {
    * {@inheritDoc}
    */
   @Override
-  public final Node getSpecification() {
-    return Node.withHeaderAndChildNodes(getSpecificationHeader(), getAttributes());
+  public final INode<?> getSpecification() {
+    return SPECIFICATION_CREATOR.getSpecificationOf(this);
   }
 
   //method
