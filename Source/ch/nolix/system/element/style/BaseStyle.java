@@ -7,7 +7,7 @@ import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.system.element.main.Element;
+import ch.nolix.system.element.base.Element;
 import ch.nolix.systemapi.elementapi.styleapi.IBaseStyle;
 import ch.nolix.systemapi.elementapi.styleapi.ISelectingStyle;
 import ch.nolix.systemapi.elementapi.styleapi.IStylableElement;

@@ -5,4 +5,4 @@
  * @author Silvan Wyss
  * @date 2022-08-07
  */
-package ch.nolix.system.element.main;
+package ch.nolix.system.element.base;

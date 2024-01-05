@@ -18,7 +18,7 @@ import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.CssPropertyNameCatalogue;
 import ch.nolix.coreapi.webapi.cssapi.ICssProperty;
-import ch.nolix.system.element.main.Element;
+import ch.nolix.system.element.base.Element;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.color.ColorGradient;
 import ch.nolix.system.graphic.image.Image;
