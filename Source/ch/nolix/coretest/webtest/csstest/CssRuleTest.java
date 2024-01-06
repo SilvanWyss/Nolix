@@ -1,11 +1,10 @@
 //package declaration
 package ch.nolix.coretest.webtest.csstest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.core.web.css.CssProperty;
 import ch.nolix.core.web.css.CssRule;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class CssRuleTest extends Test {

@@ -4,8 +4,8 @@ package ch.nolix.systemtest.elementtest.styletest;
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.element.style.Style;
 import ch.nolix.system.element.stylebuilder.SelectingStyleBuilder;
 import ch.nolix.system.element.stylebuilder.StyleBuilder;

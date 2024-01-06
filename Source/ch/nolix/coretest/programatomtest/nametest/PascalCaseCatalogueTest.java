@@ -4,9 +4,9 @@ package ch.nolix.coretest.programatomtest.nametest;
 import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.GlobalClassHelper;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class PascalCaseCatalogueTest extends Test {

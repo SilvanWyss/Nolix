@@ -4,8 +4,8 @@ package ch.nolix.systemtest.applicationtest.maintest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.BackendClientSessionManager;
 
 //class

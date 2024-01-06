@@ -3,8 +3,8 @@ package ch.nolix.systemtest.objectschematest.schemaadaptertest;
 
 //own imports
 import ch.nolix.core.document.node.MutableNode;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectschema.schema.Table;
 import ch.nolix.system.objectschema.schemaadapter.NodeSchemaAdapter;
 

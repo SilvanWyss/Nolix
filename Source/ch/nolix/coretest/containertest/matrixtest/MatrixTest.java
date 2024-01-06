@@ -3,8 +3,8 @@ package ch.nolix.coretest.containertest.matrixtest;
 
 //own imports
 import ch.nolix.core.container.matrix.Matrix;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coretest.containertest.basetest.ContainerTest;
 
 //class

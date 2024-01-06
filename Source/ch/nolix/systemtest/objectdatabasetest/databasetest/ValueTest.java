@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.objectdatabasetest.databasetest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 

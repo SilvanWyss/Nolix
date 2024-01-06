@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.systemtest.guitest.backgroundtest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.gui.background.Background;
 import ch.nolix.systemapi.guiapi.backgroundapi.BackgroundType;

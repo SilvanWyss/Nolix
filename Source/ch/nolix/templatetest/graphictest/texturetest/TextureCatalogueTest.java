@@ -3,8 +3,8 @@ package ch.nolix.templatetest.graphictest.texturetest;
 
 //own imports
 import ch.nolix.core.reflection.GlobalClassHelper;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.image.Image;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.template.graphic.texture.TextureCatalogue;

@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.techtest.mathtest.fractaltest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.bigdecimalmath.ClosedInterval;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 

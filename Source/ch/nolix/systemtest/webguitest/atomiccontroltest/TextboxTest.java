@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Textbox;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ITextbox;
 import ch.nolix.systemtest.webguitest.maintest.ControlTest;

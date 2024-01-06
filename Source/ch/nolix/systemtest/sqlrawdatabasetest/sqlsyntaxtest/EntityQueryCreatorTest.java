@@ -3,8 +3,8 @@ package ch.nolix.systemtest.sqlrawdatabasetest.sqlsyntaxtest;
 
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.sqlrawdatabase.schemainfo.ColumnInfo;
 import ch.nolix.system.sqlrawdatabase.schemainfo.TableInfo;
 import ch.nolix.system.sqlrawdatabase.sqlsyntax.EntityQueryCreator;

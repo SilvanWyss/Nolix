@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ILabel;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.LabelRole;

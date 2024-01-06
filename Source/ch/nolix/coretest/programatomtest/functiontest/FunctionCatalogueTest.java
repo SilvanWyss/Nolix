@@ -3,8 +3,8 @@ package ch.nolix.coretest.programatomtest.functiontest;
 
 //own imports
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class FunctionCatalogueTest extends Test {

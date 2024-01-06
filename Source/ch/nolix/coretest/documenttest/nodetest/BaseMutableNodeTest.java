@@ -4,7 +4,7 @@ package ch.nolix.coretest.documenttest.nodetest;
 //own imports
 import ch.nolix.core.document.node.BaseMutableNode;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public abstract class BaseMutableNodeTest<MN extends BaseMutableNode<MN>> extends BaseNodeTest<MN> {

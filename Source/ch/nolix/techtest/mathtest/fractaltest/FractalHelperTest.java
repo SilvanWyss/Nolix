@@ -4,9 +4,8 @@ package ch.nolix.techtest.mathtest.fractaltest;
 //Java imports
 import java.math.BigDecimal;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.fractal.FractalBuilder;
 import ch.nolix.tech.math.fractal.FractalHelper;
 

@@ -4,7 +4,7 @@ package ch.nolix.coretest.documenttest.nodetest;
 //own imports
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class NodeTest extends BaseNodeTest<Node> {

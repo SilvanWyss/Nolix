@@ -3,8 +3,8 @@ package ch.nolix.systemtest.applicationtest.maintest;
 
 //own imports
 import ch.nolix.core.programatom.voidobject.VoidObject;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.BasicApplication;
 import ch.nolix.system.application.maintestutil.TestSession;
 import ch.nolix.system.application.webapplication.WebClient;

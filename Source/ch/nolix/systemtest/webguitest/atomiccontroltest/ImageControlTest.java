@@ -3,7 +3,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAttributeException;
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
 import ch.nolix.system.graphic.image.MutableImage;
 import ch.nolix.system.webgui.atomiccontrol.ImageControl;

@@ -4,8 +4,8 @@ package ch.nolix.coretest.programstructuretest.cachingtest;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.programstructure.caching.CachingContainer;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class CachingContainerTest extends Test {

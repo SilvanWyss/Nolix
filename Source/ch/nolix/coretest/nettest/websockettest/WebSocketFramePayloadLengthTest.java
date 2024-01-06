@@ -4,8 +4,8 @@ package ch.nolix.coretest.nettest.websockettest;
 import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLength;
 import ch.nolix.core.net.websocket.WebSocketFramePayloadLengthType;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class WebSocketFramePayloadLengthTest extends Test {

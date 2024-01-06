@@ -7,11 +7,11 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ClosedArgumentExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.net.endpoint.LocalEndPoint;
 import ch.nolix.core.net.endpoint.LocalServer;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class LocalEndPointTest extends Test {

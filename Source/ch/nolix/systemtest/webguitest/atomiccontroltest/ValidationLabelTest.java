@@ -4,7 +4,7 @@ package ch.nolix.systemtest.webguitest.atomiccontroltest;
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.ValidationLabel;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;

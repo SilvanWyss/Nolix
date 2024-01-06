@@ -3,8 +3,8 @@ package ch.nolix.coretest.documenttest.xmltest;
 
 //own imports
 import ch.nolix.core.document.xml.MutableXmlNode;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class MutableXmlNodeTest extends Test {

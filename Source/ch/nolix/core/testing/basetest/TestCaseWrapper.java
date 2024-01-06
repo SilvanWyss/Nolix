@@ -9,6 +9,9 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotHaveAt
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.testingapi.testapi.Cleanup;
+import ch.nolix.coreapi.testingapi.testapi.IgnoreTimeout;
+import ch.nolix.coreapi.testingapi.testapi.Setup;
 
 //class
 public final class TestCaseWrapper {

@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.itemmenutest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.itemmenu.ItemMenuItem;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenu;
 import ch.nolix.systemapi.webguiapi.itemmenuapi.IItemMenuStyle;

@@ -4,9 +4,9 @@ package ch.nolix.coretest.nettest.targettest;
 //own imports
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.net.target.ApplicationInstanceTarget;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ApplicationInstanceTargetTest extends Test {

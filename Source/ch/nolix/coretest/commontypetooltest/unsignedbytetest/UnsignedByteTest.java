@@ -2,8 +2,8 @@
 package ch.nolix.coretest.commontypetooltest.unsignedbytetest;
 
 import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class UnsignedByteTest extends Test {

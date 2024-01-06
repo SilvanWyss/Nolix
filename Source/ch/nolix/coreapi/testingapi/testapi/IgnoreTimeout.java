@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.testing.basetest;
+package ch.nolix.coreapi.testingapi.testapi;
 
 //Java imports
 import java.lang.annotation.ElementType;
@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 //annotation
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Setup {
+@Retention(RetentionPolicy.RUNTIME)
+public @interface IgnoreTimeout {
 }

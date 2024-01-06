@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.linearcontainertest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.coreapi.webapi.htmlapi.HtmlElementTypeCatalogue;
 import ch.nolix.coreapi.webapi.htmlapi.IHtmlElement;
 import ch.nolix.system.webgui.atomiccontrol.Label;

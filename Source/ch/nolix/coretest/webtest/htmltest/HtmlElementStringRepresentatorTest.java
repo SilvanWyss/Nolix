@@ -2,12 +2,12 @@
 package ch.nolix.coretest.webtest.htmltest;
 
 import ch.nolix.core.container.immutablelist.ImmutableList;
-import ch.nolix.core.testing.basetest.TestCase;
 //own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.core.web.html.HtmlAttribute;
 import ch.nolix.core.web.html.HtmlElement;
 import ch.nolix.core.web.html.HtmlElementStringRepresentator;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class HtmlElementStringRepresentatorTest extends Test {

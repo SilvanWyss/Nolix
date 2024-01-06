@@ -10,8 +10,8 @@ import ch.nolix.core.errorcontrol.validator.LongMediator;
 import ch.nolix.core.errorcontrol.validator.MethodMediator;
 import ch.nolix.core.errorcontrol.validator.StringMediator;
 import ch.nolix.core.programatom.function.FunctionCatalogue;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class GlobalValidatorTest extends Test {

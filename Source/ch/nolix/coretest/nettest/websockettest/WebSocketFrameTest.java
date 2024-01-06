@@ -8,8 +8,8 @@ import java.io.InputStream;
 import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
 import ch.nolix.core.net.websocket.WebSocketFrame;
 import ch.nolix.core.net.websocket.WebSocketFrameOpcodeMeaning;
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class WebSocketFrameTest extends Test {

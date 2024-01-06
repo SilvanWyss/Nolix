@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.coreapitest.programcontrolapitest.savecontrolapitest;
 
-//own imports
-import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
 public final class ChangeRequestableTest extends Test {
