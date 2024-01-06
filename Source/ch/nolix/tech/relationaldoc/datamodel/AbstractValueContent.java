@@ -1,10 +1,12 @@
 //package declaraiton
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//Java imports
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.tech.relationaldoc.datavalidator.AbstractValueContentValidator;
@@ -37,7 +39,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 
   //method
   @Override
-  public IAbstractValueContent addConstraint(final IConstraint<String> constraint) {
+  public IAbstractValueContent addConstraint(final Predicate<String> constraint) {
 
     //TODO: Implement.
     return this;
@@ -45,7 +47,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 
   //method
   @Override
-  public IContainer<IConstraint<String>> getConstraints() {
+  public IContainer<Predicate<String>> getConstraints() {
 
     //TODO: Implement.
     return new ImmutableList<>();
@@ -77,7 +79,7 @@ public final class AbstractValueContent extends ValueContent implements IAbstrac
 
   //method
   @Override
-  public void removeConstraint(final IConstraint<String> constraint) {
+  public void removeConstraint(final Predicate<String> constraint) {
     //TODO: Implement.
   }
 

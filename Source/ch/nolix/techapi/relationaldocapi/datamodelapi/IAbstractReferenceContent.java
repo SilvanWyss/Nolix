@@ -1,17 +1,17 @@
 //package declaration
 package ch.nolix.techapi.relationaldocapi.datamodelapi;
 
-//own imports
-import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
+//Java imports
+import java.util.function.Predicate;
 
 //interface
 public interface IAbstractReferenceContent extends IReferenceContent {
 
   //method declaration
-  IAbstractReferenceContent addConstraint(IConstraint<IAbstractableObject> constraint);
+  IAbstractReferenceContent addConstraint(Predicate<IAbstractableObject> constraint);
 
   //method declaration
-  void removeConstraint(IConstraint<IAbstractableObject> constraint);
+  void removeConstraint(Predicate<IAbstractableObject> constraint);
 
   //method declaration
   void removeConstraints();

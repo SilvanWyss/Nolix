@@ -1,11 +1,12 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//Java impors
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
-//own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.MultiReference;
 import ch.nolix.tech.relationaldoc.datavalidator.ConcreteReferenceContentValidator;
@@ -47,7 +48,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
 
   //method
   @Override
-  public IContainer<? extends IConstraint<IAbstractableObject>> getConstraints() {
+  public IContainer<? extends Predicate<IAbstractableObject>> getConstraints() {
 
     if (getStoredParentField().inheritsFromBaseField()) {
       return getConstraintsWhenInheritsFromBaseField();
@@ -110,7 +111,7 @@ public final class ConcreteReferenceContent extends ReferenceContent implements 
   }
 
   //method
-  private IContainer<? extends IConstraint<IAbstractableObject>> getConstraintsWhenInheritsFromBaseField() {
+  private IContainer<? extends Predicate<IAbstractableObject>> getConstraintsWhenInheritsFromBaseField() {
 
     final var baseField = getStoredParentField().getStoredBaseField();
 

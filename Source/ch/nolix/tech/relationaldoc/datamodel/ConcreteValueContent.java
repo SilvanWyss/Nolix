@@ -1,10 +1,12 @@
 //package declaration
 package ch.nolix.tech.relationaldoc.datamodel;
 
+//Java imports
+import java.util.function.Predicate;
+
 //own imports
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.datamodelapi.constraintapi.IConstraint;
 import ch.nolix.system.objectdatabase.database.BackReference;
 import ch.nolix.system.objectdatabase.database.MultiValue;
 import ch.nolix.system.objectdatabase.database.OptionalValue;
@@ -45,7 +47,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
 
   //method
   @Override
-  public IContainer<IConstraint<String>> getConstraints() {
+  public IContainer<Predicate<String>> getConstraints() {
 
     if (getStoredParentField().inheritsFromBaseField()) {
       return getConstraintsWhenInheritsFromBaseField();
@@ -125,7 +127,7 @@ public final class ConcreteValueContent extends ValueContent implements IConcret
   }
 
   //method
-  private IContainer<IConstraint<String>> getConstraintsWhenInheritsFromBaseField() {
+  private IContainer<Predicate<String>> getConstraintsWhenInheritsFromBaseField() {
 
     final var baseField = getStoredParentField().getStoredBaseField();
 

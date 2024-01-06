@@ -46,6 +46,6 @@ public final class ConcreteValueContentEvaluator {
   private boolean canAddValueBecauseOfConstraints(
     final IConcreteValueContent concreteValueContent,
     final String value) {
-    return concreteValueContent.getConstraints().containsOnly(c -> c.acceptsEntry(value));
+    return concreteValueContent.getConstraints().containsOnly(c -> c.test(value));
   }
 }
