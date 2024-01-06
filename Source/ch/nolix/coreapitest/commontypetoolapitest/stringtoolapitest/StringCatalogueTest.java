@@ -1,12 +1,12 @@
 //package declaration
-package ch.nolix.coreapitest.commontypetoolapitest.stringutilapitest;
+package ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest;
 
 //own imports
 import ch.nolix.core.reflection.GlobalFieldHelper;
 import ch.nolix.core.reflection.GlobalMemberHelper;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 
 //class
 public final class StringCatalogueTest extends Test {

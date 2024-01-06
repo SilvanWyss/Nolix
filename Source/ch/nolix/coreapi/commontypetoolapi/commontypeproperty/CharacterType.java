@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coreapi.commontypetoolapi.commontypeproperty;
 
-import ch.nolix.coreapi.commontypetoolapi.stringutilapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.CharacterCatalogue;
 
 //enum
 public enum CharacterType {

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapitest.commontypetoolapitest.stringutilapitest;
+package ch.nolix.coreapitest.commontypetoolapitest.stringtoolapitest;
 
 //class
 public final class Launcher {
@@ -10,6 +10,6 @@ public final class Launcher {
 
   //main method
   public static void main(String[] args) {
-    new StringUtilApiTestPool().run();
+    new StringToolApiTestPool().run();
   }
 }

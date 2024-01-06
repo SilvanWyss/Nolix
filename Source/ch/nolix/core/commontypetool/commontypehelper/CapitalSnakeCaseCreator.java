@@ -4,8 +4,8 @@ package ch.nolix.core.commontypetool.commontypehelper;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.coreapi.commontypetoolapi.commontypeproperty.CharacterType;
-import ch.nolix.coreapi.commontypetoolapi.stringutilapi.CharacterCatalogue;
-import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 
 //class
 final class CapitalSnakeCaseCreator {

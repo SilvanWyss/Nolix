@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.commontypetool.commontypehelper;
 
-import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 
 //class
 public final class GlobalBooleanHelper {

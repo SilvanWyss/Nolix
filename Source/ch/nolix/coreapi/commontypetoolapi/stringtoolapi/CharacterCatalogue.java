@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.commontypetoolapi.stringutilapi;
+package ch.nolix.coreapi.commontypetoolapi.stringtoolapi;
 
 //class
 /**
