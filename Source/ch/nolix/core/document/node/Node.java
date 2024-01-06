@@ -11,7 +11,6 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentExcept
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
@@ -121,15 +120,6 @@ public final class Node extends BaseNode<Node> {
    */
   public static Node fromFile(final String filePath) {
     return fromNode(MutableNode.fromFile(filePath));
-  }
-
-  //static method
-  /**
-   * @param intPair
-   * @return a new {@link Node} from the given intPair.
-   */
-  public static Node fromIntPair(final IIntPair intPair) {
-    return withChildNode(withHeader(intPair.getValue1()), withHeader(intPair.getValue2()));
   }
 
   //static method

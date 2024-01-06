@@ -5,7 +5,6 @@ package ch.nolix.core.document.node;
 import java.util.function.Predicate;
 
 import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
-import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
@@ -331,21 +330,6 @@ public abstract class BaseNode<BN extends BaseNode<BN>> implements INode<BN> {
     } catch (final NumberFormatException numberFormatException) {
       throw UnrepresentingArgumentException.forArgumentAndType(this, Integer.class);
     }
-  }
-
-  //method
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public final IntPair toIntPair() {
-
-    //Asserts that the current BaseNode contains 2 child nodes.
-    if (getChildNodeCount() != 2) {
-      throw UnrepresentingArgumentException.forArgumentAndType(this, IntPair.class);
-    }
-
-    return new IntPair(getStoredChildNodeAt1BasedIndex(1).toInt(), getStoredChildNodeAt1BasedIndex(2).toInt());
   }
 
   //method

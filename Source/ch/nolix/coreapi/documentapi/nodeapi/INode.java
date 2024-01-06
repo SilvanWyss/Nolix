@@ -7,7 +7,6 @@ import java.util.function.Predicate;
 //own imports
 import ch.nolix.coreapi.attributeapi.optionalattributeapi.IOptionalHeaderHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.containerapi.pairapi.IIntPair;
 import ch.nolix.coreapi.documentapi.xmlapi.IXmlNode;
 import ch.nolix.coreapi.methodapi.requestapi.BlanknessRequestable;
 
@@ -237,14 +236,6 @@ public interface INode<N extends INode<N>> extends BlanknessRequestable, IOption
    *                          int.
    */
   int toInt();
-
-  //method declaration
-  /**
-   * @return the {@link IIntPair} the current {@link INode} represents.
-   * @throws RuntimeException if the current {@link INode} does not represent a
-   *                          {@link IIntPair}.
-   */
-  IIntPair toIntPair();
 
   //method
   /**
