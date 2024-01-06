@@ -7,7 +7,7 @@ import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapture
 import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.programstructure.builder.usingargumentcapturer.UsingLoginNameCapturer;
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.core.sql.SqlDatabaseEngine;
+import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
 public final class MsSqlSchemaAdapterBuilder

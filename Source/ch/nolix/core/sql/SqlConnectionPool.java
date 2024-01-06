@@ -11,6 +11,7 @@ import ch.nolix.core.programcontrol.usercontrol.Credential;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
+import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
 public final class SqlConnectionPool implements GroupCloseable, ISqlDatabaseTarget {

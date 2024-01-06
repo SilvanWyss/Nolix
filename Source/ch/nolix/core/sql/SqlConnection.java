@@ -17,6 +17,7 @@ import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.programcontrol.closepool.CloseController;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
+import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
 public abstract class SqlConnection implements GroupCloseable {

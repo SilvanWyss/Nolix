@@ -4,7 +4,7 @@ package ch.nolix.core.programstructure.builder.withargumentcapturer;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
-import ch.nolix.core.sql.SqlDatabaseEngine;
+import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 
 //class
 public class WithSqlDatabaseEngineCapturer<N>

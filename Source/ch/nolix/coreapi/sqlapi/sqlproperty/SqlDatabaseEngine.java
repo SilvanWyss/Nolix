@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.sql;
+package ch.nolix.coreapi.sqlapi.sqlproperty;
 
 //enum
 public enum SqlDatabaseEngine {

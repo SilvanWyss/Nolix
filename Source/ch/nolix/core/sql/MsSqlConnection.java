@@ -4,6 +4,8 @@ package ch.nolix.core.sql;
 //Java imports
 import java.sql.Connection;
 
+import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
+
 //class
 public final class MsSqlConnection extends SqlConnection {
 

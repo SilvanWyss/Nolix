@@ -4,7 +4,7 @@ package ch.nolix.system.objectdatabase.dataadapter;
 //own imports
 import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.sql.SqlConnectionPool;
-import ch.nolix.core.sql.SqlDatabaseEngine;
+import ch.nolix.coreapi.sqlapi.sqlproperty.SqlDatabaseEngine;
 import ch.nolix.system.objectdatabase.database.DataAdapter;
 import ch.nolix.system.objectschema.schemaadapter.MsSqlSchemaAdapter;
 import ch.nolix.system.sqlrawdatabase.dataandschemaadapter.MsSqlDataAndSchemaAdapter;
