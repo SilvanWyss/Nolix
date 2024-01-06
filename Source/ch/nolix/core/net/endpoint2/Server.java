@@ -6,7 +6,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullExcepti
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.coreapi.netapi.endpoint2api.ISlot;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
 /**

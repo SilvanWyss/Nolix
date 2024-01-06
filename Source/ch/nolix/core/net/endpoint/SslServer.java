@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint;
 
 //own imports
 import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
 
 //class

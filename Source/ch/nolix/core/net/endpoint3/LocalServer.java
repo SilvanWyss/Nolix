@@ -3,7 +3,7 @@ package ch.nolix.core.net.endpoint3;
 
 //own imports
 import ch.nolix.coreapi.netapi.endpoint3api.ISlot;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
 /**

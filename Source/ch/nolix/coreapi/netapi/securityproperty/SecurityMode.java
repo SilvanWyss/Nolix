@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.netapi.securityapi;
+package ch.nolix.coreapi.netapi.securityproperty;
 
 //enum
 /**

@@ -6,7 +6,7 @@ import ch.nolix.core.environment.localcomputer.LocalComputer;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.system.application.main.Server;
 
 //class

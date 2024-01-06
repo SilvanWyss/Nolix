@@ -18,7 +18,7 @@ import ch.nolix.core.net.constant.IPv6Catalogue;
 import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.coreapi.netapi.netproperty.ConnectionType;
 import ch.nolix.coreapi.netapi.netproperty.PeerType;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programcontrolapi.processproperty.TargetInfoState;
 

@@ -5,7 +5,7 @@ package ch.nolix.coretest.nettest.endpointtest;
 import ch.nolix.core.net.endpoint.Server;
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 
 //class
 public final class ServerTest extends Test {

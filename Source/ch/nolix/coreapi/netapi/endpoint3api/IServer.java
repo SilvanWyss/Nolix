@@ -3,7 +3,7 @@ package ch.nolix.coreapi.netapi.endpoint3api;
 
 //own imports
 import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
-import ch.nolix.coreapi.netapi.securityapi.SecurityMode;
+import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //interface
