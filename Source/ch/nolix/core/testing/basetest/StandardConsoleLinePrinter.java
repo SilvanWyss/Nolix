@@ -1,6 +1,9 @@
 //package declaration
 package ch.nolix.core.testing.basetest;
 
+//own imports
+import ch.nolix.coreapi.methodapi.loggingapi.ILinePrinter;
+
 //class
 /**
  * A {@link StandardConsoleLinePrinter} uses the standard output stream only and

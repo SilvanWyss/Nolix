@@ -5,6 +5,7 @@ package ch.nolix.core.testing.basetest;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.container.List;
+import ch.nolix.coreapi.methodapi.loggingapi.ILinePrinter;
 import ch.nolix.coreapi.methodapi.mutationapi.Runnable;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 

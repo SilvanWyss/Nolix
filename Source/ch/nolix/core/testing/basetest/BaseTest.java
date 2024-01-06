@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.independent.container.List;
+import ch.nolix.coreapi.methodapi.loggingapi.ILinePrinter;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 
 //class
