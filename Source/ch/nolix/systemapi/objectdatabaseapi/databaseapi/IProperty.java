@@ -4,7 +4,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 //own imports
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.datamodelapi.entityrequestapi.MandatorynessRequestable;
+import ch.nolix.coreapi.datamodelapi.fieldrequestapi.MandatorynessRequestable;
 import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
 import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.IDatabaseObject;
 import ch.nolix.systemapi.entitypropertyapi.mainapi.PropertyType;

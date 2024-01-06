@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.datamodelapi.entityrequestapi;
+package ch.nolix.coreapi.datamodelapi.fieldrequestapi;
 
 //own imports
 import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesignPattern;
