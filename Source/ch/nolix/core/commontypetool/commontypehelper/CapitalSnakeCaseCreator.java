@@ -3,7 +3,7 @@ package ch.nolix.core.commontypetool.commontypehelper;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.coreapi.commontypetoolapi.commontypeproperty.CharacterType;
+import ch.nolix.coreapi.commontypetoolapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.CharacterCatalogue;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 
