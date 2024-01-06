@@ -11,7 +11,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.chainednodeapi.IChainedNode;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IApplicationInstanceTarget;
-import ch.nolix.coreapi.webapi.sessionapi.ICookieManager;
+import ch.nolix.coreapi.webapi.cookieapi.ICookieManager;
 import ch.nolix.system.application.basewebapplicationprotocol.CommandProtocol;
 import ch.nolix.system.application.main.BackendClient;
 

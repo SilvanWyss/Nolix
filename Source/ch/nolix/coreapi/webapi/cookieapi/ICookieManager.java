@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.webapi.sessionapi;
+package ch.nolix.coreapi.webapi.cookieapi;
 
 //interface
 public interface ICookieManager {
