@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.netapi.tlsapi;
+package ch.nolix.coreapi.netapi.sslapi;
 
 //interface
 public interface ISSLCertificate {

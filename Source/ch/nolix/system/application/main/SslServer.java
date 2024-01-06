@@ -3,10 +3,10 @@ package ch.nolix.system.application.main;
 
 //own imports
 import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.core.net.target.ServerTarget;
-import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;
 import ch.nolix.systemapi.applicationapi.mainapi.IApplication;
 

@@ -5,7 +5,7 @@ package ch.nolix.core.net.endpoint;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.core.programcontrol.worker.Worker;
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 //Netty imports
 import io.netty.bootstrap.ServerBootstrap;

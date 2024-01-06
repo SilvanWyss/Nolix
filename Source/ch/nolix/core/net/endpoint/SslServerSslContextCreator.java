@@ -23,7 +23,7 @@ import javax.net.ssl.SSLContext;
 //own imports
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 //Netty imports
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;

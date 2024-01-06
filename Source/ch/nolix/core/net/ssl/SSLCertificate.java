@@ -1,8 +1,7 @@
 //package declaration
-package ch.nolix.core.net.tls;
+package ch.nolix.core.net.ssl;
 
-//own imports
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 
 //record
 public record SSLCertificate(String publicKeyPEMFilePath, String privateKeyPEMFilePath) implements ISSLCertificate {

@@ -1,11 +1,11 @@
 //package declaration
-package ch.nolix.core.net.tls;
+package ch.nolix.core.net.ssl;
 
 //own imports
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.independent.nolixenvironment.GlobalNolixEnvironmentHelper;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 
 //class
 public final class NolixConfigurationSSLCertificateReader {

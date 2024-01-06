@@ -1,10 +1,9 @@
 //package declaration
 package ch.nolix.core.net.endpoint;
 
-//own imports
-import ch.nolix.core.net.tls.NolixConfigurationSSLCertificateReader;
+import ch.nolix.core.net.ssl.NolixConfigurationSSLCertificateReader;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
-import ch.nolix.coreapi.netapi.tlsapi.ISSLCertificate;
+import ch.nolix.coreapi.netapi.sslapi.ISSLCertificate;
 
 //class
 public final class SslServer extends BaseServer {
