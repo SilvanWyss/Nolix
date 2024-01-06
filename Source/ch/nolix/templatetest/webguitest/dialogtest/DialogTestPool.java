@@ -9,6 +9,6 @@ public final class DialogTestPool extends TestPool {
 
   //constructor
   public DialogTestPool() {
-    super(YesNoDialogBuilderTest.class);
+    super(WaitDialogBuilderTest.class, YesNoDialogBuilderTest.class);
   }
 }
