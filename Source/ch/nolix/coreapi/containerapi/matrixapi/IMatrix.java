@@ -3,9 +3,10 @@ package ch.nolix.coreapi.containerapi.matrixapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 
 //interface
-public interface IMatrix<E> extends IContainer<E> {
+public interface IMatrix<E> extends Clearable, IContainer<E> {
 
   //method declaration
   int getColumnCount();
@@ -21,4 +22,7 @@ public interface IMatrix<E> extends IContainer<E> {
 
   //method declaration
   IContainer<? extends IContainer<E>> getRows();
+
+  //method declaration
+  void setAt1BasedRowIndexAndColumnIndex(int param1BasedRowIndex, int param1BasedColumnIndex, E element);
 }

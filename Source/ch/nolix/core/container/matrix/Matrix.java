@@ -21,7 +21,6 @@ import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.coreapi.containerapi.matrixapi.IMatrix;
-import ch.nolix.coreapi.containerapi.matrixapi.IMutableMatrix;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
@@ -33,7 +32,7 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
  * @date 2016-08-01
  * @param <E> is the type of the elements of a {@link Matrix}.
  */
-public final class Matrix<E> extends Container<E> implements IMutableMatrix<E> {
+public final class Matrix<E> extends Container<E> implements IMatrix<E> {
 
   //multi-attribute
   private Object[][] elements = new Object[0][0];
