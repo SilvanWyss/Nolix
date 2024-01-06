@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.sql;
+package ch.nolix.coreapi.sqlapi.databaseconnectionapi;
 
 //own imports
 import ch.nolix.coreapi.programcontrolapi.targetapi.IDatabaseTarget;
