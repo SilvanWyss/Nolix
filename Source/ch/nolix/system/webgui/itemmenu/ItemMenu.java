@@ -9,7 +9,7 @@ import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.element.property.MultiValue;

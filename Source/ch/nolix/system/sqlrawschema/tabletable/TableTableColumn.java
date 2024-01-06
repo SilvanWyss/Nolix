@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawschema.tabletable;
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
-import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 import ch.nolix.system.sqlrawschema.structure.SystemDataTable;

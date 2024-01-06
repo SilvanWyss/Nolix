@@ -6,7 +6,7 @@ import java.util.Objects;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
 
 //class
 /**

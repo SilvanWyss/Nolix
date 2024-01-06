@@ -5,9 +5,8 @@ package ch.nolix.core.math.algebra;
 import java.util.Arrays;
 import java.util.Random;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
-import ch.nolix.core.commontype.commontypehelper.GlobalDoubleHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;

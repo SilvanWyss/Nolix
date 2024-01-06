@@ -4,15 +4,14 @@ package ch.nolix.core.document.node;
 //Java imports
 import java.util.function.Predicate;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.container.pair.IntPair;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
-import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringutilapi.CharacterCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.documentapi.nodeapi.INode;
 import ch.nolix.coreapi.documentapi.xmlapi.IMutableXmlNode;

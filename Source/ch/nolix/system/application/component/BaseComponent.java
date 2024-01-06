@@ -7,7 +7,7 @@ import java.util.Optional;
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotSupportMethodException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.commontypeapi.stringutilapi.StringCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringutilapi.StringCatalogue;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;
 import ch.nolix.system.application.webapplication.WebClientSession;
 import ch.nolix.system.webgui.main.Control;

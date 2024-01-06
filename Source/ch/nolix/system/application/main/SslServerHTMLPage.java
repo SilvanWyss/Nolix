@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.system.application.main;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
 import ch.nolix.core.environment.runningjar.RunningJar;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.system.application.mainresource.ResourcePathCatalogue;

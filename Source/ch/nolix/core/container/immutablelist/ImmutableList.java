@@ -4,9 +4,8 @@ package ch.nolix.core.container.immutablelist;
 //Java imports
 import java.util.function.Function;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
-import ch.nolix.core.commontype.commontypehelper.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalIterableHelper;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;
@@ -14,7 +13,7 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.commontypeapi.stringutilapi.CharacterCatalogue;
+import ch.nolix.coreapi.commontypetoolapi.stringutilapi.CharacterCatalogue;
 import ch.nolix.coreapi.containerapi.baseapi.CopyableIterator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.containerapi.listapi.ILinkedList;

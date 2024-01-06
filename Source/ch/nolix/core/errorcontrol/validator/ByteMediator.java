@@ -1,8 +1,7 @@
 //package decalration
 package ch.nolix.core.errorcontrol.validator;
 
-//own imports
-import ch.nolix.core.commontype.unsignedbyte.UnsignedByte;
+import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 
 //class

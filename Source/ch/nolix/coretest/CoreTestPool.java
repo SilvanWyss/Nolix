@@ -3,7 +3,7 @@ package ch.nolix.coretest;
 
 //own imports
 import ch.nolix.core.testing.basetest.TestPool;
-import ch.nolix.coretest.commontypetest.CommonTypeTestPool;
+import ch.nolix.coretest.commontypetooltest.CommonTypeToolTestPool;
 import ch.nolix.coretest.containertest.ContainerTestPool;
 import ch.nolix.coretest.documenttest.DocumentTestPool;
 import ch.nolix.coretest.environmenttest.EnvironmentTestPool;
@@ -29,7 +29,7 @@ public final class CoreTestPool extends TestPool {
    */
   public CoreTestPool() {
     super(
-      new CommonTypeTestPool(),
+      new CommonTypeToolTestPool(),
       new ContainerTestPool(),
       new DocumentTestPool(),
       new EnvironmentTestPool(),

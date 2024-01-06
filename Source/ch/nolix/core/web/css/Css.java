@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.core.web.css;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.webapi.cssapi.ICss;
 import ch.nolix.coreapi.webapi.cssapi.ICssRule;

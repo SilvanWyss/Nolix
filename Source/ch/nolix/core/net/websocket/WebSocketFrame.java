@@ -7,8 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
-//own imports
-import ch.nolix.core.commontype.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
