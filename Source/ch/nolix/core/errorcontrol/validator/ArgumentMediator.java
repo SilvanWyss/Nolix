@@ -84,6 +84,29 @@ public class ArgumentMediator<A> extends Mediator {
 
   //method
   /**
+   * @param object
+   * @throws ArgumentIsNullException  if the given object is null.
+   * @throws InvalidArgumentException if the argument of the current
+   *                                  {@link ArgumentMediator} does not have the
+   *                                  same {@link String} representation as the
+   *                                  given object.
+   */
+  public final void hasSameStringRepresentationAs(final Object object) {
+
+    //Asserts that the given object is not null.
+    if (object == null) {
+      throw ArgumentIsNullException.forArgumentType(Object.class);
+    }
+
+    //Gets the String representation of the given object.
+    final var stringRepresentation = object.toString();
+
+    //Calls other method.
+    hasStringRepresentation(stringRepresentation);
+  }
+
+  //method
+  /**
    * @param stringRepresentation
    * @throws InvalidArgumentException if the argument of the current
    *                                  {@link ArgumentMediator} does not have the
