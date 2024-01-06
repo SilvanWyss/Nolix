@@ -45,7 +45,7 @@ public final class KeyValuePair<K, V> implements IKeyValuePair<K, V> {
 
   //method
   @Override
-  public V getValue() {
+  public V getStoredValue() {
     return value;
   }
 

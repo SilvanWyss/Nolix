@@ -8,5 +8,5 @@ public interface IKeyValuePair<K, V> {
   K getKey();
 
   //method declaration
-  V getValue();
+  V getStoredValue();
 }
