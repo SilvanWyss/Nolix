@@ -316,6 +316,14 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   }
 
   //method
+  @Override
+  public void removeSelfFromGuiIfBelongsToGui() {
+    if (belongsToGui()) {
+      removeSelfFromGui();
+    }
+  }
+
+  //method
   public Layer setBackground(final IBackground background) {
 
     this.background.setValue(background);

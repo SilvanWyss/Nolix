@@ -50,6 +50,9 @@ IRootControlOwner<L> {
   void removeSelfFromGui();
 
   //method declaration
+  void removeSelfFromGuiIfBelongsToGui();
+
+  //method declaration
   L setContentAlignment(ContentAlignment contentAlignment);
 
   //method declaration
