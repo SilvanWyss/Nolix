@@ -4,6 +4,11 @@ package ch.nolix.templatetest.webguitest.dialogtest;
 //own imports
 import ch.nolix.core.testing.basetest.TestCase;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.system.webgui.atomiccontrol.Button;
+import ch.nolix.system.webgui.atomiccontrol.Label;
+import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
+import ch.nolix.system.webgui.linearcontainer.VerticalStack;
+import ch.nolix.system.webgui.main.Layer;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -23,9 +28,21 @@ public final class YesNoDialogBuilderTest extends Test {
     //execution
     final var result = testUnit.build();
 
-    //verification
+    //verification part 1
+    final var expectedStructure = //
+    new Layer()
+      .setRootControl(
+        new VerticalStack()
+          .addControl(
+            new Label(),
+            new HorizontalStack()
+              .addControl(
+                new Button(),
+                new Button())));
     expect(result.getStructureSpecification())
-      .hasStringRepresentation("Layer(VerticalStack(Label,HorizontalStack(Button,Button)))");
+      .hasSameStringRepresentationAs(expectedStructure.getStructureSpecification());
+
+    //verification part 2
     expect(result.getRole()).is(LayerRole.DIALOG_LAYER);
     final var controls = result.getStoredControls();
     expect(controls.containsAny(this::isConfirmButton));
