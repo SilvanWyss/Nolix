@@ -12,6 +12,7 @@ import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.HorizontalStack;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;
+import ch.nolix.system.webgui.main.WebGui;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.ButtonRole;
 import ch.nolix.systemapi.webguiapi.atomiccontrolapi.IButton;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
@@ -61,8 +62,10 @@ public final class YesNoDialogBuilderTest extends Test {
     final var confirmActionMock = Mockito.mock(Runnable.class);
     testUnit.setConfirmAction(confirmActionMock);
 
-    //execution
+    //execution part 1
     final var result = testUnit.build();
+
+    //execution part 2
     final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
     cancelButton.pressLeftMouseButton();
 
@@ -79,13 +82,61 @@ public final class YesNoDialogBuilderTest extends Test {
     final var confirmActionMock = Mockito.mock(Runnable.class);
     testUnit.setConfirmAction(confirmActionMock);
 
-    //execution
+    //execution part 1
     final var result = testUnit.build();
+
+    //execution part 2
     final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
     confirmButton.pressLeftMouseButton();
 
     //verification
     Mockito.verify(confirmActionMock).run();
+  }
+
+  //method
+  @TestCase
+  public void testCase_build_thenAddToWebGui_thenClickCancelButton() {
+
+    //setup
+    final var webGui = new WebGui();
+    final var testUnit = new YesNoDialogBuilder();
+    final var confirmActionMock = Mockito.mock(Runnable.class);
+    testUnit.setConfirmAction(confirmActionMock);
+
+    //execution part 1
+    final var result = testUnit.build();
+    webGui.pushLayer(result);
+
+    //execution part 2
+    final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
+    cancelButton.pressLeftMouseButton();
+
+    //verification
+    expectNot(result.belongsToGui());
+    Mockito.verify(confirmActionMock, Mockito.never()).run();
+  }
+
+  //method
+  @TestCase
+  public void testCase_build_thenAddToWebGui_thenClickConfirmButton() {
+
+    //setup
+    final var webGui = new WebGui();
+    final var testUnit = new YesNoDialogBuilder();
+    final var confirmActionMock = Mockito.mock(Runnable.class);
+    testUnit.setConfirmAction(confirmActionMock);
+
+    //execution part 1
+    final var result = testUnit.build();
+    webGui.pushLayer(result);
+
+    //execution part 2
+    final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
+    confirmButton.pressLeftMouseButton();
+
+    //verification
+    Mockito.verify(confirmActionMock).run();
+    expectNot(result.belongsToGui());
   }
 
   //method
