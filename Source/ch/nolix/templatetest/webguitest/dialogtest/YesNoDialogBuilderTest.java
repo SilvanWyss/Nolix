@@ -1,6 +1,10 @@
 //package declaration
 package ch.nolix.templatetest.webguitest.dialogtest;
 
+//Mockito imports
+import org.mockito.Mockito;
+
+//own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.webgui.atomiccontrol.Button;
@@ -46,6 +50,42 @@ public final class YesNoDialogBuilderTest extends Test {
     final var controls = result.getStoredControls();
     expect(controls.containsAny(this::isConfirmButton));
     expect(controls.containsAny(this::isCancelButton));
+  }
+
+  //method
+  @TestCase
+  public void testCase_build_thenClickCancelButton() {
+
+    //setup
+    final var testUnit = new YesNoDialogBuilder();
+    final var confirmActionMock = Mockito.mock(Runnable.class);
+    testUnit.setConfirmAction(confirmActionMock);
+
+    //execution
+    final var result = testUnit.build();
+    final var cancelButton = (IButton) result.getStoredControls().getStoredFirst(this::isCancelButton);
+    cancelButton.pressLeftMouseButton();
+
+    //verification
+    Mockito.verify(confirmActionMock, Mockito.never()).run();
+  }
+
+  //method
+  @TestCase
+  public void testCase_build_thenClickConfirmButton() {
+
+    //setup
+    final var testUnit = new YesNoDialogBuilder();
+    final var confirmActionMock = Mockito.mock(Runnable.class);
+    testUnit.setConfirmAction(confirmActionMock);
+
+    //execution
+    final var result = testUnit.build();
+    final var confirmButton = (IButton) result.getStoredControls().getStoredFirst(this::isConfirmButton);
+    confirmButton.pressLeftMouseButton();
+
+    //verification
+    Mockito.verify(confirmActionMock).run();
   }
 
   //method
