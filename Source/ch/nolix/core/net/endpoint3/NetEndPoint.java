@@ -186,16 +186,16 @@ public final class NetEndPoint extends EndPoint {
   public IContainer<? extends INode<?>> getDataForRequests(final Iterable<? extends IChainedNode> requests) {
 
     //Creates message.
-    final var message = NetEndPointProtocol.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
+    final var message = MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER + '(' + requests.toString() + ')';
 
     //Sends message and receives reply.
     final var reply = Node.fromString(internalEndPoint.getReplyForRequest(message));
 
     //Enumerates the header of the reply.
     return switch (reply.getHeader()) {
-      case NetEndPointProtocol.MULTI_DATA_HEADER ->
+      case MessageHeaderCatalogue.MULTI_DATA_HEADER ->
         reply.getStoredChildNodes();
-      case NetEndPointProtocol.ERROR_HEADER ->
+      case MessageHeaderCatalogue.ERROR_HEADER ->
         throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
       default ->
         throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
@@ -246,7 +246,7 @@ public final class NetEndPoint extends EndPoint {
   public void runCommands(final Iterable<? extends IChainedNode> commands) {
 
     //Creates message.
-    final var message = NetEndPointProtocol.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
+    final var message = MessageHeaderCatalogue.COMMANDS_HEADER + '(' + ReadContainer.forIterable(commands) + ')';
 
     final var replyAsString = internalEndPoint.getReplyForRequest(message);
 
@@ -260,9 +260,9 @@ public final class NetEndPoint extends EndPoint {
 
       //Enumerates the header of the reply.
       switch (reply.getHeader()) {
-        case NetEndPointProtocol.DONE_HEADER:
+        case MessageHeaderCatalogue.DONE_HEADER:
           break;
-        case NetEndPointProtocol.ERROR_HEADER:
+        case MessageHeaderCatalogue.ERROR_HEADER:
           throw GeneralException.withErrorMessage(reply.getSingleChildNodeHeader());
         default:
           throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseCatalogue.REPLY, reply);
@@ -288,10 +288,10 @@ public final class NetEndPoint extends EndPoint {
       GlobalLogger.logError(error);
 
       if (error.getMessage() == null) {
-        return NetEndPointProtocol.ERROR_HEADER;
+        return MessageHeaderCatalogue.ERROR_HEADER;
       }
 
-      return (NetEndPointProtocol.ERROR_HEADER + '(' + BaseNode.getEscapeStringFor(error.getMessage()) + ')');
+      return (MessageHeaderCatalogue.ERROR_HEADER + '(' + BaseNode.getEscapeStringFor(error.getMessage()) + ')');
     }
   }
 
@@ -312,15 +312,15 @@ public final class NetEndPoint extends EndPoint {
 
     //Enumerates the header of the given message.
     switch (message.getHeader()) {
-      case NetEndPointProtocol.COMMANDS_HEADER:
+      case MessageHeaderCatalogue.COMMANDS_HEADER:
 
         for (final var a : message.getChildNodes()) {
           receiverController.runCommand(a);
         }
 
-        return NetEndPointProtocol.DONE_HEADER;
-      case NetEndPointProtocol.MULTI_DATA_REQUEST_HEADER:
-        return NetEndPointProtocol.MULTI_DATA_HEADER
+        return MessageHeaderCatalogue.DONE_HEADER;
+      case MessageHeaderCatalogue.MULTI_DATA_REQUEST_HEADER:
+        return MessageHeaderCatalogue.MULTI_DATA_HEADER
         + GlobalStringHelper.getInParantheses(
           receiverController.getDataForRequests(message.getChildNodes()).toString());
       default:

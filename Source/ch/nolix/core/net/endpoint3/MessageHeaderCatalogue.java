@@ -3,12 +3,12 @@ package ch.nolix.core.net.endpoint3;
 
 //class
 /**
- * Of the {@link NetEndPointProtocol} an instance cannot be created.
+ * Of the {@link MessageHeaderCatalogue} an instance cannot be created.
  * 
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-final class NetEndPointProtocol {
+final class MessageHeaderCatalogue {
 
   //constant
   public static final String COMMANDS_HEADER = "Commands";
@@ -27,8 +27,9 @@ final class NetEndPointProtocol {
 
   //constructor
   /**
-   * Prevents that an instance of the {@link NetEndPointProtocol} can be created.
+   * Prevents that an instance of the {@link MessageHeaderCatalogue} can be
+   * created.
    */
-  private NetEndPointProtocol() {
+  private MessageHeaderCatalogue() {
   }
 }
