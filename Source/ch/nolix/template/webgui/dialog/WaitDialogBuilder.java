@@ -42,7 +42,7 @@ public final class WaitDialogBuilder implements IBuilder<ILayer<?>> {
               .setRole(LabelRole.MAIN_LABEL)
               .setText("Please wait...")));
 
-    GlobalSequencer.runInBackgroundAndOrder(getJob(), waitDialog::removeSelfFromGuiIfBelongsToGui, getTerminalAction());
+    GlobalSequencer.runInBackgroundAndOrder(getJob(), waitDialog::removeSelfFromGui, getTerminalAction());
 
     return waitDialog;
   }

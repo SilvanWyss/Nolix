@@ -1,8 +1,6 @@
 //package declaration
 package ch.nolix.systemtest.webguitest.maintest;
 
-//own imports
-import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotBelongToParentException;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.graphic.color.Color;
@@ -61,9 +59,7 @@ public final class LayerTest extends Test {
     expectNot(testUnit.belongsToGui());
 
     //execution
-    expectRunning(testUnit::removeSelfFromGui)
-      .throwsException()
-      .ofType(ArgumentDoesNotBelongToParentException.class);
+    expectRunning(testUnit::removeSelfFromGui).doesNotThrowException();
   }
 
   //method

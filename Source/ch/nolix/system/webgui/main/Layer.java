@@ -311,15 +311,8 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
   //method
   @Override
   public void removeSelfFromGui() {
-    getStoredParentGui().removeLayer(this);
-    parentGui = null;
-  }
-
-  //method
-  @Override
-  public void removeSelfFromGuiIfBelongsToGui() {
     if (belongsToGui()) {
-      removeSelfFromGui();
+      removeSelfFromGuiWhenBelongsToGui();
     }
   }
 
@@ -485,5 +478,11 @@ public final class Layer extends StylableElement<Layer> implements ILayer<Layer>
     fillUpChildControlsOfControlIntoListRecursively(getStoredRootControl(), controls);
 
     return controls;
+  }
+
+  //method
+  private void removeSelfFromGuiWhenBelongsToGui() {
+    getStoredParentGui().removeLayer(this);
+    parentGui = null;
   }
 }
