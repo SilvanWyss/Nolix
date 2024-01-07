@@ -3,8 +3,8 @@ package ch.nolix.systemtest.applicationtest.maintest;
 
 //own imports
 import ch.nolix.core.environment.localcomputer.LocalComputer;
-import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.system.application.main.Server;

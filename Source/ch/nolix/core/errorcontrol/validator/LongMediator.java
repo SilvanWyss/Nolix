@@ -16,7 +16,7 @@ import ch.nolix.core.errorcontrol.invalidargumentexception.PositiveArgumentExcep
 import ch.nolix.core.errorcontrol.invalidargumentexception.SmallerArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
 import ch.nolix.core.independent.containerhelper.GlobalArrayHelper;
-import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 
 //class
 /**

@@ -11,8 +11,8 @@ import java.net.URISyntaxException;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.constant.IPv4Catalogue;
-import ch.nolix.core.net.constant.PortCatalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class

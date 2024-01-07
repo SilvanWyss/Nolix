@@ -1,13 +1,12 @@
 //package declaration
 package ch.nolix.system.objectdatabase.dataadapter;
 
-//own imports
-import ch.nolix.core.net.constant.PortCatalogue;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndLoginPasswordCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndPortCapturer;
 import ch.nolix.core.programstructure.builder.andargumentcapturer.AndSchemaCapturer;
 import ch.nolix.core.programstructure.builder.toargumentcapturer.ToDatabaseNameCapturer;
 import ch.nolix.core.programstructure.builder.usingargumentcapturer.UsingLoginNameCapturer;
+import ch.nolix.coreapi.netapi.netconstantapi.PortCatalogue;
 import ch.nolix.systemapi.objectdatabaseapi.schemaapi.ISchema;
 
 //class

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.constant;
+package ch.nolix.coreapi.netapi.netconstantapi;
 
 //class
 /**

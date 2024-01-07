@@ -3,8 +3,8 @@ package ch.nolix.core.programstructure.builder.withargumentcapturer;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.net.constant.IPv4Catalogue;
 import ch.nolix.core.programstructure.builder.main.ArgumentCapturer;
+import ch.nolix.coreapi.netapi.netconstantapi.IPv4Catalogue;
 
 //class
 public class WithIpOrDomainCapturer<N> extends ArgumentCapturer<String, N> {
