@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.net.endpoint3;
+package ch.nolix.coreapi.netapi.endpoint3protocol;
 
 //class
 /**
@@ -8,7 +8,7 @@ package ch.nolix.core.net.endpoint3;
  * @author Silvan Wyss
  * @date 2016-01-01
  */
-final class MessageHeaderCatalogue {
+public final class MessageHeaderCatalogue {
 
   //constant
   public static final String COMMANDS_HEADER = "Commands";
