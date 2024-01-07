@@ -9,9 +9,9 @@ import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentDoesNotContainElementException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.EmptyArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
+import ch.nolix.coreapi.programatomapi.functionapi.FunctionCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class

@@ -3,9 +3,9 @@ package ch.nolix.coretest.programcontroltest.sequencertest;
 
 //own imports
 import ch.nolix.core.errorcontrol.exception.GeneralException;
-import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
 import ch.nolix.core.testing.test.Test;
+import ch.nolix.coreapi.programatomapi.functionapi.FunctionCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 
 //class
