@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coretest.programatomtest.functiontest;
+package ch.nolix.coreapitest.programatomapitest.functionapitest;
 
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.programatomapi.functionapi.FunctionCatalogue;
