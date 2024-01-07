@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.time;
+package ch.nolix.coreapi.programcontrolapi.timeapi;
 
 //class
 /**

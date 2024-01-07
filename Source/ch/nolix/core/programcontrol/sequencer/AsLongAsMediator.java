@@ -8,7 +8,7 @@ import java.util.function.BooleanSupplier;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.core.time.TimeUnitCatalogue;
+import ch.nolix.coreapi.programcontrolapi.timeapi.TimeUnitCatalogue;
 
 //class
 /**
