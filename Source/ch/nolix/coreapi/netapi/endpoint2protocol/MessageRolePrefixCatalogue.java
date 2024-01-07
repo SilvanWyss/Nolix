@@ -1,8 +1,8 @@
 //package declaration
-package ch.nolix.core.net.endpoint2;
+package ch.nolix.coreapi.netapi.endpoint2protocol;
 
 //class
-final class MessageRolePrefixCatalogue {
+public final class MessageRolePrefixCatalogue {
 
   //constant
   public static final char TARGET_APPLICATION_PREFIX = 'T';

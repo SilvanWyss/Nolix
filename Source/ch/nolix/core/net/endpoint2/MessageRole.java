@@ -3,6 +3,7 @@ package ch.nolix.core.net.endpoint2;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnrepresentingArgumentException;
+import ch.nolix.coreapi.netapi.endpoint2protocol.MessageRolePrefixCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //enum
