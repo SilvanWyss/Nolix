@@ -4,7 +4,7 @@ package ch.nolix.techapi.relationaldocapi.dataaapterapi;
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IChangeSaver;
-import ch.nolix.coreapi.programstructureapi.factoryapi.EmptyCopyable;
+import ch.nolix.coreapi.programstructureapi.builderapi.EmptyCopyable;
 import ch.nolix.techapi.relationaldocapi.datamodelapi.IAbstractableObject;
 
 //interface

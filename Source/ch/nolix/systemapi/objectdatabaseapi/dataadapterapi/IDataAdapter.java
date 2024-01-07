@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.dataadapterapi;
 
 //own imports
 import ch.nolix.coreapi.programcontrolapi.savecontrolapi.IResettableChangeSaver;
-import ch.nolix.coreapi.programstructureapi.factoryapi.EmptyCopyable;
+import ch.nolix.coreapi.programstructureapi.builderapi.EmptyCopyable;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.IEntity;
 import ch.nolix.systemapi.objectdatabaseapi.databaseapi.ITable;
 
