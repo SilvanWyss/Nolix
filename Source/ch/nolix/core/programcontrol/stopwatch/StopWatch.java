@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.time;
+package ch.nolix.core.programcontrol.stopwatch;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
