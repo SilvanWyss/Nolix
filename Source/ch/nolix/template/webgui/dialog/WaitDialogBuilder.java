@@ -4,7 +4,7 @@ package ch.nolix.template.webgui.dialog;
 //own imports
 import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.methodapi.builderapi.IBuilder;
+import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;
 import ch.nolix.system.webgui.main.Layer;

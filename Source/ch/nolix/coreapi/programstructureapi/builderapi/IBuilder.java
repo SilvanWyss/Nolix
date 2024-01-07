@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.methodapi.builderapi;
+package ch.nolix.coreapi.programstructureapi.builderapi;
 
 //interface
 /**

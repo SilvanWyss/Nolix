@@ -4,7 +4,7 @@ package ch.nolix.coreapi.containerapi.baseapi;
 //Java imports
 import java.util.Iterator;
 
-import ch.nolix.coreapi.methodapi.builderapi.Copyable;
+import ch.nolix.coreapi.programstructureapi.builderapi.Copyable;
 
 //interface
 /**
