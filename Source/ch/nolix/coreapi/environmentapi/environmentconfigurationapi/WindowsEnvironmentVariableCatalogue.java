@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.environment.localcomputer;
+package ch.nolix.coreapi.environmentapi.environmentconfigurationapi;
 
 //class
 /**
