@@ -3,7 +3,6 @@ package ch.nolix.system.sqlrawschema.columntable;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
-import ch.nolix.core.sql.SqlSyntaxCatalogue;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedBackReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedReferenceTypeDto;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IBaseParameterizedValueTypeDto;
@@ -11,6 +10,9 @@ import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IParameterizedPropertyTypeDt
 
 //class
 public final class ParameterizedPropertyTypeSqlRecordMapper {
+
+  //constant
+  private static final String NULL = "NULL";
 
   //method
   public ParameterizedPropertyTypeSqlRecord createParameterizedPropertyTypeRecordFrom(
@@ -34,7 +36,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
     return new ParameterizedPropertyTypeSqlRecord(
       "'" + baseParameterizedBackReferenceType.getPropertyType().toString() + "'",
       "'" + baseParameterizedBackReferenceType.getDataType().name() + "'",
-      SqlSyntaxCatalogue.NULL,
+      NULL,
       "'" + baseParameterizedBackReferenceType.getBackReferencedColumnId() + "'");
   }
 
@@ -45,7 +47,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
       "'" + baseParameterizedReferenceType.getPropertyType().toString() + "'",
       "'" + baseParameterizedReferenceType.getDataType().name() + "'",
       "'" + baseParameterizedReferenceType.getReferencedTableId() + "'",
-      SqlSyntaxCatalogue.NULL);
+      NULL);
   }
 
   //method
@@ -54,7 +56,7 @@ public final class ParameterizedPropertyTypeSqlRecordMapper {
     return new ParameterizedPropertyTypeSqlRecord(
       "'" + baseParameterizedPropertyType.getPropertyType().toString() + "'",
       "'" + baseParameterizedPropertyType.getDataType().name() + "'",
-      SqlSyntaxCatalogue.NULL,
-      SqlSyntaxCatalogue.NULL);
+      NULL,
+      NULL);
   }
 }
