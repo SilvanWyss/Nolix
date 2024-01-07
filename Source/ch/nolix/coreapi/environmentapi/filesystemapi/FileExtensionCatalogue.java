@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.environment.filesystem;
+package ch.nolix.coreapi.environmentapi.filesystemapi;
 
 //class
 /**
