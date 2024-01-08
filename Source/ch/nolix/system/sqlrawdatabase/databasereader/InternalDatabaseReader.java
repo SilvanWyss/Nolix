@@ -55,7 +55,7 @@ final class InternalDatabaseReader {
   //method
   public Time getSchemaTimestamp() {
     return Time.fromString(
-      sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0));
+      sqlConnection.getOneRecordFromQuery(entityQueryCreator.createQueryToLoadSchemaTimestamp()).get(0));
   }
 
   //method
@@ -63,7 +63,7 @@ final class InternalDatabaseReader {
     final String entityId,
     final IColumnInfo multiReferenceColumnInfo) {
     return sqlConnection
-      .getRecords(
+      .getRecordsFromQuery(
         multiReferenceQueryCreator.createQueryToLoadMultiReferenceEntries(
           entityId,
           multiReferenceColumnInfo.getColumnId()))
@@ -75,7 +75,7 @@ final class InternalDatabaseReader {
     final String entityId,
     final IColumnInfo multiValueColumnInfo) {
     return sqlConnection
-      .getRecords(
+      .getRecordsFromQuery(
         multiValueQueryCreator.createQueryToLoadMultiValueEntries(
           entityId,
           multiValueColumnInfo.getColumnId()))
@@ -85,14 +85,14 @@ final class InternalDatabaseReader {
   //method
   public IContainer<ILoadedEntityDto> loadEntitiesOfTable(final ITableInfo tableInfo) {
     return sqlConnection
-      .getRecords(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
+      .getRecordsFromQuery(entityQueryCreator.createQueryToLoadEntitiesOfTable(tableInfo))
       .to(r -> LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(r, tableInfo));
   }
 
   //method
   public ILoadedEntityDto loadEntity(final ITableInfo tableInfo, final String id) {
     return LOADED_ENTITY_DTO_MAPPER.createLoadedEntityDtoFrosqlRecord(
-      sqlConnection.getOneRecord(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
+      sqlConnection.getOneRecordFromQuery(entityQueryCreator.createQueryToLoadEntity(id, tableInfo)),
       tableInfo);
   }
 
@@ -121,7 +121,7 @@ final class InternalDatabaseReader {
 
     final var entityCount = Integer.valueOf(
       sqlConnection
-        .getOneRecord(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
+        .getOneRecordFromQuery(entityQueryCreator.createQueryToCountEntitiesWithGivenId(tableName, id))
         .get(0));
 
     return entityCount > 0;
@@ -131,7 +131,7 @@ final class InternalDatabaseReader {
   private boolean multiReferenceEntryExistsForGivenColumnAndReferencedEntity(
     final String columnId,
     final String referencedEntityId) {
-    return sqlConnection.getRecords(
+    return sqlConnection.getRecordsFromQuery(
       multiReferenceQueryCreator
         .createQueryToLoadOneOrNoneMultiReferenceEntryForGivenColumnAndReferencedEntity(
           columnId,
@@ -143,7 +143,7 @@ final class InternalDatabaseReader {
   private boolean multiValueEntryExistsForGivenColumnAndValue(
     final String columnId,
     final String value) {
-    return sqlConnection.getRecords(
+    return sqlConnection.getRecordsFromQuery(
       multiValueQueryCreator.createQueryToLoadOneOrNoneMultiValueEntryForGivenColumnAndValue(
         columnId,
         value))
@@ -156,7 +156,7 @@ final class InternalDatabaseReader {
     final String singleColumnName,
     final String value) {
     return Integer.valueOf(
-      sqlConnection.getOneRecord(
+      sqlConnection.getOneRecordFromQuery(
         entityQueryCreator.createQueryToCountEntitiesWithGivenValueAtGivenColumn(
           tableName,
           singleColumnName,

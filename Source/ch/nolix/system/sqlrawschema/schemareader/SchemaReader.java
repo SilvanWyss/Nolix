@@ -82,14 +82,14 @@ public final class SchemaReader implements ISchemaReader {
   //method
   @Override
   public int getTableCount() {
-    return Integer.valueOf(sqlConnection.getOneRecord(QUERY_CREATOR.createQueryToGetTableCount()).get(0));
+    return Integer.valueOf(sqlConnection.getOneRecordFromQuery(QUERY_CREATOR.createQueryToGetTableCount()).get(0));
   }
 
   //method
   @Override
   public IContainer<IColumnDto> loadColumnsByTableId(final String tableId) {
     return sqlConnection
-      .getRecords(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
+      .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableId(tableId))
       .to(COLUMN_DTO_MAPPER::createColumnDto);
   }
 
@@ -97,7 +97,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public IContainer<IColumnDto> loadColumnsByTableName(final String tableName) {
     return sqlConnection
-      .getRecords(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
+      .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadCoumnsByTableName(tableName))
       .to(COLUMN_DTO_MAPPER::createColumnDto);
   }
 
@@ -105,21 +105,21 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public IFlatTableDto loadFlatTableById(final String id) {
     return TABLE_DTO_MAPPER.createTableDto(
-      sqlConnection.getOneRecord(QUERY_CREATOR.createQueryToLoadFlatTableById(id)));
+      sqlConnection.getOneRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableById(id)));
   }
 
   //method
   @Override
   public IFlatTableDto loadFlatTableByName(final String name) {
     return TABLE_DTO_MAPPER.createTableDto(
-      sqlConnection.getOneRecord(QUERY_CREATOR.createQueryToLoadFlatTableByName(name)));
+      sqlConnection.getOneRecordFromQuery(QUERY_CREATOR.createQueryToLoadFlatTableByName(name)));
   }
 
   //method
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return sqlConnection
-      .getRecords(QUERY_CREATOR.createQueryToLoadFlatTables())
+      .getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadFlatTables())
       .to(TABLE_DTO_MAPPER::createTableDto);
   }
 
@@ -127,7 +127,7 @@ public final class SchemaReader implements ISchemaReader {
   @Override
   public Time loadSchemaTimestamp() {
     return Time.fromString(
-      sqlConnection.getRecords(QUERY_CREATOR.createQueryToLoadSchemaTimestamp()).getStoredFirst().get(0));
+      sqlConnection.getRecordsFromQuery(QUERY_CREATOR.createQueryToLoadSchemaTimestamp()).getStoredFirst().get(0));
   }
 
   //method

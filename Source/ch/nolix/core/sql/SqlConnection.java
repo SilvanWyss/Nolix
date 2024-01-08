@@ -168,8 +168,8 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  public final List<String> getOneRecord(final String sqlQuery) {
-    return getRecords(sqlQuery).getStoredOne();
+  public final List<String> getOneRecordFromQuery(final String query) {
+    return getRecordsFromQuery(query).getStoredOne();
   }
 
   //method
@@ -179,12 +179,12 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  public final LinkedList<List<String>> getRecords(final String sqlQuery) {
+  public final LinkedList<List<String>> getRecordsFromQuery(final String query) {
 
     final var records = new LinkedList<List<String>>();
     try (final var statement = connection.createStatement()) {
 
-      try (final var result = statement.executeQuery(sqlQuery)) {
+      try (final var result = statement.executeQuery(query)) {
 
         final var columnCount = result.getMetaData().getColumnCount();
 
@@ -204,8 +204,8 @@ public abstract class SqlConnection implements GroupCloseable {
   }
 
   //method
-  public final IContainer<String> getRecordsAsStrings(final String sqlQuery) {
-    return getRecords(sqlQuery).toStrings();
+  public final IContainer<String> getRecordsAsStringsFromQuery(final String query) {
+    return getRecordsFromQuery(query).toStrings();
   }
 
   //method

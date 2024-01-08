@@ -56,7 +56,8 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public boolean columnsIsEmpty(final String tableName, final String columnName) {
     return sqlConnection
-      .getRecords(schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
+      .getRecordsFromQuery(
+        schemaQueryCreator.createQueryToLoadTopFirstRecordWhereColumnIsNotNull(tableName, columnName))
       .isEmpty();
   }
 
@@ -70,7 +71,7 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public IContainer<IColumnDto> loadColumns(final String tableName) {
     return sqlConnection
-      .getRecords(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
+      .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadNameAndDataTypeOfColumns(tableName))
       .to(r -> new ColumnDto(r.get(0), new DataTypeDto(r.get(1))));
   }
 
@@ -78,7 +79,7 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public IContainer<IFlatTableDto> loadFlatTables() {
     return sqlConnection
-      .getRecordsAsStrings(schemaQueryCreator.createQueryToLoadNameOfTables())
+      .getRecordsAsStringsFromQuery(schemaQueryCreator.createQueryToLoadNameOfTables())
       .to(FlatTableDto::new);
   }
 
@@ -98,7 +99,7 @@ final class SchemaReader implements ISchemaReader {
   @Override
   public boolean tableExists(String tableName) {
     return sqlConnection
-      .getRecords(schemaQueryCreator.createQueryToLoadTable(tableName))
+      .getRecordsFromQuery(schemaQueryCreator.createQueryToLoadTable(tableName))
       .containsAny();
   }
 }
