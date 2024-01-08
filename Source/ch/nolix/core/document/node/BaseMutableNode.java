@@ -120,6 +120,8 @@ public abstract class BaseMutableNode<MN extends BaseMutableNode<MN>> extends Ba
       } else if (character == ',' || character == ')') {
         endIndex = index - 1;
         breakLoop = true;
+      } else {
+        //Does nothing and continues the current loop.
       }
 
       if (breakLoop) {
