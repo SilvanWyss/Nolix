@@ -4,7 +4,9 @@ package ch.nolix.core.sql;
 //Java imports
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -180,27 +182,11 @@ public abstract class SqlConnection implements GroupCloseable {
 
   //method
   public final LinkedList<List<String>> getRecordsFromQuery(final String query) {
-
-    final var records = new LinkedList<List<String>>();
     try (final var statement = connection.createStatement()) {
-
-      try (final var result = statement.executeQuery(query)) {
-
-        final var columnCount = result.getMetaData().getColumnCount();
-
-        while (result.next()) {
-          final var entries = new ArrayList<String>();
-          for (var i = 1; i <= columnCount; i++) {
-            entries.add(result.getString(i));
-          }
-          records.addAtEnd(entries);
-        }
-      }
-    } catch (SQLException sqlException) {
+      return getRecorsFromStatement(query, statement);
+    } catch (final SQLException sqlException) {
       throw WrapperException.forError(sqlException);
     }
-
-    return records;
   }
 
   //method
@@ -241,6 +227,37 @@ public abstract class SqlConnection implements GroupCloseable {
 
   //method declaration
   protected abstract String getSqlDatabaseEngineDriverClass();
+
+  //method
+  private LinkedList<List<String>> getRecorsFromStatement(
+    final String query,
+    final Statement statement)
+  throws SQLException {
+    try (final var resultSet = statement.executeQuery(query)) {
+      return getRecordsFromResultSet(resultSet);
+    }
+  }
+
+  //method
+  private final LinkedList<List<String>> getRecordsFromResultSet(final ResultSet resultSet) throws SQLException {
+
+    final var records = new LinkedList<List<String>>();
+
+    final var columnCount = resultSet.getMetaData().getColumnCount();
+
+    while (resultSet.next()) {
+
+      final var entries = new ArrayList<String>();
+
+      for (var i = 1; i <= columnCount; i++) {
+        entries.add(resultSet.getString(i));
+      }
+
+      records.addAtEnd(entries);
+    }
+
+    return records;
+  }
 
   //method
   private void giveBackSelfToParentSqlConnectionPool() {
