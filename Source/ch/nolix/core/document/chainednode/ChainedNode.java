@@ -1035,6 +1035,8 @@ public final class ChainedNode implements IChainedNode {
           } else if (character == ')') {
             nextIndex++;
             break;
+          } else {
+            //Does nothing and continues the current loop.
           }
         }
 
