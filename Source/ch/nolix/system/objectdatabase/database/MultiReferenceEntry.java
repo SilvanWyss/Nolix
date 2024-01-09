@@ -58,7 +58,7 @@ final class MultiReferenceEntry<E extends IEntity> implements IMultiReferenceEnt
   @Override
   public IProperty getStoredBackReferencingPropertyOrNull() {
     return getReferencedEntity()
-      .technicalGetRefProperties()
+      .technicalGetStoredProperties()
       .getStoredFirstOrNull(p -> p.referencesBackProperty(getStoredParentMultiReference()));
   }
 

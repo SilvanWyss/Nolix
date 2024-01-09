@@ -28,7 +28,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   public boolean allNewAndEditedMandatoryPropertiesAreSet(final IEntity entity) {
 
     if (isNewOrEdited(entity)) {
-      return entity.technicalGetRefProperties().containsOnly(PROPERTY_HELPER::isSetForCaseIsNewOrEditedAndMandatory);
+      return entity.technicalGetStoredProperties().containsOnly(PROPERTY_HELPER::isSetForCaseIsNewOrEditedAndMandatory);
     }
 
     return true;
@@ -50,7 +50,7 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   //method
   @Override
   public boolean containsMandatoryAndEmptyBaseValuesOrBaseReferences(final IEntity entity) {
-    return entity.technicalGetRefProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
+    return entity.technicalGetStoredProperties().containsAny(this::isMandatoryAndEmptyBaseValueOrBaseReference);
   }
 
   //method
@@ -71,25 +71,25 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   //method
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
-    return new NewEntityDto(entity.getId(), entity.technicalGetRefProperties().to(IProperty::technicalToContentField));
+    return new NewEntityDto(entity.getId(), entity.technicalGetStoredProperties().to(IProperty::technicalToContentField));
   }
 
   //method
   @Override
   public IContainer<IProperty> getStoredBackReferencingProperties(final IEntity entity) {
-    return entity.technicalGetRefProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
+    return entity.technicalGetStoredProperties().toFromGroups(IProperty::getStoredBackReferencingProperties);
   }
 
   //method
   @Override
   public IContainer<? extends IProperty> getStoredEditedProperties(final IEntity entity) {
-    return entity.technicalGetRefProperties().getStoredSelected(PROPERTY_HELPER::isEdited);
+    return entity.technicalGetStoredProperties().getStoredSelected(PROPERTY_HELPER::isEdited);
   }
 
   //method
   @Override
   public IContainer<? extends IProperty> getStoredReferencingProperties(final IEntity entity) {
-    return entity.technicalGetRefProperties().toFromGroups(IProperty::getStoredReferencingProperties);
+    return entity.technicalGetStoredProperties().toFromGroups(IProperty::getStoredReferencingProperties);
   }
 
   //method
@@ -118,13 +118,13 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   //method
   @Override
   public boolean referencesGivenEntity(final IEntity sourceEntity, final IEntity entity) {
-    return sourceEntity.technicalGetRefProperties().containsAny(p -> p.referencesEntity(entity));
+    return sourceEntity.technicalGetStoredProperties().containsAny(p -> p.referencesEntity(entity));
   }
 
   //method
   @Override
   public boolean referencesUninsertedEntity(final IEntity entity) {
-    return entity.technicalGetRefProperties().containsAny(IProperty::referencesUninsertedEntity);
+    return entity.technicalGetStoredProperties().containsAny(IProperty::referencesUninsertedEntity);
   }
 
   //method

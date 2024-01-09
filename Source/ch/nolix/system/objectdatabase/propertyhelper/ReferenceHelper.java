@@ -41,7 +41,7 @@ public final class ReferenceHelper extends PropertyHelper implements IReferenceH
   public IProperty getStoredBackReferencingPropertyOrNull(final IReference<?> reference) {
     return reference
       .getReferencedEntity()
-      .technicalGetRefProperties()
+      .technicalGetStoredProperties()
       .getStoredFirstOrNull(p -> p.referencesBackProperty(reference));
   }
 

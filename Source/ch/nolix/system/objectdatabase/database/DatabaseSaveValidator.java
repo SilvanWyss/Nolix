@@ -54,7 +54,7 @@ public final class DatabaseSaveValidator {
   private void addExpectationToDatabaseThatNewlyReferencedEntitiesExistWhenEntityIsNewOrEdited(
     final IEntity entity,
     final Database database) {
-    for (final var p : entity.technicalGetRefProperties()) {
+    for (final var p : entity.technicalGetStoredProperties()) {
       addExpectationToDatabaseThatNewlyReferencedEntitiesExist(database, p);
     }
   }

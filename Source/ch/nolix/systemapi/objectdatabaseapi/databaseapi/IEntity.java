@@ -35,5 +35,5 @@ public interface IEntity extends Deletable, IDatabaseObject, IIdHolder {
   boolean isReferencedInPersistedData();
 
   //method declaration
-  IContainer<? extends IProperty> technicalGetRefProperties();
+  IContainer<? extends IProperty> technicalGetStoredProperties();
 }

@@ -52,7 +52,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
       return new ImmutableList<>();
     }
 
-    final var backReferencingProperty = getReferencedEntity().technicalGetRefProperties()
+    final var backReferencingProperty = getReferencedEntity().technicalGetStoredProperties()
       .getStoredFirstOrNull(p -> p.referencesBackProperty(this));
 
     if (backReferencingProperty != null) {
@@ -216,7 +216,7 @@ public final class Reference<E extends IEntity> extends BaseReference<E> impleme
 
   //method
   private void updateProbableBackReferencingPropertyForSetOrAddedEntity(final E entity) {
-    for (final var p : entity.technicalGetRefProperties()) {
+    for (final var p : entity.technicalGetStoredProperties()) {
       if (p.getType().getBaseType() == BasePropertyType.BASE_BACK_REFERENCE) {
 
         final var baseBackReference = (BaseBackReference<?>) p;
