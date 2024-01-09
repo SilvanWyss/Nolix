@@ -208,9 +208,9 @@ public final class FileNode extends BaseMutableNode<FileNode> {
    * {@inheritDoc}
    */
   @Override
-  public FileNode removeAndGetRefFirstChildNodeThat(final Predicate<INode<?>> selector) {
+  public FileNode removeAndGetStoredFirstChildNodeThat(final Predicate<INode<?>> selector) {
 
-    final var attribute = internalSpecification.removeAndGetRefFirstChildNodeThat(selector::test);
+    final var attribute = internalSpecification.removeAndGetStoredFirstChildNodeThat(selector::test);
     save();
 
     return new FileNode(this, attribute);

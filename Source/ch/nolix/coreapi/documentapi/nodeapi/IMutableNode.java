@@ -103,7 +103,7 @@ public interface IMutableNode<MN extends IMutableNode<MN>> extends INode<MN>, IF
    * @throws RuntimeException if the current {@link IMutableNode} does not contain
    *                          a child {@link INode} the given selector selects.
    */
-  MN removeAndGetRefFirstChildNodeThat(Predicate<INode<?>> selector);
+  MN removeAndGetStoredFirstChildNodeThat(Predicate<INode<?>> selector);
 
   //method declaration
   /**

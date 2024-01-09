@@ -209,7 +209,7 @@ public final class MutableNode extends BaseMutableNode<MutableNode> {
    * {@inheritDoc}
    */
   @Override
-  public MutableNode removeAndGetRefFirstChildNodeThat(final Predicate<INode<?>> selector) {
+  public MutableNode removeAndGetStoredFirstChildNodeThat(final Predicate<INode<?>> selector) {
     return childNodes.removeAndGetStoredFirst(selector::test);
   }
 

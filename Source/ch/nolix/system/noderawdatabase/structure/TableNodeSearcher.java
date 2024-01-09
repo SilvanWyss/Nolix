@@ -30,7 +30,7 @@ public final class TableNodeSearcher {
 
   //method
   public IMutableNode<?> removeAndGetRefEntityNodeFromTableNode(IMutableNode<?> tableNode, String id) {
-    return tableNode.removeAndGetRefFirstChildNodeThat(
+    return tableNode.removeAndGetStoredFirstChildNodeThat(
       a -> a.hasHeader(SubNodeHeaderCatalogue.ENTITY)
       && a.getStoredChildNodeAt1BasedIndex(FieldIndexCatalogue.ID_INDEX).hasHeader(id));
   }
