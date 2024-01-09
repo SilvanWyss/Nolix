@@ -10,6 +10,7 @@ import ch.nolix.system.objectdatabase.dataadapter.NodeDataAdapter;
 import ch.nolix.system.objectdatabase.database.Entity;
 import ch.nolix.system.objectdatabase.database.Value;
 import ch.nolix.system.objectdatabase.schema.Schema;
+import ch.nolix.systemapi.databaseobjectapi.databaseobjectapi.DatabaseObjectState;
 
 //class
 public final class EntityOnDatabaseTest extends Test {
@@ -50,6 +51,28 @@ public final class EntityOnDatabaseTest extends Test {
 
     //verification
     expect(testUnit.ageInYears.getStoredValue()).isEqualTo(1);
+  }
+
+  //method
+  @TestCase
+  public void testCase_isLoaded() {
+
+    //setup
+    final var nodeDatabase = new MutableNode();
+    final var schema = Schema.withEntityType(Pet.class);
+    final var nodeDataAdapter = NodeDataAdapter.forNodeDatabase(nodeDatabase).withName("my_database").andSchema(schema);
+    final var garfield = new Pet();
+    garfield.ageInYears.setValue(5);
+    nodeDataAdapter.insert(garfield);
+    nodeDataAdapter.saveChanges();
+
+    //execution
+    final var loadedGarfield = //
+    nodeDataAdapter.getStoredTableByEntityType(Pet.class).getStoredEntityById(garfield.getId());
+
+    //verification
+    expect(loadedGarfield.getState()).is(DatabaseObjectState.LOADED);
+    expect(loadedGarfield.getSaveStamp()).isNotEmpty();
   }
 
   //method
