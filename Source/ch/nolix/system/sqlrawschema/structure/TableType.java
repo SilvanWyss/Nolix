@@ -7,6 +7,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //enum
 public enum TableType {
   SYSTEM_TABLE("S"),
+  ALL_ENTITY_TABLE("A"),
   ENTITY_TABLE("E"),
   MULTI_ENTRY_TABLE("M");
 
