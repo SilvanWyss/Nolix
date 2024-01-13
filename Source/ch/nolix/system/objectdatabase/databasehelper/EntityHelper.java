@@ -71,7 +71,8 @@ public final class EntityHelper extends DatabaseObjectHelper implements IEntityH
   //method
   @Override
   public INewEntityDto createNewEntityDtoForEntity(final IEntity entity) {
-    return new NewEntityDto(entity.getId(), entity.technicalGetStoredProperties().to(IProperty::technicalToContentField));
+    return //
+    new NewEntityDto(entity.getId(), entity.technicalGetStoredProperties().to(IProperty::technicalToContentField));
   }
 
   //method
