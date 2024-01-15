@@ -30,11 +30,21 @@ public final class ForCountMediator {
    * @param maxRunCount
    * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
-  ForCountMediator(final int maxRunCount) {
+  private ForCountMediator(final int maxRunCount) {
 
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
     this.maxRunCount = maxRunCount;
+  }
+
+  //static method
+  /**
+   * @param maxRunCount
+   * @return a new {@link ForCountMediator} with the given maxRunCount.
+   * @throws NegativeArgumentException if the given maxRunCount is negative.
+   */
+  public static ForCountMediator forMaxRunCount(final int maxRunCount) {
+    return new ForCountMediator(maxRunCount);
   }
 
   //method

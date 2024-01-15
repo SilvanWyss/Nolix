@@ -88,7 +88,7 @@ public final class GlobalSequencer {
    * @throws NegativeArgumentException if the given max run count is negative.
    */
   public static ForCountMediator forCount(final int maxRunCount) {
-    return new ForCountMediator(maxRunCount);
+    return ForCountMediator.forMaxRunCount(maxRunCount);
   }
 
   //static method
