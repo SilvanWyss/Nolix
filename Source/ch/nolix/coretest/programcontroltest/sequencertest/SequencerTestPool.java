@@ -16,6 +16,6 @@ public final class SequencerTestPool extends TestPool {
    * Creates a new {@link SequencerTestPool}.
    */
   public SequencerTestPool() {
-    super(GlobalSequencerTest.class);
+    super(ForCountMediatorTest.class, GlobalSequencerTest.class);
   }
 }
