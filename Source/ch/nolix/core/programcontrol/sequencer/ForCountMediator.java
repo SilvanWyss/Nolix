@@ -5,12 +5,15 @@ package ch.nolix.core.programcontrol.sequencer;
 import java.util.function.IntConsumer;
 
 //own imports
+import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.NegativeArgumentException;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
+import ch.nolix.coreapi.programcontrolapi.futureapi.IFuture;
 
 //class
 /**
- * A for count mediator is not mutable.
+ * A {@link ForCountMediator} is not mutable.
  * 
  * @author Silvan Wyss
  * @date 2016-06-01
@@ -22,27 +25,29 @@ public final class ForCountMediator {
 
   //constructor
   /**
-   * Creates a new for count mediator with the given max run count.
+   * Creates a new {@link ForCountMediator} with the given maxRunCount.
    * 
    * @param maxRunCount
-   * @throws NegativeArgumentException if the given max run count is negative.
+   * @throws NegativeArgumentException if the given maxRunCount is negative.
    */
   ForCountMediator(final int maxRunCount) {
 
-    //Asserts that the given max run count is not negative.
     GlobalValidator.assertThat(maxRunCount).thatIsNamed("max run count").isNotNegative();
 
-    //Sets the max run count of this for count mediator.
     this.maxRunCount = maxRunCount;
   }
 
   //method
   /**
-   * Lets this for count mediator run the given job.
+   * Lets the current {@link ForCountMediator} run the given job.
    * 
    * @param job
+   * @throws ArgumentIsNullException if the given job is null.
    */
   public void run(final Runnable job) {
+
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+
     for (var i = 1; i <= maxRunCount; i++) {
       job.run();
     }
@@ -50,11 +55,15 @@ public final class ForCountMediator {
 
   //method
   /**
-   * Lets this for count mediator run the given job.
+   * Lets the current {@link ForCountMediator} run the given job.
    * 
    * @param job
+   * @throws ArgumentIsNullException if the given job is null.
    */
   public void run(final IntConsumer job) {
+
+    GlobalValidator.assertThat(job).thatIsNamed(LowerCaseCatalogue.JOB).isNotNull();
+
     for (var i = 1; i <= maxRunCount; i++) {
       job.accept(i);
     }
@@ -62,12 +71,13 @@ public final class ForCountMediator {
 
   //method
   /**
-   * Lets this for count mediator run the given job in background.
+   * Lets the current {@link ForCountMediator} run the given job in background.
    * 
    * @param job
-   * @return a new future.
+   * @return a new {@link IFuture} for the job running.
+   * @throws ArgumentIsNullException if the given job is null.
    */
-  public Future runInBackground(final Runnable job) {
+  public IFuture runInBackground(final Runnable job) {
     return new Future(new JobRunner(job, maxRunCount));
   }
 }
