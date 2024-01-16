@@ -46,7 +46,7 @@ public final class FunctionCatalogueTest extends Test {
   public void testCase_getStringOf_whenIntIsGiven() {
 
     //execution
-    final var result = FunctionCatalogue.getStringOf(2500);
+    final var result = FunctionCatalogue.getStringRepresentationOf(2500);
 
     //verification
     expect(result).isEqualTo("2500");
@@ -57,7 +57,7 @@ public final class FunctionCatalogueTest extends Test {
   public void testCase_getStringOf_whenStringIsGiven() {
 
     //execution
-    final var result = FunctionCatalogue.getStringOf("Lorem ipsum");
+    final var result = FunctionCatalogue.getStringRepresentationOf("Lorem ipsum");
 
     //verification
     expect(result).isEqualTo("Lorem ipsum");

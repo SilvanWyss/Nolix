@@ -105,9 +105,9 @@ public final class FunctionCatalogue {
   //static method
   /**
    * @param object
-   * @return the {@link String} of the given object.
+   * @return the {@link String} representation of the given object.
    */
-  public static String getStringOf(final Object object) {
+  public static String getStringRepresentationOf(final Object object) {
 
     if (object == null) {
       return StringCatalogue.NULL_HEADER;
