@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.template.webgui.dialog;
 
+import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.core.programcontrol.sequencer.GlobalSequencer;
-import ch.nolix.coreapi.programatomapi.functionapi.FunctionCatalogue;
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Label;
 import ch.nolix.system.webgui.linearcontainer.VerticalStack;

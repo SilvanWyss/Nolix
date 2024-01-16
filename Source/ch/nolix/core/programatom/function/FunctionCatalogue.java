@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.programatomapi.functionapi;
+package ch.nolix.core.programatom.function;
 
 //Java imports
 import java.util.Objects;

@@ -3,7 +3,7 @@ package ch.nolix.template.webgui.dialog;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.programatomapi.functionapi.FunctionCatalogue;
+import ch.nolix.core.programatom.function.FunctionCatalogue;
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 import ch.nolix.system.webgui.atomiccontrol.Button;
 import ch.nolix.system.webgui.atomiccontrol.Label;
