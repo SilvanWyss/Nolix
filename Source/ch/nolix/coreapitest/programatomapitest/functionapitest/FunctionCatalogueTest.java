@@ -1,6 +1,7 @@
 //package declaration
 package ch.nolix.coreapitest.programatomapitest.functionapitest;
 
+//own imports
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.programatomapi.functionapi.FunctionCatalogue;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
@@ -43,7 +44,18 @@ public final class FunctionCatalogueTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getStringOf_whenIntIsGiven() {
+  public void testCase_getStringRepresentationOf_whenNullIsGiven() {
+
+    //execution
+    final var result = FunctionCatalogue.getStringRepresentationOf(null);
+
+    //verification
+    expect(result).isEqualTo("null");
+  }
+
+  //method
+  @TestCase
+  public void testCase_getStringRepresentationOf_whenAnIntIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getStringRepresentationOf(2500);
@@ -54,7 +66,7 @@ public final class FunctionCatalogueTest extends Test {
 
   //method
   @TestCase
-  public void testCase_getStringOf_whenStringIsGiven() {
+  public void testCase_getStringRepresentationOf_whenAStringIsGiven() {
 
     //execution
     final var result = FunctionCatalogue.getStringRepresentationOf("Lorem ipsum");
