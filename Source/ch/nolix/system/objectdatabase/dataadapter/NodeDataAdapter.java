@@ -16,7 +16,7 @@ public final class NodeDataAdapter extends DataAdapter {
   private final IMutableNode<?> nodeDatabase;
 
   //constructor
-  NodeDataAdapter(
+  private NodeDataAdapter(
     final String databaseName,
     final IMutableNode<?> nodeDatabase,
     final ISchema schema) {
@@ -33,6 +33,14 @@ public final class NodeDataAdapter extends DataAdapter {
   //static method
   public static NodeDataAdapterBuilder forNodeDatabase(final IMutableNode<?> nodeDatabase) {
     return new NodeDataAdapterBuilder(nodeDatabase);
+  }
+
+  //static method
+  public static NodeDataAdapter forDatabaseNameAndNodeDatabaseAndSchema(
+    final String databaseName,
+    final IMutableNode<?> nodeDatabase,
+    final ISchema schema) {
+    return new NodeDataAdapter(databaseName, nodeDatabase, schema);
   }
 
   //static method
