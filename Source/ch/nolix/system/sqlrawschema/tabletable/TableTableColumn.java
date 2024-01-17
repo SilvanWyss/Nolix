@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
-import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 
 //enum
 public enum TableTableColumn implements INameHolder {
@@ -15,7 +15,7 @@ public enum TableTableColumn implements INameHolder {
   NAME(PascalCaseCatalogue.NAME);
 
   //constant
-  private static final String NAME_PREFIX = SystemDataTable.TABLE.getQualifiedName() + StringCatalogue.DOT;
+  private static final String NAME_PREFIX = SchemaTableType.TABLE.getQualifiedName() + StringCatalogue.DOT;
 
   //attribute
   private final String name;

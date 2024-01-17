@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 //own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IContentFieldDto;
 import ch.nolix.systemapi.rawdatabaseapi.databasedtoapi.IEntityHeadDto;
@@ -35,7 +35,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToExpectGivenSchemaTimestamp(final ITime schemaTimestamp) {
     return "IF NOT EXISTS (SELECT * FROM "
-    + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
+    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
     + DatabasePropertySystemTableColumn.KEY.getLabel()
     + " = '"

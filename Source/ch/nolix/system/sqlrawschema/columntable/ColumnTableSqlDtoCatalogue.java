@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.columntable;
 
 //own imports
 import ch.nolix.system.sqlrawschema.structure.SqlDatatypeCatalogue;
-import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
@@ -42,7 +42,7 @@ public final class ColumnTableSqlDtoCatalogue {
 
   //constant
   public static final ITableDto COLUMN_TABLE_SQL_DTO = new TableDto(
-    SystemDataTable.COLUMN.getQualifiedName(),
+    SchemaTableType.COLUMN.getQualifiedName(),
     ID_SQL_DTO,
     PARENT_TABLE_ID_SQL_DTO,
     NAME_SQL_DTO,

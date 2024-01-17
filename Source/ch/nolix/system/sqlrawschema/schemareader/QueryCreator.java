@@ -5,7 +5,7 @@ package ch.nolix.system.sqlrawschema.schemareader;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 
 //class
@@ -16,7 +16,7 @@ final class QueryCreator {
     return "SELECT COUNT("
     + TableTableColumn.ID.getName()
     + ") FROM "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + ";";
   }
 
@@ -37,7 +37,7 @@ final class QueryCreator {
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " FROM "
-    + SystemDataTable.COLUMN.getQualifiedName()
+    + SchemaTableType.COLUMN.getQualifiedName()
     + " WHERE "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -62,7 +62,7 @@ final class QueryCreator {
     + ", "
     + ColumnTableColumn.BACK_REFERENCED_COLUM_ID.getName()
     + " FROM "
-    + SystemDataTable.COLUMN.getQualifiedName()
+    + SchemaTableType.COLUMN.getQualifiedName()
     + " WHERE "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = '"
@@ -77,7 +77,7 @@ final class QueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + " FROM "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + " WHERE "
     + TableTableColumn.ID.getName()
     + " = '"
@@ -92,7 +92,7 @@ final class QueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + " FROM "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + " WHERE "
     + TableTableColumn.NAME.getName()
     + " = '"
@@ -107,7 +107,7 @@ final class QueryCreator {
     + ", "
     + TableTableColumn.NAME.getName()
     + " FROM "
-    + SystemDataTable.TABLE.getQualifiedName();
+    + SchemaTableType.TABLE.getQualifiedName();
   }
 
   //method
@@ -115,7 +115,7 @@ final class QueryCreator {
     return "SELECT "
     + DatabasePropertySystemTableColumn.VALUE.getLabel()
     + " FROM "
-    + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
+    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
     + DatabasePropertySystemTableColumn.KEY.getLabel()
     + " = "

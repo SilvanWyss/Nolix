@@ -7,7 +7,7 @@ import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParameterizedPropertyTypeSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
 import ch.nolix.systemapi.rawschemaapi.schemadtoapi.IColumnDto;
@@ -33,7 +33,7 @@ final class SystemDataWriterSqlStatementCreator {
         column.getParameterizedPropertyType());
 
     return "INSERT INTO "
-    + SystemDataTable.COLUMN.getQualifiedName()
+    + SchemaTableType.COLUMN.getQualifiedName()
     + " ("
     + ColumnTableColumn.ID.getName()
     + ", "
@@ -63,7 +63,7 @@ final class SystemDataWriterSqlStatementCreator {
     + ", "
     + parameterizedPropertyTypeRecord.getBackReferencedColumnIdValue()
     + " FROM "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + " WHERE "
     + TableTableColumn.NAME.getQualifiedName()
     + " = '"
@@ -88,7 +88,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToDeleteColumn(final String tableName, final String columnName) {
     return "DELETE FROM "
-    + SystemDataTable.COLUMN.getQualifiedName()
+    + SchemaTableType.COLUMN.getQualifiedName()
     + " WHERE "
     + ColumnTableColumn.PARENT_TABLE_ID.getName()
     + " = "
@@ -103,7 +103,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToDeleteTable(final String tableName) {
     return "DELETE FROM "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + " WHERE "
     + TableTableColumn.NAME
     + " = '"
@@ -114,7 +114,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToSetColumnName(String tableName, String columnName, String newColumnName) {
     return "UPDATE "
-    + SystemDataTable.COLUMN.getQualifiedName()
+    + SchemaTableType.COLUMN.getQualifiedName()
     + " SET "
     + ColumnTableColumn.NAME
     + " = '"
@@ -139,7 +139,7 @@ final class SystemDataWriterSqlStatementCreator {
       .createParameterizedPropertyTypeRecordFrom(parameterizedPropertyType);
 
     return "UPDATE "
-    + SystemDataTable.COLUMN.getQualifiedName()
+    + SchemaTableType.COLUMN.getQualifiedName()
     + " SET "
     + ColumnTableColumn.DATA_TYPE
     + " = "
@@ -162,7 +162,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
     return "UPDATE "
-    + SystemDataTable.DATABASE_PROPERTY.getQualifiedName()
+    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
     + " SET "
     + DatabasePropertySystemTableColumn.VALUE.getLabel()
     + " = '"
@@ -176,7 +176,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToSetTableName(String tableName, String newTableName) {
     return "UPDATE "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + " SET "
     + TableTableColumn.NAME.getName()
     + " = '"
@@ -194,7 +194,7 @@ final class SystemDataWriterSqlStatementCreator {
     final var tableSystemTableRecord = TABLE_TABLE_RECORD_MAPPER.createTableSystemTableRecordFrom(table);
 
     return "INSERT INTO "
-    + SystemDataTable.TABLE.getQualifiedName()
+    + SchemaTableType.TABLE.getQualifiedName()
     + " ("
     + TableTableColumn.ID.getName()
     + ", "

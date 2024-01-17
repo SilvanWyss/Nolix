@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawschema.databasepropertytable;
 
 //own imports
 import ch.nolix.system.sqlrawschema.structure.SqlDatatypeCatalogue;
-import ch.nolix.system.sqlrawschema.structure.SystemDataTable;
+import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
 
@@ -20,7 +20,7 @@ public final class DatabasePropertyTableSqlDtoCatalogue {
 
   //constant
   public static final TableDto DATABASE_PROPERTY_TABLE_SQL_DTO = new TableDto(
-    SystemDataTable.DATABASE_PROPERTY.getQualifiedName(),
+    SchemaTableType.DATABASE_PROPERTY.getQualifiedName(),
     KEY_COLUMN_SQL_DTO,
     VALUE_COLUMN_SQL_DTO);
 
