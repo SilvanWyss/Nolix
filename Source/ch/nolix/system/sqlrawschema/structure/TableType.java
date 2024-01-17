@@ -7,9 +7,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 //enum
 public enum TableType {
   SCHEMA_TABLE("S"),
+  META_DATA_TABLE("M"),
   ALL_ENTITY_TABLE("A"),
   ENTITY_TABLE("E"),
-  MULTI_ENTRY_TABLE("M");
+  MULTI_ENTRY_TABLE("T");
 
   //attribute
   private final String namePrefix;
