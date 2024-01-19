@@ -9,7 +9,6 @@ import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 
 //enum
 public enum SchemaTableType implements INameHolder {
-  DATABASE_PROPERTY("DatabaseProperty"),
   TABLE(PascalCaseCatalogue.TABLE),
   COLUMN(PascalCaseCatalogue.COLUMN);
 

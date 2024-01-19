@@ -7,9 +7,9 @@ import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalogue;
+import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
-import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
@@ -44,7 +44,7 @@ final class InternalDatabaseInitializer {
 
   private String createQslStatementToCreateSchemaTimestampEntry() {
     return "INSERT INTO "
-    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
+    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " ("
     + DatabasePropertySystemTableColumn.KEY.getLabel()
     + ", "

@@ -7,6 +7,7 @@ import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.columntable.ParameterizedPropertyTypeSqlRecordMapper;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableRecordMapper;
@@ -162,7 +163,7 @@ final class SystemDataWriterSqlStatementCreator {
   //method
   public String createStatementToSetSchemaTimestamp(ITime schemaTimestamp) {
     return "UPDATE "
-    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
+    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " SET "
     + DatabasePropertySystemTableColumn.VALUE.getLabel()
     + " = '"

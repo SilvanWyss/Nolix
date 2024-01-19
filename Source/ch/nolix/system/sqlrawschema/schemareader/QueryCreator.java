@@ -5,6 +5,7 @@ package ch.nolix.system.sqlrawschema.schemareader;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
+import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableColumn;
 
@@ -115,7 +116,7 @@ final class QueryCreator {
     return "SELECT "
     + DatabasePropertySystemTableColumn.VALUE.getLabel()
     + " FROM "
-    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
+    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
     + DatabasePropertySystemTableColumn.KEY.getLabel()
     + " = "

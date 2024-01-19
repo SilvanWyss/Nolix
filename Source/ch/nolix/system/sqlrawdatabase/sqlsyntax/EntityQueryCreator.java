@@ -4,7 +4,7 @@ package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 //own imports
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
-import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
+import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.TableType;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.IColumnInfo;
 import ch.nolix.systemapi.rawdatabaseapi.schemainfoapi.ITableInfo;
@@ -70,7 +70,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT "
     + DatabasePropertySystemTableColumn.VALUE.getLabel()
     + " FROM "
-    + SchemaTableType.DATABASE_PROPERTY.getQualifiedName()
+    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " WHERE "
     + DatabasePropertySystemTableColumn.KEY.getLabel()
     + " = '"

@@ -2,7 +2,7 @@
 package ch.nolix.system.sqlrawschema.databaseschemainspector;
 
 //own imports
-import ch.nolix.system.sqlrawschema.structure.SchemaTableType;
+import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.systemapi.objectschemaapi.schemaapi.DatabaseSchemaState;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
@@ -12,7 +12,7 @@ public final class DatabaseSchemaInspector {
   //method
   public DatabaseSchemaState getDatabaseSchemaState(final ISchemaAdapter schemaAdapter) {
 
-    if (schemaAdapter.tableExists(SchemaTableType.DATABASE_PROPERTY.getQualifiedName())) {
+    if (schemaAdapter.tableExists(MetaDataTableType.DATABASE_PROPERTY.getQualifiedName())) {
       return DatabaseSchemaState.INITIALIZED;
     }
 
