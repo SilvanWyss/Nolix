@@ -26,19 +26,19 @@ final class SchemaDtoMapper {
   new ColumnDto(PascalCaseCatalogue.SAVE_STAMP, SqlDatatypeCatalogue.INTEGER);
 
   //method
-  public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto createQslColumnDtoFrom(
+  public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto createSqlColumnDtoFrom(
     final IColumnDto column) {
     return new ColumnDto(column.getName(), SqlDatatypeCatalogue.TEXT);
   }
 
   //method
-  public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(
+  public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto createSqlTableDtoFrom(
     final ITableDto table) {
-    return new TableDto(TableType.ENTITY_TABLE.getQualifyingPrefix() + table.getName(), createQslColumnDtosFrom(table));
+    return new TableDto(TableType.ENTITY_TABLE.getQualifyingPrefix() + table.getName(), createSqlColumnDtosFrom(table));
   }
 
   //method
-  private IContainer<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> createQslColumnDtosFrom(
+  private IContainer<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto> createSqlColumnDtosFrom(
     final ITableDto table) {
 
     final var columns = new LinkedList<ch.nolix.systemapi.sqlschemaapi.schemadtoapi.IColumnDto>();
@@ -46,7 +46,7 @@ final class SchemaDtoMapper {
     columns.addAtEnd(SQL_ID_COLUMN_DTO);
 
     for (final var c : table.getColumns()) {
-      columns.addAtEnd(createQslColumnDtoFrom(c));
+      columns.addAtEnd(createSqlColumnDtoFrom(c));
     }
 
     columns.addAtEnd(SQL_SAVE_STAMP_COLUMN_DTO);

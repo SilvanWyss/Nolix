@@ -34,7 +34,7 @@ public abstract class SqlConnection implements GroupCloseable {
   private final CloseController closeController = CloseController.forElement(this);
 
   //optional attribute
-  private final SqlConnectionPool parentQslConnectionPool;
+  private final SqlConnectionPool parentSqlConnectionPool;
 
   //constructor
   protected SqlConnection(final SqlDatabaseEngine sqlDatabaseEngine, final Connection connection) {
@@ -44,7 +44,7 @@ public abstract class SqlConnection implements GroupCloseable {
 
     this.sqlDatabaseEngine = sqlDatabaseEngine;
     this.connection = connection;
-    parentQslConnectionPool = null;
+    parentSqlConnectionPool = null;
   }
 
   //constructor
@@ -81,7 +81,7 @@ public abstract class SqlConnection implements GroupCloseable {
       throw WrapperException.forError(sqlException);
     }
 
-    parentQslConnectionPool = null;
+    parentSqlConnectionPool = null;
   }
 
   //constructor
@@ -91,13 +91,13 @@ public abstract class SqlConnection implements GroupCloseable {
     final int port,
     final String userName,
     final String userPassword,
-    final SqlConnectionPool parentQslConnectionPool) {
+    final SqlConnectionPool parentSqlConnectionPool) {
 
     GlobalValidator.assertThat(sqlDatabaseEngine).thatIsNamed(SqlDatabaseEngine.class).isNotNull();
-    GlobalValidator.assertThat(parentQslConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
+    GlobalValidator.assertThat(parentSqlConnectionPool).thatIsNamed("parent SQLConnectionPool").isNotNull();
 
     GlobalValidator
-      .assertThat(parentQslConnectionPool)
+      .assertThat(parentSqlConnectionPool)
       .thatIsNamed("parent SQLConnectionPool")
       .fulfills(SqlConnectionPool::isOpen);
 
@@ -114,12 +114,12 @@ public abstract class SqlConnection implements GroupCloseable {
       throw WrapperException.forError(sqlException);
     }
 
-    this.parentQslConnectionPool = parentQslConnectionPool;
+    this.parentSqlConnectionPool = parentSqlConnectionPool;
   }
 
   //method
   public final boolean belongsToSqlConnectionPool() {
-    return (parentQslConnectionPool != null);
+    return (parentSqlConnectionPool != null);
   }
 
   //method
@@ -207,7 +207,7 @@ public abstract class SqlConnection implements GroupCloseable {
       return GroupCloseable.super.isClosed();
     }
 
-    return parentQslConnectionPool.isClosed();
+    return parentSqlConnectionPool.isClosed();
   }
 
   //method
@@ -261,7 +261,7 @@ public abstract class SqlConnection implements GroupCloseable {
 
   //method
   private void giveBackSelfToParentSqlConnectionPool() {
-    parentQslConnectionPool.takeBackSqlConnection(this);
+    parentSqlConnectionPool.takeBackSqlConnection(this);
   }
 
   //method

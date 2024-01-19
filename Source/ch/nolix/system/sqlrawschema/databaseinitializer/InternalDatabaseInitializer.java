@@ -38,11 +38,11 @@ final class InternalDatabaseInitializer {
   private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool sqlConnectionPool) {
     try (final var sqlConnection = sqlConnectionPool.borrowSqlConnection()) {
       sqlConnection.execute("USE " + databaseName);
-      sqlConnection.execute(createQslStatementToCreateSchemaTimestampEntry());
+      sqlConnection.execute(createSqlStatementToCreateSchemaTimestampEntry());
     }
   }
 
-  private String createQslStatementToCreateSchemaTimestampEntry() {
+  private String createSqlStatementToCreateSchemaTimestampEntry() {
     return "INSERT INTO "
     + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
     + " ("
