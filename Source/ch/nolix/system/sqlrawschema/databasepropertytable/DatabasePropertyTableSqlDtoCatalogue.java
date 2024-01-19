@@ -1,9 +1,8 @@
 //package declaration
 package ch.nolix.system.sqlrawschema.databasepropertytable;
 
-//own imports
-import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.structure.SqlDatatypeCatalogue;
+import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.sqlschema.schemadto.ColumnDto;
 import ch.nolix.system.sqlschema.schemadto.TableDto;
 

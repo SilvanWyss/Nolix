@@ -7,7 +7,7 @@ import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
-import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
+import ch.nolix.system.sqlrawschema.tabletype.MultiEntryTableType;
 
 //enum
 public enum MultiValueEntryTableColumn implements INameHolder {

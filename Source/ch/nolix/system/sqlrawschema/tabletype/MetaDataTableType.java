@@ -1,25 +1,23 @@
 //package declaration
-package ch.nolix.system.sqlrawschema.structure;
+package ch.nolix.system.sqlrawschema.tabletype;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
-import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 
 //enum
-public enum SchemaTableType implements IQualifiedNameHolder {
-  TABLE(PascalCaseCatalogue.TABLE),
-  COLUMN(PascalCaseCatalogue.COLUMN);
+public enum MetaDataTableType implements IQualifiedNameHolder {
+  DATABASE_PROPERTY("DatabaseProperty");
 
   //constant
-  private static final String QUALIFYING_PREFIX = TableType.SCHEMA_TABLE.getQualifyingPrefix();
+  private static final String QUALIFYING_PREFIX = TableType.META_DATA_TABLE.getQualifyingPrefix();
 
   //attribute
   private final String name;
 
   //constructor
-  SchemaTableType(final String name) {
+  MetaDataTableType(final String name) {
 
     GlobalValidator.assertThat(name).thatIsNamed(LowerCaseCatalogue.NAME).isNotBlank();
 

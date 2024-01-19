@@ -7,10 +7,10 @@ import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalogue;
-import ch.nolix.system.sqlrawschema.metadatatable.MetaDataTableType;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
+import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 

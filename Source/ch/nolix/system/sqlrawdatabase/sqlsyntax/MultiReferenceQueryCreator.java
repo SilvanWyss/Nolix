@@ -3,7 +3,7 @@ package ch.nolix.system.sqlrawdatabase.sqlsyntax;
 
 //own imports
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableColumn;
-import ch.nolix.system.sqlrawschema.structure.MultiEntryTableType;
+import ch.nolix.system.sqlrawschema.tabletype.MultiEntryTableType;
 import ch.nolix.systemapi.rawdatabaseapi.sqlsyntaxapi.IMultiReferenceQueryCreator;
 
 //class
