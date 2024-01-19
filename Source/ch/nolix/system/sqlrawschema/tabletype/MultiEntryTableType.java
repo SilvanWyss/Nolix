@@ -3,17 +3,17 @@ package ch.nolix.system.sqlrawschema.tabletype;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //enum
-public enum MultiEntryTableType implements INameHolder {
+public enum MultiEntryTableType implements IQualifiedNameHolder {
   MULTI_VALUE_ENTRY("MultiValueEntry"),
   MULTI_REFERENCE_ENTRY("MultiReferenceEntry"),
   MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
 
   //constant
-  private static final String NAME_PREFIX = TableType.MULTI_ENTRY_TABLE.getQualifyingPrefix();
+  private static final String QUALIFYING_PREFIX = TableType.MULTI_ENTRY_TABLE.getQualifyingPrefix();
 
   //attribute
   private final String name;
@@ -33,12 +33,8 @@ public enum MultiEntryTableType implements INameHolder {
   }
 
   //method
-  public String getQualifiedName() {
-    return (getQualifyingPrefix() + getName());
-  }
-
-  //method
-  public final String getQualifyingPrefix() {
-    return NAME_PREFIX;
+  @Override
+  public String getQualifyingPrefix() {
+    return QUALIFYING_PREFIX;
   }
 }
