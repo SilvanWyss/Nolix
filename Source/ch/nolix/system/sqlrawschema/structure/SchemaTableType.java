@@ -3,17 +3,17 @@ package ch.nolix.system.sqlrawschema.structure;
 
 //own imports
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
-import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.INameHolder;
+import ch.nolix.coreapi.attributeapi.mandatoryattributeapi.IQualifiedNameHolder;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 import ch.nolix.coreapi.programatomapi.variablenameapi.PascalCaseCatalogue;
 
 //enum
-public enum SchemaTableType implements INameHolder {
+public enum SchemaTableType implements IQualifiedNameHolder {
   TABLE(PascalCaseCatalogue.TABLE),
   COLUMN(PascalCaseCatalogue.COLUMN);
 
   //constant
-  private static final String NAME_PREFIX = TableType.SCHEMA_TABLE.getNamePrefix();
+  private static final String QUALIFYING_PREFIX = TableType.SCHEMA_TABLE.getNamePrefix();
 
   //attribute
   private final String name;
@@ -33,12 +33,8 @@ public enum SchemaTableType implements INameHolder {
   }
 
   //method
-  public String getQualifiedName() {
-    return (getQualifyingPrefix() + getName());
-  }
-
-  //method
+  @Override
   public String getQualifyingPrefix() {
-    return NAME_PREFIX;
+    return QUALIFYING_PREFIX;
   }
 }
