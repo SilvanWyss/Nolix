@@ -8,6 +8,7 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 public enum TableType {
   SCHEMA_TABLE("S"),
   META_DATA_TABLE("M"),
+  INDEX_TABLE("I"),
   ALL_ENTITY_TABLE("A"),
   ENTITY_TABLE("E"),
   MULTI_ENTRY_TABLE("T");
