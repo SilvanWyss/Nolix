@@ -25,7 +25,7 @@ public enum TableType {
   }
 
   //method
-  public final String getQualifyingPrefix() {
+  public String getQualifyingPrefix() {
     return qualifyingPrefix;
   }
 }
