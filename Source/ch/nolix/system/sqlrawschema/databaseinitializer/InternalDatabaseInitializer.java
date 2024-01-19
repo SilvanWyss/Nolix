@@ -4,18 +4,19 @@ package ch.nolix.system.sqlrawschema.databaseinitializer;
 //own imports
 import ch.nolix.core.sql.SqlConnectionPool;
 import ch.nolix.system.sqlrawschema.columntable.ColumnTableSqlDtoCatalogue;
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabaseProperty;
-import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertySystemTableColumn;
 import ch.nolix.system.sqlrawschema.databasepropertytable.DatabasePropertyTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multireferenceentrytable.MultiReferenceEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.multivalueentrytable.MultiValueEntryTableSqlDtoCatalogue;
 import ch.nolix.system.sqlrawschema.tabletable.TableTableSqlDtoCatalogue;
-import ch.nolix.system.sqlrawschema.tabletype.MetaDataTableType;
 import ch.nolix.system.time.moment.Time;
 import ch.nolix.systemapi.sqlschemaapi.schemaadapterapi.ISchemaAdapter;
 
 //class
 final class InternalDatabaseInitializer {
+
+  //constant
+  private static final DatabaseInitializerSqlStatementCreator DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR = //
+  new DatabaseInitializerSqlStatementCreator();
 
   //method
   public void initializeDatabase(
@@ -36,23 +37,14 @@ final class InternalDatabaseInitializer {
   }
 
   private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool sqlConnectionPool) {
+
+    final var now = Time.ofNow();
+    final var sqlStatementToCreateSchemaTimestampEntry = //
+    DATABASE_INITIALIZER_SQL_STATEMENT_CREATOR.createSqlStatementToCreateSchemaTimestampEntry(now);
+
     try (final var sqlConnection = sqlConnectionPool.borrowSqlConnection()) {
       sqlConnection.execute("USE " + databaseName);
-      sqlConnection.execute(createSqlStatementToCreateSchemaTimestampEntry());
+      sqlConnection.execute(sqlStatementToCreateSchemaTimestampEntry);
     }
-  }
-
-  private String createSqlStatementToCreateSchemaTimestampEntry() {
-    return "INSERT INTO "
-    + MetaDataTableType.DATABASE_PROPERTY.getQualifiedName()
-    + " ("
-    + DatabasePropertySystemTableColumn.KEY.getLabel()
-    + ", "
-    + DatabasePropertySystemTableColumn.VALUE.getLabel()
-    + ") VALUES ("
-    + DatabaseProperty.SCHEMA_TIMESTAMP.getLabelInQuotes()
-    + ", '"
-    + Time.ofNow().getSpecification().getStoredSingleChildNode()
-    + "');";
   }
 }
