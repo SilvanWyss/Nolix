@@ -13,18 +13,18 @@ public enum TableType {
   MULTI_ENTRY_TABLE("T");
 
   //attribute
-  private final String namePrefix;
+  private final String qualifyingPrefix;
 
   //constructor
-  TableType(final String namePrefix) {
+  TableType(final String qualifyingPrefix) {
 
-    GlobalValidator.assertThat(namePrefix).thatIsNamed("name prefix").isNotBlank();
+    GlobalValidator.assertThat(qualifyingPrefix).thatIsNamed("qualifying prefix").isNotBlank();
 
-    this.namePrefix = namePrefix;
+    this.qualifyingPrefix = qualifyingPrefix;
   }
 
   //method
-  public final String getNamePrefix() {
-    return namePrefix;
+  public final String getQualifyingPrefix() {
+    return qualifyingPrefix;
   }
 }

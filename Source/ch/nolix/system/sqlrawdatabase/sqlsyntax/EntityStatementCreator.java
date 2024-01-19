@@ -22,7 +22,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     final String tableName,
     final IEntityHeadDto entity) {
     return "DELETE FROM "
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableName
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " WHERE Id = '"
     + entity.getId()
     + "' AND SaveStamp = '"
@@ -51,7 +51,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToExpectTableContainsEntity(final String tableName, final String entityId) {
     return "SELECT Id FROM "
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableName
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " WHERE Id = '"
     + entityId
     + "'; "
@@ -66,7 +66,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToInsertNewEntity(final String tableName, final INewEntityDto newEntity) {
     return "INSERT INTO "
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableName
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " (Id, SaveStamp, "
     + newEntity.getContentFields().to(IContentFieldDto::getColumnName).toStringWithSeparator(", ")
     + ") VALUES ('"
@@ -82,7 +82,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
   @Override
   public String createStatementToSetEntityAsUpdated(final String tableName, final IEntityHeadDto entity) {
     return "UPDATE"
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableName
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " SET SaveStamp = '"
     + (Integer.valueOf(entity.getSaveStamp()) + 1)
     + " WHERE Id = '"
@@ -106,7 +106,7 @@ public final class EntityStatementCreator implements IEntityStatementCreator {
     }
 
     return "UPDATE "
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableName
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableName
     + " SET SaveStamp = '"
     + (Integer.valueOf(entityUpdate.getSaveStamp()) + 1)
     + "'"

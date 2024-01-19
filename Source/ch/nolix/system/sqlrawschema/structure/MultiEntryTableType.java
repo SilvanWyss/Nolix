@@ -13,7 +13,7 @@ public enum MultiEntryTableType implements INameHolder {
   MULTI_BACK_REFERENCE_ENTRY("MultiBackReferenceEntry");
 
   //constant
-  private static final String NAME_PREFIX = TableType.MULTI_ENTRY_TABLE.getNamePrefix();
+  private static final String NAME_PREFIX = TableType.MULTI_ENTRY_TABLE.getQualifyingPrefix();
 
   //attribute
   private final String name;

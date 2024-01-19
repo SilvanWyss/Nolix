@@ -34,7 +34,7 @@ final class SchemaDtoMapper {
   //method
   public ch.nolix.systemapi.sqlschemaapi.schemadtoapi.ITableDto createQslTableDtoFrom(
     final ITableDto table) {
-    return new TableDto(TableType.ENTITY_TABLE.getNamePrefix() + table.getName(), createQslColumnDtosFrom(table));
+    return new TableDto(TableType.ENTITY_TABLE.getQualifyingPrefix() + table.getName(), createQslColumnDtosFrom(table));
   }
 
   //method

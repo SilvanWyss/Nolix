@@ -12,7 +12,7 @@ public enum MetaDataTableType implements IQualifiedNameHolder {
   DATABASE_PROPERTY("DatabaseProperty");
 
   //constant
-  private static final String QUALIFYING_PREFIX = TableType.META_DATA_TABLE.getNamePrefix();
+  private static final String QUALIFYING_PREFIX = TableType.META_DATA_TABLE.getQualifyingPrefix();
 
   //attribute
   private final String name;

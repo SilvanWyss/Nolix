@@ -17,7 +17,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
   @Override
   public String createQueryToCountEntitiesWithGivenId(final String tableName, final String id) {
     return "SELECT COUNT(Id) FROM "
-    + TableType.ENTITY_TABLE.getNamePrefix()
+    + TableType.ENTITY_TABLE.getQualifyingPrefix()
     + tableName
     + " WHERE Id = '"
     + id
@@ -33,7 +33,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT COUNT("
     + columnName
     + ") FROM "
-    + TableType.ENTITY_TABLE.getNamePrefix()
+    + TableType.ENTITY_TABLE.getQualifyingPrefix()
     + tableName
     + " WHERE "
     + columnName
@@ -48,7 +48,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT Id, SaveStamp, "
     + tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
     + " FROM "
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableInfo.getTableName()
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
     + ";";
   }
 
@@ -58,7 +58,7 @@ public final class EntityQueryCreator implements IEntityQueryCreator {
     return "SELECT Id, SaveStamp, "
     + tableInfo.getColumnInfos().to(IColumnInfo::getColumnName).toStringWithSeparator(", ")
     + " FROM "
-    + TableType.ENTITY_TABLE.getNamePrefix() + tableInfo.getTableName()
+    + TableType.ENTITY_TABLE.getQualifyingPrefix() + tableInfo.getTableName()
     + " WHERE Id = '"
     + id
     + "';";

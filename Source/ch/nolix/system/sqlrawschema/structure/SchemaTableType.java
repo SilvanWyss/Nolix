@@ -13,7 +13,7 @@ public enum SchemaTableType implements IQualifiedNameHolder {
   COLUMN(PascalCaseCatalogue.COLUMN);
 
   //constant
-  private static final String QUALIFYING_PREFIX = TableType.SCHEMA_TABLE.getNamePrefix();
+  private static final String QUALIFYING_PREFIX = TableType.SCHEMA_TABLE.getQualifyingPrefix();
 
   //attribute
   private final String name;
