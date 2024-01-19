@@ -10,6 +10,7 @@ import ch.nolix.systemapi.timeapi.momentapi.ITime;
 //class
 public final class DatabaseInitializerSqlStatementCreator {
 
+  //method
   public String createSqlStatementToCreateSchemaTimestampEntry(final ITime timestamp) {
     return //
     "INSERT INTO "

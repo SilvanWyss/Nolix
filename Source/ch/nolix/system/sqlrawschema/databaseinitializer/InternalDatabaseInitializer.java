@@ -36,6 +36,7 @@ final class InternalDatabaseInitializer {
     createSchemaTimestampEntry(databaseName, sqlConnectionPool);
   }
 
+  //method
   private void createSchemaTimestampEntry(final String databaseName, SqlConnectionPool sqlConnectionPool) {
 
     final var now = Time.ofNow();
