@@ -6,7 +6,8 @@ import ch.nolix.coreapi.programstructureapi.markerapi.AllowDefaultMethodsAsDesig
 
 //interface
 /**
- * A {@link IQualifiedNameHolder} has a qualified name.
+ * A {@link IQualifiedNameHolder} has a qualified name. The qualified name of a
+ * {@link IQualifiedNameHolder} is its name headed by its qualifying prefix.
  * 
  * @author Silvan Wyss
  * @date 2024-01-19
@@ -16,9 +17,7 @@ public interface IQualifiedNameHolder extends INameHolder {
 
   //method
   /**
-   * @return the qualified name of the current {@link IQualifiedNameHolder}. The
-   *         qualified name of a {@link IQualifiedNameHolder} is its name headed
-   *         by its qualifying prefix.
+   * @return the qualified name of the current {@link IQualifiedNameHolder}.
    */
   default String getQualifiedName() {
     return (getQualifyingPrefix() + getName());
