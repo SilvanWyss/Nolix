@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool;
+package ch.nolix.system.graphic.image;
 
 //Java imports
 import java.awt.image.BufferedImage;
@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 
+//Javax imports
 import javax.imageio.ImageIO;
 
 //own imports

@@ -13,7 +13,7 @@ import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 
-import ch.nolix.core.commontypetool.GlobalBufferedImageHelper;
+//own imports
 import ch.nolix.core.container.matrix.Matrix;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.document.node.Node;
