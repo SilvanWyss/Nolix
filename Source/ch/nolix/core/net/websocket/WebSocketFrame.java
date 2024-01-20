@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayTool;
 import ch.nolix.core.errorcontrol.exception.WrapperException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.InvalidArgumentException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnsupportedCaseException;
@@ -267,10 +267,10 @@ public final class WebSocketFrame {
     }
 
     if (firstNibble.getMaskBit()) {
-      i = GlobalArrayHelper.onArray(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
+      i = GlobalArrayTool.onArray(bytes).fromIndex(i).write(maskingKey).andGetNextIndex();
     }
 
-    GlobalArrayHelper.onArray(bytes).fromIndex(i).write(payload);
+    GlobalArrayTool.onArray(bytes).fromIndex(i).write(payload);
 
     return bytes;
   }

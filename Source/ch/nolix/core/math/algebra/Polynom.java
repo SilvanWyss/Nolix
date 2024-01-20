@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.math.algebra;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayTool;
 import ch.nolix.core.commontypetool.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -70,7 +70,7 @@ public final class Polynom {
 
   //static method
   public static Polynom withCoefficient(final double coefficient, final double... coefficients) {
-    return new Polynom(GlobalArrayHelper.createArrayWithValue(coefficient, coefficients));
+    return new Polynom(GlobalArrayTool.createArrayWithValue(coefficient, coefficients));
   }
 
   //static method

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coretest.containertest.readcontainertest;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayTool;
 import ch.nolix.core.container.readcontainer.ArrayReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
@@ -27,7 +27,7 @@ public final class ArrayReadContainerTest extends ContainerTest {
   protected <E> IContainer<E> createContainerWithElements(
     final E element,
     final @SuppressWarnings("unchecked") E... elements) {
-    return ArrayReadContainer.forArray(GlobalArrayHelper.createArrayWithElement(element, elements));
+    return ArrayReadContainer.forArray(GlobalArrayTool.createArrayWithElement(element, elements));
   }
 
   //method

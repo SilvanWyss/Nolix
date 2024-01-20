@@ -9,10 +9,10 @@ import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.programatomapi.variablenameapi.LowerCaseCatalogue;
 
 //class
-public final class GlobalArrayHelper {
+public final class GlobalArrayTool {
 
   //constructor
-  private GlobalArrayHelper() {
+  private GlobalArrayTool() {
   }
 
   //static method

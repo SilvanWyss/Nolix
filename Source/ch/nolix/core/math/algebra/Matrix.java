@@ -5,7 +5,7 @@ package ch.nolix.core.math.algebra;
 import java.util.Arrays;
 import java.util.Random;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayHelper;
+import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayTool;
 import ch.nolix.core.commontypetool.commontypehelper.GlobalDoubleHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
@@ -271,7 +271,7 @@ public final class Matrix {
 
     var oldValues = values;
     values = Arrays.copyOf(values, oldValues.length + 1);
-    values[getRowCount() - 1] = GlobalArrayHelper.createArrayWithValue(rowValue, rowValues);
+    values[getRowCount() - 1] = GlobalArrayTool.createArrayWithValue(rowValue, rowValues);
 
     return this;
   }
