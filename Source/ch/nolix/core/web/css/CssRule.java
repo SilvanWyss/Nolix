@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.web.css;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.container.readcontainer.ReadContainer;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

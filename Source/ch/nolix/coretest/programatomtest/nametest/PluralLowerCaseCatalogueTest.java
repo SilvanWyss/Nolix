@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coretest.programatomtest.nametest;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.reflection.GlobalClassHelper;
 import ch.nolix.core.testing.test.Test;

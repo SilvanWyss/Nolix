@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest.commontypehelpertest;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.GlobalIterableHelper;
 import ch.nolix.core.independent.container.List;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;

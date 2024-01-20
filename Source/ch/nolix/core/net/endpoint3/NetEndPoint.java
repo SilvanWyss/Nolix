@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.core.net.endpoint3;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.container.readcontainer.ReadContainer;

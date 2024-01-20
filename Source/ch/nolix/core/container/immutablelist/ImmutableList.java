@@ -4,8 +4,8 @@ package ch.nolix.core.container.immutablelist;
 //Java imports
 import java.util.function.Function;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayTool;
-import ch.nolix.core.commontypetool.commontypehelper.GlobalIterableHelper;
+import ch.nolix.core.commontypetool.GlobalArrayTool;
+import ch.nolix.core.commontypetool.GlobalIterableHelper;
 import ch.nolix.core.container.arraycontrol.ArrayIterator;
 import ch.nolix.core.container.base.Container;
 import ch.nolix.core.container.base.Marker;

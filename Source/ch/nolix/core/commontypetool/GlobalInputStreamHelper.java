@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool.commontypehelper;
+package ch.nolix.core.commontypetool;
 
 //Java imports
 import java.io.InputStream;

@@ -4,7 +4,7 @@ package ch.nolix.core.document.node;
 //Java imports
 import java.util.function.Predicate;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.document.xml.MutableXmlNode;
 import ch.nolix.core.environment.filesystem.FileSystemAccessor;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;

@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.system.sqlrawdatabase.schemainfo;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalStringHelper;
+import ch.nolix.core.commontypetool.GlobalStringHelper;
 import ch.nolix.core.container.immutablelist.ImmutableList;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

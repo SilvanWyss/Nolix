@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalInputStreamHelper;
+import ch.nolix.core.commontypetool.GlobalInputStreamHelper;
 import ch.nolix.core.container.linkedlist.LinkedList;
 import ch.nolix.core.document.node.Node;
 import ch.nolix.core.errorcontrol.exception.WrapperException;

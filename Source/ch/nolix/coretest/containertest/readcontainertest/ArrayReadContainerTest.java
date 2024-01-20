@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coretest.containertest.readcontainertest;
 
-import ch.nolix.core.commontypetool.commontypehelper.GlobalArrayTool;
+import ch.nolix.core.commontypetool.GlobalArrayTool;
 import ch.nolix.core.container.readcontainer.ArrayReadContainer;
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsNullException;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;

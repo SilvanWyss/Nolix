@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool.commontypehelper;
+package ch.nolix.core.commontypetool;
 
 import ch.nolix.coreapi.commontypetoolapi.characterproperty.CharacterType;
 import ch.nolix.coreapi.commontypetoolapi.stringtoolapi.StringCatalogue;

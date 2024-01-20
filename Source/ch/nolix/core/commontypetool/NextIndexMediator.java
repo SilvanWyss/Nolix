@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool.commontypehelper;
+package ch.nolix.core.commontypetool;
 
 //class
 public final class NextIndexMediator {
