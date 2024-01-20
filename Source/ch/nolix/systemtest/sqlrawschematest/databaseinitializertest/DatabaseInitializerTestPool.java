@@ -9,6 +9,6 @@ public final class DatabaseInitializerTestPool extends TestPool {
 
   //constructor
   public DatabaseInitializerTestPool() {
-    super();
+    super(DatabaseInitializerSqlStatementCreatorTest.class);
   }
 }
