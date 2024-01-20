@@ -6,10 +6,7 @@ import ch.nolix.coreapi.containerapi.baseapi.IContainer;
 import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
 
 //interface
-public interface IMultiReference<
-
-E extends IEntity>
-extends Clearable, IBaseReference<E> {
+public interface IMultiReference<E extends IEntity> extends Clearable, IBaseReference<E> {
 
   //method declaration
   void addEntity(Object entity);

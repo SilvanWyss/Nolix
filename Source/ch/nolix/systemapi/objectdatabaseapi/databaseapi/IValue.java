@@ -2,10 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
-public interface IValue<
-
-V>
-extends IBaseValue<V> {
+public interface IValue<V> extends IBaseValue<V> {
 
   //method declaration
   V getStoredValue();

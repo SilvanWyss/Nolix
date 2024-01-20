@@ -2,10 +2,7 @@
 package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //interface
-public interface IBaseReference<
-
-E extends IEntity>
-extends IProperty {
+public interface IBaseReference<E extends IEntity> extends IProperty {
 
   //method declaration
   ITable<E> getReferencedTable();
