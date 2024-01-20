@@ -53,6 +53,6 @@ public final class GlobalArrayTool {
 
   //static method
   public static ByteArrayMediator onArray(final byte[] byteArray) {
-    return new ByteArrayMediator(byteArray);
+    return ByteArrayMediator.forByteArray(byteArray);
   }
 }

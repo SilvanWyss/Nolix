@@ -11,11 +11,16 @@ public final class ByteArrayMediator {
   private final byte[] byteArray;
 
   //constructor
-  ByteArrayMediator(final byte[] byteArray) {
+  private ByteArrayMediator(final byte[] byteArray) {
 
     GlobalValidator.assertThat(byteArray).thatIsNamed("byte array").isNotNull();
 
     this.byteArray = byteArray; //NOSONAR: A ByteArrayMediator operates on the original instance.
+  }
+
+  //static method
+  public static ByteArrayMediator forByteArray(final byte[] byteArray) {
+    return new ByteArrayMediator(byteArray);
   }
 
   //method
