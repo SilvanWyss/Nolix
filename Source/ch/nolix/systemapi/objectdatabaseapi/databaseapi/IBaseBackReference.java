@@ -8,8 +8,8 @@ public interface IBaseBackReference<E extends IEntity> extends IProperty {
   String getBackReferencedPropertyName();
 
   //method declaration
-  ITable<E> getBackReferencedTable();
+  String getBackReferencedTableName();
 
   //method declaration
-  String getBackReferencedTableName();
+  ITable<E> getStoredBackReferencedTable();
 }

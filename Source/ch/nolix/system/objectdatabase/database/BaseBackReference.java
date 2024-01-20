@@ -51,7 +51,7 @@ implements IBaseBackReference<E> {
 
   //method
   @Override
-  public final ITable<E> getBackReferencedTable() {
+  public final ITable<E> getStoredBackReferencedTable() {
 
     extractBackReferencedTableIfNotExtracted();
 

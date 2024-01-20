@@ -64,7 +64,7 @@ implements IBackReference<E> {
   //method
   @Override
   public E getBackReferencedEntity() {
-    return getBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
+    return getStoredBackReferencedTable().getStoredEntityById(getBackReferencedEntityId());
   }
 
   //method
