@@ -1,8 +1,8 @@
 //package decalration
 package ch.nolix.core.errorcontrol.validator;
 
-import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
 import ch.nolix.core.errorcontrol.invalidargumentexception.UnequalArgumentException;
+import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 
 //class
 public class ByteMediator extends Mediator {

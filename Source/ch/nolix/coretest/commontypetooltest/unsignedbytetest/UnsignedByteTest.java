@@ -1,7 +1,7 @@
 //package declaration
 package ch.nolix.coretest.commontypetooltest.unsignedbytetest;
 
-import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
+import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 

@@ -1,8 +1,8 @@
 //package declaration
 package ch.nolix.core.net.websocket;
 
-import ch.nolix.core.commontypetool.unsignedbyte.UnsignedByte;
 import ch.nolix.core.errorcontrol.validator.GlobalValidator;
+import ch.nolix.core.programatom.unsignedbyte.UnsignedByte;
 
 //class
 final class WebSocketFrameFirstNibble {

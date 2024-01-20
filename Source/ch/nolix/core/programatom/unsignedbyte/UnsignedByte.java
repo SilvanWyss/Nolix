@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.core.commontypetool.unsignedbyte;
+package ch.nolix.core.programatom.unsignedbyte;
 
 //own imports
 import ch.nolix.core.errorcontrol.invalidargumentexception.ArgumentIsOutOfRangeException;
