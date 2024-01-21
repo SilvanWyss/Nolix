@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.methodapi.loggingapi;
+package ch.nolix.coreapi.functionapi.loggingapi;
 
 //interface
 public interface ILinePrinter {

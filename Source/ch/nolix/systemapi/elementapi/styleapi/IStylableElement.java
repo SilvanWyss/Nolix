@@ -5,7 +5,7 @@ package ch.nolix.systemapi.elementapi.styleapi;
 import ch.nolix.coreapi.attributeapi.fluentmutablemultiattributeapi.IFluentMutableMultiTokenHolder;
 import ch.nolix.coreapi.attributeapi.fluentmutableoptionalattributeapi.IFluentMutableOptionalIdHolder;
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.methodapi.requestapi.TypeRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.TypeRequestable;
 import ch.nolix.systemapi.elementapi.baseapi.IStructureElement;
 import ch.nolix.systemapi.elementapi.mutableelementapi.IMutableElement;
 

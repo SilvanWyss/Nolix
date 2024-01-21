@@ -5,9 +5,8 @@ package ch.nolix.coreapi.containerapi.baseapi;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-//own imports
-import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
-import ch.nolix.coreapi.methodapi.requestapi.MaterializationRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.MaterializationRequestable;
 
 //interface
 /**

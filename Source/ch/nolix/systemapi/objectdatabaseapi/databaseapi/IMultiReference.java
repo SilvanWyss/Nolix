@@ -3,7 +3,7 @@ package ch.nolix.systemapi.objectdatabaseapi.databaseapi;
 
 //own imports
 import ch.nolix.coreapi.containerapi.baseapi.IContainer;
-import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 
 //interface
 public interface IMultiReference<E extends IEntity> extends Clearable, IBaseReference<E> {

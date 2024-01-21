@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.webguiapi.basecontainerapi;
 
-//own imports
-import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.systemapi.webguiapi.controlstyleapi.IControlStyle;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;
 

@@ -1,5 +1,5 @@
 //package declaration
-package ch.nolix.coreapi.methodapi.mutationapi;
+package ch.nolix.coreapi.functionapi.mutationapi;
 
 //interface
 /**

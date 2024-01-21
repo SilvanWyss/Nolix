@@ -4,8 +4,7 @@ package ch.nolix.coreapi.containerapi.sequencesearchapi;
 //Java imports
 import java.util.function.Predicate;
 
-//own imports
-import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 import ch.nolix.coreapi.programstructureapi.builderapi.IBuilder;
 
 //interface

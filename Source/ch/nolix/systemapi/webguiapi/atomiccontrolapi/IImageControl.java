@@ -4,8 +4,7 @@ package ch.nolix.systemapi.webguiapi.atomiccontrolapi;
 //Java imports
 import java.util.function.Consumer;
 
-//own imports
-import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.systemapi.graphicapi.imageapi.IImage;
 import ch.nolix.systemapi.graphicapi.imageapi.IMutableImage;
 import ch.nolix.systemapi.webguiapi.mainapi.IControl;

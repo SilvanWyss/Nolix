@@ -1,8 +1,7 @@
 //package declaration
 package ch.nolix.systemapi.applicationapi.mainapi;
 
-//own imports
-import ch.nolix.coreapi.methodapi.mutationapi.Clearable;
+import ch.nolix.coreapi.functionapi.mutationapi.Clearable;
 import ch.nolix.coreapi.netapi.securityproperty.SecurityMode;
 import ch.nolix.coreapi.programcontrolapi.resourcecontrolapi.GroupCloseable;
 import ch.nolix.coreapi.programcontrolapi.targetapi.IServerTarget;

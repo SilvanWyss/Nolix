@@ -4,7 +4,7 @@ package ch.nolix.techapi.relationaldocapi.datamodelapi;
 //own imports
 import ch.nolix.coreapi.datamodelapi.entityrequestapi.AbstractnessRequestable;
 import ch.nolix.coreapi.datamodelapi.fieldrequestapi.ContentTypeRequestable;
-import ch.nolix.coreapi.methodapi.requestapi.EmptinessRequestable;
+import ch.nolix.coreapi.functionapi.requestapi.EmptinessRequestable;
 
 //interface
 public interface IContent extends AbstractnessRequestable, ContentTypeRequestable, EmptinessRequestable {
