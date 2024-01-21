@@ -146,7 +146,8 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
    */
   private void assertHasReceiver() {
     if (!hasReceiver()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RECEIVER);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RECEIVER);
     }
   }
 }

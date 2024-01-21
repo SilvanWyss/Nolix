@@ -48,7 +48,8 @@ public final class EntityValidator implements IEntityValidator {
   @Override
   public void assertHasSaveStamp(final IEntity entity) {
     if (!entity.hasSaveStamp()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseVariableCatalogue.SAVE_STAMP);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(entity, LowerCaseVariableCatalogue.SAVE_STAMP);
     }
   }
 

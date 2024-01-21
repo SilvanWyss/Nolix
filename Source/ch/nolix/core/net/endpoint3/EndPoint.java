@@ -103,7 +103,8 @@ public abstract class EndPoint extends BaseEndPoint implements IEndPoint {
       .waitUntil(this::hasReceivingDataProviderController);
 
     if (!hasReceivingDataProviderController()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RECEIVER);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.RECEIVER);
     }
 
     return receiverController;

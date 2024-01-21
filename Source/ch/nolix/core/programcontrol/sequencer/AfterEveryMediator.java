@@ -123,7 +123,8 @@ public final class AfterEveryMediator {
    */
   private void assertHasCondition() {
     if (!hasCondition()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.CONDITION);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.CONDITION);
     }
   }
 

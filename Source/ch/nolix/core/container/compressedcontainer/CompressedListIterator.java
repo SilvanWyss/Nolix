@@ -77,7 +77,8 @@ final class CompressedListIterator<E> implements CopyableIterator<E> {
   //method
   private void assertHasNext() throws NoSuchElementException {
     if (!hasNext()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT)
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT)
         .toNoSuchElementException();
     }
   }

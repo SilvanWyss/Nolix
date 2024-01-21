@@ -132,7 +132,8 @@ public final class ColorGradient extends Element implements IColorGradient {
       case 3 ->
         from3Attributes(attributes);
       default ->
-        throw InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
+        throw //
+        InvalidArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.SPECIFICATION, specification);
     };
   }
 

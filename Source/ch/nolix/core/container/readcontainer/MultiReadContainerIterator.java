@@ -52,7 +52,8 @@ final class MultiReadContainerIterator<E> implements CopyableIterator<E> {
   public E next() {
 
     if (!hasNext()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT);
     }
 
     final var element = currentIterator.next();

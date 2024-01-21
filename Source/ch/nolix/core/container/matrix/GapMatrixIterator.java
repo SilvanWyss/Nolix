@@ -84,7 +84,8 @@ final class GapMatrixIterator<E> implements CopyableIterator<E> {
   //method
   private void assertHasNextElement() throws NoSuchElementException {
     if (!hasNext()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT)
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT)
         .toNoSuchElementException();
     }
   }

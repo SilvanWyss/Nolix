@@ -30,7 +30,8 @@ final class CompressedListNode<E> {
     }
 
     if (elementCount < 1) {
-      throw NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.ELEMENT_COUNT, elementCount);
+      throw //
+      NonPositiveArgumentException.forArgumentNameAndArgument(LowerCaseVariableCatalogue.ELEMENT_COUNT, elementCount);
     }
 
     this.element = element;

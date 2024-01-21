@@ -16,7 +16,8 @@ public final class PluralPascalCaseCatalogueTest extends Test {
   public void testCase_constants() {
 
     //setup
-    final var exceptions = LinkedList.withElement(PluralPascalCaseVariableCatalogue.GUIS, PluralPascalCaseVariableCatalogue.URLS);
+    final var exceptions = //
+    LinkedList.withElement(PluralPascalCaseVariableCatalogue.GUIS, PluralPascalCaseVariableCatalogue.URLS);
 
     //verification
     for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(PluralPascalCaseVariableCatalogue.class)) {

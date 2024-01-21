@@ -50,7 +50,11 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
     GlobalValidator.assertThat(parentContainer).thatIsNamed("parent container").isNotNull();
     GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalogue.START_INDEX).isPositive();
     GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
+
+    GlobalValidator
+      .assertThat(endIndex)
+      .thatIsNamed(LowerCaseVariableCatalogue.END_INDEX)
+      .isBiggerThanOrEquals(startIndex);
 
     this.parentContainer = parentContainer;
 
@@ -94,7 +98,8 @@ final class ContainerViewIterator<E> implements CopyableIterator<E> {
 
     //Asserts that the current @link SubContainerIterator has a next element.
     if (!hasNext()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.NEXT_ELEMENT);
     }
 
     currentIndex++;

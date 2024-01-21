@@ -16,7 +16,8 @@ public final class PluralLowerCaseCatalogueTest extends Test {
   public void testCase_constants() {
 
     //setup
-    final var exceptions = LinkedList.withElement(PluralLowerCaseVariableCatalogue.GUIS, PluralLowerCaseVariableCatalogue.URLS);
+    final var exceptions = //
+    LinkedList.withElement(PluralLowerCaseVariableCatalogue.GUIS, PluralLowerCaseVariableCatalogue.URLS);
 
     //verification
     for (final var c : GlobalClassHelper.getPublicStaticFieldValuesOfClass(PluralLowerCaseVariableCatalogue.class)) {

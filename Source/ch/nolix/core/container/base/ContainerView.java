@@ -62,7 +62,11 @@ final class ContainerView<E> extends Container<E> {
     GlobalValidator.assertThat(container).thatIsNamed(LowerCaseVariableCatalogue.CONTAINER).isNotNull();
     GlobalValidator.assertThat(startIndex).thatIsNamed(LowerCaseVariableCatalogue.START_INDEX).isPositive();
     GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isPositive();
-    GlobalValidator.assertThat(endIndex).thatIsNamed(LowerCaseVariableCatalogue.END_INDEX).isBiggerThanOrEquals(startIndex);
+
+    GlobalValidator
+      .assertThat(endIndex)
+      .thatIsNamed(LowerCaseVariableCatalogue.END_INDEX)
+      .isBiggerThanOrEquals(startIndex);
 
     GlobalValidator
       .assertThat(endIndex)
@@ -91,7 +95,11 @@ final class ContainerView<E> extends Container<E> {
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
     GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isNotBiggerThan(getElementCount());
+
+    GlobalValidator
+      .assertThat(p1BasedIndex)
+      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
+      .isNotBiggerThan(getElementCount());
 
     return container.getStoredAt1BasedIndex(startIndex + p1BasedIndex - 1);
   }

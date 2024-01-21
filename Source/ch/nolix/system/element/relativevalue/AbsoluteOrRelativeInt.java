@@ -210,7 +210,8 @@ public final class AbsoluteOrRelativeInt extends Element implements IAbsoluteOrR
    */
   private void assertIsRelative() {
     if (!isRelative()) {
-      throw ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.PERCENTAGE);
+      throw //
+      ArgumentDoesNotHaveAttributeException.forArgumentAndAttributeName(this, LowerCaseVariableCatalogue.PERCENTAGE);
     }
   }
 }

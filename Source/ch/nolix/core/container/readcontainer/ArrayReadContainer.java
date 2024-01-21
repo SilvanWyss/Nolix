@@ -86,7 +86,11 @@ public final class ArrayReadContainer<E> extends Container<E> {
   public E getStoredAt1BasedIndex(final int p1BasedIndex) {
 
     GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isPositive();
-    GlobalValidator.assertThat(p1BasedIndex).thatIsNamed(LowerCaseVariableCatalogue.INDEX).isNotBiggerThan(getElementCount());
+
+    GlobalValidator
+      .assertThat(p1BasedIndex)
+      .thatIsNamed(LowerCaseVariableCatalogue.INDEX)
+      .isNotBiggerThan(getElementCount());
 
     return array[p1BasedIndex - 1];
   }

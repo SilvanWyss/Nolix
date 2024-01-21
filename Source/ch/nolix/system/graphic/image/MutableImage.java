@@ -227,8 +227,16 @@ public final class MutableImage extends MutableElement implements IMutableImage<
 
     GlobalValidator.assertThat(xPosition).thatIsNamed("x-position").isPositive();
     GlobalValidator.assertThat(xPosition).thatIsNamed("y-position").isPositive();
-    GlobalValidator.assertThat(width).thatIsNamed(LowerCaseVariableCatalogue.WIDTH).isBetween(0, getWidth() - xPosition + 1);
-    GlobalValidator.assertThat(height).thatIsNamed(LowerCaseVariableCatalogue.WIDTH).isBetween(0, getHeight() - yPosition + 1);
+
+    GlobalValidator
+      .assertThat(width)
+      .thatIsNamed(LowerCaseVariableCatalogue.WIDTH)
+      .isBetween(0, getWidth() - xPosition + 1);
+
+    GlobalValidator
+      .assertThat(height)
+      .thatIsNamed(LowerCaseVariableCatalogue.WIDTH)
+      .isBetween(0, getHeight() - yPosition + 1);
 
     final var section = MutableImage.withWidthAndHeightAndWhiteColor(width, height);
     for (var i = 1; i <= width; i++) {
