@@ -7,10 +7,10 @@ import java.math.BigDecimal;
 import ch.nolix.core.testing.test.Test;
 import ch.nolix.coreapi.testingapi.testapi.TestCase;
 import ch.nolix.tech.math.fractal.FractalBuilder;
-import ch.nolix.tech.math.fractal.FractalHelper;
+import ch.nolix.tech.math.fractal.FractalTool;
 
 //class
-public final class FractalHelperTest extends Test {
+public final class FractalToolTest extends Test {
 
   //method
   @TestCase
@@ -19,7 +19,7 @@ public final class FractalHelperTest extends Test {
     //setup
     final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getMaxX(fractal);
@@ -36,7 +36,7 @@ public final class FractalHelperTest extends Test {
     //setup
     final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getMaxY(fractal);
@@ -53,7 +53,7 @@ public final class FractalHelperTest extends Test {
     //setup
     final var fractalBuilder = new FractalBuilder().setRealComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getMinX(fractal);
@@ -70,7 +70,7 @@ public final class FractalHelperTest extends Test {
     //setup
     final var fractalBuilder = new FractalBuilder().setImaginaryComponentInterval(-1.5, 2.5).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getMinY(fractal);
@@ -88,7 +88,7 @@ public final class FractalHelperTest extends Test {
     final var fractalBuilder = //
     new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(500).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getPixelCountPerHorizontalUnit(fractal);
@@ -106,7 +106,7 @@ public final class FractalHelperTest extends Test {
     final var fractalBuilder = //
     new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(500).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getPixelCountPerVerticalUnit(fractal);
@@ -123,7 +123,7 @@ public final class FractalHelperTest extends Test {
     //setup
     final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(1.0).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getSquaredMinMagnitudeForDivergence(fractal);
@@ -140,7 +140,7 @@ public final class FractalHelperTest extends Test {
     //setup
     final var fractalBuilder = new FractalBuilder().setMinMagnitudeForDivergence(2.0).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getSquaredMinMagnitudeForDivergence(fractal);
@@ -158,7 +158,7 @@ public final class FractalHelperTest extends Test {
     final var fractalBuilder = //
     new FractalBuilder().setRealComponentInterval(0.0, 2.0).setWidthInPixel(400).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getUnitsPerHorizontalPixel(fractal);
@@ -176,7 +176,7 @@ public final class FractalHelperTest extends Test {
     final var fractalBuilder = //
     new FractalBuilder().setImaginaryComponentInterval(0.0, 2.0).setHeightInPixel(400).setDecimalPlaces(12);
     final var fractal = fractalBuilder.build();
-    final var testUnit = new FractalHelper();
+    final var testUnit = new FractalTool();
 
     //execution
     final var result = testUnit.getUnitsPerVerticalPixel(fractal);

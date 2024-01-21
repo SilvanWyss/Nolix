@@ -22,7 +22,7 @@ import ch.nolix.systemapi.graphicapi.colorapi.IColor;
 import ch.nolix.tech.math.bigdecimalmath.ComplexNumber;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.fractalapi.IFractal;
-import ch.nolix.techapi.mathapi.fractalapi.IFractalHelper;
+import ch.nolix.techapi.mathapi.fractalapi.IFractalTool;
 import ch.nolix.techapi.mathapi.fractalapi.IImageGenerator;
 
 //class
@@ -32,7 +32,7 @@ public final class ImageGenerator extends BaseFuture implements IImageGenerator 
   private static final int IMAGE_ROWS_PER_THREAD = 10;
 
   //constant
-  private static final IFractalHelper FRACTAL_HELPER = new FractalHelper();
+  private static final IFractalTool FRACTAL_HELPER = new FractalTool();
 
   //attribute
   private final IFractal fractal;

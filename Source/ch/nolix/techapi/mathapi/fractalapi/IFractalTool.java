@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 
 //interface
-public interface IFractalHelper {
+public interface IFractalTool {
 
   //method declaration
   BigDecimal getHeightInPixelAsBigDecimal(IFractal fractal);

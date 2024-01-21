@@ -8,10 +8,10 @@ import java.math.RoundingMode;
 //own imports
 import ch.nolix.techapi.mathapi.bigdecimalmathapi.IComplexNumber;
 import ch.nolix.techapi.mathapi.fractalapi.IFractal;
-import ch.nolix.techapi.mathapi.fractalapi.IFractalHelper;
+import ch.nolix.techapi.mathapi.fractalapi.IFractalTool;
 
 //class
-public final class FractalHelper implements IFractalHelper {
+public final class FractalTool implements IFractalTool {
 
   //method
   @Override
